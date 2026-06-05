@@ -3877,5 +3877,29 @@ if ('serviceWorker' in navigator) {
 }
 
 </script>
+  <!-- Supabase -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script>
+  /* ── Supabase: contador real de visitas ── */
+  (function(){
+    var SUPA_URL = 'https://goxhxrdchfyphkenixng.supabase.co';
+    var SUPA_KEY = 'sb_publishable_rR_f3qmPj_L-tuwrGUYxnA__MWGwobe';
+    var _supa = null;
+    function supa(){ if(!_supa && window.supabase) _supa=window.supabase.createClient(SUPA_URL,SUPA_KEY); return _supa; }
+    async function registrarVisita(){
+      var s=supa(); if(!s) return;
+      try{
+        await s.rpc('incrementar_visita');
+        var r=await s.from('stats').select('visitas').eq('id',1).single();
+        if(r.data){
+          document.querySelectorAll('[data-stat="visitas"]').forEach(function(el){
+            el.textContent=Number(r.data.visitas).toLocaleString('es-CO');
+          });
+        }
+      }catch(e){ console.warn('Supabase stats:',e); }
+    }
+    window.addEventListener('load', function(){ setTimeout(registrarVisita, 1000); });
+  })();
+  </script>
 </body>
 </html>
