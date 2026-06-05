@@ -1,0 +1,18 @@
+{
+  "name": "MathUNAL · Parciales y Simulacros",
+  "short_name": "MathUNAL",
+  "description": "Parciales resueltos, simulacros interactivos y formularios de matemáticas para ingeniería — UNAL Medellín.",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#090c18",
+  "theme_color": "#f97316",
+  "lang": "es-CO",
+  "categories": ["education"],
+  "icons": [
+    { "src": "icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "icon-maskable.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}
