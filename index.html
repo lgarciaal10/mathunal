@@ -4572,6 +4572,8 @@ customElements.define('glass-element', GlassElement);
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:image" content="https://mathunal.github.io/og-image.png">
+  <!-- Wompi Widget (sandbox) -->
+  <script src="https://checkout.wompi.co/widget.js" data-render="false"></script>
 </head>
 
 <body>
@@ -7657,23 +7659,131 @@ addPromRow('Álgebra Lineal', 3, '');
 addPromRow('Física I', 4, '');
 addPromRow('Química General', 3, '');
 
-/* ════ Gate Premium (MVP client-side, funciona sin backend) ════ */
-var MU_CODIGOS = ['UNAL2026','SALVASEMESTRE'];   // códigos que tú repartes
-function muEsPremium(){ try{ return localStorage.getItem('mu-premium')==='1'; }catch(e){ return false; } }
+/* ════ Gate Premium — verificación real contra Supabase ════ */
+var MU_SUPA_URL = 'https://goxhxrdchfyphkenixng.supabase.co';
+var MU_WOMPI_PUB = 'pub_test_2uxM9SZOccmoczYgw2zC3B7wOVYAGb6M'; // sandbox; cambiar a prod_* al activar producción
+
+function muEsPremium(){
+  try{ return localStorage.getItem('mu-premium')==='1'; }catch(e){ return false; }
+}
 function muAplicarPremium(){
   if (muEsPremium()) document.documentElement.classList.add('is-premium');
   else document.documentElement.classList.remove('is-premium');
 }
-window.muPedirCodigo = function(){
-  var c = (prompt('Ingresa tu código de acceso Premium:')||'').trim().toUpperCase();
-  if (MU_CODIGOS.indexOf(c) >= 0){
-    localStorage.setItem('mu-premium','1'); muAplicarPremium();
-    alert('¡Premium desbloqueado! Ya puedes ver el material bloqueado.');
-    if (window.muRenderProgreso) window.muRenderProgreso();
-  } else if (c){
-    alert('Código inválido. Escríbenos por WhatsApp si crees que es un error.');
-  }
+
+/* Verifica contra Supabase si el email ya pagó y activa premium si es así */
+window.muVerificarEmail = function(email, onResult){
+  fetch(MU_SUPA_URL + '/functions/v1/check-premium', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ email: email })
+  })
+  .then(function(r){ return r.json(); })
+  .then(function(data){
+    if (data.premium){
+      try { localStorage.setItem('mu-premium','1'); localStorage.setItem('mu-email', email); } catch(e){}
+      muAplicarPremium();
+      if (window.muRenderProgreso) window.muRenderProgreso();
+    }
+    if (onResult) onResult(data.premium);
+  })
+  .catch(function(){ if (onResult) onResult(false); });
 };
+
+/* Abre widget de pago Wompi con el email del usuario */
+window.muAbrirPago = function(email){
+  var ref = 'MU-' + Date.now() + '-' + Math.random().toString(36).substr(2,6).toUpperCase();
+  try { localStorage.setItem('mu-ref-pago', ref); localStorage.setItem('mu-email', email); } catch(e){}
+  var checkout = new WidgetCheckout({
+    currency: 'COP',
+    amountInCents: 1200000,  // $12.000 COP
+    reference: ref,
+    publicKey: MU_WOMPI_PUB,
+    customerData: { email: email }
+  });
+  checkout.open(function(result){
+    var tx = result.transaction;
+    if (tx && tx.status === 'APPROVED'){
+      // Pago aprobado — Wompi también notifica al webhook, pero aplicamos local ya
+      try { localStorage.setItem('mu-premium','1'); } catch(e){}
+      muAplicarPremium();
+      if (window.muRenderProgreso) window.muRenderProgreso();
+      muCerrarModalPremium();
+      muMostrarToast('¡Premium desbloqueado! Ya puedes ver todas las soluciones.');
+    } else if (tx && tx.status === 'DECLINED'){
+      muMostrarToast('Pago rechazado. Intenta con otro método de pago.');
+    }
+  });
+};
+
+/* Modal: pide email → verifica si ya pagó → si no, abre Wompi */
+window.muPedirCodigo = function(){
+  muAbrirModalPremium();
+};
+
+function muAbrirModalPremium(){
+  var ya = document.getElementById('mu-modal-premium');
+  if (ya) { ya.style.display='flex'; return; }
+  var m = document.createElement('div');
+  m.id = 'mu-modal-premium';
+  m.style.cssText = 'position:fixed;inset:0;z-index:9999;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,.7);backdrop-filter:blur(4px)';
+  var emailGuardado = '';
+  try { emailGuardado = localStorage.getItem('mu-email') || ''; } catch(e){}
+  m.innerHTML =
+    '<div style="background:var(--card);border:2px solid var(--br2);border-radius:18px;padding:2rem;max-width:380px;width:90%;position:relative">' +
+      '<button onclick="muCerrarModalPremium()" style="position:absolute;top:1rem;right:1rem;background:none;border:none;color:var(--t2);font-size:1.3rem;cursor:pointer;line-height:1">✕</button>' +
+      '<div style="font-size:1.3rem;font-weight:800;color:var(--t1);margin-bottom:.3rem">🔓 Desbloquear soluciones</div>' +
+      '<div style="font-size:.88rem;color:var(--t2);margin-bottom:1.2rem">Acceso completo a todas las soluciones paso a paso · <strong style="color:var(--acc)">$12.000 COP</strong> · pago único</div>' +
+      '<label style="font-size:.83rem;color:var(--t3);display:block;margin-bottom:.4rem">Tu correo electrónico</label>' +
+      '<input id="mu-pm-email" type="email" placeholder="tu@correo.com" value="'+emailGuardado+'" ' +
+        'style="width:100%;box-sizing:border-box;background:var(--bg2);border:1.5px solid var(--br2);border-radius:9px;padding:.65rem .9rem;color:var(--t1);font-size:.95rem;font-family:inherit;margin-bottom:.8rem" />' +
+      '<button id="mu-pm-btn" onclick="muAccionModal()" ' +
+        'style="width:100%;background:var(--acc);color:#fff;border:none;border-radius:10px;padding:.8rem;font-size:1rem;font-weight:800;cursor:pointer;font-family:inherit;transition:filter .15s" ' +
+        'onmouseover="this.style.filter=\'brightness(1.1)\'" onmouseout="this.style.filter=\'none\'">' +
+        'Continuar →' +
+      '</button>' +
+      '<div id="mu-pm-msg" style="font-size:.8rem;color:var(--t2);text-align:center;margin-top:.7rem;min-height:1.1rem"></div>' +
+      '<div style="font-size:.75rem;color:var(--t3);text-align:center;margin-top:.9rem">Pago seguro con Wompi · Nequi · PSE · Tarjeta</div>' +
+    '</div>';
+  document.body.appendChild(m);
+  m.addEventListener('click', function(e){ if(e.target===m) muCerrarModalPremium(); });
+  setTimeout(function(){ var i=document.getElementById('mu-pm-email'); if(i&&!emailGuardado) i.focus(); }, 100);
+}
+
+window.muAccionModal = function(){
+  var emailEl = document.getElementById('mu-pm-email');
+  var btn = document.getElementById('mu-pm-btn');
+  var msg = document.getElementById('mu-pm-msg');
+  if (!emailEl) return;
+  var email = emailEl.value.trim().toLowerCase();
+  if (!email || !email.includes('@') || !email.includes('.')) {
+    msg.style.color='var(--red)'; msg.textContent='Ingresa un correo válido.'; return;
+  }
+  btn.disabled=true; btn.textContent='Verificando…'; msg.style.color='var(--t3)'; msg.textContent='';
+  window.muVerificarEmail(email, function(esPremium){
+    if (esPremium){
+      msg.style.color='var(--grn)'; msg.textContent='✓ Ya tienes acceso premium. ¡Disfrútalo!';
+      setTimeout(muCerrarModalPremium, 1800);
+    } else {
+      btn.disabled=false; btn.textContent='Pagar $12.000 →';
+      msg.textContent='No encontramos un pago activo para este correo.';
+      btn.onclick = function(){ muAbrirPago(email); };
+    }
+  });
+};
+
+window.muCerrarModalPremium = function(){
+  var m = document.getElementById('mu-modal-premium');
+  if (m) m.style.display='none';
+};
+
+function muMostrarToast(txt){
+  var t=document.createElement('div');
+  t.style.cssText='position:fixed;bottom:1.5rem;left:50%;transform:translateX(-50%);background:var(--card);border:1.5px solid var(--br2);border-radius:10px;padding:.7rem 1.2rem;color:var(--t1);font-size:.92rem;font-weight:600;z-index:10000;box-shadow:0 8px 32px rgba(0,0,0,.4);white-space:nowrap';
+  t.textContent=txt;
+  document.body.appendChild(t);
+  setTimeout(function(){ t.remove(); }, 3500);
+}
 /* ════ Panel "Mi Progreso" ════ */
 window.muRenderProgreso = function(){
   var el = document.getElementById('mu-progreso'); if (!el) return;
@@ -9355,7 +9465,7 @@ function _renderNextStep(nota, en){
   _exam.preguntas.forEach(function(q,i){
     if(q.tipo==='mcq' && _answers[i]!==q.correcta){ fails.push({n:i+1, resumen:q.resumen||''}); }
   });
-  var isPremium=false; try{ isPremium=localStorage.getItem('mu-premium')==='1'; }catch(e){}
+  var isPremium=(typeof muEsPremium==='function') ? muEsPremium() : false;
   var html='';
   if(fails.length){
     html+='<div class="nextstep-card">';
@@ -11782,7 +11892,7 @@ window.__onKatexReady = function(){
 // Boot after DOM is ready so deferred KaTeX has loaded before the first render
 function _boot(){
   // Aplica estado Premium temprano (no depende del script de ninguna página)
-  try { if (localStorage.getItem('mu-premium')==='1') document.documentElement.classList.add('is-premium'); } catch(e){}
+  if (typeof muEsPremium==='function' && muEsPremium()) document.documentElement.classList.add('is-premium');
   _loadPage(location.hash || '#home');
 }
 if (document.readyState === 'loading') {
@@ -12726,7 +12836,7 @@ function _renderRutaEstudio(sub, mats, lang){
         sub: en?'not started · '+total+' questions':'sin empezar · '+total+' preguntas', fileHtml: simCta});
     }
 
-    var isPremium=false; try{ isPremium = localStorage.getItem('mu-premium')==='1'; }catch(e){}
+    var isPremium=(typeof muEsPremium==='function') ? muEsPremium() : false;
     var solCta;
     if(isPremium){
       solCta = '<span class="mu-ruta-file" style="border-color:var(--grn);color:var(--grn)">✓ '+(en?'Unlocked':'Desbloqueado')+'</span>';
@@ -13074,7 +13184,7 @@ window.__muMateriaInit = function(){
     }
     function expFileUrl(f){
       if(f.access==='premium'){
-        var isPremiumUnlocked=false; try{ isPremiumUnlocked = localStorage.getItem('mu-premium')==='1'; }catch(e){}
+        var isPremiumUnlocked=(typeof muEsPremium==='function') ? muEsPremium() : false;
         if(isPremiumUnlocked && f.url) return f.url;
         return expWaLink((en?'I want to unlock the full MathUNAL solutions guide (':'Quiero desbloquear el solucionario completo de MathUNAL (')+sub.nameEs+')');
       }
@@ -13082,7 +13192,7 @@ window.__muMateriaInit = function(){
     }
     function expFileCard(f){
       var ico = ICONS[f.type]||TYPE_ICONS[f.type]||ICO_SVG.programa;
-      var isPremiumUnlocked=false; try{ isPremiumUnlocked = localStorage.getItem('mu-premium')==='1'; }catch(e){}
+      var isPremiumUnlocked=(typeof muEsPremium==='function') ? muEsPremium() : false;
       var showAsLocked = f.access==='premium' && !isPremiumUnlocked;
       var url = expFileUrl(f).replace(/'/g,"\\'");
       return '<div class="mu-fc" style="cursor:pointer" onclick="window.open(\''+url+'\',\'_blank\')">'+
