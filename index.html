@@ -457,7 +457,8 @@ h2 span{color:var(--t2);font-weight:400;font-style:italic}
 /* ── HERO ── */
 .hero{
   min-height:70vh;display:flex;flex-direction:column;align-items:center;
-  justify-content:center;text-align:center;padding:5rem 2rem 3rem;
+  justify-content:center;text-align:center;
+  padding:5rem 2rem 3rem;
   position:relative;overflow:hidden;
 }
 .hero::after{
@@ -3049,13 +3050,22 @@ body{font-family:'Space Grotesk',system-ui,sans-serif;background:var(--bg);color
 .mu-share-cp{background:var(--lay2);border:2px solid var(--br);color:var(--t2)}
 .mu-share-wa:hover,.mu-share-cp:hover{filter:brightness(1.1);transform:translateY(-1px)}
 
-/* ── Banner Semana del Parcial ── */
+/* ── Banner Semana del Parcial ──
+   Fijo, pegado justo debajo del <nav> (que tambien es position:fixed) — antes
+   era position:relative y quedaba tapando el nav en vez de empujarlo, bug
+   preexistente que nunca se vio porque MU_PARCIALES siempre estuvo vacio.
+   El "top" real se calcula en JS (ver muInitParcialBanner/_muSyncBannerLayout)
+   porque la altura del nav cambia por breakpoint. El espacio para el contenido
+   se reserva en body{padding-top:var(--mu-banner-h)} en vez de en .hero,
+   porque .hero centra su contenido con flex y el padding-top ahi se diluia
+   con el centrado (probado: dejaba ~6px de overlap real con el banner). */
+body{padding-top:var(--mu-banner-h, 0px);transition:padding-top .2s ease}
 .sp-banner{
   display:flex;align-items:center;justify-content:space-between;
   background:linear-gradient(90deg,rgba(224,93,26,.18) 0%,rgba(245,158,11,.12) 100%);
   border-bottom:1.5px solid rgba(224,93,26,.25);
   padding:.52rem 2rem;gap:1rem;
-  position:relative;z-index:190;
+  position:fixed;left:0;right:0;top:64px;z-index:99;
 }
 .sp-banner-inner{display:flex;align-items:center;gap:.65rem;flex:1;flex-wrap:wrap}
 .sp-dot{width:7px;height:7px;border-radius:50%;background:var(--acc);
@@ -7858,6 +7868,25 @@ window.__loadParciales = function(){
 };
 window.__loadParciales();
 
+/* El <nav> es position:fixed y su altura cambia por breakpoint (movil/desktop);
+   el banner tambien es fixed, pegado justo debajo. Esta funcion sincroniza
+   ambas cosas en vivo: donde empieza el banner (top = altura real del nav)
+   y cuanto espacio extra necesita el hero para no quedar tapado
+   (--mu-banner-h, leida por .hero{padding-top:calc(5rem + var(--mu-banner-h))}). */
+function _muSyncBannerLayout(){
+  var b=document.getElementById('semana-banner'); if(!b) return;
+  var nav=document.querySelector('nav');
+  var navH=nav?nav.getBoundingClientRect().height:0;
+  b.style.top=navH+'px';
+  var visible=getComputedStyle(b).display!=='none';
+  var h=visible?b.getBoundingClientRect().height:0;
+  document.documentElement.style.setProperty('--mu-banner-h', h+'px');
+}
+if(!window.__muBannerResizeBound){
+  window.__muBannerResizeBound=true;
+  window.addEventListener('resize', function(){ if(typeof _muSyncBannerLayout==='function') _muSyncBannerLayout(); });
+}
+
 function muCerrarBanner(){
   var b=document.getElementById('semana-banner'); if(!b) return;
   b.style.display='none';
@@ -7866,6 +7895,7 @@ function muCerrarBanner(){
     if(fecha){ localStorage.setItem('mu-banner-cerrado', fecha); }
     else { var hoy=new Date(); hoy.setHours(0,0,0,0); localStorage.setItem('mu-banner-reportar-cerrado', hoy.toISOString().split('T')[0]); }
   }catch(e){}
+  _muSyncBannerLayout();
 }
 function muInitParcialBanner(){
   var b=document.getElementById('semana-banner'); if(!b) return;
@@ -7882,7 +7912,7 @@ function muInitParcialBanner(){
   if(prox){
     // Estado real: mismo markup y mismo comportamiento de siempre, sin cambios.
     var cerrado=''; try{ cerrado=localStorage.getItem('mu-banner-cerrado')||''; }catch(e){}
-    if(cerrado===proxF){ b.style.display='none'; return; }
+    if(cerrado===proxF){ b.style.display='none'; _muSyncBannerLayout(); return; }
     inner.innerHTML =
       '<span class="sp-dot"></span>'+
       '<span class="sp-label">Semana del Parcial</span>'+
@@ -7903,7 +7933,7 @@ function muInitParcialBanner(){
     // Estado vacio: invita a reportar en vez de ocultar sin mas.
     var cerradoReportar=''; try{ cerradoReportar=localStorage.getItem('mu-banner-reportar-cerrado')||''; }catch(e){}
     var hoyStr = hoy.toISOString().split('T')[0];
-    if(cerradoReportar===hoyStr){ b.style.display='none'; return; }
+    if(cerradoReportar===hoyStr){ b.style.display='none'; _muSyncBannerLayout(); return; }
     b.removeAttribute('data-fecha');
     inner.innerHTML =
       '<span class="sp-dot"></span>'+
@@ -7911,6 +7941,7 @@ function muInitParcialBanner(){
       '<button type="button" onclick="muAbrirReportarParcial()" style="background:none;border:none;color:var(--acc);font-weight:700;text-decoration:underline;cursor:pointer;font-family:inherit;font-size:inherit;padding:0">Cuéntanos la fecha →</button>';
     b.style.display='flex';
   }
+  _muSyncBannerLayout();
 }
 
 /* Modal de reporte — mismo patron de "fetch a Supabase, fallo silencioso"
