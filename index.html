@@ -10343,6 +10343,7 @@ function nextCasillas(){startCasillas(casPuzzleIdx+1);}
 .diag-mat-card.sel{border-color:var(--acc);background:rgba(232,99,42,.08)}
 .diag-mat-sym{font-family:'Literata',serif;font-size:1.3rem;color:var(--acc);margin-bottom:.3rem}
 .diag-mat-name{font-size:.8rem;font-weight:700;color:var(--t1)}
+.diag-mat-limited{font-size:.62rem;color:var(--yel);margin-top:.25rem;font-weight:700}
 .diag-mat-empty{font-size:.78rem;color:var(--t3);grid-column:1/-1;padding:1rem;text-align:center}
 
 .diag-btn{display:inline-flex;align-items:center;gap:.5rem;background:var(--acc);color:#fff;border:none;padding:.8rem 1.6rem;border-radius:11px;font-size:.92rem;font-weight:700;cursor:pointer;font-family:inherit;transition:filter .15s}
@@ -10482,6 +10483,26 @@ function _diagRenderMomentos(){
 }
 function _diagPickMomento(id){ _diagMomentoSel=id; _diagRenderMomentos(); }
 
+/* Fuente unica de verdad: TODAS las preguntas mcq/numerica reales de una materia,
+   calculadas en vivo desde window.EXAMS. _diagPoolSize() y _diagBuildPool() leen
+   de aqui — si el banco cambia (se agrega o quita una pregunta), el aviso de
+   "pool limitado" se actualiza solo, sin tocar codigo. */
+function _diagGradablesDeMateria(code){
+  var qs = [];
+  var EX = window.EXAMS || {};
+  Object.keys(EX).forEach(function(examKey){
+    var ex = EX[examKey];
+    if(ex.codigo !== code) return;
+    (ex.preguntas||[]).forEach(function(q, origIdx){
+      if(q.tipo==='mcq' || q.tipo==='numerica'){
+        qs.push({ q:q, examKey:examKey, examTitulo:ex.titulo, origIdx:origIdx });
+      }
+    });
+  });
+  return qs;
+}
+function _diagPoolSize(code){ return _diagGradablesDeMateria(code).length; }
+
 /* Solo materias que tienen examenes reales en window.EXAMS (todas las 11 actuales,
    pero el filtro queda honesto si algun dia se agrega una materia sin banco todavia). */
 function _diagMateriasConExamenes(){
@@ -10500,9 +10521,12 @@ function _diagRenderMaterias(){
     return;
   }
   host.innerHTML = lista.map(function(s){
+    var n = _diagPoolSize(s.code);
+    var limitado = n < 10;
     return '<div class="diag-mat-card'+(s.code===_diagMatSel?' sel':'')+'" onclick="_diagPickMateria(\''+s.code+'\')">'
       + '<div class="diag-mat-sym">'+(s.sym||'∫')+'</div>'
       + '<div class="diag-mat-name">'+s.nameEs+'</div>'
+      + (limitado ? '<div class="diag-mat-limited">Pool limitado ('+n+' preguntas)</div>' : '')
       + '</div>';
   }).join('');
 }
@@ -10517,17 +10541,7 @@ function _diagPickMateria(code){
    guardando de donde salio cada una (examKey/origIdx) para poder agrupar el
    resultado por EXAMEN real al final — nunca por un "tema" que no existe. */
 function _diagBuildPool(code){
-  var qs = [];
-  var EX = window.EXAMS || {};
-  Object.keys(EX).forEach(function(examKey){
-    var ex = EX[examKey];
-    if(ex.codigo !== code) return;
-    (ex.preguntas||[]).forEach(function(q, origIdx){
-      if(q.tipo==='mcq' || q.tipo==='numerica'){
-        qs.push({ q:q, examKey:examKey, examTitulo:ex.titulo, origIdx:origIdx });
-      }
-    });
-  });
+  var qs = _diagGradablesDeMateria(code).slice(); // copia, para no mutar el original al mezclar
   // Fisher-Yates
   for(var i=qs.length-1;i>0;i--){
     var j=Math.floor(Math.random()*(i+1));
