@@ -7833,21 +7833,43 @@ renderContentMap();
 renderSims('all');
 
 /* ── Banner "Semana del Parcial" — data-driven y honesto ──
-   EDITA ESTE ARRAY con las fechas REALES de los parciales (formato YYYY-MM-DD).
-   Si no hay ningún parcial dentro de los próximos MU_DIAS_AVISO días, el banner
-   NO se muestra. Mejor vacío que mintiendo. */
-var MU_PARCIALES = [
-  // {mat:'Cálculo Diferencial', label:'Parcial 2', fecha:'2026-03-18'},
-  // {mat:'Álgebra Lineal',       label:'Parcial 1', fecha:'2026-03-25'},
-];
+   MU_PARCIALES ya NO se edita a mano: se llena en vivo desde Supabase
+   (tabla parciales_reportados) via window.__loadParciales(), mismo patron
+   que window.__loadMateriales. Si la tabla no tiene fechas dentro de los
+   proximos MU_DIAS_AVISO dias (o la carga falla), el banner muestra el
+   CTA de "reportar fecha" en vez de mentir con una fecha vieja. */
+var MU_PARCIALES = [];
 var MU_DIAS_AVISO = 14;
+
+window.__loadParciales = function(){
+  var sbUrl = window.MU_SB_URL;
+  var sbKey = 'sb_publishable_rR_f3qmPj_L-tuwrGUYxnA__MWGwobe'; // publishable key real, confirmada contra el proyecto
+  if(!sbUrl) return;
+  fetch(sbUrl+'/rest/v1/parciales_reportados?select=*&fecha_parcial=gte.'+new Date().toISOString().split('T')[0]+'&order=fecha_parcial.asc', {
+    headers:{ 'apikey':sbKey, 'Authorization':'Bearer '+sbKey }
+  }).then(function(r){ return r.json(); }).then(function(data){
+    if(!Array.isArray(data)) return;
+    MU_PARCIALES = data.map(function(f){
+      return { mat:f.materia_nombre, label:'Parcial', fecha:f.fecha_parcial, confirmaciones:f.confirmaciones, validado:f.validado_admin };
+    });
+    if(typeof muInitParcialBanner==='function') muInitParcialBanner();
+    if(typeof muSyncCicloTitle==='function') muSyncCicloTitle();
+  }).catch(function(){ /* falla silenciosa -- el banner cae a su estado de "reportar fecha" */ });
+};
+window.__loadParciales();
+
 function muCerrarBanner(){
   var b=document.getElementById('semana-banner'); if(!b) return;
   b.style.display='none';
-  try{ localStorage.setItem('mu-banner-cerrado', b.getAttribute('data-fecha')||''); }catch(e){}
+  var fecha=b.getAttribute('data-fecha');
+  try{
+    if(fecha){ localStorage.setItem('mu-banner-cerrado', fecha); }
+    else { var hoy=new Date(); hoy.setHours(0,0,0,0); localStorage.setItem('mu-banner-reportar-cerrado', hoy.toISOString().split('T')[0]); }
+  }catch(e){}
 }
 function muInitParcialBanner(){
   var b=document.getElementById('semana-banner'); if(!b) return;
+  var inner=b.querySelector('.sp-banner-inner'); if(!inner) return;
   var hoy=new Date(); hoy.setHours(0,0,0,0);
   var prox=null, proxDias=Infinity, proxF=null;
   MU_PARCIALES.forEach(function(p){
@@ -7856,17 +7878,87 @@ function muInitParcialBanner(){
     var dias=Math.round((f-hoy)/86400000);
     if(dias>=0 && dias<=MU_DIAS_AVISO && dias<proxDias){ prox=p; proxDias=dias; proxF=p.fecha; }
   });
-  if(!prox){ b.style.display='none'; return; }
-  var cerrado=''; try{ cerrado=localStorage.getItem('mu-banner-cerrado')||''; }catch(e){}
-  if(cerrado===proxF){ b.style.display='none'; return; }   // ya lo cerró para ESTE parcial
-  b.setAttribute('data-fecha', proxF);
-  var cuando = proxDias===0 ? '<strong>hoy</strong>'
-             : proxDias===1 ? '<strong>mañana</strong>'
-             : 'en <strong>'+proxDias+'</strong> días';
-  var msg=document.getElementById('sp-msg');
-  if(msg) msg.innerHTML = prox.mat+' — '+prox.label+' '+cuando;
-  b.style.display='flex';
+
+  if(prox){
+    // Estado real: mismo markup y mismo comportamiento de siempre, sin cambios.
+    var cerrado=''; try{ cerrado=localStorage.getItem('mu-banner-cerrado')||''; }catch(e){}
+    if(cerrado===proxF){ b.style.display='none'; return; }
+    inner.innerHTML =
+      '<span class="sp-dot"></span>'+
+      '<span class="sp-label">Semana del Parcial</span>'+
+      '<span class="sp-sep">·</span>'+
+      '<span class="sp-msg" id="sp-msg"></span>'+
+      '<button type="button" class="sp-cta" onclick="document.getElementById(\'weekModal\').classList.add(\'open\')">Ver plan →</button>';
+    b.setAttribute('data-fecha', proxF);
+    var cuando = proxDias===0 ? '<strong>hoy</strong>'
+               : proxDias===1 ? '<strong>mañana</strong>'
+               : 'en <strong>'+proxDias+'</strong> días';
+    var confBadge = prox.validado
+      ? ' <span style="font-size:.68rem;font-weight:700;color:var(--grn);background:rgba(34,197,94,.12);padding:.15rem .5rem;border-radius:99px;margin-left:.4rem">Verificado</span>'
+      : (prox.confirmaciones>1 ? ' <span style="font-size:.68rem;font-weight:700;color:var(--yel);background:rgba(245,158,11,.1);padding:.15rem .5rem;border-radius:99px;margin-left:.4rem">'+prox.confirmaciones+' estudiantes</span>' : '');
+    var msg=inner.querySelector('#sp-msg');
+    if(msg) msg.innerHTML = prox.mat+' — '+prox.label+' '+cuando+confBadge;
+    b.style.display='flex';
+  } else {
+    // Estado vacio: invita a reportar en vez de ocultar sin mas.
+    var cerradoReportar=''; try{ cerradoReportar=localStorage.getItem('mu-banner-reportar-cerrado')||''; }catch(e){}
+    var hoyStr = hoy.toISOString().split('T')[0];
+    if(cerradoReportar===hoyStr){ b.style.display='none'; return; }
+    b.removeAttribute('data-fecha');
+    inner.innerHTML =
+      '<span class="sp-dot"></span>'+
+      '<span>¿Sabes cuándo es tu próximo parcial? </span>'+
+      '<button type="button" onclick="muAbrirReportarParcial()" style="background:none;border:none;color:var(--acc);font-weight:700;text-decoration:underline;cursor:pointer;font-family:inherit;font-size:inherit;padding:0">Cuéntanos la fecha →</button>';
+    b.style.display='flex';
+  }
 }
+
+/* Modal de reporte — mismo patron de "fetch a Supabase, fallo silencioso"
+   que ya usa el resto del sitio. Reutiliza SUBJECTS real (nameEs), nunca
+   una lista propia. */
+window.muAbrirReportarParcial = function(){
+  var existente=document.getElementById('mu-modal-reportar');
+  if(existente){ existente.style.display='flex'; return; }
+  var en=(typeof curLang!=='undefined' && curLang==='en');
+  var m=document.createElement('div');
+  m.id='mu-modal-reportar';
+  m.style.cssText='position:fixed;inset:0;z-index:9999;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,.7);backdrop-filter:blur(4px)';
+  m.innerHTML =
+    '<div style="background:var(--card);border:1.5px solid var(--br2);border-radius:16px;padding:1.6rem;max-width:340px;width:90%;position:relative">'+
+      '<button onclick="document.getElementById(\'mu-modal-reportar\').style.display=\'none\'" style="position:absolute;top:.9rem;right:.9rem;background:none;border:none;color:var(--t3);font-size:1.2rem;cursor:pointer">✕</button>'+
+      '<div style="font-weight:700;font-size:1.05rem;margin-bottom:.9rem">'+(en?'Report exam date':'Reportar fecha de parcial')+'</div>'+
+      '<label style="font-size:.78rem;color:var(--t3);display:block;margin-bottom:.3rem">'+(en?'Subject':'Materia')+'</label>'+
+      '<select id="rp-materia" style="width:100%;background:var(--bg2);border:1.5px solid var(--br2);border-radius:9px;padding:.6rem;color:var(--t1);font-family:inherit;margin-bottom:.7rem">'+
+        (window.SUBJECTS||[]).map(function(s){ return '<option value="'+s.code+'|'+s.nameEs+'">'+(en?s.nameEn:s.nameEs)+'</option>'; }).join('')+
+      '</select>'+
+      '<label style="font-size:.78rem;color:var(--t3);display:block;margin-bottom:.3rem">'+(en?'Date':'Fecha')+'</label>'+
+      '<input type="date" id="rp-fecha" min="'+new Date().toISOString().split('T')[0]+'" style="width:100%;background:var(--bg2);border:1.5px solid var(--br2);border-radius:9px;padding:.6rem;color:var(--t1);font-family:inherit;margin-bottom:1rem">'+
+      '<button onclick="muEnviarReporteParcial()" style="width:100%;background:var(--acc);color:#fff;border:none;border-radius:9px;padding:.75rem;font-weight:700;cursor:pointer;font-family:inherit">'+(en?'Report →':'Reportar →')+'</button>'+
+      '<div id="rp-msg" style="font-size:.8rem;text-align:center;margin-top:.6rem;min-height:1.1rem"></div>'+
+    '</div>';
+  document.body.appendChild(m);
+};
+
+window.muEnviarReporteParcial = function(){
+  var sel=document.getElementById('rp-materia').value.split('|');
+  var fecha=document.getElementById('rp-fecha').value;
+  var msg=document.getElementById('rp-msg');
+  if(!fecha){ msg.style.color='var(--red)'; msg.textContent='Selecciona una fecha'; return; }
+  var sbUrl=window.MU_SB_URL;
+  fetch(sbUrl+'/functions/v1/reportar-parcial', {
+    method:'POST',
+    headers:{'Content-Type':'application/json'},
+    body:JSON.stringify({materia_code:sel[0], materia_nombre:sel[1], fecha_parcial:fecha})
+  }).then(function(r){ return r.json(); }).then(function(d){
+    if(d.ok){
+      msg.style.color='var(--grn)'; msg.textContent='✓ ¡Gracias! Ya lo pueden ver tus compañeros';
+      window.__loadParciales();
+      setTimeout(function(){ var mm=document.getElementById('mu-modal-reportar'); if(mm) mm.style.display='none'; }, 1800);
+    } else {
+      msg.style.color='var(--red)'; msg.textContent=d.error||'Error al reportar';
+    }
+  }).catch(function(){ msg.style.color='var(--red)'; msg.textContent='Error de conexión'; });
+};
 /* Titular del 'Ciclo del Parcial' — dinámico y honesto.
    Si hay un parcial real configurado en MU_PARCIALES, muestra el día real;
    si no, deja el titular evergreen (que no inventa un día). */
