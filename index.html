@@ -9763,8 +9763,15 @@ function _showScreen(id){
 }
 html,body{height:100%;background:var(--bg);color:var(--t1);font-family:'Space Grotesk',system-ui,sans-serif;overflow-x:hidden;}
 
-/* NAV */
-nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;gap:1rem;
+/* SWITCHER interno Lobby/Rebota/Casillas -- NUNCA usar la etiqueta <nav> aqui:
+   la regla global nav{position:fixed;top:0} (para el nav REAL del sitio,
+   arriba en este mismo template) aplicaria tambien a este switcher por ser
+   el mismo selector de elemento -- los dos quedaban pegados exactamente en
+   el mismo lugar y este, por venir despues en el HTML, tapaba completo al
+   nav real (bug real visto en produccion: no se veian los links ni el
+   engranaje de ajustes). Por eso es un <div class="jg-nav">, fijo pero
+   pegado DEBAJO del nav real (top calculado a ojo, ~altura real del nav). */
+.jg-nav{position:fixed;top:64px;left:0;right:0;z-index:95;display:flex;align-items:center;gap:1rem;
   padding:.6rem 1.5rem;background:rgba(6,11,30,.92);backdrop-filter:blur(30px);
   border-bottom:1px solid var(--br);}
 /* .jg- (no ".logo"/".nav-r" a secas): esas clases genericas ya las usa el nav
@@ -9779,7 +9786,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
 .ntab:hover,.ntab.on{background:var(--acc);border-color:var(--acc);color:#fff;}
 
 /* SCREENS */
-.scr{display:none;min-height:100vh;padding-top:56px;}
+.scr{display:none;min-height:100vh;padding-top:120px;} /* nav real (~64px) + .jg-nav (~56px) */
 .scr.on{display:flex;flex-direction:column;}
 
 /* ══ LOBBY ══ */
@@ -9895,14 +9902,14 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
 </style>
 
 
-<!-- NAV -->
-<nav>
+<!-- SWITCHER interno Lobby/Rebota/Casillas (no es el nav real del sitio, ver comentario en el CSS .jg-nav) -->
+<div class="jg-nav">
   <div class="jg-logo" onclick="showScr('lobby')">∫ <span>MATH</span>UNAL</div>
   <div class="nav-r">
     <button class="ntab" onclick="showScr('lobby')">Juegos</button>
     <button class="ntab on" id="ntab-current" style="display:none"></button>
   </div>
-</nav>
+</div>
 
 <!-- ══ LOBBY ══ -->
 <div class="scr on" id="scr-lobby">
