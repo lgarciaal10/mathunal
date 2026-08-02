@@ -2829,6 +2829,11 @@ body{font-family:'Space Grotesk',system-ui,sans-serif;background:var(--bg);color
    (localStorage de progreso/resultados de simulacro, y el flag de premium),
    nunca de un numero inventado. ── */
 .mu-ruta-wrap{max-width:1200px;margin:0 auto;padding:0 2rem 1.2rem}
+/* Solo para el wrap de mas afuera (justo debajo del nav fijo) -- .mu-ruta-wrap
+   tambien se reutiliza ANIDADO adentro de #mu-ruta-host (ver _renderRutaEstudio),
+   asi que el padding-top no puede ir en la clase compartida o duplicaria el
+   espacio en medio de la pagina. */
+.mu-ruta-page{padding-top:90px}
 /* .mu-ruta-hero/.mu-ruta-ring* quedan huerfanas desde aqui -- el anillo grande
    se reemplazo por la fila de KPIs de abajo, se dejan sin usar en vez de
    borrarlas a ciegas por si algo mas las referencia. */
@@ -8274,7 +8279,7 @@ function _muSpEnd(){
   </div>
 </nav>
 
-<div class="mu-ruta-wrap">
+<div class="mu-ruta-wrap mu-ruta-page">
 
   <!-- Header de la materia -->
   <div class="mu-ruta-hero" style="margin-bottom:1rem">
@@ -9762,8 +9767,12 @@ html,body{height:100%;background:var(--bg);color:var(--t1);font-family:'Space Gr
 nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;gap:1rem;
   padding:.6rem 1.5rem;background:rgba(6,11,30,.92);backdrop-filter:blur(30px);
   border-bottom:1px solid var(--br);}
-.logo{font-family:'Literata',serif;font-weight:900;font-size:1rem;text-decoration:none;cursor:pointer;}
-.logo span{color:var(--acc);}
+/* .jg- (no ".logo"/".nav-r" a secas): esas clases genericas ya las usa el nav
+   REAL del sitio (logo con logo-m/logo-u, ver arriba) -- como este <style>
+   se inserta fresco cada vez que se carga #juegos, ganaba en cascada y
+   pisaba el logo real (el bug: "MATH" salia naranja en vez de blanco). */
+.jg-logo{font-family:'Literata',serif;font-weight:900;font-size:1rem;text-decoration:none;cursor:pointer;}
+.jg-logo span{color:var(--acc);}
 .nav-r{margin-left:auto;display:flex;gap:.5rem;}
 .ntab{background:none;border:1.5px solid var(--br2);color:var(--t2);border-radius:8px;
   padding:.35rem .9rem;font-size:.82rem;font-weight:600;cursor:pointer;font-family:inherit;transition:all .15s;}
@@ -9888,7 +9897,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
 
 <!-- NAV -->
 <nav>
-  <div class="logo" onclick="showScr('lobby')">∫ <span>MATH</span>UNAL</div>
+  <div class="jg-logo" onclick="showScr('lobby')">∫ <span>MATH</span>UNAL</div>
   <div class="nav-r">
     <button class="ntab" onclick="showScr('lobby')">Juegos</button>
     <button class="ntab on" id="ntab-current" style="display:none"></button>
