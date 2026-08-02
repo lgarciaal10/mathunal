@@ -9763,30 +9763,8 @@ function _showScreen(id){
 }
 html,body{height:100%;background:var(--bg);color:var(--t1);font-family:'Space Grotesk',system-ui,sans-serif;overflow-x:hidden;}
 
-/* SWITCHER interno Lobby/Rebota/Casillas -- NUNCA usar la etiqueta <nav> aqui:
-   la regla global nav{position:fixed;top:0} (para el nav REAL del sitio,
-   arriba en este mismo template) aplicaria tambien a este switcher por ser
-   el mismo selector de elemento -- los dos quedaban pegados exactamente en
-   el mismo lugar y este, por venir despues en el HTML, tapaba completo al
-   nav real (bug real visto en produccion: no se veian los links ni el
-   engranaje de ajustes). Por eso es un <div class="jg-nav">, fijo pero
-   pegado DEBAJO del nav real (top calculado a ojo, ~altura real del nav). */
-.jg-nav{position:fixed;top:64px;left:0;right:0;z-index:95;display:flex;align-items:center;gap:1rem;
-  padding:.6rem 1.5rem;background:rgba(6,11,30,.92);backdrop-filter:blur(30px);
-  border-bottom:1px solid var(--br);}
-/* .jg- (no ".logo"/".nav-r" a secas): esas clases genericas ya las usa el nav
-   REAL del sitio (logo con logo-m/logo-u, ver arriba) -- como este <style>
-   se inserta fresco cada vez que se carga #juegos, ganaba en cascada y
-   pisaba el logo real (el bug: "MATH" salia naranja en vez de blanco). */
-.jg-logo{font-family:'Literata',serif;font-weight:900;font-size:1rem;text-decoration:none;cursor:pointer;}
-.jg-logo span{color:var(--acc);}
-.nav-r{margin-left:auto;display:flex;gap:.5rem;}
-.ntab{background:none;border:1.5px solid var(--br2);color:var(--t2);border-radius:8px;
-  padding:.35rem .9rem;font-size:.82rem;font-weight:600;cursor:pointer;font-family:inherit;transition:all .15s;}
-.ntab:hover,.ntab.on{background:var(--acc);border-color:var(--acc);color:#fff;}
-
 /* SCREENS */
-.scr{display:none;min-height:100vh;padding-top:120px;} /* nav real (~64px) + .jg-nav (~56px) */
+.scr{display:none;min-height:100vh;padding-top:90px;} /* solo el nav real -- misma medida que #diagnostico/#materia */
 .scr.on{display:flex;flex-direction:column;}
 
 /* ══ LOBBY ══ */
@@ -9901,15 +9879,6 @@ html,body{height:100%;background:var(--bg);color:var(--t1);font-family:'Space Gr
 #toast.on{transform:translateX(-50%) translateY(0);opacity:1;}
 </style>
 
-
-<!-- SWITCHER interno Lobby/Rebota/Casillas (no es el nav real del sitio, ver comentario en el CSS .jg-nav) -->
-<div class="jg-nav">
-  <div class="jg-logo" onclick="showScr('lobby')">∫ <span>MATH</span>UNAL</div>
-  <div class="nav-r">
-    <button class="ntab" onclick="showScr('lobby')">Juegos</button>
-    <button class="ntab on" id="ntab-current" style="display:none"></button>
-  </div>
-</div>
 
 <!-- ══ LOBBY ══ -->
 <div class="scr on" id="scr-lobby">
@@ -10042,12 +10011,6 @@ function showScr(id){
   document.querySelectorAll('.scr').forEach(s=>s.classList.remove('on'));
   document.getElementById('scr-'+id).classList.add('on');
   window.scrollTo(0,0);
-  if(id!=='lobby'){
-    document.getElementById('ntab-current').style.display='';
-    document.getElementById('ntab-current').textContent=id==='rebota'?'🎱 Rebota':'🟪 Casillas';
-  } else {
-    document.getElementById('ntab-current').style.display='none';
-  }
 }
 function showResult(ico,title,sub,btn1Action){
   document.getElementById('res-ico').textContent=ico;
