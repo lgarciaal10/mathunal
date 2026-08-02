@@ -220,7 +220,7 @@ html[data-theme="light"] nav.scrolled{
   font-family:'Literata',Georgia,serif;font-style:italic;font-weight:900;
   font-size:2.1rem;color:var(--acc);line-height:1;padding:0;margin-right:.3rem;
 }
-.logo-m{color:#DFD0B5;font-family:'Literata',Georgia,serif;font-weight:900;font-size:1.25rem;letter-spacing:.08em;line-height:1}
+.logo-m{color:#FFFFFF;font-family:'Literata',Georgia,serif;font-weight:900;font-size:1.25rem;letter-spacing:.08em;line-height:1}
 .logo-u{color:var(--acc);font-family:'Literata',Georgia,serif;font-weight:900;font-size:1.25rem;letter-spacing:.08em;line-height:1}
 .logo-txt{display:flex;align-items:baseline;gap:0;line-height:1}
 
@@ -8259,10 +8259,18 @@ function _muSpEnd(){
     <a href="#materias" class="nav-sec-link">Materias</a>
     <a href="#simulacros" class="nav-sec-link">Simulacros</a>
     <a href="#formulas" class="nav-sec-link">Formulario</a>
+    <a href="#juegos" class="nav-sec-link">Juegos</a>
+    <a href="#diagnostico" class="nav-sec-link">Diagnóstico</a>
   </div>
   <div class="nav-r">
-    <button class="btn-acc" onclick="window.location.hash='#simulacros'">Simulacros →</button>
-    <button class="theme-btn" onclick="muCycleTheme()" aria-label="Cambiar tema">&#9681;</button>
+    <a href="#simulacros" class="nav-cta">Simulacros →</a>
+    <div class="settings-wrap"><button class="settings-btn" aria-label="Ajustes" onclick="toggleSettings(this)" aria-haspopup="true" aria-expanded="false" aria-controls="sd">⚙</button>
+      <div class="settings-dropdown" id="sd"><div class="sd-section"><div class="sd-label">TEMA</div><div class="sd-row">
+        <button class="sd-btn on" id="th-dark" onclick="setTheme('dark')"><svg width="13" height="13" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" style="vertical-align:-2px"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg> Dark</button>
+        <button class="sd-btn" id="th-gray" onclick="setTheme('gray')">⬤ Gris</button>
+        <button class="sd-btn" id="th-light" onclick="setTheme('light')"><svg width="13" height="13" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" style="vertical-align:-2px"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.2" y1="4.2" x2="5.6" y2="5.6"/><line x1="18.4" y1="18.4" x2="19.8" y2="19.8"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.2" y1="19.8" x2="5.6" y2="18.4"/><line x1="18.4" y1="5.6" x2="19.8" y2="4.2"/></svg> Light</button>
+      </div></div></div>
+    </div>
   </div>
 </nav>
 
@@ -8301,6 +8309,16 @@ function _muSpEnd(){
 </div>
 
 <script>
+/* setTheme: definida una sola vez, en el script persistente (ver fondo del archivo). */
+function toggleSettings(btn){
+  var wrap = btn ? btn.closest('.settings-wrap') : document.querySelector('.settings-wrap');
+  var dd = wrap ? wrap.querySelector('.settings-dropdown') : null;
+  if(!dd) return;
+  var nowOpen = dd.classList.toggle('open');
+  if(btn) btn.setAttribute('aria-expanded', nowOpen ? 'true' : 'false');
+}
+if(!window.__muSdClickBound){window.__muSdClickBound=true;document.addEventListener('click',function(e){var s=document.getElementById('sd');if(s&&!e.target.closest('.settings-wrap'))s.classList.remove('open');});}
+
 (function(){
   if(typeof window.__muMateriaInit==='function'){
     window.__muMateriaInit();
