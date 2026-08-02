@@ -12963,9 +12963,19 @@ window.EXAMS = EXAMS;
    ahora tambien las usa #diagnostico directamente (_renderNextStep,
    _renderReview, _unlockAllFailed/_unlockSol para el gate premium).
    =========================================================================== */
-var _examKey=null, _exam=null;
-var _answers=[], _openAns=[];
-var _numAns = _numAns || {};
+/* SIN "var" a proposito: este bloque vive dentro del IIFE de "MATERIA: script
+   global" (ver comentario de BANCO_MATERIAS mas abajo, mismo problema ya
+   documentado ahi) -- si se declaran con "var" aqui quedan atrapadas en el
+   scope del IIFE, y cuando #diagnostico hace "window._exam = {...}" desde
+   OTRO script crea una propiedad separada que _renderReview/_renderNextStep
+   (via closure) nunca ven, aunque "typeof _exam" adentro de este archivo de
+   verdad exista. Sin "var", la referencia cae en la cadena de scope global
+   real (window), la misma que lee/escribe el resto del sitio. */
+if(typeof window._examKey==='undefined') window._examKey=null;
+if(typeof window._exam==='undefined') window._exam=null;
+if(typeof window._answers==='undefined') window._answers=[];
+if(typeof window._openAns==='undefined') window._openAns=[];
+if(typeof window._numAns==='undefined') window._numAns={};
 
 var EXAM_META = {
   calcvec_p1:     {mat:'calcvec', color:'#7C3AED', badge:'Cálc. Vectorial', tipo:'Parcial 1', nuevo:true},
@@ -13675,6 +13685,31 @@ var BANCO_MATERIAS = {
   edo:     {nombre:'Ecuaciones Diferenciales', nombreEn:'Differential Equations', sym:'λ', color:'#006B6B'},
 };
 window.BANCO_MATERIAS = BANCO_MATERIAS;
+
+/* Bug real encontrado en #diagnostico: estas funciones (movidas aqui desde
+   tpl-simulacro) y estas constantes NUNCA quedaron expuestas a window --
+   igual que BANCO_MATERIAS arriba, viven dentro del mismo IIFE de "MATERIA:
+   script global" y por eso "typeof _renderReview" (y _calificarNum, _el,
+   EXAM_META, MU_SB_URL, etc.) daba 'undefined' fuera de este cierre. Como
+   #diagnostico las llama desde OTRO <script>, hacia falta esto. */
+window._el = _el;
+window._numTols = _numTols;
+window._calificarNum = _calificarNum;
+window._renderMath = _renderMath;
+window._renderFigura = _renderFigura;
+window.FREE_SOLUTIONS = FREE_SOLUTIONS;
+window._OPS = _OPS;
+window._explicarPaso = _explicarPaso;
+window._buildTutorial = _buildTutorial;
+window._aiSections = _aiSections;
+window._renderReview = _renderReview;
+window._renderNextStep = _renderNextStep;
+window._unlockAllFailed = _unlockAllFailed;
+window._unlockSol = _unlockSol;
+window.MU_SB_URL = MU_SB_URL;
+window.MU_SB_ANON = MU_SB_ANON;
+window.MU_AI = MU_AI;
+window.EXAM_META = EXAM_META;
 
 // ── PRERREQUISITOS por materia. Fuentes honestas:
 //    · 1000013 (Geo. Vectorial): transcrito del PROGRAMA OFICIAL del curso
