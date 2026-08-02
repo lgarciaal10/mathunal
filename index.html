@@ -7885,6 +7885,13 @@ function _muSyncBannerLayout(){
 if(!window.__muBannerResizeBound){
   window.__muBannerResizeBound=true;
   window.addEventListener('resize', function(){ if(typeof _muSyncBannerLayout==='function') _muSyncBannerLayout(); });
+  /* Bug real encontrado en produccion: el nav crece unos px cuando terminan de
+     cargar las fuentes web (Literata/IBM Plex Mono), DESPUES de la primera
+     medicion sincrona — dejaba el banner con un "top" viejo y un overlap de
+     ~3px contra el nav. Se resincroniza cuando las fuentes ya cargaron. */
+  if(document.fonts && document.fonts.ready){
+    document.fonts.ready.then(function(){ if(typeof _muSyncBannerLayout==='function') _muSyncBannerLayout(); });
+  }
 }
 
 function muCerrarBanner(){
