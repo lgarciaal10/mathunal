@@ -9939,6 +9939,13 @@ html,body{height:100%;background:var(--bg);color:var(--t1);font-family:'Space Gr
       <div class="gc-tags"><span class="tag">Física</span><span class="tag">Vectores</span><span class="tag">6 niveles</span></div>
       <button class="gc-btn" style="background:var(--purple)" onclick="startPortal()">Jugar →</button>
     </div>
+    <div class="gc" style="--gc:#22C55E">
+      <div class="gc-ico">📐</div>
+      <div class="gc-name">Área bajo la curva</div>
+      <div class="gc-desc">Ajusta la altura de varios rectángulos para aproximar el área real bajo una curva. Sumas de Riemann, sin que se note.</div>
+      <div class="gc-tags"><span class="tag">Cálculo Integral</span><span class="tag">Estimación</span><span class="tag">5 niveles</span></div>
+      <button class="gc-btn" style="background:var(--grn)" onclick="startRiemann()">Jugar →</button>
+    </div>
     <div class="gc" style="--gc:#22C55E;opacity:.65">
       <div class="gc-ico">🔀</div>
       <div class="gc-name">Vectores</div>
@@ -10046,6 +10053,44 @@ html,body{height:100%;background:var(--bg);color:var(--t1);font-family:'Space Gr
         <div class="res-btns">
           <button class="res-btn primary" id="pt-goover-btn1" onclick="resetPortalLevel()">Reintentar</button>
           <button class="res-btn ghost" onclick="stopPortal();showScr('lobby')">Salir al lobby</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- ══ ÁREA BAJO LA CURVA (SUMAS DE RIEMANN) ══ -->
+<div class="scr" id="scr-riemann">
+<div class="arc-wrap">
+  <div class="game-bar">
+    <button class="gbk" onclick="stopRiemann();showScr('lobby')">← Salir</button>
+    <div class="gbar-center">
+      <div class="gbar-title">📐 Área bajo la curva</div>
+      <div class="gbar-sub" id="rm-nivel-lbl">Nivel 1 de 5</div>
+    </div>
+    <div class="gbar-right">
+      <div class="gstat"><div class="gstat-n" id="rm-error">—</div><div class="gstat-l">error</div></div>
+    </div>
+  </div>
+  <div class="arc-canvas-wrap" id="rm-wrap">
+    <canvas id="rm-canvas"></canvas>
+    <div class="mg-hint">Arrastra desde arriba de cada barra para ajustar su altura, acercándote a la curva naranja.</div>
+    <button class="arc-pause-btn" onclick="rmCalcular()" id="rm-calc-btn">✓ Calcular</button>
+    <div class="arc-start" id="rm-start">
+      <div class="arc-start-title">📐 Área bajo la curva</div>
+      <div class="arc-start-desc">Ajusta la altura de cada rectángulo para que la suma de sus áreas se acerque al área real bajo la curva mostrada.</div>
+      <div class="arc-start-note">Esto es una suma de Riemann de verdad: cuando el número de rectángulos tiende a infinito, esta aproximación se vuelve la integral definida exacta.</div>
+      <button class="arc-start-btn" style="--gc:#22C55E" onclick="beginRiemann()">Jugar →</button>
+    </div>
+    <div class="arc-goover" id="rm-goover">
+      <div class="result-box">
+        <div class="res-ico" id="rm-goover-ico">📐</div>
+        <div class="res-title" id="rm-goover-title">¡Resultado!</div>
+        <div class="res-sub" id="rm-goover-sub"></div>
+        <div class="res-btns">
+          <button class="res-btn primary" id="rm-goover-btn1" onclick="rmBuildLevel()">Reintentar</button>
+          <button class="res-btn ghost" onclick="stopRiemann();showScr('lobby')">Salir al lobby</button>
         </div>
       </div>
     </div>
@@ -10666,6 +10711,158 @@ function ptDraw(){
   if(ptPortalA){ptCtx.fillStyle='#F97316';ptCtx.beginPath();ptCtx.arc(ptPortalA.x,ptPortalA.y,13,0,7);ptCtx.fill();}
   if(ptPortalB){ptCtx.fillStyle='#38BDF8';ptCtx.beginPath();ptCtx.arc(ptPortalB.x,ptPortalB.y,13,0,7);ptCtx.fill();}
   ptCtx.fillStyle='#F0F4FF';ptCtx.beginPath();ptCtx.arc(ptBall.x,ptBall.y,ptBall.r,0,7);ptCtx.fill();
+}
+
+// ══════════════════════════════════
+// JUEGO: ÁREA BAJO LA CURVA (sumas de Riemann)
+// ══════════════════════════════════
+var rmCanvas,rmCtx,rmW,rmH,rmRunning=false;
+var rmLevelIdx=0,rmBars,rmDragIdx=-1,rmDef;
+var RM_LEVELS=[
+  { fn:function(x){return 0.3*x+1;}, label:'f(x) = 0.3x + 1', xMin:0, xMax:10, n:4, yMax:5 },
+  { fn:function(x){return 0.05*x*x+0.5;}, label:'f(x) = 0.05x² + 0.5', xMin:0, xMax:10, n:5, yMax:6 },
+  { fn:function(x){return Math.sqrt(x)+0.5;}, label:'f(x) = √x + 0.5', xMin:0, xMax:10, n:6, yMax:4.5 },
+  { fn:function(x){return Math.sin(x*0.6)+2;}, label:'f(x) = sin(0.6x) + 2', xMin:0, xMax:10, n:8, yMax:3.5 },
+  { fn:function(x){return 6/(x+1);}, label:'f(x) = 6/(x+1)', xMin:0, xMax:10, n:10, yMax:7 },
+];
+/* Valor de referencia calculado en vivo con regla del trapecio fina (2000
+   subdivisiones) -- nunca un numero fijo escrito a mano por nivel. */
+function rmRealIntegral(def){
+  var N=2000, h=(def.xMax-def.xMin)/N, sum=0.5*(def.fn(def.xMin)+def.fn(def.xMax));
+  for(var i=1;i<N;i++) sum+=def.fn(def.xMin+i*h);
+  return sum*h;
+}
+function startRiemann(){
+  showScr('riemann');rmLevelIdx=0;
+  document.getElementById('rm-start').style.display='flex';
+  document.getElementById('rm-goover').classList.remove('on');
+  var d=fitCanvas(document.getElementById('rm-canvas'),'rm-wrap');rmW=d.w;rmH=d.h;
+  rmCtx=document.getElementById('rm-canvas').getContext('2d');
+  rmCtx.fillStyle='#060B1E';rmCtx.fillRect(0,0,rmW,rmH);
+  window.addEventListener('resize',rmResizeHandler);
+}
+function rmResizeHandler(){
+  if(!document.getElementById('scr-riemann').classList.contains('on'))return;
+  var d=fitCanvas(document.getElementById('rm-canvas'),'rm-wrap');rmW=d.w;rmH=d.h;
+  if(rmDef)rmDraw();
+}
+function stopRiemann(){rmRunning=false;window.removeEventListener('resize',rmResizeHandler);}
+function beginRiemann(){
+  document.getElementById('rm-start').style.display='none';
+  document.getElementById('rm-goover').classList.remove('on');
+  var d=fitCanvas(document.getElementById('rm-canvas'),'rm-wrap');rmW=d.w;rmH=d.h;
+  rmBuildLevel();
+}
+function rmBuildLevel(){
+  document.getElementById('rm-goover').classList.remove('on');
+  rmDef=RM_LEVELS[Math.min(rmLevelIdx,RM_LEVELS.length-1)];
+  rmBars=[];
+  for(var i=0;i<rmDef.n;i++) rmBars.push(0);
+  document.getElementById('rm-nivel-lbl').textContent='Nivel '+(rmLevelIdx+1)+' de '+RM_LEVELS.length+' · '+rmDef.label;
+  document.getElementById('rm-error').textContent='—';
+  rmRunning=true;
+  rmBindInput();
+  rmDraw();
+}
+function rmMargins(){ return {left:44,right:14,top:14,bottom:34}; }
+function rmToPx(){
+  var m=rmMargins();
+  var x0=m.left, x1=rmW-m.right, y0=rmH-m.bottom, y1=m.top;
+  return {
+    x0:x0, x1:x1, y0:y0, y1:y1,
+    sx:function(x){return x0+(x-rmDef.xMin)/(rmDef.xMax-rmDef.xMin)*(x1-x0);},
+    sy:function(y){return y0-(y/rmDef.yMax)*(y0-y1);}
+  };
+}
+function rmBindInput(){
+  var cv=document.getElementById('rm-canvas');
+  function pos(e){var rc=cv.getBoundingClientRect();if(e.touches&&e.touches[0])return{x:e.touches[0].clientX-rc.left,y:e.touches[0].clientY-rc.top};return{x:e.clientX-rc.left,y:e.clientY-rc.top};}
+  function barIdxAt(px){
+    var P=rmToPx();
+    var barW=(P.x1-P.x0)/rmDef.n;
+    var idx=Math.floor((px-P.x0)/barW);
+    if(idx<0||idx>=rmDef.n)return -1;
+    return idx;
+  }
+  function setHeight(idx,py){
+    var P=rmToPx();
+    var val=(P.y0-py)/(P.y0-P.y1)*rmDef.yMax;
+    rmBars[idx]=Math.max(0,Math.min(rmDef.yMax,val));
+  }
+  function down(e){
+    if(!rmRunning||!e)return;
+    var p=pos(e);
+    var idx=barIdxAt(p.x);
+    if(idx<0)return;
+    rmDragIdx=idx;setHeight(idx,p.y);rmDraw();
+  }
+  function move(e){
+    if(rmDragIdx<0||!e)return;
+    var p=pos(e);setHeight(rmDragIdx,p.y);rmDraw();
+  }
+  function up(){rmDragIdx=-1;}
+  cv.onmousedown=down;cv.onmousemove=move;window.onmouseup=up;
+  cv.ontouchstart=function(e){down(e.touches[0]);e.preventDefault();};
+  cv.ontouchmove=function(e){move(e.touches[0]);e.preventDefault();};
+  cv.ontouchend=up;
+}
+function rmCalcular(){
+  if(!rmRunning||!rmDef)return;
+  var barWreal=(rmDef.xMax-rmDef.xMin)/rmDef.n;
+  var approx=0;
+  for(var i=0;i<rmDef.n;i++) approx+=rmBars[i]*barWreal;
+  var real=rmRealIntegral(rmDef);
+  var errPct=Math.abs(approx-real)/real*100;
+  document.getElementById('rm-error').textContent=errPct.toFixed(1)+'%';
+  rmRunning=false;
+  var tier,ico;
+  if(errPct<=2){tier='¡Exacto!';ico='🏆';}
+  else if(errPct<=8){tier='Muy cerca';ico='🎯';}
+  else if(errPct<=20){tier='Cerca';ico='👍';}
+  else {tier='Sigue intentando';ico='📐';}
+  var isLast=rmLevelIdx>=RM_LEVELS.length-1;
+  var puedeAvanzar=errPct<=20;
+  lastGame='riemann';lastScore=errPct.toFixed(1)+'%';
+  document.getElementById('rm-goover-ico').textContent=ico;
+  document.getElementById('rm-goover-title').textContent=tier;
+  document.getElementById('rm-goover-sub').textContent='Tu área: '+approx.toFixed(2)+' · Área real: '+real.toFixed(2)+' · Error: '+errPct.toFixed(1)+'%';
+  document.getElementById('rm-goover-btn1').textContent=puedeAvanzar?(isLast?'Reiniciar juego':'Siguiente nivel →'):'Reintentar';
+  document.getElementById('rm-goover-btn1').onclick=function(){
+    if(puedeAvanzar){ rmLevelIdx=isLast?0:rmLevelIdx+1; }
+    document.getElementById('rm-goover').classList.remove('on');
+    rmBuildLevel();
+  };
+  document.getElementById('rm-goover').classList.add('on');
+  beep(errPct<=8?600:errPct<=20?400:220,.2,.1,errPct<=8?'sine':'triangle');
+  rmDraw();
+}
+function rmDraw(){
+  if(!rmCtx||!rmDef)return;
+  rmCtx.fillStyle='#060B1E';rmCtx.fillRect(0,0,rmW,rmH);
+  var P=rmToPx();
+  rmCtx.strokeStyle='rgba(255,255,255,.18)';rmCtx.lineWidth=1.5;
+  rmCtx.beginPath();rmCtx.moveTo(P.x0,P.y0);rmCtx.lineTo(P.x1,P.y0);rmCtx.stroke();
+  rmCtx.beginPath();rmCtx.moveTo(P.x0,P.y0);rmCtx.lineTo(P.x0,P.y1);rmCtx.stroke();
+  var barWpx=(P.x1-P.x0)/rmDef.n;
+  for(var i=0;i<rmDef.n;i++){
+    var bx=P.x0+i*barWpx;
+    var by=P.sy(rmBars[i]);
+    rmCtx.fillStyle='rgba(34,197,94,.32)';
+    rmCtx.fillRect(bx+1,by,barWpx-2,P.y0-by);
+    rmCtx.strokeStyle='#22C55E';rmCtx.lineWidth=1.5;
+    rmCtx.strokeRect(bx+1,by,barWpx-2,P.y0-by);
+  }
+  rmCtx.strokeStyle='#F97316';rmCtx.lineWidth=2.5;rmCtx.beginPath();
+  var steps=120;
+  for(var s=0;s<=steps;s++){
+    var x=rmDef.xMin+(rmDef.xMax-rmDef.xMin)*s/steps;
+    var y=rmDef.fn(x);
+    var px=P.sx(x),py=P.sy(y);
+    if(s===0)rmCtx.moveTo(px,py);else rmCtx.lineTo(px,py);
+  }
+  rmCtx.stroke();
+  rmCtx.fillStyle='#F97316';rmCtx.font='12px IBM Plex Mono';rmCtx.textAlign='left';
+  rmCtx.fillText(rmDef.label,P.x0+6,P.y1+14);
 }
 </script>
 </template>
