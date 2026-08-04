@@ -9967,6 +9967,13 @@ html,body{height:100%;background:var(--bg);color:var(--t1);font-family:'Space Gr
       <div class="gc-tags"><span class="tag">Álgebra Lineal</span><span class="tag">Transformaciones</span><span class="tag">6 niveles</span></div>
       <button class="gc-btn" style="background:#38BDF8" onclick="startMatrixMaze()">Jugar →</button>
     </div>
+    <div class="gc" style="--gc:#22C55E">
+      <div class="gc-ico">🐍</div>
+      <div class="gc-name">Serpiente de Dominios</div>
+      <div class="gc-desc">Snake clásico, pero solo puedes comer números que SÍ estén en el dominio de la función del nivel. Un número fuera de dominio y se acaba.</div>
+      <div class="gc-tags"><span class="tag">Dominios</span><span class="tag">Reflejos</span><span class="tag">6 niveles</span></div>
+      <button class="gc-btn" style="background:var(--grn)" onclick="startDomainSnake()">Jugar →</button>
+    </div>
   </div>
 </div>
 </div>
@@ -10144,6 +10151,44 @@ html,body{height:100%;background:var(--bg);color:var(--t1);font-family:'Space Gr
     <div class="hint-box">Cada clic es una matriz real aplicada a la figura.</div>
     <button class="rfoot-btn ghost" onclick="mzApply('ROT')">↻ Rotar 90°</button>
     <button class="rfoot-btn ghost" onclick="mzApply('REF')">⇋ Reflejar</button>
+  </div>
+</div>
+</div>
+
+<!-- ══ SERPIENTE DE DOMINIOS ══ -->
+<div class="scr" id="scr-domainsnake">
+<div class="arc-wrap">
+  <div class="game-bar">
+    <button class="gbk" onclick="stopDomainSnake();showScr('lobby')">← Salir</button>
+    <div class="gbar-center">
+      <div class="gbar-title">🐍 Serpiente de Dominios</div>
+      <div class="gbar-sub" id="ds-func-lbl">f(x) = …</div>
+    </div>
+    <div class="gbar-right">
+      <div class="gstat"><div class="gstat-n" id="ds-score">0</div><div class="gstat-l">puntos</div></div>
+    </div>
+  </div>
+  <div class="arc-canvas-wrap" id="ds-wrap">
+    <canvas id="ds-canvas"></canvas>
+    <div class="mg-hint">Flechas (o desliza) para moverte. Solo come números que SÍ estén en el dominio de la función.</div>
+    <button class="arc-pause-btn" onclick="dsPauseToggle()" id="ds-pause-btn">⏸</button>
+    <div class="arc-start" id="ds-start">
+      <div class="arc-start-title">🐍 Serpiente de Dominios</div>
+      <div class="arc-start-desc">Cada nivel te da una función real. El tablero tiene números sueltos — solo puedes comer los que SÍ pertenecen al dominio de esa función. Comer uno que no pertenece termina el juego.</div>
+      <div class="arc-start-note">Las 3 restricciones que casi siempre importan: denominador distinto de cero, raíz par mayor o igual a cero, y logaritmo estrictamente mayor que cero.</div>
+      <button class="arc-start-btn" style="--gc:#22C55E" onclick="beginDomainSnake()">Jugar →</button>
+    </div>
+    <div class="arc-goover" id="ds-goover">
+      <div class="result-box">
+        <div class="res-ico" id="ds-goover-ico">🐍</div>
+        <div class="res-title" id="ds-goover-title">¡Fuera del dominio!</div>
+        <div class="res-sub" id="ds-goover-sub"></div>
+        <div class="res-btns">
+          <button class="res-btn primary" id="ds-goover-btn1" onclick="beginDomainSnake()">Jugar otra vez</button>
+          <button class="res-btn ghost" onclick="stopDomainSnake();showScr('lobby')">Salir al lobby</button>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 </div>
@@ -11065,6 +11110,207 @@ function mzDraw(){
   mzCtx.fillStyle='rgba(255,255,255,.6)';mzCtx.fillText('PUERTA',cxGate,cyMid-scale-18);
   mzDrawShape(mzCtx,mzCurrent,cxPlayer,cyMid,scale,false);
   mzDrawShape(mzCtx,mzTarget,cxGate,cyMid,scale,true);
+}
+
+// ══════════════════════════════════
+// JUEGO: SERPIENTE DE DOMINIOS
+// ══════════════════════════════════
+var dsCanvas,dsCtx,dsW,dsH,dsRAF=null,dsRunning=false,dsPaused=false;
+var dsGrid=16,dsCell,dsSnake,dsDir,dsNextDir,dsNums,dsScore,dsEaten,dsLevelIdx,dsLastTick,dsTickMs=160;
+/* Dominios reales -- las mismas 3 restricciones que ya explica el sitio en
+   _OPS (denominador!=0, raiz par>=0, log>0 estricto). Nunca una regla
+   inventada: cada test() es matematicamente correcto para su f(x). */
+var DS_LEVELS=[
+  { label:'f(x) = 1/(x - 3)', test:function(x){ return x!==3; }, lo:-6, hi:8 },
+  { label:'f(x) = √(x - 2)', test:function(x){ return x>=2; }, lo:-4, hi:10 },
+  { label:'f(x) = ln(x)', test:function(x){ return x>0; }, lo:-6, hi:8 },
+  { label:'f(x) = √(9 - x²)', test:function(x){ return x>=-3&&x<=3; }, lo:-6, hi:6 },
+  { label:'f(x) = ln(4 - x)', test:function(x){ return x<4; }, lo:-4, hi:10 },
+  { label:'f(x) = 1/√(x - 1)', test:function(x){ return x>1; }, lo:-4, hi:10 },
+];
+var DS_EAT_PER_LEVEL=6;
+function startDomainSnake(){
+  showScr('domainsnake');dsLevelIdx=0;
+  document.getElementById('ds-start').style.display='flex';
+  document.getElementById('ds-goover').classList.remove('on');
+  var d=fitCanvas(document.getElementById('ds-canvas'),'ds-wrap');dsW=d.w;dsH=d.h;
+  dsCell=Math.floor(Math.min(dsW,dsH)/dsGrid);
+  dsCtx=document.getElementById('ds-canvas').getContext('2d');
+  dsCtx.fillStyle='#060B1E';dsCtx.fillRect(0,0,dsW,dsH);
+  window.addEventListener('resize',dsResizeHandler);
+}
+function dsResizeHandler(){
+  if(!document.getElementById('scr-domainsnake').classList.contains('on'))return;
+  var d=fitCanvas(document.getElementById('ds-canvas'),'ds-wrap');dsW=d.w;dsH=d.h;
+  dsCell=Math.floor(Math.min(dsW,dsH)/dsGrid);
+}
+function stopDomainSnake(){
+  dsRunning=false;if(dsRAF)cancelAnimationFrame(dsRAF);
+  window.removeEventListener('resize',dsResizeHandler);
+  window.removeEventListener('keydown',dsKeyHandler);
+}
+function beginDomainSnake(){
+  document.getElementById('ds-start').style.display='none';
+  document.getElementById('ds-goover').classList.remove('on');
+  var d=fitCanvas(document.getElementById('ds-canvas'),'ds-wrap');dsW=d.w;dsH=d.h;
+  dsCell=Math.floor(Math.min(dsW,dsH)/dsGrid);
+  dsBuildLevel(true);
+}
+function dsRandCell(){ return {x:Math.floor(Math.random()*dsGrid), y:Math.floor(Math.random()*dsGrid)}; }
+function dsCellFree(x,y){
+  if(dsSnake.some(function(s){return s.x===x&&s.y===y;})) return false;
+  if(dsNums.some(function(n){return n.x===x&&n.y===y;})) return false;
+  return true;
+}
+function dsSpawnNumber(){
+  var def=DS_LEVELS[Math.min(dsLevelIdx,DS_LEVELS.length-1)];
+  var tries=0,c;
+  do{ c=dsRandCell(); tries++; } while(!dsCellFree(c.x,c.y)&&tries<200);
+  var val=def.lo+Math.floor(Math.random()*(def.hi-def.lo+1));
+  dsNums.push({x:c.x,y:c.y,val:val});
+}
+function dsBuildLevel(resetScore){
+  document.getElementById('ds-goover').classList.remove('on');
+  var def=DS_LEVELS[Math.min(dsLevelIdx,DS_LEVELS.length-1)];
+  document.getElementById('ds-func-lbl').textContent=def.label;
+  if(resetScore){ dsScore=0; document.getElementById('ds-score').textContent='0'; }
+  dsEaten=0;
+  var cx=Math.floor(dsGrid/2), cy=Math.floor(dsGrid/2);
+  dsSnake=[{x:cx-2,y:cy},{x:cx-1,y:cy},{x:cx,y:cy}];
+  dsDir={x:1,y:0};dsNextDir={x:1,y:0};
+  dsNums=[];
+  for(var i=0;i<8;i++) dsSpawnNumber();
+  dsPaused=false;
+  document.getElementById('ds-pause-btn').textContent='⏸';
+  dsRunning=true;
+  dsBindInput();
+  dsLastTick=performance.now();
+  if(dsRAF)cancelAnimationFrame(dsRAF);
+  dsLoop();
+}
+function dsKeyHandler(e){
+  if(!dsRunning||dsPaused)return;
+  var k=e.key;
+  if(k==='ArrowUp'&&dsDir.y===0) dsNextDir={x:0,y:-1};
+  else if(k==='ArrowDown'&&dsDir.y===0) dsNextDir={x:0,y:1};
+  else if(k==='ArrowLeft'&&dsDir.x===0) dsNextDir={x:-1,y:0};
+  else if(k==='ArrowRight'&&dsDir.x===0) dsNextDir={x:1,y:0};
+}
+function dsBindInput(){
+  window.removeEventListener('keydown',dsKeyHandler);
+  window.addEventListener('keydown',dsKeyHandler);
+  var cv=document.getElementById('ds-canvas');
+  var tsx=0,tsy=0;
+  cv.ontouchstart=function(e){var t=e.touches[0];tsx=t.clientX;tsy=t.clientY;};
+  cv.ontouchend=function(e){
+    var t=e.changedTouches[0];
+    var dx=t.clientX-tsx, dy=t.clientY-tsy;
+    if(Math.abs(dx)>Math.abs(dy)){
+      if(dx>20&&dsDir.x===0) dsNextDir={x:1,y:0};
+      else if(dx<-20&&dsDir.x===0) dsNextDir={x:-1,y:0};
+    } else {
+      if(dy>20&&dsDir.y===0) dsNextDir={x:0,y:1};
+      else if(dy<-20&&dsDir.y===0) dsNextDir={x:0,y:-1};
+    }
+  };
+}
+function dsPauseToggle(){
+  if(!dsRunning)return;
+  dsPaused=!dsPaused;
+  document.getElementById('ds-pause-btn').textContent=dsPaused?'▶':'⏸';
+  if(!dsPaused){ dsLastTick=performance.now(); dsLoop(); }
+}
+function dsLoop(){
+  if(!dsRunning||dsPaused)return;
+  var now=performance.now();
+  if(now-dsLastTick>=dsTickMs){ dsLastTick=now; dsTick(); }
+  dsDraw();
+  if(dsRunning) dsRAF=requestAnimationFrame(dsLoop);
+}
+function dsTick(){
+  dsDir=dsNextDir;
+  var head=dsSnake[dsSnake.length-1];
+  var nx=head.x+dsDir.x, ny=head.y+dsDir.y;
+  if(nx<0||nx>=dsGrid||ny<0||ny>=dsGrid){ dsGameOver('¡Chocaste contra el borde!'); return; }
+  if(dsSnake.some(function(s){return s.x===nx&&s.y===ny;})){ dsGameOver('¡Te chocaste contigo mismo!'); return; }
+  var numIdx=-1;
+  for(var i=0;i<dsNums.length;i++){ if(dsNums[i].x===nx&&dsNums[i].y===ny){ numIdx=i; break; } }
+  var grow=false;
+  if(numIdx>=0){
+    var def=DS_LEVELS[Math.min(dsLevelIdx,DS_LEVELS.length-1)];
+    var val=dsNums[numIdx].val;
+    var ok=def.test(val);
+    dsNums.splice(numIdx,1);
+    if(ok){
+      grow=true;dsScore+=10;dsEaten++;
+      document.getElementById('ds-score').textContent=dsScore;
+      beep(500,.08,.06,'sine');
+      dsSpawnNumber();
+      if(dsEaten>=DS_EAT_PER_LEVEL){ dsLevelUp(); return; }
+    } else {
+      beep(140,.3,.1,'sawtooth');
+      dsGameOver('Comiste '+val+', que NO está en el dominio de '+def.label+'.');
+      return;
+    }
+  }
+  dsSnake.push({x:nx,y:ny});
+  if(!grow) dsSnake.shift();
+}
+function dsLevelUp(){
+  dsRunning=false;
+  var isLast=dsLevelIdx>=DS_LEVELS.length-1;
+  lastGame='domainsnake';lastScore=dsScore;
+  document.getElementById('ds-goover-ico').textContent='🏆';
+  document.getElementById('ds-goover-title').textContent='¡Nivel superado!';
+  document.getElementById('ds-goover-sub').textContent='Puntos: '+dsScore+(isLast?' · ¡Completaste todos los niveles!':'');
+  document.getElementById('ds-goover-btn1').textContent=isLast?'Reiniciar juego':'Siguiente nivel →';
+  document.getElementById('ds-goover-btn1').onclick=function(){
+    dsLevelIdx=isLast?0:dsLevelIdx+1;
+    dsBuildLevel(isLast);
+  };
+  document.getElementById('ds-goover').classList.add('on');
+  beep(650,.2,.1,'sine');
+}
+function dsGameOver(msg){
+  dsRunning=false;
+  lastGame='domainsnake';lastScore=dsScore;
+  document.getElementById('ds-goover-ico').textContent='💀';
+  document.getElementById('ds-goover-title').textContent='¡Fuera del dominio!';
+  document.getElementById('ds-goover-sub').textContent=msg+' Puntos: '+dsScore;
+  document.getElementById('ds-goover-btn1').textContent='Jugar otra vez';
+  document.getElementById('ds-goover-btn1').onclick=function(){
+    dsLevelIdx=0;
+    dsBuildLevel(true);
+  };
+  document.getElementById('ds-goover').classList.add('on');
+  beep(140,.3,.1,'sawtooth');
+}
+function dsDraw(){
+  if(!dsCtx)return;
+  dsCtx.fillStyle='#060B1E';dsCtx.fillRect(0,0,dsW,dsH);
+  var offX=(dsW-dsCell*dsGrid)/2, offY=(dsH-dsCell*dsGrid)/2;
+  dsCtx.strokeStyle='rgba(255,255,255,.06)';dsCtx.lineWidth=1;
+  for(var gx=0;gx<=dsGrid;gx++){ dsCtx.beginPath();dsCtx.moveTo(offX+gx*dsCell,offY);dsCtx.lineTo(offX+gx*dsCell,offY+dsGrid*dsCell);dsCtx.stroke(); }
+  for(var gy=0;gy<=dsGrid;gy++){ dsCtx.beginPath();dsCtx.moveTo(offX,offY+gy*dsCell);dsCtx.lineTo(offX+dsGrid*dsCell,offY+gy*dsCell);dsCtx.stroke(); }
+  dsCtx.font=(dsCell*0.42)+'px IBM Plex Mono';dsCtx.textAlign='center';dsCtx.textBaseline='middle';
+  for(var i=0;i<dsNums.length;i++){
+    var n=dsNums[i];
+    var cx=offX+n.x*dsCell+dsCell/2, cy=offY+n.y*dsCell+dsCell/2;
+    dsCtx.fillStyle='rgba(56,189,248,.18)';
+    dsCtx.beginPath();dsCtx.arc(cx,cy,dsCell*0.42,0,7);dsCtx.fill();
+    dsCtx.strokeStyle='#38BDF8';dsCtx.lineWidth=1.5;dsCtx.stroke();
+    dsCtx.fillStyle='#F0F4FF';
+    dsCtx.fillText(n.val,cx,cy);
+  }
+  for(var s=0;s<dsSnake.length;s++){
+    var seg=dsSnake[s];
+    var isHead=s===dsSnake.length-1;
+    dsCtx.fillStyle=isHead?'#22C55E':'rgba(34,197,94,.7)';
+    var px=offX+seg.x*dsCell, py=offY+seg.y*dsCell;
+    dsCtx.beginPath();
+    if(dsCtx.roundRect) dsCtx.roundRect(px+1,py+1,dsCell-2,dsCell-2,4); else dsCtx.rect(px+1,py+1,dsCell-2,dsCell-2);
+    dsCtx.fill();
+  }
 }
 </script>
 </template>
