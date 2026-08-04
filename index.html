@@ -9960,6 +9960,13 @@ html,body{height:100%;background:var(--bg);color:var(--t1);font-family:'Space Gr
       <div class="gc-tags"><span class="tag">Próximamente</span></div>
       <button class="gc-btn dis" style="background:var(--yel)" disabled>Próximamente</button>
     </div>
+    <div class="gc" style="--gc:#38BDF8">
+      <div class="gc-ico">🧩</div>
+      <div class="gc-name">Laberinto de matrices</div>
+      <div class="gc-desc">Rota y refleja una figura aplicando transformaciones reales para que coincida con la puerta de salida. Matrices de verdad, sin que se note.</div>
+      <div class="gc-tags"><span class="tag">Álgebra Lineal</span><span class="tag">Transformaciones</span><span class="tag">6 niveles</span></div>
+      <button class="gc-btn" style="background:#38BDF8" onclick="startMatrixMaze()">Jugar →</button>
+    </div>
   </div>
 </div>
 </div>
@@ -10094,6 +10101,49 @@ html,body{height:100%;background:var(--bg);color:var(--t1);font-family:'Space Gr
         </div>
       </div>
     </div>
+  </div>
+</div>
+</div>
+
+<!-- ══ LABERINTO DE MATRICES ══ -->
+<div class="scr" id="scr-matrixmaze">
+<div class="arc-wrap">
+  <div class="game-bar">
+    <button class="gbk" onclick="stopMatrixMaze();showScr('lobby')">← Salir</button>
+    <div class="gbar-center">
+      <div class="gbar-title">🧩 Laberinto de matrices</div>
+      <div class="gbar-sub" id="mz-nivel-lbl">Nivel 1 de 6</div>
+    </div>
+    <div class="gbar-right">
+      <div class="gstat"><div class="gstat-n" id="mz-moves">0</div><div class="gstat-l">movimientos</div></div>
+    </div>
+  </div>
+  <div class="arc-canvas-wrap" id="mz-wrap">
+    <canvas id="mz-canvas"></canvas>
+    <div class="mg-hint">Aplica transformaciones a tu figura (azul) hasta que coincida con la puerta punteada.</div>
+    <button class="arc-pause-btn" onclick="mzReset()" id="mz-reset-btn">↺ Reiniciar</button>
+    <div class="arc-start" id="mz-start">
+      <div class="arc-start-title">🧩 Laberinto de matrices</div>
+      <div class="arc-start-desc">Cada botón aplica una transformación lineal real a tu figura. Combínalas hasta que coincida exactamente con la puerta punteada, en el menor número de movimientos posible.</div>
+      <div class="arc-start-note">Rotar 90° y reflejar son, literalmente, multiplicar el vector de cada vértice por una matriz 2×2. Combinar dos transformaciones es multiplicar esas matrices entre sí.</div>
+      <button class="arc-start-btn" style="--gc:#38BDF8" onclick="beginMatrixMaze()">Jugar →</button>
+    </div>
+    <div class="arc-goover" id="mz-goover">
+      <div class="result-box">
+        <div class="res-ico" id="mz-goover-ico">🧩</div>
+        <div class="res-title" id="mz-goover-title">¡Coincide!</div>
+        <div class="res-sub" id="mz-goover-sub"></div>
+        <div class="res-btns">
+          <button class="res-btn primary" id="mz-goover-btn1" onclick="mzNextLevel()">Siguiente nivel →</button>
+          <button class="res-btn ghost" onclick="stopMatrixMaze();showScr('lobby')">Salir al lobby</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="rebota-footer">
+    <div class="hint-box">Cada clic es una matriz real aplicada a la figura.</div>
+    <button class="rfoot-btn ghost" onclick="mzApply('ROT')">↻ Rotar 90°</button>
+    <button class="rfoot-btn ghost" onclick="mzApply('REF')">⇋ Reflejar</button>
   </div>
 </div>
 </div>
@@ -10863,6 +10913,158 @@ function rmDraw(){
   rmCtx.stroke();
   rmCtx.fillStyle='#F97316';rmCtx.font='12px IBM Plex Mono';rmCtx.textAlign='left';
   rmCtx.fillText(rmDef.label,P.x0+6,P.y1+14);
+}
+
+// ══════════════════════════════════
+// JUEGO: LABERINTO DE MATRICES
+// ══════════════════════════════════
+var mzCanvas,mzCtx,mzW,mzH,mzRunning=false;
+var mzLevelIdx=0,mzMoves=0,mzCurrent,mzTarget;
+/* Figura asimetrica (forma de "L") -- sin simetria rotacional ni de reflejo,
+   para que las 8 orientaciones posibles se vean todas distintas entre si. */
+var MZ_SHAPE=[[-1,-1],[1,-1],[1,-0.2],[-0.2,-0.2],[-0.2,1],[-1,1]];
+var MZ_ROT={a:0,b:-1,c:1,d:0};   // rotacion 90 grados CCW: x'=-y, y'=x
+var MZ_REF={a:-1,b:0,c:0,d:1};   // reflejo horizontal: x'=-x, y'=y
+/* Niveles definidos por la SECUENCIA que genera la puerta (nunca se le
+   muestra al jugador) -- el minimo de movimientos real se calcula aparte
+   con BFS, no se asume que la secuencia de autoria ya sea la optima. */
+var MZ_LEVELS=[
+  ['ROT'],
+  ['REF'],
+  ['ROT','ROT'],
+  ['ROT','REF'],
+  ['ROT','ROT','ROT'],
+  ['REF','ROT','ROT'],
+];
+function mzMatMul(A,B){
+  return {a:A.a*B.a+A.b*B.c, b:A.a*B.b+A.b*B.d, c:A.c*B.a+A.d*B.c, d:A.c*B.b+A.d*B.d};
+}
+function mzMatKey(M){ return M.a+','+M.b+','+M.c+','+M.d; }
+function mzApplyPoint(M,p){ return {x:M.a*p[0]+M.b*p[1], y:M.c*p[0]+M.d*p[1]}; }
+function mzBuildTarget(seq){
+  var M={a:1,b:0,c:0,d:1};
+  seq.forEach(function(name){ M=mzMatMul(name==='ROT'?MZ_ROT:MZ_REF,M); });
+  return M;
+}
+/* BFS real sobre el grupo (D4, orden 8) generado por MZ_ROT y MZ_REF --
+   el minimo de movimientos que se le muestra al jugador es el verdadero
+   minimo matematico, no la longitud de la secuencia usada para armar el nivel. */
+function mzMinMoves(target){
+  var start={a:1,b:0,c:0,d:1};
+  var targetKey=mzMatKey(target);
+  if(mzMatKey(start)===targetKey) return 0;
+  var visited={}; visited[mzMatKey(start)]=0;
+  var queue=[start];
+  while(queue.length){
+    var cur=queue.shift();
+    var dist=visited[mzMatKey(cur)];
+    var next=[mzMatMul(MZ_ROT,cur),mzMatMul(MZ_REF,cur)];
+    for(var i=0;i<next.length;i++){
+      var k=mzMatKey(next[i]);
+      if(!(k in visited)){
+        visited[k]=dist+1;
+        if(k===targetKey) return dist+1;
+        queue.push(next[i]);
+      }
+    }
+  }
+  return visited[targetKey];
+}
+function startMatrixMaze(){
+  showScr('matrixmaze');mzLevelIdx=0;
+  document.getElementById('mz-start').style.display='flex';
+  document.getElementById('mz-goover').classList.remove('on');
+  var d=fitCanvas(document.getElementById('mz-canvas'),'mz-wrap');mzW=d.w;mzH=d.h;
+  mzCtx=document.getElementById('mz-canvas').getContext('2d');
+  mzCtx.fillStyle='#060B1E';mzCtx.fillRect(0,0,mzW,mzH);
+  window.addEventListener('resize',mzResizeHandler);
+}
+function mzResizeHandler(){
+  if(!document.getElementById('scr-matrixmaze').classList.contains('on'))return;
+  var d=fitCanvas(document.getElementById('mz-canvas'),'mz-wrap');mzW=d.w;mzH=d.h;
+  if(mzTarget)mzDraw();
+}
+function stopMatrixMaze(){mzRunning=false;window.removeEventListener('resize',mzResizeHandler);}
+function beginMatrixMaze(){
+  document.getElementById('mz-start').style.display='none';
+  document.getElementById('mz-goover').classList.remove('on');
+  var d=fitCanvas(document.getElementById('mz-canvas'),'mz-wrap');mzW=d.w;mzH=d.h;
+  mzBuildLevel();
+}
+function mzBuildLevel(){
+  document.getElementById('mz-goover').classList.remove('on');
+  var seq=MZ_LEVELS[Math.min(mzLevelIdx,MZ_LEVELS.length-1)];
+  mzTarget=mzBuildTarget(seq);
+  mzCurrent={a:1,b:0,c:0,d:1};
+  mzMoves=0;
+  document.getElementById('mz-nivel-lbl').textContent='Nivel '+(mzLevelIdx+1)+' de '+MZ_LEVELS.length;
+  document.getElementById('mz-moves').textContent='0';
+  mzRunning=true;
+  mzDraw();
+}
+function mzReset(){
+  document.getElementById('mz-goover').classList.remove('on');
+  if(!mzTarget)return;
+  mzCurrent={a:1,b:0,c:0,d:1};
+  mzMoves=0;
+  document.getElementById('mz-moves').textContent='0';
+  mzRunning=true;
+  mzDraw();
+}
+function mzApply(opName){
+  if(!mzRunning||!mzCurrent)return;
+  var OP=opName==='ROT'?MZ_ROT:MZ_REF;
+  mzCurrent=mzMatMul(OP,mzCurrent);
+  mzMoves++;
+  document.getElementById('mz-moves').textContent=mzMoves;
+  mzDraw();
+  beep(opName==='ROT'?420:340,.08,.06,'triangle');
+  if(mzMatKey(mzCurrent)===mzMatKey(mzTarget)) mzWin();
+}
+function mzWin(){
+  mzRunning=false;
+  var minMoves=mzMinMoves(mzTarget);
+  var perfect=mzMoves<=minMoves;
+  var isLast=mzLevelIdx>=MZ_LEVELS.length-1;
+  lastGame='matrixmaze';lastScore=mzMoves;
+  document.getElementById('mz-goover-ico').textContent=perfect?'🏆':'🧩';
+  document.getElementById('mz-goover-title').textContent=perfect?'¡Perfecto!':'¡Coincide!';
+  document.getElementById('mz-goover-sub').textContent='Lo lograste en '+mzMoves+' movimiento'+(mzMoves===1?'':'s')+' · El mínimo posible era '+minMoves+'.';
+  document.getElementById('mz-goover-btn1').textContent=isLast?'Reiniciar juego':'Siguiente nivel →';
+  document.getElementById('mz-goover').classList.add('on');
+  beep(650,.2,.1,'sine');
+}
+function mzNextLevel(){
+  document.getElementById('mz-goover').classList.remove('on');
+  var isLast=mzLevelIdx>=MZ_LEVELS.length-1;
+  mzLevelIdx=isLast?0:mzLevelIdx+1;
+  mzBuildLevel();
+}
+function mzDrawShape(ctx,M,cx,cy,scale,dashed){
+  ctx.beginPath();
+  MZ_SHAPE.forEach(function(p,i){
+    var tp=mzApplyPoint(M,p);
+    var x=cx+tp.x*scale, y=cy-tp.y*scale;
+    if(i===0) ctx.moveTo(x,y); else ctx.lineTo(x,y);
+  });
+  ctx.closePath();
+  if(dashed){
+    ctx.setLineDash([6,5]);ctx.strokeStyle='rgba(255,255,255,.55)';ctx.lineWidth=2;ctx.stroke();ctx.setLineDash([]);
+  } else {
+    ctx.fillStyle='rgba(56,189,248,.35)';ctx.fill();
+    ctx.strokeStyle='#38BDF8';ctx.lineWidth=2.5;ctx.stroke();
+  }
+}
+function mzDraw(){
+  if(!mzCtx||!mzTarget)return;
+  mzCtx.fillStyle='#060B1E';mzCtx.fillRect(0,0,mzW,mzH);
+  var scale=Math.min(mzW,mzH)*0.16;
+  var cyMid=mzH/2, cxPlayer=mzW*0.28, cxGate=mzW*0.72;
+  mzCtx.font='11px IBM Plex Mono';mzCtx.textAlign='center';
+  mzCtx.fillStyle='#38BDF8';mzCtx.fillText('TU FIGURA',cxPlayer,cyMid-scale-18);
+  mzCtx.fillStyle='rgba(255,255,255,.6)';mzCtx.fillText('PUERTA',cxGate,cyMid-scale-18);
+  mzDrawShape(mzCtx,mzCurrent,cxPlayer,cyMid,scale,false);
+  mzDrawShape(mzCtx,mzTarget,cxGate,cyMid,scale,true);
 }
 </script>
 </template>
