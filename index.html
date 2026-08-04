@@ -9877,6 +9877,35 @@ html,body{height:100%;background:var(--bg);color:var(--t1);font-family:'Space Gr
   padding:.6rem 1.2rem;font-size:.85rem;font-weight:600;z-index:999;
   opacity:0;transition:all .3s;pointer-events:none;white-space:nowrap;}
 #toast.on{transform:translateX(-50%) translateY(0);opacity:1;}
+
+/* ══ PORTAL (juego de canvas full-bleed) ══ */
+.arc-wrap{flex:1;display:flex;flex-direction:column;}
+.arc-canvas-wrap{flex:1;position:relative;display:flex;align-items:center;justify-content:center;
+  background:var(--bg);overflow:hidden;touch-action:none;}
+.arc-canvas-wrap canvas{display:block;touch-action:none;border-radius:0;}
+.arc-hud{position:absolute;top:.7rem;left:.7rem;right:.7rem;display:flex;justify-content:space-between;
+  align-items:flex-start;pointer-events:none;z-index:5;}
+.arc-hud-box{background:rgba(10,14,30,.72);backdrop-filter:blur(6px);border:1px solid var(--br2);
+  border-radius:10px;padding:.4rem .8rem;text-align:center;pointer-events:auto;}
+.arc-hud-n{font-family:'IBM Plex Mono',monospace;font-size:1.1rem;font-weight:600;line-height:1.1;}
+.arc-hud-l{font-size:.62rem;color:var(--t3);letter-spacing:.04em;text-transform:uppercase;}
+.arc-start{position:absolute;inset:0;z-index:20;display:flex;flex-direction:column;align-items:center;
+  justify-content:center;gap:1rem;background:rgba(6,11,30,.88);backdrop-filter:blur(4px);text-align:center;padding:2rem;}
+.arc-start-title{font-family:'Literata',serif;font-size:1.6rem;font-weight:900;}
+.arc-start-desc{font-size:.85rem;color:var(--t2);max-width:340px;line-height:1.6;}
+.arc-start-note{font-size:.76rem;color:var(--t3);max-width:340px;line-height:1.5;background:rgba(124,58,237,.1);
+  border:1px solid rgba(124,58,237,.25);border-radius:9px;padding:.6rem .9rem;}
+.arc-start-btn{background:var(--gc,var(--acc));color:#fff;border:none;border-radius:10px;
+  padding:.8rem 1.8rem;font-size:.95rem;font-weight:700;cursor:pointer;font-family:inherit;}
+.arc-start-btn:hover{filter:brightness(1.1);}
+.arc-pause-btn{position:absolute;bottom:.8rem;right:.8rem;z-index:15;background:rgba(10,14,30,.72);
+  border:1px solid var(--br2);color:var(--t1);border-radius:9px;padding:.5rem .8rem;font-size:.8rem;
+  cursor:pointer;font-family:inherit;pointer-events:auto;}
+.arc-goover{position:absolute;inset:0;z-index:25;display:none;align-items:center;justify-content:center;
+  background:rgba(6,11,30,.82);backdrop-filter:blur(5px);}
+.arc-goover.on{display:flex;}
+.mg-hint{position:absolute;bottom:.8rem;left:.8rem;right:5.5rem;font-size:.72rem;color:var(--t3);
+  background:rgba(10,14,30,.6);border-radius:8px;padding:.4rem .7rem;pointer-events:none;z-index:5;}
 </style>
 
 
@@ -9902,6 +9931,13 @@ html,body{height:100%;background:var(--bg);color:var(--t1);font-family:'Space Gr
       <div class="gc-desc">Coloca una pieza en cada zona de color, sin que queden dos en la misma fila ni columna, ni tocándose.</div>
       <div class="gc-tags"><span class="tag">Lógica pura</span><span class="tag">Grid</span><span class="tag">Diario</span></div>
       <button class="gc-btn" style="background:var(--purple)" onclick="startCasillas()">Jugar →</button>
+    </div>
+    <div class="gc" style="--gc:#7C3AED">
+      <div class="gc-ico">🌀</div>
+      <div class="gc-name">Portal</div>
+      <div class="gc-desc">La bola se mueve sola. Coloca dos portales para redirigirla sin que choque, conservando su velocidad al atravesarlos.</div>
+      <div class="gc-tags"><span class="tag">Física</span><span class="tag">Vectores</span><span class="tag">6 niveles</span></div>
+      <button class="gc-btn" style="background:var(--purple)" onclick="startPortal()">Jugar →</button>
     </div>
     <div class="gc" style="--gc:#22C55E;opacity:.65">
       <div class="gc-ico">🔀</div>
@@ -9979,6 +10015,44 @@ html,body{height:100%;background:var(--bg);color:var(--t1);font-family:'Space Gr
 </div>
 </div>
 
+<!-- ══ PORTAL ══ -->
+<div class="scr" id="scr-portal">
+<div class="arc-wrap">
+  <div class="game-bar">
+    <button class="gbk" onclick="stopPortal();showScr('lobby')">← Salir</button>
+    <div class="gbar-center">
+      <div class="gbar-title">🌀 Portal</div>
+      <div class="gbar-sub" id="pt-nivel-lbl">Nivel 1 de 6</div>
+    </div>
+    <div class="gbar-right">
+      <div class="gstat"><div class="gstat-n" id="pt-time">0.0s</div><div class="gstat-l">tiempo</div></div>
+    </div>
+  </div>
+  <div class="arc-canvas-wrap" id="pt-wrap">
+    <canvas id="pt-canvas"></canvas>
+    <div class="mg-hint">Toca para colocar el portal naranja, toca de nuevo para el azul. La bola se teletransporta conservando su velocidad.</div>
+    <button class="arc-pause-btn" onclick="resetPortalLevel()" id="pt-reset-btn">↺ Reiniciar</button>
+    <div class="arc-start" id="pt-start">
+      <div class="arc-start-title">🌀 Portal</div>
+      <div class="arc-start-desc">La bola se mueve sola. Coloca dos portales tocando el escenario: al entrar por uno, sale por el otro conservando su trayectoria. Llévala hasta la meta esquivando los muros — algunos se mueven.</div>
+      <div class="arc-start-note">La velocidad se conserva al atravesar un portal — mismo módulo y misma dirección relativa, nada se acelera ni frena. Es la misma idea detrás de la suma de vectores.</div>
+      <button class="arc-start-btn" style="--gc:#7C3AED" onclick="beginPortal()">Jugar →</button>
+    </div>
+    <div class="arc-goover" id="pt-goover">
+      <div class="result-box">
+        <div class="res-ico" id="pt-goover-ico">🌀</div>
+        <div class="res-title" id="pt-goover-title">¡Chocaste!</div>
+        <div class="res-sub" id="pt-goover-sub"></div>
+        <div class="res-btns">
+          <button class="res-btn primary" id="pt-goover-btn1" onclick="resetPortalLevel()">Reintentar</button>
+          <button class="res-btn ghost" onclick="stopPortal();showScr('lobby')">Salir al lobby</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
 <!-- RESULTADO OVERLAY -->
 <div class="result-ov" id="result-ov">
   <div class="result-box">
@@ -10027,9 +10101,34 @@ function toast(msg){
 }
 var lastGame='rebota',lastScore=0;
 function compartir(){
-  var txt=`🎱 MathUNAL Juegos: ${lastGame==='rebota'?'Rebota':'Casillas'} — resuelto en ${lastScore} movimientos. ¿Me superas? mathunal.github.io`;
+  var nombres={rebota:'Rebota',casillas:'Casillas',portal:'Portal'};
+  var unidad=lastGame==='portal'?'segundos':'movimientos';
+  var txt=`🎱 MathUNAL Juegos: ${nombres[lastGame]||lastGame} — resuelto en ${lastScore} ${unidad}. ¿Me superas? mathunal.github.io`;
   if(navigator.share)navigator.share({text:txt});
   else navigator.clipboard.writeText(txt).then(()=>toast('¡Copiado! Pégalo en tu grupo 📋'));
+}
+
+// Canvas full-bleed que se ajusta al contenedor (lo usan los juegos de canvas grande, ej. Portal)
+function fitCanvas(cv,wrapId){
+  var wrap=document.getElementById(wrapId);
+  var r=wrap.getBoundingClientRect();
+  cv.width=Math.max(320,r.width);
+  cv.height=Math.max(400,r.height);
+  return {w:cv.width,h:cv.height};
+}
+// Sonido corto sin assets (Web Audio) -- silencioso si el navegador lo bloquea
+var actx=null;
+function beep(freq,dur,vol,type){
+  try{
+    if(!actx)actx=new (window.AudioContext||window.webkitAudioContext)();
+    var o=actx.createOscillator(),g=actx.createGain();
+    o.type=type||'sine';o.frequency.value=freq;
+    g.gain.value=vol||.08;
+    o.connect(g);g.connect(actx.destination);
+    o.start();
+    g.gain.exponentialRampToValueAtTime(.0001,actx.currentTime+(dur||.15));
+    o.stop(actx.currentTime+(dur||.15));
+  }catch(e){}
 }
 
 // ══════════════════════════════════
@@ -10425,6 +10524,149 @@ function checkWin(){
 }
 function resetCasillas(){casMoves=0;buildCasBoard();}
 function nextCasillas(){startCasillas(casPuzzleIdx+1);}
+
+// ══════════════════════════════════
+// JUEGO 3: PORTAL
+// La bola conserva su velocidad (modulo y direccion relativa) al pasar por
+// un portal -- no se acelera ni se frena, solo cambia de posicion. Es la
+// misma idea de la suma de vectores: el "salto" del portal es un vector de
+// desplazamiento que se le suma a la trayectoria, sin tocar la velocidad.
+// ══════════════════════════════════
+var ptCanvas,ptCtx,ptW,ptH,ptRAF=null,ptRunning=false;
+var ptBall,ptWalls,ptTarget,ptPortalA,ptPortalB,ptPlacing,ptLevelIdx,ptStartT,ptCooldown;
+var PT_LEVELS=[
+  {ball:{xr:0.1,yr:0.1,vx:2.4,vy:1.2},target:{xr:0.85,yr:0.85,r:22},
+    walls:[{xr:0.4,yr:0.5,wr:0.2,hr:0.06}]},
+  {ball:{xr:0.1,yr:0.1,vx:2.6,vy:0.8},target:{xr:0.9,yr:0.15,r:20},
+    walls:[{xr:0.35,yr:0.3,wr:0.18,hr:0.05},{xr:0.6,yr:0.65,wr:0.22,hr:0.05}]},
+  {ball:{xr:0.08,yr:0.5,vx:2.8,vy:-1.6},target:{xr:0.88,yr:0.5,r:18},
+    walls:[{xr:0.3,yr:0.25,wr:0.05,hr:0.3},{xr:0.65,yr:0.55,wr:0.05,hr:0.35}]},
+  {ball:{xr:0.1,yr:0.15,vx:2.6,vy:1.4},target:{xr:0.88,yr:0.85,r:20},
+    walls:[{xr:0.42,yr:0.2,wr:0.16,hr:0.05},
+      {xr:0.3,yr:0.6,wr:0.18,hr:0.05,move:{axis:'x',rangeR:[0.1,0.55],speed:0.006}}]},
+  {ball:{xr:0.08,yr:0.85,vx:2.9,vy:-1.5},target:{xr:0.9,yr:0.1,r:18},
+    walls:[{xr:0.55,yr:0.15,wr:0.05,hr:0.35,move:{axis:'y',rangeR:[0.1,0.55],speed:0.005}},
+      {xr:0.25,yr:0.55,wr:0.22,hr:0.05,move:{axis:'x',rangeR:[0.15,0.55],speed:0.007}}]},
+  {ball:{xr:0.06,yr:0.5,vx:3.1,vy:1.1},target:{xr:0.92,yr:0.5,r:16},
+    walls:[{xr:0.28,yr:0.15,wr:0.05,hr:0.3},
+      {xr:0.28,yr:0.6,wr:0.05,hr:0.3,move:{axis:'y',rangeR:[0.05,0.4],speed:0.006}},
+      {xr:0.6,yr:0.35,wr:0.05,hr:0.3,move:{axis:'x',rangeR:[0.55,0.75],speed:0.005}}]},
+];
+function startPortal(){
+  showScr('portal');ptLevelIdx=0;
+  document.getElementById('pt-start').style.display='flex';
+  document.getElementById('pt-goover').classList.remove('on');
+  var d=fitCanvas(document.getElementById('pt-canvas'),'pt-wrap');ptW=d.w;ptH=d.h;
+  ptCtx=document.getElementById('pt-canvas').getContext('2d');
+  ptCtx.fillStyle='#060B1E';ptCtx.fillRect(0,0,ptW,ptH);
+  window.addEventListener('resize',ptResizeHandler);
+}
+function ptResizeHandler(){if(document.getElementById('scr-portal').classList.contains('on')){var d=fitCanvas(document.getElementById('pt-canvas'),'pt-wrap');ptW=d.w;ptH=d.h;}}
+function stopPortal(){ptRunning=false;if(ptRAF)cancelAnimationFrame(ptRAF);window.removeEventListener('resize',ptResizeHandler);}
+function beginPortal(){
+  document.getElementById('pt-start').style.display='none';
+  document.getElementById('pt-goover').classList.remove('on');
+  var d=fitCanvas(document.getElementById('pt-canvas'),'pt-wrap');ptW=d.w;ptH=d.h;
+  ptBuildLevel();
+}
+function resetPortalLevel(){document.getElementById('pt-goover').classList.remove('on');ptBuildLevel();}
+function ptBuildLevel(){
+  var def=PT_LEVELS[Math.min(ptLevelIdx,PT_LEVELS.length-1)];
+  ptBall={x:def.ball.xr*ptW,y:def.ball.yr*ptH,vx:def.ball.vx,vy:def.ball.vy,r:9};
+  ptTarget={x:def.target.xr*ptW,y:def.target.yr*ptH,r:def.target.r};
+  ptWalls=def.walls.map(function(w){
+    var built={x:w.xr*ptW,y:w.yr*ptH,w:w.wr*ptW,h:w.hr*ptH,baseXr:w.xr,baseYr:w.yr};
+    if(w.move){built.move={axis:w.move.axis,minPx:w.move.rangeR[0]*(w.move.axis==='x'?ptW:ptH),maxPx:w.move.rangeR[1]*(w.move.axis==='x'?ptW:ptH),speed:w.move.speed,t:0};}
+    return built;
+  });
+  ptPortalA=null;ptPortalB=null;ptPlacing='a';ptCooldown=0;
+  ptStartT=performance.now();
+  document.getElementById('pt-nivel-lbl').textContent='Nivel '+(ptLevelIdx+1)+' de '+PT_LEVELS.length;
+  ptBindInput();
+  ptRunning=true;
+  if(ptRAF)cancelAnimationFrame(ptRAF);
+  ptLoop();
+}
+function ptBindInput(){
+  var cv=document.getElementById('pt-canvas');
+  function pos(e){var rc=cv.getBoundingClientRect();if(e.touches&&e.touches[0])return{x:e.touches[0].clientX-rc.left,y:e.touches[0].clientY-rc.top};return{x:e.clientX-rc.left,y:e.clientY-rc.top};}
+  function click(e){
+    if(!ptRunning)return;
+    var p=pos(e);
+    for(var i=0;i<ptWalls.length;i++){var w=ptWalls[i];if(p.x>w.x&&p.x<w.x+w.w&&p.y>w.y&&p.y<w.y+w.h)return;}
+    if(ptPlacing==='a'){ptPortalA={x:p.x,y:p.y};ptPlacing='b';}
+    else{ptPortalB={x:p.x,y:p.y};ptPlacing='a';}
+    beep(360,.08,.06,'sine');
+  }
+  cv.onclick=click;
+  cv.ontouchstart=function(e){click({clientX:e.touches[0].clientX,clientY:e.touches[0].clientY});e.preventDefault();};
+}
+function ptLoop(){if(!ptRunning)return;ptStep();ptDraw();ptRAF=requestAnimationFrame(ptLoop);}
+function ptStep(){
+  var b=ptBall;
+  if(ptCooldown>0)ptCooldown--;
+  b.x+=b.vx;b.y+=b.vy;
+  if(b.x<b.r){b.x=b.r;b.vx*=-1;}
+  if(b.x>ptW-b.r){b.x=ptW-b.r;b.vx*=-1;}
+  if(b.y<b.r){b.y=b.r;b.vy*=-1;}
+  if(b.y>ptH-b.r){b.y=ptH-b.r;b.vy*=-1;}
+  for(var i=0;i<ptWalls.length;i++){
+    var w=ptWalls[i];
+    if(w.move){
+      w.move.t+=w.move.speed;
+      var span=(w.move.maxPx-w.move.minPx);
+      var pos=w.move.minPx+span*(0.5+0.5*Math.sin(w.move.t));
+      if(w.move.axis==='x')w.x=pos;else w.y=pos;
+    }
+  }
+  for(var i2=0;i2<ptWalls.length;i2++){
+    var w2=ptWalls[i2];
+    if(b.x+b.r>w2.x&&b.x-b.r<w2.x+w2.w&&b.y+b.r>w2.y&&b.y-b.r<w2.y+w2.h){
+      ptGameOver('¡Chocaste contra un muro!');return;
+    }
+  }
+  if(ptCooldown<=0&&ptPortalA&&ptPortalB){
+    if(Math.hypot(ptPortalA.x-b.x,ptPortalA.y-b.y)<14){b.x=ptPortalB.x;b.y=ptPortalB.y;ptCooldown=20;beep(500,.1,.07,'triangle');}
+    else if(Math.hypot(ptPortalB.x-b.x,ptPortalB.y-b.y)<14){b.x=ptPortalA.x;b.y=ptPortalA.y;ptCooldown=20;beep(500,.1,.07,'triangle');}
+  }
+  if(Math.hypot(ptTarget.x-b.x,ptTarget.y-b.y)<ptTarget.r){ptWin();}
+  var t=((performance.now()-ptStartT)/1000).toFixed(1);
+  var timeEl=document.getElementById('pt-time');if(timeEl)timeEl.textContent=t+'s';
+}
+function ptGameOver(msg){
+  ptRunning=false;
+  beep(140,.3,.1,'sawtooth');
+  document.getElementById('pt-goover-ico').textContent='💥';
+  document.getElementById('pt-goover-title').textContent='¡Chocaste!';
+  document.getElementById('pt-goover-sub').textContent=msg;
+  document.getElementById('pt-goover-btn1').onclick=resetPortalLevel;
+  document.getElementById('pt-goover').classList.add('on');
+}
+function ptWin(){
+  ptRunning=false;
+  var t=((performance.now()-ptStartT)/1000).toFixed(1);
+  beep(600,.2,.1,'sine');
+  var isLast=ptLevelIdx>=PT_LEVELS.length-1;
+  lastGame='portal';lastScore=t;
+  document.getElementById('pt-goover-ico').textContent='🌀';
+  document.getElementById('pt-goover-title').textContent='¡Meta alcanzada!';
+  document.getElementById('pt-goover-sub').textContent='Tiempo: '+t+'s'+(isLast?' · ¡Todos los niveles superados!':'');
+  document.getElementById('pt-goover-btn1').textContent=isLast?'Reiniciar juego':'Siguiente nivel →';
+  document.getElementById('pt-goover-btn1').onclick=function(){ptLevelIdx=isLast?0:ptLevelIdx+1;document.getElementById('pt-goover').classList.remove('on');ptBuildLevel();};
+  document.getElementById('pt-goover').classList.add('on');
+}
+function ptDraw(){
+  ptCtx.fillStyle='#060B1E';ptCtx.fillRect(0,0,ptW,ptH);
+  ptCtx.fillStyle='#334155';
+  for(var i=0;i<ptWalls.length;i++){var w=ptWalls[i];ptCtx.fillRect(w.x,w.y,w.w,w.h);}
+  var gg=ptCtx.createRadialGradient(ptTarget.x,ptTarget.y,0,ptTarget.x,ptTarget.y,ptTarget.r);
+  gg.addColorStop(0,'rgba(34,197,94,.55)');gg.addColorStop(1,'rgba(34,197,94,.08)');
+  ptCtx.fillStyle=gg;ptCtx.beginPath();ptCtx.arc(ptTarget.x,ptTarget.y,ptTarget.r,0,7);ptCtx.fill();
+  ptCtx.strokeStyle='#22C55E';ptCtx.lineWidth=2;ptCtx.stroke();
+  if(ptPortalA){ptCtx.fillStyle='#F97316';ptCtx.beginPath();ptCtx.arc(ptPortalA.x,ptPortalA.y,13,0,7);ptCtx.fill();}
+  if(ptPortalB){ptCtx.fillStyle='#38BDF8';ptCtx.beginPath();ptCtx.arc(ptPortalB.x,ptPortalB.y,13,0,7);ptCtx.fill();}
+  ptCtx.fillStyle='#F0F4FF';ptCtx.beginPath();ptCtx.arc(ptBall.x,ptBall.y,ptBall.r,0,7);ptCtx.fill();
+}
 </script>
 </template>
 

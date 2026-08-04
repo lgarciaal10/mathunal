@@ -1,5 +1,5 @@
-/* MathUNAL Service Worker — offline-first para app shell, network-first para CDN */
-const CACHE = 'mathunal-v37';
+﻿/* MathUNAL Service Worker â€” offline-first para app shell, network-first para CDN */
+const CACHE = 'mathunal-v38';
 const SHELL = [
   './',
   './index.html',
@@ -17,7 +17,7 @@ const CDN = [
 self.addEventListener('install', function(e){
   e.waitUntil(
     caches.open(CACHE).then(function(c){
-      // Cachea el shell local; intenta el CDN sin bloquear la instalación si falla
+      // Cachea el shell local; intenta el CDN sin bloquear la instalaciÃ³n si falla
       return c.addAll(SHELL).then(function(){
         return Promise.allSettled(CDN.map(function(u){
           return fetch(u, {mode:'cors'}).then(function(r){ if(r.ok) return c.put(u, r); });
@@ -38,7 +38,7 @@ self.addEventListener('activate', function(e){
 self.addEventListener('fetch', function(e){
   var req = e.request;
   if (req.method !== 'GET') return;
-  // Cache-first con actualización en segundo plano (stale-while-revalidate)
+  // Cache-first con actualizaciÃ³n en segundo plano (stale-while-revalidate)
   e.respondWith(
     caches.match(req).then(function(cached){
       var net = fetch(req).then(function(res){
