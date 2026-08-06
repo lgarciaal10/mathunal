@@ -9518,8 +9518,11 @@ function _finishExam(){
   var mcq_score=mcq_tot>0?(mcq_ok/mcq_tot)*100:100;
   var open_score=open_max>0?(open_pts/open_max)*100:100;
   var hint_pen=_hintUsed.length*0.2;
-  var wm=mcq_tot>0?0.6:0, wo=open_max>0?0.4:0;
-  if(wm===0&&wo===0) wm=1;
+  var wm, wo;
+  if(mcq_tot>0&&open_max>0){ wm=0.6; wo=0.4; }
+  else if(mcq_tot>0){ wm=1; wo=0; }
+  else if(open_max>0){ wm=0; wo=1; }
+  else { wm=1; wo=0; }
   var nota=Math.max(0,Math.min(5,(mcq_score*wm+open_score*wo)/100*5-hint_pen));
   var passed=nota>=3.0;
 
