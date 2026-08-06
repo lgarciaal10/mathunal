@@ -107,7 +107,7 @@ img{max-width:100%;display:block}
   --red:   #FB7185;
   --t1:    #F0F4FF;
   --t2:    #94ADDA;
-  --t3:    #5C7199;
+  --t3:    #7C90B4;
   --br:    rgba(255,255,255,.06);
   /* Capas elevadas (fondos sutiles de botones/pills/hovers). En oscuro se
      ILUMINAN con blanco translucido; en claro deben OSCURECER con negro
@@ -128,7 +128,7 @@ img{max-width:100%;display:block}
 
 html[data-theme="gray"]{
   --bg:#111114;--bg2:#1A1A1E;--card:#222226;--card2:#2A2A30;
-  --t1:#F0F0F3;--t2:#9898A8;--t3:#65657A;
+  --t1:#F0F0F3;--t2:#9898A8;--t3:#8B8BA0;
   --br:rgba(255,255,255,.08);
   --lay1:rgba(255,255,255,.03);--lay2:rgba(255,255,255,.05);--lay3:rgba(255,255,255,.09);--lay4:rgba(255,255,255,.14);
   --br2:rgba(255,255,255,.14);
@@ -1191,7 +1191,7 @@ html[data-theme="gray"]{
 /* 2. Anillo de progreso (ruta de estudio): se dibuja solo al cargar,
       en vez de aparecer ya lleno. El valor sigue siendo el real. */
 @keyframes ringDraw{from{stroke-dashoffset:var(--ring-circ,201)}}
-.mu-ruta-ring svg circle:last-child,.cb-ring svg circle:last-child{animation:ringDraw .9s ease-out}
+.cb-ring svg circle:last-child{animation:ringDraw .9s ease-out}
 
 /* 3. Marcar para revisar: el boton confirma el toggle con un pulso. */
 @keyframes flagPop{0%{transform:scale(1)}40%{transform:scale(1.06)}100%{transform:scale(1)}}
@@ -2834,9 +2834,6 @@ body{font-family:'Space Grotesk',system-ui,sans-serif;background:var(--bg);color
    asi que el padding-top no puede ir en la clase compartida o duplicaria el
    espacio en medio de la pagina. */
 .mu-ruta-page{padding-top:90px}
-/* .mu-ruta-hero/.mu-ruta-ring* quedan huerfanas desde aqui -- el anillo grande
-   se reemplazo por la fila de KPIs de abajo, se dejan sin usar en vez de
-   borrarlas a ciegas por si algo mas las referencia. */
 .mu-kpi-row{display:grid;grid-template-columns:repeat(2,1fr);gap:.7rem;margin-bottom:16px;max-width:480px}
 @media(max-width:500px){.mu-kpi-row{grid-template-columns:repeat(2,1fr);max-width:none}}
 .mu-kpi-card{background:var(--card);border:1.5px solid var(--br2);border-radius:12px;padding:.85rem 1rem}
@@ -2844,9 +2841,6 @@ body{font-family:'Space Grotesk',system-ui,sans-serif;background:var(--bg);color
 .mu-kpi-val{font-size:1.25rem;font-weight:800;color:var(--t1);line-height:1.15}
 .mu-kpi-sub{font-size:.68rem;color:var(--t3);margin-top:.2rem}
 .mu-ruta-hero{display:flex;align-items:center;gap:20px;background:var(--card);border:2px solid var(--br2);border-radius:16px;padding:18px 22px;margin-bottom:16px}
-.mu-ruta-ring{position:relative;width:72px;height:72px;flex-shrink:0}
-.mu-ruta-ring svg{transform:rotate(-90deg)}
-.mu-ruta-ring-txt{position:absolute;inset:0;display:grid;place-items:center;font-family:'IBM Plex Mono',monospace;font-weight:700;font-size:1rem;color:var(--t1)}
 .mu-ruta-hero-title{font-family:'Literata',serif;font-weight:700;font-size:1.02rem;color:var(--t1)}
 .mu-ruta-hero-sub{color:var(--t2);font-size:.83rem;margin-top:2px}
 .mu-ruta-path{position:relative;padding-left:32px;max-width:560px}
@@ -8283,10 +8277,6 @@ function _muSpEnd(){
 
   <!-- Header de la materia -->
   <div class="mu-ruta-hero" style="margin-bottom:1rem">
-    <div class="mu-ruta-ring" id="mu-ring-host">
-      <svg width="72" height="72"><circle cx="36" cy="36" r="28" stroke="var(--br2)" stroke-width="5" fill="none"/><circle cx="36" cy="36" r="28" stroke="var(--acc)" stroke-width="5" fill="none" stroke-dasharray="176" stroke-dashoffset="176" stroke-linecap="round"/></svg>
-      <div class="mu-ruta-ring-txt" id="mu-ring-pct">0%</div>
-    </div>
     <div>
       <div id="mu-badges" style="display:flex;gap:.4rem;flex-wrap:wrap;margin-bottom:.4rem"></div>
       <div class="mu-ruta-hero-title" id="mu-subj-title" style="font-size:1.2rem">Cargando…</div>
@@ -9760,7 +9750,7 @@ function _showScreen(id){
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
   --bg:#060B1E;--bg2:#0E1630;--card:#121B35;
-  --acc:#E8632A;--t1:#F0F4FF;--t2:#A8B4D0;--t3:#5A6A8A;
+  --acc:#E8632A;--t1:#F0F4FF;--t2:#A8B4D0;--t3:#7C90B4;
   --br:rgba(255,255,255,.08);--br2:rgba(255,255,255,.14);
   --grn:#22C55E;--red:#EF4444;--yel:#F59E0B;--purple:#7C3AED;
 }
@@ -13090,7 +13080,8 @@ function muNav(href) {
     } else {
       // in-page anchor
       var el = document.getElementById(page);
-      if (el) el.scrollIntoView({behavior:'smooth'});
+      if (el) { el.scrollIntoView({behavior:'smooth'}); }
+      else { _loadPage(href); }
     }
   }
 }
