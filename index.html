@@ -9821,6 +9821,14 @@ html,body{height:100%;background:var(--bg);color:var(--t1);font-family:'Space Gr
 .rfoot-btn.ghost{background:rgba(255,255,255,.07);border:1.5px solid var(--br2);color:var(--t1);}
 .rfoot-btn:hover{filter:brightness(1.1);}
 
+.vc-btnrow{display:flex;gap:.5rem;flex-wrap:wrap;}
+.vc-vbtn{padding:.55rem 1rem;border-radius:9px;font-size:.85rem;font-weight:700;
+  cursor:pointer;font-family:'IBM Plex Mono',monospace;border:1.5px solid var(--br2);
+  background:rgba(255,255,255,.06);color:var(--t1);transition:all .15s;}
+.vc-vbtn:hover{filter:brightness(1.15);transform:translateY(-1px);}
+.vc-vbtn:disabled{opacity:.35;cursor:not-allowed;transform:none;}
+.vc-vbtn.trap{border-color:rgba(239,68,68,.35);}
+
 /* ══ CASILLAS ══ */
 .casillas-wrap{flex:1;display:flex;flex-direction:column;}
 .cas-body{flex:1;display:flex;flex-direction:column;align-items:center;
@@ -9946,19 +9954,19 @@ html,body{height:100%;background:var(--bg);color:var(--t1);font-family:'Space Gr
       <div class="gc-tags"><span class="tag">Cálculo Integral</span><span class="tag">Estimación</span><span class="tag">5 niveles</span></div>
       <button class="gc-btn" style="background:var(--grn)" onclick="startRiemann()">Jugar →</button>
     </div>
-    <div class="gc" style="--gc:#22C55E;opacity:.65">
+    <div class="gc" style="--gc:#22C55E">
       <div class="gc-ico">🔀</div>
       <div class="gc-name">Vectores</div>
       <div class="gc-desc">Navega una cuadrícula eligiendo vectores. Llega exactamente al destino sin pasarte. Suma de vectores sin saberlo.</div>
-      <div class="gc-tags"><span class="tag">Próximamente</span></div>
-      <button class="gc-btn dis" style="background:var(--grn)" disabled>Próximamente</button>
+      <div class="gc-tags"><span class="tag">Vectores</span><span class="tag">Suma</span><span class="tag">6 niveles</span></div>
+      <button class="gc-btn" style="background:var(--grn)" onclick="startVectores()">Jugar →</button>
     </div>
-    <div class="gc" style="--gc:#F59E0B;opacity:.65">
+    <div class="gc" style="--gc:#F59E0B">
       <div class="gc-ico">⚖️</div>
       <div class="gc-name">Equilibra</div>
-      <div class="gc-desc">Arrastra pesas a una balanza para equilibrarla. Intuición algebraica pura — cada nivel es una ecuación disfrazada.</div>
-      <div class="gc-tags"><span class="tag">Próximamente</span></div>
-      <button class="gc-btn dis" style="background:var(--yel)" disabled>Próximamente</button>
+      <div class="gc-desc">Agrega o quita pesas a una balanza para equilibrarla. Intuición algebraica pura — cada nivel es una ecuación disfrazada.</div>
+      <div class="gc-tags"><span class="tag">Ecuaciones</span><span class="tag">Balanza</span><span class="tag">6 niveles</span></div>
+      <button class="gc-btn" style="background:var(--yel)" onclick="startEquilibra()">Jugar →</button>
     </div>
     <div class="gc" style="--gc:#38BDF8">
       <div class="gc-ico">🧩</div>
@@ -10193,6 +10201,175 @@ html,body{height:100%;background:var(--bg);color:var(--t1);font-family:'Space Gr
 </div>
 </div>
 
+<!-- ══ VECTORES ══ -->
+<div class="scr" id="scr-vectores">
+<div class="arc-wrap">
+  <div class="game-bar">
+    <button class="gbk" onclick="stopVectores();showScr('lobby')">← Salir</button>
+    <div class="gbar-center">
+      <div class="gbar-title">🔀 Vectores</div>
+      <div class="gbar-sub" id="vc-nivel-lbl">Nivel 1 de 6</div>
+    </div>
+    <div class="gbar-right">
+      <div class="gstat"><div class="gstat-n" id="vc-moves">0</div><div class="gstat-l">vectores</div></div>
+    </div>
+  </div>
+  <div class="arc-canvas-wrap" id="vc-wrap">
+    <canvas id="vc-canvas"></canvas>
+    <div class="mg-hint">Elige vectores de la lista para sumarlos punta con punta. Llega exacto al objetivo (⭐).</div>
+    <button class="arc-pause-btn" onclick="vcReset()" id="vc-reset-btn">↺ Reiniciar</button>
+    <div class="arc-start" id="vc-start">
+      <div class="arc-start-title">🔀 Vectores</div>
+      <div class="arc-start-desc">Parte del punto azul. Cada botón es un vector disponible: al elegirlo, se dibuja punta con punta desde tu posición actual y te mueves ahí. Combina los vectores que necesites, en cualquier orden, hasta caer exactamente sobre el objetivo (⭐). No todos los vectores sirven — algunos son trampas.</div>
+      <div class="arc-start-note">Sumar vectores es sumar sus componentes: (a,b) + (c,d) = (a+c, b+d). Dibujarlos punta con punta es la forma geométrica de hacer esa misma suma.</div>
+      <button class="arc-start-btn" style="--gc:#22C55E" onclick="beginVectores()">Jugar →</button>
+    </div>
+    <div class="arc-goover" id="vc-goover">
+      <div class="result-box">
+        <div class="res-ico" id="vc-goover-ico">🔀</div>
+        <div class="res-title" id="vc-goover-title">¡Llegaste!</div>
+        <div class="res-sub" id="vc-goover-sub"></div>
+        <div class="res-btns">
+          <button class="res-btn primary" id="vc-goover-btn1" onclick="vcNextLevel()">Siguiente nivel →</button>
+          <button class="res-btn ghost" onclick="stopVectores();showScr('lobby')">Salir al lobby</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="rebota-footer">
+    <div class="hint-box" id="vc-hint">Elige un vector para sumarlo a tu posición.</div>
+    <div class="vc-btnrow" id="vc-vecbtns"></div>
+    <button class="rfoot-btn ghost" onclick="vcUndo()">↺ Deshacer último</button>
+  </div>
+</div>
+</div>
+
+<!-- ══ EQUILIBRA ══ -->
+<div class="scr" id="scr-equilibra">
+<div class="arc-wrap">
+  <div class="game-bar">
+    <button class="gbk" onclick="stopEquilibra();showScr('lobby')">← Salir</button>
+    <div class="gbar-center">
+      <div class="gbar-title">⚖️ Equilibra</div>
+      <div class="gbar-sub" id="eq-nivel-lbl">Nivel 1 de 6</div>
+    </div>
+    <div class="gbar-right">
+      <div class="gstat"><div class="gstat-n" id="eq-moves">0</div><div class="gstat-l">movimientos</div></div>
+    </div>
+  </div>
+  <div class="arc-canvas-wrap" id="eq-wrap">
+    <canvas id="eq-canvas"></canvas>
+    <div class="mg-hint">Lo que le hagas a un lado, hazlo también al otro. Aísla la caja x sola.</div>
+    <button class="arc-pause-btn" onclick="eqReset()" id="eq-reset-btn">↺ Reiniciar</button>
+    <div class="arc-start" id="eq-start">
+      <div class="arc-start-title">⚖️ Equilibra</div>
+      <div class="arc-start-desc">La balanza empieza equilibrada: una ecuación real, disfrazada de pesas. La caja con "x" pesa un número desconocido. Agrega o quita pesas conocidas de cualquier lado — pero cada vez que lo hagas de un lado, debes hacer exactamente lo mismo del otro, o la balanza se desequilibra. Gana cuando la caja x quede sola de un lado.</div>
+      <div class="arc-start-note">Esto es la regla de oro del álgebra: lo que le haces a un lado de una ecuación, se lo haces al otro. Sumar, restar — siempre en espejo.</div>
+      <button class="arc-start-btn" style="--gc:#F59E0B" onclick="beginEquilibra()">Jugar →</button>
+    </div>
+    <div class="arc-goover" id="eq-goover">
+      <div class="result-box">
+        <div class="res-ico" id="eq-goover-ico">⚖️</div>
+        <div class="res-title" id="eq-goover-title">¡Equilibrado!</div>
+        <div class="res-sub" id="eq-goover-sub"></div>
+        <div class="res-btns">
+          <button class="res-btn primary" id="eq-goover-btn1" onclick="eqNextLevel()">Siguiente nivel →</button>
+          <button class="res-btn ghost" onclick="stopEquilibra();showScr('lobby')">Salir al lobby</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="rebota-footer">
+    <div class="hint-box" id="eq-hint">Elige una pesa y de qué lado agregarla o quitarla.</div>
+    <div class="vc-btnrow" id="eq-wtbtns"></div>
+  </div>
+</div>
+</div>
+
+<!-- ══ VECTORES ══ -->
+<div class="scr" id="scr-vectores">
+<div class="arc-wrap">
+  <div class="game-bar">
+    <button class="gbk" onclick="stopVectores();showScr('lobby')">← Salir</button>
+    <div class="gbar-center">
+      <div class="gbar-title">🔀 Vectores</div>
+      <div class="gbar-sub" id="vc-nivel-lbl">Nivel 1 de 6</div>
+    </div>
+    <div class="gbar-right">
+      <div class="gstat"><div class="gstat-n" id="vc-moves">0</div><div class="gstat-l">vectores</div></div>
+    </div>
+  </div>
+  <div class="arc-canvas-wrap" id="vc-wrap">
+    <canvas id="vc-canvas"></canvas>
+    <div class="mg-hint">Elige vectores para sumarlos a tu posición actual. Llega EXACTO al destino ⭐.</div>
+    <button class="arc-pause-btn" onclick="vcReset()" id="vc-reset-btn">↺ Reiniciar</button>
+    <div class="arc-start" id="vc-start">
+      <div class="arc-start-title">🔀 Vectores</div>
+      <div class="arc-start-desc">Parte del origen. En cada turno eliges uno de los vectores disponibles y se suma a tu posición actual, dibujando una flecha punta con punta. Llega exactamente al destino marcado con ⭐.</div>
+      <div class="arc-start-note">Esto es suma de vectores real: cada flecha se coloca donde terminó la anterior, componente a componente (x,y) + (x,y).</div>
+      <button class="arc-start-btn" style="--gc:#22C55E" onclick="beginVectores()">Jugar →</button>
+    </div>
+    <div class="arc-goover" id="vc-goover">
+      <div class="result-box">
+        <div class="res-ico" id="vc-goover-ico">🔀</div>
+        <div class="res-title" id="vc-goover-title">¡Llegaste!</div>
+        <div class="res-sub" id="vc-goover-sub"></div>
+        <div class="res-btns">
+          <button class="res-btn primary" id="vc-goover-btn1" onclick="vcNextLevel()">Siguiente nivel →</button>
+          <button class="res-btn ghost" onclick="stopVectores();showScr('lobby')">Salir al lobby</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="rebota-footer" id="vc-footer">
+    <div class="hint-box">Vectores disponibles:</div>
+    <button class="rfoot-btn ghost" onclick="vcUndo()">↩ Deshacer</button>
+  </div>
+</div>
+</div>
+
+<!-- ══ EQUILIBRA ══ -->
+<div class="scr" id="scr-equilibra">
+<div class="arc-wrap">
+  <div class="game-bar">
+    <button class="gbk" onclick="stopEquilibra();showScr('lobby')">← Salir</button>
+    <div class="gbar-center">
+      <div class="gbar-title">⚖️ Equilibra</div>
+      <div class="gbar-sub" id="eq-nivel-lbl">Nivel 1 de 6</div>
+    </div>
+    <div class="gbar-right">
+      <div class="gstat"><div class="gstat-n" id="eq-moves">0</div><div class="gstat-l">movimientos</div></div>
+    </div>
+  </div>
+  <div class="arc-canvas-wrap" id="eq-wrap">
+    <canvas id="eq-canvas"></canvas>
+    <div class="mg-hint">Quita pesas de la balanza. Lo que le quites a un lado se le quita también al otro, para no perder el equilibrio.</div>
+    <button class="arc-pause-btn" onclick="eqReset()" id="eq-reset-btn">↺ Reiniciar</button>
+    <div class="arc-start" id="eq-start">
+      <div class="arc-start-title">⚖️ Equilibra</div>
+      <div class="arc-start-desc">La balanza tiene una caja con x de peso desconocido más algunas pesas de un lado, y solo pesas del otro. Elige una pesa para quitarla de AMBOS lados a la vez. Ganas cuando solo quede la caja x de un lado y un número puro del otro: ese número es el valor de x.</div>
+      <div class="arc-start-note">Esta es la regla real para resolver ecuaciones: lo que le haces a un lado de la igualdad, se lo tienes que hacer también al otro.</div>
+      <button class="arc-start-btn" style="--gc:#F59E0B" onclick="beginEquilibra()">Jugar →</button>
+    </div>
+    <div class="arc-goover" id="eq-goover">
+      <div class="result-box">
+        <div class="res-ico" id="eq-goover-ico">⚖️</div>
+        <div class="res-title" id="eq-goover-title">¡Equilibrado!</div>
+        <div class="res-sub" id="eq-goover-sub"></div>
+        <div class="res-btns">
+          <button class="res-btn primary" id="eq-goover-btn1" onclick="eqNextLevel()">Siguiente nivel →</button>
+          <button class="res-btn ghost" onclick="stopEquilibra();showScr('lobby')">Salir al lobby</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="rebota-footer" id="eq-footer">
+    <div class="hint-box">Pesas del lado de la caja x:</div>
+    <button class="rfoot-btn ghost" onclick="eqUndo()">↩ Deshacer</button>
+  </div>
+</div>
+</div>
+
 <!-- RESULTADO OVERLAY -->
 <div class="result-ov" id="result-ov">
   <div class="result-box">
@@ -10241,7 +10418,7 @@ function toast(msg){
 }
 var lastGame='rebota',lastScore=0;
 function compartir(){
-  var nombres={rebota:'Rebota',casillas:'Casillas',portal:'Portal'};
+  var nombres={rebota:'Rebota',casillas:'Casillas',portal:'Portal',vectores:'Vectores',equilibra:'Equilibra'};
   var unidad=lastGame==='portal'?'segundos':'movimientos';
   var txt=`🎱 MathUNAL Juegos: ${nombres[lastGame]||lastGame} — resuelto en ${lastScore} ${unidad}. ¿Me superas? mathunal.github.io`;
   if(navigator.share)navigator.share({text:txt});
@@ -11311,6 +11488,315 @@ function dsDraw(){
     if(dsCtx.roundRect) dsCtx.roundRect(px+1,py+1,dsCell-2,dsCell-2,4); else dsCtx.rect(px+1,py+1,dsCell-2,dsCell-2);
     dsCtx.fill();
   }
+}
+
+// ══════════════════════════════════
+// JUEGO: VECTORES
+// ══════════════════════════════════
+var vcCanvas,vcCtx,vcW,vcH,vcRunning=false;
+var vcLevelIdx=0,vcPos={x:0,y:0},vcPath=[],vcMoves=0,vcLevel=null;
+var VC_LEVELS=[
+  {start:{x:0,y:0},target:{x:3,y:2},half:5,vecs:[{x:2,y:1},{x:1,y:1},{x:1,y:-1,trap:true}]},
+  {start:{x:0,y:0},target:{x:5,y:-1},half:6,vecs:[{x:3,y:-2},{x:2,y:1},{x:1,y:1,trap:true}]},
+  {start:{x:0,y:0},target:{x:-2,y:4},half:6,vecs:[{x:-3,y:2},{x:1,y:2},{x:2,y:-1,trap:true},{x:1,y:1,trap:true}]},
+  {start:{x:0,y:0},target:{x:4,y:4},half:6,vecs:[{x:2,y:1},{x:1,y:3},{x:1,y:0},{x:-1,y:2,trap:true}]},
+  {start:{x:0,y:0},target:{x:-3,y:-3},half:6,vecs:[{x:-1,y:-2},{x:-2,y:-1},{x:1,y:1,trap:true},{x:3,y:0,trap:true}]},
+  {start:{x:0,y:0},target:{x:6,y:-2},half:7,vecs:[{x:3,y:0},{x:2,y:-3},{x:1,y:1},{x:-1,y:2,trap:true},{x:2,y:2,trap:true}]},
+];
+function startVectores(){
+  showScr('vectores');vcLevelIdx=0;
+  document.getElementById('vc-start').style.display='flex';
+  document.getElementById('vc-goover').classList.remove('on');
+  var d=fitCanvas(document.getElementById('vc-canvas'),'vc-wrap');vcW=d.w;vcH=d.h;
+  vcCtx=document.getElementById('vc-canvas').getContext('2d');
+  vcCtx.fillStyle='#060B1E';vcCtx.fillRect(0,0,vcW,vcH);
+  window.addEventListener('resize',vcResizeHandler);
+}
+function vcResizeHandler(){
+  if(!document.getElementById('scr-vectores').classList.contains('on'))return;
+  var d=fitCanvas(document.getElementById('vc-canvas'),'vc-wrap');vcW=d.w;vcH=d.h;
+  if(vcLevel)vcDraw();
+}
+function stopVectores(){vcRunning=false;window.removeEventListener('resize',vcResizeHandler);}
+function beginVectores(){
+  document.getElementById('vc-start').style.display='none';
+  document.getElementById('vc-goover').classList.remove('on');
+  var d=fitCanvas(document.getElementById('vc-canvas'),'vc-wrap');vcW=d.w;vcH=d.h;
+  vcBuildLevel();
+}
+function vcBuildLevel(){
+  document.getElementById('vc-goover').classList.remove('on');
+  vcLevel=VC_LEVELS[Math.min(vcLevelIdx,VC_LEVELS.length-1)];
+  vcPos={x:vcLevel.start.x,y:vcLevel.start.y};
+  vcPath=[];vcMoves=0;
+  document.getElementById('vc-nivel-lbl').textContent='Nivel '+(vcLevelIdx+1)+' de '+VC_LEVELS.length;
+  document.getElementById('vc-moves').textContent='0';
+  vcRunning=true;
+  vcBuildButtons();
+  vcDraw();
+}
+function vcBuildButtons(){
+  var wrap=document.getElementById('vc-vecbtns');
+  wrap.innerHTML='';
+  vcLevel.vecs.forEach(function(v,i){
+    var b=document.createElement('button');
+    b.className='vc-vbtn';
+    b.textContent='('+v.x+', '+v.y+')';
+    b.onclick=function(){vcApply(i);};
+    wrap.appendChild(b);
+  });
+}
+function vcApply(i){
+  if(!vcRunning||!vcLevel)return;
+  var v=vcLevel.vecs[i];
+  vcPath.push(v);
+  vcPos={x:vcPos.x+v.x,y:vcPos.y+v.y};
+  vcMoves++;
+  document.getElementById('vc-moves').textContent=vcMoves;
+  vcDraw();
+  beep(v.trap?300:440,.08,.06,'triangle');
+  if(vcPos.x===vcLevel.target.x && vcPos.y===vcLevel.target.y) vcWin();
+}
+function vcUndo(){
+  if(!vcRunning||!vcPath.length)return;
+  var v=vcPath.pop();
+  vcPos={x:vcPos.x-v.x,y:vcPos.y-v.y};
+  vcMoves++;
+  document.getElementById('vc-moves').textContent=vcMoves;
+  vcDraw();
+  beep(260,.1,.06,'sine');
+}
+function vcReset(){
+  document.getElementById('vc-goover').classList.remove('on');
+  if(!vcLevel)return;
+  vcPos={x:vcLevel.start.x,y:vcLevel.start.y};
+  vcPath=[];vcMoves=0;
+  document.getElementById('vc-moves').textContent='0';
+  vcRunning=true;
+  vcDraw();
+}
+function vcMinVecs(level){
+  var need={x:level.target.x-level.start.x,y:level.target.y-level.start.y};
+  var vecs=level.vecs,n=vecs.length,best=Infinity;
+  for(var mask=1;mask<(1<<n);mask++){
+    var sx=0,sy=0,cnt=0;
+    for(var i=0;i<n;i++){ if(mask&(1<<i)){sx+=vecs[i].x;sy+=vecs[i].y;cnt++;} }
+    if(sx===need.x&&sy===need.y&&cnt<best) best=cnt;
+  }
+  return best===Infinity?vcPath.length:best;
+}
+function vcWin(){
+  vcRunning=false;
+  var minVecs=vcMinVecs(vcLevel);
+  var perfect=vcPath.length<=minVecs;
+  var isLast=vcLevelIdx>=VC_LEVELS.length-1;
+  lastGame='vectores';lastScore=vcPath.length;
+  document.getElementById('vc-goover-ico').textContent=perfect?'🏆':'🔀';
+  document.getElementById('vc-goover-title').textContent='¡Llegaste al objetivo!';
+  document.getElementById('vc-goover-sub').textContent='Lo lograste con '+vcPath.length+' vector'+(vcPath.length===1?'':'es')+' · El mínimo posible era '+minVecs+'.';
+  document.getElementById('vc-goover-btn1').textContent=isLast?'Reiniciar juego':'Siguiente nivel →';
+  document.getElementById('vc-goover').classList.add('on');
+  beep(650,.2,.1,'sine');
+}
+function vcNextLevel(){
+  document.getElementById('vc-goover').classList.remove('on');
+  var isLast=vcLevelIdx>=VC_LEVELS.length-1;
+  vcLevelIdx=isLast?0:vcLevelIdx+1;
+  vcBuildLevel();
+}
+function vcDrawArrowHead(p0,p1,color){
+  var ang=Math.atan2(p1.y-p0.y,p1.x-p0.x);
+  var len=10;
+  vcCtx.fillStyle=color;
+  vcCtx.beginPath();
+  vcCtx.moveTo(p1.x,p1.y);
+  vcCtx.lineTo(p1.x-len*Math.cos(ang-0.4),p1.y-len*Math.sin(ang-0.4));
+  vcCtx.lineTo(p1.x-len*Math.cos(ang+0.4),p1.y-len*Math.sin(ang+0.4));
+  vcCtx.closePath();vcCtx.fill();
+}
+function vcDraw(){
+  if(!vcCtx||!vcLevel)return;
+  vcCtx.fillStyle='#060B1E';vcCtx.fillRect(0,0,vcW,vcH);
+  var half=vcLevel.half;
+  var scale=Math.min(vcW,vcH)/(half*2+2);
+  var cx=vcW/2,cy=vcH/2;
+  function toPx(gx,gy){return {x:cx+gx*scale,y:cy-gy*scale};}
+  vcCtx.strokeStyle='rgba(255,255,255,.08)';vcCtx.lineWidth=1;
+  for(var g=-half;g<=half;g++){
+    var p1=toPx(g,-half),p2=toPx(g,half);
+    vcCtx.beginPath();vcCtx.moveTo(p1.x,p1.y);vcCtx.lineTo(p2.x,p2.y);vcCtx.stroke();
+    var p3=toPx(-half,g),p4=toPx(half,g);
+    vcCtx.beginPath();vcCtx.moveTo(p3.x,p3.y);vcCtx.lineTo(p4.x,p4.y);vcCtx.stroke();
+  }
+  vcCtx.strokeStyle='rgba(255,255,255,.22)';vcCtx.lineWidth=1.5;
+  var ax1=toPx(-half,0),ax2=toPx(half,0),ay1=toPx(0,-half),ay2=toPx(0,half);
+  vcCtx.beginPath();vcCtx.moveTo(ax1.x,ax1.y);vcCtx.lineTo(ax2.x,ax2.y);vcCtx.stroke();
+  vcCtx.beginPath();vcCtx.moveTo(ay1.x,ay1.y);vcCtx.lineTo(ay2.x,ay2.y);vcCtx.stroke();
+  var sp=toPx(vcLevel.start.x,vcLevel.start.y);
+  vcCtx.fillStyle='rgba(255,255,255,.4)';
+  vcCtx.beginPath();vcCtx.arc(sp.x,sp.y,4,0,Math.PI*2);vcCtx.fill();
+  var tp=toPx(vcLevel.target.x,vcLevel.target.y);
+  vcCtx.font='22px sans-serif';vcCtx.textAlign='center';vcCtx.textBaseline='middle';
+  vcCtx.fillText('⭐',tp.x,tp.y);
+  var pos={x:vcLevel.start.x,y:vcLevel.start.y};
+  vcCtx.lineWidth=3;
+  vcPath.forEach(function(v){
+    var p0=toPx(pos.x,pos.y);
+    var np={x:pos.x+v.x,y:pos.y+v.y};
+    var p1=toPx(np.x,np.y);
+    vcCtx.strokeStyle=v.trap?'#EF4444':'#22C55E';
+    vcCtx.beginPath();vcCtx.moveTo(p0.x,p0.y);vcCtx.lineTo(p1.x,p1.y);vcCtx.stroke();
+    vcDrawArrowHead(p0,p1,v.trap?'#EF4444':'#22C55E');
+    pos=np;
+  });
+  var cp=toPx(pos.x,pos.y);
+  vcCtx.fillStyle='#38BDF8';
+  vcCtx.beginPath();vcCtx.arc(cp.x,cp.y,6,0,Math.PI*2);vcCtx.fill();
+  vcCtx.strokeStyle='#fff';vcCtx.lineWidth=2;vcCtx.stroke();
+}
+
+// ══════════════════════════════════
+// JUEGO: EQUILIBRA
+// ══════════════════════════════════
+var eqCanvas,eqCtx,eqW,eqH,eqRunning=false;
+var eqLevelIdx=0,eqLevel=null,eqLeftSum=0,eqRightSum=0,eqXVal=0,eqMoves=0;
+var EQ_LEVELS=[
+  {a:5, x:7, pool:[5,3,2]},
+  {a:8, x:4, pool:[5,3,4,2]},
+  {a:10, x:6, pool:[6,4,3,7]},
+  {a:15, x:9, pool:[9,6,5,4,1]},
+  {a:13, x:11, pool:[8,5,4,3,2,13]},
+  {a:20, x:15, pool:[12,8,7,5,3,9]},
+];
+function startEquilibra(){
+  showScr('equilibra');eqLevelIdx=0;
+  document.getElementById('eq-start').style.display='flex';
+  document.getElementById('eq-goover').classList.remove('on');
+  var d=fitCanvas(document.getElementById('eq-canvas'),'eq-wrap');eqW=d.w;eqH=d.h;
+  eqCtx=document.getElementById('eq-canvas').getContext('2d');
+  eqCtx.fillStyle='#060B1E';eqCtx.fillRect(0,0,eqW,eqH);
+  window.addEventListener('resize',eqResizeHandler);
+}
+function eqResizeHandler(){
+  if(!document.getElementById('scr-equilibra').classList.contains('on'))return;
+  var d=fitCanvas(document.getElementById('eq-canvas'),'eq-wrap');eqW=d.w;eqH=d.h;
+  if(eqLevel)eqDraw();
+}
+function stopEquilibra(){eqRunning=false;window.removeEventListener('resize',eqResizeHandler);}
+function beginEquilibra(){
+  document.getElementById('eq-start').style.display='none';
+  document.getElementById('eq-goover').classList.remove('on');
+  var d=fitCanvas(document.getElementById('eq-canvas'),'eq-wrap');eqW=d.w;eqH=d.h;
+  eqBuildLevel();
+}
+function eqBuildLevel(){
+  document.getElementById('eq-goover').classList.remove('on');
+  eqLevel=EQ_LEVELS[Math.min(eqLevelIdx,EQ_LEVELS.length-1)];
+  eqXVal=eqLevel.x;
+  eqLeftSum=eqLevel.a;
+  eqRightSum=eqLevel.a+eqLevel.x;
+  eqMoves=0;
+  document.getElementById('eq-nivel-lbl').textContent='Nivel '+(eqLevelIdx+1)+' de '+EQ_LEVELS.length;
+  document.getElementById('eq-moves').textContent='0';
+  eqRunning=true;
+  eqBuildButtons();
+  eqDraw();
+}
+function eqBuildButtons(){
+  var wrap=document.getElementById('eq-wtbtns');
+  wrap.innerHTML='';
+  eqLevel.pool.forEach(function(val){
+    var bp=document.createElement('button');
+    bp.className='vc-vbtn';
+    bp.textContent='+'+val;
+    bp.onclick=function(){eqApply(val,1);};
+    wrap.appendChild(bp);
+    var bm=document.createElement('button');
+    bm.className='vc-vbtn';
+    bm.textContent='−'+val;
+    bm.id='eq-minus-'+val;
+    bm.onclick=function(){eqApply(val,-1);};
+    wrap.appendChild(bm);
+  });
+  eqUpdateButtons();
+}
+function eqUpdateButtons(){
+  eqLevel.pool.forEach(function(val){
+    var bm=document.getElementById('eq-minus-'+val);
+    if(bm) bm.disabled = val>eqLeftSum;
+  });
+}
+function eqApply(val,sign){
+  if(!eqRunning||!eqLevel)return;
+  if(sign<0 && val>eqLeftSum)return;
+  eqLeftSum+=sign*val;
+  eqRightSum+=sign*val;
+  eqMoves++;
+  document.getElementById('eq-moves').textContent=eqMoves;
+  eqUpdateButtons();
+  eqDraw();
+  beep(sign>0?420:340,.08,.06,'triangle');
+  if(eqLeftSum===0) eqWin();
+}
+function eqReset(){
+  document.getElementById('eq-goover').classList.remove('on');
+  if(!eqLevel)return;
+  eqLeftSum=eqLevel.a;
+  eqRightSum=eqLevel.a+eqLevel.x;
+  eqMoves=0;
+  document.getElementById('eq-moves').textContent='0';
+  eqRunning=true;
+  eqUpdateButtons();
+  eqDraw();
+}
+function eqWin(){
+  eqRunning=false;
+  var isLast=eqLevelIdx>=EQ_LEVELS.length-1;
+  lastGame='equilibra';lastScore=eqMoves;
+  document.getElementById('eq-goover-ico').textContent='⚖️';
+  document.getElementById('eq-goover-title').textContent='¡Equilibrado!';
+  document.getElementById('eq-goover-sub').textContent='x = '+eqRightSum+' · Lo aislaste en '+eqMoves+' movimiento'+(eqMoves===1?'':'s')+'.';
+  document.getElementById('eq-goover-btn1').textContent=isLast?'Reiniciar juego':'Siguiente nivel →';
+  document.getElementById('eq-goover').classList.add('on');
+  beep(650,.2,.1,'sine');
+}
+function eqNextLevel(){
+  document.getElementById('eq-goover').classList.remove('on');
+  var isLast=eqLevelIdx>=EQ_LEVELS.length-1;
+  eqLevelIdx=isLast?0:eqLevelIdx+1;
+  eqBuildLevel();
+}
+function eqDrawPan(cx,cy,label,tilt){
+  eqCtx.strokeStyle='rgba(255,255,255,.5)';eqCtx.lineWidth=2;
+  eqCtx.beginPath();eqCtx.moveTo(cx,cy-38);eqCtx.lineTo(cx,cy);eqCtx.stroke();
+  eqCtx.beginPath();eqCtx.ellipse(cx,cy+10,46,14,0,0,Math.PI*2);
+  eqCtx.fillStyle='rgba(255,255,255,.1)';eqCtx.fill();
+  eqCtx.strokeStyle='rgba(255,255,255,.4)';eqCtx.stroke();
+  eqCtx.font='bold 16px IBM Plex Mono';eqCtx.textAlign='center';eqCtx.textBaseline='middle';
+  eqCtx.fillStyle='#F0F4FF';eqCtx.fillText(label,cx,cy-18);
+}
+function eqDraw(){
+  if(!eqCtx||!eqLevel)return;
+  eqCtx.fillStyle='#060B1E';eqCtx.fillRect(0,0,eqW,eqH);
+  var cx=eqW/2,cy=eqH*0.32;
+  // pie / soporte
+  eqCtx.strokeStyle='rgba(255,255,255,.35)';eqCtx.lineWidth=4;
+  eqCtx.beginPath();eqCtx.moveTo(cx,cy);eqCtx.lineTo(cx,cy+eqH*0.34);eqCtx.stroke();
+  eqCtx.beginPath();eqCtx.moveTo(cx-40,cy+eqH*0.34);eqCtx.lineTo(cx+40,cy+eqH*0.34);eqCtx.stroke();
+  // fulcro
+  eqCtx.fillStyle='#F59E0B';
+  eqCtx.beginPath();eqCtx.moveTo(cx,cy-8);eqCtx.lineTo(cx-14,cy+14);eqCtx.lineTo(cx+14,cy+14);eqCtx.closePath();eqCtx.fill();
+  // viga
+  var half=Math.min(eqW,eqH)*0.28;
+  eqCtx.strokeStyle='#F0F4FF';eqCtx.lineWidth=4;
+  eqCtx.beginPath();eqCtx.moveTo(cx-half,cy-6);eqCtx.lineTo(cx+half,cy-6);eqCtx.stroke();
+  var lx=cx-half,rx=cx+half,py=cy-6;
+  var leftLabel='x'+(eqLeftSum>0?' + '+eqLeftSum:'');
+  eqDrawPan(lx,py+70,leftLabel);
+  eqDrawPan(rx,py+70,''+eqRightSum);
+  eqCtx.font='13px IBM Plex Mono';eqCtx.textAlign='center';
+  eqCtx.fillStyle='rgba(255,255,255,.5)';
+  eqCtx.fillText('x + '+eqLeftSum+' = '+eqRightSum,cx,eqH*0.82);
 }
 </script>
 </template>
