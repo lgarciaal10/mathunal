@@ -1164,7 +1164,7 @@ html[data-theme="gray"]{
 .cb-ring b{position:absolute;inset:0;display:grid;place-items:center;font-family:'IBM Plex Mono',monospace;font-size:.6rem;color:var(--t1)}
 .cb-info{flex:1;min-width:0}
 .cb-t{font-family:'Literata',Georgia,serif;font-weight:700;font-size:.92rem;color:var(--t1);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.cb-s{font-family:'IBM Plex Mono',monospace;font-size:.66rem;color:var(--t3)}
+.cb-s{font-family:'IBM Plex Mono',monospace;font-size:.8rem;color:var(--t2)}
 .cb-btn{background:var(--acc);color:#fff;border:none;border-radius:9px;padding:.55rem 1.1rem;font-weight:700;font-size:.82rem;cursor:pointer;font-family:inherit;flex-shrink:0}
 
 /* ── Toast de autosave ── */
@@ -1227,7 +1227,7 @@ html[data-theme="gray"]{
 @media(prefers-reduced-motion:reduce){.expl-card.show{animation:none}}
 
 /* ── Tiempo por pregunta en el timer ── */
-.qtime-chip{font-family:'IBM Plex Mono',monospace;font-size:.7rem;color:var(--t3)}
+.qtime-chip{font-family:'IBM Plex Mono',monospace;font-size:.8rem;color:var(--t2)}
 .qtime-chip b{color:var(--t2);font-weight:600}
 .qtime-chip.slow b{color:var(--yel,#f59e0b)}
 
@@ -1275,7 +1275,7 @@ html[data-theme="gray"]{
 .intro-topics{display:flex;gap:.4rem;flex-wrap:wrap;justify-content:center;margin:0 1.6rem .8rem}
 .intro-topic-chip{font-family:'IBM Plex Mono',monospace;font-size:.68rem;color:var(--t2);background:var(--lay1);border:1.3px solid var(--br);border-radius:99px;padding:.2rem .6rem}
 .intro-types{display:flex;gap:.6rem;justify-content:center;margin:.8rem 1.6rem 0;font-family:'IBM Plex Mono',monospace;font-size:.72rem;color:var(--t3)}
-.intro-prereqs{margin:.5rem 1.6rem 0;font-family:'IBM Plex Mono',monospace;font-size:.7rem;color:var(--t3);text-align:center;line-height:1.7}
+.intro-prereqs{margin:.5rem 1.6rem 0;font-family:'IBM Plex Mono',monospace;font-size:.82rem;color:var(--t2);text-align:center;line-height:1.7}
 .intro-prereq-lbl{color:var(--t2);font-weight:600}
 .intro-rules{background:var(--bg2);border-radius:12px;padding:1rem 1.3rem;margin-bottom:1.6rem;list-style:none}
 .intro-rules li{font-size:1rem;color:var(--t2);line-height:1.9;display:flex;align-items:flex-start;gap:.5rem}
@@ -4586,7 +4586,7 @@ customElements.define('glass-element', GlassElement);
 </head>
 
 <body>
-<div id="mu-version-badge" style="position:fixed;bottom:6px;left:8px;z-index:99;font-family:IBM Plex Mono,monospace;font-size:.6rem;color:var(--t3);opacity:.4;pointer-events:none;letter-spacing:.05em">v24.0</div>
+<div id="mu-version-badge" style="position:fixed;bottom:6px;left:8px;z-index:99;font-family:IBM Plex Mono,monospace;font-size:.6rem;color:var(--t3);pointer-events:none;letter-spacing:.05em">v24.0</div>
 
 <div class="nav-aurora"></div>
 <a href="#mu-app" class="skip-link">Saltar al contenido</a>
@@ -4655,8 +4655,8 @@ customElements.define('glass-element', GlassElement);
       </div>
       <div class="bkl-anchors">
         <button class="bkl-anchor on" data-mat="todas" onclick="bancoFiltrar(this)">Todas</button>
-        <button class="bkl-anchor" data-mat="alglin" onclick="bancoFiltrar(this)"><span style="color:#60a5fa;margin-right:.25rem">⊕</span>Álgebra</button>
-        <button class="bkl-anchor" data-mat="calcdif" onclick="bancoFiltrar(this)"><span style="color:#fb923c;margin-right:.25rem">∂</span>Cálc. Dif.</button>
+        <button class="bkl-anchor" data-mat="alglin" onclick="bancoFiltrar(this)"><span style="color:#fb923c;margin-right:.25rem">⊕</span>Álgebra</button>
+        <button class="bkl-anchor" data-mat="calcdif" onclick="bancoFiltrar(this)"><span style="color:#60a5fa;margin-right:.25rem">∂</span>Cálc. Dif.</button>
         <button class="bkl-anchor" data-mat="calcint" onclick="bancoFiltrar(this)"><span style="color:#34d399;margin-right:.25rem">∫</span>Cálc. Int.</button>
         <button class="bkl-anchor" data-mat="edo" onclick="bancoFiltrar(this)"><span style="color:#fb7185;margin-right:.25rem">λ</span>EDO</button>
       </div>
@@ -4677,7 +4677,7 @@ var _bancoMatActiva = 'todas';
 var _bancoBusqueda  = '';
 
 function bancoFiltrar(btn) {
-  document.querySelectorAll('.bkf').forEach(function(b){b.classList.remove('on');});
+  document.querySelectorAll('.bkl-anchor').forEach(function(b){b.classList.remove('on');});
   btn.classList.add('on');
   _bancoMatActiva = btn.dataset.mat;
   bancoRender();
@@ -4689,7 +4689,9 @@ function bancoBuscar(q) {
   var hint=document.getElementById('bkl-hint');
   if(hint){
     var n=BANCO_EXAMENES.filter(function(e){
-      return !_bancoBusqueda||e.titulo.toLowerCase().includes(_bancoBusqueda)||e.temas.toLowerCase().includes(_bancoBusqueda)||String(e.anio).includes(_bancoBusqueda)||e.tipo.toLowerCase().includes(_bancoBusqueda);
+      var matchMat = _bancoMatActiva === 'todas' || e.mat === _bancoMatActiva;
+      var matchQ = !_bancoBusqueda||e.titulo.toLowerCase().includes(_bancoBusqueda)||e.temas.toLowerCase().includes(_bancoBusqueda)||String(e.anio).includes(_bancoBusqueda)||e.tipo.toLowerCase().includes(_bancoBusqueda);
+      return matchMat && matchQ;
     }).length;
     hint.textContent=_bancoBusqueda?(n+' resultado'+(n!==1?'s':'')):'';
   }
@@ -4703,7 +4705,7 @@ window.muApplyLang_banco = function(){
   if(sub) sub.textContent = en ? 'Real UNAL exams · With step-by-step procedure' : 'Parciales reales de la UNAL · Con procedimiento paso a paso';
   var search=document.querySelector('.bkl-search-inp');
   if(search) search.setAttribute('placeholder', en?'Search by subject, type or topic...':'Buscar por materia, tipo o tema...');
-  var anchorLabels = {todas:en?'All':'Todas', alglin:en?'Algebra':'Álgebra', calcdif:en?'Diff. Calc.':'Cálc. Dif.', calcint:en?'Int. Calc.':'Cálc. Int.', edo:'EDO'};
+  var anchorLabels = {todas:en?'All':'Todas', alglin:en?'Algebra':'Álgebra', calcdif:en?'Diff. Calc.':'Cálc. Dif.', calcint:en?'Int. Calc.':'Cálc. Int.', edo:en?'ODE':'EDO'};
   document.querySelectorAll('.bkl-anchor').forEach(function(btn){
     var mat=btn.getAttribute('data-mat');
     if(!anchorLabels[mat]) return;
@@ -4742,7 +4744,8 @@ function bancoRender() {
       +'</div>'
       +'<div class="bkl-grid">';
     examenes.forEach(function(e){
-      var tipoBg = tipoColors[e.tipo] || '#e05d1a';
+      var tipoKey = Object.keys(tipoColors).filter(function(k){ return e.tipo.indexOf(k)===0; }).sort(function(a,b){return b.length-a.length;})[0];
+      var tipoBg = tipoKey ? tipoColors[tipoKey] : '#e05d1a';
       var icoCheck='<svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-1px"><polyline points="20 6 9 17 4 12"/></svg>';
       var icoClock='<svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-1px"><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15.5 14"/></svg>';
       var icoCal='<svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-1px"><rect x="3" y="4" width="18" height="17" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="8" y1="2" x2="8" y2="5"/><line x1="16" y1="2" x2="16" y2="5"/></svg>';
@@ -5185,7 +5188,7 @@ bancoRender();
         <h2>Elige tu materia</h2>
       </div>
       <div class="sec-split-r">
-        10 materias del núcleo de matemáticas. Desde nivelatorio hasta semestre 5.
+        11 materias del núcleo de matemáticas. Desde nivelatorio hasta semestre 5.
         <br><br><strong>● <span id="total-pdfs" data-mu-pdfs>0</span> PDFs disponibles</strong>
       </div>
     </div>
@@ -6498,7 +6501,7 @@ var LANG_ES={
   "cat-tab1":"Talleres","cat-tab2":"Parciales Resueltos","cat-tab3":"Quices","cat-tab4":"Libros Guía","cat-tab5":"Notas de Clase",
   /* Materias */
   "mat-label":"Escuela de Matemáticas · UNAL Medellín","mat-h":"Elige tu materia",
-  "mat-sub":"6 materias del núcleo de matemáticas. Desde nivelatorio hasta semestre 4.",
+  "mat-sub":"11 materias del núcleo de matemáticas. Desde nivelatorio hasta semestre 5.",
   /* Simulacros */
   "sim-label":"Practica en condiciones reales",
   "sim-h":"Simula antes<br>de que sea real.","sim-sub":"Parciales de semestres anteriores como PDF descargable. Pon el cronómetro, cierra el libro y practica.",
@@ -6765,7 +6768,7 @@ var LANG_EN={
   "cat-tab1":"Workshops","cat-tab2":"Solved Exams","cat-tab3":"Quizzes","cat-tab4":"Textbooks","cat-tab5":"Class Notes",
   /* Materias */
   "mat-label":"School of Mathematics · UNAL Medellín","mat-h":"Choose your subject",
-  "mat-sub":"6 core math subjects. From pre-calculus to semester 4.",
+  "mat-sub":"11 core math subjects. From pre-calculus to semester 5.",
   /* Simulacros */
   "sim-label":"Practice under real conditions",
   "sim-h":"Simulate before<br>it gets real.","sim-sub":"Past exams as downloadable PDFs. Set the timer, close the book, and practice.",
@@ -7646,7 +7649,7 @@ function calcProm() {
   notaEl.style.color = prom >= 3.8 ? 'var(--grn)' : prom >= 2.95 ? 'var(--yel)' : 'var(--red)';
   
   var statusTxt = prom >= 4.5 ? 'Excelente · Honor roll' : prom >= 3.8 ? 'Muy bien · Sobresaliente' : prom >= 2.95 ? 'Aprobado (SIA redondea a '+prom.toFixed(1)+')' : 'Riesgo académico';
-  var statusCls = prom >= 3.0 ? (prom >= 3.8 ? 'ps-green' : 'ps-yellow') : 'ps-red';
+  var statusCls = prom >= 2.95 ? (prom >= 3.8 ? 'ps-green' : 'ps-yellow') : 'ps-red';
   statEl.innerHTML = '<span class="prom-status '+statusCls+'">'+statusTxt+'</span>';
   
   if(barEl) {
@@ -8546,7 +8549,7 @@ if(!window.__muSdClickBound){window.__muSdClickBound=true;document.addEventListe
     <button class="qbtn" id="btn-next" onclick="goQ(1)">Siguiente →</button>
     <button class="qbtn primary" id="btn-check" onclick="checkAnswer()">Confirmar respuesta</button>
   </div>
-  <div class="kbd-hint" id="kbd-hint"><b>A</b>–<b>E</b> elige · <b>Enter</b> confirma · <b>←</b> <b>→</b> navega</div>
+  <div class="kbd-hint" id="kbd-hint"><b>A</b>–<b>D</b> elige · <b>Enter</b> confirma · <b>←</b> <b>→</b> navega</div>
 </div>
 
 <!-- Modal de entrega: resumen real del estado antes de confirmar -->
@@ -8579,8 +8582,8 @@ if(!window.__muSdClickBound){window.__muSdClickBound=true;document.addEventListe
   <p class="intro-desc-p" id="result-sub"></p>
 
   <div class="resrow">
-    <div class="resrow-c"><div class="n" id="r-correct" style="color:var(--grn,#22c55e)">0</div><div class="l">correctas</div></div>
-    <div class="resrow-c"><div class="n" id="r-wrong" style="color:var(--red,#f87171)">0</div><div class="l">incorrectas</div></div>
+    <div class="resrow-c"><div class="n" id="r-correct" style="color:var(--grn,#22c55e)">0</div><div class="l">correctas (MCQ)</div></div>
+    <div class="resrow-c"><div class="n" id="r-wrong" style="color:var(--red,#f87171)">0</div><div class="l">incorrectas (MCQ)</div></div>
     <div class="resrow-c"><div class="n" id="r-time">—</div><div class="l">tiempo usado</div></div>
   </div>
 
@@ -8709,8 +8712,8 @@ window.muApplyLang_simulacro = function(){
   var resultTitle=document.getElementById('result-title'); if(resultTitle&&resultTitle.textContent==='Resultados') resultTitle.textContent='Results';
   // FIX: este selector buscaba .rg-card .rg-l, que no existe -- las etiquetas reales viven en .resrow-c .l
   document.querySelectorAll('.resrow-c .l').forEach(function(el){
-    if(el.textContent==='correctas') el.textContent='correct';
-    if(el.textContent==='incorrectas') el.textContent='incorrect';
+    if(el.textContent==='correctas (MCQ)') el.textContent='correct (MCQ)';
+    if(el.textContent==='incorrectas (MCQ)') el.textContent='incorrect (MCQ)';
     if(el.textContent==='tiempo usado') el.textContent='time used';
   });
   var scTitle=document.querySelector('.sc-title'); if(scTitle) scTitle.textContent='MathUNAL Mock Exam';
@@ -9138,11 +9141,12 @@ function _renderQ(idx){
   if(lbl) lbl.textContent = q.tipo==='mcq' ? 'Selección múltiple con única respuesta'
                           : q.tipo==='numerica' ? 'Respuesta numérica'
                           : 'Pregunta de desarrollo';
+  // El badge de puntos por pregunta se quitó: mostraba una cifra (4/nq pts)
+  // que no correspondía a la fórmula real de calificación (_finishExam usa
+  // pesos 60/40 o normalizados según el mix de tipos de pregunta del examen).
+  // Mejor no mostrar un número que luego no cuadra con la nota final.
   var pts=_el('q-pts-badge');
-  if(pts){
-    var valMcq=q.opciones?+(4/(nq)).toFixed(2):0;
-    pts.textContent=q.tipo==='mcq'?valMcq.toFixed(1)+' pt':(q.puntaje||20)+'%';
-  }
+  if(pts) pts.style.display='none';
 
   // Limpiar hint
   var hw=_el('hint-wrap'); if(hw) hw.remove();
@@ -9322,7 +9326,7 @@ document.addEventListener('keydown', function(e){
   if(k==='arrowright'){ e.preventDefault(); goQ(1); return; }
 
   if(q && q.tipo==='mcq' && !_checked[_currentQ]){
-    var letters=['a','b','c','d','e'];
+    var letters=['a','b','c','d','e','f'];
     var idx=letters.indexOf(k);
     if(idx>=0 && idx<q.opciones.length){ e.preventDefault(); _selectOpt(idx); return; }
     if(k==='enter' && _answers[_currentQ]>=0){ e.preventDefault(); checkAnswer(); return; }
@@ -9361,7 +9365,7 @@ function _renderExpl(idx){
   var res=_el('expl-result'),sum=_el('expl-summary'),stp=_el('expl-steps');
   if(!q||!res||!sum||!stp) return;
   if(q.tipo==='mcq'){
-    var letters=['A','B','C','D','E'];
+    var letters=['A','B','C','D','E','F'];
     var isOk=_answers[idx]===q.correcta;
     res.innerHTML=(isOk?'<span style="font-size:1.1rem">✓</span> Correcto!':'<span style="font-size:1.1rem">✗</span> Incorrecto — respuesta correcta: <strong>'+letters[q.correcta]+'</strong>');
     res.className='expl-result '+(isOk?'correct-r':'wrong-r');
@@ -9473,8 +9477,8 @@ function _openSubmitModal(){
   var en=(window.curLang==='en');
   var rows=[];
   rows.push('<span class="s-ok">✓ '+answered+(en?' answered':' respondida'+(answered===1?'':'s'))+'</span>');
-  if(flagged.length) rows.push('<span class="s-flag">'+flagged.length+(en?' flagged for review':' marcada'+(flagged.length===1?'':'s')+' para revisar')+' ('+(en?'question ':'pregunta'+(flagged.length===1?'':'s')+' ')+flagged.join(', ')+')</span>');
-  if(missing.length) rows.push('<span class="s-miss">○ '+missing.length+(en?' unanswered':' sin responder')+' ('+(en?'question ':'pregunta'+(missing.length===1?'':'s')+' ')+missing.join(', ')+')</span>');
+  if(flagged.length) rows.push('<span class="s-flag">'+flagged.length+(en?' flagged for review':' marcada'+(flagged.length===1?'':'s')+' para revisar')+' ('+(en?'question'+(flagged.length===1?'':'s')+' ':'pregunta'+(flagged.length===1?'':'s')+' ')+flagged.join(', ')+')</span>');
+  if(missing.length) rows.push('<span class="s-miss">○ '+missing.length+(en?' unanswered':' sin responder')+' ('+(en?'question'+(missing.length===1?'':'s')+' ':'pregunta'+(missing.length===1?'':'s')+' ')+missing.join(', ')+')</span>');
   body.innerHTML=rows.join('<br>');
   var back=_el('submit-back');
   if(back){
@@ -9937,7 +9941,7 @@ html,body{height:100%;background:var(--bg);color:var(--t1);font-family:'Space Gr
       <div class="gc-ico">🟪</div>
       <div class="gc-name">Casillas</div>
       <div class="gc-desc">Coloca una pieza en cada zona de color, sin que queden dos en la misma fila ni columna, ni tocándose.</div>
-      <div class="gc-tags"><span class="tag">Lógica pura</span><span class="tag">Grid</span><span class="tag">Diario</span></div>
+      <div class="gc-tags"><span class="tag">Lógica pura</span><span class="tag">Grid</span><span class="tag">3 puzzles</span></div>
       <button class="gc-btn" style="background:var(--purple)" onclick="startCasillas()">Jugar →</button>
     </div>
     <div class="gc" style="--gc:#7C3AED">
@@ -10053,6 +10057,7 @@ html,body{height:100%;background:var(--bg);color:var(--t1);font-family:'Space Gr
         <div class="res-sub" id="pt-goover-sub"></div>
         <div class="res-btns">
           <button class="res-btn primary" id="pt-goover-btn1" onclick="resetPortalLevel()">Reintentar</button>
+          <button class="res-btn ghost" onclick="compartir()">Compartir resultado <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-2px"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.6" y1="10.5" x2="15.4" y2="6.5"/><line x1="8.6" y1="13.5" x2="15.4" y2="17.5"/></svg></button>
           <button class="res-btn ghost" onclick="stopPortal();showScr('lobby')">Salir al lobby</button>
         </div>
       </div>
@@ -10091,6 +10096,7 @@ html,body{height:100%;background:var(--bg);color:var(--t1);font-family:'Space Gr
         <div class="res-sub" id="ds-goover-sub"></div>
         <div class="res-btns">
           <button class="res-btn primary" id="ds-goover-btn1" onclick="beginDomainSnake()">Jugar otra vez</button>
+          <button class="res-btn ghost" onclick="compartir()">Compartir resultado <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-2px"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.6" y1="10.5" x2="15.4" y2="6.5"/><line x1="8.6" y1="13.5" x2="15.4" y2="17.5"/></svg></button>
           <button class="res-btn ghost" onclick="stopDomainSnake();showScr('lobby')">Salir al lobby</button>
         </div>
       </div>
@@ -10129,6 +10135,7 @@ html,body{height:100%;background:var(--bg);color:var(--t1);font-family:'Space Gr
         <div class="res-sub" id="vc-goover-sub"></div>
         <div class="res-btns">
           <button class="res-btn primary" id="vc-goover-btn1" onclick="vcNextLevel()">Siguiente nivel →</button>
+          <button class="res-btn ghost" onclick="compartir()">Compartir resultado <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-2px"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.6" y1="10.5" x2="15.4" y2="6.5"/><line x1="8.6" y1="13.5" x2="15.4" y2="17.5"/></svg></button>
           <button class="res-btn ghost" onclick="stopVectores();showScr('lobby')">Salir al lobby</button>
         </div>
       </div>
@@ -10191,7 +10198,8 @@ function toast(msg){
 var lastGame='rebota',lastScore=0;
 function compartir(){
   var nombres={rebota:'Rebota',casillas:'Casillas',portal:'Portal',domainsnake:'Serpiente de Dominios',vectores:'Vectores'};
-  var unidad=lastGame==='portal'?'segundos':'movimientos';
+  var unidades={rebota:'movimientos',casillas:'movimientos',portal:'segundos',domainsnake:'puntos',vectores:'vectores'};
+  var unidad=unidades[lastGame]||'movimientos';
   var txt=`🎱 MathUNAL Juegos: ${nombres[lastGame]||lastGame} — resuelto en ${lastScore} ${unidad}. ¿Me superas? mathunal.github.io`;
   if(navigator.share)navigator.share({text:txt});
   else navigator.clipboard.writeText(txt).then(()=>toast('¡Copiado! Pégalo en tu grupo 📋'));
@@ -10373,7 +10381,7 @@ function updateBall(){
     ball.moving=false;clearInterval(timerRebota);solved=true;
     draw();
     setTimeout(()=>{
-      lastGame='rebota';lastScore=intentos;
+      lastGame='rebota';lastScore=3-intentos;
       document.getElementById('r-next-btn').style.display='';
       showResult(JG_ICO_TARGET,nivel<niveles.length-1?'¡Nivel '+(nivel+1)+' superado!':'¡Todos los niveles!',
         'La bola llegó al objetivo con '+(3-intentos)+' intentos usados.',
@@ -11021,11 +11029,14 @@ function vcBuildButtons(){
 }
 function vcApply(i){
   if(!vcRunning||!vcLevel)return;
+  var wrap=document.getElementById('vc-vecbtns');
+  if(wrap.children[i] && wrap.children[i].disabled)return;
   var v=vcLevel.vecs[i];
   vcPath.push(v);
   vcPos={x:vcPos.x+v.x,y:vcPos.y+v.y};
   vcMoves++;
   document.getElementById('vc-moves').textContent=vcMoves;
+  if(wrap.children[i]) wrap.children[i].disabled=true;
   vcDraw();
   beep(v.trap?300:440,.08,.06,'triangle');
   if(vcPos.x===vcLevel.target.x && vcPos.y===vcLevel.target.y) vcWin();
@@ -11036,6 +11047,9 @@ function vcUndo(){
   vcPos={x:vcPos.x-v.x,y:vcPos.y-v.y};
   vcMoves++;
   document.getElementById('vc-moves').textContent=vcMoves;
+  var idx=vcLevel.vecs.indexOf(v);
+  var wrap=document.getElementById('vc-vecbtns');
+  if(idx>=0 && wrap.children[idx]) wrap.children[idx].disabled=false;
   vcDraw();
   beep(260,.1,.06,'sine');
 }
@@ -11046,6 +11060,7 @@ function vcReset(){
   vcPath=[];vcMoves=0;
   document.getElementById('vc-moves').textContent='0';
   vcRunning=true;
+  vcBuildButtons();
   vcDraw();
 }
 function vcMinVecs(level){
@@ -11173,7 +11188,7 @@ function vcDraw(){
 .diag-mat-card.sel{border-color:var(--acc);background:rgba(232,99,42,.08)}
 .diag-mat-sym{font-family:'Literata',serif;font-size:1.3rem;color:var(--acc);margin-bottom:.3rem}
 .diag-mat-name{font-size:.8rem;font-weight:700;color:var(--t1)}
-.diag-mat-limited{font-size:.62rem;color:var(--yel);margin-top:.25rem;font-weight:700}
+.diag-mat-limited{font-size:.78rem;color:var(--yel);margin-top:.25rem;font-weight:700}
 .diag-mat-empty{font-size:.78rem;color:var(--t3);grid-column:1/-1;padding:1rem;text-align:center}
 
 .diag-btn{display:inline-flex;align-items:center;gap:.5rem;background:var(--acc);color:#fff;border:none;padding:.8rem 1.6rem;border-radius:11px;font-size:.92rem;font-weight:700;cursor:pointer;font-family:inherit;transition:filter .15s}
@@ -11406,7 +11421,7 @@ function _diagRenderPregunta(){
   var mat = document.getElementById('diag-q-materia');
   if(mat){ var s=(window.SUBJECTS||[]).find(function(x){return x.code===_diagMatSel;}); mat.textContent = s?s.nameEs:''; }
   var fill = document.getElementById('diag-q-progress-fill');
-  if(fill) fill.style.width = (((_diagIdx)/_diagPoolQs.length)*100)+'%';
+  if(fill) fill.style.width = (((_diagIdx+1)/_diagPoolQs.length)*100)+'%';
 
   var texto = document.getElementById('diag-q-texto');
   if(texto){ texto.innerHTML = q.texto || ''; if(typeof _renderMath==='function') _renderMath(texto); }
@@ -11506,7 +11521,7 @@ function _diagMostrarResultados(){
       var meta=(window.EXAM_META&&window.EXAM_META[examKey])?window.EXAM_META[examKey]:{};
       var pct = d.total ? Math.round((d.ok/d.total)*100) : 0;
       var nivel = pct<50?'critico':(pct<80?'mejorar':'solido');
-      var color = nivel==='critico'?'#EF4444':(nivel==='mejorar'?'#F59E0B':'#22C55E');
+      var color = nivel==='critico'?'var(--red)':(nivel==='mejorar'?'var(--yel)':'var(--grn)');
       var ico = nivel==='critico'?'alerta':(nivel==='mejorar'?'tendencia':'escudo');
       var lbl = nivel==='critico'?'Crítico':(nivel==='mejorar'?'Mejorar':'Sólido');
       var label = (d.examTitulo||'')+(meta.tipo?(' — '+meta.tipo):'');
@@ -11799,7 +11814,7 @@ viz:{type:'ilate',
   ann:'<strong>sinh</strong>: impar, cruza origen. <strong>cosh</strong>: par, siempre ≥1, forma de cable colgante. <strong>tanh</strong>: acotado en (−1,1).'
  }
 },
-{tag:'int',name:'Sust. trigonométrica',formula:'\\sqrt{a^2-u^2}\\to u=a\\sin\\theta\\quad\\sqrt{a^2+u^2}\\to u=a\\tan\\theta',desc:'Elimina la raíz usando identidades pitagóricas.',nemo:"«La sustitución disfraza la raíz de función trig para eliminar el radical.»",
+{tag:'int',name:'Sust. trigonométrica',formula:'\\sqrt{a^2-u^2}\\to u=a\\sin\\theta\\quad\\sqrt{a^2+u^2}\\to u=a\\tan\\theta\\quad\\sqrt{u^2-a^2}\\to u=a\\sec\\theta',desc:'Elimina la raíz usando identidades pitagóricas.',nemo:"«La sustitución disfraza la raíz de función trig para eliminar el radical.»",
 viz:{type:'subtrig',
   params:[{id:'tp',l:'Tipo (1,2,3)',min:1,max:3,step:1,def:1,u:''},{id:'th',l:'Ángulo θ',min:1,max:88,step:1,def:35,u:'°'}],
   live:function(ps){
@@ -11943,8 +11958,8 @@ viz:{type:'det2',
       {x:[-m,m],y:[0,0],type:'scatter',mode:'lines',line:{color:'rgba(255,255,255,.08)',width:1},showlegend:false},
       {x:[0,0],y:[-m,m],type:'scatter',mode:'lines',line:{color:'rgba(255,255,255,.08)',width:1},showlegend:false},
       {x:vx,y:vy,type:'scatter',fill:'toself',fillcolor:cat+'28',line:{color:cat,width:2},name:'|det|='+Math.abs(det).toFixed(2)},
-      {x:[0,a],y:[0,b],type:'scatter',mode:'lines',line:{color:'#fbbf24',width:3},name:'col1=(a,b)'},
-      {x:[0,cv],y:[0,d],type:'scatter',mode:'lines',line:{color:'#a78bfa',width:3},name:'col2=(c,d)'},
+      {x:[0,a],y:[0,b],type:'scatter',mode:'lines',line:{color:'#fbbf24',width:3},name:'fila1=(a,b)'},
+      {x:[0,cv],y:[0,d],type:'scatter',mode:'lines',line:{color:'#a78bfa',width:3},name:'fila2=(c,d)'},
     ],xrange:[-m,m],yrange:[-m,m],scaleanchor:true,
     annots:[{x:(a+cv)/2,y:(b+d)/2,text:'área='+Math.abs(det).toFixed(2),showarrow:false,font:{color:cat,size:12}}]};
   },
@@ -12391,7 +12406,7 @@ viz:{type:'tank',
      +'<div style="color:var(--t2)">k = '+k.toFixed(2)+'</div>'
      +'<div style="color:var(--t2)">t = '+t.toFixed(1)+' s</div>'
      +'<div style="color:'+col+';font-size:1.05rem;font-weight:700">y = '+y.toFixed(4)+'</div>'
-     +(sc!==3?'<div style="color:var(--t3);font-size:.68rem;margin-top:.3rem">t½ = '+(Math.LN2/k).toFixed(2)+' s</div>':'')
+     +(sc!==3?'<div style="color:var(--t1);font-weight:700;font-size:.9rem;margin-top:.3rem">t½ = '+(Math.LN2/k).toFixed(2)+' s</div>':'')
      +'</div>';
     return{html:'<div style="display:flex;align-items:center;justify-content:center;gap:2rem;padding:1.3rem 1.8rem">'+svg+info+'</div>'};
   },
@@ -12424,7 +12439,7 @@ viz:{type:'bernoulli',
   live:function(ps){
     var n=ps.n,alp=1-n;
     if(n===0||n===1)return 'n='+n+': ya es lineal (no necesita Bernoulli)';
-    return 'v=y^'+(alp.toFixed(1))+'  | EDO transformada: v+('+( alp*ps.P).toFixed(2)+')v='+( alp*ps.Q).toFixed(2)+'  [LINEAL]';
+    return 'v=y^'+(alp.toFixed(1))+"  | EDO transformada: v'+("+( alp*ps.P).toFixed(2)+')v='+( alp*ps.Q).toFixed(2)+'  [LINEAL]';
   },
   render:function(ps,cat){
     var n=ps.n,P=ps.P,Q=ps.Q,alp=1-n;
@@ -12690,7 +12705,6 @@ viz:{type:'rl_circ',
   ann:'La corriente sube <strong>exponencialmente</strong> hasta ε/R. El <strong style="color:#a78bfa">inductor L</strong> resiste el cambio brusco. La aguja del amperímetro sube con t. En t=τ=L/R la corriente tiene 63% de su valor final.'
 }
 },
-,
 {tag:'geo',name:'Esfera 3D',
  formula:'V=\\dfrac{4}{3}\\pi r^3\\quad A_{sup}=4\\pi r^2',
  desc:'Rota arrastrando el canvas. Slider de radio actualiza V y A en tiempo real.',
@@ -13483,7 +13497,7 @@ function renderSemSidebar(){
     var m = SEM_MATERIAS.find(function(x){return x.key===k;});
     return s + (m?_semArchivos(m):0);
   }, 0);
-  footer.innerHTML = saved.length ? '<svg width="13" height="13" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" style="vertical-align:-2px"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg> '+total+' exámenes disponibles para tu semestre' : 'Selecciona tus materias ↑';
+  footer.innerHTML = saved.length ? '<svg width="13" height="13" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" style="vertical-align:-2px"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg> '+total+' recursos disponibles para tu semestre' : 'Selecciona tus materias ↑';
 }
 
 function saveSemMat(key, checked){
@@ -14225,7 +14239,7 @@ function _renderNextStep(nota, en){
         ?'The full step-by-step solution is right below — click on each question to reveal it.'
         :'La solución detallada está justo abajo en cada pregunta.')
         +' <button type="button" class="nextstep-cta" onclick="document.getElementById(\'review-section\').scrollIntoView({behavior:\'smooth\'});_unlockAllFailed()">'
-        +(en?'Ver todas las soluciones →':'Ver soluciones completas →')+'</button></div>';
+        +(en?'See all solutions →':'Ver soluciones completas →')+'</button></div>';
     }
     html+='</div>';
   }
@@ -14361,12 +14375,12 @@ var BANCO_MATERIAS = {
   metnum:      {nombre:'Métodos Numéricos', nombreEn:'Numerical Methods', sym:'≈', color:'#DB2777'},
   fundamentos: {nombre:'Fundamentos de Matemáticas', nombreEn:'Foundations of Mathematics', sym:'∴', color:'#4D7C0F'},
   discretas:   {nombre:'Matemáticas Discretas', nombreEn:'Discrete Mathematics', sym:'∑', color:'#B45309'},
-  especiales:  {nombre:'Matemáticas Especiales', nombreEn:'Special Topics in Mathematics', sym:'∮', color:'#BE123C'},
+  especiales:  {nombre:'Matemáticas Especiales', nombreEn:'Advanced Mathematics', sym:'∇²', color:'#BE123C'},
   matbas:  {nombre:'Matemáticas Básicas', nombreEn:'Pre-calculus', sym:'π', color:'#9C6B00'},
-  alglin:  {nombre:'Álgebra Lineal', nombreEn:'Linear Algebra', sym:'⊕', color:'#B93D0A'},
+  alglin:  {nombre:'Álgebra Lineal', nombreEn:'Linear Algebra', sym:'[ ]', color:'#B93D0A'},
   calcdif: {nombre:'Cálculo Diferencial', nombreEn:'Differential Calculus', sym:'∂', color:'#002866'},
   calcint: {nombre:'Cálculo Integral', nombreEn:'Integral Calculus', sym:'∫', color:'#0F6E2D'},
-  edo:     {nombre:'Ecuaciones Diferenciales', nombreEn:'Differential Equations', sym:'λ', color:'#006B6B'},
+  edo:     {nombre:'Ecuaciones Diferenciales', nombreEn:'Differential Equations', sym:"y'", color:'#006B6B'},
 };
 window.BANCO_MATERIAS = BANCO_MATERIAS;
 
@@ -14708,9 +14722,10 @@ var ICO_SVG = {
   notas: '<svg width="16" height="16" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"><path d="M17 3a2.85 2.85 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5z"/></svg>',
   parcial: '<svg width="16" height="16" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 3h6v2H9z"/><path d="m9 13 2 2 4-4"/></svg>',
   taller: '<svg width="16" height="16" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"><path d="M14.7 6.3a4 4 0 0 0-5.6 5.6L2 19l3 3 7.1-7.1a4 4 0 0 0 5.6-5.6l-2.4 2.4-2.8-.8-.8-2.8z"/></svg>',
-  quice: '<svg width="16" height="16" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"><circle cx="12" cy="13" r="8"/><line x1="12" y1="13" x2="12" y2="9"/><line x1="9" y1="2" x2="15" y2="2"/></svg>'
+  quice: '<svg width="16" height="16" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"><circle cx="12" cy="13" r="8"/><line x1="12" y1="13" x2="12" y2="9"/><line x1="9" y1="2" x2="15" y2="2"/></svg>',
+  solucionario: '<svg width="16" height="16" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"><circle cx="12" cy="12" r="10"/><polyline points="8 12 11 15 16 9"/></svg>'
 };
-var ICONS={programa:ICO_SVG.programa,libro:ICO_SVG.libro,formulario:ICO_SVG.formulario,notas:ICO_SVG.notas,parcial:ICO_SVG.parcial,taller:ICO_SVG.taller,quice:ICO_SVG.quice};
+var ICONS={programa:ICO_SVG.programa,libro:ICO_SVG.libro,formulario:ICO_SVG.formulario,notas:ICO_SVG.notas,parcial:ICO_SVG.parcial,taller:ICO_SVG.taller,quice:ICO_SVG.quice,solucionario:ICO_SVG.solucionario};
 
 /* ── ICONOS para #diagnostico (mismo estilo que ICO_SVG: stroke=currentColor,
    sin relleno, feather-icons). candado es EXACTO al que ya usa ri-lock-ico
