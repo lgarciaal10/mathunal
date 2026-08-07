@@ -5627,7 +5627,7 @@ bancoRender();
     <div>4 créd. × 4.0 + 3 créd. × 3.5 + 4 créd. × 3.0 + 3 créd. × 4.5</div>
     <div style="margin-top:.2rem">÷ 14 créditos = <strong style="color:var(--t1)">3.71</strong></div>
   </div>
-  <p style="font-size:.72rem;color:var(--t3);margin-top:.4rem;font-family:IBM Plex Mono,monospace">Nota mínima aprobatoria: 3.0 · Tope PAES: 3.5 · El SIA redondea a 1 decimal (2.95 → 3.0)</p>
+  <p style="font-size:.85rem;color:var(--t2);margin-top:.4rem;font-family:IBM Plex Mono,monospace">Nota mínima aprobatoria: 3.0 · Tope PAES: 3.5 · El SIA redondea a 1 decimal (2.95 → 3.0)</p>
 </div>
       </div>
     </div>
@@ -9374,6 +9374,19 @@ function _renderExpl(idx){
       return '<div class="expl-step"><div class="step-n">'+(i+1)+'</div><div class="step-txt">'+p+'</div></div>';
     }).join('');
     _renderMath(stp);
+  } else if(q.tipo==='numerica'){
+    // Ya se autocalificó en _checkAnswer con _calificarNum — aquí solo se
+    // explica el procedimiento (q.pasos, igual que MCQ), sin autoevaluación:
+    // pedirle al estudiante que se autocalifique una respuesta que el
+    // sistema ya calificó con exactitud no tenía sentido.
+    var g=_calificarNum(q,_numAns[idx]);
+    res.innerHTML=(g===1?'<span style="font-size:1.1rem">✓</span> Correcta!':g===0.5?'<span style="font-size:1.1rem">≈</span> Parcial — dentro del margen':'<span style="font-size:1.1rem">✗</span> Incorrecta — respuesta esperada: <strong>'+q.respuesta+(q.unidad?' '+q.unidad:'')+'</strong>');
+    res.className='expl-result '+(g===1?'correct-r':g===0.5?'':'wrong-r');
+    sum.innerHTML=q.resumen||''; _renderMath(sum);
+    stp.innerHTML=(q.pasos||[]).map(function(p,i){
+      return '<div class="expl-step"><div class="step-n">'+(i+1)+'</div><div class="step-txt">'+p+'</div></div>';
+    }).join('');
+    _renderMath(stp);
   } else {
     res.innerHTML='<span style="font-size:1.1rem"><svg width="13" height="13" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" style="vertical-align:-2px"><path d="M9 12h11M9 18h11M9 6h11M4 12h.01M4 18h.01M4 6h.01"/></svg></span> Solucion oficial';
     res.className='expl-result';
@@ -12047,7 +12060,7 @@ viz:{type:'lineint',
 }
 },
 /* ── MÉTODOS NUMÉRICOS ── */
-{tag:'num',name:'Error absoluto y relativo',formula:'e_x=x-\\bar{x}\\qquad e_r=\\dfrac{e_x}{\\bar{x}}',desc:'x es el valor exacto, x̄ el aproximado. El relativo mide qué tanto importa el error.',nemo:"«Absoluto = cuánto te equivocaste. Relativo = qué tan grave es.»",
+{tag:'num',name:'Error absoluto y relativo',formula:'e_x=x-\\bar{x}\\qquad e_r=\\dfrac{e_x}{x}',desc:'x es el valor exacto, x̄ el aproximado. El relativo mide qué tanto importa el error.',nemo:"«Absoluto = cuánto te equivocaste. Relativo = qué tan grave es.»",
 viz:{type:'err',
   params:[{id:'x',l:'Exacto x',min:.5,max:10,step:.1,def:5,u:''},{id:'xb',l:'Aprox x̄',min:.1,max:10,step:.1,def:5.3,u:''}],
   live:function(ps){var ex=Math.abs(ps.x-ps.xb),er=ex/Math.abs(ps.x);return 'Error abs='+ex.toFixed(4)+'  Error rel='+er.toFixed(6)+' = '+(er*100).toFixed(2)+'%  Sig. correctas: '+Math.max(0,Math.ceil(-Math.log10(er))-1);},
@@ -13453,7 +13466,7 @@ function navEjemplo(dir){
 var _semOpen = false;
 var SEM_MATERIAS = [
   {key:'calcdif', nombre:'Cálculo Diferencial', code:'1000004'},
-  {key:'alglin',  nombre:'Álgebra Lineal',       code:'1000010'},
+  {key:'alglin',  nombre:'Álgebra Lineal',       code:'1000006'},
   {key:'calcint', nombre:'Cálculo Integral',     code:'1000005'},
   {key:'edo',     nombre:'Ecuaciones Dif.',      code:'1000008'},
   {key:'calcvec', nombre:'Cálculo en Varias Variables',    code:'1000007'},
@@ -14222,6 +14235,11 @@ function _renderNextStep(nota, en){
   var fails=[];
   _exam.preguntas.forEach(function(q,i){
     if(q.tipo==='mcq' && _answers[i]!==q.correcta){ fails.push({n:i+1, resumen:q.resumen||''}); }
+    else if(q.tipo==='numerica'){
+      var valor=(typeof window._numAns!=='undefined')?window._numAns[i]:null;
+      var g=_calificarNum(q,valor);
+      if(g==null||g<1) fails.push({n:i+1, resumen:q.resumen||''});
+    }
   });
   var isPremium=(typeof muEsPremium==='function') ? muEsPremium() : false;
   var html='';
@@ -14859,7 +14877,7 @@ function bootMateria(tries){
 // Programa/Libro no tienen tracking de "visto" todavía, asi que se muestran
 // como referencia disponible, nunca con un check inventado.
 function _renderRutaEstudio(sub, mats, lang){
-  var host = document.getElementById('mu-ruta');
+  var host = document.getElementById('mu-ruta-host');
   if(!host) return;
   var en = (lang==='en');
 
@@ -14904,16 +14922,19 @@ function _renderRutaEstudio(sub, mats, lang){
     }
 
     var isPremium=(typeof muEsPremium==='function') ? muEsPremium() : false;
-    var solCta;
-    if(isPremium){
-      solCta = '<span class="mu-ruta-file" style="border-color:var(--grn);color:var(--grn)">✓ '+(en?'Unlocked':'Desbloqueado')+'</span>';
-    } else {
-      solCta = '<a href="'+waLink('Quiero desbloquear el solucionario completo de MathUNAL ('+sub.nameEs+')')+'" target="_blank" class="mu-ruta-file" style="border-color:var(--bra);color:var(--acc)"><svg width="14" height="14" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"><rect x="3" y="11" width="18" height="10" rx="2"/><path d="M7 11V7a5 5 0 0 1 9.9-1"/></svg> '+(en?'Unlock — $12.000 · less than 1h of private tutoring':'Desbloquear — $12.000 · menos que 1h de clase particular')+'</a>';
+    var hasPremiumContent = (mats.premium||[]).length>0;
+    if(hasPremiumContent){
+      var solCta;
+      if(isPremium){
+        solCta = '<span class="mu-ruta-file" style="border-color:var(--grn);color:var(--grn)">✓ '+(en?'Unlocked':'Desbloqueado')+'</span>';
+      } else {
+        solCta = '<a href="'+waLink('Quiero desbloquear el solucionario completo de MathUNAL ('+sub.nameEs+')')+'" target="_blank" class="mu-ruta-file" style="border-color:var(--bra);color:var(--acc)"><svg width="14" height="14" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"><rect x="3" y="11" width="18" height="10" rx="2"/><path d="M7 11V7a5 5 0 0 1 9.9-1"/></svg> '+(en?'Unlock — $12.000 · less than 1h of private tutoring':'Desbloquear — $12.000 · menos que 1h de clase particular')+'</a>';
+      }
+      steps.push({kind:'sol', state: isPremium?'unlocked':'locked',
+        title: en?'Step-by-step solutions':'Solucionario paso a paso',
+        sub: isPremium?(en?'unlocked':'desbloqueado'):(en?'Semester-Saver Plan':'Plan Salva-Semestre'),
+        fileHtml: solCta});
     }
-    steps.push({kind:'sol', state: isPremium?'unlocked':'locked',
-      title: en?'Step-by-step solutions':'Solucionario paso a paso',
-      sub: isPremium?(en?'unlocked':'desbloqueado'):(en?'Semester-Saver Plan':'Plan Salva-Semestre'),
-      fileHtml: solCta});
   }
 
   if(!steps.length){ host.innerHTML=''; return; } // sin simulacro ni archivos de referencia: no mostrar nada a medias
