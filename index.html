@@ -1897,7 +1897,7 @@ html[data-theme="gray"] .hero-bg .lg-blob-center{background:radial-gradient(elli
 .foot-brand,.fbrand{display:flex;flex-direction:column}
 
 /* toast-ico — ícono en toast */
-.toast-ico{font-size:1rem;flex-shrink:0}
+.toast-ico{font-size:1rem;flex-shrink:0;display:inline-flex;align-items:center}
 
 /* stat-ico — ícono en stat-card */
 .stat-ico{font-size:2rem;line-height:1}
@@ -4629,10 +4629,10 @@ customElements.define('glass-element', GlassElement);
     <a href="#home" style="display:inline-flex;align-items:center;gap:.35rem;background:var(--lay2);border:1px solid var(--br);border-radius:8px;padding:.38rem .9rem;font-size:.8rem;font-weight:600;color:var(--t2);transition:all .2s" onmouseover="this.style.borderColor='var(--bra)';this.style.color='var(--t1)'" onmouseout="this.style.borderColor='var(--br)';this.style.color='var(--t2)'">← Volver al inicio</a>
     <a href="#materias" class="nav-sec-link">Materias</a>
     <a href="#simulacro" class="nav-sec-link">Simulacros</a>
-    <div class="settings-wrap"><button class="settings-btn" aria-label="Ajustes" onclick="toggleSettings(this)" aria-haspopup="true" aria-expanded="false" aria-controls="sd">⚙</button>
+    <div class="settings-wrap"><button class="settings-btn" aria-label="Ajustes" onclick="toggleSettings(this)" aria-haspopup="true" aria-expanded="false" aria-controls="sd"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></button>
       <div class="settings-dropdown" id="sd"><div class="sd-section"><div class="sd-label">TEMA</div><div class="sd-row">
         <button class="sd-btn on" id="th-dark" onclick="setTheme('dark')"><svg width="13" height="13" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" style="vertical-align:-2px"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg> Dark</button>
-        <button class="sd-btn" id="th-gray" onclick="setTheme('gray')">⬤ Gris</button>
+        <button class="sd-btn" id="th-gray" onclick="setTheme('gray')"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" style="vertical-align:-2px"><circle cx="12" cy="12" r="9"/></svg> Gris</button>
         <button class="sd-btn" id="th-light" onclick="setTheme('light')"><svg width="13" height="13" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" style="vertical-align:-2px"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.2" y1="4.2" x2="5.6" y2="5.6"/><line x1="18.4" y1="18.4" x2="19.8" y2="19.8"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.2" y1="19.8" x2="5.6" y2="18.4"/><line x1="18.4" y1="5.6" x2="19.8" y2="4.2"/></svg> Light</button>
       </div></div></div>
     </div>
@@ -4868,7 +4868,7 @@ bancoRender();
     <span class="sp-msg" id="sp-msg"></span>
     <button type="button" class="sp-cta" onclick="document.getElementById('weekModal').classList.add('open')">Ver plan →</button>
   </div>
-  <button class="sp-close" onclick="muCerrarBanner()" aria-label="Cerrar">✕</button>
+  <button class="sp-close" onclick="muCerrarBanner()" aria-label="Cerrar"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
 </div>
 
 <div id="mob">
@@ -5231,7 +5231,7 @@ bancoRender();
 
 <div class="pm-overlay panic-modal" id="panicModal" role="dialog" aria-modal="true" aria-labelledby="panic-modal-title">
   <div class="pm-box">
-    <button class="pm-close" onclick="document.getElementById('panicModal').classList.remove('open')" aria-label="Cerrar">✕</button>
+    <button class="pm-close" onclick="document.getElementById('panicModal').classList.remove('open')" aria-label="Cerrar"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
     <h3 id="panic-modal-title"><svg width="14" height="14" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M12 2a7 7 0 0 0-4 12.7V17h8v-2.3A7 7 0 0 0 12 2z"/></svg> Parcial en &lt;24h</h3>
     <p class="pm-sub">Ejecuta esto en orden. No improvises.</p>
     <div class="pm-steps">
@@ -5248,7 +5248,7 @@ bancoRender();
 <!-- WEEK MODAL — Plan de estudio de la semana del parcial -->
 <div class="week-modal" id="weekModal" role="dialog" aria-modal="true" aria-labelledby="week-modal-title">
   <div class="pm-box">
-    <button class="pm-close" onclick="document.getElementById('weekModal').classList.remove('open')" aria-label="Cerrar">✕</button>
+    <button class="pm-close" onclick="document.getElementById('weekModal').classList.remove('open')" aria-label="Cerrar"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
     <h3 id="week-modal-title"><svg width="14" height="14" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M12 2a7 7 0 0 0-4 12.7V17h8v-2.3A7 7 0 0 0 12 2z"/></svg> Plan de la Semana del Parcial</h3>
     <p class="pm-sub">Dinos qué parcial tienes y para cuándo. Generamos un plan día por día.</p>
     <div style="display:flex;flex-wrap:wrap;gap:.9rem;margin:1.2rem 0">
@@ -5911,7 +5911,7 @@ bancoRender();
   <div class="sphd">Pomodoro <span><svg width="14" height="14" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"><circle cx="12" cy="13" r="8"/><line x1="12" y1="9" x2="12" y2="13"/><path d="M12 5V3"/></svg> 25 min</span></div>
   <div class="sptimer" id="tdisp">25:00</div>
   <div class="spbtns">
-    <button class="spbtn" id="tbtn" onclick="togTimer()">▶ Iniciar</button>
+    <button class="spbtn" id="tbtn" onclick="togTimer()"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor" style="vertical-align:-1px"><path d="M6 4l14 8-14 8V4z"/></svg> Iniciar</button>
     <button class="spbtn" onclick="resetTimer()"><svg width="12" height="12" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" style="vertical-align:-2px"><path d="M21 12a9 9 0 1 1-3-6.7"/><path d="M21 3v6h-6"/></svg> Reset</button>
   </div>
 </div>
@@ -5946,7 +5946,7 @@ bancoRender();
     <div class="mu-sp-stats"><span id="mu-spd">0 vistas</span><span id="mu-sps">✓ 0 · ✗ 0</span></div>
   </div>
   <div class="mu-sp-card" id="mu-spc">
-    <button class="mu-sp-x" onclick="muSprintClose()">✕</button>
+    <button class="mu-sp-x" onclick="muSprintClose()"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
     <div class="mu-sp-head">
       <div class="mu-sp-ctr" id="mu-spctr">1 / 15</div>
       <div class="mu-sp-cat" id="mu-spcat">Categoría</div>
@@ -6412,13 +6412,15 @@ function runCounters(){
 })();
 
 var timer=null,secs=25*60,running=false;
+var ICO_PLAY='<svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor" style="vertical-align:-1px"><path d="M6 4l14 8-14 8V4z"/></svg>';
+var ICO_PAUSE='<svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor" style="vertical-align:-1px"><rect x="6" y="4" width="4" height="16" rx="1"/><rect x="14" y="4" width="4" height="16" rx="1"/></svg>';
 function updDisp(){var m=String(Math.floor(secs/60)).padStart(2,'0'),s=String(secs%60).padStart(2,'0');document.getElementById('tdisp').textContent=m+':'+s;}
 function togTimer(){
-  if(running){clearInterval(timer);running=false;document.getElementById('tbtn').textContent='▶ Continuar';}
-  else{running=true;document.getElementById('tbtn').textContent='⏸ Pausar';
-    timer=setInterval(function(){if(secs>0){secs--;updDisp();}else{clearInterval(timer);running=false;document.getElementById('tdisp').textContent='¡Descansa!';document.getElementById('tbtn').textContent='▶ Iniciar';secs=25*60;}},1000);}
+  if(running){clearInterval(timer);running=false;document.getElementById('tbtn').innerHTML=ICO_PLAY+' Continuar';}
+  else{running=true;document.getElementById('tbtn').innerHTML=ICO_PAUSE+' Pausar';
+    timer=setInterval(function(){if(secs>0){secs--;updDisp();}else{clearInterval(timer);running=false;document.getElementById('tdisp').textContent='¡Descansa!';document.getElementById('tbtn').innerHTML=ICO_PLAY+' Iniciar';secs=25*60;}},1000);}
 }
-function resetTimer(){clearInterval(timer);running=false;secs=25*60;updDisp();document.getElementById('tbtn').textContent='▶ Iniciar';}
+function resetTimer(){clearInterval(timer);running=false;secs=25*60;updDisp();document.getElementById('tbtn').innerHTML=ICO_PLAY+' Iniciar';}
 function togStudy(){var p=document.getElementById('spanel'),f=document.getElementById('sfab');f.classList.toggle('on',p.classList.toggle('open'));}
 
 var io=new IntersectionObserver(function(entries){
@@ -7585,7 +7587,7 @@ function renderPromRows() {
         +' oninput="updateProw('+r.id+',\'creditos\',this.value)">'
       +'<input class="prom-inp" type="number" min="0" max="5" step="0.1" placeholder="0.0–5.0" value="'+(r.nota||'')+'"'
         +' oninput="updateProw('+r.id+',\'nota\',this.value)">'
-      +'<button class="prom-del" onclick="removePromRow('+r.id+')" title="Eliminar" aria-label="Cerrar">✕</button>'
+      +'<button class="prom-del" onclick="removePromRow('+r.id+')" title="Eliminar" aria-label="Cerrar"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>'
       +'</div>';
   }).join('');
 }
@@ -7744,7 +7746,7 @@ function muAbrirModalPremium(){
   try { emailGuardado = localStorage.getItem('mu-email') || ''; } catch(e){}
   m.innerHTML =
     '<div style="background:var(--card);border:2px solid var(--br2);border-radius:18px;padding:2rem;max-width:380px;width:90%;position:relative">' +
-      '<button onclick="muCerrarModalPremium()" style="position:absolute;top:1rem;right:1rem;background:none;border:none;color:var(--t2);font-size:1.3rem;cursor:pointer;line-height:1">✕</button>' +
+      '<button onclick="muCerrarModalPremium()" style="position:absolute;top:1rem;right:1rem;background:none;border:none;color:var(--t2);font-size:1.3rem;cursor:pointer;line-height:1"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>' +
       '<div style="font-size:1.3rem;font-weight:800;color:var(--t1);margin-bottom:.3rem">🔓 Desbloquear soluciones</div>' +
       '<div style="font-size:.88rem;color:var(--t2);margin-bottom:1.2rem">Acceso completo a todas las soluciones paso a paso · <strong style="color:var(--acc)">$12.000 COP</strong> · pago único</div>' +
       '<label style="font-size:.83rem;color:var(--t3);display:block;margin-bottom:.4rem">Tu correo electrónico</label>' +
@@ -7962,7 +7964,7 @@ window.muAbrirReportarParcial = function(){
   m.style.cssText='position:fixed;inset:0;z-index:9999;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,.7);backdrop-filter:blur(4px)';
   m.innerHTML =
     '<div style="background:var(--card);border:1.5px solid var(--br2);border-radius:16px;padding:1.6rem;max-width:340px;width:90%;position:relative">'+
-      '<button onclick="document.getElementById(\'mu-modal-reportar\').style.display=\'none\'" style="position:absolute;top:.9rem;right:.9rem;background:none;border:none;color:var(--t3);font-size:1.2rem;cursor:pointer">✕</button>'+
+      '<button onclick="document.getElementById(\'mu-modal-reportar\').style.display=\'none\'" style="position:absolute;top:.9rem;right:.9rem;background:none;border:none;color:var(--t3);font-size:1.2rem;cursor:pointer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>'+
       '<div style="font-weight:700;font-size:1.05rem;margin-bottom:.9rem">'+(en?'Report exam date':'Reportar fecha de parcial')+'</div>'+
       '<label style="font-size:.78rem;color:var(--t3);display:block;margin-bottom:.3rem">'+(en?'Subject':'Materia')+'</label>'+
       '<select id="rp-materia" style="width:100%;background:var(--bg2);border:1.5px solid var(--br2);border-radius:9px;padding:.6rem;color:var(--t1);font-family:inherit;margin-bottom:.7rem">'+
@@ -8263,10 +8265,10 @@ function _muSpEnd(){
   </div>
   <div class="nav-r">
     <a href="#simulacros" class="nav-cta">Simulacros →</a>
-    <div class="settings-wrap"><button class="settings-btn" aria-label="Ajustes" onclick="toggleSettings(this)" aria-haspopup="true" aria-expanded="false" aria-controls="sd">⚙</button>
+    <div class="settings-wrap"><button class="settings-btn" aria-label="Ajustes" onclick="toggleSettings(this)" aria-haspopup="true" aria-expanded="false" aria-controls="sd"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></button>
       <div class="settings-dropdown" id="sd"><div class="sd-section"><div class="sd-label">TEMA</div><div class="sd-row">
         <button class="sd-btn on" id="th-dark" onclick="setTheme('dark')"><svg width="13" height="13" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" style="vertical-align:-2px"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg> Dark</button>
-        <button class="sd-btn" id="th-gray" onclick="setTheme('gray')">⬤ Gris</button>
+        <button class="sd-btn" id="th-gray" onclick="setTheme('gray')"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" style="vertical-align:-2px"><circle cx="12" cy="12" r="9"/></svg> Gris</button>
         <button class="sd-btn" id="th-light" onclick="setTheme('light')"><svg width="13" height="13" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" style="vertical-align:-2px"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.2" y1="4.2" x2="5.6" y2="5.6"/><line x1="18.4" y1="18.4" x2="19.8" y2="19.8"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.2" y1="19.8" x2="5.6" y2="18.4"/><line x1="18.4" y1="5.6" x2="19.8" y2="4.2"/></svg> Light</button>
       </div></div></div>
     </div>
@@ -8336,10 +8338,10 @@ if(!window.__muSdClickBound){window.__muSdClickBound=true;document.addEventListe
   <div class="nav-r" style="display:flex;align-items:center;gap:.9rem;margin-left:auto">
     <a href="#home" style="display:inline-flex;align-items:center;gap:.35rem;background:var(--lay2);border:1px solid var(--br);border-radius:8px;padding:.38rem .9rem;font-size:.8rem;font-weight:600;color:var(--t2);transition:all .2s" onmouseover="this.style.borderColor='var(--bra)';this.style.color='var(--t1)'" onmouseout="this.style.borderColor='var(--br)';this.style.color='var(--t2)'">← Volver</a>
     <a href="#formulas" class="nav-sec-link">Formulario</a>
-    <div class="settings-wrap"><button class="settings-btn" aria-label="Ajustes" onclick="toggleSettings(this)" aria-haspopup="true" aria-expanded="false" aria-controls="sd">⚙</button>
+    <div class="settings-wrap"><button class="settings-btn" aria-label="Ajustes" onclick="toggleSettings(this)" aria-haspopup="true" aria-expanded="false" aria-controls="sd"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></button>
       <div class="settings-dropdown" id="sd"><div class="sd-section"><div class="sd-label">TEMA</div><div class="sd-row">
         <button class="sd-btn on" id="th-dark" onclick="setTheme('dark')"><svg width="13" height="13" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" style="vertical-align:-2px"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg> Dark</button>
-        <button class="sd-btn" id="th-gray" onclick="setTheme('gray')">⬤ Gris</button>
+        <button class="sd-btn" id="th-gray" onclick="setTheme('gray')"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" style="vertical-align:-2px"><circle cx="12" cy="12" r="9"/></svg> Gris</button>
         <button class="sd-btn" id="th-light" onclick="setTheme('light')"><svg width="13" height="13" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" style="vertical-align:-2px"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.2" y1="4.2" x2="5.6" y2="5.6"/><line x1="18.4" y1="18.4" x2="19.8" y2="19.8"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.2" y1="19.8" x2="5.6" y2="18.4"/><line x1="18.4" y1="5.6" x2="19.8" y2="4.2"/></svg> Light</button>
       </div></div></div>
     </div>
@@ -8365,7 +8367,7 @@ if(!window.__muSdClickBound){window.__muSdClickBound=true;document.addEventListe
   </div>
   <div class="q-navigator" id="q-navigator"></div>
   <div style="display:flex;gap:.5rem">
-    <button class="tbtn" id="pause-btn" onclick="togglePause()">⏸ Pausar</button>
+    <button class="tbtn" id="pause-btn" onclick="togglePause()"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor" style="vertical-align:-1px"><rect x="6" y="4" width="4" height="16" rx="1"/><rect x="14" y="4" width="4" height="16" rx="1"/></svg> Pausar</button>
     <button class="tbtn" onclick="_openSubmitModal()">Entregar</button>
   </div>
 </div>
@@ -8637,7 +8639,7 @@ window.muApplyLang_simulacro = function(){
     if(el.textContent==='Tiempo restante') el.textContent='Time remaining';
     if(el.textContent==='Pregunta') el.textContent='Question';
   });
-  var pauseBtn=document.getElementById('pause-btn'); if(pauseBtn) pauseBtn.textContent='⏸ Pause';
+  var pauseBtn=document.getElementById('pause-btn'); if(pauseBtn) pauseBtn.innerHTML='<svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor" style="vertical-align:-1px"><rect x="6" y="4" width="4" height="16" rx="1"/><rect x="14" y="4" width="4" height="16" rx="1"/></svg> Pause';
   document.querySelectorAll('.timer-bar .tbtn').forEach(function(b){ if(b.textContent.trim()==='Entregar') b.textContent='Submit'; });
   // SELECTOR HEADER
   var selTag=document.querySelector('.sim-sel-tag'); if(selTag) selTag.textContent='▶ MathUNAL · Mock Exams';
@@ -9026,7 +9028,7 @@ function _updateTimerDisplay(){
 }
 function togglePause(){
   _paused=!_paused;
-  var btn=_el('pause-btn'); if(btn) btn.textContent=_paused?'▶ Continuar':'⏸ Pausar';
+  var btn=_el('pause-btn'); if(btn) btn.innerHTML=_paused?'<svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor" style="vertical-align:-1px"><path d="M6 4l14 8-14 8V4z"/></svg> Continuar':'<svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor" style="vertical-align:-1px"><rect x="6" y="4" width="4" height="16" rx="1"/><rect x="14" y="4" width="4" height="16" rx="1"/></svg> Pausar';
 }
 function _timeUsed(){
   if(!_startTime) return '--:--';
@@ -9735,10 +9737,10 @@ function _showScreen(id){
     <span class="logo-txt"><span class="logo-m">MATH</span><span class="logo-u">UNAL</span></span></a>
   <div class="nav-r" style="display:flex;align-items:center;gap:.9rem;margin-left:auto">
     <a href="#home" class="mat-nav-back" style="font-size:.82rem;padding:.36rem .7rem;border-radius:7px;background:var(--lay2);border:1px solid var(--br);color:var(--t2);text-decoration:none">← Inicio</a>
-    <div class="settings-wrap"><button class="settings-btn" aria-label="Ajustes" onclick="toggleSettings(this)" aria-haspopup="true" aria-expanded="false" aria-controls="sd">⚙</button>
+    <div class="settings-wrap"><button class="settings-btn" aria-label="Ajustes" onclick="toggleSettings(this)" aria-haspopup="true" aria-expanded="false" aria-controls="sd"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></button>
       <div class="settings-dropdown" id="sd"><div class="sd-section"><div class="sd-label">TEMA</div><div class="sd-row">
         <button class="sd-btn on" id="th-dark" onclick="setTheme('dark')"><svg width="13" height="13" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" style="vertical-align:-2px"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg> Dark</button>
-        <button class="sd-btn" id="th-gray" onclick="setTheme('gray')">⬤ Gris</button>
+        <button class="sd-btn" id="th-gray" onclick="setTheme('gray')"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" style="vertical-align:-2px"><circle cx="12" cy="12" r="9"/></svg> Gris</button>
         <button class="sd-btn" id="th-light" onclick="setTheme('light')"><svg width="13" height="13" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" style="vertical-align:-2px"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.2" y1="4.2" x2="5.6" y2="5.6"/><line x1="18.4" y1="18.4" x2="19.8" y2="19.8"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.2" y1="19.8" x2="5.6" y2="18.4"/><line x1="18.4" y1="5.6" x2="19.8" y2="4.2"/></svg> Light</button>
       </div></div></div>
     </div>
@@ -10070,7 +10072,7 @@ html,body{height:100%;background:var(--bg);color:var(--t1);font-family:'Space Gr
   <div class="arc-canvas-wrap" id="ds-wrap">
     <canvas id="ds-canvas"></canvas>
     <div class="mg-hint">Flechas (o desliza) para moverte. Solo come números que SÍ estén en el dominio de la función.</div>
-    <button class="arc-pause-btn" onclick="dsPauseToggle()" id="ds-pause-btn">⏸</button>
+    <button class="arc-pause-btn" onclick="dsPauseToggle()" id="ds-pause-btn"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="4" width="4" height="16" rx="1"/><rect x="14" y="4" width="4" height="16" rx="1"/></svg></button>
     <div class="arc-start" id="ds-start">
       <div class="arc-start-title">🐍 Serpiente de Dominios</div>
       <div class="arc-start-desc">Cada nivel te da una función real. El tablero tiene números sueltos — solo puedes comer los que SÍ pertenecen al dominio de esa función. Comer uno que no pertenece termina el juego.</div>
@@ -10131,48 +10133,6 @@ html,body{height:100%;background:var(--bg);color:var(--t1);font-family:'Space Gr
     <div class="hint-box" id="vc-hint">Elige un vector para sumarlo a tu posición.</div>
     <div class="vc-btnrow" id="vc-vecbtns"></div>
     <button class="rfoot-btn ghost" onclick="vcUndo()">↺ Deshacer último</button>
-  </div>
-</div>
-</div>
-
-<!-- ══ VECTORES ══ -->
-<div class="scr" id="scr-vectores">
-<div class="arc-wrap">
-  <div class="game-bar">
-    <button class="gbk" onclick="stopVectores();showScr('lobby')">← Salir</button>
-    <div class="gbar-center">
-      <div class="gbar-title">🔀 Vectores</div>
-      <div class="gbar-sub" id="vc-nivel-lbl">Nivel 1 de 6</div>
-    </div>
-    <div class="gbar-right">
-      <div class="gstat"><div class="gstat-n" id="vc-moves">0</div><div class="gstat-l">vectores</div></div>
-    </div>
-  </div>
-  <div class="arc-canvas-wrap" id="vc-wrap">
-    <canvas id="vc-canvas"></canvas>
-    <div class="mg-hint">Elige vectores para sumarlos a tu posición actual. Llega EXACTO al destino ⭐.</div>
-    <button class="arc-pause-btn" onclick="vcReset()" id="vc-reset-btn">↺ Reiniciar</button>
-    <div class="arc-start" id="vc-start">
-      <div class="arc-start-title">🔀 Vectores</div>
-      <div class="arc-start-desc">Parte del origen. En cada turno eliges uno de los vectores disponibles y se suma a tu posición actual, dibujando una flecha punta con punta. Llega exactamente al destino marcado con ⭐.</div>
-      <div class="arc-start-note">Esto es suma de vectores real: cada flecha se coloca donde terminó la anterior, componente a componente (x,y) + (x,y).</div>
-      <button class="arc-start-btn" style="--gc:#22C55E" onclick="beginVectores()">Jugar →</button>
-    </div>
-    <div class="arc-goover" id="vc-goover">
-      <div class="result-box">
-        <div class="res-ico" id="vc-goover-ico">🔀</div>
-        <div class="res-title" id="vc-goover-title">¡Llegaste!</div>
-        <div class="res-sub" id="vc-goover-sub"></div>
-        <div class="res-btns">
-          <button class="res-btn primary" id="vc-goover-btn1" onclick="vcNextLevel()">Siguiente nivel →</button>
-          <button class="res-btn ghost" onclick="stopVectores();showScr('lobby')">Salir al lobby</button>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="rebota-footer" id="vc-footer">
-    <div class="hint-box">Vectores disponibles:</div>
-    <button class="rfoot-btn ghost" onclick="vcUndo()">↩ Deshacer</button>
   </div>
 </div>
 </div>
@@ -10861,7 +10821,7 @@ function dsBuildLevel(resetScore){
   dsNums=[];
   for(var i=0;i<8;i++) dsSpawnNumber();
   dsPaused=false;
-  document.getElementById('ds-pause-btn').textContent='⏸';
+  document.getElementById('ds-pause-btn').innerHTML='<svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="4" width="4" height="16" rx="1"/><rect x="14" y="4" width="4" height="16" rx="1"/></svg>';
   dsRunning=true;
   dsBindInput();
   dsLastTick=performance.now();
@@ -10897,7 +10857,7 @@ function dsBindInput(){
 function dsPauseToggle(){
   if(!dsRunning)return;
   dsPaused=!dsPaused;
-  document.getElementById('ds-pause-btn').textContent=dsPaused?'▶':'⏸';
+  document.getElementById('ds-pause-btn').innerHTML=dsPaused?'<svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M6 4l14 8-14 8V4z"/></svg>':'<svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="4" width="4" height="16" rx="1"/><rect x="14" y="4" width="4" height="16" rx="1"/></svg>';
   if(!dsPaused){ dsLastTick=performance.now(); dsLoop(); }
 }
 function dsLoop(){
@@ -11167,10 +11127,10 @@ function vcDraw(){
     <span class="logo-txt"><span class="logo-m">MATH</span><span class="logo-u">UNAL</span></span></a>
   <div class="nav-r" style="display:flex;align-items:center;gap:.9rem;margin-left:auto">
     <a href="#home" class="mat-nav-back" style="font-size:.82rem;padding:.36rem .7rem;border-radius:7px;background:var(--lay2);border:1px solid var(--br);color:var(--t2);text-decoration:none">← Inicio</a>
-    <div class="settings-wrap"><button class="settings-btn" aria-label="Ajustes" onclick="toggleSettings(this)" aria-haspopup="true" aria-expanded="false" aria-controls="sd">⚙</button>
+    <div class="settings-wrap"><button class="settings-btn" aria-label="Ajustes" onclick="toggleSettings(this)" aria-haspopup="true" aria-expanded="false" aria-controls="sd"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></button>
       <div class="settings-dropdown" id="sd"><div class="sd-section"><div class="sd-label">TEMA</div><div class="sd-row">
         <button class="sd-btn on" id="th-dark" onclick="setTheme('dark')"><svg width="13" height="13" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" style="vertical-align:-2px"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg> Dark</button>
-        <button class="sd-btn" id="th-gray" onclick="setTheme('gray')">⬤ Gris</button>
+        <button class="sd-btn" id="th-gray" onclick="setTheme('gray')"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" style="vertical-align:-2px"><circle cx="12" cy="12" r="9"/></svg> Gris</button>
         <button class="sd-btn" id="th-light" onclick="setTheme('light')"><svg width="13" height="13" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" style="vertical-align:-2px"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.2" y1="4.2" x2="5.6" y2="5.6"/><line x1="18.4" y1="18.4" x2="19.8" y2="19.8"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.2" y1="19.8" x2="5.6" y2="18.4"/><line x1="18.4" y1="5.6" x2="19.8" y2="4.2"/></svg> Light</button>
       </div></div></div>
     </div>
@@ -11579,10 +11539,10 @@ function _diagReiniciar(){
     <span class="logo-txt"><span class="logo-m">MATH</span><span class="logo-u">UNAL</span></span></a>
   <div class="nav-r" style="display:flex;align-items:center;gap:.9rem;margin-left:auto">
     <a href="#home" class="mat-nav-back" style="font-size:.82rem;padding:.36rem .7rem;border-radius:7px;background:var(--lay2);border:1px solid var(--br);color:var(--t2);text-decoration:none">← Inicio</a>
-    <div class="settings-wrap"><button class="settings-btn" aria-label="Ajustes" onclick="toggleSettings(this)" aria-haspopup="true" aria-expanded="false" aria-controls="sd">⚙</button>
+    <div class="settings-wrap"><button class="settings-btn" aria-label="Ajustes" onclick="toggleSettings(this)" aria-haspopup="true" aria-expanded="false" aria-controls="sd"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></button>
       <div class="settings-dropdown" id="sd"><div class="sd-section"><div class="sd-label">TEMA</div><div class="sd-row">
         <button class="sd-btn on" id="th-dark" onclick="setTheme('dark')"><svg width="13" height="13" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" style="vertical-align:-2px"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg> Dark</button>
-        <button class="sd-btn" id="th-gray" onclick="setTheme('gray')">⬤ Gris</button>
+        <button class="sd-btn" id="th-gray" onclick="setTheme('gray')"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" style="vertical-align:-2px"><circle cx="12" cy="12" r="9"/></svg> Gris</button>
         <button class="sd-btn" id="th-light" onclick="setTheme('light')"><svg width="13" height="13" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" style="vertical-align:-2px"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.2" y1="4.2" x2="5.6" y2="5.6"/><line x1="18.4" y1="18.4" x2="19.8" y2="19.8"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.2" y1="19.8" x2="5.6" y2="18.4"/><line x1="18.4" y1="5.6" x2="19.8" y2="4.2"/></svg> Light</button>
       </div></div></div>
     </div>
@@ -13523,7 +13483,7 @@ function saveSemMat(key, checked){
   else { saved = saved.filter(function(k){return k!==key;}); }
   try{ localStorage.setItem('mu-sem-mats', JSON.stringify(saved)); }catch(e){}
   renderSemSidebar();
-  muToast('✓ Semestre actualizado');
+  muToast('Semestre actualizado');
 }
 
 /* ── MEJORA 8: Toast system ── */
@@ -13532,7 +13492,8 @@ function muToast(msg, icon){
   if(!container) return;
   var t = document.createElement('div');
   t.className = 'toast';
-  t.innerHTML = '<span class="toast-ico">'+(icon||'✓')+'</span><span>'+msg+'</span>';
+  var defaultIcon = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>';
+  t.innerHTML = '<span class="toast-ico">'+(icon||defaultIcon)+'</span><span>'+msg+'</span>';
   container.appendChild(t);
   setTimeout(function(){
     t.classList.add('out');
@@ -13545,7 +13506,7 @@ window.muToast = muToast;
 // Parchear clipboard copies para mostrar toast
 document.addEventListener('click', function(e){
   var btn = e.target.closest('[onclick*="clipboard"]');
-  if(btn) setTimeout(function(){ muToast('<svg width="12" height="12" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" style="vertical-align:-2px"><path d="M10 13a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1 1"/><path d="M14 11a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1-1"/></svg> Enlace copiado'); }, 100);
+  if(btn) setTimeout(function(){ muToast('Enlace copiado', '<svg width="14" height="14" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"><path d="M10 13a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1 1"/><path d="M14 11a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1-1"/></svg>'); }, 100);
 });
 
 /* ── MEJORA 11: Hero counter — disparar siempre al cargar ── */
