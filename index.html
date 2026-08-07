@@ -7058,8 +7058,8 @@ function setLang(lang){
   setText('.hero-badge', 'hero-badge');
   setText('.hero-tagline', 'hero-tag');
   setHTML('.hero-sub', 'hero-sub');
-  var heroBtn1=document.querySelector('.hero-btns .btn-a'); if(heroBtn1) heroBtn1.textContent=L['hero-btn1'];
-  var heroBtn2=document.querySelector('.hero-btns .btn-o'); if(heroBtn2) heroBtn2.textContent=L['hero-btn2'];
+  var heroBtn1=document.querySelector('.hero-btns .btn-a'); if(heroBtn1) heroBtn1.innerHTML=L['hero-btn1'];
+  var heroBtn2=document.querySelector('.hero-btns .btn-o'); if(heroBtn2) heroBtn2.innerHTML=L['hero-btn2'];
   /* Hero stats labels */
   var hsLabels = document.querySelectorAll('.hs-l');
   var hKeys=['hero-stat1','hero-stat2','hero-stat3','hero-stat4'];
@@ -7083,7 +7083,7 @@ function setLang(lang){
   simFilters.forEach(function(el,i){ if(L[sfKeys[i]]) el.textContent=L[sfKeys[i]]; });
   setText('.panic-l h4','panic-title');
   setText('.panic-l p','panic-sub');
-  var panicBtn=document.querySelector('.btn-panic'); if(panicBtn) panicBtn.textContent=L['panic-btn'];
+  var panicBtn=document.querySelector('.btn-panic'); if(panicBtn) panicBtn.innerHTML=L['panic-btn'];
 
   /* BANCO section */
   setText('#banco .sec-label','banco-label');
@@ -7512,8 +7512,8 @@ function setLang(lang){
     if(L['fab-semana']){ var svgb=b.querySelector('svg'); b.innerHTML=(svgb?svgb.outerHTML:'')+' '+L['fab-semana']; }
   });
   var pomoH=document.querySelector('.sphd'); if(pomoH&&L['pomo-h']){ var svgp2=pomoH.querySelector('svg'); pomoH.innerHTML=L['pomo-h']+' <span>'+(svgp2?svgp2.outerHTML:'')+' 25 min</span>'; }
-  var pomoBtn=document.getElementById('tbtn'); if(pomoBtn&&L['pomo-start']&&pomoBtn.textContent.indexOf('Iniciar')>=0) pomoBtn.textContent=L['pomo-start'];
-  document.querySelectorAll('.spbtn').forEach(function(b){ if(b.textContent.indexOf('Reset')>=0&&L['pomo-reset']) b.textContent=L['pomo-reset']; });
+  var pomoBtn=document.getElementById('tbtn'); if(pomoBtn&&L['pomo-start']&&pomoBtn.textContent.indexOf('Iniciar')>=0) pomoBtn.innerHTML=L['pomo-start'];
+  document.querySelectorAll('.spbtn').forEach(function(b){ if(b.textContent.indexOf('Reset')>=0&&L['pomo-reset']) b.innerHTML=L['pomo-reset']; });
   var muCalcH=document.querySelector('.mu-calc h3'); if(muCalcH&&L['mu-calc-h']){ var svgmc=muCalcH.querySelector('svg'); muCalcH.innerHTML=(svgmc?svgmc.outerHTML:'')+' '+L['mu-calc-h']; }
   setText('.mu-calc-sub','mu-calc-sub');
   var muCalcLbls=document.querySelectorAll('.mu-calc-field label'); var muCalcKeys=['mu-calc-p1','mu-calc-p2','mu-calc-pf'];
@@ -14723,32 +14723,11 @@ var TEMARIOS={
 };
 
 function genMats(sub){
-  var nm = curLang==='en' ? sub.nameEn : sub.nameEs;
-  var units=TEMARIOS[sub.code]||[];
-  var free=[
-    {type:'programa',name:'Programa Oficial del Curso · 2026-1',size:'234 KB',sem:'2026-1'},
-    {type:'formulario',name:'Formulario completo de '+nm,size:'310 KB',sem:'General'},
-    {type:'notas',name:'Notas de Clase completas · 2025-2',size:'1.7 MB',sem:'2025-2'}
-  ];
-  // Un taller por unidad temática
-  units.forEach(function(u,i){
-    free.push({type:'taller',name:'Taller Unidad '+u.u+': '+u.t,size:(120+i*18)+' KB',sem:'2025-2'});
-  });
-  // Parciales por semestre
-  free.push({type:'parcial',name:'Parcial 1 · 2025-2 (Enunciado)',size:'172 KB',sem:'2025-2'});
-  free.push({type:'parcial',name:'Parcial 2 · 2025-2 (Enunciado)',size:'185 KB',sem:'2025-2'});
-  free.push({type:'parcial',name:'Parcial Final · 2025-2 (Enunciado)',size:'210 KB',sem:'2025-2'});
-  free.push({type:'parcial',name:'Parcial 1 · 2025-1 (Enunciado)',size:'168 KB',sem:'2025-1'});
-  free.push({type:'parcial',name:'Parcial 2 · 2025-1 (Enunciado)',size:'179 KB',sem:'2025-1'});
-  // Quices
-  free.push({type:'quice',name:'Quiz Unidad 1 · 2025-2',size:'88 KB',sem:'2025-2'});
-  free.push({type:'quice',name:'Quiz Unidad 2 · 2025-2',size:'92 KB',sem:'2025-2'});
-  return {free:free,premium:[
-    {name:'Solucionario Parciales 2025-2 (paso a paso)',pages:42},
-    {name:'Solucionario Parciales 2025-1 (paso a paso)',pages:38},
-    {name:'Talleres Resueltos · todas las unidades',pages:30},
-    {name:'Banco de ejercicios tipo parcial',pages:24}
-  ]};
+  // Antes inventaba nombres/tamaños/paginas de archivos que no existen --
+  // exactamente lo que el comentario de muPdfsDeMateria (arriba) dice que
+  // nunca deberia pasar. Si una materia no tiene entrada real en MATS, no
+  // hay archivos que mostrar: vacio, y la UI la trata como "proximamente".
+  return {free:[],premium:[]};
 }
 
 var ICO_SVG = {
@@ -14787,16 +14766,17 @@ var mats=MATS[code]||genMats(sub);
 function renderAll(){ /* stub — lógica movida a __muMateriaInit._renderAll */ }
 function renderMats(/* stub — en __muMateriaInit */){}
 var MAT_FORM_MAP={
-  '1000003':{cats:['tri','alg','geo'],label:'Trigonometría, Álgebra y Geometría'},
-  '1000004':{cats:['lim','der'],label:'Límites y Derivadas'},
-  '1000005':{cats:['int','ser'],label:'Integrales y Series'},
-  '1000006':{cats:['vec','geo'],label:'Geometría Vectorial y Analítica'},
+  '1000003':{cats:['tri','alg','geo'],label:'Matemáticas Básicas'},
+  '1000004':{cats:['lim','der'],label:'Cálculo Diferencial'},
+  '1000005':{cats:['int','ser'],label:'Cálculo Integral'},
+  '1000006':{cats:['alg'],label:'Álgebra Lineal'},
   '1000007':{cats:['vec','der','int'],label:'Cálculo en Varias Variables'},
   '1000008':{cats:['edo'],label:'Ecuaciones Diferenciales'},
   '1000009':{cats:['num'],label:'Métodos Numéricos'},
-  '1000010':{cats:['alg'],label:'Álgebra Lineal'},
-  '1000011':{cats:['alg','geo'],label:'Álgebra Lineal'},
-  '1000013':{cats:['tri','alg'],label:'Matemáticas Básicas'}
+  '1000010':{cats:['alg','geo'],label:'Matemáticas Especiales'},
+  '1000011':{cats:['alg','geo'],label:'Fundamentos de Matemáticas'},
+  '1000012':{cats:['alg'],label:'Matemáticas Discretas'},
+  '1000013':{cats:['vec','geo'],label:'Geometría Vectorial y Analítica'}
 };
 var MAT_SIM_MAP={
   '1000003':'matbas_p1','1000004':'calcdif_p1','1000005':'calcint_p1','1000006':'alglin_p1',
@@ -14809,14 +14789,16 @@ function renderSimTab(/* stub — en __muMateriaInit */){}
 function renderFormTab(/* stub — en __muMateriaInit */){}
 function renderPlanTab(/* stub — en __muMateriaInit */){}
 function shareWA(){
-  var nm=curLang==='en'?sub.nameEn:sub.nameEs;
+  var lang=window.curLang||curLang;
+  var nm=lang==='en'?sub.nameEn:sub.nameEs;
   window.open('https://wa.me/?text='+encodeURIComponent('Encontré material de '+nm+' en MathUNAL\n'+window.location.href),'_blank');
 }
 function copyLink(){
   navigator.clipboard.writeText(window.location.href).then(function(){
+    var lang=window.curLang||curLang;
     var btn=document.getElementById('copy-btn');
-    btn.textContent=T[curLang]['copiar-ok'];
-    setTimeout(function(){btn.textContent=T[curLang]['Copiar enlace']||'Copiar enlace';},2000);
+    btn.textContent=T[lang]['copiar-ok'];
+    setTimeout(function(){btn.textContent=T[lang]['Copiar enlace']||'Copiar enlace';},2000);
   });
 }
 function dlClick(e,name,url){
