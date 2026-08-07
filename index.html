@@ -4724,7 +4724,7 @@ function bancoRender() {
   var container = document.getElementById('banco-contenido');
   if (!container) return;
   if (!lista.length) {
-    container.innerHTML = '<div class="bkl-empty">'+(en?'No results':'Sin resultados')+' \uD83D\uDD0D</div>';
+    container.innerHTML = '<div class="bkl-empty">'+(en?'No results':'Sin resultados')+' <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-2px"><circle cx="11" cy="11" r="7"/><line x1="16.5" y1="16.5" x2="21" y2="21"/></svg></div>';
     return;
   }
   var grupos = {};
@@ -4743,11 +4743,16 @@ function bancoRender() {
       +'<div class="bkl-grid">';
     examenes.forEach(function(e){
       var tipoBg = tipoColors[e.tipo] || '#e05d1a';
+      var icoCheck='<svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-1px"><polyline points="20 6 9 17 4 12"/></svg>';
+      var icoClock='<svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-1px"><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15.5 14"/></svg>';
+      var icoCal='<svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-1px"><rect x="3" y="4" width="18" height="17" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="8" y1="2" x2="8" y2="5"/><line x1="16" y1="2" x2="16" y2="5"/></svg>';
+      var icoList='<svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-1px"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>';
+      var icoDoc='<svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-1px"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>';
       var solStatus = e.sol
-        ? '<span class="bkl-sol-status bkl-sol-yes">\u2713 '+(en?'Solution':'Soluci\u00f3n')+'</span>'
-        : '<span class="bkl-sol-status bkl-sol-soon">\u23f3 '+(en?'Coming soon':'Pronto')+'</span>';
+        ? '<span class="bkl-sol-status bkl-sol-yes">'+icoCheck+' '+(en?'Solution':'Soluci\u00f3n')+'</span>'
+        : '<span class="bkl-sol-status bkl-sol-soon">'+icoClock+' '+(en?'Coming soon':'Pronto')+'</span>';
       var btnSol = e.sol
-        ? '<a class="bkl-btn bkl-btn-s" href="output/'+e.key+'/solucion.pdf" target="_blank">\u2713 '+(en?'Solution':'Soluci\u00f3n')+'</a>'
+        ? '<a class="bkl-btn bkl-btn-s" href="output/'+e.key+'/solucion.pdf" target="_blank">'+icoCheck+' '+(en?'Solution':'Soluci\u00f3n')+'</a>'
         : '<button class="bkl-btn bkl-btn-soon" disabled>'+(en?'Coming soon':'Pronto')+'</button>';
       html += '<div class="bkl-card">'
         +'<div class="bkl-card-top">'
@@ -4757,12 +4762,12 @@ function bancoRender() {
         +'<div class="bkl-name">'+e.titulo+'</div>'
         +'<div class="bkl-topics">'+e.temas+'</div>'
         +'<div class="bkl-chips">'
-          +'<span class="bkl-chip">\uD83D\uDCC5 '+e.anio+'</span>'
-          +'<span class="bkl-chip">\uD83D\uDCDD '+(e.ejercicios||'?')+(en?' exercises':' ejercicios')+'</span>'
+          +'<span class="bkl-chip">'+icoCal+' '+e.anio+'</span>'
+          +'<span class="bkl-chip">'+icoList+' '+(e.ejercicios||'?')+(en?' exercises':' ejercicios')+'</span>'
           +(e.radicado?'<span class="bkl-chip">'+e.radicado+'</span>':'')
         +'</div>'
         +'<div class="bkl-card-btns">'
-          +'<a class="bkl-btn bkl-btn-e" href="output/'+e.key+'/enunciado.pdf" target="_blank">\uD83D\uDCC4 '+(en?'Statement':'Enunciado')+'</a>'
+          +'<a class="bkl-btn bkl-btn-e" href="output/'+e.key+'/enunciado.pdf" target="_blank">'+icoDoc+' '+(en?'Statement':'Enunciado')+'</a>'
           +btnSol
         +'</div>'
       +'</div>';
@@ -5589,7 +5594,7 @@ bancoRender();
           </div>
         </div>
         <p style="margin-top:.7rem;font-size:.78rem;color:var(--t3);font-family:IBM Plex Mono,monospace">
-          ℹ Sistema de créditos UNAL · Nota mínima aprobatoria: 3.0
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-1px"><circle cx="12" cy="12" r="9"/><line x1="12" y1="16" x2="12" y2="11"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg> Sistema de créditos UNAL · Nota mínima aprobatoria: 3.0
         </p>
         <div style="margin-top:1.4rem;display:grid;grid-template-columns:1fr 1fr;gap:1rem">
           <div style="background:var(--card2);border:1.5px solid var(--br);border-radius:10px;padding:1rem 1.1rem">
@@ -5836,7 +5841,7 @@ bancoRender();
         <div class="smap-links">
           <a href="https://wa.me/573163480451" target="_blank" class="smap-link"><svg width="13" height="13" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" style="vertical-align:-2px"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg> Grupo WhatsApp</a>
           <a href="https://instagram.com/mathunal" target="_blank" class="smap-link"><svg width="13" height="13" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" style="vertical-align:-2px"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg> @math.unal</a>
-          <a href="javascript:void(0)" onclick="location.href='mail'+'to:hola\x40mathunal.co'" class="smap-link">✉ hola&#64;mathunal.co</a>
+          <a href="javascript:void(0)" onclick="location.href='mail'+'to:hola\x40mathunal.co'" class="smap-link"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-2px"><path d="M4 4h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z"/><polyline points="22 6 12 13 2 6"/></svg> hola&#64;mathunal.co</a>
         </div>
       </div>
     </div>
@@ -5937,7 +5942,7 @@ bancoRender();
       <div class="mu-nota-big" id="mu-nota" style="color:var(--t3)">—</div>
       <div class="mu-nota-lbl">Nota Final</div>
       <div class="mu-nota-msg" id="mu-msg">Ingresa tus notas para calcular</div>
-      <button class="mu-sprint-cta" onclick="muSprintOpen()">🃏 Modo Sprint — repasar fórmulas</button>
+      <button class="mu-sprint-cta" onclick="muSprintOpen()"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-2px"><rect x="2" y="6" width="14" height="12" rx="2"/><rect x="8" y="2" width="14" height="12" rx="2"/></svg> Modo Sprint — repasar fórmulas</button>
     </div>
   </div>
 </section>
@@ -6665,7 +6670,7 @@ var LANG_ES={
   "prom-lbl":"Calculadora UNAL","prom-h":"Promedio ponderado<br><i>por créditos</i>",
   "prom-p":"Ingresa tus materias con créditos y notas. Calcula tu promedio ponderado semestral y acumulado exactamente como lo hace el SIA de la UNAL.",
   "prom-th-mat":"Materia","prom-th-cred":"Créditos","prom-th-nota":"Nota (0–5)",
-  "prom-add":"+ Agregar materia","prom-sys":"ℹ Sistema de créditos UNAL · Nota mínima aprobatoria: 3.0",
+  "prom-add":"+ Agregar materia","prom-sys":"Sistema de créditos UNAL · Nota mínima aprobatoria: 3.0",
   "prom-q1-h":"¿Por qué por créditos?","prom-q1-d":"El SIA no promedia las notas simples — pesa cada una según los créditos de la materia. Una materia de 4 créditos pesa más que una de 2.",
   "prom-q2-h":"¿Y si pierdo una?","prom-q2-d":"Una nota por debajo de 3.0 sí cuenta en el promedio. Usa esta calculadora para ver cuánto te baja antes de cancelar o habilitar.",
   "prom-result-l":"Promedio ponderado",
@@ -6742,7 +6747,7 @@ var LANG_ES={
   "mu-calc-p1":"Parcial 1","mu-calc-p2":"Parcial 2","mu-calc-pf":"Final (opcional)","mu-calc-pf-ph":"Si ya lo sabes",
   "au-tag":"Para quién es MathUNAL","au-p0-stat2":"Materias con parciales reales",
   "prom-ej-line":"4 créd. × 4.0 + 3 créd. × 3.5 + 4 créd. × 3.0 + 3 créd. × 4.5","prom-ej-div":"÷ 14 créditos =",
-  "mu-msg-init":"Ingresa tus notas para calcular","sp-recall-q":"¿Recuerdas esta fórmula?","sp-hint":"Pulsa cuando estés listo","sp-ver":"Ver fórmula","sp-vistas":"vistas","sp-cta":"🃏 Modo Sprint — repasar fórmulas",
+  "mu-msg-init":"Ingresa tus notas para calcular","sp-recall-q":"¿Recuerdas esta fórmula?","sp-hint":"Pulsa cuando estés listo","sp-ver":"Ver fórmula","sp-vistas":"vistas","sp-cta":"<svg width='13' height='13' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' style='vertical-align:-2px'><rect x='2' y='6' width='14' height='12' rx='2'/><rect x='8' y='2' width='14' height='12' rx='2'/></svg> Modo Sprint — repasar fórmulas",
   "hs-l1":"PDFs","hs-ctx1":"parciales · talleres · libros","hs-l2":"Solucionarios","hs-ctx2":"paso a paso","hs-l3":"Materias","hs-ctx3":"núcleo completo","hs-l4":"Visitas/mes","hs-ctx4":"pico en parciales",
   "foot-made":"Hecho a mano en Medellín ♥"
 };
@@ -6932,7 +6937,7 @@ var LANG_EN={
   "prom-lbl":"UNAL Calculator","prom-h":"Weighted average<br><i>by credits</i>",
   "prom-p":"Enter your subjects with credits and grades. Calculate your semester and cumulative weighted average exactly like UNAL's SIA does.",
   "prom-th-mat":"Subject","prom-th-cred":"Credits","prom-th-nota":"Grade (0–5)",
-  "prom-add":"+ Add subject","prom-sys":"ℹ UNAL credit system · Minimum passing grade: 3.0",
+  "prom-add":"+ Add subject","prom-sys":"UNAL credit system · Minimum passing grade: 3.0",
   "prom-q1-h":"Why by credits?","prom-q1-d":"The SIA doesn't average raw grades — it weighs each one by the subject's credits. A 4-credit subject weighs more than a 2-credit one.",
   "prom-q2-h":"What if I fail one?","prom-q2-d":"A grade below 3.0 does count toward the average. Use this calculator to see how much it drags you down before withdrawing or retaking.",
   "prom-result-l":"Weighted average",
@@ -7009,7 +7014,7 @@ var LANG_EN={
   "mu-calc-p1":"Exam 1","mu-calc-p2":"Exam 2","mu-calc-pf":"Final (optional)","mu-calc-pf-ph":"If you already know it",
   "au-tag":"Who MathUNAL is for","au-p0-stat2":"Subjects with real exams",
   "prom-ej-line":"4 cr. × 4.0 + 3 cr. × 3.5 + 4 cr. × 3.0 + 3 cr. × 4.5","prom-ej-div":"÷ 14 credits =",
-  "mu-msg-init":"Enter your grades to calculate","sp-recall-q":"Do you remember this formula?","sp-hint":"Tap when you're ready","sp-ver":"See formula","sp-vistas":"seen","sp-cta":"🃏 Sprint Mode — review formulas",
+  "mu-msg-init":"Enter your grades to calculate","sp-recall-q":"Do you remember this formula?","sp-hint":"Tap when you're ready","sp-ver":"See formula","sp-vistas":"seen","sp-cta":"<svg width='13' height='13' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' style='vertical-align:-2px'><rect x='2' y='6' width='14' height='12' rx='2'/><rect x='8' y='2' width='14' height='12' rx='2'/></svg> Sprint Mode — review formulas",
   "hs-l1":"PDFs","hs-ctx1":"exams · worksheets · books","hs-l2":"Solutions","hs-ctx2":"step by step","hs-l3":"Subjects","hs-ctx3":"core subjects","hs-l4":"Visits/month","hs-ctx4":"peak during exams",
   "foot-made":"Made in Medellín ♥"
 };
@@ -7381,7 +7386,7 @@ function setLang(lang){
   var promTh=document.querySelectorAll('#promedio .prom-thead span'); var promThKeys=['prom-th-mat','prom-th-cred','prom-th-nota'];
   promTh.forEach(function(el,i){ if(promThKeys[i]&&L[promThKeys[i]]) el.textContent=L[promThKeys[i]]; });
   setText('#promedio .prom-add-btn','prom-add');
-  var promSys=document.querySelector('#promedio p[style*="font-family:IBM Plex Mono"]'); if(promSys&&L['prom-sys']) promSys.textContent='ℹ '+L['prom-sys'].replace('ℹ ','');
+  var promSys=document.querySelector('#promedio p[style*="font-family:IBM Plex Mono"]'); if(promSys&&L['prom-sys']) promSys.innerHTML='<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-1px"><circle cx="12" cy="12" r="9"/><line x1="12" y1="16" x2="12" y2="11"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg> '+L['prom-sys'];
   var promInfoCards=document.querySelectorAll('#promedio .prom-grid > div:first-child > div[style*="grid-template-columns:1fr 1fr"] > div');
   var promInfoKeys=[['prom-q1-h','prom-q1-d'],['prom-q2-h','prom-q2-d']];
   promInfoCards.forEach(function(el,i){ if(!promInfoKeys[i])return; var divs=el.querySelectorAll('div');
@@ -7529,7 +7534,7 @@ function setLang(lang){
   if(spVerBtn&&L['sp-ver']){ var svgver=spVerBtn.querySelector('svg'); spVerBtn.innerHTML=(svgver?svgver.outerHTML:'')+' '+L['sp-ver']; }
   var spdEl=document.getElementById('mu-spd');
   if(spdEl&&L['sp-vistas']){ var num=(spdEl.textContent.match(/\d+/)||['0'])[0]; spdEl.textContent=num+' '+L['sp-vistas']; }
-  setText('.mu-sprint-cta','sp-cta');
+  setHTML('.mu-sprint-cta','sp-cta');
 
   /* Guardar preferencia */
   try{ localStorage.setItem('mu-lang', lang); }catch(e){}
@@ -7747,7 +7752,7 @@ function muAbrirModalPremium(){
   m.innerHTML =
     '<div style="background:var(--card);border:2px solid var(--br2);border-radius:18px;padding:2rem;max-width:380px;width:90%;position:relative">' +
       '<button onclick="muCerrarModalPremium()" style="position:absolute;top:1rem;right:1rem;background:none;border:none;color:var(--t2);font-size:1.3rem;cursor:pointer;line-height:1"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>' +
-      '<div style="font-size:1.3rem;font-weight:800;color:var(--t1);margin-bottom:.3rem">🔓 Desbloquear soluciones</div>' +
+      '<div style="font-size:1.3rem;font-weight:800;color:var(--t1);margin-bottom:.3rem;display:flex;align-items:center;gap:.4rem;justify-content:center"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 9.9-1"/></svg> Desbloquear soluciones</div>' +
       '<div style="font-size:.88rem;color:var(--t2);margin-bottom:1.2rem">Acceso completo a todas las soluciones paso a paso · <strong style="color:var(--acc)">$12.000 COP</strong> · pago único</div>' +
       '<label style="font-size:.83rem;color:var(--t3);display:block;margin-bottom:.4rem">Tu correo electrónico</label>' +
       '<input id="mu-pm-email" type="email" placeholder="tu@correo.com" value="'+emailGuardado+'" ' +
@@ -7834,7 +7839,7 @@ window.muRenderProgreso = function(){
   var lblBorrar = en?'Delete history':'Borrar historial';
   var confirmMsg = en?'Delete your mock exam history?':'¿Borrar tu historial de simulacros?';
   var lblSim = en?'Mock exams':'Simulacros', lblProm=en?'Average':'Promedio', lblBest=en?'Best score':'Mejor nota', lblAprob=en?'Passed':'Aprobados';
-  el.innerHTML='<div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:.7rem"><span style="font-family:\'IBM Plex Mono\',monospace;font-size:.77rem;color:var(--acc);text-transform:uppercase;letter-spacing:.08em">\ud83d\udcca '+lblProgreso+'</span><button onclick="if(confirm(\''+confirmMsg+'\')){localStorage.removeItem(\'mu-results\');window.muRenderProgreso();}" style="background:none;border:none;color:var(--t3);font-size:.77rem;cursor:pointer;text-decoration:underline">'+lblBorrar+'</button></div><div style="display:flex;gap:.6rem;flex-wrap:wrap">'+stat(lblSim,n)+stat(lblProm,prom.toFixed(1),prom>=3?'var(--grn)':prom>0?'var(--yel)':'var(--t2)')+stat(lblBest,best.toFixed(1),'var(--grn)')+stat(lblAprob,aprob+'/'+n)+'</div>';
+  el.innerHTML='<div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:.7rem"><span style="font-family:\'IBM Plex Mono\',monospace;font-size:.77rem;color:var(--acc);text-transform:uppercase;letter-spacing:.08em"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-1px"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg> '+lblProgreso+'</span><button onclick="if(confirm(\''+confirmMsg+'\')){localStorage.removeItem(\'mu-results\');window.muRenderProgreso();}" style="background:none;border:none;color:var(--t3);font-size:.77rem;cursor:pointer;text-decoration:underline">'+lblBorrar+'</button></div><div style="display:flex;gap:.6rem;flex-wrap:wrap">'+stat(lblSim,n)+stat(lblProm,prom.toFixed(1),prom>=3?'var(--grn)':prom>0?'var(--yel)':'var(--t2)')+stat(lblBest,best.toFixed(1),'var(--grn)')+stat(lblAprob,aprob+'/'+n)+'</div>';
 };
 muAplicarPremium();
 window.muRenderProgreso();
@@ -10140,7 +10145,7 @@ html,body{height:100%;background:var(--bg);color:var(--t1);font-family:'Space Gr
 <!-- RESULTADO OVERLAY -->
 <div class="result-ov" id="result-ov">
   <div class="result-box">
-    <div class="res-ico" id="res-ico">🎉</div>
+    <div class="res-ico" id="res-ico"></div>
     <div class="res-title" id="res-title">¡Nivel superado!</div>
     <div class="res-sub" id="res-sub"></div>
     <div class="res-btns">
@@ -10171,7 +10176,7 @@ function showScr(id){
   window.scrollTo(0,0);
 }
 function showResult(ico,title,sub,btn1Action){
-  document.getElementById('res-ico').textContent=ico;
+  document.getElementById('res-ico').innerHTML=ico;
   document.getElementById('res-title').textContent=title;
   document.getElementById('res-sub').textContent=sub;
   document.getElementById('res-btn1').onclick=btn1Action;
@@ -10214,6 +10219,11 @@ function beep(freq,dur,vol,type){
     o.stop(actx.currentTime+(dur||.15));
   }catch(e){}
 }
+
+// Íconos compartidos de resultado (reemplazan los emojis 🏆/🎯/😅/💥/💀/🎉)
+var JG_ICO_TROPHY='<svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M8 21h8M12 17v4M7 4h10v4a5 5 0 0 1-10 0z"/><path d="M7 5H4a1 1 0 0 0-1 1 5 5 0 0 0 4 4.9M17 5h3a1 1 0 0 1 1 1 5 5 0 0 1-4 4.9"/></svg>';
+var JG_ICO_TARGET='<svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5.5"/><circle cx="12" cy="12" r="2"/></svg>';
+var JG_ICO_RETRY='<svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><line x1="12" y1="7" x2="12" y2="13"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>';
 
 // ══════════════════════════════════
 // JUEGO 1: REBOTA
@@ -10273,13 +10283,13 @@ function resetRebota(){
   document.getElementById('r-intentos').textContent=intentos;
   draw();
   if(intentos<=0){
-    showResult('😅','Sin más intentos','¿Lo intentas de nuevo?',()=>{closeResult();startRebota(nivel);});
+    showResult(JG_ICO_RETRY,'Sin más intentos','¿Lo intentas de nuevo?',()=>{closeResult();startRebota(nivel);});
   }
 }
 function nextNivel(){
   closeResult();
   if(nivel+1>=niveles.length){
-    showResult('🏆','¡Completaste todos los niveles!','Eres un maestro de las trayectorias.',()=>{closeResult();showScr('lobby');});
+    showResult(JG_ICO_TROPHY,'¡Completaste todos los niveles!','Eres un maestro de las trayectorias.',()=>{closeResult();showScr('lobby');});
   } else {
     startRebota(nivel+1);
   }
@@ -10365,7 +10375,7 @@ function updateBall(){
     setTimeout(()=>{
       lastGame='rebota';lastScore=intentos;
       document.getElementById('r-next-btn').style.display='';
-      showResult('🎯',nivel<niveles.length-1?'¡Nivel '+(nivel+1)+' superado!':'¡Todos los niveles!',
+      showResult(JG_ICO_TARGET,nivel<niveles.length-1?'¡Nivel '+(nivel+1)+' superado!':'¡Todos los niveles!',
         'La bola llegó al objetivo con '+(3-intentos)+' intentos usados.',
         ()=>{closeResult();if(nivel<niveles.length-1)nextNivel();else showScr('lobby');});
     },400);
@@ -10600,7 +10610,7 @@ function checkWin(){
   if(placed===casN){
     lastGame='casillas';lastScore=casMoves;
     setTimeout(()=>{
-      showResult('🏆','¡Puzzle resuelto!',
+      showResult(JG_ICO_TROPHY,'¡Puzzle resuelto!',
         `Completaste el puzzle en ${casMoves} movimientos.`,
         ()=>{closeResult();});
     },500);
@@ -10720,7 +10730,7 @@ function ptStep(){
 function ptGameOver(msg){
   ptRunning=false;
   beep(140,.3,.1,'sawtooth');
-  document.getElementById('pt-goover-ico').textContent='💥';
+  document.getElementById('pt-goover-ico').innerHTML=JG_ICO_RETRY;
   document.getElementById('pt-goover-title').textContent='¡Chocaste!';
   document.getElementById('pt-goover-sub').textContent=msg;
   document.getElementById('pt-goover-btn1').onclick=resetPortalLevel;
@@ -10900,7 +10910,7 @@ function dsLevelUp(){
   dsRunning=false;
   var isLast=dsLevelIdx>=DS_LEVELS.length-1;
   lastGame='domainsnake';lastScore=dsScore;
-  document.getElementById('ds-goover-ico').textContent='🏆';
+  document.getElementById('ds-goover-ico').innerHTML=JG_ICO_TROPHY;
   document.getElementById('ds-goover-title').textContent='¡Nivel superado!';
   document.getElementById('ds-goover-sub').textContent='Puntos: '+dsScore+(isLast?' · ¡Completaste todos los niveles!':'');
   document.getElementById('ds-goover-btn1').textContent=isLast?'Reiniciar juego':'Siguiente nivel →';
@@ -10914,7 +10924,7 @@ function dsLevelUp(){
 function dsGameOver(msg){
   dsRunning=false;
   lastGame='domainsnake';lastScore=dsScore;
-  document.getElementById('ds-goover-ico').textContent='💀';
+  document.getElementById('ds-goover-ico').innerHTML=JG_ICO_RETRY;
   document.getElementById('ds-goover-title').textContent='¡Fuera del dominio!';
   document.getElementById('ds-goover-sub').textContent=msg+' Puntos: '+dsScore;
   document.getElementById('ds-goover-btn1').textContent='Jugar otra vez';
@@ -11054,7 +11064,7 @@ function vcWin(){
   var perfect=vcPath.length<=minVecs;
   var isLast=vcLevelIdx>=VC_LEVELS.length-1;
   lastGame='vectores';lastScore=vcPath.length;
-  document.getElementById('vc-goover-ico').textContent=perfect?'🏆':'🔀';
+  document.getElementById('vc-goover-ico').innerHTML=perfect?JG_ICO_TROPHY:'🔀';
   document.getElementById('vc-goover-title').textContent='¡Llegaste al objetivo!';
   document.getElementById('vc-goover-sub').textContent='Lo lograste con '+vcPath.length+' vector'+(vcPath.length===1?'':'es')+' · El mínimo posible era '+minVecs+'.';
   document.getElementById('vc-goover-btn1').textContent=isLast?'Reiniciar juego':'Siguiente nivel →';
@@ -12785,7 +12795,7 @@ function doRender(fIdx){
               +'<button class="vbtn" onclick="window.__retryPlotly(function(){doRender('+fIdx+');})"><svg width="12" height="12" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" style="vertical-align:-2px"><path d="M21 12a9 9 0 1 1-3-6.7"/><path d="M21 3v6h-6"/></svg> Reintentar</button>'
               +'</div>';
             var btn=document.getElementById('anim-btn');
-            if(btn && _anim){_anim=false;btn.textContent='▶ Animar';btn.classList.remove('playing');}
+            if(btn && _anim){_anim=false;btn.innerHTML='<svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" style="vertical-align:-1px"><path d="M6 4l14 8-14 8V4z"/></svg> Animar';btn.classList.remove('playing');}
           });
         }
       }
@@ -12816,7 +12826,7 @@ function toggleAnim(fIdx){
   if(!_anim){
     if(_rafId){cancelAnimationFrame(_rafId);_rafId=null;}
     _animLastTS=null;
-    if(btn){btn.textContent='▶ Animar';btn.classList.remove('playing');}
+    if(btn){btn.innerHTML='<svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" style="vertical-align:-1px"><path d="M6 4l14 8-14 8V4z"/></svg> Animar';btn.classList.remove('playing');}
     return;
   }
   _animTime=0;
@@ -12830,14 +12840,14 @@ function toggleAnim(fIdx){
     if(window.__loadPlotly){
       window.__loadPlotly(function(){
         if(!_anim) return; /* el usuario canceló mientras cargaba */
-        if(btn){btn.textContent='⏹ Parar';}
+        if(btn){btn.innerHTML='<svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" style="vertical-align:-1px"><rect x="5" y="5" width="14" height="14" rx="1.5"/></svg> Parar';}
         _animLastTS=null;
         _rafId=requestAnimationFrame(_animFrame);
       });
     }
     return;
   }
-  if(btn){btn.textContent='⏹ Parar';}
+  if(btn){btn.innerHTML='<svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" style="vertical-align:-1px"><rect x="5" y="5" width="14" height="14" rx="1.5"/></svg> Parar';}
   _rafId=requestAnimationFrame(_animFrame);
 }
 
@@ -12877,7 +12887,7 @@ document.addEventListener('visibilitychange',function(){
 }
 /* ══ RESET ══ */
 function resetP(fIdx){
-  if(_anim){if(_rafId)cancelAnimationFrame(_rafId);_rafId=null;_anim=false;_animLastTS=null;var btn=document.getElementById('anim-btn');if(btn){btn.textContent='▶ Animar';btn.classList.remove('playing');}}
+  if(_anim){if(_rafId)cancelAnimationFrame(_rafId);_rafId=null;_anim=false;_animLastTS=null;var btn=document.getElementById('anim-btn');if(btn){btn.innerHTML='<svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" style="vertical-align:-1px"><path d="M6 4l14 8-14 8V4z"/></svg> Animar';btn.classList.remove('playing');}}
   var f=F[fIdx];if(!f||!f.viz)return;
   (f.viz.params||[]).forEach(function(p){var s=document.querySelector('[data-param="'+p.id+'"]');var n=document.querySelector('[data-num="'+p.id+'"]');if(s)s.value=p.def;if(n)n.value=p.def;});
   _animDir=1;doRender(fIdx);
@@ -12925,11 +12935,11 @@ function sel(i){
       +'<button class="tb-btn" data-mode="pan" onclick="setDragMode(\'pan\')"><svg width="12" height="12" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" style="vertical-align:-2px"><path d="M9 11.5V6a1.5 1.5 0 0 1 3 0v5M12 11V4a1.5 1.5 0 0 1 3 0v7M15 11.5V6a1.5 1.5 0 0 1 3 0v8"/><path d="M9 22h6c2 0 3-1.5 3-3.5v-4"/></svg> Pan</button>'
       +'<div class="tb-sep"></div>'
       +'<button class="tb-btn" onclick="resetView()"><svg width="12" height="12" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" style="vertical-align:-2px"><path d="M21 12a9 9 0 1 1-3-6.7"/><path d="M21 3v6h-6"/></svg> '+(en?'View':'Vista')+'</button>'
-     +'</div>':'<div class="viz-toolbar"><span style="font-size:.78rem;color:var(--t3)"><svg width="12" height="12" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" style="vertical-align:-2px"><path d="M13 2 L13 10 L21 10"/><path d="M8 12l-4 4 4 4M4 16h16M16 12l4 4-4 4"/></svg> '+(en?'Drag to rotate · Scroll to zoom':'Arrastra para rotar · Scroll para zoom')+'</span><div class="tb-sep"></div><button class="tb-btn" id="mu3d-pause-btn" onclick="mu3dTogglePause()">⏸ '+(en?'Pause':'Pausar')+'</button><div class="tb-sep"></div><select class="speed-sel" id="mu3d-speed-sel" onchange="mu3dSetSpeed(this.value)" style="font-size:.78rem"><option value="0.25">0.25×</option><option value="0.5">0.5×</option><option value="1" selected>1×</option><option value="1.5">1.5×</option><option value="2">2×</option></select></div>')
+     +'</div>':'<div class="viz-toolbar"><span style="font-size:.78rem;color:var(--t3)"><svg width="12" height="12" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" style="vertical-align:-2px"><path d="M13 2 L13 10 L21 10"/><path d="M8 12l-4 4 4 4M4 16h16M16 12l4 4-4 4"/></svg> '+(en?'Drag to rotate · Scroll to zoom':'Arrastra para rotar · Scroll para zoom')+'</span><div class="tb-sep"></div><button class="tb-btn" id="mu3d-pause-btn" onclick="mu3dTogglePause()"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" style="vertical-align:-1px"><rect x="6" y="4" width="4" height="16" rx="1"/><rect x="14" y="4" width="4" height="16" rx="1"/></svg> '+(en?'Pause':'Pausar')+'</button><div class="tb-sep"></div><select class="speed-sel" id="mu3d-speed-sel" onchange="mu3dSetSpeed(this.value)" style="font-size:.78rem"><option value="0.25">0.25×</option><option value="0.5">0.5×</option><option value="1" selected>1×</option><option value="1.5">1.5×</option><option value="2">2×</option></select></div>')
      +'<div class="viz-plot-wrap"><div class="viz-plot" id="viz-plot"></div><div class="viz-coords" id="viz-coords"></div></div>'
      +(sliders?'<div class="viz-controls">'+sliders+'</div>':'')
      +(f.viz.type!=='3d'?'<div class="viz-actions">'
-      +(f.viz.params&&f.viz.params.length?'<button class="vbtn anim-btn" id="anim-btn" onclick="toggleAnim('+i+')">▶ '+(en?'Animate':'Animar')+'</button>':'')
+      +(f.viz.params&&f.viz.params.length?'<button class="vbtn anim-btn" id="anim-btn" onclick="toggleAnim('+i+')"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" style="vertical-align:-1px"><path d="M6 4l14 8-14 8V4z"/></svg> '+(en?'Animate':'Animar')+'</button>':'')
       +'<button class="vbtn" onclick="resetP('+i+')">↺ Reset</button>'
       +'<button class="vbtn reto-btn" id="reto-btn" onclick="toggleReto('+i+')"><svg width="12" height="12" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" style="vertical-align:-2px"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg> '+(en?'Challenge Mode':'Modo Reto')+'</button>'
       +'<div class="speed-wrap"><span class="speed-lbl">'+(en?'Speed:':'Vel:')+'</span><select class="speed-sel" id="speed-sel" onchange="if(_anim){cancelAnimationFrame(_rafId);_rafId=null;_animLastTS=null;_anim=false;toggleAnim('+i+');}"><option value="200">0.25×</option><option value="100" selected>0.5×</option><option value="50">1×</option><option value="33">1.5×</option><option value="25">2×</option></select></div>'
@@ -15438,7 +15448,7 @@ window.__muMateriaInit = function(){
     el.__mu3dPaused=!el.__mu3dPaused;
     var btn=document.getElementById('mu3d-pause-btn');if(!btn)return;
     var en=(window.curLang==='en');
-    btn.innerHTML=el.__mu3dPaused?('▶ '+(en?'Play':'Reanudar')):('⏸ '+(en?'Pause':'Pausar'));
+    btn.innerHTML=el.__mu3dPaused?('<svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" style="vertical-align:-1px"><path d="M6 4l14 8-14 8V4z"/></svg> '+(en?'Play':'Reanudar')):('<svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" style="vertical-align:-1px"><rect x="6" y="4" width="4" height="16" rx="1"/><rect x="14" y="4" width="4" height="16" rx="1"/></svg> '+(en?'Pause':'Pausar'));
     btn.classList.toggle('on',!!el.__mu3dPaused);
   };
   window.mu3dSetSpeed=function(v){
