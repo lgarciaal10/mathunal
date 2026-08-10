@@ -7695,6 +7695,40 @@ function muAplicarPremium(){
   else document.documentElement.classList.remove('is-premium');
 }
 
+/* Trae las URLs reales de los archivos premium -- SOLO se obtienen aca, nunca
+   estan en el HTML ni en la respuesta publica de /rest/v1/materiales (esa
+   tabla ahora solo expone tier=free por RLS). El backend (service role, en
+   el Edge Function) es quien de verdad decide si el email pago; si no,
+   devuelve materiales:[] y mats.premium se queda sin url (fallback honesto
+   a WhatsApp, igual que cualquier archivo sin url todavia). */
+window.__loadPremiumMateriales = function(email, cb){
+  fetch(MU_SUPA_URL + '/functions/v1/get-premium-materiales', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ email: email })
+  })
+  .then(function(r){ return r.json(); })
+  .then(function(data){
+    if (!data || !data.premium || !Array.isArray(data.materiales) || !data.materiales.length){
+      if (cb) cb(false);
+      return;
+    }
+    var MATS_REAL = (window.__MU && window.__MU.MATS) || window.MATS;
+    if (!MATS_REAL){ if(cb) cb(false); return; }
+    data.materiales.forEach(function(row){
+      if (!MATS_REAL[row.codigo]) return; // materia sin entrada local, no inventamos una
+      var lista = MATS_REAL[row.codigo].premium || [];
+      var existente = lista.find(function(e){ return e.name === row.nombre; });
+      if (existente) existente.url = row.url;
+    });
+    if (location.hash.indexOf('#materia')===0 && typeof _loadPage==='function'){
+      try{ _loadPage(location.hash); }catch(e){}
+    }
+    if (cb) cb(true);
+  })
+  .catch(function(){ if (cb) cb(false); });
+};
+
 /* Verifica contra Supabase si el email ya pagó y activa premium si es así */
 window.muVerificarEmail = function(email, onResult){
   fetch(MU_SUPA_URL + '/functions/v1/check-premium', {
@@ -7708,6 +7742,7 @@ window.muVerificarEmail = function(email, onResult){
       try { localStorage.setItem('mu-premium','1'); localStorage.setItem('mu-email', email); } catch(e){}
       muAplicarPremium();
       if (window.muRenderProgreso) window.muRenderProgreso();
+      window.__loadPremiumMateriales(email);
     }
     if (onResult) onResult(data.premium);
   })
@@ -7732,6 +7767,15 @@ window.muAbrirPago = function(email){
       try { localStorage.setItem('mu-premium','1'); } catch(e){}
       muAplicarPremium();
       if (window.muRenderProgreso) window.muRenderProgreso();
+      // Las URLs reales solo llegan cuando el webhook ya escribio el pago en
+      // premium_usuarios -- puede haber una carrera de segundos con Wompi, por
+      // eso se reintenta un par de veces en vez de fallar en silencio.
+      var intentos = 0;
+      (function intentarCargarPremium(){
+        window.__loadPremiumMateriales(email, function(ok){
+          if (!ok && ++intentos < 4) setTimeout(intentarCargarPremium, 2000);
+        });
+      })();
       muCerrarModalPremium();
       muMostrarToast('¡Premium desbloqueado! Ya puedes ver todas las soluciones.');
     } else if (tx && tx.status === 'DECLINED'){
@@ -7846,6 +7890,20 @@ window.muRenderProgreso = function(){
   el.innerHTML='<div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:.7rem"><span style="font-family:\'IBM Plex Mono\',monospace;font-size:.77rem;color:var(--acc);text-transform:uppercase;letter-spacing:.08em"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-1px"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg> '+lblProgreso+'</span><button onclick="if(confirm(\''+confirmMsg+'\')){localStorage.removeItem(\'mu-results\');window.muRenderProgreso();}" style="background:none;border:none;color:var(--t3);font-size:.77rem;cursor:pointer;text-decoration:underline">'+lblBorrar+'</button></div><div style="display:flex;gap:.6rem;flex-wrap:wrap">'+stat(lblSim,n)+stat(lblProm,prom.toFixed(1),prom>=3?'var(--grn)':prom>0?'var(--yel)':'var(--t2)')+stat(lblBest,best.toFixed(1),'var(--grn)')+stat(lblAprob,aprob+'/'+n)+'</div>';
 };
 muAplicarPremium();
+/* El flag mu-premium en localStorage es solo un hint de UI (que clase CSS
+   aplicar mientras carga) -- nunca la fuente de verdad de si alguien puede
+   ver una URL real. En cada arranque, si hay flag + email guardados, se
+   revalida contra el servidor (muVerificarEmail) y SOLO si el servidor lo
+   confirma se traen las URLs premium reales. Sin esto, cualquiera podia
+   escribir localStorage.setItem('mu-premium','1') en la consola y ver un
+   candado abierto en la UI -- inofensivo ahora porque las URLs reales ya
+   no viajan con el HTML ni con el fetch publico, pero igual conviene que
+   la UI misma deje de mentir en cuanto se pueda verificar de verdad. */
+(function(){
+  var email;
+  try{ email = localStorage.getItem('mu-email'); }catch(e){ email = null; }
+  if (muEsPremium() && email) window.muVerificarEmail(email);
+})();
 window.muRenderProgreso();
 renderMaterias();
 renderSimPreview();
@@ -9959,21 +10017,21 @@ html,body{height:100%;background:var(--bg);color:var(--t1);font-family:'Space Gr
       <button class="gc-btn" style="background:var(--purple)" onclick="startCasillas()">Jugar →</button>
     </div>
     <div class="gc" style="--gc:#7C3AED">
-      <div class="gc-ico">🌀</div>
+      <div class="gc-ico"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a9 9 0 1 0 9 9"/><path d="M12 7a5 5 0 1 0 5 5"/><path d="M12 11a1 1 0 1 0 1 1"/></svg></div>
       <div class="gc-name">Portal</div>
       <div class="gc-desc">La bola se mueve sola. Coloca dos portales para redirigirla sin que choque, conservando su velocidad al atravesarlos.</div>
       <div class="gc-tags"><span class="tag">Física</span><span class="tag">Vectores</span><span class="tag">6 niveles</span></div>
       <button class="gc-btn" style="background:var(--purple)" onclick="startPortal()">Jugar →</button>
     </div>
     <div class="gc" style="--gc:#22C55E">
-      <div class="gc-ico">🔀</div>
+      <div class="gc-ico"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 19 11 10 19 14" stroke-linejoin="round"/><path d="M3 19 19 14" stroke-dasharray="2.2 2.2"/><path d="M8.2 10.9 11 10 11.6 12.9"/><path d="M16.3 12.6 19 14 16.2 15"/></svg></div>
       <div class="gc-name">Vectores</div>
       <div class="gc-desc">Navega una cuadrícula eligiendo vectores. Llega exactamente al destino sin pasarte. Suma de vectores sin saberlo.</div>
       <div class="gc-tags"><span class="tag">Vectores</span><span class="tag">Suma</span><span class="tag">6 niveles</span></div>
       <button class="gc-btn" style="background:var(--grn)" onclick="startVectores()">Jugar →</button>
     </div>
     <div class="gc" style="--gc:#22C55E">
-      <div class="gc-ico">🐍</div>
+      <div class="gc-ico"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19c3 0 3-4 6-4s3 4 6 4 3-4 5-5"/><path d="M19 12.3l2.2-1.7-2.7-.7"/></svg></div>
       <div class="gc-name">Serpiente de Dominios</div>
       <div class="gc-desc">Snake clásico, pero solo puedes comer números que SÍ estén en el dominio de la función del nivel. Un número fuera de dominio y se acaba.</div>
       <div class="gc-tags"><span class="tag">Dominios</span><span class="tag">Reflejos</span><span class="tag">6 niveles</span></div>
@@ -10047,7 +10105,7 @@ html,body{height:100%;background:var(--bg);color:var(--t1);font-family:'Space Gr
   <div class="game-bar">
     <button class="gbk" onclick="stopPortal();showScr('lobby')">← Salir</button>
     <div class="gbar-center">
-      <div class="gbar-title">🌀 Portal</div>
+      <div class="gbar-title"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-2px"><path d="M12 3a9 9 0 1 0 9 9"/><path d="M12 7a5 5 0 1 0 5 5"/><path d="M12 11a1 1 0 1 0 1 1"/></svg> Portal</div>
       <div class="gbar-sub" id="pt-nivel-lbl">Nivel 1 de 6</div>
     </div>
     <div class="gbar-right">
@@ -10059,14 +10117,14 @@ html,body{height:100%;background:var(--bg);color:var(--t1);font-family:'Space Gr
     <div class="mg-hint">Toca para colocar el portal naranja, toca de nuevo para el azul. La bola se teletransporta conservando su velocidad.</div>
     <button class="arc-pause-btn" onclick="resetPortalLevel()" id="pt-reset-btn">↺ Reiniciar</button>
     <div class="arc-start" id="pt-start">
-      <div class="arc-start-title">🌀 Portal</div>
+      <div class="arc-start-title"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-5px"><path d="M12 3a9 9 0 1 0 9 9"/><path d="M12 7a5 5 0 1 0 5 5"/><path d="M12 11a1 1 0 1 0 1 1"/></svg> Portal</div>
       <div class="arc-start-desc">La bola se mueve sola. Coloca dos portales tocando el escenario: al entrar por uno, sale por el otro conservando su trayectoria. Llévala hasta la meta esquivando los muros — algunos se mueven.</div>
       <div class="arc-start-note">La velocidad se conserva al atravesar un portal — mismo módulo y misma dirección relativa, nada se acelera ni frena. Es la misma idea detrás de la suma de vectores.</div>
       <button class="arc-start-btn" style="--gc:#7C3AED" onclick="beginPortal()">Jugar →</button>
     </div>
     <div class="arc-goover" id="pt-goover">
       <div class="result-box">
-        <div class="res-ico" id="pt-goover-ico">🌀</div>
+        <div class="res-ico" id="pt-goover-ico"><svg width="52" height="52" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a9 9 0 1 0 9 9"/><path d="M12 7a5 5 0 1 0 5 5"/><path d="M12 11a1 1 0 1 0 1 1"/></svg></div>
         <div class="res-title" id="pt-goover-title">¡Chocaste!</div>
         <div class="res-sub" id="pt-goover-sub"></div>
         <div class="res-btns">
@@ -10086,7 +10144,7 @@ html,body{height:100%;background:var(--bg);color:var(--t1);font-family:'Space Gr
   <div class="game-bar">
     <button class="gbk" onclick="stopDomainSnake();showScr('lobby')">← Salir</button>
     <div class="gbar-center">
-      <div class="gbar-title">🐍 Serpiente de Dominios</div>
+      <div class="gbar-title"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-2px"><path d="M4 19c3 0 3-4 6-4s3 4 6 4 3-4 5-5"/><path d="M19 12.3l2.2-1.7-2.7-.7"/></svg> Serpiente de Dominios</div>
       <div class="gbar-sub" id="ds-func-lbl">f(x) = …</div>
     </div>
     <div class="gbar-right">
@@ -10098,14 +10156,14 @@ html,body{height:100%;background:var(--bg);color:var(--t1);font-family:'Space Gr
     <div class="mg-hint">Flechas (o desliza) para moverte. Solo come números que SÍ estén en el dominio de la función.</div>
     <button class="arc-pause-btn" onclick="dsPauseToggle()" id="ds-pause-btn"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="4" width="4" height="16" rx="1"/><rect x="14" y="4" width="4" height="16" rx="1"/></svg></button>
     <div class="arc-start" id="ds-start">
-      <div class="arc-start-title">🐍 Serpiente de Dominios</div>
+      <div class="arc-start-title"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-5px"><path d="M4 19c3 0 3-4 6-4s3 4 6 4 3-4 5-5"/><path d="M19 12.3l2.2-1.7-2.7-.7"/></svg> Serpiente de Dominios</div>
       <div class="arc-start-desc">Cada nivel te da una función real. El tablero tiene números sueltos — solo puedes comer los que SÍ pertenecen al dominio de esa función. Comer uno que no pertenece termina el juego.</div>
       <div class="arc-start-note">Las 3 restricciones que casi siempre importan: denominador distinto de cero, raíz par mayor o igual a cero, y logaritmo estrictamente mayor que cero.</div>
       <button class="arc-start-btn" style="--gc:#22C55E" onclick="beginDomainSnake()">Jugar →</button>
     </div>
     <div class="arc-goover" id="ds-goover">
       <div class="result-box">
-        <div class="res-ico" id="ds-goover-ico">🐍</div>
+        <div class="res-ico" id="ds-goover-ico"><svg width="52" height="52" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19c3 0 3-4 6-4s3 4 6 4 3-4 5-5"/><path d="M19 12.3l2.2-1.7-2.7-.7"/></svg></div>
         <div class="res-title" id="ds-goover-title">¡Fuera del dominio!</div>
         <div class="res-sub" id="ds-goover-sub"></div>
         <div class="res-btns">
@@ -10125,7 +10183,7 @@ html,body{height:100%;background:var(--bg);color:var(--t1);font-family:'Space Gr
   <div class="game-bar">
     <button class="gbk" onclick="stopVectores();showScr('lobby')">← Salir</button>
     <div class="gbar-center">
-      <div class="gbar-title">🔀 Vectores</div>
+      <div class="gbar-title"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-2px"><path d="M3 19 11 10 19 14" stroke-linejoin="round"/><path d="M3 19 19 14" stroke-dasharray="2.2 2.2"/><path d="M8.2 10.9 11 10 11.6 12.9"/><path d="M16.3 12.6 19 14 16.2 15"/></svg> Vectores</div>
       <div class="gbar-sub" id="vc-nivel-lbl">Nivel 1 de 6</div>
     </div>
     <div class="gbar-right">
@@ -10137,14 +10195,14 @@ html,body{height:100%;background:var(--bg);color:var(--t1);font-family:'Space Gr
     <div class="mg-hint">Elige vectores de la lista para sumarlos punta con punta. Llega exacto al objetivo (⭐).</div>
     <button class="arc-pause-btn" onclick="vcReset()" id="vc-reset-btn">↺ Reiniciar</button>
     <div class="arc-start" id="vc-start">
-      <div class="arc-start-title">🔀 Vectores</div>
+      <div class="arc-start-title"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-5px"><path d="M3 19 11 10 19 14" stroke-linejoin="round"/><path d="M3 19 19 14" stroke-dasharray="2.2 2.2"/><path d="M8.2 10.9 11 10 11.6 12.9"/><path d="M16.3 12.6 19 14 16.2 15"/></svg> Vectores</div>
       <div class="arc-start-desc">Parte del punto azul. Cada botón es un vector disponible: al elegirlo, se dibuja punta con punta desde tu posición actual y te mueves ahí. Combina los vectores que necesites, en cualquier orden, hasta caer exactamente sobre el objetivo (⭐). No todos los vectores sirven — algunos son trampas.</div>
       <div class="arc-start-note">Sumar vectores es sumar sus componentes: (a,b) + (c,d) = (a+c, b+d). Dibujarlos punta con punta es la forma geométrica de hacer esa misma suma.</div>
       <button class="arc-start-btn" style="--gc:#22C55E" onclick="beginVectores()">Jugar →</button>
     </div>
     <div class="arc-goover" id="vc-goover">
       <div class="result-box">
-        <div class="res-ico" id="vc-goover-ico">🔀</div>
+        <div class="res-ico" id="vc-goover-ico"><svg width="52" height="52" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 19 11 10 19 14" stroke-linejoin="round"/><path d="M3 19 19 14" stroke-dasharray="2.2 2.2"/><path d="M8.2 10.9 11 10 11.6 12.9"/><path d="M16.3 12.6 19 14 16.2 15"/></svg></div>
         <div class="res-title" id="vc-goover-title">¡Llegaste!</div>
         <div class="res-sub" id="vc-goover-sub"></div>
         <div class="res-btns">
@@ -10244,6 +10302,9 @@ function beep(freq,dur,vol,type){
 
 // Íconos compartidos de resultado (reemplazan los emojis 🏆/🎯/😅/💥/💀/🎉)
 var JG_ICO_TROPHY='<svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M8 21h8M12 17v4M7 4h10v4a5 5 0 0 1-10 0z"/><path d="M7 5H4a1 1 0 0 0-1 1 5 5 0 0 0 4 4.9M17 5h3a1 1 0 0 1 1 1 5 5 0 0 1-4 4.9"/></svg>';
+var JG_ICO_PORTAL='<svg width="52" height="52" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a9 9 0 1 0 9 9"/><path d="M12 7a5 5 0 1 0 5 5"/><path d="M12 11a1 1 0 1 0 1 1"/></svg>';
+var JG_ICO_SNAKE='<svg width="52" height="52" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19c3 0 3-4 6-4s3 4 6 4 3-4 5-5"/><path d="M19 12.3l2.2-1.7-2.7-.7"/></svg>';
+var JG_ICO_VECTORS='<svg width="52" height="52" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 19 11 10 19 14" stroke-linejoin="round"/><path d="M3 19 19 14" stroke-dasharray="2.2 2.2"/><path d="M8.2 10.9 11 10 11.6 12.9"/><path d="M16.3 12.6 19 14 16.2 15"/></svg>';
 var JG_ICO_TARGET='<svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5.5"/><circle cx="12" cy="12" r="2"/></svg>';
 var JG_ICO_RETRY='<svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><line x1="12" y1="7" x2="12" y2="13"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>';
 
@@ -10764,7 +10825,7 @@ function ptWin(){
   beep(600,.2,.1,'sine');
   var isLast=ptLevelIdx>=PT_LEVELS.length-1;
   lastGame='portal';lastScore=t;
-  document.getElementById('pt-goover-ico').textContent='🌀';
+  document.getElementById('pt-goover-ico').innerHTML=JG_ICO_PORTAL;
   document.getElementById('pt-goover-title').textContent='¡Meta alcanzada!';
   document.getElementById('pt-goover-sub').textContent='Tiempo: '+t+'s'+(isLast?' · ¡Todos los niveles superados!':'');
   document.getElementById('pt-goover-btn1').textContent=isLast?'Reiniciar juego':'Siguiente nivel →';
@@ -11093,7 +11154,7 @@ function vcWin(){
   var perfect=vcPath.length<=minVecs;
   var isLast=vcLevelIdx>=VC_LEVELS.length-1;
   lastGame='vectores';lastScore=vcPath.length;
-  document.getElementById('vc-goover-ico').innerHTML=perfect?JG_ICO_TROPHY:'🔀';
+  document.getElementById('vc-goover-ico').innerHTML=perfect?JG_ICO_TROPHY:JG_ICO_VECTORS;
   document.getElementById('vc-goover-title').textContent='¡Llegaste al objetivo!';
   document.getElementById('vc-goover-sub').textContent='Lo lograste con '+vcPath.length+' vector'+(vcPath.length===1?'':'es')+' · El mínimo posible era '+minVecs+'.';
   document.getElementById('vc-goover-btn1').textContent=isLast?'Reiniciar juego':'Siguiente nivel →';
@@ -14596,10 +14657,10 @@ var MATS = {
   '1000005':{free:[
     {type:'taller',name:'Talleres sin solución (recopilación)',size:'3.1 MB',sem:'General',url:'https://goxhxrdchfyphkenixng.supabase.co/storage/v1/object/public/Materiales/Talleres/calcint/talleres_sin_solucion.pdf'},
   ],premium:[
-    {name:'Talleres con solución — Parte 1',pages:1,url:'https://goxhxrdchfyphkenixng.supabase.co/storage/v1/object/public/Materiales/Talleres/calcint/ci_con_solucion_parte1.pdf'},
-    {name:'Talleres con solución — Parte 2',pages:85,url:'https://goxhxrdchfyphkenixng.supabase.co/storage/v1/object/public/Materiales/Talleres/calcint/ci_con_solucion_parte2.pdf'},
-    {name:'Talleres con solución — Parte 3',pages:13,url:'https://goxhxrdchfyphkenixng.supabase.co/storage/v1/object/public/Materiales/Talleres/calcint/ci_con_solucion_parte3.pdf'},
-    {name:'Talleres con solución — Parte 4',pages:139,url:'https://goxhxrdchfyphkenixng.supabase.co/storage/v1/object/public/Materiales/Talleres/calcint/ci_con_solucion_parte4.pdf'},
+    {name:'Talleres con solución — Parte 1',pages:1},
+    {name:'Talleres con solución — Parte 2',pages:85},
+    {name:'Talleres con solución — Parte 3',pages:13},
+    {name:'Talleres con solución — Parte 4',pages:139},
     {name:'Talleres extra con solución (recopilación)',pages:36},
   ]},
   '1000003':{free:[
@@ -14678,10 +14739,10 @@ var MATS = {
     {type:'taller',name:'Talleres sin resolver (recopilación)',size:'708 KB',sem:'General',url:'https://goxhxrdchfyphkenixng.supabase.co/storage/v1/object/public/Materiales/Talleres/fundamentos/talleres_sin_resolver.pdf'},
     {type:'taller',name:'Taller de Funciones',size:'84 KB',sem:'General',url:'https://goxhxrdchfyphkenixng.supabase.co/storage/v1/object/public/Materiales/Talleres/fundamentos/taller_funciones.pdf'},
   ],premium:[
-    {name:'Talleres resueltos — Parte 1',pages:1,url:'https://goxhxrdchfyphkenixng.supabase.co/storage/v1/object/public/Materiales/Talleres/fundamentos/fdm_resueltos_parte1.pdf'},
-    {name:'Talleres resueltos — Parte 2',pages:1,url:'https://goxhxrdchfyphkenixng.supabase.co/storage/v1/object/public/Materiales/Talleres/fundamentos/fdm_resueltos_parte2.pdf'},
-    {name:'Talleres resueltos — Parte 3',pages:1,url:'https://goxhxrdchfyphkenixng.supabase.co/storage/v1/object/public/Materiales/Talleres/fundamentos/fdm_resueltos_parte3.pdf'},
-    {name:'Talleres resueltos — Parte 4',pages:1,url:'https://goxhxrdchfyphkenixng.supabase.co/storage/v1/object/public/Materiales/Talleres/fundamentos/fdm_resueltos_parte4.pdf'},
+    {name:'Talleres resueltos — Parte 1',pages:1},
+    {name:'Talleres resueltos — Parte 2',pages:1},
+    {name:'Talleres resueltos — Parte 3',pages:1},
+    {name:'Talleres resueltos — Parte 4',pages:1},
   ]},
   '1000013':{free:[
     {type:'programa',name:'Programa oficial 2023-2',size:'80 KB',sem:'2023-2'},
