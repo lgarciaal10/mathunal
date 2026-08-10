@@ -6060,6 +6060,7 @@ var SUBS=[
   {code:'1000012',name:'Matematicas Discretas',dispName:'Matemáticas Discretas',sym:'∧∨',sem:'SEMESTRE 4',pop:false,pdfs:12,desc:'Grafos, combinatoria, teoría de números, inducción y estructuras algebraicas.',tags:['Parciales','Simulacros'],dispNameEn:'Discrete Mathematics',descEn:'Graphs, combinatorics, number theory, induction and algebraic structures.',semEn:'SEMESTER 4',tagsEn:['Exams','Mock exams']},
   {code:'1000011',name:'Fundamentos Matematicas',dispName:'Fundamentos de Matemáticas',sym:'∀∃',sem:'NIVELATORIO',pop:false,pdfs:18,desc:'Lógica proposicional, conjuntos, inducción matemática y nociones básicas de álgebra.',tags:['Notas','Talleres','Quices'],dispNameEn:'Math Foundations',descEn:'Propositional logic, sets, mathematical induction and basic algebra concepts.',semEn:'PRE-CALC',tagsEn:['Notes','Worksheets','Quizzes']},
   {code:'1000010',name:'Matematicas Especiales',dispName:'Matemáticas Especiales',sym:'∇²',sem:'SEMESTRE 5',pop:false,pdfs:14,desc:'Series de Fourier, ecuaciones en derivadas parciales y análisis complejo.',tags:['Fórmulas','Talleres','Parciales'],dispNameEn:'Advanced Mathematics',descEn:'Fourier series, partial differential equations and complex analysis.',semEn:'SEMESTER 5',tagsEn:['Formulas','Worksheets','Exams']},
+  {code:'1000014',name:'Fundamentos de Matematicas Discretas',dispName:'Fundamentos de Matemáticas Discretas',sym:'n!',sem:'SEMESTRE 3-4',pop:false,pdfs:2,desc:'Lógica y demostración, inducción, relaciones, combinatoria y teoría de grafos.',tags:['Talleres'],dispNameEn:'Foundations of Discrete Mathematics',descEn:'Logic and proof, induction, relations, combinatorics and graph theory.',semEn:'SEMESTER 3-4',tagsEn:['Worksheets']},
 ];
 
 function renderMaterias(){
@@ -14399,6 +14400,7 @@ var BANCO_MATERIAS = {
   calcdif: {nombre:'Cálculo Diferencial', nombreEn:'Differential Calculus', sym:'∂', color:'#002866'},
   calcint: {nombre:'Cálculo Integral', nombreEn:'Integral Calculus', sym:'∫', color:'#0F6E2D'},
   edo:     {nombre:'Ecuaciones Diferenciales', nombreEn:'Differential Equations', sym:"y'", color:'#006B6B'},
+  fmd:     {nombre:'Fundamentos de Matemáticas Discretas', nombreEn:'Foundations of Discrete Mathematics', sym:'n!', color:'#164E63'},
 };
 window.BANCO_MATERIAS = BANCO_MATERIAS;
 
@@ -14494,6 +14496,10 @@ var SUBJECTS = [
    descEs:'Vectores en R³, rectas y planos, curvas cónicas y cuádricas.',
    descEn:'Vectors in R³, lines and planes, conic curves and quadrics.',
    diffLabelEs:'Intermedio',diffLabelEn:'Intermediate',related:['1000004','1000007','1000003']},
+  {code:'1000014',nameEs:'Fundamentos de Matemáticas Discretas',nameEn:'Foundations of Discrete Mathematics',sym:'n!',semEs:'Semestre 3-4',semEn:'Semester 3-4',pdfs:2,diff:'diff-m',hot:false,
+   descEs:'Lógica y demostración, inducción, relaciones, combinatoria y teoría de grafos. Bases discretas para ingeniería de sistemas.',
+   descEn:'Logic and proof, induction, relations, combinatorics and graph theory. Discrete foundations for systems engineering.',
+   diffLabelEs:'Intermedio',diffLabelEn:'Intermediate',related:['1000011','1000012','1000006']},
 ];
 window.SUBJECTS = SUBJECTS; /* expuesto a window por la misma razon que EXAMS/BANCO_EXAMENES:
   este array vive en una IIFE que no es la misma que el setLang ganador (en tpl-home), asi que
@@ -14696,6 +14702,10 @@ var MATS = {
     {type:'formulario',name:'Formulario de Conteo, Recurrencias y Relaciones (MathUNAL)',size:'140 KB',sem:'General'},
     {type:'taller',name:'Talleres (recopilación completa)',size:'8.3 MB',sem:'General',url:'https://goxhxrdchfyphkenixng.supabase.co/storage/v1/object/public/Materiales/Talleres/discretas/talleres_completo.pdf'},
   ],premium:[]},
+  '1000014':{free:[
+    {type:'taller',name:'Taller 1 · Teoría de números y demostración',size:'70 KB',sem:'2019-2',url:'https://goxhxrdchfyphkenixng.supabase.co/storage/v1/object/public/Materiales/Talleres/fmd/taller1.pdf'},
+    {type:'taller',name:'Taller 5 · Conteo y combinatoria',size:'41.5 KB',sem:'2019-2',url:'https://goxhxrdchfyphkenixng.supabase.co/storage/v1/object/public/Materiales/Talleres/fmd/taller5.pdf'},
+  ],premium:[]},
 };
 
 
@@ -14766,6 +14776,16 @@ var TEMARIOS={
     {u:'2',t:'Rectas y planos',temas:['Ecuaciones de la recta','Ecuación del plano','Distancias','Ángulos'],pct:25},
     {u:'3',t:'Cónicas',temas:['Circunferencia','Parábola','Elipse','Hipérbola','Rotación de ejes'],pct:25},
     {u:'4',t:'Superficies cuádricas',temas:['Esfera','Cilindros','Conos','Paraboloides','Coordenadas'],pct:20}
+  ],
+  '1000014':[ /* Fundamentos de Matemáticas Discretas — temario real del curso 2019-2 (3010390-1,
+                 fuente: pagina del profesor Carlos E. Mejia, medellin.unal.edu.co/~cemejia/doc/fdmd.html).
+                 Solo hay 2 talleres reales en MATS (unidades 1 y 4); las 5 unidades se muestran igual
+                 porque describen el curso completo, no el material disponible. */
+    {u:'1',t:'Teoría de conjuntos y lógica',temas:['Proposiciones y cuantificadores','Métodos de demostración','Conjuntos y operaciones'],pct:20},
+    {u:'2',t:'Inducción y conteo',temas:['Inducción matemática','Principios básicos de conteo'],pct:20},
+    {u:'3',t:'Relaciones',temas:['Relaciones binarias','Relaciones de equivalencia','Congruencias'],pct:20},
+    {u:'4',t:'Combinatoria',temas:['Permutaciones y combinaciones','Principio del palomar','Coeficientes binomiales'],pct:20},
+    {u:'5',t:'Teoría de grafos',temas:['Grafos y dígrafos','Grafos eulerianos','Introducción a árboles'],pct:20}
   ]
 };
 
