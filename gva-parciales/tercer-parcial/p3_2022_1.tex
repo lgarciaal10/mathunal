@@ -1,0 +1,89 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=1.9cm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage[spanish]{babel}
+\usepackage{amsmath,amssymb}
+\usepackage{lmodern}
+\renewcommand{\familydefault}{\sfdefault}
+\usepackage{enumitem}
+\newcommand{\vect}[2]{\begin{pmatrix}#1\\#2\end{pmatrix}}
+\usepackage[table]{xcolor}
+\usepackage{parskip}
+\definecolor{unalblue}{RGB}{31,73,124}
+\newlist{opciones}{enumerate}{1}
+\setlist[opciones]{label=\alph*),itemsep=4pt,topsep=4pt,leftmargin=1.8em,font=\normalfont}
+\setlist[enumerate,1]{itemsep=1em,topsep=0.8em}
+\newcommand{\examfooter}{\vfill\rule{\linewidth}{0.4pt}\\[1pt]{\scriptsize\textit{Transcripción digital --- MathUNAL}\hfill\textcolor{unalblue}{\textbf{\thepage}}}}
+\pagestyle{empty}
+
+\begin{document}
+\noindent
+\begin{minipage}[t]{0.6\linewidth}
+{\small\bfseries Geometría Vectorial y Analítica --- Parcial 3}\\
+{\small Semestre 2022--01}
+\end{minipage}%
+\hfill
+\begin{minipage}[t]{0.35\linewidth}
+\raggedleft\small Escuela de Matemáticas. Universidad Nacional de Colombia, Sede Medellín.
+\end{minipage}\\[2pt]
+\rule{\linewidth}{0.6pt}
+
+\begin{center}
+\textbf{Geometría Vectorial --- Parcial 3}\\
+Junio del 2022
+\end{center}
+
+\textbf{Instrucciones:} La duración del examen es \textbf{1:50 horas}. Verifique que sus datos de identificación son correctos. La prueba consta de cinco preguntas. Escriba sus respuestas a los ejercicios 1,2,3,4 en la tabla de puntaje. No use fracciones, solamente decimales y redondee a dos cifras decimales. La pregunta 5 es de procedimiento, y su respuesta debe escribirse debajo del enunciado. No está permitido: hacer preguntas, usar calculadoras ni trabajar en hojas diferentes a las del examen. No se permite sacar el teléfono celular durante el examen.
+
+\begin{center}
+\begin{tabular}{|c|c|c|}
+\hline
+Ejercicio & Porcentaje & Respuesta\\
+\hline
+1 & 20\% & \\
+\hline
+2 & 16\% & \\
+\hline
+3 & 16\% & \\
+\hline
+4 & 18\% & \\
+\hline
+5 & 30\% & Procedimiento\\
+\hline
+\end{tabular}
+\end{center}
+
+\begin{enumerate}
+\item Sean $A=\vect{2}{7/6}$, $B=\vect{1+1/6}{-2}$, y $C=\vect{-1}{-7/12}$. De las siguientes afirmaciones, seleccione todas aquellas que son verdaderas.
+\begin{opciones}
+\item Cualquier otro vector de $\mathbb{R}^2$ se puede escribir como una combinación lineal de $B$ y $C$.
+\item El vector $C-B$ está a la derecha de $A$.
+\item $A$ y $C$ son linealmente independientes.
+\item $A$ está en la recta que pasa por $B$ y $C$.
+\item $C^\perp$ pertenece a la recta generada por $B$: $\mathcal{L}_B$.
+\item Ninguna de las anteriores.
+\end{opciones}
+
+\item Supongamos que la proyección ortogonal del vector $X=\vect{11}{2}$ sobre el vector $U\neq 0$ es el vector $\vect{3}{-4}$. Entonces, la magnitud de la proyección ortogonal de $X$ sobre el vector $U^\perp$ es:
+
+\item Considere los vectores $A=\vect{1}{2}$, $B=\vect{1}{-1}$, y $C=\vect{1}{1}$. Encuentre el vector $D$ tal que $[\overrightarrow{AB}]+[\overrightarrow{AC}]=[\overrightarrow{AD}]$.
+
+\item Considere los puntos $A=\vect{-2}{3}$, $B=\vect{0}{5}$, $C=\vect{-5}{7}$. De las siguientes afirmaciones, seleccione todas aquellas que son verdaderas.
+\begin{opciones}
+\item $\tan\angle(BAC)=7$.
+\item $\cos\angle(BAC)=\dfrac{1}{5\sqrt{2}}$.
+\item $\sin\angle(CAB)=\dfrac{7\sqrt{2}}{10}$.
+\item $\sin\angle(BAC)=\dfrac{7}{5\sqrt{2}}$.
+\item $\tan\angle(CAB)=1/7$.
+\item $\cos\angle(CAB)=\dfrac{1}{5\sqrt{2}}$.
+\item Ninguna de las anteriores.
+\end{opciones}
+
+\item \textbf{Pregunta de procedimiento:} En el espacio de abajo escriba un procedimiento completo justificando cada paso.
+
+Considere los puntos $A=\vect{5}{3}$ y $B=\vect{q}{1}$. Halle $q$ para que el ángulo desde $A$ hasta $B$, medido en sentido antihorario, sea de $135^\circ$.
+\end{enumerate}
+
+\examfooter
+\end{document}

@@ -1,0 +1,77 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=1.9cm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage[spanish]{babel}
+\usepackage{amsmath,amssymb}
+\usepackage{lmodern}
+\renewcommand{\familydefault}{\sfdefault}
+\usepackage{enumitem}
+\newcommand{\vect}[2]{\begin{pmatrix}#1\\#2\end{pmatrix}}
+\newcommand{\vectiii}[3]{\begin{pmatrix}#1\\#2\\#3\end{pmatrix}}
+\usepackage[table]{xcolor}
+\usepackage{parskip}
+\definecolor{unalblue}{RGB}{31,73,124}
+\setlist[enumerate,1]{itemsep=1em,topsep=0.8em}
+\newcommand{\examfooter}{\vfill\rule{\linewidth}{0.4pt}\\[1pt]{\scriptsize\textit{Transcripción digital --- MathUNAL}\hfill\textcolor{unalblue}{\textbf{\thepage}}}}
+\pagestyle{empty}
+\newcommand{\nota}[1]{{\small\itshape\color{unalblue!70!black} #1}}
+
+\begin{document}
+\noindent
+\begin{minipage}[t]{0.6\linewidth}
+{\small\bfseries Geometría Vectorial y Analítica --- Parcial 3}\\
+{\small Semestre 2023--01}
+\end{minipage}%
+\hfill
+\begin{minipage}[t]{0.35\linewidth}
+\raggedleft\small Escuela de Matemáticas. Universidad Nacional de Colombia, Sede Medellín.
+\end{minipage}\\[2pt]
+\rule{\linewidth}{0.6pt}
+
+\begin{enumerate}
+\item Sea $\pi_1$ el plano con ecuación
+$$\vectiii{x}{y}{z}=\vectiii{-5}{-2}{-3}+r\vectiii{0}{-1}{0}+s\vectiii{-2}{-2}{2}$$
+donde $r$ y $s$ son escalares en $\mathbb{R}$. Sea $N_1=\vectiii{a}{y_1}{-2}$ normal a $\pi_1$.
+
+Sea $\pi_2$ el plano con vector normal $N_2=\vectiii{-4}{8}{0}$ que pasa por el punto $\vectiii{-5}{-2}{-3}$. La intersección de los planos $\pi_1$ y $\pi_2$ es la recta con ecuación
+$$\vectiii{x}{y}{z}=\vectiii{-5}{-2}{-3}+t\vectiii{b}{d_2}{-2}.$$
+
+\begin{enumerate}[label=(\alph*)]
+\item Determine el valor de $a$.
+\item Determine el valor de $b$.
+\end{enumerate}
+
+\item Considere para cada número real $s$ tal que $0\le s<8$ la recta $\mathcal{L}_s$ dada por
+$$\mathcal{L}_s: X=\vectiii{1}{2}{3}+t\vectiii{-4\cos(\frac{\pi}{8}s)-(1)\sin(\frac{\pi}{8}s)}{-4\sin(\frac{\pi}{8}s)+(1)\cos(\frac{\pi}{8}s)}{\frac{2}{8}s}.$$
+
+Considere la recta $\mathcal{K}$ dada por
+$$\mathcal{K}: X=\vectiii{3}{0}{3}+t\vectiii{-2}{-8}{2}.$$
+
+\begin{enumerate}[label=(\alph*)]
+\item Determine el valor de $s$ para que $\mathcal{K}$ y $\mathcal{L}_s$ sean rectas paralelas.
+\item Con el valor de $s$ obtenido en el literal (a), el plano $\mathcal{P}$ que contiene a $\mathcal{K}$ y $\mathcal{L}_s$ tiene ecuación general $x+y+cz+d=0$. Determine el valor de $c$.
+\item Determine el valor de $d$.
+\end{enumerate}
+
+\item Sean $U=\vectiii{-2}{2}{-1}$, $V=\vectiii{1}{-2}{0}$.
+
+\begin{enumerate}[label=(\alph*)]
+\item Sea $Y=\vectiii{y_1}{a}{y_3}$ ortogonal a $U$ y $V$, tal que la terna $(U,V,Y)$ está orientada positivamente, y el volumen del paralelepípedo definido por $U$, $V$ y $Y$ es $\|U\times V\|^2$. Determine el valor de $a$.
+\item Sea $A=9\vectiii{4}{0}{-3}$ y sea $P$ la proyección de $A$ sobre el plano definido por $U$ y $V$. Suponga que $Z=\vectiii{z_1}{z_2}{b}$ es ortogonal a $U$ y a $V$, y que la magnitud de $Z$ es igual a la distancia de $P$ a $A$. Determine el valor de $|b|$.
+\end{enumerate}
+
+\item Para cada número real $k$ considere la transformación lineal del plano $T_k$ dada por
+$$T_k\vect{x}{y}=\vect{-kx+(-1)y}{2x+(3-k)y}.$$
+
+Hay dos valores $a$ y $b$ para $k$ tales que la transformación $T_k$ no tiene inversa. Asumiendo $|a|<|b|$:
+
+\begin{enumerate}[label=(\alph*)]
+\item Determine el valor de $a$.
+\item Determine el valor de $b$.
+\end{enumerate}
+
+\end{enumerate}
+
+\examfooter
+\end{document}

@@ -1,0 +1,147 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=1.9cm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage{amsmath,amssymb}
+\usepackage{enumitem}
+\usepackage{tikz}
+\usetikzlibrary{calc,arrows.meta,patterns,decorations.pathmorphing}
+\usepackage{xcolor}
+\usepackage{multicol}
+\usepackage{parskip}
+\usepackage{lmodern}
+\renewcommand{\familydefault}{\sfdefault}
+
+\definecolor{unalblue}{RGB}{31,73,124}
+
+\newlist{opciones}{enumerate}{1}
+\setlist[opciones]{label=(\alph*),itemsep=1pt,topsep=2pt,leftmargin=1.8em,font=\normalfont}
+
+\newcommand{\vect}[2]{\begin{pmatrix}#1\\#2\end{pmatrix}}
+\newcommand{\vectiii}[3]{\begin{pmatrix}#1\\#2\\#3\end{pmatrix}}
+
+\newcommand{\examheader}{%
+  \noindent
+  \begin{minipage}[t]{0.62\linewidth}
+    {\bfseries\large Universidad Nacional de Colombia, sede Medell\'in}\\
+    {\small Escuela de Matem\'aticas}\\
+    {\small Primer Parcial de C\'alculo en Varias Variables}\\
+    {\small 11 de marzo de 2017}
+  \end{minipage}%
+  \hfill
+  \begin{minipage}[t]{0.33\linewidth}
+    \raggedleft\small
+    Nombre y c\'edula: \rule{2.8cm}{0.4pt}\\[4pt]
+    Grupo: \rule{1.5cm}{0.4pt} \quad N\'umero asignado: \rule{1.5cm}{0.4pt}
+  \end{minipage}\\[4pt]
+  \rule{\linewidth}{0.6pt}
+}
+\newcommand{\examfooter}{%
+  \vfill
+  \rule{\linewidth}{0.4pt}\\[1pt]
+  {\scriptsize\textit{Transcripci\'on digital --- MathUNAL}\hfill\textcolor{unalblue}{\textbf{\thepage}}}
+}
+\pagestyle{empty}
+
+\begin{document}
+
+\examheader
+
+\textbf{Instrucciones:} La duraci\'on del examen es de 1 hora y 50 minutos. El examen consta de nueve preguntas en dos hojas impresas por ambos lados. Antes de empezar verifique que su examen est\'e completo y que sus datos sean correctos. No desengrape su examen ni a\~nada otras grapas. Utilice los espacios asignados para resolver cada pregunta. No est\'a permitido: hacer preguntas, usar calculadoras, sacar hojas en blanco, ni tomar apuntes en hojas diferentes a las del examen. No se permite que ning\'un celular se encuentre a la vista.
+
+\bigskip
+
+\textit{En las preguntas 1 a 5 indique si la afirmaci\'on dada es verdadera $\boxed{V}$ o falsa $\boxed{F}$, escoja la opci\'on correcta, o complete la respuesta en el espacio en blanco, seg\'un sea el caso. En estas preguntas la calificaci\'on tendr\'a en cuenta s\'olo la respuesta.}
+
+\bigskip
+\noindent\textbf{1.} (5\,\%) Si $D_{\vec u}f(x,y)$ existe, entonces
+$$D_{-\vec u}f(x,y) = -D_{\vec u}f(x,y).$$
+\hspace{2cm}$\boxed{\phantom{V}}$ V \qquad $\boxed{\phantom{V}}$ F
+
+\bigskip
+\noindent\textbf{2.} (5\,\%) Si
+$$\lim_{x\to 0} f(x,0) = 0,$$
+entonces
+$$\lim_{(x,y)\to(0,0)} f(x,y) = 0.$$
+\hspace{2cm}$\boxed{\phantom{V}}$ V \qquad $\boxed{\phantom{V}}$ F
+
+\bigskip
+\noindent\textbf{3.} (5\,\%) Sea
+$$
+f(x,y)=
+\begin{cases}
+x^2+xy^3, & y\geq 0,\\
+0, & y<0.
+\end{cases}
+$$
+Entonces la funci\'on $f$ es continua en el punto $(0,3)$ y es diferenciable en el punto $(3,5)$.
+
+\hspace{2cm}$\boxed{\phantom{V}}$ V \qquad $\boxed{\phantom{V}}$ F
+
+\bigskip
+\noindent\textbf{4.} (5\,\%) Sea $f(x,y)=x^3-3x-y^3+3y$. Entonces
+
+\begin{opciones}
+  \item $f$ tiene un m\'inimo local (o relativo) en $(1,-1)$.
+  \item $f$ tiene un m\'aximo local en $(1,-1)$.
+  \item $f$ tiene un punto de silla en $(1,-1)$.
+  \item No podemos afirmar que $f$ tiene un m\'aximo local o un m\'inimo local en $(1,-1)$.
+\end{opciones}
+
+\bigskip
+\noindent\textbf{5.} (5\,\%) Sea $f=f(x,y)$ una funci\'on diferenciable con $f(1,2)=3$. Supongamos que la ecuaci\'on del plano tangente a la gr\'afica de $f$ en el punto $(1,2,3)$ es
+$$z = 3+15(x-1)+5(y-2).$$
+Si
+$$\vec u = \frac{3}{5}\vec\imath - \frac{4}{5}\vec\jmath,$$
+entonces
+$$D_{\vec u}f(1,2) = \underline{\hspace{2.5cm}}.$$
+
+\newpage
+\examheader
+\vspace{2pt}
+
+\textbf{Preguntas con procedimiento}
+
+\textit{En las preguntas 6 a 9 responda mostrando detalladamente el procedimiento utilizado.}
+
+\bigskip
+\noindent\textbf{6.} (20\,\%) Sea
+$$
+f(x,y)=
+\begin{cases}
+\dfrac{x^3-3y^3}{x^2+y^2}, & (x,y)\neq (0,0),\\[6pt]
+0, & (x,y)=(0,0).
+\end{cases}
+$$
+Encuentre $f_x(0,0)$ y $f_y(0,0)$ y determine si $f$ es diferenciable en $(0,0)$.
+
+\vspace{4cm}
+
+\noindent\textbf{7.} (20\,\%) Sea $f(x,y)=x^2-y^2$. Determine los vectores unitarios $\vec U$ para los cuales la derivada direccional de $f$ en el punto $\left(1,-\dfrac12\right)$ en direcci\'on de $\vec U$ tiene un valor de $1$.
+
+\vfill
+\examfooter
+\newpage
+\examheader
+\vspace{2pt}
+
+\noindent\textbf{8.} (20\,\%) Sea $f=f(x,y)$ una funci\'on diferenciable para la cual
+$$\frac{\partial f}{\partial x} = \frac{y^2}{2} \qquad \text{y} \qquad \frac{\partial f}{\partial y} = xy.$$
+Sea $w$ la funci\'on definida por
+$$w(s,t) = f\left(st,\frac{s}{t}\right).$$
+Encuentre el gradiente de $w$ en el punto $(2,1)$.
+
+\bigskip
+\bigskip
+
+\noindent\textbf{9.} (15\,\%) Sea $f(x,y)=\sqrt{x^2+4y^2}$.
+\begin{opciones}
+  \item[(a)] Bosqueje las trazas de $f$ con los planos $xz$ y $yz$.
+  \item[(b)] Determine los valores de $c$ para los cuales $f$ tiene una curva de nivel a altura $z=c$. Bosqueje las curvas de nivel de $f$.
+  \item[(c)] Bosqueje la gr\'afica de $f$.
+\end{opciones}
+
+\vfill
+\examfooter
+
+\end{document}

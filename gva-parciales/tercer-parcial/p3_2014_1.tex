@@ -1,0 +1,99 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=1.9cm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage[spanish]{babel}
+\usepackage{amsmath,amssymb}
+\usepackage{lmodern}
+\renewcommand{\familydefault}{\sfdefault}
+\usepackage{enumitem}
+
+\newcommand{\vect}[2]{\begin{pmatrix}#1\\#2\end{pmatrix}}
+\newcommand{\vectiii}[3]{\begin{pmatrix}#1\\#2\\#3\end{pmatrix}}
+\usepackage{tikz}
+\usetikzlibrary{calc,arrows.meta,patterns,decorations.pathmorphing}
+\usepackage[table]{xcolor}
+\usepackage{multicol}
+\usepackage{parskip}
+
+\definecolor{unalblue}{RGB}{31,73,124}
+
+\newlist{opciones}{enumerate}{1}
+\setlist[opciones]{label=(\alph*),itemsep=6pt,topsep=6pt,leftmargin=1.8em,font=\normalfont}
+\setlist[enumerate,1]{itemsep=1.4em,topsep=1em}
+
+\newcommand{\examheader}{%
+  \noindent
+  \begin{minipage}[t]{0.6\linewidth}
+    {\small\bfseries Geometría Vectorial y Analítica --- Parcial 3}\\
+    {\small Semestre 2014--01}
+  \end{minipage}%
+  \hfill
+  \begin{minipage}[t]{0.35\linewidth}
+    \raggedleft\small Escuela de Matemáticas. Universidad Nacional de Colombia.
+  \end{minipage}\\[2pt]
+  \rule{\linewidth}{0.6pt}
+}
+\newcommand{\examfooter}{%
+  \vfill
+  \rule{\linewidth}{0.4pt}\\[1pt]
+  {\scriptsize\textit{Transcripción digital --- MathUNAL}\hfill\textcolor{unalblue}{\textbf{\thepage}}}
+}
+\pagestyle{empty}
+
+\newcommand{\nota}[1]{{\small\itshape\color{unalblue!70!black} #1}}
+
+\begin{document}
+\examheader
+
+\begin{center}
+Universidad Nacional de Colombia\\
+Facultad de Ciencias --- Escuela de Matemáticas\\
+\textbf{Tercer examen parcial de Geometría Vectorial}\\
+9 de junio de 2014
+\end{center}
+
+\vspace{10pt}
+\textbf{PUNTAJE. SOLO PARA USO OFICIAL}
+
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+1 & 2 & 3 & 4 & 5 & TOTAL \\
+\hline
+ & & & & & \\
+\hline
+\end{tabular}
+\end{center}
+
+\vspace{10pt}
+\textbf{Instrucciones:} No está permitido el uso de calculadora ni de otros aparatos electrónicos. Solucione las preguntas en los espacios en blanco asignados a cada una de ellas. Toda respuesta tiene que estar respaldada por un procedimiento para ser valorada. La última página (página 6) sólo puede usarse para operaciones en borrador; nada de lo escrito en esta página se tendrá en cuenta como parte de la solución del examen. \textbf{Duración del examen: 1 hora y 50 minutos.} No está permitido sacar hojas en blanco ni ningún tipo de apuntes durante el examen.
+
+\begin{enumerate}
+\item (20 puntos) Halle una ecuación vectorial para la recta de intersección de los planos $\mathcal{P}_1: x+4y-z=2$ y $\mathcal{P}_2: 3x-y+4z=7$.
+
+\item (20 puntos) Encuentre una ecuación para la elipse que tiene un vértice en el punto $V=\vect{2}{-1}$, centro en el punto $C=\vect{2}{3}$ y excentricidad $e=0.75$.
+
+\item Considere las rectas $\mathcal{L}_1$ y $\mathcal{L}_2$ cuyas ecuaciones paramétricas son:
+$$\mathcal{L}_1:\begin{cases}x=-1+2t,\\ y=3,\\ z=-t,\end{cases} t\in\mathbb{R}\qquad\qquad \mathcal{L}_2:\begin{cases}x=2-2r,\\ y=-2,\\ z=r,\end{cases} r\in\mathbb{R}$$
+
+\begin{enumerate}[label=(\alph*)]
+\item (10 puntos) Pruebe que $\mathcal{L}_1$ y $\mathcal{L}_2$ son paralelas.
+\item (10 puntos) Encuentre una ecuación general del plano $\mathcal{P}$ que contiene a $\mathcal{L}_1$ y $\mathcal{L}_2$.
+\end{enumerate}
+
+\item (20 puntos) Pruebe que los puntos $A=\vectiii{2}{-3}{4}$, $B=\vectiii{0}{1}{2}$, $C=\vectiii{-1}{2}{0}$ y $D=\vectiii{2}{-1}{3}$ no son coplanares (es decir, no están situados en un mismo plano) y calcule el volumen del tetraedro con vértices $A$, $B$, $C$ y $D$.
+
+\item Responda \textbf{Falso} o \textbf{Verdadero} a cada uno de los siguientes enunciados y justifique cada respuesta.
+
+\begin{enumerate}[label=(\alph*)]
+\item (5 puntos) \textbf{No existen} valores de $t$ para los cuales los vectores $X=\vectiii{1}{-t}{1}$ y $Y=\vectiii{t}{t}{1}$ son linealmente dependientes.
+\item (5 puntos) La proyección de todo punto del eje $z$ sobre el plano con ecuación general $x-z=0$ está sobre la recta generada por el vector $U=\vectiii{1}{0}{1}$.
+\item (5 puntos) La reflexión de todo punto del eje $z$ con respecto al plano con ecuación general $x-z=0$ está sobre el eje $x$.
+\item (5 puntos) Existe un vector $X$ en el espacio tal que sus cosenos directores son los números $\dfrac{1}{3}$, $\dfrac{1}{2}$ y $-\dfrac{1}{5}$.
+\end{enumerate}
+
+\end{enumerate}
+
+\examfooter
+\end{document}

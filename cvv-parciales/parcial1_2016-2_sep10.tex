@@ -1,0 +1,156 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=1.9cm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage{amsmath,amssymb}
+\usepackage{enumitem}
+\usepackage{tikz}
+\usetikzlibrary{calc,arrows.meta,patterns,decorations.pathmorphing}
+\usepackage{xcolor}
+\usepackage{multicol}
+\usepackage{parskip}
+\usepackage{lmodern}
+\renewcommand{\familydefault}{\sfdefault}
+
+\definecolor{unalblue}{RGB}{31,73,124}
+
+\newlist{opciones}{enumerate}{1}
+\setlist[opciones]{label=(\alph*),itemsep=1pt,topsep=2pt,leftmargin=1.8em,font=\normalfont}
+
+\newcommand{\vect}[2]{\begin{pmatrix}#1\\#2\end{pmatrix}}
+\newcommand{\vectiii}[3]{\begin{pmatrix}#1\\#2\\#3\end{pmatrix}}
+
+\newcommand{\examheader}{%
+  \noindent
+  \begin{minipage}[t]{0.62\linewidth}
+    {\bfseries\large Primer Parcial de C\'alculo en Varias Variables}\\
+    {\small 10 de septiembre de 2016}\\
+    {\small Escuela de Matem\'aticas, Universidad Nacional de Colombia, Sede Medell\'in.}
+  \end{minipage}%
+  \hfill
+  \begin{minipage}[t]{0.33\linewidth}
+    \raggedleft\small
+    Nombre: \rule{2.8cm}{0.4pt}\\[4pt]
+    C\'edula: \rule{2.8cm}{0.4pt}
+  \end{minipage}\\[4pt]
+  \rule{\linewidth}{0.6pt}
+}
+\newcommand{\examfooter}{%
+  \vfill
+  \rule{\linewidth}{0.4pt}\\[1pt]
+  {\scriptsize\textit{Transcripci\'on digital --- MathUNAL}\hfill\textcolor{unalblue}{\textbf{\thepage}}}
+}
+\pagestyle{empty}
+
+\begin{document}
+
+\examheader
+
+\textbf{Instrucciones:} La duraci\'on del examen es de 1 hora y 50 minutos. El examen consta de nueve preguntas en dos hojas impresas por ambos lados. Antes de empezar verifique que su examen est\'e completo y que sus datos sean correctos. No desengrape su examen ni a\~nada otras grapas. Utilice los espacios asignados para resolver cada pregunta. No est\'a permitido: hacer preguntas, usar calculadoras, sacar hojas en blanco, ni tomar apuntes en hojas diferentes a las del examen. No se permite que ning\'un celular se encuentre a la vista.
+
+\bigskip
+
+\textit{En las preguntas 1 a 5 indique si la afirmaci\'on dada es verdadera $\boxed{V}$ o falsa $\boxed{F}$, escoja la opci\'on correcta, o complete la respuesta en el espacio en blanco, seg\'un sea el caso. En estas preguntas la calificaci\'on tendr\'a en cuenta solo la respuesta.}
+
+\bigskip
+\noindent\textbf{1.} (4\,\%) La funci\'on $f$ definida por
+$$f(x,y) = x^4y^6 - 2x^5y^9 + 3x^7y^8$$
+es diferenciable en el punto $(1,3)$.
+
+\hspace{2cm}$\boxed{\phantom{V}}$ V \qquad $\boxed{\phantom{V}}$ F
+
+\bigskip
+\noindent\textbf{2.} (4\,\%) Sea
+$$
+f(x,y)=
+\begin{cases}
+x^2+y^2, & x^2+y^2\leq 1,\\
+0, & x^2+y^2>1.
+\end{cases}
+$$
+Entonces la funci\'on $f$ es continua en el punto $(1,0)$.
+
+\hspace{2cm}$\boxed{\phantom{V}}$ V \qquad $\boxed{\phantom{V}}$ F
+
+\bigskip
+\noindent\textbf{3.} (4\,\%) Sea $f$ una funci\'on con segundas derivadas parciales continuas tal que $\nabla f(0,2)=(0,0)$,
+$$f_{xx}(0,2)=3,\quad f_{xy}(0,2)=4 \quad \text{y} \quad f_{yy}(0,2)=2,$$
+Entonces
+
+\begin{opciones}
+  \item $f$ tiene un m\'inimo local (o relativo) en $(0,2)$.
+  \item $f$ tiene un m\'aximo local en $(0,2)$.
+  \item $f$ tiene un punto de silla en $(0,2)$.
+  \item No podemos afirmar que $f$ tiene un punto cr\'itico en $(0,2)$.
+\end{opciones}
+
+\bigskip
+\noindent\textbf{4.} (4\,\%) Existe una funci\'on $f=f(x,y)$ para la cual
+$$f_{xy}(0,0) \neq f_{yx}(0,0).$$
+
+\hspace{2cm}$\boxed{\phantom{V}}$ V \qquad $\boxed{\phantom{V}}$ F
+
+\bigskip
+\noindent\textbf{5.} (4\,\%) Una part\'icula se mueve en una placa en la cual la temperatura $T$, en grados cent\'igrados, en un punto $(x,y)$ est\'a dada por $T(x,y) = x^2 - y^2$. En un instante dado, la part\'icula pasa por el punto $(2,1)$ con una velocidad $\vec v = (1,3)$. Entonces, en ese instante la rapidez con que la temperatura var\'ia en la part\'icula es
+$$\frac{dT}{dt} = \underline{\hspace{3cm}} \; {}^{\circ}\text{C/seg}.$$
+
+\textit{Nota:} En este problema $x$ y $y$ est\'an dados en metros, el tiempo $t$ en segundos y la velocidad en m/seg. en cada coordenada.
+
+\newpage
+\examheader
+\vspace{2pt}
+
+\textbf{Preguntas con procedimiento}
+
+\textit{En las preguntas 6 a 9 responda mostrando detalladamente el procedimiento utilizado.}
+
+\bigskip
+\noindent\textbf{6.} (20\,\%) Sea
+$$
+f(x,y)=
+\begin{cases}
+\dfrac{x(y^2\operatorname{sen}x + x^2+y^2)}{x^2+y^2}, & (x,y)\neq (0,0),\\[6pt]
+0, & (x,y)=(0,0).
+\end{cases}
+$$
+\begin{itemize}[itemsep=1pt,topsep=2pt]
+  \item Encuentre $f_x(0,0)$ y $f_y(0,0)$.
+  \item Determine si $f$ es diferenciable en $(0,0)$.
+\end{itemize}
+
+\vfill
+\examfooter
+\newpage
+\examheader
+\vspace{2pt}
+
+\noindent\textbf{7.} (20\,\%) Sea $f(x,y) = 1+x^2+y^2$.
+\begin{itemize}[itemsep=1pt,topsep=2pt]
+  \item Bosqueje las trazas de $f$ con los planos $x=0$, $y=0$, $z=1$ y $z=2$.
+  \item Bosqueje la gr\'afica de $f$.
+  \item Encuentre la ecuaci\'on del plano tangente a la gr\'afica de $f$ en el punto $(1,2,6)$.
+  \item Halle un valor aproximado para
+  $$1+(1.01)^2+(1.99)^2.$$
+\end{itemize}
+
+\bigskip
+\noindent\textbf{8.} (20\,\%) Sea $f=f(x,y)$ una funci\'on diferenciable de la cual se sabe que en cada punto $(n,m)\in\mathbb{R}^2$, con $n$ y $m$ enteros, $f_x(n,m)=n+m/2$ y $f_y(n,m)=2n+2m$. Definamos
+$$g(u,v) = f(u^4-v^4,\, 2uv).$$
+Encuentre la derivada direccional de la funci\'on $g$ en el punto $(u,v)=(1,1)$ en direcci\'on del vector unitario $\vec U = (3/5,4/5)$.
+
+\vfill
+\examfooter
+\newpage
+\examheader
+\vspace{2pt}
+
+\noindent\textbf{9.} (20\,\%) Encuentre las ecuaciones param\'etricas de la recta tangente a la curva de intersecci\'on del elipsoide
+$$A:\; 2x^2+y^2+z^2=7$$
+y la esfera
+$$E:\; (x-1)^2+y^2+z^2=6$$
+en el punto $(1,2,1)$.
+
+\vfill
+\examfooter
+
+\end{document}

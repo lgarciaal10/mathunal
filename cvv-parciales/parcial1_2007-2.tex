@@ -1,0 +1,132 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=1.9cm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage{amsmath,amssymb}
+\usepackage{enumitem}
+\usepackage{tikz}
+\usetikzlibrary{calc,arrows.meta,patterns,decorations.pathmorphing}
+\usepackage{xcolor}
+\usepackage{multicol}
+\usepackage{parskip}
+\usepackage{lmodern}
+\renewcommand{\familydefault}{\sfdefault}
+
+\definecolor{unalblue}{RGB}{31,73,124}
+\definecolor{solgreen}{RGB}{20,110,70}
+
+\newlist{opciones}{enumerate}{1}
+\setlist[opciones]{label=(\alph*),itemsep=1pt,topsep=2pt,leftmargin=1.8em,font=\normalfont}
+
+\newcommand{\vect}[2]{\begin{pmatrix}#1\\#2\end{pmatrix}}
+\newcommand{\vectiii}[3]{\begin{pmatrix}#1\\#2\\#3\end{pmatrix}}
+\newcommand{\sol}{\medskip\noindent\textbf{\textcolor{solgreen}{Soluci\'on.}}\ }
+
+\newcommand{\examheader}{%
+  \noindent
+  \begin{minipage}[t]{0.62\linewidth}
+    {\bfseries\large Primer parcial de Matem\'aticas III}\\
+    {\small Semestre 02 de 2007 --- 24 de septiembre de 2007}\\
+    {\small Escuela de Matem\'aticas, Universidad Nacional de Colombia, Sede Medell\'in.}
+  \end{minipage}%
+  \hfill
+  \begin{minipage}[t]{0.33\linewidth}
+    \raggedleft\small
+    Nombre: \rule{2.8cm}{0.4pt}\\[4pt]
+    Profesor: \rule{2.5cm}{0.4pt}
+  \end{minipage}\\[4pt]
+  \rule{\linewidth}{0.6pt}
+}
+\newcommand{\examfooter}{%
+  \vfill
+  \rule{\linewidth}{0.4pt}\\[1pt]
+  {\scriptsize\textit{Transcripci\'on digital con soluci\'on --- MathUNAL}\hfill\textcolor{unalblue}{\textbf{\thepage}}}
+}
+\pagestyle{empty}
+
+\begin{document}
+
+\examheader
+
+\textbf{Duraci\'on:} 1 hora y 50 minutos.
+
+\textit{Observaciones:} Justifique cuidadosamente sus respuestas. Cualquier tentativa de fraude es causal de anulaci\'on del examen.
+
+\bigskip
+\noindent\textbf{1.} (25\,\%) Sea
+$$
+f(x,y)=
+\begin{cases}
+\dfrac{y^4}{x^2+y^2}+x, & (x,y)\neq (0,0),\\[6pt]
+0, & (x,y)=(0,0).
+\end{cases}
+$$
+Muestre que $f$ es diferenciable en $(0,0)$.
+
+\sol Calculamos las derivadas parciales en el origen usando la definici\'on:
+$$f_x(0,0) = \lim_{h\to 0} \frac{f(h,0)-f(0,0)}{h} = \lim_{h\to 0} \frac{h}{h} = 1,$$
+$$f_y(0,0) = \lim_{h\to 0} \frac{f(0,h)-f(0,0)}{h} = \lim_{h\to 0} \frac{h^4/h^2}{h} = \lim_{h\to 0} h = 0.$$
+El candidato a plano tangente es $L(x,y)=x$. Estudiamos el error
+$$E(x,y) = \frac{f(x,y)-f(0,0)-1\cdot x - 0\cdot y}{\sqrt{x^2+y^2}} = \frac{y^4/(x^2+y^2)}{\sqrt{x^2+y^2}} = \frac{y^4}{(x^2+y^2)^{3/2}}.$$
+Como $y^4 \leq (x^2+y^2)^2$, se tiene
+$$0 \leq |E(x,y)| \leq \frac{(x^2+y^2)^2}{(x^2+y^2)^{3/2}} = (x^2+y^2)^{1/2} \xrightarrow[(x,y)\to(0,0)]{} 0.$$
+Por el teorema de estricci\'on, $\displaystyle\lim_{(x,y)\to(0,0)} E(x,y)=0$, luego $f$ es diferenciable en $(0,0)$.
+
+\bigskip
+\noindent\textbf{2.} (25\,\%)
+\begin{opciones}
+  \item[a)] (10\,\%) Halle la curva de nivel de valor $1$ de la funci\'on $f(x,y)=\dfrac{y+1}{x^2+1}$ y esb\'ocela en el plano $\mathbb{R}^2$.
+  \item[b)] (15\,\%) Determine si existe o no
+  $$\lim_{(x,y)\to(0,0)} \left(\frac{xy}{x^4+y^2}-3\right).$$
+\end{opciones}
+
+\textit{(Sugerencia: Ensaye primero algunas trayectorias adecuadas).}
+
+\sol \textbf{a)} Igualando $\dfrac{y+1}{x^2+1}=1$ obtenemos $y+1=x^2+1$, es decir
+$$y = x^2,$$
+una par\'abola con v\'ertice en el origen, abriendo hacia arriba.
+
+\textbf{b)} Basta estudiar $\displaystyle\lim_{(x,y)\to(0,0)} \frac{xy}{x^4+y^2}$. Tomando la trayectoria $y=x^2$ (que hace comparables los \'ordenes de $x^4$ y $y^2$):
+$$\frac{x\cdot x^2}{x^4+(x^2)^2} = \frac{x^3}{2x^4} = \frac{1}{2x} \xrightarrow[x\to 0^+]{} +\infty.$$
+Como el l\'imite a lo largo de esta trayectoria no es finito (y cambia de signo seg\'un el lado por el que se aproxime $x$ a $0$), el l\'imite
+$$\lim_{(x,y)\to(0,0)} \left(\frac{xy}{x^4+y^2}-3\right) \quad \text{no existe.}$$
+
+\newpage
+\examheader
+\vspace{2pt}
+
+\noindent\textbf{3.} (25\,\%) Calcule el valor de la mayor derivada direccional en $(1,1)$ de la funci\'on $f$ definida por $f(x,y)=g(x^2+2y^2,xy)$ si se sabe que
+\begin{opciones}
+  \item[i)] $\nabla g(1,1) = (3,1)$
+  \item[ii)] $\nabla g(3,1) = (0,3)$.
+\end{opciones}
+
+\textit{(Observaci\'on: Para resolver este problema es posible que no se requiera usar toda la informaci\'on dada sobre $g$).}
+
+\sol Sean $u=x^2+2y^2$ y $v=xy$, de modo que $f(x,y)=g(u,v)$. Por la regla de la cadena,
+$$f_x = g_u\cdot u_x + g_v\cdot v_x = 2x\,g_u + y\,g_v, \qquad f_y = g_u\cdot u_y + g_v\cdot v_y = 4y\,g_u + x\,g_v.$$
+En el punto $(1,1)$ tenemos $u=1^2+2(1)^2=3$ y $v=1\cdot1=1$, as\'i que necesitamos $\nabla g$ evaluado en $(u,v)=(3,1)$, es decir $\nabla g(3,1)=(g_u,g_v)=(0,3)$ (el dato sobre $\nabla g(1,1)$ no se necesita). Entonces
+$$f_x(1,1) = 2(1)(0) + (1)(3) = 3, \qquad f_y(1,1) = 4(1)(0) + (1)(3) = 3.$$
+Luego $\nabla f(1,1) = (3,3)$ y la mayor derivada direccional en $(1,1)$ es
+$$\|\nabla f(1,1)\| = \sqrt{3^2+3^2} = 3\sqrt{2}.$$
+
+\bigskip
+\noindent\textbf{4.} (25\,\%) Determine el punto que est\'a en el paraboloide $x^2+y^2+z=9$ y en el cual la recta normal a esta superficie es perpendicular a los vectores normales de los planos $y+z=-16$ y $x-y+z=4$.
+
+\textit{(sugerencia: Establezca la relaci\'on entre un vector director de la recta normal y los vectores normales a los planos).}
+
+\sol Escribiendo el paraboloide como superficie de nivel $F(x,y,z)=x^2+y^2+z=9$, un vector normal a la superficie en $(x,y,z)$ es
+$$\nabla F = (2x,\,2y,\,1).$$
+Los vectores normales a los planos dados son $\vec n_1=(0,1,1)$ (para $y+z=-16$) y $\vec n_2=(1,-1,1)$ (para $x-y+z=4$). Que la recta normal sea perpendicular a ambos vectores normales de los planos equivale a que $\nabla F$ sea paralelo a $\vec n_1\times \vec n_2$:
+$$\vec n_1\times \vec n_2 = \begin{vmatrix}\vec\imath & \vec\jmath & \vec k\\ 0 & 1 & 1\\ 1 & -1 & 1\end{vmatrix} = \big(1\cdot1-1\cdot(-1),\; 1\cdot1-0\cdot1,\; 0\cdot(-1)-1\cdot1\big) = (2,1,-1).$$
+Entonces $(2x,2y,1) = t(2,1,-1)$ para alg\'un escalar $t$. De la tercera componente, $1=-t \Rightarrow t=-1$. Luego
+$$2x = 2t = -2 \Rightarrow x=-1, \qquad 2y = t = -1 \Rightarrow y=-\tfrac12.$$
+Sustituyendo en la ecuaci\'on del paraboloide para hallar $z$:
+$$z = 9-x^2-y^2 = 9-1-\tfrac14 = \tfrac{27}{4}.$$
+El punto buscado es
+$$\left(-1,\ -\tfrac12,\ \tfrac{27}{4}\right).$$
+
+\vfill
+\examfooter
+
+\end{document}

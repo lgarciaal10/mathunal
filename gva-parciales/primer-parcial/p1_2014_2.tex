@@ -1,0 +1,98 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=1.9cm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage[spanish]{babel}
+\usepackage{amsmath,amssymb}
+\usepackage{lmodern}
+\renewcommand{\familydefault}{\sfdefault}
+\usepackage{enumitem}
+
+\newcommand{\vect}[2]{\begin{pmatrix}#1\\#2\end{pmatrix}}
+\usepackage{tikz}
+\usetikzlibrary{calc,arrows.meta,patterns,decorations.pathmorphing}
+\usepackage[table]{xcolor}
+\usepackage{multicol}
+\usepackage{parskip}
+
+\definecolor{unalblue}{RGB}{31,73,124}
+
+\setlist[enumerate,1]{itemsep=1.4em,topsep=1em}
+
+\newcommand{\examheader}{%
+  \noindent
+  \begin{minipage}[t]{0.6\linewidth}
+    {\small\bfseries Geometría Vectorial y Analítica --- Parcial 1}\\
+    {\small Semestre 2014--02}
+  \end{minipage}%
+  \hfill
+  \begin{minipage}[t]{0.35\linewidth}
+    \raggedleft\small Escuela de Matemáticas. Universidad Nacional de Colombia.
+  \end{minipage}\\[2pt]
+  \rule{\linewidth}{0.6pt}
+}
+\newcommand{\examfooter}{%
+  \vfill
+  \rule{\linewidth}{0.4pt}\\[1pt]
+  {\scriptsize\textit{Transcripción digital --- MathUNAL}\hfill\textcolor{unalblue}{\textbf{\thepage}}}
+}
+\pagestyle{empty}
+
+\newcommand{\nota}[1]{{\small\itshape\color{unalblue!70!black} #1}}
+
+\begin{document}
+\examheader
+
+\begin{center}
+{\Large Primer Examen Parcial de Geometría Vectorial}\\[4pt]
+{\small 8 de septiembre de 2014}
+\end{center}
+
+\vspace{10pt}
+\textbf{PUNTAJE. SOLO PARA USO OFICIAL}
+
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+1 & 2 & 3 & 4 & 5 & TOTAL \\
+\hline
+ & & & & & \\
+\hline
+\end{tabular}
+\end{center}
+
+\vspace{10pt}
+\textbf{INSTRUCCIONES}
+
+No está permitido el uso de calculadora ni de otros aparatos electrónicos. Solucione las preguntas en los espacios en blanco asignados a cada una de ellas. \textbf{Duración: 1 hora y 50 minutos.} No está permitido sacar hojas en blanco ni ningún tipo de apuntes durante el examen. Utilice la página 6 para realizar sus operaciones en borrador.
+
+\begin{enumerate}
+\item (12\%) Considere las rectas $\mathcal{L}_1: (2s)x+y-3=0$ y $\mathcal{L}_2: (5s)x+y+2=0$ con $s\in\mathbb{R}$. ¿Hay algún valor de $s$ para el cual el ángulo dirigido de la recta $\mathcal{L}_1$ a la recta $\mathcal{L}_2$ es de $45^\circ$? Justifique su respuesta.
+
+\item Sean $A=\vect{2}{-3}$ y $B=\vect{-1}{5}$.
+
+\begin{enumerate}[label=(\alph*)]
+\item (12\%) Muestre que $A$ y $B$ son linealmente independientes.
+\item (14\%) Encuentre vectores $P$ y $Q$ tales que $B=P+Q$ siendo $P$ múltiplo escalar de $A$ y $Q$ ortogonal a $A$.
+\end{enumerate}
+
+\item \
+
+\begin{enumerate}[label=(\alph*)]
+\item (14\%) Muestre que la recta $\mathcal{L}$ con ecuaciones escalares paramétricas $x=2-5t$, $y=5+2t$ es paralela a la recta $\mathcal{L}'$ con ecuación general $4x+10y-13=0$.
+\item (12\%) Halle la distancia entre las rectas $\mathcal{L}$ y $\mathcal{L}'$ del literal (a).
+\end{enumerate}
+
+\item Considere la recta $\mathcal{L}$ con ecuación general $\sqrt{3}x+y-7=0$ y la recta $\mathcal{L}'$ que pasa por el punto $\vect{-1}{1}$, tal que el ángulo dirigido de $\mathcal{L}$ a $\mathcal{L}'$ es $30^\circ$.
+
+\begin{enumerate}[label=(\alph*)]
+\item (12\%) Halle una ecuación en la forma vectorial para la recta $\mathcal{L}'$.
+\item (12\%) Encuentre una ecuación en la forma general para la recta que pasa por el punto $\vect{-1}{1}$ y es perpendicular a la recta $\mathcal{L}$.
+\end{enumerate}
+
+\item (12\%) Sea $\mathcal{C}$ un cuadrilátero con vértices $A$, $B$, $C$ y $D$. Pruebe que los puntos medios de los lados del cuadrilátero $\mathcal{C}$ son los vértices de un paralelogramo.
+
+\end{enumerate}
+
+\examfooter
+\end{document}

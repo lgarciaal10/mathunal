@@ -1,0 +1,271 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=2.2cm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage[spanish]{babel}
+\usepackage{amsmath,amssymb}
+\usepackage{enumitem}
+\usepackage{tikz}
+\usetikzlibrary{calc,arrows.meta,patterns,decorations.pathmorphing}
+\usepackage{xcolor}
+\usepackage{multicol}
+\usepackage{parskip}
+\setlength{\parskip}{6pt}
+\usepackage{lmodern}
+\renewcommand{\familydefault}{\sfdefault}
+
+\definecolor{unalblue}{RGB}{31,73,124}
+
+\setlist[enumerate,1]{itemsep=10pt,topsep=8pt,leftmargin=2.2em,label=\protect\fbox{\arabic*}}
+\newlist{opciones}{enumerate}{1}
+\setlist[opciones]{label=(\alph*),itemsep=8pt,topsep=6pt,leftmargin=2em,font=\normalfont}
+
+\newcommand{\ptsbox}[1]{\fboxsep=3pt\fbox{\footnotesize #1}\hspace{4pt}}
+\newcommand{\borradorbox}[1][3cm]{%
+  \noindent\fbox{\begin{minipage}[t][#1][t]{0.97\linewidth}
+  {\scriptsize\itshape Espacio borrador, nada escrito aquí será calificado.}
+  \end{minipage}}
+}
+
+\newcommand{\vect}[2]{\begin{pmatrix}#1\\#2\end{pmatrix}}
+\newcommand{\vectiii}[3]{\begin{pmatrix}#1\\#2\\#3\end{pmatrix}}
+
+\newcommand{\examheader}{%
+  \noindent
+  \begin{minipage}[t]{0.6\linewidth}
+    {\small\bfseries Geometría Vectorial y Analítica --- Parcial 2}\\
+    {\small Semestre 2018--01}
+  \end{minipage}%
+  \hfill
+  \begin{minipage}[t]{0.37\linewidth}
+    \raggedleft
+    \fbox{\begin{minipage}{0.95\linewidth}\centering\scriptsize Escuela de Matemáticas. Universidad Nacional de Colombia, Sede Medellín.\end{minipage}}
+  \end{minipage}\\[4pt]
+  \rule{\linewidth}{0.6pt}
+}
+\newcommand{\examfooter}{%
+  \vfill
+  \rule{\linewidth}{0.4pt}\\[1pt]
+  {\scriptsize\textit{Transcripción digital --- MathUNAL}\hfill\textcolor{unalblue}{\textbf{\thepage}}}
+}
+\pagestyle{empty}
+
+\begin{document}
+\examheader
+
+\begin{center}
+{\bfseries Segundo Examen Parcial de Geometría}\\
+30 de Abril del 2018
+
+\vspace{6pt}
+\textbf{Puntaje. Sólo para uso Oficial}
+
+\vspace{4pt}
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+1 (/25) & 2-3 (/25) & 4-5 (/25) & 6 (/25) & Total & Nota\\
+\hline
+ & & & & & \\
+\hline
+\end{tabular}
+\end{center}
+
+\textbf{Instrucciones:} La duración del examen es de 1 hora y 50 minutos. El examen consta de seis preguntas en tres hojas impresas por ambos lados. Antes de empezar verifique que su examen esté completo y que sus datos sean correctos. No desengrape su exámen ni añada otras grapas o su examen será anulado. En las preguntas con procedimiento justifique sus respuestas en los espacios asignados. No está permitido hacer preguntas, el uso de calculadoras, sacar hojas en blanco ni ningún tipo de apuntes durante el examen. Por favor verifique que su celular esté apagado.
+
+En cada uno de los literales de los puntos 1 a 5, debe presentar detalladamente el procedimiento para llegar a la solución. \textbf{NOTA}: Respuestas sin procedimiento no se tendrán en cuenta.
+
+\begin{enumerate}
+
+\item \ptsbox{25pt} Sea $S:\mathbb{R}^2\to\mathbb{R}^2$ la transformación lineal dada por
+\[
+S\vect{x}{y} = \vect{2x-y}{-4x+y}.
+\]
+
+\begin{opciones}
+\item \ptsbox{10pt} Pruebe que $S$ es invertible y encuentre la matriz de $S^{-1}$.
+
+\vspace{70pt}
+
+\item \ptsbox{4pt} Halle el rango de $S$.
+
+\vspace{60pt}
+
+\item \ptsbox{3pt} Sea $\mathcal{T}$ el triángulo cuyos vértices son: $\vect{1}{-1}$, $\vect{1}{3}$ y $\vect{-1}{-1}$. Encuentre el área de $\mathcal{T}$.
+
+\vspace{60pt}
+
+\item \ptsbox{8pt} Encuentre el área de $S(\mathcal{T})$.
+
+\vspace{60pt}
+\end{opciones}
+
+\newpage
+\examheader
+
+\item \ptsbox{10pt} Considere la transformación del plano $T:\mathbb{R}^2\to\mathbb{R}^2$, tal que $T\vect{x}{y} = \vect{5-y}{x-1}$. Demuestre que $T$ es un movimiento euclidiano.
+
+\vspace{80pt}
+
+\item \ptsbox{15pt} Sean $R_{\frac{\pi}{2}}$ la rotación por un ángulo $\frac{\pi}{2}$ y $P$ la proyección ortogonal sobre el eje $y$.
+
+\begin{opciones}
+\item \ptsbox{8pt} Halle la matriz de la compuesta $R_{\frac{\pi}{2}}\circ P$.
+
+\vspace{60pt}
+
+\item \ptsbox{2pt} Si $\vect{x}{y}\in\mathbb{R}^2$, encuentre $\left(R_{\frac{\pi}{2}}\circ P\right)\vect{x}{y}$.
+
+\vspace{40pt}
+
+\item \ptsbox{5pt} Encuentre el núcleo de $\left(R_{\frac{\pi}{2}}\circ P\right)$.
+
+\vspace{60pt}
+\end{opciones}
+
+\newpage
+\examheader
+
+\item \ptsbox{10pt} Sean $S$ y $R$ transformaciones lineales del plano. Pruebe que si $X$ es un vector propio tanto de $S$ como de $R$, entonces $X$ es un vector propio de $R\circ S$.
+
+\vspace{100pt}
+
+\item \ptsbox{15pt} Sea $T$ la transformación lineal del plano cuyos valores propios son $\lambda_1 = 3$ y $\lambda_2 = -1$. Si el conjunto de vectores propios de $T$ correspondiente al valor propio $\lambda_1$ es $\left\{t\vect{0}{2} \mid t\in\mathbb{R}, t\neq 0\right\}$ y los vectores propios de $T$ correspondientes al valor propio $\lambda_2$ son los vectores no nulos de la recta $\mathcal{L}$ cuya ecuación es $x-y=0$, encuentre la matriz de $T$.
+
+\vspace{160pt}
+
+\newpage
+\examheader
+
+\item \ptsbox{25pt} Los elementos geométricos de la gráfica a continuación satisfacen las siguientes propiedades:
+
+\begin{itemize}[leftmargin=1.6em,itemsep=4pt]
+\item El triángulo $\triangle V_1V_2V_3$ es equilátero.
+\item Las rectas $\mathcal{L}_1$, $\mathcal{L}_2$ y $\mathcal{L}_3$ son las tres \textbf{medianas} del triángulo, es decir, unen el vértice con el punto medio del lado opuesto.
+\item El \textbf{baricentro} del triángulo se encuentra sobre el origen $O = \vect{0}{0}$.
+\item Los puntos $M_1$, $M_2$ y $M_3$ son los \textbf{puntos medios} de los lados del triángulo.
+\end{itemize}
+
+\vspace{4pt}
+En el presente problema trabajamos con el conjunto de movimientos Euclidianos $\mathcal{E} = \{S_1,S_2,S_3,R_1,R_2,R_3\}$, donde:
+
+\begin{itemize}[leftmargin=1.6em,itemsep=4pt]
+\item $S_1$, $S_2$, $S_3$ son las \textbf{reflexiones} a través de las rectas $\mathcal{L}_1$, $\mathcal{L}_2$ y $\mathcal{L}_3$ respectivamente.
+\item $R_1$, $R_2$, $R_3$ son las \textbf{rotaciones} por $0$ (identidad), $\frac{2}{3}\pi$ ($120$°) y $\frac{4}{3}\pi$ ($240$°) respectivamente.
+\end{itemize}
+
+\begin{center}
+\begin{minipage}[t]{0.46\linewidth}
+\centering
+\begin{tikzpicture}[scale=0.85]
+\coordinate (V1) at (-2.2,-1.27);
+\coordinate (V2) at (2.2,-1.27);
+\coordinate (V3) at (0,2.54);
+\coordinate (O) at (0,0);
+\coordinate (M1) at ($(V2)!0.5!(V3)$);
+\coordinate (M2) at ($(V1)!0.5!(V3)$);
+\coordinate (M3) at ($(V1)!0.5!(V2)$);
+\draw[-{Stealth[length=2mm]}] (-2.8,0) -- (2.8,0) node[right] {\small $x$};
+\draw[-{Stealth[length=2mm]}] (0,-1.9) -- (0,3.1) node[above] {\small $y$};
+\draw[thick] (V1)--(V2)--(V3)--cycle;
+\draw[dotted] (V1)--(M1);
+\draw[dotted] (V2)--(M2);
+\draw[dotted] (V3)--(M3);
+\node[above left] at (-2.5,1.7) {\small $\mathcal{L}_2$};
+\node[above right] at (2.5,1.7) {\small $\mathcal{L}_1$};
+\node[below] at (0,-1.6) {\small $\mathcal{L}_3$};
+\node[below left] at (V1) {\small $V_1$};
+\node[below right] at (V2) {\small $V_2$};
+\node[above right] at (V3) {\small $V_3$};
+\node[left] at ($(M1)+(-0.05,0.1)$) {\small $M_1$};
+\node[right] at ($(M2)+(0.05,0.1)$) {\small $M_2$};
+\node[below] at (M3) {\small $M_3$};
+\node[below left] at (O) {\tiny $O$};
+\end{tikzpicture}
+\end{minipage}%
+\hfill
+\begin{minipage}[t]{0.46\linewidth}
+\centering
+\begin{tikzpicture}[scale=0.72]
+\coordinate (V1) at (-2,-1.15);
+\coordinate (V2) at (2,-1.15);
+\coordinate (V3) at (0,2.3);
+\coordinate (O) at (0,0);
+\draw[-{Stealth[length=2mm]}] (-2.6,0) -- (2.6,0) node[right] {\small $x$};
+\draw[-{Stealth[length=2mm]}] (0,-1.8) -- (0,2.8) node[above] {\small $y$};
+\draw[thick] (V1)--(V2)--(V3)--cycle;
+\node[below left] at (V1) {\small $V_1$};
+\node[below right] at (V2) {\small $V_2$};
+\node[above right] at (V3) {\small $V_3$};
+\node[below left] at (O) {\tiny $O$};
+\node[below] at (0,-2.2) {\footnotesize\textsc{Triángulo de Trabajo.}};
+\node[below] at (0,-2.5) {\footnotesize\textsc{Nada escrito aquí será calificado.}};
+\end{tikzpicture}
+\end{minipage}
+\end{center}
+
+\vspace{4pt}
+Complete los enunciados (a)--(e) como se muestra en el ejemplo.
+
+\vspace{4pt}
+\noindent $R_3(V_2) = $ \underline{\hspace{1.3cm}} \hfill $S_1(\triangle OM_2V_3) = $ \underline{\hspace{2.2cm}} \hfill $S_1(\overline{M_2V_2}) = $ \underline{\hspace{2cm}}
+
+\vspace{10pt}
+\begin{minipage}[t]{0.47\linewidth}
+\begin{opciones}
+\item \ptsbox{2pt} $R_3(M_1) = $ \underline{\hspace{2.5cm}}
+\item \ptsbox{2pt} $R_3(V_3) = $ \underline{\hspace{2.5cm}}
+\item \ptsbox{2pt} $R_3(\triangle OM_1V_3) = $ \underline{\hspace{2.5cm}}
+\end{opciones}
+\end{minipage}%
+\hfill
+\begin{minipage}[t]{0.47\linewidth}
+\begin{opciones}
+\setcounter{opcionesi}{3}
+\item \ptsbox{3pt} $(S_2\circ R_3)(\triangle OM_1V_3) = $ \underline{\hspace{2cm}}
+\item \ptsbox{2pt} $S_2(\overline{V_3M_3}) = $ \underline{\hspace{2.5cm}}
+\end{opciones}
+\end{minipage}
+
+\vspace{10pt}
+Se sabe que si se componen dos transformaciones cualesquiera de $\mathcal{E}$, el resultado es una transformación de $\mathcal{E}$, por ejemplo
+\[
+S_2\circ S_1 = R_3, \qquad R_2\circ R_2 = R_3.
+\]
+
+\vspace{4pt}
+Diremos que $X$ es punto fijo para la transformación $T$ si $T(X) = X$, por ejemplo
+\[
+S_1(M_1) = M_1, \qquad S_3(V_3) = V_3.
+\]
+
+\vspace{10pt}
+\begin{minipage}[t]{0.47\linewidth}
+\ptsbox{10pt} \textbf{(g)} Complete la tabla a continuación.
+
+\vspace{6pt}
+\begin{tabular}{|c|c|c|}
+\hline
+$S_2\circ S_1$ & $S_2\circ S_3$ & $R_2\circ S_1$\\
+\hline
+ & & \\[8pt]
+\hline
+\end{tabular}
+\end{minipage}%
+\hfill
+\begin{minipage}[t]{0.47\linewidth}
+\ptsbox{4pt} \textbf{(h)} Escriba Sí/No en la tabla para indicar si el punto $M_1$ es fijo para las transformaciones que se indican.
+
+\vspace{6pt}
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+$T$ & $S_1$ & $R_2$ & $S_2$ & $R_2\circ R_2$\\
+\hline
+$M_1$ fijo & & & & \\[6pt]
+\hline
+\end{tabular}
+\end{minipage}
+
+\end{enumerate}
+
+\examfooter
+\end{document}

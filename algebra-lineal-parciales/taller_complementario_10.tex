@@ -1,0 +1,160 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=1.9cm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage[spanish]{babel}
+\usepackage{amsmath,amssymb}
+\usepackage{enumitem}
+\usepackage{tikz}
+\usetikzlibrary{calc,arrows.meta,patterns,decorations.pathmorphing}
+\usepackage{xcolor}
+\usepackage{multicol}
+\usepackage{parskip}
+\usepackage{lmodern}
+\renewcommand{\familydefault}{\sfdefault}
+
+\definecolor{unalblue}{RGB}{31,73,124}
+
+\newlist{opciones}{enumerate}{1}
+\setlist[opciones]{label=(\alph*),itemsep=1pt,topsep=2pt,leftmargin=1.8em,font=\normalfont}
+
+\newcommand{\vect}[2]{\begin{pmatrix}#1\\#2\end{pmatrix}}
+\newcommand{\vectiii}[3]{\begin{pmatrix}#1\\#2\\#3\end{pmatrix}}
+\newcommand{\vectiv}[4]{\begin{pmatrix}#1\\#2\\#3\\#4\end{pmatrix}}
+
+\newcommand{\examheader}{%
+  \noindent
+  \begin{minipage}[t]{0.6\linewidth}
+    {\small\bfseries Álgebra Lineal --- Taller Complementario 10}\\
+    {\small Simulacro Segundo Examen Parcial}
+  \end{minipage}%
+  \hfill
+  \begin{minipage}[t]{0.35\linewidth}
+    \raggedleft\small Escuela de Matemáticas. Universidad Nacional de Colombia, Sede Medellín.
+  \end{minipage}\\[2pt]
+  \rule{\linewidth}{0.6pt}
+}
+\newcommand{\examfooter}{%
+  \vfill
+  \rule{\linewidth}{0.4pt}\\[1pt]
+  {\scriptsize\textit{Transcripción digital --- MathUNAL}\hfill\textcolor{unalblue}{\textbf{\thepage}}}
+}
+\pagestyle{empty}
+
+\begin{document}
+
+\examheader
+
+\begin{center}
+{\bfseries\large Taller Complementario 10 Álgebra Lineal}\\[2pt]
+{\bfseries Simulacro Segundo Examen Parcial de Álgebra Lineal}
+\end{center}
+
+\begin{center}
+\textit{Puntaje. Sólo para uso Oficial}
+
+\begin{tabular}{|c|c|c|c|c|c|c|}
+\hline
+1-2 & 3-4 & 5-6 & 7 & 8 & \textbf{TOTAL} & \textbf{NOTA} \\
+\hline
+ & & & & & & \\
+\hline
+\end{tabular}
+\end{center}
+
+\vspace{0.3cm}
+\noindent\textbf{I. Completación}\\
+{\small En las preguntas 1 a 6 complete los espacios en blanco. \textbf{NOTA}: En esta sección se califica sólo la respuesta y no se tiene en cuenta el procedimiento.}
+
+\vspace{0.4cm}
+
+\textbf{1. [10pt]} Sea $T:\mathbb{R}^2 \longrightarrow \mathbb{R}^2$ una transformación lineal con $T\begin{bmatrix}1\\1\end{bmatrix} = \begin{bmatrix}2\\0\end{bmatrix}$ y $T\begin{bmatrix}1\\2\end{bmatrix} = \begin{bmatrix}2\\-1\end{bmatrix}$. Encontrar $[T]$, es decir, encontrar la matriz estándar de $T$.
+
+\vspace{0.3cm}
+\noindent $[T] = $
+
+\vspace{1.5cm}
+
+\textbf{2. [10pt]} Determine si las siguientes afirmaciones son verdaderas o falsas (Marque V o F según el caso).
+
+\begin{enumerate}[label=\alph*)]
+\item{}[2pt] $W = \left\{ \begin{bmatrix}x\\y\\z\end{bmatrix} \in \mathbb{R}^3 \;\middle|\; x=-y \text{ y } x=z \right\}$ es un subespacio de $\mathbb{R}^3$. \hfill \mbox{$\boxed{V}$ $\boxed{F}$}
+
+\vspace{0.3cm}
+\item{}[2pt] $\begin{bmatrix}2\\2\\3\end{bmatrix} \in \operatorname{Col}\left(\begin{bmatrix} 0&0&1\\1&2&2\\0&1&1 \end{bmatrix}\right)$. \hfill \mbox{$\boxed{V}$ $\boxed{F}$}
+
+\vspace{0.3cm}
+\item{}[2pt] El conjunto de polinomios $\{1-x,\; x+x^2,\; 1+x^2\}$ genera a $\mathcal{P}_2$. \hfill \mbox{$\boxed{V}$ $\boxed{F}$}
+
+\vspace{0.3cm}
+\item{}[2pt] Si $A,B,C,D,E$ son matrices de tamaño $2\times 2$, entonces necesariamente $A,B,C,D,E$ son L.D. \hfill \mbox{$\boxed{V}$ $\boxed{F}$}
+
+\vspace{0.3cm}
+\item{}[2pt] Si $p_1(x), p_2(x), p_3(x)$ son polinomios en $\mathcal{P}_3$ que son L.I. entonces $p_1(x), p_2(x), p_3(x)$ forman una base para $\mathcal{P}_3$. \hfill \mbox{$\boxed{V}$ $\boxed{F}$}
+\end{enumerate}
+
+\examfooter
+\newpage
+
+\examheader
+
+\textbf{3. [10pts]} Supongamos que $A = \begin{pmatrix} 1 & 1 & 1 \\ c & 1 & 0 \\ -1 & 0 & 2 \end{pmatrix}$. Encontrar todos los valores de $c$ para los cuales $A$ es invertible.
+
+\vspace{0.3cm}
+\noindent $c = $
+
+\vspace{1.5cm}
+
+\textbf{4. [10pts]} Sea $L = \left\{ \begin{bmatrix}x\\y\\z\\w\end{bmatrix} \in \mathbb{R}^4 \;\middle|\; x-y+w=0,\quad x+w=0 \right\}$. Encontrar una base $\mathcal{B}$ para $L$.
+
+\vspace{0.3cm}
+\noindent $\mathcal{B} = $
+
+\examfooter
+\newpage
+
+\examheader
+
+\textbf{5. [10pt]} Sea $\mathcal{B} = \left\{ \begin{bmatrix}1&1\\-1&0\end{bmatrix}, \begin{bmatrix}-1&0\\1&1\end{bmatrix}, \begin{bmatrix}0&1\\-1&1\end{bmatrix} \right\}$ una base para un subespacio de $\mathcal{M}_{2\times 2}$. Determine la matriz $A$ con vector de coordenadas $\begin{bmatrix}1\\1\\-1\end{bmatrix}_{\mathcal{B}}$.
+
+\vspace{0.3cm}
+\noindent $A = $
+
+\vspace{1.5cm}
+
+\textbf{6. [10pt]} Sean $S:\mathbb{R}^2 \to \mathbb{R}^2$ la transformación lineal dada por $S\begin{bmatrix}x\\y\end{bmatrix} = \begin{bmatrix}x-y\\x+y\end{bmatrix}$. Encontrar $S^{-1}\begin{bmatrix}1\\2\end{bmatrix}$.
+
+\vspace{0.3cm}
+\noindent $S^{-1}\begin{bmatrix}1\\2\end{bmatrix} = $
+
+\examfooter
+\newpage
+
+\examheader
+
+\noindent\textbf{II. Solución con Procedimiento}\\
+{\small En esta parte del examen se debe incluir el procedimiento necesario para determinar y justificar sus respuestas. Una respuesta correcta sin justificación recibirá máximo el 20\,\% de los puntos correspondientes.
+
+Por favor, revise sus cómputos. Una respuesta incorrecta como resultado de errores en los cómputos recibirá máximo el 70\,\% de los puntos correspondientes.}
+
+\vspace{0.4cm}
+
+\textbf{a) [15pt]} Dadas las transformaciones lineales $T\left(\begin{bmatrix}x_1\\x_2\end{bmatrix}\right) = \begin{bmatrix}x_2\\-x_1\end{bmatrix}$ y $S\left(\begin{bmatrix}y_1\\y_2\end{bmatrix}\right) = \begin{bmatrix}y_1+3y_2\\2y_1+y_2\\y_1-y_2\end{bmatrix}$, encuentre $[S\circ T]$.
+
+\vspace{2cm}
+
+\textbf{7. [15pt]} Encuentre la dimensión del espacio vectorial definido por
+\[
+W = \{ p(x) = a+bx+cx^2+dx^3 \in \mathcal{P}_3 \mid a=0,\; b=2c-d \}.
+\]
+
+\examfooter
+\newpage
+
+\examheader
+
+\textbf{8. [10pts]} Sean $A = \begin{bmatrix}1&-1\\1&0\end{bmatrix}$, $B = \begin{bmatrix}0&1\\1&1\end{bmatrix}$, $C = \begin{bmatrix}0&0\\1&0\end{bmatrix}$ y $D = \begin{bmatrix}1&0\\0&1\end{bmatrix}$. Determinar si $\{A,B,C,D\}$ es una base para $\mathcal{M}_{2\times 2}$.
+
+\examfooter
+
+\end{document}

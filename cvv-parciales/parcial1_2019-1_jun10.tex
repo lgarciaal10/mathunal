@@ -1,0 +1,140 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=1.9cm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage{amsmath,amssymb}
+\usepackage{enumitem}
+\usepackage{tikz}
+\usetikzlibrary{calc,arrows.meta,patterns,decorations.pathmorphing}
+\usepackage{xcolor}
+\usepackage{multicol}
+\usepackage{parskip}
+\usepackage{lmodern}
+\renewcommand{\familydefault}{\sfdefault}
+
+\definecolor{unalblue}{RGB}{31,73,124}
+
+\newlist{opciones}{enumerate}{1}
+\setlist[opciones]{label=(\alph*),itemsep=1pt,topsep=2pt,leftmargin=1.8em,font=\normalfont}
+
+\newcommand{\vect}[2]{\begin{pmatrix}#1\\#2\end{pmatrix}}
+\newcommand{\vectiii}[3]{\begin{pmatrix}#1\\#2\\#3\end{pmatrix}}
+
+\newcommand{\examheader}{%
+  \noindent
+  \begin{minipage}[t]{0.62\linewidth}
+    {\bfseries\large Primer Parcial de C\'alculo en Varias Variables}\\
+    {\small 10 de junio de 2019}\\
+    {\small Escuela de Matem\'aticas, Universidad Nacional de Colombia, Sede Medell\'in.}
+  \end{minipage}%
+  \hfill
+  \begin{minipage}[t]{0.33\linewidth}
+    \raggedleft\small
+    Nombre: \rule{2.8cm}{0.4pt}\\[4pt]
+    C\'edula: \rule{2.8cm}{0.4pt}
+  \end{minipage}\\[4pt]
+  \rule{\linewidth}{0.6pt}
+}
+\newcommand{\examfooter}{%
+  \vfill
+  \rule{\linewidth}{0.4pt}\\[1pt]
+  {\scriptsize\textit{Transcripci\'on digital --- MathUNAL}\hfill\textcolor{unalblue}{\textbf{\thepage}}}
+}
+\pagestyle{empty}
+
+\begin{document}
+
+\examheader
+
+\textbf{Instrucciones:} La duraci\'on del examen es de 1 hora y 45 minutos. El examen consta de siete preguntas en dos hojas impresas por ambos lados. Antes de empezar verifique que su examen est\'e completo y que sus datos sean correctos. No desengrape su examen ni a\~nada otras grapas. Utilice los espacios asignados para resolver cada pregunta. \textbf{No} est\'a permitido: hacer preguntas, usar calculadoras, sacar hojas en blanco, ni tomar apuntes en hojas diferentes a las del examen. No se permite que ning\'un celular se encuentre a la vista.
+
+\bigskip
+
+\textit{En cada una de las preguntas 1 a 4 marque solamente todas las afirmaciones correctas cruzando con una ``x'' la casilla correspondiente as\'i: $\boxtimes$. Una selecci\'on incorrecta anula una correcta. Se obtiene cr\'edito de 5\,\% marcando todas las opciones correctas y no marcando todas las incorrectas. Se obtiene cr\'edito de 3\,\% con solo una opci\'on mal escogida, y cr\'edito de 0\,\% en todos los dem\'as casos. En estas preguntas la calificaci\'on tendr\'a en cuenta s\'olo la respuesta.}
+
+\bigskip
+\noindent\textbf{1.} (5\,\%) Si dominio de $f(x,y)$ es $\mathbb{R}^2$, y $f(x,y)$ es funci\'on diferenciable en $(2,3)$, entonces:
+
+\begin{itemize}[itemsep=1pt,topsep=2pt,leftmargin=1.8em]
+  \item[$\square$] Las derivadas parciales $f_x(x,y)$ y $f_y(x,y)$ son continuas en $(2,3)$.
+  \item[$\square$] Existen constantes $a$ y $b$ tales que
+  $$\lim_{(x,y)\to(2,3)} \frac{f(x,y)-f(2,3)+a(x-2)+b(y-3)}{\sqrt{(x-3)^2+(y-3)^2}} = 0.$$
+  \item[$\square$] $D_{\vec u}f(2,3) = \nabla f(2,3)\cdot \vec u$ para todo $\vec u$ unitario.
+  \item[$\square$] Las derivadas parciales $f_x(x,y)$ y $f_y(x,y)$ son diferenciables en $(2,3)$.
+\end{itemize}
+
+\bigskip
+\noindent\textbf{2.} (5\,\%) Si dominio de $f(x,y)$ es $\mathbb{R}^2$, y $\displaystyle\lim_{(x,y)\to(0,0)} f(x,y) = f(0,0)\neq 0$, entonces:
+
+\begin{itemize}[itemsep=1pt,topsep=2pt,leftmargin=1.8em]
+  \item[$\square$] $\displaystyle\lim_{x\to 0} f(x,x^2) = f(0,0)$.
+  \item[$\square$] Para todo $m$, $\displaystyle\lim_{x\to 0} f(x,mx) = 0$.
+  \item[$\square$] $f$ es continua en $(0,0)$.
+  \item[$\square$] La gr\'afica de $f$ tiene plano tangente en $(0,0)$.
+\end{itemize}
+
+\bigskip
+\noindent\textbf{3.} (5\,\%) Si $f(x,y)$ es diferenciable en $\mathbb{R}^2$, y $D_{\vec u}f(0,0)=c$ para todo vector unitario $\vec u$, entonces
+
+\begin{itemize}[itemsep=1pt,topsep=2pt,leftmargin=1.8em]
+  \item[$\square$] Necesariamente $c=0$.
+  \item[$\square$] $c$ puede tener cualquier valor real.
+  \item[$\square$] El plano tangente de $f$ en $(0,0)$ es horizontal.
+  \item[$\square$] $f$ podr\'ia ser un cono $f(x,y)=\sqrt{x^2+y^2}$.
+\end{itemize}
+
+\bigskip
+\noindent\textbf{4.} (5\,\%) Suponga que la temperatura en el punto $(x,y)$ en el aeropuerto est\'a dada por $f(x,y)=2-x^2+y^2$ grados celcius, con las distancias $x$ y $y$ en kil\'ometros. Un avi\'on despega de las coordenadas $(5,5)$ en la direcci\'on especificada por el vector $\vec v=(3,4)$. Usando las tasas de cambio de temperatura en la posici\'on de despegue, podemos decir que la temperatura externa:
+
+\vspace{-2pt}
+\begin{itemize}[itemsep=0pt,topsep=1pt,leftmargin=1.8em]
+  \item[$\square$] Aumenta a raz\'on de $10^{\circ}$C por km de viaje.
+  \item[$\square$] Disminuye a raz\'on de $2^{\circ}$C por km de viaje.
+  \item[$\square$] Aumenta a raz\'on de $2^{\circ}$C por km de viaje.
+  \item[$\square$] Cambia a raz\'on de $-10^{\circ}$C por km en direcci\'on $x$.
+\end{itemize}
+
+\newpage
+\examheader
+\vspace{2pt}
+
+\textbf{Preguntas con procedimiento}
+
+\textit{En las preguntas 5 a 7 responda mostrando detalladamente el procedimiento utilizado.}
+
+\bigskip
+\noindent\textbf{5.} (30\,\%) Determine si la funci\'on dada por
+$$
+f(x,y)=
+\begin{cases}
+\dfrac{x|y|^2}{x^4+y^4+x^2}, & (x,y)\neq (0,0),\\[6pt]
+0, & (x,y)=(0,0),
+\end{cases}
+$$
+es continua en $(0,0)$.
+
+\vfill
+\examfooter
+\newpage
+\examheader
+\vspace{2pt}
+
+\noindent\textbf{6.} (30\,\%) Si $f(u,v,w)$ es derivable, y $u=x-y$, $v=y-z$, y $w=z-x$, demuestre que para una constante $c$ (encu\'entrela) se cumple:
+$$\frac{\partial f}{\partial x} + \frac{\partial f}{\partial y} + \frac{\partial f}{\partial z} = c.$$
+
+\vfill
+\examfooter
+\newpage
+\examheader
+\vspace{2pt}
+
+\noindent\textbf{7.} (20\,\%)
+\begin{opciones}
+  \item[(a)] [10\,\%] Encuentre todos los puntos cr\'iticos de $f(x,y)=2x^2-4y+y^2$, y determine en cu\'ales $f$ adopta m\'inimos locales, m\'aximos locales o puntos de silla.
+  \item[(b)] [10\,\%] Para el conjunto $D$ de puntos $(x,y)$ tales que $x^2+(y-2)^2\leq 4$ (es decir, todos los puntos entre ese c\'irculo incluyendo su frontera), encuentre empleando multiplicadores de Lagrange todos los puntos donde $f(x,y)=2x^2-4y+y^2$ adopta valores m\'aximos o m\'inimos absolutos. Puede usar resultados de (a).
+\end{opciones}
+
+\vfill
+\examfooter
+
+\end{document}

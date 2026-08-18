@@ -1,0 +1,235 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=1.9cm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage[spanish]{babel}
+\usepackage{amsmath,amssymb}
+\usepackage{lmodern}
+\renewcommand{\familydefault}{\sfdefault}
+\usepackage{enumitem}
+
+\newcommand{\vect}[2]{\begin{pmatrix}#1\\#2\end{pmatrix}}
+\usepackage{tikz}
+\usetikzlibrary{calc,arrows.meta,patterns,decorations.pathmorphing}
+\usepackage[table]{xcolor}
+\usepackage{multicol}
+\usepackage{parskip}
+
+\definecolor{unalblue}{RGB}{31,73,124}
+
+\newlist{opciones}{enumerate}{1}
+\setlist[opciones]{label=(\alph*),itemsep=6pt,topsep=6pt,leftmargin=1.8em,font=\normalfont}
+\setlist[enumerate,1]{itemsep=1.4em,topsep=1em}
+
+\newcommand{\examheader}{%
+  \noindent
+  \begin{minipage}[t]{0.6\linewidth}
+    {\small\bfseries Geometría Vectorial y Analítica --- Parcial 1}\\
+    {\small Semestre 2023--01}
+  \end{minipage}%
+  \hfill
+  \begin{minipage}[t]{0.35\linewidth}
+    \raggedleft\small Escuela de Matemáticas. Universidad Nacional de Colombia, Sede Medellín.
+  \end{minipage}\\[2pt]
+  \rule{\linewidth}{0.6pt}
+}
+\newcommand{\examfooter}{%
+  \vfill
+  \rule{\linewidth}{0.4pt}\\[1pt]
+  {\scriptsize\textit{Transcripción digital --- MathUNAL}\hfill\textcolor{unalblue}{\textbf{\thepage}}}
+}
+\pagestyle{empty}
+
+\newcommand{\nota}[1]{{\small\itshape\color{unalblue!70!black} #1}}
+
+\begin{document}
+\examheader
+
+\noindent
+\begin{minipage}[t]{0.46\linewidth}
+\centering
+{\Large Geometría Vectorial y Analítica ---}\\[2pt]
+{\Large Parcial 1}\\[6pt]
+{\small Marzo del 2023}\\[14pt]
+{\large Número Asignado: \underline{\hspace{2.5cm}}}
+\end{minipage}%
+\begin{minipage}[t]{0.52\linewidth}
+\vspace{8pt}
+\small
+Nombre: \underline{\hspace{6.8cm}}\\[10pt]
+Cédula: \underline{\hspace{2.4cm}}\ \ Grupo: \underline{\hspace{1cm}}\ \ Salón: \underline{\hspace{1cm}}\\[10pt]
+Firma: \underline{\hspace{6.8cm}}
+\end{minipage}
+
+\vspace{14pt}
+\textbf{INSTRUCCIONES}
+
+No desengrape su examen ni añada otras grapas o su examen será anulado. \textbf{No} está permitido: hacer preguntas, usar calculadoras ni trabajar en hojas diferentes a las del examen. No se permite que ningún celular y/o dispositivo electrónico se encuentre a la vista. Diligencie sus respuestas en la tabla correspondiente más abajo: \textbullet\ No use fracciones, introduzca su respuesta aproximada con dos decimales. \textbullet\ Escriba grande y claro. \textbullet\ Si sus respuestas no están anotadas en la tabla y espacio correspondiente, no serán tomadas en cuenta.
+
+\textbf{TABLA PUNTAJE Y RESPUESTAS}
+
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|c|c|}
+\hline
+Ejercicio & Puntaje & \begin{tabular}{c}Tolerancia\\Numérica\end{tabular} & (a) & (b) & (c) & (d) & (e) \\
+\hline
+1 & 16\% & 2\% & & & \cellcolor{gray!50} & \cellcolor{gray!50} & \cellcolor{gray!50} \\
+\hline
+2 & 16\% & 2\% & & & \cellcolor{gray!50} & \cellcolor{gray!50} & \cellcolor{gray!50} \\
+\hline
+3 & 18\% & 2\% & & & \cellcolor{gray!50} & \cellcolor{gray!50} & \cellcolor{gray!50} \\
+\hline
+4 & 20\% & 2\% & & & & & \\
+\hline
+5 & 30\% & N.A. & \cellcolor{gray!50} & \cellcolor{gray!50} & \cellcolor{gray!50} & \cellcolor{gray!50} & \cellcolor{gray!50} \\
+\hline
+\end{tabular}
+\end{center}
+
+\begin{enumerate}
+\item Dados los vectores $U=\vect{2}{1}$, $V=\vect{t}{6}$, $X=\vect{18}{27}$, determine escalares reales $s$ y $t$ tales que
+$$X=3U+sV.$$
+
+\begin{opciones}
+\item Establezca el valor de $s$.
+\item Establezca el valor de $t$.
+\end{opciones}
+
+\item Sea $X=\vect{x}{y}$ un vector del plano tal que $U=X-\vect{2}{1}$ es un vector de magnitud 50 ortogonal al vector $\vect{-6}{-8}$. Determine este vector $X=\vect{x}{y}$ tal que $U\cdot\vect{24}{-18}>0$.
+
+\begin{opciones}
+\item Establezca el valor de $x$.
+\item Establezca el valor de $y$.
+\end{opciones}
+
+\item Supongamos que la proyección ortogonal del vector $\vect{-18}{46}$ sobre un vector $A$ es el vector $\vect{4}{2}$. Sea $\vect{a}{b}$ la proyección ortogonal de $\vect{-18}{46}$ sobre el vector $\vect{-36}{72}$.
+
+\begin{opciones}
+\item Determine el valor de $a$.
+\item Determine el valor de $b$.
+\end{opciones}
+
+\nota{Nota. Este ejercicio se puede resolver de varias formas. Algunas requieren bastantes cálculos, otras requieren pocos cálculos.}
+
+\item Considere los puntos $A=\vect{11}{11}$, $B=\vect{q}{1}$, donde $q$ es algún número real. Para cada uno de los siguientes enunciados, decida si es \textbf{V}erdadero o \textbf{F}also (escriba en la tabla de respuestas V o F respectivamente).
+
+\begin{opciones}
+\item Hay un valor de $q$ para el cual $\angle(BOA)=\dfrac{\pi}{3}$.
+\item Hay un valor de $q$ para el cual $\angle(BOA)=\dfrac{\pi}{4}$.
+\item $\cos\angle(BOA)>0$ cualquiera sea el valor de $q$.
+\item Si $q=-1$ entonces $\operatorname{sen}\angle(BOA)>0$.
+\item Si $q<1$ entonces $\operatorname{sen}\angle(BOA)<0$.
+\end{opciones}
+
+\item \textbf{En este ejercicio se califica el procedimiento.} Sean las rectas
+$$\mathcal{L}_1: y=5x-11,\qquad \mathcal{L}_2: y=-2x+10$$
+y los puntos
+$$A=\vect{3}{4},\qquad B=\vect{4}{9},\qquad C=\vect{1}{8}.$$
+Defina también
+$$H_1=\left\{\vect{x}{y}\ \middle|\ y<5x-11\right\},\qquad H_2=\left\{\vect{x}{y}\ \middle|\ y<-2x+10\right\}.$$
+
+Responda a las siguientes preguntas.
+
+\begin{opciones}
+\item Verifique algebraicamente que el vector $\vect{3}{3}$ está tanto en $H_1$ como en $H_2$.
+\item Verifique algebraicamente que $H_1$ coincide con el semiplano derecho de la recta $\mathcal{L}_{\overrightarrow{AB}}$.
+\item Verifique algebraicamente que $H_2$ coincide con el semiplano izquierdo de la recta $\mathcal{L}_{\overrightarrow{AC}}$.
+\end{opciones}
+
+\nota{Indicación. Una gráfica puede ayudarle a responder esta pregunta. Sin embargo, una gráfica por sí sola, no es considerada como una respuesta satisfactoria.}
+
+\begin{center}
+\begin{tikzpicture}[scale=0.5]
+\draw[step=1,gray!30,thin] (0,0) grid (10,10);
+\draw[-{Latex}] (0,0)--(10.5,0) node[right]{\small$x$};
+\draw[-{Latex}] (0,0)--(0,10.5) node[above]{\small$y$};
+\foreach \i in {1,...,10}{
+  \node[below,font=\scriptsize] at (\i,0) {\i};
+  \node[left,font=\scriptsize] at (0,\i) {\i};
+}
+\end{tikzpicture}
+\end{center}
+\begin{center}
+{\small Figura 1: Sistema de Ejes Cartesianos para trabajo.}
+\end{center}
+
+\end{enumerate}
+
+\newpage
+\begin{center}
+{\Large FÓRMULAS}
+\end{center}
+
+\begin{multicols}{2}
+\setlength{\columnseprule}{0.5pt}
+
+\textbullet\ Identidad del Paralelogramo:
+$$\|X+Y\|^2+\|X-Y\|^2=2\|X\|^2+2\|Y\|^2$$
+
+\textbullet\ Desigualdad de Cauchy-Schwarz:
+$$|X\cdot Y|\leq\|X\|\|Y\|$$
+
+\textbullet\ Desigualdad triangular:
+$$\|X+Y\|\leq\|X\|+\|Y\|$$
+
+\textbullet\ Teorema de Pitágoras:
+$$\|X-Y\|^2=\|X\|^2+\|Y\|^2$$
+
+\textbullet\ Proyección Ortogonal:
+$$P_{\mathcal{L}_U}(X)=P_U(X)=\dfrac{X\cdot U}{\|U\|^2}U$$
+
+\textbullet\ Descomposición Ortogonal:
+$$X=P_U(X)+P_{U^\perp}(X)$$
+
+\textbullet\ Recta generada por $A$ y $B$:
+$$\mathcal{L}_{AB}=\{X: X=sA+tB,\ s,t\in\mathbb{R},\ s+t=1\}$$
+
+\textbullet\ Semiplano a la izquierda de $\mathcal{L}_{AB}$:
+$$\mathcal{L}_{\overrightarrow{AB}}^+=\{X\in\mathbb{R}^2: (B-A)^\perp\cdot(X-A)>0\}$$
+
+\textbullet\ El ángulo $\angle(BAC)$ es
+\begin{itemize}
+\item $\mathcal{L}_{\overrightarrow{AB}}^+\cap\mathcal{L}_{\overrightarrow{AC}}^-$, si $(A,B,C)$ está orientada positivamente.
+\item $\mathcal{L}_{\overrightarrow{AB}}^+\cup\mathcal{L}_{\overrightarrow{AC}}^-$, si $(A,B,C)$ está orientada negativamente.
+\end{itemize}
+
+\columnbreak
+
+\textbullet\ Coseno:
+$$\cos\angle(BAC)=\dfrac{(B-A)\cdot(C-A)}{\|B-A\|\|C-A\|}$$
+
+\textbullet\ Ley del coseno:
+$$\|B-C\|^2=\|B-A\|^2+\|C-A\|^2-2\|B-A\|\|C-A\|\cos\angle(BAC)$$
+
+\textbullet\ Seno:
+$$\operatorname{sen}\angle(BAC)=\dfrac{(B-A)^\perp\cdot(C-A)}{\|(B-A)^\perp\|\|C-A\|}$$
+
+\textbullet\ Ley de Senos:
+$$\dfrac{\operatorname{sen}\angle(CAB)}{\|B-C\|}=\dfrac{\operatorname{sen}\angle(ABC)}{\|C-A\|}=\dfrac{\operatorname{sen}\angle(BCA)}{\|A-B\|}$$
+
+\textbullet\ Identidad Pitagórica:
+$$\operatorname{sen}^2\angle(BAC)+\cos^2\angle(BAC)=1$$
+
+\textbullet\ Ecuaciones de rotación:
+$$\vect{c}{d}=\begin{pmatrix}a\cos\Theta-b\operatorname{sen}\Theta\\a\operatorname{sen}\Theta+b\cos\Theta\end{pmatrix}$$
+
+\textbullet\ Algunos ángulos notables:
+
+\begin{center}
+\begin{tabular}{|c|c|c|c|}
+\hline
+Grados & Radianes & Coseno & Seno \\
+\hline
+0 & 0 & 1 & 0 \\
+30 & $\pi/6$ & $\sqrt{3}/2$ & $1/2$ \\
+45 & $\pi/4$ & $\sqrt{2}/2$ & $\sqrt{2}/2$ \\
+60 & $\pi/3$ & $1/2$ & $\sqrt{3}/2$ \\
+90 & $\pi/2$ & 0 & 1 \\
+\hline
+\end{tabular}
+\end{center}
+
+\end{multicols}
+
+\examfooter
+\end{document}

@@ -1,0 +1,135 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=2.2cm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage[spanish]{babel}
+\usepackage{amsmath,amssymb}
+\usepackage{enumitem}
+\usepackage{tikz}
+\usetikzlibrary{calc,arrows.meta,patterns,decorations.pathmorphing}
+\usepackage{xcolor}
+\usepackage{colortbl}
+\usepackage{multicol}
+\usepackage{parskip}
+\setlength{\parskip}{6pt}
+\usepackage{lmodern}
+\renewcommand{\familydefault}{\sfdefault}
+
+\definecolor{unalblue}{RGB}{31,73,124}
+
+\setlist[enumerate,1]{itemsep=10pt,topsep=8pt,leftmargin=2.2em,label=\protect\fbox{\arabic*}}
+\newlist{opciones}{enumerate}{1}
+\setlist[opciones]{label=(\alph*),itemsep=8pt,topsep=6pt,leftmargin=2em,font=\normalfont}
+
+\newcommand{\ptsbox}[1]{\fboxsep=3pt\fbox{\footnotesize #1}\hspace{4pt}}
+\newcommand{\borradorbox}[1][3cm]{%
+  \noindent\fbox{\begin{minipage}[t][#1][t]{0.97\linewidth}
+  {\scriptsize\itshape Espacio borrador, nada escrito aquí será calificado.}
+  \end{minipage}}
+}
+
+\newcommand{\vect}[2]{\begin{pmatrix}#1\\#2\end{pmatrix}}
+\newcommand{\vectiii}[3]{\begin{pmatrix}#1\\#2\\#3\end{pmatrix}}
+
+\newcommand{\examheader}{%
+  \noindent
+  \begin{minipage}[t]{0.6\linewidth}
+    {\small\bfseries Geometría Vectorial --- Parcial 2}\\
+    {\small Octubre de 2022}
+  \end{minipage}%
+  \hfill
+  \begin{minipage}[t]{0.37\linewidth}
+    \raggedleft
+    \fbox{\begin{minipage}{0.95\linewidth}\centering\scriptsize Escuela de Matemáticas. Universidad Nacional de Colombia, Sede Medellín.\end{minipage}}
+  \end{minipage}\\[4pt]
+  \rule{\linewidth}{0.6pt}
+}
+\newcommand{\examfooter}{%
+  \vfill
+  \rule{\linewidth}{0.4pt}\\[1pt]
+  {\scriptsize\textit{Transcripción digital --- MathUNAL}\hfill\textcolor{unalblue}{\textbf{\thepage}}}
+}
+\pagestyle{empty}
+
+\begin{document}
+\examheader
+
+\begin{center}
+{\bfseries Geometría Vectorial --- Parcial 2}\\
+Octubre de 2022
+
+\vspace{6pt}
+\textbf{Instrucciones}
+\end{center}
+
+La duración del examen es \textbf{1:50 horas}. Verifique que sus datos de identificación son correctos. La prueba consta de cinco preguntas. Escriba sus respuestas a los ejercicios 1,2,3,4 en la tabla que está abajo en esta página. Solo las respuestas anotadas en la tabla serán tenidas en cuenta. No use fracciones, solamente decimales y redondee a dos cifras decimales, por ejemplo, si su respuesta es $\frac{1}{3}$ escriba 0.33. La pregunta 5 es de procedimiento, y su respuesta debe escribirse debajo del enunciado. \textbf{No} está permitido: hacer preguntas, usar calculadoras ni trabajar en hojas diferentes a las del examen. Por favor no desengrapar el examen y entregarlo completo al final del examen al vigilante. No se permite sacar el teléfono celular durante el examen.
+
+\vspace{8pt}
+\begin{center}
+\textbf{\textsc{Tabla puntaje y respuestas}}
+
+\vspace{4pt}
+\begin{tabular}{|c|c|l|}
+\hline
+Ejercicio & Porcentaje & Respuesta\\
+\hline
+1 & 17\% & a\quad b\quad c\quad d\quad e\quad f \\[6pt]
+\hline
+2 & 18\% & \\[14pt]
+\hline
+3 & 17\% & \\[14pt]
+\hline
+4 & 18\% & \\[14pt]
+\hline
+5 & 30\% & \cellcolor{black!15}Procedimiento \\[6pt]
+\hline
+\end{tabular}
+\end{center}
+
+\vspace{10pt}
+
+\begin{enumerate}
+
+\item Una recta pasa por el punto $P = \vect{10^5-1}{10^5-4}$ y tiene pendiente $4$. Señalar de los siguientes puntos, aquel único que también pertenece a la recta:
+
+\begin{opciones}
+\item $\vect{10^5}{10^5}$
+\item $\vect{10^5-4}{10^5+1}$
+\item $\vect{10^5+1}{10^5-4+2}$
+\item $\vect{1}{4}$
+\item $\vect{10^5-1+4}{10^5-4+1}$
+\item Ninguno de los anteriores.
+\end{opciones}
+
+\vspace{40pt}
+
+\item Sea $X = \vect{-1}{-5}$. Suponga que $\mathcal{L}$ es una recta con vector director $D$ y vector normal $N$, y que $Q$ es un punto en $\mathcal{L}$. Si $P_D(X) = \vect{-3}{-3}$, $P_N(Q) = \vect{1}{-1}$, determine $P_N(X)$.
+
+\newpage
+\examheader
+
+\item Considere la circunferencia $\mathcal{C}$ con centro en $\vect{-1}{2}$ y radio 5 y la recta $\mathcal{L}$ paralela al eje $x$ y con intercepto 6. Hallar la longitud de la cuerda comprendida entre los puntos de intersección de $\mathcal{C}$ con $\mathcal{L}$.
+
+\vspace{100pt}
+
+\item Considere la transformación lineal
+\[
+T\vect{x}{y} = \vect{16x+(-4)y}{-4x+y}.
+\]
+El núcleo de $T$ es la recta que pasa por el origen y tiene vector director $\vect{1}{k}$. Determine el valor de $k$.
+
+\newpage
+\examheader
+
+\item \textbf{Pregunta de procedimiento:} En el espacio de abajo escriba un procedimiento completo justificando cada paso. Sea $T$ la transformación lineal definida por
+\[
+T\vect{x}{y} = \vect{2x-y}{x+y},
+\]
+y sea $\mathcal{L}$ la línea recta con ecuación general $3x-y-2=0$. Hallar una ecuación general de la línea recta $\mathcal{L}' = T(\mathcal{L})$.
+
+\vspace{200pt}
+
+\end{enumerate}
+
+\examfooter
+\end{document}

@@ -1,0 +1,97 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=1.9cm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage[spanish]{babel}
+\usepackage{amsmath,amssymb}
+\usepackage{lmodern}
+\renewcommand{\familydefault}{\sfdefault}
+\usepackage{enumitem}
+
+\newcommand{\vect}[2]{\begin{pmatrix}#1\\#2\end{pmatrix}}
+\newcommand{\vectiii}[3]{\begin{pmatrix}#1\\#2\\#3\end{pmatrix}}
+\usepackage{tikz}
+\usetikzlibrary{calc,arrows.meta,patterns,decorations.pathmorphing}
+\usepackage[table]{xcolor}
+\usepackage{multicol}
+\usepackage{parskip}
+
+\definecolor{unalblue}{RGB}{31,73,124}
+
+\newlist{opciones}{enumerate}{1}
+\setlist[opciones]{label=(\alph*),itemsep=6pt,topsep=6pt,leftmargin=1.8em,font=\normalfont}
+\setlist[enumerate,1]{itemsep=1.4em,topsep=1em}
+
+\newcommand{\examheader}{%
+  \noindent
+  \begin{minipage}[t]{0.6\linewidth}
+    {\small\bfseries Geometría Vectorial y Analítica --- Parcial 3}\\
+    {\small Semestre 2015--01}
+  \end{minipage}%
+  \hfill
+  \begin{minipage}[t]{0.35\linewidth}
+    \raggedleft\small Escuela de Matemáticas. Universidad Nacional de Colombia, Sede Medellín.
+  \end{minipage}\\[2pt]
+  \rule{\linewidth}{0.6pt}
+}
+\newcommand{\examfooter}{%
+  \vfill
+  \rule{\linewidth}{0.4pt}\\[1pt]
+  {\scriptsize\textit{Transcripción digital --- MathUNAL}\hfill\textcolor{unalblue}{\textbf{\thepage}}}
+}
+\pagestyle{empty}
+
+\newcommand{\nota}[1]{{\small\itshape\color{unalblue!70!black} #1}}
+
+\begin{document}
+\examheader
+
+\begin{center}
+{\large Tercer Examen Parcial de Geometría}\\[4pt]
+{\small 13 de junio del 2015}
+\end{center}
+
+\vspace{6pt}
+\textbf{Puntaje. Sólo para uso Oficial}
+
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+1 (40) & 2 (30) & 3 (30) & Total & Nota \\
+\hline
+ & & & & \\
+\hline
+\end{tabular}
+\end{center}
+
+\vspace{10pt}
+\textbf{Instrucciones:} Antes de empezar verifique que su examen esté completo y que sus datos sean correctos. Por favor verifique que su celular esté apagado. No está permitido el uso de calculadora ni de otros aparatos electrónicos. Solucione las preguntas en los espacios en blanco asignados a cada una de ellas. La primera hoja puede usarse para operaciones en borrador. No está permitido sacar hojas en blanco ni ningún tipo de apuntes durante el examen. \textbf{Duración: 1 hora y 50 minutos.}
+
+\begin{enumerate}
+\item La ecuación de segundo grado $9x^2-16y^2-54x+32y-79=0$ corresponde a una hipérbola.
+
+\begin{enumerate}[label=(\alph*)]
+\item (15 puntos) Halle el centro $C$ de la hipérbola.
+\item (10 puntos) Halle los vértices $V'$ y $V$ de la hipérbola.
+\item (15 puntos) Halle los focos $F'$ y $F$ de la hipérbola.
+\end{enumerate}
+
+\item Considere las rectas $\mathcal{L}_1$ y $\mathcal{L}_2$ con ecuaciones:
+$$\mathcal{L}_1:\begin{cases}x=5+t,\\ y=3-3t,\\ z=-4+4t,\end{cases} t\in\mathbb{R}\qquad\qquad \mathcal{L}_2:\frac{x-3}{2}=\frac{y-9}{3}=\frac{z+12}{2}$$
+
+\begin{enumerate}[label=(\alph*)]
+\item (15 puntos) Muestre que las rectas $\mathcal{L}_1$ y $\mathcal{L}_2$ se cortan y halle su punto de intersección.
+\item (15 puntos) Encuentre una ecuación general para el plano que contiene a las rectas $\mathcal{L}_1$ y $\mathcal{L}_2$.
+\end{enumerate}
+
+\item Considere los puntos $A=\vectiii{0}{0}{0}$, $B=\vectiii{0}{2}{1}$, $C=\vectiii{1}{0}{5}$ y $D=\vectiii{2}{1}{6}$.
+
+\begin{enumerate}[label=(\alph*)]
+\item (15 puntos) Muestre que $A$, $B$, $C$ y $D$ no son coplanares.
+\item (15 puntos) Halle una ecuación general del plano que pasa por $A$ y es paralelo al plano que contiene $B$, $C$ y $D$.
+\end{enumerate}
+
+\end{enumerate}
+
+\examfooter
+\end{document}

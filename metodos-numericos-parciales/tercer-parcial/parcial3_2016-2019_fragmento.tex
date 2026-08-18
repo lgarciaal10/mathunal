@@ -1,0 +1,263 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=1.9cm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage[spanish,es-noshorthands]{babel}
+\usepackage{amsmath,amssymb}
+\usepackage{enumitem}
+\usepackage{tikz}
+\usetikzlibrary{calc,arrows.meta,patterns,decorations.pathmorphing,shadows}
+\usepackage{xcolor}
+\usepackage{multicol}
+\usepackage{parskip}
+\usepackage{lmodern}
+\renewcommand{\familydefault}{\sfdefault}
+
+\definecolor{unalblue}{RGB}{31,73,124}
+\definecolor{cajaazul}{RGB}{31,73,124}
+\definecolor{cajaverde}{RGB}{46,139,87}
+\definecolor{cajaroja}{RGB}{178,34,34}
+
+\newlist{opciones}{enumerate}{1}
+\setlist[opciones]{label=(\alph*),itemsep=1pt,topsep=2pt,leftmargin=1.8em,font=\normalfont}
+
+\newcommand{\vect}[2]{\begin{pmatrix}#1\\#2\end{pmatrix}}
+\newcommand{\vectiii}[3]{\begin{pmatrix}#1\\#2\\#3\end{pmatrix}}
+
+% Caja titulada estilo "recuadro bordeado con título transparente"
+\newcommand{\cajatitulada}[3]{%
+  \begin{center}
+  \begin{tikzpicture}
+    \node[draw=#1, line width=2.2pt, rounded corners=4pt, inner sep=12pt,
+          text width=0.92\linewidth, align=left,
+          fill=#1!2.2]
+      (box) {#3};
+    \node[fill=white, anchor=west, xshift=10pt, inner sep=3pt] at (box.north west)
+      {\small\color{#1}\bfseries #2};
+  \end{tikzpicture}
+  \end{center}
+}
+
+\newcommand{\examheader}{%
+  \noindent
+  \begin{minipage}[t]{0.6\linewidth}
+    {\small\bfseries MÉTODOS NUMÉRICOS --- Tercer Examen Parcial}\\
+    {\small Semestre 2016-2019 (fragmento) --- Con solución verificada}
+  \end{minipage}%
+  \hfill
+  \begin{minipage}[t]{0.35\linewidth}
+    \raggedleft\small Escuela de Matemáticas. Universidad Nacional de Colombia, Sede Medellín.
+  \end{minipage}\\[2pt]
+  \rule{\linewidth}{0.6pt}
+}
+\newcommand{\examfooter}{%
+  \vfill
+  \rule{\linewidth}{0.4pt}\\[1pt]
+  {\scriptsize\textit{Transcripción digital --- MathUNAL}\hfill\textcolor{unalblue}{\textbf{\thepage}}}
+}
+\pagestyle{empty}
+
+\begin{document}
+\examheader
+
+\vspace{4pt}
+\noindent Nombre completo:\underline{\hspace{7.5cm}}\quad Carné:\underline{\hspace{2.5cm}}\quad Grupo:\underline{\hspace{1.5cm}}
+
+\vspace{6pt}
+\noindent\textit{Nota: este fragmento corresponde a un examen parcial de Métodos Numéricos de la UNAL Medellín, semestre entre 2016 y 2019 (fecha exacta no disponible en el escaneo). Solo se conservaron los ejercicios 2 y 3. Se incluye la solución desarrollada por el estudiante en el escaneo original, verificada y completada.}
+
+\vspace{10pt}
+
+\begin{enumerate}[label=\arabic*.,leftmargin=1.5em]
+\setcounter{enumi}{1}
+
+\item Considere el problema con valores iniciales (P.V.I.) de orden superior
+\[
+\begin{cases}
+(t+1)y'''(t) - \left(\operatorname{sen}(y''(t)) + e^t y'(t)\right)^2 + \cos(y(t)) = 1, \quad 0 \le t \le 2, \\
+y(0) = 3, \\
+y'(0) = 4, \\
+y''(0) = -2.
+\end{cases}
+\]
+
+\begin{enumerate}[label=\alph*.,leftmargin=1.8em]
+\item (12\%) \textbf{Introducir} las variables necesarias para poder escribir el P.V.I. de orden superior como un sistema de ecuaciones diferenciales de primer orden sujeto a sus respectivas condiciones iniciales. \textbf{Escribir} el sistema de ecuaciones diferenciales con sus respectivas condiciones iniciales.
+
+\item (8\%) \textbf{Definir} claramente la función vectorial $\mathbb{U}$, el campo vectorial $\mathbb{F}$ y el vector $\alpha$ necesarios para poder representar el sistema de ecuaciones diferenciales del ítem anterior como un P.V.I. vectorial de la forma
+\[
+\begin{cases}
+\mathbb{U}'(t) = \mathbb{F}(t,\mathbb{U}(t)), \quad a \le t \le b, \\
+\mathbb{U}(a) = \alpha.
+\end{cases}
+\]
+\end{enumerate}
+
+\cajatitulada{cajaazul}{Solución (a)}{
+Despejamos $y'''$ de la ecuación:
+\[
+(t+1)y''' = 1 + \left(\operatorname{sen}(y'') + e^t y'\right)^2 - \cos(y)
+\]
+\[
+y''' = \frac{\left(\operatorname{sen}(y'') + e^t y'\right)^2}{t+1} - \frac{\cos(y)}{t+1} + \frac{1}{t+1}
+\]
+
+Definimos las variables de reducción de orden:
+\[
+u_1 = y, \qquad u_2 = y', \qquad u_3 = y''
+\]
+
+Derivando:
+\[
+u_1' = u_2, \qquad u_2' = u_3, \qquad u_3' = y''' = \frac{\left(\operatorname{sen}(u_3) + e^t u_2\right)^2}{t+1} - \frac{\cos(u_1)}{t+1} + \frac{1}{t+1}
+\]
+
+Sistema de primer orden con condiciones iniciales:
+\[
+\begin{cases}
+u_1' = u_2, & u_1(0) = 3, \\
+u_2' = u_3, & u_2(0) = 4, \\
+u_3' = \dfrac{\left(\operatorname{sen}(u_3) + e^t u_2\right)^2 - \cos(u_1) + 1}{t+1}, & u_3(0) = -2,
+\end{cases}
+\qquad 0 \le t \le 2.
+\]
+}
+
+\vspace{4pt}
+\cajatitulada{cajaroja}{Nota de verificación}{
+\small
+El desarrollo manuscrito original tenía dos deslices que se corrigieron arriba:
+\begin{itemize}[leftmargin=1.3em,itemsep=1pt]
+\item El signo de $\cos(y)$ al despejar $y'''$: quedaba $+\cos(y)/(t+1)$ en el escaneo, pero al pasar el término $-\cos(y(t))$ del lado izquierdo hacia la derecha, el signo correcto es $-\cos(y)/(t+1)$.
+\item En el término $e^t y'$, el escaneo usaba $e^t u_1$ dentro de $\mathbb{F}$; como $y' = u_2$ (no $u_1=y$), el término correcto es $e^t u_2$.
+\end{itemize}
+}
+
+\vspace{6pt}
+\cajatitulada{cajaverde}{Solución (b)}{
+\[
+\mathbb{U}(t) = \begin{pmatrix} u_1(t) \\ u_2(t) \\ u_3(t) \end{pmatrix}, \qquad
+\mathbb{F}(t,\mathbb{U}) = \begin{pmatrix} u_2 \\[2pt] u_3 \\[2pt] \dfrac{\left(\operatorname{sen}(u_3)+e^t u_2\right)^2 - \cos(u_1) + 1}{t+1} \end{pmatrix}, \qquad
+\alpha = \begin{pmatrix} 3 \\ 4 \\ -2 \end{pmatrix}
+\]
+con $a=0$, $b=2$.
+}
+
+\vspace{10pt}
+
+\item Considere el problema de valor en la frontera (P.V.F.)
+\[
+\begin{cases}
+s(x)\,y''(x) + 4x\,y'(x) - 3x^2\,y(x) = -\dfrac{1}{3}\ln x, \qquad 2 < x < 3, \\
+y(2) = \alpha, \\
+y(3) = \beta,
+\end{cases}
+\]
+donde $s$ es una función continua estrictamente positiva en el intervalo $[2,3]$.
+
+\begin{enumerate}[label=\alph*.,leftmargin=1.8em]
+\item (7\%) Demuestre que este P.V.F. tiene única solución.
+
+\item (8\%) \textbf{Plantée} dos problemas de valor inicial asociados necesarios para aproximar la solución por el método del disparo; emplee las variables $u$ y $v$ para dichos problemas.
+
+\item (10\%) Si la solución aproximada de los problemas planteados en el ítem anterior al emplear el método de Runge-Kutta de orden 4 con tamaño de paso $h = \dfrac{1}{5}$ son:
+
+\begin{center}
+\begin{tabular}{c|cccccc}
+ & $x_0$ & $x_1$ & $x_2$ & $x_3$ & $x_4$ & $x_5$ \\
+\hline
+$u(x)$ & 1.5 & 1.7694 & 2.2990 & 3.1144 & 4.3435 & 6.2154 \\
+$v(x)$ & 0 & 0.0922 & 0.1492 & 0.2126 & 0.3010 & 0.4331
+\end{tabular}
+\end{center}
+
+y la aproximación que se obtiene para \textbf{este} P.V.F. al emplear el método del disparo con tamaño de paso $h = \dfrac{1}{5}$ es:
+
+\begin{center}
+\begin{tabular}{c|cccccc}
+ & $x_0$ & $x_1$ & $x_2$ & $x_3$ & $x_4$ & $x_5$ \\
+\hline
+$y(x)$ & $\alpha$ & 1.7661 & 2.2937 & 3.1068 & 4.3328 & $\beta$
+\end{tabular}
+\end{center}
+
+\textbf{Halle} los valores de $\alpha$ y $\beta$.
+
+\end{enumerate}
+
+\cajatitulada{cajaazul}{Solución (a)}{
+Escribimos la ecuación en forma estándar dividiendo por $s(x)$:
+\[
+y'' = \frac{-4x}{s(x)}y' + \frac{3x^2}{s(x)}y - \frac{1}{3s(x)}\ln x
+\]
+Identificamos $p(x) = \dfrac{-4x}{s(x)}$, $q(x) = \dfrac{3x^2}{s(x)}$, $r(x) = -\dfrac{\ln x}{3s(x)}$.
+
+Como $s$ es continua y estrictamente positiva en $[2,3]$, y $x$, $x^2$, $\ln x$ son continuas ahí también, se sigue que $p$, $q$, $r$ son continuas en $[2,3]$. Además $q(x) = \dfrac{3x^2}{s(x)} > 0$ para todo $x \in [2,3]$ (numerador y denominador positivos).
+
+Por el teorema de existencia y unicidad para problemas de valor en la frontera lineales, el P.V.F. tiene solución única.
+}
+
+\vspace{6pt}
+\cajatitulada{cajaazul}{Solución (b)}{
+Los dos P.V.I. asociados al método del disparo lineal son:
+\[
+u:
+\begin{cases}
+s(x)\,u''(x) + 4x\,u'(x) - 3x^2 u(x) = -\dfrac{1}{3}\ln x, & 2 \le x \le 3, \\
+u(2) = \alpha, \\
+u'(2) = 0,
+\end{cases}
+\]
+\[
+v:
+\begin{cases}
+s(x)\,v''(x) + 4x\,v'(x) - 3x^2 v(x) = 0, & 2 \le x \le 3, \\
+v(2) = 0, \\
+v'(2) = 1.
+\end{cases}
+\]
+Como $v(3) \ne 0$, la solución del P.V.F. se obtiene como
+\[
+y(x) = u(x) + \frac{\beta - u(3)}{v(3)}\,v(x).
+\]
+}
+
+\vspace{6pt}
+\cajatitulada{cajaverde}{Solución (c)}{
+Para hallar $\beta$, usamos el dato conocido $y(x_4) = 4.3328$ junto con $u(x_4)=4.3435$, $v(x_4)=0.3010$, y los valores finales $u(3)=u(x_5)=6.2154$, $v(3)=v(x_5)=0.4331$:
+\[
+y(x_4) = u(x_4) + \frac{\beta - u(3)}{v(3)}\,v(x_4)
+\]
+\[
+4.3328 = 4.3435 + \frac{\beta - 6.2154}{0.4331}(0.3010)
+\]
+Despejando:
+\[
+\beta = 6.2154 + \frac{(4.3328 - 4.3435)(0.4331)}{0.3010} \approx 6.2000
+\]
+\[
+\boxed{\beta \approx 6.2}
+\]
+
+Para $\alpha$: en $x = x_0 = 2$ (extremo izquierdo del intervalo), por construcción del método del disparo $u(x_0) = \alpha$ y $v(x_0) = 0$, así que
+\[
+y(x_0) = u(x_0) + \frac{\beta-u(3)}{v(3)}\cdot 0 = u(x_0) = \alpha.
+\]
+El valor de $\alpha$ es simplemente el dato inicial $u(x_0)$ de la tabla del P.V.I. $u$, es decir:
+\[
+\boxed{\alpha = u(x_0) = 1.5}
+\]
+}
+
+\vspace{4pt}
+\cajatitulada{cajaroja}{Nota de verificación}{
+\small
+El cálculo de $\beta$ en el escaneo original es correcto: $\beta \approx 6.2$ (verificado numéricamente, la cuenta manuscrita cuadra).
+
+En el cálculo de $\alpha$ hay una inconsistencia en el manuscrito original: se planteó $\alpha = x_0 + \dfrac{\beta - u(3)}{v(3)}(0) = 1.5 + 0 = 1.5$, pero luego se anotó el resultado como $\alpha = 0$ en el recuadro final — eso no coincide con la propia cuenta escrita justo antes (que da $1.5$, no $0$). Además, conceptualmente $\alpha = u(x_0)$ es simplemente el valor inicial ya conocido del P.V.I. $u$ (dato de la tabla, $u(x_0)=1.5$), no algo que dependa de $\beta$: la fórmula $y(x)=u(x)+\frac{\beta-u(3)}{v(3)}v(x)$ evaluada en $x_0$ da exactamente $u(x_0)$ porque $v(x_0)=0$ anula el segundo término, sin importar el valor de $\beta$. Por eso arriba se deja $\alpha = 1.5$.
+}
+
+\end{enumerate}
+
+\examfooter
+\end{document}

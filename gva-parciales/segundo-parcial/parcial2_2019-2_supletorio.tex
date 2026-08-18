@@ -1,0 +1,155 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=2.2cm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage[spanish]{babel}
+\usepackage{amsmath,amssymb}
+\usepackage{enumitem}
+\usepackage{tikz}
+\usetikzlibrary{calc,arrows.meta,patterns,decorations.pathmorphing}
+\usepackage{xcolor}
+\usepackage{multicol}
+\usepackage{parskip}
+\setlength{\parskip}{6pt}
+\usepackage{lmodern}
+\renewcommand{\familydefault}{\sfdefault}
+
+\definecolor{unalblue}{RGB}{31,73,124}
+
+\setlist[enumerate,1]{itemsep=10pt,topsep=8pt,leftmargin=2.2em,label=\protect\fbox{\arabic*}}
+\newlist{opciones}{enumerate}{1}
+\setlist[opciones]{label=(\alph*),itemsep=8pt,topsep=6pt,leftmargin=2em,font=\normalfont}
+
+\newcommand{\ptsbox}[1]{\fboxsep=3pt\fbox{\footnotesize #1}\hspace{4pt}}
+\newcommand{\borradorbox}[1][3cm]{%
+  \noindent\fbox{\begin{minipage}[t][#1][t]{0.97\linewidth}
+  {\scriptsize\itshape Espacio borrador, nada escrito aquí será calificado.}
+  \end{minipage}}
+}
+
+\newcommand{\vect}[2]{\begin{pmatrix}#1\\#2\end{pmatrix}}
+\newcommand{\vectiii}[3]{\begin{pmatrix}#1\\#2\\#3\end{pmatrix}}
+
+\newcommand{\examheader}{%
+  \noindent
+  \begin{minipage}[t]{0.6\linewidth}
+    {\small\bfseries Geometría Vectorial y Analítica --- Supletorio Parcial 2}\\
+    {\small 16 de Marzo de 2020}
+  \end{minipage}%
+  \hfill
+  \begin{minipage}[t]{0.37\linewidth}
+    \raggedleft
+    \fbox{\begin{minipage}{0.95\linewidth}\centering\scriptsize Escuela de Matemáticas. Universidad Nacional de Colombia, Sede Medellín.\end{minipage}}
+  \end{minipage}\\[4pt]
+  \rule{\linewidth}{0.6pt}
+}
+\newcommand{\examfooter}{%
+  \vfill
+  \rule{\linewidth}{0.4pt}\\[1pt]
+  {\scriptsize\textit{Transcripción digital --- MathUNAL}\hfill\textcolor{unalblue}{\textbf{\thepage}}}
+}
+\pagestyle{empty}
+
+\begin{document}
+\examheader
+
+\begin{center}
+{\bfseries Supletorio del Segundo Parcial de Geometría Vectorial}\\
+16 de Marzo de 2020
+
+\vspace{6pt}
+\textbf{Puntaje. Sólo para uso Oficial}
+
+\vspace{4pt}
+\begin{tabular}{|c|c|c|c|c|c|c|}
+\hline
+1-4 (/30) & 5 (/20) & 6 (/20) & 7 (/20) & 8 (/10) & Total & Nota\\
+\hline
+ & & & & & & \\
+\hline
+\end{tabular}
+\end{center}
+
+\textbf{Instrucciones:} La duración del examen es de \textbf{1 hora y 50 minutos}. El examen consta de ocho preguntas en dos hojas impresas por ambos lados. Antes de empezar verifique que su examen esté completo y que sus datos sean correctos. No desengrape su examen ni añada otras grapas. Utilice los espacios asignados para resolver cada pregunta. \textbf{No} está permitido: hacer preguntas, usar calculadoras, sacar hojas en blanco, ni tomar apuntes en hojas diferentes a las del examen. No se permite que ningún celular se encuentre a la vista.
+
+\vspace{10pt}
+En las preguntas 1 a 4 responda en el espacio en blanco. \textbf{En estas preguntas la calificación tendrá en cuenta sólo la respuesta.}
+
+\begin{enumerate}
+
+\item \ptsbox{7\%} Sean $\mathcal{L}_1$ y $\mathcal{L}_2$ las líneas rectas con ecuaciones $\mathcal{L}_1: \vect{x}{y} = \vect{-1}{0} + t\vect{-1}{1}$ y $\mathcal{L}_2: x-y+3=0$. Entonces el ángulo entre $\mathcal{L}_1$ y $\mathcal{L}_2$ es
+
+\vspace{50pt}
+\underline{\hspace{6cm}}.
+
+\item \ptsbox{7\%} Si $\mathcal{L}$ es la línea recta con ecuación $x-2y+5=0$ entonces la línea recta que pasa por $\vect{2}{-1}$, y es perpendicular a $\mathcal{L}$, tiene por ecuación general:
+
+\vspace{60pt}
+\underline{\hspace{6cm}}.
+
+\item \ptsbox{8\%} Si $T$ es la transformación lineal definida por $T\vect{x}{y} = \vect{-6x+24y}{3x-12y}$ entonces el núcleo de $T$ es la línea recta con ecuación general
+
+\vspace{80pt}
+\underline{\hspace{6cm}}.
+
+\item \ptsbox{8\%} Si $T$ es una transformación lineal tal que $T\vect{3}{-4} = \vect{1}{1}$ entonces $T\vect{-15}{20} = $
+
+\vspace{80pt}
+\underline{\hspace{6cm}}.
+
+\end{enumerate}
+
+\vspace{10pt}
+\noindent\textbf{PREGUNTAS CON PROCEDIMIENTO}
+
+\noindent En las preguntas 5 a 8 responda mostrando \emph{detalladamente} el procedimiento utilizado.
+
+\begin{enumerate}
+\setcounter{enumi}{4}
+
+\item \ptsbox{20\%} Sean $S$ y $T$ las transformaciones lineales dadas por $S\vect{x}{y} = \vect{-3x+11y}{-x+4y}$ y $T\vect{x}{y} = \vect{-8x+3y}{5x-2y}$. Halle $(S\circ T)^{-1}\vect{x}{y}$ para todo $\vect{x}{y}$ en el plano.
+
+\vspace{4pt}
+{\scriptsize\itshape Emplee este espacio para realizar operaciones.}
+
+\vspace{160pt}
+
+\item \ptsbox{20\%} Considere la recta $\mathcal{L}$ que pasa por los puntos $A = \vect{-3}{5}$ y $B = \vect{-7}{9}$. Halle una ecuación general de la mediatriz del segmento de recta $\overline{AB}$.
+
+\vspace{4pt}
+{\scriptsize\itshape Emplee este espacio para realizar operaciones.}
+
+\vspace{160pt}
+
+\newpage
+\examheader
+
+\item \ptsbox{20\%} Sea $T$ la transformación lineal que satisface $T\vect{3}{4} = \vect{10}{-1}$ y $T\vect{1}{-5} = \vect{-3}{6}$.
+
+\begin{opciones}
+\item \ptsbox{10\%} Halle la matriz de $T$, $m(T)$.
+
+\vspace{4pt}
+{\scriptsize\itshape Emplee este espacio para realizar operaciones.}
+
+\vspace{160pt}
+
+\item \ptsbox{10\%} Si $\mathcal{L}$ es la recta con ecuación general $2x-3y+4=0$, halle una ecuación general de la recta $T(\mathcal{L})$.
+
+\vspace{4pt}
+{\scriptsize\itshape Emplee este espacio para realizar operaciones.}
+
+\vspace{160pt}
+\end{opciones}
+
+\item \ptsbox{10\%} Sea $T$ una transformación lineal de plano, y sean $U$ y $V$ dos vectores linealmente independientes tales que $T(U) = -U$ y $T(V) = -V$. Demuestre que $T(X) = -X$ cualquiera sea $X\in\mathbb{R}^2$.
+
+\vspace{4pt}
+{\scriptsize\itshape Emplee este espacio para realizar operaciones.}
+
+\vspace{160pt}
+
+\end{enumerate}
+
+\examfooter
+\end{document}

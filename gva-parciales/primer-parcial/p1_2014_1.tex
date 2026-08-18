@@ -1,0 +1,96 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=1.9cm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage[spanish]{babel}
+\usepackage{amsmath,amssymb}
+\usepackage{lmodern}
+\renewcommand{\familydefault}{\sfdefault}
+\usepackage{enumitem}
+
+\newcommand{\vect}[2]{\begin{pmatrix}#1\\#2\end{pmatrix}}
+\usepackage{tikz}
+\usetikzlibrary{calc,arrows.meta,patterns,decorations.pathmorphing}
+\usepackage[table]{xcolor}
+\usepackage{multicol}
+\usepackage{parskip}
+
+\definecolor{unalblue}{RGB}{31,73,124}
+
+\setlist[enumerate,1]{itemsep=1.4em,topsep=1em}
+
+\newcommand{\examheader}{%
+  \noindent
+  \begin{minipage}[t]{0.6\linewidth}
+    {\small\bfseries Geometría Vectorial y Analítica --- Parcial 1}\\
+    {\small Semestre 2014--01}
+  \end{minipage}%
+  \hfill
+  \begin{minipage}[t]{0.35\linewidth}
+    \raggedleft\small Escuela de Matemáticas. Universidad Nacional de Colombia.
+  \end{minipage}\\[2pt]
+  \rule{\linewidth}{0.6pt}
+}
+\newcommand{\examfooter}{%
+  \vfill
+  \rule{\linewidth}{0.4pt}\\[1pt]
+  {\scriptsize\textit{Transcripción digital --- MathUNAL}\hfill\textcolor{unalblue}{\textbf{\thepage}}}
+}
+\pagestyle{empty}
+
+\newcommand{\nota}[1]{{\small\itshape\color{unalblue!70!black} #1}}
+
+\begin{document}
+\examheader
+
+\begin{center}
+{\Large Primer Examen Parcial de Geometría Vectorial}\\[4pt]
+{\large TEMA B}\\[4pt]
+{\small 22 de marzo de 2014}
+\end{center}
+
+\vspace{10pt}
+\textbf{PUNTAJE. SOLO PARA USO OFICIAL}
+
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|}
+\hline
+1 & 2(a) & 2(b) & 3(a) & 3(b) & 4 & 5 & 6 & TOTAL \\
+\hline
+ & & & & & & & & \\
+\hline
+\end{tabular}
+\end{center}
+
+\vspace{10pt}
+\textbf{INSTRUCCIONES}
+
+No está permitido el uso de calculadora ni de otros aparatos electrónicos. Solucione las preguntas en los espacios en blanco asignados a cada una de ellas. \textbf{Duración: 1 hora y 40 minutos.} No está permitido sacar hojas en blanco ni ningún tipo de apuntes durante el examen. Utilice la página 6 para realizar sus operaciones en borrador.
+
+\begin{enumerate}
+\item (12\%) Considere las rectas $\mathcal{L}_1: x+(2s)y-3=0$ y $\mathcal{L}_2: x+(3s)y=0$ con $s\in\mathbb{R}$. ¿Hay algún valor de $s$ para el cual las rectas $\mathcal{L}_1$ y $\mathcal{L}_2$ son perpendiculares?. ¿Hay algún valor de $s$ para el cual dichas rectas son paralelas? Justifique sus respuestas.
+
+\item Sean $A=\vect{2}{-1}$, $B=\vect{-1}{1}$ y $C=\vect{-1}{-1}$.
+
+\begin{enumerate}[label=(\alph*)]
+\item (12\%) Halle la distancia del punto $C$ a la recta que pasa por los puntos $A$ y $B$.
+\item (12\%) Calcule el área del triángulo con vértices $A$, $B$ y $C$.
+\end{enumerate}
+
+\item Sean $U=\vect{1}{2}$, $V=\vect{-3}{1}$ y $W=\vect{1}{-1}$.
+
+\begin{enumerate}[label=(\alph*)]
+\item (12\%) Muestre que $U$ y $V$ son linealmente independientes.
+\item (12\%) Encuentre los escalares $r$ y $s$ tales que $W=rU+sV$.
+\end{enumerate}
+
+\item (14\%) Sean $U$ y $V$ vectores no nulos ortogonales. Pruebe que para todo vector $X$ del plano, $X = \mathrm{P}_U(X) + \mathrm{P}_V(X)$, donde $\mathrm{P}_U(X)$ y $\mathrm{P}_V(X)$ son, respectivamente, las proyecciones de $X$ sobre los vectores $U$ y $V$.
+
+\item (12\%) Sea $\mathcal{L}$ la recta con ecuaciones paramétricas $x=3+t$, $y=5+t$, y sea $\mathcal{L}'$ la recta con ecuación vectorial $X=\vect{2}{-1}+t\vect{-1}{2}$, $t\in\mathbb{R}$. Encuentre el ángulo dirigido de la recta $\mathcal{L}$ a la recta $\mathcal{L}'$.
+
+\item (14\%) Sean $U$ y $V$ vectores no nulos ortogonales, Pruebe que para todo vector $X$ del plano, $X = \mathrm{P}_U(X) + \mathrm{P}_V(X)$, donde $\mathrm{P}_U(X)$ y $\mathrm{P}_V(X)$ son, respectivamente, las proyecciones de $X$ sobre los vectores $U$ y $V$.
+
+\end{enumerate}
+
+\examfooter
+\end{document}

@@ -1,0 +1,154 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=1.9cm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage[spanish]{babel}
+\usepackage{amsmath,amssymb}
+\usepackage{lmodern}
+\renewcommand{\familydefault}{\sfdefault}
+\usepackage{enumitem}
+
+\newcommand{\vect}[2]{\begin{pmatrix}#1\\#2\end{pmatrix}}
+\usepackage{tikz}
+\usetikzlibrary{calc,arrows.meta,patterns,decorations.pathmorphing}
+\usepackage[table]{xcolor}
+\usepackage{multicol}
+\usepackage{parskip}
+
+\definecolor{unalblue}{RGB}{31,73,124}
+
+\newlist{opciones}{enumerate}{1}
+\setlist[opciones]{label=(\alph*),itemsep=6pt,topsep=6pt,leftmargin=1.8em,font=\normalfont}
+\setlist[enumerate,1]{itemsep=1.4em,topsep=1em}
+
+\newcommand{\examfooter}{%
+  \vfill
+  \rule{\linewidth}{0.4pt}\\[1pt]
+  {\scriptsize\textit{Transcripción digital --- MathUNAL}\hfill\textcolor{unalblue}{\textbf{\thepage}}}
+}
+\pagestyle{empty}
+
+\newcommand{\nota}[1]{{\small\itshape\color{unalblue!70!black} #1}}
+
+\begin{document}
+\noindent
+\begin{minipage}[t]{0.6\linewidth}
+{\small\bfseries Geometría Vectorial y Analítica --- Parcial 1}\\
+{\small Semestre 2018--01}
+\end{minipage}%
+\hfill
+\begin{minipage}[t]{0.35\linewidth}
+\raggedleft\small Escuela de Matemáticas. Universidad Nacional de Colombia, Sede Medellín.
+\end{minipage}\\[2pt]
+\rule{\linewidth}{0.6pt}
+
+\begin{center}
+{\Large Primer Examen Parcial de Geometría}\\[4pt]
+{\small 17 de marzo del 2018}\\[6pt]
+{\small Número Asignado: \underline{\hspace{2.5cm}}}
+\end{center}
+
+\vspace{6pt}
+\textbf{Puntaje. Sólo para uso oficial}
+
+\begin{center}
+\small
+\begin{tabular}{|c|c|c|c|c|c|c|}
+\hline
+1 (/30) & 2 (/20) & 3 (/10) & 4 (/20) & 5 (/20) & Total & Nota \\
+\hline
+ & & & & & & \\
+\hline
+\end{tabular}
+\end{center}
+
+\vspace{10pt}
+\textbf{Instrucciones:} Antes de empezar verifique que su examen esté \textbf{completo} y que sus \textbf{datos} sean \textbf{correctos}. Por favor verifique que su celular esté \textbf{apagado}. No está permitido el uso de calculadora ni de otros aparatos electrónicos. Solucione las preguntas en los espacios en blanco asignados a cada una de ellas. No está permitido sacar hojas en blanco ni ningún tipo de apuntes durante el examen. \textbf{Duración: 1 hora y 40 minutos.}
+
+\vspace{6pt}
+\nota{En cada uno de los literales de los puntos 1, 2, 3 y 4, debe presentar detalladamente el procedimiento para llegar a la solución. NOTA: Respuestas sin procedimiento no se tendrán en cuenta.}
+
+\begin{enumerate}
+\item Considere las líneas rectas $\mathcal{L}_1: x=-3$ y $\mathcal{L}_2: x+y+2=0$.
+
+\begin{enumerate}[label=(\alph*)]
+\item{}[5pt] Encuentre el punto $A$ que es la intersección de $\mathcal{L}_1$ y $\mathcal{L}_2$.
+\item{}[15pt] Se sabe que el punto $B=\vect{-3}{5}$ pertenece a la recta $\mathcal{L}_1$. Encuentre un punto $C$ sobre la recta $\mathcal{L}_2$, de manera que los puntos $A$, $B$ y $C$ sean los vértices de un triángulo rectángulo con ángulo recto en el vértice $C$.
+\item{}[10pt] Encuentre todos los ángulos interiores del triángulo $\triangle ABC$.
+\end{enumerate}
+
+\item Considere la recta $\mathcal{L}$ cuya ecuación es $x-y+2=0$.
+
+\begin{enumerate}[label=(\alph*)]
+\item{}[7pt] Encuentre la proyección ortogonal de $C=\vect{11}{-1}$ sobre la recta $\mathcal{L}$.
+\item{}[6pt] Encuentre la distancia de $C$ a la recta $\mathcal{L}$.
+\item{}[7pt] Encuentre la ecuación de la circunferencia centrada en $C$ y tal que $\mathcal{L}$ sea tangente a dicha circunferencia.
+\end{enumerate}
+
+\item{}[10pt] Demuestre que si las diagonales de un cuadrilátero $EFGH$ se cortan en sus puntos medios entonces el cuadrilátero $EFGH$ es un paralelogramo.
+
+\item Considere los puntos $P=\vect{4}{2}$, $Q=\vect{6}{0}$ y $R=\vect{-4}{-1}$.
+
+\begin{enumerate}[label=(\alph*)]
+\item{}[7pt] Sin recurrir a una gráfica, verifique que los puntos $P$, $Q$ y $R$ no son colineales.
+\item{}[8pt] Encuentre una ecuación general para la recta $\mathcal{L}$ que pasa por el punto $Q$ y es paralela a la recta que contiene al segmento $\overline{PR}$.
+\item{}[5pt] Encuentre el baricentro del triángulo $\triangle PQR$.
+\end{enumerate}
+\end{enumerate}
+
+\vspace{6pt}
+\nota{En la pregunta 5 complete los espacios en blanco o elija la (las) opción (opciones) correcta (correctas) según el caso. Tenga presente que los datos en cada literal son independientes y pueden variar. NOTA: En esta sección se califica sólo la respuesta y no se tiene en cuenta el procedimiento.}
+
+\begin{enumerate}
+\setcounter{enumi}{4}
+\item{}[20pt] En la gráfica a continuación se observa una colección de triángulos rectángulos e isósceles.
+\begin{itemize}
+\item Se representan los vértices de dichos triángulos como los vectores $A,B,\ldots,O$, con $O=\vect{0}{0}$.
+\item Se conocen las siguientes relaciones entre los vectores representados.
+$$C=\frac{A+E}{2},\qquad B=\frac{A+C}{2},\qquad D=\frac{C+E}{2},\qquad M=\frac{J+O}{2}.$$
+\item Se recuerda que el área de un triángulo cualquiera viene dado por: área $=\dfrac{1}{2}(\text{base}\times\text{altura})$.
+\item Si $X,Y$ son vectores y $\theta$ el ángulo entre ellos, recuerde que
+$$U\cdot V=\vect{u_1}{u_2}\cdot\vect{v_1}{v_2}=u_1v_1+u_2v_2=\|U\|\|V\|\cos\theta.$$
+\end{itemize}
+
+\begin{center}
+\begin{tikzpicture}[scale=0.85]
+\coordinate (E) at (0,4); \coordinate (D) at (1,4); \coordinate (C) at (2,4); \coordinate (B) at (3,4); \coordinate (A) at (4,4);
+\coordinate (I) at (1,3); \coordinate (H) at (2,3); \coordinate (G) at (3,3); \coordinate (F) at (4,3);
+\coordinate (L) at (2,2); \coordinate (K) at (3,2); \coordinate (J) at (4,2);
+\coordinate (N) at (3,1); \coordinate (M) at (4,1);
+\coordinate (O) at (4,0);
+\draw (E) -- (A);
+\draw (I) -- (F);
+\draw (L) -- (J);
+\draw (N) -- (M);
+\draw (A) -- (O);
+\draw (B) -- (N);
+\draw (C) -- (L);
+\draw (D) -- (I);
+\draw (E) -- (O);
+\draw (D) -- (M);
+\draw (C) -- (J);
+\draw (B) -- (F);
+\draw[-{Latex}] (4,4) -- (4,4.8) node[above]{$y$};
+\draw[-{Latex}] (4,0) -- (4.8,0) node[right]{$x$};
+\node[above] at (E) {$E$}; \node[above] at (D) {$D$}; \node[above] at (C) {$C$}; \node[above] at (B) {$B$}; \node[above right] at (A) {$A$};
+\node[left] at (I) {$I$}; \node[above] at (H) {$H$}; \node[above] at (G) {$G$}; \node[right] at (F) {$F$};
+\node[left] at (L) {$L$}; \node[above] at (K) {$K$}; \node[right] at (J) {$J$};
+\node[left] at (N) {$N$}; \node[right] at (M) {$M$};
+\node[below right] at (O) {$O$};
+\end{tikzpicture}
+\end{center}
+
+Responda a las siguientes preguntas.
+
+\begin{enumerate}[label=(\alph*)]
+\item{}[5pt] Si el área del triángulo $\triangle CLJ$ es 2, entonces la distancia entre la recta $\mathcal{L}_1$, que contiene al segmento $\overline{CI}$, y la recta $\mathcal{L}_2$, que contiene al segmento $\overline{JN}$, es $d(\mathcal{L}_1,\mathcal{L}_2)=$ \underline{\hspace{3cm}}.
+\item{}[5pt] Si el área del triángulo $\triangle EDI$ es 4 entonces el área de los triángulos $\triangle CLJ$ y $\triangle AEM$ es área$(\triangle CLJ)=$ \underline{\hspace{2cm}}, área$(\triangle AEM)=$ \underline{\hspace{2cm}}.
+\item{}[5pt] Si $\|C-J\|=8$, entonces $\|E\|=$ \underline{\hspace{2cm}}, $E-C=$ \underline{\hspace{2cm}}.
+\item{}[5pt] La proporción entre la longitud de los segmentos $\overline{IF}$, $\overline{IG}$ es $\dfrac{\|F-I\|}{\|G-I\|}=$ \underline{\hspace{3cm}}.
+\end{enumerate}
+\end{enumerate}
+
+\examfooter
+\end{document}

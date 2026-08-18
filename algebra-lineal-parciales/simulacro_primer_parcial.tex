@@ -1,0 +1,148 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=1.9cm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage[spanish]{babel}
+\usepackage{amsmath,amssymb}
+\usepackage{enumitem}
+\usepackage{tikz}
+\usetikzlibrary{calc,arrows.meta,patterns,decorations.pathmorphing}
+\usepackage{xcolor}
+\usepackage{multicol}
+\usepackage{parskip}
+\usepackage{lmodern}
+\renewcommand{\familydefault}{\sfdefault}
+
+\definecolor{unalblue}{RGB}{31,73,124}
+
+\newlist{opciones}{enumerate}{1}
+\setlist[opciones]{label=(\alph*),itemsep=1pt,topsep=2pt,leftmargin=1.8em,font=\normalfont}
+
+\newcommand{\vect}[2]{\begin{pmatrix}#1\\#2\end{pmatrix}}
+\newcommand{\vectiii}[3]{\begin{pmatrix}#1\\#2\\#3\end{pmatrix}}
+\newcommand{\vectiv}[4]{\begin{pmatrix}#1\\#2\\#3\\#4\end{pmatrix}}
+
+\newcommand{\examheader}{%
+  \noindent
+  \begin{minipage}[t]{0.6\linewidth}
+    {\small\bfseries Álgebra Lineal --- Simulacro Primer Examen Parcial}\\
+  \end{minipage}%
+  \hfill
+  \begin{minipage}[t]{0.35\linewidth}
+    \raggedleft\small Escuela de Matemáticas. Universidad Nacional de Colombia, Sede Medellín.
+  \end{minipage}\\[2pt]
+  \rule{\linewidth}{0.6pt}
+}
+\newcommand{\examfooter}{%
+  \vfill
+  \rule{\linewidth}{0.4pt}\\[1pt]
+  {\scriptsize\textit{Transcripción digital --- MathUNAL}\hfill\textcolor{unalblue}{\textbf{\thepage}}}
+}
+\pagestyle{empty}
+
+\begin{document}
+
+\examheader
+
+\begin{center}
+{\bfseries\large Simulacro Primer Examen Parcial de Álgebra Lineal}
+\end{center}
+
+\textbf{Problema 1 (10 puntos):} Considere el sistema de ecuaciones lineales en las variables $x,y,z,w$
+\begin{align*}
+x + 2y - 3z &= 0\\
+y + 5w &= 0\\
+2x + z - w &= 0\\
+y + kw &= 0
+\end{align*}
+Encontrar todos los valores de $k$ tales que el sistema tiene infinitas soluciones.
+
+\vspace{2cm}
+
+\examfooter
+\newpage
+
+\examheader
+
+\textbf{Problema 2 (10 puntos):} Sean $v$ y $w$ dos vectores de $\mathbb{R}^3$ con
+\[
+v = \vectiii{-5}{-1}{-5} \quad \text{y} \quad w = \vectiii{18}{-30}{-12}.
+\]
+Determine el valor de $\lambda > 0$ tal que
+\[
+\|\lambda v + w\|^2 = 2184.
+\]
+
+\vspace{2cm}
+
+\examfooter
+\newpage
+
+\examheader
+
+\textbf{Problema 3 (10 puntos):} Sean $v = \vectiii{-8}{17}{0}$ y $w = \vectiii{1}{\lambda}{11}$ dos vectores en $\mathbb{R}^3$. Encontrar el valor de $\lambda$ para que el vector $x = \vectiii{53}{-32}{55}$ pertenezca al plano generado por los vectores $v$ y $w$.
+
+\vspace{2cm}
+
+\examfooter
+\newpage
+
+\examheader
+
+\textbf{Problema 4 (10 puntos):} Dados dos vectores columna $u = \vectiv{-5}{1}{-7}{6}$ y $v = \vectiv{-7}{8}{6}{6}$ calcule $uv^T$ y el rango de $uv^T$.
+
+\vspace{2cm}
+
+\examfooter
+\newpage
+
+\examheader
+
+\textbf{Problema 5 (10 puntos):} Determinar si los siguientes vectores generan a $\mathbb{R}^3$
+\[
+\vectiii{1}{1}{1}, \quad \vectiii{1}{1}{0}, \quad \vectiii{0}{0}{-3}, \quad \vectiii{1}{1}{5}.
+\]
+
+\vspace{2cm}
+
+\examfooter
+\newpage
+
+\examheader
+
+\textbf{Problema 6 (10 puntos):} Supongamos que
+\[
+A = \begin{pmatrix} a_{11} & a_{12} & a_{13} \\ a_{21} & a_{22} & a_{23} \\ a_{31} & a_{32} & a_{33} \end{pmatrix}
+\]
+es una matriz de tamaño $3\times 3$ tal que $\det(A) = -7$. Sean $B$ y $C$ las matrices dadas por
+\[
+B = \begin{pmatrix} a_{11} & 9a_{12} & a_{13} \\ 10a_{21} & 90a_{22} & 10a_{23} \\ a_{31} & 9a_{32} & a_{33} \end{pmatrix}, \qquad
+C = \begin{pmatrix} 1 & 0 & -7 \\ 2 & 0 & 1 \\ 8 & 5 & -3 \end{pmatrix}.
+\]
+Si $D = B^T C$, calcular el determinante de $D$.
+
+\vspace{2cm}
+
+\examfooter
+\newpage
+
+\examheader
+
+\textbf{Problema 7 (10 puntos):} Dados los vectores
+\[
+v_4 = \vectiv{-7}{9}{6}{0}, \quad v_1 = \vectiv{4}{0}{3}{8}, \quad v_5 = \vectiv{21}{18}{-9}{10}, \quad v_2 = \vectiv{6}{9}{0}{6}, \quad v_3 = \vectiv{0}{0}{0}{0},
+\]
+señale todos los conjuntos que son Linealmente Independientes. Puede haber más de una respuesta.
+
+\begin{opciones}
+\item $\{v_1, v_2\}$
+\item $\{v_1, v_2, v_3\}$
+\item $\{v_1, v_2, v_4\}$
+\item $\{v_1, v_2, v_4, v_5\}$
+\item $\{v_1, v_2, v_3, v_4\}$
+\item $\{v_2, v_4\}$
+\end{opciones}
+
+\examfooter
+
+\end{document}

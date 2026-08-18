@@ -1,0 +1,173 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=1.9cm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage[spanish,es-noshorthands]{babel}
+\usepackage{amsmath,amssymb}
+\usepackage{enumitem}
+\usepackage{tikz}
+\usetikzlibrary{calc,arrows.meta,patterns,decorations.pathmorphing}
+\usepackage{xcolor}
+\usepackage{multicol}
+\usepackage{parskip}
+\usepackage{lmodern}
+\renewcommand{\familydefault}{\sfdefault}
+
+\definecolor{unalblue}{RGB}{31,73,124}
+\definecolor{unalblue2}{RGB}{70,120,180}
+
+\newlist{opciones}{enumerate}{1}
+\setlist[opciones]{label=\textbf{(\alph*)},itemsep=1pt,topsep=2pt,leftmargin=1.8em,font=\normalfont}
+\setlist[enumerate,1]{label=\textbf{\arabic*.},itemsep=6pt,topsep=4pt,leftmargin=1.6em,font=\normalfont}
+\setlist[enumerate,2]{label=\textbf{\alph*)},itemsep=4pt,topsep=3pt,leftmargin=1.6em,font=\normalfont}
+\setlist[enumerate,3]{label=\textbf{\roman*)},itemsep=2pt,topsep=2pt,leftmargin=1.4em,font=\normalfont}
+
+\newcommand{\vect}[2]{\begin{pmatrix}#1\\#2\end{pmatrix}}
+\newcommand{\vectiii}[3]{\begin{pmatrix}#1\\#2\\#3\end{pmatrix}}
+
+\newcommand{\examheader}{%
+\noindent\begin{tikzpicture}
+\node[fill=unalblue, text width=\dimexpr\linewidth-16pt\relax, inner sep=8pt, rounded corners=3pt, align=left, text=white] (hdr) {%
+  \begin{minipage}[c]{0.66\linewidth}
+    {\Large\bfseries \examsubject}\\[2pt]
+    {\small \examtype\ \textbullet\ \textcolor{white!85!unalblue}{\examsubtitle}}
+  \end{minipage}\hfill
+  \begin{minipage}[c]{0.28\linewidth}
+    \raggedleft{\scriptsize Escuela de Matem\'aticas\\[-1pt] Universidad Nacional\\[-1pt] de Colombia, Sede Medell\'in}
+  \end{minipage}%
+};
+\end{tikzpicture}\\[7pt]
+}
+\newcommand{\examfooter}{%
+  \vfill
+  \rule{\linewidth}{0.4pt}\\[1pt]
+  {\scriptsize\textit{Transcripci\'on digital --- MathUNAL}\hfill\textcolor{unalblue}{\textbf{\thepage}}}
+}
+\pagestyle{empty}
+
+\newcommand{\examsubject}{ÁLGEBRA LINEAL}
+\newcommand{\examtype}{Tercer Parcial}
+\newcommand{\examsubtitle}{25 de Mayo de 2016}
+
+\begin{document}
+
+\examheader
+
+\vspace{4pt}
+\noindent
+\begin{minipage}[t]{0.55\linewidth}
+Puntaje. S\'olo para uso Oficial\\[4pt]
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+1-5 & 6 & 7 & 8 & Total & Nota\\
+\hline
+ & & & & & \\
+\hline
+\end{tabular}
+\end{minipage}
+
+\vspace{6pt}
+\noindent\textbf{Instrucciones:} La duraci\'on del examen es de 1 hora y 50 minutos. El examen consta de nueve preguntas en dos hojas impresas por ambos lados, verifique que su examen est\'e completo y cons\'ervelo con el gancho. En las preguntas con procedimiento justifique sus respuestas en los espacios asignados. No est\'a permitido sacar hojas en blanco ni ning\'un tipo de apuntes durante el examen, verifique que su celular est\'e apagado. No se permite el uso de calculadora.
+
+\vspace{6pt}
+\noindent\textbf{Identificaci\'on}
+
+\examfooter
+\newpage
+
+\examheader
+
+\textbf{I. Completaci\'on}
+
+\noindent En las preguntas 1 a 5 complete los espacios en blanco. \textbf{NOTA:} En esta secci\'on se califica s\'olo la respuesta y no se tiene en cuenta el procedimiento.
+
+\begin{enumerate}
+\item \textbf{[10pt]}
+\begin{enumerate}[label=(\alph*)]
+\item \textbf{[5pt]} Dibuje en el cuadro de la derecha un grafo cuya matriz de adyacencia sea $A=\begin{pmatrix}0&1&1&1\\1&0&0&1\\1&0&0&0\\1&1&0&0\end{pmatrix}$.
+
+\begin{center}
+\fbox{\begin{minipage}[c][2.5cm]{0.5\linewidth}\ \end{minipage}}
+\end{center}
+
+\item \textbf{[5pt]} Diga el n\'umero de 2-trayectorias del nodo 1 al nodo 4 en este grafo. \dotfill
+\end{enumerate}
+
+\item \textbf{[12pt]} Diga si los siguientes enunciados son falsos o verdaderos: Escriba (V) verdadero o (F) falso seg\'un el caso.
+\begin{enumerate}[label=(\alph*)]
+\item \textbf{[3pt]} (\dotfill) Dos vectores propios correspondientes al mismo valor propio de una matriz son linealmente dependientes.
+\item \textbf{[3pt]} (\dotfill) Todo conjunto ortogonal de vectores no nulos en $\mathbb{R}^n$ es linealmente independiente.
+\item \textbf{[3pt]} (\dotfill) La matriz de adyacencia de un digrafo es sim\'etrica.
+\item \textbf{[3pt]} (\dotfill) Si $Q$ es una matriz ortogonal entonces el \'angulo entre $x$ y $z$ es igual al \'angulo entre $Qx$ y $Qz$.
+\end{enumerate}
+
+\item \textbf{[8pt]} Sea $B$ una matriz $4\times 4$ con valores propios $\lambda_1=2$ con multiplicidad algebraica igual a tres y $\lambda_2=5$ con multiplicidad algebraica igual a uno. Calcule $\det(B)$.
+
+\begin{center}
+\fbox{\begin{minipage}[c][1.2cm]{0.5\linewidth} $\det(B)=$\end{minipage}}
+\end{center}
+\end{enumerate}
+
+\examfooter
+\newpage
+
+\examheader
+
+\begin{enumerate}
+\setcounter{enumi}{3}
+\item \textbf{[8pt]} Supongamos que la matriz de transici\'on de un proceso de Markov es la matriz $P=\begin{pmatrix}1/2 & 1/4\\ 1/2 & 3/4\end{pmatrix}$. Calcule el estado estacionario de este proceso de Markov.
+
+\begin{center}
+\fbox{\begin{minipage}[c][2cm]{0.5\linewidth} Vector Estacionario =\end{minipage}}
+\end{center}
+
+\item \textbf{[8pt]} Encuentre la matriz sim\'etrica asociada a la forma cuadr\'atica $x^2-2y^2+z^2-4xz$.
+
+\begin{center}
+\fbox{\begin{minipage}[c][2.5cm]{0.5\linewidth} Matriz =\end{minipage}}
+\end{center}
+
+\vspace{6pt}
+\textbf{II. Soluci\'on con Procedimiento}
+
+\item \textbf{[14pt]} Supongamos que $E$ es una matriz $2\times 2$ con vectores propios $v_1=\begin{pmatrix}-1\\1\end{pmatrix}$ y $v_2=\begin{pmatrix}0\\1\end{pmatrix}$ correspondientes a los valores propios $\lambda_1=1$ y $\lambda_2=2$ respectivamente. Encontrar $E^2$.
+\end{enumerate}
+
+\examfooter
+\newpage
+
+\examheader
+
+\begin{enumerate}
+\setcounter{enumi}{6}
+\item \textbf{[20pt]}
+\begin{enumerate}[label=(\alph*)]
+\item \textbf{[10pt]} Diagonalice ortogonalmente la matriz $A=\begin{pmatrix}2&1\\1&2\end{pmatrix}$.
+
+\vspace{40pt}
+\item \textbf{[5pt]} Utilice el numeral anterior y un cambio de variables para escribir la ecuaci\'on $2x^2+2xy+2y^2=3$ en forma est\'andar, es decir, sin t\'erminos mixtos. Describa claramente el cambio de variables utilizado.
+
+\vspace{60pt}
+\item \textbf{[5pt]} Utilice los numerales anteriores para identificar la curva $2x^2+2xy+2y^2=3$.
+\end{enumerate}
+\end{enumerate}
+
+\examfooter
+\newpage
+
+\examheader
+
+\begin{enumerate}
+\setcounter{enumi}{7}
+\item \textbf{[20pt]} Sea $W=\operatorname{gen}\left\{\begin{pmatrix}1\\-1\\1\end{pmatrix}\right\}$.
+\begin{enumerate}[label=(\alph*)]
+\item \textbf{[12pt]} Encuentre una base ortogonal para $W^\perp$.
+
+\vspace{50pt}
+\item \textbf{[8pt]} Sea $v=\begin{pmatrix}1\\2\\3\end{pmatrix}$. Encuentre $\operatorname{proy}_W(v)$ y $\operatorname{proy}_{W^\perp}(v)$.
+\end{enumerate}
+\end{enumerate}
+
+\examfooter
+
+\end{document}

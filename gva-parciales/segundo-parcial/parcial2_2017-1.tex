@@ -1,0 +1,280 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=2.2cm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage[spanish]{babel}
+\usepackage{amsmath,amssymb}
+\usepackage{enumitem}
+\usepackage{tikz}
+\usetikzlibrary{calc,arrows.meta,patterns,decorations.pathmorphing}
+\usepackage{xcolor}
+\usepackage{multicol}
+\usepackage{parskip}
+\setlength{\parskip}{6pt}
+\usepackage{lmodern}
+\renewcommand{\familydefault}{\sfdefault}
+
+\definecolor{unalblue}{RGB}{31,73,124}
+
+\setlist[enumerate,1]{itemsep=10pt,topsep=8pt,leftmargin=2.2em,label=\protect\fbox{\arabic*}}
+\newlist{opciones}{enumerate}{1}
+\setlist[opciones]{label=(\alph*),itemsep=8pt,topsep=6pt,leftmargin=2em,font=\normalfont}
+
+\newcommand{\ptsbox}[1]{\fboxsep=3pt\fbox{\footnotesize #1}\hspace{4pt}}
+\newcommand{\borradorbox}[1][3cm]{%
+  \noindent\fbox{\begin{minipage}[t][#1][t]{0.97\linewidth}
+  {\scriptsize\itshape Espacio borrador, nada escrito aquí será calificado.}
+  \end{minipage}}
+}
+
+\newcommand{\vect}[2]{\begin{pmatrix}#1\\#2\end{pmatrix}}
+\newcommand{\vectiii}[3]{\begin{pmatrix}#1\\#2\\#3\end{pmatrix}}
+
+\newcommand{\examheader}{%
+  \noindent
+  \begin{minipage}[t]{0.6\linewidth}
+    {\small\bfseries Geometría Vectorial y Analítica --- Parcial 2}\\
+    {\small Semestre 2017--01}
+  \end{minipage}%
+  \hfill
+  \begin{minipage}[t]{0.37\linewidth}
+    \raggedleft
+    \fbox{\begin{minipage}{0.95\linewidth}\centering\scriptsize Escuela de Matemáticas. Universidad Nacional de Colombia, Sede Medellín.\end{minipage}}
+  \end{minipage}\\[4pt]
+  \rule{\linewidth}{0.6pt}
+}
+\newcommand{\examfooter}{%
+  \vfill
+  \rule{\linewidth}{0.4pt}\\[1pt]
+  {\scriptsize\textit{Transcripción digital --- MathUNAL}\hfill\textcolor{unalblue}{\textbf{\thepage}}}
+}
+\pagestyle{empty}
+
+\begin{document}
+\examheader
+
+\begin{center}
+{\bfseries Segundo Examen Parcial de Geometría}\\
+17 de Abril del 2017
+
+\vspace{6pt}
+\textbf{Puntaje. Sólo para uso Oficial}
+
+\vspace{4pt}
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+1 (/30) & 2 (/30) & 3 (/10) & 4-6 (/30) & Total & Nota\\
+\hline
+ & & & & & \\
+\hline
+\end{tabular}
+\end{center}
+
+\textbf{Instrucciones:} La duración del examen es de 1 hora y 40 minutos. El examen consta de ocho preguntas en tres hojas impresas por ambos lados, antes de empezar verifique que su examen esté completo y que sus datos sean correctos. No desengrape su exámen ni añada otras grapas o su examen será anulado. En las preguntas con procedimiento justifique sus respuestas en los espacios asignados. No está permitido hacer preguntas, el uso de calculadoras, sacar hojas en blanco ni ningún tipo de apuntes durante el examen. Por favor verifique que su celular esté apagado.
+
+En cada uno de los literales de los puntos 1, 2 y 3, debe presentar detalladamente el procedimiento y/o justificar para llegar a la solución. \textbf{NOTA:} Respuestas sin correcta sustentación no se tendrán en cuenta.
+
+\begin{enumerate}
+
+\item \ptsbox{25pt} Sean dos transformaciones lineales $T,S:\mathbb{R}^2\to\mathbb{R}^2$. En las figuras de la izquierda y derecha se representan las imágenes de los vectores canónicos $E_1$, $E_2$ bajo $T$ y $S$ respectivamente.
+
+\begin{center}
+\begin{minipage}[t]{0.46\linewidth}
+\centering
+\begin{tikzpicture}[scale=0.62]
+\draw[step=1cm,gray!40,very thin] (-2,-2) grid (2,2);
+\draw[-{Stealth[length=2mm]}] (-2.3,0) -- (2.3,0) node[right] {\small $x$};
+\draw[-{Stealth[length=2mm]}] (0,-2.3) -- (0,2.3) node[above] {\small $y$};
+\draw[thick,-{Stealth[length=2mm]}] (0,0) -- (0,1) node[above right] {\small $T(E_1)$};
+\draw[thick,-{Stealth[length=2mm]}] (0,0) -- (1,0) node[above right] {\small $T(E_2)$};
+\node[below left] at (0,0) {\small $O$};
+\end{tikzpicture}
+\end{minipage}%
+\hfill
+\begin{minipage}[t]{0.46\linewidth}
+\centering
+\begin{tikzpicture}[scale=0.62]
+\draw[step=1cm,gray!40,very thin] (-2,-2) grid (2,2);
+\draw[-{Stealth[length=2mm]}] (-2.3,0) -- (2.3,0) node[right] {\small $x$};
+\draw[-{Stealth[length=2mm]}] (0,-2.3) -- (0,2.3) node[above] {\small $y$};
+\draw[thick,-{Stealth[length=2mm]}] (0,0) -- (0,1) node[above right] {\small $S(E_2)$};
+\draw[thick,-{Stealth[length=2mm]}] (0,0) -- (-1,0) node[above left] {\small $S(E_1)$};
+\node[below left] at (0,0) {\small $O$};
+\end{tikzpicture}
+\end{minipage}
+\end{center}
+
+\begin{opciones}
+\item \ptsbox{8pt} Encuentre las matrices $m(T)$, $m(S)$.
+
+\vspace{60pt}
+
+\item \ptsbox{9pt} Demuestre que $S\circ T = R_{\frac{\pi}{2}}$.
+
+\vspace{70pt}
+
+\item \ptsbox{8pt} ¿Es $T$ un movimiento Euclidiano? Justifique su respuesta.
+
+\vspace{60pt}
+\end{opciones}
+
+\newpage
+\examheader
+
+\item \ptsbox{25pt} Sea $T:\mathbb{R}^2\to\mathbb{R}^2$ una transformación lineal tal que $T\vect{-1}{2} = \vect{3}{-6}$ y $T\vect{-3}{2} = \vect{0}{0}$.
+
+\begin{opciones}
+\item \ptsbox{9pt} Encuentre $m(T)$.
+
+\vspace{90pt}
+
+\item \ptsbox{8pt} Encuentre los valores propios de $T$ y un vector propio asociado a cada valor propio.
+
+\vspace{90pt}
+
+\item \ptsbox{8pt} ¿Es $T$ invertible? Justifique su respuesta.
+
+\vspace{70pt}
+\end{opciones}
+
+\item \ptsbox{10pt} Sea $T:\mathbb{R}^2\to\mathbb{R}^2$ una transformación lineal y $U,V\in\mathbb{R}^2$ vectores propios asociados al valor propio $\lambda\in\mathbb{R}$. Demuestre que si $W = 3U - V$ es no nulo, entonces $W$ es un vector propio de la transformación $T$ asociado al valor propio $\lambda$.
+
+\vspace{100pt}
+
+\newpage
+\examheader
+
+\vspace{4pt}
+En las preguntas 4 y 5 complete los espacios en blanco o elija la (las) opción (opciones) correcta (correctas) según el caso. Tenga presente que los datos en cada literal son independientes y pueden variar. \textbf{NOTA:} En esta sección se califica únicamente la respuesta y no se tiene en cuenta el procedimiento.
+
+\item \ptsbox{20pt} En la gráfica del presente problema se supone que los cuadrados chicos son de $1\times 1$. En la figura de la izquierda se representan los puntos $A$, $B$ y $O = \vect{0}{0}$ y en la figura de la derecha se representan sus respectivas imágenes a través de una transformación lineal $T:\mathbb{R}^2\to\mathbb{R}^2$. \textbf{Recomendación.} No calcule la matriz $m(T)$ para responder a las siguientes preguntas.
+
+\begin{center}
+\begin{minipage}[t]{0.46\linewidth}
+\centering
+\begin{tikzpicture}[scale=0.55]
+\draw[step=1cm,gray!40,very thin] (-1,-1) grid (5,5);
+\draw[-{Stealth[length=2mm]}] (-1.3,0) -- (5.3,0) node[right] {\small $x$};
+\draw[-{Stealth[length=2mm]}] (0,-1.3) -- (0,5.3) node[above] {\small $y$};
+\coordinate (O) at (0,0);
+\coordinate (B) at (2,4);
+\coordinate (A) at (3,1);
+\draw[thick] (O)--(B)--(A)--cycle;
+\node[below left] at (O) {\small $O$};
+\node[above] at (B) {\small $B$};
+\node[below right] at (A) {\small $A$};
+\end{tikzpicture}
+\end{minipage}%
+\hfill
+\begin{minipage}[t]{0.46\linewidth}
+\centering
+\begin{tikzpicture}[scale=0.55]
+\draw[step=1cm,gray!40,very thin] (-1,-1) grid (5,5);
+\draw[-{Stealth[length=2mm]}] (-1.3,0) -- (5.3,0) node[right] {\small $x$};
+\draw[-{Stealth[length=2mm]}] (0,-1.3) -- (0,5.3) node[above] {\small $y$};
+\coordinate (O) at (0,0);
+\coordinate (TA) at (1,2);
+\coordinate (TB) at (4,4);
+\draw[thick] (O)--(TB)--(TA)--cycle;
+\node[below left] at (O) {\small $O$};
+\node[above right] at (TB) {\small $T(B)$};
+\node[left] at (TA) {\small $T(A)$};
+\end{tikzpicture}
+\end{minipage}
+\end{center}
+
+\begin{minipage}[t]{0.47\linewidth}
+\begin{opciones}
+\item \ptsbox{5pt} El área de la imagen del triángulo $\triangle OBC$ es, Área$[T(\triangle OBC)] = $ \underline{\hspace{1.8cm}} y, el determinante de la transformación en valor absoluto es $|\det(T)| = $ \underline{\hspace{1.8cm}}
+
+\item \ptsbox{5pt} El valor propio negativo de la transformación $T:\mathbb{R}^2\to\mathbb{R}^2$ es $\lambda = $ \underline{\hspace{1.3cm}} y, un vector propio asociado a $\lambda$ es $U = $ \underline{\hspace{1.3cm}}
+\end{opciones}
+\end{minipage}%
+\hfill
+\begin{minipage}[t]{0.47\linewidth}
+\begin{opciones}
+\setcounter{opcionesi}{2}
+\item \ptsbox{5pt} El núcleo de la transformación $T$ es
+
+$N(T) = $ \underline{\hspace{3.5cm}}
+
+\item \ptsbox{5pt} Sea $S:\mathbb{R}^2\to\mathbb{R}^2$ una transformación lineal tal que $S(E_1) = \vect{-2}{1}$, entonces
+
+$(T^{-1}\circ S)(E_1) = $ \underline{\hspace{2.5cm}}
+\end{opciones}
+\end{minipage}
+
+\vspace{6pt}
+\borradorbox[4cm]
+
+\newpage
+\examheader
+
+\item \ptsbox{20pt} En la figura de la izquierda se observa un tablero de $6\times 6$. Cada casilla es un cuadrado de $1\times 1$. Las casillas se denotan según la letra de la columna y el número de la fila, por ejemplo: la casilla en que se encuentra el caballo es la $a6$. Las regiones se denotan por las casillas que las componen, por ejemplo: la región ocupada por las torres se denota $e1\cup f1\cup f2\cup f3$. En la figura de la derecha se pone a su disposición un tablero de trabajo, \textbf{únicamente} para que le ayude a resolver los problemas, \textbf{nada escrito allí será calificado}.
+
+\begin{center}
+\begin{minipage}[t]{0.46\linewidth}
+\centering
+\begin{tikzpicture}[scale=0.52]
+\draw[thick] (0,0) grid (6,6);
+\foreach \i/\l in {0/a,1/b,2/c,3/d,4/e,5/f} \node[above] at (\i+0.5,6.05) {\small \l};
+\foreach \j in {1,...,6} \node[left] at (-0.05,\j-0.5) {\small \j};
+\fill[black] (0.15,5.15) rectangle (0.85,5.85);
+\node[white] at (0.5,5.5) {\small\bfseries N};
+\draw[thick,-{Stealth[length=2mm]}] (-0.3,3) -- (6.3,3) node[right] {\small $x$};
+\draw[thick,-{Stealth[length=2mm]}] (2,-0.3) -- (2,6.3) node[above] {\small $y$};
+\node[below left] at (2,3) {\small $O$};
+\foreach \c/\r in {5/2,5/1,4/0,5/0}{
+  \fill[black] (\c+0.15,\r+0.15) rectangle (\c+0.85,\r+0.85);
+  \node[white] at (\c+0.5,\r+0.5) {\small\bfseries T};
+}
+\node[below] at (3,-0.5) {\footnotesize\textsc{Problema Original}};
+\end{tikzpicture}
+\end{minipage}%
+\hfill
+\begin{minipage}[t]{0.46\linewidth}
+\centering
+\begin{tikzpicture}[scale=0.52]
+\draw[thick] (0,0) grid (6,6);
+\foreach \i/\l in {0/a,1/b,2/c,3/d,4/e,5/f} \node[above] at (\i+0.5,6.05) {\small \l};
+\foreach \j in {1,...,6} \node[left] at (-0.05,\j-0.5) {\small \j};
+\draw[thick,-{Stealth[length=2mm]}] (-0.3,3) -- (6.3,3) node[right] {\small $x$};
+\draw[thick,-{Stealth[length=2mm]}] (2,-0.3) -- (2,6.3) node[above] {\small $y$};
+\node[below left] at (2,3) {\small $O$};
+\node[below] at (3,-0.5) {\footnotesize\textsc{Tablero de Trabajo. Nada escrito aquí será calificado.}};
+\end{tikzpicture}
+\end{minipage}
+\end{center}
+
+\begin{minipage}[t]{0.47\linewidth}
+\begin{opciones}
+\item \ptsbox{5pt} Si $H_2:\mathbb{R}^2\to\mathbb{R}^2$, $H_2(X) = 2X$, entonces
+
+$H_2(c4) = $ \underline{\hspace{3cm}}
+
+\item \ptsbox{5pt} Si $T_{2E_1}:\mathbb{R}^2\to\mathbb{R}^2$, $T_{2E_1}(X) = X+2E_1$, entonces
+
+$T_{2E_1}(a2\cup b2) = $ \underline{\hspace{3cm}}
+\end{opciones}
+\end{minipage}%
+\hfill
+\begin{minipage}[t]{0.47\linewidth}
+\begin{opciones}
+\setcounter{opcionesi}{2}
+\item \ptsbox{5pt} Si $R_{\frac{\pi}{2}}:\mathbb{R}^2\to\mathbb{R}^2$ es la rotación por un ángulo de $\frac{\pi}{2}$ (o 90 grados) en sentido antihorario, entonces
+
+$R_{\frac{\pi}{2}}(e1\cup f1\cup f2\cup f3) = $ \underline{\hspace{2.5cm}}
+
+\item \ptsbox{5pt} Si $S_x:\mathbb{R}^2\to\mathbb{R}^2$ es la reflexión a través del eje $x$, entonces
+
+$S_x(e1\cup f1\cup f2\cup f3) = $ \underline{\hspace{2.5cm}}
+\end{opciones}
+\end{minipage}
+
+\vspace{6pt}
+\borradorbox[4cm]
+
+\end{enumerate}
+
+\examfooter
+\end{document}

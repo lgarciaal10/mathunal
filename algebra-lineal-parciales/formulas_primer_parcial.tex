@@ -1,0 +1,327 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=1.9cm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage[spanish]{babel}
+\usepackage{amsmath,amssymb}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{multicol}
+\usepackage{parskip}
+\usepackage{lmodern}
+\usepackage[most]{tcolorbox}
+\renewcommand{\familydefault}{\sfdefault}
+
+\definecolor{unalblue}{RGB}{31,73,124}
+\definecolor{magenta1}{RGB}{175,20,110}
+\definecolor{purple1}{RGB}{95,40,145}
+\definecolor{boxblue}{RGB}{60,90,175}
+\definecolor{boxgreen}{RGB}{50,140,90}
+
+% Caja con esquina "cortada": el título queda montado sobre la línea del borde
+\newtcolorbox{defbox4}[2][]{
+  enhanced, colback=white, colframe=boxblue,
+  boxrule=1.6pt, arc=8pt, rounded corners,
+  left=10pt, right=10pt, top=10pt, bottom=8pt,
+  before skip=14pt, after skip=10pt,
+  overlay={
+    \node[anchor=west, font=\bfseries\small, text=boxblue,
+          fill=white, inner xsep=4pt, inner ysep=1pt]
+          at ([xshift=14pt]frame.north west) {#2};
+  },
+  #1
+}
+\newtcolorbox{formulabox4}[2][]{
+  enhanced, colback=white, colframe=boxgreen,
+  boxrule=1.6pt, arc=8pt, rounded corners,
+  left=10pt, right=10pt, top=10pt, bottom=8pt,
+  before skip=14pt, after skip=10pt,
+  overlay={
+    \node[anchor=west, font=\bfseries\small, text=boxgreen,
+          fill=white, inner xsep=4pt, inner ysep=1pt]
+          at ([xshift=14pt]frame.north west) {#2};
+  },
+  #1
+}
+
+\newcommand{\examheader}{%
+  \noindent
+  \begin{minipage}[t]{0.6\linewidth}
+    {\small\bfseries Álgebra Lineal --- Fórmulas Primer Parcial}\\
+  \end{minipage}%
+  \hfill
+  \begin{minipage}[t]{0.35\linewidth}
+    \raggedleft\small Escuela de Matemáticas. Universidad Nacional de Colombia, Sede Medellín.
+  \end{minipage}\\[2pt]
+  \rule{\linewidth}{0.6pt}
+}
+\newcommand{\examfooter}{%
+  \vfill
+  \rule{\linewidth}{0.4pt}\\[1pt]
+  {\scriptsize\textit{Transcripción digital --- MathUNAL}\hfill\textcolor{unalblue}{\textbf{\thepage}}}
+}
+\pagestyle{empty}
+
+\begin{document}
+
+\examheader
+
+\begin{center}
+{\bfseries\Large\color{magenta1} Primer parcial}
+\end{center}
+
+\vspace{0.2cm}
+{\bfseries\color{purple1} Vectores:} Sea $\vec u, \vec v \in \mathbb{R}^n$
+
+\begin{itemize}[leftmargin=1.2em]
+\item Trasladar un vector $\vec v$: $\vec v = \vec F - \vec O'$, donde $O'=$ nuevo origen, $F'=$ nuevo fin.
+\item Vector normalizado $= \dfrac{1}{\|\vec v\|}\vec v$
+\item \textbf{Propiedades:}
+\[
+\begin{aligned}
+&\vec u + \vec v = \vec v + \vec u \\
+&(\vec u+\vec v)+\vec w = \vec u+(\vec v+\vec w) \\
+&\vec u + (-\vec u) = 0 \\
+&c(\vec u+\vec v) = c\vec u + c\vec v \\
+&(c+d)\vec u = c\vec u + d\vec u \\
+&c(d\vec u) = (cd)\vec u
+\end{aligned}
+\]
+\item \textbf{Combinación lineal} = la suma de múltiplos escalares se conoce así.
+\item \textbf{Producto punto:} $\vec u \cdot \vec v = u_1v_1+u_2v_2+\cdots+u_nv_n$. \quad Si $\vec u \cdot \vec v = 0 \;\therefore\; \vec u \perp \vec v$
+\begin{itemize}
+\item \textbf{Propiedades:}
+\[
+\vec u \cdot \vec v = \vec v \cdot \vec u \qquad
+\vec u \cdot (\vec v+\vec w) = \vec u\cdot \vec v + \vec u \cdot \vec w \qquad
+c(\vec u \cdot \vec v) = (c\vec u)\cdot \vec v
+\]
+\[
+\vec u \cdot \vec u \geq 0 \qquad
+\vec u \cdot \vec u = 0 \iff \vec u = 0
+\]
+\end{itemize}
+\item \textbf{Longitud:} $\|\vec v\| = \sqrt{\vec v \cdot \vec v}$
+\begin{itemize}
+\item \textbf{Propiedades:} $\|\vec v\| \geq 0$ \quad $\|\vec v\| = 0 \iff \vec v = 0$ \quad $\|c\vec v\| = |c|\,\|\vec v\|$
+\end{itemize}
+\end{itemize}
+
+\vspace{0.2cm}
+\begin{defbox4}{Teorema de Cauchy--Schwarz}
+El producto punto de dos vectores nunca supera el producto de sus longitudes.
+\[
+|\vec u \cdot \vec v| \leq \|\vec u\|\,\|\vec v\|
+\]
+\end{defbox4}
+
+\begin{defbox4}{Desigualdad triangular}
+La longitud de una suma de vectores nunca es mayor que la suma de sus longitudes (el ``camino recto'' siempre es el más corto).
+\[
+\|\vec u + \vec v\| \leq \|\vec u\| + \|\vec v\|
+\]
+\end{defbox4}
+
+\vspace{0.1cm}
+\begin{itemize}[leftmargin=1.2em]
+\item \textbf{Ángulo entre vectores:} $\cos\theta = \dfrac{\vec u \cdot \vec v}{\|\vec u\|\,\|\vec v\|}$
+\item \textbf{Proyección:} $\operatorname{Proy}_{\vec a}(\vec v) = \dfrac{\vec u \cdot \vec v}{\|\vec u\|^2}\,\vec u = \dfrac{\vec a \cdot \vec v}{\vec u \cdot \vec u}\,\vec u$
+\end{itemize}
+
+\examfooter
+\newpage
+
+\examheader
+
+{\bfseries\color{purple1} Ecuaciones lineales} con $n$ variables
+\[
+a_1x_1 + \cdots + a_nx_n = b
+\]
+Una solución es un vector que la satisfaga.
+
+\vspace{0.2cm}
+{\bfseries\color{magenta1} Sistemas de ecuaciones lineales:} es un conjunto finito de ecuaciones, y el conjunto solución son todas sus soluciones.
+
+\vspace{0.3cm}
+\begin{itemize}[leftmargin=1.2em]
+\item \textbf{Matrices:}
+\begin{itemize}
+\item Aumentada = matriz coeficientes con el vector cte.
+\item Coeficientes
+\end{itemize}
+\end{itemize}
+
+\vspace{0.2cm}
+{\bfseries\color{magenta1} Eliminación Gaussiana:} buscar la forma escalonada
+\begin{enumerate}
+\item Filas de ceros abajo.
+\item Debajo de cada pivote solo hay ceros.
+\end{enumerate}
+Se reduce por medio de las operaciones elementales:
+\[
+R_i \leftrightarrow R_j \qquad kR_i \qquad R_i \leftarrow R_i - kR_j
+\]
+
+\vspace{0.2cm}
+{\bfseries\color{purple1} Teorema:}
+\begin{itemize}[leftmargin=1.2em]
+\item Sist. inconsistente si hay una inconsistencia como $[0\;0\;0 \mid 2]$.
+\item Sist. con solución única = si es consistente y todas las variables son pivote.
+\item Sist. con infinitas soluciones = si es consistente y tiene variables libres.
+\end{itemize}
+
+\vspace{0.2cm}
+\begin{formulabox4}{Solución paramétrica}
+Idea sencilla: cada variable pivote se despeja en función de las variables libres; luego se agrupa todo en un vector y las variables libres pasan a ser los parámetros que ``generan'' todas las soluciones.
+\end{formulabox4}
+
+\examfooter
+\newpage
+
+\examheader
+
+{\bfseries\color{purple1} Rango} = \# de filas $\neq 0$ de cero en la forma \textbf{ESCALONADA}
+
+Número variables libres $= n - \operatorname{Rango}(A)$, si $A$ es una matriz de un sistema consistente.
+
+\vspace{0.2cm}
+\begin{itemize}[leftmargin=1.2em]
+\item \textbf{Teorema:}
+\begin{itemize}
+\item Sist. inconsistente si $\operatorname{rango}(A) < \operatorname{rango}([A\mid b])$
+\item Sln. única si es consistente y $\operatorname{rango}(A) = \#$ de columnas de $A$
+\item Infinitas soluciones si es consistente y $\operatorname{rango}(A) < \#$ de columnas de $A$
+\end{itemize}
+\end{itemize}
+
+\vspace{0.2cm}
+{\bfseries\color{magenta1} Gauss-Jordan:} Forma escalonada reducida.
+\begin{enumerate}
+\item Valor de todos los pivotes $=1$
+\item Encima de los pivotes también hay ceros.
+\end{enumerate}
+
+\vspace{0.2cm}
+\begin{defbox4}{Sistema homogéneo}
+Es aquel donde el vector de constantes es cero ($Ax=0$). Nunca es ``inconsistente'': como mínimo siempre tiene la solución trivial $x=0$.
+\end{defbox4}
+
+\vspace{0.3cm}
+\textbf{Combinación lineal:}\\
+Un sist. de E. lineales con matriz aumentada $[A \mid b]$ es consistente si y solo si $b$ es combinación L. de las columnas de $A$.
+
+\vspace{0.2cm}
+\textbf{El generado:} conjunto de todas las combinaciones lineales de $v_1,v_2,\ldots,v_k \in \mathbb{R}^n \Rightarrow \operatorname{gen}(\vec v_1,\vec v_2,\ldots,\vec v_k)$
+
+\vspace{0.3cm}
+{\bfseries\color{purple1} Independencia lineal:}\\
+$v_1,v_2,v_3,\ldots,v_k \in \mathbb{R}^n$ son L.D. si existen $c_1,c_2,c_3,\ldots,c_k \in \mathbb{R}$, al menos uno $\neq$ de cero $/\; c_1\vec v_1+\cdots+c_k\vec v_k = 0$.
+
+\begin{itemize}[leftmargin=1.2em]
+\item $v_1,v_2,\ldots,v_k \in \mathbb{R}^n$ son L.D. $\iff$ uno de ellos (al menos) se puede expresar como combinación lineal de los otros.
+\end{itemize}
+
+\examfooter
+\newpage
+
+\examheader
+
+\begin{itemize}[leftmargin=1.2em]
+\item Sea $\vec v_1,\ldots,\vec v_k \in \mathbb{R}^n$ y $A$ la matriz $m\times n$ $[\vec v_1 \cdots \vec v_m]$, entonces $\vec v_1,\ldots,\vec v_m$ son L.D. $\iff [A \mid 0]$ tiene infinitas soluciones, es decir, tiene solución no trivial.
+\end{itemize}
+
+\vspace{0.3cm}
+{\bfseries\color{magenta1} Aplicaciones}
+
+\begin{itemize}[leftmargin=1.2em]
+\item \textbf{Mezclas:}\\
+Variables = \# de bolsas o paquetes de cada tipo de mezcla.\\
+Ecuaciones = una por cada tipo de elemento a mezclar, estando en el igual, el total disponible.
+
+\vspace{0.2cm}
+\item \textbf{Balanceo de ecuaciones químicas:}\\
+Variables = los \#s que se multiplican a cada compuesto.\\
+Ecuaciones = una por cada elemento, para garantizar que hayan la misma cantidad a lado y lado.
+
+\vspace{0.2cm}
+\item \textbf{Análisis de redes:}\\
+Variables = flujos.\\
+Ecuaciones = una por cada nodo, para que lo que entra sea igual a lo que sale.
+
+\vspace{0.2cm}
+\item \textbf{Cerchas:}\\
+Variables = todas las fuerzas internas y externas.\\
+Ecuaciones = 2 por cada nodo (una en eje $x$ y otra en eje $y$).
+\end{itemize}
+
+\examfooter
+\newpage
+
+\examheader
+
+\begin{center}
+{\bfseries\large Operaciones con matrices}
+\end{center}
+
+\begin{enumerate}
+\item Fila por columna: $C_{ij} = \displaystyle\sum_{k=1}^{n} a_{ik}b_{kj}$
+\item C.L. de columnas: de las columnas de $A$, con lo que dicen las columnas de $B$.
+\item C.L. de filas: de las filas de $B$, con lo que dice las filas de $A$.
+\end{enumerate}
+
+\vspace{0.3cm}
+\begin{itemize}[leftmargin=1.2em]
+\item Matriz fila $1\times n$: $[a_1 \cdots a_n]_{1\times n}$
+\item Matriz columna $m\times 1$: $\begin{bmatrix}a_1\\\vdots\\a_m\end{bmatrix}_{m\times 1}$
+\item Entradas de la matriz $A = (a_{ij})_{m\times n}$
+\item Matriz diagonal $= n\times n$: $\begin{bmatrix}a&0&0\\0&b&0\\0&0&c\end{bmatrix}$
+\item Matriz identidad: $\begin{bmatrix}1&0&0\\0&1&0\\0&0&1\end{bmatrix}$
+\item $A^n = A \cdot A \cdots$
+\end{itemize}
+
+\vspace{0.2cm}
+{\bfseries\color{purple1} Transpuesta:} $A = (a_{ij})_{m\times n} \to A^T = (a_{ji})_{n\times m}$
+
+\vspace{0.1cm}
+{\bfseries\color{purple1} Simétrica} = matriz cuadrada que $A = A^T$
+
+\vspace{0.2cm}
+\textbf{Propiedades:}
+\[
+\begin{array}{ll}
+\text{1. } A+B = B+A & \text{5. } c(A+B) = cA+cB \\
+\text{2. } A+B+C = A+(B+C) & \text{6. } (c+d)A = cA+dA \\
+\text{3. } A+0 = A & \text{7. } c(dA) = (cd)A \\
+\text{4. } A+(-A) = 0 & \text{8. } 1(A) = A
+\end{array}
+\]
+
+\vspace{0.2cm}
+{\bfseries\color{magenta1} Producto matricial:}
+\[
+A(BC) = (AB)C \qquad A(B+C) = AB+AC \qquad K(AB) = (KA)B
+\]
+\[
+(A+B)C = AC+BC \qquad A_{m\times n} = I_m A = A I_n \qquad AB \text{ no siempre } = BA
+\]
+
+\vspace{0.2cm}
+{\bfseries\color{magenta1} Matriz transpuesta:}
+\[
+(A^T)^T = A \qquad (KA)^T = KA^T \qquad (A^T)^T = (A^T)
+\]
+\[
+(A+B)^T = A^T+B^T \qquad (AB)^T = B^TA^T
+\]
+
+\vspace{0.2cm}
+{\bfseries\color{purple1} Teoremas:}
+\begin{enumerate}
+\item $A$ matriz cuadrada $\Rightarrow A+A^T$ simétrica
+\item $A$ matriz cualquiera $\Rightarrow AA^T$ y $A^TA$ simétricas
+\item $A$ y $B$ simétricas, $AB$ simétrica $\iff AB=BA$
+\end{enumerate}
+
+\examfooter
+
+\end{document}

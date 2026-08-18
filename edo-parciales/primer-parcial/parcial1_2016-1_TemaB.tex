@@ -1,0 +1,166 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=1.9cm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage[spanish]{babel}
+\usepackage{amsmath,amssymb}
+\usepackage{enumitem}
+\usepackage{tikz}
+\usetikzlibrary{calc,arrows.meta,patterns,decorations.pathmorphing}
+\usepackage{xcolor}
+\usepackage{multicol}
+\usepackage{parskip}
+\usepackage{lmodern}
+\renewcommand{\familydefault}{\sfdefault}
+
+\definecolor{unalblue}{RGB}{31,73,124}
+
+\newlist{opciones}{enumerate}{1}
+\setlist[opciones]{label=(\alph*),itemsep=1pt,topsep=2pt,leftmargin=1.8em,font=\normalfont}
+
+\pagestyle{empty}
+\setlength{\columnseprule}{0.5pt}
+
+\begin{document}
+
+\noindent
+\begin{minipage}[t]{0.68\linewidth}
+  {\bfseries\large Universidad Nacional de Colombia --- Sede Medellín, Escuela de Matemáticas}\\[2pt]
+  {\small Ecuaciones Diferenciales (1000007), Primer examen parcial}\\
+  {\small Semestre 01-2016, 05 de Marzo de 2016, \textbf{TEMA B}}\\
+  {\small Duración: 1 hora y 40 minutos}
+\end{minipage}%
+\hfill
+\begin{minipage}[t]{0.28\linewidth}
+  \raggedleft
+  \begin{tabular}{|l|c|}
+  \hline
+  \multicolumn{2}{|c|}{Calificación} \\
+  \hline
+  1. & \\ \hline
+  2. & \\ \hline
+  3. & \\ \hline
+  4. & \\ \hline
+  Total & \\ \hline
+  \end{tabular}
+\end{minipage}
+
+\vspace{6pt}
+\noindent\textbf{Instrucciones.} No está permitido el uso de calculadora ni de cualquier otro tipo de aparato electrónico, incluyendo teléfonos móviles, los cuales deben permanecer apagados durante el tiempo de duración del examen. Tampoco está permitido hacer preguntas a las personas encargadas de la vigilancia.
+
+\vspace{8pt}
+\noindent Nombre: \makebox[0.45\linewidth]{\hrulefill} \hfill Cédula: \makebox[0.3\linewidth]{\hrulefill}
+
+\vspace{6pt}
+\noindent\textbf{1. i. (5\%)} Sin resolver el problema de valor inicial (P.V.I.):
+\[
+\ln(t-3)y'+\frac{1}{t+6}y=\cos t, \qquad y(5)=1,
+\]
+puede afirmarse que el mayor intervalo abierto en el que se tiene certeza de que existe una única solución del P.V.I. es:
+
+\begin{center}
+a) $(3,6)$ \qquad b) $(3,4)$ \qquad c) $(4,\infty)$ \qquad d) $(4,6)$
+\end{center}
+
+\vspace{0.3cm}
+\noindent\textbf{ii. (10\%)} Considere una ecuación diferencial de la forma
+\[
+e^y\frac{dy}{dx}=f(ax+be^y+c), \qquad b\neq 0.
+\]
+Verifique que con la sustitución $v=ax+be^y+c$, la ecuación diferencial se transforma en una ecuación diferencial en variables separables (no la resuelva).
+
+\vspace{4cm}
+
+\hrulefill
+
+\vspace{0.3cm}
+\noindent\textit{(Continúa: numerales iii y iv en la página siguiente.)}
+
+\newpage
+
+\noindent\textbf{iii. (6\%)} La ED:
+\[
+y^{(2)}+\sin(t+y)y'+4y=e^t,
+\]
+donde $t$ es la variable independiente y $y$ es la función desconocida, es una ED lineal de segundo orden.
+\begin{center}
+V \qquad F
+\end{center}
+
+\vspace{0.3cm}
+\noindent\textbf{iv. (6\%)} El PVI:
+\[
+y'=y^2, \qquad y(1)=4,
+\]
+tiene solución única en un intervalo $(1-\delta,1+\delta)$ para cierto $\delta>0$.
+\begin{center}
+V \qquad F
+\end{center}
+
+\vspace{1cm}
+\noindent\textbf{2. (25\%)} Halle un factor de integración para la ecuación diferencial y luego halle su solución.
+\[
+e^x\,dx+(e^x\cot y+2y\csc y)\,dy=0.
+\]
+
+\vspace{6cm}
+
+\newpage
+
+\noindent\textbf{3. (30\%)} Considere la ecuación diferencial
+\[
+2y^2y''+2y(y')^2=1.
+\]
+
+\begin{opciones}
+\item[i.] \textbf{(10\%)} Use una sustitución adecuada para transformar esta ecuación diferencial en una ecuación diferencial de Bernoulli.
+
+\vspace{3cm}
+
+\item[ii.] \textbf{(20\%)} Halle la solución general de la ecuación diferencial dada. (\textit{Ayuda: suponga que $y$ y $y'$ son funciones positivas.})
+
+\vspace{6cm}
+\end{opciones}
+
+\newpage
+
+\noindent\textbf{4. (30\%)} Considere un tanque en forma de paralelepípedo como se muestra en la figura. Las caras laterales son triángulos equiláteros de lado $H=\dfrac{8\sqrt{3}}{3}$ pies y su longitud es $L=32\sqrt{3}$ pies. El tanque está inicialmente lleno de agua y en el fondo tiene un orificio de área igual a $\dfrac{1}{6}$ pie$^2$. (\textit{Ayuda: suponga que la constante de fricción es $c=1$ y recuerde que $g=32$ pies/sg}$^2$.)
+
+\begin{center}
+\begin{tikzpicture}[scale=0.55]
+  % prisma triangular (tanque en forma de "V" alargada)
+  \coordinate (A) at (0,2.2);
+  \coordinate (B) at (-1.3,0);
+  \coordinate (C) at (1.3,0);
+  \coordinate (A2) at (6,2.9);
+  \coordinate (B2) at (4.7,0.7);
+  \coordinate (C2) at (7.3,0.7);
+  \draw[thick] (A) -- (B) -- (C) -- cycle;
+  \draw[thick] (A2) -- (B2) -- (C2) -- cycle;
+  \draw[thick] (A) -- (A2);
+  \draw[thick] (B) -- (B2);
+  \draw[thick] (C) -- (C2);
+  \draw[-{Latex[length=2mm]}] (0,2.2) -- (0,0) node[midway,left,font=\scriptsize] {$H$};
+  \draw[-{Latex[length=2mm]}] (0,3.3) -- (6,4) node[midway,above=2pt,font=\scriptsize] {$L$};
+  \node[font=\scriptsize] at (3,2.5) {Tanque};
+\end{tikzpicture}
+\end{center}
+
+\begin{opciones}
+\item[i.] \textbf{(20\%)} Si $h(t)$ es la altura del agua en el tanque en el instante de tiempo $t$, verifique que $h$ satisface la ecuación diferencial
+\[
+\sqrt{h}\,\frac{dh}{dt}=-\frac{1}{48}.
+\]
+
+\vspace{5cm}
+
+\item[ii.] \textbf{(10\%)} Calcule el tiempo de vaciado del tanque.
+
+\vspace{4cm}
+\end{opciones}
+
+\vfill
+\rule{\linewidth}{0.4pt}\\[1pt]
+{\scriptsize\textit{Transcripción digital --- MathUNAL}\hfill\textcolor{unalblue}{\textbf{1}}}
+
+\end{document}

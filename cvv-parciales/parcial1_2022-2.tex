@@ -1,0 +1,124 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=1.9cm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage{amsmath,amssymb}
+\usepackage{enumitem}
+\usepackage{tikz}
+\usetikzlibrary{calc,arrows.meta,patterns,decorations.pathmorphing}
+\usepackage{xcolor}
+\usepackage{multicol}
+\usepackage{parskip}
+\usepackage{lmodern}
+\renewcommand{\familydefault}{\sfdefault}
+
+\definecolor{unalblue}{RGB}{31,73,124}
+
+\newlist{opciones}{enumerate}{1}
+\setlist[opciones]{label=(\alph*),itemsep=1pt,topsep=2pt,leftmargin=1.8em,font=\normalfont}
+
+\newcommand{\vect}[2]{\begin{pmatrix}#1\\#2\end{pmatrix}}
+\newcommand{\vectiii}[3]{\begin{pmatrix}#1\\#2\\#3\end{pmatrix}}
+
+\newcommand{\examheader}{%
+  \noindent
+  \begin{minipage}[t]{0.62\linewidth}
+    {\bfseries\large Primer Parcial de C\'alculo en Varias Variables}\\
+    {\small Septiembre de 2022}\\
+    {\small Escuela de Matem\'aticas, Universidad Nacional de Colombia, Sede Medell\'in.}
+  \end{minipage}%
+  \hfill
+  \begin{minipage}[t]{0.33\linewidth}
+    \raggedleft\small
+    Nombre: \rule{2.8cm}{0.4pt}\\[4pt]
+    C\'edula: \rule{2.8cm}{0.4pt}
+  \end{minipage}\\[4pt]
+  \rule{\linewidth}{0.6pt}
+}
+\newcommand{\examfooter}{%
+  \vfill
+  \rule{\linewidth}{0.4pt}\\[1pt]
+  {\scriptsize\textit{Transcripci\'on digital --- MathUNAL}\hfill\textcolor{unalblue}{\textbf{\thepage}}}
+}
+\pagestyle{empty}
+
+\begin{document}
+
+\examheader
+
+\textbf{Instrucciones:} La duraci\'on del examen es de 1 hora y 45 minutos. Antes de empezar verifique que su examen est\'e completo y que sus datos sean correctos. No desengrape su examen ni a\~nada otras grapas. Use los espacios asignados para resolver cada pregunta. \textbf{No} est\'a permitido: hacer preguntas, usar calculadoras, sacar hojas en blanco, ni tomar apuntes en hojas diferentes a las del examen. Tampoco se permite el uso de celulares, ni smartphones, ni tabletas digitales.
+
+\bigskip
+
+\textit{En las preguntas 1 a 5 responda en el espacio en blanco. En estas preguntas s\'olo se tendr\'a en cuenta la respuesta al calificar.}
+
+\bigskip
+\noindent\textbf{1.} (24\,\%)
+
+\begin{opciones}
+  \item[(a)] (12\,\%) Sea $\displaystyle f(x,y) = \int_x^{xy} g(t)\,dt$, con $g:\mathbb{R}\to\mathbb{R}$ continua tal que $g(2)=-4$ y $g(8)=3$. Entonces
+  $$f_x(2,4) = \underline{\hspace{3cm}}.$$
+  \item[(b)] (12\,\%) La ecuaci\'on del plano tangente a la superficie dada por
+  $$z = x\cos(x)\cos(y) + y$$
+  en el punto $(0,\pi,\pi)$ es:
+  $$\underline{\hspace{4cm}}.$$
+\end{opciones}
+
+\bigskip
+\noindent\textbf{2.} (22\,\%)
+
+\begin{opciones}
+  \item[(a)] (10\,\%) La derivada direccional de la funci\'on $g(x,y,z)=z^2-x^2y$ en el punto $(1,1,2)$ en la direcci\'on del vector $\vec v = \vec\imath+2\vec\jmath+2\vec k$ es:
+  $$\underline{\hspace{3cm}}.$$
+  \item[(b)] (12\,\%) Las ecuaciones param\'etricas de la recta normal a la superficie $x^2+3y^2+2z^2=9$ en el punto $(2,1,1)$ son:
+  $$x=\underline{\hspace{2.5cm}}, \qquad y=\underline{\hspace{2.5cm}}, \qquad z=\underline{\hspace{2.5cm}}.$$
+\end{opciones}
+
+\bigskip
+\noindent\textbf{3.} (24\,\%)
+
+\begin{opciones}
+  \item[(a)] (12\,\%) Considere la siguiente ecuaci\'on:
+  $$\cos(y+z) = 2x^2+e^{-z}+y^3.$$
+  Al derivar la ecuaci\'on anterior (impl\'icitamente) con respecto a $y$, se obtiene que
+  $$\frac{\partial z}{\partial y} = \underline{\hspace{5cm}}.$$
+  \item[(b)] (12\,\%) Sea $f(x,y)=x^2+k\cdot xy+y^2$. Los valores de $k$ para los cuales la funci\'on $f$ tiene un m\'inimo relativo en $(0,0)$ son:
+  $$\underline{\hspace{4cm}}.$$
+\end{opciones}
+
+\newpage
+\examheader
+\vspace{2pt}
+
+\textbf{Preguntas con procedimiento}
+
+\textit{En las preguntas 4 y 5 responda mostrando detalladamente el procedimiento utilizado.}
+
+\bigskip
+\noindent\textbf{4.} (16\,\%) Considere la funci\'on
+$$
+f(x,y)=
+\begin{cases}
+\dfrac{y^3}{x^2+y^2}+x+y+1, & (x,y)\neq (0,0),\\[6pt]
+1, & (x,y)=(0,0).
+\end{cases}
+$$
+Si se sabe que $f_x(0,0)=1$ y $f_y(0,0)=2$.
+
+\begin{opciones}
+  \item[(a)] (8\,\%) Determine si $f$ es continua en $(0,0)$.
+  \item[(b)] (8\,\%) Determine si $f$ es diferenciable en $(0,0)$.
+\end{opciones}
+
+\vfill
+\examfooter
+\newpage
+\examheader
+\vspace{2pt}
+
+\noindent\textbf{5.} (14\,\%) Aplique el m\'etodo de Multiplicadores de Lagrange para encontrar los puntos de la hip\'erbola $xy=1$ m\'as cercanos al origen.
+
+\vfill
+\examfooter
+
+\end{document}

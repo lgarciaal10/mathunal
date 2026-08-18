@@ -1,0 +1,166 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=1.9cm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage[spanish,es-noshorthands]{babel}
+\usepackage{amsmath,amssymb}
+\usepackage{enumitem}
+\usepackage{tikz}
+\usetikzlibrary{calc,arrows.meta,patterns,decorations.pathmorphing}
+\usepackage{xcolor}
+\usepackage{multicol}
+\usepackage{parskip}
+\usepackage{lmodern}
+\renewcommand{\familydefault}{\sfdefault}
+
+\definecolor{unalblue}{RGB}{31,73,124}
+\definecolor{unalblue2}{RGB}{70,120,180}
+
+\newlist{opciones}{enumerate}{1}
+\setlist[opciones]{label=\textbf{(\alph*)},itemsep=1pt,topsep=2pt,leftmargin=1.8em,font=\normalfont}
+\setlist[enumerate,1]{label=\textbf{\arabic*.},itemsep=6pt,topsep=4pt,leftmargin=1.6em,font=\normalfont}
+\setlist[enumerate,2]{label=\textbf{\alph*)},itemsep=4pt,topsep=3pt,leftmargin=1.6em,font=\normalfont}
+\setlist[enumerate,3]{label=\textbf{\roman*)},itemsep=2pt,topsep=2pt,leftmargin=1.4em,font=\normalfont}
+
+\newcommand{\vect}[2]{\begin{pmatrix}#1\\#2\end{pmatrix}}
+\newcommand{\vectiii}[3]{\begin{pmatrix}#1\\#2\\#3\end{pmatrix}}
+
+\newcommand{\examheader}{%
+\noindent\begin{tikzpicture}
+\node[fill=unalblue, text width=\dimexpr\linewidth-16pt\relax, inner sep=8pt, rounded corners=3pt, align=left, text=white] (hdr) {%
+  \begin{minipage}[c]{0.66\linewidth}
+    {\Large\bfseries \examsubject}\\[2pt]
+    {\small \examtype\ \textbullet\ \textcolor{white!85!unalblue}{\examsubtitle}}
+  \end{minipage}\hfill
+  \begin{minipage}[c]{0.28\linewidth}
+    \raggedleft{\scriptsize Escuela de Matem\'aticas\\[-1pt] Universidad Nacional\\[-1pt] de Colombia, Sede Medell\'in}
+  \end{minipage}%
+};
+\end{tikzpicture}\\[7pt]
+}
+\newcommand{\examfooter}{%
+  \vfill
+  \rule{\linewidth}{0.4pt}\\[1pt]
+  {\scriptsize\textit{Transcripci\'on digital --- MathUNAL}\hfill\textcolor{unalblue}{\textbf{\thepage}}}
+}
+\pagestyle{empty}
+
+\newcommand{\examsubject}{ÁLGEBRA LINEAL}
+\newcommand{\examtype}{Tercer Parcial}
+\newcommand{\examsubtitle}{21 de Noviembre de 2016}
+
+\begin{document}
+
+\examheader
+
+\vspace{4pt}
+\noindent
+\begin{minipage}[t]{0.55\linewidth}
+Puntaje. S\'olo para uso Oficial\\[4pt]
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+1-5 & 6 & 7 & 8 & Total & Nota\\
+\hline
+ & & & & & \\
+\hline
+\end{tabular}
+\end{minipage}
+
+\vspace{6pt}
+\noindent\textbf{Instrucciones:} La duraci\'on del examen es de 1 hora y 50 minutos. El examen consta de ocho preguntas en tres hojas impresas por ambos lados, verifique que su examen est\'e completo y cons\'ervelo con el gancho. En las preguntas con procedimiento justifique sus respuestas en los espacios asignados. No est\'a permitido sacar hojas en blanco ni ning\'un tipo de apuntes durante el examen, verifique que su celular est\'e apagado. No se permite el uso de calculadora.
+
+\vspace{6pt}
+\noindent\textbf{Identificaci\'on}
+
+\vspace{40pt}
+\noindent\textit{Esta hoja se deja en blanco para realizar c\'alculos.}
+
+\examfooter
+\newpage
+
+\examheader
+
+\textbf{I. Completaci\'on}
+
+\noindent En las preguntas 1 a 5 complete los espacios en blanco. \textbf{NOTA:} En esta secci\'on se califica s\'olo la respuesta y no se tiene en cuenta el procedimiento.
+
+\begin{enumerate}
+\item \textbf{[12pt]} Diga si los siguientes enunciados son falsos o verdaderos: Escriba (V) verdadero o (F) falso seg\'un el caso.
+\begin{enumerate}[label=(\alph*)]
+\item \textbf{[3pt]} (\dotfill) Todo conjunto de vectores linealmente independientes en $\mathbb{R}^n$ es ortogonal.
+\item \textbf{[3pt]} (\dotfill) Sea $A$ una matriz $n\times n$ y sean $\lambda_1,\dots,\lambda_k$ los $k$ valores propios diferentes de $A$. Si para todo $j=1,\dots,k$ se tiene $m_a(\lambda_j)=m_g(\lambda_j)$, entonces $A$ es diagonalizable.
+\item \textbf{[3pt]} (\dotfill) Si $Q$ es una matriz ortogonal entonces $\|x\|$ y $\|Qx\|$ son iguales.
+\item \textbf{[3pt]} (\dotfill) Si $v$ es un vector propio correspondiente al valor propio $\lambda\neq 0$ de $A$, entonces $v\in \operatorname{col}(A)$.
+\end{enumerate}
+
+\item \textbf{[10pt]} En Medell\'in se ha guardado la informaci\'on de la estatura de los ni\~nos en relaci\'on a la estatura de los padres. Se ha encontrado lo siguiente: a) Las probabilidades de que un padre alto tenga un hijo alto, de estatura media y bajo son $0.6, 0.2$ y $0.2$, respectivamente. b) Las probabilidades de que un padre de estatura media tenga un hijo alto, de estatura media y bajo son $0.1, 0.7$ y $0.2$, respectivamente. c) Para un padre bajo las probabilidades son $0.2, 0.4$ y $0.4$, en el mismo orden.
+\begin{enumerate}[label=(\alph*)]
+\item \textbf{[3pt]} Escriba la matriz de transici\'on $P$ que representa el proceso de Markov.
+
+\vspace{20pt}
+\item \textbf{[7pt]} ¿Cu\'al ser\'a la distribuci\'on de la poblaci\'on en el largo plazo si actualmente es de 30\% altos, 55\% de mediana estatura y 15\% bajos?
+
+\vspace{10pt}
+Altos = \dotfill \quad Medianos = \dotfill \quad Bajos = \dotfill
+\end{enumerate}
+\end{enumerate}
+
+\examfooter
+\newpage
+
+\examheader
+
+\begin{enumerate}
+\setcounter{enumi}{2}
+\item \textbf{[12pt]} Complete las siguientes oraciones
+\begin{enumerate}[label=(\alph*)]
+\item \textbf{[3pt]} Si $\lambda=0$ es un valor propio de $A$, entonces \fbox{\phantom{XX}nulidad$(A)>$\phantom{XX}} \dotfill
+\item \textbf{[3pt]} Si $A$ tiene $k$ valores propios diferentes, entonces $A^T$ tiene \fbox{\phantom{XX}} valores propios diferentes.
+\item \textbf{[3pt]} Si $Q$ es ortogonal entonces \fbox{$\det(Q)=$\phantom{XX}} \dotfill
+\item \textbf{[3pt]} Si $W$ es un subespacio $\mathbb{R}^n$ de dimensi\'on $r$ entonces \fbox{$\dim(W^\perp)=$\phantom{XX}} \dotfill
+\end{enumerate}
+
+\item \textbf{[6pt]} Encuentre una matriz $B$ de orden $2\times 2$ con valores propios $\lambda_1=2$ y $\lambda_2=-2$ y correspondientes vectores propios ortogonales $v_1=\begin{pmatrix}1\\3\end{pmatrix}$ y $v_2=\begin{pmatrix}-3\\1\end{pmatrix}$.
+
+\vspace{30pt}
+
+\textbf{II. Soluci\'on con Procedimiento}
+
+\item \textbf{[10pt]} Suponga que $A$ matriz de tama\~no $n\times n$ que es semejante a $I_n$. Demuestre que $A=I_n$.
+\end{enumerate}
+
+\examfooter
+\newpage
+
+\examheader
+
+\begin{enumerate}
+\setcounter{enumi}{6}
+\item \textbf{[20pt]} Sea $W=\left\{\begin{pmatrix}x\\y\\z\end{pmatrix}\in\mathbb{R}^3 \,\middle|\, x+y=0,\ 3x-z=0\right\}$.
+\begin{enumerate}[label=(\alph*)]
+\item \textbf{[12pt]} Encuentre una base ortogonal para $W^\perp$.
+
+\vspace{40pt}
+\item \textbf{[8pt]} Sea $v=\begin{pmatrix}1\\3\\5\end{pmatrix}$. Encuentre $\operatorname{proy}_W(v)$ y $\operatorname{proy}_{W^\perp}(v)$.
+\end{enumerate}
+\end{enumerate}
+
+\examfooter
+\newpage
+
+\examheader
+
+\begin{enumerate}
+\setcounter{enumi}{7}
+\item \textbf{[20pt]} $A=\begin{pmatrix}2&-1&0\\-1&2&0\\2&0&2\end{pmatrix}$.
+\begin{enumerate}[label=(\alph*)]
+\item \textbf{[12pt]} Calcule los valores propios y los correspondientes vectores propios de $A$.
+
+\vspace{60pt}
+\item \textbf{[8pt]} ¿Es $A$ diagonalizable? Por favor explicar su respuesta. En caso afirmativo, encontrar matrices $P$ invertible y $D$ diagonal tales que $A=PDP^{-1}$.
+\end{enumerate}
+\end{enumerate}
+
+\examfooter
+
+\end{document}

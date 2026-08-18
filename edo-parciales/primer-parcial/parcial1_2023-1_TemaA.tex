@@ -1,0 +1,195 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=1.9cm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage[spanish]{babel}
+\usepackage{amsmath,amssymb}
+\usepackage{enumitem}
+\usepackage{tikz}
+\usetikzlibrary{calc,arrows.meta,patterns,decorations.pathmorphing}
+\usepackage{xcolor}
+\usepackage{multicol}
+\usepackage{parskip}
+\usepackage{lmodern}
+\renewcommand{\familydefault}{\sfdefault}
+
+\definecolor{unalblue}{RGB}{31,73,124}
+
+\newlist{opciones}{enumerate}{1}
+\setlist[opciones]{label=(\alph*),itemsep=1pt,topsep=2pt,leftmargin=1.8em,font=\normalfont}
+
+\pagestyle{empty}
+\setlength{\columnseprule}{0.5pt}
+
+\begin{document}
+
+\noindent
+\begin{minipage}[t]{0.62\linewidth}
+  {\bfseries\large Primer Parcial de Ecuaciones Diferenciales}\\[2pt]
+  {\small 18 de Marzo de 2023 --- \textbf{Tema A}}\\
+  {\small Puntaje. Sólo para uso Oficial}
+\end{minipage}%
+\hfill
+\begin{minipage}[t]{0.35\linewidth}
+  \raggedleft\small Escuela de Matemáticas. Universidad Nacional de Colombia, Sede Medellín.
+\end{minipage}\\[4pt]
+\rule{\linewidth}{0.6pt}
+
+\vspace{4pt}
+\noindent
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+1 (/16) & 2 (/25) & 3 (/34) & 4 (/25) & Total & Nota \\
+\hline
+ & & & & & \\
+\hline
+\end{tabular}
+
+\vspace{6pt}
+\noindent\textbf{Instrucciones:} La duración del examen es de 1 hora y 50 minutos. El examen consta de cuatro preguntas en dos hojas impresas por ambos lados, antes de empezar verifique que su examen esté completo y que sus datos sean correctos. No desengrape su examen ni añada otras grapas o su examen será anulado. En las preguntas con procedimiento justifique sus respuestas en los espacios asignados. No está permitido hacer preguntas, usar calculadoras, sacar hojas en blanco ni ningún tipo de apuntes durante el examen. Por favor verifique que su celular esté apagado.
+
+\vspace{4pt}
+\noindent En los puntos 2 y 4 debe justificar paso a paso su procedimiento.
+
+\noindent En los puntos 1 y 3 sólo se calificará respuesta, no es necesario que escriba el procedimiento.
+
+\vspace{8pt}
+\noindent Nombre: \makebox[0.45\linewidth]{\hrulefill} \hfill Cédula: \makebox[0.3\linewidth]{\hrulefill}
+
+\begin{multicols}{2}
+
+\textbf{1. (16\%)} Considere el problema de valor inicial
+\[
+\begin{cases}
+\dfrac{dp}{dt}=-2p(3200-p), \\
+p(0)=p_0.
+\end{cases}
+\]
+En los literales a), b) y c) complete según corresponda. Sólo se calificará respuesta, no es necesario que escriba el procedimiento.
+
+\begin{opciones}
+\item[a)] \textbf{(4\%)} ¿Existe una solución no constante cuya gráfica atraviese la recta horizontal $p=3200$? Marque con una X la respuesta correcta
+
+Sí\underline{\hspace{1cm}} No\underline{\hspace{1cm}}
+
+\item[b)] \textbf{(6\%)} Si la función $p(t)$ es solución de la ecuación diferencial autónoma y además satisface que $p(0)=p_0=2450$, entonces $\displaystyle\lim_{t\to\infty}p(t)=$ \underline{\hspace{2cm}}
+
+\item[c)] \textbf{(6\%)} Si la función $p(t)$ es solución de la ecuación diferencial autónoma, entonces el valor o los valores de $p_0\neq p(0)$ tales que $\displaystyle\lim_{t\to\infty}p(t)=3200$ es (son): \underline{\hspace{3cm}}
+\end{opciones}
+
+\columnbreak
+
+\textbf{2. (25\%)} Un tanque con capacidad de 280 galones, contiene inicialmente 50 galones de agua, en las cuales hay disueltas 5 libras de sal. Suponga que $t$ es el tiempo (en minutos) a partir del instante inicial. Al tanque entra agua con una concentración de sal de $\dfrac{1}{t+200}$ libras por galón a razón de 2 galones por minuto y la mezcla resultante sale del tanque a razón de un galón por minuto.
+
+\begin{opciones}
+\item[a.] \textbf{(5\%)} Encuentre el volumen de mezcla en el tanque en cualquier instante $t$, antes de que la mezcla empiece a derramarse.
+\item[b.] \textbf{(5\%)} Determine el instante en el cual el tanque se llena.
+\item[c.] \textbf{(15\%)} Plantee el PVI que describe la variación de la cantidad de sal $x(t)$ presente en el tanque en el instante $t$ a partir del instante inicial.
+\end{opciones}
+
+\textit{NOTA: Debe justificar paso a paso su procedimiento}
+
+\vspace{4cm}
+
+\end{multicols}
+
+\newpage
+
+\noindent\textbf{3. (34\%)} En los literales a), b), c) y d) complete según corresponda. Sólo se calificará respuesta, no es necesario que escriba el procedimiento.
+
+\begin{multicols}{2}
+
+\begin{opciones}
+\item[a)] \textbf{(8\%)} Considere la ecuación diferencial de segundo orden
+\[
+yy''+(y')^2=0.
+\]
+Una sustitución que transforma tal ecuación diferencial en una ecuación diferencial de orden uno es
+
+$u=$ \underline{\hspace{2.5cm}} \textit{(2\%)}
+
+La ecuación diferencial reducida es (las variables $u$ y $y$) es
+
+\underline{\hspace{4.5cm}} \textit{(6\%)}
+
+\item[b)] \textbf{(8\%)} Considere el problema de valor inicial
+\[
+\begin{cases}
+\dfrac{dy}{dx}-y=e^{-2x}, \\
+y(0)=\alpha.
+\end{cases}
+\tag{1}
+\]
+El valor de $\alpha$ de modo que la solución del problema de valor inicial tienda a $0$ cuando $x\to\infty$ es
+
+$\alpha=$ \underline{\hspace{2.5cm}}
+
+\item[c)] \textbf{(10\%)} Un tanque semiesférico tiene un radio de 1 pie; el tanque está inicialmente lleno de agua y en el fondo tiene un orificio circular de $\frac{1}{12}$ pies de diámetro (ver figura). Plantee el PVI que describe la rapidez con que cambia la profundidad del agua $h(t)$ en el tanque en el instante $t$ a partir del instante inicial. (\textit{Tome la constante de proporcionalidad igual a 1})
+
+\textit{NOTA: NO es necesario que resuelva este PVI, ni tal solución será tenida en cuenta.}
+
+\begin{center}
+\begin{tikzpicture}[scale=0.85]
+  \draw[thick] (-1.4,0.3) arc (180:360:1.4 and 1.1);
+  \draw[thick] (-1.4,0.3) -- (1.4,0.3);
+  \draw[dashed] (0,0.3) -- (0,-1.1);
+  \draw[-{Latex[length=2mm]}] (0.12,0.3) -- (0.12,-0.8) node[midway,right,font=\scriptsize] {$h$};
+  \node[font=\scriptsize] at (-1.15,0.5) {1 pie};
+\end{tikzpicture}
+\end{center}
+
+\columnbreak
+
+\item[d)] \textbf{(8\%)} Considere el problema de valor inicial
+\[
+\begin{cases}
+\dfrac{dy}{dx}=\dfrac{\sqrt{3y}}{\sqrt{2-x}}, \\
+y(x_0)=y_0.
+\end{cases}
+\tag{2}
+\]
+Dibuje y sombree la región del plano a la que debe pertenecer el punto $(x_0,y_0)$ para garantizar que exista algún $\delta>0$, tal que el Problema (2) tenga solución única en el intervalo $(x_0-\delta,x_0+\delta)$.
+
+\begin{center}
+\begin{tikzpicture}[scale=0.5]
+  \draw[step=1,gray!40,thin] (-3.5,-3.5) grid (3.5,3.5);
+  \draw[-{Latex[length=2mm]}] (-3.7,0) -- (3.7,0) node[right,font=\scriptsize] {$x$};
+  \draw[-{Latex[length=2mm]}] (0,-3.7) -- (0,3.7) node[above,font=\scriptsize] {$y$};
+  \draw[dashed] (2,-3.5) -- (2,3.5);
+  \draw[dashed] (-3.5,0) -- (3.5,0);
+  \node[font=\scriptsize] at (2.2,3.7) {$x=2$};
+  \node[font=\scriptsize] at (-2.5,0.3) {$y=0$};
+  \node[font=\scriptsize] at (-0.8,3.9) {No se incluyen};
+  \node[font=\scriptsize] at (-0.8,3.5) {las rectas};
+  \fill[pattern=north east lines, pattern color=black!70] (0,0) rectangle (2,3.5);
+  \node[font=\scriptsize] at (0.3,-3.7) {$O$};
+\end{tikzpicture}
+
+{\scriptsize Plano cartesiano. Grafique la región en este espacio.}
+\end{center}
+\end{opciones}
+
+\end{multicols}
+
+\newpage
+
+\noindent\textbf{4. (25\%)} Considere la ecuación diferencial de primer orden
+\[
+(6x^2+2y^2-1)\,dx+xy\,dy=0, \qquad x>0,\ y>0.
+\]
+
+\begin{opciones}
+\item[a.] \textbf{(3\%)} Muestre que la ecuación diferencial no es exacta.
+\item[b.] \textbf{(8\%)} Halle un factor de integración para la ecuación diferencial.
+\item[c.] \textbf{(14\%)} Resuelva la ecuación diferencial.
+\end{opciones}
+
+\noindent\textit{NOTA: Debe justificar paso a paso su procedimiento}
+
+\vspace{9cm}
+
+\vfill
+\rule{\linewidth}{0.4pt}\\[1pt]
+{\scriptsize\textit{Transcripción digital --- MathUNAL}\hfill\textcolor{unalblue}{\textbf{1}}}
+
+\end{document}

@@ -1,0 +1,293 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=2.2cm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage[spanish]{babel}
+\usepackage{amsmath,amssymb}
+\usepackage{enumitem}
+\usepackage{tikz}
+\usetikzlibrary{calc,arrows.meta,patterns,decorations.pathmorphing}
+\usepackage{xcolor}
+\usepackage{colortbl}
+\usepackage{multicol}
+\usepackage{parskip}
+\setlength{\parskip}{6pt}
+\usepackage{lmodern}
+\renewcommand{\familydefault}{\sfdefault}
+
+\definecolor{unalblue}{RGB}{31,73,124}
+
+\setlist[enumerate,1]{itemsep=10pt,topsep=8pt,leftmargin=2.2em,label=\protect\fbox{\arabic*}}
+\newlist{opciones}{enumerate}{1}
+\setlist[opciones]{label=(\alph*),itemsep=8pt,topsep=6pt,leftmargin=2em,font=\normalfont}
+
+\newcommand{\ptsbox}[1]{\fboxsep=3pt\fbox{\footnotesize #1}\hspace{4pt}}
+\newcommand{\borradorbox}[1][3cm]{%
+  \noindent\fbox{\begin{minipage}[t][#1][t]{0.97\linewidth}
+  {\scriptsize\itshape Espacio borrador, nada escrito aquí será calificado.}
+  \end{minipage}}
+}
+
+\newcommand{\vect}[2]{\begin{pmatrix}#1\\#2\end{pmatrix}}
+\newcommand{\vectiii}[3]{\begin{pmatrix}#1\\#2\\#3\end{pmatrix}}
+
+\newcommand{\examheader}{%
+  \noindent
+  \begin{minipage}[t]{0.6\linewidth}
+    {\small\bfseries Geometría Vectorial y Analítica --- Parcial 2}\\
+    {\small Mayo de 2023}
+  \end{minipage}%
+  \hfill
+  \begin{minipage}[t]{0.37\linewidth}
+    \raggedleft
+    \fbox{\begin{minipage}{0.95\linewidth}\centering\scriptsize Escuela de Matemáticas. Universidad Nacional de Colombia, Sede Medellín.\end{minipage}}
+  \end{minipage}\\[4pt]
+  \rule{\linewidth}{0.6pt}
+}
+\newcommand{\examfooter}{%
+  \vfill
+  \rule{\linewidth}{0.4pt}\\[1pt]
+  {\scriptsize\textit{Transcripción digital --- MathUNAL}\hfill\textcolor{unalblue}{\textbf{\thepage}}}
+}
+\pagestyle{empty}
+
+\begin{document}
+\examheader
+
+\begin{center}
+{\bfseries Geometría Vectorial y Analítica --- Parcial 2}\\
+Mayo del 2023
+
+\vspace{6pt}
+\textbf{Instrucciones}
+\end{center}
+
+Diligencie sus respuestas en la tabla correspondiente más abajo: \textbullet\ Todas las respuestas son \textbf{números enteros}, no use fracciones. \textbullet\ Escriba grande y claro. \textbullet\ Si sus respuestas no están anotadas en la tabla y espacios respectivos, no serán tomadas en cuenta; puesto que la calificación es automática. No desengrape su examen ni añada otras grapas o su examen será anulado. \textbf{No} está permitido: hacer preguntas, usar calculadoras ni trabajar en hojas diferentes a las del examen. No se permite que ningún celular y/o dispositivo electrónico se encuentre a la vista.
+
+\vspace{8pt}
+\begin{center}
+\textbf{\textsc{Tabla puntaje y respuestas}}
+
+\vspace{4pt}
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|}
+\hline
+Ejercicio & Puntaje & (a) & (b) & (c) & (d) & (e) & (f) & (g)/(h)\\
+\hline
+1 & 24 & & & & \cellcolor{black!30} & \cellcolor{black!30} & \cellcolor{black!30} & \cellcolor{black!30}\\[8pt]
+\hline
+2 & 24 & & & & & \cellcolor{black!30} & \cellcolor{black!30} & \cellcolor{black!30}\\[8pt]
+\hline
+3 & 24 & & & & \cellcolor{black!30} & \cellcolor{black!30} & \cellcolor{black!30} & \cellcolor{black!30}\\[8pt]
+\hline
+4 & 24 & & & & \cellcolor{black!30} & \cellcolor{black!30} & \cellcolor{black!30} & \cellcolor{black!30}\\[8pt]
+\hline
+5 & 28 & & & & \cellcolor{black!30} & \cellcolor{black!30} & \cellcolor{black!30} & \cellcolor{black!30}\\[8pt]
+\hline
+\end{tabular}
+\end{center}
+
+\vspace{10pt}
+\begin{center}\Large Fórmulas\end{center}
+
+\begin{minipage}[t]{0.48\linewidth}
+\textbf{Ecuación general}: $ax+by+c=0$, recta con vector normal $N=\vect{a}{b}$
+
+\vspace{4pt}
+\textbf{Forma vectorial}: $X=P+tD$, pasa por $P$, vector director $D$
+
+\vspace{4pt}
+\textbf{Forma normal} $N\cdot(X-P)=0$, pasa por $P$, vector normal $N$
+
+\vspace{4pt}
+\textbf{Forma pendiente-intercepto}: $y=mx+b$
+
+\vspace{4pt}
+\textbf{Forma punto-pendiente}: $y-b=m(x-a)$ pendiente $m$, pasa por $\vect{a}{b}$
+
+\vspace{4pt}
+\textbf{Forma continua}: $\frac{x-a}{c}=\frac{y-b}{d}$ pasa por $\vect{a}{b}$, vector director $\vect{c}{d}$
+
+\vspace{4pt}
+\textbf{Forma simétrica}: $\frac{x}{a}+\frac{y}{b}=1$ pasa por $\vect{a}{0}$ y $\vect{0}{b}$
+
+\vspace{4pt}
+\textbf{Mediatriz} del segmento $\overline{AB}$:
+\[
+X = \frac{A+B}{2} + t(B-A)^\perp
+\]
+\end{minipage}%
+\hfill
+\begin{minipage}[t]{0.48\linewidth}
+\textbf{Distancia} del punto $X=\vect{u}{v}$ a la recta $\mathcal{L}: ax+by+c=0$:
+\[
+\text{dist}(X,\mathcal{L}) = \|X-P_\mathcal{L}(X)\| = \frac{|au+bv+c|}{\sqrt{a^2+b^2}}
+\]
+
+\vspace{4pt}
+\textbf{Proyección ortogonal} de $X$ sobre la recta $\mathcal{L}_U$ generada por $U$:
+\[
+P_{\mathcal{L}_U}(X) = P_U(X) = \frac{X\cdot U}{U\cdot U}U
+\]
+
+\vspace{4pt}
+\textbf{Proyección ortogonal} de $X$ sobre la recta $\mathcal{L}$ con director $D$, normal $N$, y que pasa por $A$:
+\[
+P_\mathcal{L}(X) = X + P_N(A-X)
+\]
+\[
+P_\mathcal{L}(X) = P_D(X) + P_N(A)
+\]
+
+\vspace{4pt}
+\textbf{Reflexión ortogonal} del punto $X$ alrededor de la recta $\mathcal{L}$: $S_\mathcal{L}(X) = 2P_\mathcal{L}(X)-X$
+
+\vspace{4pt}
+\textbf{Recta tangente} en el punto $P$ a la circunferencia de radio $r$ con centro en $A$:
+\[
+X = P + t(P-A)^\perp
+\]
+\end{minipage}
+
+\newpage
+\examheader
+
+\begin{enumerate}
+
+\item Considere las rectas:
+\begin{itemize}[leftmargin=1.6em]
+\item $\mathcal{L}_1: -6x+4y+3=s$
+\item $\mathcal{L}_2: x=8+(4)(6)t,\quad y=6+rt$, con $t$ parámetro real.
+\end{itemize}
+
+\begin{minipage}[t]{0.47\linewidth}
+\begin{opciones}
+\item Determine el valor de $r$ para que las rectas $\mathcal{L}_1$ y $\mathcal{L}_2$ sean paralelas.
+\end{opciones}
+\end{minipage}%
+\hfill
+\begin{minipage}[t]{0.47\linewidth}
+\begin{opciones}
+\setcounter{opcionesi}{1}
+\item Determine el valor de $r$ para que las rectas $\mathcal{L}_1$ y $\mathcal{L}_2$ sean perpendiculares.
+\item Determine el valor de $s$ para que las rectas $\mathcal{L}_1$ y $\mathcal{L}_2$ sean iguales.
+\end{opciones}
+\end{minipage}
+
+\vspace{30pt}
+
+\item En el plano $\mathbb{R}^2$ se tienen el segmento $\mathcal{S}$ que une los puntos $\vect{-5}{9}$ y $\vect{13}{9}$ y la circunferencia
+\[
+\mathcal{C}: (x-4)^2 + (y-21)^2 = 24^2.
+\]
+El objetivo de este ejercicio es determinar los puntos de corte entre la mediatriz del segmento $\mathcal{S}$ y la circunferencia $\mathcal{C}$ para ello, procedemos de la siguiente manera.
+
+El punto medio del segmento $\mathcal{S}$ tiene coordenadas $M = \vect{a}{b}$
+
+\begin{minipage}[t]{0.47\linewidth}
+\begin{opciones}
+\item Encuentre el valor de $a$.
+\item Encuentre el valor de $b$.
+\end{opciones}
+\end{minipage}%
+\hfill
+\begin{minipage}[t]{0.47\linewidth}
+La mediatriz del segmento $\mathcal{S}$ tiene ecuación general $\mathcal{L}: rx+sy-72=0$.
+\begin{opciones}
+\setcounter{opcionesi}{2}
+\item Encuentre el valor de $r$.
+\item Encuentre el valor de $s$.
+\end{opciones}
+\end{minipage}
+
+\vspace{4pt}
+Finalmente, los puntos de intersección entre $\mathcal{C}$ y $\mathcal{L}$ son $\vect{t}{u}$, $\vect{v}{w}$ con la convención $t\leq v$ ó $u\leq w$.
+
+\begin{minipage}[t]{0.47\linewidth}
+\begin{opciones}
+\setcounter{opcionesi}{4}
+\item Encuentre el valor de $t$.
+\item Encuentre el valor de $u$.
+\end{opciones}
+\end{minipage}%
+\hfill
+\begin{minipage}[t]{0.47\linewidth}
+\begin{opciones}
+\setcounter{opcionesi}{6}
+\item Encuentre el valor de $v$.
+\item Encuentre el valor de $w$.
+\end{opciones}
+\end{minipage}
+
+\newpage
+\examheader
+
+\item Sean $A = \vect{3}{-3}$ y $B = \vect{5}{-1}$ vectores del plano tales que $\mathcal{L}_A$ (recta generada por $A$) y $\mathcal{L}_{AB}$ (recta que pasa por $A$ y $B$) son rectas perpendiculares. Sea $\mathcal{K}$ la recta paralela a $\mathcal{L}_A$ que pasa por $B$, y sea $C=\vect{c}{d}$ la reflexión ortogonal del origen $\vect{0}{0}$ alrededor de la recta $\mathcal{L}_{AB}$.
+
+\begin{minipage}[t]{0.47\linewidth}
+\begin{opciones}
+\item Sea $P_\mathcal{K}(B) = \vect{10+r}{s}$. Determine el valor de $r$.
+\item Determine el valor de $c$.
+\end{opciones}
+\end{minipage}%
+\hfill
+\begin{minipage}[t]{0.47\linewidth}
+\begin{opciones}
+\setcounter{opcionesi}{2}
+\item Sea $P_N(B) = \vect{p}{q}$ donde el vector $N$ es normal a $\mathcal{K}$. Determine el valor $p$.
+\item Sea $X$ un vector tal que $P_A(X) = C$, y sea $P_\mathcal{K}(X) = \vect{l}{m}$. Determine el valor de $l$.
+\end{opciones}
+\end{minipage}
+
+\vspace{30pt}
+
+\item Sea $\mathcal{C}$ la circunferencia de radio $r$ con centro en $\vect{-18}{-5}$, y sea $\mathcal{L}$ la recta tangente a $\mathcal{C}$ en el punto $\vect{-19}{-11}$.
+
+\begin{minipage}[t]{0.47\linewidth}
+\begin{opciones}
+\item Determine el valor de $r^2$.
+\item Determine el valor de $k$ para que el vector $\vect{k}{-6}$ sea normal a $\mathcal{L}$.
+\end{opciones}
+\end{minipage}%
+\hfill
+\begin{minipage}[t]{0.47\linewidth}
+\begin{opciones}
+\setcounter{opcionesi}{2}
+\item Suponga que la proyección ortogonal del vector $\vect{-18}{-5}$ sobre $\mathcal{L}$ es el vector $\vect{p}{-10-q}$. Determine el valor de $q$.
+\item Determine el valor de $s$ para que la transformación del plano
+\[
+T\vect{x}{y} = \vect{5(x-4)+y-s}{0}
+\]
+sea una transformación lineal.
+\end{opciones}
+\end{minipage}
+
+\newpage
+\examheader
+
+\item Sea $T$ una transformación lineal del plano, y sea $\mathcal{L}$ la recta dada por la ecuación $y+k=x+6$. Sea $S$ la transformación del plano dada por
+\[
+S(X) = P_\mathcal{L}(X) + T(X)
+\]
+donde $P_\mathcal{L}(X)$ es la proyección ortogonal del punto $X$ sobre la recta $\mathcal{L}$.
+
+\begin{opciones}
+\item Determine el valor de $k$ para que $S$ sea una transformación lineal.
+\end{opciones}
+
+\vspace{4pt}
+Sean $U = \vect{2}{2}$ y $V = \vect{3}{-3}$. Note que $U$ es vector director de $\mathcal{L}$ y que $V$ es vector normal a $\mathcal{L}$.
+
+\vspace{4pt}
+En los siguientes literales suponga que $S(X)=X$ para todo punto $X$ del plano, y que $\mathcal{L}=\mathcal{L}_U$ es la recta generada por $U$.
+
+\begin{opciones}
+\setcounter{opcionesi}{1}
+\item Sea $T(U) = \vect{7+p}{q}$. Determine el valor de $p$.
+\item Sea $T(V) = \vect{5+l}{m}$. Determine el valor de $l$.
+\item Sea $T(4U+3V) = \vect{r}{s}$. Determine el valor de $r$.
+\end{opciones}
+
+\end{enumerate}
+
+\examfooter
+\end{document}

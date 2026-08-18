@@ -1,0 +1,215 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=1.9cm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage[spanish]{babel}
+\usepackage{amsmath,amssymb}
+\usepackage{enumitem}
+\usepackage{tikz}
+\usetikzlibrary{calc,arrows.meta,patterns,decorations.pathmorphing}
+\usepackage{xcolor}
+\usepackage{multicol}
+\usepackage{parskip}
+\usepackage{lmodern}
+\renewcommand{\familydefault}{\sfdefault}
+
+\definecolor{unalblue}{RGB}{31,73,124}
+
+\newlist{opciones}{enumerate}{1}
+\setlist[opciones]{label=(\alph*),itemsep=1pt,topsep=2pt,leftmargin=1.8em,font=\normalfont}
+
+\newcommand{\vect}[2]{\begin{pmatrix}#1\\#2\end{pmatrix}}
+\newcommand{\vectiii}[3]{\begin{pmatrix}#1\\#2\\#3\end{pmatrix}}
+
+\pagestyle{empty}
+\setlength{\columnseprule}{0.5pt}
+
+\begin{document}
+
+\noindent
+\begin{minipage}[t]{0.62\linewidth}
+  {\bfseries\large Primer Parcial de Ecuaciones Diferenciales}\\[2pt]
+  {\small 1 de Septiembre del 2017}\\
+  {\small Puntaje. Sólo para uso Oficial}
+\end{minipage}%
+\hfill
+\begin{minipage}[t]{0.35\linewidth}
+  \raggedleft\small Escuela de Matemáticas. Universidad Nacional de Colombia, Sede Medellín.
+\end{minipage}\\[4pt]
+\rule{\linewidth}{0.6pt}
+
+\vspace{4pt}
+\noindent
+\begin{tabular}{|c|c|c|c|c|c|c|}
+\hline
+1 (20) & 2 (15) & 3 (10) & 4 (25) & 5.6 (30) & Total & Nota \\
+\hline
+ & & & & & & \\
+\hline
+\end{tabular}
+
+\vspace{6pt}
+\noindent\textbf{Instrucciones:} Antes de empezar verifique que su examen esté completo y que sus datos sean correctos. Por favor verifique que su celular esté apagado. No está permitido el uso de calculadora ni de otros aparatos electrónicos. Solucione las preguntas en los espacios en blanco asignados a cada una de ellas. No está permitido sacar hojas en blanco ni ningún tipo de apuntes durante el examen. Duración: 1 hora y 50 minutos.
+
+\vspace{4pt}
+\noindent En cada uno de los literales de los puntos 1, 2, 3 y 4, debe presentar detalladamente el procedimiento para llegar a la solución. \textbf{NOTA:} Respuestas sin procedimiento no se tendrán en cuenta.
+
+\vspace{8pt}
+\noindent Nombre: \makebox[0.45\linewidth]{\hrulefill} \hfill Cédula: \makebox[0.3\linewidth]{\hrulefill}
+
+\begin{multicols}{2}
+
+\textbf{1. [20pt]} Considere el problema con valor inicial
+\[
+\begin{cases}
+\dfrac{dy}{dx}+2xy=x, \\[4pt]
+y(0)=-2.
+\end{cases}
+\tag{1}
+\]
+
+\begin{opciones}
+\item[(a)] \textbf{[15pt]} Encuentre la solución del Problema (1).
+
+\vspace{3cm}
+
+\item[(b)] \textbf{[5pt]} Encuentre $\displaystyle\lim_{x\to\infty} y(x)$.
+
+\vspace{2.5cm}
+\end{opciones}
+
+\textbf{2. [15pt]} Resuelva la ecuación
+\[
+\frac{d^2y}{dx^2}=\cos(3x)+3x.
+\]
+
+\vspace{4cm}
+
+\columnbreak
+
+\textbf{3. [10pt]} Establezca si la siguiente ecuación es o no es exacta en el conjunto
+\[
+\{(x,y)\in\mathbb{R}^2 \mid 0<x<1,\ 0<y<1\}.
+\]
+\[
+\left(x^4y^4-x\sin x\right)dx+\left(\frac{4}{5}x^5y^3-\frac{1+\exp(\sin y)}{\tan^{-1}(y^2)+9}\right)dy=0.
+\]
+
+\vspace{4cm}
+
+\textbf{4. [25pt]} Aplicaciones. En los literales (a) y (b) no es necesario resolver la Ecuación Diferencial, ni tal solución será evaluada.
+
+\begin{opciones}
+\item[(a)] \textbf{[15pt]} Suponga que el café en una taza tiene una temperatura de $190$°F cuando acaba de servirse, y que un minuto después se ha enfriado hasta tener una temperatura de $160$°F, todo ello en un recinto cuya temperatura es de $67$°F. Suponiendo que el fenómeno descrito obedece la ley de enfriamiento de Newton, escriba la ecuación diferencial y las condiciones adicionales que modelan la situación descrita.
+
+\vspace{2.5cm}
+
+\item[(b)] \textbf{[10pt]} Las curvas ortogonales a la familia $y-x^4=k$, con $k\in\mathbb{R}$, satisfacen una ecuación diferencial. Escriba dicha ecuación diferencial, únicamente en las variables $x$ y $y$.
+
+\vspace{2.5cm}
+\end{opciones}
+
+\end{multicols}
+
+\noindent\textbf{NOTA:} En las preguntas 5 y 6, se califica sólo la respuesta y no se tiene en cuenta el procedimiento.
+
+\begin{multicols}{2}
+
+\textbf{5. [10pt]} Considere el problema de valor inicial
+\[
+\begin{cases}
+\dfrac{dy}{dx}+\sqrt{y-x}=\ln(y-2), \\[4pt]
+y(x_0)=y_0.
+\end{cases}
+\tag{2}
+\]
+
+Dibuje y sombree la región del plano (en el plano del lado derecho), a la cual debe pertenecer el punto $(x_0,y_0)$, para garantizar que exista algún intervalo abierto $I$ tal que $x_0\in I$ y el Problema (2) tenga solución única en $I$.
+
+\columnbreak
+
+\begin{center}
+\begin{tikzpicture}[scale=0.42]
+  % ejes
+  \draw[-{Latex[length=2mm]}] (-4.5,0) -- (4.5,0) node[right] {$x$};
+  \draw[-{Latex[length=2mm]}] (0,-4.5) -- (0,5.2) node[above] {$y$};
+  \foreach \n in {-4,-3,-2,-1,1,2,3,4}{
+    \draw (\n,0.1) -- (\n,-0.1) node[below,font=\scriptsize] {\n};
+  }
+  \foreach \n in {-4,-3,-2,-1,1,2,3,4}{
+    \draw (0.1,\n) -- (-0.1,\n) node[left,font=\scriptsize] {\n};
+  }
+  % linea y=2
+  \draw[dashed] (-4.5,2) -- (4.5,2);
+  \node[font=\scriptsize] at (4.1,2.3) {$y=2$};
+  % linea y=x
+  \draw[dashed] (-4.5,-4.5) -- (4.5,4.5);
+  \node[font=\scriptsize] at (4,4.6) {$y=x$};
+  % region: y>2 y y>x (no toca las lineas x)
+  \begin{scope}
+    \clip (-4.5,2) rectangle (4.5,5.2);
+    \clip plot[domain=-4.5:4.5] (\x,\x) -- (4.5,5.2) -- (-4.5,5.2) -- cycle;
+    \fill[pattern=north east lines, pattern color=black!70] (-4.5,2) rectangle (4.5,5.2);
+  \end{scope}
+  \node[font=\scriptsize] at (2.1,3.6) {No se tocan};
+  \node[font=\scriptsize] at (2.1,3.2) {las líneas $x$};
+\end{tikzpicture}
+\end{center}
+
+\end{multicols}
+
+\begin{multicols}{2}
+
+\textbf{6. [20pt]} Considere la ecuación autónoma
+\[
+\frac{dy}{dx}=f(y), \tag{3}
+\]
+en la cual $f$ y $f'$ son continuas en $\mathbb{R}$. En la gráfica del lado derecho, se muestra el campo de soluciones no constantes de la Ecuación (3) y, en la gráfica inferior se muestra un Zoom/Magnificación de la franja central para apreciar los detalles. Responda a las siguientes preguntas. \textit{Aclaración: Las curvas solución no se cortan, dan esa sensación óptica debido a la escala del dibujo.}
+
+\begin{opciones}
+\item[(a)] \textbf{[5pt]} Las soluciones de equilibrio, o estacionarias del Sistema (3) son $y=$ \underline{\hspace{1.2cm}}, \underline{\hspace{1.2cm}}.
+\item[(b)] \textbf{[5pt]} El repulsor $y_1$ de la Ecuación (3) es\\
+$y_1=$ \underline{\hspace{2cm}}
+\item[(c)] \textbf{[5pt]} Si la función $y$ es solución de la Ecuación (3) y además satisface que $y(-1)=5$, entonces, la función es cóncava hacia\\
+Respuesta: \underline{\hspace{2.5cm}}
+\item[(d)] \textbf{[5pt]} Si la función $y$ es solución de la Ecuación (3) y satisface las condiciones $y(x_0)=y_0$, $\displaystyle\lim_{x\to\infty} y(x)=-3$, entonces $y_0$ pertenece al intervalo $I=$ \underline{\hspace{2.5cm}}
+\end{opciones}
+
+\columnbreak
+
+\begin{center}
+\textsc{\footnotesize Ecuación Autónoma}\\[2pt]
+\begin{tikzpicture}[scale=0.9]
+  \draw[-{Latex[length=2mm]}] (-3.3,0) -- (3.3,0) node[right,font=\scriptsize] {$x$};
+  \draw[-{Latex[length=2mm]}] (0,-3.3) -- (0,3.3) node[above,font=\scriptsize] {$y$};
+  \foreach \n in {-3,-2,-1,1,2,3}{
+    \draw (\n,0.05) -- (\n,-0.05) node[below,font=\scriptsize] {\n};
+  }
+  \draw[dashed] (-3.3,3) -- (3.3,3) node[right,font=\scriptsize] {$y=3$};
+  \draw[dashed] (-3.3,-3) -- (3.3,-3) node[right,font=\scriptsize] {$y=-3$};
+  % familia de curvas sigmoides decrecientes: de y=3 (x->-inf) a y=-3 (x->+inf)
+  \foreach \k in {0.7,0.9,1.2,1.6,2.1}{
+    \draw[thick] plot[domain=-3.2:3.2,samples=60] (\x,{3-6/(1+exp(-1*min(max(\k*\x,-9),9)))});
+  }
+\end{tikzpicture}
+
+\vspace{4pt}
+\textsc{\footnotesize Magnificación/Zoom, Franja Central}\\[2pt]
+\begin{tikzpicture}[scale=0.9]
+  \draw[-{Latex[length=2mm]}] (-3.3,0) -- (3.3,0) node[right,font=\scriptsize] {$x$};
+  \draw[-{Latex[length=2mm]}] (0,-2.3) -- (0,1.8) node[above,font=\scriptsize] {$y$};
+  \draw[dashed] (-3.3,1.5) -- (3.3,1.5) node[right,font=\scriptsize] {$y=3$};
+  \draw[dashed] (-3.3,-2) -- (3.3,-2) node[right,font=\scriptsize] {$y=-3$};
+  \foreach \k in {0.8,1.1,1.5,2.0,2.6,3.2}{
+    \draw[thick] plot[domain=-3.2:3.2,samples=60] (\x,{1.5-3.5/(1+exp(-1*min(max(\k*\x,-9),9)))});
+  }
+\end{tikzpicture}
+\end{center}
+
+\end{multicols}
+
+\vfill
+\rule{\linewidth}{0.4pt}\\[1pt]
+{\scriptsize\textit{Transcripción digital --- MathUNAL}\hfill\textcolor{unalblue}{\textbf{1}}}
+
+\end{document}

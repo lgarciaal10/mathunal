@@ -1,0 +1,171 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=1.9cm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage[spanish]{babel}
+\usepackage{amsmath,amssymb}
+\usepackage{enumitem}
+\usepackage{tikz}
+\usetikzlibrary{calc,arrows.meta,patterns,decorations.pathmorphing}
+\usepackage{xcolor}
+\usepackage{multicol}
+\usepackage{parskip}
+\usepackage{lmodern}
+\renewcommand{\familydefault}{\sfdefault}
+
+\definecolor{unalblue}{RGB}{31,73,124}
+
+\newlist{opciones}{enumerate}{1}
+\setlist[opciones]{label=(\alph*),itemsep=1pt,topsep=2pt,leftmargin=1.8em,font=\normalfont}
+
+\pagestyle{empty}
+\setlength{\columnseprule}{0.5pt}
+
+\begin{document}
+
+\noindent
+\begin{minipage}[t]{0.62\linewidth}
+  {\bfseries\large Primer Parcial de Ecuaciones Diferenciales}\\[2pt]
+  {\small 17 de Marzo del 2018}\\
+  {\small Puntaje. Sólo para uso Oficial}
+\end{minipage}%
+\hfill
+\begin{minipage}[t]{0.35\linewidth}
+  \raggedleft\small Escuela de Matemáticas. Universidad Nacional de Colombia, Sede Medellín.
+\end{minipage}\\[4pt]
+\rule{\linewidth}{0.6pt}
+
+\vspace{4pt}
+\noindent
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+1 (/20) & 2 (/10) & 3 (/40) & 4 (/30) & Total & Nota \\
+\hline
+ & & & & & \\
+\hline
+\end{tabular}
+
+\vspace{6pt}
+\noindent\textbf{Instrucciones:} Antes de empezar verifique que su examen esté completo y que sus datos sean correctos. Por favor verifique que su celular esté apagado. No está permitido el uso de calculadora ni de otros aparatos electrónicos. Solucione las preguntas en los espacios en blanco asignados a cada una de ellas. No está permitido sacar hojas en blanco ni ningún tipo de apuntes durante el examen. Duración: 1 hora y 50 minutos.
+
+\vspace{8pt}
+\noindent Nombre: \makebox[0.45\linewidth]{\hrulefill} \hfill Cédula: \makebox[0.3\linewidth]{\hrulefill}
+
+\begin{multicols}{2}
+
+\textbf{1. (20\%)} Resuelva la ecuación diferencial (ED)
+\small
+\[
+\left(ye^{xy}+2xy+\frac{1}{y}\right)dx+\left(xe^{xy}+x^2-\frac{x}{y^2}+y^2\right)dy=0.
+\]
+\normalsize
+
+\vspace{6cm}
+
+\columnbreak
+
+\textbf{2. (10\%)} Considere la ED
+\[
+\frac{dy}{dx}=f\left(\frac{y}{x}\right), \tag{1}
+\]
+en la cual la incógnita es $y=y(x)$. Demuestre que la sustitución (o cambio de variables) $y=xu$ transforma la ED (1) en una ED en variables separables cuya incógnita es $u=u(x)$.
+
+\end{multicols}
+
+\noindent\textbf{3. (40\%)} Aplicaciones
+
+\begin{multicols}{2}
+
+\begin{opciones}
+\item[a)] \textbf{(25\%)} Un objeto que pesa 1280 lbs se lanza hacia arriba con una velocidad inicial de 80 pies/seg. La atmósfera resiste al movimiento con una fuerza de 4 lbs por cada pie/seg de rapidez. Suponiendo que la otra fuerza que actúa sobre el objeto es la gravedad (que suponemos constante).
+
+i) \textbf{(10\%)} Plantee el problema de valor inicial (PVI) que describa con qué rapidez cambia la velocidad con respecto al tiempo.
+
+ii) \textbf{(10\%)} Resuelva el PVI del numeral anterior y escriba la velocidad en función del tiempo.
+
+iii) \textbf{(5\%)} Halle la velocidad límite.
+\end{opciones}
+
+\columnbreak
+
+\begin{opciones}
+\item[b)] \textbf{(15\%)} Un tanque contiene inicialmente 200 gal de mezcla en los cuales hay 20 libras de sal disueltas. A partir de cierto instante comienza a entrar al tanque salmuera a razón de 4 gal/min, con una concentración de $e^{-t}$ lbs de sal por galón. Simultáneamente se bombea mezcla hacia afuera del tanque a razón de 3 gal/min. Plantee el PVI que describe la variación de la cantidad de sal $Q(t)$ presente en el tanque en el instante $t$ a partir del instante inicial.
+
+\textit{NOTA: No es necesario que resuelva este PVI, ni tal solución será tenida en cuenta.}
+\end{opciones}
+
+\end{multicols}
+
+\noindent\textbf{4. (30\%)} En los literales a), b), c) y d) complete según corresponda. Sólo se calificará respuesta, no es necesario que escriba el procedimiento.
+
+\begin{multicols}{2}
+
+\begin{opciones}
+\item[a)] \textbf{(7\%)} El mayor intervalo en el cual, sin resolverlo, se puede garantizar que el PVI
+\[
+\begin{cases}
+(t-4)\dfrac{dy}{dt}+\ln(t+1)y=t^2, \\
+y(0)=10,
+\end{cases}
+\]
+tiene una única solución es \underline{\hspace{2.5cm}}
+
+\item[b)] \textbf{(8\%)} Considere la ED autónoma
+\[
+\frac{dy}{dt}=y(y+1)(y-1).
+\]
+Los puntos críticos (o soluciones de equilibrio) asintóticamente estables (o atractores) son \underline{\hspace{2cm}}
+
+Los puntos críticos (o soluciones de equilibrio) asintóticamente inestables (o repulsores) son \underline{\hspace{2cm}}
+
+\item[c)] \textbf{(8\%)} Al efectuar una sustitución adecuada, la ED de Bernoulli $\dfrac{dy}{dx}=-y-xy^{-4}$ se transforma en una ED lineal. Escriba tal ED lineal
+
+\underline{\hspace{5cm}}
+
+\columnbreak
+
+\item[d)] \textbf{(7\%)} Considere el PVI
+\[
+\begin{cases}
+\dfrac{dy}{dx}=e^{x+y^2}, \\
+y(0)=\dfrac{1}{2}.
+\end{cases}
+\]
+Determine cuál de las curvas que se muestra es la única curva solución posible: \underline{\hspace{2.5cm}}
+
+\begin{center}
+\begin{tikzpicture}[scale=1.1]
+  \draw[-{Latex[length=2mm]}] (-1.3,0) -- (1.3,0) node[right,font=\scriptsize] {$x$};
+  \draw[-{Latex[length=2mm]}] (0,-0.3) -- (0,1.9) node[above,font=\scriptsize] {$y$};
+  \foreach \n/\lab in {-0.5/-0.5,0.5/0.5}{
+    \draw (\n,0.03) -- (\n,-0.03) node[below,font=\scriptsize] {\lab};
+  }
+  \node[font=\scriptsize] at (-0.15,1.55) {1.5};
+  \node[font=\scriptsize] at (-0.15,1.05) {1};
+
+  % y1: decreciente convexa (cae para x>0)
+  \draw[thick] plot[domain=-1.1:1.1,samples=40] (\x,{0.5-0.35*\x});
+  \node[font=\scriptsize] at (0.55,0.15) {$y_1$};
+
+  % y2: curva simetrica tipo parabola hacia arriba, minimo en 0
+  \draw[thick] plot[domain=-1.1:1.1,samples=40] (\x,{0.5+0.6*\x*\x});
+  \node[font=\scriptsize] at (0.55,1.15) {$y_2$};
+
+  % y3: recta horizontal aprox y=0.5 con leve pendiente
+  \draw[thick] plot[domain=-1.1:1.1,samples=40] (\x,{0.5+0.05*\x});
+  \node[font=\scriptsize] at (0.95,0.6) {$y_3$};
+
+  % y4: creciente rapida tipo explosion (asintota vertical)
+  \draw[thick] plot[domain=-1.1:0.75,samples=60] (\x,{0.5/(1-0.6*\x)});
+  \node[font=\scriptsize] at (0.85,1.75) {$y_4$};
+\end{tikzpicture}
+\end{center}
+\end{opciones}
+
+\end{multicols}
+
+\vfill
+\rule{\linewidth}{0.4pt}\\[1pt]
+{\scriptsize\textit{Transcripción digital --- MathUNAL}\hfill\textcolor{unalblue}{\textbf{1}}}
+
+\end{document}

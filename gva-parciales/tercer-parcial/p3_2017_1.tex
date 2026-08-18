@@ -1,0 +1,181 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=1.9cm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage[spanish]{babel}
+\usepackage{amsmath,amssymb}
+\usepackage{lmodern}
+\renewcommand{\familydefault}{\sfdefault}
+\usepackage{enumitem}
+
+\newcommand{\vect}[2]{\begin{pmatrix}#1\\#2\end{pmatrix}}
+\newcommand{\vectiii}[3]{\begin{pmatrix}#1\\#2\\#3\end{pmatrix}}
+\usepackage{tikz}
+\usetikzlibrary{calc,arrows.meta,patterns,decorations.pathmorphing}
+\usepackage[table]{xcolor}
+\usepackage{multicol}
+\usepackage{parskip}
+
+\definecolor{unalblue}{RGB}{31,73,124}
+
+\newlist{opciones}{enumerate}{1}
+\setlist[opciones]{label=(\alph*),itemsep=6pt,topsep=6pt,leftmargin=1.8em,font=\normalfont}
+\setlist[enumerate,1]{itemsep=1.4em,topsep=1em}
+
+\newcommand{\examfooter}{%
+  \vfill
+  \rule{\linewidth}{0.4pt}\\[1pt]
+  {\scriptsize\textit{Transcripción digital --- MathUNAL}\hfill\textcolor{unalblue}{\textbf{\thepage}}}
+}
+\pagestyle{empty}
+
+\newcommand{\nota}[1]{{\small\itshape\color{unalblue!70!black} #1}}
+
+\begin{document}
+\noindent
+\begin{minipage}[t]{0.6\linewidth}
+{\small\bfseries Geometría Vectorial y Analítica --- Parcial 3}\\
+{\small Semestre 2017--01}
+\end{minipage}%
+\hfill
+\begin{minipage}[t]{0.35\linewidth}
+\raggedleft\small Escuela de Matemáticas. Universidad Nacional de Colombia, Sede Medellín.
+\end{minipage}\\[2pt]
+\rule{\linewidth}{0.6pt}
+
+\begin{center}
+\textbf{Tercer Examen Parcial de Geometría}\\
+30 de mayo del 2017
+\end{center}
+
+\vspace{6pt}
+\textbf{Puntaje. Solo para uso Oficial}
+
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+1 (/25) & 2 (/15) & 3 (/15) & 4-5 (/40) & Total \\
+\hline
+ & & & & \\
+\hline
+\end{tabular}
+\end{center}
+
+\vspace{10pt}
+\textbf{Instrucciones:} Antes de empezar verifique que su examen esté completo y que sus datos sean correctos. Por favor verifique que su celular esté apagado. No está permitido el uso de calculadora ni de otros aparatos electrónicos. Solucione las preguntas en los espacios en blanco asignados a cada una de ellas. No está permitido sacar hojas en blanco ni ningún tipo de apuntes durante el examen ni hacer preguntas a los vigilantes. \textbf{Duración: 1:50.}
+
+\vspace{6pt}
+\nota{En cada uno de los literales de los puntos 1, 2 y 3, debe presentar detalladamente el procedimiento para llegar a la solución. NOTA: Respuestas sin procedimiento no se tendrán en cuenta.}
+
+\begin{enumerate}
+\item Considere las rectas $\mathcal{L}_1=\left\{t\vectiii{2}{1}{1}+\vectiii{0}{-1}{1}:t\in\mathbb{R}\right\}$ y $\mathcal{L}_2:\dfrac{x}{4}=\dfrac{y+3}{2}=\dfrac{z-1}{2}$.
+
+\begin{enumerate}[label=(\alph*)]
+\item{}[8pt] Verifique que las rectas $\mathcal{L}_1$ y $\mathcal{L}_2$ son paralelas.
+\item{}[8pt] Encuentre la distancia entre $\mathcal{L}_1$ y $\mathcal{L}_2$.
+\item{}[9pt] Encuentre una ecuación general del plano $\mathcal{P}$ que contiene ambas rectas.
+\end{enumerate}
+
+\item Considere la cónica $\mathcal{C}: 2y^2+5x-4y+7=0$.
+
+\begin{enumerate}[label=(\alph*)]
+\item{}[5pt] Utilice completación de cuadrados para reducir la cónica $\mathcal{C}$ a una forma estándar y clasifíquela.
+\item{}[5pt] Encuentre los elementos característicos que apliquen a la cónica $\mathcal{C}$: centro, foco(s), vértice(s), directriz, eje focal, eje normal, extremos del lado recto, extremos del eje menor (o conjugado), asíntotas.
+\item{}[5pt] Grafique la cónica.
+
+\begin{center}
+\begin{tikzpicture}[scale=0.42]
+\draw[step=1,gray!40,thin] (-5,-5) grid (5,5);
+\draw[-{Latex}] (-5.3,0) -- (5.3,0) node[right]{$x$};
+\draw[-{Latex}] (0,-5.3) -- (0,5.3) node[above]{$y$};
+\end{tikzpicture}
+\end{center}
+\nota{Plano cartesiano provisto en el examen original para graficar la cónica.}
+\end{enumerate}
+
+\item{}[15pt] Sea $\mathcal{C}$ el lugar geométrico de los puntos $P=\vect{x}{y}$ del plano tales que la distancia de $P$ al punto $B=\vect{-4}{0}$ es igual al doble de la distancia de $P$ a la recta $\mathcal{L}: x+1=0$. Pruebe que $\mathcal{C}$ es una hipérbola.
+\end{enumerate}
+
+\vspace{6pt}
+\nota{En las preguntas 4 y 5 complete los espacios en blanco o elija la (las) opción (opciones) correcta (correctas) según el caso. Tenga presente que los datos en cada literal son independientes y pueden variar. NOTA: En esta sección se califica únicamente la respuesta y no se tiene en cuenta el procedimiento.}
+
+\begin{enumerate}
+\setcounter{enumi}{3}
+\item{}[20pt] En la gráfica se observa una elipse en el espacio, con la siguiente ecuación:
+$$\mathcal{E}=\left\{\vectiii{x}{y}{z}\in\mathbb{R}^3: x=4,\ \frac{y^2}{5^2}+\frac{z^2}{4^2}=1\right\},$$
+es decir, $\mathcal{E}$ está contenida en el plano $x=4$. Responda a las siguientes preguntas.
+
+\begin{center}
+\begin{tikzpicture}[scale=0.85]
+\draw[-{Latex}] (-2.5,-1.2) -- (-0.5,0.4) node[left]{$x$};
+\draw[-{Latex}] (-3,0) -- (4,0) node[right]{$y$};
+\draw[-{Latex}] (0,-1.5) -- (0,2.5) node[above]{$z$};
+\draw (2.7,0) ellipse (2.2 and 1.1);
+\fill (0.5,0) circle (1.3pt); \node[below] at (0.5,0) {$C$};
+\fill (1.7,0) circle (1.3pt); \node[below] at (1.7,0) {$F'$};
+\fill (3.7,0) circle (1.3pt); \node[below] at (3.7,0) {$F$};
+\fill (0.5,1.1) circle (1.3pt); \node[above] at (0.5,1.1) {$V'$};
+\fill (4.9,0) circle (1.3pt); \node[right] at (4.9,0) {$V$};
+\fill (0.5,-1.1) circle (1.3pt); \node[below] at (0.5,-1.1) {$A$};
+\draw[dotted] (2.7,1.1) -- (2.7,-1.1);
+\node[right] at (5.3,-1) {$\mathcal{L}$};
+\node[below] at (2.7,-1.3) {$\mathcal{E}$};
+\end{tikzpicture}
+\end{center}
+
+\begin{enumerate}[label=(\alph*)]
+\item{}[5pt] El centro $C$ de la elipse $\mathcal{E}$ tiene coordenadas $C=$ \underline{\hspace{3cm}}.
+\item{}[5pt] El foco $F$ de la elipse tiene coordenadas $F=$ \underline{\hspace{3cm}}.
+\item{}[5pt] Dado un punto $Q\in\mathcal{E}$ cualquiera de la elipse, entonces: $\|Q-F\|+\|Q-F'\|=$ \underline{\hspace{3cm}}.
+\item{}[5pt] Si $Q,R\in\mathcal{E}$ son dos puntos distintos cualesquiera de la elipse, entonces: $[(Q-C)\times(R-C)]\times E_1=$ \underline{\hspace{3cm}}.
+\end{enumerate}
+
+\item{}[20pt] En la figura se marcan algunos puntos del espacio; cada uno de los cubos tiene arista de largo 2.
+
+\begin{center}
+\begin{tikzpicture}[scale=1.7]
+\coordinate (O) at (0,0);
+\coordinate (F) at (0.55,0.32);
+\coordinate (J) at (0,1);
+\coordinate (K) at (0.55,1.32);
+\coordinate (Bpt) at (0.55,-0.32);
+\coordinate (Gpt) at (1.65,0.32);
+\coordinate (D) at (1.1,0);
+\coordinate (A) at (0.55,0.68);
+\coordinate (H) at (1.1,1);
+\coordinate (I) at (0.55,1.68);
+\draw[thick] (O) -- (Bpt) -- (Gpt) -- (F) -- cycle;
+\draw[thick] (O) -- (J) -- (K) -- (F);
+\draw[dashed] (J) -- (A) -- (H) -- (K);
+\draw[dashed] (Bpt) -- (A);
+\draw[dashed] (D) -- (H);
+\draw[dashed] (D) -- (Gpt);
+\draw[thick] (H) -- (I);
+\draw[dotted] (D) -- (F);
+\draw[-{Latex}] (O) -- (0.77,-0.45) node[left]{$x$};
+\draw[-{Latex}] (Gpt) -- (2.15,0.61) node[right]{$y$};
+\draw[-{Latex}] (K) -- (0.55,2.02) node[above]{$z$};
+\node[below left,font=\small] at (O) {$C$};
+\node[below,font=\small] at (Bpt) {$B$};
+\node[right,font=\small] at (Gpt) {$G$};
+\node[left,font=\small] at (F) {$F$};
+\node[left,font=\small] at (J) {$J$};
+\node[left,font=\small] at (K) {$K$};
+\node[right,font=\small] at (A) {$A$};
+\node[right,font=\small] at (D) {$D$};
+\node[above,font=\small] at (H) {$H$};
+\node[above,font=\small] at (I) {$I$};
+\end{tikzpicture}
+\end{center}
+
+\begin{enumerate}[label=(\alph*)]
+\item{}[5pt] Un vector normal al plano $\mathcal{P}_{ABC}$ que contiene los puntos $A,B,C$ es $N=$ \underline{\hspace{3cm}}.
+\item{}[5pt] Si $\mathcal{L}_{IC}$ es la recta que une los puntos $I,C$ y $\mathcal{L}_{HD}$ es la recta que une los puntos $H,D$, entonces la distancia entre dichas rectas es $\operatorname{dist}(\mathcal{L}_{IC},\mathcal{L}_{HD})=$ \underline{\hspace{3cm}}.
+\item{}[5pt] El ángulo entre los vectores $C\times I$ y $H$ es $\angle(C\times I,H)=$ \underline{\hspace{3cm}}.
+\item{}[5pt] Si $\mathcal{P}_{FCD}$ es el plano que contiene los puntos $F,C,D$, $\mathcal{P}_z=\{X\in\mathbb{R}^3: X\cdot E_3=0\}$ y $\mathcal{P}_y=\{X\in\mathbb{R}^3: X\cdot E_2=0\}$, entonces los siguientes ángulos entre planos son: $\angle(\mathcal{P}_{FCD},\mathcal{P}_z)=$ \underline{\hspace{1.5cm}} y $\angle(\mathcal{P}_{FCD},\mathcal{P}_y)=$ \underline{\hspace{1.5cm}}.
+\end{enumerate}
+
+\end{enumerate}
+
+\examfooter
+\end{document}

@@ -1,0 +1,133 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=1.9cm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage[spanish]{babel}
+\usepackage{amsmath,amssymb}
+\usepackage{lmodern}
+\renewcommand{\familydefault}{\sfdefault}
+\usepackage{enumitem}
+
+\newcommand{\vect}[2]{\begin{pmatrix}#1\\#2\end{pmatrix}}
+\usepackage{tikz}
+\usetikzlibrary{calc,arrows.meta,patterns,decorations.pathmorphing}
+\usepackage[table]{xcolor}
+\usepackage{multicol}
+\usepackage{parskip}
+
+\definecolor{unalblue}{RGB}{31,73,124}
+
+\newlist{opciones}{enumerate}{1}
+\setlist[opciones]{label=\alph*),itemsep=6pt,topsep=6pt,leftmargin=1.8em,font=\normalfont}
+\setlist[enumerate,1]{itemsep=1.4em,topsep=1em}
+
+\newcommand{\examfooter}{%
+  \vfill
+  \rule{\linewidth}{0.4pt}\\[1pt]
+  {\scriptsize\textit{Transcripción digital --- MathUNAL}\hfill\textcolor{unalblue}{\textbf{\thepage}}}
+}
+\pagestyle{empty}
+
+\newcommand{\nota}[1]{{\small\itshape\color{unalblue!70!black} #1}}
+
+\begin{document}
+\noindent
+\begin{minipage}[t]{0.6\linewidth}
+{\small\bfseries Geometría Vectorial y Analítica --- Parcial 1}\\
+{\small Semestre 2022--01}
+\end{minipage}%
+\hfill
+\begin{minipage}[t]{0.35\linewidth}
+\raggedleft\small Escuela de Matemáticas. Universidad Nacional de Colombia, Sede Medellín.
+\end{minipage}\\[2pt]
+\rule{\linewidth}{0.6pt}
+
+\vspace{6pt}
+\noindent Geometría Vectorial y Analítica\\
+2022-01 --- Examen Parcial 1 --- Abril 2022
+
+\vspace{6pt}
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|c|}
+\hline
+Pregunta & 1 & 2 & 3 & 4 & 5 & 6 \\
+\hline
+Puntaje & 18\% & 15\% & 16\% & 15\% & 18\% & 18\% \\
+\hline
+\end{tabular}
+\end{center}
+
+\vspace{10pt}
+\textbf{Instrucciones:} La duración del examen es \textbf{2 horas y media}. Verifique que sus datos de identificación son correctos. La prueba consta de seis preguntas. Debe consignar sus respuestas en la encuesta de Google Forms que le fue enviada por correo. Este examen es individual y no está permitido pedir ayuda o buscar las respuestas en internet. En los casos en que la respuesta sea un número no entero, aproximar con 2 decimales y separar decimales con punto, como en $\pi=3.14$.
+
+\begin{enumerate}
+\item Determine para cuáles valores de $x\in\mathbb{R}$ los siguientes vectores son LD.
+$$\vect{-36x+72}{75x^2+12x+99},\quad \vect{6}{-5x+4}$$
+
+\begin{opciones}
+\item $x=-6$.
+\item $x=-6$.
+\item $x=\dfrac{6}{2}$.
+\item $x=\dfrac{2}{6}$.
+\item $x=\dfrac{-51}{45}$.
+\item $x=-1$.
+\item Ninguna de las anteriores.
+\end{opciones}
+
+\item Sean $A$ y $B$ puntos del plano tales que $\|B\|=2\|A\|$ y $\|A-B\|=\dfrac{5}{2}\|A\|$. Entonces se puede concluir que
+
+\begin{opciones}
+\item $A\cdot B=\dfrac{1}{1}\|A\|\|B\|$.
+\item $A\cdot B=\dfrac{-41}{64}\|A\|\|B\|$.
+\item $A\cdot B=\dfrac{-1}{1}\|A\|\|B\|$.
+\item $A\cdot B=\dfrac{-5}{16}\|A\|\|B\|$.
+\item $A\cdot B=\dfrac{-1}{64}\|A\|\|B\|$.
+\item Ninguna de las anteriores.
+\end{opciones}
+
+\item Considere los puntos en la imagen y suponga que las líneas rectas se cortan ortogonalmente. Si $A=\vect{8}{4}$, y $D=\vect{-17}{4}$, hallar las coordenadas de $C$.
+
+\begin{center}
+\begin{tikzpicture}[scale=0.5]
+\coordinate (O) at (0,0);
+\coordinate (A) at (3.9,1.3);
+\coordinate (E) at (-3.6,-1.2);
+\coordinate (C) at (-0.6,1.8);
+\coordinate (G) at (0.55,-1.65);
+\coordinate (D) at (-3.9,0.7);
+\coordinate (B) at (3.3,3.1);
+\coordinate (H) at (4.6,-0.8);
+\draw[thick] ($(D)!-0.15!(B)$) -- ($(B)!-0.15!(D)$);
+\draw[thick] ($(E)!-0.15!(A)$) -- ($(A)!-0.15!(E)$);
+\draw[thick] ($(G)!-0.15!(C)$) -- ($(C)!-0.2!(G)$);
+\draw[thick] ($(H)!-0.15!(B)$) -- ($(B)!-0.2!(H)$);
+\draw[-{Latex},thin] (-4.3,0) -- (5,0) node[right]{$x$};
+\draw[-{Latex},thin] (0,-2.3) -- (0,3.6) node[above]{$y$};
+\fill (O) circle (1.8pt); \node[below right,font=\small] at (O) {$O$};
+\fill (A) circle (1.8pt); \node[below right,font=\small] at (A) {$A$};
+\fill (E) circle (1.8pt); \node[below left,font=\small] at (E) {$E$};
+\fill (C) circle (1.8pt); \node[above,font=\small] at (C) {$C$};
+\fill (G) circle (1.8pt); \node[below,font=\small] at (G) {$G$};
+\fill (D) circle (1.8pt); \node[left,font=\small] at (D) {$D$};
+\fill (B) circle (1.8pt); \node[above,font=\small] at (B) {$B$};
+\fill (H) circle (1.8pt); \node[below right,font=\small] at (H) {$H$};
+\end{tikzpicture}
+\end{center}
+
+\item Considere las rectas $\mathcal{L}_{AB}$ y $\mathcal{L}_{CD}$, donde $A=\vect{-5}{0}, B=\vect{0}{5}, C=\vect{5}{0}, D=\vect{0}{-5}$. De las siguientes afirmaciones, seleccione todas aquellas que son verdaderas.
+
+\begin{opciones}
+\item El rayo $\mathcal{R}^{-}_{(-1,-1)}$ está incluido en en el semiplano $\mathcal{L}^{+}_{\overrightarrow{AB}}$.
+\item El semiplano $\mathcal{L}^{+}_{\overrightarrow{CD}}$ está incluido en el semiplano $\mathcal{L}^{-}_{\overrightarrow{AB}}$.
+\item Los semiplanos $\mathcal{L}^{+}_{\overrightarrow{AB}}$ y $\mathcal{L}^{+}_{\overrightarrow{CD}}$ no tienen puntos en común.
+\item Ninguna de las anteriores.
+\end{opciones}
+
+\item Considere los puntos $A=\vect{4}{1}$ y $B=\vect{3}{12}$. Si rotamos el rayo $R^{+}_{\overrightarrow{OA}}$ por un ángulo $\theta$, hasta hacerlo coincidir con el rayo $R^{+}_{\overrightarrow{OB}}$, entonces los valores de $\cos\theta$ y $\operatorname{sen}\theta$ son:
+
+\item Considere el vector unitario $A=\vect{-1/2}{-\sqrt{3}/2}$. Otro vector unitario $B$ hace un ángulo de $60^\circ$ con el vector $A$ y es tal que la pareja $(A,B)$ está orientada positivamente. Sea $C=\vect{-2}{-2/\sqrt{3}}$. Los valores de $r$ y $s$ tales que $C=rA+sB$ son:
+
+\end{enumerate}
+
+\examfooter
+\end{document}

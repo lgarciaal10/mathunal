@@ -1,0 +1,133 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=1.9cm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage[spanish]{babel}
+\usepackage{amsmath,amssymb}
+\usepackage{lmodern}
+\renewcommand{\familydefault}{\sfdefault}
+\usepackage{enumitem}
+
+\newcommand{\vect}[2]{\begin{pmatrix}#1\\#2\end{pmatrix}}
+\usepackage{tikz}
+\usetikzlibrary{calc,arrows.meta,patterns,decorations.pathmorphing}
+\usepackage[table]{xcolor}
+\usepackage{multicol}
+\usepackage{parskip}
+
+\definecolor{unalblue}{RGB}{31,73,124}
+
+\newlist{opciones}{enumerate}{1}
+\setlist[opciones]{label=\alph*),itemsep=6pt,topsep=6pt,leftmargin=1.8em,font=\normalfont}
+\setlist[enumerate,1]{itemsep=1.4em,topsep=1em}
+
+\newcommand{\examfooter}{%
+  \vfill
+  \rule{\linewidth}{0.4pt}\\[1pt]
+  {\scriptsize\textit{Transcripción digital --- MathUNAL}\hfill\textcolor{unalblue}{\textbf{\thepage}}}
+}
+\pagestyle{empty}
+
+\newcommand{\nota}[1]{{\small\itshape\color{unalblue!70!black} #1}}
+
+\begin{document}
+\noindent
+\begin{minipage}[t]{0.6\linewidth}
+{\small\bfseries Geometría Vectorial y Analítica --- Parcial 1}\\
+{\small Semestre 2021--02 (Supletorio)}
+\end{minipage}%
+\hfill
+\begin{minipage}[t]{0.35\linewidth}
+\raggedleft\small Escuela de Matemáticas. Universidad Nacional de Colombia, Sede Medellín.
+\end{minipage}\\[2pt]
+\rule{\linewidth}{0.6pt}
+
+\vspace{6pt}
+\noindent Geometría Vectorial y Analítica --- Supletorio\\
+Primer Examen Parcial
+
+\vspace{4pt}
+\noindent Agosto de 2021
+
+\vspace{6pt}
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+Preg. & 1 & 2 & 3 & 4 & 5 \\
+\hline
+Punt. & 12\% & 12\% & 20\% & 24\% & 32\% \\
+\hline
+\end{tabular}
+\end{center}
+
+\vspace{10pt}
+\textbf{Instrucciones:} La duración del examen es \textbf{2 horas}. Verifique que sus datos de identificación son correctos. La prueba consta de 5 preguntas. Debe consignar sus respuestas en la encuesta de Google Forms que le fue enviada por correo. Este examen es individual y no está permitido pedir ayuda o buscar las respuestas en internet. En los casos en que la respuesta sea un número no entero, aproximar con 2 decimales y separar decimales con punto, como en $\pi=3.14$.
+
+\begin{enumerate}
+\item Considere la recta que pasa por los puntos $X$ y $Y$, y suponga que los puntos identificados en la figura están igualmente espaciados. Suponga que $P=(1/6)X+(5/6)Y$, y suponga que $Q=(8/6)X+(-2/6)Y$ ¿Cuáles de los puntos de la figura corresponden a $P$ y $Q$?
+
+\begin{center}
+\begin{tikzpicture}[scale=0.85]
+\foreach \i/\lbl in {0/X,1/A,2/B,3/C,4/D,5/E,6/Y,7/F,8/G,9/H,10/I,11/J}{
+  \coordinate (P\i) at (\i*0.75,\i*0.28);
+  \fill (P\i) circle (1.3pt);
+}
+\draw[-{Latex}] (P0) -- ($(P11)+(0.6,0.22)$);
+\node[below left,font=\small] at (P0) {$X$};
+\node[below,font=\small] at (P1) {$A$};
+\node[below,font=\small] at (P2) {$B$};
+\node[below,font=\small] at (P3) {$C$};
+\node[below,font=\small] at (P4) {$D$};
+\node[below,font=\small] at (P5) {$E$};
+\node[above,font=\small] at (P6) {$Y$};
+\node[above,font=\small] at (P7) {$F$};
+\node[above,font=\small] at (P8) {$G$};
+\node[above,font=\small] at (P9) {$H$};
+\node[above,font=\small] at (P10) {$I$};
+\node[above right,font=\small] at (P11) {$J$};
+\end{tikzpicture}
+\end{center}
+
+\item Considere los vectores $U=\vect{x}{-5}$ y $V=\vect{-4}{-1+x}$. Existen dos valores de $x$ para los cuales los vectores $U$ y $V$ son linealmente dependientes, que llamaremos $x_1,x_2$ con $x_1\le x_2$. Halle los valores $x_1,x_2$.
+
+\item De las siguientes afirmaciones, seleccione todas aquellas que sean verdaderas. Sea $A$ un vector no nulo y $B$ un vector en el semiplano a la izquierda de $A$, entonces:
+
+\begin{opciones}
+\item $-A$ está en el semiplano a la izquierda de $B-3\mathrm{P}_{A^\perp}(B)$.
+\item $\mathrm{S}_A(B)$ está en el semiplano a la derecha de $\mathrm{S}_A(B-A)$.
+\item $B^\perp$ está en el semiplano a la derecha de $-A$.
+\item $A-B$ está en el semiplano a la izquierda de $\mathrm{S}_{A-B}(B)$.
+\item Ninguna de las anteriores.
+\end{opciones}
+
+\item Sea $\mathcal{L}$ la recta que pasa por los puntos $A=\vect{-2}{2}$ y $B=\vect{4}{-3}$, entonces:
+
+\begin{opciones}
+\item $\mathcal{L}$ tiene ecuación $y=px+k$, con $p=$ \underline{\hspace{1.5cm}}, y $k=$ \underline{\hspace{1.5cm}}.
+\item $\mathcal{L}$ tiene ecuación general $ax+by+1=0$, con $a=$ \underline{\hspace{1.5cm}}, y $b=$ \underline{\hspace{1.5cm}}.
+\item $\mathcal{L}$ tiene forma vectorial $X=\vect{1}{e}+t\vect{1}{d}$, $t\in\mathbb{R}$, con $e=$ \underline{\hspace{1.5cm}}, y $d=$ \underline{\hspace{1.5cm}}.
+\item Toda recta ortogonal a $\mathcal{L}$ tiene vector director $\vect{1}{o}$, con $o=$ \underline{\hspace{1.5cm}}.
+\item $\mathcal{L}$ tiene forma normal $\vect{1}{n}\cdot\left(X-\vect{1}{q}\right)$, con $n=$ \underline{\hspace{1.5cm}}, y $q=$ \underline{\hspace{1.5cm}}.
+\end{opciones}
+
+\item Considere vectores $A,B,C,D$ tales que
+$$\|A\|=2,\ \|B\|=3,\ \|C\|=4,\ \|D\|=5,\quad\text{y}$$
+$$\operatorname{dir}(A)=\frac{1\pi}{6},\ \operatorname{dir}(B)=\frac{2\pi}{6},\ \operatorname{dir}(C)=\frac{4\pi}{6},\ \operatorname{dir}(D)=\frac{5\pi}{6}.$$
+De las siguientes afirmaciones, seleccione todas aquellas verdaderas.
+
+\begin{opciones}
+\item El vector $C^\perp$ satisface $\|C^\perp\|=4$ y $\operatorname{dir}(C^\perp)=\dfrac{7\pi}{6}$.
+\item El vector $B$ está en el semi-plano izquierdo de la recta que pasa por $-C$ y tiene orientación inducida por $\overrightarrow{(-D)(-C)}$.
+\item La terna $(B,D,A)$ está negativamente orientada.
+\item $B\cdot D^\perp=-15$.
+\item El par $(A,-B)$ está positivamente orientado.
+\item El vector $-B^\perp$ satisface $\|{-B^\perp}\|=3$ y $\operatorname{dir}(-B^\perp)=\dfrac{11\pi}{6}$.
+\item La bisectriz del ángulo $\angle(AOC)$ tiene ángulo de inclinación $\dfrac{\pi}{2}$.
+\item El ángulo del vector $C$ al vector $-D$ es $\dfrac{7\pi}{6}$.
+\item Ninguna de las anteriores.
+\end{opciones}
+
+\end{enumerate}
+
+\examfooter
+\end{document}

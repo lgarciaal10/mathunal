@@ -1,0 +1,114 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=1.9cm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage[spanish,es-noshorthands]{babel}
+\usepackage{amsmath,amssymb}
+\usepackage{enumitem}
+\usepackage{tikz}
+\usetikzlibrary{calc,arrows.meta,patterns,decorations.pathmorphing}
+\usepackage{xcolor}
+\usepackage{multicol}
+\usepackage{parskip}
+\usepackage{lmodern}
+\renewcommand{\familydefault}{\sfdefault}
+
+\definecolor{unalblue}{RGB}{31,73,124}
+\definecolor{unalblue2}{RGB}{70,120,180}
+
+\newlist{opciones}{enumerate}{1}
+\setlist[opciones]{label=\textbf{(\alph*)},itemsep=1pt,topsep=2pt,leftmargin=1.8em,font=\normalfont}
+\setlist[enumerate,1]{label=\textbf{\arabic*.},itemsep=6pt,topsep=4pt,leftmargin=1.6em,font=\normalfont}
+\setlist[enumerate,2]{label=\textbf{\alph*)},itemsep=4pt,topsep=3pt,leftmargin=1.6em,font=\normalfont}
+\setlist[enumerate,3]{label=\textbf{\roman*)},itemsep=2pt,topsep=2pt,leftmargin=1.4em,font=\normalfont}
+
+\newcommand{\vect}[2]{\begin{pmatrix}#1\\#2\end{pmatrix}}
+\newcommand{\vectiii}[3]{\begin{pmatrix}#1\\#2\\#3\end{pmatrix}}
+
+\newcommand{\examheader}{%
+\noindent\begin{tikzpicture}
+\node[fill=unalblue, text width=\dimexpr\linewidth-16pt\relax, inner sep=8pt, rounded corners=3pt, align=left, text=white] (hdr) {%
+  \begin{minipage}[c]{0.66\linewidth}
+    {\Large\bfseries \examsubject}\\[2pt]
+    {\small \examtype\ \textbullet\ \textcolor{white!85!unalblue}{\examsubtitle}}
+  \end{minipage}\hfill
+  \begin{minipage}[c]{0.28\linewidth}
+    \raggedleft{\scriptsize Escuela de Matem\'aticas\\[-1pt] Universidad Nacional\\[-1pt] de Colombia, Sede Medell\'in}
+  \end{minipage}%
+};
+\end{tikzpicture}\\[7pt]
+}
+\newcommand{\examfooter}{%
+  \vfill
+  \rule{\linewidth}{0.4pt}\\[1pt]
+  {\scriptsize\textit{Transcripci\'on digital --- MathUNAL}\hfill\textcolor{unalblue}{\textbf{\thepage}}}
+}
+\pagestyle{empty}
+
+\newcommand{\examsubject}{ECUACIONES DIFERENCIALES}
+\newcommand{\examtype}{Tercer Parcial}
+\newcommand{\examsubtitle}{Semestre 01-2017, 2 de Junio de 2017}
+
+\begin{document}
+
+\examheader
+
+\vspace{4pt}
+\noindent\textbf{Instrucciones:} Antes de empezar verifique que su examen est\'e completo y que sus datos sean correctos. Por favor verifique que su celular est\'e apagado. No est\'a permitido el uso de calculadora ni de otros aparatos electr\'onicos. Solucione las preguntas en los espacios en blanco asignados a cada una de ellas. No est\'a permitido sacar hojas en blanco ni ning\'un tipo de apuntes durante el examen. Duraci\'on: 1 hora y 50 minutos.
+
+\vspace{10pt}
+\textbf{1. (35\%)}
+\begin{enumerate}
+\item \textbf{(25\%)} Resuelva el siguiente problema de valor inicial
+\[
+ty''+2ty'+2y=0; \qquad y(0)=0, \quad y'(0)=3.
+\]
+
+\item \textbf{(10\%)} Si $f$ es continua por tramos en $[0,\infty)$, de orden exponencial y peri\'odica con periodo $T$, entonces pruebe que
+\[
+F(s)=\mathcal{L}\{f(t)\}=\frac{1}{1-e^{-sT}}\int_0^T e^{-st}f(t)\,dt.
+\]
+\end{enumerate}
+
+\examfooter
+\newpage
+
+\examheader
+
+\textbf{2. (30\%)} En los literales a), b) y c), complete seg\'un corresponda. S\'olo se calificar\'a respuesta, no es necesario que escriba el procedimiento.
+
+\begin{enumerate}
+\item \textbf{(10\%)} Se sabe que $r=-\tfrac{1}{2}-i$ es un valor propio de una matriz $\mathbb{A}\in\mathbb{R}^{2\times2}$. Si $K=\begin{pmatrix}1\\-i\end{pmatrix}$ es un vector propio de $\mathbb{A}$ asociado al valor propio $r$, entonces la soluci\'on general del sistema $\mathbb{X}'(t)=\mathbb{A}\mathbb{X}(t)$ es
+\[
+\text{\dotfill}.
+\]
+
+\item \textbf{(10\%)} $\displaystyle \mathcal{L}\{3te^{-5t}\operatorname{sen}(3t)\} = \text{\dotfill}$.
+
+\item \textbf{(10\%)} Si $\displaystyle F(s)=\frac{5e^{-\pi s}}{3s+1}$, entonces su transformada inversa es \dotfill .
+\end{enumerate}
+
+\examfooter
+\newpage
+
+\examheader
+
+\textbf{3. (35\%)}
+
+\begin{enumerate}
+\item \textbf{(20\%)} Halle la soluci\'on general del sistema
+\[
+\mathbb{X}'(t)=\begin{pmatrix}3 & -4\\ 1 & -1\end{pmatrix}\mathbb{X}(t), \qquad \text{en } (-\infty,\infty).
+\]
+Puede usar que $r=1$, es un valor propio de multiplicidad 2 de la matriz asociada al sistema.
+
+\item \textbf{(15\%)} Considere el sistema no homog\'eneo
+\[
+\mathbb{X}'(t)=\mathbb{A}\mathbb{X}(t)+\begin{pmatrix}-3\\10\end{pmatrix}e^t.
+\]
+Si se sabe que $\Phi(t)=\begin{pmatrix}e^{3t} & e^{7t}\\ -3e^{3t} & 9e^{7t}\end{pmatrix}$ es una matriz fundamental del sistema homog\'eneo asociado, entonces encuentre la soluci\'on general del sistema no homog\'eneo dado en $(-\infty,\infty)$.
+\end{enumerate}
+
+\examfooter
+
+\end{document}

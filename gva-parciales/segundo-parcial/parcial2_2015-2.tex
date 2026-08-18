@@ -1,0 +1,186 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=1.9cm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage[spanish]{babel}
+\usepackage{amsmath,amssymb}
+\usepackage{enumitem}
+\usepackage{tikz}
+\usetikzlibrary{calc,arrows.meta,patterns,decorations.pathmorphing}
+\usepackage{xcolor}
+\usepackage{multicol}
+\usepackage{parskip}
+\usepackage{lmodern}
+\renewcommand{\familydefault}{\sfdefault}
+
+\definecolor{unalblue}{RGB}{31,73,124}
+
+\newlist{opciones}{enumerate}{1}
+\setlist[opciones]{label=(\alph*),itemsep=1pt,topsep=2pt,leftmargin=1.8em,font=\normalfont}
+
+\newcommand{\ptsbox}[1]{\fbox{\footnotesize #1}~}
+
+\newcommand{\vect}[2]{\begin{pmatrix}#1\\#2\end{pmatrix}}
+\newcommand{\vectiii}[3]{\begin{pmatrix}#1\\#2\\#3\end{pmatrix}}
+
+\newcommand{\examheader}{%
+  \noindent
+  \begin{minipage}[t]{0.6\linewidth}
+    {\small\bfseries Geometría Vectorial y Analítica --- Parcial 2}\\
+    {\small Semestre 2015--02}
+  \end{minipage}%
+  \hfill
+  \begin{minipage}[t]{0.35\linewidth}
+    \raggedleft\small Escuela de Matemáticas. Universidad Nacional de Colombia, Sede Medellín.
+  \end{minipage}\\[2pt]
+  \rule{\linewidth}{0.6pt}
+}
+\newcommand{\examfooter}{%
+  \vfill
+  \rule{\linewidth}{0.4pt}\\[1pt]
+  {\scriptsize\textit{Transcripción digital --- MathUNAL}\hfill\textcolor{unalblue}{\textbf{\thepage}}}
+}
+\pagestyle{empty}
+
+\begin{document}
+
+\examheader
+
+\begin{center}
+{\bfseries Segundo Examen Parcial de Geometría}\\
+17 de Octubre del 2015
+
+\vspace{4pt}
+\textbf{Puntaje. Sólo para uso Oficial}
+
+\vspace{2pt}
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+1 (/30) & 2 (/30) & 3-6 (/24) & 7 (/16) & Total & Nota\\
+\hline
+ & & & & & \\
+\hline
+\end{tabular}
+\end{center}
+
+\textbf{Instrucciones:} Antes de empezar verifique que su examen esté completo y que sus datos sean correctos. Por favor verifique que su celular esté apagado. No está permitido el uso de calculadora ni de otros aparatos electrónicos. Solucione las preguntas en los espacios en blanco asignados a cada una de ellas. No está permitido sacar hojas en blanco ni ningún tipo de apuntes durante el examen. Duración: \textbf{1 hora y 50 minutos}.
+
+\vspace{10pt}
+
+En cada uno de los literales de los puntos 1 y 2, debe presentar detalladamente el procedimiento y justificar sus respuestas para llegar a la solución. \textbf{NOTA:} Respuestas sin procedimiento no se tendrán en cuenta.
+
+\begin{enumerate}[leftmargin=1.6em]
+
+\item Considere la recta $\mathcal{L}$ con ecuación general $x - 2y = 0$ y sea $\mathcal{P}_\mathcal{L}$ la transformación lineal de proyección sobre la recta $\mathcal{L}$.
+
+\begin{opciones}
+\item \ptsbox{15pt} Encuentre la matriz asociada a la transformación $\mathcal{P}_\mathcal{L}$.
+
+\vspace{60pt}
+
+\item \ptsbox{15pt} Sea $\mathcal{P}$ el paralelogramo generado por los vectores $-2E_1$ y $E_2$. Encuentre la imagen de $\mathcal{P}$ bajo la transformación $\mathcal{P}_\mathcal{L}$.
+
+\begin{center}
+\begin{tikzpicture}[scale=0.6]
+\draw[-{Stealth[length=2mm]}] (-4.5,0) -- (4.5,0) node[right] {\small $x$};
+\draw[-{Stealth[length=2mm]}] (0,-4.5) -- (0,4.5) node[above] {\small $y$};
+\foreach \x in {-4,-2,2,4} \draw (\x,-0.1) -- (\x,0.1);
+\foreach \y in {-4,-2,2,4} \draw (-0.1,\y) -- (0.1,\y);
+\node[below] at (-4,-0.3) {\tiny $-4$};
+\node[below] at (-2,-0.3) {\tiny $-2$};
+\node[below] at (2,-0.3) {\tiny $2$};
+\node[below] at (4,-0.3) {\tiny $4$};
+\node[left] at (-0.3,-4) {\tiny $-4$};
+\node[left] at (-0.3,-2) {\tiny $-2$};
+\node[left] at (-0.3,2) {\tiny $2$};
+\node[left] at (-0.3,4) {\tiny $4$};
+\draw[thick] (0,0) -- (-2,0) -- (-2,1) -- (0,1) -- cycle;
+\node[below] at (-2,-0.15) {\small $A$};
+\node[above] at (0,1.15) {\small $B$};
+\node at (-1,0.5) {\tiny $\mathcal{P}$};
+\draw[thick,-{Stealth[length=2mm]}] (-4.3,-2.15) -- (4.3,2.15) node[right] {\small $\mathcal{L}$};
+\end{tikzpicture}
+\end{center}
+
+\vspace{20pt}
+\end{opciones}
+
+\item Considere la transformación lineal $T:\mathbb{R}\longrightarrow\mathbb{R}$ dada por
+\[
+T = \begin{pmatrix} 3 & -4 \\ -4 & 3 \end{pmatrix}.
+\]
+
+\begin{opciones}
+\item \ptsbox{10pt} Calcule los valores propios de $T$.
+
+\vspace{60pt}
+
+\item \ptsbox{10pt} Halle los vectores propios de $T$ asociados a cada valor propio hallado en la parte (a).
+
+\vspace{50pt}
+
+\item \ptsbox{10pt} Factorice la matriz $m(T)$ en la forma $m(T) = QDQ^T$, donde $Q$ es una matriz ortogonal y $D$ es una matriz diagonal.
+
+\vspace{60pt}
+\end{opciones}
+
+\vspace{10pt}
+En las preguntas 3 a 6 complete los espacios en blanco o elija la (las) opción (opciones) correcta (correctas) según el caso. Marque con una X la letra de su elección. \textbf{NOTA:} En esta sección se califica sólo la respuesta y no se tiene en cuenta el procedimiento.
+
+\item Establezca si las siguientes afirmaciones son verdaderas o falsas.
+\begin{opciones}
+\item \ptsbox{4pt} Si $T:\mathbb{R}^2\to\mathbb{R}^2$ es una transformación lineal invertible entonces para cada vector $X\in\mathbb{R}^2$ existe un vector $U\in\mathbb{R}^2$ tal que $T(U) = 3X$. \hspace{0.5cm} (V) \hspace{0.3cm} (F)
+
+\vspace{6pt}
+\item \ptsbox{4pt} Suponga que $T:\mathbb{R}^2\to\mathbb{R}^2$ y $S:\mathbb{R}^2\to\mathbb{R}^2$ son dos transformaciones lineales del plano, entonces $T\circ S = S\circ T$. \hspace{0.5cm} (V) \hspace{0.3cm} (F)
+
+\vspace{6pt}
+\item \ptsbox{4pt} Si $X$ es un vector propio de una transformación lineal $T:\mathbb{R}^2\to\mathbb{R}^2$ asociado con el valor propio $\lambda = 0$ entonces $X\notin N(T)$. \hspace{0.5cm} (V) \hspace{0.3cm} (F)
+\end{opciones}
+
+\item \ptsbox{4pt} Suponga que $T:\mathbb{R}^2\to\mathbb{R}^2$ es una transformación lineal para la cual $T(E_1) = \vect{-2}{x}$ y $T(E_2) = \vect{x}{-2}$. ¿Para cuáles valores de $x$ NO es invertible la transformación $T$?
+
+Respuesta \underline{\hspace{4cm}}
+
+\item \ptsbox{4pt} Suponga que $T:\mathbb{R}^2\to\mathbb{R}^2$ es la transformación lineal para la cual $T\vect{-2}{2} = \vect{-4}{4}$. Entonces un valor propio asociado a la matriz $m(T)$ es
+
+Respuesta = \underline{\hspace{4cm}}
+
+\item \ptsbox{4pt} Suponga que $T:\mathbb{R}^2\to\mathbb{R}^2$ es la transformación lineal para la cual $T\vect{-3}{4} = \vect{1}{0}$ y $T\vect{2}{1} = \vect{0}{1}$, entonces la matriz $m(T^{-1})$ asociada a la transformación $T^{-1}$ es
+
+Respuesta = $m(T^{-1}) = \begin{pmatrix} \phantom{-0} & \phantom{-0} \\[4pt] \phantom{-0} & \phantom{-0} \end{pmatrix}$
+
+\vspace{10pt}
+
+\item \ptsbox{8pt} Suponga que $S:\mathbb{R}^2\to\mathbb{R}^2$ es una transformación lineal ortogonal. Sea $\mathcal{R} = ORPQ$ un rectángulo como se indica en la figura. Recuerde que $O = \vect{0}{0}$.
+
+\begin{center}
+\begin{tikzpicture}[scale=0.9]
+\coordinate (O) at (0,0);
+\coordinate (Q) at (2.6,1);
+\coordinate (P) at (1.6,-1.5);
+\coordinate (R) at (-1,-2.5);
+\draw[thick] (O) -- (Q) -- (P) -- (R) -- cycle;
+\draw[-{Stealth[length=2mm]}] (-2,0) -- (3.5,0) node[right] {\small };
+\node[above right] at (O) {\small $O$};
+\node[above right] at (Q) {\small $Q$};
+\node[below right] at (P) {\small $P$};
+\node[below left] at (R) {\small $R$};
+\draw (O)++(0.15,-0.15) -- ++(0.3,0) -- ++(0,0.15) ;
+\end{tikzpicture}
+\end{center}
+
+\begin{opciones}
+\item \ptsbox{8pt} Demuestre que $S(\mathcal{R})$ es un rectángulo.
+
+\vspace{50pt}
+
+\item \ptsbox{8pt} Demuestre que Área de $\mathcal{R}$ = Área de $S(\mathcal{R})$.
+
+\vspace{50pt}
+\end{opciones}
+
+\end{enumerate}
+
+\examfooter
+\end{document}

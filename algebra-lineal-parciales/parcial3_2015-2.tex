@@ -1,0 +1,184 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=1.9cm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage[spanish,es-noshorthands]{babel}
+\usepackage{amsmath,amssymb}
+\usepackage{enumitem}
+\usepackage{tikz}
+\usetikzlibrary{calc,arrows.meta,patterns,decorations.pathmorphing}
+\usepackage{xcolor}
+\usepackage{multicol}
+\usepackage{parskip}
+\usepackage{lmodern}
+\renewcommand{\familydefault}{\sfdefault}
+
+\definecolor{unalblue}{RGB}{31,73,124}
+\definecolor{unalblue2}{RGB}{70,120,180}
+
+\newlist{opciones}{enumerate}{1}
+\setlist[opciones]{label=\textbf{(\alph*)},itemsep=1pt,topsep=2pt,leftmargin=1.8em,font=\normalfont}
+\setlist[enumerate,1]{label=\textbf{\arabic*.},itemsep=6pt,topsep=4pt,leftmargin=1.6em,font=\normalfont}
+\setlist[enumerate,2]{label=\textbf{\alph*)},itemsep=4pt,topsep=3pt,leftmargin=1.6em,font=\normalfont}
+\setlist[enumerate,3]{label=\textbf{\roman*)},itemsep=2pt,topsep=2pt,leftmargin=1.4em,font=\normalfont}
+
+\newcommand{\vect}[2]{\begin{pmatrix}#1\\#2\end{pmatrix}}
+\newcommand{\vectiii}[3]{\begin{pmatrix}#1\\#2\\#3\end{pmatrix}}
+
+\newcommand{\examheader}{%
+\noindent\begin{tikzpicture}
+\node[fill=unalblue, text width=\dimexpr\linewidth-16pt\relax, inner sep=8pt, rounded corners=3pt, align=left, text=white] (hdr) {%
+  \begin{minipage}[c]{0.66\linewidth}
+    {\Large\bfseries \examsubject}\\[2pt]
+    {\small \examtype\ \textbullet\ \textcolor{white!85!unalblue}{\examsubtitle}}
+  \end{minipage}\hfill
+  \begin{minipage}[c]{0.28\linewidth}
+    \raggedleft{\scriptsize Escuela de Matem\'aticas\\[-1pt] Universidad Nacional\\[-1pt] de Colombia, Sede Medell\'in}
+  \end{minipage}%
+};
+\end{tikzpicture}\\[7pt]
+}
+\newcommand{\examfooter}{%
+  \vfill
+  \rule{\linewidth}{0.4pt}\\[1pt]
+  {\scriptsize\textit{Transcripci\'on digital --- MathUNAL}\hfill\textcolor{unalblue}{\textbf{\thepage}}}
+}
+\pagestyle{empty}
+
+\newcommand{\examsubject}{ÁLGEBRA LINEAL}
+\newcommand{\examtype}{Tercer Parcial}
+\newcommand{\examsubtitle}{23 de Noviembre de 2015}
+
+\begin{document}
+
+\examheader
+
+\vspace{4pt}
+\noindent
+\begin{minipage}[t]{0.55\linewidth}
+Puntaje. S\'olo para uso Oficial\\[4pt]
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+1-5 & 6 & 7 & 8 & Total & Nota\\
+\hline
+ & & & & & \\
+\hline
+\end{tabular}
+\end{minipage}
+
+\vspace{6pt}
+\noindent\textbf{Instrucciones:} La duraci\'on del examen es de 1 hora y 45 minutos. El examen consta de ocho preguntas en dos hojas impresas por ambos lados, verifique que su examen est\'e completo y cons\'ervelo con el gancho. En las preguntas con procedimiento justifique sus respuestas en los espacios asignados. No est\'a permitido sacar hojas en blanco ni ning\'un tipo de apuntes durante el examen, verifique que su celular est\'e apagado. No se permite el uso de calculadora.
+
+\vspace{6pt}
+\noindent\textbf{Identificaci\'on}
+
+\examfooter
+\newpage
+
+\examheader
+
+\textbf{I. Completaci\'on}
+
+\noindent En las preguntas 1 a 5 complete los espacios en blanco. \textbf{NOTA:} En esta secci\'on se califica s\'olo la respuesta y no se tiene en cuenta el procedimiento.
+
+\begin{enumerate}
+\item \textbf{[8pt]} Sea $C=\begin{pmatrix}1&1&2\\1&1&2\\2&2&4\end{pmatrix}$. Encontrar los valores propios de $C$.
+
+\begin{center}
+\fbox{\begin{minipage}[c][1.2cm]{0.6\linewidth} Valores propios de $C$: $\lambda_1=$\dotfill, $\lambda_2=$\dotfill\end{minipage}}
+\end{center}
+
+\item \textbf{[12pt]} Determine si las siguientes formas cuadr\'aticas en $\mathbb{R}^2$ son definidas positivas, definidas negativas, semidefinidas positiva, semidefinidas negativas, o ninguna de las anteriores.
+\begin{enumerate}[label=(\alph*)]
+\item \textbf{[6pt]} $x_1^2+2x_1x_2+x_2^2$ \dotfill
+\item \textbf{[6pt]} $x_1^2-x_1x_2+x_2^2$ \dotfill
+\end{enumerate}
+
+\item \textbf{[9pt]} Suponga que la matriz $P=\begin{pmatrix}0.2&0.8&0.3\\a&b&0.5\\c&0.1&0.2\end{pmatrix}$ es una matriz de transici\'on de probabilidad (Markov). Determine el rango de valores que pueden tomar los par\'ametros:
+
+\vspace{4pt}
+\textbf{[3pt]} $a\ \in$ \dotfill \qquad \textbf{[3pt]} $b=$ \dotfill \qquad \textbf{[3pt]} $c\ \in$ \dotfill
+\end{enumerate}
+
+\examfooter
+\newpage
+
+\examheader
+
+\begin{enumerate}
+\setcounter{enumi}{3}
+\item \textbf{[4pt]} Dibuje un grafo cuya matriz de adyacencia sea $\displaystyle B=\begin{pmatrix}0&1&0&1\\1&0&1&0\\0&1&0&1\\1&0&1&0\end{pmatrix}$.
+
+\begin{center}
+\fbox{\begin{minipage}[c][2.5cm]{0.5\linewidth}\ \end{minipage}}
+\end{center}
+
+¿Cu\'antos caminos de 11 etapas (11-trayectorias) hay que parten del primer v\'ertice y llegan al primer v\'ertice? \dotfill
+
+\item \textbf{[8pt]} Sea $A$ es una matriz, real, sim\'etrica $3\times 3$. ¿Las siguientes afirmaciones son verdaderas o falsas? (escriba V o F sobre la l\'inea)
+\begin{enumerate}[label=(\alph*)]
+\item \textbf{[2pt]} \dotfill\ $A$ tiene necesariamente tres valores propios distintos.
+\item \textbf{[2pt]} \dotfill\ Las columnas de $A$ son vectores mutuamente ortogonales.
+\item \textbf{[2pt]} \dotfill\ La matriz $A$ es necesariamente diagonalizable.
+\item \textbf{[2pt]} \dotfill\ Hay una base ortonormal de $\mathbb{R}^3$ formada por vectores propios de $A$.
+\end{enumerate}
+
+\vspace{6pt}
+\textbf{II. Soluci\'on con Procedimiento}
+
+\item \textbf{[10pt]} Demuestre que si $A$ es una matriz ortogonal $n\times n$ entonces el determinante de $A$ es $1$ o $-1$.
+\end{enumerate}
+
+\examfooter
+\newpage
+
+\examheader
+
+\begin{enumerate}
+\setcounter{enumi}{6}
+\item \textbf{[20pt]} Considere la matriz $A=\begin{pmatrix}3&2&2\\2&0&1\\2&1&0\end{pmatrix}$. Se sabe que los valores propios de $A$ son $\lambda_1=-1$ y $\lambda_2=5$.
+\begin{enumerate}[label=(\alph*)]
+\item \textbf{[12pt]} Encuentre una base ortogonal de vectores propios de $A$.
+
+\vspace{60pt}
+\item \textbf{[8pt]} Descomponga $A=QDQ^T$ donde $D$ sea una matriz diagonal y $Q$ una matriz ortogonal.
+\end{enumerate}
+\end{enumerate}
+
+\examfooter
+\newpage
+
+\examheader
+
+\begin{enumerate}
+\setcounter{enumi}{7}
+\item \textbf{[25pt]} Un agente comercial realiza su trabajo en tres ciudades $A$, $B$ y $C$. Para evitar desplazamientos pasa cada noche en alguna de ellas, desplaz\'andose al d\'ia siguiente si es necesario. Despu\'es de trabajar un d\'ia en $C$, la probabilidad de tener que viajar a $B$ es $0.4$ y la de tener que ir a $A$ es $0.2$, en otro caso permanece en $C$. Si el viajante duerme un d\'ia en $B$, con probabilidad de $0.2$ tendr\'a que seguir trabajando en la misma ciudad, de un $0.6$ de viajar a $C$, mientras que ir\'a a $A$ en cualquier otro caso. Por \'ultimo si el agente comercial trabaja todo un d\'ia en $A$, permanecer\'a en esa misma ciudad, al d\'ia siguiente, con una probabilidad $0.1$, e ir\'a a $B$ con una probabilidad de $0.3$.
+
+\begin{center}
+\begin{tikzpicture}[>=Stealth, node distance=3cm, every node/.style={font=\small}]
+\node[circle,draw,minimum size=0.9cm] (A) at (0,0) {$A$};
+\node[circle,draw,minimum size=0.9cm] (B) at (4,0) {$B$};
+\node[circle,draw,minimum size=0.9cm] (C) at (2,-2.2) {$C$};
+\draw[->] (A) to[bend left=15] node[above]{0.3} (B);
+\draw[->] (B) to[bend left=15] node[below]{0.2} (A);
+\draw[->] (B) to[bend left=15] node[right]{0.6} (C);
+\draw[->] (C) to[bend left=15] node[left]{0.4} (B);
+\draw[->] (C) to[bend left=15] node[below]{0.2} (A);
+\draw[->] (A) to[bend left=15] node[above]{0.7} (C);
+\draw[->] (A) edge[loop above] node{0.1} (A);
+\draw[->] (B) edge[loop above] node{0.2} (B);
+\draw[->] (C) edge[loop below] node{0.4} (C);
+\end{tikzpicture}
+\end{center}
+
+\begin{enumerate}[label=(\alph*)]
+\item \textbf{[15pt]} Si hoy el viajante est\'a en $C$, ¿cu\'al es la probabilidad de que tambi\'en tenga que trabajar en $C$ al cabo de tres d\'ias?
+
+\vspace{40pt}
+\item \textbf{[10pt]} Al largo plazo ¿qu\'e proporci\'on de tiempo pasar\'a el agente en cada una de las ciudades?
+\end{enumerate}
+\end{enumerate}
+
+\examfooter
+
+\end{document}

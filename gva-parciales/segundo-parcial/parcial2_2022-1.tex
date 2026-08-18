@@ -1,0 +1,168 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=2.2cm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage[spanish]{babel}
+\usepackage{amsmath,amssymb}
+\usepackage{enumitem}
+\usepackage{tikz}
+\usetikzlibrary{calc,arrows.meta,patterns,decorations.pathmorphing}
+\usepackage{xcolor}
+\usepackage{multicol}
+\usepackage{parskip}
+\setlength{\parskip}{6pt}
+\usepackage{lmodern}
+\renewcommand{\familydefault}{\sfdefault}
+
+\definecolor{unalblue}{RGB}{31,73,124}
+
+\setlist[enumerate,1]{itemsep=10pt,topsep=8pt,leftmargin=2.2em,label=\protect\fbox{\arabic*}}
+\newlist{opciones}{enumerate}{1}
+\setlist[opciones]{label=(\alph*),itemsep=8pt,topsep=6pt,leftmargin=2em,font=\normalfont}
+
+\newcommand{\ptsbox}[1]{\fboxsep=3pt\fbox{\footnotesize #1}\hspace{4pt}}
+\newcommand{\borradorbox}[1][3cm]{%
+  \noindent\fbox{\begin{minipage}[t][#1][t]{0.97\linewidth}
+  {\scriptsize\itshape Espacio borrador, nada escrito aquí será calificado.}
+  \end{minipage}}
+}
+
+\newcommand{\vect}[2]{\begin{pmatrix}#1\\#2\end{pmatrix}}
+\newcommand{\vectiii}[3]{\begin{pmatrix}#1\\#2\\#3\end{pmatrix}}
+
+\newcommand{\examheader}{%
+  \noindent
+  \begin{minipage}[t]{0.6\linewidth}
+    {\small\bfseries Geometría Vectorial --- Parcial 2}\\
+    {\small Junio de 2022}
+  \end{minipage}%
+  \hfill
+  \begin{minipage}[t]{0.37\linewidth}
+    \raggedleft
+    \fbox{\begin{minipage}{0.95\linewidth}\centering\scriptsize Escuela de Matemáticas. Universidad Nacional de Colombia, Sede Medellín.\end{minipage}}
+  \end{minipage}\\[4pt]
+  \rule{\linewidth}{0.6pt}
+}
+\newcommand{\examfooter}{%
+  \vfill
+  \rule{\linewidth}{0.4pt}\\[1pt]
+  {\scriptsize\textit{Transcripción digital --- MathUNAL}\hfill\textcolor{unalblue}{\textbf{\thepage}}}
+}
+\pagestyle{empty}
+
+\begin{document}
+\examheader
+
+\begin{center}
+{\bfseries Geometría Vectorial --- Parcial 2}\\
+Junio del 2022
+
+\vspace{6pt}
+\textbf{Instrucciones}
+\end{center}
+
+La duración del examen es \textbf{1:50 horas}. Verifique que sus datos de identificación son correctos. La prueba consta de cinco preguntas. Escriba sus respuestas en la tabla que está abajo en esta página. Solo las respuestas anotadas en la tabla serán tenidas en cuenta.\textbullet\ No use fracciones, solamente decimales y redondee a dos cifras decimales, por ejemplo, si su respuesta es $\frac{1}{3}$ escriba 0.33. \textbullet\ Escriba grande y claro. \textbf{No} está permitido: hacer preguntas, usar calculadoras ni trabajar en hojas diferentes a las del examen. No se permite sacar el teléfono celular durante el examen.
+
+\vspace{8pt}
+\begin{center}
+\textbf{\textsc{Tabla de respuestas}}
+
+\vspace{4pt}
+\begin{tabular}{|c|c|c|c|}
+\hline
+Ejercicio & Porcentaje & (a) & (b)\\
+\hline
+1 & 16\% & \multicolumn{2}{c|}{a\quad b\quad c\quad d\quad e} \\[6pt]
+\hline
+2 & 20\% & \phantom{x=} & \phantom{y=} \\[10pt]
+\hline
+3 & 24\% & \multicolumn{2}{c|}{a\quad b\quad c\quad d\quad e\quad f\quad g\quad h\quad i} \\[6pt]
+\hline
+4 & 20\% & \phantom{k_1=} & \phantom{k_2=} \\[10pt]
+\hline
+5 & 20\% & \multicolumn{2}{c|}{a\quad b\quad c\quad d\quad e\quad f} \\[6pt]
+\hline
+\end{tabular}
+\end{center}
+
+\vspace{10pt}
+
+\begin{enumerate}
+
+\item Suponga que $b$ y $c$ son números reales con $b\neq 0$. Considere la recta con ecuación general $x+by+c=0$. De los siguientes puntos, seleccione todos aquellos que necesariamente pertenecen a la recta.
+
+\begin{opciones}
+\item $\vect{b+c}{1}$
+\item $\vect{-(b+c)}{1}$
+\item $\vect{-c/b}{0}$
+\item $\vect{-c}{0}$
+\item Ninguna de las anteriores.
+\end{opciones}
+
+\vspace{20pt}
+
+\item Considere las siguientes rectas
+\[
+\mathcal{L}: \left(X - \vect{1}{6}\right)\cdot\vect{-3}{1} = 0, \qquad \mathcal{L}': X = \vect{0}{-2} + t\vect{-1}{-4},\ t\in\mathbb{R}.
+\]
+Hallar el punto de intersección entre las rectas.
+
+\vspace{100pt}
+
+\newpage
+\examheader
+
+\item Sean
+\[
+g_1: \sqrt{33}x - 4y + 56 - 9\sqrt{33} = 0,
+\]
+\[
+g_2: \sqrt{33}x + 4y - 56 - 9\sqrt{33} = 0,
+\]
+\[
+g_3: y = 3,
+\]
+tres rectas del plano. Determine el centro $M$ de la circunferencia que está en el interior del triángulo formado por estas rectas y que tiene las rectas $g_1$, $g_2$ y $g_3$ como tangentes. Seleccione la respuesta correcta.
+
+\begin{opciones}
+\item $\vect{8}{6}$
+\item $\vect{6}{4}$
+\item $\vect{9}{7}$
+\item $\vect{11}{11}$
+\item $\vect{8}{10}$
+\item $\vect{7}{9}$
+\item $\vect{6}{10}$
+\item $\vect{13}{9}$
+\item $\vect{8}{8}$
+\end{opciones}
+
+\vspace{20pt}
+
+\item Determine los valores de $k$ para que la transformación lineal del plano dada por
+\[
+T(E_1) = (k+5)E_1 - 12E_2 \qquad \text{y} \qquad T(E_2) = -12E_1+(k-5)E_2
+\]
+no sea biyectiva.
+
+\newpage
+\examheader
+
+\item Sea $T$ la transformación lineal definida por
+\[
+T\vect{x}{y} = \vect{-x+(2)y}{2x+(1)y},
+\]
+y sea $\mathcal{L}$ la línea recta con ecuación general $2x-3y+6=0$. Diga, cuáles de los siguientes enunciados son verdaderos:
+
+\begin{opciones}
+\item $T(\mathcal{L})$ es una línea recta con vector normal $\vect{-8}{1}$.
+\item $T(\mathcal{L})$ es una línea recta con vector director $\vect{1}{8}$.
+\item La línea recta $T(\mathcal{L})$ pasa por el punto $\vect{4}{2}$.
+\item La imagen bajo la transformación lineal $T$ del triángulo con vértices $\vect{-3}{0}$, $\vect{0}{0}$, $\vect{0}{2}$ es un triángulo rectángulo.
+\item La tangente del ángulo $\theta$ entre las imágenes de los ejes coordenados bajo la transformación lineal $T$ es $\tan\theta = -2$.
+\item Ninguna de las anteriores.
+\end{opciones}
+
+\end{enumerate}
+
+\examfooter
+\end{document}

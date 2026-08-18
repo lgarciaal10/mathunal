@@ -1,0 +1,159 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=1.9cm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage[spanish]{babel}
+\usepackage{amsmath,amssymb}
+\usepackage{enumitem}
+\usepackage{tikz}
+\usetikzlibrary{calc,arrows.meta,patterns,decorations.pathmorphing}
+\usepackage{xcolor}
+\usepackage{multicol}
+\usepackage{parskip}
+\usepackage{lmodern}
+\renewcommand{\familydefault}{\sfdefault}
+
+\definecolor{unalblue}{RGB}{31,73,124}
+
+\newlist{opciones}{enumerate}{1}
+\setlist[opciones]{label=(\alph*),itemsep=1pt,topsep=2pt,leftmargin=1.8em,font=\normalfont}
+
+\pagestyle{empty}
+\setlength{\columnseprule}{0.5pt}
+
+\begin{document}
+
+\noindent
+\begin{minipage}[t]{0.62\linewidth}
+  {\bfseries\large Primer Parcial de Ecuaciones Diferenciales}\\[2pt]
+  {\small 4 de Febrero del 2019 --- Versión B}\\
+  {\small Puntaje. Sólo para uso Oficial}
+\end{minipage}%
+\hfill
+\begin{minipage}[t]{0.35\linewidth}
+  \raggedleft\small Escuela de Matemáticas. Universidad Nacional de Colombia, Sede Medellín.
+\end{minipage}\\[4pt]
+\rule{\linewidth}{0.6pt}
+
+\vspace{4pt}
+\noindent
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+1 (/20) & 2 (/10) & 3 (/35) & 4 (/35) & Total & Nota \\
+\hline
+ & & & & & \\
+\hline
+\end{tabular}
+
+\vspace{6pt}
+\noindent\textbf{Instrucciones:} La duración del examen es de 1 hora y 45 minutos. El examen consta de cuatro preguntas en dos hojas impresas por ambos lados, antes de empezar verifique que su examen esté completo y que sus datos sean correctos. No desengrape su examen ni añada otras grapas o su examen será anulado. En las preguntas con procedimiento justifique sus respuestas en los espacios asignados. No está permitido hacer preguntas, usar calculadoras, sacar hojas en blanco ni ningún tipo de apuntes durante el examen. Por favor verifique que su celular esté apagado.
+
+\vspace{8pt}
+\noindent Nombre: \makebox[0.45\linewidth]{\hrulefill} \hfill Cédula: \makebox[0.3\linewidth]{\hrulefill}
+
+\begin{multicols}{2}
+
+\textbf{1. (20\%)} Resuelva la ecuación diferencial
+\[
+\frac{dy}{dx}=\frac{x}{2y}+\frac{y}{x}, \qquad x>0,\ y>0.
+\]
+
+\vspace{5cm}
+
+\columnbreak
+
+\textbf{2. (10\%)} Considere una ecuación diferencial de la forma
+\[
+\frac{dy}{dx}=f(ax+by+c), \qquad b\neq 0.
+\]
+Demuestre que con la sustitución $v=ax+by+c$, la ecuación diferencial se transforma en una ecuación diferencial en variables separables.
+
+\end{multicols}
+
+\begin{multicols}{2}
+
+\textbf{3. (35\%)} Aplicaciones
+
+\begin{opciones}
+\item[(a)] \textbf{(20\%)} Halle la familia de trayectorias ortogonales a la familia
+\[
+y=ce^{-2x}.
+\]
+
+\vspace{4cm}
+
+\item[(b)] \textbf{(15\%)} Un tanque semiesférico tiene un radio de 2 pies; el tanque está inicialmente lleno de agua y en el fondo tiene un orificio circular de $\frac{1}{6}$ pies de diámetro (ver figura). Plantee el PVI que describe la rapidez con que cambia la profundidad del agua $h(t)$ en el tanque en el instante $t$ a partir del instante inicial. (Tome la constante de proporcionalidad igual a 1)
+
+\textit{NOTA: NO es necesario que resuelva este PVI, ni tal solución será tenida en cuenta.}
+\end{opciones}
+
+\columnbreak
+
+\begin{center}
+\begin{tikzpicture}[scale=0.9]
+  \draw[thick] (-2,0.4) arc (180:360:2 and 1.6);
+  \draw[thick] (-2,0.4) -- (2,0.4);
+  \draw[dashed] (0,0.4) -- (0,-1.6);
+  \draw[-{Latex[length=2mm]}] (0.15,0.4) -- (0.15,-1.2) node[midway,right,font=\scriptsize] {$h$};
+  \draw[-{Latex[length=2mm]}] (0,-1.6) -- (0,-1.9);
+  \node[font=\scriptsize] at (0.6,-1.8) {orificio};
+  \node[font=\scriptsize] at (-1.6,0.65) {2 pies};
+\end{tikzpicture}
+\end{center}
+
+\vspace{3cm}
+
+\end{multicols}
+
+\noindent\textbf{4. (35\%)} En los literales a), b), c) y d) complete según corresponda. Sólo se calificará respuesta, no es necesario que escriba el procedimiento.
+
+\begin{multicols}{2}
+
+\begin{opciones}
+\item[(a)] \textbf{(9\%)} Si $y=4+\dfrac{c}{x^4}$ es solución general de la ecuación diferencial lineal de primer orden
+\[
+xy'+4y=g(x),
+\]
+entonces $g(x)=$ \underline{\hspace{3cm}}
+
+\item[(b)] \textbf{(9\%)} Un factor de integración de la ecuación diferencial
+\[
+(y^3+6x)\,dx+2xy^2\,dy=0,
+\]
+es \underline{\hspace{3cm}}
+
+\columnbreak
+
+\item[(c)] \textbf{(8\%)} Considere la ecuación diferencial
+\[
+(x-2y+4)dx+(2x-y+2)dy=0.
+\]
+\[
+\text{O equivalentemente} \qquad \frac{dy}{dx}=\frac{x-2y+4}{y-2x-2}.
+\]
+Con unas sustituciones adecuada, esta ecuación diferencial se transforma en una ecuación diferencial homogénea. Dicha ecuación diferencial homogénea en las variables $u$ y $v$ es
+
+\underline{\hspace{5cm}}
+
+\item[(d)] \textbf{(9\%)} La población de un barrio de una gran ciudad se describe por el problema de valores iniciales
+\[
+\frac{dp}{dt}=p(10^{-1}-10^{-6}p), \qquad p(0)=3000,
+\]
+donde la unidad de tiempo $t$ se mide en meses.
+
+i) \textbf{(3\%)} La(s) solución(es) de equilibrio es(son): \underline{\hspace{2cm}}
+
+ii) \textbf{(3\%)} La cantidad límite de habitantes de la población es: \underline{\hspace{2cm}}
+
+iii) \textbf{(3\%)} La(s) solución(es) de equilibrio inestable(s) son: \underline{\hspace{2cm}}
+
+Si es el caso, escriba ``no hay'', cuando lo considere correcto para algunos de los literales anteriores. No es necesario que solucione la ecuación diferencial.
+\end{opciones}
+
+\end{multicols}
+
+\vfill
+\rule{\linewidth}{0.4pt}\\[1pt]
+{\scriptsize\textit{Transcripción digital --- MathUNAL}\hfill\textcolor{unalblue}{\textbf{1}}}
+
+\end{document}

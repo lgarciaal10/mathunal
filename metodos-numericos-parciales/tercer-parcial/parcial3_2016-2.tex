@@ -1,0 +1,145 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=1.9cm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage[spanish,es-noshorthands]{babel}
+\usepackage{amsmath,amssymb}
+\usepackage{enumitem}
+\usepackage{tikz}
+\usetikzlibrary{calc,arrows.meta,patterns,decorations.pathmorphing,shadows}
+\usepackage{xcolor}
+\usepackage{parskip}
+\usepackage{lmodern}
+\renewcommand{\familydefault}{\sfdefault}
+
+\definecolor{unalblue}{RGB}{31,73,124}
+\definecolor{cajaazul}{RGB}{20,60,110}
+\definecolor{cajaverde}{RGB}{35,120,75}
+\definecolor{cajaroja}{RGB}{165,25,25}
+
+\newcommand{\cajatitulada}[3]{%
+  \begin{center}
+  \begin{tikzpicture}
+    \node[draw=#1, line width=2.2pt, rounded corners=4pt, inner sep=12pt,
+          text width=0.92\linewidth, align=left,
+          fill=#1!2.2]
+      (box) {#3};
+    \node[fill=white, anchor=west, xshift=10pt, inner sep=3pt] at (box.north west)
+      {\small\color{#1}\bfseries #2};
+  \end{tikzpicture}
+  \end{center}
+}
+
+\newcommand{\examheader}{%
+  \noindent
+  \begin{minipage}[t]{0.6\linewidth}
+    {\small\bfseries MÉTODOS NUMÉRICOS (3006907) --- Tercer Examen Parcial}\\
+    {\small Semestre 02-2016, 18 de noviembre de 2016 --- TEMA A --- Con solución verificada}
+  \end{minipage}%
+  \hfill
+  \begin{minipage}[t]{0.35\linewidth}
+    \raggedleft\small Escuela de Matemáticas. Universidad Nacional de Colombia, Sede Medellín.
+  \end{minipage}\\[2pt]
+  \rule{\linewidth}{0.6pt}
+}
+\newcommand{\examfooter}{%
+  \vfill
+  \rule{\linewidth}{0.4pt}\\[1pt]
+  {\scriptsize\textit{Transcripción digital --- MathUNAL}\hfill\textcolor{unalblue}{\textbf{\thepage}}}
+}
+\pagestyle{empty}
+
+\begin{document}
+\examheader
+
+\vspace{4pt}
+\noindent
+\begin{minipage}[t]{0.62\linewidth}
+Nombre completo:\underline{\hspace{8cm}}\\[6pt]
+Carnet:\underline{\hspace{5cm}}\quad Grupo:\underline{\hspace{2.5cm}}
+\end{minipage}%
+\hfill
+\begin{minipage}[t]{0.33\linewidth}
+\begin{center}
+\begin{tabular}{|c|c|}
+\hline
+\multicolumn{2}{|c|}{Calificación} \\
+\hline
+1. & \\
+\hline
+2. & \\
+\hline
+3. & \\
+\hline
+4. & \\
+\hline
+Total & \\
+\hline
+\end{tabular}
+\end{center}
+\end{minipage}
+
+\vspace{6pt}
+\noindent Duración: 1 hora y 50 minutos.
+
+\vspace{6pt}
+\noindent\textit{Instrucciones. No está permitido el uso de Tabletas ni de cualquier otro tipo de dispositivo electrónico, incluyendo teléfonos móviles, los cuales deben permanecer apagados durante el tiempo de duración del examen. La interpretación del examen hace parte de la evaluación, por tanto no se admiten preguntas.}
+
+\vspace{6pt}
+\begin{center}
+\textbf{TODO PUNTO DEBE ESTAR DEBIDAMENTE JUSTIFICADO}\\
+\textbf{RESPUESTAS SIN PROCEDIMIENTO \underline{NO} SE CALIFICAN}
+\end{center}
+
+\vspace{10pt}
+\noindent\textit{Nota: este escaneo llega incompleto; solo se recuperó el ejercicio 1. Los ejercicios 2, 3 y 4 no están disponibles en el archivo fuente.}
+
+\vspace{10pt}
+
+\noindent 1. (10\%) Considere el problema con valores iniciales
+\[
+\begin{cases}
+y'(t) = \dfrac{t}{2}y(t) + \displaystyle\int_0^t y(s)\,ds, \quad 0 \le t \le 0.4, \\[6pt]
+y(0) = 1.
+\end{cases}
+\]
+
+\noindent Use el método de Euler con tamaño de paso $h = 0.2$ para aproximar el valor $y$ en $x = 0.4$. Tenga en cuenta que $y(0.2) = 1.01$. Para \textit{evaluar} la integral use la regla de trapecio simple, es decir, $\displaystyle\int_0^t y(s)\,ds \approx \dfrac{t}{2}\big(y(t)+y(0)\big)$.
+
+\vspace{4pt}
+\noindent\textit{(Usar 4 dígitos decimales para sus cálculos.)}
+
+\cajatitulada{cajaazul}{Solución}{
+\textbf{Paso 1: reescribir la ecuación diferencial sin integral.}
+
+Sustituyendo la regla del trapecio en la ecuación:
+\[
+y'(t) = \frac{t}{2}y(t) + \frac{t}{2}\big(y(t)+y(0)\big) = \frac{t}{2}y(t)+\frac{t}{2}y(t)+\frac{t}{2}y(0) = t\,y(t) + \frac{t}{2}\cdot 1
+\]
+Como $y(0)=1$:
+\[
+f(t,y) = t\left(y+\frac{1}{2}\right)
+\]
+
+\textbf{Paso 2: aplicar Euler.} Con $h=0.2$, la malla es $t_0=0,\ t_1=0.2,\ t_2=0.4$. Ya se conoce $w_1=y(0.2)=1.01$ (dato del enunciado). Calculamos $w_2$:
+\[
+f(t_1,w_1) = f(0.2,\,1.01) = 0.2\,(1.01+0.5) = 0.2(1.51) = 0.3020
+\]
+\[
+w_2 = w_1 + h\,f(t_1,w_1) = 1.01 + 0.2(0.3020) = 1.01 + 0.0604
+\]
+\[
+\boxed{w_2 = y(0.4) \approx 1.0704}
+\]
+}
+
+\vspace{4pt}
+\cajatitulada{cajaroja}{Nota de verificación}{
+\small
+El planteamiento simbólico del manuscrito original es correcto: la sustitución de la regla del trapecio y la reducción a $f(t,y)=t(y+\tfrac12)$ coinciden exactamente con lo desarrollado arriba.
+
+En el paso numérico final, el manuscrito redondeó $f(0.2,1.01)=0.302$ a $0.3$ \textbf{antes} de multiplicar por $h$, obteniendo $h\cdot f = 0.2\times 0.3=0.06$ y así $w_2=1.01+0.06=1.06$. Conservando las 4 cifras decimales pedidas en el enunciado (sin redondear a mitad de camino), el resultado más preciso es $w_2\approx 1.0704$. La diferencia es pequeña y se debe a un redondeo prematuro, no a un error de método.
+}
+
+\examfooter
+\end{document}

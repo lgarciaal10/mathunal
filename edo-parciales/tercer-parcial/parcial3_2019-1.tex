@@ -1,0 +1,146 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=1.9cm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage[spanish]{babel}
+\usepackage{amsmath,amssymb}
+\usepackage{enumitem}
+\usepackage{tikz}
+\usetikzlibrary{calc,arrows.meta,patterns,decorations.pathmorphing}
+\usepackage{xcolor}
+\usepackage{multicol}
+\usepackage{parskip}
+\usepackage{lmodern}
+\renewcommand{\familydefault}{\sfdefault}
+
+\definecolor{unalblue}{RGB}{31,73,124}
+\definecolor{unalblue2}{RGB}{70,120,180}
+
+\newlist{opciones}{enumerate}{1}
+\setlist[opciones]{label=\textbf{(\alph*)},itemsep=1pt,topsep=2pt,leftmargin=1.8em,font=\normalfont}
+\setlist[enumerate,1]{label=\textbf{\arabic*.},itemsep=6pt,topsep=4pt,leftmargin=1.6em,font=\normalfont}
+\setlist[enumerate,2]{label=\textbf{\alph*)},itemsep=4pt,topsep=3pt,leftmargin=1.6em,font=\normalfont}
+\setlist[enumerate,3]{label=\textbf{\roman*)},itemsep=2pt,topsep=2pt,leftmargin=1.4em,font=\normalfont}
+
+\newcommand{\vect}[2]{\begin{pmatrix}#1\\#2\end{pmatrix}}
+\newcommand{\vectiii}[3]{\begin{pmatrix}#1\\#2\\#3\end{pmatrix}}
+
+\newcommand{\examheader}{%
+\noindent\begin{tikzpicture}
+\node[fill=unalblue, text width=\dimexpr\linewidth-16pt\relax, inner sep=8pt, rounded corners=3pt, align=left, text=white] (hdr) {%
+  \begin{minipage}[c]{0.66\linewidth}
+    {\Large\bfseries \examsubject}\\[2pt]
+    {\small \examtype\ \textbullet\ \textcolor{white!85!unalblue}{\examsubtitle}}
+  \end{minipage}\hfill
+  \begin{minipage}[c]{0.28\linewidth}
+    \raggedleft{\scriptsize Escuela de Matem\'aticas\\[-1pt] Universidad Nacional\\[-1pt] de Colombia, Sede Medell\'in}
+  \end{minipage}%
+};
+\end{tikzpicture}\\[7pt]
+}
+\newcommand{\examfooter}{%
+  \vfill
+  \rule{\linewidth}{0.4pt}\\[1pt]
+  {\scriptsize\textit{Transcripci\'on digital --- MathUNAL}\hfill\textcolor{unalblue}{\textbf{\thepage}}}
+}
+\pagestyle{empty}
+
+\newcommand{\examsubject}{ECUACIONES DIFERENCIALES}
+\newcommand{\examtype}{Tercer Parcial}
+\newcommand{\examsubtitle}{Semestre 01-2019, 2 de Abril de 2019}
+
+\begin{document}
+
+\examheader
+
+\vspace{4pt}
+\noindent
+\begin{minipage}[t]{0.55\linewidth}
+{\bfseries\large Tercer Examen Parcial Ecuaciones Diferenciales}\\[2pt]
+Puntaje. S\'olo para uso Oficial\\[4pt]
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+1 (/30) & 2 (/15) & 3 (/30) & 4 (/25) & Total & Nota\\
+\hline
+ & & & & & \\
+\hline
+\end{tabular}
+\end{minipage}%
+\hfill
+\begin{minipage}[t]{0.4\linewidth}
+Nombre: \dotfill\\[6pt]
+C\'edula: \dotfill\\[4pt]
+Sal\'on: \dotfill \hfill Grupo: TODOS\\[10pt]
+{\large Examen N\'umero: \dotfill}\\[10pt]
+Firma: \dotfill
+\end{minipage}
+
+\examfooter
+\newpage
+
+\examheader
+
+\begin{multicols}{2}
+\begin{enumerate}
+\item \textbf{(30\%)} Resuelva el siguiente problema de valor inicial usando Transformada de Laplace
+\[
+y'(t) - 6y(t) + 9\int_0^t y(\tau)\,d\tau = t, \qquad y(0)=0.
+\]
+
+\columnbreak
+
+\item \textbf{(15\%)} Si $f$ es continua por tramos en $[0,\infty)$, de orden exponencial y $F(s) = \mathcal{L}\{f(t)\}$ existe para $s>0$, pruebe a aprtir de la definici\'on de Transformada de Laplace, que para $a>0$
+\[
+\mathcal{L}\{U(t-a)f(t-a)\} = e^{-as}F(s), \quad s>0.
+\]
+\end{enumerate}
+\end{multicols}
+
+\examfooter
+\newpage
+
+\examheader
+
+\begin{enumerate}
+\setcounter{enumi}{2}
+\item \textbf{(30\%)} En los literales a), b), c) y d), complete seg\'un corresponda. S\'olo se calificar\'a respuesta, no es necesario que escriba el procedimiento.\\
+\textbf{Nota:} Su respuesta debe ser simplificada.
+\begin{enumerate}[label=\alph*)]
+\item \textbf{(7\%)} $\displaystyle \mathcal{L}\left\{t\int_0^t \cos(2\tau)\,d\tau\right\} = $ \dotfill .
+\item \textbf{(8\%)} Si $\displaystyle F(s) = \frac{2e^{-\pi s}}{2s^2+4}$, entonces $\mathcal{L}^{-1}\{F(s)\} = $ \dotfill .
+\item \textbf{(8\%)} Si $F(s) = \tan^{-1}\left(\dfrac{1}{s}\right)$, entonces $\mathcal{L}^{-1}\{F(s)\} = $ \dotfill .
+\item \textbf{(7\%)} Considere un sistema cerrado de dos tanques $T_1$ y $T_2$. Supongamos que al tanque $T_1$ entra salmuera procedente del tanque $T_2$ a raz\'on de 15 galones por minuto y que del tanque $T_1$ sale salmuera hacia el tanque $T_2$ a raz\'on de 15 galones por minuto. Si el volumen de salmuera en $T_1$ es de 60 galones y en $T_2$ es de 30 galones. Entonces el sistema de ecuaciones diferenciales que modela el problema es = \dotfill .
+\end{enumerate}
+\end{enumerate}
+
+\examfooter
+\newpage
+
+\examheader
+
+\noindent
+\begin{minipage}[t]{0.55\linewidth}
+4 . a) (10\%) Halle la soluci\'on general del sistema:
+\[
+\mathbf{X}'(t) = \mathbf{A}\mathbf{X}(t)
+\]
+en $(-\infty,\infty)$, sabiendo que $\mathbf{A} \in \mathbb{R}_{2\times 2}$ es una matriz de entradas constantes, $r=-2+3i$ es un valor propio de $\mathbf{A}$, y un vector propio correspondiente a $r$ es $\mathbf{K} = \begin{pmatrix} 2-i \\ 3 \end{pmatrix}$.
+
+\textbf{Nota:}
+\begin{enumerate}[label=\roman*)]
+\item Su respuesta debe estar en t\'erminos de funciones vectoriales con entradas de valores reales.
+\item Puede dejar sumas de vectores y productos por escalar indicados.
+\end{enumerate}
+\end{minipage}%
+\hfill
+\begin{minipage}[t]{0.4\linewidth}
+b) (15\%) Halle la soluci\'on general del sistema lineal homog\'eneo:
+\[
+\mathbf{X}'(t) = \begin{pmatrix} 1 & 1 \\ -1 & 3 \end{pmatrix}\mathbf{X}(t)
+\]
+en el intervalo $(-\infty,\infty)$.
+\end{minipage}
+
+\examfooter
+
+\end{document}

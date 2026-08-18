@@ -1,0 +1,173 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=1.9cm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage[spanish]{babel}
+\usepackage{amsmath,amssymb}
+\usepackage{lmodern}
+\renewcommand{\familydefault}{\sfdefault}
+\usepackage{enumitem}
+
+\newcommand{\vect}[2]{\begin{pmatrix}#1\\#2\end{pmatrix}}
+\usepackage{tikz}
+\usetikzlibrary{calc,arrows.meta,patterns,decorations.pathmorphing}
+\usepackage[table]{xcolor}
+\usepackage{multicol}
+\usepackage{parskip}
+
+\definecolor{unalblue}{RGB}{31,73,124}
+
+\newlist{opciones}{enumerate}{1}
+\setlist[opciones]{label=(\alph*),itemsep=6pt,topsep=6pt,leftmargin=1.8em,font=\normalfont}
+\setlist[enumerate,1]{itemsep=1.4em,topsep=1em}
+
+\newcommand{\examfooter}{%
+  \vfill
+  \rule{\linewidth}{0.4pt}\\[1pt]
+  {\scriptsize\textit{Transcripción digital --- MathUNAL}\hfill\textcolor{unalblue}{\textbf{\thepage}}}
+}
+\pagestyle{empty}
+
+\newcommand{\nota}[1]{{\small\itshape\color{unalblue!70!black} #1}}
+
+\begin{document}
+\noindent
+\begin{minipage}[t]{0.6\linewidth}
+{\small\bfseries Geometría Vectorial y Analítica --- Parcial 1}\\
+{\small Semestre 2016--02}
+\end{minipage}%
+\hfill
+\begin{minipage}[t]{0.35\linewidth}
+\raggedleft\small Escuela de Matemáticas. Universidad Nacional de Colombia, Sede Medellín.
+\end{minipage}\\[2pt]
+\rule{\linewidth}{0.6pt}
+
+\noindent
+\begin{minipage}[t]{0.54\linewidth}
+\textbf{Primer Examen Parcial de Geometría}\\
+12 de septiembre del 2016\\[6pt]
+\textbf{Puntaje. Sólo para uso oficial}
+
+\small
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+1 (/25) & 2 (/25) & 3 (/10) & 4-5 (/40) & Total & Nota \\
+\hline
+ & & & & & \\
+\hline
+\end{tabular}
+\end{minipage}%
+\begin{minipage}[t]{0.44\linewidth}
+Nombre: \underline{\hspace{4.8cm}}\\[8pt]
+Cédula: \underline{\hspace{1.8cm}}\ \ Salón: \underline{\hspace{1.2cm}}\\[8pt]
+Grupo: \underline{\hspace{1.8cm}}\ \ Examen No.: \underline{\hspace{1.6cm}}\\[8pt]
+Firma: \underline{\hspace{4.8cm}}
+\end{minipage}
+
+\vspace{10pt}
+\textbf{Instrucciones:} La duración del examen es de 1 hora y 40 minutos. El examen consta de ocho preguntas en tres hojas impresas por ambos lados, antes de empezar verifique que su examen esté \textbf{completo} y que sus \textbf{datos} sean \textbf{correctos}. No \textbf{desengrape} su exámen ni \textbf{añada} otras grapas o su examen será \textbf{anulado}. En las preguntas con procedimiento \textbf{justifique} sus respuestas en los \textbf{espacios asignados}. No está permitido hacer preguntas, el uso de calculadoras, sacar hojas en blanco ni ningún tipo de apuntes durante el examen. Por favor verifique que su celular esté \textbf{apagado}.
+
+\vspace{6pt}
+\nota{En cada uno de los literales de los puntos 1 y 2, debe presentar detalladamente el procedimiento para llegar a la solución. NOTA: Respuestas sin procedimiento no se tendrán en cuenta.}
+
+\begin{enumerate}
+\item Considere los puntos $A=\vect{1}{3}$, $B=\vect{7}{-1}$, y $C=\vect{\alpha}{-2}$, con $\alpha\in\mathbb{R}$.
+
+\begin{enumerate}[label=(\alph*)]
+\item{}[13pt] Determine los todos valores de $\alpha$ para los cuales el triángulo $ABC$ tiene un ángulo recto en $C$.
+\item{}[12pt] Encuentre la ecuación de la circunferencia que pasa por $A$ y $B$ y tiene centro en el punto medio del segmento $\overline{AB}$.
+\end{enumerate}
+
+\item Considere las rectas $\mathcal{L}_1: x=2+t,\ y=1-t,\ t\in\mathbb{R}$ y $\mathcal{L}_2: 4x+4y-7=0$.
+
+\begin{enumerate}[label=(\alph*)]
+\item{}[8pt] Demuestre que $\mathcal{L}_1$ y $\mathcal{L}_2$ son paralelas.
+\item{}[8pt] Encuentre la distancia entre $\mathcal{L}_1$ y $\mathcal{L}_2$.
+\item{}[9pt] Encuentre el punto de intersección entre la recta $\mathcal{L}_1$ y la recta $\mathcal{L}_3: 3x+2y+5=0$.
+\end{enumerate}
+
+\item{}[10pt] Dado un triángulo cualquiera con vértices $A,B,C$, sus tres medianas se intersectan en un mismo punto $X$ que divide a las tres medianas en la proporción siguiente:
+\begin{equation}
+\frac{\|A-X\|}{\left\|\frac{1}{2}(B+C)-X\right\|}=\frac{\|B-X\|}{\left\|\frac{1}{2}(A+C)-X\right\|}=\frac{\|C-X\|}{\left\|\frac{1}{2}(A+B)-X\right\|}=\frac{2}{1}.
+\end{equation}
+Demuestre que $X=\dfrac{1}{3}(A+B+C)$.
+\end{enumerate}
+
+\vspace{6pt}
+\nota{En las preguntas 4 y 5 complete los espacios en blanco o elija la (las) opción (opciones) correcta (correctas) según el caso. Tenga presente que los datos en cada literal son independientes y pueden variar. NOTA: En esta sección se califica sólo la respuesta y no se tiene en cuenta el procedimiento.}
+
+\begin{enumerate}
+\setcounter{enumi}{3}
+\item{}[15pt] En la figura se observa un triángulo con vértices en $A$, $B$ y $C=O=\vect{0}{0}$. Los puntos medios de cada lado son $P$, $Q$, $R$ y, $X$ es el punto de intersección de las tres medianas. Complete los espacios en blanco. \textbf{Ayuda}: La expresión (1) en la Pregunta 3 puede serle útil.
+
+\begin{center}
+\begin{tikzpicture}[scale=0.9]
+\coordinate (A) at (0,3.4);
+\coordinate (B) at (2.6,1.6);
+\coordinate (C) at (0,0);
+\coordinate (P) at ($(B)!0.5!(C)$);
+\coordinate (Q) at ($(A)!0.5!(B)$);
+\coordinate (R) at ($(A)!0.5!(C)$);
+\coordinate (X) at ($(A)!0.3333!(P)$);
+\draw (A) -- (B) -- (C) -- cycle;
+\draw[dashed] (A) -- (P);
+\draw[dashed] (B) -- (R);
+\draw[dashed] (C) -- (Q);
+\node[left] at (A) {$A$};
+\node[right] at (B) {$B$};
+\node[left] at (C) {$C=O=\vect{0}{0}$};
+\node[above right] at (Q) {$Q$};
+\node[left] at (R) {$R$};
+\node[below] at (P) {$P$};
+\node[above left] at (X) {$X$};
+\end{tikzpicture}
+\end{center}
+
+\begin{enumerate}[label=(\alph*)]
+\item{}[5pt] Si $A=\vect{1}{6}$, entonces $R=$ \underline{\hspace{4cm}}.
+\item{}[5pt] Si $X=\vect{2}{3}$, entonces $Q=$ \underline{\hspace{4cm}}.
+\item{}[5pt] Si $A=\vect{1}{6}$ y $X=\vect{2}{3}$, entonces $B=$ \underline{\hspace{4cm}}.
+\end{enumerate}
+
+\item{}[25pt] En la figura se muestra un hexágono, compuesto por los seis triángulos equiláteros: $\triangle OXY$, $\triangle OYZ$, $\triangle OZU$, $\triangle OUV$, $\triangle OVW$ y $\triangle OWX$. Las rectas $\mathcal{L}_1$, $\mathcal{L}_2$ y $\mathcal{L}_3$ pasan por los puntos que se indican en la figura. A continuación complete los espacios en blanco.
+
+\begin{center}
+\begin{tikzpicture}[scale=1.1]
+\coordinate (O) at (0,0);
+\coordinate (X) at (1,0);
+\coordinate (Y) at (0.5,0.866);
+\coordinate (Z) at (-0.5,0.866);
+\coordinate (U) at (-1,0);
+\coordinate (V) at (-0.5,-0.866);
+\coordinate (W) at (0.5,-0.866);
+\draw (X) -- (Y) -- (Z) -- (U) -- (V) -- (W) -- cycle;
+\draw (O) -- (X); \draw (O) -- (Y); \draw (O) -- (Z);
+\draw (O) -- (U); \draw (O) -- (V); \draw (O) -- (W);
+\draw[dotted,-{Latex}] (0,-1.8) -- (0,1.8) node[above]{$y$};
+\draw[dotted,-{Latex}] (-1.8,0) -- (2,0) node[right]{$x$};
+\draw[dotted,-{Latex}] ($(O)!-0.9!(Z)$) -- ($(O)!1.9!(Z)$) node[above right]{$\mathcal{L}_2$};
+\draw[dotted,-{Latex}] ($(O)!-0.9!(Y)$) -- ($(O)!1.9!(Y)$) node[right]{$\mathcal{L}_3$};
+\draw[dotted,-{Latex}] ($(O)!-0.9!(X)$) -- ($(O)!1.9!(X)$) node[below right]{$\mathcal{L}_1$};
+\node[above,font=\small] at ($(O)!0.35!(X)$) {$\frac{\pi}{3}$};
+\node[right] at (X) {$X$};
+\node[above] at (Y) {$Y$};
+\node[above left] at (Z) {$Z$};
+\node[left] at (U) {$U$};
+\node[below left] at (V) {$V$};
+\node[below right] at (W) {$W$};
+\node[below left] at (O) {$O$};
+\end{tikzpicture}
+\end{center}
+
+\begin{enumerate}[label=(\alph*)]
+\item{}[5pt] El ángulo de inclinación de $\mathcal{L}_2$ es \underline{\hspace{4cm}}.
+\item{}[5pt] Si $Y$ es normal a $\mathcal{L}_3$ entonces, el ángulo entre $\mathcal{L}_1$ y $\mathcal{L}_3$ es \underline{\hspace{4cm}}.
+\item{}[5pt] Si $V=\vect{-1}{-\sqrt{3}}$ y $Y$ es normal a $\mathcal{L}_3$ entonces, la distancia entre $V$ y $\mathcal{L}_3$ es \underline{\hspace{4cm}}.
+\item{}[5pt] Si $V=\vect{-3}{-3\sqrt{3}}$ y $U=\vect{-6}{0}$ entonces, un vector normal a $\mathcal{L}_2$ es \underline{\hspace{4cm}}.
+\item{}[5pt] Si $Z=\vect{-1}{\sqrt{3}}$ y $\mathcal{L}$ es la recta generada por $Z$, la proyección de $Y$ sobre $\mathcal{L}$ es $\mathrm{P}_{\mathcal{L}}(Y)=$ \underline{\hspace{4cm}}.
+\end{enumerate}
+
+\end{enumerate}
+
+\examfooter
+\end{document}

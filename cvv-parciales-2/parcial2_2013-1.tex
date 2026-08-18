@@ -1,0 +1,142 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=1.9cm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage[spanish]{babel}
+\usepackage{amsmath,amssymb}
+\usepackage{enumitem}
+\usepackage{tikz}
+\usetikzlibrary{calc,arrows.meta,patterns,decorations.pathmorphing}
+\usepackage{xcolor}
+\usepackage{multicol}
+\usepackage{parskip}
+\usepackage{lmodern}
+\renewcommand{\familydefault}{\sfdefault}
+
+\definecolor{unalblue}{RGB}{31,73,124}
+\definecolor{unalblue2}{RGB}{70,120,180}
+
+\newlist{opciones}{enumerate}{1}
+\setlist[opciones]{label=\textbf{(\alph*)},itemsep=1pt,topsep=2pt,leftmargin=1.8em,font=\normalfont}
+\setlist[enumerate,1]{label=\textbf{\arabic*.},itemsep=6pt,topsep=4pt,leftmargin=1.6em,font=\normalfont}
+\setlist[enumerate,2]{label=\textbf{\alph*)},itemsep=4pt,topsep=3pt,leftmargin=1.6em,font=\normalfont}
+\setlist[enumerate,3]{label=\textbf{\roman*)},itemsep=2pt,topsep=2pt,leftmargin=1.4em,font=\normalfont}
+
+\newcommand{\vect}[2]{\begin{pmatrix}#1\\#2\end{pmatrix}}
+\newcommand{\vectiii}[3]{\begin{pmatrix}#1\\#2\\#3\end{pmatrix}}
+
+\newcommand{\examheader}{%
+\noindent\begin{tikzpicture}
+\node[fill=unalblue, text width=\dimexpr\linewidth-16pt\relax, inner sep=8pt, rounded corners=3pt, align=left, text=white] (hdr) {%
+  \begin{minipage}[c]{0.66\linewidth}
+    {\Large\bfseries \examsubject}\\[2pt]
+    {\small \examtype\ \textbullet\ \textcolor{white!85!unalblue}{\examsubtitle}}
+  \end{minipage}\hfill
+  \begin{minipage}[c]{0.28\linewidth}
+    \raggedleft{\scriptsize Escuela de Matem\'aticas\\[-1pt] Universidad Nacional\\[-1pt] de Colombia, Sede Medell\'in}
+  \end{minipage}%
+};
+\end{tikzpicture}\\[7pt]
+}
+\newcommand{\examfooter}{%
+  \vfill
+  \rule{\linewidth}{0.4pt}\\[1pt]
+  {\scriptsize\textit{Transcripci\'on digital --- MathUNAL}\hfill\textcolor{unalblue}{\textbf{\thepage}}}
+}
+\pagestyle{empty}
+
+\newcommand{\examsubject}{CÁLCULO EN VARIAS VARIABLES}
+\newcommand{\examtype}{Segundo Parcial}
+\newcommand{\examsubtitle}{Semestre 01-2013, 11 de Mayo de 2013}
+
+\begin{document}
+
+\examheader
+
+\vspace{4pt}
+\noindent
+\begin{minipage}[t]{0.55\linewidth}
+Duraci\'on: 1 hora y 50 minutos\\[4pt]
+Calificaci\'on: 1 \dotfill; 2 \dotfill; 3 \dotfill; 4 \dotfill. \textbf{Total:} \dotfill
+\end{minipage}%
+\hfill
+\begin{minipage}[t]{0.4\linewidth}
+Nombre: \dotfill\\[6pt]
+C\'edula: \dotfill\\[6pt]
+Profesor: \dotfill \hfill Grupo: \dotfill
+\end{minipage}
+
+\vspace{6pt}
+\noindent\textbf{Instrucciones.} No est\'a permitido el uso de calculadora ni de cualquier otro tipo de aparato electr\'onico, incluyendo tel\'efonos m\'oviles, los cuales deben permanecer apagados durante el tiempo de duraci\'on del examen. Tampoco est\'a permitido hacer preguntas a las personas encargadas de la vigilancia.
+
+El examen consta de 4 puntos distribuidos en 4 p\'aginas.
+
+\begin{enumerate}
+\item \textbf{(25\%)} Halle el valor m\'aximo y el valor m\'inimo absolutos de la funci\'on
+\[
+f(x,y) = x + y^2
+\]
+en el conjunto cerrado y acotado
+\[
+D = \{(x,y) \mid 2x^2 + y^2 \le 1\}.
+\]
+\textbf{Sugerencia:} Para hallar los valores extremos de $f$ en la frontera de $D$ use multiplicadores de Lagrange.
+\end{enumerate}
+
+\examfooter
+\newpage
+
+\examheader
+
+\begin{enumerate}
+\setcounter{enumi}{1}
+\item \textbf{(25\%)} Halle la masa de una l\'amina delgada que ocupa la regi\'on $D$ en el primer cuadrante limitada por la par\'abola
+\[
+y = x^2
+\]
+y las rectas
+\[
+x = 0 \quad \text{y} \quad y = 4,
+\]
+si se sabe que la densidad en el punto $(x,y)$ es $\rho(x,y) = xe^{y^2}$.
+\end{enumerate}
+
+\examfooter
+\newpage
+
+\examheader
+
+\begin{enumerate}
+\setcounter{enumi}{2}
+\item \textbf{(25\%)} Dibuje el s\'olido acotado por el paraboloide
+\[
+z = x^2 + y^2
+\]
+y por la hoja superior ($z>0$) del hiperboloide de dos hojas
+\[
+z^2 - (x^2+y^2) = 2
+\]
+y calcule su volumen.
+\end{enumerate}
+
+\examfooter
+\newpage
+
+\examheader
+
+\begin{enumerate}
+\setcounter{enumi}{3}
+\item \textbf{(25\%)} Sea $\Omega$ el s\'olido definido por las condiciones
+\[
+\sqrt{3(x^2+y^2)} \le z \quad \text{y} \quad x^2+y^2+z^2 \le 1.
+\]
+Sabiendo que la densidad en el punto $(x,y,z)$ del s\'olido est\'a dada por
+\[
+\sigma(x,y,z) = 1 + x^2 + y^2 + z^2,
+\]
+halle la masa del s\'olido y la coordenada $\bar{z}$ de su centro de masa.
+\end{enumerate}
+
+\examfooter
+
+\end{document}

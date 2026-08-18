@@ -1,0 +1,122 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=1.9cm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage[spanish]{babel}
+\usepackage{amsmath,amssymb}
+\usepackage{enumitem}
+\usepackage{tikz}
+\usetikzlibrary{calc,arrows.meta,patterns,decorations.pathmorphing}
+\usepackage{xcolor}
+\usepackage{multicol}
+\usepackage{parskip}
+\usepackage{lmodern}
+\renewcommand{\familydefault}{\sfdefault}
+
+\definecolor{unalblue}{RGB}{31,73,124}
+
+\newlist{opciones}{enumerate}{1}
+\setlist[opciones]{label=(\alph*),itemsep=1pt,topsep=2pt,leftmargin=1.8em,font=\normalfont}
+
+\newcommand{\vect}[2]{\begin{pmatrix}#1\\#2\end{pmatrix}}
+\newcommand{\vectiii}[3]{\begin{pmatrix}#1\\#2\\#3\end{pmatrix}}
+
+\newcommand{\examheader}{%
+  \noindent
+  \begin{minipage}[t]{0.6\linewidth}
+    {\small\bfseries Primer parcial de Matem\'aticas Especiales}\\
+    {\small Semestre 02 de 2013}
+  \end{minipage}%
+  \hfill
+  \begin{minipage}[t]{0.35\linewidth}
+    \raggedleft\small Escuela de Matem\'aticas. Universidad Nacional de Colombia, Sede Medell\'in.
+  \end{minipage}\\[2pt]
+  \rule{\linewidth}{0.6pt}
+}
+\newcommand{\examfooter}{%
+  \vfill
+  \rule{\linewidth}{0.4pt}\\[1pt]
+  {\scriptsize\textit{Transcripci\'on digital --- MathUNAL}\hfill\textcolor{unalblue}{\textbf{\thepage}}}
+}
+\pagestyle{empty}
+
+\begin{document}
+
+\examheader
+
+\vspace{6pt}
+\noindent
+\begin{tabular}{@{}p{0.7\linewidth}p{0.25\linewidth}@{}}
+\textbf{Nombre} (por favor marque con lapicero): \dotfill & \textbf{Carn\'e:} \dotfill
+\end{tabular}
+
+\begin{center}
+\textbf{Duraci\'on: 1 hora y 40 minutos}
+\end{center}
+
+\textbf{Instrucciones:}
+\begin{itemize}[itemsep=1pt, topsep=2pt, leftmargin=1.5em]
+  \item El uso de calculadora o de apuntes o fotocopias \textbf{no} es permitido ni necesario.
+  \item Cualquier tentativa de \textbf{fraude} es causal de \textbf{anulaci\'on} del examen.
+\end{itemize}
+
+\vspace{6pt}
+\textbf{1.} Sea $g:\mathbb{R}\longrightarrow\mathbb{R}$ una funci\'on $2\pi$-peri\'odica y $C^1$ a tramos en $[-\pi,\pi]$ cuya serie de Fourier es
+\[
+S[g](x) = \frac{1}{\pi} + \sum_{n=2}^{\infty} \frac{\pi((-1)^{n+1}-1)}{(n-1)(n+1)}\cos(nx) + \frac{1}{2}\sin x = \frac{1}{\pi} + \sum_{k=1}^{\infty} \frac{-2\pi}{(2k-1)(2k+1)}\cos(2kx) + \frac{1}{2}\sin x.
+\]
+
+\begin{enumerate}[label=\alph*), itemsep=4pt, topsep=4pt, leftmargin=1.8em]
+  \item (15\%) \textquestiondown Cu\'al es el valor de $\displaystyle\int_{-\pi}^{\pi} g(x)\cos(18x)\,dx$? Justifique su respuesta.
+  \item (15\%) Sabiendo que $f(x) = \sin x$ para todo $x\in\left(\dfrac{\pi}{4},\dfrac{3\pi}{4}\right)$, halle el valor de la serie num\'erica
+  \[
+  \sum_{k=1}^{\infty} \frac{(-1)^k}{(2k-1)(2k+1)}.
+  \]
+  Justifique su respuesta.
+\end{enumerate}
+
+\vspace{6pt}
+\textbf{2.} Sea $f:\mathbb{R}\longrightarrow\mathbb{R}$ la funci\'on
+\[
+f(x) = \begin{cases} 1, & |x|\leq 4, \\ 0, & |x|>4. \end{cases}
+\]
+
+\begin{enumerate}[label=\alph*), itemsep=4pt, topsep=4pt, leftmargin=1.8em]
+  \item (15\%) Muestre que
+  \[
+  \widehat{f}(\omega) = \sqrt{\frac{2}{\pi}}\,\frac{\sin 4\omega}{\omega}.
+  \]
+  \item (10\%) Usando propiedades de la transformada de Fourier halle $\mathcal{F}^{-1}\{e^{-i\omega}e^{-\omega^2/2}\}$.
+
+  \textit{Nota: puede usar que, para $a>0$, $\mathcal{F}\{e^{-ax^2}\}(\omega) = \dfrac{1}{\sqrt{2a}}e^{-\omega^2/4a}$ (el cual es un resultado visto en clase).}
+\end{enumerate}
+
+\clearpage
+\examheader
+\vspace{6pt}
+
+\begin{enumerate}[label=\alph*), itemsep=4pt, topsep=4pt, leftmargin=1.8em, start=3]
+  \item (15\%) Demuestre que
+  \[
+  \int_{-4}^{4} e^{-(x-p)^2}\,dp = \frac{2}{\sqrt{\pi}}\int_0^{\infty} \frac{\sin 4\omega}{\omega}e^{-\omega^2/4}\cos(\omega x)\,d\omega.
+  \]
+  Indique claramente el procedimiento y cu\'al (o cu\'ales) propiedades de la transformada de Fourier usa.
+\end{enumerate}
+
+\vspace{6pt}
+\textbf{3.} Sea $f:\mathbb{R}\longrightarrow\mathbb{R}$ la funci\'on definida como
+\[
+f(x) = \begin{cases} \sin x, & |x|\leq \pi, \\ 0, & |x|>\pi. \end{cases}
+\]
+
+\begin{enumerate}[label=\alph*), itemsep=4pt, topsep=4pt, leftmargin=1.8em]
+  \item (20\%) Halle $I[f](x)$.
+  \item (10\%) Calcule el valor de
+  \[
+  \int_0^{\infty} \frac{\sin(\pi\omega)}{1-\omega^2}\sin\left(\frac{\pi}{4}\omega\right)\,d\omega.
+  \]
+  Justifique su respuesta.
+\end{enumerate}
+
+\examfooter
+\end{document}

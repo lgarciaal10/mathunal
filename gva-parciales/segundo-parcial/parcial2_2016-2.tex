@@ -1,0 +1,190 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=2.2cm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage[spanish]{babel}
+\usepackage{amsmath,amssymb}
+\usepackage{enumitem}
+\usepackage{tikz}
+\usetikzlibrary{calc,arrows.meta,patterns,decorations.pathmorphing}
+\usepackage{xcolor}
+\usepackage{multicol}
+\usepackage{parskip}
+\setlength{\parskip}{6pt}
+\usepackage{lmodern}
+\renewcommand{\familydefault}{\sfdefault}
+
+\definecolor{unalblue}{RGB}{31,73,124}
+
+\setlist[enumerate,1]{itemsep=10pt,topsep=8pt,leftmargin=2.2em,label=\protect\fbox{\arabic*}}
+\newlist{opciones}{enumerate}{1}
+\setlist[opciones]{label=(\alph*),itemsep=8pt,topsep=6pt,leftmargin=2em,font=\normalfont}
+
+\newcommand{\ptsbox}[1]{\fboxsep=3pt\fbox{\footnotesize #1}\hspace{4pt}}
+\newcommand{\borradorbox}[1][3cm]{%
+  \noindent\fbox{\begin{minipage}[t][#1][t]{0.97\linewidth}
+  {\scriptsize\itshape Espacio borrador, nada escrito aquí será calificado.}
+  \end{minipage}}
+}
+
+\newcommand{\vect}[2]{\begin{pmatrix}#1\\#2\end{pmatrix}}
+\newcommand{\vectiii}[3]{\begin{pmatrix}#1\\#2\\#3\end{pmatrix}}
+
+\newcommand{\examheader}{%
+  \noindent
+  \begin{minipage}[t]{0.6\linewidth}
+    {\small\bfseries Geometría Vectorial y Analítica --- Parcial 2}\\
+    {\small Semestre 2016--02}
+  \end{minipage}%
+  \hfill
+  \begin{minipage}[t]{0.37\linewidth}
+    \raggedleft
+    \fbox{\begin{minipage}{0.95\linewidth}\centering\scriptsize Escuela de Matemáticas. Universidad Nacional de Colombia, Sede Medellín.\end{minipage}}
+  \end{minipage}\\[4pt]
+  \rule{\linewidth}{0.6pt}
+}
+\newcommand{\examfooter}{%
+  \vfill
+  \rule{\linewidth}{0.4pt}\\[1pt]
+  {\scriptsize\textit{Transcripción digital --- MathUNAL}\hfill\textcolor{unalblue}{\textbf{\thepage}}}
+}
+\pagestyle{empty}
+
+\begin{document}
+
+\examheader
+
+\begin{center}
+{\bfseries Segundo Examen Parcial de Geometría}\\
+15 de Octubre del 2016
+
+\vspace{6pt}
+\textbf{Puntaje. Sólo para uso Oficial}
+
+\vspace{4pt}
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+1 (/25) & 2 (/25) & 3 (10) & 4-5 (/40) & Total & Nota\\
+\hline
+ & & & & & \\
+\hline
+\end{tabular}
+\end{center}
+
+\textbf{Instrucciones:} La duración del examen es de 1 hora y 50 minutos. El examen consta de cinco preguntas en tres hojas impresas por ambos lados, antes de empezar verifique que su examen esté completo y que sus datos sean correctos. No desengrape su examen ni añada otras grapas o su examen será anulado. En las preguntas con procedimiento justifique sus respuestas en los espacios asignados. No está permitido hacer preguntas, el uso de calculadoras, sacar hojas en blanco ni ningún tipo de apuntes durante el examen. Por favor verifique que su celular esté apagado.
+
+En cada uno de los literales de los puntos 1, 2 y 3, debe presentar detalladamente el procedimiento para llegar a la solución. \textbf{NOTA:} Respuestas sin procedimiento no se tendrán en cuenta.
+
+\begin{enumerate}
+
+\item \ptsbox{25pts} Considere la transformación del plano, $T:\mathbb{R}^2\to\mathbb{R}^2$, tal que $T\vect{x}{y} = \vect{-5+x}{3-y}$.
+
+\begin{opciones}
+\item \ptsbox{9pts} Demuestre que $T$ es un movimiento Euclidiano.
+
+\vspace{80pt}
+
+\item \ptsbox{8pts} Sea $\mathcal{P}$ el paralelogramo determinado por los vectores $U = \vect{1}{4}$ y $V = \vect{2}{-1}$. Encuentre el área de $\mathcal{P}$.
+
+\vspace{70pt}
+
+\item \ptsbox{8pts} Encuentre el área de $T(\mathcal{P})$.
+
+\vspace{70pt}
+\end{opciones}
+
+\item \ptsbox{25pts} Considere la transformación lineal del plano $T:\mathbb{R}^2\to\mathbb{R}^2$, cuya matriz es $m(T) = \begin{pmatrix} 8 & 12 \\ 2 & 3\end{pmatrix}$.
+
+\begin{opciones}
+\item \ptsbox{5pts} Calcule $\det(m(T))$ y establezca si $T$ es invertible o no.
+
+\vspace{60pt}
+
+\newpage
+\examheader
+
+\item \ptsbox{10pts} Calcule $T\vect{-3}{2}$ y utilice esta información para hallar $N(T)$.
+
+\vspace{100pt}
+
+\item \ptsbox{10pts} Calcule $T(E_2)$ y utilice esta información para hallar $T(\mathbb{R}^2)$.
+
+\vspace{80pt}
+\end{opciones}
+
+\item \ptsbox{10pt} Suponga que $X$, $Y$ son dos vectores de $\mathbb{R}^2$ linealmente dependientes y que $T:\mathbb{R}^2\to\mathbb{R}^2$ es una transformación lineal. Demuestre que los vectores $T(X)$, $T(Y)$ son linealmente dependientes.
+
+\vspace{80pt}
+
+\vspace{6pt}
+En las preguntas 4 y 5 complete los espacios en blanco o elija la (las) opción (opciones) correcta (correctas) según el caso. Tenga presente que los datos en cada literal son independientes y pueden variar. \textbf{NOTA:} En esta sección se califica únicamente la respuesta y no se tiene en cuenta el procedimiento.
+
+\newpage
+\examheader
+
+\item \ptsbox{20pt} Considere $P$ la transformación de proyección sobre la recta $\mathcal{L}: y = 2x$.
+
+\begin{minipage}[t]{0.55\linewidth}
+\begin{opciones}
+\item \ptsbox{5pt} La matriz asociada a la transformación $P$ es
+
+\vspace{4pt}
+$m(P) = \begin{pmatrix} \phantom{-\dfrac{0}{0}} & \phantom{-\dfrac{0}{0}} \\[8pt] \phantom{-\dfrac{0}{0}} & \phantom{-\dfrac{0}{0}} \end{pmatrix}$
+
+\item \ptsbox{5pt} $N(P)$ es la recta con ecuación general \underline{\hspace{3.5cm}}
+
+\item \ptsbox{5pt} El valor propio de $P$ asociado al vector propio $X = \vect{-2}{-4}$, es $\lambda = $ \underline{\hspace{2.5cm}}
+
+\item \ptsbox{5pt} La ecuación general de una recta $\mathcal{L}$ tal que $P(\mathcal{L}) = \mathcal{L}$ es \underline{\hspace{3.5cm}}
+\end{opciones}
+\end{minipage}%
+\hfill
+\begin{minipage}[t]{0.4\linewidth}
+\borradorbox[7cm]
+\end{minipage}
+
+\vspace{10pt}
+
+\item \ptsbox{20pt} En la siguiente figura se asume que los cuadrados pequeños miden $1\times 1$. La figura muestra las imágenes de los vectores canónicos $E_1$ y $E_2$ bajo dos transformaciones lineales $T:\mathbb{R}^2\to\mathbb{R}^2$ y $S:\mathbb{R}^2\to\mathbb{R}^2$. El triángulo formado por tres puntos cualesquiera $A$, $B$ y $C$ se denota por $\triangle ABC$. Responda a las siguientes preguntas.
+
+\begin{minipage}[t]{0.42\linewidth}
+\centering
+\begin{tikzpicture}[scale=0.42]
+\draw[step=1cm,gray!40,very thin] (-3,-4) grid (3,3);
+\draw[-{Stealth[length=2mm]}] (-3.3,0) -- (3.3,0) node[right] {\small $x$};
+\draw[-{Stealth[length=2mm]}] (0,-4.3) -- (0,3.3) node[above] {\small $y$};
+\draw[thick,-{Stealth[length=2mm]}] (0,0) -- (-3,1) node[above left] {\small $T(E_2)$};
+\draw[thick,-{Stealth[length=2mm]}] (0,0) -- (2,2) node[above right] {\small $T(E_1)$};
+\draw[thick,-{Stealth[length=2mm]}] (0,0) -- (-2,0) node[left] {\small $S(E_1)$};
+\draw[thick,-{Stealth[length=2mm]}] (0,0) -- (0,-3) node[below] {\small $S(E_2)$};
+\node[below left] at (0,0) {\small $O$};
+\end{tikzpicture}
+\end{minipage}%
+\hfill
+\begin{minipage}[t]{0.53\linewidth}
+\begin{opciones}
+\item \ptsbox{5pt} La matriz de $T:\mathbb{R}^2\to\mathbb{R}^2$ es:
+
+$m(T) = \begin{pmatrix} \phantom{-0} & \phantom{-0} \\[6pt] \phantom{-0} & \phantom{-0} \end{pmatrix}$
+
+\item \ptsbox{5pt} La proporción entre las áreas de los triángulos $\triangle OT(E_1)T(E_2)$ y $\triangle OE_1E_2$ es
+
+$\dfrac{\text{Área}(\triangle OT(E_1)T(E_2))}{\text{Área}(\triangle OE_1E_2)} = $ \underline{\hspace{1.8cm}}
+
+\item \ptsbox{5pt} Los valores propios de $S:\mathbb{R}^2\to\mathbb{R}^2$ son:
+
+$\lambda_1 = $ \underline{\hspace{1.3cm}}, $\lambda_2 = $ \underline{\hspace{1.3cm}}
+
+\item \ptsbox{5pt} La matriz de la transformación lineal inversa $S^{-1}:\mathbb{R}^2\to\mathbb{R}^2$ es
+
+$m(S^{-1}) = \begin{pmatrix} \phantom{-0} & \phantom{-0} \\[6pt] \phantom{-0} & \phantom{-0} \end{pmatrix}$
+\end{opciones}
+\end{minipage}
+
+\vspace{10pt}
+\borradorbox[5cm]
+
+\end{enumerate}
+
+\examfooter
+\end{document}

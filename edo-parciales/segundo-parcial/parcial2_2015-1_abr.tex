@@ -1,0 +1,130 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=1.9cm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage[spanish]{babel}
+\usepackage{amsmath,amssymb}
+\usepackage{enumitem}
+\usepackage{tikz}
+\usetikzlibrary{calc,arrows.meta,patterns,decorations.pathmorphing}
+\usepackage{xcolor}
+\usepackage{multicol}
+\usepackage{parskip}
+\usepackage{lmodern}
+\renewcommand{\familydefault}{\sfdefault}
+
+\definecolor{unalblue}{RGB}{31,73,124}
+
+\newlist{opciones}{enumerate}{1}
+\setlist[opciones]{label=(\alph*),itemsep=1pt,topsep=2pt,leftmargin=1.8em,font=\normalfont}
+
+\pagestyle{empty}
+\setlength{\columnseprule}{0.5pt}
+
+\begin{document}
+
+\noindent
+\begin{minipage}[t]{0.68\linewidth}
+  {\bfseries\large Universidad Nacional de Colombia --- Sede Medellín, Escuela de Matemáticas}\\[2pt]
+  {\small Ecuaciones Diferenciales (1000007), Segundo examen parcial}\\
+  {\small Semestre 01-2015, 18 de Abril de 2015}\\
+  {\small Duración: 1 hora y 40 minutos}
+\end{minipage}%
+\hfill
+\begin{minipage}[t]{0.28\linewidth}
+  \raggedleft
+  \begin{tabular}{|l|c|}
+  \hline
+  \multicolumn{2}{|c|}{Calificación} \\
+  \hline
+  1. & \\ \hline
+  2. & \\ \hline
+  3. & \\ \hline
+  4. & \\ \hline
+  Total & \\ \hline
+  \end{tabular}
+\end{minipage}
+
+\vspace{6pt}
+\noindent\textbf{Instrucciones.} No está permitido el uso de calculadora ni de cualquier otro tipo de aparato electrónico, incluyendo teléfonos móviles, los cuales deben permanecer apagados durante el tiempo de duración del examen. Tampoco está permitido hacer preguntas a las personas encargadas de la vigilancia.
+
+\vspace{4pt}
+\noindent El examen consta de 4 puntos distribuidos en 4 páginas.
+
+\vspace{6pt}
+\noindent\textbf{1.} En los numerales i, ii, iii y iv complete según corresponda.
+
+\vspace{0.3cm}
+\noindent\textbf{i. (5\%)} Los valores de la constante $\alpha$ para que todas las soluciones de la ecuación diferencial
+\[
+y''-(2\alpha-1)y'+\alpha(\alpha-1)y=0,
+\]
+tiendan a cero cuando $t\to+\infty$, son \underline{\hspace{4cm}}
+
+\vspace{0.3cm}
+\noindent\textbf{ii. (5\%)} Considere el problema de valor inicial
+\[
+x^2y''+(\cos x)y'+(3\ln|x-5|)y=0, \qquad y(2)=3,\ y'(2)=1.
+\]
+El mayor intervalo en que se tiene certeza de que el problema de valor inicial dado tiene solución única es \underline{\hspace{4cm}}
+
+\vspace{0.3cm}
+\noindent\textbf{iii. (5\%)} Dos raíces de una ecuación característica cúbica con coeficientes reales son $r_1=-2$ y $r_2=1+4i$. La solución general de la ecuación diferencial homogénea correspondiente es
+
+\underline{\hspace{7cm}}
+
+\vspace{0.3cm}
+\noindent\textbf{iv. (5\%)} El Wronskiano de $e^{-2t}$, $te^{-2t}$ es \underline{\hspace{4cm}}
+
+\newpage
+
+\noindent\textbf{2. a. (10\%)} Hallar la solución general de la ecuación diferencial de Cauchy-Euler
+\[
+x^2y''-3xy'+4y=0, \qquad x>0.
+\]
+
+\vspace{4cm}
+
+\noindent\textbf{b. (20\%)} Use el método de variación de parámetros para encontrar la solución particular de la ecuación diferencial
+\[
+x^2y''-3xy'+4y=x^2\ln(x), \qquad x>0.
+\]
+
+\vspace{9cm}
+
+\newpage
+
+\noindent\textbf{3. (30\%)} Un resorte se alarga 2 pies por la acción de una fuerza de 10 libras. Del resorte se cuelga una masa que pesa 8 libras y el sistema se coloca en un medio que ofrece una resistencia numéricamente igual a la velocidad instantánea. Se tira de la masa $\frac{1}{2}$ pie por debajo de la posición de equilibrio y se le imprime una velocidad inicial de $1\,\frac{\text{pie}}{\text{seg}}$ hacia abajo.
+
+\begin{opciones}
+\item[a.] \textbf{(20\%)} Determine la posición $u(t)$ de la masa en cualquier instante $t$.
+\item[b.] \textbf{(5\%)} Escriba la solución en la forma $u(t)=Re^{\lambda t}\cos(\omega t-\delta)$.
+\item[c.] \textbf{(5\%)} Determine cuándo la masa vuelve por primera vez a su posición de equilibrio.
+\end{opciones}
+
+\textit{(Recuerde que la constante $g$ es 32 pies sobre segundo al cuadrado)}
+
+\vspace{9cm}
+
+\newpage
+
+\noindent\textbf{4. a.} Considere la ecuación diferencial
+\[
+y'''+5y''+8y'+4y=xe^{-2x}+\sin(x).
+\]
+
+\begin{opciones}
+\item[i.] \textbf{(6\%)} Si se sabe que una de las soluciones de la ecuación diferencial homogénea asociada es $y_1(x)=e^{-x}$. Encuentre otras dos soluciones linealmente independientes de la ecuación diferencial homogénea.
+\item[ii.] \textbf{(8\%)} Usando coeficientes indeterminados, encuentre la forma de una solución particular. (\textit{No evalúe las constantes.})
+\end{opciones}
+
+\vspace{0.4cm}
+\noindent\textbf{b. (6\%)} Sean $y_1$, $y_2$ soluciones de una ecuación diferencial lineal homogénea de orden 2 con coeficientes continuos en un intervalo abierto $I$. Suponga que $y_1$ y $y_2$ tienen un máximo en el mismo punto de $I$. ¿Es posible que $y_1$ y $y_2$ sean linealmente independientes en $I$? Justifique su respuesta.
+
+\vspace{8cm}
+
+\vfill
+\rule{\linewidth}{0.4pt}\\[1pt]
+{\scriptsize\textit{Transcripción digital --- MathUNAL}\hfill\textcolor{unalblue}{\textbf{1}}}
+
+\end{document}

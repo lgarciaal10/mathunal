@@ -1,0 +1,182 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=2.2cm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage[spanish]{babel}
+\usepackage{amsmath,amssymb}
+\usepackage{enumitem}
+\usepackage{tikz}
+\usetikzlibrary{calc,arrows.meta,patterns,decorations.pathmorphing}
+\usepackage{xcolor}
+\usepackage{multicol}
+\usepackage{parskip}
+\setlength{\parskip}{6pt}
+\usepackage{lmodern}
+\renewcommand{\familydefault}{\sfdefault}
+
+\definecolor{unalblue}{RGB}{31,73,124}
+
+\setlist[enumerate,1]{itemsep=10pt,topsep=8pt,leftmargin=2.2em,label=\protect\fbox{\arabic*}}
+\newlist{opciones}{enumerate}{1}
+\setlist[opciones]{label=(\alph*),itemsep=8pt,topsep=6pt,leftmargin=2em,font=\normalfont}
+
+\newcommand{\ptsbox}[1]{\fboxsep=3pt\fbox{\footnotesize #1}\hspace{4pt}}
+\newcommand{\borradorbox}[1][3cm]{%
+  \noindent\fbox{\begin{minipage}[t][#1][t]{0.97\linewidth}
+  {\scriptsize\itshape Espacio borrador, nada escrito aquí será calificado.}
+  \end{minipage}}
+}
+
+\newcommand{\vect}[2]{\begin{pmatrix}#1\\#2\end{pmatrix}}
+\newcommand{\vectiii}[3]{\begin{pmatrix}#1\\#2\\#3\end{pmatrix}}
+
+\newcommand{\examheader}{%
+  \noindent
+  \begin{minipage}[t]{0.6\linewidth}
+    {\small\bfseries Geometría Vectorial --- Supletorio Parcial 2}\\
+    {\small Junio de 2022}
+  \end{minipage}%
+  \hfill
+  \begin{minipage}[t]{0.37\linewidth}
+    \raggedleft
+    \fbox{\begin{minipage}{0.95\linewidth}\centering\scriptsize Escuela de Matemáticas. Universidad Nacional de Colombia, Sede Medellín.\end{minipage}}
+  \end{minipage}\\[4pt]
+  \rule{\linewidth}{0.6pt}
+}
+\newcommand{\examfooter}{%
+  \vfill
+  \rule{\linewidth}{0.4pt}\\[1pt]
+  {\scriptsize\textit{Transcripción digital --- MathUNAL}\hfill\textcolor{unalblue}{\textbf{\thepage}}}
+}
+\pagestyle{empty}
+
+\begin{document}
+\examheader
+
+\begin{center}
+{\bfseries Geometría Vectorial --- Supletorio Parcial 2}\\
+Junio del 2022
+
+\vspace{6pt}
+\textbf{Instrucciones}
+\end{center}
+
+La duración del examen es \textbf{1:50 horas}. Verifique que sus datos de identificación son correctos. La prueba consta de cinco preguntas. Diligencie sus respuestas en la tabla correspondiente más abajo: \textbullet\ No use fracciones, solamente decimales e.g., si su respuesta es $\frac{1}{2}$ escriba 0.5. \textbullet\ Escriba grande y claro. \textbullet\ Si sus respuestas no están anotadas en la tabla y espacio correspondiente, no serán tomadas en cuenta. \textbf{No} está permitido: hacer preguntas, usar calculadoras ni trabajar en hojas diferentes a las del examen. No se permite que ningún celular se encuentre a la vista.
+
+\vspace{8pt}
+\begin{center}
+\textbf{\textsc{Tabla puntaje y respuestas}}
+
+\vspace{4pt}
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+Ejercicio & Puntaje & (a) & (b) & (c)\\
+\hline
+1 & 20\% & \phantom{P=} & \phantom{Q=} & \\[10pt]
+\hline
+2 & 22\% & \multicolumn{3}{c|}{a\quad b\quad c\quad d\quad e\quad f\quad g\quad h\quad i} \\[6pt]
+\hline
+3 & 18\% & \phantom{A=} & \phantom{B=} & \phantom{C=} \\[10pt]
+\hline
+4 & 20\% & \multicolumn{3}{c|}{a\quad b\quad c\quad d\quad e\quad f} \\[6pt]
+\hline
+5 & 20\% & \phantom{a=\ b=} & \phantom{c=\ d=} & \\[10pt]
+\hline
+\end{tabular}
+\end{center}
+
+\vspace{10pt}
+
+\begin{enumerate}
+
+\item Sea $\mathcal{L}$ la recta que pasa por los puntos $A = \vect{1}{-16}$ y $B = \vect{7}{26}$ y sea $\mathcal{M}$ la recta dada por la representación vectorial paramétrica $X = \vect{4}{5} + t\vect{7}{-1}$, con $t\in\mathbb{R}$. Determine las coordenadas de los puntos $P = \vect{p_1}{p_2}$ y $Q = \vect{q_1}{q_2}$ tales que
+\[
+P,Q\in\mathcal{M}\,;\quad P\in\mathcal{L}^+_{\overline{AB}}\,;\quad Q\in\mathcal{L}^-_{\overline{AB}}\,;\quad dist(P,\mathcal{L}) = dist(Q,\mathcal{L}) = 3\sqrt{50}.
+\]
+
+\vspace{140pt}
+
+\newpage
+\examheader
+
+\item Sean
+\[
+g_1: \sqrt{32}x - 2y + 24 - 8\sqrt{32} = 0,
+\]
+\[
+g_2: \sqrt{32}x + 2y - 24 - 8\sqrt{32} = 0,
+\]
+\[
+g_3: y = 4,
+\]
+tres rectas del plano. Determine el centro $M$ de la circunferencia que está en el interior del triángulo formado por estas rectas y que tiene las rectas $g_1$, $g_2$ y $g_3$ como tangentes. Seleccione la respuesta correcta.
+
+\begin{opciones}
+\item $\vect{5}{3}$
+\item $\vect{7}{7}$
+\item $\vect{12}{8}$
+\item $\vect{8}{6}$
+\item $\vect{10}{10}$
+\item $\vect{7}{9}$
+\item $\vect{6}{8}$
+\item $\vect{7}{5}$
+\item $\vect{5}{9}$
+\end{opciones}
+
+\newpage
+\examheader
+
+\item Considere el paralelogramo
+\[
+\mathcal{P} = \left\{ \vect{-1}{-3} + s\vect{3}{2} + t\vect{-2}{2} \;\middle|\; 0\leq s\leq 1,\ 0\leq t\leq 1 \right\},
+\]
+y la transformación lineal dada por
+\[
+T\vect{x}{y} = \vect{-x+3y}{-2x-2y}.
+\]
+Entonces $T(\mathcal{P})$ es el paralelogramo
+\[
+T(\mathcal{P}) = \left\{ A + sB + tC \;\middle|\; 0\leq s\leq t,\ 0\leq t\leq 1 \right\}
+\]
+donde $A=?$, $B=?$, $C=?$.
+
+\vspace{160pt}
+
+\item Sea $T$ la transformación lineal definida por
+\[
+T\vect{x}{y} = \vect{-x+(2)y}{2x+(1)y},
+\]
+y sea $\mathcal{L}$ la línea recta con ecuación general $2x-3y+6=0$. Diga, cuáles de los siguientes enunciados son verdaderos:
+
+\begin{opciones}
+\item $T(\mathcal{L})$ es una línea recta con vector normal $\vect{-8}{1}$.
+\item $T(\mathcal{L})$ es una línea recta con vector director $\vect{1}{8}$.
+\item La línea recta $T(\mathcal{L})$ pasa por el punto $\vect{4}{2}$.
+\item La imagen bajo la transformación lineal $T$ del triángulo con vértices $\vect{-3}{0}$, $\vect{0}{0}$, $\vect{0}{2}$ es un triángulo rectángulo.
+\item La tangente del ángulo $\theta$ entre las imágenes de los ejes coordenados bajo la transformación lineal $T$ es $\tan\theta = -2$.
+\item Ninguna de las anteriores.
+\end{opciones}
+
+\newpage
+\examheader
+
+\item Se sabe que una transformación lineal $S$ verifica
+\[
+S\vect{1}{1} = \vect{2}{1} \qquad \text{y} \qquad S\vect{-1}{1} = \vect{-2}{1}.
+\]
+Otra transformación lineal $T$ se comporta de tal manera que
+\[
+(S\circ T)(E_1) = -E_2 \qquad (S\circ T)(E_2) = -2E_1.
+\]
+Si la matriz de $T$ es
+\[
+m(T) = \begin{pmatrix} a & b \\ c & d \end{pmatrix},
+\]
+entonces los valores de $a$, $b$, $c$, $d$ son:
+
+\vspace{160pt}
+
+\end{enumerate}
+
+\examfooter
+\end{document}

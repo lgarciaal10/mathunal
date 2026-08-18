@@ -1,0 +1,118 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=1.9cm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage[spanish]{babel}
+\usepackage{amsmath,amssymb}
+\usepackage{lmodern}
+\renewcommand{\familydefault}{\sfdefault}
+\usepackage{enumitem}
+
+\newcommand{\vect}[2]{\begin{pmatrix}#1\\#2\end{pmatrix}}
+\usepackage{tikz}
+\usetikzlibrary{calc,arrows.meta,patterns,decorations.pathmorphing}
+\usepackage[table]{xcolor}
+\usepackage{multicol}
+\usepackage{parskip}
+
+\definecolor{unalblue}{RGB}{31,73,124}
+
+\newlist{opciones}{enumerate}{1}
+\setlist[opciones]{label=\alph*),itemsep=6pt,topsep=6pt,leftmargin=1.8em,font=\normalfont}
+\setlist[enumerate,1]{itemsep=1.4em,topsep=1em}
+
+\newcommand{\examfooter}{%
+  \vfill
+  \rule{\linewidth}{0.4pt}\\[1pt]
+  {\scriptsize\textit{Transcripción digital --- MathUNAL}\hfill\textcolor{unalblue}{\textbf{\thepage}}}
+}
+\pagestyle{empty}
+
+\newcommand{\nota}[1]{{\small\itshape\color{unalblue!70!black} #1}}
+
+\begin{document}
+\noindent
+\begin{minipage}[t]{0.6\linewidth}
+{\small\bfseries Geometría Vectorial y Analítica --- Parcial 1}\\
+{\small Semestre 2020--01}
+\end{minipage}%
+\hfill
+\begin{minipage}[t]{0.35\linewidth}
+\raggedleft\small Escuela de Matemáticas. Universidad Nacional de Colombia, Sede Medellín.
+\end{minipage}\\[2pt]
+\rule{\linewidth}{0.6pt}
+
+\vspace{6pt}
+\noindent Geometría Vectorial y Analítica --- Parcial 1\\
+17 de octubre del 2020
+
+\vspace{4pt}
+\noindent Nombre: \underline{\hspace{6cm}}\hfill Grupo: \textbf{28}\\[4pt]
+Cédula: \underline{\hspace{6cm}}
+
+\vspace{10pt}
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+Pregunta & 1 & 2 & 3 & 4 & 5 \\
+\hline
+Puntaje & 25\% & 25\% & 20\% & 15\% & 15\% \\
+\hline
+\end{tabular}
+\end{center}
+
+\vspace{10pt}
+\textbf{Instrucciones:} La duración del examen es \textbf{2 horas}. Verifique que sus datos de identificación son correctos. La prueba consta de cinco preguntas. Debe consignar sus respuestas en la encuesta de Google Forms que le fue enviada por correo. Este examen es individual y no está permitido pedir ayuda o buscar las respuestas en internet.
+
+\begin{enumerate}
+\item Completar apropiadamente cada una de las siguientes afirmaciones. Considerando los vectores
+$$A=\vect{1}{4},\ B=\vect{-1.50}{-6.00},\ C=\vect{1.75}{3.00},\ D=\vect{2.00}{-2.00}$$
+tenemos que
+
+\begin{opciones}
+\item La proyección $\mathrm{P}_A(B)$ de $B$ a $A$ es el vector $P=$ \underline{\hspace{2cm}}, por lo tanto $A$ y $B$ son vectores linealmente [independientes/dependientes].
+\item La reflexión $\mathrm{S}_A(C)$ de $C$ alrededor de la recta generada por $A$ es el vector $S=$ \underline{\hspace{2cm}}, por lo tanto $A$ y $C$ son vectores linealmente [independientes/dependientes].
+\item Al calcular $(D-A)^\perp\cdot(C-A)$, se obtiene $d=$ \underline{\hspace{2cm}}, por lo tanto los vectores $A,C,D$ son [Colineales/No colineales].
+\item El área del triángulo con vértices $A,B,C$ es $a=$ \underline{\hspace{2cm}}, por lo tanto los vectores $A,B,C$ son [Colineales/No colineales].
+\end{opciones}
+
+\item Sea $\mathcal{L}$ la recta que pasa por los puntos $A=\vect{-5}{5}$ y $B=\vect{5}{-4}$, entonces:
+
+\begin{opciones}
+\item $\mathcal{L}$ tiene ecuación $y=px+k$, con $p=$ \underline{\hspace{1.5cm}}, y $k=$ \underline{\hspace{1.5cm}}.
+\item $\mathcal{L}$ tiene ecuación general $ax+by+1=0$, con $a=$ \underline{\hspace{1.5cm}}, y $b=$ \underline{\hspace{1.5cm}}.
+\item $\mathcal{L}$ tiene forma vectorial $X=\vect{1}{e}+t\vect{1}{d}$, $t\in\mathbb{R}$, con $e=$ \underline{\hspace{1.5cm}}, y $d=$ \underline{\hspace{1.5cm}}.
+\item Toda recta ortogonal a $\mathcal{L}$ tiene vector director $\vect{1}{o}$, con $o=$ \underline{\hspace{1.5cm}}.
+\item $\mathcal{L}$ tiene forma normal $\vect{1}{n}\cdot\left(X-\vect{1}{q}\right)$, con $n=$ \underline{\hspace{1.5cm}}, y $q=$ \underline{\hspace{1.5cm}}.
+\end{opciones}
+
+\item De las siguientes afirmaciones, seleccione todas aquellas que sean verdaderas. Sea $A$ un vector no nulo y $B$ un vector en el semiplano a la izquierda de $A$, entonces:
+
+\begin{opciones}
+\item $\mathrm{S}_A(\mathrm{S}_{A^\perp}(B))$ está en el semiplano a la derecha de $A$.
+\item $B^\perp$ está en el semiplano a la derecha de $-A$.
+\item $A-B$ está en el semiplano a la derecha de $-B$.
+\item El ángulo $\alpha$ de $-B$ a $A$ satisface $0<\alpha<\pi$.
+\item Ninguna de las anteriores.
+\end{opciones}
+
+\item Complete apropiadamente las siguientes afirmaciones. Considere el triángulo $\Delta$ con vértices
+$$A=\vect{-2}{0},\ B=\vect{3}{0},\ C=\vect{0}{5}.$$
+
+\begin{opciones}
+\item El baricentro (o centroide) de $\Delta$ es el vector $G=$ \underline{\hspace{2.5cm}}.
+\item El circuncentro de $\Delta$ es el vector $M=$ \underline{\hspace{2.5cm}}.
+\item La distancia del baricentro al circuncentro es $d=$ \underline{\hspace{2.5cm}}.
+\end{opciones}
+
+\item Considere la circunferencia $\mathcal{C}$ con ecuación $(x-4)^2+(y-4)^2=3^2$.
+
+\begin{opciones}
+\item Sea $\mathcal{L}$ la recta tangente a $\mathcal{C}$ en el punto $P=\vect{7}{4}$. El vector director de $\mathcal{L}$ es $\vect{u}{1}$, con $u=$ \underline{\hspace{2cm}}.
+\item Considere la circunferencia $\mathcal{D}$ tangente a $\mathcal{L}$ en el punto $P$ que se encuentra en el semiplano asociado a $\mathcal{L}$ opuesto al semiplano donde está $\mathcal{C}$, y cuyo centro está a distancia 2 de la recta $\mathcal{L}$. La ecuación de la circunferencia $\mathcal{D}$ es $(x-e)^2+(y-f)^2=s^2$, con $e=$ \underline{\hspace{1.5cm}}, $f=$ \underline{\hspace{1.5cm}}, y $s=$ \underline{\hspace{1.5cm}}.
+\end{opciones}
+
+\end{enumerate}
+
+\examfooter
+\end{document}

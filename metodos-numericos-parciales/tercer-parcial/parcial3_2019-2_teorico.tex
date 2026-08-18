@@ -1,0 +1,309 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=1.9cm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage[spanish,es-noshorthands]{babel}
+\usepackage{amsmath,amssymb}
+\usepackage{enumitem}
+\usepackage{tikz}
+\usetikzlibrary{calc,arrows.meta,patterns,decorations.pathmorphing,shadows}
+\usepackage{xcolor}
+\usepackage{multicol}
+\usepackage{parskip}
+\usepackage{lmodern}
+\renewcommand{\familydefault}{\sfdefault}
+
+\definecolor{unalblue}{RGB}{31,73,124}
+\definecolor{cajaazul}{RGB}{20,60,110}
+\definecolor{cajaverde}{RGB}{35,120,75}
+\definecolor{cajaroja}{RGB}{165,25,25}
+
+\newlist{opciones}{enumerate}{1}
+\setlist[opciones]{label=(\alph*),itemsep=1pt,topsep=2pt,leftmargin=1.8em,font=\normalfont}
+
+\newcommand{\vect}[2]{\begin{pmatrix}#1\\#2\end{pmatrix}}
+\newcommand{\vectiii}[3]{\begin{pmatrix}#1\\#2\\#3\end{pmatrix}}
+
+\newcommand{\cajatitulada}[3]{%
+  \begin{center}
+  \begin{tikzpicture}
+    \node[draw=#1, line width=2.2pt, rounded corners=4pt, inner sep=12pt,
+          text width=0.92\linewidth, align=left,
+          fill=#1!2.2]
+      (box) {#3};
+    \node[fill=white, anchor=west, xshift=10pt, inner sep=3pt] at (box.north west)
+      {\small\color{#1}\bfseries #2};
+  \end{tikzpicture}
+  \end{center}
+}
+
+\newcommand{\examheader}{%
+  \noindent
+  \begin{minipage}[t]{0.6\linewidth}
+    {\small\bfseries MÉTODOS NUMÉRICOS (3006907) --- Tercer Parcial Teórico}\\
+    {\small Viernes 23 de agosto de 2019 --- TEMA A --- Con solución verificada}
+  \end{minipage}%
+  \hfill
+  \begin{minipage}[t]{0.35\linewidth}
+    \raggedleft\small Escuela de Matemáticas. Universidad Nacional de Colombia, Sede Medellín.
+  \end{minipage}\\[2pt]
+  \rule{\linewidth}{0.6pt}
+}
+\newcommand{\examfooter}{%
+  \vfill
+  \rule{\linewidth}{0.4pt}\\[1pt]
+  {\scriptsize\textit{Transcripción digital --- MathUNAL}\hfill\textcolor{unalblue}{\textbf{\thepage}}}
+}
+\pagestyle{empty}
+
+\begin{document}
+\examheader
+
+\vspace{4pt}
+\noindent
+\begin{minipage}[t]{0.62\linewidth}
+Nombre:\underline{\hspace{9cm}}\\[6pt]
+N\textsuperscript{o} Carné:\underline{\hspace{4cm}}\quad Grupo:\underline{\hspace{2.5cm}}
+\end{minipage}%
+\hfill
+\begin{minipage}[t]{0.33\linewidth}
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+1. & 2. & 3. & 4. & 5. & Total \\
+\hline
+ & & & & & \\
+\hline
+\end{tabular}\\[6pt]
+Nota:\underline{\hspace{2cm}}
+\end{center}
+\end{minipage}
+
+\vspace{6pt}
+\noindent Duración: 1 hora y 40 minutos.
+
+\vspace{6pt}
+\noindent\textit{Instrucciones. No está permitido el uso de calculadora ni de cualquier otro tipo de aparato electrónico. Toda respuesta debe estar debidamente justificada.}
+
+\vspace{10pt}
+
+\noindent\fbox{1.} \textbf{Completar}
+
+\begin{enumerate}[label=\alph*.,leftmargin=1.8em]
+
+\item (5\%) Si $f$ es una función definida en la región $D := \{(t,y_1,y_2,y_3) \in \mathbb{R}^4 \ : \ t \in [a,b], \ -\infty < y_1,y_2,y_3 < \infty\}$, decimos que $f$ satisface una condición de Lipschitz en las variables $y_1,y_2,y_3$ en la región $D$ si:
+\[
+\left|\frac{\partial F}{\partial y}(t,y_1,y_2,y_3)\right| \le L \qquad \forall\ (t,y_1,y_2,y_3) \in D
+\]
+
+\item Considere el problema parabólico
+\[
+\begin{cases}
+u_t(x,t) = \dfrac{1}{49}u_{xx}(x,t), & 0 < x < 3, \quad t > 0, \\
+u(0,t) = u(3,t) = 0, & t \ge 0, \\
+u(x,0) = f(x), & 0 \le x \le 3.
+\end{cases}
+\]
+
+\begin{enumerate}[label=\roman*.,leftmargin=1.8em]
+\item (4\%) Si se toma tamaño de paso en la variable $x$, $h = \dfrac{3}{7}$, entonces los valores del tamaño de paso en la variable $t$, $k$, para los cuales el método de diferencia finita progresiva es estable son: \underline{\hspace{4cm}}
+
+\item (6\%) La fórmula de diferencias finitas regresiva con $h=\frac{3}{7}$, $k=\frac{1}{2}$, en la forma $\gamma(w_{i+1,j}+w_{i-1,j})+\xi\,w_{i,j}=w_{i,j-1}$: $\gamma=$\underline{\hspace{2.5cm}} y $\xi=$\underline{\hspace{2.5cm}}
+\end{enumerate}
+
+\item Considere el problema hiperbólico \textit{(no aplica)}
+
+\end{enumerate}
+
+\cajatitulada{cajaazul}{Solución (b.i)}{
+El método progresivo (explícito) para $u_t=c^2u_{xx}$ es estable si $r=\dfrac{c^2k}{h^2}\le\dfrac{1}{2}$. Con $c^2=\dfrac{1}{49}$ y $h=\dfrac{3}{7}$ (así $h^2=\dfrac{9}{49}$):
+\[
+\frac{k}{49}\cdot\frac{49}{9} \le \frac{1}{2} \quad\Longrightarrow\quad \frac{k}{9}\le\frac{1}{2} \quad\Longrightarrow\quad k \le \frac{9}{2}
+\]
+\[
+\boxed{0 < k \le 4.5}
+\]
+}
+
+\vspace{4pt}
+\cajatitulada{cajaroja}{Nota de verificación}{
+\small
+El manuscrito original dejó anotado $k=0.095238$ para este límite, pero al recalcular la desigualdad $r=\frac{c^2k}{h^2}\le\frac12$ con $c^2=\frac{1}{49}$ y $h=\frac37$, el despeje correcto da $k\le 4.5$, no $0.095238$. El planteamiento simbólico de la desigualdad (visible en el margen del manuscrito) es correcto; el desvío está solo en la sustitución numérica final.
+}
+
+\vspace{6pt}
+\cajatitulada{cajaazul}{Solución (b.ii)}{
+Partiendo de $\dfrac{w_{i,j}-w_{i,j-1}}{k}=\dfrac{1}{49}\cdot\dfrac{w_{i+1,j}-2w_{i,j}+w_{i-1,j}}{h^2}$ y despejando $w_{i,j-1}$, con $r=\dfrac{k}{49h^2}$:
+\[
+w_{i,j-1} = -r\,w_{i+1,j} + (1+2r)\,w_{i,j} - r\,w_{i-1,j}
+\]
+Con $h=\frac37$, $k=\frac12$: $r = \dfrac{1/2}{49\cdot 9/49} = \dfrac{1}{18}$.
+\[
+\boxed{\gamma = -\frac{1}{18} \approx -0.0556 \qquad \xi = 1+\frac{2}{18} = \frac{10}{9} \approx 1.1111}
+\]
+}
+
+\vspace{4pt}
+\cajatitulada{cajaroja}{Nota de verificación}{
+\small
+Este inciso quedó sin desarrollar en el manuscrito original (solo la nota ``aplicar la fórmula y ya''). Arriba se completa el cálculo explícito.
+}
+
+\vspace{10pt}
+
+\noindent (10\%) Considere el P.V.I. de orden superior
+\[
+\begin{cases}
+y'''(t) - \operatorname{sen}(y''(t)) + t^2 y'(t) - \cos(y(t)) = 1, \quad 1 \le t \le 3, \\
+y(1) = \gamma, \quad y'(1) = \mu, \quad y''(1) = \xi,
+\end{cases}
+\]
+donde $\gamma,\mu,\xi \in \mathbb{R}$. Escribir el P.V.I. como sistema de primer orden.
+
+\cajatitulada{cajaazul}{Solución}{
+Despejando $y'''$ de la ecuación:
+\[
+y''' = 1 + \operatorname{sen}(y'') - t^2 y' + \cos(y)
+\]
+Con $u_1=y$, $u_2=y'$, $u_3=y''$:
+\[
+\mathbb{U}(t) = \begin{pmatrix} u_1(t) \\ u_2(t) \\ u_3(t) \end{pmatrix}, \qquad
+\mathbb{F}(t,\mathbb{U}) = \begin{pmatrix} u_2 \\ u_3 \\ \operatorname{sen}(u_3) - t^2u_2 + \cos(u_1) + 1 \end{pmatrix}, \qquad
+\mathbb{Z}_a = \begin{pmatrix} \gamma \\ \mu \\ \xi \end{pmatrix}
+\]
+con $a=1$, $b=3$.
+}
+
+\vspace{4pt}
+\cajatitulada{cajaroja}{Nota de verificación}{
+\small
+En el manuscrito original, al despejar $y'''$ el término $\cos(y(t))$ quedó con signo negativo ($-\cos(u_1)$) en la tercera componente de $\mathbb{F}$. Al pasar $-\cos(y(t))$ del lado izquierdo de la ecuación original hacia la derecha, el signo correcto es \textbf{positivo}: $+\cos(y)$. Arriba se deja con el signo corregido. (Es el mismo tipo de desliz de signo visto en el ejercicio 2 del examen ``P3 2016-2019''.)
+}
+
+\vspace{10pt}
+\noindent\fbox{2.} Considere el P.V.I.
+\[
+\begin{cases}
+y'(t) = \dfrac{2}{t}y(t) + \cos(y(t)), \qquad 3 \le t \le 5, \\
+y(3) = 2.3.
+\end{cases}
+\]
+
+\begin{minipage}[t]{0.48\linewidth}
+\begin{enumerate}[label=\alph*.,leftmargin=1.8em]
+\item (8\%) Demuestre que este P.V.I. tiene única solución.
+
+\item (5\%) Fórmula de avance del método de Euler, $h=\frac14$.
+\end{enumerate}
+\end{minipage}%
+\hfill
+\begin{minipage}[t]{0.48\linewidth}
+\begin{enumerate}[label=\alph*.,leftmargin=1.8em]
+\setcounter{enumi}{2}
+\item (7\%) Fórmula de avance del método de Taylor 2, $h=\frac14$.
+\end{enumerate}
+\end{minipage}
+
+\cajatitulada{cajaazul}{Solución (a)}{
+$D=[3,5]\times\mathbb{R}$ es convexa y $f(t,y)=\frac2ty+\cos(y)$ es continua en $D$. Calculamos
+\[
+\frac{\partial f}{\partial y}(t,y) = \frac{2}{t}-\operatorname{sen}(y), \qquad \left|\frac{\partial f}{\partial y}\right| \le \frac{2}{t}+1 \le \frac{2}{3}+1=\frac{5}{3} \ \text{en } [3,5].
+\]
+\[
+\boxed{L=\tfrac{5}{3}}
+\]
+Por el teorema de existencia y unicidad, el P.V.I. tiene solución única. (El desarrollo del manuscrito original coincide y es correcto.)
+}
+
+\vspace{6pt}
+\cajatitulada{cajaazul}{Solución (b)}{
+\[
+w_{i+1} = w_i + h\left(\frac{2}{t_i}w_i+\cos(w_i)\right), \qquad w_0=2.3.
+\]
+}
+
+\vspace{6pt}
+\cajatitulada{cajaazul}{Solución (c)}{
+La derivada total es $f'(t,y)=\dfrac{\partial f}{\partial t}+\dfrac{\partial f}{\partial y}\cdot f$. Calculando:
+\[
+\frac{\partial f}{\partial t} = -\frac{2}{t^2}, \qquad \frac{\partial f}{\partial y} = \frac{2}{t}-\operatorname{sen}(y)
+\]
+\[
+f'(t,y) = -\frac{2}{t^2} + \left(\frac{2}{t}-\operatorname{sen}(y)\right)\left(\frac{2}{t}y+\cos(y)\right)
+\]
+La fórmula de avance de Taylor 2 con $w_0=2.3$, $h=0.25$:
+\[
+w_{i+1} = w_i + h\left(\frac{2}{t_i}w_i+\cos(w_i)\right) + \frac{h^2}{2}\left[-\frac{2}{t_i^2}+\left(\frac{2}{t_i}-\operatorname{sen}(w_i)\right)\left(\frac{2}{t_i}w_i+\cos(w_i)\right)\right]
+\]
+}
+
+\vspace{4pt}
+\cajatitulada{cajaroja}{Nota de verificación}{
+\small
+El manuscrito original calculó $f'(t,y)=\frac2t-\operatorname{sen}(y)-\frac{2}{t^2}$, que es $\partial_tf+\partial_yf$ sumados directamente, sin el factor $f(t,y)$ multiplicando a $\partial_yf$. Mismo patrón de error visto ya en los exámenes de 2017 y 2018: la fórmula de Taylor requiere la derivada total $f'=\partial_tf+\partial_yf\cdot f$. Arriba se corrige incluyendo ese factor.
+}
+
+\vspace{10pt}
+\noindent\fbox{3.} Considere el problema con valores en la frontera (P.V.F.)
+\[
+\begin{cases}
+\dfrac{1}{\tan^{-1}(x)}y''(x) + 4x^2 y'(x) - 3xs(x)y(x) = \ln x, \qquad 3 < x < 5, \\
+y(3) = 1.3, \\
+y(5) = \beta,
+\end{cases}
+\]
+
+\begin{minipage}[t]{0.48\linewidth}
+\begin{enumerate}[label=\alph*.,leftmargin=1.8em]
+\item (5\%) Condiciones sobre $s$ para única solución.
+
+\item (6\%) Plantear los dos P.V.I.s del método del disparo.
+\end{enumerate}
+\end{minipage}%
+\hfill
+\begin{minipage}[t]{0.48\linewidth}
+\begin{enumerate}[label=\alph*.,leftmargin=1.8em]
+\setcounter{enumi}{2}
+\item (5\%) Con las aproximaciones tabuladas y $y(x_2)\approx 3.54$, hallar $\beta$.
+
+\begin{center}
+\small
+\begin{tabular}{c|cccc}
+ & $x_0$ & $x_1$ & $x_2$ & $x_3$ \\
+\hline
+$u(x)$ & 1.3 & 1.85 & 2.37 & 3.15 \\
+$v(x)$ & 0 & 0.09 & 0.17 & 0.23
+\end{tabular}
+\end{center}
+
+\item (4\%) Error del método del disparo con $h=\frac23$: $\mathcal{O}\!\left(\left(\frac23\right)^4\right)$.
+\end{enumerate}
+\end{minipage}
+
+\cajatitulada{cajaverde}{Solución (c)}{
+\[
+y(x_2) = u(x_2) + \frac{\beta-u(3)}{v(3)}v(x_2)
+\]
+\[
+3.54 = 2.37 + \frac{\beta-3.15}{0.23}(0.17)
+\]
+\[
+1.17 = (\beta-3.15)\cdot\frac{0.17}{0.23} = (\beta-3.15)(0.7391)
+\]
+\[
+\beta - 3.15 = \frac{1.17}{0.7391} \approx 1.5830
+\]
+\[
+\boxed{\beta \approx 4.733}
+\]
+}
+
+\vspace{4pt}
+\cajatitulada{cajaroja}{Nota de verificación}{
+\small
+En el manuscrito original, al distribuir $3.15\cdot\frac{0.17}{0.23}$ se anotó $2.382$, pero el valor correcto de ese producto es $3.15\times 0.7391\approx 2.328$ (desliz de $\sim 0.054$, posible inversión de dígitos $2.328\to2.382$). Ese error se propagó hasta el resultado final: el manuscrito obtiene $\beta=4.8$, mientras que recalculando con los mismos datos y la misma fórmula (correcta) se obtiene $\beta\approx 4.733$.
+
+El error del método, $\mathcal{O}((2/3)^4)=16/81\approx 0.1975$, sí está correcto en el manuscrito original.
+}
+
+\end{document}

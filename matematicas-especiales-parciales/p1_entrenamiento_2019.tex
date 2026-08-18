@@ -1,0 +1,257 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=1.9cm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage[spanish]{babel}
+\usepackage{amsmath,amssymb}
+\usepackage{enumitem}
+\usepackage{tikz}
+\usetikzlibrary{calc,arrows.meta,patterns,decorations.pathmorphing}
+\usepackage{xcolor}
+\usepackage{multicol}
+\usepackage{parskip}
+\usepackage{lmodern}
+\renewcommand{\familydefault}{\sfdefault}
+
+\definecolor{unalblue}{RGB}{31,73,124}
+
+\newlist{opciones}{enumerate}{1}
+\setlist[opciones]{label=(\alph*),itemsep=1pt,topsep=2pt,leftmargin=1.8em,font=\normalfont}
+
+\newcommand{\vect}[2]{\begin{pmatrix}#1\\#2\end{pmatrix}}
+\newcommand{\vectiii}[3]{\begin{pmatrix}#1\\#2\\#3\end{pmatrix}}
+
+\newcommand{\examheader}{%
+  \noindent
+  \begin{minipage}[t]{0.6\linewidth}
+    {\small\bfseries Matem\'aticas Especiales --- Preguntas de repaso Parcial I}\\
+    {\small Segundo semestre de 2018}
+  \end{minipage}%
+  \hfill
+  \begin{minipage}[t]{0.35\linewidth}
+    \raggedleft\small Escuela de Matem\'aticas. Universidad Nacional de Colombia, Sede Medell\'in.
+  \end{minipage}\\[2pt]
+  \rule{\linewidth}{0.6pt}
+}
+\newcommand{\examfooter}{%
+  \vfill
+  \rule{\linewidth}{0.4pt}\\[1pt]
+  {\scriptsize\textit{Transcripci\'on digital --- MathUNAL}\hfill\textcolor{unalblue}{\textbf{\thepage}}}
+}
+\pagestyle{empty}
+
+\begin{document}
+
+\examheader
+
+\vspace{4pt}
+\textbf{Tiempo total:} 1 hora \quad \textbf{N\'umero de preguntas:} 14 \quad \textbf{Todas las preguntas tienen el mismo valor.}
+
+En cada pregunta escoja solo una opci\'on entre cuatro.
+
+\vspace{6pt}
+\noindent\textit{Las preguntas 1 a 4 hacen referencia a una cuerda de longitud $L$ y densidad lineal $\rho$, la cual se encuentra atada en sus extremos, y sujeta a una tensi\'on fija $T$. En el instante $t=0$, la cuerda se encuentra en reposo y toma la forma de la funci\'on $f(x)$. Denotemos por $u(x,t)$ la funci\'on que representa la forma que asume la cuerda en el instante $t$. Una porci\'on de cuerda, entre $x$ y $x+h$, se muestra a continuaci\'on, donde $T_h(x,t)$ y $T_v(x,t)$ denotan las tensiones horizontales y verticales en el punto $x$, y en el instante $t$.}
+
+\begin{center}
+\begin{tikzpicture}[scale=1, line cap=round]
+  % ejes
+  \draw[-Latex, thick] (0,-0.3) -- (0,3.2) node[above] {$u$};
+  \draw[-Latex, thick] (-0.3,0) -- (8.5,0) node[right] {};
+  % puntos x y x+h
+  \draw[dashed, gray] (2,0) -- (2,0.15);
+  \draw[dashed, gray] (6,0) -- (6,0.15);
+  \node[below] at (2,0) {$x$};
+  \node[below] at (6,0) {$x+h$};
+  % curva de la cuerda
+  \draw[thick, blue!70!black] (0,0) .. controls (1.5,2.3) and (2.5,2.6) .. (4,2.1)
+        .. controls (5,1.7) and (5.5,1.7) .. (6.3,1.5)
+        .. controls (7,1.35) and (7.6,1.2) .. (8,1.0);
+  % tension en x
+  \draw[-Latex, thick, purple] (2,2.55) -- (1.1,1.75) node[left] {$T_h(x,t)$};
+  \draw[-Latex, thick, purple] (2,2.55) -- (2,1.1) node[below] {$T_v(x,t)$};
+  \node[above right] at (2,2.6) {$\theta(x,t)$};
+  % tension en x+h
+  \draw[-Latex, thick, purple] (6.3,1.5) -- (7.1,1.5) node[right] {$T_h(x+h,t)$};
+  \draw[-Latex, thick, purple] (6.3,1.5) -- (6.3,2.3) node[above] {$T_v(x+h,t)$};
+  \node[below right] at (6.3,1.55) {$\theta(x+h,t)$};
+\end{tikzpicture}
+\end{center}
+
+\vspace{4pt}
+\textbf{1.} Si cada punto de la cuerda solo se mueve verticalmente, entonces es cierto que:
+\begin{opciones}
+  \item En alg\'un instante $t>0$ la cuerda deber\'a retornar a su posici\'on inicial $f(x)$.
+  \item La velocidad en direcci\'on vertical de cada peque\~na porci\'on de cuerda permanece constante.
+  \item $T_h(x,t)\cos\theta(x,t) - T_h(x+h,t)\cos\theta(x+h,t) = 0$.
+  \item Ninguna de las anteriores.
+\end{opciones}
+
+\vspace{6pt}
+\textbf{2.} Bajo las hip\'otesis enunciadas en el problema anterior es cierto que:
+\begin{opciones}
+  \item La funci\'on $u(x,t)$ es una suma finita de funciones $u_n(x,t) = b_n \sin(n\pi x/L)\cos(\lambda_n t)$, con $\lambda_n = cn\pi/L$, $b_n = $ constante, $n\geq 1$.
+  \item $u(x,t) = f(x)G(t)$, donde $f(x)$ representa la forma inicial de la cuerda y $G(t)$ es una cierta funci\'on, con $G(0)=1$.
+  \item $T_h(x+h,t) - T_h(x,t) \approx (\rho h)\dfrac{\partial^2 u}{\partial x^2}(x,t)$, para todo $x,t$.
+  \item $T_v(x+h,t) - T_v(x,t) \approx (\rho h)\dfrac{\partial^2 u}{\partial t^2}(x,t)$.
+\end{opciones}
+
+\vspace{6pt}
+\textbf{3.} Una cuerda de longitud $\pi$, tensi\'on $T$ y densidad $\rho$ se pone a vibrar, partiendo del reposo. Sea $c = \sqrt{T/\rho}$. Suponga que su forma inicial est\'a dada por la funci\'on $f(x) = \sin(x)$.
+\begin{opciones}
+  \item La funci\'on $u(x,t) = \sin(x)\cos(ct)$ representa la vibraci\'on de la cuerda.
+  \item La funci\'on $u(x,t) = \displaystyle\sum_{n=1}^{\infty} \frac{1}{n}\sin(nx)\cos(nct)$ representa la vibraci\'on de la cuerda.
+  \item $u(x,t) = \displaystyle\sum_{n=1}^{\infty} \frac{1}{n}\sin(n\pi x)\cos(n\pi ct)$ representa la vibraci\'on de la cuerda.
+  \item $u(x,t) = \dfrac{4}{\pi^2}\displaystyle\sum_{n=1}^{\infty} \frac{1}{n^2}\sin(nx)\cos(nct)$ representa la vibraci\'on de la cuerda.
+\end{opciones}
+
+\vspace{6pt}
+\textbf{4.} Sea $f(x) = x$, definida para $-L<x<L$ como $f(x) = \begin{cases} 1, & 0<x<L \\ -1, & -L<x<0\end{cases}$. Si la funci\'on se extiende de manera peri\'odica a toda la recta real, su serie de Fourier est\'a dada por:
+\begin{opciones}
+  \item $\dfrac{16}{\pi^2}\displaystyle\sum_{k=0}^{\infty} \frac{1}{2k}\sin\left(\frac{(2k+1)\pi x}{L}\right)$.
+  \item $\dfrac{4}{\pi}\displaystyle\sum_{k=0}^{\infty} \frac{1}{(2k+1)^2}\sin\left(\frac{(2k+1)\pi x}{L}\right)$.
+  \item $\dfrac{4}{\pi}\displaystyle\sum_{k=0}^{\infty} \frac{1}{2k+1}\sin\left(\frac{(2k+1)\pi x}{L}\right)$.
+  \item $\dfrac{4}{\pi}\displaystyle\sum_{k=0}^{\infty} \frac{1}{2k+1}\cos\left(\frac{(2k+1)\pi x}{L}\right)$.
+\end{opciones}
+
+\clearpage
+\examheader
+\vspace{4pt}
+
+\textbf{5.} Una cuerda de densidad $\rho = 0.5\times 10^{-3}\text{ kg/m}$ y longitud un metro se ata a una pared, en uno de sus extremos. \textquestiondown Cu\'anto debe pesar un objeto que atado al extremo opuesto logre la tensi\'on apropiada para que la cuerda al vibrar produzca una frecuencia de 440 Hertz? \textit{Nota: aqu\'i la frecuencia se refiere a la frecuencia de su modo fundamental. Tome $g = 9.8\text{ m/s}^2$ como la aceleraci\'on de la gravedad.}
+\begin{opciones}
+  \item $12.5$ kg
+  \item $387.2$ kg
+  \item $39.51$ kg
+  \item Ninguna de las anteriores
+\end{opciones}
+
+\vspace{6pt}
+\textbf{6.} Sea $f(x) = \begin{cases} \dfrac{2}{L}x + 2, & 0<x<L \\[4pt] \dfrac{2}{L}x - 2, & -L<x<0 \\[4pt] 1, & x=0 \end{cases}$, la cual se extiende de manera peri\'odica a todo $\mathbb{R}$. Sea $S(x)$ la funci\'on determinada por la serie de Fourier de la funci\'on $f(x)$. El valor de $S(x)$ en $x=0$ es igual a:
+\begin{opciones}
+  \item No se puede determinar porque $f(x)$ no es continua en ese punto.
+  \item $2$.
+  \item $0$.
+  \item $1$.
+\end{opciones}
+
+\vspace{6pt}
+\textbf{7.} Sea $f(x) = \sin(x)$, $0\leq x\leq \pi$. Si $f$ se extiende de manera par al intervalo $[-\pi,\pi]$, y luego de manera peri\'odica a toda la recta real, su desarrollo en serie de Fourier ser\'ia: \textit{(utilice el hecho de que $\int_0^\pi \sin(x)\sin(mx)\,dx = \dfrac{-\sin(m\pi)}{m^2-1}$, $\int_0^\pi \sin(x)\cos(mx)\,dx = \dfrac{\cos(m\pi)+1}{1-m^2}$)}
+\begin{opciones}
+  \item $\dfrac{2}{\pi} - \dfrac{4}{\pi}\displaystyle\sum_{k=1}^{\infty} \frac{1}{(2k)^2-1}\cos(2kx)$.
+  \item $\dfrac{2}{\pi} - \dfrac{4}{\pi}\displaystyle\sum_{k=1}^{\infty} \frac{1}{(2k)^2-1}\sin(2kx)$.
+  \item $\dfrac{2}{\pi} - \dfrac{4}{\pi}\displaystyle\sum_{k=1}^{\infty} \frac{1}{2k+1}\cos(2kx)$.
+  \item $\dfrac{2}{\pi} - \dfrac{4}{\pi}\displaystyle\sum_{k=1}^{\infty} \frac{1}{(2k+1)^2}\cos(2kx)$.
+\end{opciones}
+
+\vspace{6pt}
+\textbf{8.} Sean $P_1 = x$, $P_2 = \dfrac{1}{2}(3x^2-1)$ definidas en $[-1,1]$. Bajo el producto interno $\langle f,g\rangle = \int_{-1}^1 f(x)g(x)\,dx$:
+\begin{opciones}
+  \item $P_1$ es ortogonal a $P_2$.
+  \item La norma de $P_2$ es igual a $2/5$.
+  \item Como $f$ y $g$ no son vectores su producto interno no se puede calcular.
+  \item $\langle P_1,P_2\rangle = \dfrac{1}{2}x(3x^2-1)$.
+\end{opciones}
+
+\clearpage
+\examheader
+\vspace{4pt}
+
+\textbf{9.} De la funci\'on $f(x) = \cos\left(\dfrac{2}{3}x + 1\right)$ podemos afirmar que:
+\begin{opciones}
+  \item Su per\'iodo es $2\pi$
+  \item Su per\'iodo es $\pi$
+  \item $f$ no es peri\'odica
+  \item Su per\'iodo es $3\pi$
+\end{opciones}
+
+\vspace{6pt}
+\textbf{10.} Sea $s(x) = \dfrac{4}{\pi}\displaystyle\sum_{n=1,3,5,\ldots} \frac{1}{n}\sin(n\pi x)$, la serie que representa la funci\'on que es la extensi\'on peri\'odica a todo $\mathbb{R}$ de la funci\'on $f(x) = \begin{cases} 1, & 0<x<1 \\ -1, & -1<x<0\end{cases}$
+\begin{opciones}
+  \item La derivada de $f(x)$, (la cual existe en todos aquellos puntos $x$ que no sean n\'umeros enteros) tiene un desarrollo en serie de Fourier dado por $s'(x) = \dfrac{4}{\pi}\displaystyle\sum_{n=1,3,5,\ldots} \sin\left(\dfrac{n\pi x}{L}\right)$
+  \item Como $f$ no es derivable en todos sus puntos su derivada no posee un desarrollo en serie de Fourier
+  \item Como $f$ no es continua en todos los puntos su derivada no posee un desarrollo en serie de Fourier
+  \item $s'(x) = \dfrac{4}{\pi}\displaystyle\sum_{n=1,3,5,\ldots} \sin\left(\dfrac{n\pi x}{L}\right)$ no se satisface, pues la serie $\displaystyle\sum_{n=1,3,5,\ldots} \sin\left(\dfrac{n\pi x}{L}\right)$ no converge.
+\end{opciones}
+
+\vspace{6pt}
+\textbf{11.} La serie $s(x) = \dfrac{4}{\pi}\displaystyle\sum_{n=1,3,5,\ldots} \frac{1}{n}\sin(n\pi x)$ del problema anterior puede utilizarse para computar el n\'umero $\pi$ como la suma infinita:
+\begin{opciones}
+  \item $\pi = \dfrac{1}{1} - \dfrac{1}{3^2} + \dfrac{1}{5^2} - \dfrac{1}{7^2} + \cdots$
+  \item $\pi = \dfrac{1}{1} + \dfrac{1}{2^2} + \dfrac{1}{3^2} + \dfrac{1}{4^2} + \cdots$
+  \item $\pi = 4\left(\dfrac{1}{1} - \dfrac{1}{3} + \dfrac{1}{5} - \dfrac{1}{7} + \cdots\right)$
+  \item $\pi = 4\left(\dfrac{1}{1} + \dfrac{1}{3} + \dfrac{1}{5} + \dfrac{1}{7} + \cdots\right)$
+\end{opciones}
+
+\clearpage
+\examheader
+\vspace{4pt}
+
+\textbf{12.} \textquestiondown Cu\'al de las siguientes funciones, definidas inicialmente en $[-1,1]$, y las cuales se extienden de manera peri\'odica a toda la recta real, sabemos con seguridad admite una serie de Fourier convergente en cada punto de la recta real?
+
+\begin{center}
+\begin{tikzpicture}[scale=0.95]
+\begin{scope}
+  \clip (-1.3,-0.2) rectangle (1.3,1.3);
+  \draw[thick, red] plot[domain=0.03:1.25, samples=500] (\x, {abs(sin(deg(1/\x)))});
+  \draw[thick, red] plot[domain=-1.25:-0.03, samples=500] (\x, {abs(sin(deg(1/\x)))});
+\end{scope}
+\draw[-Latex] (-1.4,0) -- (1.4,0) node[right] {\scriptsize $x$};
+\draw[-Latex] (0,-0.15) -- (0,1.3);
+\foreach \x/\lbl in {-1/-1, -0.5/-0.5, 0.5/0.5, 1/1} \draw (\x,0.02) -- (\x,-0.02) node[below] {\tiny \lbl};
+\foreach \y/\lbl in {0.2/0.2,0.4/0.4,0.6/0.6,0.8/0.8,1.0/1.0} \draw (0.02,\y) -- (-0.02,\y) node[left] {\tiny \lbl};
+\end{tikzpicture}
+\end{center}
+
+\begin{opciones}
+  \item $f(x) = |\sin(1/x)|$, si $x\neq 0$ y $f(0)=0$. \textit{(gr\'afica arriba)}
+  \item $f(x) = |x|^{1/3}$.
+  \item $f(x) = \log|x|$, si $x\neq 0$, $f(0)=1$.
+  \item Ninguna de las anteriores.
+\end{opciones}
+
+\clearpage
+\examheader
+\vspace{4pt}
+
+\textbf{13.} Los modos fundamentales $u_n(x,t)$, $n=1,2,3,\ldots$ de una cuerda $C$ al vibrar tienen la propiedad siguiente:
+\begin{opciones}
+  \item Sus frecuencias son todas iguales, e iguales a la frecuencia de vibraci\'on de $C$
+  \item La frecuencia de $u_{n+1}(x,t)$ es igual al doble de la frecuencia de $u_n(x,t)$.
+  \item La frecuencia de $u_n(x,t)$, $n>1$, es igual al doble de la frecuencia de $u_1(x,t)$.
+  \item Lo que se denomina frecuencia de $C$ corresponde a la frecuencia de $u_1(x,t)$
+\end{opciones}
+
+\vspace{6pt}
+\textbf{14.} Con respecto a las funciones del conjunto $B = \{\varphi_n(x) = \cos(n\pi x/3),\ \psi_n(x) = \sin(n\pi x/3),\ n=1,2,3\}$ podemos afirmar que:
+\begin{opciones}
+  \item $\varphi_1(x)$ y $\varphi_2(x)$ son (l.d)
+  \item Los elementos de $B$ son linealmente independientes (l.i)
+  \item $\varphi_1(x)$ y $\psi_2(x)$ son (l.d)
+  \item $\varphi_3(x)$ y $\psi_3(x)$ son (l.d)
+\end{opciones}
+
+\clearpage
+\examheader
+\vspace{4pt}
+\begin{center}{\large\bfseries Soluciones}\end{center}
+\vspace{6pt}
+
+\begin{description}[itemsep=2pt, leftmargin=2.2em, font=\normalfont\bfseries]
+  \item{}[1.] (c)
+  \item{}[2.] (d)
+  \item{}[3.] (a)
+  \item{}[4.] (c)
+  \item{}[5.] (c): la frecuencia del modo fundamental est\'a dada por $f = c/2L$. Luego $c = 2Lf = \sqrt{T/\rho}$. Elevando al cuadrado se obtiene $c^2 = T/\rho = 4L^2f^2$, y por tanto $T = 4L^2f^2\rho = 387.2\text{ N} = m\cdot 9.8$. De aqu\'i que $m = 387.2/9.8 = 39.5$ kg.
+  \item{}[6.] (c)
+  \item{}[7.] (a)
+  \item{}[8.] (a)
+  \item{}[9.] (d)
+  \item{}[10.] (d)
+  \item{}[11.] (c)
+  \item{}[12.] (d)
+  \item{}[13.] (d)
+  \item{}[14.] (b): son (l.i), pues forman un conjunto ortogonal.
+\end{description}
+
+\examfooter
+\end{document}

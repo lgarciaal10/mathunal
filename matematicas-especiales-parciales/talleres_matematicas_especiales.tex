@@ -1,0 +1,557 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=1.9cm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{textcomp}
+\usepackage{amsmath,amssymb}
+\usepackage{enumitem}
+\usepackage{tikz}
+\usetikzlibrary{calc,arrows.meta,patterns,decorations.pathmorphing}
+\usepackage{xcolor}
+\usepackage{multicol}
+\usepackage{parskip}
+\usepackage{lmodern}
+\renewcommand{\familydefault}{\sfdefault}
+
+\definecolor{unalblue}{RGB}{31,73,124}
+
+\newlist{opciones}{enumerate}{1}
+\setlist[opciones]{label=\textbf{(\alph*)},itemsep=1pt,topsep=2pt,leftmargin=1.8em,font=\normalfont}
+\setlist[enumerate,1]{label=\textbf{\arabic*.},itemsep=4pt,topsep=4pt,leftmargin=1.6em,font=\normalfont}
+
+\newcommand{\vect}[2]{\begin{pmatrix}#1\\#2\end{pmatrix}}
+\newcommand{\vectiii}[3]{\begin{pmatrix}#1\\#2\\#3\end{pmatrix}}
+
+\newcommand{\examheader}[2]{%
+  \noindent
+  \begin{minipage}[t]{0.6\linewidth}
+    {\small\bfseries MATEM\'ATICAS ESPECIALES --- #1}\\
+    {\small #2}
+  \end{minipage}%
+  \hfill
+  \begin{minipage}[t]{0.35\linewidth}
+    \raggedleft\small Escuela de Matem\'aticas. Universidad Nacional de Colombia, Sede Medell\'in.
+  \end{minipage}\\[2pt]
+  \rule{\linewidth}{0.6pt}
+}
+\newcommand{\examfooter}{%
+  \vfill
+  \rule{\linewidth}{0.4pt}\\[1pt]
+  {\scriptsize\textit{Transcripci\'on digital --- MathUNAL}\hfill\textcolor{unalblue}{\textbf{\thepage}}}
+}
+\pagestyle{empty}
+
+\begin{document}
+
+% ============================================================
+% TALLER 1
+% ============================================================
+\examheader{Taller 1}{A\~no 2017}
+
+\columnseprule=0.5pt
+\begin{multicols}{2}
+\begin{enumerate}
+\item Sea $f(t) = \sin(\tfrac{\pi}{3}t) + \sin(\tfrac{2\pi}{5}t) + \sin(2\pi t + \tfrac{\pi}{6}) + \cos(10\pi t + \tfrac{\pi}{3})$. Hallar el periodo de $f$.
+
+\item Hallar la serie de Fourier de la función $2\pi$-periódica $f$ definida como
+\[
+f(x) = x + |x|; \qquad -\pi < x < \pi.
+\]
+
+\item Supongamos que $f$ es una función $2L$-periódica que es integrable en cualquier intervalo finito. Probar que si $a \in \mathbb{R}$,
+\[
+\int_{-L}^{L} f(x)\,dx = \int_{a}^{a+2L} f(x)\,dx
+\]
+(Es decir, los coeficientes de Fourier se pueden calcular integrando sobre cualquier intervalo de longitud $2L$).
+
+\item Encontrar la serie de Fourier de la función 2-periódica, $f:\mathbb{R}\to\mathbb{R}$, definida como
+\[
+f(x) = \begin{cases} x, & 0 \le x < 1 \\ 1-x, & 1 \le x < 2. \end{cases}
+\]
+
+\item Demuestre que:
+\begin{opciones}
+\item Si $f$ es una función integrable en $[-L,L]$ y es par,
+\[
+\int_{-L}^{L} f(x)\,dx = 2\int_{0}^{L} f(x)\,dx.
+\]
+\item Si $f$ es una función integrable en $[-L,L]$ y es impar,
+\[
+\int_{-L}^{L} f(x)\,dx = 0.
+\]
+\end{opciones}
+
+\item Encontrar la serie de Fourier de la función $2\pi$-periódica, $f:\mathbb{R}\to\mathbb{R}$, definida como
+\[
+f(x) = \begin{cases} \pi x + x^2, & -\pi \le x < 0 \\ \pi x - x^2, & 0 \le x < \pi. \end{cases}
+\]
+y use el resultado para encontrar el valor de la serie
+\[
+1 - \frac{1}{3^3} + \frac{1}{5^3} - \frac{1}{7^3} + \cdots.
+\]
+\end{enumerate}
+\end{multicols}
+
+\examfooter
+\newpage
+
+% ============================================================
+% TALLER 2
+% ============================================================
+\examheader{Taller 2}{A\~no 2017}
+
+{\small\itshape\bfseries (Muchos de estos ejercicios son tomados del texto guía)}
+
+\columnseprule=0.5pt
+\begin{multicols}{2}
+\begin{enumerate}
+\item Representar la siguiente función $f$ por una serie de Fourier de senos y trazar la extensión periódica correspondiente de $f(x)$
+\[
+f(x) = \begin{cases} x, & 0 \le x < L/2 \\ L-x, & L/2 \le x < L. \end{cases}
+\]
+
+\item Representar la siguiente función $f$ por una serie de Fourier de cosenos y trazar la extensión periódica correspondiente de $f(x)$
+\[
+f(x) = \sin\left(\frac{\pi}{L}x\right), \qquad 0 < x < L.
+\]
+
+\item Encontrar la serie compleja de Fourier de las siguientes funciones y luego convertirlas a la forma real.
+\begin{opciones}
+\item $f(x) = x \qquad 0 < x < 2\pi$.
+\item
+\[
+f(x) = \begin{cases} -1, & -\pi \le x < 0 \\ 1, & 0 \le x < \pi. \end{cases}
+\]
+\end{opciones}
+
+\item Usando la representación en integrales de Fourier demostrar que
+\[
+\int_0^\infty \frac{\sin \pi\omega \sin x\omega}{1-\omega^2}\,d\omega = \begin{cases} \dfrac{\pi}{2}\sin x & 0 \le x \le \pi \\ 0, & x > \pi. \end{cases}
+\]
+
+\item Si $f(x)$ tiene la representación
+\[
+f(x) = \int_0^\infty A(\omega)\cos(\omega x)\,d\omega,
+\]
+demostrar que
+\[
+f(ax) = \frac{1}{a}\int_0^\infty A\left(\frac{\omega}{a}\right)\cos(\omega x)\,d\omega \qquad (a>0)
+\]
+\end{enumerate}
+\end{multicols}
+
+\examfooter
+\newpage
+
+% ============================================================
+% TALLER 3
+% ============================================================
+\examheader{Taller 3}{A\~no 2017}
+
+{\small\itshape\bfseries (Varios de estos ejercicios son tomados del texto guía)}
+
+\columnseprule=0.5pt
+\begin{multicols}{2}
+\begin{enumerate}
+\item Usando integrales de Fourier
+\begin{opciones}
+\item Demuestre que
+\[
+\int_0^\infty \frac{\sin(\omega)}{\omega}\cos(\omega x)\,d\omega = \begin{cases} \dfrac{\pi}{2}, & x \in [0,1) \\ \dfrac{\pi}{4}, & x=1 \\ 0, & x > 1. \end{cases}
+\]
+\item Calcule el valor de
+\[
+\int_0^\infty \frac{\sin(2\omega)}{\omega}\,d\omega.
+\]
+\end{opciones}
+
+\item Sea $f$ la función definida por
+\[
+f(x) = \begin{cases} 1, & 0 \le x < 1 \\ 0, & x \ge 1. \end{cases}
+\]
+\begin{opciones}
+\item Escribir la expresión analítica que define la extensión par de $f$.
+\item Utilizando lo anterior y la representación integral de Fourier de la función extendida, calcule:
+\[
+\int_0^\infty \frac{\sin\omega}{\omega}\,d\omega \qquad \text{y} \qquad \int_0^\infty \frac{\sin\omega\cos(2\omega)}{\omega}.
+\]
+\end{opciones}
+\end{enumerate}
+\end{multicols}
+
+\begin{enumerate}
+\setcounter{enumi}{2}
+\item Demuestre que
+\[
+\frac{1}{\pi}\int_0^\infty \frac{\sin w \cos wx + (1-\cos w)\sin wx}{w}\,dw =
+\begin{cases}
+0, & x<0 \\
+1, & 0<x<1 \\
+0, & x>1.
+\end{cases}
+\]
+Con base en lo anterior, calcule $\displaystyle\int_0^\infty \frac{\sin w}{w}\,dw$.
+\end{enumerate}
+
+\begin{multicols}{2}
+\begin{enumerate}
+\setcounter{enumi}{3}
+\item Si sabemos que
+\[
+\mathcal{F}\{e^{-x^2}\} = \frac{1}{\sqrt{2}}e^{-\omega^2/4}
+\]
+\begin{opciones}
+\item Evaluar
+\[
+\frac{1}{\sqrt{2\pi}}\int_{-\infty}^{\infty} i\omega e^{-\frac{1}{4}\omega^2}e^{5i\omega}\,d\omega
+\]
+\item Mostrar que
+\[
+\frac{1}{\sqrt{\pi}}\int_0^\infty -\omega^2 e^{-\frac{1}{4}\omega^2}\cos(\omega x)\,d\omega = 4x^2 e^{-x^2} - 2e^{-x^2}.
+\]
+\end{opciones}
+\end{enumerate}
+\end{multicols}
+
+\examfooter
+\newpage
+
+% ============================================================
+% TALLER 4
+% ============================================================
+\examheader{Taller 4}{A\~no 2017}
+
+\columnseprule=0.5pt
+\begin{multicols}{2}
+\begin{enumerate}
+\item Sea $f:\mathbb{R}\to\mathbb{R}$, la función definida por $f(x) = e^{-|x|}$ cuya transformada de Fourier es
+\[
+\sqrt{\frac{2}{\pi}}\,\frac{1}{1+\omega^2}.
+\]
+\begin{opciones}
+\item Si $h(x) = f(x-2)$, halle la transformada de Fourier de $h$.
+\item Si $g(x) = xf(4x)$, halle la transformada de Fourier de $g$.
+\item Si $k(x) = f''(x-1)$, halle la transformada de Fourier de $k$.
+\item Si se sabe que $\mathcal{F}\{\sqrt{2}e^{-x^2}\} = e^{-\omega^2/4}$, calcule
+\[
+\int_{-\infty}^{+\infty} i\omega e^{-\frac{\omega^2}{4}-3i\omega}\,d\omega.
+\]
+\end{opciones}
+
+\item Sea
+\[
+g(x) = \begin{cases} 1, & \text{si } |x|\le 2 \\ 0, & \text{si } |x|>2. \end{cases}
+\]
+Encuentre $\mathcal{F}\{g*g\}$ y $\mathcal{F}\{xg(x)\}$.
+
+\item Sea $a\in\mathbb{R}$ una constante positiva. Encontrar la transformada de Fourier de la función
+\[
+f(x) = \frac{a}{a^2+x^2}.
+\]
+\textbf{Sugerencia:} $f(x) = \dfrac{1}{a}\dfrac{1}{1+(x/a)^2}$, hacer un cambio de variable y usar el ejercicio 1.
+
+\item
+\begin{opciones}
+\item Encuentre la transformada de Fourier de las funciones $g$ y $h$ dadas por $h(x) = \pi e^{-|x+5|}$ y
+\[
+g(x) = \begin{cases} -1, & \text{si } |x|\le 1 \\ 0, & \text{si } |x|>1. \end{cases}
+\]
+\item Calcule el valor de la integral
+\[
+\int_{-\infty}^{+\infty} \frac{\sin\omega}{\omega}\,\frac{1}{1+\omega^2}\,e^{5i\omega}\,d\omega.
+\]
+\end{opciones}
+\end{enumerate}
+\end{multicols}
+
+\examfooter
+\newpage
+
+% ============================================================
+% TALLER 5 (REPASO PRIMER PARCIAL)
+% ============================================================
+\examheader{Taller 5 (Repaso para el primer parcial)}{A\~no 2017}
+
+{\small\itshape\bfseries (Varios de estos ejercicios son tomados del texto guía)}
+
+\columnseprule=0.5pt
+\begin{multicols}{2}
+\begin{enumerate}
+\item Estas dos preguntas son de respuesta breve: ¿Cuál es la serie de Fourier de $f(x) = \sin x$? ¿Y de $f(x) = \sin^2 x$? Explique su respuesta.
+
+\item Sea $f:\mathbb{R}\to\mathbb{R}$ definida por
+\[
+f(x) = \begin{cases} 0, & x \in (-\pi,0) \\ \cos(2x), & x \in [0,\pi]. \end{cases}
+\]
+\begin{opciones}
+\item Hallar la serie de Fourier de $f$.
+\item Demuestre que
+\[
+\frac{1}{(-1)(3)} - \frac{3}{(1)(5)} + \frac{5}{(3)(7)} - \frac{7}{(5)(9)} + \cdots = -\frac{\pi}{4}.
+\]
+\end{opciones}
+\end{enumerate}
+\end{multicols}
+
+\begin{multicols}{2}
+\begin{enumerate}
+\setcounter{enumi}{2}
+\item Sea $f:\mathbb{R}\to\mathbb{R}$ una función $2\pi$ periódica impar que en $[0,\pi)$ está definida por
+\[
+f(x) = \begin{cases} 1, & x \in [0,\pi/4) \\ x, & x \in [\pi/4,\pi/2) \\ 0, & x \in [\pi/2,\pi). \end{cases}
+\]
+Sin calcular explícitamente los coeficientes de Fourier, halle el valor numérico al cual converge la serie
+\[
+\sum_{k=1}^{\infty} (-1)^{k+1} b_{2k-1}.
+\]
+
+\item Encontrar la serie de Fourier compleja de la función $2\pi$ periódica $f:\mathbb{R}\to\mathbb{R}$, tal que $f(x) = \pi - |x|$, para $-\pi \le x \le \pi$. Convierta dicha serie a la serie real.
+
+\item Sea $f$ la función definida por
+\[
+f(x) = \begin{cases} 1, & 0 \le x < 1 \\ 0, & x \ge 1. \end{cases}
+\]
+\begin{opciones}
+\item Escribir la expresión analítica que define la extensión par de $f$.
+\item Utilizando lo anterior y la representación integral de Fourier de la función extendida, calcule:
+\[
+\int_0^\infty \frac{\sin\omega}{\omega}\,d\omega \qquad \text{y} \qquad \int_0^\infty \frac{\sin\omega\cos(2\omega)}{\omega}.
+\]
+\end{opciones}
+
+\item Resuelva, usando la transformada de Fourier, la ecuación diferencial $y' - 4y = f(x)$; donde $y=y(x)$ y
+\[
+f(x) = \begin{cases} e^{-4x}, & x \ge 0 \\ 0, & x < 0. \end{cases}
+\]
+\end{enumerate}
+\end{multicols}
+
+\examfooter
+\newpage
+
+% ============================================================
+% TALLER 7
+% ============================================================
+\examheader{Taller 7}{A\~no 2017}
+
+\begin{enumerate}
+\item Encontrar, usando el método de D'Alembert, la deflexión de la cuerda vibratoria (con $L=\pi$, extremos fijos y $c^2=1$), con la velocidad inicial cero y deflexión inicial $f(x) = k(\sin(x) - \sin(2x))$ con $k>0$ constante.
+
+\item Encontrar la deflexión de la cuerda vibratoria (con $L=\pi$, extremos fijos y $c^2=1$), correspondiente con la velocidad inicial cero y deflexión inicial $f(x) = k(\pi x - x^2)$ con $k>0$ constante.
+
+\item Las vibraciones longitudinales de una barra elástica en la dirección del eje X están gobernadas por la ecuación de onda $u_{tt} = c^2 u_{xx}$, con $c^2 = T/\rho$. Si la varilla está sujeta en el extremo $x=0$, y está suelta en el extremo $x=L$ (es decir $u_x(L,t)=0$). Demuestre que el movimiento correspondiente a las condiciones iniciales $u(x,0)=f(x)$ y velocidad inicial cero es
+\[
+u(x,t) = \sum_{n=0}^{\infty} A_n \sin(p_n x)\cos(p_n c t), \quad \text{con}
+\]
+\[
+A_n = \frac{2}{L}\int_0^L f(x)\sin(p_n x)\,dx, \qquad p_n = \left(n+\frac{1}{2}\right)\frac{\pi}{L}.
+\]
+
+\item Considere la ecuación de onda con $c^2=25$, $L=\pi$, $f(x) = x(\pi-x)$, $g(x)=0$, para una cuerda fija en los extremos. Use la fórmula de D'Alembert para encontrar $u\left(\dfrac{\pi}{2},\dfrac{\pi}{5}\right)$.
+\end{enumerate}
+
+\examfooter
+\newpage
+
+% ============================================================
+% REPASO PRIMER PARCIAL - SEMESTRE 02 DE 2016
+% ============================================================
+\examheader{Ejercicios de Repaso para el primer parcial}{Semestre 02 de 2016 --- En clase}
+
+\columnseprule=0.5pt
+\begin{multicols}{2}
+\begin{enumerate}
+\item Sea $f:\mathbb{R}\to\mathbb{R}$ una función $2\pi$ periódica que en $[-\pi,\pi]$ está definida por
+\[
+f(x) = \begin{cases} |x|, & |x|<\pi/2 \\ 1/4, & x=\pi/2 \text{ o } x=-\pi/2 \\ 0, & |x|>\pi/2. \end{cases}
+\]
+Si suponemos que la serie de Fourier de $f$ es conocida, ¿a qué valores convergen las series $\displaystyle\sum_{n=1}^{\infty} a_n$, $\displaystyle\sum_{n=1}^{\infty} (-1)^n a_{2n}$?
+
+\item
+\begin{opciones}
+\item Hallar la serie de Fourier de la función $2\pi$ periódica
+\[
+f(x) = \begin{cases} x, & |x|<\pi/2 \\ \pi-x, & \pi/2<x<3\pi/2 \end{cases}
+\]
+\item Calcular el valor de la suma
+\[
+\sum_{k=1}^{\infty} \frac{1}{(2k-1)^2}
+\]
+\end{opciones}
+
+\item Sea
+\[
+f(x) = \begin{cases} \pi/2, & 0 \le x < \pi \\ 0, & x \ge \pi. \end{cases}
+\]
+\begin{opciones}
+\item Encontrar la integral de Fourier de $f$.
+\item ¿Para qué valores es cierto que $I(f)(x) = f(x)$?
+\item Hallar
+\[
+\int_0^\infty \frac{1-\cos\pi\omega}{\omega}\sin\pi\omega\,d\omega.
+\]
+\end{opciones}
+
+\item Sea
+\[
+f(x) = \begin{cases} 1-x^2, & |x|<1 \\ 0, & |x|>1. \end{cases}
+\]
+\begin{opciones}
+\item Encontrar la integral de Fourier de $f$.
+\item Calcular
+\[
+\int_0^\infty \frac{\omega\cos\omega - \sin\omega}{\omega^3}\cos\frac{\omega}{2}\,d\omega.
+\]
+\end{opciones}
+
+\item
+\begin{opciones}
+\item Mostrar que
+\[
+\frac{1}{\pi}\int_0^\infty \left(\frac{\sin\omega}{\omega}\cos\omega x + \frac{1-\cos\omega}{\omega}\sin\omega x\right) d\omega = \begin{cases} 0, & x<0 \\ 1, & 0<x<1 \\ 0, & x>1 \end{cases}
+\]
+\item Evaluar
+\[
+\frac{1}{\pi}\int_0^\infty \frac{\sin\omega}{\omega}\,d\omega
+\]
+\end{opciones}
+
+\item Sea
+\[
+f(x) = \begin{cases} |\sin x|, & |x|\le\pi \\ 0, & |x|>\pi. \end{cases}
+\]
+\begin{opciones}
+\item Hallar $\hat{f}(\omega)$.
+\item Si $h(x) = f'(x-2)$ hallar $\hat{h}(\omega)$.
+\item Hallar $\mathcal{F}(x(f*f)')$.
+\item Hallar $\mathcal{F}(f(2(x+1)))$.
+\end{opciones}
+\end{enumerate}
+\end{multicols}
+
+\examfooter
+\newpage
+
+% ============================================================
+% TALLER DE REPASO SEGUNDO PARCIAL - SEMESTRE 01 DE 2016
+% ============================================================
+\examheader{Taller de Repaso para el segundo parcial}{Semestre 01 de 2016 --- En clase}
+
+\columnseprule=0.5pt
+\begin{multicols}{2}
+\begin{enumerate}
+\item Encuentre la solución de la ecuación diferencial parcial, con $0<x<\pi$, $t>0$:
+\[
+\begin{cases}
+u_t = u_{xx} \\
+u(0,t) = 2\pi \\
+u(\pi,t) = 3\pi \\
+u(x,0) = 2\sin 3x + 4\sin 5x + x + 2\pi.
+\end{cases}
+\]
+
+\item Resuelva la EDP
+\[
+\begin{cases}
+u_{tt} = u_{xx} & x\in\mathbb{R},\ t>0 \\
+u(x,0) = 0 \\
+u_t(x,0) = g(x),
+\end{cases}
+\]
+donde
+\[
+g(x) = \begin{cases} \cos(\pi x/2) & |x|<1 \\ 0 & |x|>1. \end{cases}
+\]
+Dar la respuesta en términos de una integral real y usar que
+\[
+\int_0^1 \cos(\pi x/2)\cos(\omega x)\,dx = \frac{2\pi\cos\omega}{\pi^2 - 4\omega^2}.
+\]
+
+\item Resuelva el problema dado por, con $r\in(0,2)$, $\theta\in(0,\pi/4)$:
+\[
+\begin{cases}
+\Delta u = \dfrac{64}{r^2}\sin 8\theta \\
+u(r,0) = 0, \quad r\in[0,2] \\
+u(r,\pi/4) = \pi/4, \quad r\in[0,2] \\
+u(2,\theta) = 3\sin 4\theta + \theta
+\end{cases}
+\]
+
+\item Hallar la temperatura estacionaria $u(x,y)$ en la banda formada por $0\le x\le 2$, $y\in\mathbb{R}$. Si el borde $x=2$ se mantiene a $u(2,y)=0$ y el borde $x=0$ se mantiene a $u(0,y) = e^{-y^2}$.
+
+\item Resolver
+\[
+\begin{cases}
+u_{xx}+u_{yy}=0 & x\in\mathbb{R},\ y\in(0,1) \\
+u_y(x,0) = 0 \\
+u_x(x,1) = \pi\sqrt{\pi}/2\; e^{-|x|}.
+\end{cases}
+\]
+Dar la respuesta como una integral real con respecto a $\omega$.
+
+\item Halle una solución acotada de la ecuación, con $r\in(0,a)$, $\theta\in(0,\pi/2)$:
+\[
+\begin{cases}
+\Delta u = 0 \\
+\dfrac{\partial u}{\partial\theta}(r,0) = \dfrac{\partial u}{\partial\theta}(r,\pi/2) = 0, \quad r\in[0,a] \\
+u(a,\theta) = \sin^2\theta.
+\end{cases}
+\]
+
+\item Resolver, con $0<x<\pi$, $t>0$:
+\[
+\begin{cases}
+u_t = u_{xx} + t\sin 2x \\
+u(0,t) = u(\pi,t) = 0 \\
+u(x,0) = 2\sin x - 3\sin 2x.
+\end{cases}
+\]
+\textbf{Sugerencia:} Hacer $u(x,t) = T_1(t)\sin x + T_2(t)\sin 2x$, con $T_1$ y $T_2$ por determinar.
+
+\item Resolver
+\[
+\begin{cases}
+u_{tt} = u_{xx} - u & x\in\mathbb{R},\ t>0 \\
+u(x,0) = e^{-|x|} \\
+u_t(x,0) = 0.
+\end{cases}
+\]
+Exprese su respuesta en términos de una integral real con respecto a $\omega$.
+
+\item Resolver
+\[
+\begin{cases}
+u_{xxxx}+u_{tt} & x\in\mathbb{R},\ t>0 \\
+u(x,0) = e^{-|x|} \\
+u_t(x,0) = 0,
+\end{cases}
+\]
+teniendo en cuenta que
+\[
+\mathcal{F}(\cos(t\omega^2)) = \frac{1}{\sqrt{2t}}\cos\left(\frac{x^2}{4t}-\frac{\pi}{4}\right).
+\]
+Exprese la respuesta como una convolución.
+
+\item Resolver
+\[
+\begin{cases}
+u_{xx}+u_{yy}=u & x\in\mathbb{R},\ 0<y<1 \\
+u(x,1) = e^{-x^2} \\
+u_y(x,0) = 0.
+\end{cases}
+\]
+
+\item Encontrar una solución de la ecuación de difusión convección dada por
+\[
+\begin{cases}
+u_t = c^2 u_{xx} + k u_x & x\in\mathbb{R},\ t>0 \\
+u(x,0) = f(x).
+\end{cases}
+\]
+Escriba la respuesta como una integral de convolución.
+\end{enumerate}
+\end{multicols}
+
+\examfooter
+
+\end{document}

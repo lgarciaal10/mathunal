@@ -1,0 +1,154 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=1.9cm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage[spanish,es-noshorthands]{babel}
+\usepackage{amsmath,amssymb}
+\usepackage{enumitem}
+\usepackage{tikz}
+\usetikzlibrary{calc,arrows.meta,patterns,decorations.pathmorphing}
+\usepackage{xcolor}
+\usepackage{multicol}
+\usepackage{parskip}
+\usepackage{lmodern}
+\renewcommand{\familydefault}{\sfdefault}
+
+\definecolor{unalblue}{RGB}{31,73,124}
+\definecolor{unalblue2}{RGB}{70,120,180}
+
+\newlist{opciones}{enumerate}{1}
+\setlist[opciones]{label=\textbf{(\alph*)},itemsep=1pt,topsep=2pt,leftmargin=1.8em,font=\normalfont}
+\setlist[enumerate,1]{label=\textbf{\arabic*.},itemsep=6pt,topsep=4pt,leftmargin=1.6em,font=\normalfont}
+\setlist[enumerate,2]{label=\textbf{\alph*.},itemsep=4pt,topsep=3pt,leftmargin=1.6em,font=\normalfont}
+\setlist[enumerate,3]{label=\textbf{\roman*)},itemsep=2pt,topsep=2pt,leftmargin=1.4em,font=\normalfont}
+
+\newcommand{\vect}[2]{\begin{pmatrix}#1\\#2\end{pmatrix}}
+\newcommand{\vectiii}[3]{\begin{pmatrix}#1\\#2\\#3\end{pmatrix}}
+
+\newcommand{\examheader}{%
+\noindent\begin{tikzpicture}
+\node[fill=unalblue, text width=\dimexpr\linewidth-16pt\relax, inner sep=8pt, rounded corners=3pt, align=left, text=white] (hdr) {%
+  \begin{minipage}[c]{0.66\linewidth}
+    {\Large\bfseries \examsubject}\\[2pt]
+    {\small \examtype\ \textbullet\ \textcolor{white!85!unalblue}{\examsubtitle}}
+  \end{minipage}\hfill
+  \begin{minipage}[c]{0.28\linewidth}
+    \raggedleft{\scriptsize Escuela de Matem\'aticas\\[-1pt] Universidad Nacional\\[-1pt] de Colombia, Sede Medell\'in}
+  \end{minipage}%
+};
+\end{tikzpicture}\\[7pt]
+}
+\newcommand{\examfooter}{%
+  \vfill
+  \rule{\linewidth}{0.4pt}\\[1pt]
+  {\scriptsize\textit{Transcripci\'on digital --- MathUNAL}\hfill\textcolor{unalblue}{\textbf{\thepage}}}
+}
+\pagestyle{empty}
+
+\newcommand{\examsubject}{ECUACIONES DIFERENCIALES}
+\newcommand{\examtype}{Tercer Parcial}
+\newcommand{\examsubtitle}{Semestre 01-2015, 9 de Junio de 2015}
+
+\begin{document}
+
+\examheader
+
+\vspace{4pt}
+\noindent\textbf{Instrucciones.} No est\'a permitido el uso de calculadora ni de cualquier otro tipo de aparato electr\'onico, incluyendo tel\'efonos m\'oviles, los cuales deben permanecer apagados durante el tiempo de duraci\'on del examen. Tampoco est\'a permitido hacer preguntas a las personas encargadas de la vigilancia.
+
+\vspace{10pt}
+\textbf{1. (35\%) Completar}
+\begin{enumerate}
+\item \textbf{(5\%)} La transformada de Laplace de $g(t)=\cos t\,\delta\!\left(t-\tfrac{\pi}{4}\right)$ es $\mathcal{L}\{g(t)\}=$ \dotfill .
+
+\item \textbf{(5\%)} Si $\displaystyle F(s)=\frac{e^{-\pi s/2}}{s^2+4}$, entonces $f(t)=\mathcal{L}^{-1}\{F(s)\}=$ \dotfill .
+
+\item \textbf{(7\%)} Considere la ecuaci\'on diferencial $y'''(t)+3y''(t)+4y'(t)+2y(t)=0$. Si $x_1(t)=y(t)$, $x_2(t)=y'(t)$ y $x_3(t)=y''(t)$, entonces el sistema de primer orden equivalente a la ecuaci\'on diferencial es $\mathbb{X}'(t)=\mathbb{A}\mathbb{X}(t)$ donde
+\[
+\mathbb{X}(t)=\begin{pmatrix}x_1(t)\\x_2(t)\\x_3(t)\end{pmatrix} \qquad \text{y} \qquad \mathbb{A}=\text{\dotfill}.
+\]
+
+\item \textbf{(10\%)} Se sabe que $r=-\tfrac{1}{2}+i$ es un valor propio de una matriz $\mathbb{A}\in\mathbb{R}^{2\times 2}$. Si $\xi=\begin{pmatrix}1\\i\end{pmatrix}$ es un vector propio de $\mathbb{A}$ asociado al valor propio $r$, entonces la soluci\'on general del sistema $\mathbb{Y}'(t)=\mathbb{A}\mathbb{Y}(t)$ es:
+\[
+\mathbb{Y}(t)=\text{\dotfill}.
+\]
+
+\item \textbf{(8\%)} Se sabe que $r_1=-1$ y $r_2=2$ son los valores propios de una matriz $\mathbb{A}\in\mathbb{R}^{2\times2}$. Si $\xi^{(1)}=\begin{pmatrix}1\\2\end{pmatrix}$ y $\xi^{(2)}=\begin{pmatrix}3\\1\end{pmatrix}$ son vectores propios de $\mathbb{A}$ asociados a los valores propios $r_1$ y $r_2$, respectivamente, entonces el retrato fase del sistema $\mathbb{X}'(t)=\mathbb{A}\mathbb{X}(t)$ tiene la forma:
+
+\begin{center}
+\begin{tikzpicture}[scale=0.85,>=Stealth]
+\draw[-] (-3,0)--(3,0) node[right]{\scriptsize $x_1$};
+\draw[-] (0,-3)--(0,3) node[above]{\scriptsize $x_2$};
+\draw[thick] (-3,-1.5)--(3,1.5);
+\draw[thick] (-1.5,-3)--(1.5,3);
+\foreach \s in {0.6,1,1.5,2.2}{
+  \draw[->] ({-\s*2},{-\s}) -- ({-\s*1.7},{-\s*0.85});
+  \draw[->] ({\s*2},{\s}) -- ({\s*1.7},{\s*0.85});
+}
+\foreach \s in {0.6,1,1.5,2.2}{
+  \draw[->] ({-\s*1.2},{-\s*2.6}) -- ({-\s*1.05},{-\s*2.2});
+  \draw[->] ({\s*1.2},{\s*2.6}) -- ({\s*1.05},{\s*2.2});
+}
+\end{tikzpicture}
+\end{center}
+
+(esquema cualitativo: recta $\xi^{(1)}$ atractora ya que $r_1<0$, recta $\xi^{(2)}$ repulsora ya que $r_2>0$ — punto de silla).
+\end{enumerate}
+
+\examfooter
+\newpage
+
+\examheader
+
+\begin{enumerate}
+\setcounter{enumi}{1}
+\item \textbf{(30\%)} Sea $\displaystyle f(t)=\begin{cases} t & \text{si } 0\le t<1,\\ 1 & \text{si } t\ge 1.\end{cases}$
+
+\begin{center}
+\begin{tikzpicture}[scale=1]
+\draw[->] (-0.3,0)--(2.5,0) node[right]{\scriptsize $t$};
+\draw[->] (0,-0.3)--(0,1.6) node[above]{\scriptsize $f(t)$};
+\draw[thick] (0,0)--(1,1);
+\draw[thick] (1,1)--(2.3,1);
+\draw[dashed] (1,0)--(1,1);
+\node[below] at (1,0) {\scriptsize $1$};
+\node[left] at (0,1) {\scriptsize $1$};
+\end{tikzpicture}
+\end{center}
+
+\begin{enumerate}
+\item \textbf{(10\%)} Probar que $\displaystyle \mathcal{L}\{f(t)\}=\frac{1}{s^2}-\frac{e^{-s}}{s^2}$.
+
+\item \textbf{(20\%)} Encuentre la soluci\'on del problema con valor inicial
+\[
+\begin{cases} y''(t)+y(t)=f(t),\\ y(0)=0,\\ y'(0)=1,\end{cases}
+\]
+donde $f$ es la funci\'on dada en el \'item anterior.
+\end{enumerate}
+\end{enumerate}
+
+\examfooter
+\newpage
+
+\examheader
+
+\begin{enumerate}
+\setcounter{enumi}{2}
+\item[3.] \textbf{(35\%)}
+\begin{enumerate}
+\item \textbf{(15\%)} Halle la soluci\'on general del siguiente sistema homog\'eneo de ecuaciones diferenciales
+\[
+\mathbb{X}'(t)=\begin{pmatrix}-\tfrac{3}{2} & 1\\ -\tfrac{1}{4} & -\tfrac{1}{2}\end{pmatrix}\mathbb{X}(t).
+\]
+
+\item \textbf{(20\%)} Halle la soluci\'on general del siguiente sistema \textbf{no} homog\'eneo de ecuaciones diferenciales
+\[
+\mathbb{X}'(t)=\begin{pmatrix}4 & -2\\ 8 & -4\end{pmatrix}\mathbb{X}(t)+\begin{pmatrix}t^{-2}\\ -t^{-3}\end{pmatrix}, \qquad t>0.
+\]
+\textbf{Ayuda:} Una matriz fundamental para el sistema homog\'eneo asociado es $\Psi(t)=\begin{pmatrix}1 & t\\ 2 & 2t-\tfrac{1}{2}\end{pmatrix}$.
+\end{enumerate}
+\end{enumerate}
+
+\examfooter
+
+\end{document}

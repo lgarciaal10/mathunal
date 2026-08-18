@@ -1,0 +1,138 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=1.9cm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage[spanish]{babel}
+\usepackage{amsmath,amssymb}
+\usepackage{enumitem}
+\usepackage{tikz}
+\usetikzlibrary{calc,arrows.meta,patterns,decorations.pathmorphing}
+\usepackage{xcolor}
+\usepackage{multicol}
+\usepackage{parskip}
+\usepackage{lmodern}
+\renewcommand{\familydefault}{\sfdefault}
+
+\definecolor{unalblue}{RGB}{31,73,124}
+
+\newlist{opciones}{enumerate}{1}
+\setlist[opciones]{label=(\alph*),itemsep=1pt,topsep=2pt,leftmargin=1.8em,font=\normalfont}
+
+\pagestyle{empty}
+\setlength{\columnseprule}{0.5pt}
+
+\begin{document}
+
+\noindent
+\begin{minipage}[t]{0.68\linewidth}
+  {\bfseries\large Universidad Nacional de Colombia --- Sede Medellín, Escuela de Matemáticas}\\[2pt]
+  {\small Ecuaciones Diferenciales (1000007), Primer examen parcial, \textbf{TEMA A}}\\
+  {\small Semestre 01-2014, 22 de Marzo de 2014}\\
+  {\small Duración: 1 hora y 40 minutos}
+\end{minipage}%
+\hfill
+\begin{minipage}[t]{0.28\linewidth}
+  \raggedleft
+  \begin{tabular}{|l|c|}
+  \hline
+  \multicolumn{2}{|c|}{Calificación} \\
+  \hline
+  1. & \\ \hline
+  2. & \\ \hline
+  3. & \\ \hline
+  4. & \\ \hline
+  Total & \\ \hline
+  \end{tabular}
+\end{minipage}
+
+\vspace{6pt}
+\noindent\textbf{Instrucciones.} No está permitido el uso de calculadora ni de cualquier otro tipo de aparato electrónico, incluyendo teléfonos móviles, los cuales deben permanecer apagados durante el tiempo de duración del examen. Tampoco está permitido hacer preguntas a las personas encargadas de la vigilancia.
+
+\vspace{4pt}
+\noindent El examen consta de 4 puntos distribuidos en 4 páginas.
+
+\vspace{8pt}
+\noindent Nombre: \makebox[0.45\linewidth]{\hrulefill} \hfill Cédula: \makebox[0.3\linewidth]{\hrulefill}
+
+\vspace{6pt}
+\noindent\textbf{1.} En los numerales i) y ii) encierre en un círculo la letra correspondiente a la respuesta correcta. En los numerales iii) y iv) encierre en un círculo la letra V si la afirmación es verdadera, o la letra F si la afirmación es falsa.
+
+\vspace{0.3cm}
+\noindent\textbf{i. (6\%)} Sin resolver el problema de valor inicial (PVI):
+\[
+t(t-2)y'+2(t+1)y=e^t, \qquad y(1)=2,
+\]
+puede afirmarse que el mayor intervalo abierto en el que se tiene certeza de que existe una única solución del PVI es:
+
+\begin{center}
+a) $(-1,2)$ \qquad b) $(0,2)$ \qquad c) $(0,+\infty)$ \qquad d) $(-\infty,2)$
+\end{center}
+
+\vspace{0.3cm}
+\noindent\textbf{ii. (7\%)} La solución de equilibrio $y=1$ de la ED autónoma:
+\[
+f(y)=\frac{dy}{dt}=y(y-1)(y-2)
+\]
+es:
+
+\begin{center}
+a) asintóticamente estable \quad b) inestable \quad c) semiestable \quad d) ninguna de las anteriores
+\end{center}
+
+\vspace{0.3cm}
+\noindent\textbf{iii. (6\%)} La ED:
+\[
+y^{(2)}+\sin(t+y)y'+4y=e^t,
+\]
+donde $t$ es la variable independiente y $y$ es la función desconocida, es una ED lineal de segundo orden.
+\begin{center}
+V \qquad F
+\end{center}
+
+\vspace{0.3cm}
+\noindent\textbf{iv. (6\%)} El PVI:
+\[
+y'=y^2, \qquad y(1)=4,
+\]
+tiene solución única en un intervalo $(1-\delta,1+\delta)$ para cierto $\delta>0$.
+\begin{center}
+V \qquad F
+\end{center}
+
+\newpage
+
+\noindent\textbf{2. (25\%)} Halle la solución del PVI:
+\[
+(xy+y^2)-\frac{1}{2}x^2\frac{dy}{dx}=0, \qquad y(1)=1.
+\]
+
+\vspace{9cm}
+
+\newpage
+
+\noindent\textbf{3. (25\%)} Un tanque con capacidad de 500 galones contiene inicialmente 100 galones de agua con 10 libras de sal. Al tanque entra agua con una concentración de sal de $\dfrac{1}{1+t}$ libras de sal por galón a razón de 2 galones por minuto, y la mezcla resultante sale del tanque a razón de 1 galón por minuto.
+
+\begin{opciones}
+\item[i)] \textbf{(5\%)} Encuentre el volumen de mezcla en el tanque en cualquier instante $t$, antes de que la mezcla empiece a derramarse.
+
+\vspace{3cm}
+
+\item[ii)] \textbf{(20\%)} Encuentre la cantidad de sal presente en el tanque en el momento en el que la mezcla empieza a derramarse.
+
+\vspace{6cm}
+\end{opciones}
+
+\newpage
+
+\noindent\textbf{4. (25\%)} Encuentre la solución general de la ED:
+\[
+\frac{dy}{dx}=y(xy^3-1).
+\]
+
+\vspace{9cm}
+
+\vfill
+\rule{\linewidth}{0.4pt}\\[1pt]
+{\scriptsize\textit{Transcripción digital --- MathUNAL}\hfill\textcolor{unalblue}{\textbf{1}}}
+
+\end{document}

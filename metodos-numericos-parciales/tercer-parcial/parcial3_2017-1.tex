@@ -1,0 +1,262 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=1.9cm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage[spanish,es-noshorthands]{babel}
+\usepackage{amsmath,amssymb}
+\usepackage{enumitem}
+\usepackage{tikz}
+\usetikzlibrary{calc,arrows.meta,patterns,decorations.pathmorphing,shadows}
+\usepackage{xcolor}
+\usepackage{multicol}
+\usepackage{parskip}
+\usepackage{lmodern}
+\renewcommand{\familydefault}{\sfdefault}
+
+\definecolor{unalblue}{RGB}{31,73,124}
+\definecolor{cajaazul}{RGB}{20,60,110}
+\definecolor{cajaverde}{RGB}{35,120,75}
+\definecolor{cajaroja}{RGB}{165,25,25}
+
+\newlist{opciones}{enumerate}{1}
+\setlist[opciones]{label=(\alph*),itemsep=1pt,topsep=2pt,leftmargin=1.8em,font=\normalfont}
+
+\newcommand{\vect}[2]{\begin{pmatrix}#1\\#2\end{pmatrix}}
+\newcommand{\vectiii}[3]{\begin{pmatrix}#1\\#2\\#3\end{pmatrix}}
+
+\newcommand{\cajatitulada}[3]{%
+  \begin{center}
+  \begin{tikzpicture}
+    \node[draw=#1, line width=2.2pt, rounded corners=4pt, inner sep=12pt,
+          text width=0.92\linewidth, align=left,
+          fill=#1!2.2]
+      (box) {#3};
+    \node[fill=white, anchor=west, xshift=10pt, inner sep=3pt] at (box.north west)
+      {\small\color{#1}\bfseries #2};
+  \end{tikzpicture}
+  \end{center}
+}
+
+\newcommand{\examheader}{%
+  \noindent
+  \begin{minipage}[t]{0.6\linewidth}
+    {\small\bfseries MÉTODOS NUMÉRICOS (3006907) --- Tercer Examen Parcial}\\
+    {\small Semestre 01-2017, 5 de junio de 2017 --- TEMA A --- Con solución verificada}
+  \end{minipage}%
+  \hfill
+  \begin{minipage}[t]{0.35\linewidth}
+    \raggedleft\small Escuela de Matemáticas. Universidad Nacional de Colombia, Sede Medellín.
+  \end{minipage}\\[2pt]
+  \rule{\linewidth}{0.6pt}
+}
+\newcommand{\examfooter}{%
+  \vfill
+  \rule{\linewidth}{0.4pt}\\[1pt]
+  {\scriptsize\textit{Transcripción digital --- MathUNAL}\hfill\textcolor{unalblue}{\textbf{\thepage}}}
+}
+\pagestyle{empty}
+
+\begin{document}
+\examheader
+
+\vspace{4pt}
+\noindent Nombre completo:\underline{\hspace{7.5cm}}\quad Carné:\underline{\hspace{2.5cm}}\quad Grupo:\underline{\hspace{1.5cm}}
+
+\vspace{6pt}
+\noindent\textit{La interpretación del examen hace parte de la evaluación, por tanto no se admiten preguntas comenzada la prueba.}
+
+\vspace{6pt}
+\noindent\fbox{\textbf{TODA RESPUESTA DEBE ESTAR DEBIDAMENTE JUSTIFICADA}}
+
+\vspace{4pt}
+\noindent Duración: 1 hora y 50 minutos.
+
+\vspace{10pt}
+
+\begin{enumerate}[label=\arabic*.,leftmargin=1.5em]
+
+\item Considere el problema con valores iniciales (P.V.I.)
+\[
+\begin{cases}
+y'(t) = \cos(ty(t)), \qquad -3 \le t \le 2.5, \\
+y(-3) = -1.
+\end{cases}
+\]
+
+\begin{enumerate}[label=\alph*.,leftmargin=1.8em]
+\item (10\%) Demuestre que la función $f(t,y) := \cos(ty)$ satisface una condición de Lipschitz en la variable $y$ en la región $D := \{(t,y) \in \mathbb{R}^2 : -3 \le t \le 2.5, \ -\infty < y < \infty\}$.
+\begin{itemize}[leftmargin=1.5em]
+\item ¿Cuál es la constante de Lipschitz para esta función?
+\item ¿Este P.V.I. tiene única solución?
+\end{itemize}
+
+\item (10\%) Para \textbf{este} P.V.I., escriba la fórmula en diferencias o fórmula de avance del método de Taylor 2.
+\end{enumerate}
+
+\cajatitulada{cajaazul}{Solución (a)}{
+$f(t,y)$ es continua en $D$ (composición de funciones continuas), y $D$ es una región convexa (rectángulo infinito en $y$). Calculamos
+\[
+\frac{\partial f}{\partial y}(t,y) = -t\operatorname{sen}(ty).
+\]
+Como $|\operatorname{sen}(ty)| \le 1$ para todo $(t,y)$, se tiene
+\[
+\left|\frac{\partial f}{\partial y}(t,y)\right| = |t|\,|\operatorname{sen}(ty)| \le |t|.
+\]
+El máximo de $|t|$ en $[-3,2.5]$ se alcanza en $t=-3$, así que
+\[
+\boxed{L = 3}
+\]
+Como $f$ es continua en $D$, satisface condición de Lipschitz en $y$ con $L=3$, y $D$ es convexa, por el teorema de existencia y unicidad, \textbf{este P.V.I. tiene solución única}.
+}
+
+\vspace{6pt}
+\cajatitulada{cajaazul}{Solución (b)}{
+La fórmula de avance del método de Taylor de orden 2 es
+\[
+w_{i+1} = w_i + hf(t_i,w_i) + \frac{h^2}{2}f'(t_i,w_i), \qquad w_0 = \alpha,
+\]
+donde $f'(t,y)$ denota la \textbf{derivada total} de $f$ respecto a $t$ a lo largo de la solución, es decir
+\[
+f'(t,y) = \frac{\partial f}{\partial t} + \frac{\partial f}{\partial y}\cdot f(t,y).
+\]
+Calculamos cada parte:
+\[
+\frac{\partial f}{\partial t} = -y\operatorname{sen}(ty), \qquad \frac{\partial f}{\partial y} = -t\operatorname{sen}(ty)
+\]
+\[
+f'(t,y) = -y\operatorname{sen}(ty) - t\operatorname{sen}(ty)\cdot\cos(ty) = -\operatorname{sen}(ty)\left(y + t\cos(ty)\right)
+\]
+Con $w_0=\alpha=-1$, la fórmula de avance queda:
+\[
+w_{i+1} = w_i + h\cos(t_iw_i) - \frac{h^2}{2}\operatorname{sen}(t_iw_i)\left(w_i + t_i\cos(t_iw_i)\right)
+\]
+}
+
+\vspace{4pt}
+\cajatitulada{cajaroja}{Nota de verificación}{
+\small
+En el manuscrito original, $f'(t,y)$ se calculó como $\dfrac{\partial f}{\partial t}+\dfrac{\partial f}{\partial y}$ (suma directa de las dos derivadas parciales), sin multiplicar el segundo término por $f(t,y)$. Para el método de Taylor de orden 2 aplicado a $y'=f(t,y)$, la fórmula requiere la \textbf{derivada total} $f'=\partial_t f + \partial_y f \cdot f$, ya que $y$ depende de $t$ a través de la propia ecuación diferencial. Arriba se dejó la expresión con ese factor incluido.
+}
+
+\vspace{10pt}
+
+\item Considere el problema parabólico de la forma
+\[
+\begin{cases}
+u_t(x,t) = \dfrac{1}{25}u_{xx}(x,t) + \dfrac{1}{5}u_x(x,t), & 0 < x < 1.2, \quad 0 < t < 0.2, \\[4pt]
+u(x,0) = 1 - \left|x - \dfrac{3}{5}\right|, & 0 \le x \le 1.2, \\[4pt]
+u(0,t) = \dfrac{2}{5} + t, & 0 \le t \le 0.2, \\[4pt]
+u(1.2,t) = 3t + \dfrac{2}{5}, & 0 \le t \le 0.2.
+\end{cases}
+\]
+
+Se quiere aproximar la solución empleando el método de diferencias finitas, con $h=\frac{1}{5}$, $k=0.04$.
+
+\begin{enumerate}[label=\alph*.,leftmargin=1.8em]
+\item (10\%) Discretizar el dominio (graficar la cuadrícula) e identificar en cuáles puntos $(x_i,t_j)$ se conoce la solución.
+
+\item (10\%) Escribir la fórmula de diferencias finitas en la forma $w_{i,j+1} = \beta w_{i-1,j} + \gamma w_{i,j} + \eta w_{i+1,j}$, usando diferencia progresiva en $t$ y \textbf{centrada} en $x$.
+
+\item (20\%) Hallar $A$, $B$, $C$ y $D$ en la tabla de aproximación.
+\end{enumerate}
+
+\cajatitulada{cajaazul}{Solución (b)}{
+Partiendo de $\dfrac{w_{i,j+1}-w_{i,j}}{k} = \dfrac{1}{25}\cdot\dfrac{w_{i+1,j}-2w_{i,j}+w_{i-1,j}}{h^2} + \dfrac{1}{5}\cdot\dfrac{w_{i+1,j}-w_{i-1,j}}{2h}$ (diferencia \textbf{centrada} en $x$, tal como pide el enunciado), y despejando $w_{i,j+1}$ con $h=0.2$, $k=0.04$:
+\[
+w_{i,j+1} = \left(\frac{k}{25h^2}-\frac{k}{10h}\right)w_{i-1,j} + \left(1-\frac{2k}{25h^2}\right)w_{i,j} + \left(\frac{k}{25h^2}+\frac{k}{10h}\right)w_{i+1,j}
+\]
+Sustituyendo $h=0.2$, $k=0.04$:
+\[
+\boxed{w_{i,j+1} = 0.02\,w_{i-1,j} + 0.92\,w_{i,j} + 0.06\,w_{i+1,j}}
+\]
+válida para $i=1,\dots,N-1$ y $j=0,1,\dots,M-1$ (nodos interiores, no de frontera).
+}
+
+\vspace{4pt}
+\cajatitulada{cajaroja}{Nota de verificación}{
+\small
+El manuscrito original usó diferencia \textbf{progresiva} para $u_x$ (es decir, $\frac{w_{i+1,j}-w_{i,j}}{h}$ en vez de $\frac{w_{i+1,j}-w_{i-1,j}}{2h}$), obteniendo $w_{i,j+1}=0.96\,w_{i,j}+0.04\,w_{i+1,j}$ (coeficiente $\beta=0$). El enunciado pide explícitamente diferencia \textbf{centrada} para las derivadas en $x$; con esa diferencia el coeficiente $\beta$ no se anula: la fórmula correcta lleva los tres coeficientes $0.02,\ 0.92,\ 0.06$ (arriba). Los incisos c) que siguen se resuelven con ambas fórmulas para que se pueda comparar contra el trabajo original del estudiante.
+}
+
+\vspace{6pt}
+\cajatitulada{cajaverde}{Solución (c)}{
+\textbf{Usando condiciones de frontera e inicial} (no dependen de la fórmula interior, así que $A$, $B$, $C$ coinciden en ambos enfoques):
+\[
+B = u(0.6,0) = 1-\left|0.6-\tfrac{3}{5}\right| = 1
+\]
+\[
+A = u(0,t_3) = 0.4+0.12 = 0.52
+\]
+\[
+C = u(1.2,t_4) = 3(0.16)+0.4 = 0.88
+\]
+
+\textbf{Para $D=w_{3,2}$} (nodo interior, sí depende de la fórmula usada), con $w_{3,1}=0.9840$:
+
+Con la fórmula \textbf{centrada} (correcta, usando $w_{2,1}=0.8080$ y $w_{4,1}=0.7920$):
+\[
+D = 0.02(0.8080) + 0.92(0.9840) + 0.06(0.7920) \approx 0.9793
+\]
+
+Con la fórmula progresiva (la del manuscrito original, usando $w_{4,1}=0.7920$):
+\[
+D = 0.96(0.9840) + 0.04(0.7920) \approx 0.9763
+\]
+
+\[
+\boxed{A=0.52 \qquad B=1 \qquad C=0.88 \qquad D\approx 0.98\ (\text{según fórmula usada})}
+\]
+}
+
+\vspace{4pt}
+\cajatitulada{cajaroja}{Nota de verificación}{
+\small
+En el manuscrito original, $B$ se calculó bien como $1$ pero luego se anotó en el recuadro final como \textbf{$B=-1$}, lo cual no coincide con el propio desarrollo (que da $1-|0.6-0.6|=1-0=1$). Para $D$, el manuscrito usó la recurrencia $w_{3,2}=0.96\,w_{3,1}-0.04\,w_{1,1}$: además del coeficiente ya señalado como no centrado, usa el vecino \textbf{izquierdo} $w_{1,1}$ con signo negativo en vez del vecino \textbf{derecho} $w_{4,1}$ con signo positivo — el resultado manuscrito ($0.91296$) no reproduce ninguna de las dos fórmulas correctamente.
+}
+
+\vspace{10pt}
+
+\item (15\%) Considere el problema de contorno o de valores en la frontera (P.V.F.):
+\[
+\begin{cases}
+y''(x) - 4x\,y'(x) + 3\operatorname{sen}(x)\,y(x) = \tan^{-1}(x), \qquad 2 < x < 3, \\
+y(2) = -1.4, \\
+y(3) = 2.4.
+\end{cases}
+\]
+
+Enuncie los dos P.V.I.s que se deben resolver para utilizar el método del disparo, empleando $u$ y $v$. ¿Cómo se obtiene $y$ en términos de $u$ y $v$?
+
+\cajatitulada{cajaazul}{Solución}{
+\[
+u:
+\begin{cases}
+u''(x) = 4x\,u'(x) - 3\operatorname{sen}(x)\,u(x) + \tan^{-1}(x), & 2 \le x \le 3, \\
+u(2) = -1.4, \\
+u'(2) = 0,
+\end{cases}
+\]
+\[
+v:
+\begin{cases}
+v''(x) = 4x\,v'(x) - 3\operatorname{sen}(x)\,v(x), & 2 \le x \le 3, \\
+v(2) = 0, \\
+v'(2) = 1.
+\end{cases}
+\]
+Como $v(3) \ne 0$, la solución del P.V.F. se obtiene como
+\[
+y(x) = u(x) + \frac{2.4 - u(3)}{v(3)}\,v(x).
+\]
+}
+
+\vspace{4pt}
+\cajatitulada{cajaroja}{Nota de verificación}{
+\small
+El planteamiento del manuscrito original para $u$ y $v$ es correcto: despeja bien $y''$ de la ecuación original y arma los dos P.V.I. con las condiciones iniciales estándar del método del disparo ($u(2)=\alpha$, $u'(2)=0$; $v(2)=0$, $v'(2)=1$). No se detectaron errores en este punto.
+}
+
+\end{enumerate}
+
+\examfooter
+\end{document}

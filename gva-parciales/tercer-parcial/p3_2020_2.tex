@@ -1,0 +1,175 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=1.9cm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage[spanish]{babel}
+\usepackage{amsmath,amssymb}
+\usepackage{lmodern}
+\renewcommand{\familydefault}{\sfdefault}
+\usepackage{enumitem}
+
+\newcommand{\vect}[2]{\begin{pmatrix}#1\\#2\end{pmatrix}}
+\newcommand{\vectiii}[3]{\begin{pmatrix}#1\\#2\\#3\end{pmatrix}}
+\usepackage{tikz}
+\usetikzlibrary{calc,arrows.meta,patterns,decorations.pathmorphing}
+\usepackage[table]{xcolor}
+\usepackage{multicol}
+\usepackage{parskip}
+
+\definecolor{unalblue}{RGB}{31,73,124}
+
+\newlist{opciones}{enumerate}{1}
+\setlist[opciones]{label=\alph*),itemsep=6pt,topsep=6pt,leftmargin=1.8em,font=\normalfont}
+\setlist[enumerate,1]{itemsep=1.4em,topsep=1em}
+
+\newcommand{\examfooter}{%
+  \vfill
+  \rule{\linewidth}{0.4pt}\\[1pt]
+  {\scriptsize\textit{Transcripción digital --- MathUNAL}\hfill\textcolor{unalblue}{\textbf{\thepage}}}
+}
+\pagestyle{empty}
+
+\newcommand{\nota}[1]{{\small\itshape\color{unalblue!70!black} #1}}
+
+\begin{document}
+\noindent
+\begin{minipage}[t]{0.6\linewidth}
+{\small\bfseries Geometría Vectorial y Analítica --- Parcial 3}\\
+{\small Semestre 2020--02}
+\end{minipage}%
+\hfill
+\begin{minipage}[t]{0.35\linewidth}
+\raggedleft\small Escuela de Matemáticas. Universidad Nacional de Colombia, Sede Medellín.
+\end{minipage}\\[2pt]
+\rule{\linewidth}{0.6pt}
+
+\vspace{4pt}
+\nota{Nota de transcripción: a diferencia de los demás semestres, la fuente de este semestre no es un examen único con portada, sino una colección de ~11 quices individuales de Moodle (formato "Punto N"), cada uno calificado por separado, correspondientes al período de pandemia (clases virtuales). Se transcribe cada punto tal cual, sin indicar cuál era la opción/respuesta correcta marcada en el original.}
+
+\begin{enumerate}
+\item[\textbf{Punto 1.}] Los ángulos directores del vector $V=\vectiii{3}{-2}{2}$, aproximados en grados, son:
+\underline{\hspace{2cm}}, \underline{\hspace{2cm}}, \underline{\hspace{2cm}}.
+
+\item[\textbf{Punto 2.}] Si $A=\vectiii{3}{7}{2}$, $B=\vectiii{9}{7}{-2}$ y $C=\vectiii{3}{28}{10}$ ¿cuál de los siguientes números corresponde al área del triángulo $ABC$?
+
+\begin{opciones}
+\item 79.429 unidades cuadradas.
+\item 70.929 unidades cuadradas.
+\item Ninguna de las otras opciones.
+\item 158.86 unidades cuadradas.
+\end{opciones}
+
+\item[\textbf{Punto 3.}] Si $A=\vectiii{0}{1}{-3}$, $B=\vectiii{-1}{2}{1}$, $C=\vectiii{3}{-1}{4}$ y $D=\vectiii{1}{0}{1}$, el volumen del paralelepípedo de aristas $\overrightarrow{AB}$, $\overrightarrow{AC}$ y $\overrightarrow{AD}$ es \underline{\hspace{2cm}} unidades cúbicas.
+
+\item[\textbf{Punto 4.}] Considere las rectas $\mathcal{L}_1:\dfrac{x}{2}=\dfrac{y}{5},\ z=0$ y $\mathcal{L}_2:-\dfrac{x}{5}=\dfrac{y}{2}=\dfrac{z}{6}$.
+
+En cada caso seleccione en el menú desplegable el literal correspondiente a la respuesta correcta.
+
+A. Una ecuación vectorial para el plano que contiene las rectas $\mathcal{L}_1$ y $\mathcal{L}_2$ es:
+\begin{opciones}
+\item $\vectiii{x}{y}{z}=t\vectiii{-12}{30}{0}+s\vectiii{-29}{0}{30}$; $t,s\in\mathbb{R}$.
+\item $\vectiii{x}{y}{z}=t\vectiii{12}{30}{0}+s\vectiii{29}{0}{30}$; $t,s\in\mathbb{R}$.
+\item $\vectiii{x}{y}{z}=t\vectiii{12}{30}{0}+s\vectiii{-29}{0}{30}$; $t,s\in\mathbb{R}$.
+\item Ninguna de las otras opciones.
+\end{opciones}
+
+B. Unas ecuaciones paramétricas para la recta que pasa por el punto $\vectiii{-2}{10}{-18}$ y es perpendicular a las rectas $\mathcal{L}_1$ y $\mathcal{L}_2$ son:
+\begin{opciones}
+\item $x=-2+30t,\ y=10-12t,\ z=-18+29t;\ t\in\mathbb{R}$.
+\item $x=-2-30t,\ y=10-12t,\ z=-18+29t;\ t\in\mathbb{R}$.
+\item $x=-2+30t,\ y=10+12t,\ z=-18+4t;\ t\in\mathbb{R}$.
+\item Ninguna de las otras opciones.
+\end{opciones}
+
+C. La distancia entre la recta $\mathcal{L}_1$ y la recta con ecuaciones simétricas $x=0,\ y=\dfrac{4z+7}{24}$ es:
+\begin{opciones}
+\item $\dfrac{7}{\sqrt{202}}$
+\item $\dfrac{7\sqrt{202}}{1048}$
+\item $\dfrac{7}{1048}$
+\item Ninguna de las otras opciones.
+\end{opciones}
+
+\item[\textbf{Punto 5.}] Considere la recta $\mathcal{L}:\dfrac{x-3}{5}=\dfrac{y+2}{-1}=\dfrac{1-z}{4}$ y el plano $\mathcal{P}: 3x-2y+z=27$.
+
+Llene los espacios en blanco para obtener una afirmación verdadera.
+
+a. Una ecuación en la forma general para el plano perpendicular a $\mathcal{L}$ que pasa por el punto $Q=\vectiii{3}{-2}{1}$ es: \underline{\hspace{1cm}}$x-$\underline{\hspace{1cm}}$y-$\underline{\hspace{1cm}}$z=13$.
+
+b. Un vector director para la recta intersección del plano $\mathcal{P}$ con el plano $x+y-z=5$ tiene como coordenadas: $d_1=1$, $d_2=$\underline{\hspace{1cm}}, $d_3=$\underline{\hspace{1cm}}.
+
+c. La recta $\mathcal{L}$ corta al plano $\mathcal{P}$ en el punto de coordenadas $a=$\underline{\hspace{1cm}}, $b=$\underline{\hspace{1cm}} y $c=$\underline{\hspace{1cm}}.
+
+d. Una ecuación en la forma general para el plano $\mathcal{P}_1$ que es perpendicular al plano que contiene a $\mathcal{L}$ y contiene la recta con ecuación $\dfrac{x}{2}=\dfrac{y}{3};\ z=0$ es: \underline{\hspace{1cm}}$x+$\underline{\hspace{1cm}}$y+13z=0$.
+
+\item[\textbf{Punto 6.}] Sean $P=\vectiii{-1}{0}{1}$, $Q=\vectiii{1}{1}{-2}$, $R=\vectiii{3}{0}{-1}$ y $S=\vectiii{0}{1}{1}$.
+
+Llene los espacios en blanco para obtener una afirmación verdadera:
+
+a. Una ecuación en forma general para el plano que contiene los puntos $P$, $Q$ y $R$ es: \underline{\hspace{1cm}}$x+$\underline{\hspace{1cm}}$y+$\underline{\hspace{1cm}}$z=1$.
+
+b. Unas ecuaciones en forma simétrica para la recta que pasa por los puntos $P$ y $Q$ es: $(x+1)/$\underline{\hspace{1cm}}$=y=(z-$\underline{\hspace{1cm}}$)/$\underline{\hspace{1cm}}.
+
+c. La distancia del punto $S$ al plano con ecuación $x-2y-2z=5$ es: \underline{\hspace{2cm}}.
+
+d. El ángulo aproximado en grados entre la recta $\mathcal{L}_1$ que pasa por los puntos $P$ y $Q$ y la recta $\mathcal{L}_2$ que pasa por los puntos $S$ y $R$ es: \underline{\hspace{2cm}}.
+
+\item[\textbf{Punto 7.}] Determine si la afirmación dada es verdadera o si es falsa.
+
+Los puntos $A=\vectiii{2}{-1}{5}$, $B=\vectiii{-3}{4}{0}$, $C=\vectiii{2}{1}{-1}$ y $D=\vectiii{-1}{3}{4}$ son coplanares.
+
+Seleccione una: Verdadero / Falso.
+
+\item[\textbf{Punto 8.}] Determine si la afirmación dada es verdadera o si es falsa.
+
+La recta $\mathcal{L}:\dfrac{x+11}{12}=\dfrac{y-6}{4}=\dfrac{z}{4}$ está contenida en el plano $\mathcal{P}: x+\dfrac{1}{8}y+\dfrac{1}{3}z=3$.
+
+Seleccione una: Verdadero / Falso.
+
+\item[\textbf{Punto 9.}] Unas ecuaciones paramétricas, con parámetro $t$, para la recta $\mathcal{L}$ intersección de los planos $\mathcal{P}_1: 2x-y+z=6$ y $\mathcal{P}_2: x+2y-3z=10$ es:
+$$x=\underline{\hspace{1cm}}+t,\quad y=0+\underline{\hspace{1cm}}t,\quad z=\underline{\hspace{1cm}}+\underline{\hspace{1cm}}t,\quad t\in\mathbb{R}.$$
+
+\item[\textbf{Punto 10.}] Considere los planos $\mathcal{P}_1: 12x+7y+3z=0$ y $\mathcal{P}_2: -7x+12y+3z=0$.
+
+En cada caso seleccione en el menú desplegable el literal correspondiente a la respuesta correcta.
+
+A. Unas ecuaciones paramétricas para la recta intersección de los planos dados $\mathcal{P}_1$ y $\mathcal{P}_2$ son:
+\begin{opciones}
+\item $x=15,\ y=-57t,\ z=193t;\ t\in\mathbb{R}$.
+\item $x=-15t,\ y=-57t,\ z=193t;\ t\in\mathbb{R}$.
+\item $x=15t,\ y=-57t,\ z=-193t;\ t\in\mathbb{R}$.
+\item Ninguna de las otras opciones.
+\end{opciones}
+
+B. Una ecuación vectorial paramétrica para el plano que pasa por el origen y es perpendicular a la recta intersección entre $\mathcal{P}_1$ y $\mathcal{P}_2$ es:
+\begin{opciones}
+\item $\vectiii{x}{y}{z}=t\vectiii{-19/5}{1}{0}+s\vectiii{193/15}{0}{1}$; $t,s\in\mathbb{R}$.
+\item $\vectiii{x}{y}{z}=t\vectiii{-19/5}{1}{0}+s\vectiii{-193/15}{0}{1}$; $t,s\in\mathbb{R}$.
+\item $\vectiii{x}{y}{z}=t\vectiii{19/5}{1}{0}+s\vectiii{193/15}{0}{1}$; $t,s\in\mathbb{R}$.
+\item Ninguna de las otras opciones.
+\end{opciones}
+
+C. Una ecuación vectorial para la recta que pasa por $\vectiii{-12}{7}{-3}$ y es perpendicular al plano $\mathcal{P}_2$ es:
+\begin{opciones}
+\item $\vectiii{x}{y}{z}=\vectiii{-12}{7}{-3}+t\vectiii{7}{12}{3}$; $t\in\mathbb{R}$.
+\item $\vectiii{x}{y}{z}=\vectiii{-7}{12}{3}+t\vectiii{-7}{12}{7}$; $t\in\mathbb{R}$.
+\item $\vectiii{x}{y}{z}=\vectiii{-12}{7}{-3}+t\vectiii{-7}{12}{3}$; $t\in\mathbb{R}$.
+\item Ninguna de las otras opciones.
+\end{opciones}
+
+\item[\textbf{Punto 11.}] Considere los planos $\mathcal{P}_1: 2x-y+z=6$ y $\mathcal{P}_2: x+2y-3z=10$.
+
+Llene los espacios en blanco para obtener una afirmación verdadera.
+
+a. Unas ecuaciones paramétricas, con parámetro $t$, para la recta intersección de los planos $\mathcal{P}_1$ y $\mathcal{P}_2$ (use forma decimal para escribir los números) son:
+$$x=\underline{\hspace{1.5cm}}+t,\quad y=\underline{\hspace{1.5cm}}+\underline{\hspace{1cm}}t,\quad z=\underline{\hspace{1.5cm}}t.$$
+
+b. Una ecuación en la forma general para el plano que es paralelo al plano $\mathcal{P}_2$ y pasa por el punto $P=\vectiii{2}{-1}{3}$ es: $x+$\underline{\hspace{1cm}}$y+($\underline{\hspace{1cm}}$)z=$\underline{\hspace{1cm}}.
+
+c. Unas ecuaciones simétricas para la recta que es perpendicular al plano $\mathcal{P}_1$ y pasa por el punto $Q=\vectiii{1}{-2}{4}$ son: $(x-1)/$\underline{\hspace{1cm}}$=(y+$\underline{\hspace{1cm}}$)/$\underline{\hspace{1cm}}$=(z-$\underline{\hspace{1cm}}$)$.
+
+d. La distancia aproximada (usando redondeo a dos dígitos decimales) del punto $Q=\vectiii{1}{-2}{4}$ al plano $\mathcal{P}_2$ es \underline{\hspace{2cm}}.
+
+\end{enumerate}
+
+\examfooter
+\end{document}

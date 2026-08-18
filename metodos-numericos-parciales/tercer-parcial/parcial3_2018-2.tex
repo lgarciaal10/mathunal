@@ -1,0 +1,266 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=1.9cm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage[spanish,es-noshorthands]{babel}
+\usepackage{amsmath,amssymb}
+\usepackage{enumitem}
+\usepackage{tikz}
+\usetikzlibrary{calc,arrows.meta,patterns,decorations.pathmorphing,shadows}
+\usepackage{xcolor}
+\usepackage{multicol}
+\usepackage{parskip}
+\usepackage{lmodern}
+\renewcommand{\familydefault}{\sfdefault}
+
+\definecolor{unalblue}{RGB}{31,73,124}
+\definecolor{cajaazul}{RGB}{20,60,110}
+\definecolor{cajaverde}{RGB}{35,120,75}
+\definecolor{cajaroja}{RGB}{165,25,25}
+
+\newlist{opciones}{enumerate}{1}
+\setlist[opciones]{label=(\alph*),itemsep=1pt,topsep=2pt,leftmargin=1.8em,font=\normalfont}
+
+\newcommand{\vect}[2]{\begin{pmatrix}#1\\#2\end{pmatrix}}
+\newcommand{\vectiii}[3]{\begin{pmatrix}#1\\#2\\#3\end{pmatrix}}
+
+\newcommand{\cajatitulada}[3]{%
+  \begin{center}
+  \begin{tikzpicture}
+    \node[draw=#1, line width=2.2pt, rounded corners=4pt, inner sep=12pt,
+          text width=0.92\linewidth, align=left,
+          fill=#1!2.2]
+      (box) {#3};
+    \node[fill=white, anchor=west, xshift=10pt, inner sep=3pt] at (box.north west)
+      {\small\color{#1}\bfseries #2};
+  \end{tikzpicture}
+  \end{center}
+}
+
+\newcommand{\examheader}{%
+  \noindent
+  \begin{minipage}[t]{0.6\linewidth}
+    {\small\bfseries MÉTODOS NUMÉRICOS (3006907) --- Tercer Examen Parcial}\\
+    {\small Semestre 02-2018, 5 de abril de 2019 --- TEMA B --- Con solución verificada}
+  \end{minipage}%
+  \hfill
+  \begin{minipage}[t]{0.35\linewidth}
+    \raggedleft\small Escuela de Matemáticas. Universidad Nacional de Colombia, Sede Medellín.
+  \end{minipage}\\[2pt]
+  \rule{\linewidth}{0.6pt}
+}
+\newcommand{\examfooter}{%
+  \vfill
+  \rule{\linewidth}{0.4pt}\\[1pt]
+  {\scriptsize\textit{Transcripción digital --- MathUNAL}\hfill\textcolor{unalblue}{\textbf{\thepage}}}
+}
+\pagestyle{empty}
+
+\begin{document}
+\examheader
+
+\vspace{4pt}
+\noindent Nombre completo:\underline{\hspace{7.5cm}}\quad Carné:\underline{\hspace{2.5cm}}\quad Grupo:\underline{\hspace{1.5cm}}
+
+\vspace{6pt}
+\noindent\textit{La interpretación del examen hace parte de la evaluación, por tanto no se admiten preguntas comenzada la prueba. No está permitido el uso teléfonos móviles, los cuales deben permanecer apagados durante el tiempo de duración del examen.}
+
+\vspace{6pt}
+\noindent\fbox{\textbf{TODA RESPUESTA DEBE ESTAR DEBIDAMENTE JUSTIFICADA}}
+
+\vspace{4pt}
+\noindent Duración: 1 hora y 50 minutos.
+
+\vspace{10pt}
+
+\begin{enumerate}[label=\arabic*.,leftmargin=1.5em]
+
+\item Considere el problema con valores iniciales (P.V.I.)
+\[
+\begin{cases}
+y'(t) = ye^{-t}, \qquad 1 \le t \le 2, \\
+y(1) = 0.
+\end{cases}
+\]
+
+\begin{enumerate}[label=\alph*.,leftmargin=1.8em]
+\item (10\%) Demuestre que este P.V.I tiene una única solución.
+
+\item (5\%) Escriba la fórmula en diferencias (o de avance) del método de Taylor 3, para este P.V.I.
+\end{enumerate}
+
+\cajatitulada{cajaazul}{Solución (a)}{
+$f(t,y)=ye^{-t}$ es continua en la región $D=\{(t,y): 1\le t\le 2, -\infty<y<\infty\}$, la cual es convexa. Calculamos
+\[
+\frac{\partial f}{\partial y}(t,y) = e^{-t}.
+\]
+El máximo de $|e^{-t}|$ en $[1,2]$ se alcanza en $t=1$, así que
+\[
+\boxed{L = e^{-1}}
+\]
+Como $f$ satisface condición de Lipschitz en $y$ con esta $L$, y $D$ es convexa, el P.V.I. tiene solución única.
+}
+
+\vspace{6pt}
+\cajatitulada{cajaazul}{Solución (b)}{
+La fórmula de avance del método de Taylor de orden 3 es
+\[
+w_{i+1} = w_i + hf(t_i,w_i) + \frac{h^2}{2}f'(t_i,w_i) + \frac{h^3}{6}f''(t_i,w_i), \qquad w_0=\alpha.
+\]
+Necesitamos las derivadas totales de $f$ a lo largo de la solución:
+\[
+f'(t,y) = \frac{\partial f}{\partial t} + \frac{\partial f}{\partial y}\cdot f = -ye^{-t} + e^{-t}\cdot(ye^{-t}) = -ye^{-t} + ye^{-2t}
+\]
+\[
+f''(t,y) = \frac{\partial f'}{\partial t} + \frac{\partial f'}{\partial y}\cdot f
+\]
+Calculando cada parte de $f''$:
+\[
+\frac{\partial f'}{\partial t} = ye^{-t} - 2ye^{-2t}, \qquad \frac{\partial f'}{\partial y} = -e^{-t}+e^{-2t}
+\]
+\[
+f''(t,y) = ye^{-t}-2ye^{-2t} + \left(-e^{-t}+e^{-2t}\right)\left(ye^{-t}\right) = ye^{-t}-2ye^{-2t}-ye^{-2t}+ye^{-3t}
+\]
+\[
+f''(t,y) = ye^{-t} - 3ye^{-2t} + ye^{-3t}
+\]
+Con $w_0=\alpha=0$, la fórmula de avance queda:
+\[
+w_{i+1} = w_i + h\,w_ie^{-t_i} + \frac{h^2}{2}\left(-w_ie^{-t_i}+w_ie^{-2t_i}\right) + \frac{h^3}{6}\left(w_ie^{-t_i}-3w_ie^{-2t_i}+w_ie^{-3t_i}\right)
+\]
+}
+
+\vspace{4pt}
+\cajatitulada{cajaroja}{Nota de verificación}{
+\small
+En el manuscrito original, tanto $f'$ como $f''$ se calcularon como sumas directas de derivadas parciales ($\partial_t f + \partial_y f$, y análogamente para $f''$), sin multiplicar el término $\partial_y f$ por $f(t,y)$. Al igual que en el examen de Semestre 01-2017 (mismo tipo de error), la fórmula de Taylor de cualquier orden requiere la \textbf{derivada total} respecto a $t$, que incorpora la regla de la cadena a través de $y'=f(t,y)$. Arriba se dejaron $f'$ y $f''$ con ese factor correctamente incluido.
+}
+
+\vspace{10pt}
+
+\item Considere el P.V.I. de orden superior
+\[
+\begin{cases}
+y'''(t) + e^{y''(t)} - \operatorname{sen}(t)\,y'(t) = 2, \quad 1 \le t \le 2, \\
+y(1) = \mu, \quad y'(1) = \gamma, \quad y''(1) = \eta,
+\end{cases}
+\]
+donde $\mu, \gamma, \eta \in \mathbb{R}$.
+
+\begin{enumerate}[label=\alph*.,leftmargin=1.8em]
+\item (8\%) \textbf{Introducir} las variables necesarias para poder escribir el P.V.I. de orden superior como un sistema de ecuaciones diferenciales de primer orden. \textbf{Definir} claramente $\mathbb{U}$, $\mathbb{F}$ y $\mathbb{Z}_a$.
+
+\item (7\%) Use el método de \textbf{Euler} con tamaño de paso $h = 0.5$ para aproximar los valores de $y$, $y'$ y $y''$ en $t = 2$ si se sabe que $y(1.5) = -0.5$, $y'(1.5) = -2$ y $y''(1.5) = -1.9567$.
+\end{enumerate}
+
+\cajatitulada{cajaazul}{Solución (a)}{
+Despejando $y'''$: $y''' = 2 - e^{y''} + \operatorname{sen}(t)y'$.
+
+Con $u_1=y$, $u_2=y'$, $u_3=y''$:
+\[
+\mathbb{U}(t) = \begin{pmatrix} u_1(t) \\ u_2(t) \\ u_3(t) \end{pmatrix}, \qquad
+\mathbb{F}(t,\mathbb{U}) = \begin{pmatrix} u_2 \\ u_3 \\ -e^{u_3}+\operatorname{sen}(t)u_2+2 \end{pmatrix}, \qquad
+\mathbb{Z}_a = \begin{pmatrix} \mu \\ \gamma \\ \eta \end{pmatrix}
+\]
+con $a=1$, $b=2$. (El planteamiento del manuscrito original coincide con este resultado y está correcto.)
+}
+
+\vspace{6pt}
+\cajatitulada{cajaazul}{Solución (b)}{
+Con $W_1 = (-0.5,\,-2,\,-1.9567)$ en $t_1=1.5$, $h=0.5$:
+\[
+\mathbb{F}(1.5,W_1) = \left(-2,\ -1.9567,\ -e^{-1.9567}+\operatorname{sen}(1.5)(-2)+2\right) \approx (-2,\ -1.9567,\ -0.1363)
+\]
+\[
+h\cdot\mathbb{F}(1.5,W_1) \approx (-1,\ -0.9784,\ -0.0682)
+\]
+\[
+W_2 = W_1 + h\,\mathbb{F}(1.5,W_1) \approx (-0.5-1,\ -2-0.9784,\ -1.9567-0.0682)
+\]
+\[
+\boxed{W_2 \approx (-1.5,\ -2.9784,\ -2.0249)}
+\]
+es decir, $y(2)\approx -1.5$, $y'(2)\approx -2.978$, $y''(2)\approx -2.025$.
+}
+
+\vspace{4pt}
+\cajatitulada{cajaroja}{Nota de verificación}{
+\small
+El manuscrito original calculó correctamente $\mathbb{F}(1.5,W_1)\approx(-2,-1.9567,-0.1363)$ y el producto $h\cdot\mathbb{F}$ (con solo un desliz de redondeo menor en la segunda componente). El error está en la \textbf{suma final}: se anotó $W_2\approx(-2.5,-2.9882,-2.0247)$, pero $-0.5+(-1)=-1.5$, no $-2.5$ — la primera componente parece haberse calculado sumando por error la segunda componente de $W_1$ ($-2$) en vez de $-0.5$. Las componentes 2 y 3 sí son correctas.
+}
+
+\vspace{10pt}
+
+\item Considere el problema con valores en la frontera (P.V.F.)
+\[
+\begin{cases}
+2y''(x) + \cos(\pi x)\,y'(x) = 2e^x y(x) + s(x), \qquad 0 \le x \le 1, \\
+y(0) = 1, \qquad y(1) = 0.
+\end{cases}
+\]
+
+\begin{enumerate}[label=\alph*.,leftmargin=1.8em]
+\item (10\%) Si $s$ es una función continua en $[0,1]$, demuestre que el P.V.F tiene una única solución.
+
+\item (5\%) Si sabemos que, para $0 \le x \le 1$, la aproximación a la solución de los P.V.I's:
+\[
+u:
+\begin{cases}
+2u''(x) + \cos(x)\,u'(x) = 2e^x u(x) + s(x), \\
+u(0) = 1, \quad u'(0) = 0.
+\end{cases}
+\qquad
+v:
+\begin{cases}
+2v''(x) + \cos(x)\,v'(x) = 2e^x v(x), \\
+v(0) = 0, \quad v'(0) = 1,
+\end{cases}
+\]
+obtenidas por Runge-Kutta 4 con $h=1/5$, está dada por:
+
+\begin{center}
+\begin{tabular}{c|cccccc}
+ & $x_0$ & $x_1$ & $x_2$ & $x_3$ & $x_4$ & $x_5$ \\
+\hline
+$u(x)$ & 1 & 1.0210 & 1.0909 & 1.2310 & 1.4843 & 1.9248 \\
+$v(x)$ & 0 & 0.1920 & 0.3790 & 0.5835 & 0.8388 & 1.1948
+\end{tabular}
+\end{center}
+
+Encuentre la aproximación a la solución del P.V.F en $x = 2/5$.
+\end{enumerate}
+
+\cajatitulada{cajaazul}{Solución (a)}{
+Escribimos la ecuación en forma estándar: $y'' = \dfrac{-\cos(\pi x)}{2}y' + e^x y + \dfrac{s(x)}{2}$.
+
+Identificamos $p(x)=\frac{-\cos(\pi x)}{2}$, $q(x)=e^x$, $r(x)=\frac{s(x)}{2}$, todas continuas en $[0,1]$ (dado que $s$ lo es), y $q(x)=e^x>0$ para todo $x\in[0,1]$. Por el teorema de existencia y unicidad para P.V.F. lineales, el problema tiene solución única.
+}
+
+\vspace{6pt}
+\cajatitulada{cajaverde}{Solución (b)}{
+La fórmula de combinación del método del disparo es
+\[
+y(x) = u(x) + \frac{\beta - u(1)}{v(1)}\,v(x), \qquad \beta = y(1) = 0.
+\]
+En $x_2=0.4$, con $u(x_2)=1.0909$, $v(x_2)=0.3790$, $u(1)=u(x_5)=1.9248$, $v(1)=v(x_5)=1.1948$:
+\[
+\frac{\beta-u(1)}{v(1)} = \frac{0-1.9248}{1.1948} \approx -1.6110
+\]
+\[
+y(x_2) = 1.0909 + (-1.6110)(0.3790) \approx 1.0909 - 0.6106
+\]
+\[
+\boxed{y(x_2) \approx 0.4803}
+\]
+}
+
+\vspace{4pt}
+\cajatitulada{cajaroja}{Nota de verificación}{
+\small
+En el manuscrito original se planteó bien la fórmula $y(x)=u(x)+\frac{\beta-u(1)}{v(1)}v(x)$, pero al sustituir los números se escribió $y(x_2)=1.0909+1.9248(0.3790)$ — es decir, se usó directamente $u(1)=1.9248$ como si fuera el coeficiente completo, sin dividir entre $v(1)=1.1948$ ni conservar el signo negativo de $(\beta-u(1))=-1.9248$. Esto llevó al resultado manuscrito $y(x_2)\approx 0.3644$, que no corresponde a la fórmula planteada. El valor correcto es $y(x_2)\approx 0.4803$ (arriba).
+}
+
+\end{enumerate}
+
+\examfooter
+\end{document}

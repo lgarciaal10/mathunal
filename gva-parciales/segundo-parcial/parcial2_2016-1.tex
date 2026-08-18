@@ -1,0 +1,251 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=1.9cm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage[spanish]{babel}
+\usepackage{amsmath,amssymb}
+\usepackage{enumitem}
+\usepackage{tikz}
+\usetikzlibrary{calc,arrows.meta,patterns,decorations.pathmorphing}
+\usepackage{xcolor}
+\usepackage{multicol}
+\usepackage{parskip}
+\usepackage{lmodern}
+\renewcommand{\familydefault}{\sfdefault}
+
+\definecolor{unalblue}{RGB}{31,73,124}
+
+\newlist{opciones}{enumerate}{1}
+\setlist[opciones]{label=(\alph*),itemsep=1pt,topsep=2pt,leftmargin=1.8em,font=\normalfont}
+
+\newcommand{\ptsbox}[1]{\fbox{\footnotesize #1}~}
+\newcommand{\borradorbox}[1][3cm]{%
+  \noindent\fbox{\begin{minipage}[t][#1][t]{0.97\linewidth}
+  {\scriptsize\itshape Espacio borrador, nada escrito aquí será calificado.}
+  \end{minipage}}
+}
+
+\newcommand{\vect}[2]{\begin{pmatrix}#1\\#2\end{pmatrix}}
+\newcommand{\vectiii}[3]{\begin{pmatrix}#1\\#2\\#3\end{pmatrix}}
+
+\newcommand{\examheader}{%
+  \noindent
+  \begin{minipage}[t]{0.6\linewidth}
+    {\small\bfseries Geometría Vectorial y Analítica --- Parcial 2}\\
+    {\small Semestre 2016--01}
+  \end{minipage}%
+  \hfill
+  \begin{minipage}[t]{0.35\linewidth}
+    \raggedleft\small Escuela de Matemáticas. Universidad Nacional de Colombia, Sede Medellín.
+  \end{minipage}\\[2pt]
+  \rule{\linewidth}{0.6pt}
+}
+\newcommand{\examfooter}{%
+  \vfill
+  \rule{\linewidth}{0.4pt}\\[1pt]
+  {\scriptsize\textit{Transcripción digital --- MathUNAL}\hfill\textcolor{unalblue}{\textbf{\thepage}}}
+}
+\pagestyle{empty}
+
+\begin{document}
+
+\examheader
+
+\begin{center}
+{\bfseries Segundo Examen Parcial de Geometría}\\
+30 de Abril del 2016
+
+\vspace{4pt}
+\textbf{Puntaje. Sólo para uso Oficial}
+
+\vspace{2pt}
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+1 (/20) & 2 (/30) & 3-5 (/40) & 6 (/10) & Total & Nota\\
+\hline
+ & & & & & \\
+\hline
+\end{tabular}
+\end{center}
+
+\textbf{Instrucciones:} La duración del examen es de 1 hora y 50 minutos. El examen consta de seis preguntas en tres hojas impresas por ambos lados, antes de empezar verifique que su examen esté completo y que sus datos sean correctos. No desengrape su examen ni añada otras grapas o su examen será anulado. En las preguntas con procedimiento justifique sus respuestas en los espacios asignados. No está permitido hacer preguntas, el uso de calculadoras, sacar hojas en blanco ni ningún tipo de apuntes durante el examen. Por favor verifique que su celular esté apagado.
+
+\vspace{10pt}
+
+En cada uno de los literales de los puntos 1 y 2, debe presentar detalladamente el procedimiento para llegar a la solución. \textbf{NOTA}: Respuestas sin procedimiento no se tendrán en cuenta.
+
+\begin{enumerate}[leftmargin=1.6em]
+
+\item \ptsbox{20pt} Sea $T:\mathbb{R}^2\to\mathbb{R}^2$ una transformación lineal. Suponga que $X_1 = \vect{2}{1}$ es un vector propio de $T$ asociado al valor propio $\lambda_1 = 2$ y que $X_2 = \vect{-1}{1}$ es un vector propio de $T$ asociado al valor propio $\lambda_2 = 3$.
+
+\begin{opciones}
+\item \ptsbox{5pt} Encuentre $T(X_1)$ y $T(X_2)$.
+
+\vspace{60pt}
+
+\item \ptsbox{15pt} Encuentre $T\vect{x}{y}$, para cualquier vector $\vect{x}{y}\in\mathbb{R}^2$.
+
+\vspace{60pt}
+\end{opciones}
+
+\item \ptsbox{30pt} Sea $T:\mathbb{R}^2\to\mathbb{R}^2$ la transformación lineal dada por $T\vect{x}{y} = \vect{3x+y}{7x+2y}$.
+
+\begin{opciones}
+\item \ptsbox{5pt} Demuestre que $T$ es invertible.
+
+\vspace{70pt}
+
+\newpage
+\examheader
+
+\item \ptsbox{10pt} Encuentre $T^{-1}\vect{x}{y}$, para cualquier vector $\vect{x}{y}\in\mathbb{R}^2$.
+
+\vspace{80pt}
+
+\item \ptsbox{10pt} Encuentre un vector $X\in\mathbb{R}^2$ tal que $T(X) = \vect{2}{4}$.
+
+\vspace{60pt}
+\end{opciones}
+
+\vspace{10pt}
+En las preguntas 3 a 5 complete los espacios en blanco o elija la (las) opción (opciones) correcta (correctas) según el caso. Marque con una X la letra de su elección. \textbf{NOTA}: En esta sección se califica sólo la respuesta y no se tiene en cuenta el procedimiento.
+
+\item \ptsbox{13pt} Responda a las siguientes preguntas.
+
+\begin{minipage}[t]{0.58\linewidth}
+\begin{opciones}
+\item \ptsbox{3pt} Si $R_\theta$ es la transformación de rotación por un ángulo $\theta$ en sentido antihorario, entonces la matriz de la transformación $R_{\pi/6}\circ R_{\pi/6}$ es:
+
+\vspace{30pt}
+R: \underline{\hspace{4cm}}
+
+\vspace{10pt}
+Sea $A = \begin{pmatrix} 1 & 2 \\ -3 & x \end{pmatrix}$
+
+\item \ptsbox{3pt} ¿Para qué valor/valores de $x$ son ortogonales las columnas de $A$?
+
+R: \underline{\hspace{4cm}}
+
+\item \ptsbox{3pt} ¿Para qué valor/valores de $x$ es invertible la matriz $A$?
+
+R: \underline{\hspace{4cm}}
+
+\item \ptsbox{4pt} Sea $T:\mathbb{R}^2\to\mathbb{R}^2$ la transformación lineal definida por $T\vect{x}{y} = \vect{x+2y}{3x+4y}$. Si $\mathcal{P}$ es un paralelogramo de área 5, entonces el área de
+
+$T^{-1}(\mathcal{P})$ es R: \underline{\hspace{2cm}}
+\end{opciones}
+\end{minipage}%
+\hfill
+\begin{minipage}[t]{0.38\linewidth}
+\borradorbox[7.2cm]
+\end{minipage}
+
+\end{enumerate}
+
+\newpage
+\examheader
+
+\begin{enumerate}[leftmargin=1.6em]
+\setcounter{enumi}{3}
+
+\item \ptsbox{12pt} Considere el hexágono regular de la figura, compuesto por los seis triángulos isóceles: $\triangle OAB$, $\triangle OBC$, $\triangle OCD$, $\triangle ODE$, $\triangle OEF$ y $\triangle OFA$. Responda a las siguientes preguntas. \textbf{Nota.} Recuerde que si $X,Y$ son dos puntos cualesquiera del plano, el segmento que los une se denota por $\overline{XY}$.
+
+\begin{minipage}[t]{0.5\linewidth}
+\begin{opciones}
+\item \ptsbox{3pt} Si $T$ es la reflexión con respecto al eje $x$, entonces $T(\triangle OCD) = $ \underline{\hspace{2.3cm}}.
+
+\item \ptsbox{3pt} Si $S$ es la reflexión con respecto al eje $y$, entonces $S(\overline{OF}) = $ \underline{\hspace{2.3cm}}.
+
+\item \ptsbox{3pt} Si $R_{2\pi/3}$ es la rotación por un ángulo de $\frac{2\pi}{3}$ en sentido antihorario, entonces $R_{2\pi/3}(\triangle OBC) = $ \underline{\hspace{2.3cm}}.
+
+\item \ptsbox{3pt} Si $P$ es la proyección sobre el eje $x$, entonces $P(\triangle ODE) = $ \underline{\hspace{2.3cm}}.
+\end{opciones}
+\end{minipage}%
+\hfill
+\begin{minipage}[t]{0.45\linewidth}
+\centering
+\begin{tikzpicture}[scale=0.8]
+\coordinate (O) at (0,0);
+\coordinate (A) at (1.5,0);
+\coordinate (B) at (0.75,1.3);
+\coordinate (C) at (-0.75,1.3);
+\coordinate (D) at (-1.5,0);
+\coordinate (E) at (-0.75,-1.3);
+\coordinate (F) at (0.75,-1.3);
+\draw[-{Stealth[length=2mm]}] (-2.3,0) -- (2.3,0) node[right] {\small $x$};
+\draw[-{Stealth[length=2mm]}] (0,-1.9) -- (0,1.9) node[above] {\small $y$};
+\draw[thick] (A)--(B)--(C)--(D)--(E)--(F)--cycle;
+\draw (O)--(A); \draw (O)--(B); \draw (O)--(C);
+\draw (O)--(D); \draw (O)--(E); \draw (O)--(F);
+\node[above right] at (B) {\small $B$};
+\node[above left] at (C) {\small $C$};
+\node[left] at (-1.65,0) {\small $D$};
+\node[below left] at (E) {\small $E$};
+\node[below right] at (F) {\small $F$};
+\node[right] at (A) {\small $A$};
+\node[below left] at (O) {\small $O$};
+\draw (0.35,0) arc (0:60:0.35);
+\node at (0.55,0.22) {\tiny $\frac{\pi}{3}$};
+\end{tikzpicture}
+\end{minipage}
+
+\vspace{4pt}
+\borradorbox[3cm]
+
+\item \ptsbox{15pt} En la figura a continuación, se observa el cuadrado $\mathcal{C}$ formado por los vértices $O$, $E_1$, $E_2$ y $E_1+E_2$. También se muestra la imagen de dicho cuadrado $T(\mathcal{C})$ bajo una transformación lineal $T:\mathbb{R}^2\to\mathbb{R}^2$. Responda a las siguientes preguntas o marque verdadero/falso según el caso.
+
+\begin{minipage}[t]{0.42\linewidth}
+\centering
+\begin{tikzpicture}[scale=0.75]
+\draw[thick] (0,3.6) rectangle (1.2,4.8);
+\draw[-{Stealth[length=1.8mm]}] (0,3.6) -- (1.2,3.6);
+\draw[-{Stealth[length=1.8mm]}] (0,3.6) -- (0,4.8);
+\node[above left] at (0,4.8) {\small $E_2$};
+\node[below right] at (1.2,3.6) {\small $E_1$};
+\node at (0.6,4.2) {\small $\mathcal{C}$};
+\node[below left] at (0,3.6) {\small $O$};
+
+\coordinate (o2) at (0,0);
+\coordinate (te1) at (-2,0);
+\coordinate (te2) at (-2.6,2.1);
+\coordinate (sum) at (-0.6,2.1);
+\draw[-{Stealth[length=1.8mm]}] (o2) -- (te1);
+\draw[-{Stealth[length=1.8mm]}] (o2) -- (te2);
+\draw[thick] (te1)--(sum)--(te2);
+\draw[dotted] (-2,0) -- (-2,2.1);
+\node[right] at (-2,1.05) {\tiny $\frac{3}{2}$};
+\node[below] at (-2,-0.15) {\small $T(E_1){=}{-}E_1$};
+\node[below right] at (o2) {\small $O$};
+\node[above left] at (te2) {\small $T(E_2)$};
+\node[above] at (-1.2,2.15) {\small $T(\mathcal{C})$};
+\end{tikzpicture}
+\end{minipage}%
+\hfill
+\begin{minipage}[t]{0.53\linewidth}
+\begin{opciones}
+\item \ptsbox{3pt} Un vector propio de $T$ es el vector = \underline{\hspace{2.3cm}}.
+\item \ptsbox{3pt} El determinante de la matriz de $T$ es $\det(m(T)) = $ \underline{\hspace{1.8cm}}.
+\item \ptsbox{3pt} $T$ es sobreyectiva. \hspace{0.4cm} (V) \hspace{0.25cm} (F)
+\item \ptsbox{3pt} $T$ es un movimiento Euclidiano. \hspace{0.4cm} (V) \hspace{0.25cm} (F)
+\item \ptsbox{3pt} $T(X) = -X$ para todo $X\in\mathbb{R}^2$. \hspace{0.4cm} (V) \hspace{0.25cm} (F)
+\end{opciones}
+\end{minipage}
+
+\vspace{4pt}
+\borradorbox[3cm]
+
+\end{enumerate}
+
+\begin{enumerate}[leftmargin=1.6em]
+\setcounter{enumi}{5}
+
+\item \ptsbox{10pt} Sea $T:\mathbb{R}^2\to\mathbb{R}^2$ una transformación lineal. Suponga que $T(E_1) = 2E_1$ y $T(E_2) = 2E_2$. Demuestre que si $X$ y $Y$ son dos vectores ortogonales, entonces $T(X)$ y $T(Y)$ son ortogonales.
+
+\vspace{80pt}
+
+\borradorbox[4.5cm]
+
+\end{enumerate}
+
+\examfooter
+\end{document}

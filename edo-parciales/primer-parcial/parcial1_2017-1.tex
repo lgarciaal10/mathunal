@@ -1,0 +1,131 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=1.9cm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage[spanish]{babel}
+\usepackage{amsmath,amssymb}
+\usepackage{enumitem}
+\usepackage{tikz}
+\usetikzlibrary{calc,arrows.meta,patterns,decorations.pathmorphing}
+\usepackage{xcolor}
+\usepackage{multicol}
+\usepackage{parskip}
+\usepackage{lmodern}
+\renewcommand{\familydefault}{\sfdefault}
+
+\definecolor{unalblue}{RGB}{31,73,124}
+
+\newlist{opciones}{enumerate}{1}
+\setlist[opciones]{label=(\alph*),itemsep=1pt,topsep=2pt,leftmargin=1.8em,font=\normalfont}
+
+\pagestyle{empty}
+\setlength{\columnseprule}{0.5pt}
+
+\begin{document}
+
+\noindent
+\begin{minipage}[t]{0.62\linewidth}
+  {\bfseries\large Primer Parcial de Ecuaciones Diferenciales}\\[2pt]
+  {\small 6 de Marzo del 2017}\\
+  {\small Puntaje. Sólo para uso Oficial}
+\end{minipage}%
+\hfill
+\begin{minipage}[t]{0.35\linewidth}
+  \raggedleft\small Escuela de Matemáticas. Universidad Nacional de Colombia, Sede Medellín.
+\end{minipage}\\[4pt]
+\rule{\linewidth}{0.6pt}
+
+\vspace{4pt}
+\noindent
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+1 (/25) & 2 (/50) & 3 (/25) & Total & Nota \\
+\hline
+ & & & & \\
+\hline
+\end{tabular}
+
+\vspace{6pt}
+\noindent\textbf{Instrucciones:} Antes de empezar verifique que su examen esté completo y que sus datos sean correctos. Por favor verifique que su celular esté apagado. No está permitido el uso de calculadora ni de otros aparatos electrónicos. Solucione las preguntas en los espacios en blanco asignados a cada una de ellas. No está permitido sacar hojas en blanco ni ningún tipo de apuntes durante el examen. Duración: 1 hora y 50 minutos.
+
+\vspace{8pt}
+\noindent Nombre: \makebox[0.45\linewidth]{\hrulefill} \hfill Cédula: \makebox[0.3\linewidth]{\hrulefill}
+
+\vspace{6pt}
+\noindent\textbf{1. (25\%)} Resuelva el siguiente problema con valor inicial
+\[
+y^2\,dx+(2xy+y^2)\,dy=0, \qquad y(-1)=2.
+\]
+
+\vspace{7cm}
+
+\newpage
+
+\noindent\textbf{2. (50\%)} En los literales a), b), c), d) y e) complete según corresponda. Sólo se calificará respuesta, no es necesario que escriba el procedimiento.
+
+\begin{opciones}
+\item[a)] \textbf{(10\%)} Sin resolver el problema de valor inicial
+\[
+\ln(t-5)\frac{dy}{dt}+\frac{1}{t+5}y=1+3e^{-t}t^5\cos t, \qquad y\left(\frac{11}{2}\right)=1,
+\]
+el mayor intervalo abierto en el que se tiene certeza que existe una única solución del P.V.I es \underline{\hspace{3cm}}
+
+\item[b)] \textbf{(10\%)} Las condiciones sobre las constantes $a$, $b$ y $\lambda$ para que las soluciones de la ecuación diferencial
+\[
+\frac{dy}{dt}+ay=be^{-\lambda t}
+\]
+tiendan a cero cuando $t\to\infty$ son: \underline{\hspace{5cm}}
+
+\item[c)] \textbf{(10\%)} Según el Teorema de existencia y unicidad, la región del plano $xy$ para la cual se tiene certeza de que la ecuación diferencial
+\[
+\frac{dy}{dx}=\sqrt{x-2}+\sqrt{y+1},
+\]
+tiene una única solución que pasa por el punto $(x_0,y_0)$ dentro de la región es \underline{\hspace{3cm}} (\textit{Puede dibujar la región})
+
+\begin{center}
+\begin{tikzpicture}[scale=0.6]
+  \draw[-{Latex[length=2mm]}] (-2.5,0) -- (3.5,0) node[right,font=\scriptsize] {$x$};
+  \draw[-{Latex[length=2mm]}] (0,-2.5) -- (0,3) node[above,font=\scriptsize] {$y$};
+  \draw[dashed] (2,-2.5) -- (2,3);
+  \draw[dashed] (-2.5,-1) -- (3.5,-1);
+  \node[font=\scriptsize] at (2,-2.7) {$2$};
+  \node[font=\scriptsize] at (-0.3,-1) {$-1$};
+  \begin{scope}
+    \clip (2,-1) rectangle (3.5,3);
+    \fill[pattern=north east lines, pattern color=black!70] (2,-1) rectangle (3.5,3);
+  \end{scope}
+\end{tikzpicture}
+\end{center}
+
+\item[d)] \textbf{(10\%)} Considere la ecuación diferencial de Bernoulli
+\[
+\frac{dy}{dx}=y(xy^4-1).
+\]
+Por medio de una sustitución adecuada esta ecuación diferencial se transforma en una ecuación diferencial lineal. La ecuación diferencial lineal en la que se transforma la ecuación diferencial de Bernoulli anterior es \underline{\hspace{5cm}}
+
+\item[e)] \textbf{(10\%)} En una plataforma de prueba del Centro Espacial Kennedy, se lanza un cohete verticalmente de $6400$ lb con velocidad inicial de $800$ pies/seg. Suponga que el aire ejerce una resistencia igual a un cuarto de su velocidad instantánea $v(t)$. El problema de valor inicial que modela la situación descrita es \underline{\hspace{5cm}} (\textit{Escriba la ecuación diferencial en términos de la velocidad y el tiempo})
+\end{opciones}
+
+\newpage
+
+\noindent\textbf{3. (25\%)} Un tanque tiene forma de pirámide cuadrangular invertida (es decir, su base es un cuadrado), cuyas aristas miden 1 pie y cuya altura es $\dfrac{\sqrt{2}}{2}$ pies. El tanque está inicialmente lleno de agua, y a partir de un momento dado comienza a vaciarse a través de un orificio en el fondo cuya área es igual a $\dfrac{1}{12^8}$ pie$^2$. Calcule el tiempo de vaciado del tanque (\textit{Puede tomar la constante de proporcionalidad o fricción $c=1$}).
+
+\begin{center}
+\begin{tikzpicture}[scale=1.1]
+  % piramide invertida vista de perfil (triangulo apuntando hacia abajo)
+  \draw[thick] (-1.5,1.6) -- (1.5,1.6) -- (0,-1.2) -- cycle;
+  \draw[dashed] (-0.75,0.2) -- (0.75,0.2);
+  \draw[-{Latex[length=2mm]}] (-1.6,1.6) -- (-1.6,-1.2) node[midway,left,font=\scriptsize] {$\frac{\sqrt{2}}{2}$};
+  \draw[-{Latex[length=2mm]}] (-1.5,1.9) -- (1.5,1.9) node[midway,above,font=\scriptsize] {1 pie};
+  \node[font=\scriptsize] at (1.0,0.5) {$h$};
+  \node[font=\scriptsize] at (1.0,0.05) {$x$};
+\end{tikzpicture}
+\end{center}
+
+\vspace{5cm}
+
+\vfill
+\rule{\linewidth}{0.4pt}\\[1pt]
+{\scriptsize\textit{Transcripción digital --- MathUNAL}\hfill\textcolor{unalblue}{\textbf{1}}}
+
+\end{document}

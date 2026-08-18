@@ -1,0 +1,188 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=1.9cm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage[spanish]{babel}
+\usepackage{amsmath,amssymb}
+\usepackage{enumitem}
+\usepackage{tikz}
+\usetikzlibrary{calc,arrows.meta,patterns,decorations.pathmorphing}
+\usepackage{xcolor}
+\usepackage{multicol}
+\usepackage{parskip}
+\usepackage{lmodern}
+\renewcommand{\familydefault}{\sfdefault}
+
+\definecolor{unalblue}{RGB}{31,73,124}
+
+\newlist{opciones}{enumerate}{1}
+\setlist[opciones]{label=(\alph*),itemsep=1pt,topsep=2pt,leftmargin=1.8em,font=\normalfont}
+
+\pagestyle{empty}
+\setlength{\columnseprule}{0.5pt}
+
+\begin{document}
+
+\noindent
+\begin{minipage}[t]{0.62\linewidth}
+  {\bfseries\large Primer Parcial de Ecuaciones Diferenciales}\\[2pt]
+  {\small 8 de Junio del 2019}\\
+  {\small Puntaje. Sólo para uso Oficial}
+\end{minipage}%
+\hfill
+\begin{minipage}[t]{0.35\linewidth}
+  \raggedleft\small Escuela de Matemáticas. Universidad Nacional de Colombia, Sede Medellín.
+\end{minipage}\\[4pt]
+\rule{\linewidth}{0.6pt}
+
+\vspace{4pt}
+\noindent
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+1 (/20) & 2 (/10) & 3 (/40) & 4 (/30) & Total & Nota \\
+\hline
+ & & & & & \\
+\hline
+\end{tabular}
+
+\vspace{6pt}
+\noindent\textbf{Instrucciones:} La duración del examen es de 1 hora y 45 minutos. El examen consta de cuatro preguntas en dos hojas impresas por ambos lados, antes de empezar verifique que su examen esté completo y que sus datos sean correctos. No desengrape su examen ni añada otras grapas o su examen será anulado. En las preguntas con procedimiento justifique sus respuestas en los espacios asignados. No está permitido hacer preguntas, usar calculadoras, sacar hojas en blanco ni ningún tipo de apuntes durante el examen. Por favor verifique que su celular esté apagado.
+
+\vspace{8pt}
+\noindent Nombre: \makebox[0.45\linewidth]{\hrulefill} \hfill Cédula: \makebox[0.3\linewidth]{\hrulefill}
+
+\begin{multicols}{2}
+
+\textbf{1. (20\%)} Resuelva la ecuación diferencial
+\[
+y''+8y(y')^3=0.
+\]
+
+\vspace{7cm}
+
+\columnbreak
+
+\textbf{2. (10\%)} Demuestre que la sustitución $v=ye^{\int p(x)\,dx}$ convierte la ecuación diferencial de Bernoulli
+\[
+\frac{dy}{dx}+p(x)y=f(x)y^n
+\]
+en una ecuación diferencial en variables separables.
+
+\end{multicols}
+
+\begin{multicols}{2}
+
+\textbf{3. (40\%)} Aplicaciones
+
+\begin{opciones}
+\item[(a)] \textbf{(15\%)} Halle la familia de trayectorias ortogonales a la familia de curvas $y^2=cx^5$ con $x>0$.
+\end{opciones}
+
+\vspace{5cm}
+
+\columnbreak
+
+\begin{opciones}
+\item[(b)] \textbf{(25\%)} Una pelota de masa $0.5\,kg$ se lanza hacia arriba con velocidad inicial de $20\,m/s$ desde el techo de un edificio de $30\,m$ de altura.
+
+(1) Sin tomar en cuenta la resistencia del aire, determine en qué momento la pelota alcanza la altura máxima.
+
+(2) Si la fuerza debida a la resistencia del aire tiene magnitud $\dfrac{|v|}{30}$, determine en qué momento la pelota alcanza la altura máxima.
+\end{opciones}
+\begin{center}
+\begin{tikzpicture}[scale=0.7]
+  \node[font=\scriptsize] at (0,2.2) {a)};
+  \draw[thick] (-0.6,1.5) rectangle (0.6,1.9);
+  \draw[-{Latex[length=2mm]}] (0,1.5) -- (0,0.3) node[midway,right,font=\scriptsize] {$mg$};
+
+  \node[font=\scriptsize] at (3,3.2) {b)};
+  \draw[thick] (2.4,1.5) rectangle (3.6,1.9);
+  \draw[-{Latex[length=2mm]}] (3,1.5) -- (3,0.3) node[midway,right,font=\scriptsize] {$mg$};
+  \draw[-{Latex[length=2mm]}] (3,1.9) -- (3,2.9) node[midway,right,font=\scriptsize] {$f_r$};
+\end{tikzpicture}
+\end{center}
+
+\end{multicols}
+
+\noindent\textbf{4. (30\%)} En los literales a), b), c), y d) complete según corresponda. Sólo se calificará respuesta, no es necesario que escriba el procedimiento.
+
+\begin{multicols}{2}
+
+\begin{opciones}
+\item[(a)] \textbf{(5\%)} Un factor integrante para la ecuación diferencial $x^2\dfrac{dy}{dx}-3xy=1$ es \underline{\hspace{2.5cm}}
+
+\item[(b)] \textbf{(7\%)} Un factor integrante para la ecuación diferencial $(2xy+y^4)dx+(3x^2+6xy^3)dy=0$ es \underline{\hspace{2.5cm}}
+
+\item[(c)] \textbf{(8\%)} Dada la ecuación diferencial
+\[
+\frac{dy}{dx}=\sqrt{4-x^2-y^2}\,\ln(x^2-1),
+\]
+sombrear la región del plano $xy$ donde se aplica el Teorema de Existencia y Unicidad.
+
+\begin{center}
+\begin{tikzpicture}[scale=0.55]
+  \draw[-{Latex[length=2mm]}] (-3.2,0) -- (3.2,0) node[right,font=\scriptsize] {$x$};
+  \draw[-{Latex[length=2mm]}] (0,-2.6) -- (0,2.6) node[above,font=\scriptsize] {$y$};
+  % circulo radio 2
+  \draw[thick] (0,0) circle (2);
+  \node[font=\scriptsize] at (1.6,2.3) {Círculo de $r=2$};
+  % lineas x=-1 y x=1 (por ln(x^2-1))
+  \draw[dashed] (-1,-2.6) -- (-1,2.6);
+  \draw[dashed] (1,-2.6) -- (1,2.6);
+  \node[font=\scriptsize] at (-1,-2.8) {$-1$};
+  \node[font=\scriptsize] at (1,-2.8) {$1$};
+  % sombreado: dentro del circulo, x<-1 o x>1
+  \begin{scope}
+    \clip (0,0) circle (2);
+    \fill[pattern=north east lines, pattern color=black!70] (-2.2,-2.2) rectangle (-1,2.2);
+    \fill[pattern=north east lines, pattern color=black!70] (1,-2.2) rectangle (2.2,2.2);
+  \end{scope}
+\end{tikzpicture}
+\end{center}
+
+\columnbreak
+
+\item[(d)] \textbf{(10\%)} Determine los puntos críticos y el diagrama de fase de la ecuación diferencial autónoma
+\[
+\frac{dy}{dt}=y^3-2y^2.
+\]
+Clasifique cada punto crítico como asintóticamente estable, inestable, o semiestable. Dibuje curvas solución típicas en las regiones del plano $ty$ determinadas por las gráficas de las soluciones de equilibrio.
+
+\begin{center}
+\begin{tikzpicture}[scale=0.75]
+  \draw[-{Latex[length=2mm]}] (0,-1.3) -- (0,3) node[above,font=\scriptsize] {$y$};
+  \draw[-{Latex[length=2mm]}] (-2.5,0) -- (2.5,0) node[right,font=\scriptsize] {$t$};
+  \draw[dashed] (-2.5,0) -- (2.5,0);
+  \draw[dashed] (-2.5,2) -- (2.5,2);
+  \node[left,font=\scriptsize] at (0,0) {$0$};
+  \node[left,font=\scriptsize] at (0,2) {$2$};
+  % curvas por region y<0 (bajan), 0<y<2 (bajan hacia 0), y>2 (suben)
+  \draw[thick,-{Latex[length=1.5mm]}] plot[domain=-2.2:2.2,samples=30] (\x,{-0.9+0.15*\x*\x}) ;
+  \draw[thick,{Latex[length=1.5mm]}-] plot[domain=-2.2:2.2,samples=30] (\x,{0.6-0.1*\x*\x});
+  \draw[thick,-{Latex[length=1.5mm]}] plot[domain=-2.2:2.2,samples=30] (\x,{2.6+0.1*\x*\x});
+\end{tikzpicture}
+
+\small
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+ & $f(y)$ & $f'(y)$ & $y'=f(y)$ & Comport. \\
+\hline
+$(-\infty,0)$ & $-$ & $+$ & $\searrow$ & $\downarrow\cap$ \\
+\hline
+$(0,\alpha)$ & $-$ & $-$ & $\nearrow$ & $\downarrow\cup$ \\
+\hline
+$(\alpha,2)$ & $-$ & $+$ & $\searrow$ & $\downarrow\cap$ \\
+\hline
+$(2,\infty)$ & $+$ & $+$ & $\nearrow$ & $\uparrow\cup$ \\
+\hline
+\end{tabular}
+\end{center}
+\end{opciones}
+
+\end{multicols}
+
+\vfill
+\rule{\linewidth}{0.4pt}\\[1pt]
+{\scriptsize\textit{Transcripción digital --- MathUNAL}\hfill\textcolor{unalblue}{\textbf{1}}}
+
+\end{document}

@@ -1,0 +1,192 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=1.9cm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage[spanish,es-noshorthands]{babel}
+\usepackage{amsmath,amssymb}
+\usepackage{enumitem}
+\usepackage{tikz}
+\usetikzlibrary{calc,arrows.meta,patterns,decorations.pathmorphing}
+\usepackage{xcolor}
+\usepackage{multicol}
+\usepackage{parskip}
+\usepackage{lmodern}
+\renewcommand{\familydefault}{\sfdefault}
+
+\definecolor{unalblue}{RGB}{31,73,124}
+\definecolor{unalblue2}{RGB}{70,120,180}
+
+\newlist{opciones}{enumerate}{1}
+\setlist[opciones]{label=\textbf{(\alph*)},itemsep=1pt,topsep=2pt,leftmargin=1.8em,font=\normalfont}
+\setlist[enumerate,1]{label=\textbf{\arabic*.},itemsep=6pt,topsep=4pt,leftmargin=1.6em,font=\normalfont}
+\setlist[enumerate,2]{label=\textbf{\alph*)},itemsep=4pt,topsep=3pt,leftmargin=1.6em,font=\normalfont}
+\setlist[enumerate,3]{label=\textbf{\roman*)},itemsep=2pt,topsep=2pt,leftmargin=1.4em,font=\normalfont}
+
+\newcommand{\vect}[2]{\begin{pmatrix}#1\\#2\end{pmatrix}}
+\newcommand{\vectiii}[3]{\begin{pmatrix}#1\\#2\\#3\end{pmatrix}}
+
+\newcommand{\examheader}{%
+\noindent\begin{tikzpicture}
+\node[fill=unalblue, text width=\dimexpr\linewidth-16pt\relax, inner sep=8pt, rounded corners=3pt, align=left, text=white] (hdr) {%
+  \begin{minipage}[c]{0.66\linewidth}
+    {\Large\bfseries \examsubject}\\[2pt]
+    {\small \examtype\ \textbullet\ \textcolor{white!85!unalblue}{\examsubtitle}}
+  \end{minipage}\hfill
+  \begin{minipage}[c]{0.28\linewidth}
+    \raggedleft{\scriptsize Escuela de Matem\'aticas\\[-1pt] Universidad Nacional\\[-1pt] de Colombia, Sede Medell\'in}
+  \end{minipage}%
+};
+\end{tikzpicture}\\[7pt]
+}
+\newcommand{\examfooter}{%
+  \vfill
+  \rule{\linewidth}{0.4pt}\\[1pt]
+  {\scriptsize\textit{Transcripci\'on digital --- MathUNAL}\hfill\textcolor{unalblue}{\textbf{\thepage}}}
+}
+\pagestyle{empty}
+
+\newcommand{\examsubject}{ÁLGEBRA LINEAL}
+\newcommand{\examtype}{Tercer Parcial}
+\newcommand{\examsubtitle}{13 de Junio de 2015}
+
+\newcommand{\minigrafo}[4]{%
+\begin{tikzpicture}[scale=0.55,>=Stealth]
+\node[circle,draw,inner sep=1pt,minimum size=0.5cm] (n4) at (0,1) {\tiny 4};
+\node[circle,draw,inner sep=1pt,minimum size=0.5cm] (n1) at (1.6,1) {\tiny 1};
+\node[circle,draw,inner sep=1pt,minimum size=0.5cm] (n3) at (0,0) {\tiny 3};
+\node[circle,draw,inner sep=1pt,minimum size=0.5cm] (n2) at (1.6,0) {\tiny 2};
+#1 #2 #3 #4
+\end{tikzpicture}%
+}
+
+\begin{document}
+
+\examheader
+
+\vspace{4pt}
+\noindent
+\begin{minipage}[t]{0.55\linewidth}
+Puntaje. S\'olo para uso Oficial\\[4pt]
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+1-4 (/48) & 5 (/20) & 6 (/12) & 7 (/20) & Total & Nota\\
+\hline
+ & & & & & \\
+\hline
+\end{tabular}
+\end{minipage}
+
+\vspace{6pt}
+\noindent\textbf{Instrucciones:} La duraci\'on del examen es de 1 hora y 50 minutos. El examen consta de siete preguntas en tres hojas impresas por ambos lados, antes de empezar verifique que su examen est\'e \textbf{completo}. No \textbf{desengrape} su examen ni \textbf{a\~nada} otras grapas o su examen ser\'a \textbf{anulado}. En las preguntas con procedimiento \textbf{justifique} sus respuestas en los espacios asignados. No est\'a permitido hacer preguntas, el uso de calculadoras, sacar hojas en blanco ni ning\'un tipo de apuntes durante el examen. Por favor verifique que su celular est\'e apagado.
+
+\vspace{10pt}
+\textbf{I. Opci\'on M\'ultiple y Completaci\'on}
+
+\noindent En las preguntas 1 a 4 complete los espacios en blanco o elija la opci\'on correcta seg\'un el caso. Marque con una X la letra de su elecci\'on. \textbf{NOTA:} En esta secci\'on se califica s\'olo la respuesta y no se tiene en cuenta el procedimiento.
+
+\begin{enumerate}
+\item \textbf{[12pt]} Indique cuales de los siguientes grafos dirigidos tienen la matriz de adyacencia (filas/columnas en el orden 4,3,2,1)
+\[
+A=\begin{pmatrix} 0&0&0&1 \\ 0&0&1&0 \\ 1&0&0&0 \\ 0&1&0&0 \end{pmatrix}.
+\]
+
+\begin{center}
+\begin{tabular}{cccc}
+\minigrafo{\draw[->] (n4)--(n1);}{\draw[->] (n1)--(n2);}{\draw[->] (n2)--(n3);}{\draw[->] (n3)--(n4);} &
+\minigrafo{\draw[->] (n4)--(n1);}{\draw[->] (n1)--(n2);}{\draw[->] (n3)--(n2);}{\draw[->] (n4)--(n3);} &
+\minigrafo{\draw[->] (n1)--(n4);}{\draw[->] (n2)--(n1);}{\draw[->] (n2)--(n3);}{\draw[->] (n3)--(n4);} &
+\minigrafo{\draw[->] (n1)--(n4);}{\draw[->] (n2)--(n1);}{\draw[->] (n3)--(n2);}{\draw[->] (n4)--(n3);} \\[2pt]
+(a) (V) \dotfill\ (F) \dotfill &
+(b) (V) \dotfill\ (F) \dotfill &
+(c) (V) \dotfill\ (F) \dotfill &
+(d) (V) \dotfill\ (F) \dotfill
+\end{tabular}
+\end{center}
+\end{enumerate}
+
+\examfooter
+\newpage
+
+\examheader
+
+\begin{enumerate}
+\setcounter{enumi}{1}
+\item \textbf{[12pt]} Sean $A,B$ matrices de $n\times n$ y $c\in\mathbb{R}$, responda a las siguientes preguntas
+\begin{enumerate}[label=(\alph*)]
+\item Si $\det(A)=0$ entonces las columnas de $A$ son linealmente dependientes. \hfill (V) \dotfill (F) \dotfill
+\item $\det(A^T)=\det(A)$. \hfill (V) \dotfill (F) \dotfill
+\item Si $A$ es invertible entonces $\det(A)>0$. \hfill (V) \dotfill (F) \dotfill
+\item $\det(cA+B)=c\det(A)+\det(B)$. \hfill (V) \dotfill (F) \dotfill
+\end{enumerate}
+
+\item \textbf{[12pt]} Sea $A=\{\vec{u}_1,\vec{u}_2,\vec{u}_3\}$ un conjunto de vectores linealmente independientes de $\mathbb{R}^3$. Se definen los siguientes vectores
+\[
+\vec{w}_1=\vec{u}_1, \qquad \vec{w}_2 = \vec{u}_2 - \frac{\vec{u}_2\cdot\vec{u}_1}{\vec{u}_1\cdot\vec{u}_1}\vec{u}_1, \qquad \vec{w}_3 = \vec{u}_3 - \frac{\vec{u}_3\cdot\vec{u}_2}{\|\vec{u}_2\|^2}\vec{u}_2
+\]
+
+Responda si las siguientes afirmaciones son verdaderas o falsas.
+\begin{enumerate}[label=(\alph*)]
+\item $\{\vec{w}_1,\vec{w}_2,\vec{w}_3\}$ es un conjunto ortogonal de $\mathbb{R}^3$. \hfill (V) \dotfill (F) \dotfill
+\item $\{\vec{w}_1,\vec{w}_2\}$ es una base ortonormal de $\operatorname{gen}(\vec{u}_1,\vec{u}_2)$. \hfill (V) \dotfill (F) \dotfill
+\item $\{\vec{w}_2,\vec{w}_3\}$ es un conjunto ortogonal de $\operatorname{gen}(\vec{u}_2,\vec{u}_3)$. \hfill (V) \dotfill (F) \dotfill
+\item $\{\vec{w}_1,\vec{w}_2,\vec{w}_3\}$ es una base de $\mathbb{R}^3$. \hfill (V) \dotfill (F) \dotfill
+\end{enumerate}
+
+\item \textbf{[12pt]} Sea $P=\begin{pmatrix}p_{11}&p_{12}\\p_{21}&p_{22}\end{pmatrix}$, la matriz estoc\'astica de una cadena de Markov. Suponga que $\hat{e}_2$ es un vector de probabilidad estacionario. Introduzca los valores num\'ericos solicitados a continuaci\'on, en caso de ser posible determinarlos y, en caso de no ser posible determinarlos, escriba la abreviaci\'on \textbf{DI} (datos insuficientes).
+\begin{center}
+\begin{tabular}{llll}
+(a) $p_{11}+p_{21}=$ \dotfill & (b) $p_{12}=$ \dotfill & (c) $p_{21}+p_{22}=$ \dotfill & (d) $p_{11}=$ \dotfill
+\end{tabular}
+\end{center}
+\end{enumerate}
+
+\examfooter
+\newpage
+
+\examheader
+
+\textbf{II. Soluci\'on con Procedimiento}
+
+\begin{enumerate}
+\setcounter{enumi}{4}
+\item Sean los vectores can\'onicos $\hat{e}_i \in \mathbb{R}^4$ con $1\le i\le 4$ y defina la matriz $A=[\hat{e}_2, \vec{0}, \hat{e}_3, \hat{e}_4]$. Es decir, las columnas de $A$ son $\hat{e}_2$, $\vec{0}$, $\hat{e}_3$ y $\hat{e}_4$.
+\begin{enumerate}[label=(\roman*)]
+\item \textbf{[8pt]} Encuentre los valores propios de $A$. Justifique su respuesta.
+
+\vspace{50pt}
+\item \textbf{[9pt]} Encuentre $\dim(E_0)$. Justifique su respuesta.
+
+\vspace{50pt}
+\item \textbf{[3pt]} ¿Es $A$ diagonalizable? Justifique su respuesta.
+\end{enumerate}
+\end{enumerate}
+
+\examfooter
+\newpage
+
+\examheader
+
+\begin{enumerate}
+\setcounter{enumi}{5}
+\item \textbf{[12pt]} Demuestre que si la matriz $B$ de $n\times n$ es semejante a la matriz identidad $I_n$ entonces $B=I_n$.
+\end{enumerate}
+
+\examfooter
+\newpage
+
+\examheader
+
+\begin{enumerate}
+\setcounter{enumi}{6}
+\item \textbf{[20pt]} Se sabe que la matriz $A=\begin{pmatrix}-1&0&1&0\\0&0&0&0\\1&0&-1&0\\0&0&0&0\end{pmatrix}$ tiene solamente dos valores propios: $-2$ y $0$.
+\begin{enumerate}[label=(\roman*)]
+\item \textbf{[10pt]} Demuestre que el vector $\vec{u}=[1,0,-1,0]^T$ est\'a en el subespacio $E_{-2}$.
+
+\vspace{40pt}
+\item \textbf{[10pt]} Suponga que $\vec{w}\in E_0$, demuestre que $\vec{w}$ es ortogonal a $\vec{u}$.
+\end{enumerate}
+\end{enumerate}
+
+\examfooter
+
+\end{document}

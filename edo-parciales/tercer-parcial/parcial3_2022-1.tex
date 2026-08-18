@@ -1,0 +1,168 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=1.9cm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage[spanish]{babel}
+\usepackage{amsmath,amssymb}
+\usepackage{enumitem}
+\usepackage{tikz}
+\usetikzlibrary{calc,arrows.meta,patterns,decorations.pathmorphing}
+\usepackage{xcolor}
+\usepackage{multicol}
+\usepackage{parskip}
+\usepackage{lmodern}
+\renewcommand{\familydefault}{\sfdefault}
+
+\definecolor{unalblue}{RGB}{31,73,124}
+\definecolor{unalblue2}{RGB}{70,120,180}
+
+\newlist{opciones}{enumerate}{1}
+\setlist[opciones]{label=\textbf{(\alph*)},itemsep=1pt,topsep=2pt,leftmargin=1.8em,font=\normalfont}
+\setlist[enumerate,1]{label=\textbf{\arabic*.},itemsep=6pt,topsep=4pt,leftmargin=1.6em,font=\normalfont}
+\setlist[enumerate,2]{label=\textbf{\alph*)},itemsep=4pt,topsep=3pt,leftmargin=1.6em,font=\normalfont}
+\setlist[enumerate,3]{label=\textbf{\roman*)},itemsep=2pt,topsep=2pt,leftmargin=1.4em,font=\normalfont}
+
+\newcommand{\vect}[2]{\begin{pmatrix}#1\\#2\end{pmatrix}}
+\newcommand{\vectiii}[3]{\begin{pmatrix}#1\\#2\\#3\end{pmatrix}}
+
+\newcommand{\examheader}{%
+\noindent\begin{tikzpicture}
+\node[fill=unalblue, text width=\dimexpr\linewidth-16pt\relax, inner sep=8pt, rounded corners=3pt, align=left, text=white] (hdr) {%
+  \begin{minipage}[c]{0.66\linewidth}
+    {\Large\bfseries \examsubject}\\[2pt]
+    {\small \examtype\ \textbullet\ \textcolor{white!85!unalblue}{\examsubtitle}}
+  \end{minipage}\hfill
+  \begin{minipage}[c]{0.28\linewidth}
+    \raggedleft{\scriptsize Escuela de Matem\'aticas\\[-1pt] Universidad Nacional\\[-1pt] de Colombia, Sede Medell\'in}
+  \end{minipage}%
+};
+\end{tikzpicture}\\[7pt]
+}
+\newcommand{\examfooter}{%
+  \vfill
+  \rule{\linewidth}{0.4pt}\\[1pt]
+  {\scriptsize\textit{Transcripci\'on digital --- MathUNAL}\hfill\textcolor{unalblue}{\textbf{\thepage}}}
+}
+\pagestyle{empty}
+
+\newcommand{\examsubject}{ECUACIONES DIFERENCIALES}
+\newcommand{\examtype}{Tercer Parcial}
+\newcommand{\examsubtitle}{Semestre 01-2022, 29 de Junio de 2022}
+
+\begin{document}
+
+\examheader
+
+\vspace{4pt}
+\noindent
+\begin{minipage}[t]{0.55\linewidth}
+{\bfseries\large Tercer Parcial de Ecuaciones Diferenciales.}\\[2pt]
+Puntaje. S\'olo para uso Oficial\\[4pt]
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+1 (/35) & 2 (/36) & 3 (/29) & Total & Nota\\
+\hline
+ & & & & \\
+\hline
+\end{tabular}
+\end{minipage}%
+\hfill
+\begin{minipage}[t]{0.4\linewidth}
+Nombre: \dotfill\\[6pt]
+C\'edula: \dotfill \hfill Grupo: TODOS\\[10pt]
+{\large Examen N\'umero: \dotfill}\\[10pt]
+Firma: \dotfill
+\end{minipage}
+
+\vspace{6pt}
+\noindent\textbf{Instrucciones:} La duraci\'on del examen es de 1 hora y 45 minutos. El examen consta de tres preguntas en dos hojas impresas por ambos lados, antes de empezar verifique que su examen est\'e \textbf{completo} y que sus \textbf{datos} sean \textbf{correctos}. No \textbf{desengrape} su examen ni \textbf{a\~nada} otras grapas o su examen ser\'a \textbf{anulado}. En las preguntas con procedimiento \textbf{justifique} sus respuestas en los \textbf{espacios asignados}. No est\'a permitido hacer preguntas, usar calculadoras, sacar hojas en blanco ni ning\'un tipo de apuntes durante el examen. Por favor verifique que su celular est\'e \textbf{apagado}.\\
+\textbf{En el punto 1 debe justificar paso a paso su procedimiento.}\\
+\textbf{En los puntos 2 y 3 s\'olo se calificar\'a respuesta, no es necesario que escriba el procedimiento.}
+
+\examfooter
+\newpage
+
+\examheader
+
+\begin{enumerate}
+\item \textbf{(35\%)} Considere el problema de valor inicial en el intervalo $[0,\infty)$:
+\[
+y'' + y = f(t); \quad y(0)=0, \quad y'(0)=0,
+\]
+donde
+\[
+f(t) = \begin{cases} t & \text{si } 0 \le t < 3, \\ 3 & \text{si } 3 \le t. \end{cases}
+\]
+\textbf{NOTA:} Debe justificar paso a paso su procedimiento.
+\begin{enumerate}[label=\alph*.]
+\item \textbf{(7\%)} Exprese la funci\'on $f(t)$ mediante funciones escal\'on unitario.
+\item \textbf{(8\%)} Calcule la transformada de Laplace de la funci\'on $f(t)$.
+\item \textbf{(20\%)} Resuelva el problema de valor inicial.
+\end{enumerate}
+\end{enumerate}
+
+\examfooter
+\newpage
+
+\examheader
+
+\begin{enumerate}
+\setcounter{enumi}{1}
+\item \textbf{(36\%)} En los literales a) y b) complete seg\'un corresponda. S\'olo se calificar\'a respuesta, la cual debe estar simplificada. \textbf{No es necesario que escriba el procedimiento.}
+\begin{enumerate}[label=\alph*)]
+\item \textbf{(16\%)} Considere el problema de valor inicial
+\[
+y'' + 4xy = 0, \quad x \in \mathbb{R}.
+\]
+\[
+y(0)=1, \quad y'(0)=1.
+\]
+La soluci\'on de este problema de valor inicial es $y = \sum_{n=0}^{\infty} a_n x^n$, donde
+\[
+a_2 = \text{\dotfill}, \quad a_3 = \text{\dotfill},
+\]
+\[
+a_4 = \text{\dotfill} \quad \text{y} \quad a_5 = \text{\dotfill}.
+\]
+\item \textbf{(20\%)} La soluci\'on general del sistema homog\'eneo de ecuaciones diferenciales lineales de primer orden
+\[
+\mathbf{X}'(t) = \begin{pmatrix} -2 & -\frac{1}{4} \\ 9 & -5 \end{pmatrix}\mathbf{X}(t)
+\]
+en el intervalo $(-\infty,+\infty)$, es
+\[
+\mathbf{X}(\mathbf{t}) = c_1\begin{pmatrix} a \\ 1 \end{pmatrix}e^{\alpha t} + c_2 e^{\alpha t}\left[\begin{pmatrix} a \\ 1 \end{pmatrix}t + \begin{pmatrix} c \\ 0 \end{pmatrix}\right],
+\]
+donde
+\[
+\alpha = \text{\dotfill}. \qquad a = \text{\dotfill}. \qquad c = \text{\dotfill}.
+\]
+\end{enumerate}
+\end{enumerate}
+
+\examfooter
+\newpage
+
+\examheader
+
+\begin{enumerate}
+\setcounter{enumi}{2}
+\item \textbf{(29\%)} En los literales a), b) y c) complete seg\'un corresponda. S\'olo se calificar\'a respuesta. \textbf{No es necesario que escriba el procedimiento.}
+\begin{enumerate}[label=\alph*)]
+\item \textbf{(9\%)} Si $\displaystyle F(s) = \frac{5e^{-\pi s}}{5s+10}$, entonces su transformada inversa es
+\[
+\mathcal{L}^{-1}\{F(s)\} = \text{\dotfill}.
+\]
+\item \textbf{(10\%)} Si $\displaystyle F(s) = \frac{2s}{s^2+4s+5}$, entonces su transformada inversa es
+\[
+\mathcal{L}^{-1}\{F(s)\} = \text{\dotfill}.
+\]
+\item \textbf{(10\%)} Si $\displaystyle F(s) = \ln\left(\frac{s^2+4}{s^2+9}\right)$, entonces su transformada inversa es
+\[
+\mathcal{L}^{-1}\{F(s)\} = \text{\dotfill}.
+\]
+\end{enumerate}
+\end{enumerate}
+
+\examfooter
+
+\end{document}

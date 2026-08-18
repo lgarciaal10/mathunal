@@ -1,0 +1,117 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=1.9cm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage{amsmath,amssymb}
+\usepackage{enumitem}
+\usepackage{tikz}
+\usetikzlibrary{calc,arrows.meta,patterns,decorations.pathmorphing}
+\usepackage{xcolor}
+\usepackage{multicol}
+\usepackage{parskip}
+\usepackage{lmodern}
+\renewcommand{\familydefault}{\sfdefault}
+
+\definecolor{unalblue}{RGB}{31,73,124}
+
+\newlist{opciones}{enumerate}{1}
+\setlist[opciones]{label=(\alph*),itemsep=1pt,topsep=2pt,leftmargin=1.8em,font=\normalfont}
+
+\newcommand{\vect}[2]{\begin{pmatrix}#1\\#2\end{pmatrix}}
+\newcommand{\vectiii}[3]{\begin{pmatrix}#1\\#2\\#3\end{pmatrix}}
+
+\newcommand{\examheader}{%
+  \noindent
+  \begin{minipage}[t]{0.62\linewidth}
+    {\bfseries\large Primer Parcial de C\'alculo en Varias Variables}\\
+    {\small 11 de febrero de 2019}\\
+    {\small Escuela de Matem\'aticas, Universidad Nacional de Colombia, Sede Medell\'in.}
+  \end{minipage}%
+  \hfill
+  \begin{minipage}[t]{0.33\linewidth}
+    \raggedleft\small
+    Nombre: \rule{2.8cm}{0.4pt}\\[4pt]
+    C\'edula: \rule{2.8cm}{0.4pt}
+  \end{minipage}\\[4pt]
+  \rule{\linewidth}{0.6pt}
+}
+\newcommand{\examfooter}{%
+  \vfill
+  \rule{\linewidth}{0.4pt}\\[1pt]
+  {\scriptsize\textit{Transcripci\'on digital --- MathUNAL}\hfill\textcolor{unalblue}{\textbf{\thepage}}}
+}
+\pagestyle{empty}
+
+\begin{document}
+
+\examheader
+
+\textbf{Instrucciones:} La duraci\'on del examen es de 1 hora y 50 minutos. El examen consta de siete preguntas en dos hojas impresas por ambos lados. Antes de empezar verifique que su examen est\'e completo y que sus datos sean correctos. No desengrape su examen ni a\~nada otras grapas. Utilice los espacios asignados para resolver cada pregunta. No est\'a permitido: hacer preguntas, usar calculadoras, sacar hojas en blanco, ni tomar apuntes en hojas diferentes a las del examen. No se permite que ning\'un celular se encuentre a la vista.
+
+\bigskip
+
+\textit{En las preguntas 1 a 4 escoja la respuesta correcta o responda en el espacio en blanco. En estas preguntas la calificaci\'on tendr\'a en cuenta s\'olo la respuesta.}
+
+\bigskip
+\noindent\textbf{1.} (5\,\%) Si $\displaystyle\lim_{(x,y)\to(0,0)} f(x,y) = 0$, entonces $\displaystyle\lim_{y\to 0} f(0,y) = 0$.
+
+\hspace{2cm}$\boxed{\phantom{V}}$ V \qquad $\boxed{\phantom{V}}$ F
+
+\bigskip
+\noindent\textbf{2.} (5\,\%) Si para una funci\'on de dos variables $f(x,y)$ sus derivadas parciales de primer orden no son continuas en un punto $(x_0,y_0)$ de su dominio, entonces $f(x,y)$ no puede ser diferenciable en $(x_0,y_0)$.
+
+\hspace{2cm}$\boxed{\phantom{V}}$ V \qquad $\boxed{\phantom{V}}$ F
+
+\bigskip
+\noindent\textbf{3.} (5\,\%) Dos curvas de nivel diferentes de la gr\'afica de $z=f(x,y)$ no pueden intersectarse.
+
+\hspace{2cm}$\boxed{\phantom{V}}$ V \qquad $\boxed{\phantom{V}}$ F
+
+\bigskip
+\noindent\textbf{4.} (5\,\%) Sea $f(x,y)$ una funci\'on de dos variables con derivadas parciales continuas. Consideremos los puntos $A=(3,1)$, $B=(6,1)$, $C=(3,5)$ y $D=(8,13)$. La derivada direccional de $f(x,y)$ en $A$ en la direcci\'on del vector $\overrightarrow{AB}$ es igual a $4$ y la derivada direccional de $f(x,y)$ en $A$ en la direcci\'on del vector $\overrightarrow{AC}$ es igual a $5$. Entonces la derivada de $f(x,y)$ en $A$ en la direcci\'on del vector $\overrightarrow{AD}$ es
+$$\underline{\hspace{4cm}}.$$
+
+\newpage
+\examheader
+\vspace{2pt}
+
+\textbf{Preguntas con procedimiento}
+
+\textit{En las preguntas 5 a 7 responda mostrando detalladamente el procedimiento utilizado.}
+
+\bigskip
+\noindent\textbf{5.} (25\,\%) Encuentre todos los puntos cr\'iticos de la funci\'on $f(x,y)=2x^3-3x^2+3y^2-12xy$ y diga cu\'ales son m\'inimos locales, m\'aximos locales o puntos de silla.
+
+\vfill
+\examfooter
+\newpage
+\examheader
+\vspace{2pt}
+
+\noindent\textbf{6.} (25\,\%) Si $z=f(x,y)$, donde $x=r\cos\theta$ y $y=r\operatorname{sen}\theta$, demuestre que
+$$\left(\frac{\partial z}{\partial x}\right)^2 + \left(\frac{\partial z}{\partial y}\right)^2 = \left(\frac{\partial z}{\partial r}\right)^2 + \frac{1}{r^2}\left(\frac{\partial z}{\partial \theta}\right)^2.$$
+
+\vfill
+\examfooter
+\newpage
+\examheader
+\vspace{2pt}
+
+\noindent\textbf{7.} (30\,\%) Sea
+$$
+f(x,y)=
+\begin{cases}
+\dfrac{x^3y^3}{x^2+y^2} - 3x+y, & (x,y)\neq (0,0),\\[6pt]
+0, & (x,y)=(0,0).
+\end{cases}
+$$
+
+\begin{opciones}
+  \item[(a)] (10\,\%) Halle $f_x(0,0)$ y $f_y(0,0)$.
+  \item[(b)] (20\,\%) Demuestre que $f$ es diferenciable en el punto $(0,0)$.
+\end{opciones}
+
+\vfill
+\examfooter
+
+\end{document}

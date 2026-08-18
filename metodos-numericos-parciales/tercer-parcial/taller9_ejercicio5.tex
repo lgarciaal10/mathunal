@@ -1,0 +1,68 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=1.9cm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage[spanish,es-noshorthands]{babel}
+\usepackage{amsmath,amssymb}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{parskip}
+\usepackage{lmodern}
+\renewcommand{\familydefault}{\sfdefault}
+
+\definecolor{unalblue}{RGB}{31,73,124}
+
+\newcommand{\examheader}{%
+  \noindent
+  \begin{minipage}[t]{0.6\linewidth}
+    {\small\bfseries MÉTODOS NUMÉRICOS --- Taller 9}\\
+    {\small Ejercicio 5 (fragmento)}
+  \end{minipage}%
+  \hfill
+  \begin{minipage}[t]{0.35\linewidth}
+    \raggedleft\small Escuela de Matemáticas. Universidad Nacional de Colombia, Sede Medellín.
+  \end{minipage}\\[2pt]
+  \rule{\linewidth}{0.6pt}
+}
+\newcommand{\examfooter}{%
+  \vfill
+  \rule{\linewidth}{0.4pt}\\[1pt]
+  {\scriptsize\textit{Transcripción digital --- MathUNAL}\hfill\textcolor{unalblue}{\textbf{\thepage}}}
+}
+\pagestyle{empty}
+
+\begin{document}
+\examheader
+
+\vspace{10pt}
+
+\noindent 5. (25\%) Considere el problema parabólico
+\[
+\begin{cases}
+u_t(x,t) = \pi^2 u_{xx}(x,t), & 0 < x < \dfrac{\pi}{4}, \quad t > 0, \\[4pt]
+u(x,0) = f(x), & 0 \le x \le \dfrac{\pi}{4}, \\[4pt]
+u(0,t) = g_1(t), & t > 0, \\[4pt]
+u\!\left(\dfrac{\pi}{4},t\right) = g_2(t), & t > 0,
+\end{cases}
+\]
+donde $g_1(t)$ y $g_2(t)$ no nulas para valores de $t > 0$.
+
+\vspace{6pt}
+\noindent\textbf{Plantée} el sistema de ecuaciones lineales necesario para aproximar la solución $u$ en el tiempo $t = 0.05$, sistema que se obtiene cuando se emplea el método implícito (regresivo o hacia atrás) con tamaños de paso $h = \dfrac{\pi}{8}$ y $k = 0.05$.
+
+\vspace{6pt}
+\noindent Tenga en cuenta los siguientes valores conocidos de $u$
+
+\begin{center}
+\begin{tabular}{c|ccccc}
+ & $x_0$ & $x_1$ & $x_2$ & $x_3$ & $x_4$ \\
+\hline
+$u(x,0)$ & 0 & 0.1951 & 0.3827 & 0.5556 & 0
+\end{tabular}
+\end{center}
+
+\vspace{6pt}
+\noindent $u(0,0.05) = 0.05$ \quad y \quad $u\!\left(\dfrac{\pi}{4},0.05\right) = 0.025$.
+
+\examfooter
+\end{document}

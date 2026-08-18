@@ -1,0 +1,206 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=1.9cm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage[spanish]{babel}
+\usepackage{amsmath,amssymb}
+\usepackage{lmodern}
+\renewcommand{\familydefault}{\sfdefault}
+\usepackage{enumitem}
+
+\newcommand{\vect}[2]{\begin{pmatrix}#1\\#2\end{pmatrix}}
+\newcommand{\vectiii}[3]{\begin{pmatrix}#1\\#2\\#3\end{pmatrix}}
+\usepackage{tikz}
+\usetikzlibrary{calc,arrows.meta,patterns,decorations.pathmorphing}
+\usepackage[table]{xcolor}
+\usepackage{multicol}
+\usepackage{parskip}
+
+\definecolor{unalblue}{RGB}{31,73,124}
+
+\newlist{opciones}{enumerate}{1}
+\setlist[opciones]{label=(\alph*),itemsep=6pt,topsep=6pt,leftmargin=1.8em,font=\normalfont}
+\setlist[enumerate,1]{itemsep=1.4em,topsep=1em}
+
+\newcommand{\examfooter}{%
+  \vfill
+  \rule{\linewidth}{0.4pt}\\[1pt]
+  {\scriptsize\textit{Transcripción digital --- MathUNAL}\hfill\textcolor{unalblue}{\textbf{\thepage}}}
+}
+\pagestyle{empty}
+
+\newcommand{\nota}[1]{{\small\itshape\color{unalblue!70!black} #1}}
+
+\begin{document}
+\noindent
+\begin{minipage}[t]{0.6\linewidth}
+{\small\bfseries Geometría Vectorial y Analítica --- Parcial 3}\\
+{\small Semestre 2018--01}
+\end{minipage}%
+\hfill
+\begin{minipage}[t]{0.35\linewidth}
+\raggedleft\small Escuela de Matemáticas. Universidad Nacional de Colombia, Sede Medellín.
+\end{minipage}\\[2pt]
+\rule{\linewidth}{0.6pt}
+
+\begin{center}
+\textbf{Tercer Examen Parcial de Geometría}\\
+26 de mayo del 2018
+\end{center}
+
+\vspace{6pt}
+\textbf{Puntaje. Sólo para uso Oficial}
+
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+1 (/20) & 2 (/20) & 3 (/20) & 4 (/40) & Total & Nota \\
+\hline
+ & & & & & \\
+\hline
+\end{tabular}
+\end{center}
+
+\vspace{10pt}
+\textbf{Instrucciones:} La duración del examen es de 1 hora y 50 minutos. El examen consta de seis preguntas en tres hojas impresas por ambos lados. Antes de empezar verifique que su examen esté \textbf{completo} y que sus \textbf{datos} sean \textbf{correctos}. No \textbf{desengrape} su exámen ni \textbf{añada} otras grapas o su examen será \textbf{anulado}. En las preguntas con procedimiento \textbf{justifique} sus respuestas en los \textbf{espacios asignados}. No está permitido hacer preguntas, el uso de calculadoras, sacar hojas en blanco ni ningún tipo de apuntes durante el examen. Por favor verifique que su celular esté \textbf{apagado}.
+
+\vspace{6pt}
+\nota{En cada uno de los literales de los puntos 1, 2 y 3, debe presentar detalladamente el procedimiento para llegar a la solución. NOTA: Respuestas sin procedimiento no se tendrán en cuenta.}
+
+\begin{enumerate}
+\item Considere las rectas
+$$\mathcal{L}_1:\frac{x-4}{2}=\frac{y+5}{4}=\frac{z-1}{-3}\qquad\text{y}\qquad \mathcal{L}_2:\vectiii{x}{y}{z}=\vectiii{2}{-1}{0}+t\vectiii{-6}{-12}{9}.$$
+
+\begin{enumerate}[label=(\alph*)]
+\item{}[10pt] Verifique que las rectas $\mathcal{L}_1$ y $\mathcal{L}_2$ son paralelas.
+\item{}[10pt] Halle una ecuación general del plano $\mathcal{P}$ que contiene a las rectas $\mathcal{L}_1$ y $\mathcal{L}_2$.
+\end{enumerate}
+
+\item Sean $P=\vectiii{1}{-1}{2}$, $Q=\vectiii{2}{-1}{3}$ y $R=\vectiii{1}{3}{5}$.
+
+\begin{enumerate}[label=(\alph*)]
+\item{}[10pt] Halle una ecuación vectorial paramétrica de la recta $\mathcal{L}$ que pasa por el punto $P$ y que es perpendicular al plano determinado por los puntos $P$, $Q$ y $R$.
+\item{}[10pt] Halle un punto $S$ sobre la recta $\mathcal{L}$ del literal (a) de tal manera que el paralelepípedo determinado por los puntos $P$, $Q$, $R$ y $S$ tenga volumen igual a 1.
+\end{enumerate}
+
+\item{}[20pt] Considere la cónica $\mathcal{C}$ con ecuación $9x^2-4y^2+54x-16y+29=0$.
+
+\begin{enumerate}[label=(\alph*)]
+\item{}[10pt] Utilice completación de cuadrados para reducir la cónica $\mathcal{C}$ a una forma estándar y clasifíquela.
+\item{}[10pt] Encuentre los elementos característicos que apliquen a la cónica $\mathcal{C}$: centro, foco(s), vértice(s), eje focal, eje normal, extremos del eje menor o conjugado (según el caso) y asíntotas (si las tiene).
+
+\begin{center}
+\begin{tabular}{|l|l|}
+\hline
+\textbf{característica} & \textbf{Respuesta} \\
+\hline
+Centro & \\
+\hline
+Foco(s) & \\
+\hline
+Vértice(s) & \\
+\hline
+Eje focal & \\
+\hline
+Eje normal & \\
+\hline
+Extremos del eje menor o conjugado & \\
+\hline
+Asíntotas & \\
+\hline
+\end{tabular}
+\end{center}
+\end{enumerate}
+\end{enumerate}
+
+\vspace{6pt}
+\nota{En la pregunta 4 complete los espacios en blanco según el caso.}
+
+\begin{enumerate}
+\setcounter{enumi}{3}
+\item{}[40pt] En la gráfica a continuación se observan distintos puntos del espacio, las circunferencias $\mathcal{C}_1,\mathcal{C}_2$ paralelas al plano $xy$ y un cono $\mathcal{K}$. El cono se genera rotando el segmento $\overline{OF}$ alrededor del eje $z$. Se conoce la siguiente información.
+
+\begin{itemize}
+\item $A=\vectiii{0}{4}{0}$, $B=\vectiii{3}{0}{0}$, $C=\vectiii{3}{4}{\alpha}$.
+\item La tercera coordenada de $C$, $D$, y $F$ es la misma.
+\item $A\cdot E_1=F\cdot E_1=G\cdot E_1=H\cdot E_1=M\cdot E_1=0$.
+\item $M=\frac{1}{2}(C+D)$ y $F=\beta G$.
+\item La ecuación de la circunferencia $\mathcal{C}_1$ es
+$$\mathcal{C}_1=\left\{\vectiii{x}{y}{z}\in\mathbb{R}^3: x^2+y^2=5^2,\ z=\alpha\right\}.$$
+\item Para puntos genéricos $X,Y,Z$, denotamos por $\mathcal{P}_{XYZ}$ el plano que pasa por $X,Y,Z$ y por $\mathcal{L}_{XY}$ la recta que pasa por $X,Y$.
+\end{itemize}
+
+\begin{center}
+\begin{tikzpicture}[scale=0.9]
+\coordinate (O) at (0,-1.6);
+\coordinate (topC) at (0,2.2);
+\draw (topC) ellipse (2.3 and 0.55);
+\coordinate (F) at (2.3,2.2);
+\coordinate (D) at (1.55,2.75);
+\coordinate (M) at (0.9,2.45);
+\coordinate (C) at (-0.4,1.9);
+\coordinate (midC) at (0,0.6);
+\draw (midC) ellipse (1.35 and 0.32);
+\coordinate (Gpt) at (1.35,0.6);
+\coordinate (H) at (-1.05,0.42);
+\draw (O) -- (F);
+\draw (O) -- (-2.3,2.2);
+\draw[dotted] (O) -- (topC);
+\coordinate (A) at (0.9,-1.85);
+\coordinate (Bpt) at (-1.1,-2.3);
+\draw[dotted] (-2.6,-2.9) -- (2.6,0.1) node[right]{$y$};
+\draw[dotted] (-2.2,-3.1) -- (1.6,-0.6) node[below right]{$x$};
+\draw[-{Latex}] (O) -- (0,3.3) node[above]{$z$};
+\fill (F) circle (1.2pt); \node[right] at (F) {$F$};
+\fill (D) circle (1.2pt); \node[above] at (D) {$D$};
+\fill (M) circle (1.2pt); \node[above,font=\small] at (M) {$M$};
+\fill (C) circle (1.2pt); \node[left] at (C) {$C$};
+\fill (Gpt) circle (1.2pt); \node[right] at (Gpt) {$G$};
+\fill (H) circle (1.2pt); \node[left] at (H) {$H$};
+\fill (A) circle (1.2pt); \node[below] at (A) {$A$};
+\fill (Bpt) circle (1.2pt); \node[below] at (Bpt) {$B$};
+\fill (O) circle (1.2pt); \node[below left] at (O) {$O$};
+\node at (1.9,-0.8) {$\mathcal{K}$};
+\node[left] at (-1.6,1.3) {$\mathcal{C}_1$};
+\node[left] at (-1.05,0.6) {$\mathcal{C}_2$};
+\end{tikzpicture}
+\end{center}
+
+Responda las siguientes preguntas:
+
+\begin{enumerate}[label=(\alph*)]
+\item{}[5pt] Una ecuación vectorial paramétrica de la recta $\mathcal{L}_{AB}$ es $\mathcal{L}_{AB}=$ \underline{\hspace{3cm}}.
+\item{}[5pt] Si $\alpha=4$, la distancia entre las rectas $\mathcal{L}_{AB}$ y $\mathcal{L}_{CD}$ es $\operatorname{dist}(\mathcal{L}_{AB},\mathcal{L}_{CD})=$ \underline{\hspace{3cm}}.
+\item{}[5pt] Si $\alpha=7$, una ecuación vectorial paramétrica de la recta $\mathcal{L}_{OF}$ es \underline{\hspace{3cm}}.
+\item{}[5pt] Si $\alpha=4$ entonces $D$ tiene coordenadas $D=$ \underline{\hspace{3cm}}.
+\item{}[5pt] Si $\alpha=\dfrac{15}{\sqrt{3}}$, el ángulo entre las rectas $\mathcal{L}_{OF}$ y $\mathcal{L}_{OE_3}$ es $\angle(\mathcal{L}_{OF},\mathcal{L}_{OE_3})=$ \underline{\hspace{3cm}}.
+\item{}[5pt] Si $\alpha=5$ y $\beta=\dfrac{5}{2}$, entonces la ecuación de la circunferencia $\mathcal{C}_2$ es $\mathcal{C}_2=$ \underline{\hspace{5cm}}.
+\item{}[10pt] Complete la tabla a continuación colocando el tipo de cónica. Recuerde que si se intersecta un cono con un plano se obtiene una cónica. Por ejemplo, si se secciona $\mathcal{K}$ con el plano $\mathcal{P}_{CDF}$, se obtiene la circunferencia $\mathcal{C}_1$. Tenga en cuenta que puede ser una cónica degenerada.
+
+\begin{center}
+\begin{tabular}{|l|l|}
+\hline
+\textbf{Plano $\cap$ Cono} & \textbf{Cónica} \\
+\hline
+$\mathcal{P}_{CDF}\cap\mathcal{K}$ & Circunferencia \\
+\hline
+$\{X\in\mathbb{R}^3: X\cdot E_1=0\}\cap\mathcal{K}$ & Dos rectas \\
+\hline
+$\mathcal{P}_{ACM}\cap\mathcal{K}$ & \\
+\hline
+$\mathcal{P}_{AFM}\cap\mathcal{K}$ & \\
+\hline
+$\mathcal{P}_{ABH}\cap\mathcal{K}$ & \\
+\hline
+$\{X\in\mathbb{R}^3: (X-H)\cdot E_2=0\}\cap\mathcal{K}$ & \\
+\hline
+$\mathcal{P}_{FGB}\cap\mathcal{K}$ & \\
+\hline
+\end{tabular}
+\end{center}
+\end{enumerate}
+
+\end{enumerate}
+
+\examfooter
+\end{document}

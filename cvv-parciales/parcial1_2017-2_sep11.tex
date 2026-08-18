@@ -1,0 +1,122 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=1.9cm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage{amsmath,amssymb}
+\usepackage{enumitem}
+\usepackage{tikz}
+\usetikzlibrary{calc,arrows.meta,patterns,decorations.pathmorphing}
+\usepackage{xcolor}
+\usepackage{multicol}
+\usepackage{parskip}
+\usepackage{lmodern}
+\renewcommand{\familydefault}{\sfdefault}
+
+\definecolor{unalblue}{RGB}{31,73,124}
+
+\newlist{opciones}{enumerate}{1}
+\setlist[opciones]{label=(\alph*),itemsep=1pt,topsep=2pt,leftmargin=1.8em,font=\normalfont}
+
+\newcommand{\vect}[2]{\begin{pmatrix}#1\\#2\end{pmatrix}}
+\newcommand{\vectiii}[3]{\begin{pmatrix}#1\\#2\\#3\end{pmatrix}}
+
+\newcommand{\examheader}{%
+  \noindent
+  \begin{minipage}[t]{0.62\linewidth}
+    {\bfseries\large Primer Parcial de C\'alculo en Varias Variables}\\
+    {\small 11 de septiembre de 2017}\\
+    {\small Escuela de Matem\'aticas, Universidad Nacional de Colombia, Sede Medell\'in.}
+  \end{minipage}%
+  \hfill
+  \begin{minipage}[t]{0.33\linewidth}
+    \raggedleft\small
+    Nombre: \rule{2.8cm}{0.4pt}\\[4pt]
+    C\'edula: \rule{2.8cm}{0.4pt}
+  \end{minipage}\\[4pt]
+  \rule{\linewidth}{0.6pt}
+}
+\newcommand{\examfooter}{%
+  \vfill
+  \rule{\linewidth}{0.4pt}\\[1pt]
+  {\scriptsize\textit{Transcripci\'on digital --- MathUNAL}\hfill\textcolor{unalblue}{\textbf{\thepage}}}
+}
+\pagestyle{empty}
+
+\begin{document}
+
+\examheader
+
+\textbf{Instrucciones:} La duraci\'on del examen es de 1 hora y 40 minutos. El examen consta de ocho preguntas en dos hojas. Antes de empezar verifique que su examen est\'e completo y que sus datos sean correctos. No desengrape su examen ni a\~nada otras grapas. Utilice los espacios asignados para resolver cada pregunta. No est\'a permitido: hacer preguntas, usar calculadoras, sacar hojas en blanco, ni tomar apuntes en hojas diferentes a las del examen. No se permite que ning\'un celular se encuentre a la vista.
+
+\bigskip
+
+\textit{En las preguntas 1 a 5 complete el espacio en blanco. Estas preguntas se calificar\'an solo teniendo en cuenta la respuesta dada y no se evaluar\'a ning\'un procedimiento efectuado en el espacio que se provee para realizar operaciones.}
+
+\bigskip
+\noindent\textbf{1.} (9\,\%) Dibuje y sombree el dominio de la funci\'on
+$$f(x,y) = \sqrt{x^2-1-y}.$$
+
+\vspace{3.3cm}
+
+\noindent\textbf{2.} (9\,\%) Si
+$$h(x,y) = \int_{xy^2}^{x} \operatorname{sen}(t^2)\,dt,$$
+entonces
+$$\frac{\partial h}{\partial y} = \underline{\hspace{4cm}}.$$
+
+\bigskip
+\noindent\textbf{3.} (9\,\%) Sea
+$$
+f(x,y)=
+\begin{cases}
+\dfrac{xy}{2x^2+y^2}, & (x,y)\neq (0,0),\\[6pt]
+0, & (x,y)=(0,0).
+\end{cases}
+$$
+Entonces
+$$\lim_{(x,y)\to(0.01,\,0.01)} f(x,y) = \underline{\hspace{4cm}}.$$
+
+\bigskip
+\noindent\textbf{4.} (9\,\%) Sea $T(x,y,z)=(3x^2+y^2+z^2)^{1/2}$ la temperatura en cada punto $(x,y,z)$ de una bola $B$ que contiene al punto $(1,3,0)$. Si $R$ es el valor de la m\'axima raz\'on de cambio de la temperatura en el punto $(1,3,0)$, entonces
+$$R = \underline{\hspace{4cm}}.$$
+
+\bigskip
+\noindent\textbf{5.} (9\,\%) Sea $f(x,y)=x^4-4x+y^4-4y+4$. Entonces, de acuerdo con el criterio de la segunda derivada, en su punto cr\'itico $f$ tiene un
+$$\underline{\hspace{6cm}}.$$
+
+\newpage
+\examheader
+\vspace{2pt}
+
+\textbf{Preguntas con procedimiento}
+
+\textit{En las preguntas que siguen responda mostrando el procedimiento utilizado.}
+
+\bigskip
+\noindent\textbf{6.} (20\,\%) Determine si la funci\'on
+$$
+f(x,y)=
+\begin{cases}
+\dfrac{x^3}{x^2+y^2}+x+y, & (x,y)\neq (0,0),\\[6pt]
+0, & (x,y)=(0,0),
+\end{cases}
+$$
+es diferenciable en $(0,0)$.
+
+\vspace{4.5cm}
+
+\noindent\textbf{7.} (15\,\%) Sea $f$ una funci\'on diferenciable de dos variables y definamos
+$$h(s,t) = f\!\left(3s+e^{st},\, 2t+\ln s\right).$$
+Si se sabe que $\nabla f(4,0) = (3,1)$ y $\nabla f(1,0) = (-2,3)$, encuentre $h_t(1,0)$.
+
+\vfill
+\examfooter
+\newpage
+\examheader
+\vspace{2pt}
+
+\noindent\textbf{8.} (20\,\%) Dibuje la superficie de nivel de valor $1$, $S_1$, de la funci\'on $g(x,y,z)=1+x^2-y^2+z^2$ y halle la ecuaci\'on del plano tangente a $S_1$ en el punto $(0,1,1)$.
+
+\vfill
+\examfooter
+
+\end{document}

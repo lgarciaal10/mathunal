@@ -1,0 +1,182 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=1.9cm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage[spanish,es-noshorthands]{babel}
+\usepackage{amsmath,amssymb}
+\usepackage{enumitem}
+\usepackage{tikz}
+\usetikzlibrary{calc,arrows.meta,patterns,decorations.pathmorphing}
+\usepackage{xcolor}
+\usepackage{multicol}
+\usepackage{parskip}
+\usepackage{lmodern}
+\renewcommand{\familydefault}{\sfdefault}
+
+\definecolor{unalblue}{RGB}{31,73,124}
+\definecolor{unalblue2}{RGB}{70,120,180}
+
+\newlist{opciones}{enumerate}{1}
+\setlist[opciones]{label=\textbf{(\alph*)},itemsep=1pt,topsep=2pt,leftmargin=1.8em,font=\normalfont}
+\setlist[enumerate,1]{label=\textbf{\arabic*.},itemsep=6pt,topsep=4pt,leftmargin=1.6em,font=\normalfont}
+\setlist[enumerate,2]{label=\textbf{\alph*)},itemsep=4pt,topsep=3pt,leftmargin=1.6em,font=\normalfont}
+\setlist[enumerate,3]{label=\textbf{\roman*)},itemsep=2pt,topsep=2pt,leftmargin=1.4em,font=\normalfont}
+
+\newcommand{\vect}[2]{\begin{pmatrix}#1\\#2\end{pmatrix}}
+\newcommand{\vectiii}[3]{\begin{pmatrix}#1\\#2\\#3\end{pmatrix}}
+
+\newcommand{\examheader}{%
+\noindent\begin{tikzpicture}
+\node[fill=unalblue, text width=\dimexpr\linewidth-16pt\relax, inner sep=8pt, rounded corners=3pt, align=left, text=white] (hdr) {%
+  \begin{minipage}[c]{0.66\linewidth}
+    {\Large\bfseries \examsubject}\\[2pt]
+    {\small \examtype\ \textbullet\ \textcolor{white!85!unalblue}{\examsubtitle}}
+  \end{minipage}\hfill
+  \begin{minipage}[c]{0.28\linewidth}
+    \raggedleft{\scriptsize Escuela de Matem\'aticas\\[-1pt] Universidad Nacional\\[-1pt] de Colombia, Sede Medell\'in}
+  \end{minipage}%
+};
+\end{tikzpicture}\\[7pt]
+}
+\newcommand{\examfooter}{%
+  \vfill
+  \rule{\linewidth}{0.4pt}\\[1pt]
+  {\scriptsize\textit{Transcripci\'on digital --- MathUNAL}\hfill\textcolor{unalblue}{\textbf{\thepage}}}
+}
+\pagestyle{empty}
+
+\newcommand{\examsubject}{ÁLGEBRA LINEAL}
+\newcommand{\examtype}{Tercer Parcial}
+\newcommand{\examsubtitle}{20 de Noviembre de 2017}
+
+\begin{document}
+
+\examheader
+
+\vspace{4pt}
+\noindent
+\begin{minipage}[t]{0.55\linewidth}
+Puntaje. S\'olo para uso Oficial\\[4pt]
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+1-4 & 5 & 6 & 7 & 8 & Total\\
+\hline
+ & & & & & \\
+\hline
+\end{tabular}
+\end{minipage}%
+\hfill
+\begin{minipage}[t]{0.4\linewidth}
+Nota: \dotfill
+\end{minipage}
+
+\vspace{6pt}
+\noindent\textbf{Instrucciones:} La duraci\'on del examen es de 1 hora y 50 minutos. El examen consta de ocho preguntas en tres hojas impresas por ambos lados, verifique que su examen est\'e completo y cons\'ervelo con el gancho. En las preguntas con procedimiento justifique sus respuestas en los espacios asignados. No est\'a permitido sacar hojas en blanco ni ning\'un tipo de apuntes durante el examen, verifique que su celular est\'e apagado. No se permite el uso de calculadora.
+
+\vspace{6pt}
+\noindent\textbf{Identificaci\'on}
+
+\vspace{40pt}
+\noindent\textit{Espacio en blanco para realizar c\'omputos}
+
+\examfooter
+\newpage
+
+\examheader
+
+\textbf{I. Completaci\'on}
+
+\noindent En las preguntas 1 a 4 complete los espacios en blanco. \textbf{NOTA:} En esta secci\'on se califica s\'olo la respuesta y no se tiene en cuenta el procedimiento.
+
+\begin{enumerate}
+\item \textbf{[15pt]} Sea $A$ una matriz $3\times 3$ tal que sus valores propios son $\lambda_1=-1$, $\lambda_2=-2$ y sus correspondientes espacios propios est\'an dados por:
+\[
+E_{-1} = \operatorname{gen}\left\{\begin{pmatrix}1\\-1\\0\end{pmatrix}, \begin{pmatrix}-1\\2\\-1\end{pmatrix}, \begin{pmatrix}0\\-1\\1\end{pmatrix}\right\} \quad \text{y} \quad E_{-2} = \left\{\begin{pmatrix}x\\y\\z\end{pmatrix}\in\mathbb{R}^3 \,\middle|\, x=y=z\right\}.
+\]
+
+Se\~nale el valor de verdad de cada enunciado. (Marque V o F seg\'un sea el caso).
+\begin{enumerate}[label=(\alph*)]
+\item \textbf{[3pt]} $A$ es una matriz sim\'etrica. \hfill V\ \dotfill\ F\ \dotfill
+\item \textbf{[3pt]} El determinante de la matriz $A$ es $-2$. \hfill V\ \dotfill\ F\ \dotfill
+\item \textbf{[3pt]} La matriz $A-2I$ es invertible. \hfill V\ \dotfill\ F\ \dotfill
+\item \textbf{[3pt]} El polinomio caracter\'istico de $A$ es $-(\lambda+1)^3(\lambda+2)$. \hfill V\ \dotfill\ F\ \dotfill
+\item \textbf{[3pt]} La matriz $A+2I$ es semejante a la matriz $\begin{pmatrix}-1 & 0 & 0\\ 0 & -1 & 0\\ 0 & 0 & -2\end{pmatrix}$. \hfill V\ \dotfill\ F\ \dotfill
+\end{enumerate}
+
+\item \textbf{[12pt]} Los habitantes de cierta tribu nativa de \'Africa est\'an distribuidos en dos regiones X y Y. Se determin\'o que cada mes el 25\% de los habitantes de la regi\'on X migra a la regi\'on Y y el 75\% restante se queda en la regi\'on X. Tambi\'en se determin\'o que cada mes el 10\% de los habitantes de la regi\'on Y migra a la regi\'on X y el restante 90\% se queda en la regi\'on Y.
+\begin{enumerate}[label=(\alph*)]
+\item \textbf{[4pt]} Escriba la matriz de transici\'on $P$ que representa el proceso de Markov.
+
+\vspace{20pt}
+\item \textbf{[8pt]} ¿Cu\'al ser\'a la distribuci\'on de la poblaci\'on en el largo plazo si inicialmente hab\'ian 10000 habitantes en la regi\'on X y 11000 habitantes en la regi\'on Y?
+
+\vspace{10pt}
+Regi\'on X = \dotfill \qquad Regi\'on Y = \dotfill
+\end{enumerate}
+\end{enumerate}
+
+\examfooter
+\newpage
+
+\examheader
+
+\begin{enumerate}
+\setcounter{enumi}{2}
+\item \textbf{[5pt]} Dar un ejemplo de un grafo $G$ cuya matriz de adyacencia sea la matriz $\displaystyle B=\begin{pmatrix}0&0&1&1\\0&1&0&0\\1&0&0&1\\1&0&1&0\end{pmatrix}$.
+
+\begin{center}
+\fbox{\begin{minipage}[c][3.5cm]{0.5\linewidth}\ \end{minipage}}
+\end{center}
+
+\item \textbf{[12pt]} Sea $C=\begin{pmatrix}1&2\\2&1\end{pmatrix}$. Se sabe que los valores propios de $C$ son $\lambda_1=-1$ y $\lambda_2=3$ y que $v_1=\begin{pmatrix}1\\-1\end{pmatrix}$ es un vector propio asociado al valor propio $-1$.
+\begin{enumerate}[label=(\alph*)]
+\item \textbf{[8pt]} Halle una matriz ortogonal $Q$ tal que $Q^TCQ=\begin{pmatrix}-1&0\\0&3\end{pmatrix}$.
+
+\vspace{30pt}
+\item \textbf{[4pt]} Utilice la informaci\'on anterior para escribir la ecuaci\'on $x_1^2+4x_1x_2+x_2^2=10$ en forma est\'andar despu\'es de realizar un cambio de variables, es decir, escriba la ecuaci\'on sin t\'erminos mixtos.
+
+\vspace{10pt}
+\textbf{Respuesta:} \dotfill
+\end{enumerate}
+\end{enumerate}
+
+\examfooter
+\newpage
+
+\examheader
+
+\textbf{II. Soluci\'on con Procedimiento}
+
+\begin{enumerate}
+\setcounter{enumi}{4}
+\item \textbf{[10pt]} Suponga que $A$ y $B$ son matrices semejantes. Demuestre que $A$ y $B$ tienen el mismo polinomio caracter\'istico.
+
+\vspace{40pt}
+\item \textbf{[10pt]} Calcular el polinomio caracter\'istico de la matriz $C=\begin{pmatrix}2&-1&0\\-1&2&0\\2&0&2\end{pmatrix}$.
+\end{enumerate}
+
+\examfooter
+\newpage
+
+\examheader
+
+\begin{enumerate}
+\setcounter{enumi}{6}
+\item \textbf{[20pt]} Considere el subespacio de $\mathbb{R}^3$ definido por:
+\[
+W = \left\{\begin{pmatrix}x\\y\\z\end{pmatrix}\in\mathbb{R}^3 \,\middle|\, x+y+z=0\right\}.
+\]
+\begin{enumerate}[label=(\alph*)]
+\item \textbf{[12pt]} Encuentre una base ortonormal para $W$.
+
+\vspace{40pt}
+\item \textbf{[8pt]} Si $v=\begin{pmatrix}1\\2\\-1\end{pmatrix}$, encontrar $\operatorname{proy}_W(v)$ y $\operatorname{proy}_{W^\perp}(v)$.
+\end{enumerate}
+\end{enumerate}
+
+\vspace{10pt}
+{\scriptsize\textit{Nota de transcripci\'on: la p\'agina de la pregunta 8 (\'ultima del examen original, tabla de puntaje) no se localiz\'o en el escaneo fuente disponible.}}
+
+\examfooter
+
+\end{document}
