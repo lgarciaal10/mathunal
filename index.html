@@ -3688,8 +3688,9 @@ input:not([type=checkbox]):not([type=radio]):focus,select:focus,textarea:focus{
 .cp-col-left .cp-col-hd{color:var(--red)}
 .cp-col-right .cp-col-hd{color:var(--grn)}
 .cp-steps{display:flex;flex-direction:column;gap:.4rem}
-.cp-step{display:flex;align-items:center;gap:.65rem;padding:.5rem;border-radius:var(--radius-sm);transition:background .15s}
-.cp-step:hover{background:var(--lay1)}
+.cp-step{display:flex;align-items:center;gap:.65rem;padding:.5rem;border-radius:var(--radius-sm)}
+/* Sin hover a propósito: estas filas son informativas (sin onclick/href), el hover previo
+   las hacía parecer clicables sin serlo — ver auditoría de navegación. */
 .cp-ico{width:28px;height:28px;border-radius:8px;background:var(--lay1);border:1.3px solid var(--br);display:flex;align-items:center;justify-content:center;color:var(--t2);flex-shrink:0}
 .cp-col-left .cp-ico{color:var(--red);background:rgba(251,113,133,.06);border-color:rgba(251,113,133,.15)}
 .cp-col-right .cp-ico{color:var(--grn);background:rgba(45,212,191,.06);border-color:rgba(45,212,191,.15)}
@@ -8255,15 +8256,15 @@ function muCalc(){
   if(!h1&&!h2){nota.textContent='—';nota.style.color='var(--t3)';el.className='mu-calc-res';msg.textContent='Ingresa tus notas para calcular';return;}
   if(h1&&h2&&hf){
     var n=Math.round((p1*fm[0]+p2*fm[1]+pf*fm[2])*10000)/10000,ok=n>=3.0;
-    nota.textContent=n.toFixed(2);nota.style.color=ok?'#22c55e':'#f87171';
+    nota.textContent=n.toFixed(2);nota.style.color=ok?'var(--grn)':'var(--red)';
     el.className='mu-calc-res '+(ok?'pass':'fail');
     msg.innerHTML=ok?'<strong>✓ Apruebas</strong> con nota '+(n>=4.5?'excelente':n>=4?'muy buena':n>=3.5?'buena':'justa')+'.'
       :'<strong>✗ No apruebas</strong> — necesitabas '+Math.max(0,(3-p1*fm[0]-p2*fm[1])/fm[2]).toFixed(2)+' en el final.';
   } else if(h1&&h2){
     var need=Math.round(((3-p1*fm[0]-p2*fm[1])/fm[2])*10000)/10000;
-    nota.textContent='?';nota.style.color='#f59e0b';el.className='mu-calc-res';
-    if(need>5)msg.innerHTML='<span style="color:#f87171">No es posible pasar</span>';
-    else if(need<=0)msg.innerHTML='<span style="color:#22c55e">Ya pasas sin importar el final</span>';
+    nota.textContent='?';nota.style.color='var(--yel)';el.className='mu-calc-res';
+    if(need>5)msg.innerHTML='<span style="color:var(--red)">No es posible pasar</span>';
+    else if(need<=0)msg.innerHTML='<span style="color:var(--grn)">Ya pasas sin importar el final</span>';
     else msg.innerHTML='Para pasar necesitas al menos <strong style="color:var(--t1)">'+need.toFixed(2)+'</strong> en el final.';
   } else {nota.textContent='—';nota.style.color='var(--t3)';el.className='mu-calc-res';msg.textContent='Ingresa P1 y P2 para calcular';}
 }
@@ -9345,7 +9346,7 @@ function checkAnswer(){
 function selfEval(grade){
   _selfGrades[_currentQ]=grade; _saveProgress();
   _qsa('.self-btn').forEach(function(btn){
-    btn.style.background=parseFloat(btn.getAttribute('data-g'))===grade?'var(--acc)':'rgba(255,255,255,.05)';
+    btn.style.background=parseFloat(btn.getAttribute('data-g'))===grade?'var(--acc)':'var(--lay1)';
     btn.style.color=parseFloat(btn.getAttribute('data-g'))===grade?'#fff':'var(--t2)';
     btn.style.borderColor=parseFloat(btn.getAttribute('data-g'))===grade?'var(--acc)':'var(--br)';
   });
@@ -13670,18 +13671,11 @@ var T = {
     'copiar-ok':'Link copied'
   }
 };
-var curLang = 'es';
-function setLang(lang){
-  curLang = lang;
-  var en = (lang === 'en'); /* usado por las traducciones de ruta-s/smap-s/footer (lookup en SUBJECTS) */
-  document.getElementById('btn-es').classList.toggle('on', lang==='es');
-  document.getElementById('btn-en').classList.toggle('on', lang==='en');
-  document.querySelectorAll('[data-i18n]').forEach(function(el){
-    var key = el.getAttribute('data-i18n');
-    if(T[lang][key]) el.textContent = T[lang][key];
-  });
-  renderAll();
-}
+/* setLang real y activo: la declaración completa vive más arriba (~línea 7017),
+   esta segunda copia quedaba después en el documento y pisaba silenciosamente
+   a la primera (bug: solo tocaba data-i18n, que no existe en ningún elemento,
+   y llamaba a un renderAll() stub) — eliminada para que la versión completa
+   de arriba sea la única que se ejecute. */
 
 /* ── THEMES ──
    setTheme real y activa: el patch "window.setTheme = function(t){...}"
@@ -15323,8 +15317,15 @@ function _renderRutaEstudio(sub, mats, lang){
   function waLink(text){ return 'https://wa.me/573163480451?text='+encodeURIComponent(text); }
   function fileLink(m){
     if(!m) return '';
+    var hasUrl = !!m.url;
     var url = m.url || waLink('Hola! Vi el material "'+m.name+'" en MathUNAL y quisiera acceder a el.');
-    return '<a href="'+url+'" target="_blank" class="mu-ruta-file"><svg width="14" height="14" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg> '+m.name+'<span class="mu-ruta-file-cta">↓ Ver</span></a>';
+    // Si no hay url real todavía, se avisa claramente (ícono de WhatsApp + "Pedir por WhatsApp")
+    // en vez de mostrar el mismo ícono/etiqueta de descarga de PDF — evita que parezca un enlace roto.
+    var icon = hasUrl
+      ? '<svg width="14" height="14" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>'
+      : '<svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12c0 1.85.5 3.58 1.36 5.07L2 22l5.06-1.33A9.94 9.94 0 0 0 12 22c5.52 0 10-4.48 10-10S17.52 2 12 2z" opacity=".18"/><path d="M17.47 14.38c-.28-.14-1.64-.81-1.9-.9-.25-.09-.44-.14-.62.14-.19.28-.72.9-.88 1.08-.16.19-.32.21-.6.07-.28-.14-1.17-.43-2.23-1.37-.83-.74-1.38-1.65-1.55-1.93-.16-.28-.02-.43.12-.57.13-.13.28-.33.42-.5.14-.16.19-.28.28-.47.09-.19.05-.35-.02-.5-.07-.14-.62-1.49-.85-2.04-.22-.53-.45-.46-.62-.47-.16-.01-.35-.01-.53-.01-.19 0-.5.07-.76.35-.26.28-1 .98-1 2.38 0 1.4 1.02 2.76 1.16 2.95.14.19 2 3.06 4.85 4.29.68.29 1.21.47 1.62.6.68.22 1.3.19 1.79.11.55-.08 1.64-.67 1.87-1.32.23-.65.23-1.2.16-1.32-.07-.12-.25-.19-.53-.33z"/></svg>';
+    var label = hasUrl ? '↓ Ver' : 'WhatsApp';
+    return '<a href="'+url+'" target="_blank" class="mu-ruta-file'+(hasUrl?'':' mu-ruta-file-wa')+'">'+icon+' '+m.name+(hasUrl?'':' <span style="opacity:.7">(pedir por WhatsApp)</span>')+'<span class="mu-ruta-file-cta">'+label+'</span></a>';
   }
 
   var steps = [];
@@ -15721,12 +15722,16 @@ window.__muMateriaInit = function(){
       var ico = ICONS[f.type]||TYPE_ICONS[f.type]||ICO_SVG.programa;
       var isPremiumUnlocked=(typeof muEsPremium==='function') ? muEsPremium() : false;
       var showAsLocked = f.access==='premium' && !isPremiumUnlocked;
+      // Si el archivo es gratis pero todavía no tiene url subida, expFileUrl() cae a un
+      // link de WhatsApp — antes se mostraba con el mismo ícono/etiqueta "↓ Ver" de un PDF
+      // real, lo que confundía al usuario (parecía un enlace roto). Se marca aparte.
+      var fallsBackToWhatsApp = f.access!=='premium' && !f.url;
       var url = expFileUrl(f).replace(/'/g,"\\'");
       return '<div class="mu-fc" style="cursor:pointer" onclick="window.open(\''+url+'\',\'_blank\')">'+
         '<span class="mu-fc-ico">'+ico+'</span>'+
         '<div class="mu-fc-info"><div class="mu-fc-name">'+f.name+'</div>'+
         '<div class="mu-fc-meta"><span>'+f.type+'</span>'+(f.size?' · '+f.size:'')+(f.sem?' · '+f.sem:'')+'</div></div>'+
-        '<span class="mu-fc-dl'+(showAsLocked?' pack':'')+'">'+(showAsLocked?'<svg width="11" height="11" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none" style="vertical-align:-1px"><rect x="3" y="11" width="18" height="10" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg> Pack':'↓ Ver')+'</span>'+
+        '<span class="mu-fc-dl'+(showAsLocked?' pack':'')+'">'+(showAsLocked?'<svg width="11" height="11" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none" style="vertical-align:-1px"><rect x="3" y="11" width="18" height="10" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg> Pack':(fallsBackToWhatsApp?'WhatsApp':'↓ Ver'))+'</span>'+
         '</div>';
     }
     function expTableRows(){
