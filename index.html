@@ -18,7 +18,7 @@
   <meta name="description" content="Repositorio no oficial de matemáticas para ingeniería en la UNAL Medellín. Parciales resueltos, simulacros interactivos, formularios LaTeX y solucionarios.">
   <meta name="keywords" content="UNAL Medellín matemáticas, cálculo diferencial parciales, álgebra lineal solucionario, ecuaciones diferenciales UNAL, simulacros matemáticas ingeniería">
   <meta name="author" content="MathUNAL">
-  <link rel="canonical" href="https://mathunal.github.io/">
+  <link rel="canonical" href="https://mathunal.com/">
   <meta property="og:title" content="MathUNAL · Parciales, Talleres y Solucionarios · UNAL Medellín">
   <!-- Este número no se puede calcular con JS porque los crawlers no lo ejecutan.
        Si cambia el total en SUBJECTS (suma de "pdfs"), actualízalo aquí a mano. -->
@@ -26,7 +26,7 @@
   <meta property="og:type" content="website">
   <meta property="og:locale" content="es_CO">
   <meta name="theme-color" content="#e05d1a">
-  <meta property="og:url" content="https://mathunal.github.io">
+  <meta property="og:url" content="https://mathunal.com">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="MathUNAL · Parciales y Simulacros · UNAL Medellín">
   <meta name="twitter:description" content="Parciales resueltos, simulacros interactivos y formularios de matemáticas para ingeniería.">
@@ -49,7 +49,7 @@
     "@type": "EducationalOrganization",
     "name": "MathUNAL",
     "description": "Repositorio de matemáticas para ingeniería de la UNAL Medellín: parciales resueltos, simulacros y formularios.",
-    "url": "https://mathunal.github.io",
+    "url": "https://mathunal.com",
     "areaServed": "Colombia",
     "knowsLanguage": "es",
     "audience": { "@type": "EducationalAudience", "educationalRole": "student" }
@@ -4578,10 +4578,10 @@ customElements.define('glass-element', GlassElement);
   };
 })();
 </script>
-  <meta property="og:image" content="https://mathunal.github.io/og-image.png">
+  <meta property="og:image" content="https://mathunal.com/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
-  <meta name="twitter:image" content="https://mathunal.github.io/og-image.png">
+  <meta name="twitter:image" content="https://mathunal.com/og-image.png">
   <!-- Wompi Widget (sandbox) -->
   <script src="https://checkout.wompi.co/widget.js" data-render="false"></script>
 </head>
@@ -8100,8 +8100,8 @@ var TL_ITEMS = [
    cards:[{n:'12',lEs:'descargas la primera noche',lEn:'downloads the first night'},{n:'1',lEs:'PDF, una sola materia',lEn:'PDF, a single subject'}]},
   {year:'2024', color:'var(--acc)',
    titleEs:'Nace la página', titleEn:'The site is born',
-   descEs:'Los PDFs crecen. Se crea mathunal.github.io para organizarlos. Seis materias, todo gratis, sin registro. El boca a boca hace el resto.',
-   descEn:'The PDFs grow. mathunal.github.io is created to organize them. Six subjects, all free, no signup. Word of mouth does the rest.',
+   descEs:'Los PDFs crecen. Se crea mathunal.com para organizarlos. Seis materias, todo gratis, sin registro. El boca a boca hace el resto.',
+   descEn:'The PDFs grow. mathunal.com is created to organize them. Six subjects, all free, no signup. Word of mouth does the rest.',
    cards:[{n:'60K+',lEs:'visitas acumuladas',lEn:'total visits',c:'var(--acc)'},{n:'6',lEs:'materias cubiertas',lEn:'subjects covered'},{n:'$0',lEs:'inversión externa',lEn:'outside funding'}]},
   {year:'2025 — 2026', color:'var(--acc)', now:true,
    titleEs:'Simulacros y herramientas', titleEn:'Mock exams and tools',
@@ -10263,7 +10263,7 @@ function compartir(){
   var nombres={rebota:'Rebota',casillas:'Casillas',portal:'Portal',domainsnake:'Serpiente de Dominios',vectores:'Vectores'};
   var unidades={rebota:'movimientos',casillas:'movimientos',portal:'segundos',domainsnake:'puntos',vectores:'vectores'};
   var unidad=unidades[lastGame]||'movimientos';
-  var txt=`🎱 MathUNAL Juegos: ${nombres[lastGame]||lastGame} — resuelto en ${lastScore} ${unidad}. ¿Me superas? mathunal.github.io`;
+  var txt=`🎱 MathUNAL Juegos: ${nombres[lastGame]||lastGame} — resuelto en ${lastScore} ${unidad}. ¿Me superas? mathunal.com`;
   if(navigator.share)navigator.share({text:txt});
   else navigator.clipboard.writeText(txt).then(()=>toast('¡Copiado! Pégalo en tu grupo 📋'));
 }
@@ -13347,7 +13347,7 @@ function copyResult(){
   var txt = 'MathUNAL \u2014 ' + t('sc-mat') + '\n'
           + 'Nota: ' + t('sc-nota') + '/5.0\n'
           + 'Correctas: ' + t('sc-c') + '  \u00b7  Tiempo: ' + t('sc-t') + '\n'
-          + 'mathunal.github.io';
+          + 'mathunal.com';
   var btn = document.getElementById('copy-result-btn');
   var ok = function(){
     if(!btn) return;
