@@ -4495,7 +4495,12 @@ customElements.define('glass-element', GlassElement);
      frescos llegan, se vuelve a llamar _loadPage() para forzar un render limpio con
      los datos ya mezclados -- no un parche visual, un re-render real. */
   var SUPA_URL = 'https://goxhxrdchfyphkenixng.supabase.co';
-  var SUPA_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImdveGh4cmRjaGZ5cGhrZW5peG5nIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODA2NDk2MjksImV4cCI6MjA5NjIyNTYyOX0.tVN6XUaJvcRzDVohLu3vRgSoEIzbADO4rtRQWI1rnMo';
+  /* sb_publishable_... reemplaza a la key legacy 'anon' (JWT). Funcionalmente
+     equivalente para lecturas con RLS -- parte del sistema nuevo de API keys
+     de Supabase, independiente del 'Legacy JWT Secret' que tambien firma
+     service_role (por eso no se puede rotar service_role solo en el sistema
+     legacy sin invalidar tambien esta key). */
+  var SUPA_KEY = 'sb_publishable_rR_f3qmPj_L-tuwrGUYxnA__MWGwobe';
   window.__loadMateriales = function(cb){
     fetch(SUPA_URL+'/rest/v1/materiales?select=*', {headers:{apikey:SUPA_KEY}})
       .then(function(r){ return r.ok ? r.json() : []; })
@@ -14518,7 +14523,7 @@ function _unlockSol(idx){
 
 var MU_SB_URL  = 'https://goxhxrdchfyphkenixng.supabase.co';
 
-var MU_SB_ANON = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImdveGh4cmRjaGZ5cGhrZW5peG5nIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODA2NDk2MjksImV4cCI6MjA5NjIyNTYyOX0.tVN6XUaJvcRzDVohLu3vRgSoEIzbADO4rtRQWI1rnMo';
+var MU_SB_ANON = 'sb_publishable_rR_f3qmPj_L-tuwrGUYxnA__MWGwobe'; /* ver nota en SUPA_KEY, misma migracion */
 
 var MU_AI = {
   endpoint: '',          // <-- pegar URL aqui para encender la IA
