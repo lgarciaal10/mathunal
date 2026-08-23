@@ -58,7 +58,7 @@
     "description": "Repositorio de matemáticas para ingeniería de la UNAL Medellín: parciales resueltos, simulacros y formularios.",
     "url": "https://mathunal.com",
     "areaServed": "Colombia",
-    "knowsLanguage": "es",
+    "knowsLanguage": ["es", "en"],
     "audience": { "@type": "EducationalAudience", "educationalRole": "student" }
   }
   </script>
@@ -7051,6 +7051,8 @@ var curLang="es";
 
 function setLang(lang){
   curLang = lang;
+  document.documentElement.lang = lang; /* <html lang> era estatico -- un lector de
+    pantalla seguia anunciando "espanol" con la pagina ya en ingles y viceversa */
   var en = (lang === 'en'); /* usado por las traducciones de ruta-s/smap-s/footer (lookup en SUBJECTS) */
   /* Botones de idioma (en ambos dropdowns) */
   ['btn-es','btn-en'].forEach(function(id){
