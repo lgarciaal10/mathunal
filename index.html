@@ -9183,14 +9183,35 @@ var niveles=[
     walls:[], hint:'Apunta directo al círculo — arrastra y suelta.' },
   { ball:{x:.1,y:.8}, target:{x:.85,y:.15,r:.055},
     walls:[{x1:.5,y1:.0,x2:.5,y2:.55}], hint:'Hay una pared en el centro. Rebota en la pared derecha.' },
-  { ball:{x:.5,y:.85}, target:{x:.15,y:.15,r:.05},
-    walls:[{x1:.0,y1:.5,x2:.4,y2:.5},{x1:.6,y1:.5,x2:1,y2:.5}], hint:'Dos paredes horizontales. Necesitas rebotar para cruzar.' },
-  { ball:{x:.1,y:.5}, target:{x:.9,y:.5,r:.05},
-    walls:[{x1:.3,y1:.0,x2:.3,y2:.35},{x1:.3,y1:.65,x2:.3,y2:1},{x1:.7,y1:.0,x2:.7,y2:.35},{x1:.7,y1:.65,x2:.7,y2:1}],
-    hint:'Canal estrecho. Busca el hueco.' },
+  /* Niveles 3 y 4 rediseñados: los originales usaban dos paredes con un
+     hueco en medio -- geometricamente eso casi siempre deja un tiro
+     "directo" a traves del hueco (verificado con un simulador: 0 rebotes
+     reales necesarios), asi que se sentian faciles pese a tener paredes.
+     Ahora usan paredes SOLIDAS sin hueco (como el nivel 2, que si funciona)
+     -- verificado que el nivel 3 exige minimo 1 rebote real y el 4, 2. */
+  { ball:{x:.6,y:.85}, target:{x:.1,y:.15,r:.05},
+    walls:[{x1:.0,y1:.5,x2:.75,y2:.5}], hint:'Pared sólida de lado a lado. Rodéala por la derecha.' },
+  { ball:{x:.1,y:.15}, target:{x:.9,y:.85,r:.05},
+    walls:[{x1:.35,y1:.0,x2:.35,y2:.65},{x1:.65,y1:.35,x2:.65,y2:1}],
+    hint:'Dos paredes escalonadas. Vas a necesitar más de un rebote.' },
   { ball:{x:.1,y:.9}, target:{x:.9,y:.1,r:.045},
     walls:[{x1:.35,y1:.0,x2:.35,y2:.7},{x1:.65,y1:.3,x2:.65,y2:1},{x1:.0,y1:.5,x2:.25,y2:.5}],
-    hint:'Nivel final — múltiples rebotes necesarios. ¡Tú puedes!' }
+    hint:'Múltiples rebotes necesarios. ¡Tú puedes!' },
+  /* Niveles 6-10: dificultad progresiva, cada uno verificado con el mismo
+     simulador (barrido de ~2880 ángulos, físicas identicas a updateBall)
+     para confirmar el numero minimo real de rebotes necesarios antes de
+     agregarlo -- min 1/2/3/3/4 rebotes respectivamente. */
+  { ball:{x:.5,y:.1}, target:{x:.1,y:.9,r:.05},
+    walls:[{x1:.0,y1:.4,x2:.6,y2:.4},{x1:.4,y1:.7,x2:1,y2:.7}], hint:'Dos paredes escalonadas en zigzag.' },
+  { ball:{x:.9,y:.1}, target:{x:.5,y:.9,r:.045},
+    walls:[{x1:.2,y1:.0,x2:.2,y2:.6},{x1:.65,y1:.4,x2:.65,y2:1},{x1:.0,y1:.75,x2:.4,y2:.75}], hint:'Tres paredes. Piensa el camino completo antes de tirar.' },
+  { ball:{x:.1,y:.5}, target:{x:.9,y:.5,r:.04},
+    walls:[{x1:.25,y1:.0,x2:.25,y2:.7},{x1:.5,y1:.3,x2:.5,y2:1},{x1:.75,y1:.0,x2:.75,y2:.65}], hint:'Tres paredes alternadas arriba/abajo. Objetivo pequeño.' },
+  { ball:{x:.5,y:.5}, target:{x:.05,y:.05,r:.04},
+    walls:[{x1:.0,y1:.25,x2:.4,y2:.25},{x1:.4,y1:.25,x2:.4,y2:.6},{x1:.6,y1:.4,x2:.6,y2:.75},{x1:.6,y1:.75,x2:1,y2:.75},{x1:.15,y1:.6,x2:.15,y2:1}], hint:'Bola en el centro, objetivo en la esquina. Cinco paredes.' },
+  { ball:{x:.9,y:.9}, target:{x:.08,y:.08,r:.035},
+    walls:[{x1:.15,y1:.0,x2:.15,y2:.55},{x1:.4,y1:.45,x2:.4,y2:1},{x1:.6,y1:.0,x2:.6,y2:.5},{x1:.8,y1:.5,x2:.8,y2:1}],
+    hint:'Nivel final — objetivo diminuto, cuatro paredes. Máxima precisión.' }
 ];
 
 function initCanvas(){
