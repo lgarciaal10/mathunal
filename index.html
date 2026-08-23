@@ -1133,6 +1133,13 @@ html[data-theme="gray"]{
 .q-opt.wrong .q-opt-circle{background:rgba(248,113,113,.9);border-color:rgba(248,113,113,.9);color:#fff}
 .q-opt-text{font-family:inherit;font-size:.91rem;color:var(--t1);line-height:1.6}
 
+/* Quiz compartido (Deriva/Bajo la Curva/Matriz Maestra) */
+.qz-prompt{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.6rem;padding:1.2rem 1rem;min-height:120px}
+.qz-fn{font-size:1.4rem;color:var(--t1)}
+.qz-ask{font-size:.85rem;color:var(--t3);font-family:'IBM Plex Mono',monospace;text-transform:uppercase;letter-spacing:.06em}
+#qz-options{max-width:420px;margin:0 auto;width:100%}
+#qz-options .q-opt-circle{width:26px;height:26px}
+
 /* ── #sidex-header (screen-q) restaurado a v15.2 -- se sobre-escribe por ID
    porque .sidex-header/.sidex-inst/etc siguen compartidas con screen-results
    (que se queda en papel). La cinta y el sello solo se apagan aqui. ── */
@@ -8869,7 +8876,7 @@ html,body{height:100%;background:var(--bg);color:var(--t1);font-family:'Space Gr
       <div class="gc-ico"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="3.5" cy="4" r="1.7"/><path d="M4.8 5.3 10 19 15.5 6.5 20.5 16.5"/><circle cx="20.5" cy="16.5" r="2.1"/></svg></div>
       <div class="gc-name">Rebota</div>
       <div class="gc-desc">Ajusta el ángulo y dispara la bola. Debe rebotar en las paredes y llegar al objetivo. Intuición de trayectorias.</div>
-      <div class="gc-tags"><span class="tag">Física</span><span class="tag">Ángulos</span><span class="tag">5 niveles</span></div>
+      <div class="gc-tags"><span class="tag">Física</span><span class="tag">Ángulos</span><span class="tag">10 niveles</span></div>
       <button class="gc-btn" onclick="startRebota()">Jugar →</button>
     </div>
     <div class="gc" style="--gc:#7C3AED">
@@ -8890,15 +8897,36 @@ html,body{height:100%;background:var(--bg);color:var(--t1);font-family:'Space Gr
       <div class="gc-ico"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 19 11 10 19 14" stroke-linejoin="round"/><path d="M3 19 19 14" stroke-dasharray="2.2 2.2"/><path d="M8.2 10.9 11 10 11.6 12.9"/><path d="M16.3 12.6 19 14 16.2 15"/></svg></div>
       <div class="gc-name">Vectores</div>
       <div class="gc-desc">Navega una cuadrícula eligiendo vectores. Llega exactamente al destino sin pasarte. Suma de vectores sin saberlo.</div>
-      <div class="gc-tags"><span class="tag">Vectores</span><span class="tag">Suma</span><span class="tag">6 niveles</span></div>
+      <div class="gc-tags"><span class="tag">Vectores</span><span class="tag">Suma</span><span class="tag">10 niveles</span></div>
       <button class="gc-btn" style="background:var(--grn)" onclick="startVectores()">Jugar →</button>
     </div>
     <div class="gc" style="--gc:var(--ok)">
       <div class="gc-ico"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19c3 0 3-4 6-4s3 4 6 4 3-4 5-5"/><path d="M19 12.3l2.2-1.7-2.7-.7"/></svg></div>
       <div class="gc-name">Serpiente de Dominios</div>
       <div class="gc-desc">Snake clásico, pero solo puedes comer números que SÍ estén en el dominio de la función del nivel. Un número fuera de dominio y se acaba.</div>
-      <div class="gc-tags"><span class="tag">Dominios</span><span class="tag">Reflejos</span><span class="tag">6 niveles</span></div>
+      <div class="gc-tags"><span class="tag">Dominios</span><span class="tag">Reflejos</span><span class="tag">10 niveles</span></div>
       <button class="gc-btn" style="background:var(--grn)" onclick="startDomainSnake()">Jugar →</button>
+    </div>
+    <div class="gc" style="--gc:#60A5FA">
+      <div class="gc-ico"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17c3-8 6-12 9-12s6 4 9 12"/><path d="M12 5v14"/></svg></div>
+      <div class="gc-name">Deriva</div>
+      <div class="gc-desc">Te muestro una función. Elige su derivada correcta entre 4 opciones, contra el reloj. De potencias simples a regla del producto y de la cadena.</div>
+      <div class="gc-tags"><span class="tag">Derivadas</span><span class="tag">Opción múltiple</span><span class="tag">6 niveles</span></div>
+      <button class="gc-btn" style="background:#60A5FA" onclick="startDeriva()">Jugar →</button>
+    </div>
+    <div class="gc" style="--gc:#34D399">
+      <div class="gc-ico"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 20h18"/><path d="M3 20V6c4 0 6 8 9 8s5-8 9-8"/></svg></div>
+      <div class="gc-name">Bajo la Curva</div>
+      <div class="gc-desc">Te muestro una región sombreada en una gráfica. Elige qué integral definida calcula esa área — no hay que resolverla, solo plantearla bien.</div>
+      <div class="gc-tags"><span class="tag">Integrales</span><span class="tag">Áreas</span><span class="tag">6 niveles</span></div>
+      <button class="gc-btn" style="background:#34D399" onclick="startBajoCurva()">Jugar →</button>
+    </div>
+    <div class="gc" style="--gc:#F472B6">
+      <div class="gc-ico"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="7" height="7"/><rect x="13" y="13" width="7" height="7" stroke-dasharray="2 2"/><path d="M11 7h6M17 5v4" stroke-dasharray="2 2"/></svg></div>
+      <div class="gc-name">Matriz Maestra</div>
+      <div class="gc-desc">Te muestro una figura y su versión transformada. Elige la matriz 2×2 correcta que produce esa rotación, reflexión, escalado o cizalladura.</div>
+      <div class="gc-tags"><span class="tag">Álgebra Lineal</span><span class="tag">Transformaciones</span><span class="tag">6 niveles</span></div>
+      <button class="gc-btn" style="background:#F472B6" onclick="startMatrizMaestra()">Jugar →</button>
     </div>
   </div>
 </div>
@@ -9084,6 +9112,51 @@ html,body{height:100%;background:var(--bg);color:var(--t1);font-family:'Space Gr
 </div>
 </div>
 
+<!-- ══ QUIZ (motor compartido: Deriva / Bajo la Curva / Matriz Maestra) ══
+     Los tres juegos son "opción múltiple contra el reloj" -- misma pantalla,
+     mismo motor JS (qz*), solo cambia el arreglo de niveles y como se dibuja
+     el prompt (qzLevels[i].renderPrompt). Evita triplicar HTML/CSS/logica
+     de puntaje para tres juegos que son estructuralmente identicos. -->
+<div class="scr" id="scr-quiz">
+<div class="arc-wrap">
+  <div class="game-bar">
+    <button class="gbk" onclick="qzStop();showScr('lobby')">← Salir</button>
+    <div class="gbar-center">
+      <div class="gbar-title" id="qz-title">Quiz</div>
+      <div class="gbar-sub" id="qz-nivel-lbl">Nivel 1 de 6</div>
+    </div>
+    <div class="gbar-right">
+      <div class="gstat"><div class="gstat-n" id="qz-score">0</div><div class="gstat-l">aciertos</div></div>
+    </div>
+  </div>
+  <div class="arc-canvas-wrap" id="qz-wrap">
+    <div class="qz-prompt" id="qz-prompt"></div>
+    <div class="q-options" id="qz-options"></div>
+    <div class="arc-start" id="qz-start">
+      <div class="arc-start-title" id="qz-start-title"></div>
+      <div class="arc-start-desc" id="qz-start-desc"></div>
+      <div class="arc-start-note" id="qz-start-note"></div>
+      <button class="arc-start-btn" id="qz-start-btn" style="--gc:#60A5FA">Jugar →</button>
+    </div>
+    <div class="arc-goover" id="qz-goover">
+      <div class="result-box">
+        <div class="res-ico" id="qz-goover-ico"></div>
+        <div class="res-title" id="qz-goover-title">¡Completado!</div>
+        <div class="res-sub" id="qz-goover-sub"></div>
+        <div class="res-btns">
+          <button class="res-btn primary" id="qz-goover-btn1" onclick="qzRestart()">Jugar de nuevo →</button>
+          <button class="res-btn ghost" onclick="compartir()">Compartir resultado <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-2px"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.6" y1="10.5" x2="15.4" y2="6.5"/><line x1="8.6" y1="13.5" x2="15.4" y2="17.5"/></svg></button>
+          <button class="res-btn ghost" onclick="qzStop();showScr('lobby')">Salir al lobby</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="rebota-footer">
+    <div class="hint-box" id="qz-hint">Elige la opción correcta.</div>
+  </div>
+</div>
+</div>
+
 <!-- RESULTADO OVERLAY -->
 <div class="result-ov" id="result-ov">
   <div class="result-box">
@@ -9132,8 +9205,8 @@ function toast(msg){
 }
 var lastGame='rebota',lastScore=0;
 function compartir(){
-  var nombres={rebota:'Rebota',casillas:'Casillas',portal:'Portal',domainsnake:'Serpiente de Dominios',vectores:'Vectores'};
-  var unidades={rebota:'movimientos',casillas:'movimientos',portal:'segundos',domainsnake:'puntos',vectores:'vectores'};
+  var nombres={rebota:'Rebota',casillas:'Casillas',portal:'Portal',domainsnake:'Serpiente de Dominios',vectores:'Vectores',deriva:'Deriva',bajolacurva:'Bajo la Curva',matrizmaestra:'Matriz Maestra'};
+  var unidades={rebota:'movimientos',casillas:'movimientos',portal:'segundos',domainsnake:'puntos',vectores:'vectores',deriva:'aciertos',bajolacurva:'aciertos',matrizmaestra:'aciertos'};
   var unidad=unidades[lastGame]||'movimientos';
   var txt=`🎱 MathUNAL Juegos: ${nombres[lastGame]||lastGame} — resuelto en ${lastScore} ${unidad}. ¿Me superas? mathunal.com`;
   if(navigator.share)navigator.share({text:txt});
@@ -10093,6 +10166,269 @@ function vcNextLevel(){
   vcLevelIdx=isLast?0:vcLevelIdx+1;
   vcBuildLevel();
 }
+
+/* ════════════════════════════════════════════════════════
+   QUIZ -- motor compartido de Deriva / Bajo la Curva / Matriz Maestra.
+   Los tres son "opcion multiple contra el reloj" con la misma mecanica de
+   puntaje/niveles -- un solo motor evita triplicar la logica. Lo unico que
+   cambia por juego es QZ_GAMES[key]: metadata + niveles + como se dibuja
+   el prompt (katex para formulas, SVG para figuras/graficas).
+════════════════════════════════════════════════════════ */
+function qzKatex(latex,display){
+  if(typeof katex==='undefined') return latex;
+  try{ return katex.renderToString(latex,{throwOnError:false,displayMode:!!display}); }
+  catch(e){ return latex; }
+}
+function qzShuffle(arr){
+  var a=arr.slice();
+  for(var i=a.length-1;i>0;i--){ var j=Math.floor(Math.random()*(i+1)); var t=a[i];a[i]=a[j];a[j]=t; }
+  return a;
+}
+
+/* --- DERIVA: f(x) dado, elegir f'(x) --- */
+var QZ_DERIVA_LEVELS=[
+  {fn:'x^3', opts:['3x^2','x^2','3x','x^3']},
+  {fn:'5x^2-3x+2', opts:['10x-3','5x-3','10x','2x-3']},
+  {fn:'\\sin(x)', opts:['\\cos(x)','-\\cos(x)','-\\sin(x)','\\sin(x)']},
+  {fn:'e^{3x}', opts:['3e^{3x}','e^{3x}','\\dfrac{e^{3x}}{3}','3xe^{3x-1}']},
+  {fn:'x^2\\sin(x)', opts:['2x\\sin(x)+x^2\\cos(x)','2x\\cos(x)','x^2\\cos(x)','2x\\sin(x)']},
+  {fn:'\\ln(x^2+1)', opts:['\\dfrac{2x}{x^2+1}','\\dfrac{1}{x^2+1}','2x','\\dfrac{x}{x^2+1}']},
+];
+
+/* --- BAJO LA CURVA: region sombreada dada, elegir la integral que la calcula ---
+   Todas las funciones son NO NEGATIVAS en su intervalo (a proposito: evita la
+   ambiguedad area-vs-integral-con-signo, que es una discusion aparte y mas
+   avanzada de la que este juego quiere enseñar). */
+var QZ_CURVA_LEVELS=[
+  {curves:[{fn:function(x){return x;},color:'var(--acc)'}], xr:[0,3], yr:[-.5,3.5], shade:'axis',
+   opts:['\\int_0^3 x\\,dx','\\int_0^3 x^2\\,dx','\\int_3^0 x\\,dx','\\int_0^3 3\\,dx']},
+  {curves:[{fn:function(x){return x*x;},color:'var(--acc)'}], xr:[0,2], yr:[-.5,4.5], shade:'axis',
+   opts:['\\int_0^2 x^2\\,dx','\\int_0^2 x\\,dx','\\int_0^2 2x\\,dx','\\int_2^0 x^2\\,dx']},
+  {curves:[{fn:function(x){return 4-x*x;},color:'var(--acc)'}], xr:[-2,2], yr:[-.5,4.5], shade:'axis',
+   opts:['\\int_{-2}^{2}(4-x^2)\\,dx','\\int_{-2}^{2}(x^2-4)\\,dx','\\int_0^2(4-x^2)\\,dx','\\int_{-2}^{2}4\\,dx']},
+  {curves:[{fn:function(x){return x;},color:'#60A5FA'},{fn:function(x){return x*x;},color:'var(--acc)'}], xr:[0,1], yr:[-.15,1.15], shade:'between',
+   opts:['\\int_0^1(x-x^2)\\,dx','\\int_0^1(x^2-x)\\,dx','\\int_0^1 x\\,dx','\\int_0^1 x^2\\,dx']},
+  {curves:[{fn:function(x){return Math.sqrt(x);},color:'var(--acc)'}], xr:[0,4], yr:[-.3,2.3], shade:'axis',
+   opts:['\\int_0^4\\sqrt{x}\\,dx','\\int_0^4 x\\,dx','\\int_0^{16}\\sqrt{x}\\,dx','\\int_4^0\\sqrt{x}\\,dx']},
+  {curves:[{fn:function(x){return 6-x;},color:'#60A5FA'},{fn:function(x){return x;},color:'var(--acc)'}], xr:[0,3], yr:[-.5,6.5], shade:'between',
+   opts:['\\int_0^3\\left[(6-x)-x\\right]dx','\\int_0^3\\left[x-(6-x)\\right]dx','\\int_0^3(6-x)\\,dx','\\int_0^6\\left[(6-x)-x\\right]dx']},
+];
+
+/* --- MATRIZ MAESTRA: figura + su transformada, elegir la matriz 2x2 ---
+   Base fija (rectangulo asimetrico -- si fuera simetrico, rotaciones y
+   reflexiones se verian identicas y el juego no tendria sentido visual). */
+var QZ_MM_SHAPE=[{x:0,y:0},{x:2,y:0},{x:2,y:1},{x:0,y:1}];
+var QZ_MM_LEVELS=[
+  {m:[[2,0],[0,1]], distractors:[[[1,0],[0,2]],[[2,0],[0,2]],[[0,2],[1,0]]], name:'Escalado horizontal ×2'},
+  {m:[[1,0],[0,-1]], distractors:[[[-1,0],[0,1]],[[1,0],[0,1]],[[-1,0],[0,-1]]], name:'Reflexión sobre el eje X'},
+  {m:[[0,-1],[1,0]], distractors:[[[0,1],[-1,0]],[[1,0],[0,1]],[[-1,0],[0,-1]]], name:'Rotación 90° antihoraria'},
+  {m:[[-1,0],[0,1]], distractors:[[[1,0],[0,-1]],[[1,0],[0,1]],[[-1,0],[0,-1]]], name:'Reflexión sobre el eje Y'},
+  {m:[[1,1],[0,1]], distractors:[[[1,0],[1,1]],[[1,1],[1,1]],[[1,0],[0,1]]], name:'Cizalladura horizontal'},
+  {m:[[-1,0],[0,-1]], distractors:[[[1,0],[0,1]],[[0,-1],[1,0]],[[0,1],[-1,0]]], name:'Rotación 180°'},
+];
+
+var QZ_GAMES={
+  deriva:{
+    title:'Deriva', color:'#60A5FA',
+    icon:'<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-2px"><path d="M3 17c3-8 6-12 9-12s6 4 9 12"/><path d="M12 5v14"/></svg>',
+    introTitle:'∂ Deriva', hint:'Elige la derivada correcta de la función mostrada.',
+    introDesc:'Te muestro una función f(x). Elige su derivada f\'(x) correcta entre 4 opciones. Empieza con potencias simples y termina con regla del producto y de la cadena.',
+    introNote:'Si no recuerdas alguna regla, el Formulario tiene todas con ejemplos paso a paso.',
+    levels:QZ_DERIVA_LEVELS,
+    buildQuestion:function(lv){
+      /* opts[0] es SIEMPRE la correcta por convencion (se mezcla al mostrar) --
+         evita el bug de un campo `ans` separado que se puede desincronizar
+         del arreglo de opciones por un simple typo/espacio de mas. */
+      var opts=qzShuffle(lv.opts.map(function(o,i){return {v:o,ok:i===0};}));
+      return {
+        promptHTML:'<div class="qz-fn">'+qzKatex('f(x)='+lv.fn,true)+'</div><div class="qz-ask">¿Cuál es f\'(x)?</div>',
+        options:opts.map(function(o){return {html:qzKatex(o.v,false),ok:o.ok};})
+      };
+    }
+  },
+  bajolacurva:{
+    title:'Bajo la Curva', color:'#34D399',
+    icon:'<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-2px"><path d="M3 20h18"/><path d="M3 20V6c4 0 6 8 9 8s5-8 9-8"/></svg>',
+    introTitle:'∫ Bajo la Curva', hint:'Elige la integral que calcula el área sombreada.',
+    introDesc:'Te muestro una región sombreada en una gráfica. Elige qué integral definida la calcula. No hay que resolverla — solo plantearla bien: límites correctos, función correcta, orden correcto.',
+    introNote:'Todas las regiones de este juego dan área positiva (sin trucos de signo) — eso es tema aparte.',
+    levels:QZ_CURVA_LEVELS,
+    buildQuestion:function(lv){
+      var opts=qzShuffle(lv.opts.map(function(o,i){return {v:o,ok:i===0};}));
+      return {
+        promptHTML:qzCurveSVG(lv),
+        options:opts.map(function(o){return {html:qzKatex(o.v,false),ok:o.ok};})
+      };
+    }
+  },
+  matrizmaestra:{
+    title:'Matriz Maestra', color:'#F472B6',
+    icon:'<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-2px"><rect x="4" y="4" width="7" height="7"/><rect x="13" y="13" width="7" height="7" stroke-dasharray="2 2"/></svg>',
+    introTitle:'⊞ Matriz Maestra', hint:'Elige la matriz que produce esa transformación.',
+    introDesc:'Te muestro una figura (gris) y su versión transformada (color). Elige la matriz 2×2 que, aplicada a cada punto de la figura gris, produce exactamente la figura de color.',
+    introNote:'Multiplicar la matriz por un punto (x,y) da el punto transformado — igual que en Formulario, sección Álgebra Lineal.',
+    levels:QZ_MM_LEVELS,
+    buildQuestion:function(lv){
+      var all=qzShuffle([{m:lv.m,ok:true}].concat(lv.distractors.map(function(d){return {m:d,ok:false};})));
+      return {
+        promptHTML:qzMatrixSVG(lv.m),
+        options:all.map(function(o){return {html:qzKatex(qzMatLatex(o.m),false),ok:o.ok};})
+      };
+    }
+  }
+};
+
+function qzMatLatex(m){ return '\\begin{pmatrix}'+m[0][0]+' & '+m[0][1]+'\\\\ '+m[1][0]+' & '+m[1][1]+'\\end{pmatrix}'; }
+
+function qzApplyMat(m,p){ return {x:m[0][0]*p.x+m[0][1]*p.y, y:m[1][0]*p.x+m[1][1]*p.y}; }
+
+function qzMatrixSVG(m){
+  var pts=QZ_MM_SHAPE, tpts=pts.map(function(p){return qzApplyMat(m,p);});
+  var all=pts.concat(tpts);
+  var xs=all.map(function(p){return p.x;}), ys=all.map(function(p){return p.y;});
+  var pad=1.2;
+  var minX=Math.min.apply(null,xs)-pad, maxX=Math.max.apply(null,xs)+pad;
+  var minY=Math.min.apply(null,ys)-pad, maxY=Math.max.apply(null,ys)+pad;
+  var span=Math.max(maxX-minX, maxY-minY);
+  var cx=(minX+maxX)/2, cy=(minY+maxY)/2;
+  minX=cx-span/2;maxX=cx+span/2;minY=cy-span/2;maxY=cy+span/2;
+  var W=260,H=260;
+  function px(p){ return {x:(p.x-minX)/(maxX-minX)*W, y:H-(p.y-minY)/(maxY-minY)*H}; }
+  function poly(list){ return list.map(px).map(function(p){return p.x.toFixed(1)+','+p.y.toFixed(1);}).join(' '); }
+  var zx=px({x:minX,y:0}), zx2=px({x:maxX,y:0}), zy=px({x:0,y:minY}), zy2=px({x:0,y:maxY});
+  return '<svg viewBox="0 0 '+W+' '+H+'" width="220" height="220" style="overflow:visible">'
+    +'<line x1="'+zx.x+'" y1="'+zx.y+'" x2="'+zx2.x+'" y2="'+zx2.y+'" stroke="var(--br2)" stroke-width="1.5"/>'
+    +'<line x1="'+zy.x+'" y1="'+zy.y+'" x2="'+zy2.x+'" y2="'+zy2.y+'" stroke="var(--br2)" stroke-width="1.5"/>'
+    +'<polygon points="'+poly(pts)+'" fill="var(--t3)" fill-opacity=".25" stroke="var(--t3)" stroke-width="2"/>'
+    +'<polygon points="'+poly(tpts)+'" fill="var(--acc)" fill-opacity=".3" stroke="var(--acc)" stroke-width="2.5"/>'
+    +'</svg>';
+}
+
+function qzCurveSVG(lv){
+  var W=260,H=190,padL=28,padB=22,padT=10,padR=10;
+  var xMin=lv.xr[0],xMax=lv.xr[1],yMin=lv.yr[0],yMax=lv.yr[1];
+  function px(x,y){ return {x:padL+(x-xMin)/(xMax-xMin)*(W-padL-padR), y:H-padB-(y-yMin)/(yMax-yMin)*(H-padT-padB)}; }
+  var N=40;
+  function samplePts(fn){
+    var pts=[];
+    for(var i=0;i<=N;i++){ var x=xMin+(xMax-xMin)*i/N; pts.push({x:x,y:fn(x)}); }
+    return pts;
+  }
+  var svg='<svg viewBox="0 0 '+W+' '+H+'" width="260" height="190">';
+  // ejes
+  var o=px(Math.max(0,xMin),Math.max(0,Math.min(0,yMax)));
+  var xAxisY=px(0,0).y, yAxisX=px(0,0).x;
+  if(yMin<=0&&yMax>=0) svg+='<line x1="'+padL+'" y1="'+xAxisY+'" x2="'+(W-padR)+'" y2="'+xAxisY+'" stroke="var(--t3)" stroke-width="1.3"/>';
+  if(xMin<=0&&xMax>=0) svg+='<line x1="'+yAxisX+'" y1="'+padT+'" x2="'+yAxisX+'" y2="'+(H-padB)+'" stroke="var(--t3)" stroke-width="1.3"/>';
+  // sombreado
+  if(lv.shade==='axis'){
+    var c=lv.curves[0], pts=samplePts(c.fn);
+    var d='M '+px(pts[0].x,0).x+' '+px(pts[0].x,0).y+' ';
+    pts.forEach(function(p){ var q=px(p.x,p.y); d+='L '+q.x.toFixed(1)+' '+q.y.toFixed(1)+' '; });
+    d+='L '+px(pts[pts.length-1].x,0).x+' '+px(pts[pts.length-1].x,0).y+' Z';
+    svg+='<path d="'+d+'" fill="var(--acc)" fill-opacity=".22"/>';
+    var line='M '+pts.map(function(p){var q=px(p.x,p.y);return q.x.toFixed(1)+' '+q.y.toFixed(1);}).join(' L ');
+    svg+='<path d="'+line+'" fill="none" stroke="'+c.color+'" stroke-width="2.5"/>';
+  } else if(lv.shade==='between'){
+    var c1=lv.curves[0], c2=lv.curves[1], p1=samplePts(c1.fn), p2=samplePts(c2.fn);
+    var d='M '+p1.map(function(p){var q=px(p.x,p.y);return q.x.toFixed(1)+' '+q.y.toFixed(1);}).join(' L ');
+    d+=' L '+p2.slice().reverse().map(function(p){var q=px(p.x,p.y);return q.x.toFixed(1)+' '+q.y.toFixed(1);}).join(' L ')+' Z';
+    svg+='<path d="'+d+'" fill="var(--acc)" fill-opacity=".22"/>';
+    [p1,p2].forEach(function(pts,i){
+      var line='M '+pts.map(function(p){var q=px(p.x,p.y);return q.x.toFixed(1)+' '+q.y.toFixed(1);}).join(' L ');
+      svg+='<path d="'+line+'" fill="none" stroke="'+lv.curves[i].color+'" stroke-width="2.5"/>';
+    });
+  }
+  // marcas de limites
+  var aX=px(xMin,0).x, bX=px(xMax,0).x;
+  svg+='<line x1="'+aX+'" y1="'+(xAxisY-4)+'" x2="'+aX+'" y2="'+(xAxisY+4)+'" stroke="var(--t2)" stroke-width="1.5"/>';
+  svg+='<line x1="'+bX+'" y1="'+(xAxisY-4)+'" x2="'+bX+'" y2="'+(xAxisY+4)+'" stroke="var(--t2)" stroke-width="1.5"/>';
+  svg+='<text x="'+aX+'" y="'+(xAxisY+16)+'" font-size="10" text-anchor="middle" fill="var(--t2)">'+xMin+'</text>';
+  svg+='<text x="'+bX+'" y="'+(xAxisY+16)+'" font-size="10" text-anchor="middle" fill="var(--t2)">'+xMax+'</text>';
+  svg+='</svg>';
+  return svg;
+}
+
+var qzGameKey=null, qzLevelIdx=0, qzScore=0, qzCurQ=null, qzAnswered=false, qzTimerId=null, qzTimeLeft=0;
+function qzOpenIntro(key){
+  qzGameKey=key;
+  var g=QZ_GAMES[key];
+  showScr('quiz');
+  document.getElementById('qz-title').innerHTML=g.icon+' '+g.title;
+  document.getElementById('qz-start-title').textContent=g.introTitle;
+  document.getElementById('qz-start-desc').textContent=g.introDesc;
+  document.getElementById('qz-start-note').textContent=g.introNote;
+  document.getElementById('qz-start-btn').style.setProperty('--gc',g.color);
+  document.getElementById('qz-start-btn').onclick=qzBegin;
+  document.getElementById('qz-start').style.display='';
+  document.getElementById('qz-goover').classList.remove('on');
+  document.getElementById('qz-prompt').innerHTML='';
+  document.getElementById('qz-options').innerHTML='';
+  document.getElementById('qz-hint').textContent=g.hint;
+}
+function qzBegin(){
+  qzLevelIdx=0;qzScore=0;
+  document.getElementById('qz-start').style.display='none';
+  qzRenderQuestion();
+}
+function qzRenderQuestion(){
+  var g=QZ_GAMES[qzGameKey];
+  var lv=g.levels[qzLevelIdx];
+  qzCurQ=g.buildQuestion(lv);
+  qzAnswered=false;
+  document.getElementById('qz-nivel-lbl').textContent='Nivel '+(qzLevelIdx+1)+' de '+g.levels.length;
+  document.getElementById('qz-score').textContent=qzScore;
+  document.getElementById('qz-prompt').innerHTML=qzCurQ.promptHTML;
+  var wrap=document.getElementById('qz-options');
+  wrap.innerHTML='';
+  qzCurQ.options.forEach(function(opt,i){
+    var el=document.createElement('div');
+    el.className='q-opt';
+    el.innerHTML='<div class="q-opt-circle">'+String.fromCharCode(65+i)+'</div><div>'+opt.html+'</div>';
+    el.onclick=function(){qzAnswer(i);};
+    wrap.appendChild(el);
+  });
+}
+function qzAnswer(i){
+  if(qzAnswered)return;
+  qzAnswered=true;
+  var opts=document.querySelectorAll('#qz-options .q-opt');
+  var ok=qzCurQ.options[i].ok;
+  if(ok)qzScore++;
+  document.getElementById('qz-score').textContent=qzScore;
+  opts.forEach(function(el,j){
+    if(qzCurQ.options[j].ok)el.classList.add('correct');
+    else if(j===i)el.classList.add('wrong');
+  });
+  beep(ok?650:220,.18,.08,ok?'sine':'square');
+  setTimeout(qzNextOrFinish,1100);
+}
+function qzNextOrFinish(){
+  var g=QZ_GAMES[qzGameKey];
+  if(qzLevelIdx>=g.levels.length-1){ qzFinish(); return; }
+  qzLevelIdx++;
+  qzRenderQuestion();
+}
+function qzFinish(){
+  var g=QZ_GAMES[qzGameKey];
+  var total=g.levels.length;
+  lastGame=qzGameKey;lastScore=qzScore;
+  var pct=Math.round(qzScore/total*100);
+  document.getElementById('qz-goover-ico').innerHTML=pct===100?JG_ICO_TROPHY:g.icon;
+  document.getElementById('qz-goover-title').textContent=pct===100?'¡Perfecto!':'¡Completado!';
+  document.getElementById('qz-goover-sub').textContent='Acertaste '+qzScore+' de '+total+' ('+pct+'%).';
+  document.getElementById('qz-goover').classList.add('on');
+  beep(750,.25,.1,'sine');
+}
+function qzRestart(){
+  document.getElementById('qz-goover').classList.remove('on');
+  qzBegin();
+}
+function qzStop(){ qzGameKey=null; }
+
+function startDeriva(){ qzOpenIntro('deriva'); }
+function startBajoCurva(){ qzOpenIntro('bajolacurva'); }
+function startMatrizMaestra(){ qzOpenIntro('matrizmaestra'); }
 function vcDrawArrowHead(p0,p1,color){
   var ang=Math.atan2(p1.y-p0.y,p1.x-p0.x);
   var len=10;
