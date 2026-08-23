@@ -1,38 +1,39 @@
 # MathUNAL — App (PWA)
 
-App de una sola página, instalable y con soporte offline.
+App de una sola página, instalable y con soporte offline. Sin framework, sin build step: `index.html` es HTML+CSS+JS inline (SPA con router por hash y `<template>`).
 
 ## Archivos
-- `index.html` — la app completa (SPA con router por hash)
+- `index.html` — la app completa (routing por hash, templates lazy-loaded, i18n manual ES/EN)
 - `manifest.json` — metadatos PWA (nombre, íconos, color)
-- `sw.js` — service worker (caché offline de la app + KaTeX)
+- `sw.js` — service worker (caché offline de la app + KaTeX). **Sube el número de `CACHE` en cada release** o los usuarios seguirán viendo la versión vieja cacheada.
 - `icon-*.png`, `favicon.png` — íconos
-- `integraciones/` — código listo para conectar backend y pagos (requiere TUS cuentas)
+- `*-parciales/` — material digitalizado (PDFs) organizado por materia
+- `supabase/` — config local de la CLI de Supabase (no se despliega, solo referencia para el proyecto vinculado)
 
-## Cómo publicar (GitHub Pages, gratis)
-1. Crea un repo y sube TODO el contenido de esta carpeta a la raíz.
-2. Settings → Pages → Branch: `main` / root → Save.
-3. Listo: `https://TU-USUARIO.github.io/TU-REPO/`
-   - El service worker y el manifest necesitan HTTPS — GitHub Pages ya lo da.
-   - Para que sea instalable, ábrela en Chrome/Edge → menú → "Instalar app".
+## Producción
+Publicado en **https://mathunal.com** vía GitHub Pages (repo `lgarciaal10/mathunal`, branch `main`, dominio propio con `CNAME`, HTTPS activo). Cualquier push a `main` se despliega automáticamente.
 
-## Funciona YA (sin configurar nada)
-- ✅ Navegación entre Home / Simulacros / Materia / Formulario
-- ✅ 7 simulacros con LaTeX, retroalimentación y explicaciones
+## Backend (Supabase — ya integrado, no requiere setup)
+El frontend habla directo con la REST API de Supabase usando la key `anon` (pública por diseño, protegida por RLS):
+- **`materiales`** — catálogo de PDFs (complementa al objeto `MATS` hardcodeado en `index.html`).
+- **`explicaciones`** — explicaciones de IA pre-generadas por pregunta de examen. Solo lectura pública.
+- **`aportes`** — material que suben los usuarios (moderado: solo visible tras `estado='aprobado'`).
+- **`stats`**, **`premium_usuarios`**, **`parciales_reportados`** — contador de visitas, gate de acceso premium, reportes de fecha de parcial.
+- Bucket `Materiales` — público de solo lectura, sin políticas de escritura desde el navegador.
+
+Todas las escrituras sensibles (aprobar aportes, activar premium) pasan por Edge Functions con `service_role`, nunca directo desde el navegador.
+
+## Pagos (Wompi)
+El desbloqueo de soluciones (modal "Unlock solutions") usa el widget real de Wompi con key de **producción** (`pub_prod_...`) — tarjeta, PSE, Nequi. El "Pack Salva-Semestre" de la sección de aportes usa un flujo distinto: WhatsApp con pago manual. Son dos productos/rutas de compra separadas, no un fallback.
+
+## Funciona YA
+- ✅ Navegación entre Home / Simulacros / Materia / Formulario / Banco de Exámenes / Juegos / Diagnóstico
+- ✅ Simulacros con LaTeX, retroalimentación y explicaciones (locales o vía Supabase)
 - ✅ Guarda resultados y progreso (localStorage) — puedes reanudar exámenes
-- ✅ Calculadora de notas, plan semanal del parcial
+- ✅ Calculadora de notas, promedio ponderado, plan semanal del parcial
 - ✅ Offline: una vez cargada, funciona sin internet
 - ✅ Instalable como app en celular/escritorio
-
-## Necesita TUS cuentas (ver `integraciones/`)
-- **Supabase** (`supabase.js` + `schema.sql`): contador real de visitas y
-  subida de material por estudiantes. Gratis. Setup ~10 min.
-- **Wompi** (`wompi.js`): cobrar el Pack Premium (tarjeta, PSE, Nequi).
-  Requiere cuenta de comercio + un webhook para confirmar pagos en producción.
-- **Gate Premium** (`premium-gate.js`): desbloqueo por código. Funciona ya,
-  útil para validar demanda antes de montar Wompi.
+- ✅ Español/Inglés, tres temas (oscuro/gris/claro)
 
 ## Nota sobre seguridad del Premium
-El gate por código y el desbloqueo en `localStorage` son para MVP. Para cobrar
-de verdad y proteger contenido, el contenido premium debe servirse desde un
-backend que verifique el pago (webhook de Wompi → marca al usuario como pago).
+El desbloqueo actual verifica el correo contra `premium_usuarios` en Supabase (RLS cerrado, sin políticas de acceso público — solo se consulta vía función server-side). El pago en sí sigue siendo manual por WhatsApp.
