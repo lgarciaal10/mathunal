@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Página no encontrada · MathUNAL</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Literata:wght@700;900&family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{--bg:#060B1E;--card:#0E1D3C;--acc:#E8632A;--t1:#F0F4FF;--t2:#94ADDA;--br:rgba(255,255,255,.1)}
+  *{box-sizing:border-box}
+  body{
+    margin:0;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;
+    background:var(--bg);color:var(--t1);font-family:'Space Grotesk',system-ui,sans-serif;
+    text-align:center;padding:2rem;
+  }
+  .glyph{font-family:'Literata',Georgia,serif;font-style:italic;font-weight:900;font-size:3.5rem;color:var(--acc);line-height:1;margin-bottom:1rem}
+  h1{font-family:'Literata',Georgia,serif;font-weight:900;font-size:clamp(2.2rem,7vw,3.4rem);margin:0 0 .6rem;letter-spacing:-.02em}
+  p{color:var(--t2);font-size:1.05rem;max-width:32rem;line-height:1.6;margin:0 0 2rem}
+  a.btn{
+    display:inline-flex;align-items:center;gap:.5rem;background:var(--acc);color:#fff;
+    text-decoration:none;font-weight:700;padding:.85rem 1.8rem;border-radius:12px;
+    box-shadow:0 4px 24px rgba(232,99,42,.3);transition:transform .2s;
+  }
+  a.btn:hover{transform:translateY(-2px)}
+  @media(prefers-color-scheme:light){
+    :root:not([data-theme="dark"]){--bg:#F5F7FC;--card:#FFFFFF;--t1:#0A0F1C;--t2:#3A4A65;--acc:#C04309}
+  }
+</style>
+</head>
+<body>
+  <div class="glyph">∫</div>
+  <h1>Esta página no existe</h1>
+  <p>El enlace que seguiste está roto o la página se movió. MathUNAL es un repositorio de parciales, simulacros y solucionarios para la UNAL Medellín — todo el contenido real está en la página principal.</p>
+  <a class="btn" href="/">← Volver a MathUNAL</a>
+</body>
+</html>
