@@ -10555,11 +10555,14 @@ function draw(){
   ctx.beginPath();ctx.arc(tx,ty,tr,0,Math.PI*2);
   ctx.fillStyle=solved?'rgba(34,197,94,.25)':'rgba(232,99,42,.18)';
   ctx.fill();
-  ctx.strokeStyle=solved?'var(--grn)':'#E8632A';
+  /* Canvas 2D no resuelve var() -- necesita colores ya resueltos. Iba
+     'var(--grn)'/'var(--ok)' de antes de este pase, nunca funcionaron
+     (fallaban en silencio, quedaba el fillStyle/strokeStyle previo). */
+  ctx.strokeStyle=solved?'#2DD4BF':'#E8632A';
   ctx.lineWidth=2.5;ctx.setLineDash([6,4]);ctx.stroke();ctx.setLineDash([]);
   // Target icon
   ctx.font=`${tr*.9}px serif`;ctx.textAlign='center';ctx.textBaseline='middle';
-  ctx.fillStyle=solved?'var(--ok)':'#E8632A';
+  ctx.fillStyle=solved?'#22C55E':'#E8632A';
   ctx.fillText('⊕',tx,ty);
 
   // Walls
@@ -10596,7 +10599,7 @@ function draw(){
   grad.addColorStop(0,'#FF9060');
   grad.addColorStop(1,'#E8632A');
   ctx.beginPath();ctx.arc(bpx.x,bpx.y,br,0,Math.PI*2);
-  ctx.fillStyle=solved?'var(--ok)':grad;ctx.fill();
+  ctx.fillStyle=solved?'#22C55E':grad;ctx.fill();
   ctx.strokeStyle='rgba(255,255,255,.2)';ctx.lineWidth=1.5;ctx.stroke();
 
   // Aim arrow
@@ -10893,7 +10896,7 @@ function ptDraw(){
   var gg=ptCtx.createRadialGradient(ptTarget.x,ptTarget.y,0,ptTarget.x,ptTarget.y,ptTarget.r);
   gg.addColorStop(0,'rgba(34,197,94,.55)');gg.addColorStop(1,'rgba(34,197,94,.08)');
   ptCtx.fillStyle=gg;ptCtx.beginPath();ptCtx.arc(ptTarget.x,ptTarget.y,ptTarget.r,0,7);ptCtx.fill();
-  ptCtx.strokeStyle='var(--ok)';ptCtx.lineWidth=2;ptCtx.stroke();
+  ptCtx.strokeStyle='#22C55E';ptCtx.lineWidth=2;ptCtx.stroke();
   if(ptPortalA){ptCtx.fillStyle='#F97316';ptCtx.beginPath();ptCtx.arc(ptPortalA.x,ptPortalA.y,13,0,7);ptCtx.fill();}
   if(ptPortalB){ptCtx.fillStyle='#38BDF8';ptCtx.beginPath();ptCtx.arc(ptPortalB.x,ptPortalB.y,13,0,7);ptCtx.fill();}
   ptCtx.fillStyle='#F0F4FF';ptCtx.beginPath();ptCtx.arc(ptBall.x,ptBall.y,ptBall.r,0,7);ptCtx.fill();
@@ -11092,7 +11095,7 @@ function dsDraw(){
   for(var s=0;s<dsSnake.length;s++){
     var seg=dsSnake[s];
     var isHead=s===dsSnake.length-1;
-    dsCtx.fillStyle=isHead?'var(--ok)':'rgba(34,197,94,.7)';
+    dsCtx.fillStyle=isHead?'#22C55E':'rgba(34,197,94,.7)';
     var px=offX+seg.x*dsCell, py=offY+seg.y*dsCell;
     dsCtx.beginPath();
     if(dsCtx.roundRect) dsCtx.roundRect(px+1,py+1,dsCell-2,dsCell-2,4); else dsCtx.rect(px+1,py+1,dsCell-2,dsCell-2);
@@ -11261,9 +11264,11 @@ function vcDraw(){
     var p0=toPx(pos.x,pos.y);
     var np={x:pos.x+v.x,y:pos.y+v.y};
     var p1=toPx(np.x,np.y);
-    vcCtx.strokeStyle=v.trap?'#EF4444':'var(--ok)';
+    /* Canvas 2D NO soporta var() en strokeStyle -- necesita un color ya resuelto,
+       no una referencia CSS. Por eso va hex literal aqui, no var(--ok). */
+    vcCtx.strokeStyle=v.trap?'#EF4444':'#22C55E';
     vcCtx.beginPath();vcCtx.moveTo(p0.x,p0.y);vcCtx.lineTo(p1.x,p1.y);vcCtx.stroke();
-    vcDrawArrowHead(p0,p1,v.trap?'#EF4444':'var(--ok)');
+    vcDrawArrowHead(p0,p1,v.trap?'#EF4444':'#22C55E');
     pos=np;
   });
   var cp=toPx(pos.x,pos.y);
@@ -11754,7 +11759,7 @@ window.muApplyLang_formulas = function(){
   if(typeof _sel!=='undefined' && _sel>=0 && typeof sel==='function') sel(_sel);
 };
 
-var CATS={lim:{l:'Límites',lEn:'Limits',s:'Lím.',sEn:'Lim.',c:'#818cf8',i:'∞'},der:{l:'Derivadas',lEn:'Derivatives',s:'Der.',sEn:'Der.',c:'#fb923c',i:'∂'},int:{l:'Integrales',lEn:'Integrals',s:'Int.',sEn:'Int.',c:'#34d399',i:'∫'},tri:{l:'Trigon.',lEn:'Trig.',s:'Trig.',sEn:'Trig.',c:'#c084fc',i:'△'},ser:{l:'Series',lEn:'Series',s:'Series',sEn:'Series',c:'var(--warn)',i:'∑'},vec:{l:'Vectorial',lEn:'Vector',s:'Vec.',sEn:'Vec.',c:'#2dd4bf',i:'→'},alg:{l:'Álgebra',lEn:'Algebra',s:'Álg.',sEn:'Alg.',c:'#60a5fa',i:'⊕'},num:{l:'Mét. Num.',lEn:'Num. Methods',s:'Num.',sEn:'Num.',c:'#e879f9',i:'f≈'},geo:{l:'Geo. Analítica',lEn:'Analytic Geo.',s:'Geo.',sEn:'Geo.',c:'#38bdf8',i:'↗'},edo:{l:'Ec. Dif.',lEn:'ODEs',s:'EDO',sEn:'ODE',c:'#fb7185',i:'λ'}};
+var CATS={lim:{l:'Límites',lEn:'Limits',s:'Lím.',sEn:'Lim.',c:'#818cf8',i:'∞'},der:{l:'Derivadas',lEn:'Derivatives',s:'Der.',sEn:'Der.',c:'#fb923c',i:'∂'},int:{l:'Integrales',lEn:'Integrals',s:'Int.',sEn:'Int.',c:'#34d399',i:'∫'},tri:{l:'Trigon.',lEn:'Trig.',s:'Trig.',sEn:'Trig.',c:'#c084fc',i:'△'},ser:{l:'Series',lEn:'Series',s:'Series',sEn:'Series',c:'#FBBF24',i:'∑'},vec:{l:'Vectorial',lEn:'Vector',s:'Vec.',sEn:'Vec.',c:'#2dd4bf',i:'→'},alg:{l:'Álgebra',lEn:'Algebra',s:'Álg.',sEn:'Alg.',c:'#60a5fa',i:'⊕'},num:{l:'Mét. Num.',lEn:'Num. Methods',s:'Num.',sEn:'Num.',c:'#e879f9',i:'f≈'},geo:{l:'Geo. Analítica',lEn:'Analytic Geo.',s:'Geo.',sEn:'Geo.',c:'#38bdf8',i:'↗'},edo:{l:'Ec. Dif.',lEn:'ODEs',s:'EDO',sEn:'ODE',c:'#fb7185',i:'λ'}};
 var CORD=['lim','der','int','tri','ser','alg','vec','num','geo','edo'];
 function fact(n){var r=1;for(var i=2;i<=n;i++)r*=i;return r;}
 function lin(a,b,n){var r=[],s=(b-a)/(n-1);for(var i=0;i<n;i++)r.push(a+i*s);return r;}
@@ -11797,10 +11802,10 @@ viz:{type:'lhop',
     var ys=xs.map(f);
     return{data:[
       {x:xs,y:ys,type:'scatter',mode:'lines',line:{color:cat,width:2.5},name:labs[fn-1]},
-      {x:[-z*2,z*2],y:[1,1],type:'scatter',mode:'lines',line:{color:'var(--warn)',width:1.5,dash:'dot'},name:'límite = 1'},
+      {x:[-z*2,z*2],y:[1,1],type:'scatter',mode:'lines',line:{color:'#FBBF24',width:1.5,dash:'dot'},name:'límite = 1'},
       {x:[0],y:[1],type:'scatter',mode:'markers',marker:{color:cat,size:11,symbol:'circle-open',line:{width:2}},showlegend:false},
     ],xrange:[-z*2,z*2],yrange:[.85,1.08],
-    annots:[{x:0,y:.91,text:"0/0 → L'Hôpital → 1",showarrow:false,font:{color:'var(--warn)',size:11}}]};
+    annots:[{x:0,y:.91,text:"0/0 → L'Hôpital → 1",showarrow:false,font:{color:'#FBBF24',size:11}}]};
   },
   ann:"Reduce <strong>Zoom</strong> para acercarte al x=0 donde f es 0/0. L'Hôpital muestra que el límite = f'(0)/g'(0) = 1. Prueba las 4 variantes."
 }
@@ -11837,10 +11842,10 @@ viz:{type:'cont',
    var x0=ps.x0,xs=lin(-3.5,3.5,400),m=2*x0,y0=x0*x0,b=y0-m*x0;
    return {data:[
     {x:xs,y:xs.map(function(x){return x*x;}),type:'scatter',mode:'lines',line:{color:cat,width:2.5},name:'f(x)=x²'},
-    {x:[-3.5,3.5],y:[-3.5*m+b,3.5*m+b],type:'scatter',mode:'lines',line:{color:'var(--warn)',width:2,dash:'dash'},name:'tangente'},
-    {x:[x0],y:[y0],type:'scatter',mode:'markers',marker:{color:'var(--warn)',size:10},showlegend:false},
+    {x:[-3.5,3.5],y:[-3.5*m+b,3.5*m+b],type:'scatter',mode:'lines',line:{color:'#FBBF24',width:2,dash:'dash'},name:'tangente'},
+    {x:[x0],y:[y0],type:'scatter',mode:'markers',marker:{color:'#FBBF24',size:10},showlegend:false},
    ],xrange:[-3.5,3.5],yrange:[-.5,9],
-   annots:[{x:x0,y:y0+.7,text:"m="+m.toFixed(2),showarrow:false,font:{color:'var(--warn)',size:11}}]};},
+   annots:[{x:x0,y:y0+.7,text:"m="+m.toFixed(2),showarrow:false,font:{color:'#FBBF24',size:11}}]};},
   ann:'Mueve x₀: la pendiente de la <strong style="color:var(--warn)">tangente</strong> es f\'(x₀) = 2x₀.'
  }
 },
@@ -11852,7 +11857,7 @@ viz:{type:'cont',
    var a=ps.a,b=ps.b,xs=lin(-8,8,500);
    return {data:[
     {x:xs,y:xs.map(function(x){return Math.sin(a*x+b);}),type:'scatter',mode:'lines',line:{color:cat,width:2.5},name:'sin(ax+b)'},
-    {x:xs,y:xs.map(function(x){return a*Math.cos(a*x+b);}),type:'scatter',mode:'lines',line:{color:'var(--warn)',width:1.8,dash:'dash'},name:"a·cos(ax+b)"},
+    {x:xs,y:xs.map(function(x){return a*Math.cos(a*x+b);}),type:'scatter',mode:'lines',line:{color:'#FBBF24',width:1.8,dash:'dash'},name:"a·cos(ax+b)"},
    ],xrange:[-8,8],yrange:[-4,4]};},
   ann:'Con mayor <strong>a</strong> la curva oscila más rápido y la derivada tiene mayor amplitud.'
  }
@@ -11865,7 +11870,7 @@ viz:{type:'cont',
    var sh=ps.sh,xs=lin(-8,8,400);
    return {data:[
     {x:xs,y:xs.map(function(x){return Math.sin(x+sh);}),type:'scatter',mode:'lines',line:{color:cat,width:2.5},name:'sin(x)'},
-    {x:xs,y:xs.map(function(x){return Math.cos(x+sh);}),type:'scatter',mode:'lines',line:{color:'var(--warn)',width:2,dash:'dash'},name:"sin'=cos(x)"},
+    {x:xs,y:xs.map(function(x){return Math.cos(x+sh);}),type:'scatter',mode:'lines',line:{color:'#FBBF24',width:2,dash:'dash'},name:"sin'=cos(x)"},
     {x:[sh,sh],y:[-1.5,1.5],type:'scatter',mode:'lines',line:{color:'rgba(255,255,255,.2)',width:1,dash:'dot'},showlegend:false},
    ],xrange:[-8,8],yrange:[-1.7,1.7],xticks:[-6.28,-3.14,0,3.14,6.28],xtlbls:['-2π','-π','0','π','2π']};},
   ann:'La derivada del <strong>seno</strong> (azul) es el <strong>coseno</strong> (amarillo). En los máximos del seno la derivada vale 0.'
@@ -11902,7 +11907,7 @@ viz:{type:'ilate',
       {s:'L',n:'Logarítmica',e:'ln(x), log',c:'#34d399',ex:'u=ln(x), dv=x²dx'},
       {s:'A',n:'Algebraica',e:'xⁿ, polinomio',c:cat,ex:'u=x², dv=eˣdx'},
       {s:'T',n:'Trigonométrica',e:'sin(x), cos(x)',c:'#c084fc',ex:'u=cos(x), dv=eˣdx'},
-      {s:'E',n:'Exponencial',e:'eˣ, aˣ',c:'var(--warn)',ex:'u=eˣ (último recurso)'},
+      {s:'E',n:'Exponencial',e:'eˣ, aˣ',c:'#FBBF24',ex:'u=eˣ (último recurso)'},
     ];
     var rows=items.map(function(it,i){
       return '<tr style="border-bottom:1px solid rgba(255,255,255,.06)">'
@@ -11935,10 +11940,10 @@ viz:{type:'ilate',
    var xs=lin(-3,3,300),t=ps.t;
    return {data:[
     {x:xs,y:xs.map(Math.sinh),type:'scatter',mode:'lines',line:{color:cat,width:2.5},name:'sinh(x)'},
-    {x:xs,y:xs.map(Math.cosh),type:'scatter',mode:'lines',line:{color:'var(--warn)',width:2,dash:'dash'},name:'cosh(x)'},
+    {x:xs,y:xs.map(Math.cosh),type:'scatter',mode:'lines',line:{color:'#FBBF24',width:2,dash:'dash'},name:'cosh(x)'},
     {x:xs,y:xs.map(Math.tanh),type:'scatter',mode:'lines',line:{color:'#a78bfa',width:2,dash:'dot'},name:'tanh(x)'},
     {x:[t],y:[Math.sinh(t)],type:'scatter',mode:'markers',marker:{color:cat,size:10},showlegend:false},
-    {x:[t],y:[Math.cosh(t)],type:'scatter',mode:'markers',marker:{color:'var(--warn)',size:10},showlegend:false},
+    {x:[t],y:[Math.cosh(t)],type:'scatter',mode:'markers',marker:{color:'#FBBF24',size:10},showlegend:false},
    ],xrange:[-3,3],yrange:[-5,5]};},
   ann:'<strong>sinh</strong>: impar, cruza origen. <strong>cosh</strong>: par, siempre ≥1, forma de cable colgante. <strong>tanh</strong>: acotado en (−1,1).'
  }
@@ -11960,7 +11965,7 @@ viz:{type:'subtrig',
       var ox=a*Math.cos(th),oy=a*Math.sin(th);
       bx=[0,ox,ox,0];by=[0,0,oy,0];
       annots=[
-        {x:ox/2,y:-.18,text:'a·cosθ=√(a²−u²)',showarrow:false,font:{color:'var(--warn)',size:10}},
+        {x:ox/2,y:-.18,text:'a·cosθ=√(a²−u²)',showarrow:false,font:{color:'#FBBF24',size:10}},
         {x:ox+.18,y:oy/2,text:'a·sinθ=u',showarrow:false,font:{color:cat,size:10}},
         {x:ox*.45,y:oy*.55,text:'a',showarrow:false,font:{color:'#a78bfa',size:11}},
         {x:ox-.04,y:.04,text:'',showarrow:false}
@@ -11970,7 +11975,7 @@ viz:{type:'subtrig',
       bx=[0,a,a,0];by=[0,0,a*Math.tan(th),0];
       var hy=a/Math.cos(th);
       annots=[
-        {x:a/2,y:-.18,text:'a',showarrow:false,font:{color:'var(--warn)',size:11}},
+        {x:a/2,y:-.18,text:'a',showarrow:false,font:{color:'#FBBF24',size:11}},
         {x:a+.22,y:a*Math.tan(th)/2,text:'a·tanθ=u',showarrow:false,font:{color:cat,size:10}},
         {x:a*.42,y:a*Math.tan(th)*.55,text:'a·secθ=√(a²+u²)',showarrow:false,font:{color:'#a78bfa',size:9}},
       ];
@@ -11979,7 +11984,7 @@ viz:{type:'subtrig',
       var ux=a/Math.cos(th),vy=a*Math.tan(th);
       bx=[0,a,a,0];by=[0,0,vy,0];
       annots=[
-        {x:a/2,y:-.18,text:'a',showarrow:false,font:{color:'var(--warn)',size:11}},
+        {x:a/2,y:-.18,text:'a',showarrow:false,font:{color:'#FBBF24',size:11}},
         {x:a+.22,y:vy/2,text:'a·tanθ=√(u²−a²)',showarrow:false,font:{color:cat,size:10}},
         {x:a*.42,y:vy*.55,text:'a·secθ=u (hip)',showarrow:false,font:{color:'#a78bfa',size:9}},
       ];
@@ -12005,11 +12010,11 @@ viz:{type:'subtrig',
    var ax=[],ay=[];for(var i=0;i<=n;i++){var a=i*t/n;ax.push(.2*Math.cos(a));ay.push(.2*Math.sin(a));}
    return {data:[
     {x:[0,co,co,0],y:[0,0,s,0],type:'scatter',mode:'lines',fill:'toself',fillcolor:'rgba(192,132,252,.1)',line:{color:cat,width:2},name:'triángulo'},
-    {x:ax,y:ay,type:'scatter',mode:'lines',line:{color:'var(--warn)',width:1.5},showlegend:false},
+    {x:ax,y:ay,type:'scatter',mode:'lines',line:{color:'#FBBF24',width:1.5},showlegend:false},
     {x:[co-.04,co-.04,co],y:[0,.04,.04],type:'scatter',mode:'lines',line:{color:'rgba(255,255,255,.35)',width:1},showlegend:false},
     {x:[co*.48],y:[s*.52],text:['hip=1'],type:'scatter',mode:'text',textfont:{color:'#EEF4FF',size:10},showlegend:false},
     {x:[co+.07],y:[s/2],text:['op='+s.toFixed(3)],type:'scatter',mode:'text',textfont:{color:cat,size:10},showlegend:false},
-    {x:[co/2],y:[-.08],text:['ad='+co.toFixed(3)],type:'scatter',mode:'text',textfont:{color:'var(--warn)',size:10},showlegend:false},
+    {x:[co/2],y:[-.08],text:['ad='+co.toFixed(3)],type:'scatter',mode:'text',textfont:{color:'#FBBF24',size:10},showlegend:false},
    ],xrange:[-.12,1.35],yrange:[-.18,1.12],scaleanchor:true};},
   ann:'Mueve θ y observa cómo cambian los lados y los valores de sin, cos, tan.'
  }
@@ -12026,7 +12031,7 @@ viz:{type:'subtrig',
    var cx=Math.cos(T),cy=Math.sin(T);
    return {data:[
     {x:xs,y:ys,type:'scatter',mode:'lines',line:{color:'rgba(255,255,255,.15)',width:1.5},name:'Círculo unitario'},
-    {x:[0,cx],y:[0,0],type:'scatter',mode:'lines',line:{color:'var(--warn)',width:2.5},name:'cos θ'},
+    {x:[0,cx],y:[0,0],type:'scatter',mode:'lines',line:{color:'#FBBF24',width:2.5},name:'cos θ'},
     {x:[cx,cx],y:[0,cy],type:'scatter',mode:'lines',line:{color:cat,width:2.5},name:'sin θ'},
     {x:[0,cx],y:[0,cy],type:'scatter',mode:'lines',line:{color:'rgba(255,255,255,.4)',width:1.5,dash:'dot'},name:'radio=1'},
     {x:[cx],y:[cy],type:'scatter',mode:'markers',marker:{color:cat,size:10},showlegend:false},
@@ -12048,7 +12053,7 @@ viz:{type:'subtrig',
    var ys=xs.map(function(x){var s=0;for(var k=0;k<n;k++){var p=2*k+1;s+=(k%2===0?1:-1)*Math.pow(x,p)/fact(p);}return Math.abs(s)>6?null:s;});
    return {data:[
     {x:xs,y:xs.map(Math.sin),type:'scatter',mode:'lines',line:{color:cat,width:2.5},name:'sin(x)'},
-    {x:xs,y:ys,type:'scatter',mode:'lines',line:{color:'var(--warn)',width:2,dash:'dash'},name:'Taylor ('+n+')',connectgaps:false},
+    {x:xs,y:ys,type:'scatter',mode:'lines',line:{color:'#FBBF24',width:2,dash:'dash'},name:'Taylor ('+n+')',connectgaps:false},
    ],xrange:[-8,8],yrange:[-2.5,2.5]};},
   ann:'Más términos = mejor aproximación. Con 5 términos converge bien en [−5, 5].'
  }
@@ -12068,7 +12073,7 @@ viz:{type:'subtrig',
    for(var i=0;i<=N;i++){var t=Math.pow(r,i);ns.push(i);terms.push(t);s+=t;sums.push(s);}
    return {data:[
     {x:ns,y:terms,type:'bar',marker:{color:cat,opacity:.7},name:'término rⁿ'},
-    {x:ns,y:sums,type:'scatter',mode:'lines+markers',line:{color:'var(--warn)',width:2},marker:{size:6},name:'suma parcial'},
+    {x:ns,y:sums,type:'scatter',mode:'lines+markers',line:{color:'#FBBF24',width:2},marker:{size:6},name:'suma parcial'},
     {x:[0,N],y:[total,total],type:'scatter',mode:'lines',line:{color:'#a78bfa',width:1.5,dash:'dot'},name:'límite='+total.toFixed(3)},
    ],xrange:[-.5,N+.5],yrange:[Math.min(...sums,total)*.9,Math.max(...sums,total)*1.2]};},
   ann:'La <strong>línea morada</strong> es el límite exacto. Observa la velocidad de convergencia.'
@@ -12087,7 +12092,7 @@ viz:{type:'det2',
       {x:[-m,m],y:[0,0],type:'scatter',mode:'lines',line:{color:'rgba(255,255,255,.08)',width:1},showlegend:false},
       {x:[0,0],y:[-m,m],type:'scatter',mode:'lines',line:{color:'rgba(255,255,255,.08)',width:1},showlegend:false},
       {x:vx,y:vy,type:'scatter',fill:'toself',fillcolor:cat+'28',line:{color:cat,width:2},name:'|det|='+Math.abs(det).toFixed(2)},
-      {x:[0,a],y:[0,b],type:'scatter',mode:'lines',line:{color:'var(--warn)',width:3},name:'fila1=(a,b)'},
+      {x:[0,a],y:[0,b],type:'scatter',mode:'lines',line:{color:'#FBBF24',width:3},name:'fila1=(a,b)'},
       {x:[0,cv],y:[0,d],type:'scatter',mode:'lines',line:{color:'#a78bfa',width:3},name:'fila2=(c,d)'},
     ],xrange:[-m,m],yrange:[-m,m],scaleanchor:true,
     annots:[{x:(a+cv)/2,y:(b+d)/2,text:'área='+Math.abs(det).toFixed(2),showarrow:false,font:{color:cat,size:12}}]};
@@ -12109,7 +12114,7 @@ viz:{type:'eigen',
     return{data:[
       {x:ox,y:oy,type:'scatter',mode:'lines',line:{color:'rgba(255,255,255,.2)',width:1.5,dash:'dot'},name:'círculo original'},
       {x:tx,y:ty,type:'scatter',mode:'lines',line:{color:cat,width:2.5},name:'imagen A(círculo)'},
-      {x:[-c2*s1,c2*s1],y:[-s2*s1,s2*s1],type:'scatter',mode:'lines',line:{color:'var(--warn)',width:2.5},name:'λ₁='+s1.toFixed(1)},
+      {x:[-c2*s1,c2*s1],y:[-s2*s1,s2*s1],type:'scatter',mode:'lines',line:{color:'#FBBF24',width:2.5},name:'λ₁='+s1.toFixed(1)},
       {x:[s2*s2v,-s2*s2v],y:[-c2*s2v,c2*s2v],type:'scatter',mode:'lines',line:{color:'#a78bfa',width:2.5},name:'λ₂='+s2v.toFixed(1)},
     ],xrange:[-m,m],yrange:[-m,m],scaleanchor:true};
   },
@@ -12166,11 +12171,11 @@ viz:{type:'lineint',
     for(var i=0;i<px.length-1;i++){var mx=(px[i]+px[i+1])/2,my=(py[i]+py[i+1])/2,F3=field(mx,my);work+=F3[0]*(px[i+1]-px[i])+F3[1]*(py[i+1]-py[i]);}
     return{data:[
       {x:bx,y:by,type:'scatter',mode:'markers',marker:{color:cat,size:4,symbol:'triangle-up',opacity:.55},showlegend:false},
-      {x:px,y:py,type:'scatter',mode:'lines',line:{color:'var(--warn)',width:3},name:'Curva C'},
-      {x:[px[0]],y:[py[0]],type:'scatter',mode:'markers',marker:{color:'var(--ok)',size:12,symbol:'circle'},name:'inicio'},
-      {x:[px[px.length-1]],y:[py[py.length-1]],type:'scatter',mode:'markers',marker:{color:'var(--bad)',size:12,symbol:'square'},name:'fin'},
+      {x:px,y:py,type:'scatter',mode:'lines',line:{color:'#FBBF24',width:3},name:'Curva C'},
+      {x:[px[0]],y:[py[0]],type:'scatter',mode:'markers',marker:{color:'#22C55E',size:12,symbol:'circle'},name:'inicio'},
+      {x:[px[px.length-1]],y:[py[py.length-1]],type:'scatter',mode:'markers',marker:{color:'#F87171',size:12,symbol:'square'},name:'fin'},
     ],xrange:[-2.8,2.8],yrange:[-1.2,2.8],scaleanchor:true,
-    annots:[{x:0,y:-1,text:'∫F·dr ≈ '+work.toFixed(3),showarrow:false,font:{color:'var(--warn)',size:14}}]};
+    annots:[{x:0,y:-1,text:'∫F·dr ≈ '+work.toFixed(3),showarrow:false,font:{color:'#FBBF24',size:14}}]};
   },
   ann:'Las <strong>flechas</strong> muestran el campo F. La <strong style="color:var(--warn)">curva C</strong> va de verde a rojo. La integral = trabajo del campo. Prueba distintos campos y curvas.'
 }
@@ -12185,12 +12190,12 @@ viz:{type:'err',
     var xmin=Math.min(x,xb)-.5,xmax=Math.max(x,xb)+.5;
     return{data:[
       {x:[xmin,xmax],y:[0,0],type:'scatter',mode:'lines',line:{color:'rgba(255,255,255,.15)',width:1.5},showlegend:false},
-      {x:[x,x],y:[-.4,.4],type:'scatter',mode:'lines',line:{color:'var(--ok)',width:3},name:'x exacto='+x.toFixed(2)},
-      {x:[xb,xb],y:[-.4,.4],type:'scatter',mode:'lines',line:{color:'var(--bad)',width:3},name:'x̄ aprox='+xb.toFixed(2)},
-      {x:[x,xb],y:[0,0],type:'scatter',mode:'lines',line:{color:'var(--warn)',width:6},name:'|error|='+ex.toFixed(4)},
-      {x:[(x+xb)/2],y:[-.65],text:['|e|='+ex.toFixed(4)+' ('+( er*100).toFixed(2)+'%)'],type:'scatter',mode:'text',textfont:{color:'var(--warn)',size:11},showlegend:false},
-      {x:[x],y:[.6],text:['x='+x.toFixed(2)],type:'scatter',mode:'text',textfont:{color:'var(--ok)',size:11},showlegend:false},
-      {x:[xb],y:[.6],text:['x̄='+xb.toFixed(2)],type:'scatter',mode:'text',textfont:{color:'var(--bad)',size:11},showlegend:false},
+      {x:[x,x],y:[-.4,.4],type:'scatter',mode:'lines',line:{color:'#22C55E',width:3},name:'x exacto='+x.toFixed(2)},
+      {x:[xb,xb],y:[-.4,.4],type:'scatter',mode:'lines',line:{color:'#F87171',width:3},name:'x̄ aprox='+xb.toFixed(2)},
+      {x:[x,xb],y:[0,0],type:'scatter',mode:'lines',line:{color:'#FBBF24',width:6},name:'|error|='+ex.toFixed(4)},
+      {x:[(x+xb)/2],y:[-.65],text:['|e|='+ex.toFixed(4)+' ('+( er*100).toFixed(2)+'%)'],type:'scatter',mode:'text',textfont:{color:'#FBBF24',size:11},showlegend:false},
+      {x:[x],y:[.6],text:['x='+x.toFixed(2)],type:'scatter',mode:'text',textfont:{color:'#22C55E',size:11},showlegend:false},
+      {x:[xb],y:[.6],text:['x̄='+xb.toFixed(2)],type:'scatter',mode:'text',textfont:{color:'#F87171',size:11},showlegend:false},
     ],xrange:[xmin,xmax],yrange:[-1,1]};
   },
   ann:'La <strong style="color:var(--warn)">barra amarilla</strong> = error absoluto. El relativo (%) es más significativo: 0.5 de error no es igual si x=1 que si x=1000.'
@@ -12218,10 +12223,10 @@ viz:{type:'err',
    for(var i=0;i<Math.min(ni,pts.length-1);i++){
     var xi=pts[i],fxi=f(xi),xni=pts[i+1];
     trc.push({x:[xi,xi],y:[0,fxi],type:'scatter',mode:'lines',line:{color:'rgba(251,191,36,.4)',width:1,dash:'dot'},showlegend:false});
-    trc.push({x:[xi,xni],y:[fxi,0],type:'scatter',mode:'lines',line:{color:'var(--warn)',width:2},showlegend:false});
+    trc.push({x:[xi,xni],y:[fxi,0],type:'scatter',mode:'lines',line:{color:'#FBBF24',width:2},showlegend:false});
     if(i<ni-1&&Math.abs(f(xni))<10)trc.push({x:[xni,xni],y:[0,f(xni)],type:'scatter',mode:'lines',line:{color:'rgba(251,191,36,.25)',width:1,dash:'dot'},showlegend:false});
    }
-   trc.push({x:[pts[ni]],y:[f(pts[ni])],type:'scatter',mode:'markers',marker:{color:'var(--warn)',size:10},showlegend:false});
+   trc.push({x:[pts[ni]],y:[f(pts[ni])],type:'scatter',mode:'markers',marker:{color:'#FBBF24',size:10},showlegend:false});
    return {data:trc,xrange:[-1,3],yrange:[-4,6]};},
   ann:'La <strong style="color:var(--warn)">tangente</strong> en cada punto x_n apunta hacia la raíz. Con 3-4 iteraciones la precisión es excelente.'
  }
@@ -12243,7 +12248,7 @@ viz:{type:'err',
     {x:[a,a,b,b,a],y:[-4,6,6,-4,-4],type:'scatter',fill:'toself',fillcolor:'rgba(232,121,249,.07)',line:{color:'rgba(232,121,249,.3)',width:1},name:'Intervalo'},
     {x:xs,y:xs.map(f),type:'scatter',mode:'lines',line:{color:cat,width:2.5},name:'f(x)=x³−x−2'},
     {x:[-1,3],y:[0,0],type:'scatter',mode:'lines',line:{color:'rgba(255,255,255,.15)',width:1},showlegend:false},
-    {x:[(a+b)/2],y:[0],type:'scatter',mode:'markers',marker:{color:'var(--warn)',size:12,symbol:'diamond'},name:'x₁=(a+b)/2'},
+    {x:[(a+b)/2],y:[0],type:'scatter',mode:'markers',marker:{color:'#FBBF24',size:12,symbol:'diamond'},name:'x₁=(a+b)/2'},
    ],xrange:[-1,3],yrange:[-4,5]};},
   ann:'El intervalo (zona morada) se reduce a la mitad en cada paso. Más iteraciones = mayor precisión.'
  }
@@ -12277,12 +12282,12 @@ viz:{type:'falsa',
       if(i===ni-1)trc.push({x:[af,bf],y:[f(af),f(bf)],type:'scatter',mode:'lines',line:{color:'#a78bfa',width:2,dash:'dash'},name:'secante (Falsa)'});
       if(f(af)*f(xf)<0)bf=xf;else af=xf;
       var xb=(ab+bb)/2;
-      if(i===ni-1)trc.push({x:[ab,bb],y:[0,0],type:'scatter',mode:'lines',line:{color:'var(--warn)',width:3},name:'intervalo bisec.'});
+      if(i===ni-1)trc.push({x:[ab,bb],y:[0,0],type:'scatter',mode:'lines',line:{color:'#FBBF24',width:3},name:'intervalo bisec.'});
       if(f(ab)*f(xb)<0)bb=xb;else ab=xb;
     }
     var xfl=af-f(af)*(bf-af)/(f(bf)-f(af));
     trc.push({x:[xfl],y:[f(xfl)],type:'scatter',mode:'markers',marker:{color:'#a78bfa',size:10},name:'Falsa'});
-    trc.push({x:[(ab+bb)/2],y:[f((ab+bb)/2)],type:'scatter',mode:'markers',marker:{color:'var(--warn)',size:10,symbol:'diamond'},name:'Bisec.'});
+    trc.push({x:[(ab+bb)/2],y:[f((ab+bb)/2)],type:'scatter',mode:'markers',marker:{color:'#FBBF24',size:10,symbol:'diamond'},name:'Bisec.'});
     return{data:trc,xrange:[-1,3],yrange:[-4,6]};
   },
   ann:'La <strong style="color:#a78bfa">secante morada</strong> = Regla Falsa (usa la forma de la curva). La <strong style="color:var(--warn)">barra</strong> = intervalo de Bisección. La Falsa converge más rápido.'
@@ -12310,7 +12315,7 @@ viz:{type:'euler_step',
     ex.push(xe);
     return{data:[
       {x:xs2,y:xs2.map(fex),type:'scatter',mode:'lines',line:{color:'rgba(255,255,255,.3)',width:1.5,dash:'dot'},name:'exacta'},
-      {x:ex,y:ey,type:'scatter',mode:'lines+markers',line:{color:'var(--warn)',width:2},marker:{size:6},name:'Euler h='+h.toFixed(2)},
+      {x:ex,y:ey,type:'scatter',mode:'lines+markers',line:{color:'#FBBF24',width:2},marker:{size:6},name:'Euler h='+h.toFixed(2)},
     ],xrange:[0,3.2],yrange:[Math.min(...ey.map(function(v){return Math.max(-5,v);}),fex(3))*.8,Math.max(...ey.map(function(v){return Math.min(5,v);}),fex(0))*1.2]};
   },
   ann:'Con <strong>h pequeño</strong> los pasos de Euler siguen la curva exacta. Con h grande el error se acumula. Observa cómo cada paso usa la pendiente del punto ACTUAL (no del siguiente).'
@@ -12340,7 +12345,7 @@ viz:{type:'euler_step',
    var xe=lin(0,4,200);
    return {data:[
     {x:xe,y:xe.map(Math.exp),type:'scatter',mode:'lines',line:{color:'rgba(255,255,255,.3)',width:1.5,dash:'dot'},name:'Exacta eˣ'},
-    {x:eX,y:eY,type:'scatter',mode:'lines+markers',line:{color:'var(--warn)',width:2},marker:{size:6},name:'Euler'},
+    {x:eX,y:eY,type:'scatter',mode:'lines+markers',line:{color:'#FBBF24',width:2},marker:{size:6},name:'Euler'},
     {x:rX,y:rY,type:'scatter',mode:'lines+markers',line:{color:cat,width:2},marker:{size:6},name:'RK4'},
    ],xrange:[0,4.1],yrange:[0,Math.min(60,Math.exp(4)*1.15)]};},
   ann:'RK4 (magenta) sigue la curva exacta. Euler (amarillo) se aleja con pasos grandes. Aumenta h para ver la diferencia.'
@@ -12363,7 +12368,7 @@ viz:{type:'euler_step',
    var yq=L(xq);
    return {data:[
     {x:xs,y:ys,type:'scatter',mode:'lines',line:{color:cat,width:2.5},name:'P(x) Lagrange',connectgaps:false},
-    {x:pts.map(function(p){return p[0];}),y:pts.map(function(p){return p[1];}),type:'scatter',mode:'markers',marker:{color:'var(--warn)',size:12},name:'Puntos dados'},
+    {x:pts.map(function(p){return p[0];}),y:pts.map(function(p){return p[1];}),type:'scatter',mode:'markers',marker:{color:'#FBBF24',size:12},name:'Puntos dados'},
     {x:[xq,xq],y:[0,yq],type:'scatter',mode:'lines',line:{color:'rgba(255,255,255,.2)',width:1,dash:'dot'},showlegend:false},
     {x:[xq],y:[yq],type:'scatter',mode:'markers',marker:{color:'#a78bfa',size:11,symbol:'diamond'},name:'P('+xq.toFixed(1)+')='+yq.toFixed(3)},
    ],xrange:[-.8,pts[pts.length-1][0]+.8],yrange:[-3,4]};},
@@ -12390,9 +12395,9 @@ viz:{type:'euler_step',
    return {data:[
     {x:trapX,y:trapY,type:'scatter',fill:'toself',fillcolor:'rgba(251,191,36,.12)',line:{color:'rgba(251,191,36,.4)',width:1},name:'Trapecios'},
     {x:xcont,y:xcont.map(Math.sin),type:'scatter',mode:'lines',line:{color:cat,width:2.5},name:'sin(x)'},
-    {x:pts.map(function(p){return p[0];}),y:pts.map(function(p){return p[1];}),type:'scatter',mode:'markers',marker:{color:'var(--warn)',size:6},showlegend:false},
+    {x:pts.map(function(p){return p[0];}),y:pts.map(function(p){return p[1];}),type:'scatter',mode:'markers',marker:{color:'#FBBF24',size:6},showlegend:false},
    ],xrange:[-.1,3.5],yrange:[-.15,1.35],
-   annots:[{x:1.57,y:1.28,text:'Trapecio='+trap.toFixed(5)+' (exacta=2)',showarrow:false,font:{color:'var(--warn)',size:11}}]};},
+   annots:[{x:1.57,y:1.28,text:'Trapecio='+trap.toFixed(5)+' (exacta=2)',showarrow:false,font:{color:'#FBBF24',size:11}}]};},
   ann:'Con más paneles los trapecios cubren mejor la curva. <strong>Simpson 1/3</strong> usa los mismos puntos pero es mucho más preciso.'
  }
 },
@@ -12417,7 +12422,7 @@ viz:{type:'euler_step',
     {x:[-maxC,maxC],y:[0,0],type:'scatter',mode:'lines',line:{color:'rgba(255,255,255,.08)',width:1},showlegend:false},
     {x:[0,0],y:[-maxC,maxC],type:'scatter',mode:'lines',line:{color:'rgba(255,255,255,.08)',width:1},showlegend:false},
     {x:[0,px],y:[0,py],type:'scatter',mode:'lines',line:{color:'#a78bfa',width:2.5,dash:'dash'},name:'proyección'},
-    {x:[0,vx],y:[0,vy],type:'scatter',mode:'lines',line:{color:'var(--warn)',width:3},name:'v'},
+    {x:[0,vx],y:[0,vy],type:'scatter',mode:'lines',line:{color:'#FBBF24',width:3},name:'v'},
     {x:[0,ux],y:[0,uy],type:'scatter',mode:'lines',line:{color:cat,width:3},name:'u'},
     {x:ax,y:ay,type:'scatter',mode:'lines',line:{color:'rgba(255,255,255,.3)',width:1.5},showlegend:false},
    ],xrange:[-maxC,maxC],yrange:[-maxC,maxC],scaleanchor:true,
@@ -12434,7 +12439,7 @@ viz:{type:'distpts',
     return{data:[
       {x:[-3.5,3.5],y:[0,0],type:'scatter',mode:'lines',line:{color:'rgba(255,255,255,.08)',width:1},showlegend:false},
       {x:[0,0],y:[-3.5,3.5],type:'scatter',mode:'lines',line:{color:'rgba(255,255,255,.08)',width:1},showlegend:false},
-      {x:[ax,bx],y:[ay,ay],type:'scatter',mode:'lines',line:{color:'var(--warn)',width:2.5,dash:'dash'},name:'Δx='+Math.abs(dx).toFixed(2)},
+      {x:[ax,bx],y:[ay,ay],type:'scatter',mode:'lines',line:{color:'#FBBF24',width:2.5,dash:'dash'},name:'Δx='+Math.abs(dx).toFixed(2)},
       {x:[bx,bx],y:[ay,by],type:'scatter',mode:'lines',line:{color:'#a78bfa',width:2.5,dash:'dash'},name:'Δy='+Math.abs(dy).toFixed(2)},
       {x:[ax,bx],y:[ay,by],type:'scatter',mode:'lines',line:{color:cat,width:3},name:'d='+d.toFixed(3)},
       {x:[ax,bx],y:[ay,by],type:'scatter',mode:'markers',marker:{color:cat,size:12},showlegend:false},
@@ -12456,11 +12461,11 @@ viz:{type:'unitvec',
     var mx=Math.max(m,1.5)+.5;
     return{data:[
       {x:cx,y:cy,type:'scatter',mode:'lines',line:{color:'rgba(255,255,255,.15)',width:1.5,dash:'dot'},name:'círculo unitario'},
-      {x:[0,ux],y:[0,uy],type:'scatter',mode:'lines',line:{color:'var(--warn)',width:3},name:'u original'},
+      {x:[0,ux],y:[0,uy],type:'scatter',mode:'lines',line:{color:'#FBBF24',width:3},name:'u original'},
       {x:[0,hux],y:[0,huy],type:'scatter',mode:'lines',line:{color:cat,width:3},name:'û = u/|u|'},
       {x:[ux,hux],y:[uy,huy],type:'scatter',mode:'lines',line:{color:'rgba(255,255,255,.2)',width:1,dash:'dot'},showlegend:false},
       {x:[hux],y:[huy],type:'scatter',mode:'markers',marker:{color:cat,size:10},showlegend:false},
-      {x:[ux],y:[uy],type:'scatter',mode:'markers',marker:{color:'var(--warn)',size:9},showlegend:false},
+      {x:[ux],y:[uy],type:'scatter',mode:'markers',marker:{color:'#FBBF24',size:9},showlegend:false},
     ],xrange:[-mx,mx],yrange:[-mx,mx],scaleanchor:true,annots:[{x:hux+.12,y:huy+.12,text:'|û|=1',showarrow:false,font:{color:cat,size:12}}]};
   },
   ann:'El <strong style="color:var(--warn)">vector u</strong> dividido por su módulo da <strong>û</strong> (naranja) en el círculo unitario. Conserva la dirección pero tiene módulo = 1.'
@@ -12478,12 +12483,12 @@ viz:{type:'perp_vec',
       {x:[-m,m],y:[0,0],type:'scatter',mode:'lines',line:{color:'rgba(255,255,255,.08)',width:1},showlegend:false},
       {x:[0,0],y:[-m,m],type:'scatter',mode:'lines',line:{color:'rgba(255,255,255,.08)',width:1},showlegend:false},
       {x:[0,a],y:[0,b],type:'scatter',mode:'lines',line:{color:cat,width:3},name:'u=(a,b)'},
-      {x:[0,-b],y:[0,a],type:'scatter',mode:'lines',line:{color:'var(--warn)',width:3,dash:'dash'},name:'v⊥=(−b,a)'},
+      {x:[0,-b],y:[0,a],type:'scatter',mode:'lines',line:{color:'#FBBF24',width:3,dash:'dash'},name:'v⊥=(−b,a)'},
       {x:[a],y:[b],type:'scatter',mode:'markers',marker:{color:cat,size:10},showlegend:false},
-      {x:[-b],y:[a],type:'scatter',mode:'markers',marker:{color:'var(--warn)',size:10},showlegend:false},
+      {x:[-b],y:[a],type:'scatter',mode:'markers',marker:{color:'#FBBF24',size:10},showlegend:false},
       {x:ax2,y:ay2,type:'scatter',mode:'lines',line:{color:'rgba(255,255,255,.5)',width:1.5},showlegend:false},
     ],xrange:[-m,m],yrange:[-m,m],scaleanchor:true,
-    annots:[{x:a/2+.1,y:b/2+.12,text:'u',showarrow:false,font:{color:cat,size:13}},{x:-b/2-.15,y:a/2+.12,text:'v⊥',showarrow:false,font:{color:'var(--warn)',size:13}},{x:.0,y:-.35,text:'90°',showarrow:false,font:{color:'rgba(255,255,255,.5)',size:11}}]};
+    annots:[{x:a/2+.1,y:b/2+.12,text:'u',showarrow:false,font:{color:cat,size:13}},{x:-b/2-.15,y:a/2+.12,text:'v⊥',showarrow:false,font:{color:'#FBBF24',size:13}},{x:.0,y:-.35,text:'90°',showarrow:false,font:{color:'rgba(255,255,255,.5)',size:11}}]};
   },
   ann:'Intercambia componentes y cambia un signo: (a,b)→(−b,a). El ángulo entre ellos = 90°. Verifica: u·v⊥ = a(−b)+b(a) = <strong>0</strong>.'
 }
@@ -12500,9 +12505,9 @@ viz:{type:'midpoint',
       {x:[0,0],y:[-m,m],type:'scatter',mode:'lines',line:{color:'rgba(255,255,255,.08)',width:1},showlegend:false},
       {x:[ax,bx],y:[ay,by],type:'scatter',mode:'lines',line:{color:cat,width:2.5},name:'segmento AB'},
       {x:[ax,bx],y:[ay,by],type:'scatter',mode:'markers',marker:{color:cat,size:12},showlegend:false},
-      {x:[mx],y:[my],type:'scatter',mode:'markers',marker:{color:'var(--warn)',size:14,symbol:'diamond'},name:'M=(A+B)/2'},
+      {x:[mx],y:[my],type:'scatter',mode:'markers',marker:{color:'#FBBF24',size:14,symbol:'diamond'},name:'M=(A+B)/2'},
       {x:[0,ax],y:[0,ay],type:'scatter',mode:'lines',line:{color:'#a78bfa',width:2,dash:'dash'},name:'|A|='+mod.toFixed(2)},
-    ],xrange:[-m,m],yrange:[-m,m],scaleanchor:true,annots:[{x:ax-.12,y:ay+.2,text:'A',showarrow:false,font:{color:cat,size:13}},{x:bx+.12,y:by+.2,text:'B',showarrow:false,font:{color:cat,size:13}},{x:mx+.18,y:my+.2,text:'M',showarrow:false,font:{color:'var(--warn)',size:13}}]};
+    ],xrange:[-m,m],yrange:[-m,m],scaleanchor:true,annots:[{x:ax-.12,y:ay+.2,text:'A',showarrow:false,font:{color:cat,size:13}},{x:bx+.12,y:by+.2,text:'B',showarrow:false,font:{color:cat,size:13}},{x:mx+.18,y:my+.2,text:'M',showarrow:false,font:{color:'#FBBF24',size:13}}]};
   },
   ann:'El <strong style="color:var(--warn)">punto medio M</strong> balancea el segmento: promedio de coordenadas. El <strong style="color:#a78bfa">módulo |A|</strong> es la distancia al origen = longitud del vector.'
 }
@@ -12516,7 +12521,7 @@ viz:{type:'tank',
     var k=ps.k,t=ps.t,sc=Math.round(ps.sc);
     var y=sc===3?Math.min(5,Math.exp(k*t)):Math.max(0,Math.exp(-k*t));
     var pct=sc===3?Math.min(100,y/5*100):(y*100);
-    var col=sc===1?cat:sc===2?'#38bdf8':'var(--ok)';
+    var col=sc===1?cat:sc===2?'#38bdf8':'#22C55E';
     var wH=Math.round(130*(pct/100)),wY=155-wH;
     var eqn=sc===3?'y(t)=y₀·e^(+kt)':'y(t)=y₀·e^(−kt)';
     var drops=pct>5&&sc!==3?('<circle cx="95" cy="175" r="3" fill="'+col+'" opacity=".7"/><circle cx="93" cy="185" r="2.2" fill="'+col+'" opacity=".5"/><circle cx="97" cy="193" r="2" fill="'+col+'" opacity=".4"/>'):( sc===3?'<polygon points="95,25 90,10 100,10" fill="'+col+'" opacity=".6"/>':'<text x="95" y="180" text-anchor="middle" font-size="8" fill="#7E94C4">vacío</text>');
@@ -12578,7 +12583,7 @@ viz:{type:'bernoulli',
     var ys=vs.map(function(v){var r=v;return (r>0&&isFinite(r)&&alp!==0)?Math.min(5,Math.max(-5,Math.pow(r,1/alp))):null;});
     return{data:[
       {x:xs,y:ys,type:'scatter',mode:'lines',line:{color:cat,width:2.5},name:'y(x) no lineal',connectgaps:false},
-      {x:xs,y:vs,type:'scatter',mode:'lines',line:{color:'var(--warn)',width:2,dash:'dash'},name:'v=y^'+(alp.toFixed(1))+' (lineal)'},
+      {x:xs,y:vs,type:'scatter',mode:'lines',line:{color:'#FBBF24',width:2,dash:'dash'},name:'v=y^'+(alp.toFixed(1))+' (lineal)'},
       {x:[0,4],y:[0,0],type:'scatter',mode:'lines',line:{color:'rgba(255,255,255,.08)',width:1},showlegend:false},
     ],xrange:[0,4],yrange:[-0.5,4]};
   },
@@ -12604,7 +12609,7 @@ viz:{type:'exact',
     }
     return{data:[
       {type:'contour',x:xs,y:ys,z:zData,ncontours:16,contours:{coloring:'lines'},line:{color:'rgba(255,255,255,.1)',width:.8},showscale:false,name:'curvas F=C'},
-      {type:'contour',x:xs,y:ys,z:zData,contours:{type:'constraint',operation:'=',value:C},line:{color:'var(--warn)',width:2.5},showscale:false,name:'F='+C.toFixed(2)+' (sol.)'},
+      {type:'contour',x:xs,y:ys,z:zData,contours:{type:'constraint',operation:'=',value:C},line:{color:'#FBBF24',width:2.5},showscale:false,name:'F='+C.toFixed(2)+' (sol.)'},
       {x:bx,y:by,type:'scatter',mode:'markers',marker:{color:cat,size:3.5,symbol:'triangle-up',opacity:.6},showlegend:false},
     ],xrange:[-3,3],yrange:[-3,3],scaleanchor:true};
   },
@@ -12622,7 +12627,7 @@ viz:{type:'ode1',
     var t2=xs.map(function(x){return Math.max(-8,Math.min(8,C2*Math.exp(m2*x)));});
     var y=xs.map(function(x){return Math.max(-8,Math.min(8,C1*Math.exp(m1*x)+C2*Math.exp(m2*x)));});
     return{data:[
-      {x:xs,y:t1,type:'scatter',mode:'lines',line:{color:'var(--warn)',width:1.5,dash:'dash'},name:'C₁e^(m₁x)'},
+      {x:xs,y:t1,type:'scatter',mode:'lines',line:{color:'#FBBF24',width:1.5,dash:'dash'},name:'C₁e^(m₁x)'},
       {x:xs,y:t2,type:'scatter',mode:'lines',line:{color:'#a78bfa',width:1.5,dash:'dot'},name:'C₂e^(m₂x)'},
       {x:xs,y:y,type:'scatter',mode:'lines',line:{color:cat,width:3},name:'y=C₁e^(m₁x)+C₂e^(m₂x)'},
       {x:[0,4],y:[0,0],type:'scatter',mode:'lines',line:{color:'rgba(255,255,255,.1)',width:1},showlegend:false},
@@ -12642,7 +12647,7 @@ viz:{type:'ode2',
     var t2=xs.map(function(x){return Math.max(-8,Math.min(8,C2*x*Math.exp(m*x)));});
     var y=xs.map(function(x){return Math.max(-8,Math.min(8,(C1+C2*x)*Math.exp(m*x)));});
     return{data:[
-      {x:xs,y:t1,type:'scatter',mode:'lines',line:{color:'var(--warn)',width:1.5,dash:'dash'},name:'C₁e^(mx)'},
+      {x:xs,y:t1,type:'scatter',mode:'lines',line:{color:'#FBBF24',width:1.5,dash:'dash'},name:'C₁e^(mx)'},
       {x:xs,y:t2,type:'scatter',mode:'lines',line:{color:'#a78bfa',width:1.5,dash:'dot'},name:'C₂xe^(mx) ← novedad'},
       {x:xs,y:y,type:'scatter',mode:'lines',line:{color:cat,width:3},name:'y=(C₁+C₂x)e^(mx)'},
       {x:[0,5],y:[0,0],type:'scatter',mode:'lines',line:{color:'rgba(255,255,255,.1)',width:1},showlegend:false},
@@ -12684,19 +12689,19 @@ viz:{type:'wronsk',
     if(a===1){
       data=[
         {x:xs,y:xs.map(Math.sin),type:'scatter',mode:'lines',line:{color:cat,width:2.5},name:'y₁=sin(x)'},
-        {x:xs,y:xs.map(Math.cos),type:'scatter',mode:'lines',line:{color:'var(--warn)',width:2,dash:'dash'},name:'y₂=cos(x)'},
+        {x:xs,y:xs.map(Math.cos),type:'scatter',mode:'lines',line:{color:'#FBBF24',width:2,dash:'dash'},name:'y₂=cos(x)'},
         {x:xs,y:xs.map(function(){return -1;}),type:'scatter',mode:'lines',line:{color:'#a78bfa',width:1.5,dash:'dot'},name:'W=−1 (≠0 ✓)'},
       ];
     } else if(a===2){
       data=[
         {x:xs,y:xs.map(Math.sin),type:'scatter',mode:'lines',line:{color:cat,width:2.5},name:'y₁=sin(x)'},
-        {x:xs,y:xs.map(function(x){return 2*Math.sin(x);}),type:'scatter',mode:'lines',line:{color:'var(--warn)',width:2,dash:'dash'},name:'y₂=2sin(x)'},
-        {x:xs,y:xs.map(function(){return 0;}),type:'scatter',mode:'lines',line:{color:'var(--bad)',width:2.5},name:'W=0 ✗ DEPENDIENTES'},
+        {x:xs,y:xs.map(function(x){return 2*Math.sin(x);}),type:'scatter',mode:'lines',line:{color:'#FBBF24',width:2,dash:'dash'},name:'y₂=2sin(x)'},
+        {x:xs,y:xs.map(function(){return 0;}),type:'scatter',mode:'lines',line:{color:'#F87171',width:2.5},name:'W=0 ✗ DEPENDIENTES'},
       ];
     } else {
       data=[
         {x:xs,y:xs.map(function(x){return Math.min(4,Math.exp(x));}),type:'scatter',mode:'lines',line:{color:cat,width:2.5},name:'y₁=eˣ'},
-        {x:xs,y:xs.map(function(x){return Math.min(4,x*Math.exp(x));}),type:'scatter',mode:'lines',line:{color:'var(--warn)',width:2,dash:'dash'},name:'y₂=xeˣ'},
+        {x:xs,y:xs.map(function(x){return Math.min(4,x*Math.exp(x));}),type:'scatter',mode:'lines',line:{color:'#FBBF24',width:2,dash:'dash'},name:'y₂=xeˣ'},
         {x:xs,y:xs.map(function(x){return Math.min(4,Math.exp(2*x));}),type:'scatter',mode:'lines',line:{color:'#a78bfa',width:1.5,dash:'dot'},name:'W=e^{2x} (>0 ✓)'},
       ];
     }
@@ -12717,9 +12722,9 @@ viz:{type:'wronsk',
   render:function(ps,cat){
    var k=ps.k,P0=ps.P0,xs=lin(0,8,300);
    var ys=xs.map(function(t){return Math.min(P0*Math.exp(k*t),50);});
-   var color=k>0?'var(--ok)':k<0?'#fb7185':cat;
+   var color=k>0?'#22C55E':k<0?'#fb7185':cat;
    var trc=[{x:xs,y:ys,type:'scatter',mode:'lines',line:{color:color,width:2.5},name:'P(t)=P₀eᵏᵗ'}];
-   if(k>0&&Math.log(2)/k<=8){var td=Math.log(2)/k;trc.push({x:[td],y:[P0*2],type:'scatter',mode:'markers',marker:{color:'var(--ok)',size:10,symbol:'star'},name:'t×2'});}
+   if(k>0&&Math.log(2)/k<=8){var td=Math.log(2)/k;trc.push({x:[td],y:[P0*2],type:'scatter',mode:'markers',marker:{color:'#22C55E',size:10,symbol:'star'},name:'t×2'});}
    if(k<0&&Math.log(2)/(-k)<=8){var th=Math.log(2)/(-k);trc.push({x:[th],y:[P0*.5],type:'scatter',mode:'markers',marker:{color:'#fb7185',size:10,symbol:'star'},name:'vida½'});}
    return {data:trc,xrange:[0,8],yrange:[0,Math.min(50,P0*Math.exp(Math.max(0,k)*8)*1.15)]};},
   ann:'<strong style="color:var(--ok)">Verde=crecimiento</strong>. <strong style="color:#fb7185">Rojo=decaimiento</strong>. marca el tiempo de duplicación o vida media.'
@@ -12736,7 +12741,7 @@ viz:{type:'wronsk',
    return {data:[
     {x:xs,y:xs.map(function(t){return Tm+(T0-Tm)*Math.exp(k*t);}),type:'scatter',mode:'lines',line:{color:cat,width:2.5},name:'T(t)'},
     {x:[0,20],y:[Tm,Tm],type:'scatter',mode:'lines',line:{color:'rgba(255,255,255,.2)',width:1.5,dash:'dot'},name:'T_m='+Tm+'°C'},
-    {x:[0],y:[T0],type:'scatter',mode:'markers',marker:{color:'var(--warn)',size:9},name:'T₀='+T0+'°C'},
+    {x:[0],y:[T0],type:'scatter',mode:'markers',marker:{color:'#FBBF24',size:9},name:'T₀='+T0+'°C'},
    ],xrange:[0,20],yrange:[Tm-2,T0+2]};},
   ann:'La curva decae exponencialmente hacia la temperatura ambiente T_m. Simula un café, el cuerpo humano o un horno.'
  }
@@ -12748,7 +12753,7 @@ viz:{type:'coefind',
   render:function(ps,cat){
     var tp=Math.round(ps.tp);
     var rows=[
-      {g:'cte (k)',yp:'A',ex:'y=A → Ay\'\'=0, A·k=k → A=1',c:'var(--warn)'},
+      {g:'cte (k)',yp:'A',ex:'y=A → Ay\'\'=0, A·k=k → A=1',c:'#FBBF24'},
       {g:'e^(ax)',yp:'A·e^(ax)',ex:'si a no es raíz de la homogénea'},
       {g:'xⁿ (pol. grado n)',yp:'Aₙxⁿ+…+A₀',ex:'polinomio completo del mismo grado'},
       {g:'sin(bx) o cos(bx)',yp:'A·sin(bx)+B·cos(bx)',ex:'SIEMPRE los dos términos'},
@@ -12790,9 +12795,9 @@ viz:{type:'varpar',
     var ytot=xs.map(function(x,i){return Math.max(-5,Math.min(5,yc[i]+yp[i]));});
     return{data:[
       {x:xs,y:yc,type:'scatter',mode:'lines',line:{color:'rgba(255,255,255,.25)',width:1.5,dash:'dot'},name:'yc (homogénea)'},
-      {x:xs,y:yp,type:'scatter',mode:'lines',line:{color:'var(--warn)',width:2},name:'yp (particular)'},
+      {x:xs,y:yp,type:'scatter',mode:'lines',line:{color:'#FBBF24',width:2},name:'yp (particular)'},
       {x:xs,y:ytot,type:'scatter',mode:'lines',line:{color:cat,width:2.5},name:'y=yc+yp'},
-      {x:[x0],y:[yp[Math.floor(x0*100)]||0],type:'scatter',mode:'markers',marker:{color:'var(--warn)',size:10},showlegend:false},
+      {x:[x0],y:[yp[Math.floor(x0*100)]||0],type:'scatter',mode:'markers',marker:{color:'#FBBF24',size:10},showlegend:false},
     ],xrange:[0,5],yrange:[-5,5]};
   },
   ann:'<strong>yp</strong> (amarilla) se construye como u₁(x)y₁+u₂(x)y₂ donde u₁, u₂ se obtienen integrando. La solución total = yc (homogénea) + yp (particular). Cambia g(x).'
@@ -12816,8 +12821,8 @@ viz:{type:'rl_circ',
      +'<line x1="23" y1="100" x2="23" y2="130" stroke="'+cat+'" stroke-width="2"/>'
      +'<line x1="23" y1="130" x2="270" y2="130" stroke="'+cat+'" stroke-width="2"/>'
      +'<line x1="270" y1="130" x2="270" y2="60" stroke="'+cat+'" stroke-width="2"/>'
-     +'<path d="M80,60 l5,-8 10,16 10,-16 10,16 10,-16 5,8" fill="none" stroke="var(--warn)" stroke-width="2.5"/>'
-     +'<text x="110" y="50" text-anchor="middle" font-family="IBM Plex Mono" font-size="8" fill="var(--warn)">R</text>'
+     +'<path d="M80,60 l5,-8 10,16 10,-16 10,16 10,-16 5,8" fill="none" stroke="#FBBF24" stroke-width="2.5"/>'
+     +'<text x="110" y="50" text-anchor="middle" font-family="IBM Plex Mono" font-size="8" fill="#FBBF24">R</text>'
      +'<line x1="130" y1="60" x2="170" y2="60" stroke="'+cat+'" stroke-width="2"/>'
      +'<path d="M170,60 c0,-12 10,-12 10,0 c0,-12 10,-12 10,0 c0,-12 10,-12 10,0 c0,-12 10,-12 10,0" fill="none" stroke="#a78bfa" stroke-width="2.5"/>'
      +'<text x="210" y="50" text-anchor="middle" font-family="IBM Plex Mono" font-size="8" fill="#a78bfa">L</text>'
@@ -13053,7 +13058,7 @@ function toggleReto(fIdx){
   var btn=document.getElementById('reto-btn'),ov=document.getElementById('reto-overlay');
   if(!ov)return;
   ov.classList.toggle('show',_reto);
-  if(btn){if(_reto){btn.innerHTML='<svg width="12" height="12" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" style="vertical-align:-2px"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg> Salir del reto';btn.style.cssText='border-color:rgba(248,113,113,.3);color:var(--bad);background:rgba(248,113,113,.07)';}else{btn.innerHTML='<svg width="12" height="12" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" style="vertical-align:-2px"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg> Modo Reto';btn.style.cssText='';}}
+  if(btn){if(_reto){btn.innerHTML='<svg width="12" height="12" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" style="vertical-align:-2px"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg> Salir del reto';btn.style.cssText='border-color:rgba(248,113,113,.3);color:#F87171;background:rgba(248,113,113,.07)';}else{btn.innerHTML='<svg width="12" height="12" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" style="vertical-align:-2px"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg> Modo Reto';btn.style.cssText='';}}
 }
 /* ══ SELECT ══ */
 function sel(i){
