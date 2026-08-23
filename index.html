@@ -9594,6 +9594,28 @@ var PT_LEVELS=[
     walls:[{xr:0.28,yr:0.15,wr:0.05,hr:0.3},
       {xr:0.28,yr:0.6,wr:0.05,hr:0.3,move:{axis:'y',rangeR:[0.05,0.4],speed:0.006}},
       {xr:0.6,yr:0.35,wr:0.05,hr:0.3,move:{axis:'x',rangeR:[0.55,0.75],speed:0.005}}]},
+  /* Niveles 7-10: dificultad progresiva -- mas muros, mas muros en
+     movimiento simultaneo, radio de objetivo mas chico. Mismo formato de
+     coordenadas relativas (0-1) que los niveles existentes, revisado para
+     que ningun muro tape la bola inicial ni el objetivo. */
+  {ball:{xr:0.08,yr:0.1,vx:2.7,vy:1.6},target:{xr:0.88,yr:0.88,r:15},
+    walls:[{xr:0.3,yr:0.35,wr:0.16,hr:0.05,move:{axis:'x',rangeR:[0.15,0.5],speed:0.007}},
+      {xr:0.65,yr:0.25,wr:0.05,hr:0.22},
+      {xr:0.5,yr:0.7,wr:0.2,hr:0.05}]},
+  {ball:{xr:0.1,yr:0.88,vx:3.0,vy:-1.3},target:{xr:0.9,yr:0.12,r:15},
+    walls:[{xr:0.35,yr:0.6,wr:0.05,hr:0.28,move:{axis:'y',rangeR:[0.35,0.75],speed:0.008}},
+      {xr:0.6,yr:0.4,wr:0.18,hr:0.05,move:{axis:'x',rangeR:[0.4,0.72],speed:0.006}},
+      {xr:0.2,yr:0.2,wr:0.14,hr:0.05}]},
+  {ball:{xr:0.06,yr:0.5,vx:3.3,vy:0.9},target:{xr:0.93,yr:0.5,r:14},
+    walls:[{xr:0.25,yr:0.2,wr:0.05,hr:0.25,move:{axis:'y',rangeR:[0.05,0.45],speed:0.009}},
+      {xr:0.5,yr:0.75,wr:0.05,hr:0.25,move:{axis:'y',rangeR:[0.4,0.85],speed:0.007}},
+      {xr:0.72,yr:0.3,wr:0.05,hr:0.25,move:{axis:'x',rangeR:[0.6,0.8],speed:0.008}},
+      {xr:0.35,yr:0.5,wr:0.15,hr:0.04}]},
+  {ball:{xr:0.09,yr:0.09,vx:3.2,vy:2.0},target:{xr:0.9,yr:0.9,r:12},
+    walls:[{xr:0.3,yr:0.3,wr:0.16,hr:0.05,move:{axis:'x',rangeR:[0.15,0.55],speed:0.009}},
+      {xr:0.65,yr:0.55,wr:0.16,hr:0.05,move:{axis:'x',rangeR:[0.45,0.8],speed:0.008}},
+      {xr:0.5,yr:0.2,wr:0.05,hr:0.15,move:{axis:'y',rangeR:[0.08,0.35],speed:0.01}},
+      {xr:0.2,yr:0.7,wr:0.05,hr:0.18,move:{axis:'y',rangeR:[0.5,0.85],speed:0.009}}]},
 ];
 function startPortal(){
   showScr('portal');ptLevelIdx=0;
@@ -9726,6 +9748,14 @@ var DS_LEVELS=[
   { label:'f(x) = √(9 - x²)', test:function(x){ return x>=-3&&x<=3; }, lo:-6, hi:6 },
   { label:'f(x) = ln(4 - x)', test:function(x){ return x<4; }, lo:-4, hi:10 },
   { label:'f(x) = 1/√(x - 1)', test:function(x){ return x>1; }, lo:-4, hi:10 },
+  /* Niveles 7-10: mismo formato, dominios genuinamente mas dificiles de
+     calcular mentalmente (dos exclusiones, dominio disjunto por log,
+     analisis de signo dentro de una raiz) en vez de solo un tipo distinto
+     de restriccion con la misma dificultad conceptual. */
+  { label:'f(x) = 1/(x² - 4)', test:function(x){ return x!==2 && x!==-2; }, lo:-6, hi:8 },
+  { label:'f(x) = ln(x² - 1)', test:function(x){ return x<-1 || x>1; }, lo:-6, hi:8 },
+  { label:'f(x) = √((x-1)/(x+2))', test:function(x){ return x<-2 || x>=1; }, lo:-8, hi:8 },
+  { label:'f(x) = 1/ln(x)', test:function(x){ return x>0 && x!==1; }, lo:-4, hi:10 },
 ];
 var DS_EAT_PER_LEVEL=6;
 function startDomainSnake(){
@@ -9924,6 +9954,15 @@ var VC_LEVELS=[
   {start:{x:0,y:0},target:{x:4,y:4},half:6,vecs:[{x:2,y:1},{x:1,y:3},{x:1,y:0},{x:-1,y:2,trap:true}]},
   {start:{x:0,y:0},target:{x:-3,y:-3},half:6,vecs:[{x:-1,y:-2},{x:-2,y:-1},{x:1,y:1,trap:true},{x:3,y:0,trap:true}]},
   {start:{x:0,y:0},target:{x:6,y:-2},half:7,vecs:[{x:3,y:0},{x:2,y:-3},{x:1,y:1},{x:-1,y:2,trap:true},{x:2,y:2,trap:true}]},
+  /* Niveles 7-10: dificultad progresiva (mas vectores, mas trampas, mas
+     pasos minimos). Cada uno verificado programaticamente (fuerza bruta
+     sobre todos los subconjuntos, mismo algoritmo que vcMinVecs) para
+     confirmar que SI existe una combinacion exacta antes de agregarlo --
+     nunca a mano, un vector de mas o de menos deja el nivel imposible. */
+  {start:{x:0,y:0},target:{x:7,y:1},half:8,vecs:[{x:4,y:-1},{x:2,y:3},{x:1,y:-1},{x:-2,y:2,trap:true},{x:3,y:3,trap:true}]},
+  {start:{x:0,y:0},target:{x:-5,y:6},half:8,vecs:[{x:-2,y:3},{x:-1,y:1},{x:-3,y:1},{x:1,y:1},{x:2,y:-2,trap:true}]},
+  {start:{x:0,y:0},target:{x:8,y:-4},half:9,vecs:[{x:3,y:-1},{x:2,y:-2},{x:3,y:-1},{x:-1,y:3,trap:true},{x:4,y:2,trap:true},{x:1,y:-3,trap:true}]},
+  {start:{x:0,y:0},target:{x:-6,y:-5},half:9,vecs:[{x:-2,y:-2},{x:-1,y:-1},{x:-3,y:-1},{x:-1,y:-2},{x:2,y:1,trap:true},{x:-4,y:3,trap:true}]},
 ];
 function startVectores(){
   showScr('vectores');vcLevelIdx=0;
