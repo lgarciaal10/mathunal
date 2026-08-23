@@ -14937,6 +14937,8 @@ function muAplicarPremium(){
   if (muEsPremium()) document.documentElement.classList.add('is-premium');
   else document.documentElement.classList.remove('is-premium');
 }
+window.muEsPremium = muEsPremium;
+window.muAplicarPremium = muAplicarPremium;
 
 /* Trae las URLs reales de los archivos premium -- SOLO se obtienen aca, nunca
    estan en el HTML ni en la respuesta publica de /rest/v1/materiales (esa
@@ -15039,13 +15041,16 @@ function muAbrirModalPremium(){
   var en = (window.curLang==='en');
   var m = document.createElement('div');
   m.id = 'mu-modal-premium';
+  m.setAttribute('role','dialog');
+  m.setAttribute('aria-modal','true');
+  m.setAttribute('aria-labelledby','mu-pm-title');
   m.style.cssText = 'position:fixed;inset:0;z-index:9999;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,.7);backdrop-filter:blur(4px)';
   var emailGuardado = '';
   try { emailGuardado = localStorage.getItem('mu-email') || ''; } catch(e){}
   m.innerHTML =
     '<div style="background:var(--card);border:2px solid var(--br2);border-radius:18px;padding:2rem;max-width:380px;width:90%;position:relative">' +
       '<button onclick="muCerrarModalPremium()" aria-label="'+(en?'Close':'Cerrar')+'" style="position:absolute;top:1rem;right:1rem;background:none;border:none;color:var(--t2);font-size:1.3rem;cursor:pointer;line-height:1"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>' +
-      '<div style="font-size:1.3rem;font-weight:800;color:var(--t1);margin-bottom:.3rem;display:flex;align-items:center;gap:.4rem;justify-content:center"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 9.9-1"/></svg> '+(en?'Unlock solutions':'Desbloquear soluciones')+'</div>' +
+      '<div id="mu-pm-title" style="font-size:1.3rem;font-weight:800;color:var(--t1);margin-bottom:.3rem;display:flex;align-items:center;gap:.4rem;justify-content:center"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 9.9-1"/></svg> '+(en?'Unlock solutions':'Desbloquear soluciones')+'</div>' +
       '<div style="font-size:.88rem;color:var(--t2);margin-bottom:1.2rem">'+(en?'Full access to every step-by-step solution · ':'Acceso completo a todas las soluciones paso a paso · ')+'<strong style="color:var(--acc)">$12.000 COP</strong> · '+(en?'one-time payment':'pago único')+'</div>' +
       '<label style="font-size:.83rem;color:var(--t3);display:block;margin-bottom:.4rem">'+(en?'Your email':'Tu correo electrónico')+'</label>' +
       '<input id="mu-pm-email" type="email" placeholder="'+(en?'you@email.com':'tu@correo.com')+'" value="'+emailGuardado+'" ' +
@@ -15060,6 +15065,16 @@ function muAbrirModalPremium(){
     '</div>';
   document.body.appendChild(m);
   m.addEventListener('click', function(e){ if(e.target===m) muCerrarModalPremium(); });
+  m.addEventListener('keydown', function(e){
+    if (e.key==='Escape'){ e.preventDefault(); muCerrarModalPremium(); return; }
+    if (e.key==='Tab'){
+      var focusables = m.querySelectorAll('button, input, [tabindex]:not([tabindex="-1"])');
+      if (!focusables.length) return;
+      var first = focusables[0], last = focusables[focusables.length-1];
+      if (e.shiftKey && document.activeElement===first){ e.preventDefault(); last.focus(); }
+      else if (!e.shiftKey && document.activeElement===last){ e.preventDefault(); first.focus(); }
+    }
+  });
   setTimeout(function(){ var i=document.getElementById('mu-pm-email'); if(i&&!emailGuardado) i.focus(); }, 100);
 }
 
