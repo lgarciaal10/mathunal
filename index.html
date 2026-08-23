@@ -3704,6 +3704,18 @@ input:not([type=checkbox]):not([type=radio]):focus,select:focus,textarea:focus{
 .cp-j-desc{font-size:.85rem;color:var(--t2);line-height:1.65}
 .cp-j-action{font-size:.78rem;font-weight:600;color:var(--acc);margin-top:.3rem;display:none}
 .cp-j-step.active .cp-j-action{display:block}
+/* Antes solo .cp-j-action ("Clic para continuar") senalaba interactividad,
+   y vivia EN la tarjeta ya activa -- donde hacer clic no hace nada (ya esta
+   revelada). Las tarjetas siguientes SI son clicables (avanzan la historia)
+   pero no tenian ninguna senal visible mas alla de cursor:pointer al pasar
+   el mouse. Este chevron es visible siempre en las tarjetas colapsadas,
+   sin depender de hover ni de un texto que podia ser enganoso. */
+.cp-j-step:not(.active):not(.done)::after{
+  content:'›'; margin-left:auto; padding-left:.5rem; flex-shrink:0;
+  font-size:1.3rem; font-weight:700; color:var(--t3); align-self:center;
+  transition:transform .15s, color .15s;
+}
+.cp-j-step:not(.active):not(.done):hover::after{ transform:translateX(3px); color:var(--acc); }
 .cp-j-result{
   text-align:center;padding:2rem;margin-top:1rem;
   background:var(--card);border:2px solid var(--br2);border-radius:var(--radius-lg);
@@ -5127,7 +5139,7 @@ bancoRender();
             <div class="cp-j-title">Buscas parciales anteriores</div>
             <div class="cp-j-desc">En grupos de WhatsApp, drives de otros semestres, fotocopias sueltas. Pierdes 2 horas buscando material que no sabes si sirve.</div>
           </div>
-          <div class="cp-j-action">Clic para continuar →</div>
+          <div class="cp-j-action">↓ Sigue el paso 2</div>
         </div>
         <div class="cp-j-step" data-i="1" onclick="cpReveal('sin',1)">
           <div class="cp-j-num" style="background:rgba(248,113,113,.12);color:var(--bad)">2</div>
@@ -5167,7 +5179,7 @@ bancoRender();
             <div class="cp-j-title">Abres tu materia en un clic</div>
             <div class="cp-j-desc"><span data-mu-pdfs>0</span> PDFs organizados por semestre, tipo y materia. Todo verificado. Sin buscar en WhatsApp ni drives perdidos.</div>
           </div>
-          <div class="cp-j-action" style="color:var(--ok)">Clic para continuar →</div>
+          <div class="cp-j-action" style="color:var(--ok)">↓ Sigue el paso 2</div>
         </div>
         <div class="cp-j-step" data-i="1" onclick="cpReveal('con',1)">
           <div class="cp-j-num" style="background:rgba(34,197,94,.1);color:var(--ok)">2</div>
@@ -13469,7 +13481,7 @@ var LANG_ES={
   "cp-sin-3-d":"Sin cronómetro, sin formato SIDEX, sin saber si vas bien o mal. El día del parcial todo se siente diferente.",
   "cp-sin-4-t":"Llegas al parcial sin confianza",
   "cp-sin-4-d":"Primera vez que ves el formato real. El tiempo se siente diferente. Eso se refleja en la nota.",
-  "cp-action":"Clic para continuar →",
+  "cp-action":"↓ Sigue el paso 2",
   "cp-sin-result-l":"Promedio típico sin práctica estructurada",
   "cp-sin-switch":"¿Y con MathUNAL? →",
   "cp-con-1-t":"Abres tu materia en un clic",
@@ -13736,7 +13748,7 @@ var LANG_EN={
   "cp-sin-3-d":"No timer, no SIDEX format, no way to know if you're doing well. Exam day feels completely different.",
   "cp-sin-4-t":"You walk into the exam without confidence",
   "cp-sin-4-d":"First time seeing the real format. Time feels different. It shows in your grade.",
-  "cp-action":"Click to continue →",
+  "cp-action":"↓ See step 2",
   "cp-sin-result-l":"Typical average without structured practice",
   "cp-sin-switch":"What about with MathUNAL? →",
   "cp-con-1-t":"You open your subject in one click",
