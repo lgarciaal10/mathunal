@@ -4670,7 +4670,7 @@ customElements.define('glass-element', GlassElement);
     <a href="#materias" class="nav-sec-link">Materias</a>
     <a href="#simulacro" class="nav-sec-link">Simulacros</a>
     <div class="settings-wrap"><button class="settings-btn" aria-label="Ajustes" onclick="toggleSettings(this)" aria-haspopup="true" aria-expanded="false" aria-controls="sd"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></button>
-      <div class="settings-dropdown" id="sd"><div class="sd-section"><div class="sd-label">TEMA</div><div class="sd-row">
+      <div class="settings-dropdown" id="sd"><div class="sd-section"><div class="sd-label">IDIOMA</div><div class="sd-row"><button class="sd-btn on" id="btn-es" onclick="setLang('es')">ES</button><button class="sd-btn" id="btn-en" onclick="setLang('en')">EN</button></div></div><div class="sd-section"><div class="sd-label">TEMA</div><div class="sd-row">
         <button class="sd-btn on" id="th-dark" onclick="setTheme('dark')"><svg width="13" height="13" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" style="vertical-align:-2px"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg> Dark</button>
         <button class="sd-btn" id="th-gray" onclick="setTheme('gray')"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" style="vertical-align:-2px"><circle cx="12" cy="12" r="9"/></svg> Gris</button>
         <button class="sd-btn" id="th-light" onclick="setTheme('light')"><svg width="13" height="13" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" style="vertical-align:-2px"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.2" y1="4.2" x2="5.6" y2="5.6"/><line x1="18.4" y1="18.4" x2="19.8" y2="19.8"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.2" y1="19.8" x2="5.6" y2="18.4"/><line x1="18.4" y1="5.6" x2="19.8" y2="4.2"/></svg> Light</button>
@@ -6517,1091 +6517,7 @@ function syncMobTheme(t){
 /* setTheme: definida una sola vez, en el script persistente (ver fondo del archivo). */
 (function(){try{var t=localStorage.getItem('mu-theme');if(t)document.documentElement.setAttribute('data-theme',t);}catch(e){}})();
 
-/* ── LANGUAGE ── */
-var LANG_ES={
-  /* Nav */
-  "nav-cta":"Banco de Exámenes",
-  "nav-simulacros":"Simulacros","nav-banco":"Banco PDF","nav-formulas":"Formulario",
-  "nav-aportar":"Aportar","nav-promedio":"Promedio","nav-comunidad":"Comunidad",
-  /* Hero */
-  "hero-badge":"Repositorio no oficial · UNAL Medellín · 2026",
-  "hero-tag":"Un cuaderno compartido entre estudiantes de ingeniería",
-  "hero-sub":"Talleres, parciales resueltos, libros guía y solucionarios para las <strong>6 materias</strong> del núcleo de matemáticas.",
-  "hero-btn1":"<svg width='13' height='13' viewBox='0 0 24 24' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' fill='none' style='vertical-align:-2px'><path d='M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z'/><path d='M14 2v6h6'/></svg> Ver Banco de Exámenes →","hero-btn2":"▶ Iniciar Simulacro",
-  "hero-stat1":"PDFs disponibles","hero-stat2":"Exámenes con solución","hero-stat3":"Materias con PDF","hero-stat4":"Estudiantes",
-  "cat-tab1":"Talleres","cat-tab2":"Parciales Resueltos","cat-tab3":"Quices","cat-tab4":"Libros Guía","cat-tab5":"Notas de Clase",
-  /* Materias */
-  "mat-label":"Escuela de Matemáticas · UNAL Medellín","mat-h":"Elige tu materia",
-  "mat-sub":"11 materias del núcleo de matemáticas. Desde nivelatorio hasta semestre 5.",
-  /* Simulacros */
-  "sim-label":"Practica en condiciones reales",
-  "sim-h":"Simula antes<br>de que sea real.","sim-sub":"Parciales de semestres anteriores como PDF descargable. Pon el cronómetro, cierra el libro y practica.",
-  "sim-f-all":"Todos","sim-f-cd":"Cálculo Dif.","sim-f-ci":"Cálculo Int.","sim-f-al":"Álgebra Lin.","sim-f-mb":"Mat. Básicas","sim-f-edo":"EDO",
-  "panic-title":"Modo Pánico activado","panic-sub":"¿Tienes parcial en menos de 24 horas? Esto es lo que necesitas hacer ahora mismo.",
-  "panic-btn":"<svg width='13' height='13' viewBox='0 0 24 24' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' fill='none' style='vertical-align:-2px'><path d='M7 18v-6a5 5 0 0 1 10 0v6'/><line x1='12' y1='2' x2='12' y2='4'/><rect x='4' y='18' width='16' height='4' rx='1'/></svg> Plan de emergencia",
-  /* Banco */
-  "banco-label":"Generado con IA · Claude Sonnet","banco-h":"Banco de Exámenes","banco-hi":"con Solución",
-  "banco-sub":"Enunciados en LaTeX limpio y soluciones paso a paso generadas con IA. <strong>Descarga directa en PDF.</strong>",
-  "banco-mat":"Materia:","banco-all":"Todas",
-  "banco-search":"Buscar examen...",
-  /* Material */
-  "mat2-label":"Material de Estudio","mat2-h":"Todo lo que necesitas,","mat2-hi":"a tu alcance",
-  "mat2-sub":"Material gratuito para todos. Solucionarios premium para quienes necesitan ir más lejos.",
-  /* Calculadora */
-  "calc-label":"Herramienta gratuita","calc-h":"¿Cuánto necesito<br>para","calc-hi":"pasar?",
-  "calc-sub":"Ingresa las notas que ya tienes y los pesos de cada corte. La calculadora te dice exactamente qué necesitas.",
-  "calc-tab1":"2 Cortes","calc-tab2":"3 Cortes","calc-tab3":"4 Cortes",
-  /* Comunidad */
-  "comm-label":"Comunidad","comm-h":"No estudies solo,","comm-hi":"únete",
-  "comm-sub":"Más de 2.400 estudiantes de ingeniería ya hacen parte de la comunidad MathUNAL.",
-  /* Aportar */
-  "aportar-label":"Contribuye al banco","aportar-h":"¿Tienes material?","aportar-hi":"Compártelo.",
-  "aportar-sub":"Cualquier estudiante, egresado o profesor puede aportar talleres, parciales, quices o apuntes.",
-  /* Promedio */
-  "prom-label":"Calculadora UNAL","prom-h":"Promedio ponderado","prom-hi":"por créditos",
-  "prom-sub":"Ingresa tus materias con créditos y notas. Calcula tu promedio ponderado semestral y acumulado.",
-  /* Stats / testimonios */
-  "stats-s1":"Estudiantes ayudados","stats-s2":"Archivos disponibles","stats-s3":"Materias cubiertas","stats-s4":"Tipos de material",
-  "test-label":"Lo que dicen los estudiantes","test-h":"Estudiantes reales,","test-hi":"resultados reales",
-  /* Footer */
-  "foot-desc":"Un cuaderno compartido entre estudiantes de ingeniería de la UNAL Medellín. No oficial, hecho con cariño.",
-  "foot-com":"Comunidad","foot-contact":"Contacto","foot-mats":"Materias",
-  "foot-copy":"© 2026 MathUNAL · Proyecto estudiantil independiente · No afiliado a la UNAL",
-  /* Ciclo del Parcial */
-  "cp-tag":"El problema que resuelve MathUNAL",
-  "cp-sub":"Las matemáticas no son el problema. El problema es no tener dónde practicar en el formato real de tu examen.",
-  "cp-title-default":"El parcial llega.<br>¿Dónde practicas el <em>formato real</em>?",
-  "cp-btn-sin":"✗ Sin MathUNAL","cp-btn-con":"✓ Con MathUNAL","cp-btn-vs":"Comparar",
-  "cp-sin-1-t":"Buscas parciales anteriores",
-  "cp-sin-1-d":"En grupos de WhatsApp, drives de otros semestres, fotocopias sueltas. Pierdes 2 horas buscando material que no sabes si sirve.",
-  "cp-sin-2-t":"Encuentras 2 parciales, sin solucionario",
-  "cp-sin-2-d":"No sabes si las respuestas que circulan están bien. No hay procedimiento. Resuelves a ciegas.",
-  "cp-sin-3-t":"Practicas sin condiciones reales",
-  "cp-sin-3-d":"Sin cronómetro, sin formato SIDEX, sin saber si vas bien o mal. El día del parcial todo se siente diferente.",
-  "cp-sin-4-t":"Llegas al parcial sin confianza",
-  "cp-sin-4-d":"Primera vez que ves el formato real. El tiempo se siente diferente. Eso se refleja en la nota.",
-  "cp-action":"Clic para continuar →",
-  "cp-sin-result-l":"Promedio típico sin práctica estructurada",
-  "cp-sin-switch":"¿Y con MathUNAL? →",
-  "cp-con-1-t":"Abres tu materia en un clic",
-  "cp-con-1-d-pre":"PDFs organizados por semestre, tipo y materia. Todo verificado. Sin buscar en WhatsApp ni drives perdidos.",
-  "cp-con-2-t":"Estudias con solucionario paso a paso",
-  "cp-con-2-d":"Cada ejercicio resuelto con procedimiento completo. Sabes exactamente dónde fallaste y por qué.",
-  "cp-con-3-t":"Haces un simulacro en condiciones reales",
-  "cp-con-3-d":"Mismo formato SIDEX, mismo tiempo, misma presión. Pero con retroalimentación inmediata al terminar.",
-  "cp-con-4-t":"Llegas preparado y con confianza",
-  "cp-con-4-d":"Ya viste el formato. Ya mediste tu tiempo. Ya sabes que puedes. Eso se refleja en la nota.",
-  "cp-con-result-l":"Promedio con práctica estructurada",
-  "cp-con-switch":"Ver la comparación →",
-  "cp-vs-1":"Buscar en WhatsApp","cp-vs-2":"Sin solucionario","cp-vs-3":"Sin simulacro real","cp-vs-4":"Sin confianza",
-  "cp-vs-5":"Todo organizado","cp-vs-6":"Solucionario completo","cp-vs-7":"Simulacro SIDEX real","cp-vs-8":"Preparado y seguro",
-  "cp-quote":"\"No es que los estudiantes no quieran aprender. Es que nunca tuvieron dónde practicar con rigor.\"",
-  /* Banner Semana del Parcial */
-  "banner-label":"Semana del Parcial","banner-cta":"Ver plan →",
-  /* Mapa de contenido */
-  "cm-tag":"Qué hay disponible","cm-title":"Todo el contenido, de un vistazo",
-  "cm-l-parciales":"Parciales","cm-l-talleres":"Talleres","cm-l-quices":"Quices",
-  "cm-l-simulacros":"Simulacros","cm-l-solucionarios":"Solucionarios","cm-l-total":"Total",
-  /* Asi de simple (3 pasos) */
-  "hf-tag":"Así de simple",
-  "hf-title":"Tres pasos para llegar<br>preparado al parcial",
-  "hf-1-t":"Elige tu materia",
-  "hf-1-d":"Cálculo Diferencial, Álgebra Lineal, EDO — todos los parciales anteriores organizados por semestre, sin buscar en grupos de WhatsApp.",
-  "hf-2-t":"Practica con solucionario",
-  "hf-2-d":"Cada ejercicio resuelto paso a paso. No circulares de WhatsApp sin procedimiento — el método completo para entender dónde fallaste.",
-  "hf-3-t":"Simula en condiciones reales",
-  "hf-3-d":"Simulacros con cronómetro en formato SIDEX — el mismo que usa la UNAL. Ya conoces el formato. Ya sabes cuánto tiempo tienes. Llegas preparado.",
-  "explorar-materias":"Explorar materias →",
-  "hf-cta-note":"Gratis · Sin registro · Sin anuncios",
-  /* Nav more dropdown */
-  "nmd-1-t":"Banco PDF","nmd-1-s":"Todos los parciales y talleres",
-  "nmd-2-t":"Calcular Promedio","nmd-2-s":"Simula tu nota final",
-  "nmd-3-t":"Aportar","nmd-3-s":"Sube material al repositorio",
-  "nmd-4-t":"Comunidad","nmd-4-s":"Foro de estudiantes",
-  "hero-ctx":"núcleo completo",
-  /* Panic Modal */
-  "pm-title":"Parcial en &lt;24h","pm-sub":"Ejecuta esto en orden. No improvises.",
-  "pm-1-t":"Lee el programa del curso","pm-1-d":"Identifica los temas del corte. No estudies lo que no entra.",
-  "pm-2-t":"Descarga 2 simulacros del tema","pm-2-d":"Haz el más reciente con el cronómetro puesto.",
-  "pm-3-t":"Revisa con el solucionario","pm-3-d":"Cada ejercicio que no resolviste, véalo en el Pack Salva-Semestre. Entiende el procedimiento.",
-  "pm-4-t":"Haz el segundo simulacro","pm-4-d":"Sin el solucionario. Cronómetro en marcha. Si lo acabas en tiempo, ya puedes dormir.",
-  "pm-5-t":"Duerme al menos 5 horas","pm-5-d":"La memoria consolida mientras duermes. El madrugón de las 4 a.m. va a hacer más daño que bien.",
-  "pm-tip":"<strong>Dato de monitor:</strong> Los últimos parciales de Cálculo Diferencial siempre incluyen optimización. Repasa ese tema. <strong>Está en el Pack.</strong>",
-  /* Week Modal */
-  "wm-title":"Plan de la Semana del Parcial","wm-sub":"Dinos qué parcial tienes y para cuándo. Generamos un plan día por día.",
-  "wm-mat-l":"Materia","wm-corte-l":"Corte / Parcial","wm-fecha-l":"Fecha del parcial",
-  "wm-gen-btn":"Generar mi plan →",
-  /* Timeline header */
-  "tl-tag":"La historia detrás","tl-title":"De un PDF suelto a 60,000 visitas",
-  "tl-sub":"MathUNAL no nació como proyecto. Nació como necesidad.",
-  /* Proximamente */
-  "prox-tag":"En desarrollo · 2026","prox-h":"Más materias llegando pronto",
-  "prox-p":"MathUNAL se expande más allá de matemáticas. Sigue el canal de Telegram para ser el primero.",
-  "prox-1-cat":"Ciencias","prox-1-n":"Física I","prox-1-d":"Mecánica, cinemática, dinámica y energía para ingeniería.",
-  "prox-2-cat":"Ciencias","prox-2-n":"Química General","prox-2-d":"Estequiometría, termodinámica química y electroquímica.",
-  "prox-3-cat":"Matemáticas","prox-3-n":"Estadística","prox-3-d":"Probabilidad, distribuciones y estadística inferencial.",
-  "prox-4-cat":"Ingeniería","prox-4-n":"Mecánica de Sólidos","prox-4-d":"Estática, resistencia de materiales y análisis estructural.",
-  /* Pack v2 (visible) */
-  "pk-tag":"Para ir más lejos","pk-h1":"Todo ya es gratis.","pk-h2":"El solucionario, no.",
-  "pk-sub":"Practicar parciales sin saber dónde fallaste es estudiar a ciegas. El Pack te da el procedimiento completo — paso a paso, con la misma lógica del examen real.",
-  "pk-badge":"Pack Salva-Semestre","pk-new":"✓ Actualizado 2025-2","pk-title":"Solucionarios<br>paso a paso",
-  "pk-desc":"Cada ejercicio resuelto con procedimiento completo. No solo la respuesta — el método. Con anotaciones de monitor y los trucos que no están en el libro.",
-  "pk-i1-t":"150+ parciales resueltos","pk-i1-s":"Procedimiento completo en cada ejercicio",
-  "pk-i2-t":"Talleres con solución comentada","pk-i2-s":"Con notas de monitor incluidas",
-  "pk-i3-t":"Actualizado cada semestre","pk-i3-s":"Parciales más recientes incluidos",
-  "pk-i4-t":"Acceso permanente al Drive","pk-i4-s":"Una sola compra, de por vida",
-  "pk-cmp-h":"¿Qué incluye?","pk-cmp-free":"Gratis","pk-cmp-pack":"Pack",
-  "pk-cmp-1":"Parciales para practicar","pk-cmp-2":"Formularios y simulacros",
-  "pk-cmp-3":"Procedimiento completo","pk-cmp-4":"Anotaciones de monitor",
-  "pk-price-l":"Precio por materia","pk-period":"COP · Acceso permanente · Sin suscripción",
-  "pk-cta":"Desbloquear Solucionario → $12.000",
-  "pk-proof":"<strong>Compra segura por WhatsApp.</strong> Recibes el link de acceso inmediatamente. Sin formularios.",
-  "pk-secure":"Compra segura · Sin datos bancarios",
-  "pk-free-lbl":"Siempre gratis · Sin registro",
-  "pk-free-1":"Parciales sin solución","pk-free-2":"Formularios y tablas","pk-free-3":"Simulacros con cronómetro",
-  "pk-free-4":"Calculadora de notas","pk-free-5":"Libros y notas de clase",
-  "pk-free-cta":"Explorar material gratuito →",
-  /* Calculadora */
-  "calc-tag":"Herramienta gratuita","calc-h1":"¿Cuánto necesito","calc-h2":"para","calc-h2i":"pasar","calc-h2q":"?",
-  "calc-p":"Ingresa las notas que ya tienes y los pesos de cada corte. La calculadora te dice exactamente qué necesitas en el corte pendiente — sin drama, sin calculadoras rotas.",
-  "calc-min":"Nota mínima 3.0 UNAL",
-  "calc-p2":"Los pesos deben sumar <strong style=\"color:var(--t1)\">100%</strong>. La casilla resaltada es el corte que falta — ingresa los que ya tienes.",
-  "calc-tab1":"2 Cortes","calc-tab2":"3 Cortes","calc-tab3":"4 Cortes",
-  "calc-hdr-corte":"Corte","calc-hdr-peso":"Peso (%)","calc-hdr-nota":"Nota (0-5)",
-  "calc-corte1":"1° corte","calc-corte2":"2° corte","calc-corte3":"3° corte","calc-corte4":"4° corte",
-  "calc-need2":"Necesitas en el 2° corte","calc-need3":"Necesitas en el 3° corte","calc-need4":"Necesitas en el 4° corte",
-  "calc-msg":"Ingresa los datos para calcular",
-  /* Comunidad */
-  "comm-lbl":"Comunidad","comm-h":"No estudies solo, <i>únete</i>",
-  "comm-p":"Más de 2.000 estudiantes activos. Parciales compartidos, dudas resueltas y actualizaciones de material cada semana.",
-  "comm-wa-t":"Grupo de WhatsApp","comm-wa-d":"Dudas rápidas, avisos de nuevos materiales y comunidad activa de estudiantes.","comm-wa-l":"Unirse al grupo →",
-  "comm-tg-t":"Canal de Telegram","comm-tg-d":"Notificaciones de nuevos PDFs, actualizaciones del solucionario y anuncios.","comm-tg-l":"Seguir canal →",
-  "comm-dc-t":"Servidor Discord","comm-dc-d":"Canales por materia, sesiones de estudio en voz y resolución colaborativa.","comm-dc-l":"Entrar al servidor →",
-  "comm-ig-t":"@math.unal","comm-ig-d":"Tips de estudio, noticias de la UNAL y actualizaciones de material nuevo.","comm-ig-l":"Seguir en Instagram →",
-  "comm-soon":"Próximamente",
-  /* Estadisticas */
-  "stats-lbl":"El proyecto en números","stats-h":"Lo que han construido los estudiantes",
-  "stats-p":"Un proyecto estudiantil independiente — sin presupuesto institucional, sin empresa detrás.",
-  "stats-1-l":"Visitas al mes","stats-1-ctx":"×3 en semana de parciales",
-  "stats-2-l":"Archivos verificados","stats-2-ctx":"parciales · talleres · libros · notas",
-  "stats-3-l":"Materias cubiertas","stats-3-ctx":"nivelatorio hasta semestre 5",
-  "stats-4-l":"Visitas acumuladas","stats-4-ctx":"desde 2023 · sin inversión externa",
-  /* Aportar */
-  "ap2-lbl":"Contribuye al banco","ap2-h":"¿Tienes material?<br><i>Compártelo.</i>",
-  "ap2-p":"Cualquier estudiante, egresado o profesor puede aportar talleres, parciales, quices o apuntes. Lo revisamos y lo subimos con tu crédito.",
-  "ap2-fast":"✓ MÁS RÁPIDO","ap2-wa-t":"Por WhatsApp",
-  "ap2-wa-d":"Mándanos la foto o PDF directo al chat. Dinos la materia, el año y el tipo de material. Listo.",
-  "ap2-wa-i1":"Respuesta en menos de 24h","ap2-wa-i2":"Sin formularios","ap2-wa-i3":"Te damos crédito en el sitio",
-  "ap2-wa-cta":"Enviar por WhatsApp →",
-  "ap2-em-t":"Por Email o Drive","ap2-em-d":"Para aportes más grandes (varias carpetas, libros, colecciones). Comparte un link de Google Drive o escríbenos.",
-  "ap2-inc-h":"Qué incluir en tu mensaje",
-  "ap2-inc-1":"Materia y semestre (ej: Cálculo Diferencial, 2023-2)","ap2-inc-2":"Tipo: parcial, taller, quiz, notas, libro",
-  "ap2-inc-3":"Link de Drive o adjunto en el correo","ap2-inc-4":"Tu nombre (para el crédito, opcional)",
-  "ap2-acc-h":"Material que aceptamos",
-  "ap2-acc-1":"Parciales y exámenes","ap2-acc-2":"Talleres y guías","ap2-acc-3":"Quices y minipruebas",
-  "ap2-acc-4":"Apuntes de clase","ap2-acc-5":"Formularios hechos a mano","ap2-acc-6":"Libros o capítulos útiles",
-  /* Promedio */
-  "prom-lbl":"Calculadora UNAL","prom-h":"Promedio ponderado<br><i>por créditos</i>",
-  "prom-p":"Ingresa tus materias con créditos y notas. Calcula tu promedio ponderado semestral y acumulado exactamente como lo hace el SIA de la UNAL.",
-  "prom-th-mat":"Materia","prom-th-cred":"Créditos","prom-th-nota":"Nota (0–5)",
-  "prom-add":"+ Agregar materia","prom-sys":"Sistema de créditos UNAL · Nota mínima aprobatoria: 3.0",
-  "prom-q1-h":"¿Por qué por créditos?","prom-q1-d":"El SIA no promedia las notas simples — pesa cada una según los créditos de la materia. Una materia de 4 créditos pesa más que una de 2.",
-  "prom-q2-h":"¿Y si pierdo una?","prom-q2-d":"Una nota por debajo de 3.0 sí cuenta en el promedio. Usa esta calculadora para ver cuánto te baja antes de cancelar o habilitar.",
-  "prom-result-l":"Promedio ponderado",
-  "prom-hint":"Agrega tus materias con créditos y notas. Tu promedio se calcula igual que en el SIA de la UNAL.",
-  "prom-ej":"EJEMPLO RÁPIDO","prom-foot":"Nota mínima aprobatoria: 3.0 · Tope PAES: 3.5 · El SIA redondea a 1 decimal (2.95 → 3.0)",
-  /* Au-s panels 0,1,2 */
-  "au-title":"Un solo proyecto, tres formas de usarlo",
-  "au-tab0":"Estudiante","au-tab1":"Monitor","au-tab2":"Docente",
-  "au-p0-t":"Practica con parciales reales, gratis y sin registro",
-  "au-p0-d":"MathUNAL tiene los parciales que tus compañeros de semestres anteriores ya presentaron, resueltos paso a paso. No necesitas crear cuenta, no necesitas pagar.",
-  "au-p0-i1":"Parciales organizados por materia y semestre","au-p0-i2":"Simulacros con cronómetro y formato SIDEX real",
-  "au-p0-i3":"Solucionarios con procedimiento completo","au-p0-i4":"Formularios de referencia rápida con LaTeX",
-  "au-p0-card-l":"Lo que ya tienen otros estudiantes",
-  "au-p0-quote":"\"Aprender matemáticas de ingeniería no debería depender de con quién te sentaste en clase.\"",
-  "au-p1-t":"Material listo para tus tutorías, sin preparar nada",
-  "au-p1-d":"Si eres monitor de una materia del núcleo, MathUNAL te ahorra horas de preparación. Tienes parciales organizados, simulacros listos para poner, y solucionarios para revisar con tus tutorados.",
-  "au-p1-i1":"Parciales listos para usar como ejercicio en tutoría","au-p1-i2":"Solucionarios para explicar procedimiento paso a paso",
-  "au-p1-i3":"Simulacros para que tus tutorados practiquen solos","au-p1-cta":"Ver banco de exámenes →",
-  "au-p1-card-l":"Ahorro estimado para el monitor","au-p1-stat1":"Ahorro semanal",
-  "au-p1-quote":"\"En vez de buscar material cada semana, lo tengo todo en un solo lugar. Mis tutorados practican solos entre sesiones.\"",
-  "au-p2-t":"Un activo institucional que ya funciona, a costo cero",
-  "au-p2-d":"MathUNAL no es una propuesta — es un servicio activo que la comunidad estudiantil ya usa. Reconocerlo institucionalmente no requiere presupuesto nuevo: el proyecto se mantiene solo.",
-  "au-p2-i1":"Cobertura completa de las 6 materias del núcleo","au-p2-i2":"2,400+ visitas mensuales, 60,000+ acumuladas",
-  "au-p2-i3":"Costo institucional: $0 — alojado en GitHub Pages","au-p2-i4":"Código abierto, auditable, sin dependencias",
-  "au-p2-cta":"Ver propuesta completa →","au-p2-card-l":"Impacto verificable",
-  "au-p2-s1":"Costo institucional","au-p2-s2":"Materias cubiertas","au-p2-s3":"Visitas/mes","au-p2-s4":"Acceso libre",
-  "au-p2-quote":"\"Lo que falta no es tecnología. Es que la Universidad reconozca lo que sus propios estudiantes ya construyeron.\"",
-  /* Apoyar (ap-s) */
-  "ap3-tag":"Apoyar el proyecto",
-  "ap3-title":"Este proyecto es gratuito porque creemos que el acceso a práctica no debería tener precio.",
-  "ap3-desc":"MathUNAL se mantiene con tiempo, café y convicción. No hay empresa detrás, no hay sponsor, no hay anuncios. Si esta plataforma te ahorró tiempo, estrés o una ida a extraordinario — considera devolverle algo.",
-  "ap3-i1":"Hosting: $0 (GitHub Pages)","ap3-i2":"800+ horas invertidas","ap3-i3":"Financiación recibida: $0",
-  "ap3-per":"el costo de un tinto",
-  "ap3-cost":"Con <strong style=\"color:var(--t1)\">$5.000</strong> de 200 personas cubrimos un semestre completo de desarrollo y actualización de contenido.",
-  /* FAQ */
-  "faq-lbl":"Preguntas frecuentes","faq-h":"Todo lo que necesitas saber",
-  "faq-q1":"¿El material es gratuito?",
-  "faq-a1":"Sí. Programas, libros guía, formularios, notas de clase y talleres sin resolver son 100% gratuitos, sin registro ni límites. Los solucionarios con procedimiento completo tienen un costo de $12.000 COP por materia.",
-  "faq-q2":"¿Cómo descargo los PDFs?",
-  "faq-a2":"Los archivos gratuitos están en Google Drive y se descargan directamente. Solo haz clic en \"Descargar\" en la página de la materia. No necesitas cuenta de Google.",
-  "faq-q3":"¿Los simulacros son del mismo nivel que los parciales reales?",
-  "faq-a3":"Sí. Las preguntas están basadas en parciales reales de la UNAL Medellín del 2020 al 2025, con el mismo formato SIDEX: 4 opciones (A-D), enunciados en LaTeX y cronómetro. Cada respuesta incorrecta tiene explicación paso a paso.",
-  "faq-q4":"¿Cómo compro el Pack Salva-Semestre?",
-  "faq-a4":"Por WhatsApp al 316 348 0451. Puedes pagar con Nequi, Bancolombia, VISA o Mastercard. Recibes el acceso al Google Drive del solucionario inmediatamente. El costo es $12.000 COP por materia (acceso permanente).",
-  "faq-q5":"¿El sitio tiene afiliación oficial con la UNAL?",
-  "faq-a5":"No. MathUNAL es un proyecto estudiantil independiente, creado por y para estudiantes de ingeniería de la UNAL Medellín. No tiene afiliación oficial con la Universidad Nacional de Colombia.",
-  "faq-q6":"¿Puedo aportar material?",
-  "faq-a6":"¡Sí! Cualquier estudiante, egresado o profesor puede enviar talleres, parciales, quices o apuntes. Lo revisamos, lo subimos con tu nombre como crédito y queda disponible para toda la comunidad. Escríbenos por WhatsApp.",
-  /* Ruta del semestre */
-  "ruta-tag":"Guía del currículo · Ing. UNAL Medellín","ruta-h":"Tu ruta en matemáticas",
-  "ruta-p":"Las materias del núcleo, de nivelatorio a semestre 5. Haz clic en cualquiera para ir directo al material disponible.",
-  "ruta-niv":"Nivelatorio","ruta-s1":"Semestre 1","ruta-s2":"Semestre 2","ruta-s3":"Semestre 3","ruta-s4":"Semestre 4","ruta-s5":"Semestre 5",
-  "ruta-cta":"Ver todo el material →","ruta-foot":"11 materias · Actualizados cada semestre",
-  /* Mapa del sitio */
-  "smap-tag":"Mapa del sitio","smap-h":"Todo MathUNAL de un vistazo",
-  "smap-col1":"Materias","smap-col2":"Herramientas","smap-col3":"Recursos","smap-col4":"Comunidad",
-  "smap-ver-todas":"Ver todas →","smap-popular":"Popular",
-  "smap-sim":"Simulacros SIDEX","smap-form":"Formulario interactivo","smap-calc":"Calculadora de notas",
-  "smap-prom":"Promedio por créditos","smap-banco":"Banco de exámenes PDF",
-  "smap-pack":"Pack Salva-Semestre","smap-aportar":"Aportar material","smap-hist":"Historia del proyecto",
-  "smap-prox":"Próximamente","smap-faq":"Preguntas frecuentes",
-  "smap-wa":"Grupo WhatsApp","smap-tg":"Telegram (próximo)","smap-dc":"Discord (próximo)",
-  "smap-bottom":"MathUNAL v23 · 2026 · Proyecto estudiantil independiente",
-  "smap-top":"Volver arriba","smap-quick-sim":"Simulacros","smap-quick-banco":"Banco PDF","smap-quick-form":"Formulario",
-  /* Footer */
-  "foot-tagline":"El proyecto de matemáticas para ingeniería de la UNAL Medellín. Hecho por estudiantes, para estudiantes.",
-  "foot-activo":"Activo · 2026",
-  "foot-wa":"Grupo WhatsApp","foot-tg":"Canal Telegram","foot-dc":"Discord","foot-ig":"@math.unal",
-  "foot-bank":"Bancolombia: 678 466 530 80",
-  "foot-vertodas":"Ver todas →",
-  /* Botones flotantes / Pomodoro / Sprint */
-  "fab-semana":"Semana del Parcial","pomo-h":"Pomodoro","pomo-start":"<svg width='11' height='11' viewBox='0 0 24 24' fill='currentColor' style='vertical-align:-1px'><path d='M6 4l14 8-14 8V4z'/></svg> Iniciar","pomo-reset":"<svg width='12' height='12' viewBox='0 0 24 24' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' fill='none' style='vertical-align:-2px'><path d='M21 12a9 9 0 1 1-3-6.7'/><path d='M21 3v6h-6'/></svg> Reset",
-  "mu-calc-h":"Calculadora de nota UNAL","mu-calc-sub":"Ingresa tus parciales y descubre qué necesitas en el final para pasar.",
-  "mu-calc-p1":"Parcial 1","mu-calc-p2":"Parcial 2","mu-calc-pf":"Final (opcional)","mu-calc-pf-ph":"Si ya lo sabes",
-  "au-tag":"Para quién es MathUNAL","au-p0-stat2":"Materias con parciales reales",
-  "prom-ej-line":"4 créd. × 4.0 + 3 créd. × 3.5 + 4 créd. × 3.0 + 3 créd. × 4.5","prom-ej-div":"÷ 14 créditos =",
-  "mu-msg-init":"Ingresa tus notas para calcular","sp-recall-q":"¿Recuerdas esta fórmula?","sp-hint":"Pulsa cuando estés listo","sp-ver":"Ver fórmula","sp-vistas":"vistas","sp-cta":"<svg width='13' height='13' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' style='vertical-align:-2px'><rect x='2' y='6' width='14' height='12' rx='2'/><rect x='8' y='2' width='14' height='12' rx='2'/></svg> Modo Sprint — repasar fórmulas",
-  "hs-l1":"PDFs","hs-ctx1":"parciales · talleres · libros","hs-l2":"Solucionarios","hs-ctx2":"paso a paso","hs-l3":"Materias","hs-ctx3":"núcleo completo","hs-l4":"Visitas/mes","hs-ctx4":"pico en parciales",
-  "foot-made":"Hecho a mano en Medellín ♥"
-};
-var LANG_EN={
-  /* Nav */
-  "nav-cta":"Exam Bank",
-  "nav-simulacros":"Practice","nav-banco":"<svg width='13' height='13' viewBox='0 0 24 24' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' fill='none' style='vertical-align:-2px'><path d='M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z'/><path d='M14 2v6h6'/></svg> Exam PDF Bank","nav-formulas":"Formula Sheet",
-  "nav-aportar":"Contribute","nav-promedio":"GPA","nav-comunidad":"Community",
-  /* Hero */
-  "hero-badge":"Unofficial repository · UNAL Medellín · 2026",
-  "hero-tag":"A shared notebook between engineering students",
-  "hero-sub":"Workshops, solved exams, textbooks and answer keys for the <strong>6 core math subjects</strong> of the School of Engineering.",
-  "hero-btn1":"<svg width='13' height='13' viewBox='0 0 24 24' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' fill='none' style='vertical-align:-2px'><path d='M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z'/><path d='M14 2v6h6'/></svg> View Exam Bank →","hero-btn2":"▶ Start Practice",
-  "hero-stat1":"PDFs available","hero-stat2":"Exams with solutions","hero-stat3":"Subjects with PDF","hero-stat4":"Students",
-  "cat-tab1":"Workshops","cat-tab2":"Solved Exams","cat-tab3":"Quizzes","cat-tab4":"Textbooks","cat-tab5":"Class Notes",
-  /* Materias */
-  "mat-label":"School of Mathematics · UNAL Medellín","mat-h":"Choose your subject",
-  "mat-sub":"11 core math subjects. From pre-calculus to semester 5.",
-  /* Simulacros */
-  "sim-label":"Practice under real conditions",
-  "sim-h":"Simulate before<br>it gets real.","sim-sub":"Past exams as downloadable PDFs. Set the timer, close the book, and practice.",
-  "sim-f-all":"All","sim-f-cd":"Differential Calc.","sim-f-ci":"Integral Calc.","sim-f-al":"Linear Algebra","sim-f-mb":"Basic Math","sim-f-edo":"ODE",
-  "panic-title":"Panic Mode activated","panic-sub":"Exam in less than 24 hours? Here's what you need to do right now.",
-  "panic-btn":"<svg width='13' height='13' viewBox='0 0 24 24' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' fill='none' style='vertical-align:-2px'><path d='M7 18v-6a5 5 0 0 1 10 0v6'/><line x1='12' y1='2' x2='12' y2='4'/><rect x='4' y='18' width='16' height='4' rx='1'/></svg> Emergency plan",
-  /* Banco */
-  "banco-label":"AI-generated · Claude Sonnet","banco-h":"Exam Bank","banco-hi":"with Solutions",
-  "banco-sub":"Clean LaTeX statements and step-by-step AI-generated solutions. <strong>Direct PDF download.</strong>",
-  "banco-mat":"Subject:","banco-all":"All",
-  "banco-search":"Search exam...",
-  /* Material */
-  "mat2-label":"Study Material","mat2-h":"Everything you need,","mat2-hi":"within reach",
-  "mat2-sub":"Free material for everyone. Premium answer keys for those who need to go further.",
-  /* Calculadora */
-  "calc-label":"Free tool","calc-h":"How much do I need<br>to","calc-hi":"pass?",
-  "calc-sub":"Enter the grades you already have and the weight of each exam. The calculator tells you exactly what you need.",
-  "calc-tab1":"2 Exams","calc-tab2":"3 Exams","calc-tab3":"4 Exams",
-  /* Comunidad */
-  "comm-label":"Community","comm-h":"Don't study alone,","comm-hi":"join us",
-  "comm-sub":"Over 2,400 engineering students are already part of the MathUNAL community.",
-  /* Aportar */
-  "aportar-label":"Contribute to the bank","aportar-h":"Have study material?","aportar-hi":"Share it.",
-  "aportar-sub":"Any student, graduate, or professor can contribute workshops, exams, quizzes, or notes.",
-  /* Promedio */
-  "prom-label":"UNAL Calculator","prom-h":"Weighted GPA","prom-hi":"by credits",
-  "prom-sub":"Enter your subjects with credits and grades. Calculate your semester and cumulative GPA.",
-  /* Stats / testimonios */
-  "stats-s1":"Students helped","stats-s2":"Files available","stats-s3":"Subjects covered","stats-s4":"Material types",
-  "test-label":"What students say","test-h":"Real students,","test-hi":"real results",
-  /* Footer */
-  "foot-desc":"A shared notebook between UNAL Medellín engineering students. Unofficial, made with care.",
-  "foot-com":"Community","foot-contact":"Contact","foot-mats":"Subjects",
-  "foot-copy":"© 2026 MathUNAL · Independent student project · Not affiliated with UNAL",
-  /* Exam Cycle */
-  "cp-tag":"The problem MathUNAL solves",
-  "cp-sub":"Math isn't the problem. The problem is having nowhere to practice in your exam's real format.",
-  "cp-title-default":"The exam is coming.<br>Where do you practice the <em>real format</em>?",
-  "cp-btn-sin":"✗ Without MathUNAL","cp-btn-con":"✓ With MathUNAL","cp-btn-vs":"Compare",
-  "cp-sin-1-t":"You search for old exams",
-  "cp-sin-1-d":"In WhatsApp groups, other semesters' drives, loose photocopies. You lose 2 hours hunting for material you're not even sure is useful.",
-  "cp-sin-2-t":"You find 2 exams, no solutions",
-  "cp-sin-2-d":"You don't know if the answers floating around are right. No worked steps. You solve blind.",
-  "cp-sin-3-t":"You practice without real conditions",
-  "cp-sin-3-d":"No timer, no SIDEX format, no way to know if you're doing well. Exam day feels completely different.",
-  "cp-sin-4-t":"You walk into the exam without confidence",
-  "cp-sin-4-d":"First time seeing the real format. Time feels different. It shows in your grade.",
-  "cp-action":"Click to continue →",
-  "cp-sin-result-l":"Typical average without structured practice",
-  "cp-sin-switch":"What about with MathUNAL? →",
-  "cp-con-1-t":"You open your subject in one click",
-  "cp-con-1-d-pre":"PDFs organized by semester, type and subject. All verified. No digging through WhatsApp or lost drives.",
-  "cp-con-2-t":"You study with step-by-step solutions",
-  "cp-con-2-d":"Every exercise solved with the full procedure. You know exactly where — and why — you went wrong.",
-  "cp-con-3-t":"You take a mock exam under real conditions",
-  "cp-con-3-d":"Same SIDEX format, same time limit, same pressure. But with instant feedback when you finish.",
-  "cp-con-4-t":"You walk in prepared and confident",
-  "cp-con-4-d":"You've seen the format. You've timed yourself. You know you can do it. It shows in your grade.",
-  "cp-con-result-l":"Average with structured practice",
-  "cp-con-switch":"See the comparison →",
-  "cp-vs-1":"Searching WhatsApp","cp-vs-2":"No solutions","cp-vs-3":"No real mock exam","cp-vs-4":"No confidence",
-  "cp-vs-5":"Everything organized","cp-vs-6":"Full solutions","cp-vs-7":"Real SIDEX mock exam","cp-vs-8":"Prepared and confident",
-  "cp-quote":"\"It's not that students don't want to learn. They just never had a rigorous place to practice.\"",
-  /* Exam Week banner */
-  "banner-label":"Exam Week","banner-cta":"See the plan →",
-  /* Content map */
-  "cm-tag":"What's available","cm-title":"All the content, at a glance",
-  "cm-l-parciales":"Exams","cm-l-talleres":"Worksheets","cm-l-quices":"Quizzes",
-  "cm-l-simulacros":"Mock exams","cm-l-solucionarios":"Solutions","cm-l-total":"Total",
-  /* It's that simple (3 steps) */
-  "hf-tag":"It's that simple",
-  "hf-title":"Three steps to walk into<br>your exam prepared",
-  "hf-1-t":"Choose your subject",
-  "hf-1-d":"Differential Calculus, Linear Algebra, ODEs — every past exam organized by semester, no more digging through WhatsApp groups.",
-  "hf-2-t":"Practice with full solutions",
-  "hf-2-d":"Every exercise solved step by step. No more answer-only forwards from WhatsApp — the full method to understand where you went wrong.",
-  "hf-3-t":"Simulate real exam conditions",
-  "hf-3-d":"Timed mock exams in SIDEX format — the same one UNAL uses. You already know the format. You already know how much time you have. You arrive prepared.",
-  "explorar-materias":"Explore subjects →",
-  "hf-cta-note":"Free · No signup · No ads",
-  /* Nav more dropdown */
-  "nmd-1-t":"PDF Bank","nmd-1-s":"All past exams and worksheets",
-  "nmd-2-t":"Calculate Average","nmd-2-s":"Simulate your final grade",
-  "nmd-3-t":"Contribute","nmd-3-s":"Upload material to the repository",
-  "nmd-4-t":"Community","nmd-4-s":"Student forum",
-  "hero-ctx":"core subjects",
-  /* Panic Modal */
-  "pm-title":"Exam in &lt;24h","pm-sub":"Run this in order. Don't improvise.",
-  "pm-1-t":"Read the course syllabus","pm-1-d":"Identify the topics for this exam. Don't study what's not covered.",
-  "pm-2-t":"Download 2 mock exams on the topic","pm-2-d":"Take the most recent one with the timer on.",
-  "pm-3-t":"Review with the solutions","pm-3-d":"For every exercise you missed, check the Survival Pack. Understand the method.",
-  "pm-4-t":"Take the second mock exam","pm-4-d":"No solutions this time. Timer running. If you finish in time, you can sleep.",
-  "pm-5-t":"Sleep at least 5 hours","pm-5-d":"Memory consolidates while you sleep. The 4am cram session will hurt more than help.",
-  "pm-tip":"<strong>Monitor's tip:</strong> Recent Differential Calculus exams always include optimization. Review that topic. <strong>It's in the Pack.</strong>",
-  /* Week Modal */
-  "wm-title":"Exam Week Plan","wm-sub":"Tell us which exam you have and when. We'll build a day-by-day plan.",
-  "wm-mat-l":"Subject","wm-corte-l":"Exam period","wm-fecha-l":"Exam date",
-  "wm-gen-btn":"Generate my plan →",
-  /* Timeline header */
-  "tl-tag":"The story behind it","tl-title":"From a loose PDF to 60,000 visits",
-  "tl-sub":"MathUNAL wasn't born as a project. It was born out of necessity.",
-  /* Proximamente */
-  "prox-tag":"In development · 2026","prox-h":"More subjects coming soon",
-  "prox-p":"MathUNAL is expanding beyond math. Follow the Telegram channel to be first.",
-  "prox-1-cat":"Sciences","prox-1-n":"Physics I","prox-1-d":"Mechanics, kinematics, dynamics and energy for engineering.",
-  "prox-2-cat":"Sciences","prox-2-n":"General Chemistry","prox-2-d":"Stoichiometry, chemical thermodynamics and electrochemistry.",
-  "prox-3-cat":"Mathematics","prox-3-n":"Statistics","prox-3-d":"Probability, distributions and inferential statistics.",
-  "prox-4-cat":"Engineering","prox-4-n":"Solid Mechanics","prox-4-d":"Statics, strength of materials and structural analysis.",
-  /* Pack v2 (visible) */
-  "pk-tag":"To go further","pk-h1":"Everything is already free.","pk-h2":"The solutions, not so much.",
-  "pk-sub":"Practicing exams without knowing where you went wrong is studying blind. The Pack gives you the full procedure — step by step, with the same logic as the real exam.",
-  "pk-badge":"Survival Pack","pk-new":"✓ Updated 2025-2","pk-title":"Step-by-step<br>solutions",
-  "pk-desc":"Every exercise solved with the full procedure. Not just the answer — the method. With monitor's notes and the tricks that aren't in the textbook.",
-  "pk-i1-t":"150+ solved exams","pk-i1-s":"Full procedure on every exercise",
-  "pk-i2-t":"Worksheets with commented solutions","pk-i2-s":"Monitor's notes included",
-  "pk-i3-t":"Updated every semester","pk-i3-s":"Most recent exams included",
-  "pk-i4-t":"Permanent Drive access","pk-i4-s":"One purchase, for life",
-  "pk-cmp-h":"What's included?","pk-cmp-free":"Free","pk-cmp-pack":"Pack",
-  "pk-cmp-1":"Exams to practice with","pk-cmp-2":"Formula sheets and mock exams",
-  "pk-cmp-3":"Full procedure","pk-cmp-4":"Monitor's notes",
-  "pk-price-l":"Price per subject","pk-period":"COP · Permanent access · No subscription",
-  "pk-cta":"Unlock Solutions → $12,000",
-  "pk-proof":"<strong>Secure purchase via WhatsApp.</strong> You get the access link instantly. No forms.",
-  "pk-secure":"Secure purchase · No banking data",
-  "pk-free-lbl":"Always free · No signup",
-  "pk-free-1":"Exams without solutions","pk-free-2":"Formula sheets and tables","pk-free-3":"Timed mock exams",
-  "pk-free-4":"Grade calculator","pk-free-5":"Textbooks and class notes",
-  "pk-free-cta":"Explore free material →",
-  /* Calculadora */
-  "calc-tag":"Free tool","calc-h1":"How much do I need","calc-h2":"to","calc-h2i":"pass","calc-h2q":"?",
-  "calc-p":"Enter the grades you already have and the weight of each exam period. The calculator tells you exactly what you need on the remaining one — no drama, no broken calculators.",
-  "calc-min":"UNAL passing grade 3.0",
-  "calc-p2":"The weights must add up to <strong style=\"color:var(--t1)\">100%</strong>. The highlighted box is the period you're missing — enter the ones you already have.",
-  "calc-tab1":"2 Periods","calc-tab2":"3 Periods","calc-tab3":"4 Periods",
-  "calc-hdr-corte":"Period","calc-hdr-peso":"Weight (%)","calc-hdr-nota":"Grade (0-5)",
-  "calc-corte1":"1st period","calc-corte2":"2nd period","calc-corte3":"3rd period","calc-corte4":"4th period",
-  "calc-need2":"You need on the 2nd period","calc-need3":"You need on the 3rd period","calc-need4":"You need on the 4th period",
-  "calc-msg":"Enter the data to calculate",
-  /* Comunidad */
-  "comm-lbl":"Community","comm-h":"Don't study alone, <i>join in</i>",
-  "comm-p":"Over 2,000 active students. Shared exams, answered questions, and new material every week.",
-  "comm-wa-t":"WhatsApp Group","comm-wa-d":"Quick questions, new material alerts and an active student community.","comm-wa-l":"Join the group →",
-  "comm-tg-t":"Telegram Channel","comm-tg-d":"Notifications for new PDFs, solution updates and announcements.","comm-tg-l":"Follow the channel →",
-  "comm-dc-t":"Discord Server","comm-dc-d":"Channels per subject, voice study sessions and collaborative problem-solving.","comm-dc-l":"Join the server →",
-  "comm-ig-t":"@math.unal","comm-ig-d":"Study tips, UNAL news and new material updates.","comm-ig-l":"Follow on Instagram →",
-  "comm-soon":"Coming soon",
-  /* Estadisticas */
-  "stats-lbl":"The project in numbers","stats-h":"What students have built",
-  "stats-p":"An independent student project — no institutional budget, no company behind it.",
-  "stats-1-l":"Visits per month","stats-1-ctx":"×3 during exam week",
-  "stats-2-l":"Verified files","stats-2-ctx":"exams · worksheets · books · notes",
-  "stats-3-l":"Subjects covered","stats-3-ctx":"pre-calc through semester 5",
-  "stats-4-l":"Total visits","stats-4-ctx":"since 2023 · no outside funding",
-  /* Aportar */
-  "ap2-lbl":"Contribute to the bank","ap2-h":"Got material?<br><i>Share it.</i>",
-  "ap2-p":"Any student, alum, or professor can contribute worksheets, exams, quizzes or notes. We review it and post it with credit to you.",
-  "ap2-fast":"✓ FASTEST","ap2-wa-t":"Via WhatsApp",
-  "ap2-wa-d":"Send us the photo or PDF directly in chat. Tell us the subject, year and material type. Done.",
-  "ap2-wa-i1":"Response in under 24h","ap2-wa-i2":"No forms","ap2-wa-i3":"We credit you on the site",
-  "ap2-wa-cta":"Send via WhatsApp →",
-  "ap2-em-t":"Via Email or Drive","ap2-em-d":"For bigger contributions (multiple folders, books, collections). Share a Google Drive link or write to us.",
-  "ap2-inc-h":"What to include in your message",
-  "ap2-inc-1":"Subject and semester (e.g. Differential Calculus, 2023-2)","ap2-inc-2":"Type: exam, worksheet, quiz, notes, book",
-  "ap2-inc-3":"Drive link or email attachment","ap2-inc-4":"Your name (for credit, optional)",
-  "ap2-acc-h":"Material we accept",
-  "ap2-acc-1":"Exams and tests","ap2-acc-2":"Worksheets and guides","ap2-acc-3":"Quizzes and pop quizzes",
-  "ap2-acc-4":"Class notes","ap2-acc-5":"Hand-made formula sheets","ap2-acc-6":"Useful books or chapters",
-  /* Promedio */
-  "prom-lbl":"UNAL Calculator","prom-h":"Weighted average<br><i>by credits</i>",
-  "prom-p":"Enter your subjects with credits and grades. Calculate your semester and cumulative weighted average exactly like UNAL's SIA does.",
-  "prom-th-mat":"Subject","prom-th-cred":"Credits","prom-th-nota":"Grade (0–5)",
-  "prom-add":"+ Add subject","prom-sys":"UNAL credit system · Minimum passing grade: 3.0",
-  "prom-q1-h":"Why by credits?","prom-q1-d":"The SIA doesn't average raw grades — it weighs each one by the subject's credits. A 4-credit subject weighs more than a 2-credit one.",
-  "prom-q2-h":"What if I fail one?","prom-q2-d":"A grade below 3.0 does count toward the average. Use this calculator to see how much it drags you down before withdrawing or retaking.",
-  "prom-result-l":"Weighted average",
-  "prom-hint":"Add your subjects with credits and grades. Your average is calculated just like UNAL's SIA.",
-  "prom-ej":"QUICK EXAMPLE","prom-foot":"Minimum passing grade: 3.0 · PAES cap: 3.5 · SIA rounds to 1 decimal (2.95 → 3.0)",
-  /* Au-s panels 0,1,2 */
-  "au-title":"One project, three ways to use it",
-  "au-tab0":"Student","au-tab1":"Monitor","au-tab2":"Faculty",
-  "au-p0-t":"Practice with real past exams, free and with no signup",
-  "au-p0-d":"MathUNAL has the exams your classmates from previous semesters already took, solved step by step. No account needed, no payment needed.",
-  "au-p0-i1":"Exams organized by subject and semester","au-p0-i2":"Timed mock exams in real SIDEX format",
-  "au-p0-i3":"Solutions with the full procedure","au-p0-i4":"Quick-reference formula sheets in LaTeX",
-  "au-p0-card-l":"What other students already have",
-  "au-p0-quote":"\"Learning engineering math shouldn't depend on who you sat next to in class.\"",
-  "au-p1-t":"Material ready for your tutoring sessions, no prep needed",
-  "au-p1-d":"If you're a monitor for a core subject, MathUNAL saves you hours of prep. You have organized exams, mock exams ready to assign, and solutions to review with your students.",
-  "au-p1-i1":"Exams ready to use as tutoring exercises","au-p1-i2":"Solutions to explain the procedure step by step",
-  "au-p1-i3":"Mock exams for your students to practice solo","au-p1-cta":"See the exam bank →",
-  "au-p1-card-l":"Estimated savings for the monitor","au-p1-stat1":"Weekly time saved",
-  "au-p1-quote":"\"Instead of hunting for material every week, I have it all in one place. My students practice on their own between sessions.\"",
-  "au-p2-t":"An institutional asset that already works, at zero cost",
-  "au-p2-d":"MathUNAL isn't a proposal — it's an active service the student community already uses. Recognizing it institutionally requires no new budget: the project sustains itself.",
-  "au-p2-i1":"Full coverage of the 6 core subjects","au-p2-i2":"2,400+ monthly visits, 60,000+ total",
-  "au-p2-i3":"Institutional cost: $0 — hosted on GitHub Pages","au-p2-i4":"Open source, auditable, no dependencies",
-  "au-p2-cta":"See the full proposal →","au-p2-card-l":"Verifiable impact",
-  "au-p2-s1":"Institutional cost","au-p2-s2":"Subjects covered","au-p2-s3":"Visits/month","au-p2-s4":"Free access",
-  "au-p2-quote":"\"What's missing isn't technology. It's the University recognizing what its own students already built.\"",
-  /* Apoyar (ap-s) */
-  "ap3-tag":"Support the project",
-  "ap3-title":"This project is free because we believe access to practice shouldn't have a price.",
-  "ap3-desc":"MathUNAL runs on time, coffee and conviction. No company behind it, no sponsor, no ads. If this platform saved you time, stress, or a make-up exam — consider giving something back.",
-  "ap3-i1":"Hosting: $0 (GitHub Pages)","ap3-i2":"800+ hours invested","ap3-i3":"Funding received: $0",
-  "ap3-per":"the price of a coffee",
-  "ap3-cost":"With <strong style=\"color:var(--t1)\">$5,000</strong> COP from 200 people, we cover a full semester of development and content updates.",
-  /* FAQ */
-  "faq-lbl":"Frequently asked questions","faq-h":"Everything you need to know",
-  "faq-q1":"Is the material free?",
-  "faq-a1":"Yes. Syllabi, textbooks, formula sheets, class notes and unsolved worksheets are 100% free, no signup or limits. Solutions with the full procedure cost $12,000 COP per subject.",
-  "faq-q2":"How do I download the PDFs?",
-  "faq-a2":"Free files are on Google Drive and download directly. Just click \"Download\" on the subject page. No Google account needed.",
-  "faq-q3":"Are the mock exams the same level as real exams?",
-  "faq-a3":"Yes. Questions are based on real UNAL Medellín exams from 2020 to 2025, with the same SIDEX format: 4 options (A-D), LaTeX statements and a timer. Every wrong answer has a step-by-step explanation.",
-  "faq-q4":"How do I buy the Survival Pack?",
-  "faq-a4":"Via WhatsApp at 316 348 0451. You can pay with Nequi, Bancolombia, VISA or Mastercard. You get Google Drive access to the solutions instantly. The cost is $12,000 COP per subject (permanent access).",
-  "faq-q5":"Is the site officially affiliated with UNAL?",
-  "faq-a5":"No. MathUNAL is an independent student project, created by and for UNAL Medellín engineering students. It has no official affiliation with Universidad Nacional de Colombia.",
-  "faq-q6":"Can I contribute material?",
-  "faq-a6":"Yes! Any student, alum or professor can send worksheets, exams, quizzes or notes. We review it, post it with your name as credit, and it becomes available to the whole community. Message us on WhatsApp.",
-  /* Ruta del semestre */
-  "ruta-tag":"Curriculum guide · UNAL Medellín Engineering","ruta-h":"Your path through math",
-  "ruta-p":"The core subjects, from pre-calc to semester 5. Click any one to go straight to the available material.",
-  "ruta-niv":"Pre-calc","ruta-s1":"Semester 1","ruta-s2":"Semester 2","ruta-s3":"Semester 3","ruta-s4":"Semester 4","ruta-s5":"Semester 5",
-  "ruta-cta":"See all material →","ruta-foot":"11 subjects · Updated every semester",
-  /* Mapa del sitio */
-  "smap-tag":"Site map","smap-h":"All of MathUNAL at a glance",
-  "smap-col1":"Subjects","smap-col2":"Tools","smap-col3":"Resources","smap-col4":"Community",
-  "smap-ver-todas":"See all →","smap-popular":"Popular",
-  "smap-sim":"SIDEX Mock Exams","smap-form":"Interactive formula sheet","smap-calc":"Grade calculator",
-  "smap-prom":"Weighted average","smap-banco":"PDF exam bank",
-  "smap-pack":"Survival Pack","smap-aportar":"Contribute material","smap-hist":"Project history",
-  "smap-prox":"Coming soon","smap-faq":"FAQ",
-  "smap-wa":"WhatsApp Group","smap-tg":"Telegram (coming)","smap-dc":"Discord (coming)",
-  "smap-bottom":"MathUNAL v23 · 2026 · Independent student project",
-  "smap-top":"Back to top","smap-quick-sim":"Mock Exams","smap-quick-banco":"PDF Bank","smap-quick-form":"Formulas",
-  /* Footer */
-  "foot-tagline":"The math project for UNAL Medellín engineering. Made by students, for students.",
-  "foot-activo":"Active · 2026",
-  "foot-wa":"WhatsApp Group","foot-tg":"Telegram Channel","foot-dc":"Discord","foot-ig":"@math.unal",
-  "foot-bank":"Bancolombia: 678 466 530 80",
-  "foot-vertodas":"See all →",
-  /* Botones flotantes / Pomodoro / Sprint */
-  "fab-semana":"Exam Week","pomo-h":"Pomodoro","pomo-start":"<svg width='11' height='11' viewBox='0 0 24 24' fill='currentColor' style='vertical-align:-1px'><path d='M6 4l14 8-14 8V4z'/></svg> Start","pomo-reset":"<svg width='12' height='12' viewBox='0 0 24 24' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' fill='none' style='vertical-align:-2px'><path d='M21 12a9 9 0 1 1-3-6.7'/><path d='M21 3v6h-6'/></svg> Reset",
-  "mu-calc-h":"UNAL Grade Calculator","mu-calc-sub":"Enter your exam grades and find out what you need on the final to pass.",
-  "mu-calc-p1":"Exam 1","mu-calc-p2":"Exam 2","mu-calc-pf":"Final (optional)","mu-calc-pf-ph":"If you already know it",
-  "au-tag":"Who MathUNAL is for","au-p0-stat2":"Subjects with real exams",
-  "prom-ej-line":"4 cr. × 4.0 + 3 cr. × 3.5 + 4 cr. × 3.0 + 3 cr. × 4.5","prom-ej-div":"÷ 14 credits =",
-  "mu-msg-init":"Enter your grades to calculate","sp-recall-q":"Do you remember this formula?","sp-hint":"Tap when you're ready","sp-ver":"See formula","sp-vistas":"seen","sp-cta":"<svg width='13' height='13' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' style='vertical-align:-2px'><rect x='2' y='6' width='14' height='12' rx='2'/><rect x='8' y='2' width='14' height='12' rx='2'/></svg> Sprint Mode — review formulas",
-  "hs-l1":"PDFs","hs-ctx1":"exams · worksheets · books","hs-l2":"Solutions","hs-ctx2":"step by step","hs-l3":"Subjects","hs-ctx3":"core subjects","hs-l4":"Visits/month","hs-ctx4":"peak during exams",
-  "foot-made":"Made in Medellín ♥"
-};
-var curLang="es";
-
-function setLang(lang){
-  curLang = lang;
-  document.documentElement.lang = lang; /* <html lang> era estatico -- un lector de
-    pantalla seguia anunciando "espanol" con la pagina ya en ingles y viceversa */
-  var en = (lang === 'en'); /* usado por las traducciones de ruta-s/smap-s/footer (lookup en SUBJECTS) */
-  /* Botones de idioma (en ambos dropdowns) */
-  ['btn-es','btn-en'].forEach(function(id){
-    var el=document.getElementById(id);
-    if(el) el.classList.toggle('on', id==='btn-'+lang);
-  });
-  var L = lang==="en" ? LANG_EN : LANG_ES;
-
-  function setText(sel, key){ var el=document.querySelector(sel); if(el&&L[key]!==undefined) el.textContent=L[key]; }
-  function setHTML(sel, key){ var el=document.querySelector(sel); if(el&&L[key]!==undefined) el.innerHTML=L[key]; }
-  function setAll(sel, key){ document.querySelectorAll(sel).forEach(function(el){ if(L[key]!==undefined) el.textContent=L[key]; }); }
-
-  /* NAV */
-  var cta=document.getElementById('nav-cta-txt');
-  if(cta) cta.textContent = L['nav-cta']+' →';
-  var navLinks = document.querySelectorAll('.nav-links a');
-  var navKeys = ['nav-materias','nav-simulacros','nav-banco','nav-formulas','nav-aportar','nav-promedio','nav-comunidad'];
-  // Asignar por href
-  navLinks.forEach(function(a){
-    var href = a.getAttribute('href')||'';
-    var map = {
-      '#materias':L['mat-h'], '#simulacros':L['sim-f-all']||'Simulacros',
-      '#banco':L['nav-banco'], '#formulas':L['nav-formulas'],
-      '#aportar':L['nav-aportar'], '#promedio':L['nav-promedio'],
-      '#comunidad':L['nav-comunidad']
-    };
-    if(map[href]) a.textContent = map[href];
-  });
-  /* Mobile menu */
-  document.querySelectorAll('#mob a').forEach(function(a){
-    var href = a.getAttribute('href')||'';
-    var map = {
-      '#home':'MathUNAL','#materias':L['mat-h'],'#simulacros':lang==='en'?'Practice':'Simulacros',
-      '#banco':L['nav-banco'],'#formulas':L['nav-formulas'],'#aportar':lang==='en'?'Contribute':'Aportar material',
-      '#promedio':L['nav-promedio'],'#comunidad':L['nav-comunidad']
-    };
-    if(map[href]) a.textContent = map[href];
-  });
-
-  /* HERO */
-  setText('.hero-badge', 'hero-badge');
-  setText('.hero-tagline', 'hero-tag');
-  setHTML('.hero-sub', 'hero-sub');
-  var heroBtn1=document.querySelector('.hero-btns .btn-a'); if(heroBtn1) heroBtn1.innerHTML=L['hero-btn1'];
-  var heroBtn2=document.querySelector('.hero-btns .btn-o'); if(heroBtn2) heroBtn2.innerHTML=L['hero-btn2'];
-  /* Hero stats labels */
-  var hsLabels = document.querySelectorAll('.hs-l');
-  var hKeys=['hero-stat1','hero-stat2','hero-stat3','hero-stat4'];
-  hsLabels.forEach(function(el,i){ if(L[hKeys[i]]) el.textContent=L[hKeys[i]]; });
-  /* Cat tabs */
-  var catTabs = document.querySelectorAll('.cat-tab');
-  var cKeys=['cat-tab1','cat-tab2','cat-tab3','cat-tab4','cat-tab5'];
-  catTabs.forEach(function(el,i){ if(L[cKeys[i]]) el.textContent=L[cKeys[i]]; });
-
-  /* MATERIAS section */
-  setText('#materias .sec-label', 'mat-label');
-  setText('#materias h2', 'mat-h');
-  setText('#materias .sec-split-r', 'mat-sub');
-
-  /* SIMULACROS section */
-  setText('#simulacros .sec-label', 'sim-label');
-  setHTML('#simulacros h2', 'sim-h');
-  setText('#simulacros .sec-split-r', 'sim-sub');
-  var simFilters = document.querySelectorAll('.sim-filter');
-  var sfKeys=['sim-f-all','sim-f-cd','sim-f-ci','sim-f-al','sim-f-mb','sim-f-edo'];
-  simFilters.forEach(function(el,i){ if(L[sfKeys[i]]) el.textContent=L[sfKeys[i]]; });
-  setText('.panic-l h4','panic-title');
-  setText('.panic-l p','panic-sub');
-  var panicBtn=document.querySelector('.btn-panic'); if(panicBtn) panicBtn.innerHTML=L['panic-btn'];
-
-  /* BANCO section */
-  setText('#banco .sec-label','banco-label');
-  var bancoH=document.querySelector('#banco h2'); 
-  if(bancoH) bancoH.innerHTML=L['banco-h']+'<br><i>'+L['banco-hi']+'</i>';
-  setHTML('#banco .sec-split-r','banco-sub');
-  setText('.banco-filters-label','banco-mat');
-  var bancoAll=document.querySelector('.banco-btn-filtro[data-mat="todas"]'); if(bancoAll) bancoAll.textContent=L['banco-all'];
-  var bancoSearch=document.querySelector('.bkl-search-inp'); if(bancoSearch) bancoSearch.placeholder=L['banco-search'];
-  var cmdInput=document.getElementById('cmd-input');
-  if(cmdInput){
-    cmdInput.placeholder = en?'Search exam, formula, subject...':'Buscar examen, fórmula, materia...';
-    cmdInput.setAttribute('aria-label', en?'Search exam, formula or subject':'Buscar examen, fórmula o materia');
-  }
-
-  /* MATERIAL section */
-  setText('#material .sec-label','mat2-label');
-  var mat2H=document.querySelector('#material h2');
-  if(mat2H) mat2H.innerHTML=L['mat2-h']+'<br><i>'+L['mat2-hi']+'</i>';
-  setText('#material .sec-split-r','mat2-sub');
-
-  /* CALCULADORA section */
-  setText('#calculadora .sec-label','calc-label');
-  var calcH=document.querySelector('#calculadora .calc-l h2');
-  if(calcH) calcH.innerHTML=L['calc-h']+' <i>'+L['calc-hi']+'</i>';
-  setText('#calculadora .calc-l p','calc-sub');
-  var calcTabs=document.querySelectorAll('.calc-tab');
-  var ctKeys=['calc-tab1','calc-tab2','calc-tab3'];
-  calcTabs.forEach(function(el,i){ if(L[ctKeys[i]]) el.textContent=L[ctKeys[i]]; });
-
-  /* STATS section */
-  var statCards=document.querySelectorAll('.stat-card .stat-l');
-  var stKeys=['stats-s1','stats-s2','stats-s3','stats-s4'];
-  statCards.forEach(function(el,i){ if(L[stKeys[i]]) el.textContent=L[stKeys[i]]; });
-  /* stats labels via stat-card .stat-l */
-
-  /* COMUNIDAD section */
-  setText('#comunidad .sec-label','comm-label');
-  var commH=document.querySelector('#comunidad h2');
-  if(commH) commH.innerHTML=L['comm-h']+' <i>'+L['comm-hi']+'</i>';
-  setText('#comunidad .sec-split-r','comm-sub');
-
-  /* APORTAR section */
-  setText('#aportar .sec-label','aportar-label');
-  var aportarH=document.querySelector('#aportar h2');
-  if(aportarH) aportarH.innerHTML=L['aportar-h']+'<br><i>'+L['aportar-hi']+'</i>';
-  setText('#aportar .sec-split-r','aportar-sub');
-
-  /* PROMEDIO section */
-  setText('#promedio .sec-label','prom-label');
-  var promH=document.querySelector('#promedio h2');
-  if(promH) promH.innerHTML=L['prom-h']+'<br><i>'+L['prom-hi']+'</i>';
-  setText('#promedio .sec-split-r','prom-sub');
-
-  /* FOOTER */
-  setText('.fbrand p','foot-desc');
-  setText('.foot-b p:first-child','foot-copy');
-
-  /* NAV-MORE dropdown */
-  var nmdItems = document.querySelectorAll('.nav-more-dd a');
-  var nmdKeys = [['nmd-1-t','nmd-1-s'],['nmd-2-t','nmd-2-s'],['nmd-3-t','nmd-3-s'],['nmd-4-t','nmd-4-s']];
-  nmdItems.forEach(function(a,i){
-    if(!nmdKeys[i]) return;
-    var ti=a.querySelector('.nmd-title'); if(ti&&L[nmdKeys[i][0]]) ti.textContent=L[nmdKeys[i][0]];
-    var su=a.querySelector('.nmd-sub'); if(su&&L[nmdKeys[i][1]]) su.textContent=L[nmdKeys[i][1]];
-  });
-  var hsItems = document.querySelectorAll('.hero-stats .hs-item');
-  var hsKeys = [['hs-l1','hs-ctx1'],['hs-l2','hs-ctx2'],['hs-l3','hs-ctx3'],['hs-l4','hs-ctx4']];
-  hsItems.forEach(function(el,i){
-    if(!hsKeys[i]) return;
-    var l=el.querySelector('.hs-l'), ctx=el.querySelector('.hs-ctx');
-    if(l&&L[hsKeys[i][0]]) l.textContent=L[hsKeys[i][0]];
-    if(ctx&&L[hsKeys[i][1]]) ctx.textContent=L[hsKeys[i][1]];
-  });
-
-  /* CICLO DEL PARCIAL */
-  setText('#ciclo-parcial .cp-tag','cp-tag');
-  setText('#ciclo-parcial .cp-sub','cp-sub');
-  var cpb1=document.getElementById('cpb-sin'); if(cpb1) cpb1.textContent=L['cp-btn-sin'];
-  var cpb2=document.getElementById('cpb-con'); if(cpb2) cpb2.textContent=L['cp-btn-con'];
-  var cpb3=document.getElementById('cpb-vs');
-  if(cpb3){ var svg3=cpb3.querySelector('svg'); cpb3.innerHTML=(svg3?svg3.outerHTML:'')+' '+L['cp-btn-vs']; }
-  function setStepText(stepsId,dataI,titleKey,descKey){
-    var step=document.querySelector('#'+stepsId+' [data-i="'+dataI+'"]'); if(!step) return;
-    var ti=step.querySelector('.cp-j-title'); if(ti&&L[titleKey]) ti.textContent=L[titleKey];
-    var de=step.querySelector('.cp-j-desc');
-    if(de && L[descKey]!==undefined){
-      if(descKey==='cp-con-1-d-pre'){
-        var span=de.querySelector('[data-mu-pdfs]');
-        de.innerHTML=(span?span.outerHTML:'')+' '+L[descKey];
-      } else { de.textContent=L[descKey]; }
-    }
-    var ac=step.querySelector('.cp-j-action'); if(ac&&L['cp-action']) ac.textContent=L['cp-action'];
-  }
-  setStepText('cp-sin-steps','0','cp-sin-1-t','cp-sin-1-d');
-  setStepText('cp-sin-steps','1','cp-sin-2-t','cp-sin-2-d');
-  setStepText('cp-sin-steps','2','cp-sin-3-t','cp-sin-3-d');
-  setStepText('cp-sin-steps','3','cp-sin-4-t','cp-sin-4-d');
-  setStepText('cp-con-steps','0','cp-con-1-t','cp-con-1-d-pre');
-  setStepText('cp-con-steps','1','cp-con-2-t','cp-con-2-d');
-  setStepText('cp-con-steps','2','cp-con-3-t','cp-con-3-d');
-  setStepText('cp-con-steps','3','cp-con-4-t','cp-con-4-d');
-  var sinResL=document.querySelector('#cp-sin-result .cp-j-result-l'); if(sinResL) sinResL.textContent=L['cp-sin-result-l'];
-  var sinSwitch=document.querySelector('#cp-sin-result .cp-j-switch'); if(sinSwitch) sinSwitch.textContent=L['cp-sin-switch'];
-  var conResL=document.querySelector('#cp-con-result .cp-j-result-l'); if(conResL) conResL.textContent=L['cp-con-result-l'];
-  var conSwitch=document.querySelector('#cp-con-result .cp-j-switch');
-  if(conSwitch){ var svgc=conSwitch.querySelector('svg'); conSwitch.innerHTML=(svgc?svgc.outerHTML:'')+' '+L['cp-con-switch']; }
-  var vsLeftItems=document.querySelectorAll('#cp-vs .cp-col-left .cp-txt-main');
-  var vsLeftKeys=['cp-vs-1','cp-vs-2','cp-vs-3','cp-vs-4'];
-  vsLeftItems.forEach(function(el,i){ if(L[vsLeftKeys[i]]) el.textContent=L[vsLeftKeys[i]]; });
-  var vsRightItems=document.querySelectorAll('#cp-vs .cp-col-right .cp-txt-main');
-  var vsRightKeys=['cp-vs-5','cp-vs-6','cp-vs-7','cp-vs-8'];
-  vsRightItems.forEach(function(el,i){ if(L[vsRightKeys[i]]) el.textContent=L[vsRightKeys[i]]; });
-  var colHdL=document.querySelector('#cp-vs .cp-col-left .cp-col-hd'); if(colHdL) colHdL.textContent=L['cp-btn-sin'];
-  var colHdR=document.querySelector('#cp-vs .cp-col-right .cp-col-hd'); if(colHdR) colHdR.textContent=L['cp-btn-con'];
-  setText('#ciclo-parcial .cp-quote','cp-quote');
-  if(typeof muSyncCicloTitle==='function') muSyncCicloTitle(); /* reaplica el titular (dinamico o evergreen) en el idioma correcto */
-
-  /* ASÍ DE SIMPLE (3 pasos) */
-  setText('.hf-s .cp-tag','hf-tag');
-  setHTML('.hf-s .hf-title','hf-title');
-  var hfSteps = document.querySelectorAll('.hf-s .hf-step');
-  var hfKeys = [['hf-1-t','hf-1-d'],['hf-2-t','hf-2-d'],['hf-3-t','hf-3-d']];
-  hfSteps.forEach(function(el,i){
-    if(!hfKeys[i]) return;
-    var ti=el.querySelector('.hf-step-title'); if(ti&&L[hfKeys[i][0]]) ti.textContent=L[hfKeys[i][0]];
-    var de=el.querySelector('.hf-step-desc'); if(de&&L[hfKeys[i][1]]) de.textContent=L[hfKeys[i][1]];
-  });
-  document.querySelectorAll('a[href="#materias"].btn-a, a[href="#materias"].au-msg-cta').forEach(function(el){
-    if(L['explorar-materias']) el.textContent=L['explorar-materias'];
-  });
-  setText('.hf-cta-note','hf-cta-note');
-
-  /* BANNER SEMANA DEL PARCIAL */
-  var bnL=document.querySelector('#semana-banner .sp-label'); if(bnL) bnL.textContent=L['banner-label'];
-  var bnC=document.querySelector('#semana-banner .sp-cta'); if(bnC) bnC.textContent=L['banner-cta'];
-
-  /* MAPA DE CONTENIDO */
-  var cmTag=document.querySelector('.cm-s .cp-tag'); if(cmTag) cmTag.textContent=L['cm-tag'];
-  var cmTitle=document.querySelector('.cm-s .hf-title'); if(cmTitle) cmTitle.textContent=L['cm-title'];
-  if(typeof renderContentMap==='function') renderContentMap(); /* re-renderiza las etiquetas (Parciales/Talleres/...) en el idioma correcto */
-  if(typeof renderMaterias==='function') renderMaterias(); /* re-renderiza la grilla de materias (nombres/desc/tags) en el idioma correcto */
-  if(typeof renderSimPreview==='function') renderSimPreview();
-  if(typeof window.muRenderProgreso==='function') window.muRenderProgreso();
-  if(typeof muSyncSimCtaSub==='function') muSyncSimCtaSub();
-
-  /* PANIC MODAL */
-  setHTML('#panic-modal-title','pm-title'); setText('#panicModal .pm-sub','pm-sub');
-  var pmSteps=document.querySelectorAll('#panicModal .pm-step');
-  var pmKeys=[['pm-1-t','pm-1-d'],['pm-2-t','pm-2-d'],['pm-3-t','pm-3-d'],['pm-4-t','pm-4-d'],['pm-5-t','pm-5-d']];
-  pmSteps.forEach(function(el,i){ if(!pmKeys[i])return; var h=el.querySelector('h5'),p=el.querySelector('p');
-    if(h&&L[pmKeys[i][0]])h.textContent=L[pmKeys[i][0]]; if(p&&L[pmKeys[i][1]])p.textContent=L[pmKeys[i][1]]; });
-  setHTML('#panicModal .pm-tip','pm-tip');
-
-  /* WEEK MODAL */
-  setHTML('#week-modal-title','wm-title'); setText('#weekModal .pm-sub','wm-sub');
-  var wmLbls=document.querySelectorAll('#weekModal .is-l');
-  var wmKeys=['wm-mat-l','wm-corte-l','wm-fecha-l'];
-  wmLbls.forEach(function(el,i){ if(wmKeys[i]&&L[wmKeys[i]]) el.textContent=L[wmKeys[i]]; });
-  var wmBtn=document.querySelector('#weekModal button[onclick="generatePlan()"]'); if(wmBtn&&L['wm-gen-btn']) wmBtn.textContent=L['wm-gen-btn'];
-  var wmMatEn={matbas:'Basic Mathematics',calcdif:'Differential Calculus',calcint:'Integral Calculus',alglin:'Linear Algebra',calcvec:'Multivariable Calculus',edo:'Differential Equations'};
-  document.querySelectorAll('#wm-mat option').forEach(function(o){ if(en&&wmMatEn[o.value]) o.textContent=wmMatEn[o.value]; else if(!en){
-    var es={matbas:'Matemáticas Básicas',calcdif:'Cálculo Diferencial',calcint:'Cálculo Integral',alglin:'Álgebra Lineal',calcvec:'Cálculo en Varias Variables',edo:'Ecuaciones Diferenciales'};
-    if(es[o.value]) o.textContent=es[o.value]; } });
-  var wmCorteOpts=document.querySelectorAll('#wm-corte option');
-  var wmCorteEs=['Parcial 1','Parcial 2','Parcial 3','Quiz','Examen Final'];
-  var wmCorteEn=['Exam 1','Exam 2','Exam 3','Quiz','Final Exam'];
-  wmCorteOpts.forEach(function(o,i){ if(en&&wmCorteEn[i]) o.textContent=wmCorteEn[i]; else if(!en&&wmCorteEs[i]) o.textContent=wmCorteEs[i]; });
-
-  /* TIMELINE header */
-  setText('#timeline .cp-tag','tl-tag'); setText('#timeline .tl-title','tl-title'); setText('#timeline .cp-sub','tl-sub');
-  if(typeof tlRender==='function') tlRender();
-
-  /* PROXIMAMENTE */
-  setText('#proximamente .sec-label','prox-tag'); setText('#proximamente h2','prox-h'); setText('#proximamente > .wrap > p, #proximamente p','prox-p');
-  var proxH2=document.querySelector('#proximamente h2'); if(proxH2&&L['prox-h']) proxH2.textContent=L['prox-h'];
-  var proxP=document.querySelector('#proximamente .prox-header p'); if(proxP&&L['prox-p']) proxP.textContent=L['prox-p'];
-  var proxCards=document.querySelectorAll('#proximamente .prox-card');
-  var proxKeys=[['prox-1-cat','prox-1-n','prox-1-d'],['prox-2-cat','prox-2-n','prox-2-d'],['prox-3-cat','prox-3-n','prox-3-d'],['prox-4-cat','prox-4-n','prox-4-d']];
-  proxCards.forEach(function(el,i){ if(!proxKeys[i])return;
-    var pill=el.querySelector('.prox-pill'); var name=el.querySelector('.prox-name'); var sub=el.querySelector('.prox-sub');
-    if(pill&&L[proxKeys[i][0]]){ var svgp=pill.querySelector('svg'); pill.innerHTML=(svgp?svgp.outerHTML:'')+' '+L[proxKeys[i][0]]; }
-    if(name&&L[proxKeys[i][1]]) name.textContent=L[proxKeys[i][1]];
-    if(sub&&L[proxKeys[i][2]]) sub.textContent=L[proxKeys[i][2]];
-  });
-
-  /* PACK v2 (visible) */
-  setText('#material .cp-tag','pk-tag');
-  var pkH2=document.querySelector('#material .pack-hd h2');
-  if(pkH2&&L['pk-h1']&&L['pk-h2']) pkH2.innerHTML=L['pk-h1']+'<br><em style="color:var(--acc);font-style:italic">'+L['pk-h2']+'</em>';
-  setText('#material .pack-hd p','pk-sub');
-  setText('#material .pack-v2-badge','pk-badge'); setText('#material .pack-v2-new','pk-new');
-  setHTML('#material .pack-v2-title','pk-title'); setText('#material .pack-v2-sub','pk-desc');
-  var pkItems=document.querySelectorAll('#material .pack-v2-item');
-  var pkKeys=[['pk-i1-t','pk-i1-s'],['pk-i2-t','pk-i2-s'],['pk-i3-t','pk-i3-s'],['pk-i4-t','pk-i4-s']];
-  pkItems.forEach(function(el,i){ if(!pkKeys[i])return; var t=el.querySelector('.pack-v2-item-t'),sub=el.querySelector('.pack-v2-item-s');
-    if(t&&L[pkKeys[i][0]])t.textContent=L[pkKeys[i][0]]; if(sub&&L[pkKeys[i][1]])sub.textContent=L[pkKeys[i][1]]; });
-  var pvch=document.querySelectorAll('#material .pvch'); var pvchKeys=['pk-cmp-h','pk-cmp-free','pk-cmp-pack'];
-  pvch.forEach(function(el,i){ if(pvchKeys[i]&&L[pvchKeys[i]]) el.textContent=L[pvchKeys[i]]; });
-  var pvrFeat=document.querySelectorAll('#material .pvr-feat'); var pvrKeys=['pk-cmp-1','pk-cmp-2','pk-cmp-3','pk-cmp-4'];
-  pvrFeat.forEach(function(el,i){ if(pvrKeys[i]&&L[pvrKeys[i]]) el.textContent=L[pvrKeys[i]]; });
-  setText('#material .pack-v2-price-lbl','pk-price-l'); setText('#material .pack-v2-period','pk-period');
-  var pkCta=document.querySelector('#material .pack-v2-cta');
-  if(pkCta&&L['pk-cta']){ var svgc2=pkCta.querySelector('svg'); pkCta.innerHTML=(svgc2?svgc2.outerHTML:'')+' '+L['pk-cta']; }
-  setHTML('#material .pack-v2-proof-txt','pk-proof');
-  var pkSecure=document.querySelector('#material .pack-v2-secure');
-  if(pkSecure&&L['pk-secure']){ var svgs=pkSecure.querySelector('svg'); pkSecure.innerHTML=(svgs?svgs.outerHTML:'')+' '+L['pk-secure']; }
-  setText('#material .pfb-lbl','pk-free-lbl');
-  var pfbItems=document.querySelectorAll('#material .pfb-item'); var pfbKeys=['pk-free-1','pk-free-2','pk-free-3','pk-free-4','pk-free-5'];
-  pfbItems.forEach(function(el,i){ if(!pfbKeys[i])return; var svgf=el.querySelector('svg'); if(L[pfbKeys[i]]) el.innerHTML=(svgf?svgf.outerHTML:'')+' '+L[pfbKeys[i]]; });
-  var pfbCta=document.querySelector('#material .pack-free-band > a'); if(pfbCta&&L['pk-free-cta']) pfbCta.textContent=L['pk-free-cta'];
-
-  /* CALCULADORA */
-  setText('#calculadora .sec-label','calc-tag');
-  var calcH2=document.querySelector('#calculadora h2');
-  if(calcH2&&L['calc-h1']) calcH2.innerHTML=L['calc-h1']+'<br>'+L['calc-h2']+' <i>'+L['calc-h2i']+'</i>'+L['calc-h2q'];
-  setText('#calculadora .calc-l > p','calc-p');
-  var calcPills=document.querySelectorAll('#calculadora .calc-l > div[style*="flex-wrap"] > span');
-  calcPills.forEach(function(el,i){
-    if(i<3){ var num=(el.textContent.match(/^\d+/)||['2'])[0]; el.textContent = num + ' ' + (en?'Periods':'Cortes'); }
-    else if(i===3 && L['calc-min']) el.textContent = L['calc-min'];
-  });
-  setText('#calculadora .calc-l > p:nth-of-type(2)','calc-p2');
-  var calcTabs=document.querySelectorAll('#calculadora .calc-tab'); var calcTabKeys=['calc-tab1','calc-tab2','calc-tab3'];
-  calcTabs.forEach(function(el,i){ if(calcTabKeys[i]&&L[calcTabKeys[i]]) el.textContent=L[calcTabKeys[i]]; });
-  document.querySelectorAll('#calculadora .calc-hdr-lbl').forEach(function(el){ if(L['calc-hdr-corte']) el.textContent=L['calc-hdr-corte']; });
-  document.querySelectorAll('#calculadora .calc-hdr-cell').forEach(function(el,i){ el.textContent = (i%2===0) ? L['calc-hdr-peso'] : L['calc-hdr-nota']; });
-  var calcRowLbls=document.querySelectorAll('#calculadora .calc-lbl');
-  calcRowLbls.forEach(function(el){
-    var t=el.textContent;
-    if(t.indexOf('1°')>=0&&L['calc-corte1']) el.textContent=L['calc-corte1'];
-    else if(t.indexOf('2°')>=0&&L['calc-corte2']) el.textContent=L['calc-corte2'];
-    else if(t.indexOf('3°')>=0&&L['calc-corte3']) el.textContent=L['calc-corte3'];
-    else if(t.indexOf('4°')>=0&&L['calc-corte4']) el.textContent=L['calc-corte4'];
-  });
-  var crLabels=document.querySelectorAll('#calculadora .cr-label'); var crKeys=['calc-need2','calc-need3','calc-need4'];
-  crLabels.forEach(function(el,i){ if(crKeys[i]&&L[crKeys[i]]) el.textContent=L[crKeys[i]]; });
-  document.querySelectorAll('#calculadora .cr-msg').forEach(function(el){ if(L['calc-msg']&&el.textContent.indexOf('Ingresa')>=0) el.textContent=L['calc-msg']; });
-
-  /* COMUNIDAD */
-  setText('#comunidad .sec-label','comm-lbl');
-  setHTML('#comunidad h2','comm-h'); setHTML('#comunidad .sec-split-r','comm-p');
-  var ccCards=document.querySelectorAll('#comunidad .cc');
-  var ccKeys=[['comm-wa-t','comm-wa-d','comm-wa-l'],['comm-tg-t','comm-tg-d','comm-tg-l'],['comm-dc-t','comm-dc-d','comm-dc-l'],['comm-ig-t','comm-ig-d','comm-ig-l']];
-  ccCards.forEach(function(el,i){ if(!ccKeys[i])return;
-    var h4=el.querySelector('h4'),p=el.querySelector('p'),link=el.querySelector('.cc-link'),soon=el.querySelector('.cc-soon-badge');
-    if(h4&&L[ccKeys[i][0]])h4.textContent=L[ccKeys[i][0]]; if(p&&L[ccKeys[i][1]])p.textContent=L[ccKeys[i][1]];
-    if(link&&L[ccKeys[i][2]])link.textContent=L[ccKeys[i][2]]; if(soon&&L['comm-soon'])soon.textContent=L['comm-soon'];
-  });
-
-  /* ESTADISTICAS */
-  setText('#estadisticas .sec-label','stats-lbl'); setText('#estadisticas h2','stats-h'); setText('#estadisticas .stats-mega-hd p','stats-p');
-  var smCells=document.querySelectorAll('#estadisticas .stats-mega-cell');
-  var smKeys=[['stats-1-l','stats-1-ctx'],['stats-2-l','stats-2-ctx'],['stats-3-l','stats-3-ctx'],['stats-4-l','stats-4-ctx']];
-  smCells.forEach(function(el,i){ if(!smKeys[i])return; var l=el.querySelector('.sm-l'),ctx=el.querySelector('.sm-ctx');
-    if(l&&L[smKeys[i][0]])l.textContent=L[smKeys[i][0]]; if(ctx&&L[smKeys[i][1]])ctx.textContent=L[smKeys[i][1]]; });
-
-  /* APORTAR (ap2) */
-  setText('#aportar .sec-label','ap2-lbl'); setHTML('#aportar h2','ap2-h'); setText('#aportar .sec-split-r','ap2-p');
-  var ap2Cards=document.querySelectorAll('#aportar .aportar-grid > div');
-  if(ap2Cards[0]){
-    var fastBadge=ap2Cards[0].querySelector('div'); if(fastBadge&&L['ap2-fast']) fastBadge.textContent=L['ap2-fast'];
-    var titles=ap2Cards[0].querySelectorAll('div'); /* fallback simple por texto */
-  }
-  document.querySelectorAll('#aportar .aportar-grid > div').forEach(function(card,ci){
-    var allDivs=card.querySelectorAll(':scope > div');
-    allDivs.forEach(function(d){
-      var t=d.textContent.trim();
-      if(t==='✓ MÁS RÁPIDO'&&L['ap2-fast']) d.textContent=L['ap2-fast'];
-      if(t==='Por WhatsApp'&&L['ap2-wa-t']) d.textContent=L['ap2-wa-t'];
-      if(t==='Por Email o Drive'&&L['ap2-em-t']) d.textContent=L['ap2-em-t'];
-      var ps=card.querySelectorAll(':scope > p');
-    ps.forEach(function(pEl){
-      if(pEl.textContent.indexOf('Mándanos')>=0&&L['ap2-wa-d']) pEl.textContent=L['ap2-wa-d'];
-      if(pEl.textContent.indexOf('Para aportes')>=0&&L['ap2-em-d']) pEl.textContent=L['ap2-em-d'];
-    });
-  });
-  });
-  document.querySelectorAll('#aportar .aportar-grid > div div').forEach(function(d){
-    if(d.children.length>0) return;
-    if(d.textContent.trim()==='Qué incluir en tu mensaje'&&L['ap2-inc-h']) d.textContent=L['ap2-inc-h'];
-  });
-  var ap2WaChecks=document.querySelectorAll('#aportar .aportar-grid > div:first-child > div > div');
-  var ap2WaKeys=['ap2-wa-i1','ap2-wa-i2','ap2-wa-i3'];
-  ap2WaChecks.forEach(function(el,i){ if(ap2WaKeys[i]&&L[ap2WaKeys[i]]){ var sp=el.querySelector('span'); el.innerHTML=(sp?sp.outerHTML:'')+' '+L[ap2WaKeys[i]]; } });
-  var ap2WaCta=document.querySelector('#aportar .aportar-grid a[href*="wa.me"]');
-  if(ap2WaCta&&L['ap2-wa-cta']){ var svgwa=ap2WaCta.querySelector('svg'); ap2WaCta.innerHTML=(svgwa?svgwa.outerHTML:'')+' '+L['ap2-wa-cta']; }
-  var ap2IncItems=document.querySelectorAll('#aportar .aportar-grid > div:nth-child(2) > div > div > div');
-  var ap2IncKeys=['ap2-inc-1','ap2-inc-2','ap2-inc-3','ap2-inc-4'];
-  ap2IncItems.forEach(function(el,i){ if(ap2IncKeys[i]&&L[ap2IncKeys[i]]){ var sp2=el.querySelector('span'); el.innerHTML=(sp2?sp2.outerHTML:'')+' '+L[ap2IncKeys[i]]; } });
-  setText('#aportar .aportar-grid ~ .fi > div:first-child','ap2-acc-h');
-  var ap2AccItems=document.querySelectorAll('#aportar .aportar-grid ~ .fi > div:last-child > div');
-  var ap2AccKeys=['ap2-acc-1','ap2-acc-2','ap2-acc-3','ap2-acc-4','ap2-acc-5','ap2-acc-6'];
-  ap2AccItems.forEach(function(el,i){ if(ap2AccKeys[i]&&L[ap2AccKeys[i]]){ var sp3=el.querySelector('span'); el.innerHTML=(sp3?sp3.outerHTML:'')+' '+L[ap2AccKeys[i]]; } });
-
-  /* PROMEDIO */
-  setText('#promedio .sec-label','prom-lbl'); setHTML('#promedio h2','prom-h'); setText('#promedio .sec-split-r','prom-p');
-  var promTh=document.querySelectorAll('#promedio .prom-thead span'); var promThKeys=['prom-th-mat','prom-th-cred','prom-th-nota'];
-  promTh.forEach(function(el,i){ if(promThKeys[i]&&L[promThKeys[i]]) el.textContent=L[promThKeys[i]]; });
-  setText('#promedio .prom-add-btn','prom-add');
-  var promSys=document.querySelector('#promedio p[style*="font-family:IBM Plex Mono"]'); if(promSys&&L['prom-sys']) promSys.innerHTML='<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-1px"><circle cx="12" cy="12" r="9"/><line x1="12" y1="16" x2="12" y2="11"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg> '+L['prom-sys'];
-  var promInfoCards=document.querySelectorAll('#promedio .prom-grid > div:first-child > div[style*="grid-template-columns:1fr 1fr"] > div');
-  var promInfoKeys=[['prom-q1-h','prom-q1-d'],['prom-q2-h','prom-q2-d']];
-  promInfoCards.forEach(function(el,i){ if(!promInfoKeys[i])return; var divs=el.querySelectorAll('div');
-    if(divs[0]&&L[promInfoKeys[i][0]])divs[0].textContent=L[promInfoKeys[i][0]]; if(divs[1]&&L[promInfoKeys[i][1]])divs[1].textContent=L[promInfoKeys[i][1]]; });
-  setText('#promedio .prom-result-card > div:first-child','prom-result-l');
-  setText('#promedio .prom-hint','prom-hint');
-  var promEj=document.querySelector('#promedio #prom-hint-wrap div[style*="font-weight:700"]'); if(promEj&&L['prom-ej']) promEj.textContent=L['prom-ej'];
-  var promExDivs=document.querySelectorAll('#promedio #prom-hint-wrap > div:nth-of-type(2) > div');
-  if(promExDivs[1]&&L['prom-ej-line']) promExDivs[1].textContent=L['prom-ej-line'];
-  if(promExDivs[2]&&L['prom-ej-div']){ var strongEl=promExDivs[2].querySelector('strong'); promExDivs[2].innerHTML=L['prom-ej-div']+' '+(strongEl?strongEl.outerHTML:''); }
-  var promFoot=document.querySelectorAll('#promedio #prom-hint-wrap p'); if(promFoot[1]&&L['prom-foot']) promFoot[1].textContent=L['prom-foot'];
-
-  /* AU-S (3 tabs/panels) */
-  setText('.au-s .cp-tag','au-tag');
-  setText('.au-s .au-title','au-title');
-  var auTabs=document.querySelectorAll('.au-tab'); var auTabKeys=['au-tab0','au-tab1','au-tab2'];
-  auTabs.forEach(function(el,i){ if(auTabKeys[i]&&L[auTabKeys[i]]){ var svga=el.querySelector('svg'); el.innerHTML=(svga?svga.outerHTML:'')+' '+L[auTabKeys[i]]; } });
-  setText('#au-p0 .au-msg-title','au-p0-t'); setText('#au-p0 .au-msg-body','au-p0-d');
-  var au0Items=document.querySelectorAll('#au-p0 .au-msg-item'); var au0Keys=['au-p0-i1','au-p0-i2','au-p0-i3','au-p0-i4'];
-  au0Items.forEach(function(el,i){ if(au0Keys[i]&&L[au0Keys[i]]){ var chk=el.querySelector('.au-msg-check'); el.innerHTML=(chk?chk.outerHTML:'✓')+L[au0Keys[i]]; } });
-  setText('#au-p0 .au-card-label','au-p0-card-l'); setText('#au-p0 .au-quote','au-p0-quote');
-  var au0StatLs=document.querySelectorAll('#au-p0 .au-stat-l');
-  if(au0StatLs[1]&&L['au-p0-stat2']) au0StatLs[1].textContent=L['au-p0-stat2'];
-  setText('#au-p1 .au-msg-title','au-p1-t'); setText('#au-p1 .au-msg-body','au-p1-d');
-  var au1Items=document.querySelectorAll('#au-p1 .au-msg-item'); var au1Keys=['au-p1-i1','au-p1-i2','au-p1-i3'];
-  au1Items.forEach(function(el,i){ if(au1Keys[i]&&L[au1Keys[i]]){ var chk1=el.querySelector('.au-msg-check'); el.innerHTML=(chk1?chk1.outerHTML:'✓')+L[au1Keys[i]]; } });
-  setText('#au-p1 .au-msg-cta','au-p1-cta'); setText('#au-p1 .au-card-label','au-p1-card-l');
-  var au1Stats=document.querySelectorAll('#au-p1 .au-stat-l'); if(au1Stats[0]&&L['au-p1-stat1']) au1Stats[0].textContent=L['au-p1-stat1'];
-  setText('#au-p1 .au-quote','au-p1-quote');
-  setText('#au-p2 .au-msg-title','au-p2-t'); setText('#au-p2 .au-msg-body','au-p2-d');
-  var au2Items=document.querySelectorAll('#au-p2 .au-msg-item'); var au2Keys=['au-p2-i1','au-p2-i2','au-p2-i3','au-p2-i4'];
-  au2Items.forEach(function(el,i){ if(au2Keys[i]&&L[au2Keys[i]]){ var chk2=el.querySelector('.au-msg-check'); el.innerHTML=(chk2?chk2.outerHTML:'✓')+L[au2Keys[i]]; } });
-  setText('#au-p2 .au-msg-cta','au-p2-cta'); setText('#au-p2 .au-card-label','au-p2-card-l');
-  var au2Stats=document.querySelectorAll('#au-p2 .au-stat-l'); var au2StatKeys=['au-p2-s1','au-p2-s2','au-p2-s3','au-p2-s4'];
-  au2Stats.forEach(function(el,i){ if(au2StatKeys[i]&&L[au2StatKeys[i]]) el.textContent=L[au2StatKeys[i]]; });
-  setText('#au-p2 .au-quote','au-p2-quote');
-
-  /* AP-S (apoyar) */
-  setText('.ap-s .ap-tag','ap3-tag'); setText('.ap-s .ap-title','ap3-title'); setText('.ap-s .ap-desc','ap3-desc');
-  var apItems=document.querySelectorAll('.ap-s .ap-items span'); var apKeys=['ap3-i1','ap3-i2','ap3-i3'];
-  apItems.forEach(function(el,i){ if(apKeys[i]&&L[apKeys[i]]){ var svgap=el.querySelector('svg'); el.innerHTML=(svgap?svgap.outerHTML:'')+' '+L[apKeys[i]]; } });
-  setText('.ap-s .ap-per','ap3-per'); setHTML('.ap-s .ap-cost','ap3-cost');
-
-  /* FAQ */
-  setText('#faq .sec-label','faq-lbl'); setText('#faq h2','faq-h');
-  var faqItems=document.querySelectorAll('#faq .faq-item');
-  var faqKeys=[['faq-q1','faq-a1'],['faq-q2','faq-a2'],['faq-q3','faq-a3'],['faq-q4','faq-a4'],['faq-q5','faq-a5'],['faq-q6','faq-a6']];
-  faqItems.forEach(function(el,i){ if(!faqKeys[i])return;
-    var qEl=el.querySelector('.faq-q'), aEl=el.querySelector('.faq-a'), ico=qEl?qEl.querySelector('.faq-ico'):null;
-    if(qEl&&L[faqKeys[i][0]]) qEl.innerHTML=L[faqKeys[i][0]]+(ico?ico.outerHTML:'<span class="faq-ico">+</span>');
-    if(aEl&&L[faqKeys[i][1]]) aEl.textContent=L[faqKeys[i][1]];
-  });
-
-  /* RUTA DEL SEMESTRE */
-  setText('.ruta-s .cp-tag','ruta-tag'); setText('.ruta-s h2','ruta-h'); setText('.ruta-s .ruta-hd p','ruta-p');
-  var rutaSemLbls=document.querySelectorAll('.ruta-s .ruta-sem-lbl');
-  var rutaSemKeys=['ruta-niv','ruta-s1','ruta-s2','ruta-s3','ruta-s4','ruta-s5'];
-  rutaSemLbls.forEach(function(el,i){ if(rutaSemKeys[i]&&L[rutaSemKeys[i]]) el.textContent=L[rutaSemKeys[i]]; });
-  document.querySelectorAll('.ruta-s .ruta-mat').forEach(function(a){
-    var href=a.getAttribute('href')||''; var m=href.match(/s=(\d+)/);
-    if(m && typeof SUBJECTS!=='undefined'){
-      var subj=SUBJECTS.filter(function(s){return s.code===m[1];})[0];
-      if(subj){ var nameEl=a.querySelector('.ruta-mat-name'); if(nameEl) nameEl.textContent = en&&subj.nameEn?subj.nameEn:subj.nameEs; }
-    }
-  });
-  var rutaCta=document.querySelector('.ruta-s .ruta-cta .btn-a');
-  if(rutaCta&&L['ruta-cta']){ var svgr=rutaCta.querySelector('svg'); rutaCta.innerHTML=(svgr?svgr.outerHTML:'')+' '+L['ruta-cta']; }
-  setText('.ruta-s .ruta-cta span','ruta-foot');
-
-  /* MAPA DEL SITIO (smap-s) */
-  setText('.smap-s .smap-hd-tag','smap-tag'); setText('.smap-s h2','smap-h');
-  var smapColTitles=document.querySelectorAll('.smap-s .smap-col-title'); var smapColKeys=['smap-col1','smap-col2','smap-col3','smap-col4'];
-  smapColTitles.forEach(function(el,i){ if(smapColKeys[i]&&L[smapColKeys[i]]){ var svgsm=el.querySelector('svg'); el.innerHTML=(svgsm?svgsm.outerHTML:'')+' '+L[smapColKeys[i]]; } });
-  document.querySelectorAll('.smap-s .smap-link').forEach(function(a){
-    var href=a.getAttribute('href')||''; var m=href.match(/s=(\d+)/);
-    if(m && typeof SUBJECTS!=='undefined'){
-      var subj=SUBJECTS.filter(function(s){return s.code===m[1];})[0];
-      if(subj){ var badge=a.querySelector('.smap-link-badge'); var newName=(en&&subj.nameEn?subj.nameEn:subj.nameEs);
-        a.innerHTML=subj.sym+' '+newName+(badge?(' '+badge.outerHTML):''); }
-    }
-    var t=a.textContent.trim();
-    if(t==='Ver todas →'&&L['smap-ver-todas']) a.textContent=L['smap-ver-todas'];
-    if(t.indexOf('Popular')>=0&&L['smap-popular']){ var b2=a.querySelector('.smap-link-badge'); if(b2)b2.textContent=L['smap-popular']; }
-  });
-  var smapToolLinks=document.querySelectorAll('.smap-s .smap-links')[1];
-  if(smapToolLinks){
-    var toolAs=smapToolLinks.querySelectorAll('a'); var toolKeys=['smap-sim','smap-form','smap-calc','smap-prom','smap-banco'];
-    toolAs.forEach(function(a,i){ if(!toolKeys[i]||!L[toolKeys[i]])return; var badge=a.querySelector('.smap-link-badge');
-      var prefix=a.textContent.trim().split(' ')[0];
-      a.innerHTML=prefix+' '+L[toolKeys[i]]+(badge?(' '+badge.outerHTML):''); });
-  }
-  var smapResLinks=document.querySelectorAll('.smap-s .smap-links')[2];
-  if(smapResLinks){
-    var resAs=smapResLinks.querySelectorAll('a'); var resKeys=['smap-pack','smap-aportar','smap-hist','smap-prox','smap-faq'];
-    resAs.forEach(function(a,i){ if(!resKeys[i]||!L[resKeys[i]])return; var prefix=a.textContent.trim().split(' ')[0]; a.textContent=prefix+' '+L[resKeys[i]]; });
-  }
-  document.querySelectorAll('.smap-s .smap-links a').forEach(function(a){
-    var t=a.textContent.trim();
-    if(t.indexOf('Grupo WhatsApp')>=0&&L['smap-wa']) a.innerHTML='<svg width="13" height="13" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" style="vertical-align:-2px"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg> '+L['smap-wa'];
-    if(t.indexOf('Telegram (próximo)')>=0&&L['smap-tg']) a.textContent='↗ '+L['smap-tg'];
-    if(t.indexOf('Discord (próximo)')>=0&&L['smap-dc']) a.textContent='↗ '+L['smap-dc'];
-  });
-  setText('.smap-bottom-l','smap-bottom');
-  var smapQuick=document.querySelectorAll('.smap-quick-btn'); var smapQuickKeys=['smap-top','smap-quick-sim','smap-quick-banco','smap-quick-form'];
-  smapQuick.forEach(function(el,i){ if(!smapQuickKeys[i]||!L[smapQuickKeys[i]])return; var prefix=el.textContent.trim().split(' ')[0]; el.textContent=prefix+' '+L[smapQuickKeys[i]]; });
-
-  /* FOOTER (resto) */
-  setText('footer .fact','foot-activo');
-  var footCols=document.querySelectorAll('footer .fcol h4'); var footColKeys=['foot-com','foot-contact','foot-mats'];
-  footCols.forEach(function(el,i){ if(footColKeys[i]&&L[footColKeys[i]]) el.textContent=L[footColKeys[i]]; });
-  document.querySelectorAll('footer .fcol a').forEach(function(a){
-    var t=a.textContent.trim();
-    if(t.indexOf('Grupo WhatsApp')>=0&&L['foot-wa']) a.lastChild.textContent=L['foot-wa'];
-    if(t.indexOf('Canal Telegram')>=0&&L['foot-tg']) a.lastChild.textContent=L['foot-tg'];
-    if(t==='Discord'&&L['foot-dc']) a.lastChild.textContent=L['foot-dc'];
-    if(t.indexOf('Bancolombia')>=0&&L['foot-bank']) a.lastChild.textContent=L['foot-bank'];
-    if(t==='Ver todas →'&&L['foot-vertodas']) a.textContent=L['foot-vertodas'];
-  });
-  document.querySelectorAll('footer .fcol:last-of-type a').forEach(function(a){
-    var href=a.getAttribute('href')||''; var m=href.match(/s=(\d+)/);
-    if(m && typeof SUBJECTS!=='undefined'){
-      var subj=SUBJECTS.filter(function(s){return s.code===m[1];})[0];
-      if(subj) a.textContent = en&&subj.nameEn?subj.nameEn:subj.nameEs;
-    }
-  });
-  var footP=document.querySelector('footer .fbrand p'); if(footP&&L['foot-tagline']) footP.textContent=L['foot-tagline'];
-
-  /* Botones flotantes / Pomodoro / mu-calc */
-  document.querySelectorAll('button[onclick*="weekModal"]').forEach(function(b){
-    if(L['fab-semana']){ var svgb=b.querySelector('svg'); b.innerHTML=(svgb?svgb.outerHTML:'')+' '+L['fab-semana']; }
-  });
-  var pomoH=document.querySelector('.sphd'); if(pomoH&&L['pomo-h']){ var svgp2=pomoH.querySelector('svg'); pomoH.innerHTML=L['pomo-h']+' <span>'+(svgp2?svgp2.outerHTML:'')+' 25 min</span>'; }
-  var pomoBtn=document.getElementById('tbtn'); if(pomoBtn&&L['pomo-start']&&pomoBtn.textContent.indexOf('Iniciar')>=0) pomoBtn.innerHTML=L['pomo-start'];
-  document.querySelectorAll('.spbtn').forEach(function(b){ if(b.textContent.indexOf('Reset')>=0&&L['pomo-reset']) b.innerHTML=L['pomo-reset']; });
-  var muCalcH=document.querySelector('.mu-calc h3'); if(muCalcH&&L['mu-calc-h']){ var svgmc=muCalcH.querySelector('svg'); muCalcH.innerHTML=(svgmc?svgmc.outerHTML:'')+' '+L['mu-calc-h']; }
-  setText('.mu-calc-sub','mu-calc-sub');
-  var muCalcLbls=document.querySelectorAll('.mu-calc-field label'); var muCalcKeys=['mu-calc-p1','mu-calc-p2','mu-calc-pf'];
-  muCalcLbls.forEach(function(el,i){ if(muCalcKeys[i]&&L[muCalcKeys[i]]) el.textContent=L[muCalcKeys[i]]; });
-  var muMsgEl=document.getElementById('mu-msg');
-  if(muMsgEl&&L['mu-msg-init']&&muMsgEl.textContent.indexOf('Ingresa')>=0) muMsgEl.textContent=L['mu-msg-init'];
-  else if(muMsgEl&&!en&&muMsgEl.textContent.indexOf('Enter your grades')>=0) muMsgEl.textContent='Ingresa tus notas para calcular';
-  var spfSpan=document.querySelector('#mu-spf span'); if(spfSpan&&L['sp-recall-q']) spfSpan.textContent=L['sp-recall-q'];
-  var sphEl=document.getElementById('mu-sph'); if(sphEl&&L['sp-hint']) sphEl.textContent=L['sp-hint'];
-  var spVerBtn=document.querySelector('#mu-spbt .mu-sb-ver');
-  if(spVerBtn&&L['sp-ver']){ var svgver=spVerBtn.querySelector('svg'); spVerBtn.innerHTML=(svgver?svgver.outerHTML:'')+' '+L['sp-ver']; }
-  var spdEl=document.getElementById('mu-spd');
-  if(spdEl&&L['sp-vistas']){ var num=(spdEl.textContent.match(/\d+/)||['0'])[0]; spdEl.textContent=num+' '+L['sp-vistas']; }
-  setHTML('.mu-sprint-cta','sp-cta');
-
-  /* Si la pagina activa es un template renderizado por separado (banco, simulacro,
-     formulas, materia), tiene su propio window.muApplyLang_<pagina> que _loadPage()
-     solo llamaba al NAVEGAR ahi. Sin esto, cambiar de idioma ESTANDO ya en esas
-     paginas dejaba su contenido a medias en el idioma viejo. */
-  try {
-    if (window.__muCurrentPage) {
-      var pageFn = window['muApplyLang_' + window.__muCurrentPage];
-      if (typeof pageFn === 'function') pageFn();
-      if (typeof MU_PAGE_TITLES !== 'undefined' && MU_PAGE_TITLES[window.__muCurrentPage]) {
-        document.title = en ? MU_PAGE_TITLES[window.__muCurrentPage].en : MU_PAGE_TITLES[window.__muCurrentPage].es;
-      }
-    }
-  } catch(e){ console.error('muApplyLang (setLang) error:', e && e.message); }
-
-  /* Guardar preferencia */
-  try{ localStorage.setItem('mu-lang', lang); }catch(e){}
-}
-
-/* Recuperar idioma guardado */
-(function(){
-  try{
-    var saved = localStorage.getItem('mu-lang');
-    if(saved && saved !== 'es') setTimeout(function(){ setLang(saved); }, 300);
-  }catch(e){}
-})();
+/* setLang(), LANG_ES/LANG_EN y curLang se movieron al script persistente (cerca de SUBJECTS) -- vivian atrapados aqui dentro de <template id="tpl-home">, que solo se clona al DOM si el usuario entra por home. Un usuario que abria un link directo a materia/banco/simulacro/formulas/juegos/diagnostico (busqueda de Google, link compartido, marcador) se quedaba SIN setLang definido: el boton de idioma tronaba con ReferenceError al primer clic. */
 
 /* ── PROMEDIO PONDERADO UNAL ── */
 var MATERIAS_UNAL = [
@@ -8386,7 +7302,7 @@ function _muSpEnd(){
   <div class="nav-r">
     <a href="#simulacros" class="nav-cta">Simulacros →</a>
     <div class="settings-wrap"><button class="settings-btn" aria-label="Ajustes" onclick="toggleSettings(this)" aria-haspopup="true" aria-expanded="false" aria-controls="sd"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></button>
-      <div class="settings-dropdown" id="sd"><div class="sd-section"><div class="sd-label">TEMA</div><div class="sd-row">
+      <div class="settings-dropdown" id="sd"><div class="sd-section"><div class="sd-label">IDIOMA</div><div class="sd-row"><button class="sd-btn on" id="btn-es" onclick="setLang('es')">ES</button><button class="sd-btn" id="btn-en" onclick="setLang('en')">EN</button></div></div><div class="sd-section"><div class="sd-label">TEMA</div><div class="sd-row">
         <button class="sd-btn on" id="th-dark" onclick="setTheme('dark')"><svg width="13" height="13" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" style="vertical-align:-2px"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg> Dark</button>
         <button class="sd-btn" id="th-gray" onclick="setTheme('gray')"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" style="vertical-align:-2px"><circle cx="12" cy="12" r="9"/></svg> Gris</button>
         <button class="sd-btn" id="th-light" onclick="setTheme('light')"><svg width="13" height="13" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" style="vertical-align:-2px"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.2" y1="4.2" x2="5.6" y2="5.6"/><line x1="18.4" y1="18.4" x2="19.8" y2="19.8"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.2" y1="19.8" x2="5.6" y2="18.4"/><line x1="18.4" y1="5.6" x2="19.8" y2="4.2"/></svg> Light</button>
@@ -8459,7 +7375,7 @@ if(!window.__muSdClickBound){window.__muSdClickBound=true;document.addEventListe
     <a href="#home" style="display:inline-flex;align-items:center;gap:.35rem;background:var(--lay2);border:1px solid var(--br);border-radius:8px;padding:.38rem .9rem;font-size:.8rem;font-weight:600;color:var(--t2);transition:all .2s" onmouseover="this.style.borderColor='var(--bra)';this.style.color='var(--t1)'" onmouseout="this.style.borderColor='var(--br)';this.style.color='var(--t2)'">← Volver</a>
     <a href="#formulas" class="nav-sec-link">Formulario</a>
     <div class="settings-wrap"><button class="settings-btn" aria-label="Ajustes" onclick="toggleSettings(this)" aria-haspopup="true" aria-expanded="false" aria-controls="sd"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></button>
-      <div class="settings-dropdown" id="sd"><div class="sd-section"><div class="sd-label">TEMA</div><div class="sd-row">
+      <div class="settings-dropdown" id="sd"><div class="sd-section"><div class="sd-label">IDIOMA</div><div class="sd-row"><button class="sd-btn on" id="btn-es" onclick="setLang('es')">ES</button><button class="sd-btn" id="btn-en" onclick="setLang('en')">EN</button></div></div><div class="sd-section"><div class="sd-label">TEMA</div><div class="sd-row">
         <button class="sd-btn on" id="th-dark" onclick="setTheme('dark')"><svg width="13" height="13" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" style="vertical-align:-2px"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg> Dark</button>
         <button class="sd-btn" id="th-gray" onclick="setTheme('gray')"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" style="vertical-align:-2px"><circle cx="12" cy="12" r="9"/></svg> Gris</button>
         <button class="sd-btn" id="th-light" onclick="setTheme('light')"><svg width="13" height="13" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" style="vertical-align:-2px"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.2" y1="4.2" x2="5.6" y2="5.6"/><line x1="18.4" y1="18.4" x2="19.8" y2="19.8"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.2" y1="19.8" x2="5.6" y2="18.4"/><line x1="18.4" y1="5.6" x2="19.8" y2="4.2"/></svg> Light</button>
@@ -9872,7 +8788,7 @@ function _showScreen(id){
   <div class="nav-r" style="display:flex;align-items:center;gap:.9rem;margin-left:auto">
     <a href="#home" class="mat-nav-back" style="font-size:.82rem;padding:.36rem .7rem;border-radius:7px;background:var(--lay2);border:1px solid var(--br);color:var(--t2);text-decoration:none">← Inicio</a>
     <div class="settings-wrap"><button class="settings-btn" aria-label="Ajustes" onclick="toggleSettings(this)" aria-haspopup="true" aria-expanded="false" aria-controls="sd"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></button>
-      <div class="settings-dropdown" id="sd"><div class="sd-section"><div class="sd-label">TEMA</div><div class="sd-row">
+      <div class="settings-dropdown" id="sd"><div class="sd-section"><div class="sd-label">IDIOMA</div><div class="sd-row"><button class="sd-btn on" id="btn-es" onclick="setLang('es')">ES</button><button class="sd-btn" id="btn-en" onclick="setLang('en')">EN</button></div></div><div class="sd-section"><div class="sd-label">TEMA</div><div class="sd-row">
         <button class="sd-btn on" id="th-dark" onclick="setTheme('dark')"><svg width="13" height="13" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" style="vertical-align:-2px"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg> Dark</button>
         <button class="sd-btn" id="th-gray" onclick="setTheme('gray')"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" style="vertical-align:-2px"><circle cx="12" cy="12" r="9"/></svg> Gris</button>
         <button class="sd-btn" id="th-light" onclick="setTheme('light')"><svg width="13" height="13" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" style="vertical-align:-2px"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.2" y1="4.2" x2="5.6" y2="5.6"/><line x1="18.4" y1="18.4" x2="19.8" y2="19.8"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.2" y1="19.8" x2="5.6" y2="18.4"/><line x1="18.4" y1="5.6" x2="19.8" y2="4.2"/></svg> Light</button>
@@ -11292,7 +10208,7 @@ function vcDraw(){
   <div class="nav-r" style="display:flex;align-items:center;gap:.9rem;margin-left:auto">
     <a href="#home" class="mat-nav-back" style="font-size:.82rem;padding:.36rem .7rem;border-radius:7px;background:var(--lay2);border:1px solid var(--br);color:var(--t2);text-decoration:none">← Inicio</a>
     <div class="settings-wrap"><button class="settings-btn" aria-label="Ajustes" onclick="toggleSettings(this)" aria-haspopup="true" aria-expanded="false" aria-controls="sd"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></button>
-      <div class="settings-dropdown" id="sd"><div class="sd-section"><div class="sd-label">TEMA</div><div class="sd-row">
+      <div class="settings-dropdown" id="sd"><div class="sd-section"><div class="sd-label">IDIOMA</div><div class="sd-row"><button class="sd-btn on" id="btn-es" onclick="setLang('es')">ES</button><button class="sd-btn" id="btn-en" onclick="setLang('en')">EN</button></div></div><div class="sd-section"><div class="sd-label">TEMA</div><div class="sd-row">
         <button class="sd-btn on" id="th-dark" onclick="setTheme('dark')"><svg width="13" height="13" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" style="vertical-align:-2px"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg> Dark</button>
         <button class="sd-btn" id="th-gray" onclick="setTheme('gray')"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" style="vertical-align:-2px"><circle cx="12" cy="12" r="9"/></svg> Gris</button>
         <button class="sd-btn" id="th-light" onclick="setTheme('light')"><svg width="13" height="13" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" style="vertical-align:-2px"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.2" y1="4.2" x2="5.6" y2="5.6"/><line x1="18.4" y1="18.4" x2="19.8" y2="19.8"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.2" y1="19.8" x2="5.6" y2="18.4"/><line x1="18.4" y1="5.6" x2="19.8" y2="4.2"/></svg> Light</button>
@@ -11704,7 +10620,7 @@ function _diagReiniciar(){
   <div class="nav-r" style="display:flex;align-items:center;gap:.9rem;margin-left:auto">
     <a href="#home" class="mat-nav-back" style="font-size:.82rem;padding:.36rem .7rem;border-radius:7px;background:var(--lay2);border:1px solid var(--br);color:var(--t2);text-decoration:none">← Inicio</a>
     <div class="settings-wrap"><button class="settings-btn" aria-label="Ajustes" onclick="toggleSettings(this)" aria-haspopup="true" aria-expanded="false" aria-controls="sd"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></button>
-      <div class="settings-dropdown" id="sd"><div class="sd-section"><div class="sd-label">TEMA</div><div class="sd-row">
+      <div class="settings-dropdown" id="sd"><div class="sd-section"><div class="sd-label">IDIOMA</div><div class="sd-row"><button class="sd-btn on" id="btn-es" onclick="setLang('es')">ES</button><button class="sd-btn" id="btn-en" onclick="setLang('en')">EN</button></div></div><div class="sd-section"><div class="sd-label">TEMA</div><div class="sd-row">
         <button class="sd-btn on" id="th-dark" onclick="setTheme('dark')"><svg width="13" height="13" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" style="vertical-align:-2px"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg> Dark</button>
         <button class="sd-btn" id="th-gray" onclick="setTheme('gray')"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" style="vertical-align:-2px"><circle cx="12" cy="12" r="9"/></svg> Gris</button>
         <button class="sd-btn" id="th-light" onclick="setTheme('light')"><svg width="13" height="13" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" style="vertical-align:-2px"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.2" y1="4.2" x2="5.6" y2="5.6"/><line x1="18.4" y1="18.4" x2="19.8" y2="19.8"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.2" y1="19.8" x2="5.6" y2="18.4"/><line x1="18.4" y1="5.6" x2="19.8" y2="4.2"/></svg> Light</button>
@@ -14595,6 +13511,1104 @@ var PREREQS={
 };
 window.PREREQS = PREREQS; // mismo patron RONDA 5/8: visible desde todas las paginas
 
+/* ── LANGUAGE ── */
+var LANG_ES={
+  /* Nav */
+  "nav-cta":"Banco de Exámenes",
+  "nav-simulacros":"Simulacros","nav-banco":"Banco PDF","nav-formulas":"Formulario",
+  "nav-aportar":"Aportar","nav-promedio":"Promedio","nav-comunidad":"Comunidad",
+  /* Hero */
+  "hero-badge":"Repositorio no oficial · UNAL Medellín · 2026",
+  "hero-tag":"Un cuaderno compartido entre estudiantes de ingeniería",
+  "hero-sub":"Talleres, parciales resueltos, libros guía y solucionarios para las <strong>6 materias</strong> del núcleo de matemáticas.",
+  "hero-btn1":"<svg width='13' height='13' viewBox='0 0 24 24' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' fill='none' style='vertical-align:-2px'><path d='M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z'/><path d='M14 2v6h6'/></svg> Ver Banco de Exámenes →","hero-btn2":"▶ Iniciar Simulacro",
+  "hero-stat1":"PDFs disponibles","hero-stat2":"Exámenes con solución","hero-stat3":"Materias con PDF","hero-stat4":"Estudiantes",
+  "cat-tab1":"Talleres","cat-tab2":"Parciales Resueltos","cat-tab3":"Quices","cat-tab4":"Libros Guía","cat-tab5":"Notas de Clase",
+  /* Materias */
+  "mat-label":"Escuela de Matemáticas · UNAL Medellín","mat-h":"Elige tu materia",
+  "mat-sub":"11 materias del núcleo de matemáticas. Desde nivelatorio hasta semestre 5.",
+  /* Simulacros */
+  "sim-label":"Practica en condiciones reales",
+  "sim-h":"Simula antes<br>de que sea real.","sim-sub":"Parciales de semestres anteriores como PDF descargable. Pon el cronómetro, cierra el libro y practica.",
+  "sim-f-all":"Todos","sim-f-cd":"Cálculo Dif.","sim-f-ci":"Cálculo Int.","sim-f-al":"Álgebra Lin.","sim-f-mb":"Mat. Básicas","sim-f-edo":"EDO",
+  "panic-title":"Modo Pánico activado","panic-sub":"¿Tienes parcial en menos de 24 horas? Esto es lo que necesitas hacer ahora mismo.",
+  "panic-btn":"<svg width='13' height='13' viewBox='0 0 24 24' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' fill='none' style='vertical-align:-2px'><path d='M7 18v-6a5 5 0 0 1 10 0v6'/><line x1='12' y1='2' x2='12' y2='4'/><rect x='4' y='18' width='16' height='4' rx='1'/></svg> Plan de emergencia",
+  /* Banco */
+  "banco-label":"Generado con IA · Claude Sonnet","banco-h":"Banco de Exámenes","banco-hi":"con Solución",
+  "banco-sub":"Enunciados en LaTeX limpio y soluciones paso a paso generadas con IA. <strong>Descarga directa en PDF.</strong>",
+  "banco-mat":"Materia:","banco-all":"Todas",
+  "banco-search":"Buscar examen...",
+  /* Material */
+  "mat2-label":"Material de Estudio","mat2-h":"Todo lo que necesitas,","mat2-hi":"a tu alcance",
+  "mat2-sub":"Material gratuito para todos. Solucionarios premium para quienes necesitan ir más lejos.",
+  /* Calculadora */
+  "calc-label":"Herramienta gratuita","calc-h":"¿Cuánto necesito<br>para","calc-hi":"pasar?",
+  "calc-sub":"Ingresa las notas que ya tienes y los pesos de cada corte. La calculadora te dice exactamente qué necesitas.",
+  "calc-tab1":"2 Cortes","calc-tab2":"3 Cortes","calc-tab3":"4 Cortes",
+  /* Comunidad */
+  "comm-label":"Comunidad","comm-h":"No estudies solo,","comm-hi":"únete",
+  "comm-sub":"Más de 2.400 estudiantes de ingeniería ya hacen parte de la comunidad MathUNAL.",
+  /* Aportar */
+  "aportar-label":"Contribuye al banco","aportar-h":"¿Tienes material?","aportar-hi":"Compártelo.",
+  "aportar-sub":"Cualquier estudiante, egresado o profesor puede aportar talleres, parciales, quices o apuntes.",
+  /* Promedio */
+  "prom-label":"Calculadora UNAL","prom-h":"Promedio ponderado","prom-hi":"por créditos",
+  "prom-sub":"Ingresa tus materias con créditos y notas. Calcula tu promedio ponderado semestral y acumulado.",
+  /* Stats / testimonios */
+  "stats-s1":"Estudiantes ayudados","stats-s2":"Archivos disponibles","stats-s3":"Materias cubiertas","stats-s4":"Tipos de material",
+  "test-label":"Lo que dicen los estudiantes","test-h":"Estudiantes reales,","test-hi":"resultados reales",
+  /* Footer */
+  "foot-desc":"Un cuaderno compartido entre estudiantes de ingeniería de la UNAL Medellín. No oficial, hecho con cariño.",
+  "foot-com":"Comunidad","foot-contact":"Contacto","foot-mats":"Materias",
+  "foot-copy":"© 2026 MathUNAL · Proyecto estudiantil independiente · No afiliado a la UNAL",
+  /* Ciclo del Parcial */
+  "cp-tag":"El problema que resuelve MathUNAL",
+  "cp-sub":"Las matemáticas no son el problema. El problema es no tener dónde practicar en el formato real de tu examen.",
+  "cp-title-default":"El parcial llega.<br>¿Dónde practicas el <em>formato real</em>?",
+  "cp-btn-sin":"✗ Sin MathUNAL","cp-btn-con":"✓ Con MathUNAL","cp-btn-vs":"Comparar",
+  "cp-sin-1-t":"Buscas parciales anteriores",
+  "cp-sin-1-d":"En grupos de WhatsApp, drives de otros semestres, fotocopias sueltas. Pierdes 2 horas buscando material que no sabes si sirve.",
+  "cp-sin-2-t":"Encuentras 2 parciales, sin solucionario",
+  "cp-sin-2-d":"No sabes si las respuestas que circulan están bien. No hay procedimiento. Resuelves a ciegas.",
+  "cp-sin-3-t":"Practicas sin condiciones reales",
+  "cp-sin-3-d":"Sin cronómetro, sin formato SIDEX, sin saber si vas bien o mal. El día del parcial todo se siente diferente.",
+  "cp-sin-4-t":"Llegas al parcial sin confianza",
+  "cp-sin-4-d":"Primera vez que ves el formato real. El tiempo se siente diferente. Eso se refleja en la nota.",
+  "cp-action":"Clic para continuar →",
+  "cp-sin-result-l":"Promedio típico sin práctica estructurada",
+  "cp-sin-switch":"¿Y con MathUNAL? →",
+  "cp-con-1-t":"Abres tu materia en un clic",
+  "cp-con-1-d-pre":"PDFs organizados por semestre, tipo y materia. Todo verificado. Sin buscar en WhatsApp ni drives perdidos.",
+  "cp-con-2-t":"Estudias con solucionario paso a paso",
+  "cp-con-2-d":"Cada ejercicio resuelto con procedimiento completo. Sabes exactamente dónde fallaste y por qué.",
+  "cp-con-3-t":"Haces un simulacro en condiciones reales",
+  "cp-con-3-d":"Mismo formato SIDEX, mismo tiempo, misma presión. Pero con retroalimentación inmediata al terminar.",
+  "cp-con-4-t":"Llegas preparado y con confianza",
+  "cp-con-4-d":"Ya viste el formato. Ya mediste tu tiempo. Ya sabes que puedes. Eso se refleja en la nota.",
+  "cp-con-result-l":"Promedio con práctica estructurada",
+  "cp-con-switch":"Ver la comparación →",
+  "cp-vs-1":"Buscar en WhatsApp","cp-vs-2":"Sin solucionario","cp-vs-3":"Sin simulacro real","cp-vs-4":"Sin confianza",
+  "cp-vs-5":"Todo organizado","cp-vs-6":"Solucionario completo","cp-vs-7":"Simulacro SIDEX real","cp-vs-8":"Preparado y seguro",
+  "cp-quote":"\"No es que los estudiantes no quieran aprender. Es que nunca tuvieron dónde practicar con rigor.\"",
+  /* Banner Semana del Parcial */
+  "banner-label":"Semana del Parcial","banner-cta":"Ver plan →",
+  /* Mapa de contenido */
+  "cm-tag":"Qué hay disponible","cm-title":"Todo el contenido, de un vistazo",
+  "cm-l-parciales":"Parciales","cm-l-talleres":"Talleres","cm-l-quices":"Quices",
+  "cm-l-simulacros":"Simulacros","cm-l-solucionarios":"Solucionarios","cm-l-total":"Total",
+  /* Asi de simple (3 pasos) */
+  "hf-tag":"Así de simple",
+  "hf-title":"Tres pasos para llegar<br>preparado al parcial",
+  "hf-1-t":"Elige tu materia",
+  "hf-1-d":"Cálculo Diferencial, Álgebra Lineal, EDO — todos los parciales anteriores organizados por semestre, sin buscar en grupos de WhatsApp.",
+  "hf-2-t":"Practica con solucionario",
+  "hf-2-d":"Cada ejercicio resuelto paso a paso. No circulares de WhatsApp sin procedimiento — el método completo para entender dónde fallaste.",
+  "hf-3-t":"Simula en condiciones reales",
+  "hf-3-d":"Simulacros con cronómetro en formato SIDEX — el mismo que usa la UNAL. Ya conoces el formato. Ya sabes cuánto tiempo tienes. Llegas preparado.",
+  "explorar-materias":"Explorar materias →",
+  "hf-cta-note":"Gratis · Sin registro · Sin anuncios",
+  /* Nav more dropdown */
+  "nmd-1-t":"Banco PDF","nmd-1-s":"Todos los parciales y talleres",
+  "nmd-2-t":"Calcular Promedio","nmd-2-s":"Simula tu nota final",
+  "nmd-3-t":"Aportar","nmd-3-s":"Sube material al repositorio",
+  "nmd-4-t":"Comunidad","nmd-4-s":"Foro de estudiantes",
+  "hero-ctx":"núcleo completo",
+  /* Panic Modal */
+  "pm-title":"Parcial en &lt;24h","pm-sub":"Ejecuta esto en orden. No improvises.",
+  "pm-1-t":"Lee el programa del curso","pm-1-d":"Identifica los temas del corte. No estudies lo que no entra.",
+  "pm-2-t":"Descarga 2 simulacros del tema","pm-2-d":"Haz el más reciente con el cronómetro puesto.",
+  "pm-3-t":"Revisa con el solucionario","pm-3-d":"Cada ejercicio que no resolviste, véalo en el Pack Salva-Semestre. Entiende el procedimiento.",
+  "pm-4-t":"Haz el segundo simulacro","pm-4-d":"Sin el solucionario. Cronómetro en marcha. Si lo acabas en tiempo, ya puedes dormir.",
+  "pm-5-t":"Duerme al menos 5 horas","pm-5-d":"La memoria consolida mientras duermes. El madrugón de las 4 a.m. va a hacer más daño que bien.",
+  "pm-tip":"<strong>Dato de monitor:</strong> Los últimos parciales de Cálculo Diferencial siempre incluyen optimización. Repasa ese tema. <strong>Está en el Pack.</strong>",
+  /* Week Modal */
+  "wm-title":"Plan de la Semana del Parcial","wm-sub":"Dinos qué parcial tienes y para cuándo. Generamos un plan día por día.",
+  "wm-mat-l":"Materia","wm-corte-l":"Corte / Parcial","wm-fecha-l":"Fecha del parcial",
+  "wm-gen-btn":"Generar mi plan →",
+  /* Timeline header */
+  "tl-tag":"La historia detrás","tl-title":"De un PDF suelto a 60,000 visitas",
+  "tl-sub":"MathUNAL no nació como proyecto. Nació como necesidad.",
+  /* Proximamente */
+  "prox-tag":"En desarrollo · 2026","prox-h":"Más materias llegando pronto",
+  "prox-p":"MathUNAL se expande más allá de matemáticas. Sigue el canal de Telegram para ser el primero.",
+  "prox-1-cat":"Ciencias","prox-1-n":"Física I","prox-1-d":"Mecánica, cinemática, dinámica y energía para ingeniería.",
+  "prox-2-cat":"Ciencias","prox-2-n":"Química General","prox-2-d":"Estequiometría, termodinámica química y electroquímica.",
+  "prox-3-cat":"Matemáticas","prox-3-n":"Estadística","prox-3-d":"Probabilidad, distribuciones y estadística inferencial.",
+  "prox-4-cat":"Ingeniería","prox-4-n":"Mecánica de Sólidos","prox-4-d":"Estática, resistencia de materiales y análisis estructural.",
+  /* Pack v2 (visible) */
+  "pk-tag":"Para ir más lejos","pk-h1":"Todo ya es gratis.","pk-h2":"El solucionario, no.",
+  "pk-sub":"Practicar parciales sin saber dónde fallaste es estudiar a ciegas. El Pack te da el procedimiento completo — paso a paso, con la misma lógica del examen real.",
+  "pk-badge":"Pack Salva-Semestre","pk-new":"✓ Actualizado 2025-2","pk-title":"Solucionarios<br>paso a paso",
+  "pk-desc":"Cada ejercicio resuelto con procedimiento completo. No solo la respuesta — el método. Con anotaciones de monitor y los trucos que no están en el libro.",
+  "pk-i1-t":"150+ parciales resueltos","pk-i1-s":"Procedimiento completo en cada ejercicio",
+  "pk-i2-t":"Talleres con solución comentada","pk-i2-s":"Con notas de monitor incluidas",
+  "pk-i3-t":"Actualizado cada semestre","pk-i3-s":"Parciales más recientes incluidos",
+  "pk-i4-t":"Acceso permanente al Drive","pk-i4-s":"Una sola compra, de por vida",
+  "pk-cmp-h":"¿Qué incluye?","pk-cmp-free":"Gratis","pk-cmp-pack":"Pack",
+  "pk-cmp-1":"Parciales para practicar","pk-cmp-2":"Formularios y simulacros",
+  "pk-cmp-3":"Procedimiento completo","pk-cmp-4":"Anotaciones de monitor",
+  "pk-price-l":"Precio por materia","pk-period":"COP · Acceso permanente · Sin suscripción",
+  "pk-cta":"Desbloquear Solucionario → $12.000",
+  "pk-proof":"<strong>Compra segura por WhatsApp.</strong> Recibes el link de acceso inmediatamente. Sin formularios.",
+  "pk-secure":"Compra segura · Sin datos bancarios",
+  "pk-free-lbl":"Siempre gratis · Sin registro",
+  "pk-free-1":"Parciales sin solución","pk-free-2":"Formularios y tablas","pk-free-3":"Simulacros con cronómetro",
+  "pk-free-4":"Calculadora de notas","pk-free-5":"Libros y notas de clase",
+  "pk-free-cta":"Explorar material gratuito →",
+  /* Calculadora */
+  "calc-tag":"Herramienta gratuita","calc-h1":"¿Cuánto necesito","calc-h2":"para","calc-h2i":"pasar","calc-h2q":"?",
+  "calc-p":"Ingresa las notas que ya tienes y los pesos de cada corte. La calculadora te dice exactamente qué necesitas en el corte pendiente — sin drama, sin calculadoras rotas.",
+  "calc-min":"Nota mínima 3.0 UNAL",
+  "calc-p2":"Los pesos deben sumar <strong style=\"color:var(--t1)\">100%</strong>. La casilla resaltada es el corte que falta — ingresa los que ya tienes.",
+  "calc-tab1":"2 Cortes","calc-tab2":"3 Cortes","calc-tab3":"4 Cortes",
+  "calc-hdr-corte":"Corte","calc-hdr-peso":"Peso (%)","calc-hdr-nota":"Nota (0-5)",
+  "calc-corte1":"1° corte","calc-corte2":"2° corte","calc-corte3":"3° corte","calc-corte4":"4° corte",
+  "calc-need2":"Necesitas en el 2° corte","calc-need3":"Necesitas en el 3° corte","calc-need4":"Necesitas en el 4° corte",
+  "calc-msg":"Ingresa los datos para calcular",
+  /* Comunidad */
+  "comm-lbl":"Comunidad","comm-h":"No estudies solo, <i>únete</i>",
+  "comm-p":"Más de 2.000 estudiantes activos. Parciales compartidos, dudas resueltas y actualizaciones de material cada semana.",
+  "comm-wa-t":"Grupo de WhatsApp","comm-wa-d":"Dudas rápidas, avisos de nuevos materiales y comunidad activa de estudiantes.","comm-wa-l":"Unirse al grupo →",
+  "comm-tg-t":"Canal de Telegram","comm-tg-d":"Notificaciones de nuevos PDFs, actualizaciones del solucionario y anuncios.","comm-tg-l":"Seguir canal →",
+  "comm-dc-t":"Servidor Discord","comm-dc-d":"Canales por materia, sesiones de estudio en voz y resolución colaborativa.","comm-dc-l":"Entrar al servidor →",
+  "comm-ig-t":"@math.unal","comm-ig-d":"Tips de estudio, noticias de la UNAL y actualizaciones de material nuevo.","comm-ig-l":"Seguir en Instagram →",
+  "comm-soon":"Próximamente",
+  /* Estadisticas */
+  "stats-lbl":"El proyecto en números","stats-h":"Lo que han construido los estudiantes",
+  "stats-p":"Un proyecto estudiantil independiente — sin presupuesto institucional, sin empresa detrás.",
+  "stats-1-l":"Visitas al mes","stats-1-ctx":"×3 en semana de parciales",
+  "stats-2-l":"Archivos verificados","stats-2-ctx":"parciales · talleres · libros · notas",
+  "stats-3-l":"Materias cubiertas","stats-3-ctx":"nivelatorio hasta semestre 5",
+  "stats-4-l":"Visitas acumuladas","stats-4-ctx":"desde 2023 · sin inversión externa",
+  /* Aportar */
+  "ap2-lbl":"Contribuye al banco","ap2-h":"¿Tienes material?<br><i>Compártelo.</i>",
+  "ap2-p":"Cualquier estudiante, egresado o profesor puede aportar talleres, parciales, quices o apuntes. Lo revisamos y lo subimos con tu crédito.",
+  "ap2-fast":"✓ MÁS RÁPIDO","ap2-wa-t":"Por WhatsApp",
+  "ap2-wa-d":"Mándanos la foto o PDF directo al chat. Dinos la materia, el año y el tipo de material. Listo.",
+  "ap2-wa-i1":"Respuesta en menos de 24h","ap2-wa-i2":"Sin formularios","ap2-wa-i3":"Te damos crédito en el sitio",
+  "ap2-wa-cta":"Enviar por WhatsApp →",
+  "ap2-em-t":"Por Email o Drive","ap2-em-d":"Para aportes más grandes (varias carpetas, libros, colecciones). Comparte un link de Google Drive o escríbenos.",
+  "ap2-inc-h":"Qué incluir en tu mensaje",
+  "ap2-inc-1":"Materia y semestre (ej: Cálculo Diferencial, 2023-2)","ap2-inc-2":"Tipo: parcial, taller, quiz, notas, libro",
+  "ap2-inc-3":"Link de Drive o adjunto en el correo","ap2-inc-4":"Tu nombre (para el crédito, opcional)",
+  "ap2-acc-h":"Material que aceptamos",
+  "ap2-acc-1":"Parciales y exámenes","ap2-acc-2":"Talleres y guías","ap2-acc-3":"Quices y minipruebas",
+  "ap2-acc-4":"Apuntes de clase","ap2-acc-5":"Formularios hechos a mano","ap2-acc-6":"Libros o capítulos útiles",
+  /* Promedio */
+  "prom-lbl":"Calculadora UNAL","prom-h":"Promedio ponderado<br><i>por créditos</i>",
+  "prom-p":"Ingresa tus materias con créditos y notas. Calcula tu promedio ponderado semestral y acumulado exactamente como lo hace el SIA de la UNAL.",
+  "prom-th-mat":"Materia","prom-th-cred":"Créditos","prom-th-nota":"Nota (0–5)",
+  "prom-add":"+ Agregar materia","prom-sys":"Sistema de créditos UNAL · Nota mínima aprobatoria: 3.0",
+  "prom-q1-h":"¿Por qué por créditos?","prom-q1-d":"El SIA no promedia las notas simples — pesa cada una según los créditos de la materia. Una materia de 4 créditos pesa más que una de 2.",
+  "prom-q2-h":"¿Y si pierdo una?","prom-q2-d":"Una nota por debajo de 3.0 sí cuenta en el promedio. Usa esta calculadora para ver cuánto te baja antes de cancelar o habilitar.",
+  "prom-result-l":"Promedio ponderado",
+  "prom-hint":"Agrega tus materias con créditos y notas. Tu promedio se calcula igual que en el SIA de la UNAL.",
+  "prom-ej":"EJEMPLO RÁPIDO","prom-foot":"Nota mínima aprobatoria: 3.0 · Tope PAES: 3.5 · El SIA redondea a 1 decimal (2.95 → 3.0)",
+  /* Au-s panels 0,1,2 */
+  "au-title":"Un solo proyecto, tres formas de usarlo",
+  "au-tab0":"Estudiante","au-tab1":"Monitor","au-tab2":"Docente",
+  "au-p0-t":"Practica con parciales reales, gratis y sin registro",
+  "au-p0-d":"MathUNAL tiene los parciales que tus compañeros de semestres anteriores ya presentaron, resueltos paso a paso. No necesitas crear cuenta, no necesitas pagar.",
+  "au-p0-i1":"Parciales organizados por materia y semestre","au-p0-i2":"Simulacros con cronómetro y formato SIDEX real",
+  "au-p0-i3":"Solucionarios con procedimiento completo","au-p0-i4":"Formularios de referencia rápida con LaTeX",
+  "au-p0-card-l":"Lo que ya tienen otros estudiantes",
+  "au-p0-quote":"\"Aprender matemáticas de ingeniería no debería depender de con quién te sentaste en clase.\"",
+  "au-p1-t":"Material listo para tus tutorías, sin preparar nada",
+  "au-p1-d":"Si eres monitor de una materia del núcleo, MathUNAL te ahorra horas de preparación. Tienes parciales organizados, simulacros listos para poner, y solucionarios para revisar con tus tutorados.",
+  "au-p1-i1":"Parciales listos para usar como ejercicio en tutoría","au-p1-i2":"Solucionarios para explicar procedimiento paso a paso",
+  "au-p1-i3":"Simulacros para que tus tutorados practiquen solos","au-p1-cta":"Ver banco de exámenes →",
+  "au-p1-card-l":"Ahorro estimado para el monitor","au-p1-stat1":"Ahorro semanal",
+  "au-p1-quote":"\"En vez de buscar material cada semana, lo tengo todo en un solo lugar. Mis tutorados practican solos entre sesiones.\"",
+  "au-p2-t":"Un activo institucional que ya funciona, a costo cero",
+  "au-p2-d":"MathUNAL no es una propuesta — es un servicio activo que la comunidad estudiantil ya usa. Reconocerlo institucionalmente no requiere presupuesto nuevo: el proyecto se mantiene solo.",
+  "au-p2-i1":"Cobertura completa de las 6 materias del núcleo","au-p2-i2":"2,400+ visitas mensuales, 60,000+ acumuladas",
+  "au-p2-i3":"Costo institucional: $0 — alojado en GitHub Pages","au-p2-i4":"Código abierto, auditable, sin dependencias",
+  "au-p2-cta":"Ver propuesta completa →","au-p2-card-l":"Impacto verificable",
+  "au-p2-s1":"Costo institucional","au-p2-s2":"Materias cubiertas","au-p2-s3":"Visitas/mes","au-p2-s4":"Acceso libre",
+  "au-p2-quote":"\"Lo que falta no es tecnología. Es que la Universidad reconozca lo que sus propios estudiantes ya construyeron.\"",
+  /* Apoyar (ap-s) */
+  "ap3-tag":"Apoyar el proyecto",
+  "ap3-title":"Este proyecto es gratuito porque creemos que el acceso a práctica no debería tener precio.",
+  "ap3-desc":"MathUNAL se mantiene con tiempo, café y convicción. No hay empresa detrás, no hay sponsor, no hay anuncios. Si esta plataforma te ahorró tiempo, estrés o una ida a extraordinario — considera devolverle algo.",
+  "ap3-i1":"Hosting: $0 (GitHub Pages)","ap3-i2":"800+ horas invertidas","ap3-i3":"Financiación recibida: $0",
+  "ap3-per":"el costo de un tinto",
+  "ap3-cost":"Con <strong style=\"color:var(--t1)\">$5.000</strong> de 200 personas cubrimos un semestre completo de desarrollo y actualización de contenido.",
+  /* FAQ */
+  "faq-lbl":"Preguntas frecuentes","faq-h":"Todo lo que necesitas saber",
+  "faq-q1":"¿El material es gratuito?",
+  "faq-a1":"Sí. Programas, libros guía, formularios, notas de clase y talleres sin resolver son 100% gratuitos, sin registro ni límites. Los solucionarios con procedimiento completo tienen un costo de $12.000 COP por materia.",
+  "faq-q2":"¿Cómo descargo los PDFs?",
+  "faq-a2":"Los archivos gratuitos están en Google Drive y se descargan directamente. Solo haz clic en \"Descargar\" en la página de la materia. No necesitas cuenta de Google.",
+  "faq-q3":"¿Los simulacros son del mismo nivel que los parciales reales?",
+  "faq-a3":"Sí. Las preguntas están basadas en parciales reales de la UNAL Medellín del 2020 al 2025, con el mismo formato SIDEX: 4 opciones (A-D), enunciados en LaTeX y cronómetro. Cada respuesta incorrecta tiene explicación paso a paso.",
+  "faq-q4":"¿Cómo compro el Pack Salva-Semestre?",
+  "faq-a4":"Por WhatsApp al 316 348 0451. Puedes pagar con Nequi, Bancolombia, VISA o Mastercard. Recibes el acceso al Google Drive del solucionario inmediatamente. El costo es $12.000 COP por materia (acceso permanente).",
+  "faq-q5":"¿El sitio tiene afiliación oficial con la UNAL?",
+  "faq-a5":"No. MathUNAL es un proyecto estudiantil independiente, creado por y para estudiantes de ingeniería de la UNAL Medellín. No tiene afiliación oficial con la Universidad Nacional de Colombia.",
+  "faq-q6":"¿Puedo aportar material?",
+  "faq-a6":"¡Sí! Cualquier estudiante, egresado o profesor puede enviar talleres, parciales, quices o apuntes. Lo revisamos, lo subimos con tu nombre como crédito y queda disponible para toda la comunidad. Escríbenos por WhatsApp.",
+  /* Ruta del semestre */
+  "ruta-tag":"Guía del currículo · Ing. UNAL Medellín","ruta-h":"Tu ruta en matemáticas",
+  "ruta-p":"Las materias del núcleo, de nivelatorio a semestre 5. Haz clic en cualquiera para ir directo al material disponible.",
+  "ruta-niv":"Nivelatorio","ruta-s1":"Semestre 1","ruta-s2":"Semestre 2","ruta-s3":"Semestre 3","ruta-s4":"Semestre 4","ruta-s5":"Semestre 5",
+  "ruta-cta":"Ver todo el material →","ruta-foot":"11 materias · Actualizados cada semestre",
+  /* Mapa del sitio */
+  "smap-tag":"Mapa del sitio","smap-h":"Todo MathUNAL de un vistazo",
+  "smap-col1":"Materias","smap-col2":"Herramientas","smap-col3":"Recursos","smap-col4":"Comunidad",
+  "smap-ver-todas":"Ver todas →","smap-popular":"Popular",
+  "smap-sim":"Simulacros SIDEX","smap-form":"Formulario interactivo","smap-calc":"Calculadora de notas",
+  "smap-prom":"Promedio por créditos","smap-banco":"Banco de exámenes PDF",
+  "smap-pack":"Pack Salva-Semestre","smap-aportar":"Aportar material","smap-hist":"Historia del proyecto",
+  "smap-prox":"Próximamente","smap-faq":"Preguntas frecuentes",
+  "smap-wa":"Grupo WhatsApp","smap-tg":"Telegram (próximo)","smap-dc":"Discord (próximo)",
+  "smap-bottom":"MathUNAL v23 · 2026 · Proyecto estudiantil independiente",
+  "smap-top":"Volver arriba","smap-quick-sim":"Simulacros","smap-quick-banco":"Banco PDF","smap-quick-form":"Formulario",
+  /* Footer */
+  "foot-tagline":"El proyecto de matemáticas para ingeniería de la UNAL Medellín. Hecho por estudiantes, para estudiantes.",
+  "foot-activo":"Activo · 2026",
+  "foot-wa":"Grupo WhatsApp","foot-tg":"Canal Telegram","foot-dc":"Discord","foot-ig":"@math.unal",
+  "foot-bank":"Bancolombia: 678 466 530 80",
+  "foot-vertodas":"Ver todas →",
+  /* Botones flotantes / Pomodoro / Sprint */
+  "fab-semana":"Semana del Parcial","pomo-h":"Pomodoro","pomo-start":"<svg width='11' height='11' viewBox='0 0 24 24' fill='currentColor' style='vertical-align:-1px'><path d='M6 4l14 8-14 8V4z'/></svg> Iniciar","pomo-reset":"<svg width='12' height='12' viewBox='0 0 24 24' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' fill='none' style='vertical-align:-2px'><path d='M21 12a9 9 0 1 1-3-6.7'/><path d='M21 3v6h-6'/></svg> Reset",
+  "mu-calc-h":"Calculadora de nota UNAL","mu-calc-sub":"Ingresa tus parciales y descubre qué necesitas en el final para pasar.",
+  "mu-calc-p1":"Parcial 1","mu-calc-p2":"Parcial 2","mu-calc-pf":"Final (opcional)","mu-calc-pf-ph":"Si ya lo sabes",
+  "au-tag":"Para quién es MathUNAL","au-p0-stat2":"Materias con parciales reales",
+  "prom-ej-line":"4 créd. × 4.0 + 3 créd. × 3.5 + 4 créd. × 3.0 + 3 créd. × 4.5","prom-ej-div":"÷ 14 créditos =",
+  "mu-msg-init":"Ingresa tus notas para calcular","sp-recall-q":"¿Recuerdas esta fórmula?","sp-hint":"Pulsa cuando estés listo","sp-ver":"Ver fórmula","sp-vistas":"vistas","sp-cta":"<svg width='13' height='13' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' style='vertical-align:-2px'><rect x='2' y='6' width='14' height='12' rx='2'/><rect x='8' y='2' width='14' height='12' rx='2'/></svg> Modo Sprint — repasar fórmulas",
+  "hs-l1":"PDFs","hs-ctx1":"parciales · talleres · libros","hs-l2":"Solucionarios","hs-ctx2":"paso a paso","hs-l3":"Materias","hs-ctx3":"núcleo completo","hs-l4":"Visitas/mes","hs-ctx4":"pico en parciales",
+  "foot-made":"Hecho a mano en Medellín ♥"
+};
+var LANG_EN={
+  /* Nav */
+  "nav-cta":"Exam Bank",
+  "nav-simulacros":"Practice","nav-banco":"<svg width='13' height='13' viewBox='0 0 24 24' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' fill='none' style='vertical-align:-2px'><path d='M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z'/><path d='M14 2v6h6'/></svg> Exam PDF Bank","nav-formulas":"Formula Sheet",
+  "nav-aportar":"Contribute","nav-promedio":"GPA","nav-comunidad":"Community",
+  /* Hero */
+  "hero-badge":"Unofficial repository · UNAL Medellín · 2026",
+  "hero-tag":"A shared notebook between engineering students",
+  "hero-sub":"Workshops, solved exams, textbooks and answer keys for the <strong>6 core math subjects</strong> of the School of Engineering.",
+  "hero-btn1":"<svg width='13' height='13' viewBox='0 0 24 24' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' fill='none' style='vertical-align:-2px'><path d='M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z'/><path d='M14 2v6h6'/></svg> View Exam Bank →","hero-btn2":"▶ Start Practice",
+  "hero-stat1":"PDFs available","hero-stat2":"Exams with solutions","hero-stat3":"Subjects with PDF","hero-stat4":"Students",
+  "cat-tab1":"Workshops","cat-tab2":"Solved Exams","cat-tab3":"Quizzes","cat-tab4":"Textbooks","cat-tab5":"Class Notes",
+  /* Materias */
+  "mat-label":"School of Mathematics · UNAL Medellín","mat-h":"Choose your subject",
+  "mat-sub":"11 core math subjects. From pre-calculus to semester 5.",
+  /* Simulacros */
+  "sim-label":"Practice under real conditions",
+  "sim-h":"Simulate before<br>it gets real.","sim-sub":"Past exams as downloadable PDFs. Set the timer, close the book, and practice.",
+  "sim-f-all":"All","sim-f-cd":"Differential Calc.","sim-f-ci":"Integral Calc.","sim-f-al":"Linear Algebra","sim-f-mb":"Basic Math","sim-f-edo":"ODE",
+  "panic-title":"Panic Mode activated","panic-sub":"Exam in less than 24 hours? Here's what you need to do right now.",
+  "panic-btn":"<svg width='13' height='13' viewBox='0 0 24 24' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' fill='none' style='vertical-align:-2px'><path d='M7 18v-6a5 5 0 0 1 10 0v6'/><line x1='12' y1='2' x2='12' y2='4'/><rect x='4' y='18' width='16' height='4' rx='1'/></svg> Emergency plan",
+  /* Banco */
+  "banco-label":"AI-generated · Claude Sonnet","banco-h":"Exam Bank","banco-hi":"with Solutions",
+  "banco-sub":"Clean LaTeX statements and step-by-step AI-generated solutions. <strong>Direct PDF download.</strong>",
+  "banco-mat":"Subject:","banco-all":"All",
+  "banco-search":"Search exam...",
+  /* Material */
+  "mat2-label":"Study Material","mat2-h":"Everything you need,","mat2-hi":"within reach",
+  "mat2-sub":"Free material for everyone. Premium answer keys for those who need to go further.",
+  /* Calculadora */
+  "calc-label":"Free tool","calc-h":"How much do I need<br>to","calc-hi":"pass?",
+  "calc-sub":"Enter the grades you already have and the weight of each exam. The calculator tells you exactly what you need.",
+  "calc-tab1":"2 Exams","calc-tab2":"3 Exams","calc-tab3":"4 Exams",
+  /* Comunidad */
+  "comm-label":"Community","comm-h":"Don't study alone,","comm-hi":"join us",
+  "comm-sub":"Over 2,400 engineering students are already part of the MathUNAL community.",
+  /* Aportar */
+  "aportar-label":"Contribute to the bank","aportar-h":"Have study material?","aportar-hi":"Share it.",
+  "aportar-sub":"Any student, graduate, or professor can contribute workshops, exams, quizzes, or notes.",
+  /* Promedio */
+  "prom-label":"UNAL Calculator","prom-h":"Weighted GPA","prom-hi":"by credits",
+  "prom-sub":"Enter your subjects with credits and grades. Calculate your semester and cumulative GPA.",
+  /* Stats / testimonios */
+  "stats-s1":"Students helped","stats-s2":"Files available","stats-s3":"Subjects covered","stats-s4":"Material types",
+  "test-label":"What students say","test-h":"Real students,","test-hi":"real results",
+  /* Footer */
+  "foot-desc":"A shared notebook between UNAL Medellín engineering students. Unofficial, made with care.",
+  "foot-com":"Community","foot-contact":"Contact","foot-mats":"Subjects",
+  "foot-copy":"© 2026 MathUNAL · Independent student project · Not affiliated with UNAL",
+  /* Exam Cycle */
+  "cp-tag":"The problem MathUNAL solves",
+  "cp-sub":"Math isn't the problem. The problem is having nowhere to practice in your exam's real format.",
+  "cp-title-default":"The exam is coming.<br>Where do you practice the <em>real format</em>?",
+  "cp-btn-sin":"✗ Without MathUNAL","cp-btn-con":"✓ With MathUNAL","cp-btn-vs":"Compare",
+  "cp-sin-1-t":"You search for old exams",
+  "cp-sin-1-d":"In WhatsApp groups, other semesters' drives, loose photocopies. You lose 2 hours hunting for material you're not even sure is useful.",
+  "cp-sin-2-t":"You find 2 exams, no solutions",
+  "cp-sin-2-d":"You don't know if the answers floating around are right. No worked steps. You solve blind.",
+  "cp-sin-3-t":"You practice without real conditions",
+  "cp-sin-3-d":"No timer, no SIDEX format, no way to know if you're doing well. Exam day feels completely different.",
+  "cp-sin-4-t":"You walk into the exam without confidence",
+  "cp-sin-4-d":"First time seeing the real format. Time feels different. It shows in your grade.",
+  "cp-action":"Click to continue →",
+  "cp-sin-result-l":"Typical average without structured practice",
+  "cp-sin-switch":"What about with MathUNAL? →",
+  "cp-con-1-t":"You open your subject in one click",
+  "cp-con-1-d-pre":"PDFs organized by semester, type and subject. All verified. No digging through WhatsApp or lost drives.",
+  "cp-con-2-t":"You study with step-by-step solutions",
+  "cp-con-2-d":"Every exercise solved with the full procedure. You know exactly where — and why — you went wrong.",
+  "cp-con-3-t":"You take a mock exam under real conditions",
+  "cp-con-3-d":"Same SIDEX format, same time limit, same pressure. But with instant feedback when you finish.",
+  "cp-con-4-t":"You walk in prepared and confident",
+  "cp-con-4-d":"You've seen the format. You've timed yourself. You know you can do it. It shows in your grade.",
+  "cp-con-result-l":"Average with structured practice",
+  "cp-con-switch":"See the comparison →",
+  "cp-vs-1":"Searching WhatsApp","cp-vs-2":"No solutions","cp-vs-3":"No real mock exam","cp-vs-4":"No confidence",
+  "cp-vs-5":"Everything organized","cp-vs-6":"Full solutions","cp-vs-7":"Real SIDEX mock exam","cp-vs-8":"Prepared and confident",
+  "cp-quote":"\"It's not that students don't want to learn. They just never had a rigorous place to practice.\"",
+  /* Exam Week banner */
+  "banner-label":"Exam Week","banner-cta":"See the plan →",
+  /* Content map */
+  "cm-tag":"What's available","cm-title":"All the content, at a glance",
+  "cm-l-parciales":"Exams","cm-l-talleres":"Worksheets","cm-l-quices":"Quizzes",
+  "cm-l-simulacros":"Mock exams","cm-l-solucionarios":"Solutions","cm-l-total":"Total",
+  /* It's that simple (3 steps) */
+  "hf-tag":"It's that simple",
+  "hf-title":"Three steps to walk into<br>your exam prepared",
+  "hf-1-t":"Choose your subject",
+  "hf-1-d":"Differential Calculus, Linear Algebra, ODEs — every past exam organized by semester, no more digging through WhatsApp groups.",
+  "hf-2-t":"Practice with full solutions",
+  "hf-2-d":"Every exercise solved step by step. No more answer-only forwards from WhatsApp — the full method to understand where you went wrong.",
+  "hf-3-t":"Simulate real exam conditions",
+  "hf-3-d":"Timed mock exams in SIDEX format — the same one UNAL uses. You already know the format. You already know how much time you have. You arrive prepared.",
+  "explorar-materias":"Explore subjects →",
+  "hf-cta-note":"Free · No signup · No ads",
+  /* Nav more dropdown */
+  "nmd-1-t":"PDF Bank","nmd-1-s":"All past exams and worksheets",
+  "nmd-2-t":"Calculate Average","nmd-2-s":"Simulate your final grade",
+  "nmd-3-t":"Contribute","nmd-3-s":"Upload material to the repository",
+  "nmd-4-t":"Community","nmd-4-s":"Student forum",
+  "hero-ctx":"core subjects",
+  /* Panic Modal */
+  "pm-title":"Exam in &lt;24h","pm-sub":"Run this in order. Don't improvise.",
+  "pm-1-t":"Read the course syllabus","pm-1-d":"Identify the topics for this exam. Don't study what's not covered.",
+  "pm-2-t":"Download 2 mock exams on the topic","pm-2-d":"Take the most recent one with the timer on.",
+  "pm-3-t":"Review with the solutions","pm-3-d":"For every exercise you missed, check the Survival Pack. Understand the method.",
+  "pm-4-t":"Take the second mock exam","pm-4-d":"No solutions this time. Timer running. If you finish in time, you can sleep.",
+  "pm-5-t":"Sleep at least 5 hours","pm-5-d":"Memory consolidates while you sleep. The 4am cram session will hurt more than help.",
+  "pm-tip":"<strong>Monitor's tip:</strong> Recent Differential Calculus exams always include optimization. Review that topic. <strong>It's in the Pack.</strong>",
+  /* Week Modal */
+  "wm-title":"Exam Week Plan","wm-sub":"Tell us which exam you have and when. We'll build a day-by-day plan.",
+  "wm-mat-l":"Subject","wm-corte-l":"Exam period","wm-fecha-l":"Exam date",
+  "wm-gen-btn":"Generate my plan →",
+  /* Timeline header */
+  "tl-tag":"The story behind it","tl-title":"From a loose PDF to 60,000 visits",
+  "tl-sub":"MathUNAL wasn't born as a project. It was born out of necessity.",
+  /* Proximamente */
+  "prox-tag":"In development · 2026","prox-h":"More subjects coming soon",
+  "prox-p":"MathUNAL is expanding beyond math. Follow the Telegram channel to be first.",
+  "prox-1-cat":"Sciences","prox-1-n":"Physics I","prox-1-d":"Mechanics, kinematics, dynamics and energy for engineering.",
+  "prox-2-cat":"Sciences","prox-2-n":"General Chemistry","prox-2-d":"Stoichiometry, chemical thermodynamics and electrochemistry.",
+  "prox-3-cat":"Mathematics","prox-3-n":"Statistics","prox-3-d":"Probability, distributions and inferential statistics.",
+  "prox-4-cat":"Engineering","prox-4-n":"Solid Mechanics","prox-4-d":"Statics, strength of materials and structural analysis.",
+  /* Pack v2 (visible) */
+  "pk-tag":"To go further","pk-h1":"Everything is already free.","pk-h2":"The solutions, not so much.",
+  "pk-sub":"Practicing exams without knowing where you went wrong is studying blind. The Pack gives you the full procedure — step by step, with the same logic as the real exam.",
+  "pk-badge":"Survival Pack","pk-new":"✓ Updated 2025-2","pk-title":"Step-by-step<br>solutions",
+  "pk-desc":"Every exercise solved with the full procedure. Not just the answer — the method. With monitor's notes and the tricks that aren't in the textbook.",
+  "pk-i1-t":"150+ solved exams","pk-i1-s":"Full procedure on every exercise",
+  "pk-i2-t":"Worksheets with commented solutions","pk-i2-s":"Monitor's notes included",
+  "pk-i3-t":"Updated every semester","pk-i3-s":"Most recent exams included",
+  "pk-i4-t":"Permanent Drive access","pk-i4-s":"One purchase, for life",
+  "pk-cmp-h":"What's included?","pk-cmp-free":"Free","pk-cmp-pack":"Pack",
+  "pk-cmp-1":"Exams to practice with","pk-cmp-2":"Formula sheets and mock exams",
+  "pk-cmp-3":"Full procedure","pk-cmp-4":"Monitor's notes",
+  "pk-price-l":"Price per subject","pk-period":"COP · Permanent access · No subscription",
+  "pk-cta":"Unlock Solutions → $12,000",
+  "pk-proof":"<strong>Secure purchase via WhatsApp.</strong> You get the access link instantly. No forms.",
+  "pk-secure":"Secure purchase · No banking data",
+  "pk-free-lbl":"Always free · No signup",
+  "pk-free-1":"Exams without solutions","pk-free-2":"Formula sheets and tables","pk-free-3":"Timed mock exams",
+  "pk-free-4":"Grade calculator","pk-free-5":"Textbooks and class notes",
+  "pk-free-cta":"Explore free material →",
+  /* Calculadora */
+  "calc-tag":"Free tool","calc-h1":"How much do I need","calc-h2":"to","calc-h2i":"pass","calc-h2q":"?",
+  "calc-p":"Enter the grades you already have and the weight of each exam period. The calculator tells you exactly what you need on the remaining one — no drama, no broken calculators.",
+  "calc-min":"UNAL passing grade 3.0",
+  "calc-p2":"The weights must add up to <strong style=\"color:var(--t1)\">100%</strong>. The highlighted box is the period you're missing — enter the ones you already have.",
+  "calc-tab1":"2 Periods","calc-tab2":"3 Periods","calc-tab3":"4 Periods",
+  "calc-hdr-corte":"Period","calc-hdr-peso":"Weight (%)","calc-hdr-nota":"Grade (0-5)",
+  "calc-corte1":"1st period","calc-corte2":"2nd period","calc-corte3":"3rd period","calc-corte4":"4th period",
+  "calc-need2":"You need on the 2nd period","calc-need3":"You need on the 3rd period","calc-need4":"You need on the 4th period",
+  "calc-msg":"Enter the data to calculate",
+  /* Comunidad */
+  "comm-lbl":"Community","comm-h":"Don't study alone, <i>join in</i>",
+  "comm-p":"Over 2,000 active students. Shared exams, answered questions, and new material every week.",
+  "comm-wa-t":"WhatsApp Group","comm-wa-d":"Quick questions, new material alerts and an active student community.","comm-wa-l":"Join the group →",
+  "comm-tg-t":"Telegram Channel","comm-tg-d":"Notifications for new PDFs, solution updates and announcements.","comm-tg-l":"Follow the channel →",
+  "comm-dc-t":"Discord Server","comm-dc-d":"Channels per subject, voice study sessions and collaborative problem-solving.","comm-dc-l":"Join the server →",
+  "comm-ig-t":"@math.unal","comm-ig-d":"Study tips, UNAL news and new material updates.","comm-ig-l":"Follow on Instagram →",
+  "comm-soon":"Coming soon",
+  /* Estadisticas */
+  "stats-lbl":"The project in numbers","stats-h":"What students have built",
+  "stats-p":"An independent student project — no institutional budget, no company behind it.",
+  "stats-1-l":"Visits per month","stats-1-ctx":"×3 during exam week",
+  "stats-2-l":"Verified files","stats-2-ctx":"exams · worksheets · books · notes",
+  "stats-3-l":"Subjects covered","stats-3-ctx":"pre-calc through semester 5",
+  "stats-4-l":"Total visits","stats-4-ctx":"since 2023 · no outside funding",
+  /* Aportar */
+  "ap2-lbl":"Contribute to the bank","ap2-h":"Got material?<br><i>Share it.</i>",
+  "ap2-p":"Any student, alum, or professor can contribute worksheets, exams, quizzes or notes. We review it and post it with credit to you.",
+  "ap2-fast":"✓ FASTEST","ap2-wa-t":"Via WhatsApp",
+  "ap2-wa-d":"Send us the photo or PDF directly in chat. Tell us the subject, year and material type. Done.",
+  "ap2-wa-i1":"Response in under 24h","ap2-wa-i2":"No forms","ap2-wa-i3":"We credit you on the site",
+  "ap2-wa-cta":"Send via WhatsApp →",
+  "ap2-em-t":"Via Email or Drive","ap2-em-d":"For bigger contributions (multiple folders, books, collections). Share a Google Drive link or write to us.",
+  "ap2-inc-h":"What to include in your message",
+  "ap2-inc-1":"Subject and semester (e.g. Differential Calculus, 2023-2)","ap2-inc-2":"Type: exam, worksheet, quiz, notes, book",
+  "ap2-inc-3":"Drive link or email attachment","ap2-inc-4":"Your name (for credit, optional)",
+  "ap2-acc-h":"Material we accept",
+  "ap2-acc-1":"Exams and tests","ap2-acc-2":"Worksheets and guides","ap2-acc-3":"Quizzes and pop quizzes",
+  "ap2-acc-4":"Class notes","ap2-acc-5":"Hand-made formula sheets","ap2-acc-6":"Useful books or chapters",
+  /* Promedio */
+  "prom-lbl":"UNAL Calculator","prom-h":"Weighted average<br><i>by credits</i>",
+  "prom-p":"Enter your subjects with credits and grades. Calculate your semester and cumulative weighted average exactly like UNAL's SIA does.",
+  "prom-th-mat":"Subject","prom-th-cred":"Credits","prom-th-nota":"Grade (0–5)",
+  "prom-add":"+ Add subject","prom-sys":"UNAL credit system · Minimum passing grade: 3.0",
+  "prom-q1-h":"Why by credits?","prom-q1-d":"The SIA doesn't average raw grades — it weighs each one by the subject's credits. A 4-credit subject weighs more than a 2-credit one.",
+  "prom-q2-h":"What if I fail one?","prom-q2-d":"A grade below 3.0 does count toward the average. Use this calculator to see how much it drags you down before withdrawing or retaking.",
+  "prom-result-l":"Weighted average",
+  "prom-hint":"Add your subjects with credits and grades. Your average is calculated just like UNAL's SIA.",
+  "prom-ej":"QUICK EXAMPLE","prom-foot":"Minimum passing grade: 3.0 · PAES cap: 3.5 · SIA rounds to 1 decimal (2.95 → 3.0)",
+  /* Au-s panels 0,1,2 */
+  "au-title":"One project, three ways to use it",
+  "au-tab0":"Student","au-tab1":"Monitor","au-tab2":"Faculty",
+  "au-p0-t":"Practice with real past exams, free and with no signup",
+  "au-p0-d":"MathUNAL has the exams your classmates from previous semesters already took, solved step by step. No account needed, no payment needed.",
+  "au-p0-i1":"Exams organized by subject and semester","au-p0-i2":"Timed mock exams in real SIDEX format",
+  "au-p0-i3":"Solutions with the full procedure","au-p0-i4":"Quick-reference formula sheets in LaTeX",
+  "au-p0-card-l":"What other students already have",
+  "au-p0-quote":"\"Learning engineering math shouldn't depend on who you sat next to in class.\"",
+  "au-p1-t":"Material ready for your tutoring sessions, no prep needed",
+  "au-p1-d":"If you're a monitor for a core subject, MathUNAL saves you hours of prep. You have organized exams, mock exams ready to assign, and solutions to review with your students.",
+  "au-p1-i1":"Exams ready to use as tutoring exercises","au-p1-i2":"Solutions to explain the procedure step by step",
+  "au-p1-i3":"Mock exams for your students to practice solo","au-p1-cta":"See the exam bank →",
+  "au-p1-card-l":"Estimated savings for the monitor","au-p1-stat1":"Weekly time saved",
+  "au-p1-quote":"\"Instead of hunting for material every week, I have it all in one place. My students practice on their own between sessions.\"",
+  "au-p2-t":"An institutional asset that already works, at zero cost",
+  "au-p2-d":"MathUNAL isn't a proposal — it's an active service the student community already uses. Recognizing it institutionally requires no new budget: the project sustains itself.",
+  "au-p2-i1":"Full coverage of the 6 core subjects","au-p2-i2":"2,400+ monthly visits, 60,000+ total",
+  "au-p2-i3":"Institutional cost: $0 — hosted on GitHub Pages","au-p2-i4":"Open source, auditable, no dependencies",
+  "au-p2-cta":"See the full proposal →","au-p2-card-l":"Verifiable impact",
+  "au-p2-s1":"Institutional cost","au-p2-s2":"Subjects covered","au-p2-s3":"Visits/month","au-p2-s4":"Free access",
+  "au-p2-quote":"\"What's missing isn't technology. It's the University recognizing what its own students already built.\"",
+  /* Apoyar (ap-s) */
+  "ap3-tag":"Support the project",
+  "ap3-title":"This project is free because we believe access to practice shouldn't have a price.",
+  "ap3-desc":"MathUNAL runs on time, coffee and conviction. No company behind it, no sponsor, no ads. If this platform saved you time, stress, or a make-up exam — consider giving something back.",
+  "ap3-i1":"Hosting: $0 (GitHub Pages)","ap3-i2":"800+ hours invested","ap3-i3":"Funding received: $0",
+  "ap3-per":"the price of a coffee",
+  "ap3-cost":"With <strong style=\"color:var(--t1)\">$5,000</strong> COP from 200 people, we cover a full semester of development and content updates.",
+  /* FAQ */
+  "faq-lbl":"Frequently asked questions","faq-h":"Everything you need to know",
+  "faq-q1":"Is the material free?",
+  "faq-a1":"Yes. Syllabi, textbooks, formula sheets, class notes and unsolved worksheets are 100% free, no signup or limits. Solutions with the full procedure cost $12,000 COP per subject.",
+  "faq-q2":"How do I download the PDFs?",
+  "faq-a2":"Free files are on Google Drive and download directly. Just click \"Download\" on the subject page. No Google account needed.",
+  "faq-q3":"Are the mock exams the same level as real exams?",
+  "faq-a3":"Yes. Questions are based on real UNAL Medellín exams from 2020 to 2025, with the same SIDEX format: 4 options (A-D), LaTeX statements and a timer. Every wrong answer has a step-by-step explanation.",
+  "faq-q4":"How do I buy the Survival Pack?",
+  "faq-a4":"Via WhatsApp at 316 348 0451. You can pay with Nequi, Bancolombia, VISA or Mastercard. You get Google Drive access to the solutions instantly. The cost is $12,000 COP per subject (permanent access).",
+  "faq-q5":"Is the site officially affiliated with UNAL?",
+  "faq-a5":"No. MathUNAL is an independent student project, created by and for UNAL Medellín engineering students. It has no official affiliation with Universidad Nacional de Colombia.",
+  "faq-q6":"Can I contribute material?",
+  "faq-a6":"Yes! Any student, alum or professor can send worksheets, exams, quizzes or notes. We review it, post it with your name as credit, and it becomes available to the whole community. Message us on WhatsApp.",
+  /* Ruta del semestre */
+  "ruta-tag":"Curriculum guide · UNAL Medellín Engineering","ruta-h":"Your path through math",
+  "ruta-p":"The core subjects, from pre-calc to semester 5. Click any one to go straight to the available material.",
+  "ruta-niv":"Pre-calc","ruta-s1":"Semester 1","ruta-s2":"Semester 2","ruta-s3":"Semester 3","ruta-s4":"Semester 4","ruta-s5":"Semester 5",
+  "ruta-cta":"See all material →","ruta-foot":"11 subjects · Updated every semester",
+  /* Mapa del sitio */
+  "smap-tag":"Site map","smap-h":"All of MathUNAL at a glance",
+  "smap-col1":"Subjects","smap-col2":"Tools","smap-col3":"Resources","smap-col4":"Community",
+  "smap-ver-todas":"See all →","smap-popular":"Popular",
+  "smap-sim":"SIDEX Mock Exams","smap-form":"Interactive formula sheet","smap-calc":"Grade calculator",
+  "smap-prom":"Weighted average","smap-banco":"PDF exam bank",
+  "smap-pack":"Survival Pack","smap-aportar":"Contribute material","smap-hist":"Project history",
+  "smap-prox":"Coming soon","smap-faq":"FAQ",
+  "smap-wa":"WhatsApp Group","smap-tg":"Telegram (coming)","smap-dc":"Discord (coming)",
+  "smap-bottom":"MathUNAL v23 · 2026 · Independent student project",
+  "smap-top":"Back to top","smap-quick-sim":"Mock Exams","smap-quick-banco":"PDF Bank","smap-quick-form":"Formulas",
+  /* Footer */
+  "foot-tagline":"The math project for UNAL Medellín engineering. Made by students, for students.",
+  "foot-activo":"Active · 2026",
+  "foot-wa":"WhatsApp Group","foot-tg":"Telegram Channel","foot-dc":"Discord","foot-ig":"@math.unal",
+  "foot-bank":"Bancolombia: 678 466 530 80",
+  "foot-vertodas":"See all →",
+  /* Botones flotantes / Pomodoro / Sprint */
+  "fab-semana":"Exam Week","pomo-h":"Pomodoro","pomo-start":"<svg width='11' height='11' viewBox='0 0 24 24' fill='currentColor' style='vertical-align:-1px'><path d='M6 4l14 8-14 8V4z'/></svg> Start","pomo-reset":"<svg width='12' height='12' viewBox='0 0 24 24' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' fill='none' style='vertical-align:-2px'><path d='M21 12a9 9 0 1 1-3-6.7'/><path d='M21 3v6h-6'/></svg> Reset",
+  "mu-calc-h":"UNAL Grade Calculator","mu-calc-sub":"Enter your exam grades and find out what you need on the final to pass.",
+  "mu-calc-p1":"Exam 1","mu-calc-p2":"Exam 2","mu-calc-pf":"Final (optional)","mu-calc-pf-ph":"If you already know it",
+  "au-tag":"Who MathUNAL is for","au-p0-stat2":"Subjects with real exams",
+  "prom-ej-line":"4 cr. × 4.0 + 3 cr. × 3.5 + 4 cr. × 3.0 + 3 cr. × 4.5","prom-ej-div":"÷ 14 credits =",
+  "mu-msg-init":"Enter your grades to calculate","sp-recall-q":"Do you remember this formula?","sp-hint":"Tap when you're ready","sp-ver":"See formula","sp-vistas":"seen","sp-cta":"<svg width='13' height='13' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' style='vertical-align:-2px'><rect x='2' y='6' width='14' height='12' rx='2'/><rect x='8' y='2' width='14' height='12' rx='2'/></svg> Sprint Mode — review formulas",
+  "hs-l1":"PDFs","hs-ctx1":"exams · worksheets · books","hs-l2":"Solutions","hs-ctx2":"step by step","hs-l3":"Subjects","hs-ctx3":"core subjects","hs-l4":"Visits/month","hs-ctx4":"peak during exams",
+  "foot-made":"Made in Medellín ♥"
+};
+var curLang="es";
+/* window.LANG_ES/LANG_EN/curLang/setLang: este bloque vive dentro de la IIFE
+   grande junto a SUBJECTS/MATS/EXAMS/el router (no en top-level real como su
+   ubicacion original dentro de <template id="tpl-home">), asi que un `var`
+   aqui NO llega a window por hoisting -- hay que exponerlo explicito, mismo
+   patron que `window.PREREQS = PREREQS` un poco mas abajo en este archivo. */
+window.LANG_ES = LANG_ES;
+window.LANG_EN = LANG_EN;
+window.curLang = curLang;
+
+function setLang(lang){
+  curLang = lang;
+  window.curLang = lang; /* ver nota arriba: sin esto, el resto del sitio
+    (que lee window.curLang desde otras paginas) nunca se enteraba del cambio */
+  document.documentElement.lang = lang; /* <html lang> era estatico -- un lector de
+    pantalla seguia anunciando "espanol" con la pagina ya en ingles y viceversa */
+  var en = (lang === 'en'); /* usado por las traducciones de ruta-s/smap-s/footer (lookup en SUBJECTS) */
+  /* Botones de idioma (en ambos dropdowns) */
+  ['btn-es','btn-en'].forEach(function(id){
+    var el=document.getElementById(id);
+    if(el) el.classList.toggle('on', id==='btn-'+lang);
+  });
+  var L = lang==="en" ? LANG_EN : LANG_ES;
+
+  function setText(sel, key){ var el=document.querySelector(sel); if(el&&L[key]!==undefined) el.textContent=L[key]; }
+  function setHTML(sel, key){ var el=document.querySelector(sel); if(el&&L[key]!==undefined) el.innerHTML=L[key]; }
+  function setAll(sel, key){ document.querySelectorAll(sel).forEach(function(el){ if(L[key]!==undefined) el.textContent=L[key]; }); }
+
+  /* NAV */
+  var cta=document.getElementById('nav-cta-txt');
+  if(cta) cta.textContent = L['nav-cta']+' →';
+  var navLinks = document.querySelectorAll('.nav-links a');
+  var navKeys = ['nav-materias','nav-simulacros','nav-banco','nav-formulas','nav-aportar','nav-promedio','nav-comunidad'];
+  // Asignar por href
+  navLinks.forEach(function(a){
+    var href = a.getAttribute('href')||'';
+    var map = {
+      '#materias':L['mat-h'], '#simulacros':L['sim-f-all']||'Simulacros',
+      '#banco':L['nav-banco'], '#formulas':L['nav-formulas'],
+      '#aportar':L['nav-aportar'], '#promedio':L['nav-promedio'],
+      '#comunidad':L['nav-comunidad']
+    };
+    if(map[href]) a.textContent = map[href];
+  });
+  /* Mobile menu */
+  document.querySelectorAll('#mob a').forEach(function(a){
+    var href = a.getAttribute('href')||'';
+    var map = {
+      '#home':'MathUNAL','#materias':L['mat-h'],'#simulacros':lang==='en'?'Practice':'Simulacros',
+      '#banco':L['nav-banco'],'#formulas':L['nav-formulas'],'#aportar':lang==='en'?'Contribute':'Aportar material',
+      '#promedio':L['nav-promedio'],'#comunidad':L['nav-comunidad']
+    };
+    if(map[href]) a.textContent = map[href];
+  });
+
+  /* HERO */
+  setText('.hero-badge', 'hero-badge');
+  setText('.hero-tagline', 'hero-tag');
+  setHTML('.hero-sub', 'hero-sub');
+  var heroBtn1=document.querySelector('.hero-btns .btn-a'); if(heroBtn1) heroBtn1.innerHTML=L['hero-btn1'];
+  var heroBtn2=document.querySelector('.hero-btns .btn-o'); if(heroBtn2) heroBtn2.innerHTML=L['hero-btn2'];
+  /* Hero stats labels */
+  var hsLabels = document.querySelectorAll('.hs-l');
+  var hKeys=['hero-stat1','hero-stat2','hero-stat3','hero-stat4'];
+  hsLabels.forEach(function(el,i){ if(L[hKeys[i]]) el.textContent=L[hKeys[i]]; });
+  /* Cat tabs */
+  var catTabs = document.querySelectorAll('.cat-tab');
+  var cKeys=['cat-tab1','cat-tab2','cat-tab3','cat-tab4','cat-tab5'];
+  catTabs.forEach(function(el,i){ if(L[cKeys[i]]) el.textContent=L[cKeys[i]]; });
+
+  /* MATERIAS section */
+  setText('#materias .sec-label', 'mat-label');
+  setText('#materias h2', 'mat-h');
+  setText('#materias .sec-split-r', 'mat-sub');
+
+  /* SIMULACROS section */
+  setText('#simulacros .sec-label', 'sim-label');
+  setHTML('#simulacros h2', 'sim-h');
+  setText('#simulacros .sec-split-r', 'sim-sub');
+  var simFilters = document.querySelectorAll('.sim-filter');
+  var sfKeys=['sim-f-all','sim-f-cd','sim-f-ci','sim-f-al','sim-f-mb','sim-f-edo'];
+  simFilters.forEach(function(el,i){ if(L[sfKeys[i]]) el.textContent=L[sfKeys[i]]; });
+  setText('.panic-l h4','panic-title');
+  setText('.panic-l p','panic-sub');
+  var panicBtn=document.querySelector('.btn-panic'); if(panicBtn) panicBtn.innerHTML=L['panic-btn'];
+
+  /* BANCO section */
+  setText('#banco .sec-label','banco-label');
+  var bancoH=document.querySelector('#banco h2'); 
+  if(bancoH) bancoH.innerHTML=L['banco-h']+'<br><i>'+L['banco-hi']+'</i>';
+  setHTML('#banco .sec-split-r','banco-sub');
+  setText('.banco-filters-label','banco-mat');
+  var bancoAll=document.querySelector('.banco-btn-filtro[data-mat="todas"]'); if(bancoAll) bancoAll.textContent=L['banco-all'];
+  var bancoSearch=document.querySelector('.bkl-search-inp'); if(bancoSearch) bancoSearch.placeholder=L['banco-search'];
+  var cmdInput=document.getElementById('cmd-input');
+  if(cmdInput){
+    cmdInput.placeholder = en?'Search exam, formula, subject...':'Buscar examen, fórmula, materia...';
+    cmdInput.setAttribute('aria-label', en?'Search exam, formula or subject':'Buscar examen, fórmula o materia');
+  }
+
+  /* MATERIAL section */
+  setText('#material .sec-label','mat2-label');
+  var mat2H=document.querySelector('#material h2');
+  if(mat2H) mat2H.innerHTML=L['mat2-h']+'<br><i>'+L['mat2-hi']+'</i>';
+  setText('#material .sec-split-r','mat2-sub');
+
+  /* CALCULADORA section */
+  setText('#calculadora .sec-label','calc-label');
+  var calcH=document.querySelector('#calculadora .calc-l h2');
+  if(calcH) calcH.innerHTML=L['calc-h']+' <i>'+L['calc-hi']+'</i>';
+  setText('#calculadora .calc-l p','calc-sub');
+  var calcTabs=document.querySelectorAll('.calc-tab');
+  var ctKeys=['calc-tab1','calc-tab2','calc-tab3'];
+  calcTabs.forEach(function(el,i){ if(L[ctKeys[i]]) el.textContent=L[ctKeys[i]]; });
+
+  /* STATS section */
+  var statCards=document.querySelectorAll('.stat-card .stat-l');
+  var stKeys=['stats-s1','stats-s2','stats-s3','stats-s4'];
+  statCards.forEach(function(el,i){ if(L[stKeys[i]]) el.textContent=L[stKeys[i]]; });
+  /* stats labels via stat-card .stat-l */
+
+  /* COMUNIDAD section */
+  setText('#comunidad .sec-label','comm-label');
+  var commH=document.querySelector('#comunidad h2');
+  if(commH) commH.innerHTML=L['comm-h']+' <i>'+L['comm-hi']+'</i>';
+  setText('#comunidad .sec-split-r','comm-sub');
+
+  /* APORTAR section */
+  setText('#aportar .sec-label','aportar-label');
+  var aportarH=document.querySelector('#aportar h2');
+  if(aportarH) aportarH.innerHTML=L['aportar-h']+'<br><i>'+L['aportar-hi']+'</i>';
+  setText('#aportar .sec-split-r','aportar-sub');
+
+  /* PROMEDIO section */
+  setText('#promedio .sec-label','prom-label');
+  var promH=document.querySelector('#promedio h2');
+  if(promH) promH.innerHTML=L['prom-h']+'<br><i>'+L['prom-hi']+'</i>';
+  setText('#promedio .sec-split-r','prom-sub');
+
+  /* FOOTER */
+  setText('.fbrand p','foot-desc');
+  setText('.foot-b p:first-child','foot-copy');
+
+  /* NAV-MORE dropdown */
+  var nmdItems = document.querySelectorAll('.nav-more-dd a');
+  var nmdKeys = [['nmd-1-t','nmd-1-s'],['nmd-2-t','nmd-2-s'],['nmd-3-t','nmd-3-s'],['nmd-4-t','nmd-4-s']];
+  nmdItems.forEach(function(a,i){
+    if(!nmdKeys[i]) return;
+    var ti=a.querySelector('.nmd-title'); if(ti&&L[nmdKeys[i][0]]) ti.textContent=L[nmdKeys[i][0]];
+    var su=a.querySelector('.nmd-sub'); if(su&&L[nmdKeys[i][1]]) su.textContent=L[nmdKeys[i][1]];
+  });
+  var hsItems = document.querySelectorAll('.hero-stats .hs-item');
+  var hsKeys = [['hs-l1','hs-ctx1'],['hs-l2','hs-ctx2'],['hs-l3','hs-ctx3'],['hs-l4','hs-ctx4']];
+  hsItems.forEach(function(el,i){
+    if(!hsKeys[i]) return;
+    var l=el.querySelector('.hs-l'), ctx=el.querySelector('.hs-ctx');
+    if(l&&L[hsKeys[i][0]]) l.textContent=L[hsKeys[i][0]];
+    if(ctx&&L[hsKeys[i][1]]) ctx.textContent=L[hsKeys[i][1]];
+  });
+
+  /* CICLO DEL PARCIAL */
+  setText('#ciclo-parcial .cp-tag','cp-tag');
+  setText('#ciclo-parcial .cp-sub','cp-sub');
+  var cpb1=document.getElementById('cpb-sin'); if(cpb1) cpb1.textContent=L['cp-btn-sin'];
+  var cpb2=document.getElementById('cpb-con'); if(cpb2) cpb2.textContent=L['cp-btn-con'];
+  var cpb3=document.getElementById('cpb-vs');
+  if(cpb3){ var svg3=cpb3.querySelector('svg'); cpb3.innerHTML=(svg3?svg3.outerHTML:'')+' '+L['cp-btn-vs']; }
+  function setStepText(stepsId,dataI,titleKey,descKey){
+    var step=document.querySelector('#'+stepsId+' [data-i="'+dataI+'"]'); if(!step) return;
+    var ti=step.querySelector('.cp-j-title'); if(ti&&L[titleKey]) ti.textContent=L[titleKey];
+    var de=step.querySelector('.cp-j-desc');
+    if(de && L[descKey]!==undefined){
+      if(descKey==='cp-con-1-d-pre'){
+        var span=de.querySelector('[data-mu-pdfs]');
+        de.innerHTML=(span?span.outerHTML:'')+' '+L[descKey];
+      } else { de.textContent=L[descKey]; }
+    }
+    var ac=step.querySelector('.cp-j-action'); if(ac&&L['cp-action']) ac.textContent=L['cp-action'];
+  }
+  setStepText('cp-sin-steps','0','cp-sin-1-t','cp-sin-1-d');
+  setStepText('cp-sin-steps','1','cp-sin-2-t','cp-sin-2-d');
+  setStepText('cp-sin-steps','2','cp-sin-3-t','cp-sin-3-d');
+  setStepText('cp-sin-steps','3','cp-sin-4-t','cp-sin-4-d');
+  setStepText('cp-con-steps','0','cp-con-1-t','cp-con-1-d-pre');
+  setStepText('cp-con-steps','1','cp-con-2-t','cp-con-2-d');
+  setStepText('cp-con-steps','2','cp-con-3-t','cp-con-3-d');
+  setStepText('cp-con-steps','3','cp-con-4-t','cp-con-4-d');
+  var sinResL=document.querySelector('#cp-sin-result .cp-j-result-l'); if(sinResL) sinResL.textContent=L['cp-sin-result-l'];
+  var sinSwitch=document.querySelector('#cp-sin-result .cp-j-switch'); if(sinSwitch) sinSwitch.textContent=L['cp-sin-switch'];
+  var conResL=document.querySelector('#cp-con-result .cp-j-result-l'); if(conResL) conResL.textContent=L['cp-con-result-l'];
+  var conSwitch=document.querySelector('#cp-con-result .cp-j-switch');
+  if(conSwitch){ var svgc=conSwitch.querySelector('svg'); conSwitch.innerHTML=(svgc?svgc.outerHTML:'')+' '+L['cp-con-switch']; }
+  var vsLeftItems=document.querySelectorAll('#cp-vs .cp-col-left .cp-txt-main');
+  var vsLeftKeys=['cp-vs-1','cp-vs-2','cp-vs-3','cp-vs-4'];
+  vsLeftItems.forEach(function(el,i){ if(L[vsLeftKeys[i]]) el.textContent=L[vsLeftKeys[i]]; });
+  var vsRightItems=document.querySelectorAll('#cp-vs .cp-col-right .cp-txt-main');
+  var vsRightKeys=['cp-vs-5','cp-vs-6','cp-vs-7','cp-vs-8'];
+  vsRightItems.forEach(function(el,i){ if(L[vsRightKeys[i]]) el.textContent=L[vsRightKeys[i]]; });
+  var colHdL=document.querySelector('#cp-vs .cp-col-left .cp-col-hd'); if(colHdL) colHdL.textContent=L['cp-btn-sin'];
+  var colHdR=document.querySelector('#cp-vs .cp-col-right .cp-col-hd'); if(colHdR) colHdR.textContent=L['cp-btn-con'];
+  setText('#ciclo-parcial .cp-quote','cp-quote');
+  if(typeof muSyncCicloTitle==='function') muSyncCicloTitle(); /* reaplica el titular (dinamico o evergreen) en el idioma correcto */
+
+  /* ASÍ DE SIMPLE (3 pasos) */
+  setText('.hf-s .cp-tag','hf-tag');
+  setHTML('.hf-s .hf-title','hf-title');
+  var hfSteps = document.querySelectorAll('.hf-s .hf-step');
+  var hfKeys = [['hf-1-t','hf-1-d'],['hf-2-t','hf-2-d'],['hf-3-t','hf-3-d']];
+  hfSteps.forEach(function(el,i){
+    if(!hfKeys[i]) return;
+    var ti=el.querySelector('.hf-step-title'); if(ti&&L[hfKeys[i][0]]) ti.textContent=L[hfKeys[i][0]];
+    var de=el.querySelector('.hf-step-desc'); if(de&&L[hfKeys[i][1]]) de.textContent=L[hfKeys[i][1]];
+  });
+  document.querySelectorAll('a[href="#materias"].btn-a, a[href="#materias"].au-msg-cta').forEach(function(el){
+    if(L['explorar-materias']) el.textContent=L['explorar-materias'];
+  });
+  setText('.hf-cta-note','hf-cta-note');
+
+  /* BANNER SEMANA DEL PARCIAL */
+  var bnL=document.querySelector('#semana-banner .sp-label'); if(bnL) bnL.textContent=L['banner-label'];
+  var bnC=document.querySelector('#semana-banner .sp-cta'); if(bnC) bnC.textContent=L['banner-cta'];
+
+  /* MAPA DE CONTENIDO */
+  var cmTag=document.querySelector('.cm-s .cp-tag'); if(cmTag) cmTag.textContent=L['cm-tag'];
+  var cmTitle=document.querySelector('.cm-s .hf-title'); if(cmTitle) cmTitle.textContent=L['cm-title'];
+  if(typeof renderContentMap==='function') renderContentMap(); /* re-renderiza las etiquetas (Parciales/Talleres/...) en el idioma correcto */
+  if(typeof renderMaterias==='function') renderMaterias(); /* re-renderiza la grilla de materias (nombres/desc/tags) en el idioma correcto */
+  if(typeof renderSimPreview==='function') renderSimPreview();
+  if(typeof window.muRenderProgreso==='function') window.muRenderProgreso();
+  if(typeof muSyncSimCtaSub==='function') muSyncSimCtaSub();
+
+  /* PANIC MODAL */
+  setHTML('#panic-modal-title','pm-title'); setText('#panicModal .pm-sub','pm-sub');
+  var pmSteps=document.querySelectorAll('#panicModal .pm-step');
+  var pmKeys=[['pm-1-t','pm-1-d'],['pm-2-t','pm-2-d'],['pm-3-t','pm-3-d'],['pm-4-t','pm-4-d'],['pm-5-t','pm-5-d']];
+  pmSteps.forEach(function(el,i){ if(!pmKeys[i])return; var h=el.querySelector('h5'),p=el.querySelector('p');
+    if(h&&L[pmKeys[i][0]])h.textContent=L[pmKeys[i][0]]; if(p&&L[pmKeys[i][1]])p.textContent=L[pmKeys[i][1]]; });
+  setHTML('#panicModal .pm-tip','pm-tip');
+
+  /* WEEK MODAL */
+  setHTML('#week-modal-title','wm-title'); setText('#weekModal .pm-sub','wm-sub');
+  var wmLbls=document.querySelectorAll('#weekModal .is-l');
+  var wmKeys=['wm-mat-l','wm-corte-l','wm-fecha-l'];
+  wmLbls.forEach(function(el,i){ if(wmKeys[i]&&L[wmKeys[i]]) el.textContent=L[wmKeys[i]]; });
+  var wmBtn=document.querySelector('#weekModal button[onclick="generatePlan()"]'); if(wmBtn&&L['wm-gen-btn']) wmBtn.textContent=L['wm-gen-btn'];
+  var wmMatEn={matbas:'Basic Mathematics',calcdif:'Differential Calculus',calcint:'Integral Calculus',alglin:'Linear Algebra',calcvec:'Multivariable Calculus',edo:'Differential Equations'};
+  document.querySelectorAll('#wm-mat option').forEach(function(o){ if(en&&wmMatEn[o.value]) o.textContent=wmMatEn[o.value]; else if(!en){
+    var es={matbas:'Matemáticas Básicas',calcdif:'Cálculo Diferencial',calcint:'Cálculo Integral',alglin:'Álgebra Lineal',calcvec:'Cálculo en Varias Variables',edo:'Ecuaciones Diferenciales'};
+    if(es[o.value]) o.textContent=es[o.value]; } });
+  var wmCorteOpts=document.querySelectorAll('#wm-corte option');
+  var wmCorteEs=['Parcial 1','Parcial 2','Parcial 3','Quiz','Examen Final'];
+  var wmCorteEn=['Exam 1','Exam 2','Exam 3','Quiz','Final Exam'];
+  wmCorteOpts.forEach(function(o,i){ if(en&&wmCorteEn[i]) o.textContent=wmCorteEn[i]; else if(!en&&wmCorteEs[i]) o.textContent=wmCorteEs[i]; });
+
+  /* TIMELINE header */
+  setText('#timeline .cp-tag','tl-tag'); setText('#timeline .tl-title','tl-title'); setText('#timeline .cp-sub','tl-sub');
+  if(typeof tlRender==='function') tlRender();
+
+  /* PROXIMAMENTE */
+  setText('#proximamente .sec-label','prox-tag'); setText('#proximamente h2','prox-h'); setText('#proximamente > .wrap > p, #proximamente p','prox-p');
+  var proxH2=document.querySelector('#proximamente h2'); if(proxH2&&L['prox-h']) proxH2.textContent=L['prox-h'];
+  var proxP=document.querySelector('#proximamente .prox-header p'); if(proxP&&L['prox-p']) proxP.textContent=L['prox-p'];
+  var proxCards=document.querySelectorAll('#proximamente .prox-card');
+  var proxKeys=[['prox-1-cat','prox-1-n','prox-1-d'],['prox-2-cat','prox-2-n','prox-2-d'],['prox-3-cat','prox-3-n','prox-3-d'],['prox-4-cat','prox-4-n','prox-4-d']];
+  proxCards.forEach(function(el,i){ if(!proxKeys[i])return;
+    var pill=el.querySelector('.prox-pill'); var name=el.querySelector('.prox-name'); var sub=el.querySelector('.prox-sub');
+    if(pill&&L[proxKeys[i][0]]){ var svgp=pill.querySelector('svg'); pill.innerHTML=(svgp?svgp.outerHTML:'')+' '+L[proxKeys[i][0]]; }
+    if(name&&L[proxKeys[i][1]]) name.textContent=L[proxKeys[i][1]];
+    if(sub&&L[proxKeys[i][2]]) sub.textContent=L[proxKeys[i][2]];
+  });
+
+  /* PACK v2 (visible) */
+  setText('#material .cp-tag','pk-tag');
+  var pkH2=document.querySelector('#material .pack-hd h2');
+  if(pkH2&&L['pk-h1']&&L['pk-h2']) pkH2.innerHTML=L['pk-h1']+'<br><em style="color:var(--acc);font-style:italic">'+L['pk-h2']+'</em>';
+  setText('#material .pack-hd p','pk-sub');
+  setText('#material .pack-v2-badge','pk-badge'); setText('#material .pack-v2-new','pk-new');
+  setHTML('#material .pack-v2-title','pk-title'); setText('#material .pack-v2-sub','pk-desc');
+  var pkItems=document.querySelectorAll('#material .pack-v2-item');
+  var pkKeys=[['pk-i1-t','pk-i1-s'],['pk-i2-t','pk-i2-s'],['pk-i3-t','pk-i3-s'],['pk-i4-t','pk-i4-s']];
+  pkItems.forEach(function(el,i){ if(!pkKeys[i])return; var t=el.querySelector('.pack-v2-item-t'),sub=el.querySelector('.pack-v2-item-s');
+    if(t&&L[pkKeys[i][0]])t.textContent=L[pkKeys[i][0]]; if(sub&&L[pkKeys[i][1]])sub.textContent=L[pkKeys[i][1]]; });
+  var pvch=document.querySelectorAll('#material .pvch'); var pvchKeys=['pk-cmp-h','pk-cmp-free','pk-cmp-pack'];
+  pvch.forEach(function(el,i){ if(pvchKeys[i]&&L[pvchKeys[i]]) el.textContent=L[pvchKeys[i]]; });
+  var pvrFeat=document.querySelectorAll('#material .pvr-feat'); var pvrKeys=['pk-cmp-1','pk-cmp-2','pk-cmp-3','pk-cmp-4'];
+  pvrFeat.forEach(function(el,i){ if(pvrKeys[i]&&L[pvrKeys[i]]) el.textContent=L[pvrKeys[i]]; });
+  setText('#material .pack-v2-price-lbl','pk-price-l'); setText('#material .pack-v2-period','pk-period');
+  var pkCta=document.querySelector('#material .pack-v2-cta');
+  if(pkCta&&L['pk-cta']){ var svgc2=pkCta.querySelector('svg'); pkCta.innerHTML=(svgc2?svgc2.outerHTML:'')+' '+L['pk-cta']; }
+  setHTML('#material .pack-v2-proof-txt','pk-proof');
+  var pkSecure=document.querySelector('#material .pack-v2-secure');
+  if(pkSecure&&L['pk-secure']){ var svgs=pkSecure.querySelector('svg'); pkSecure.innerHTML=(svgs?svgs.outerHTML:'')+' '+L['pk-secure']; }
+  setText('#material .pfb-lbl','pk-free-lbl');
+  var pfbItems=document.querySelectorAll('#material .pfb-item'); var pfbKeys=['pk-free-1','pk-free-2','pk-free-3','pk-free-4','pk-free-5'];
+  pfbItems.forEach(function(el,i){ if(!pfbKeys[i])return; var svgf=el.querySelector('svg'); if(L[pfbKeys[i]]) el.innerHTML=(svgf?svgf.outerHTML:'')+' '+L[pfbKeys[i]]; });
+  var pfbCta=document.querySelector('#material .pack-free-band > a'); if(pfbCta&&L['pk-free-cta']) pfbCta.textContent=L['pk-free-cta'];
+
+  /* CALCULADORA */
+  setText('#calculadora .sec-label','calc-tag');
+  var calcH2=document.querySelector('#calculadora h2');
+  if(calcH2&&L['calc-h1']) calcH2.innerHTML=L['calc-h1']+'<br>'+L['calc-h2']+' <i>'+L['calc-h2i']+'</i>'+L['calc-h2q'];
+  setText('#calculadora .calc-l > p','calc-p');
+  var calcPills=document.querySelectorAll('#calculadora .calc-l > div[style*="flex-wrap"] > span');
+  calcPills.forEach(function(el,i){
+    if(i<3){ var num=(el.textContent.match(/^\d+/)||['2'])[0]; el.textContent = num + ' ' + (en?'Periods':'Cortes'); }
+    else if(i===3 && L['calc-min']) el.textContent = L['calc-min'];
+  });
+  setText('#calculadora .calc-l > p:nth-of-type(2)','calc-p2');
+  var calcTabs=document.querySelectorAll('#calculadora .calc-tab'); var calcTabKeys=['calc-tab1','calc-tab2','calc-tab3'];
+  calcTabs.forEach(function(el,i){ if(calcTabKeys[i]&&L[calcTabKeys[i]]) el.textContent=L[calcTabKeys[i]]; });
+  document.querySelectorAll('#calculadora .calc-hdr-lbl').forEach(function(el){ if(L['calc-hdr-corte']) el.textContent=L['calc-hdr-corte']; });
+  document.querySelectorAll('#calculadora .calc-hdr-cell').forEach(function(el,i){ el.textContent = (i%2===0) ? L['calc-hdr-peso'] : L['calc-hdr-nota']; });
+  var calcRowLbls=document.querySelectorAll('#calculadora .calc-lbl');
+  calcRowLbls.forEach(function(el){
+    var t=el.textContent;
+    if(t.indexOf('1°')>=0&&L['calc-corte1']) el.textContent=L['calc-corte1'];
+    else if(t.indexOf('2°')>=0&&L['calc-corte2']) el.textContent=L['calc-corte2'];
+    else if(t.indexOf('3°')>=0&&L['calc-corte3']) el.textContent=L['calc-corte3'];
+    else if(t.indexOf('4°')>=0&&L['calc-corte4']) el.textContent=L['calc-corte4'];
+  });
+  var crLabels=document.querySelectorAll('#calculadora .cr-label'); var crKeys=['calc-need2','calc-need3','calc-need4'];
+  crLabels.forEach(function(el,i){ if(crKeys[i]&&L[crKeys[i]]) el.textContent=L[crKeys[i]]; });
+  document.querySelectorAll('#calculadora .cr-msg').forEach(function(el){ if(L['calc-msg']&&el.textContent.indexOf('Ingresa')>=0) el.textContent=L['calc-msg']; });
+
+  /* COMUNIDAD */
+  setText('#comunidad .sec-label','comm-lbl');
+  setHTML('#comunidad h2','comm-h'); setHTML('#comunidad .sec-split-r','comm-p');
+  var ccCards=document.querySelectorAll('#comunidad .cc');
+  var ccKeys=[['comm-wa-t','comm-wa-d','comm-wa-l'],['comm-tg-t','comm-tg-d','comm-tg-l'],['comm-dc-t','comm-dc-d','comm-dc-l'],['comm-ig-t','comm-ig-d','comm-ig-l']];
+  ccCards.forEach(function(el,i){ if(!ccKeys[i])return;
+    var h4=el.querySelector('h4'),p=el.querySelector('p'),link=el.querySelector('.cc-link'),soon=el.querySelector('.cc-soon-badge');
+    if(h4&&L[ccKeys[i][0]])h4.textContent=L[ccKeys[i][0]]; if(p&&L[ccKeys[i][1]])p.textContent=L[ccKeys[i][1]];
+    if(link&&L[ccKeys[i][2]])link.textContent=L[ccKeys[i][2]]; if(soon&&L['comm-soon'])soon.textContent=L['comm-soon'];
+  });
+
+  /* ESTADISTICAS */
+  setText('#estadisticas .sec-label','stats-lbl'); setText('#estadisticas h2','stats-h'); setText('#estadisticas .stats-mega-hd p','stats-p');
+  var smCells=document.querySelectorAll('#estadisticas .stats-mega-cell');
+  var smKeys=[['stats-1-l','stats-1-ctx'],['stats-2-l','stats-2-ctx'],['stats-3-l','stats-3-ctx'],['stats-4-l','stats-4-ctx']];
+  smCells.forEach(function(el,i){ if(!smKeys[i])return; var l=el.querySelector('.sm-l'),ctx=el.querySelector('.sm-ctx');
+    if(l&&L[smKeys[i][0]])l.textContent=L[smKeys[i][0]]; if(ctx&&L[smKeys[i][1]])ctx.textContent=L[smKeys[i][1]]; });
+
+  /* APORTAR (ap2) */
+  setText('#aportar .sec-label','ap2-lbl'); setHTML('#aportar h2','ap2-h'); setText('#aportar .sec-split-r','ap2-p');
+  var ap2Cards=document.querySelectorAll('#aportar .aportar-grid > div');
+  if(ap2Cards[0]){
+    var fastBadge=ap2Cards[0].querySelector('div'); if(fastBadge&&L['ap2-fast']) fastBadge.textContent=L['ap2-fast'];
+    var titles=ap2Cards[0].querySelectorAll('div'); /* fallback simple por texto */
+  }
+  document.querySelectorAll('#aportar .aportar-grid > div').forEach(function(card,ci){
+    var allDivs=card.querySelectorAll(':scope > div');
+    allDivs.forEach(function(d){
+      var t=d.textContent.trim();
+      if(t==='✓ MÁS RÁPIDO'&&L['ap2-fast']) d.textContent=L['ap2-fast'];
+      if(t==='Por WhatsApp'&&L['ap2-wa-t']) d.textContent=L['ap2-wa-t'];
+      if(t==='Por Email o Drive'&&L['ap2-em-t']) d.textContent=L['ap2-em-t'];
+      var ps=card.querySelectorAll(':scope > p');
+    ps.forEach(function(pEl){
+      if(pEl.textContent.indexOf('Mándanos')>=0&&L['ap2-wa-d']) pEl.textContent=L['ap2-wa-d'];
+      if(pEl.textContent.indexOf('Para aportes')>=0&&L['ap2-em-d']) pEl.textContent=L['ap2-em-d'];
+    });
+  });
+  });
+  document.querySelectorAll('#aportar .aportar-grid > div div').forEach(function(d){
+    if(d.children.length>0) return;
+    if(d.textContent.trim()==='Qué incluir en tu mensaje'&&L['ap2-inc-h']) d.textContent=L['ap2-inc-h'];
+  });
+  var ap2WaChecks=document.querySelectorAll('#aportar .aportar-grid > div:first-child > div > div');
+  var ap2WaKeys=['ap2-wa-i1','ap2-wa-i2','ap2-wa-i3'];
+  ap2WaChecks.forEach(function(el,i){ if(ap2WaKeys[i]&&L[ap2WaKeys[i]]){ var sp=el.querySelector('span'); el.innerHTML=(sp?sp.outerHTML:'')+' '+L[ap2WaKeys[i]]; } });
+  var ap2WaCta=document.querySelector('#aportar .aportar-grid a[href*="wa.me"]');
+  if(ap2WaCta&&L['ap2-wa-cta']){ var svgwa=ap2WaCta.querySelector('svg'); ap2WaCta.innerHTML=(svgwa?svgwa.outerHTML:'')+' '+L['ap2-wa-cta']; }
+  var ap2IncItems=document.querySelectorAll('#aportar .aportar-grid > div:nth-child(2) > div > div > div');
+  var ap2IncKeys=['ap2-inc-1','ap2-inc-2','ap2-inc-3','ap2-inc-4'];
+  ap2IncItems.forEach(function(el,i){ if(ap2IncKeys[i]&&L[ap2IncKeys[i]]){ var sp2=el.querySelector('span'); el.innerHTML=(sp2?sp2.outerHTML:'')+' '+L[ap2IncKeys[i]]; } });
+  setText('#aportar .aportar-grid ~ .fi > div:first-child','ap2-acc-h');
+  var ap2AccItems=document.querySelectorAll('#aportar .aportar-grid ~ .fi > div:last-child > div');
+  var ap2AccKeys=['ap2-acc-1','ap2-acc-2','ap2-acc-3','ap2-acc-4','ap2-acc-5','ap2-acc-6'];
+  ap2AccItems.forEach(function(el,i){ if(ap2AccKeys[i]&&L[ap2AccKeys[i]]){ var sp3=el.querySelector('span'); el.innerHTML=(sp3?sp3.outerHTML:'')+' '+L[ap2AccKeys[i]]; } });
+
+  /* PROMEDIO */
+  setText('#promedio .sec-label','prom-lbl'); setHTML('#promedio h2','prom-h'); setText('#promedio .sec-split-r','prom-p');
+  var promTh=document.querySelectorAll('#promedio .prom-thead span'); var promThKeys=['prom-th-mat','prom-th-cred','prom-th-nota'];
+  promTh.forEach(function(el,i){ if(promThKeys[i]&&L[promThKeys[i]]) el.textContent=L[promThKeys[i]]; });
+  setText('#promedio .prom-add-btn','prom-add');
+  var promSys=document.querySelector('#promedio p[style*="font-family:IBM Plex Mono"]'); if(promSys&&L['prom-sys']) promSys.innerHTML='<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-1px"><circle cx="12" cy="12" r="9"/><line x1="12" y1="16" x2="12" y2="11"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg> '+L['prom-sys'];
+  var promInfoCards=document.querySelectorAll('#promedio .prom-grid > div:first-child > div[style*="grid-template-columns:1fr 1fr"] > div');
+  var promInfoKeys=[['prom-q1-h','prom-q1-d'],['prom-q2-h','prom-q2-d']];
+  promInfoCards.forEach(function(el,i){ if(!promInfoKeys[i])return; var divs=el.querySelectorAll('div');
+    if(divs[0]&&L[promInfoKeys[i][0]])divs[0].textContent=L[promInfoKeys[i][0]]; if(divs[1]&&L[promInfoKeys[i][1]])divs[1].textContent=L[promInfoKeys[i][1]]; });
+  setText('#promedio .prom-result-card > div:first-child','prom-result-l');
+  setText('#promedio .prom-hint','prom-hint');
+  var promEj=document.querySelector('#promedio #prom-hint-wrap div[style*="font-weight:700"]'); if(promEj&&L['prom-ej']) promEj.textContent=L['prom-ej'];
+  var promExDivs=document.querySelectorAll('#promedio #prom-hint-wrap > div:nth-of-type(2) > div');
+  if(promExDivs[1]&&L['prom-ej-line']) promExDivs[1].textContent=L['prom-ej-line'];
+  if(promExDivs[2]&&L['prom-ej-div']){ var strongEl=promExDivs[2].querySelector('strong'); promExDivs[2].innerHTML=L['prom-ej-div']+' '+(strongEl?strongEl.outerHTML:''); }
+  var promFoot=document.querySelectorAll('#promedio #prom-hint-wrap p'); if(promFoot[1]&&L['prom-foot']) promFoot[1].textContent=L['prom-foot'];
+
+  /* AU-S (3 tabs/panels) */
+  setText('.au-s .cp-tag','au-tag');
+  setText('.au-s .au-title','au-title');
+  var auTabs=document.querySelectorAll('.au-tab'); var auTabKeys=['au-tab0','au-tab1','au-tab2'];
+  auTabs.forEach(function(el,i){ if(auTabKeys[i]&&L[auTabKeys[i]]){ var svga=el.querySelector('svg'); el.innerHTML=(svga?svga.outerHTML:'')+' '+L[auTabKeys[i]]; } });
+  setText('#au-p0 .au-msg-title','au-p0-t'); setText('#au-p0 .au-msg-body','au-p0-d');
+  var au0Items=document.querySelectorAll('#au-p0 .au-msg-item'); var au0Keys=['au-p0-i1','au-p0-i2','au-p0-i3','au-p0-i4'];
+  au0Items.forEach(function(el,i){ if(au0Keys[i]&&L[au0Keys[i]]){ var chk=el.querySelector('.au-msg-check'); el.innerHTML=(chk?chk.outerHTML:'✓')+L[au0Keys[i]]; } });
+  setText('#au-p0 .au-card-label','au-p0-card-l'); setText('#au-p0 .au-quote','au-p0-quote');
+  var au0StatLs=document.querySelectorAll('#au-p0 .au-stat-l');
+  if(au0StatLs[1]&&L['au-p0-stat2']) au0StatLs[1].textContent=L['au-p0-stat2'];
+  setText('#au-p1 .au-msg-title','au-p1-t'); setText('#au-p1 .au-msg-body','au-p1-d');
+  var au1Items=document.querySelectorAll('#au-p1 .au-msg-item'); var au1Keys=['au-p1-i1','au-p1-i2','au-p1-i3'];
+  au1Items.forEach(function(el,i){ if(au1Keys[i]&&L[au1Keys[i]]){ var chk1=el.querySelector('.au-msg-check'); el.innerHTML=(chk1?chk1.outerHTML:'✓')+L[au1Keys[i]]; } });
+  setText('#au-p1 .au-msg-cta','au-p1-cta'); setText('#au-p1 .au-card-label','au-p1-card-l');
+  var au1Stats=document.querySelectorAll('#au-p1 .au-stat-l'); if(au1Stats[0]&&L['au-p1-stat1']) au1Stats[0].textContent=L['au-p1-stat1'];
+  setText('#au-p1 .au-quote','au-p1-quote');
+  setText('#au-p2 .au-msg-title','au-p2-t'); setText('#au-p2 .au-msg-body','au-p2-d');
+  var au2Items=document.querySelectorAll('#au-p2 .au-msg-item'); var au2Keys=['au-p2-i1','au-p2-i2','au-p2-i3','au-p2-i4'];
+  au2Items.forEach(function(el,i){ if(au2Keys[i]&&L[au2Keys[i]]){ var chk2=el.querySelector('.au-msg-check'); el.innerHTML=(chk2?chk2.outerHTML:'✓')+L[au2Keys[i]]; } });
+  setText('#au-p2 .au-msg-cta','au-p2-cta'); setText('#au-p2 .au-card-label','au-p2-card-l');
+  var au2Stats=document.querySelectorAll('#au-p2 .au-stat-l'); var au2StatKeys=['au-p2-s1','au-p2-s2','au-p2-s3','au-p2-s4'];
+  au2Stats.forEach(function(el,i){ if(au2StatKeys[i]&&L[au2StatKeys[i]]) el.textContent=L[au2StatKeys[i]]; });
+  setText('#au-p2 .au-quote','au-p2-quote');
+
+  /* AP-S (apoyar) */
+  setText('.ap-s .ap-tag','ap3-tag'); setText('.ap-s .ap-title','ap3-title'); setText('.ap-s .ap-desc','ap3-desc');
+  var apItems=document.querySelectorAll('.ap-s .ap-items span'); var apKeys=['ap3-i1','ap3-i2','ap3-i3'];
+  apItems.forEach(function(el,i){ if(apKeys[i]&&L[apKeys[i]]){ var svgap=el.querySelector('svg'); el.innerHTML=(svgap?svgap.outerHTML:'')+' '+L[apKeys[i]]; } });
+  setText('.ap-s .ap-per','ap3-per'); setHTML('.ap-s .ap-cost','ap3-cost');
+
+  /* FAQ */
+  setText('#faq .sec-label','faq-lbl'); setText('#faq h2','faq-h');
+  var faqItems=document.querySelectorAll('#faq .faq-item');
+  var faqKeys=[['faq-q1','faq-a1'],['faq-q2','faq-a2'],['faq-q3','faq-a3'],['faq-q4','faq-a4'],['faq-q5','faq-a5'],['faq-q6','faq-a6']];
+  faqItems.forEach(function(el,i){ if(!faqKeys[i])return;
+    var qEl=el.querySelector('.faq-q'), aEl=el.querySelector('.faq-a'), ico=qEl?qEl.querySelector('.faq-ico'):null;
+    if(qEl&&L[faqKeys[i][0]]) qEl.innerHTML=L[faqKeys[i][0]]+(ico?ico.outerHTML:'<span class="faq-ico">+</span>');
+    if(aEl&&L[faqKeys[i][1]]) aEl.textContent=L[faqKeys[i][1]];
+  });
+
+  /* RUTA DEL SEMESTRE */
+  setText('.ruta-s .cp-tag','ruta-tag'); setText('.ruta-s h2','ruta-h'); setText('.ruta-s .ruta-hd p','ruta-p');
+  var rutaSemLbls=document.querySelectorAll('.ruta-s .ruta-sem-lbl');
+  var rutaSemKeys=['ruta-niv','ruta-s1','ruta-s2','ruta-s3','ruta-s4','ruta-s5'];
+  rutaSemLbls.forEach(function(el,i){ if(rutaSemKeys[i]&&L[rutaSemKeys[i]]) el.textContent=L[rutaSemKeys[i]]; });
+  document.querySelectorAll('.ruta-s .ruta-mat').forEach(function(a){
+    var href=a.getAttribute('href')||''; var m=href.match(/s=(\d+)/);
+    if(m && typeof SUBJECTS!=='undefined'){
+      var subj=SUBJECTS.filter(function(s){return s.code===m[1];})[0];
+      if(subj){ var nameEl=a.querySelector('.ruta-mat-name'); if(nameEl) nameEl.textContent = en&&subj.nameEn?subj.nameEn:subj.nameEs; }
+    }
+  });
+  var rutaCta=document.querySelector('.ruta-s .ruta-cta .btn-a');
+  if(rutaCta&&L['ruta-cta']){ var svgr=rutaCta.querySelector('svg'); rutaCta.innerHTML=(svgr?svgr.outerHTML:'')+' '+L['ruta-cta']; }
+  setText('.ruta-s .ruta-cta span','ruta-foot');
+
+  /* MAPA DEL SITIO (smap-s) */
+  setText('.smap-s .smap-hd-tag','smap-tag'); setText('.smap-s h2','smap-h');
+  var smapColTitles=document.querySelectorAll('.smap-s .smap-col-title'); var smapColKeys=['smap-col1','smap-col2','smap-col3','smap-col4'];
+  smapColTitles.forEach(function(el,i){ if(smapColKeys[i]&&L[smapColKeys[i]]){ var svgsm=el.querySelector('svg'); el.innerHTML=(svgsm?svgsm.outerHTML:'')+' '+L[smapColKeys[i]]; } });
+  document.querySelectorAll('.smap-s .smap-link').forEach(function(a){
+    var href=a.getAttribute('href')||''; var m=href.match(/s=(\d+)/);
+    if(m && typeof SUBJECTS!=='undefined'){
+      var subj=SUBJECTS.filter(function(s){return s.code===m[1];})[0];
+      if(subj){ var badge=a.querySelector('.smap-link-badge'); var newName=(en&&subj.nameEn?subj.nameEn:subj.nameEs);
+        a.innerHTML=subj.sym+' '+newName+(badge?(' '+badge.outerHTML):''); }
+    }
+    var t=a.textContent.trim();
+    if(t==='Ver todas →'&&L['smap-ver-todas']) a.textContent=L['smap-ver-todas'];
+    if(t.indexOf('Popular')>=0&&L['smap-popular']){ var b2=a.querySelector('.smap-link-badge'); if(b2)b2.textContent=L['smap-popular']; }
+  });
+  var smapToolLinks=document.querySelectorAll('.smap-s .smap-links')[1];
+  if(smapToolLinks){
+    var toolAs=smapToolLinks.querySelectorAll('a'); var toolKeys=['smap-sim','smap-form','smap-calc','smap-prom','smap-banco'];
+    toolAs.forEach(function(a,i){ if(!toolKeys[i]||!L[toolKeys[i]])return; var badge=a.querySelector('.smap-link-badge');
+      var prefix=a.textContent.trim().split(' ')[0];
+      a.innerHTML=prefix+' '+L[toolKeys[i]]+(badge?(' '+badge.outerHTML):''); });
+  }
+  var smapResLinks=document.querySelectorAll('.smap-s .smap-links')[2];
+  if(smapResLinks){
+    var resAs=smapResLinks.querySelectorAll('a'); var resKeys=['smap-pack','smap-aportar','smap-hist','smap-prox','smap-faq'];
+    resAs.forEach(function(a,i){ if(!resKeys[i]||!L[resKeys[i]])return; var prefix=a.textContent.trim().split(' ')[0]; a.textContent=prefix+' '+L[resKeys[i]]; });
+  }
+  document.querySelectorAll('.smap-s .smap-links a').forEach(function(a){
+    var t=a.textContent.trim();
+    if(t.indexOf('Grupo WhatsApp')>=0&&L['smap-wa']) a.innerHTML='<svg width="13" height="13" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" style="vertical-align:-2px"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg> '+L['smap-wa'];
+    if(t.indexOf('Telegram (próximo)')>=0&&L['smap-tg']) a.textContent='↗ '+L['smap-tg'];
+    if(t.indexOf('Discord (próximo)')>=0&&L['smap-dc']) a.textContent='↗ '+L['smap-dc'];
+  });
+  setText('.smap-bottom-l','smap-bottom');
+  var smapQuick=document.querySelectorAll('.smap-quick-btn'); var smapQuickKeys=['smap-top','smap-quick-sim','smap-quick-banco','smap-quick-form'];
+  smapQuick.forEach(function(el,i){ if(!smapQuickKeys[i]||!L[smapQuickKeys[i]])return; var prefix=el.textContent.trim().split(' ')[0]; el.textContent=prefix+' '+L[smapQuickKeys[i]]; });
+
+  /* FOOTER (resto) */
+  setText('footer .fact','foot-activo');
+  var footCols=document.querySelectorAll('footer .fcol h4'); var footColKeys=['foot-com','foot-contact','foot-mats'];
+  footCols.forEach(function(el,i){ if(footColKeys[i]&&L[footColKeys[i]]) el.textContent=L[footColKeys[i]]; });
+  document.querySelectorAll('footer .fcol a').forEach(function(a){
+    var t=a.textContent.trim();
+    if(t.indexOf('Grupo WhatsApp')>=0&&L['foot-wa']) a.lastChild.textContent=L['foot-wa'];
+    if(t.indexOf('Canal Telegram')>=0&&L['foot-tg']) a.lastChild.textContent=L['foot-tg'];
+    if(t==='Discord'&&L['foot-dc']) a.lastChild.textContent=L['foot-dc'];
+    if(t.indexOf('Bancolombia')>=0&&L['foot-bank']) a.lastChild.textContent=L['foot-bank'];
+    if(t==='Ver todas →'&&L['foot-vertodas']) a.textContent=L['foot-vertodas'];
+  });
+  document.querySelectorAll('footer .fcol:last-of-type a').forEach(function(a){
+    var href=a.getAttribute('href')||''; var m=href.match(/s=(\d+)/);
+    if(m && typeof SUBJECTS!=='undefined'){
+      var subj=SUBJECTS.filter(function(s){return s.code===m[1];})[0];
+      if(subj) a.textContent = en&&subj.nameEn?subj.nameEn:subj.nameEs;
+    }
+  });
+  var footP=document.querySelector('footer .fbrand p'); if(footP&&L['foot-tagline']) footP.textContent=L['foot-tagline'];
+
+  /* Botones flotantes / Pomodoro / mu-calc */
+  document.querySelectorAll('button[onclick*="weekModal"]').forEach(function(b){
+    if(L['fab-semana']){ var svgb=b.querySelector('svg'); b.innerHTML=(svgb?svgb.outerHTML:'')+' '+L['fab-semana']; }
+  });
+  var pomoH=document.querySelector('.sphd'); if(pomoH&&L['pomo-h']){ var svgp2=pomoH.querySelector('svg'); pomoH.innerHTML=L['pomo-h']+' <span>'+(svgp2?svgp2.outerHTML:'')+' 25 min</span>'; }
+  var pomoBtn=document.getElementById('tbtn'); if(pomoBtn&&L['pomo-start']&&pomoBtn.textContent.indexOf('Iniciar')>=0) pomoBtn.innerHTML=L['pomo-start'];
+  document.querySelectorAll('.spbtn').forEach(function(b){ if(b.textContent.indexOf('Reset')>=0&&L['pomo-reset']) b.innerHTML=L['pomo-reset']; });
+  var muCalcH=document.querySelector('.mu-calc h3'); if(muCalcH&&L['mu-calc-h']){ var svgmc=muCalcH.querySelector('svg'); muCalcH.innerHTML=(svgmc?svgmc.outerHTML:'')+' '+L['mu-calc-h']; }
+  setText('.mu-calc-sub','mu-calc-sub');
+  var muCalcLbls=document.querySelectorAll('.mu-calc-field label'); var muCalcKeys=['mu-calc-p1','mu-calc-p2','mu-calc-pf'];
+  muCalcLbls.forEach(function(el,i){ if(muCalcKeys[i]&&L[muCalcKeys[i]]) el.textContent=L[muCalcKeys[i]]; });
+  var muMsgEl=document.getElementById('mu-msg');
+  if(muMsgEl&&L['mu-msg-init']&&muMsgEl.textContent.indexOf('Ingresa')>=0) muMsgEl.textContent=L['mu-msg-init'];
+  else if(muMsgEl&&!en&&muMsgEl.textContent.indexOf('Enter your grades')>=0) muMsgEl.textContent='Ingresa tus notas para calcular';
+  var spfSpan=document.querySelector('#mu-spf span'); if(spfSpan&&L['sp-recall-q']) spfSpan.textContent=L['sp-recall-q'];
+  var sphEl=document.getElementById('mu-sph'); if(sphEl&&L['sp-hint']) sphEl.textContent=L['sp-hint'];
+  var spVerBtn=document.querySelector('#mu-spbt .mu-sb-ver');
+  if(spVerBtn&&L['sp-ver']){ var svgver=spVerBtn.querySelector('svg'); spVerBtn.innerHTML=(svgver?svgver.outerHTML:'')+' '+L['sp-ver']; }
+  var spdEl=document.getElementById('mu-spd');
+  if(spdEl&&L['sp-vistas']){ var num=(spdEl.textContent.match(/\d+/)||['0'])[0]; spdEl.textContent=num+' '+L['sp-vistas']; }
+  setHTML('.mu-sprint-cta','sp-cta');
+
+  /* Si la pagina activa es un template renderizado por separado (banco, simulacro,
+     formulas, materia), tiene su propio window.muApplyLang_<pagina> que _loadPage()
+     solo llamaba al NAVEGAR ahi. Sin esto, cambiar de idioma ESTANDO ya en esas
+     paginas dejaba su contenido a medias en el idioma viejo. */
+  try {
+    if (window.__muCurrentPage) {
+      var pageFn = window['muApplyLang_' + window.__muCurrentPage];
+      if (typeof pageFn === 'function') pageFn();
+      if (typeof MU_PAGE_TITLES !== 'undefined' && MU_PAGE_TITLES[window.__muCurrentPage]) {
+        document.title = en ? MU_PAGE_TITLES[window.__muCurrentPage].en : MU_PAGE_TITLES[window.__muCurrentPage].es;
+      }
+    }
+  } catch(e){ console.error('muApplyLang (setLang) error:', e && e.message); }
+
+  /* Guardar preferencia */
+  try{ localStorage.setItem('mu-lang', lang); }catch(e){}
+}
+window.setLang = setLang; /* ver nota junto a curLang: expuesto explicito */
+
+/* Recuperar idioma guardado */
+(function(){
+  try{
+    var saved = localStorage.getItem('mu-lang');
+    if(saved && saved !== 'es') setTimeout(function(){ setLang(saved); }, 300);
+  }catch(e){}
+})();
+
+
 var SUBJECTS = [
   {code:'1000003',nameEs:'Matemáticas Básicas',nameEn:'Pre-calculus',sym:'π',semEs:'Nivelatorio',semEn:'Pre-calc level',pdfs:24,diff:'diff-b',hot:true,
    descEs:'Precálculo, funciones, trigonometría y fundamentos del cálculo. Base de toda la carrera de ingeniería.',
@@ -15415,6 +15429,14 @@ function bootMateria(tries){
   var slbl=document.querySelector('.mu-lp-sec'); if(slbl) slbl.textContent = en?'Semesters':'Semestres';
   var albl=document.querySelector('.mu-la-lbl'); if(albl) albl.textContent = en?'More resources':'Más recursos';
   var sh0=document.getElementById('mu-search-hint'); if(sh0) sh0.textContent = en?'Type to filter':'Escribe para filtrar';
+
+  /* Lo de arriba solo cubre 4 labels estaticos. El contenido dinamico real
+     (filtros por tipo, tarjetas de archivos, colores por semestre, ruta de
+     estudio) lo construye __muMateriaInit() leyendo mu.curLang() -- que ya
+     esta actualizado porque setLang() corre esto DESPUES de fijar curLang.
+     Re-invocarla es seguro: reconstruye por innerHTML (sin addEventListener
+     que se acumule) y ya se llama repetidas veces en otros lados como retry. */
+  if (typeof window.__muMateriaInit === 'function') window.__muMateriaInit();
 };
 
 // Calcula y dibuja la ruta de estudio de la materia usando SOLO datos reales:
