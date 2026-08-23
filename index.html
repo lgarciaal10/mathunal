@@ -10,6 +10,12 @@
     gtag('js', new Date());
     gtag('config', 'G-KPYPGY35D3');
   </script>
+  <!-- Plausible: no requiere cookies ni banner de consentimiento. -->
+  <script async src="https://plausible.io/js/pa-ECGmYTlaD8QG2s5zHP_W_.js"></script>
+  <script>
+    window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+    plausible.init()
+  </script>
   <!-- TEMA: se aplica ANTES de pintar nada y sin depender de setTheme().
        Antes, cada template (home/simulacro/formulas) tenia su propio
        "if(s)setTheme(s)" envuelto en catch(e){} vacio, y todos corrian ANTES
@@ -4723,9 +4729,15 @@ function bancoFiltrar(btn) {
   bancoRender();
 }
 
+var _bancoBuscarTrackTO;
 function bancoBuscar(q) {
   _bancoBusqueda = q.toLowerCase().trim();
   bancoRender();
+  /* Track con debounce -- de otro modo dispara un evento por cada tecla */
+  clearTimeout(_bancoBuscarTrackTO);
+  if (_bancoBusqueda.length>=2) _bancoBuscarTrackTO=setTimeout(function(){
+    if(typeof window.muTrack==='function') window.muTrack('search', {context:'banco', query:_bancoBusqueda});
+  }, 700);
   var hint=document.getElementById('bkl-hint');
   if(hint){
     var n=BANCO_EXAMENES.filter(function(e){
@@ -6784,7 +6796,10 @@ function muInitParcialBanner(){
   var inner=b.querySelector('.sp-banner-inner'); if(!inner) return;
   var hoy=new Date(); hoy.setHours(0,0,0,0);
   var prox=null, proxDias=Infinity, proxF=null;
-  MU_PARCIALES.forEach(function(p){
+  /* MU_PARCIALES se llena en vivo desde Supabase (window.__loadParciales) --
+     si esto corre antes de que esa carga resuelva, tronaba con
+     "Cannot read properties of undefined". */
+  (MU_PARCIALES||[]).forEach(function(p){
     var f=new Date(p.fecha+'T00:00:00');
     if(isNaN(f.getTime())) return;
     var dias=Math.round((f-hoy)/86400000);
@@ -6883,7 +6898,10 @@ function muSyncCicloTitle(){
     : ['domingo','lunes','martes','miércoles','jueves','viernes','sábado'];
   var hoy=new Date(); hoy.setHours(0,0,0,0);
   var prox=null, proxDias=Infinity, proxF=null;
-  MU_PARCIALES.forEach(function(p){
+  /* MU_PARCIALES se llena en vivo desde Supabase (window.__loadParciales) --
+     si esto corre antes de que esa carga resuelva, tronaba con
+     "Cannot read properties of undefined". */
+  (MU_PARCIALES||[]).forEach(function(p){
     var f=new Date(p.fecha+'T00:00:00'); if(isNaN(f.getTime())) return;
     var d=Math.round((f-hoy)/86400000);
     if(d>=0 && d<=14 && d<proxDias){ prox=p; proxDias=d; proxF=f; }
@@ -11885,7 +11903,15 @@ function renderCpills(){
   el.innerHTML=h;
 }
 function setFlt(f){_flt=f;renderCpills();renderList();}
-function doSearch(v){_q=v.toLowerCase().trim();renderList();}
+var _doSearchTrackTO;
+function doSearch(v){
+  _q=v.toLowerCase().trim();
+  renderList();
+  clearTimeout(_doSearchTrackTO);
+  if (_q.length>=2) _doSearchTrackTO=setTimeout(function(){
+    if(typeof window.muTrack==='function') window.muTrack('search', {context:'formulas', query:_q});
+  }, 700);
+}
 function renderList(){
   var el=document.getElementById('vf-items'),ct=document.getElementById('vf-list-ct');
   var en=(window.curLang==='en');
@@ -12114,6 +12140,28 @@ function _loadPage(hash) {
 window.addEventListener('popstate', function(){ try{_loadPage(location.hash);}catch(e){} });
 window.addEventListener('hashchange', function(){ try{_loadPage(location.hash);}catch(e){} });
 
+/* whatsapp_click / external_link_click: delegado en document en vez de cazar
+   cada onclick individual -- cubre automaticamente cualquier link nuevo que
+   se agregue despues (WhatsApp, Instagram, PDFs de Supabase Storage, etc.)
+   sin tener que acordarse de instrumentar cada uno a mano. */
+document.addEventListener('click', function(e){
+  var a = e.target.closest && e.target.closest('a[href]');
+  if (!a) return;
+  var href = a.getAttribute('href') || '';
+  if (!/^https?:\/\//.test(href)) return; // ignora anclas internas (#seccion) y javascript:void(0)
+  try {
+    var url = new URL(href, location.href);
+    if (url.hostname === location.hostname) return; // enlace interno, no cuenta
+    if (/wa\.me|api\.whatsapp\.com|chat\.whatsapp\.com/.test(url.hostname)) {
+      window.muTrack('whatsapp_click', {url: href});
+    } else if (/supabase\.co\/storage/.test(href)) {
+      window.muTrack('document_download', {url: href, file: url.pathname.split('/').pop()});
+    } else {
+      window.muTrack('external_link_click', {url: href, domain: url.hostname});
+    }
+  } catch(err){}
+}, true);
+
 /* ── Nav scroll glass effect ── */
 window.addEventListener('scroll', function(){
   var nav = document.querySelector('nav');
@@ -12222,6 +12270,8 @@ window.copyResult = copyResult;
 
 var _origSetTheme = window.setTheme;
 window.setTheme = function(t){
+  var prev = document.documentElement.getAttribute('data-theme');
+  if (typeof window.muTrack==='function' && prev!==t) window.muTrack('theme_change', {to: t});
   document.documentElement.setAttribute('data-theme', t);
   syncThemeToggle(t);
   try{ localStorage.setItem('mu-theme', t); }catch(e){}
@@ -13902,6 +13952,7 @@ window.LANG_EN = LANG_EN;
 window.curLang = curLang;
 
 function setLang(lang){
+  if (typeof window.muTrack==='function' && curLang!==lang) window.muTrack('language_change', {to: lang});
   curLang = lang;
   window.curLang = lang; /* ver nota arriba: sin esto, el resto del sitio
     (que lee window.curLang desde otras paginas) nunca se enteraba del cambio */
@@ -14561,6 +14612,7 @@ window.muPedirCodigo = function(){
 };
 
 function muAbrirModalPremium(){
+  if(typeof window.muTrack==='function') window.muTrack('premium_unlock_open', {page: window.__muCurrentPage||'home'});
   var ya = document.getElementById('mu-modal-premium');
   if (ya) { ya.style.display='flex'; return; }
   var en = (window.curLang==='en');
@@ -14625,6 +14677,21 @@ function muMostrarToast(txt){
   document.body.appendChild(t);
   setTimeout(function(){ t.remove(); }, 3500);
 }
+
+/* ════ Eventos de analiticas ════
+   Un solo punto de entrada para no duplicar la logica de "esta GA4/Plausible
+   listo" en cada sitio que quiere trackear algo. Nombres y parametros deben
+   mantenerse consistentes -- ver README para la lista completa de eventos.
+   window.muTrack explicito (no solo `function muTrack`): setTheme/setLang/
+   etc. viven en OTROS <script> (otras IIFEs), asi que un closure lexico no
+   basta para verla desde ahi -- mismo problema que setLang/curLang tuvieron,
+   detectado esta vez probando cada evento en vivo antes de publicar. Tambien
+   se referencia window.gtag/window.plausible explicito en vez de los
+   identificadores sueltos, por la misma razon. */
+window.muTrack = function(name, params){
+  try{ if(typeof window.gtag==='function') window.gtag('event', name, params||{}); }catch(e){}
+  try{ if(typeof window.plausible==='function') window.plausible(name, params?{props:params}:undefined); }catch(e){}
+};
 
 var SUBJECTS = [
   {code:'1000003',nameEs:'Matemáticas Básicas',nameEn:'Pre-calculus',sym:'π',semEs:'Nivelatorio',semEn:'Pre-calc level',pdfs:24,diff:'diff-b',hot:true,

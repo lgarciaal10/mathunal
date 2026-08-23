@@ -14,7 +14,7 @@ App de una sola página, instalable y con soporte offline. Sin framework, sin bu
 Publicado en **https://mathunal.com** vía GitHub Pages (repo `lgarciaal10/mathunal`, branch `main`, dominio propio con `CNAME`, HTTPS activo). Cualquier push a `main` se despliega automáticamente.
 
 ## Backend (Supabase — ya integrado, no requiere setup)
-El frontend habla directo con la REST API de Supabase usando la key `anon` (pública por diseño, protegida por RLS):
+El frontend habla directo con la REST API de Supabase usando la `Publishable key` (equivalente moderno de la key `anon` — pública por diseño, protegida por RLS). Las Edge Functions usan una `Secret key` separada (equivalente moderno de `service_role`), nunca expuesta al navegador.
 - **`materiales`** — catálogo de PDFs (complementa al objeto `MATS` hardcodeado en `index.html`).
 - **`explicaciones`** — explicaciones de IA pre-generadas por pregunta de examen. Solo lectura pública.
 - **`aportes`** — material que suben los usuarios (moderado: solo visible tras `estado='aprobado'`).
@@ -36,4 +36,24 @@ El desbloqueo de soluciones (modal "Unlock solutions") usa el widget real de Wom
 - ✅ Español/Inglés, tres temas (oscuro/gris/claro)
 
 ## Nota sobre seguridad del Premium
-El desbloqueo actual verifica el correo contra `premium_usuarios` en Supabase (RLS cerrado, sin políticas de acceso público — solo se consulta vía función server-side). El pago en sí sigue siendo manual por WhatsApp.
+El desbloqueo actual verifica el correo contra `premium_usuarios` en Supabase (RLS cerrado, sin políticas de acceso público — solo se consulta vía función server-side).
+
+## Analíticas
+GA4 (`G-KPYPGY35D3`) + Plausible en paralelo, sin conflicto (miden de forma independiente). Plausible no usa cookies ni requiere banner de consentimiento.
+
+Eventos personalizados — un solo punto de entrada, `window.muTrack(nombre, params)`, definido junto a `SUBJECTS` en `index.html`. Envía a ambas herramientas a la vez:
+
+| Evento | Cuándo dispara | Parámetros |
+|---|---|---|
+| `language_change` | Cambio real de idioma (no en la carga inicial ni si ya estaba en ese idioma) | `to: 'es'\|'en'` |
+| `theme_change` | Cambio real de tema | `to: 'dark'\|'gray'\|'light'` |
+| `search` | Búsqueda en banco de exámenes o fórmulas, con *debounce* de 700ms (no dispara por cada tecla) | `context: 'banco'\|'formulas'`, `query` |
+| `premium_unlock_open` | Se abre el modal de desbloqueo premium | `page` (materia activa) |
+| `whatsapp_click` | Click en cualquier link a `wa.me`/WhatsApp | `url` |
+| `document_download` | Click en un link a un PDF en Supabase Storage | `url`, `file` |
+| `external_link_click` | Click en cualquier otro link externo (Instagram, etc.) | `url`, `domain` |
+| `404_error` | Carga de `404.html` (ruta que no existe ni en el router SPA ni en GitHub Pages) | `path` |
+
+`whatsapp_click`/`document_download`/`external_link_click` se capturan con **un solo listener delegado** en `document` (no hay que instrumentar cada link a mano — cualquier link nuevo que apunte a Storage o WhatsApp se trackea automático).
+
+No se implementó `comparison_click` porque las tarjetas de la comparación con/sin MathUNAL no llevan a ningún destino todavía (ver hallazgo de la auditoría) — agregarlo cuando se decida a dónde deben llevar.
