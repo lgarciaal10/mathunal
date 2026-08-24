@@ -9870,6 +9870,10 @@ function dsBuildLevel(resetScore){
   document.getElementById('ds-goover').classList.remove('on');
   var def=DS_LEVELS[Math.min(dsLevelIdx,DS_LEVELS.length-1)];
   document.getElementById('ds-func-lbl').textContent=def.label;
+  /* Antes la serpiente iba siempre a la misma velocidad del nivel 1 al 10 --
+     solo cambiaba el dominio, nunca la sensacion de urgencia. Ahora acelera
+     un poco en cada nivel (piso en 95ms para que siga siendo jugable). */
+  dsTickMs=Math.max(95,160-dsLevelIdx*7);
   if(resetScore){ dsScore=0; document.getElementById('ds-score').textContent='0'; }
   dsEaten=0;
   var cx=Math.floor(dsGrid/2), cy=Math.floor(dsGrid/2);
@@ -10583,6 +10587,7 @@ function vcDraw(){
       <div class="diag-score-n" id="diag-score-n">0/5</div>
       <div class="diag-score-lbl" id="diag-score-lbl">respuestas correctas</div>
     </div>
+    <div id="diag-urgente-banner"></div>
     <div class="diag-cards" id="diag-cards"></div>
     <div id="next-step"></div>
     <div id="review-section" style="margin-top:1.5rem">
@@ -10616,7 +10621,7 @@ var _diagMomentos = [
   { id:'malo',   ico:'tendencia', color:'rgba(245,158,11,.12)', name:'Saqué malo en el primero', sub:'Necesito recuperarme' },
   { id:'urgente',ico:'reloj', color:'rgba(239,68,68,.12)', name:'Parcial en menos de una semana', sub:'Modo emergencia' }
 ];
-var _diagMomentoSel = 'inicio'; // decorativo: solo cambia el tono del copy, no la logica del quiz
+var _diagMomentoSel = 'inicio'; // 'urgente' agrega un banner con link a Modo Panico en los resultados (ver _diagMostrarResultados)
 var _diagMatSel = null;
 var _diagPoolQs = [];
 var _diagIdx = 0;
@@ -10816,6 +10821,20 @@ function _diagMostrarResultados(){
 
   var scoreN=document.getElementById('diag-score-n');
   if(scoreN) scoreN.textContent = okCount+'/'+_diagPoolQs.length;
+
+  /* Antes "Parcial en menos de una semana" era una tarjeta bonita que no
+     hacia nada -- ni cambiaba el copy como decia el comentario viejo. Ahora
+     si el usuario la eligio, el resultado lo manda directo al Modo Panico
+     (ver seccion .panic-bar en home) en vez de dejarlo con el numero solo. */
+  var urgHost=document.getElementById('diag-urgente-banner');
+  if(urgHost){
+    urgHost.innerHTML = (_diagMomentoSel==='urgente')
+      ? '<div style="background:rgba(239,68,68,.08);border:1.5px solid rgba(239,68,68,.3);border-radius:12px;padding:.9rem 1.1rem;margin-bottom:1.4rem;display:flex;align-items:center;gap:.7rem;flex-wrap:wrap;justify-content:space-between">'
+        +'<span style="font-size:.85rem;color:var(--t1)">Dijiste que tu parcial es en menos de una semana — mira el plan de emergencia.</span>'
+        +'<a href="#home" onclick="setTimeout(function(){var b=document.querySelector(\'.panic-bar .btn-panic\');if(b)b.click();},500)" class="diag-btn-ghost" style="border-color:var(--red);color:var(--red)">Ver Modo Pánico →</a>'
+        +'</div>'
+      : '';
+  }
 
   // Agrupar por EXAMEN DE ORIGEN real (nunca por tema inventado)
   var porExamen = {};
