@@ -5002,6 +5002,7 @@ bancoRender();
 </div>
   <div class="hero-in fi">
     <div class="tag-pill"><span class="tag-dot"></span>UNAL Medellín · 2026</div>
+    <div class="tag-pill" id="mu-live-pill" style="display:none;margin-top:.5rem;margin-bottom:0"><span class="tag-dot" style="background:var(--grn,#22c55e)"></span><strong id="mu-live-count">1</strong>&nbsp;<span id="mu-live-label">persona navegando ahora</span></div>
     <h1 class="hero-title">
       <span class="ht-top">MATH</span>
       <span class="ht-bot">UNAL</span>
@@ -5972,7 +5973,7 @@ bancoRender();
       </div>
     </div>
     <div class="foot-b">
-      <p>© 2026 MathUNAL · Proyecto estudiantil independiente</p>
+      <p>© 2026 MathUNAL · Proyecto estudiantil independiente · <a href="#privacidad" style="color:inherit;text-decoration:underline">Privacidad</a></p>
       <p>Hecho en Medellín <span style="color:var(--acc)">♥</span></p>
     </div>
   </div>
@@ -6760,6 +6761,7 @@ renderMaterias();
 renderSimPreview();
 renderContentMap();
 renderSims('all');
+if(typeof window.muPresenciaInit==='function') window.muPresenciaInit();
 
 /* ── Banner "Semana del Parcial" — data-driven y honesto ──
    MU_PARCIALES ya NO se edita a mano: se llena en vivo desde Supabase
@@ -10898,6 +10900,40 @@ function _diagReiniciar(){
 </script>
 </template>
 
+<template id="tpl-privacidad"><nav>
+  <a href="#home" class="logo"><span class="logo-ico">∫</span>
+    <span class="logo-txt"><span class="logo-m">MATH</span><span class="logo-u">UNAL</span></span></a>
+  <div class="nav-r" style="display:flex;align-items:center;gap:.9rem;margin-left:auto">
+    <a href="#home" class="mat-nav-back" style="font-size:.82rem;padding:.36rem .7rem;border-radius:7px;background:var(--lay2);border:1px solid var(--br);color:var(--t2);text-decoration:none">← Inicio</a>
+  </div>
+</nav>
+<div style="max-width:720px;margin:0 auto;padding:5.5rem 1.5rem 4rem;line-height:1.7;color:var(--t2)">
+  <h1 style="color:var(--t1);font-size:1.8rem;margin-bottom:.3rem" id="pv-title">Privacidad</h1>
+  <p style="font-size:.85rem;color:var(--t3);margin-bottom:2rem" id="pv-updated">Última actualización: agosto de 2026</p>
+  <div id="pv-body"></div>
+</div>
+<script>
+(function(){
+  var en = (window.curLang==='en');
+  document.getElementById('pv-title').textContent = en?'Privacy':'Privacidad';
+  var sections = en ? [
+    ['What we collect','MathUNAL uses three analytics tools: <strong>Google Analytics 4</strong> and <strong>Microsoft Clarity</strong> (which records anonymized clicks, scrolling and mouse movement to see how people use the site — no keystrokes or form contents are captured), and <strong>Plausible</strong> (cookie-free, aggregate-only). If you unlock premium solutions, we store the email you provide so we can verify your payment — nothing else.'],
+    ['Why','Exclusively to understand which parts of the site are useful, fix what\'s broken, and confirm premium payments. We don\'t sell or share this data with third parties, and we don\'t use it for advertising.'],
+    ['Your rights','Under Colombian law (Ley 1581 de 2012, Habeas Data) you can ask what data we have linked to your email and request it be deleted. Write to us on WhatsApp (see the footer) and we\'ll take care of it.'],
+    ['Cookies','Google Analytics and Microsoft Clarity set cookies to recognize repeat visits. Plausible does not use cookies at all. You can block analytics cookies from your browser settings without losing any site functionality.']
+  ] : [
+    ['Qué recolectamos','MathUNAL usa tres herramientas de analítica: <strong>Google Analytics 4</strong> y <strong>Microsoft Clarity</strong> (que graban de forma anonimizada clics, scroll y movimiento del mouse para ver cómo se usa el sitio — no capturan lo que escribes en formularios ni contraseñas), y <strong>Plausible</strong> (sin cookies, solo datos agregados). Si desbloqueas soluciones premium, guardamos el correo que nos das para verificar tu pago — nada más.'],
+    ['Para qué','Únicamente para entender qué partes del sitio sirven, arreglar lo que falla, y confirmar pagos premium. No vendemos ni compartimos estos datos con terceros, y no los usamos para publicidad.'],
+    ['Tus derechos','Bajo la Ley 1581 de 2012 (Habeas Data, Colombia) puedes pedirnos que te digamos qué datos tenemos asociados a tu correo y solicitar que los borremos. Escríbenos por WhatsApp (link en el pie de página) y lo hacemos.'],
+    ['Cookies','Google Analytics y Microsoft Clarity usan cookies para reconocer visitas repetidas. Plausible no usa cookies en absoluto. Puedes bloquear cookies de analítica desde la configuración de tu navegador sin perder funcionalidad del sitio.']
+  ];
+  document.getElementById('pv-body').innerHTML = sections.map(function(s){
+    return '<h2 style="color:var(--t1);font-size:1.1rem;margin:1.6rem 0 .5rem">'+s[0]+'</h2><p>'+s[1]+'</p>';
+  }).join('');
+})();
+</script>
+</template>
+
 <template id="tpl-formulas"><nav>
   <a href="#home" class="logo"><span class="logo-ico">∫</span>
     <span class="logo-txt"><span class="logo-m">MATH</span><span class="logo-u">UNAL</span></span></a>
@@ -12396,7 +12432,7 @@ document.addEventListener('keydown',function(e){
 <script>
 
 /* ── MathUNAL SPA Router ── */
-var KNOWN = ['home','simulacro','materia','formulas','banco','juegos','diagnostico'];
+var KNOWN = ['home','simulacro','materia','formulas','banco','juegos','diagnostico','privacidad'];
 
 /* Titulos de pestana por pagina. 'materia' NO esta aqui: esa pagina ya pone su
    propio titulo con el nombre de la materia (ver mas abajo, 'MathUNAL · '+sub.nameEs).
@@ -12408,7 +12444,8 @@ var MU_PAGE_TITLES = {
   formulas:   {es:'MathUNAL · Formulario',   en:'MathUNAL · Formula Sheet'},
   banco:      {es:'MathUNAL · Banco de Exámenes', en:'MathUNAL · Exam Bank'},
   juegos:     {es:'MathUNAL · Juegos',       en:'MathUNAL · Games'},
-  diagnostico:{es:'MathUNAL · Diagnóstico',  en:'MathUNAL · Diagnostic'}
+  diagnostico:{es:'MathUNAL · Diagnóstico',  en:'MathUNAL · Diagnostic'},
+  privacidad: {es:'MathUNAL · Privacidad',   en:'MathUNAL · Privacy'}
 };
 
 function muNav(href) {
@@ -12436,6 +12473,7 @@ function _loadPage(hash) {
   var parts = raw.split('?');
   var page  = parts[0] || 'home';
   var qs    = parts[1] || '';
+  if (page!=='home' && window.__muPresenciaInt){ clearInterval(window.__muPresenciaInt); window.__muPresenciaInt=null; }
   window.__muCurrentPage = page;
   if (MU_PAGE_TITLES[page]) {
     document.title = (window.curLang==='en') ? MU_PAGE_TITLES[page].en : MU_PAGE_TITLES[page].es;
@@ -13804,6 +13842,56 @@ window.MU_SB_URL = MU_SB_URL;
 window.MU_SB_ANON = MU_SB_ANON;
 window.MU_AI = MU_AI;
 window.EXAM_META = EXAM_META;
+
+/* Contador de presencia en vivo ("X personas navegando ahora") en el hero de
+   home. Real, no inventado: cada pestaña abierta hace upsert de un session_id
+   (por pestaña, via sessionStorage) contra la tabla presencia_online cada 25s
+   (heartbeat), y cuenta cuantas filas tienen last_seen en los ultimos 90s.
+   Si falla la red o la tabla, el pill simplemente no aparece -- nunca muestra
+   un numero inventado. */
+function muPresenciaId(){
+  try{
+    var id = sessionStorage.getItem('mu-presencia-id');
+    if(!id){ id = 'p_'+Date.now().toString(36)+'_'+Math.random().toString(36).slice(2,10); sessionStorage.setItem('mu-presencia-id', id); }
+    return id;
+  }catch(e){ return 'p_'+Math.random().toString(36).slice(2,10); }
+}
+function muPresenciaLatido(){
+  var url = window.MU_SB_URL, key = window.MU_SB_ANON;
+  if(!url||!key) return;
+  fetch(url+'/rest/v1/presencia_online', {
+    method:'POST',
+    headers:{ 'apikey':key, 'Authorization':'Bearer '+key, 'Content-Type':'application/json', 'Prefer':'resolution=merge-duplicates' },
+    body: JSON.stringify({ session_id: muPresenciaId(), last_seen: new Date().toISOString() })
+  }).catch(function(){});
+}
+function muPresenciaContar(){
+  var pill = document.getElementById('mu-live-pill');
+  if(!pill) return;
+  var url = window.MU_SB_URL, key = window.MU_SB_ANON;
+  if(!url||!key) return;
+  var desde = new Date(Date.now()-90*1000).toISOString();
+  fetch(url+'/rest/v1/presencia_online?select=session_id&last_seen=gte.'+encodeURIComponent(desde), {
+    headers:{ 'apikey':key, 'Authorization':'Bearer '+key, 'Prefer':'count=exact' }
+  }).then(function(r){ return r.json(); }).then(function(data){
+    if(!Array.isArray(data)) return;
+    var n = Math.max(1, data.length);
+    var en = (window.curLang==='en');
+    var cEl = document.getElementById('mu-live-count'), lEl = document.getElementById('mu-live-label');
+    if(cEl) cEl.textContent = n;
+    if(lEl) lEl.textContent = en ? (n===1?'person browsing right now':'people browsing right now') : (n===1?'persona navegando ahora':'personas navegando ahora');
+    pill.style.display = 'inline-flex';
+  }).catch(function(){});
+}
+function muPresenciaInit(){
+  if(!document.getElementById('mu-live-pill')) return;
+  muPresenciaLatido();
+  muPresenciaContar();
+  setTimeout(muPresenciaContar, 1200); // segunda lectura corta: incluye el propio latido recien enviado
+  clearInterval(window.__muPresenciaInt);
+  window.__muPresenciaInt = setInterval(function(){ muPresenciaLatido(); muPresenciaContar(); }, 25000);
+}
+window.muPresenciaInit = muPresenciaInit;
 
 // ── PRERREQUISITOS por materia. Fuentes honestas:
 //    · 1000013 (Geo. Vectorial): transcrito del PROGRAMA OFICIAL del curso
