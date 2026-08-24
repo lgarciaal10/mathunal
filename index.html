@@ -6042,6 +6042,11 @@ function cpSetPath(path){
     if(el) el.style.display=(p===path)?'block':'none';
   });
   if(path==='sin'||path==='con') cpReset(path);
+  /* Antes esto solo cambiaba el display: si el contenido nuevo quedaba
+     mas arriba o mas abajo de donde estaba el scroll del usuario, tenia
+     que buscarlo a mano -- nada "antibobo" en eso. */
+  var shown=document.getElementById('cp-'+path);
+  if(shown) shown.scrollIntoView({behavior:'smooth',block:'start'});
 }
 function cpReset(path){
   var steps=document.querySelectorAll('#cp-'+path+'-steps .cp-j-step');
