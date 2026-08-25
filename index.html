@@ -2641,6 +2641,7 @@ body{font-family:'Space Grotesk',system-ui,sans-serif;background:var(--bg);color
 
 /* ═══ SOLUCIONARIO CON PREVIEW ═══ */
 .ri-solucion{margin-top:.85rem;background:rgba(34,197,94,.05);border:2px solid rgba(34,197,94,.18);border-radius:10px;padding:1rem 1.1rem;display:flex;flex-direction:column;gap:.5rem}
+.ri-sol-soon{margin-top:.7rem;font-size:.82rem;color:var(--t3);background:var(--card2);border:1px dashed var(--br2);border-radius:8px;padding:.6rem .8rem}
 .ri-sol-label{font-family:IBM Plex Mono,monospace;font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--ok);margin-bottom:.15rem;display:flex;align-items:center;gap:.5rem}
 .ri-free-tag{background:rgba(34,197,94,.15);border:2px solid rgba(34,197,94,.3);border-radius:3px;padding:.08rem .35rem;font-size:.72rem;color:var(--ok)}
 .ri-sol-resumen{font-size:1.06rem;color:var(--t2);font-style:italic;padding-bottom:.4rem;border-bottom:1.5px solid var(--br);margin-bottom:.2rem}
@@ -3282,6 +3283,7 @@ body{padding-top:var(--mu-banner-h, 0px);transition:padding-top .2s ease}
 .au-msg-list{display:flex;flex-direction:column;gap:.45rem;margin-bottom:1.8rem}
 .au-msg-item{display:flex;gap:.5rem;font-size:1rem;color:var(--t2);line-height:1.5}
 .au-msg-check{color:var(--grn);flex-shrink:0;font-size:1.02rem}
+.au-msg-check.ap-soon{color:var(--yel,#ca8a04);filter:grayscale(0)}
 .au-msg-cta{display:inline-flex;align-items:center;gap:.4rem;padding:.5rem 1rem;border-radius:8px;font-size:1rem;font-weight:700;
   border:2px solid var(--br);background:var(--lay1);color:var(--t1);cursor:pointer;transition:all .18s;text-decoration:none}
 .au-msg-cta:hover{border-color:var(--bra);background:var(--adim);color:var(--acc)}
@@ -3299,7 +3301,7 @@ body{padding-top:var(--mu-banner-h, 0px);transition:padding-top .2s ease}
 /* ── CTA Apoyo ── */
 .ap-s{padding:3rem 2rem}
 .ap-card{background:var(--card2);border:2px solid var(--br2);border-radius:14px;padding:2rem 2.2rem;
-  display:grid;grid-template-columns:1fr 200px;gap:2rem;align-items:center;max-width:860px;margin:0 auto}
+  display:grid;grid-template-columns:1fr 200px;gap:2rem;align-items:start;max-width:860px;margin:0 auto}
 @media(max-width:700px){.ap-card{grid-template-columns:1fr;text-align:center}}
 .ap-tag{font-family:IBM Plex Mono,monospace;font-size:.72rem;color:var(--acc);text-transform:uppercase;letter-spacing:.08em;margin-bottom:.5rem}
 .ap-title{font-family:'Literata',Georgia,serif;font-size:1.15rem;font-weight:700;color:var(--t1);line-height:1.35;margin-bottom:.6rem}
@@ -3386,7 +3388,7 @@ body{padding-top:var(--mu-banner-h, 0px);transition:padding-top .2s ease}
 .cp-path-btn:hover{background:var(--lay2);color:var(--t1)}
 .cp-path-btn.on{background:var(--adim);border-color:var(--bra);color:var(--acc);box-shadow:0 2px 0 var(--acc)}
 
-.cp-journey{max-width:640px;margin:0 auto}
+.cp-journey{max-width:640px;margin:0 auto;scroll-margin-top:90px}
 .cp-j-steps{display:flex;flex-direction:column;gap:.5rem}
 .cp-j-step{display:flex;gap:.75rem;padding:.9rem 1rem;background:var(--card);border:2px solid var(--br2);
            border-radius:var(--radius);cursor:pointer;transition:all .3s;opacity:.3;
@@ -3706,7 +3708,7 @@ input:not([type=checkbox]):not([type=radio]):focus,select:focus,textarea:focus{
 .cp-path-btn.on{background:var(--adim);border-color:var(--bra);color:var(--acc);font-weight:700}
 
 /* ── Journey steps modern ── */
-.cp-journey{max-width:680px;margin:0 auto}
+.cp-journey{max-width:680px;margin:0 auto;scroll-margin-top:90px}
 .cp-j-steps{display:flex;flex-direction:column;gap:.5rem}
 /* cp-j-step rules consolidated above — v22 override removed */
 .cp-j-num{
@@ -5396,22 +5398,21 @@ customElements.define('glass-element', GlassElement);
   <div class="wrap">
     <div class="au-hd fi">
       <div class="cp-tag">Para quién es MathUNAL</div>
-      <div class="au-title">Un solo proyecto, tres formas de usarlo</div>
+      <div class="au-title">Un solo proyecto, dos formas de usarlo</div>
     </div>
     <div class="au-tabs fi">
       <button class="au-tab on" onclick="showAuTab(0,this)"><svg width="15" height="15" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c0 1.66 2.69 3 6 3s6-1.34 6-3v-5"/></svg> Estudiante</button>
       <button class="au-tab" onclick="showAuTab(1,this)"><svg width="15" height="15" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg> Monitor</button>
-      <button class="au-tab" onclick="showAuTab(2,this)"><svg width="15" height="15" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="9" y1="6" x2="9.01" y2="6"/><line x1="15" y1="6" x2="15.01" y2="6"/><line x1="9" y1="10" x2="9.01" y2="10"/><line x1="15" y1="10" x2="15.01" y2="10"/><line x1="9" y1="14" x2="9.01" y2="14"/><line x1="15" y1="14" x2="15.01" y2="14"/><path d="M9 22v-4h6v4"/></svg> Docente</button>
     </div>
     <div class="au-panels">
       <div class="au-panel on" id="au-p0">
         <div>
           <div class="au-msg-title">Practica con parciales reales, gratis y sin registro</div>
-          <div class="au-msg-body">MathUNAL tiene los parciales que tus compañeros de semestres anteriores ya presentaron, resueltos paso a paso. No necesitas crear cuenta, no necesitas pagar.</div>
+          <div class="au-msg-body">MathUNAL tiene los parciales que tus compañeros de semestres anteriores ya presentaron. No necesitas crear cuenta, no necesitas pagar.</div>
           <div class="au-msg-list">
             <div class="au-msg-item"><span class="au-msg-check">✓</span>Parciales organizados por materia y semestre</div>
             <div class="au-msg-item"><span class="au-msg-check">✓</span>Simulacros con cronómetro y formato SIDEX real</div>
-            <div class="au-msg-item"><span class="au-msg-check">✓</span>Solucionarios con procedimiento completo</div>
+            <div class="au-msg-item"><span class="au-msg-check ap-soon">🛠</span>Solucionario paso a paso — en construcción</div>
             <div class="au-msg-item"><span class="au-msg-check">✓</span>Formularios de referencia rápida con LaTeX</div>
           </div>
           <a href="#materias" class="au-msg-cta">Explorar materias →</a>
@@ -5430,11 +5431,11 @@ customElements.define('glass-element', GlassElement);
       <div class="au-panel" id="au-p1">
         <div>
           <div class="au-msg-title">Material listo para tus tutorías, sin preparar nada</div>
-          <div class="au-msg-body">Si eres monitor de una materia del núcleo, MathUNAL te ahorra horas de preparación. Tienes parciales organizados, simulacros listos para poner, y solucionarios para revisar con tus tutorados.</div>
+          <div class="au-msg-body">Si eres monitor de una materia del núcleo, MathUNAL te ahorra horas de preparación. Tienes parciales organizados y simulacros listos para poner en tus tutorías.</div>
           <div class="au-msg-list">
             <div class="au-msg-item"><span class="au-msg-check">✓</span>Parciales listos para usar como ejercicio en tutoría</div>
-            <div class="au-msg-item"><span class="au-msg-check">✓</span>Solucionarios para explicar procedimiento paso a paso</div>
             <div class="au-msg-item"><span class="au-msg-check">✓</span>Simulacros para que tus tutorados practiquen solos</div>
+            <div class="au-msg-item"><span class="au-msg-check ap-soon">🛠</span>Solucionario paso a paso — en construcción</div>
           </div>
           <a href="#materias" class="au-msg-cta">Ver materias →</a>
         </div>
@@ -5445,29 +5446,6 @@ customElements.define('glass-element', GlassElement);
             <div class="au-stat"><span class="au-stat-n" data-mu-parciales>8</span><span class="au-stat-l">Parciales reales en el banco</span></div>
           </div>
           <div class="au-quote">"En vez de buscar material cada semana, lo tengo todo en un solo lugar. Mis tutorados practican solos entre sesiones."</div>
-        </div>
-      </div>
-      <div class="au-panel" id="au-p2">
-        <div>
-          <div class="au-msg-title">Un activo institucional que ya funciona, a costo cero</div>
-          <div class="au-msg-body">MathUNAL no es una propuesta — es un servicio activo que la comunidad estudiantil ya usa. Reconocerlo institucionalmente no requiere presupuesto nuevo: el proyecto se mantiene solo.</div>
-          <div class="au-msg-list">
-            <div class="au-msg-item"><span class="au-msg-check">✓</span>Cobertura completa de las 6 materias del núcleo</div>
-            <div class="au-msg-item"><span class="au-msg-check">✓</span>2,400+ visitas mensuales, 60,000+ acumuladas</div>
-            <div class="au-msg-item"><span class="au-msg-check">✓</span>Costo institucional: $0 — alojado en GitHub Pages</div>
-            <div class="au-msg-item"><span class="au-msg-check">✓</span>Código abierto, auditable, sin dependencias</div>
-          </div>
-          <button type="button" class="au-msg-cta" onclick="window.open('https://wa.me/573163480451','_blank')">Ver propuesta completa →</button>
-        </div>
-        <div class="au-card">
-          <div class="au-card-label">Impacto verificable</div>
-          <div class="au-stats">
-            <div class="au-stat"><span class="au-stat-n">$0</span><span class="au-stat-l">Costo institucional</span></div>
-            <div class="au-stat"><span class="au-stat-n">6/6</span><span class="au-stat-l">Materias cubiertas</span></div>
-            <div class="au-stat"><span class="au-stat-n">2,400+</span><span class="au-stat-l">Visitas/mes</span></div>
-            <div class="au-stat"><span class="au-stat-n">100%</span><span class="au-stat-l">Acceso libre</span></div>
-          </div>
-          <div class="au-quote">"Lo que falta no es tecnología. Es que la Universidad reconozca lo que sus propios estudiantes ya construyeron."</div>
         </div>
       </div>
     </div>
@@ -5814,16 +5792,16 @@ function renderMaterias(){
 var SIMS=[
   {cat:'calc-dif',mat:'Cálculo Diferencial',title:'Parcial 1 — 2025-2',year:'2025-2',time:'90 min',tipo:'Parcial',temas:'Límites, continuidad, derivadas',free:true,examKey:'calcdif_p1'},
   {cat:'calc-dif',mat:'Cálculo Diferencial',title:'Parcial 2 — 2025-1',year:'2025-1',time:'90 min',tipo:'Parcial',temas:'Regla de la cadena, optimización',free:true,examKey:'calcdif_p2'},
-  {cat:'calc-dif',mat:'Cálculo Diferencial',title:'Parcial 3 — 2024-2',year:'2024-2',time:'90 min',tipo:'Parcial',temas:'Teorema del valor medio, Taylor',free:false,examKey:null},
+  {cat:'calc-dif',mat:'Cálculo Diferencial',title:'Parcial 3 — 2024-2',year:'2024-2',time:'90 min',tipo:'Parcial',temas:'Teorema del valor medio, Taylor',free:true,examKey:null},
   {cat:'calc-int',mat:'Cálculo Integral',title:'Parcial 1 — 2025-2',year:'2025-2',time:'90 min',tipo:'Parcial',temas:'Integración por sustitución',free:true,examKey:'calcint_p1'},
-  {cat:'calc-int',mat:'Cálculo Integral',title:'Parcial 2 — 2025-1',year:'2025-1',time:'90 min',tipo:'Parcial',temas:'Por partes, fracciones parciales',free:false,examKey:null},
+  {cat:'calc-int',mat:'Cálculo Integral',title:'Parcial 2 — 2025-1',year:'2025-1',time:'90 min',tipo:'Parcial',temas:'Por partes, fracciones parciales',free:true,examKey:null},
   {cat:'alg-lin',mat:'Álgebra Lineal',title:'Parcial 1 — 2025-2',year:'2025-2',time:'100 min',tipo:'Parcial',temas:'Sistemas de ecuaciones, matrices',free:true,examKey:'alglin_p1'},
-  {cat:'alg-lin',mat:'Álgebra Lineal',title:'Parcial 2 — 2025-1',year:'2025-1',time:'100 min',tipo:'Parcial',temas:'Determinantes, valores propios',free:false,examKey:null},
+  {cat:'alg-lin',mat:'Álgebra Lineal',title:'Parcial 2 — 2025-1',year:'2025-1',time:'100 min',tipo:'Parcial',temas:'Determinantes, valores propios',free:true,examKey:null},
   {cat:'mat-bas',mat:'Matemáticas Básicas',title:'Parcial 1 — 2025-2',year:'2025-2',time:'80 min',tipo:'Parcial',temas:'Funciones, trigonometría',free:true,examKey:'matbas_p1'},
   {cat:'edo',mat:'Ecuaciones Diferenciales',title:'Parcial 1 — 2025-2',year:'2025-2',time:'100 min',tipo:'Parcial',temas:'EDOs de primer orden',free:true,examKey:'edo_p1'},
-  {cat:'edo',mat:'Ecuaciones Diferenciales',title:'Parcial 2 — 2025-1',year:'2025-1',time:'100 min',tipo:'Parcial',temas:'Ecuaciones de segundo orden',free:false,examKey:null},
+  {cat:'edo',mat:'Ecuaciones Diferenciales',title:'Parcial 2 — 2025-1',year:'2025-1',time:'100 min',tipo:'Parcial',temas:'Ecuaciones de segundo orden',free:true,examKey:null},
   {cat:'calc-dif',mat:'Cálculo Diferencial',title:'Quiz 3 — 2025-2',year:'2025-2',time:'30 min',tipo:'Quiz',temas:'Derivadas implícitas',free:true,examKey:'calcdif_quiz3'},
-  {cat:'alg-lin',mat:'Álgebra Lineal',title:'Simulacro Final — 2024-2',year:'2024-2',time:'120 min',tipo:'Simulacro',temas:'Repaso completo del semestre',free:false,examKey:null},
+  {cat:'alg-lin',mat:'Álgebra Lineal',title:'Simulacro Final — 2024-2',year:'2024-2',time:'120 min',tipo:'Simulacro',temas:'Repaso completo del semestre',free:true,examKey:null},
 ];
 
 /* ── makeSimCard: card limpia sin topics text ── */
@@ -13257,6 +13235,8 @@ function _renderReview(nota){
            +  '</div>'
            +  '<button type="button" class="ri-expand-cta" onclick="_unlockSol('+i+')">Ver explicaci\u00f3n extendida \u2192</button>'
            +  '</div>';
+    } else if(pasos.length && !acerto){
+      html += '<div class="ri-sol-soon">\ud83d\udee0 Solucionario paso a paso \u2014 en construcci\u00f3n</div>';
     }
 
     html += '</div>';
@@ -13717,27 +13697,20 @@ var LANG_ES={
   "prom-hint":"Agrega tus materias con créditos y notas. Tu promedio se calcula igual que en el SIA de la UNAL.",
   "prom-ej":"EJEMPLO RÁPIDO","prom-foot":"Nota mínima aprobatoria: 3.0 · Tope PAES: 3.5 · El SIA redondea a 1 decimal (2.95 → 3.0)",
   /* Au-s panels 0,1,2 */
-  "au-title":"Un solo proyecto, tres formas de usarlo",
-  "au-tab0":"Estudiante","au-tab1":"Monitor","au-tab2":"Docente",
+  "au-title":"Un solo proyecto, dos formas de usarlo",
+  "au-tab0":"Estudiante","au-tab1":"Monitor",
   "au-p0-t":"Practica con parciales reales, gratis y sin registro",
   "au-p0-d":"MathUNAL tiene los parciales que tus compañeros de semestres anteriores ya presentaron, resueltos paso a paso. No necesitas crear cuenta, no necesitas pagar.",
   "au-p0-i1":"Parciales organizados por materia y semestre","au-p0-i2":"Simulacros con cronómetro y formato SIDEX real",
-  "au-p0-i3":"Solucionarios con procedimiento completo","au-p0-i4":"Formularios de referencia rápida con LaTeX",
+  "au-p0-i3":"Solucionario paso a paso — en construcción","au-p0-i4":"Formularios de referencia rápida con LaTeX",
   "au-p0-card-l":"Lo que ya tienen otros estudiantes",
   "au-p0-quote":"\"Aprender matemáticas de ingeniería no debería depender de con quién te sentaste en clase.\"",
   "au-p1-t":"Material listo para tus tutorías, sin preparar nada",
   "au-p1-d":"Si eres monitor de una materia del núcleo, MathUNAL te ahorra horas de preparación. Tienes parciales organizados, simulacros listos para poner, y solucionarios para revisar con tus tutorados.",
-  "au-p1-i1":"Parciales listos para usar como ejercicio en tutoría","au-p1-i2":"Solucionarios para explicar procedimiento paso a paso",
-  "au-p1-i3":"Simulacros para que tus tutorados practiquen solos","au-p1-cta":"Ver materias →",
+  "au-p1-i1":"Parciales listos para usar como ejercicio en tutoría","au-p1-i2":"Simulacros para que tus tutorados practiquen solos",
+  "au-p1-i3":"Solucionario paso a paso — en construcción","au-p1-cta":"Ver materias →",
   "au-p1-card-l":"Ahorro estimado para el monitor","au-p1-stat1":"Ahorro semanal",
   "au-p1-quote":"\"En vez de buscar material cada semana, lo tengo todo en un solo lugar. Mis tutorados practican solos entre sesiones.\"",
-  "au-p2-t":"Un activo institucional que ya funciona, a costo cero",
-  "au-p2-d":"MathUNAL no es una propuesta — es un servicio activo que la comunidad estudiantil ya usa. Reconocerlo institucionalmente no requiere presupuesto nuevo: el proyecto se mantiene solo.",
-  "au-p2-i1":"Cobertura completa de las 6 materias del núcleo","au-p2-i2":"2,400+ visitas mensuales, 60,000+ acumuladas",
-  "au-p2-i3":"Costo institucional: $0 — alojado en GitHub Pages","au-p2-i4":"Código abierto, auditable, sin dependencias",
-  "au-p2-cta":"Ver propuesta completa →","au-p2-card-l":"Impacto verificable",
-  "au-p2-s1":"Costo institucional","au-p2-s2":"Materias cubiertas","au-p2-s3":"Visitas/mes","au-p2-s4":"Acceso libre",
-  "au-p2-quote":"\"Lo que falta no es tecnología. Es que la Universidad reconozca lo que sus propios estudiantes ya construyeron.\"",
   /* Apoyar (ap-s) */
   "ap3-tag":"Apoyar el proyecto",
   "ap3-title":"Este proyecto es gratuito porque creemos que el acceso a práctica no debería tener precio.",
@@ -13982,27 +13955,20 @@ var LANG_EN={
   "prom-hint":"Add your subjects with credits and grades. Your average is calculated just like UNAL's SIA.",
   "prom-ej":"QUICK EXAMPLE","prom-foot":"Minimum passing grade: 3.0 · PAES cap: 3.5 · SIA rounds to 1 decimal (2.95 → 3.0)",
   /* Au-s panels 0,1,2 */
-  "au-title":"One project, three ways to use it",
-  "au-tab0":"Student","au-tab1":"Monitor","au-tab2":"Faculty",
+  "au-title":"One project, two ways to use it",
+  "au-tab0":"Student","au-tab1":"Monitor",
   "au-p0-t":"Practice with real past exams, free and with no signup",
   "au-p0-d":"MathUNAL has the exams your classmates from previous semesters already took, solved step by step. No account needed, no payment needed.",
   "au-p0-i1":"Exams organized by subject and semester","au-p0-i2":"Timed mock exams in real SIDEX format",
-  "au-p0-i3":"Solutions with the full procedure","au-p0-i4":"Quick-reference formula sheets in LaTeX",
+  "au-p0-i3":"Step-by-step solutions — coming soon","au-p0-i4":"Quick-reference formula sheets in LaTeX",
   "au-p0-card-l":"What other students already have",
   "au-p0-quote":"\"Learning engineering math shouldn't depend on who you sat next to in class.\"",
   "au-p1-t":"Material ready for your tutoring sessions, no prep needed",
   "au-p1-d":"If you're a monitor for a core subject, MathUNAL saves you hours of prep. You have organized exams, mock exams ready to assign, and solutions to review with your students.",
-  "au-p1-i1":"Exams ready to use as tutoring exercises","au-p1-i2":"Solutions to explain the procedure step by step",
-  "au-p1-i3":"Mock exams for your students to practice solo","au-p1-cta":"See all subjects →",
+  "au-p1-i1":"Exams ready to use as tutoring exercises","au-p1-i2":"Mock exams for your students to practice solo",
+  "au-p1-i3":"Step-by-step solutions — coming soon","au-p1-cta":"See all subjects →",
   "au-p1-card-l":"Estimated savings for the monitor","au-p1-stat1":"Weekly time saved",
   "au-p1-quote":"\"Instead of hunting for material every week, I have it all in one place. My students practice on their own between sessions.\"",
-  "au-p2-t":"An institutional asset that already works, at zero cost",
-  "au-p2-d":"MathUNAL isn't a proposal — it's an active service the student community already uses. Recognizing it institutionally requires no new budget: the project sustains itself.",
-  "au-p2-i1":"Full coverage of the 6 core subjects","au-p2-i2":"2,400+ monthly visits, 60,000+ total",
-  "au-p2-i3":"Institutional cost: $0 — hosted on GitHub Pages","au-p2-i4":"Open source, auditable, no dependencies",
-  "au-p2-cta":"See the full proposal →","au-p2-card-l":"Verifiable impact",
-  "au-p2-s1":"Institutional cost","au-p2-s2":"Subjects covered","au-p2-s3":"Visits/month","au-p2-s4":"Free access",
-  "au-p2-quote":"\"What's missing isn't technology. It's the University recognizing what its own students already built.\"",
   /* Apoyar (ap-s) */
   "ap3-tag":"Support the project",
   "ap3-title":"This project is free because we believe access to practice shouldn't have a price.",
@@ -14447,7 +14413,7 @@ function setLang(lang){
   /* AU-S (3 tabs/panels) */
   setText('.au-s .cp-tag','au-tag');
   setText('.au-s .au-title','au-title');
-  var auTabs=document.querySelectorAll('.au-tab'); var auTabKeys=['au-tab0','au-tab1','au-tab2'];
+  var auTabs=document.querySelectorAll('.au-tab'); var auTabKeys=['au-tab0','au-tab1'];
   auTabs.forEach(function(el,i){ if(auTabKeys[i]&&L[auTabKeys[i]]){ var svga=el.querySelector('svg'); el.innerHTML=(svga?svga.outerHTML:'')+' '+L[auTabKeys[i]]; } });
   setText('#au-p0 .au-msg-title','au-p0-t'); setText('#au-p0 .au-msg-body','au-p0-d');
   var au0Items=document.querySelectorAll('#au-p0 .au-msg-item'); var au0Keys=['au-p0-i1','au-p0-i2','au-p0-i3','au-p0-i4'];
@@ -14461,13 +14427,6 @@ function setLang(lang){
   setText('#au-p1 .au-msg-cta','au-p1-cta'); setText('#au-p1 .au-card-label','au-p1-card-l');
   var au1Stats=document.querySelectorAll('#au-p1 .au-stat-l'); if(au1Stats[0]&&L['au-p1-stat1']) au1Stats[0].textContent=L['au-p1-stat1'];
   setText('#au-p1 .au-quote','au-p1-quote');
-  setText('#au-p2 .au-msg-title','au-p2-t'); setText('#au-p2 .au-msg-body','au-p2-d');
-  var au2Items=document.querySelectorAll('#au-p2 .au-msg-item'); var au2Keys=['au-p2-i1','au-p2-i2','au-p2-i3','au-p2-i4'];
-  au2Items.forEach(function(el,i){ if(au2Keys[i]&&L[au2Keys[i]]){ var chk2=el.querySelector('.au-msg-check'); el.innerHTML=(chk2?chk2.outerHTML:'✓')+L[au2Keys[i]]; } });
-  setText('#au-p2 .au-msg-cta','au-p2-cta'); setText('#au-p2 .au-card-label','au-p2-card-l');
-  var au2Stats=document.querySelectorAll('#au-p2 .au-stat-l'); var au2StatKeys=['au-p2-s1','au-p2-s2','au-p2-s3','au-p2-s4'];
-  au2Stats.forEach(function(el,i){ if(au2StatKeys[i]&&L[au2StatKeys[i]]) el.textContent=L[au2StatKeys[i]]; });
-  setText('#au-p2 .au-quote','au-p2-quote');
 
   /* AP-S (apoyar) */
   setText('.ap-s .ap-tag','ap3-tag'); setText('.ap-s .ap-title','ap3-title'); setText('.ap-s .ap-desc','ap3-desc');
