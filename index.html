@@ -12078,6 +12078,16 @@ document.addEventListener('keydown',function(e){
     catch(err){ console.error('Form init error:',err); if(tries<20) setTimeout(function(){boot(tries+1);},60); }
   }
   boot(0);
+  /* Bug de Safari/iOS: si la tipografia (Space Grotesk) todavia no habia cargado
+     cuando se inyecto el texto por innerHTML, WebKit a veces lo deja invisible
+     hasta el proximo repintado externo (cambiar de pestana, volver a la app).
+     Forzamos un reflow en cuanto la fuente confirma que ya cargo. */
+  if(document.fonts && document.fonts.ready){
+    document.fonts.ready.then(function(){
+      var items=document.getElementById('vf-items');
+      if(items){ items.style.display='none'; void items.offsetHeight; items.style.display=''; }
+    });
+  }
   // Re-dibujar si el panel cambia de tamaño (incluye el primer layout real tras render)
   if(window.ResizeObserver){
     var _roTarget=null;
