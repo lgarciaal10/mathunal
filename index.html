@@ -5153,7 +5153,7 @@ customElements.define('glass-element', GlassElement);
     <div class="pm-steps">
       <div class="pm-step"><div class="pm-h">1</div><div><h5>Lee el programa del curso</h5><p>Identifica los temas del corte. No estudies lo que no entra.</p></div></div>
       <div class="pm-step"><div class="pm-h">2</div><div><h5>Descarga 2 simulacros del tema</h5><p>Haz el más reciente con el cronómetro puesto.</p></div></div>
-      <div class="pm-step"><div class="pm-h">3</div><div><h5>Revisa con el solucionario</h5><p>Cada ejercicio que no resolviste, revisa el paso a paso en el simulacro mismo. Entiende el procedimiento, no memorices la respuesta.</p></div></div>
+      <div class="pm-step"><div class="pm-h">3</div><div><h5>Revisa qué fallaste</h5><p>Cada ejercicio que no resolviste, mira cuál era la respuesta correcta en el simulacro y repasa ese tema en el formulario. Entiende el concepto, no memorices la respuesta.</p></div></div>
       <div class="pm-step"><div class="pm-h">4</div><div><h5>Haz el segundo simulacro</h5><p>Sin el solucionario. Cronómetro en marcha. Si lo acabas en tiempo, ya puedes dormir.</p></div></div>
       <div class="pm-step"><div class="pm-h">5</div><div><h5>Duerme al menos 5 horas</h5><p>La memoria consolida mientras duermes. El madrugón de las 4 a.m. va a hacer más daño que bien.</p></div></div>
     </div>
@@ -5489,16 +5489,15 @@ customElements.define('glass-element', GlassElement);
         </div>
         <div class="ap-btns">
           <a href="https://wa.me/573163480451?text=Quiero%20apoyar%20MathUNAL" target="_blank" class="ap-btn ap-btn-wa"><svg width="14" height="14" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg> WhatsApp</a>
-          <button type="button" class="ap-btn ap-btn-nq" onclick="var p=document.getElementById('ap-pay-details');p.style.display=p.style.display==='none'?'flex':'none';"><svg width="14" height="14" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M16 12h.01"/><path d="M2 10h20"/></svg> Nequi / Bancolombia</button>
         </div>
-        <div id="ap-pay-details" style="display:none;flex-direction:row;flex-wrap:wrap;gap:1.2rem;margin-top:.9rem;padding:.9rem 1rem;background:var(--card2);border:1px solid var(--br2);border-radius:12px;font-size:.85rem">
+        <div id="ap-pay-details" style="display:flex;flex-direction:row;flex-wrap:wrap;gap:1.2rem;margin-top:.9rem;padding:.9rem 1rem;background:var(--card2);border:1px solid var(--br2);border-radius:12px;font-size:.85rem">
           <div style="flex:1;min-width:180px;display:flex;flex-direction:column;gap:.5rem">
             <div style="display:flex;justify-content:space-between;gap:.6rem"><span style="color:var(--t3)">Nequi</span><strong style="color:var(--t1)">316 348 0451</strong></div>
             <div style="display:flex;justify-content:space-between;gap:.6rem"><span style="color:var(--t3)">Bancolombia</span><strong style="color:var(--t1)">678 466 530-80</strong></div>
             <div style="display:flex;justify-content:space-between;gap:.6rem"><span style="color:var(--t3)">Llave Bre-B</span><strong style="color:var(--t1)">@NEQUILUI191676</strong></div>
             <div style="font-size:.75rem;color:var(--t3);margin-top:.1rem">Cuenta a nombre de Luis García. Cualquier monto ayuda.</div>
           </div>
-          <img src="https://goxhxrdchfyphkenixng.supabase.co/storage/v1/object/public/Materiales/Sitio/qr-bre-b.png" alt="QR Bre-B para transferir a MathUNAL" width="130" height="266" style="border-radius:10px;flex-shrink:0;align-self:center" loading="lazy">
+          <img src="https://goxhxrdchfyphkenixng.supabase.co/storage/v1/object/public/Materiales/Sitio/qr-bre-b.png" alt="QR Bre-B para transferir a MathUNAL" width="220" height="451" style="border-radius:10px;flex-shrink:0;align-self:center;max-width:100%;height:auto" loading="lazy">
         </div>
       </div>
       <div class="ap-right">
@@ -6709,8 +6708,8 @@ function generatePlan(){
 
   var activities=[
     ['Leer el programa del curso e identificar los temas del corte','Resolver ejercicios básicos del Tema 1','Revisar formulario de '+matName,'Descargar 1 simulacro del Tema 1'],
-    ['Estudiar Tema 2 a fondo','Hacer todos los ejercicios del taller del Tema 2','Consultar el solucionario del simulacro si tienes dudas','Anotar fórmulas clave en la hoja de fórmulas'],
-    ['Repasar Tema 3','Hacer ejercicios de quices anteriores','Ver los procedimientos paso a paso del simulacro','Identificar los ejercicios tipo que más repite el profe'],
+    ['Estudiar Tema 2 a fondo','Hacer todos los ejercicios del taller del Tema 2','Revisar la hoja de fórmulas si tienes dudas','Anotar fórmulas clave en la hoja de fórmulas'],
+    ['Repasar Tema 3','Hacer ejercicios de quices anteriores','Comparar tus respuestas del simulacro con las correctas','Identificar los ejercicios tipo que más repite el profe'],
     ['Hacer el Simulacro 1 completo con cronómetro','Revisar cada error con la explicación del simulacro','Repasar los temas donde fallaste','Repetir los ejercicios difíciles'],
     ['Repaso exprés de fórmulas (30 min máximo)','Hacer 5 ejercicios rápidos de cada tema','Releer las explicaciones extendidas de lo que más te costó','Dormir a tiempo — 5+ horas mínimo']
   ];
@@ -12908,6 +12907,12 @@ function _renderFigura(fig){
 
 var FREE_SOLUTIONS=2;
 
+/* Interruptor unico para el solucionario paso a paso del simulacro. En false
+   por decision de Luis (lanzamiento 2026-08-27, todo gratis mostrando solo
+   el resultado) -- pasarlo a true cuando este listo el cobro de simulacros
+   con cuentas de usuario (v2). Ver uso en _renderReview y _renderNextStep. */
+var SOLUCIONES_HABILITADAS = false;
+
 var _OPS = [
   {re:/\\mathcal\{L\}\s*\^?\s*\{?\s*-\s*1/, t:'Transformada inversa de Laplace',
    p:'Ya despejamos $Y(s)$, pero eso vive en el "mundo de $s$", que no es la respuesta que nos piden. La transformada inversa nos devuelve a $y(t)$, que es la funcion real del problema. En la practica: buscamos en la tabla de transformadas cual funcion produce esa expresion.'},
@@ -13236,13 +13241,14 @@ function _renderReview(nota){
                 : 'Pregunta de desarrollo \u2014 sin responder.') + '</div>';
     }
 
-    // Solucion: siempre gratis (ya no hay Pack que la desbloquee).
-    // El boton de "explicacion extendida" reusa _unlockSol (ver mas abajo) --
-    // esa funcion no tiene nada que ver con el Pack, arma un tutorial local
-    // (contexto, por que fallaste, desarrollo paso a paso, diagnostico de
-    // cada opcion) a partir de los mismos datos, sin paywall.
+    // Solucion: OCULTA por decision de Luis 2026-08-24 -- se lanza gratis
+    // el jueves mostrando solo el resultado (correcta/incorrecta), y el
+    // solucionario paso a paso se reactiva mas adelante como la razon real
+    // para cobrar por los simulacros (con cuentas de usuario, v2). Todo el
+    // contenido (245 preguntas resueltas) sigue intacto en q.pasos -- para
+    // reactivar, basta con volver SOLUCIONES_HABILITADAS a true.
     var pasos = q.pasos || q['soluci\u00f3n'] || q.solucion || [];
-    if(pasos.length){
+    if(pasos.length && SOLUCIONES_HABILITADAS){
       html += '<div class="ri-solucion-wrap" data-qi="'+i+'">'
            +  '<div class="ri-solucion">'
            +    '<div class="ri-sol-label">\u2713 Soluci\u00f3n paso a paso</div>'
@@ -13281,11 +13287,17 @@ function _renderNextStep(nota, en){
     });
     if(fails.length>4) html+='<li style="color:var(--t3)">…'+(en?' and ':' y ')+(fails.length-4)+(en?' more':' más')+'</li>';
     html+='</ul>';
-    html+='<div class="nextstep-hook">'+(en
-      ?'The full step-by-step solution is right below — click on each question to reveal it.'
-      :'La solución detallada está justo abajo en cada pregunta.')
-      +' <button type="button" class="nextstep-cta" onclick="document.getElementById(\'review-section\').scrollIntoView({behavior:\'smooth\'});_unlockAllFailed()">'
-      +(en?'See extended explanations →':'Ver explicaciones extendidas →')+'</button></div>';
+    if(SOLUCIONES_HABILITADAS){
+      html+='<div class="nextstep-hook">'+(en
+        ?'The full step-by-step solution is right below — click on each question to reveal it.'
+        :'La solución detallada está justo abajo en cada pregunta.')
+        +' <button type="button" class="nextstep-cta" onclick="document.getElementById(\'review-section\').scrollIntoView({behavior:\'smooth\'});_unlockAllFailed()">'
+        +(en?'See extended explanations →':'Ver explicaciones extendidas →')+'</button></div>';
+    } else {
+      html+='<div class="nextstep-hook">'+(en
+        ?'Step-by-step solutions are coming soon — for now, review the topics above.'
+        :'El solucionario paso a paso llega pronto — por ahora, repasa los temas de arriba.')+'</div>';
+    }
     html+='</div>';
   }
   host.innerHTML=html;
@@ -13617,7 +13629,7 @@ var LANG_ES={
   "pm-title":"Parcial en &lt;24h","pm-sub":"Ejecuta esto en orden. No improvises.",
   "pm-1-t":"Lee el programa del curso","pm-1-d":"Identifica los temas del corte. No estudies lo que no entra.",
   "pm-2-t":"Descarga 2 simulacros del tema","pm-2-d":"Haz el más reciente con el cronómetro puesto.",
-  "pm-3-t":"Revisa con el solucionario","pm-3-d":"Cada ejercicio que no resolviste, revisa el paso a paso en el simulacro mismo. Entiende el procedimiento, no memorices la respuesta.",
+  "pm-3-t":"Revisa qué fallaste","pm-3-d":"Cada ejercicio que no resolviste, mira cuál era la respuesta correcta en el simulacro y repasa ese tema en el formulario. Entiende el concepto, no memorices la respuesta.",
   "pm-4-t":"Haz el segundo simulacro","pm-4-d":"Sin el solucionario. Cronómetro en marcha. Si lo acabas en tiempo, ya puedes dormir.",
   "pm-5-t":"Duerme al menos 5 horas","pm-5-d":"La memoria consolida mientras duermes. El madrugón de las 4 a.m. va a hacer más daño que bien.",
   "pm-tip":"<strong>Dato de monitor:</strong> Los últimos parciales de Cálculo Diferencial siempre incluyen optimización. Repasa ese tema. <strong>Está en el Pack.</strong>",
@@ -13882,7 +13894,7 @@ var LANG_EN={
   "pm-title":"Exam in &lt;24h","pm-sub":"Run this in order. Don't improvise.",
   "pm-1-t":"Read the course syllabus","pm-1-d":"Identify the topics for this exam. Don't study what's not covered.",
   "pm-2-t":"Download 2 mock exams on the topic","pm-2-d":"Take the most recent one with the timer on.",
-  "pm-3-t":"Review with the solutions","pm-3-d":"For every exercise you missed, check the step-by-step solution right on the mock exam. Understand the method, don't memorize the answer.",
+  "pm-3-t":"Review what you missed","pm-3-d":"For every exercise you missed, check what the correct answer was on the mock exam and review that topic in the formula sheet. Understand the concept, don't memorize the answer.",
   "pm-4-t":"Take the second mock exam","pm-4-d":"No solutions this time. Timer running. If you finish in time, you can sleep.",
   "pm-5-t":"Sleep at least 5 hours","pm-5-d":"Memory consolidates while you sleep. The 4am cram session will hurt more than help.",
   "pm-tip":"<strong>Monitor's tip:</strong> Recent Differential Calculus exams always include optimization. Review that topic. <strong>It's in the Pack.</strong>",
