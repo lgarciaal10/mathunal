@@ -2469,6 +2469,16 @@ body{font-family:'Space Grotesk',system-ui,sans-serif;background:var(--bg);color
 .vf-shell .detail{flex:1;min-width:0;overflow-y:auto;background:var(--bg2);display:flex;flex-direction:column}
 .vf-shell .detail::-webkit-scrollbar{width:4px}
 .vf-shell .detail::-webkit-scrollbar-thumb{background:var(--br2);border-radius:99px}
+.vf-mob-back{display:none}
+@media(max-width:760px){
+  .vf-shell .shell{position:relative}
+  .vf-shell .list{width:100%}
+  .vf-shell .detail{position:absolute;inset:0;transform:translateX(100%);transition:transform .3s cubic-bezier(.22,.61,.36,1);z-index:1}
+  .vf-shell.showing-detail .list{visibility:hidden}
+  .vf-shell.showing-detail .detail{transform:translateX(0)}
+  .vf-mob-back{display:flex;align-items:center;gap:.4rem;flex-shrink:0;background:none;border:none;border-bottom:1.5px solid var(--br);color:var(--t2);font-family:inherit;font-size:.85rem;font-weight:600;padding:.75rem 1rem;cursor:pointer;text-align:left}
+  .vf-mob-back:active{background:var(--lay1)}
+}
 .vf-shell .dinn{max-width:680px;margin:0 auto;width:100%;padding:2.2rem 2.8rem 5rem;box-sizing:border-box;position:relative}
 .vf-shell .dinn::before{content:'';position:absolute;left:0;top:2rem;bottom:3rem;width:2px;background:linear-gradient(to bottom,transparent,var(--cat) 15%,var(--cat) 85%,transparent);border-radius:99px;opacity:.5}
 .vf-shell .dempty{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:3rem;text-align:center;gap:.85rem;user-select:none}
@@ -4713,7 +4723,7 @@ customElements.define('glass-element', GlassElement);
   <!-- Primarios -->
   <div class="nav-links">
     <a href="#materias">Materias</a>
-    <a href="#formulas">Formulario</a>
+    <a href="#formulas">Fórmulas</a>
     <a href="#juegos">Juegos</a>
     <a href="#diagnostico">Diagnóstico</a>
   </div>
@@ -4801,7 +4811,7 @@ customElements.define('glass-element', GlassElement);
 <div id="mob">
   <a href="#home" onclick="tmob()">Inicio</a>
   <a href="#materias" onclick="tmob()">Materias</a>
-  <a href="#formulas" onclick="tmob()">Formulario</a>
+  <a href="#formulas" onclick="tmob()">Fórmulas</a>
   <a href="#juegos" onclick="tmob()">Juegos</a>
   <a href="#diagnostico" onclick="tmob()">Diagnóstico</a>
   <a href="#aportar" onclick="tmob()">Aportar material</a>
@@ -6732,7 +6742,7 @@ function generatePlan(){
     ['Repaso exprés de fórmulas (30 min máximo)','Hacer 5 ejercicios rápidos de cada tema','Releer las explicaciones extendidas de lo que más te costó','Dormir a tiempo — 5+ horas mínimo']
   ];
   var tags=[
-    ['<span class="pd-tag pd-tag-rep">Repaso</span>','<span class="pd-tag pd-tag-rep">Ejercicios</span>','<span class="pd-tag pd-tag-form">Formulario</span>','<span class="pd-tag pd-tag-sim">Simulacro</span>'],
+    ['<span class="pd-tag pd-tag-rep">Repaso</span>','<span class="pd-tag pd-tag-rep">Ejercicios</span>','<span class="pd-tag pd-tag-form">Fórmulas</span>','<span class="pd-tag pd-tag-sim">Simulacro</span>'],
     ['<span class="pd-tag pd-tag-rep">Repaso</span>','<span class="pd-tag pd-tag-rep">Ejercicios</span>','<span class="pd-tag pd-tag-sim">Solucionario</span>','<span class="pd-tag pd-tag-form">Fórmulas</span>'],
     ['<span class="pd-tag pd-tag-rep">Repaso</span>','<span class="pd-tag pd-tag-sim">Quices</span>','<span class="pd-tag pd-tag-sim">Solucionario</span>','<span class="pd-tag pd-tag-rep">Análisis</span>'],
     ['<span class="pd-tag pd-tag-sim">Simulacro</span>','<span class="pd-tag pd-tag-sim">Revisión</span>','<span class="pd-tag pd-tag-rep">Refuerzo</span>','<span class="pd-tag pd-tag-rep">Ejercicios</span>'],
@@ -6756,7 +6766,7 @@ function generatePlan(){
       +'</div>'
       +'<div class="pd-tasks">'
         +(esHoy
-          ?'<div class="pd-task">Repaso exprés de fórmulas (30 min máximo) <span class="pd-tag pd-tag-form">Formulario</span></div>'
+          ?'<div class="pd-task">Repaso exprés de fórmulas (30 min máximo) <span class="pd-tag pd-tag-form">Fórmulas</span></div>'
           +' <div class="pd-task">Lee: '+temas[realI]+'</div>'
           +' <div class="pd-task">5 ejercicios cortos por tema <span class="pd-tag pd-tag-rep">Express</span></div>'
           +' <div class="pd-task">Duerme 5+ horas mínimo. No madrugar.</div>'
@@ -6844,7 +6854,7 @@ function _muSpEnd(){
   </a>
   <div class="nav-links">
     <a href="#materias" class="nav-sec-link">Materias</a>
-    <a href="#formulas" class="nav-sec-link">Formulario</a>
+    <a href="#formulas" class="nav-sec-link">Fórmulas</a>
     <a href="#juegos" class="nav-sec-link">Juegos</a>
     <a href="#diagnostico" class="nav-sec-link">Diagnóstico</a>
   </div>
@@ -6922,7 +6932,7 @@ if(!window.__muSdClickBound){window.__muSdClickBound=true;document.addEventListe
   </a>
   <div class="nav-r" style="display:flex;align-items:center;gap:.9rem;margin-left:auto">
     <a href="#home" style="display:inline-flex;align-items:center;gap:.35rem;background:var(--lay2);border:1px solid var(--br);border-radius:8px;padding:.38rem .9rem;font-size:.8rem;font-weight:600;color:var(--t2);transition:all .2s" onmouseover="this.style.borderColor='var(--bra)';this.style.color='var(--t1)'" onmouseout="this.style.borderColor='var(--br)';this.style.color='var(--t2)'">← Volver</a>
-    <a href="#formulas" class="nav-sec-link">Formulario</a>
+    <a href="#formulas" class="nav-sec-link">Fórmulas</a>
     <div class="settings-wrap"><button class="settings-btn" aria-label="Ajustes" onclick="toggleSettings(this)" aria-haspopup="true" aria-expanded="false" aria-controls="sd"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></button>
       <div class="settings-dropdown" id="sd"><div class="sd-section"><div class="sd-label">IDIOMA</div><div class="sd-row"><button class="sd-btn on" id="btn-es" onclick="setLang('es')">ES</button><button class="sd-btn" id="btn-en" onclick="setLang('en')">EN</button></div></div><div class="sd-section"><div class="sd-label">TEMA</div><div class="sd-row">
         <button class="sd-btn on" id="th-dark" onclick="setTheme('dark')"><svg width="13" height="13" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" style="vertical-align:-2px"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg> Dark Blue</button>
@@ -10607,7 +10617,7 @@ function _diagReiniciar(){
   </div>
 </nav>
 <div class="vf-shell" style="position:fixed;inset:0;z-index:5;padding-top:66px;display:flex;background:var(--bg)">
-  <div style="display:flex;flex:1;min-height:0;overflow:hidden;width:100%">
+  <div class="shell" style="display:flex;flex:1;min-height:0;overflow:hidden;width:100%">
     <aside class="list">
       <div class="list-hd">
         <div class="sinput"><span style="color:var(--t3);font-size:.9rem">⌕</span>
@@ -10619,6 +10629,7 @@ function _diagReiniciar(){
       <div class="list-ft" id="vf-list-ct">— fórmulas</div>
     </aside>
     <div class="detail" id="vf-detail">
+      <button type="button" class="vf-mob-back" onclick="vfBackToList()"><svg width="14" height="14" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" fill="none"><path d="M19 12H5M12 19l-7-7 7-7"/></svg> <span id="vf-mob-back-txt">Volver a la lista</span></button>
       <div class="dempty" id="vf-dempty">
         <div class="dempty-ico">∂</div>
         <div class="dempty-t">Selecciona una fórmula</div>
@@ -10647,6 +10658,7 @@ if(!window.__muSdClickBound){window.__muSdClickBound=true;document.addEventListe
 window.muApplyLang_formulas = function(){
   var en=(window.curLang==='en');
   var search=document.getElementById('vf-search'); if(search) search.setAttribute('placeholder', en?'Search formula…':'Buscar fórmula…');
+  var backTxt=document.getElementById('vf-mob-back-txt'); if(backTxt) backTxt.textContent = en?'Back to list':'Volver a la lista';
   var det=document.querySelector('.dempty-t'); if(det) det.textContent = en?'Select a formula':'Selecciona una fórmula';
   var des=document.querySelector('.dempty-s'); if(des) des.innerHTML = (en?'<svg width="13" height="13" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" style="vertical-align:-2px"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg> = Plotly chart · 60fps':'<svg width="13" height="13" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" style="vertical-align:-2px"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg> = gráfica Plotly · 60fps');
   var tips=document.querySelectorAll('.dempty-tip');
@@ -11953,12 +11965,17 @@ function resetView(){
   if(_sel>=0)doRender(_sel);
 }
 /* ══ SELECT ══ */
+function vfBackToList(){
+  var shell=document.querySelector('.vf-shell');
+  if(shell) shell.classList.remove('showing-detail');
+}
 function sel(i){
   if(_anim)toggleAnim(_sel);
   _sel=i;
   renderList();
   var f=F[i],cat=CATS[f.tag];
   var en=(window.curLang==='en');
+  var shell=document.querySelector('.vf-shell'); if(shell) shell.classList.add('showing-detail');
   document.getElementById('vf-dempty').style.display='none';
   var di=document.getElementById('vf-dinn');di.style.display='block';
   di.style.setProperty('--cat',cat.c);
@@ -12106,7 +12123,7 @@ window.PEDIR_FECHA_HABILITADO = PEDIR_FECHA_HABILITADO;
 var MU_PAGE_TITLES = {
   home:       {es:'MathUNAL · Parciales, Talleres y Solucionarios · UNAL Medellín', en:'MathUNAL · Exams, Worksheets and Solutions · UNAL Medellín'},
   simulacro:  {es:'MathUNAL · Simulacros',   en:'MathUNAL · Mock Exams'},
-  formulas:   {es:'MathUNAL · Formulario',   en:'MathUNAL · Formula Sheet'},
+  formulas:   {es:'MathUNAL · Fórmulas',   en:'MathUNAL · Formula Sheet'},
   banco:      {es:'MathUNAL · Banco de Exámenes', en:'MathUNAL · Exam Bank'},
   juegos:     {es:'MathUNAL · Juegos',       en:'MathUNAL · Games'},
   diagnostico:{es:'MathUNAL · Diagnóstico',  en:'MathUNAL · Diagnostic'},
@@ -13562,7 +13579,7 @@ window.PREREQS = PREREQS; // mismo patron RONDA 5/8: visible desde todas las pag
 var LANG_ES={
   /* Nav */
   "nav-cta":"Materias",
-  "nav-simulacros":"Simulacros","nav-formulas":"Formulario",
+  "nav-simulacros":"Simulacros","nav-formulas":"Fórmulas",
   "nav-aportar":"Aportar","nav-promedio":"Promedio","nav-comunidad":"Comunidad",
   /* Hero */
   "hero-badge":"Repositorio no oficial · UNAL Medellín · 2026",
@@ -13798,7 +13815,7 @@ var LANG_ES={
   "smap-prox":"Próximamente","smap-faq":"Preguntas frecuentes",
   "smap-wa":"Grupo WhatsApp","smap-tg":"Telegram (próximo)","smap-dc":"Discord (próximo)",
   "smap-bottom":"MathUNAL v23 · 2026 · Proyecto estudiantil independiente",
-  "smap-top":"Volver arriba","smap-quick-sim":"Simulacros","smap-quick-banco":"Banco PDF","smap-quick-form":"Formulario",
+  "smap-top":"Volver arriba","smap-quick-sim":"Simulacros","smap-quick-banco":"Banco PDF","smap-quick-form":"Fórmulas",
   /* Footer */
   "foot-tagline":"El proyecto de matemáticas para ingeniería de la UNAL Medellín. Hecho por estudiantes, para estudiantes.",
   "foot-activo":"Activo · 2026",
