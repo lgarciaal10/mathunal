@@ -1,0 +1,223 @@
+\documentclass[11pt]{article}
+\usepackage{mathunal-base}
+\mathunalfuente{serif}
+
+\renewcommand{\examtitulo}{Primer Examen Parcial de Álgebra Lineal --- Semestre II de 2018}
+\renewcommand{\examfecha}{11 de febrero de 2019}
+
+\newcommand{\vf}{\fbox{V}\ \fbox{F}}
+\newcommand{\casillasino}{\fbox{\phantom{XX}}}
+
+\begin{document}
+
+\examheader
+
+\vspace{4pt}
+\noindent
+\begin{minipage}[t]{0.75\linewidth}
+\textbf{Puntaje. Sólo para uso Oficial}\\[4pt]
+\begin{tabular}{|c|c|c|c|c|c|c|}
+\hline
+1--8 & 9 & 10 & 11 & 12 & \textbf{TOTAL} & \textbf{NOTA} \\
+(36) & (14) & (16) & (12) & (22) & (100) & (5.0) \\ \hline
+ & & & & & & \\ \hline
+\end{tabular}
+\end{minipage}
+
+\vspace{6pt}
+\noindent\textbf{Instrucciones:} La duración del examen es de 1 hora y 50 minutos. El examen consta de 12 preguntas en dos hojas impresas por ambos lados; verifique que su examen esté completo. En las preguntas con procedimiento justifique sus respuestas en los espacios asignados. No está permitido sacar hojas en blanco ni ningún tipo de apuntes durante el examen. Verifique que su celular esté apagado. No se permite el uso de calculadora.
+
+\vspace{8pt}
+\noindent Nombre: \dotfill\ Cédula \dotfill
+
+\vspace{4pt}
+\noindent Profesor: \dotfill\ Grupo \dotfill
+
+\vspace{10pt}
+\begin{center}\textbf{I. Completación} $[50\,\mathrm{pts} = 4.5\times 8 + 7\times 2]$\end{center}
+
+\noindent En las preguntas 1 a 8 escriba su respuesta en el recuadro correspondiente. En la pregunta 9 responda V o F. \textbf{NOTA:} En esta sección se califica sólo la respuesta (correcta o incorrecta); NO se tiene en cuenta el procedimiento. Revise su respuesta.
+
+\begin{enumerate}
+\item{}[4.5 pts] Sean $u = \begin{bmatrix}x\\2\\3\end{bmatrix}$, $v = \begin{bmatrix}-1\\4\\z\end{bmatrix}$. Determine los valores de $x$ y $z$ para que $u$ y $v$ sean linealmente dependientes.
+
+\vspace{4pt}
+\fbox{\begin{minipage}[t][1.8cm]{\dimexpr\linewidth-2\fboxsep-2\fboxrule}
+$x = $ \hspace{2cm} $z = $
+\end{minipage}}
+
+\item{}[4.5 pts] Determine en cada caso si el sistema homogéneo tiene soluciones no triviales (Escriba SI o NO en el recuadro al lado de cada sistema)
+
+\vspace{6pt}
+\noindent
+\begin{minipage}[t]{0.46\linewidth}
+$\begin{aligned}
+x_1+3x_2+5x_3+x_4 &=0\\
+4x_1-7x_2-3x_3-x_4 &=0\\
+3x_1+2x_2+7x_3+8x_4 &=0
+\end{aligned}$
+\end{minipage}%
+\hfill\casillasino\hfill
+\begin{minipage}[t]{0.32\linewidth}
+$\begin{aligned}
+x+2y+3z &=0\\
+y+4z &=0\\
+5z &=0
+\end{aligned}$
+\end{minipage}%
+\hfill\casillasino
+
+\item{}[4.5 pts] Para el sistema $\begin{aligned}x+y+z&=0\\x+2y+3z&=0\end{aligned}$ determine un conjunto de vectores $\mathcal{B}$ tal que $gen(\mathcal{B})$ es igual al conjunto de soluciones del sistema.
+
+\vspace{4pt}
+\fbox{\begin{minipage}[t][2.3cm]{\dimexpr\linewidth-2\fboxsep-2\fboxrule}
+$\mathcal{B} = $
+\end{minipage}}
+
+\item{}[4.5 pt] Determine el valor óptimo del siguiente problema de optimización lineal:
+\[
+\begin{aligned}
+\text{máx} \quad & 5x+3y\\
+\text{sujeto a} \quad & x+2y\leq 4\\
+& x\geq 0, y\geq 0
+\end{aligned}
+\]
+
+\vspace{4pt}
+\fbox{\begin{minipage}[t][1.8cm]{\dimexpr\linewidth-2\fboxsep-2\fboxrule}
+$\mathrm{Valor} = $
+\end{minipage}}
+
+\item{}[4.5 pts] Determinar $a,b,c,d,e,f$, de tal manera que la red de la figura, con los flujos indicados, esté modelada por el sistema de ecuaciones a la derecha.
+
+\vspace{6pt}
+\noindent
+\begin{minipage}[t]{0.46\linewidth}
+\begin{tikzpicture}[>=Stealth, scale=0.9]
+  \coordinate (N1) at (0,0);
+  \coordinate (N2) at (2.2,-0.7);
+  \draw[->] (-1.1,1) -- node[above left]{10} (N1);
+  \draw[->] (-1.1,-0.7) -- node[below left]{$x$} (N1);
+  \draw[->] (N1) -- node[above]{$y$} (N2);
+  \draw[->] (N2) -- ++(1.3,0.8) node[above right]{$z$};
+  \draw[->] (N2) -- ++(0.5,-1.1) node[below right]{20};
+  \fill (N1) circle (1.5pt);
+  \fill (N2) circle (1.5pt);
+\end{tikzpicture}
+\end{minipage}%
+\hfill
+\begin{minipage}[t]{0.5\linewidth}
+$\begin{aligned}
+x+ay+bz &= c\\
+dx+ey+z &= f
+\end{aligned}$
+\end{minipage}
+
+\vspace{4pt}
+\fbox{\begin{minipage}[t][2.3cm]{\dimexpr\linewidth-2\fboxsep-2\fboxrule}
+$a = $ \hspace{1.2cm} $b = $ \hspace{1.2cm} $c = $
+
+$d = $ \hspace{1.2cm} $e = $ \hspace{1.2cm} $f = $
+\end{minipage}}
+
+\item{}[4.5 pts] Usando que
+\[
+\begin{bmatrix}1&0&3\\2&1&-2\\4&5&-3\end{bmatrix}\cdot\begin{bmatrix}3&2&-1\\1&4&-3\\5&-4&-2\end{bmatrix} = \begin{bmatrix}18&-10&-7\\-3&16&-1\\2&40&-13\end{bmatrix},
+\]
+determine $a,b,c$ tales que $\begin{bmatrix}-10\\16\\40\end{bmatrix} = a\begin{bmatrix}1\\2\\4\end{bmatrix} + b\begin{bmatrix}0\\1\\5\end{bmatrix} + c\begin{bmatrix}3\\-2\\-3\end{bmatrix}$.
+
+\vspace{4pt}
+\fbox{\begin{minipage}[t][2.5cm]{\dimexpr\linewidth-2\fboxsep-2\fboxrule}
+$a = $
+
+$b = $
+
+$c = $
+\end{minipage}}
+
+\item{}[4.5 pts] Dado que $\begin{vmatrix}r&s&t\\u&v&w\\x&y&z\end{vmatrix} = 8$, calcule el determinante
+\[
+\begin{vmatrix}r & 2t & s-3t\\ u & 2w & v-3w\\ x & 2z & y-3z\end{vmatrix}
+\]
+
+\vspace{4pt}
+\fbox{\begin{minipage}[t][2cm]{\dimexpr\linewidth-2\fboxsep-2\fboxrule}
+$\mathrm{Resp} = $
+\end{minipage}}
+
+\item{}[4.5 pts] Determine la inversa de la matriz:
+\[
+A=\begin{bmatrix}0&1&1\\1&0&0\\0&1&2\end{bmatrix}
+\]
+
+\vspace{4pt}
+\fbox{\begin{minipage}[t][3cm]{\dimexpr\linewidth-2\fboxsep-2\fboxrule}
+$A^{-1} = $
+\end{minipage}}
+
+\item{}[$2\,\mathrm{pts}\times 7$] En las afirmaciones siguientes, $A$ y $B$ son matrices $n\times n$ y $\mathbf{a},\mathbf{b}$ son vectores $n\times 1$. Marque si la afirmación es verdadera o falsa.
+
+\vspace{6pt}
+\noindent $a)$ Si $A$ no es invertible entonces su forma escalonada reducida no es $I_n$. \hfill\vf
+
+\vspace{6pt}
+\noindent $b)$ Si $\mathrm{rango}(AB)<n$ entonces $\mathrm{rango}(A)<n$ y $\mathrm{rango}(B)<n$. \hfill\vf
+
+\vspace{6pt}
+\noindent $c)$ Si $A$ y $B$ son antisimétricas entonces $A^2-3B$ también es antisimétrica. \hfill\vf
+
+\vspace{6pt}
+\noindent $d)$ Si $|AB|\neq 0$ entonces $A$ y $B$ son invertibles. \hfill\vf
+
+\vspace{6pt}
+\noindent $e)$ Si $A$ es invertible entonces el sistema homogéneo $A\mathbf{x}=0$ tiene solución no trivial. \hfill\vf
+
+\vspace{6pt}
+\noindent $f)$ Si $\mathbf{a}$ y $\mathbf{b}$ son L.I. entonces $\mathbf{a}+\mathbf{b}$, $\mathbf{a}-\mathbf{b}$ son L.D. \hfill\vf
+
+\vspace{6pt}
+\noindent $g)$ Si $||\mathbf{b}||=1$ entonces existe un vector $\mathbf{a}$ tal que $||\mathbf{a}||=2$ y $\mathbf{a}\cdot\mathbf{b}=3$. \hfill\vf
+\end{enumerate}
+
+\newpage
+\begin{center}\textbf{II. Solución con Procedimiento} $[50\,\mathrm{pts} = 16+12+22]$\end{center}
+
+\begin{enumerate}
+\setcounter{enumi}{9}
+\item{}[16 pts] Sean $u = \begin{bmatrix}0\\0\\1\\1\end{bmatrix}$, $v = \begin{bmatrix}0\\1\\-1\\1\end{bmatrix}$, $w = \begin{bmatrix}1\\-2\\1\\2\end{bmatrix}$ y $\mathcal{H} = gen(u,v,w)$.
+\begin{enumerate}
+\item{}[9 pts] Determine las ecuaciones que caracterizan a los vectores $p = \begin{bmatrix}x\\y\\z\\t\end{bmatrix}$ en $\mathcal{H}$, es decir los vectores $p$ generados por los vectores $u,v,w$; y
+
+\vspace{4cm}
+
+\item{}[7 pts] para un tal $p$, cuyas componentes $x,y,z,t$ satisfacen las ecuaciones obtenidas, determine los escalares $a,b,c$ tal que $p=au+bv+cw$, en términos de $x,y,z,t$.
+
+\vspace{5cm}
+\end{enumerate}
+
+\item{}[12 pts] Sean $v_1,v_2,\dots,v_k$ vectores en $\mathbb{R}^n$ todos diferentes de $0$ y ortogonales entre sí. Es decir, para todo $i,j$ con $1\leq i<j\leq k$, se tiene que
+\[
+v_i\cdot v_j = 0
+\]
+Pruebe que los vectores $v_1,v_2,\dots,v_k$ son linealmente independientes.
+
+\vspace{5cm}
+
+\item{}[22 pts] Una empresa de publicidad tiene acceso a tres aerolíneas A, B y C para transportar a sus empleados al evento de fin de año en Cartagena. El grupo de personas que viajará está conformado por 100 ejecutivos, 72 secretarios y 320 empleados (otros). La aerolínea A puede transportar 10 ejecutivos, 5 secretarias y 10 empleados en cada viaje; la aerolínea B sólo tiene aviones que pueden transportar 2 secretarios y 20 empleados en cada viaje; y la aerolínea C usa aviones que pueden transportar 20 ejecutivos, 9 secretarios y 10 empleados en cada viaje.
+\begin{enumerate}
+\item{}[7 pts] Suponiendo que todos los ejecutivos, secretarios y empleados deben viajar, plantee un sistema de ecuaciones lineales que permita hallar la cantidad de viajes que debería realizar cada aerolínea para transportarlos.
+
+\vspace{4cm}
+
+\item{}[8 pts] Resuelva el sistema de la parte anterior.
+
+\vspace{5cm}
+
+\item{}[7 pts] Encuentre los valores que puede tomar cada variable libre para que la solución tenga validez en la práctica.
+
+\vspace{3cm}
+\end{enumerate}
+\end{enumerate}
+
+\examfooter
+\end{document}

@@ -1,0 +1,148 @@
+\documentclass[11pt]{article}
+\usepackage{mathunal-base}
+\mathunalfuente{serif}
+
+\renewcommand{\examtitulo}{Primer Examen Parcial de Álgebra Lineal}
+\renewcommand{\examfecha}{17 de Septiembre del 2016}
+
+\begin{document}
+
+\examheader
+
+\vspace{4pt}
+\noindent
+\begin{minipage}[t]{0.62\linewidth}
+\textbf{Puntaje. Sólo para uso Oficial}\\[4pt]
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+1--5 & 6 & 7 & 8 & \textbf{TOTAL} & \textbf{NOTA} \\ \hline
+ & & & & & \\ \hline
+\end{tabular}
+\end{minipage}
+
+\vspace{6pt}
+\noindent\textbf{Instrucciones:} La duración del examen es de 1 hora y 50 minutos. El examen consta de nueve preguntas en dos hojas impresas por ambos lados, verifique que su examen esté completo y consérvelo con el gancho. En las preguntas con procedimiento justifique sus respuestas en los espacios asignados. No está permitido sacar hojas en blanco ni ningún tipo de apuntes durante el examen, verifique que su celular esté apagado. No se permite el uso de calculadora.
+
+\vspace{6pt}
+\noindent\textbf{IDENTIFICACIÓN}
+
+\vspace{8pt}
+\noindent Nombre: \dotfill\ Cédula \dotfill
+
+\vspace{4pt}
+\noindent Profesor: \dotfill\ Grupo \dotfill
+
+\vspace{10pt}
+\begin{center}\textbf{I. Completación}\end{center}
+\noindent En las preguntas 1 a 5 complete los espacios en blanco. \textbf{NOTA}: En esta sección se califica sólo la respuesta y no se tiene en cuenta el procedimiento.
+
+\begin{enumerate}
+\item{}[12pt] Indique con una X si los siguientes enunciados son verdaderos o falsos. Cada numeral vale 3 puntos.
+
+\vspace{6pt}
+\noindent (a) [3pt] Si $u$ y $v$ son vectores no nulos, entonces $(u-proy_v(u))\cdot u = 0$.
+
+\noindent (V)\ \ \dotfill\ \ (F).\ \ \dotfill
+
+\vspace{6pt}
+\noindent (b) [3pt] Si $A$ es una matriz invertible, entonces el sistema de ecuaciones $Ax=b$ tiene solución única.
+
+\noindent (V)\ \ \dotfill\ \ (F).\ \ \dotfill
+
+\vspace{6pt}
+\noindent (c) [3pt] Si $\{v_1,v_2,v_3\}$ es un conjunto linealmente independiente, entonces $\{v_1+v_2,v_2+v_3,v_3\}$ también lo es.
+
+\noindent (V)\ \ \dotfill\ \ (F).\ \ \dotfill
+
+\vspace{6pt}
+\noindent (d) [3pt] Si $A$ y $B$ son matrices cuadradas de orden 3, entonces $|2A+3B| = 8|A|+27|B|$.
+
+\noindent (V)\ \ \dotfill\ \ (F).\ \ \dotfill
+
+\item{}[8pt] Sea $u = \begin{bmatrix}1\\1\end{bmatrix}$, entonces el vector $v = \begin{bmatrix}\phantom{x}\\ \phantom{x}\end{bmatrix}$ es tal que el ángulo entre él y $u$ es $\dfrac{\pi}{4}$.
+
+\vspace{4cm}
+
+\item{}[8pt] La forma escalonada reducida de la matriz $A = \begin{bmatrix}1&2&-3\\2&5&1\\2&4&-6\end{bmatrix}$ es:
+\[
+U = \begin{bmatrix} & & \\ & & \\ & & \end{bmatrix}.
+\]
+\end{enumerate}
+
+\newpage
+\begin{enumerate}
+\setcounter{enumi}{3}
+\item{}[8pt] Encontrar el conjunto solución del siguiente sistema de ecuaciones
+\[
+\left\{
+\begin{aligned}
+x+y+z &=0\\
+2x+y &=0\\
+3x+2y+z &=0
+\end{aligned}
+\right.
+\]
+
+\vspace{4pt}
+\fbox{\begin{minipage}[t][2.3cm]{\dimexpr\linewidth-2\fboxsep-2\fboxrule}
+\phantom{x}
+\end{minipage}}
+
+\item{}[7pt] Encontrar todos los valores de $c$ tales que $\det(D)=2$, donde $D = \begin{bmatrix}c&3\\2&c\end{bmatrix}$.
+
+\vspace{4pt}
+\fbox{\begin{minipage}[t][2.3cm]{\dimexpr\linewidth-2\fboxsep-2\fboxrule}
+$c = $
+\end{minipage}}
+\end{enumerate}
+
+\vspace{6pt}
+\begin{center}\textbf{II. Solución con Procedimiento}\end{center}
+
+\begin{enumerate}
+\setcounter{enumi}{5}
+\item{}[10pt] Determine si los siguientes vectores son linealmente dependientes o linealmente independientes.
+\[
+u_1 = \begin{bmatrix}1\\2\\3\end{bmatrix},\ u_2 = \begin{bmatrix}2\\2\\0\end{bmatrix},\ u_3 = \begin{bmatrix}1\\0\\1\end{bmatrix}.
+\]
+
+\vspace{6cm}
+
+\item{}[25pt] R.S.C.L.S y asociados fabrica cuatro tipos de computadora personal: Ciclón, Cíclope, Cicloide y ciclo. El numero de horas necesarias, para armar, probar sus componentes e instalar los programas necesarios para cada computador esta representado en la siguiente tabla
+
+\vspace{6pt}
+\begin{center}
+\begin{tabular}{|l|c|c|c|c|}
+\hline
+ & Ciclón & Cíclope & Cicloide & ciclo \\ \hline
+Armado & 3 & 2 & 1 & 2 \\ \hline
+Prueba & 6 & 0 & 1 & 1 \\ \hline
+Instalación de Programas & 3 & 2 & 3 & 0 \\ \hline
+\end{tabular}
+\end{center}
+
+\vspace{6pt}
+\noindent La fábrica dispone de 8 horas en armar, 8 horas en probar y 8 horas en instalar los programas para cada computador. Se desea determinar el número de unidades de cada producto que produce la fábrica en un día.
+
+\begin{enumerate}
+\item{}[10pt] Establezca y resuelva un sistema de ecuaciones lineales para encontrar en número de unidades de cada producto que produce la fábrica en un día. Defina claramente las variables a utilizar.
+\item{}[10pt] Determine un intervalo, para cada variable del literal a, donde las soluciones tengan sentido.
+\item{}[5pt] Si se desea producir la cantidad mínima de computadores cicloide, ¿Cuántos computadores de cada tipo se deben construir?
+\end{enumerate}
+
+\vspace{10cm}
+
+\item{}[22pt]
+\begin{enumerate}
+\item{}[12pt] Encontrar el valor máximo de la función $f(x,y)=3x+y$ sujeto a las restricciones $0\leq x$, $0\leq y$, $x+y\leq 4$, $y-x\leq 2$.
+
+\vspace{6cm}
+
+\item{}[10pt] Sean $A$ y $B$ matrices simétricas de tamaño $n\times n$, muestre que $(3A+2B)$ es una matriz simétrica.
+
+\vspace{1.5cm}
+\end{enumerate}
+\end{enumerate}
+
+\examfooter
+\end{document}

@@ -1,0 +1,139 @@
+\documentclass[11pt]{article}
+\usepackage{mathunal-base}
+\mathunalfuente{serif}
+
+\renewcommand{\examtitulo}{Tercer Examen Teórico de Métodos Numéricos (25\%)}
+\renewcommand{\examfecha}{Mayo 14 de 2007}
+
+\begin{document}
+
+\examheader
+
+\vspace{4pt}
+\noindent Nombre: \dotfill\ Carné: \dotfill\ Grupo: \dotfill
+
+\vspace{8pt}
+\noindent\textbf{La interpretación del examen hace parte de la evaluación, por tanto no se admiten preguntas comenzada la prueba. Duración: 1 hora y 50 minutos.}
+
+\vspace{10pt}
+\noindent\textbf{Parte 1 Preguntas de selección múltiple. Cada una tiene un valor de 6\%.}
+
+\noindent Escoja la única respuesta de cada pregunta y señálela haciendo una X sobre la letra correspondiente. Si en alguna pregunta señala más de una respuesta se le asigna un puntaje de cero a esa pregunta. Todas las preguntas valen lo mismo.
+
+\begin{enumerate}
+\item{} Sean $R=\{(t,y)\ /\ 0\leq t\leq 3,\ 0<y<5\}$ y $f(t,y)=2ty^2$. De la lista siguiente el menor número que le sirve a $f(t,y)$ como constante de Lipschitz con respecto a su variable $y$ en $R$ es
+
+\vspace{4pt}
+\noindent a. $15$ \hspace{1cm} b. $30$ \hspace{1cm} c. $60$ \hspace{1cm} d. $120$
+
+\item{} Se utiliza el método de Euler para aproximar la solución del PVI $x''+6x'+9x=0,\ x(0)=4$ y $x'(0)=-4$. Si se usa $h=0.5$ y la variable vectorial es $u$, entonces el primer iterado que se obtiene por el método de Euler es $u(0.5)=$
+
+\vspace{4pt}
+\noindent
+\begin{minipage}[t]{0.24\linewidth}
+a. $\begin{bmatrix}2\\10\end{bmatrix}$
+\end{minipage}%
+\begin{minipage}[t]{0.24\linewidth}
+b. $\begin{bmatrix}-10\\2\end{bmatrix}$
+\end{minipage}%
+\begin{minipage}[t]{0.24\linewidth}
+c. $\begin{bmatrix}10\\-2\end{bmatrix}$
+\end{minipage}%
+\begin{minipage}[t]{0.24\linewidth}
+d. $\begin{bmatrix}2\\-10\end{bmatrix}$
+\end{minipage}
+
+\item{} Utilizamos el método del disparo lineal para aproximar la solución del problema de contorno
+\[
+\left\{
+\begin{aligned}
+x'' &= 100x\\
+x(0) &= 1,\ x(1)=e^{-10}
+\end{aligned}
+\right.
+\]
+\noindent Este método requiere enunciar dos PVI's. El primero de ellos requiere las siguientes condiciones iniciales:
+
+\vspace{4pt}
+\noindent a. $u(0)=0,\ u'(0)=0$ \hspace{1cm} b. $u(0)=1,\ u'(0)=0$
+
+\noindent c. $u(0)=e^{-10},\ u'(0)=1$ \hspace{1cm} d. Ninguna de las anteriores
+
+\item{} Para resolver el problema parabólico $u_t=5u_{xx}$ con condición inicial y condiciones de contorno conocidas, se desea utilizar un método \textbf{estable} de diferencias finitas progresivas con tamaño de paso en espacio $h=0.1$. El mayor valor que puede tomar el tamaño de paso en tiempo $k$ es:
+
+\vspace{4pt}
+\noindent a. $0.1$. \hspace{1cm} b. $0.01$. \hspace{1cm} c. $0.001$. \hspace{1cm} d. $0.0001$.
+
+\item{} Se desea resolver el problema $u_t=5u_{xx}$ con la condición inicial $u(x,0)=\sin(\pi x)$ para $0\leq x\leq 1$ y las condiciones de borde $u(0,t)=u(1,t)=0$ para $t>0$. Se utiliza un método de diferencias finitas progresivas con tamaño de paso en espacio $h=\frac{1}{8}=0.125$ y tamaño de paso en tiempo $k=\frac{1}{800}=0.00125$. La aproximación que se obtiene para $u$ evaluada en $x=\frac{1}{4}$ y $t=0.00125$ es:
+
+\vspace{4pt}
+\noindent
+\begin{minipage}[t]{0.48\linewidth}
+a. $0.2\sin\left(\frac{\pi}{4}\right)+0.4\left(\sin\left(\frac{\pi}{8}\right)+\sin\left(\frac{3\pi}{8}\right)\right)$
+\end{minipage}%
+\begin{minipage}[t]{0.48\linewidth}
+b. $0.2\sin\left(\frac{\pi}{8}\right)+0.4\sin\left(\frac{\pi}{4}\right)$
+\end{minipage}
+
+\vspace{6pt}
+\noindent
+\begin{minipage}[t]{0.48\linewidth}
+c. $0.4\sin\left(\frac{\pi}{4}\right)+0.2\left(\sin\left(\frac{\pi}{8}\right)+\sin\left(\frac{3\pi}{8}\right)\right)$
+\end{minipage}%
+\begin{minipage}[t]{0.48\linewidth}
+d. Ninguna de las anteriores.
+\end{minipage}
+\end{enumerate}
+
+\vspace{10pt}
+\noindent\textbf{Parte 2 Preguntas abiertas}
+
+\begin{enumerate}
+\setcounter{enumi}{5}
+\item{} Consideremos el problema de valor inicial $y'=e^{-2t}-2y,\ y(0)=1$.
+\begin{enumerate}
+\item{} (10\%) Demuestre que este problema tiene una única solución.
+
+\vspace{3cm}
+
+\item{} (15\%) ¿Cuál es el valor que se obtiene con el método de Heun como aproximación para $y(0.4)$ utilizando $h=0.2$?
+
+\vspace{4cm}
+\end{enumerate}
+
+\item{} (25\%) Aplique el método de Runge Kutta 4 con $h=0.4$ para aproximar el valor de $u_3(0.4)$ para el sistema
+\[
+\left\{
+\begin{aligned}
+u_1' &= u_2-u_3+t & 0\leq t\leq 1\\
+u_2' &= 3t^2 & 0\leq t\leq 1\\
+u_3' &= u_2+e^{-t} & 0\leq t\leq 1
+\end{aligned}
+\right.
+\qquad u_1(0)=1,\quad u_2(0)=1,\quad u_3(0)=-1
+\]
+
+\vspace{6cm}
+
+\item{} Considere el problema de valores en la frontera o de contorno
+\[
+\left\{
+\begin{aligned}
+x'' &= -3x'+2x+2t+3 & 0\leq t\leq 1\\
+x(0) &= 2 & x(1)=1
+\end{aligned}
+\right.
+\]
+\begin{enumerate}
+\item{} (10\%) Demuestre que tiene solución única.
+
+\vspace{4cm}
+
+\item{} (10\%) Enuncie los dos problemas de valor inicial que se deben resolver para utilizar el método del disparo lineal.
+
+\vspace{4cm}
+\end{enumerate}
+\end{enumerate}
+
+\examfooter
+\end{document}

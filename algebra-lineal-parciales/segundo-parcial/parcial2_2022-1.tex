@@ -1,0 +1,203 @@
+\documentclass[11pt]{article}
+\usepackage{mathunal-base}
+\mathunalfuente{serif}
+
+\renewcommand{\examtitulo}{Segundo Examen Parcial de Álgebra Lineal}
+\renewcommand{\examfecha}{21 de mayo de 2022}
+
+\begin{document}
+
+\examheader
+
+\vspace{4pt}
+\noindent
+\begin{minipage}[t]{0.72\linewidth}
+\textbf{Puntaje. Sólo para uso Oficial}\\[4pt]
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|}
+\hline
+1 & 2 & 3 & 4 & 5 & 6 & 7 & \textbf{TOTAL} & \textbf{NOTA} \\ \hline
+ & & & & & & & & \\ \hline
+\end{tabular}
+\end{minipage}
+
+\vspace{6pt}
+\noindent\textbf{Instrucciones:} La duración del examen es de 1 hora y 50 minutos. El examen consta de siete preguntas en tres hojas impresas por ambos lados, verifique que su examen esté completo. En las preguntas con procedimiento justifique sus respuestas en los espacios asignados. No está permitido sacar hojas en blanco ni ningún tipo de apuntes durante el examen, verifique que su celular esté apagado. No se permite el uso de calculadora.
+
+\vspace{6pt}
+\noindent\textbf{IDENTIFICACIÓN}
+
+\vspace{8pt}
+\noindent Nombre: \dotfill\ Cédula \dotfill
+
+\vspace{4pt}
+\noindent Profesor: \dotfill\ Grupo \dotfill
+
+\vspace{6pt}
+\begin{center}
+\textbf{Espacio en blanco para realizar cómputos}
+\end{center}
+
+\newpage
+\noindent\textbf{\large I. Completación}
+
+\vspace{2pt}
+\noindent En las preguntas 1 a 6 complete los espacios en blanco. \textbf{NOTA}: En esta sección se califica sólo la respuesta y no se tiene en cuenta el procedimiento.
+
+\begin{enumerate}
+\item{}[10pt] Considere la matriz $A = \begin{bmatrix}0&1/2&1/2\\1/2&0&1/2\\1/2&1/2&0\end{bmatrix}$.
+\begin{enumerate}
+\item{}[5pt] ¿Cuál de las siguientes matrices es la inversa de $A$?
+\[
+A_1=\begin{bmatrix}1&0&1\\1&1&0\end{bmatrix},\ A_2=\begin{bmatrix}1&0&0\\0&1&0\\0&0&1\end{bmatrix},\ A_3=\begin{bmatrix}-1&1&1\\1&-1&1\\1&1&-1\end{bmatrix},\ A_4=\begin{bmatrix}1&0&1\\1&1&0\\0&0&0\end{bmatrix}.
+\]
+
+\vspace{4pt}
+\fbox{\begin{minipage}[t][2.2cm]{\dimexpr\linewidth-2\fboxsep-2\fboxrule}
+$A^{-1} = $
+\end{minipage}}
+
+\item{}[5pt] Sea $b = \begin{bmatrix}1\\2\\3\end{bmatrix}$. Encuentre todas las soluciones al sistema de ecuaciones $[A\mid b]$.
+
+\noindent (\textbf{Sugerencia:} \textit{use el inciso anterior}).
+
+\vspace{4pt}
+\fbox{\begin{minipage}[t][2.2cm]{\dimexpr\linewidth-2\fboxsep-2\fboxrule}
+\phantom{x}
+\end{minipage}}
+\end{enumerate}
+
+\item{}[10pt] Considere la matriz $B = \begin{bmatrix}-1&-1&-1&-1\\-1&-1&-1&-1\\-1&-1&-1&-1\end{bmatrix}$.
+\begin{enumerate}
+\item{}[5pt] Encuentre la dimensión de $\mathrm{Col}(B)$.
+
+\vspace{4pt}
+\fbox{\begin{minipage}[t][2.2cm]{\dimexpr\linewidth-2\fboxsep-2\fboxrule}
+$\dim(\mathrm{Col}(B)) = $
+\end{minipage}}
+
+\item{}[5pt] Encuentre la nulidad de $B$, es decir, encuentre la dimensión del espacio nulo de $B$.
+
+\vspace{4pt}
+\fbox{\begin{minipage}[t][2.2cm]{\dimexpr\linewidth-2\fboxsep-2\fboxrule}
+$\mathrm{Nulidad}(B) = $
+\end{minipage}}
+\end{enumerate}
+
+\item{}[10pt] Sea $T:\mathbb{R}^4\to\mathbb{R}^3$ la transformación lineal dada por:
+\[
+T\begin{bmatrix}x\\y\\z\\w\end{bmatrix} = \begin{bmatrix}x+y+2z\\x-w\\2z\end{bmatrix}.
+\]
+\begin{enumerate}
+\item{}[5pt] Encuentre $T\begin{bmatrix}1\\0\\-1\\1\end{bmatrix}$.
+
+\vspace{4pt}
+\fbox{\begin{minipage}[t][2.2cm]{\dimexpr\linewidth-2\fboxsep-2\fboxrule}
+$T\begin{bmatrix}1\\0\\-1\\1\end{bmatrix} = $
+\end{minipage}}
+
+\item{}[5pt] Encuentre $[T]$, es decir, encuentre la matriz estándar de $T$.
+
+\vspace{4pt}
+\fbox{\begin{minipage}[t][2.5cm]{\dimexpr\linewidth-2\fboxsep-2\fboxrule}
+$[T] = $
+\end{minipage}}
+\end{enumerate}
+
+\item{}[10pt] Sea $V=M_{2\times 2}$ el espacio vectorial de las matrices de tamaño $2\times 2$. De los siguientes conjuntos determine cuál o cuáles son subespacios de $V$.
+\begin{enumerate}
+\item{} $U$ es el conjunto de matrices simétricas de tamaño $2\times 2$.
+\item{} $W$ es el conjunto de matrices $2\times 2$ con todos los elementos de la diagonal principal igual a cero.
+\item{} $Z$ es el conjunto de matrices $2\times 2$ con rango menor o igual a 1.
+\end{enumerate}
+\noindent Marque con una X todas las opciones que corresponden a subespacios de $V=M_{2\times 2}$.
+
+\vspace{4pt}
+\fbox{\begin{minipage}[t][2cm]{\dimexpr\linewidth-2\fboxsep-2\fboxrule}
+\hspace{1cm}\fbox{U}\hspace{2.5cm}\fbox{W}\hspace{2.5cm}\fbox{Z}
+\end{minipage}}
+
+\item{}[15pt] Supongamos que $\mathcal{B}=\{p_1(x)=x^3+2x,\ p_2(x)=x^2+2x+3,\ p_3(x)=x^3-2x+4\}$ es una base para un subespacio $W$ del espacio vectorial $V=\mathcal{P}_3=\{a_0+a_1x+a_2x^2+a_3x^3\mid a_0,a_1,a_2,a_3\in\mathbb{R}\}$.
+\begin{enumerate}
+\item{}[3pt] Determine la dimensión de $W$.
+
+\vspace{4pt}
+\fbox{\begin{minipage}[t][1.8cm]{\dimexpr\linewidth-2\fboxsep-2\fboxrule}
+$\dim(W) = $
+\end{minipage}}
+
+\item{}[6pt] Si $p(x)\in W$ tiene vector de coordenadas respecto a la base $\mathcal{B}$ dado por $[p(x)]_{\mathcal{B}}=\begin{bmatrix}1\\-1\\2\end{bmatrix}$, entonces $p(x)$ es el polinomio en $\mathcal{P}_3$ dado por:
+
+\vspace{4pt}
+\fbox{\begin{minipage}[t][2.3cm]{\dimexpr\linewidth-2\fboxsep-2\fboxrule}
+$p(x) = $
+\end{minipage}}
+
+\item{}[6pt] Si $q(x)=2x^3+4\in W$, encontrar el vector de coordenadas de $q(x)$ respecto a la base $\mathcal{B}$.
+
+\vspace{4pt}
+\fbox{\begin{minipage}[t][2.3cm]{\dimexpr\linewidth-2\fboxsep-2\fboxrule}
+$[q(x)]_{\mathcal{B}} = $
+\end{minipage}}
+\end{enumerate}
+
+\item{}[15pt] Considere la matriz
+\[
+A = \begin{bmatrix}1&1&2&1\\1&1&2&1\\-1&1&4&-1\\2&1&1&2\end{bmatrix}.
+\]
+\noindent Un cálculo en MATLAB muestra que la forma escalonada reducida por renglones de $A$ es
+\[
+\begin{bmatrix}1&0&-1&1\\0&1&3&0\\0&0&0&0\\0&0&0&0\end{bmatrix}.
+\]
+\begin{enumerate}
+\item{}[5pt] Encuentre una base para el espacio columna de $A$.
+
+\vspace{4pt}
+\fbox{\begin{minipage}[t][2.2cm]{\dimexpr\linewidth-2\fboxsep-2\fboxrule}
+\phantom{x}
+\end{minipage}}
+
+\item{}[5pt] Encuentre una base para el espacio fila de $A$.
+
+\vspace{4pt}
+\fbox{\begin{minipage}[t][2.2cm]{\dimexpr\linewidth-2\fboxsep-2\fboxrule}
+\phantom{x}
+\end{minipage}}
+
+\item{}[5pt] Encuentre una base para el espacio nulo de $A$.
+
+\vspace{4pt}
+\fbox{\begin{minipage}[t][2.2cm]{\dimexpr\linewidth-2\fboxsep-2\fboxrule}
+\phantom{x}
+\end{minipage}}
+\end{enumerate}
+\end{enumerate}
+
+\newpage
+\noindent\textbf{\large II. Solución con Procedimiento}
+
+\vspace{4pt}
+\noindent En esta parte del examen se deben \textbf{justificar las respuestas}.
+
+\begin{enumerate}
+\setcounter{enumi}{6}
+\item{}[30pt] Considere el subespacio de $\mathbb{R}^4$ dado por
+\[
+V := \left\{\begin{bmatrix}x\\y\\z\\w\end{bmatrix}\in\mathbb{R}^4\ \middle|\ x+y-z+w=0\right\}.
+\]
+\begin{enumerate}
+\item{}[15pt] Halle una base $\mathcal{B}$ para $V$. Explique su respuesta.
+
+\vspace{6cm}
+
+\item{}[5pt] Sea $b=\begin{bmatrix}1\\1\\3\\1\end{bmatrix}$. ¿Pertenece $b$ al subespacio $V$? Explique su respuesta.
+
+\vspace{4cm}
+
+\item{}[10pt] Escriba las coordenadas $[b]_{\mathcal{B}}$ del vector $b$ en términos de la base $\mathcal{B}$ encontrada en el numeral (a). Explique su respuesta.
+
+\vspace{5cm}
+\end{enumerate}
+\end{enumerate}
+
+\examfooter
+\end{document}

@@ -1,0 +1,173 @@
+\documentclass[11pt]{article}
+\usepackage{mathunal-base}
+\mathunalfuente{serif}
+
+\renewcommand{\examtitulo}{Segundo Examen Parcial de Álgebra Lineal}
+\renewcommand{\examfecha}{29 de mayo de 2023}
+
+\newcommand{\vf}{\fbox{V}\ \fbox{F}}
+
+\begin{document}
+
+\examheader
+
+\vspace{4pt}
+\noindent
+\begin{minipage}[t]{0.62\linewidth}
+\textbf{Puntaje. Sólo para uso Oficial}\\[4pt]
+\begin{tabular}{|c|c|c|c|c|c|c|}
+\hline
+1-2 & 3-4 & 5-6 & 7 & 8 & \textbf{TOTAL} & \textbf{NOTA} \\ \hline
+ & & & & & & \\ \hline
+\end{tabular}
+\end{minipage}
+
+\vspace{6pt}
+\noindent\textbf{Instrucciones:} La duración del examen es de 1 hora y 50 minutos. El examen consta de ocho preguntas en tres hojas impresas por ambos lados, verifique que su examen esté completo. En las preguntas con procedimiento justifique sus respuestas en los espacios asignados. No está permitido sacar hojas en blanco ni ningún tipo de apuntes durante el examen, verifique que su celular esté apagado, el uso del celular durante la realización del examen es causal de anulación. No se permite el uso de calculadora.
+
+\vspace{6pt}
+\noindent\textbf{IDENTIFICACIÓN}
+
+\vspace{8pt}
+\noindent Nombre: \dotfill\ Cédula \dotfill
+
+\vspace{4pt}
+\noindent Profesor: \dotfill\ Grupo \dotfill
+
+\vspace{6pt}
+\begin{center}
+\textbf{Espacio en blanco para realizar cómputos}
+\end{center}
+
+\newpage
+\noindent\textbf{\large I. Completación}
+
+\vspace{2pt}
+\noindent En las preguntas 1 a 6 complete los espacios en blanco. \textbf{NOTA}: En esta sección se califica sólo la respuesta y no se tiene en cuenta el procedimiento.
+
+\begin{enumerate}
+\item{}[10pt] Sea $v = \begin{bmatrix}1\\0\\-1\end{bmatrix}$ y sea $T:\mathbb{R}^3\to\mathbb{R}^3$ la transformación lineal dada por $T(u)=\mathrm{Proy}_v(u)$. Encontrar $[T]$, es decir, encontrar la matriz estándar de $T$.
+
+\vspace{4pt}
+\fbox{\begin{minipage}[t][3cm]{\dimexpr\linewidth-2\fboxsep-2\fboxrule}
+$[T] = $
+\end{minipage}}
+
+\item{}[10pt] Determine si las siguientes afirmaciones son verdaderas o falsas (Marque V o F según el caso).
+
+\vspace{6pt}
+\noindent (a) [2pt] La transformación lineal $T:\mathbb{R}^3\to\mathbb{R}^3$ que proyecta un vector $v$ sobre el vector $\begin{bmatrix}1\\1\\1\end{bmatrix}$ es invertible.
+
+\vspace{4pt}
+\vf
+
+\vspace{6pt}
+\noindent (b) [2pt] La matriz $A$ igual al producto $\begin{bmatrix}2&2\\1&1\end{bmatrix}\cdot\begin{bmatrix}2&-4\\-1&3\end{bmatrix}$ es invertible.
+
+\vspace{4pt}
+\vf
+
+\vspace{6pt}
+\noindent (c) [2pt] El conjunto de polinomios $\{2-x,\ x,\ x-x^2,\ 1-2x^2+3x^3\}$ es L.D. en $\mathcal{P}_3$.
+
+\vspace{4pt}
+\vf
+
+\vspace{6pt}
+\noindent (d) [2pt] El espacio vectorial $\mathcal{M}_{2\times 2}$ es generado por el conjunto de matrices
+\[
+\left\{\begin{bmatrix}1&1\\0&1\end{bmatrix},\begin{bmatrix}0&1\\1&0\end{bmatrix},\begin{bmatrix}1&0\\1&1\end{bmatrix},\begin{bmatrix}0&-1\\1&0\end{bmatrix}\right\}.
+\]
+
+\vspace{4pt}
+\vf
+
+\vspace{6pt}
+\noindent (e) [2pt] El conjunto de todos los vectores $\begin{bmatrix}x\\y\end{bmatrix}$ en $\mathbb{R}^2$ con $y\geq 0$ es un sub-espacio vectorial.
+
+\vspace{4pt}
+\vf
+
+\item{}[10pt] Sean $T:\mathbb{R}^3\to\mathbb{R}^4$ la transformación lineal dada por $T\left(\begin{bmatrix}a\\b\\c\end{bmatrix}\right)=\begin{bmatrix}0\\a\\b/2\\c/3\end{bmatrix}$ y $S:\mathbb{R}^4\to\mathbb{R}^3$ la transformación lineal definida por $S\left(\begin{bmatrix}a\\b\\c\\d\end{bmatrix}\right)=\begin{bmatrix}b\\2c\\3d\end{bmatrix}$. Calcular $(T\circ S)\left(\begin{bmatrix}2\\5\\1\\-3\end{bmatrix}\right)$.
+
+\vspace{4pt}
+\fbox{\begin{minipage}[t][3cm]{\dimexpr\linewidth-2\fboxsep-2\fboxrule}
+$(T\circ S)\left(\begin{bmatrix}2\\5\\1\\-3\end{bmatrix}\right) = $
+\end{minipage}}
+
+\item{}[10pt] Sea $\mathcal{B}=\left\{\begin{bmatrix}1\\-1\\0\end{bmatrix},\begin{bmatrix}1\\0\\-1\end{bmatrix}\right\}$ una base para un subespacio $Z$ del espacio vectorial $\mathbb{R}^3$. Encontrar un vector $v$ tal que $[v]_{\mathcal{B}}=\begin{bmatrix}1\\1\end{bmatrix}$.
+
+\vspace{4pt}
+\fbox{\begin{minipage}[t][2.8cm]{\dimexpr\linewidth-2\fboxsep-2\fboxrule}
+$v = $
+\end{minipage}}
+
+\item{}[10pt] Sea $\mathcal{L}=\left\{\begin{bmatrix}x\\y\\z\end{bmatrix}\in\mathbb{R}^3\ \middle|\ x-2y+3z=0\right\}$. Determine una base $\mathcal{B}$ para $\mathcal{L}$.
+
+\vspace{4pt}
+\fbox{\begin{minipage}[t][3cm]{\dimexpr\linewidth-2\fboxsep-2\fboxrule}
+$\mathcal{B} = $
+\end{minipage}}
+
+\item{}[10pt] Sea $A = \begin{bmatrix}1&0&0&0&2\\1&1&0&0&-1\\2&3&1&0&1\\2&1&-1&1&-3\end{bmatrix}$.
+\begin{enumerate}
+\item{}[5pt] Encuentre la dimensión de $\mathrm{Ren}(A)$.
+
+\vspace{4pt}
+\fbox{\begin{minipage}[t][2cm]{\dimexpr\linewidth-2\fboxsep-2\fboxrule}
+$\dim(\mathrm{Ren}(A)) = $
+\end{minipage}}
+
+\item{}[5pt] Encuentre la nulidad de $A$, es decir, encuentre la dimensión del espacio nulo de $A$.
+
+\vspace{4pt}
+\fbox{\begin{minipage}[t][2cm]{\dimexpr\linewidth-2\fboxsep-2\fboxrule}
+$\mathrm{Nulidad}(A) = $
+\end{minipage}}
+\end{enumerate}
+\end{enumerate}
+
+\vspace{6pt}
+\noindent\textbf{\large II. Solución con Procedimiento}
+
+\vspace{4pt}
+\noindent En esta parte del examen se debe incluir el procedimiento necesario para determinar y justificar sus respuestas. Una respuesta correcta sin justificación recibirá máximo el 20\% de los puntos correspondientes.
+
+\vspace{4pt}
+\noindent Por favor, revise sus cómputos. Una respuesta incorrecta como resultado de errores en los cómputos recibirá máximo el 70\% de los puntos correspondientes.
+
+\begin{enumerate}
+\setcounter{enumi}{6}
+\item{}[15pt] Consideremos el subespacio de $\mathbb{R}^3$ definido por
+\[
+W = \mathrm{gen}\left\{\begin{bmatrix}1\\0\\-1\end{bmatrix},\begin{bmatrix}2\\1\\1\end{bmatrix},\begin{bmatrix}-1\\-1\\-2\end{bmatrix}\right\}.
+\]
+\begin{enumerate}
+\item{}[10pt] Encuentre una base para $W$.
+
+\vspace{6cm}
+
+\item{}[5pt] Calcular la dimensión de $W$.
+
+\vspace{2cm}
+\end{enumerate}
+
+\newpage
+\item{}[25pt] Sea $T:\mathbb{R}^2\to\mathbb{R}^2$ una transformación lineal tal que $T\left(\begin{bmatrix}1\\0\end{bmatrix}\right)=\begin{bmatrix}5\\1\end{bmatrix}$ y $T\left(\begin{bmatrix}3\\-1\end{bmatrix}\right)=\begin{bmatrix}1\\-1\end{bmatrix}$.
+\begin{enumerate}
+\item{}[5pt] Halle $T\left(\begin{bmatrix}0\\1\end{bmatrix}\right)$.
+
+\vspace{4cm}
+
+\item{}[10pt] Halle $T\left(\begin{bmatrix}x\\y\end{bmatrix}\right)$.
+
+\vspace{5cm}
+
+\item{}[10pt] En caso de que $T$ sea invertible, halle $\det(A)$ donde $A$ es la matriz estándar de $T^{-1}$.
+
+\vspace{5cm}
+\end{enumerate}
+\end{enumerate}
+
+\examfooter
+\end{document}

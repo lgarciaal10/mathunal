@@ -1,0 +1,136 @@
+\documentclass[11pt]{article}
+\usepackage{mathunal-base}
+\mathunalfuente{serif}
+
+\renewcommand{\examtitulo}{Primer Examen Parcial de Álgebra Lineal}
+\renewcommand{\examfecha}{18 de Marzo del 2017}
+
+\begin{document}
+
+\sidexcodigo{D-coord-8}{$P\_\_\text{-}\_\_$}{$g\_\_\text{-}\_\_$}{$L\text{-}\_\_$}
+
+\vspace{4pt}
+\noindent
+\begin{minipage}[t]{0.46\linewidth}
+\textbf{\examtitulo}\\
+\textbf{\examfecha}
+
+\vspace{4pt}
+\textbf{Puntaje. Sólo para uso Oficial}\\[4pt]
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+1--6 (/42) & 7--9(/22) & 8(/26) & 10(/10) & \textbf{Total} & \textbf{Nota} \\ \hline
+ & & & & & \\ \hline
+\end{tabular}
+\end{minipage}%
+\hfill
+\begin{minipage}[t]{0.5\linewidth}
+Nombre: \dotfill
+
+Cédula: \dotfill\ Grupo: \dotfill
+
+\vspace{6pt}
+\begin{center}\Large\textbf{Número Asignado:} \dotfill\end{center}
+
+\vspace{34pt}
+Firma: \dotfill
+
+{\footnotesize (Entiendo que cometer fraude es una falta disciplinaria grave)}
+\end{minipage}
+
+\vspace{8pt}
+\noindent\textbf{Instrucciones:} Antes de empezar verifique que su examen esté \textbf{completo} y que sus \textbf{datos sean correctos}. Por favor verifique que su celular esté \textbf{apagado}. No está permitido el uso de calculadora ni de otros aparatos electrónicos. Solucione las preguntas en los espacios en blanco asignados a cada una de ellas. No está permitido sacar hojas en blanco ni ningún tipo de apuntes durante el examen. \textbf{Duración:} 1 hora y 50 minutos.
+
+\vspace{8pt}
+\begin{center}\textbf{I. Completación}\end{center}
+\noindent En las preguntas 1 a 6 complete los espacios en blanco. \textbf{NOTA}: En esta sección se califica sólo la respuesta y no se tiene en cuenta el procedimiento.
+
+\begin{enumerate}
+\item{}[8pt] Sean $u$ y $v$ vectores de $\mathbb{R}^n$ tales que $||u||=7$ y $||v||=2$, entonces
+
+\vspace{4pt}
+\noindent $max\,||u+v||^2 = $ \dotfill \hspace{1cm} y \hspace{0.3cm} $min\,||u+v||^2$ es: \dotfill
+
+\item{}[8pt] Determine cuántas soluciones tiene el sistema (Escriba la respuesta en la línea debajo de cada sistema)
+
+\vspace{6pt}
+\noindent
+\begin{minipage}[t]{0.46\linewidth}
+$\begin{aligned}
+2x_1+2x_2+10x_3 &=4\\
+5x_1+11x_2 &=10\\
+x_1+x_2+5x_3 &=2
+\end{aligned}$
+
+\vspace{4pt}
+\dotfill
+\end{minipage}%
+\hfill
+\begin{minipage}[t]{0.46\linewidth}
+$\begin{aligned}
+u+3v+5w+z &=0\\
+4u-7v-3w-z &=0\\
+3u+2v+7w+8z &=0
+\end{aligned}$
+
+\vspace{4pt}
+\dotfill
+\end{minipage}
+
+\item{}[6pt] Determine si las siguientes proposiciones son verdaderas o falsas (Marque V o F según el caso).
+
+\vspace{6pt}
+\noindent (a) Un sistema de ecuaciones homogéneo con más ecuaciones que variables tiene infinitas soluciones \dotfill
+
+\vspace{6pt}
+\noindent (b) Todo sistema no homogéneo con más variables que ecuaciones es consistente \dotfill
+
+\vspace{6pt}
+\noindent (c) Sea $V=\{v_1,v_2,v_3,v_4\}$ un conjunto de vectores de $\mathbb{R}^3$ tal que $genV=\mathbb{R}^3$ entonces $V$ es L.I. \dotfill
+
+\item{}[6pt] Sea $A$ una matriz no nula de tamaño $5\times 5$ y de rango 5, entonces el sistema $AX=b$ tiene solución $X=$ \dotfill
+
+\item{}[6pt] Si $u, v$ y $w$ son tres vectores de $\mathbb{R}^5$, diga si las siguientes expresiones tienen sentido. Escriba SI o NO, según el caso.
+
+\vspace{6pt}
+\noindent (a) $w\cdot u+v$ \dotfill
+
+\vspace{6pt}
+\noindent (b) $(u\cdot w)v$ \dotfill
+
+\vspace{6pt}
+\noindent (c) $(v\cdot u)u\cdot w$ \dotfill
+
+\item{}[8pt] Sea $T = \left\{\begin{bmatrix}1\\1\\2\end{bmatrix},\begin{bmatrix}0\\1\\1\end{bmatrix},\begin{bmatrix}1\\1\\k\end{bmatrix}\right\}$
+
+\vspace{4pt}
+\noindent Determine los valores de $k$ para que $T$ sea L.D. $k=$ \dotfill
+\end{enumerate}
+
+\vspace{6pt}
+\begin{center}\textbf{II. Solución con Procedimiento}\end{center}
+
+\begin{enumerate}
+\setcounter{enumi}{6}
+\item{}[12pt] Sea $A = \begin{bmatrix}0&1&1\\1&-1&-2\\-1&1&1\end{bmatrix}$. ¿Es $A$ invertible? Si lo es, calcule a $A^{-1}$ usando el método de Gauss-Jordan.
+
+\vspace{6cm}
+
+\item{}[26pt] Una programadora de los cajeros automáticos de un estacionamiento quiere saber todas las combinaciones posibles de cinco monedas de 100, 200 o 300 pesos que sumen 1000 pesos con la finalidad de incluir todas las opciones en su programa. Plantee el sistema de ecuaciones correspondiente, explique con claridad las variables y determine todas las combinaciones posibles que contienen cinco monedas.
+
+\vspace{8cm}
+
+\item{}[10pt] Determine si los vectores generan a $\mathbb{R}^3$
+\[
+\begin{bmatrix}1\\0\\1\end{bmatrix},\ \begin{bmatrix}2\\2\\0\end{bmatrix},\ \begin{bmatrix}3\\0\\1\end{bmatrix},\ \begin{bmatrix}1\\-1\\1\end{bmatrix}
+\]
+
+\vspace{8cm}
+
+\item{}[10pt] Sean $u, v$ y $w$ vectores en $\mathbb{R}^n$. Demuestre que si ninguno de ellos se puede escribir como combinación lineal de los otros dos, entonces los tres vectores son linealmente independientes.
+
+\vspace{5cm}
+\end{enumerate}
+
+\examfooter
+\end{document}

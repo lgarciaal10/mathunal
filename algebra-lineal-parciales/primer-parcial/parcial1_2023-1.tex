@@ -1,0 +1,165 @@
+\documentclass[11pt]{article}
+\usepackage{mathunal-base}
+\mathunalfuente{serif}
+
+\renewcommand{\examtitulo}{Primer Examen Parcial de Álgebra Lineal}
+\renewcommand{\examfecha}{13 de marzo de 2023}
+
+\newcommand{\vf}{\fbox{V}\ \fbox{F}}
+
+\begin{document}
+
+\examheader
+
+\vspace{4pt}
+\noindent
+\begin{minipage}[t]{0.56\linewidth}
+\textbf{Puntaje. Sólo para uso Oficial}\\[4pt]
+\begin{tabular}{|c|c|c|c|c|c|c|}
+\hline
+1-3 & 4-5 & 6-7 & 8 & 9 & \textbf{TOTAL} & \textbf{NOTA} \\ \hline
+ & & & & & & \\ \hline
+\end{tabular}
+\end{minipage}%
+\hfill
+\begin{minipage}[t]{0.4\linewidth}
+Nombre: \dotfill\\[6pt]
+Cédula: \dotfill\\[6pt]
+Profesor: \dotfill\\[6pt]
+Grupo: \dotfill
+\end{minipage}
+\vspace{6pt}\par
+\noindent\rule{\linewidth}{0.4pt}
+
+\vspace{6pt}
+\noindent\textbf{Instrucciones:} La duración del examen es de 1 hora y 50 minutos. El examen consta de nueve preguntas en tres hojas impresas por ambos lados, verifique que su examen esté completo. En las preguntas con procedimiento justifique sus respuestas en los espacios asignados. No está permitido sacar hojas en blanco ni ningún tipo de apuntes durante el examen, verifique que su celular esté apagado. No se permite el uso de calculadora.
+
+\vspace{6pt}
+\noindent\textbf{IDENTIFICACIÓN}
+
+\vspace{4pt}
+\noindent\textit{(Espacio en blanco para realizar cómputos en el examen original.)}
+
+\vspace{10pt}
+\noindent\textbf{I. Completación} En las preguntas 1 a 7 escriba su respuesta en los espacios indicados. \textbf{NOTA:} Tenga en cuenta que en esta sección se califica solo la respuesta escrita en el espacio indicado y no se tiene en cuenta el procedimiento.
+
+\begin{enumerate}
+\item{}[8pt] Sean $A = \begin{bmatrix}1 & -1\\ 1 & 1\end{bmatrix}$ y $u = \begin{bmatrix}1\\-2\end{bmatrix}$. Consideremos el vector $v = Au$. Calcular $u\cdot v$, es decir, calcular el producto punto entre los vectores $u$ y $v$.
+
+\vspace{4pt}
+\fbox{\begin{minipage}[t][2cm]{\dimexpr\linewidth-2\fboxsep-2\fboxrule}
+$u\cdot v = $
+\end{minipage}}
+
+\item{}[8pt] Sea $B = \begin{bmatrix}1 & 3 & 1\\ 2 & 0 & -4\\ 3 & 3 & -3\end{bmatrix}$. Encontrar la forma escalonada reducida de $B$.
+
+\vspace{4pt}
+\fbox{\begin{minipage}[t][3cm]{\dimexpr\linewidth-2\fboxsep-2\fboxrule}
+Forma escalonada reducida de $B = \begin{bmatrix} & & \\ & & \\ & & \end{bmatrix}$
+\end{minipage}}
+
+\item{}[8pt] Determine si las siguientes proposiciones son verdaderas o falsas (Marque V o F según el caso).
+\begin{enumerate}
+\item{}[2pt] Todo sistema de ecuaciones lineales homogéneo con más ecuaciones que variables tiene necesariamente infinitas soluciones.
+
+\vf
+
+\item{}[2pt] Si $u, v$ y $w$ son vectores en $\mathbb{R}^3$, entonces necesariamente $u, v$ y $w$ son linealmente independientes.
+
+\vf
+
+\item{}[2pt] Si $A$ y $B$ son dos matrices cuadradas que son simétricas, entonces la matriz $2A+3B$ también es simétrica.
+
+\vf
+
+\item{}[2pt] Si $C$ es una matriz de tamaño $4\times 4$, entonces $\det(2C) = 8\det(C)$.
+
+\vf
+\end{enumerate}
+
+\item{}[9pt] Consideremos los vectores $x = \begin{bmatrix}1\\0\\2\end{bmatrix}$, $y = \begin{bmatrix}1\\-1\\1\end{bmatrix}$ y $z = \begin{bmatrix}3\\-2\\k\end{bmatrix}$. Aquí $k$ es un número real. Encontrar el valor de $k$ para que el vector $z$ pertenezca a $\mathrm{gen}(x,y)$.
+
+\vspace{4pt}
+\fbox{\begin{minipage}[t][1.8cm]{\dimexpr\linewidth-2\fboxsep-2\fboxrule}
+$k = $
+\end{minipage}}
+
+\item{}[8pt] Sean $a = \begin{bmatrix}0\\1\\1\end{bmatrix}$, $b = \begin{bmatrix}1\\2\\3\end{bmatrix}$ y $c = \begin{bmatrix}2\\0\\1\end{bmatrix}$. Determinar si los vectores $a, b, c$ son linealmente independientes. Marque sí o no según el caso.
+
+\vspace{4pt}
+\fbox{Sí}\ \fbox{No}
+
+\item{}[8pt] Supongamos que $u = \begin{bmatrix}1\\0\\-1\\1\end{bmatrix}$ y $v = \begin{bmatrix}2\\1\\2\\1\end{bmatrix}$. Calcular $\mathrm{proy}_u(v)$.
+
+\vspace{4pt}
+\fbox{\begin{minipage}[t][2cm]{\dimexpr\linewidth-2\fboxsep-2\fboxrule}
+$\mathrm{proy}_u(v) = $
+\end{minipage}}
+
+\item{}[6pt] Sean $A$ y $B$ matrices de tamaño $4\times 4$ con $\det A = 16$ y $\det B = \frac{1}{4}$. Calcule los siguientes determinantes:
+\begin{enumerate}
+\item{}[2pt]
+
+\vspace{4pt}
+\fbox{\begin{minipage}[t][1.4cm]{\dimexpr\linewidth-2\fboxsep-2\fboxrule}
+$\det(AB^2) = $
+\end{minipage}}
+
+\item{}[2pt]
+
+\vspace{4pt}
+\fbox{\begin{minipage}[t][1.4cm]{\dimexpr\linewidth-2\fboxsep-2\fboxrule}
+$\det(2B^T) = $
+\end{minipage}}
+
+\item{}[2pt]
+
+\vspace{4pt}
+\fbox{\begin{minipage}[t][1.4cm]{\dimexpr\linewidth-2\fboxsep-2\fboxrule}
+$\mathrm{Rango}(A) = $
+\end{minipage}}
+\end{enumerate}
+\end{enumerate}
+
+\newpage
+\noindent\textbf{\large II. Solución con Procedimiento}
+
+\vspace{6pt}
+\noindent En esta parte del examen se debe incluir el procedimiento necesario para determinar y justificar sus respuestas. Una respuesta correcta sin justificación recibirá máximo el 20\% de los puntos correspondientes.
+
+\vspace{4pt}
+\noindent Por favor, revise sus cómputos. Una respuesta incorrecta como resultado de errores en los cómputos recibirá máximo el 70\% de los puntos correspondientes.
+
+\begin{enumerate}
+\setcounter{enumi}{7}
+\item{}[20pt] Resuelva el siguiente sistema de ecuaciones lineales utilizando el método de eliminación Gaussiana. Indique de manera \textbf{explícita} las variables pivote y las variables libres del sistema.
+\[
+\left\{
+\begin{aligned}
+y + z + w &= 0\\
+x - y + 4z - w &= 2\\
+x + y + 5z &= 2
+\end{aligned}
+\right.
+\]
+
+\vspace{4cm}
+
+\item{}[25pt] Una florista ofrece tres tamaños de arreglos florales que contienen rosas, margaritas y crisantemos. Cada arreglo pequeño contiene una rosa, tres margaritas y tres crisantemos. Cada arreglo mediano contiene dos rosas, cuatro margaritas y seis crisantemos. Cada arreglo grande contiene cuatro rosas, ocho margaritas y seis crisantemos. Un día, la florista nota que usó un total de 24 rosas, 50 margaritas y 48 crisantemos para surtir pedidos de estos tres tipos de arreglos. El objetivo de este problema es encontrar el número de arreglos de cada tipo que la florista puede elaborar.
+\begin{enumerate}
+\item{}[3pt] Describir de manera explícita las variables de este problema.
+
+\vspace{2.5cm}
+
+\item{}[6pt] Plantee un sistema de ecuaciones lineales que permita encontrar el número de arreglos de cada tipo que la florista puede elaborar.
+
+\vspace{2.5cm}
+
+\item{}[16pt] Resuelva el sistema de ecuaciones planteado en el anterior numeral.
+
+\vspace{2cm}
+\end{enumerate}
+\end{enumerate}
+
+\examfooter
+\end{document}

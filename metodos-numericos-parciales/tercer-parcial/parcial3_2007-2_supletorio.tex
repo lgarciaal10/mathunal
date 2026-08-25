@@ -1,0 +1,139 @@
+\documentclass[11pt]{article}
+\usepackage{mathunal-base}
+\mathunalfuente{serif}
+
+\renewcommand{\examtitulo}{Supletorio Tercer Examen Parcial de Métodos Numéricos}
+\renewcommand{\examfecha}{Diciembre 3 de 2007}
+
+\begin{document}
+
+\examheader
+
+\vspace{4pt}
+\noindent\textbf{Duración: 1 hora y 50 minutos}
+
+\vspace{4pt}
+\noindent Nombre: \dotfill\ Carné: \dotfill\ Grupo: \dotfill
+
+\begin{center}\textbf{Toda respuesta debe estar debidamente justificada}\end{center}
+
+\begin{enumerate}
+\item{} Considere el P.V.I.
+\[
+\left\{
+\begin{aligned}
+y' &= \frac{4t^2y}{1+t^4}, \qquad 0\leq t\leq 2\\
+y(0) &= 1
+\end{aligned}
+\right.
+\]
+\begin{enumerate}
+\item{} (15\%) Demuestre que la función $f(t,y)=\dfrac{4t^2y}{1+t^4}$ satisface una condición de Lipschitz para $0\leq t\leq 2$. Determine el menor valor de la constante de Lipschitz.
+
+\vspace{4cm}
+
+\item{} (5\%) ¿Tiene este P.V.I. una única solución?
+
+\vspace{2cm}
+\end{enumerate}
+
+\item{} Considere el P.V.I.
+\[
+\left\{
+\begin{aligned}
+t^2y''-2ty'+2y &= t^3\ln(t)\\
+y(1)&=1,\quad y'(1)=0
+\end{aligned}
+\right.
+\]
+\begin{enumerate}
+\item{} (10\%) Convierta este P.V.I. a la forma vectorial
+\[
+\left\{
+\begin{aligned}
+U' &= F(t,U)\\
+U(t_0) &= U_0
+\end{aligned}
+\right.
+\]
+\noindent con $U$ y $U_0$ vectores de $\mathbb{R}^2$.
+
+\vspace{4cm}
+
+\item{} (20\%) Utilice el método de Taylor de orden 2 para aproximar $y(1.5)$ utilizando tamaño de paso $h=0.5$.
+
+\vspace{5cm}
+\end{enumerate}
+
+\item{} Considere el problema de contorno o de valores en la frontera
+\[
+\left\{
+\begin{aligned}
+y''-\frac{y'}{t}-\frac{3y}{t^2}-\frac{\ln(t)}{t} &= -1, \qquad 1\leq t\leq 2\\
+y(1) &= 0,\quad y(2)=0
+\end{aligned}
+\right.
+\]
+\begin{enumerate}
+\item{} (8\%) ¿Tiene este problema de contorno o de valores en la frontera una única solución?
+
+\vspace{3cm}
+
+\item{} (12\%) Las soluciones aproximadas de los problemas de valor inicial asociados, ambos para $1\leq t\leq 2$,
+\[
+\left\{
+\begin{aligned}
+w''-\frac{w'}{t}-\frac{3w}{t^2}-\frac{\ln(t)}{t} &= -1\\
+w(1)&=0,\ w'(1)=0
+\end{aligned}
+\right.
+\qquad\qquad
+\left\{
+\begin{aligned}
+u''-\frac{u'}{t}-\frac{3u}{t^2} &= 0\\
+u(1)&=0,\ u'(1)=1
+\end{aligned}
+\right.
+\]
+\noindent están dadas en la siguiente tabla
+
+\vspace{6pt}
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+ & $t=1$ & $t=1.2$ & $t=1.4$ & $t=1.6$ & $t=1.8$ \\ \hline
+$w(t)$ & $0$ & $-0.0202$ & $-0.0831$ & $-0.1938$ & $-0.3590$ \\ \hline
+$u(t)$ & $0$ & $0.2236$ & $0.5073$ & $0.8676$ & $1.3188$ \\ \hline
+\end{tabular}
+\end{center}
+\noindent (con $w(2)=-0.5861$ y $u(2)=1.8746$.)
+
+\noindent Utilice esta tabla para aproximar la solución del problema de contorno por el método del disparo lineal con tamaño de paso $h=0.2$.
+
+\vspace{6cm}
+\end{enumerate}
+
+\item{} Considere el problema
+\[
+\left\{
+\begin{aligned}
+\frac{\partial u}{\partial t}-\frac{1}{4}\frac{\partial^2 u}{\partial x^2} &= 0, \qquad 0<x<2,\ t>0\\
+u(x,0) &= \operatorname{sen}\left(\frac{\pi}{4}x\right)-\cos\left(\frac{\pi}{2}x\right)+1, \qquad 0\leq x\leq 2\\
+u(0,t) &= t, \qquad t\geq 0\\
+u(2,t) &= 2+e^{-t}, \qquad t\geq 0
+\end{aligned}
+\right.
+\]
+\begin{enumerate}
+\item{} (6\%) ¿Es el método de diferencia progresiva con $h=0.5$ y $k=0.2$, estable?
+
+\vspace{3cm}
+
+\item{} (24\%) Hallar una aproximación a la solución $u(x,t)$ para $t=0.4$ empleando el método de diferencia progresiva con $h=0.5$ y $k=0.2$.
+
+\vspace{6cm}
+\end{enumerate}
+\end{enumerate}
+
+\examfooter
+\end{document}

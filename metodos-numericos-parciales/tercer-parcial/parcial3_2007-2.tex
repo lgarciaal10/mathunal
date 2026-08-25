@@ -1,0 +1,141 @@
+\documentclass[11pt]{article}
+\usepackage{mathunal-base}
+\mathunalfuente{serif}
+
+\renewcommand{\examtitulo}{Tercer Examen Parcial de Métodos Numéricos (25\%)}
+\renewcommand{\examfecha}{24 de noviembre de 2007}
+
+\begin{document}
+
+\examheader
+
+\vspace{4pt}
+\noindent Nombre: \dotfill\ Carné: \dotfill\ Grupo: \dotfill
+
+\vspace{8pt}
+\noindent\textbf{Duración: 1 hora y 50 minutos}
+
+\begin{center}\textbf{Toda respuesta debe estar debidamente justificada}\end{center}
+
+\begin{enumerate}
+\item{} (20\%) Considere el P.V.I.
+\[
+\left\{
+\begin{aligned}
+y' &= \frac{4t^3y}{1+t^4}, \qquad 1\leq t\leq 3\\
+y(1) &= 2
+\end{aligned}
+\right.
+\]
+\begin{enumerate}
+\item{} (15\%) ¿Satisface la función $f(t,y)=\dfrac{4t^3y}{1+t^4}$ una condición de Lipschitz con respecto a la variable $y$ en la región $R=\{(t,y)\ /\ 1\leq t\leq 3,\ -\infty<y<\infty\}$? En caso afirmativo, determine el menor valor de la constante de Lipschitz.
+
+\vspace{4cm}
+
+\item{} (5\%) ¿Tiene este problema con valor inicial una única solución?
+
+\vspace{2cm}
+\end{enumerate}
+
+\item{} (15\%) Considere el P.V.I.
+\[
+\left\{
+\begin{aligned}
+y' &= te^{-2y}, \qquad t\geq 0\\
+y(0) &= 1
+\end{aligned}
+\right.
+\]
+\noindent Para \textbf{este} problema de valor inicial, escriba la fórmula de avance del método de Taylor de orden 2.
+
+\vspace{5cm}
+
+\item{} Considere el problema de contorno o de valor en la frontera
+\[
+\left\{
+\begin{aligned}
+y''-e^{-t}y'-y &= t^2, \qquad 2\leq t\leq 4\\
+y(2) &= -1,\quad y(4)=3.5
+\end{aligned}
+\right.
+\]
+\begin{enumerate}
+\item{} (10\%) ¿Tiene este problema de contorno o de valores en la frontera una única solución?
+
+\vspace{3cm}
+
+\item{} (20\%) Unas soluciones aproximadas de los problemas de valor inicial asociados:
+\[
+\left\{
+\begin{aligned}
+u''-e^{-t}u'-u &= t^2\\
+u(2)&=-1\\
+u'(2)&=0
+\end{aligned}
+\right.
+\qquad 2\leq t\leq 4
+\qquad
+\left\{
+\begin{aligned}
+w''-e^{-t}w'-w &= 0\\
+w(2)&=0\\
+w'(2)&=1
+\end{aligned}
+\right.
+\qquad 2\leq t\leq 4
+\]
+
+\vspace{4pt}
+\noindent con tamaño de paso $h=0.5$ empleando el método de Heun están dadas en las siguientes tablas.
+
+\vspace{6pt}
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+ & $t=2$ & $t=2.5$ & $t=3$ & $t=3.5$ & $t=4$ \\ \hline
+$u(t)$ & $-1$ & $-0.6250$ & $1.1462$ & $5.4316$ & $14.0646$ \\ \hline
+$u'(t)$ & $0$ & $2.0933$ & $5.9600$ & $\mathbf{D}$ & $24.3172$ \\ \hline
+\end{tabular}
+
+\vspace{6pt}
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+ & $t=2$ & $t=2.5$ & $t=3$ & $t=3.5$ & $t=4$ \\ \hline
+$w(t)$ & $0$ & $0.5169$ & $1.1840$ & $2.1569$ & $3.6671$ \\ \hline
+$w'(t)$ & $1$ & $1.1807$ & $\mathbf{C}$ & $2.4626$ & $3.8839$ \\ \hline
+\end{tabular}
+\end{center}
+
+\vspace{4pt}
+\noindent Hallar los valores de $C$ y $D$ \textbf{definiendo claramente} las variables y funciones empleadas.
+
+\vspace{6cm}
+
+\item{} (10\%) \textbf{Hallar} una aproximación a la solución del problema de contorno o de valores en la frontera con el mismo tamaño de paso.
+
+\vspace{5cm}
+\end{enumerate}
+
+\item{} (20\%) Considere el problema
+\[
+\left\{
+\begin{aligned}
+\frac{\partial u}{\partial t} - \frac{1}{9}\frac{\partial^2 u}{\partial x^2} &= 0, \qquad 0<x<1,\ t>0\\
+u(0,t) &= e^t, \qquad t\geq 0\\
+u(1,t) &= t^2+1, \qquad t\geq 0\\
+u(x,0) &= \cos(2\pi x), \qquad 0\leq x\leq 1
+\end{aligned}
+\right.
+\]
+\noindent Empleando el método de diferencias finitas progresivas con $h=\frac{1}{5}$ y $k=0.15$, hallar aproximaciones de $u(x,t)$ para:
+\begin{enumerate}
+\item{} (4\%) $u\left(\frac{3}{5},0\right)$.
+\item{} (4\%) $u(1,0.3)$.
+\item{} (12\%) $u\left(\frac{1}{5},0.15\right)$.
+\end{enumerate}
+
+\vspace{6cm}
+\end{enumerate}
+
+\examfooter
+\end{document}

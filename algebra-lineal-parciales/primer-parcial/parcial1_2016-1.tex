@@ -1,0 +1,173 @@
+\documentclass[11pt]{article}
+\usepackage{mathunal-base}
+\mathunalfuente{serif}
+
+\renewcommand{\examtitulo}{Primer Examen Parcial de Álgebra Lineal}
+\renewcommand{\examfecha}{12 de Marzo de 2016}
+
+\begin{document}
+
+\examheader
+
+\vspace{4pt}
+\noindent
+\begin{minipage}[t]{0.62\linewidth}
+\textbf{Puntaje. Sólo para uso Oficial}\\[4pt]
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+1--5 & 6 & 7 & 8 & \textbf{TOTAL} & \textbf{NOTA} \\ \hline
+ & & & & & \\ \hline
+\end{tabular}
+\end{minipage}
+
+\vspace{6pt}
+\noindent\textbf{Instrucciones:} La duración del examen es de 1 hora y 50 minutos. El examen consta de nueve preguntas en dos hojas impresas por ambos lados, verifique que su examen esté completo y consérvelo con el gancho. En las preguntas con procedimiento justifique sus respuestas en los espacios asignados. No está permitido sacar hojas en blanco ni ningún tipo de apuntes durante el examen, verifique que su celular esté apagado. No se permite el uso de calculadora.
+
+\vspace{6pt}
+\noindent\textbf{IDENTIFICACIÓN}
+
+\vspace{8pt}
+\noindent Nombre: \dotfill\ Cédula \dotfill
+
+\vspace{4pt}
+\noindent Profesor: \dotfill\ Grupo \dotfill
+
+\vspace{10pt}
+\begin{center}\textbf{I. Completación}\end{center}
+\noindent En las preguntas 1 a 5 complete los espacios en blanco. \textbf{NOTA}: En esta sección se califica sólo la respuesta y no se tiene en cuenta el procedimiento.
+
+\begin{enumerate}
+\item{}[8pt] Sea $A = \begin{bmatrix}1&0&3\\k&1&1\\0&1&2\end{bmatrix}$. Encontrar el valor de $k$ tal que $\det(A)=10$.
+
+\vspace{4pt}
+\fbox{\begin{minipage}[t][2.3cm]{\dimexpr\linewidth-2\fboxsep-2\fboxrule}
+$k = $
+\end{minipage}}
+
+\item{}[8pt] Considere los vectores $\mathbf{u} = \begin{bmatrix}1\\0\\-1\end{bmatrix}$, $\mathbf{v} = \begin{bmatrix}0\\1\\2\end{bmatrix}$, $\mathbf{w} = \begin{bmatrix}1\\1\\1\end{bmatrix}$ y $\mathbf{x} = \begin{bmatrix}1\\-1\\1\end{bmatrix}$. ¿Cuáles de las siguientes afirmaciones son verdaderas?
+
+\vspace{4pt}
+\noindent $I.\ \mathbf{u}$ pertenece a $gen\{\mathbf{v},\mathbf{w}\}$ \hspace{1cm} $II.\ \mathbf{v}$ pertenece a $gen\{\mathbf{w},\mathbf{x}\}$ \hspace{1cm} $III.\ \mathbf{u}+\mathbf{x}$ no es ortogonal a $\mathbf{v}$
+
+\vspace{6pt}
+\noindent
+\begin{minipage}[t]{0.33\linewidth}
+$(a)$ $I$ y $II$ únicamente
+\end{minipage}%
+\begin{minipage}[t]{0.33\linewidth}
+$(b)$ $II$ únicamente
+\end{minipage}%
+\begin{minipage}[t]{0.33\linewidth}
+$(c)$ $III$ únicamente
+\end{minipage}
+
+\vspace{4pt}
+\noindent
+\begin{minipage}[t]{0.5\linewidth}
+$(d)$ $I$ y $III$ únicamente
+\end{minipage}%
+\begin{minipage}[t]{0.5\linewidth}
+$(e)$ Ninguna de las anteriores
+\end{minipage}
+
+\item{}[8pt] Considere los vectores $\mathbf{y} = \begin{bmatrix}2\\0\\1\end{bmatrix}$ y $\mathbf{z} = \begin{bmatrix}1\\1\\-1\end{bmatrix}$. Encontrar $\mathrm{proy}_{\mathbf{y}}(\mathbf{z})$.
+
+\vspace{4pt}
+\fbox{\begin{minipage}[t][2.3cm]{\dimexpr\linewidth-2\fboxsep-2\fboxrule}
+$\mathrm{proy}_{\mathbf{y}}(\mathbf{z}) = $
+\end{minipage}}
+
+\item{}[12pt] Indique con una X si los siguientes enunciados son verdaderos o falsos. Cada numeral vale 3 puntos.
+
+\vspace{6pt}
+\noindent (a) Si $A$ es una matriz $4\times 4$ tal que $\mathrm{Rango}(A)=3$, entonces las filas de $A$ son vectores linealmente independientes.
+
+\noindent (V)\ \dotfill\ (F).\ \dotfill
+
+\vspace{6pt}
+\noindent (b) Si $\mathbf{v_1}$ y $\mathbf{v_2}$ son dos vectores en $\mathbb{R}^3$ entonces $gen\{\mathbf{v_1},\mathbf{v_2}\}$ siempre es un plano que pasa por el origen.
+
+\noindent (V)\ \dotfill\ (F).\ \dotfill
+
+\vspace{6pt}
+\noindent (c) Todo sistema de ecuaciones lineales homogéneo con mas ecuaciones que variables tiene al menos una solución.
+
+\noindent (V)\ \dotfill\ (F).\ \dotfill
+
+\vspace{6pt}
+\noindent (d) Si $\mathbf{v_1}, \mathbf{v_2}, \mathbf{v_3}$ son vectores en $\mathbb{R}^3$ tales que $\mathbf{v_1}$ es ortogonal a $\mathbf{v_2}$ y $\mathbf{v_2}$ es ortogonal a $\mathbf{v_3}$, entonces $\mathbf{v_1}$ tiene que ser ortogonal a $\mathbf{v_3}$.
+
+\noindent (V)\ \dotfill\ (F).\ \dotfill
+
+\item{}[8pt] Sea $B = \begin{bmatrix}1&-1\\1&2\\3&0\end{bmatrix}$ y definamos los vectores $\mathbf{u} = B\begin{bmatrix}1\\-2\end{bmatrix}$ y $\mathbf{w} = B\begin{bmatrix}0\\1\end{bmatrix}$. Encontrar $\mathbf{u}\cdot\mathbf{w}$.
+
+\vspace{4pt}
+\fbox{\begin{minipage}[t][2.3cm]{\dimexpr\linewidth-2\fboxsep-2\fboxrule}
+$\mathbf{u}\cdot\mathbf{w} = $
+\end{minipage}}
+\end{enumerate}
+
+\vspace{6pt}
+\begin{center}\textbf{II. Solución con Procedimiento}\end{center}
+
+\begin{enumerate}
+\setcounter{enumi}{5}
+\item{}[12pt] Supongamos que $\mathbf{u}, \mathbf{v}$ y $\mathbf{w}$ son vectores en $\mathbb{R}^n$. Demostrar que los vectores $\mathbf{u}-\mathbf{v}$, $\mathbf{v}-\mathbf{w}$ y $\mathbf{u}-\mathbf{w}$ son linealmente dependientes.
+
+\vspace{6cm}
+
+\item{}[20pt] En la figura siguiente se muestra una red de diques de irrigación con fluídos medidos en miles de litros por día.
+
+\vspace{6pt}
+\begin{center}
+\begin{tikzpicture}[>=Stealth, scale=1]
+  \coordinate (A) at (2.6,3);
+  \coordinate (B) at (1.3,1.5);
+  \coordinate (C) at (0,0);
+  \coordinate (D) at (4,0);
+  \draw[thick,->] (A) -- node[right,pos=0.55]{$f_2$} (B);
+  \draw[thick,->] (B) -- node[left,pos=0.55]{$f_4$} (C);
+  \draw[thick,->] (A) -- node[right,pos=0.55]{$f_1$} (D);
+  \draw[thick,->] (D) -- node[below,sloped,pos=0.55]{$f_3$} (B);
+  \draw[thick,->] (D) -- node[below]{$f_5$} (C);
+  \fill (A) circle (1.5pt) node[above right]{A};
+  \fill (B) circle (1.5pt) node[left]{B};
+  \fill (C) circle (1.5pt) node[below left]{C};
+  \fill (D) circle (1.5pt) node[below right]{D};
+  \draw[->] (1.9,4) -- (A) node[midway,right]{100};
+  \draw[->] (B) -- ++(-1,1.3) node[above left]{150};
+  \draw[->] (C) -- ++(-0.7,1.2) node[above left]{150};
+  \draw[->] (D) -- ++(1.4,0) node[midway,above]{200};
+\end{tikzpicture}
+\end{center}
+
+\begin{enumerate}
+\item{}[15pt] Establezca y resuelva el sistema de ecuaciones para encontrar los diferentes flujos.
+
+\vspace{5cm}
+
+\item{}[5pt] Suponga que $DC$ está cerrado. ¿Cuál es el flujo en $BC$?
+
+\vspace{3cm}
+\end{enumerate}
+
+\item{}
+\begin{enumerate}
+\item{}[12pt] Encuentre la recta de intersección de los siguientes planos
+\[
+\begin{aligned}
+x+2y+z &= -1\\
+2x+2y+4z &= 4.
+\end{aligned}
+\]
+
+\vspace{6cm}
+
+\item{}[12pt] Considere los vectores $\mathbf{a} = \begin{bmatrix}1\\2\\-1\end{bmatrix}$, $\mathbf{b} = \begin{bmatrix}0\\3\\1\end{bmatrix}$, $\mathbf{c} = \begin{bmatrix}2\\1\\-3\end{bmatrix}$. Determinar si los vectores $\mathbf{a}$, $\mathbf{b}$ y $\mathbf{c}$ son linealmente independientes o linealmente dependientes.
+
+\vspace{5cm}
+\end{enumerate}
+\end{enumerate}
+
+\examfooter
+\end{document}

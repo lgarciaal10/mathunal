@@ -32,7 +32,7 @@
        mientras el resto ya estaba en claro: temas cruzados en la misma pantalla.
        Esto es la unica fuente de verdad al arrancar; setTheme() sigue existiendo
        para el cambio en vivo. -->
-  <script>(function(){try{var t=localStorage.getItem('mu-theme');if(t==='light'||t==='gray'||t==='dark'){document.documentElement.setAttribute('data-theme',t);}}catch(e){}})();</script>
+  <script>(function(){try{var t=localStorage.getItem('mu-theme');if(t==='light'||t==='gray'||t==='dark'||t==='black'){document.documentElement.setAttribute('data-theme',t);}}catch(e){}})();</script>
   <script>window.onerror=function(m,s){if(s&&s.indexOf('email-decode')>-1)return true;};window.addEventListener('error',function(e){if(e.filename&&e.filename.indexOf('email-decode')>-1){e.preventDefault();return true;}},true);</script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>MathUNAL · Parciales, Talleres y Solucionarios · UNAL Medellín</title>
@@ -52,8 +52,10 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="MathUNAL · Parciales y Simulacros · UNAL Medellín">
   <meta name="twitter:description" content="Parciales resueltos, simulacros interactivos y formularios de matemáticas para ingeniería.">
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCI+PHJlY3Qgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0IiByeD0iMTQiIGZpbGw9IiMxMjIwNDAiLz48dGV4dCB4PSIzMyIgeT0iNTIiIGZvbnQtc2l6ZT0iNTYiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IndoaXRlIiBmb250LWZhbWlseT0iR2VvcmdpYSxzZXJpZiIgZm9udC1zdHlsZT0iaXRhbGljIj7iiKs8L3RleHQ+PC9zdmc+">
-  <link rel="apple-touch-icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCI+PHJlY3Qgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0IiByeD0iMTQiIGZpbGw9IiMxMjIwNDAiLz48dGV4dCB4PSIzMyIgeT0iNTIiIGZvbnQtc2l6ZT0iNTYiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IndoaXRlIiBmb250LWZhbWlseT0iR2VvcmdpYSxzZXJpZiIgZm9udC1zdHlsZT0iaXRhbGljIj7iiKs8L3RleHQ+PC9zdmc+">
+  <link rel="icon" type="image/png" sizes="64x64" href="/favicon.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="/icon-512.png">
+  <link rel="apple-touch-icon" href="/icon-192.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Literata:ital,wght@0,400;0,600;0,700;0,900;1,400;1,700&family=Space+Grotesk:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=Source+Serif+4:ital,wght@0,400;0,500;0,600;0,700;1,400&family=EB+Garamond:ital@0;1&display=swap" rel="stylesheet">
@@ -166,6 +168,34 @@ html[data-theme="gray"]{
   --ok:#22C55E;--bad:#F87171;--warn:#FBBF24;
   --shadow-card: 0 2px 8px rgba(0,0,0,.2), 0 0 0 1px rgba(255,255,255,.05);
   --shadow-hover: 0 12px 40px rgba(0,0,0,.3), 0 0 0 1px rgba(232,99,42,.12);
+}
+
+/* ── TEMA BLACK (OLED) ── variante casi-negro del Dark Blue: mismo acento
+   naranja y misma jerarquía de texto, pero fondos oscurecidos al máximo para
+   ahorrar batería en pantallas OLED. No es #000 puro -- eso aplana las sombras
+   y el efecto "liquid glass" del nav; se usa un negro casi-puro con un poquito
+   de aire entre capas para conservar la profundidad. */
+html[data-theme="black"]{
+  --bg:    #000000;
+  --bg2:   #060606;
+  --card:  #0D0D0D;
+  --card2: #141414;
+  --t1:    #F5F5F5;
+  --t2:    #9A9A9A;
+  --t3:    #6E6E6E;
+  --br:    rgba(255,255,255,.07);
+  --lay1:  rgba(255,255,255,.035);
+  --lay2:  rgba(255,255,255,.06);
+  --lay3:  rgba(255,255,255,.1);
+  --lay4:  rgba(255,255,255,.15);
+  --br2:   rgba(255,255,255,.12);
+  --bra:   rgba(232,99,42,.4);
+  --adim:  rgba(232,99,42,.12);
+  --aglow: rgba(232,99,42,.3);
+  --grn:   #2DD4BF;--red:#FB7185;--yel:#FBBF24;
+  --ok:    #22C55E;--bad:#F87171;--warn:#FBBF24;
+  --shadow-card: 0 2px 10px rgba(0,0,0,.5), 0 0 0 1px rgba(255,255,255,.05);
+  --shadow-hover: 0 14px 44px rgba(0,0,0,.6), 0 0 0 1px rgba(232,99,42,.18);
 }
 
 html[data-theme="light"]{
@@ -980,7 +1010,7 @@ footer{background:var(--bg2);border-top:1px solid var(--br);padding:4rem 3rem 2r
 }
 /* Papel oscuro calido (tema "dark", azul marino) -- sigue siendo papel y tinta,
    no la app: solo que ahora es una hoja bajo luz tenue en vez de luz de dia. */
-html[data-theme="dark"]{
+html[data-theme="dark"],html[data-theme="black"]{
   --pp-paper:#211D18; --pp-ink:#EDE6D6; --pp-ink2:#A69A82;
   --pp-rule:#EDE6D6; --pp-accent:#D97B65; --pp-hair:#3d372c; --pp-good:#8BAF6E;
   --pp-warn:#E8B04B;
@@ -4787,6 +4817,7 @@ customElements.define('glass-element', GlassElement);
       <span class="sd-label">Tema</span>
       <div class="sd-group">
         <button class="sd-btn on" id="th-dark"  onclick="setTheme('dark')"  title="Dark Blue"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg> Dark Blue</button>
+        <button class="sd-btn"   id="th-black" onclick="setTheme('black')"  title="Black"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="9"/></svg> Black</button>
         <button class="sd-btn"   id="th-gray"  onclick="setTheme('gray')"  title="Gray"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="8"/></svg> Gris</button>
         <button class="sd-btn"   id="th-light" onclick="setTheme('light')" title="Light"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><line x1="12" y1="2" x2="12" y2="6"/><line x1="12" y1="18" x2="12" y2="22"/><line x1="4.22" y1="4.22" x2="7.05" y2="7.05"/><line x1="16.95" y1="16.95" x2="19.78" y2="19.78"/><line x1="2" y1="12" x2="6" y2="12"/><line x1="18" y1="12" x2="22" y2="12"/><line x1="4.22" y1="19.78" x2="7.05" y2="16.95"/><line x1="16.95" y1="7.05" x2="19.78" y2="4.22"/></svg> Claro</button>
       </div>
@@ -4819,6 +4850,7 @@ customElements.define('glass-element', GlassElement);
   <div class="mob-theme-row">
     <span>Tema</span>
     <button class="mob-theme-btn on" onclick="setTheme('dark');syncMobTheme('dark')"><svg width="14" height="14" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg> Dark Blue</button>
+    <button class="mob-theme-btn" onclick="setTheme('black');syncMobTheme('black')"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="9"/></svg> Black</button>
     <button class="mob-theme-btn" onclick="setTheme('gray');syncMobTheme('gray')"><svg width="14" height="14" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"><circle cx="12" cy="12" r="8"/></svg> Gris</button>
     <button class="mob-theme-btn" onclick="setTheme('light');syncMobTheme('light')"><svg width="14" height="14" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"><circle cx="12" cy="12" r="4"/><line x1="12" y1="2" x2="12" y2="5"/><line x1="12" y1="19" x2="12" y2="22"/><line x1="4.93" y1="4.93" x2="7.05" y2="7.05"/><line x1="16.95" y1="16.95" x2="19.07" y2="19.07"/><line x1="2" y1="12" x2="5" y2="12"/><line x1="19" y1="12" x2="22" y2="12"/><line x1="4.93" y1="19.07" x2="7.05" y2="16.95"/><line x1="16.95" y1="7.05" x2="19.07" y2="4.93"/></svg> Claro</button>
   </div>
@@ -6227,8 +6259,9 @@ document.addEventListener('click',function(e){
 }
 
 function syncMobTheme(t){
+  var needle = t==='dark'?'dark blue':t==='black'?'black':t==='gray'?'gris':'claro';
   document.querySelectorAll('.mob-theme-btn').forEach(function(b){
-    b.classList.toggle('on', b.textContent.toLowerCase().includes(t==='dark'?'dark':t==='gray'?'gris':'claro'));
+    b.classList.toggle('on', b.textContent.toLowerCase().trim()===needle);
   });
 }
 /* setTheme: definida una sola vez, en el script persistente (ver fondo del archivo). */
@@ -6864,6 +6897,7 @@ function _muSpEnd(){
     <div class="settings-wrap"><button class="settings-btn" aria-label="Ajustes" onclick="toggleSettings(this)" aria-haspopup="true" aria-expanded="false" aria-controls="sd"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></button>
       <div class="settings-dropdown" id="sd"><div class="sd-section"><div class="sd-label">IDIOMA</div><div class="sd-row"><button class="sd-btn on" id="btn-es" onclick="setLang('es')">ES</button><button class="sd-btn" id="btn-en" onclick="setLang('en')">EN</button></div></div><div class="sd-section"><div class="sd-label">TEMA</div><div class="sd-row">
         <button class="sd-btn on" id="th-dark" onclick="setTheme('dark')"><svg width="13" height="13" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" style="vertical-align:-2px"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg> Dark Blue</button>
+        <button class="sd-btn" id="th-black" onclick="setTheme('black')"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" style="vertical-align:-2px"><circle cx="12" cy="12" r="9"/></svg> Black</button>
         <button class="sd-btn" id="th-gray" onclick="setTheme('gray')"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" style="vertical-align:-2px"><circle cx="12" cy="12" r="9"/></svg> Gris</button>
         <button class="sd-btn" id="th-light" onclick="setTheme('light')"><svg width="13" height="13" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" style="vertical-align:-2px"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.2" y1="4.2" x2="5.6" y2="5.6"/><line x1="18.4" y1="18.4" x2="19.8" y2="19.8"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.2" y1="19.8" x2="5.6" y2="18.4"/><line x1="18.4" y1="5.6" x2="19.8" y2="4.2"/></svg> Light</button>
       </div></div></div>
@@ -6937,6 +6971,7 @@ if(!window.__muSdClickBound){window.__muSdClickBound=true;document.addEventListe
     <div class="settings-wrap"><button class="settings-btn" aria-label="Ajustes" onclick="toggleSettings(this)" aria-haspopup="true" aria-expanded="false" aria-controls="sd"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></button>
       <div class="settings-dropdown" id="sd"><div class="sd-section"><div class="sd-label">IDIOMA</div><div class="sd-row"><button class="sd-btn on" id="btn-es" onclick="setLang('es')">ES</button><button class="sd-btn" id="btn-en" onclick="setLang('en')">EN</button></div></div><div class="sd-section"><div class="sd-label">TEMA</div><div class="sd-row">
         <button class="sd-btn on" id="th-dark" onclick="setTheme('dark')"><svg width="13" height="13" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" style="vertical-align:-2px"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg> Dark Blue</button>
+        <button class="sd-btn" id="th-black" onclick="setTheme('black')"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" style="vertical-align:-2px"><circle cx="12" cy="12" r="9"/></svg> Black</button>
         <button class="sd-btn" id="th-gray" onclick="setTheme('gray')"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" style="vertical-align:-2px"><circle cx="12" cy="12" r="9"/></svg> Gris</button>
         <button class="sd-btn" id="th-light" onclick="setTheme('light')"><svg width="13" height="13" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" style="vertical-align:-2px"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.2" y1="4.2" x2="5.6" y2="5.6"/><line x1="18.4" y1="18.4" x2="19.8" y2="19.8"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.2" y1="19.8" x2="5.6" y2="18.4"/><line x1="18.4" y1="5.6" x2="19.8" y2="4.2"/></svg> Light</button>
       </div></div></div>
@@ -8357,6 +8392,7 @@ function _showScreen(id){
     <div class="settings-wrap"><button class="settings-btn" aria-label="Ajustes" onclick="toggleSettings(this)" aria-haspopup="true" aria-expanded="false" aria-controls="sd"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></button>
       <div class="settings-dropdown" id="sd"><div class="sd-section"><div class="sd-label">IDIOMA</div><div class="sd-row"><button class="sd-btn on" id="btn-es" onclick="setLang('es')">ES</button><button class="sd-btn" id="btn-en" onclick="setLang('en')">EN</button></div></div><div class="sd-section"><div class="sd-label">TEMA</div><div class="sd-row">
         <button class="sd-btn on" id="th-dark" onclick="setTheme('dark')"><svg width="13" height="13" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" style="vertical-align:-2px"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg> Dark Blue</button>
+        <button class="sd-btn" id="th-black" onclick="setTheme('black')"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" style="vertical-align:-2px"><circle cx="12" cy="12" r="9"/></svg> Black</button>
         <button class="sd-btn" id="th-gray" onclick="setTheme('gray')"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" style="vertical-align:-2px"><circle cx="12" cy="12" r="9"/></svg> Gris</button>
         <button class="sd-btn" id="th-light" onclick="setTheme('light')"><svg width="13" height="13" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" style="vertical-align:-2px"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.2" y1="4.2" x2="5.6" y2="5.6"/><line x1="18.4" y1="18.4" x2="19.8" y2="19.8"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.2" y1="19.8" x2="5.6" y2="18.4"/><line x1="18.4" y1="5.6" x2="19.8" y2="4.2"/></svg> Light</button>
       </div></div></div>
@@ -10142,6 +10178,7 @@ function vcDraw(){
     <div class="settings-wrap"><button class="settings-btn" aria-label="Ajustes" onclick="toggleSettings(this)" aria-haspopup="true" aria-expanded="false" aria-controls="sd"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></button>
       <div class="settings-dropdown" id="sd"><div class="sd-section"><div class="sd-label">IDIOMA</div><div class="sd-row"><button class="sd-btn on" id="btn-es" onclick="setLang('es')">ES</button><button class="sd-btn" id="btn-en" onclick="setLang('en')">EN</button></div></div><div class="sd-section"><div class="sd-label">TEMA</div><div class="sd-row">
         <button class="sd-btn on" id="th-dark" onclick="setTheme('dark')"><svg width="13" height="13" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" style="vertical-align:-2px"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg> Dark Blue</button>
+        <button class="sd-btn" id="th-black" onclick="setTheme('black')"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" style="vertical-align:-2px"><circle cx="12" cy="12" r="9"/></svg> Black</button>
         <button class="sd-btn" id="th-gray" onclick="setTheme('gray')"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" style="vertical-align:-2px"><circle cx="12" cy="12" r="9"/></svg> Gris</button>
         <button class="sd-btn" id="th-light" onclick="setTheme('light')"><svg width="13" height="13" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" style="vertical-align:-2px"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.2" y1="4.2" x2="5.6" y2="5.6"/><line x1="18.4" y1="18.4" x2="19.8" y2="19.8"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.2" y1="19.8" x2="5.6" y2="18.4"/><line x1="18.4" y1="5.6" x2="19.8" y2="4.2"/></svg> Light</button>
       </div></div></div>
@@ -10611,6 +10648,7 @@ function _diagReiniciar(){
     <div class="settings-wrap"><button class="settings-btn" aria-label="Ajustes" onclick="toggleSettings(this)" aria-haspopup="true" aria-expanded="false" aria-controls="sd"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></button>
       <div class="settings-dropdown" id="sd"><div class="sd-section"><div class="sd-label">IDIOMA</div><div class="sd-row"><button class="sd-btn on" id="btn-es" onclick="setLang('es')">ES</button><button class="sd-btn" id="btn-en" onclick="setLang('en')">EN</button></div></div><div class="sd-section"><div class="sd-label">TEMA</div><div class="sd-row">
         <button class="sd-btn on" id="th-dark" onclick="setTheme('dark')"><svg width="13" height="13" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" style="vertical-align:-2px"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg> Dark Blue</button>
+        <button class="sd-btn" id="th-black" onclick="setTheme('black')"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" style="vertical-align:-2px"><circle cx="12" cy="12" r="9"/></svg> Black</button>
         <button class="sd-btn" id="th-gray" onclick="setTheme('gray')"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" style="vertical-align:-2px"><circle cx="12" cy="12" r="9"/></svg> Gris</button>
         <button class="sd-btn" id="th-light" onclick="setTheme('light')"><svg width="13" height="13" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" style="vertical-align:-2px"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.2" y1="4.2" x2="5.6" y2="5.6"/><line x1="18.4" y1="18.4" x2="19.8" y2="19.8"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.2" y1="19.8" x2="5.6" y2="18.4"/><line x1="18.4" y1="5.6" x2="19.8" y2="4.2"/></svg> Light</button>
       </div></div></div>
@@ -12373,7 +12411,7 @@ if (document.readyState === 'loading') {
 
 /* ── MEJORA 2: Theme toggle nav sync ── */
 function syncThemeToggle(t){
-  ['dark','gray','light'].forEach(function(x){
+  ['dark','black','gray','light'].forEach(function(x){
     var el = document.getElementById('tt-'+x);
     if(el) el.classList.toggle('on', x===t);
     // también el settings dropdown original
@@ -12384,7 +12422,7 @@ function syncThemeToggle(t){
 // Patch setTheme para que también sincronice el toggle visible
 /* Rota el tema oscuro -> gris -> claro. La usa el boton de engranaje del nav. */
 function muCycleTheme(){
-  var orden = ['dark','gray','light'];
+  var orden = ['dark','black','gray','light'];
   var actual = document.documentElement.getAttribute('data-theme') || 'dark';
   var sig = orden[(orden.indexOf(actual) + 1) % orden.length];
   if(typeof window.setTheme === 'function') window.setTheme(sig);

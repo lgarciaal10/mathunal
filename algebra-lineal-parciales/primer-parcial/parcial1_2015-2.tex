@@ -1,0 +1,154 @@
+\documentclass[11pt]{article}
+\usepackage{mathunal-base}
+\mathunalfuente{serif}
+
+\renewcommand{\examtitulo}{Primer Examen Parcial de Álgebra Lineal}
+\renewcommand{\examfecha}{14 de Septiembre del 2015}
+
+\begin{document}
+
+\examheader
+
+\vspace{4pt}
+\noindent
+\begin{minipage}[t]{0.62\linewidth}
+\textbf{Puntaje. Sólo para uso Oficial}\\[4pt]
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+1--6 & 7 & 8 & 9 & \textbf{TOTAL} & \textbf{NOTA} \\ \hline
+ & & & & & \\ \hline
+\end{tabular}
+\end{minipage}
+
+\vspace{6pt}
+\noindent\textbf{Instrucciones:} La duración del examen es de 1 hora y 50 minutos. El examen consta de nueve preguntas en dos hojas impresas por ambos lados, verifique que su examen esté completo y consérvelo con el gancho. En las preguntas con procedimiento justifique sus respuestas en los espacios asignados. No está permitido sacar hojas en blanco ni ningún tipo de apuntes durante el examen, verifique que su celular esté apagado. No se permite el uso de calculadora.
+
+\vspace{6pt}
+\noindent\textbf{IDENTIFICACIÓN}
+
+\vspace{8pt}
+\noindent Nombre: \dotfill\ Cédula \dotfill
+
+\vspace{4pt}
+\noindent Profesor: \dotfill\ Grupo \dotfill
+
+\vspace{10pt}
+\begin{center}\textbf{I. Completación}\end{center}
+\noindent En las preguntas 1 a 6 complete los espacios en blanco. \textbf{NOTA}: En esta sección se califica sólo la respuesta y no se tiene en cuenta el procedimiento.
+
+\begin{enumerate}
+\item{}[7pt] Supongamos que $\mathbf{u}$ y $\mathbf{v}$ son vectores en $\mathbb{R}^n$ tales que $||\mathbf{u}||=6$ y $||\mathbf{v}||=2$. Encontrar el valor máximo de $||\mathbf{u}-\mathbf{v}||$.
+
+\vspace{4pt}
+\fbox{\begin{minipage}[t][2.3cm]{\dimexpr\linewidth-2\fboxsep-2\fboxrule}
+Valor máximo de $||\mathbf{u}-\mathbf{v}|| = $
+\end{minipage}}
+
+\item{}[8pt] Determine si los siguientes sistemas tienen solución única (Escriba SI o NO en la línea debajo de cada sistema)
+
+\vspace{6pt}
+\noindent
+\begin{minipage}[t]{0.5\linewidth}
+$\begin{aligned}
+y_1+2y_2+33y_3+y_5 &=0\\
+y_1-y_3+y_4 &=0\\
+y_2+7y_3+y_5 &=0
+\end{aligned}$
+
+\vspace{4pt}
+\dotfill
+\end{minipage}%
+\begin{minipage}[t]{0.46\linewidth}
+$\begin{aligned}
+3x+5y+2z &=3\\
+y-8z &=-1\\
+13z &=2
+\end{aligned}$
+
+\vspace{4pt}
+\dotfill
+\end{minipage}
+
+\item{}[7pt] Sea $B = \begin{bmatrix}3&0&1\\-1&5&0\\0&1&2\end{bmatrix}$ y $\mathbf{x} = \begin{bmatrix}1\\1\\0\end{bmatrix}$. La longitud del vector $B\mathbf{x}$ es
+
+\vspace{4pt}
+\fbox{\begin{minipage}[t][1.8cm]{\dimexpr\linewidth-2\fboxsep-2\fboxrule}
+$||B\mathbf{x}|| = $
+\end{minipage}}
+
+\item{}[7pt] Sea $A$ una matriz de $r\times r$ cuyas filas son linealmente independientes. ¿Cuál es su rango?
+
+\vspace{4pt}
+\fbox{\begin{minipage}[t][1.8cm]{\dimexpr\linewidth-2\fboxsep-2\fboxrule}
+$\mathrm{Rango}(A) = $
+\end{minipage}}
+
+\item{}[7pt] Suponga que se tiene un sistema de ecuaciones lineales homogéneo con 7 ecuaciones y 10 variables. ¿Cuál o cuales de las siguientes afirmaciones son necesariamente ciertas?
+
+\vspace{6pt}
+\noindent
+\begin{minipage}[t]{0.5\linewidth}
+$(a)$ El sistema no tiene soluciones.
+\end{minipage}%
+\begin{minipage}[t]{0.46\linewidth}
+$(b)$ El sistema tiene una única solución.
+\end{minipage}
+
+\vspace{4pt}
+\noindent
+\begin{minipage}[t]{0.5\linewidth}
+$(c)$ El sistema tiene infinitas soluciones.
+\end{minipage}%
+\begin{minipage}[t]{0.46\linewidth}
+$(d)$ Ninguna de las anteriores.
+\end{minipage}
+
+\item{}[8pt] Sean $\mathbf{a} = \begin{bmatrix}1\\-1\\2\end{bmatrix}$ y $\mathbf{b} = \begin{bmatrix}z\\2\\w\end{bmatrix}$. Encontrar valores para $z$ y $w$ de tal manera que los vectores $\mathbf{a}$ y $\mathbf{b}$ sean linealmente dependientes.
+
+\vspace{4pt}
+\fbox{\begin{minipage}[t][1.8cm]{\dimexpr\linewidth-2\fboxsep-2\fboxrule}
+$z = $ \hspace{2cm} $w = $
+\end{minipage}}
+\end{enumerate}
+
+\vspace{6pt}
+\begin{center}\textbf{II. Solución con Procedimiento}\end{center}
+
+\begin{enumerate}
+\setcounter{enumi}{6}
+\item{}[10pt] Supongamos que $\mathbf{x}$ y $\mathbf{y}$ son vectores en $\mathbb{R}^n$. Demostrar
+\[
+||\mathbf{x}+\mathbf{y}||^2 + ||\mathbf{x}-\mathbf{y}||^2 = 2||\mathbf{x}||^2 + 2||\mathbf{y}||^2.
+\]
+
+\vspace{6cm}
+
+\item{}[26pt] Un cafetalero vende tres mezclas de café: la mezcla de la casa que contiene 300 gramos de café del Tolima, 100 gramos de café de Antioquia y 100 gramos de café del Quindío; la mezcla especial que contiene 200 gramos de café del Tolima, 200 gramos de café de Antioquia y 100 gramos de café del Quindío y la mezcla gourmet que contiene 100 gramos de café del Tolima, 300 gramos de café de Antioquia y 100 gramos de café del Quindío. En este momento el cafetalero dispone de 20 Kg de café del Tolima, 20 Kg. de café de Antioquia y 10 Kg. de café del Quindío.
+\begin{enumerate}
+\item{}[12pt] Si el cafetero quiere usar todo el café que tiene disponible, plantee y resuelva un sistema de ecuaciones lineales que permita hallar las cantidades de cada mezcla que puede vender el cafetalero.
+
+\vspace{6cm}
+
+\item{}[10pt] Encuentre los intervalos de variación de cada variable.
+
+\vspace{6cm}
+
+\item{}[4pt] Suponiendo que se utiliza todo el café disponible ¿cuál es el número máximo de mezclas de la casa que se pueden vender?
+
+\vspace{3cm}
+\end{enumerate}
+
+\item{}[20pt] Sean $w_1 = \begin{bmatrix}1\\2\\2\end{bmatrix}$, $w_2 = \begin{bmatrix}-1\\0\\-1\end{bmatrix}$, $w_3 = \begin{bmatrix}2\\6\\5\end{bmatrix}$ y $w = \begin{bmatrix}\alpha\\\beta\\\gamma\end{bmatrix}$.
+\begin{enumerate}
+\item{}[12pt] ¿Cuáles condiciones deben cumplir $\alpha, \beta$ y $\gamma$ para que $w\in gen(w_1,w_2,w_3)$? En otras palabras, describa restricciones en las entradas $\alpha, \beta$ y $\gamma$ para que $w\in gen(w_1,w_2,w_3)$.
+
+\vspace{6cm}
+
+\item{}[8pt] ¿Es $gen(w_1,w_2,w_3)=\mathbb{R}^3$? Justifique.
+
+\vspace{4cm}
+\end{enumerate}
+\end{enumerate}
+
+\examfooter
+\end{document}

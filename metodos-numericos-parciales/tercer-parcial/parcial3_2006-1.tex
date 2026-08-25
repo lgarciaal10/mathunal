@@ -1,0 +1,68 @@
+\documentclass[11pt]{article}
+\usepackage{mathunal-base}
+\mathunalfuente{serif}
+
+\renewcommand{\examtitulo}{3002192 Métodos Numéricos --- Tercer Examen Parcial (25\%)}
+\renewcommand{\examfecha}{10 de Mayo de 2006}
+
+\begin{document}
+
+\examheader
+
+\vspace{6pt}
+\noindent Nombre: \dotfill\ Carné \dotfill\ Profesor \dotfill\ Grupo \dotfill\ Puntaje \dotfill
+
+\vspace{8pt}
+\noindent Este es un examen en el que queremos evaluar su capacidad para plantear los métodos numéricos presentados en clase. Por tanto le pedimos que escriba todos los pasos intermedios. La duración del examen es 1 hora y 45 minutos.
+
+\vspace{10pt}
+\begin{enumerate}
+\item{}
+\begin{enumerate}
+\item{} (20\%) Encuentre el polinomio $p(x)$ de menor grado que interpola la tabla
+\[
+\begin{array}{c|ccc}
+x_j & -1 & 0 & 1\\ \hline
+f(x_j) & 11 & 1 & -1\\
+f'(x_j) & -24 & & -4
+\end{array}
+\]
+
+\vspace{4cm}
+
+\item{} (10\%) Agregue un solo término al polinomio $p(x)$ para encontrar el polinomio $q(x)$ que, además de interpolar la tabla dada, también cumple $q''(1)=f''(1)=-14$.
+
+\vspace{3cm}
+\end{enumerate}
+
+\item{} Considere la siguiente fórmula de integración numérica para aproximar la integral $\int_0^1 f(x)\,dx$:
+\[
+\frac{1}{8}\left[f(0)+3f\left(\frac{1}{3}\right)+3f\left(\frac{2}{3}\right)+f(1)\right]
+\]
+\begin{enumerate}
+\item{} (15\%) ¿Cuál es el grado de exactitud o precisión de esta fórmula?. \textbf{Justifique su respuesta.}
+
+\vspace{4cm}
+
+\item{} (15\%) Utilice esta fórmula para aproximar $\ln(2)=\int_1^2\frac{dx}{x}$. \textbf{Indique todos los pasos intermedios.}
+
+\vspace{4cm}
+\end{enumerate}
+
+\item{} (40\%) Determine los valores de $a, b, c$ y $d$ para que la función siguiente sea un interpolante de trazador cúbico natural en $[0,3]$:
+\[
+T(x) = \left\{
+\begin{array}{ll}
+a+x-x^3, & 0\leq x<1\\
+a-2(x-1)+b(x-1)^2+c(x-1)^3, & 1\leq x<2\\
+c(x-2)+9(x-2)^2+d(x-2)^3, & 2\leq x\leq 3
+\end{array}
+\right.
+\]
+\noindent \textbf{Escriba el trazador cúbico resultante.}
+
+\vspace{6cm}
+\end{enumerate}
+
+\examfooter
+\end{document}

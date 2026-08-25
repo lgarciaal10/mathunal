@@ -1,0 +1,152 @@
+\documentclass[11pt]{article}
+\usepackage{mathunal-base}
+\mathunalfuente{serif}
+
+\renewcommand{\examtitulo}{Primer Examen Parcial de Álgebra Lineal}
+\renewcommand{\examfecha}{16 de Septiembre del 2017}
+
+\newcommand{\vf}{\fbox{V}\ \fbox{F}}
+
+\begin{document}
+
+\examheader
+
+\vspace{4pt}
+\noindent
+\begin{minipage}[t]{0.62\linewidth}
+\textbf{Puntaje. Sólo para uso Oficial}\\[4pt]
+\begin{tabular}{|c|c|c|c|c|c|c|}
+\hline
+1--5 & 6 & 7 & 8 & 9 & \textbf{TOTAL} & \textbf{NOTA} \\ \hline
+ & & & & & & \\ \hline
+\end{tabular}
+\end{minipage}
+
+\vspace{6pt}
+\noindent\textbf{Instrucciones:} La duración del examen es de 1 hora y 50 minutos. El examen consta de diez preguntas en dos hojas impresas por ambos lados, verifique que su examen esté completo y consérvelo con el gancho. En las preguntas con procedimiento justifique sus respuestas en los espacios asignados. No está permitido sacar hojas en blanco ni ningún tipo de apuntes durante el examen, verifique que su celular esté apagado. No se permite el uso de calculadora.
+
+\vspace{6pt}
+\noindent\textbf{IDENTIFICACIÓN}
+
+\vspace{8pt}
+\noindent Nombre: \dotfill\ Cédula \dotfill
+
+\vspace{4pt}
+\noindent Profesor: \dotfill\ Grupo \dotfill
+
+\vspace{10pt}
+\begin{center}\textbf{I. Completación}\end{center}
+\noindent En las preguntas 1 a 5 complete los espacios en blanco. \textbf{NOTA}: En esta sección se califica sólo la respuesta y no se tiene en cuenta el procedimiento.
+
+\begin{enumerate}
+\item{}[6pt] Sean $u,v\in\mathbb{R}^n$ tales que $||u||=1$, $||v||=3$ y $u\cdot v=1$. Calcule:
+
+\vspace{4pt}
+\fbox{\begin{minipage}[t][2.3cm]{\dimexpr\linewidth-2\fboxsep-2\fboxrule}
+$||u+v||^2 = $ \dotfill
+\end{minipage}}
+
+\item{}[10pt] Sean $u,v,w\in\mathbb{R}^n$. Señale el valor de verdad de cada enunciado (Marque V o F según sea el caso).
+
+\vspace{6pt}
+\noindent (a) Si $u\cdot v = u\cdot w$, entonces $v=w$. \hfill\vf
+
+\vspace{6pt}
+\noindent (b) Si $u,v,w$ son vectores L.\,D., entonces necesariamente $u$ es combinación lineal de $v$ y $w$. \hfill\vf
+
+\vspace{6pt}
+\noindent (c) Si $u$ es ortogonal tanto a $v$ y $w$, entonces $u$ es ortogonal a $5v-3w$. \hfill\vf
+
+\vspace{6pt}
+\noindent (d) $||u-v||\leq ||u||-||v||$. \hfill\vf
+
+\vspace{6pt}
+\noindent (e) Si $||u+v||=||u-v||$, entonces $u$ es ortogonal a $v$. \hfill\vf
+
+\item{}[8pt] Considere el sistema lineal homogéneo en las variables $x,y,z$
+\[
+\left\{
+\begin{aligned}
+x+2y+5z &= 0\\
+3x+6y+kz &= 0\\
+y-3z &= 0
+\end{aligned}
+\right.
+\]
+Halle todos los valores de $k$ para que el sistema tenga \textbf{infinitas} soluciones.
+
+\vspace{4pt}
+\fbox{\begin{minipage}[t][2.3cm]{\dimexpr\linewidth-2\fboxsep-2\fboxrule}
+$k = $ \dotfill
+\end{minipage}}
+
+\item{}[8pt] Sean $A$ y $B$ matrices $5\times 5$ con $\det A = -10$ y $\det B = 1/2$. Complete.
+
+\vspace{6pt}
+\noindent
+\begin{minipage}[t]{0.46\linewidth}
+(a)\quad $\det(AB) = $ \dotfill
+
+\vspace{6pt}
+(c)\quad $\det(B^{-1}) = $ \dotfill
+\end{minipage}%
+\begin{minipage}[t]{0.5\linewidth}
+(b)\quad $\det(2B^T) = $ \dotfill
+
+\vspace{6pt}
+(d)\quad $\mathrm{rango}(A) = $ \dotfill
+\end{minipage}
+
+\item{}[8pt] Sea
+\[
+A = \begin{bmatrix}c+3 & -c & 6\\ 0 & c+1 & 0\\ 0 & c-8 & c-4\end{bmatrix}.
+\]
+Halle todos los valores posibles de $c$ para los cuales $A$ \textbf{no} es invertible.
+
+\vspace{4pt}
+\fbox{\begin{minipage}[t][2.3cm]{\dimexpr\linewidth-2\fboxsep-2\fboxrule}
+$c = $ \dotfill
+\end{minipage}}
+\end{enumerate}
+
+\vspace{6pt}
+\begin{center}\textbf{II. Solución con Procedimiento}\end{center}
+
+\begin{enumerate}
+\setcounter{enumi}{5}
+\item{}[15pt] Sea $A = \begin{bmatrix}1&-1&0\\-2&2&-1\\3&-2&1\end{bmatrix}$. ¿Es $A$ invertible?
+
+En caso afirmativo, calcule $A^{-1}$ usando el método de \textit{Gauss-Jordan}.
+
+\vspace{6cm}
+
+\item{}[25pt] Al inicio del semestre, una papelería de la universidad dispone de 600 cuadernos y 400 bolígrafos, empaquetándolos en dos ofertas distintas. Vender un paquete de tipo I da un beneficio de seis mil pesos y consta de dos cuadernos y dos bolígrafos. Vender un paquete de tipo II, que trae tres cuadernos y un bolígrafo, da un beneficio de siete mil pesos. El objetivo de este problema es encontrar el máximo beneficio teniendo en cuenta que no es necesario utilizar todos los cuadernos y bolígrafos disponibles.
+\begin{enumerate}
+\item{}[6pt] Defina claramente las variables del problema y encuentre las restricciones que tienen las variables.
+
+\vspace{5cm}
+
+\item{}[5pt] Encuentre una fórmula para la función a optimizar en términos de las variables del problema.
+
+\vspace{3cm}
+
+\item{}[14pt] Determinar el número de paquetes que le conviene ofrecer a la papelería de cada tipo para obtener el máximo beneficio.
+
+\vspace{6cm}
+\end{enumerate}
+
+\item{}[10pt] Determine si los siguientes vectores en $\mathbb{R}^4$
+\[
+v_1 = \begin{bmatrix}1\\-1\\3\\2\end{bmatrix},\quad v_2 = \begin{bmatrix}2\\1\\1\\1\end{bmatrix} \quad \text{y} \quad v_3 = \begin{bmatrix}4\\5\\-3\\-1\end{bmatrix}
+\]
+son linealmente dependientes (L.\,D.) o linealmente independientes (L.\,I.).
+
+\vspace{6cm}
+
+\item{}[10pt] Supongamos que $u, v$ y $w$ son vectores en $\mathbb{R}^n$ que son linealmente independientes. Determinar si $u+v$, $v+w$ y $u+w$ también son linealmente independientes. Justifique su respuesta.
+
+\vspace{2cm}
+\end{enumerate}
+
+\examfooter
+\end{document}

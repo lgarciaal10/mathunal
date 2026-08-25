@@ -1,0 +1,169 @@
+\documentclass[11pt]{article}
+\usepackage{mathunal-base}
+\mathunalfuente{serif}
+
+\renewcommand{\examtitulo}{Primer Examen Parcial de Cálculo en Varias Variables}
+\renewcommand{\examfecha}{29 de Marzo de 2014}
+
+\begin{document}
+
+\examheader
+
+\vspace{4pt}
+\noindent
+\begin{minipage}[t]{0.62\linewidth}
+Nombre \dotfill
+
+\vspace{4pt}
+Profesor \dotfill
+\end{minipage}%
+\hfill
+\begin{minipage}[t]{0.32\linewidth}
+Doc. Identidad \dotfill
+
+\vspace{4pt}
+Grupo \dotfill
+\end{minipage}
+
+\vspace{6pt}
+\noindent\textbf{Instrucciones.} El examen tiene una duración de 1 hora y 40 minutos. \textbf{No se admiten preguntas durante el examen.} No está permitido el uso de calculadora, ni teléfonos móviles, ni cualquier otro tipo de aparato electrónico. Cualquier intento de fraude será sancionado con anulación del examen. En los puntos 2. y 3. justifique sus respuestas.
+
+\vspace{10pt}
+\begin{enumerate}
+\item{} (40\%) En los numerales (i)-(iv) escoja sólo una de las cuatro opciones que se presentan. En el numeral (v) asocie la ecuación dada con su correspondiente gráfica. No se requiere que justifique sus respuestas.
+
+\begin{enumerate}
+\item{} (8\%) Sea $f:\mathbb{R}^2\to\mathbb{R}$ una función diferenciable de las variables $x$ y $y$. Si se sabe que $z=1+2x+3y$ es la ecuación del plano tangente a la gráfica de $f$ en el punto $(1,2,f(1,2))$, entonces es cierto que:
+
+\vspace{4pt}
+\noindent $a)$ $f_x(1,2)=3$ y $f_y(1,2)=2$.
+
+\noindent $b)$ $f(1,2)=1$.
+
+\noindent $c)$ $f(0,0)=1$.
+
+\noindent $d)$ $f_y(1,2)=3$ y $f_x(1,2)=2$.
+
+\item{} (8\%) Si $g(x,y)=\dfrac{4x+8}{x^2+y^2+3}$, entonces la curva de nivel de $g$ de valor 1 es:
+
+\vspace{4pt}
+\noindent $a)$ Una circunferencia con centro $(0,-2)$ y radio 3.
+
+\noindent $b)$ Una circunferencia con centro $(-2,0)$ y radio 3.
+
+\noindent $c)$ Una circunferencia con centro $(2,0)$ y radio 3.
+
+\noindent $d)$ Ninguna de las anteriores.
+
+\item{} (8\%) Si $f(x,y)=\dfrac{e^{xy}}{\sqrt{1-y^2}}+\sqrt{4-x^2}$, entonces el dominio de $f$ es el conjunto:
+
+\vspace{4pt}
+\noindent $a)$ $\left\{(x,y)\in\mathbb{R}^2: x\in[-2,2],\ y\in[-1,1]\right\}$.
+
+\noindent $b)$ $\left\{(x,y)\in\mathbb{R}^2: x\in[-2,2],\ y\in(-1,1)\right\}$.
+
+\noindent $c)$ $\left\{(x,y)\in\mathbb{R}^2: x\in(-2,2),\ y\in(-1,1)\right\}$.
+
+\noindent $d)$ $\left\{(x,y)\in\mathbb{R}^2: x\in[-2,2],\ y\in[-1,1]\right\}$.
+
+\item{} (8\%) Considere las siguientes afirmaciones:
+
+\vspace{4pt}
+\noindent I. Si $f$ es una función de 2 variables cuyas derivadas parciales existen en todo su dominio, entonces la gráfica de $f$ no presenta agujeros ni rupturas.
+
+\noindent II. Si $g$ es una función diferenciable de las variables $x$ y $y$, entonces el vector $(g_x(x_0,y_0),g_y(x_0,y_0),-1)$ es normal a la gráfica de la superficie $z=g(x,y)$ en el punto $(x_0,y_0,g(x_0,y_0))$.
+
+\vspace{4pt}
+\noindent Con respecto a estas afirmaciones es cierto que:
+
+\vspace{4pt}
+\noindent $a)$ I. es verdadera y II. es verdadera.
+
+\noindent $b)$ I. es falsa y II. es falsa.
+
+\noindent $c)$ I. es verdadera y II. es falsa.
+
+\noindent $d)$ I. es falsa y II. es verdadera.
+
+\item{} (8\%) Asocie la ecuación dada con su correspondiente gráfica.
+
+\vspace{6pt}
+\noindent
+\begin{minipage}[t]{0.38\linewidth}
+\begin{tabular}{|l|c|}
+\hline
+\textbf{Ecuación} & \textbf{Gráfica} \\ \hline
+$x^2+4y^2+9z^2=1$ & \\ \hline
+$y=x^2-z^2$ & \\ \hline
+$x^2+2z^2=1$ & \\ \hline
+$y^2=x^2+2z^2$ & \\ \hline
+\end{tabular}
+\end{minipage}%
+\hfill
+\begin{minipage}[t]{0.58\linewidth}
+\begin{center}
+\begin{tikzpicture}[scale=0.62,>=Stealth]
+\begin{scope}
+\draw[->] (0,0) -- (-1,-0.6) node[left]{$x$};
+\draw[->] (0,0) -- (1.4,0) node[right]{$y$};
+\draw[->] (0,0) -- (0,1.6) node[above]{$z$};
+\draw[fill=orange!60] (-0.9,0.2) ellipse (0.35 and 0.9);
+\draw[fill=orange!60] (0.9,0.2) ellipse (0.35 and 0.9);
+\draw (-0.9,-0.7) -- (0.9,-0.7);
+\draw (-0.9,1.1) -- (0.9,1.1);
+\node at (0,1.9) {(I)};
+\end{scope}
+\begin{scope}[xshift=4.3cm]
+\draw[->] (0,0) -- (-1,-0.6) node[left]{$x$};
+\draw[->] (0,0) -- (1.4,0) node[right]{$y$};
+\draw[->] (0,0) -- (0,1.6) node[above]{$z$};
+\draw[fill=orange!60] (0,0) -- (-1,1) -- (-0.3,0.85) -- cycle;
+\draw[fill=orange!60] (0,0) -- (1,-1) -- (0.3,-0.85) -- cycle;
+\node at (0,1.9) {(II)};
+\end{scope}
+\begin{scope}[xshift=8.6cm]
+\draw[->] (0,0) -- (-1,-0.6) node[left]{$x$};
+\draw[->] (0,0) -- (1.4,0) node[right]{$y$};
+\draw[->] (0,0) -- (0,1.6) node[above]{$z$};
+\draw[fill=orange!60] (0,0) ellipse (1.1 and 0.45);
+\node at (0,1.9) {(III)};
+\end{scope}
+\begin{scope}[xshift=12.9cm]
+\draw[->] (0,0) -- (-1,-0.6) node[left]{$x$};
+\draw[->] (0,0) -- (1.4,0) node[right]{$y$};
+\draw[->] (0,0) -- (0,1.6) node[above]{$z$};
+\draw[fill=orange!60] (-0.9,0.3) -- (0.5,0.9) -- (0.9,-0.1) -- (-0.5,-0.7) -- cycle;
+\draw[fill=orange!40] (-0.6,-0.9) -- (0.7,-0.3) -- (0.9,0.6) -- (-0.4,0) -- cycle;
+\node at (0,1.9) {(IV)};
+\end{scope}
+\end{tikzpicture}
+\end{center}
+\end{minipage}
+\end{enumerate}
+
+\newpage
+\item{} (30\%) Una placa metálica ocupa la región del plano $D=\{(x,y)\in\mathbb{R}^2: -5\leq x\leq 5,\ -5\leq y\leq 5\}$, donde $x$ y $y$ se miden en $cm$. La temperatura en todo punto $(x,y)\in D$, en grados Celsius, está dada por la función $T(x,y)=20-4x^2-y^2$.
+\begin{enumerate}
+\item{} (15\%) ¿En qué dirección aumenta más rápido la temperatura en el punto $A(2,3)$?, y ¿cuál es la tasa de crecimiento en dicho caso?
+
+\vspace{5cm}
+
+\item{} (15\%) Encuentre la razón de cambio de $T$ en el punto $P(1,2)$ en la dirección que va de $P$ al punto $Q(2,1)$.
+
+\vspace{5cm}
+\end{enumerate}
+
+\item{} (30\%) Sea $g:\mathbb{R}^2\to\mathbb{R}$ una función diferenciable de las variables $u$ y $v$. Sea $f:\mathbb{R}^2\to\mathbb{R}$ la función definida por $f(x,y)=g(\operatorname{sen}x\cos y,\cos x\cos y)$. Encuentre la ecuación del plano tangente a la gráfica de $f$ en el punto $(\pi/2,\pi)$ si se sabe que:
+
+\vspace{4pt}
+\noindent I. $\overrightarrow{\nabla g}(\pi/2,\pi)=(-2,3)$ y $g(\pi/2,\pi)=-1$.
+
+\noindent II. $\overrightarrow{\nabla g}(-1,0)=(1,5)$ y $g(-1,0)=7$.
+
+\noindent III. $\overrightarrow{\nabla g}(1,0)=(-4,2)$ y $g(1,0)=0$.
+
+\vspace{6cm}
+\end{enumerate}
+
+\examfooter
+\end{document}
