@@ -6852,6 +6852,7 @@ function _muSpEnd(){
     <span class="logo-ico">∫</span>
     <span class="logo-txt"><span class="logo-m">MATH</span><span class="logo-u">UNAL</span></span>
   </a>
+  <a href="#home" class="mat-nav-back" style="font-size:.82rem;padding:.36rem .7rem;border-radius:7px;background:var(--lay2);border:1px solid var(--br);color:var(--t2);text-decoration:none">← Inicio</a>
   <div class="nav-links">
     <a href="#materias" class="nav-sec-link">Materias</a>
     <a href="#formulas" class="nav-sec-link">Fórmulas</a>
@@ -14126,6 +14127,7 @@ function setLang(lang){
   function setAll(sel, key){ document.querySelectorAll(sel).forEach(function(el){ if(L[key]!==undefined) el.textContent=L[key]; }); }
 
   /* NAV */
+  var backBtn=document.querySelector('.mat-nav-back'); if(backBtn) backBtn.textContent = en?'← Home':'← Inicio';
   var cta=document.getElementById('nav-cta-txt');
   if(cta) cta.textContent = L['nav-cta']+' →';
   var navLinks = document.querySelectorAll('.nav-links a');
