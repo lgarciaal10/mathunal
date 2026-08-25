@@ -4704,7 +4704,6 @@ customElements.define('glass-element', GlassElement);
   <!-- Primarios -->
   <div class="nav-links">
     <a href="#materias">Materias</a>
-    <a href="#simulacros">Simulacros</a>
     <a href="#formulas">Formulario</a>
     <a href="#juegos">Juegos</a>
     <a href="#diagnostico">Diagnóstico</a>
@@ -4793,7 +4792,6 @@ customElements.define('glass-element', GlassElement);
 <div id="mob">
   <a href="#home" onclick="tmob()">Inicio</a>
   <a href="#materias" onclick="tmob()">Materias</a>
-  <a href="#simulacros" onclick="tmob()">Simulacros</a>
   <a href="#formulas" onclick="tmob()">Formulario</a>
   <a href="#juegos" onclick="tmob()">Juegos</a>
   <a href="#diagnostico" onclick="tmob()">Diagnóstico</a>
@@ -4833,7 +4831,7 @@ customElements.define('glass-element', GlassElement);
       <span class="ht-bot">UNAL</span>
     </h1>
     <p class="hero-tagline">El cuaderno compartido de ingeniería</p>
-    <p class="hero-sub">Parciales resueltos, simulacros con cronómetro y formularios interactivos para las <strong>6 materias</strong> del núcleo de matemáticas · <strong>UNAL Medellín</strong></p>
+    <p class="hero-sub">Parciales resueltos, talleres organizados y formularios interactivos para las <strong>6 materias</strong> del núcleo de matemáticas · <strong>UNAL Medellín</strong></p>
     <div class="hero-stats fi">
       <div class="hs-item">
         <span class="hs-n" data-n="0" data-mu-pdfs-n>0</span>
@@ -4858,7 +4856,6 @@ customElements.define('glass-element', GlassElement);
     </div>
     <div class="hero-btns">
       <a href="#materias" class="btn-a"><svg width="20" height="20" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14,2 14,8 20,8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg> Ver Materias →</a>
-      <a href="#simulacros" class="btn-o"><svg width="16" height="16" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"><polygon points="5,3 19,12 5,21" fill="currentColor" stroke="none"/></svg> Iniciar Simulacro</a>
     </div>
 
 
@@ -5037,8 +5034,8 @@ customElements.define('glass-element', GlassElement);
         <div class="cp-j-step" data-i="2" onclick="cpReveal('con',2)">
           <div class="cp-j-num" style="background:rgba(34,197,94,.1);color:var(--ok)">3</div>
           <div class="cp-j-body">
-            <div class="cp-j-title">Haces un simulacro en condiciones reales</div>
-            <div class="cp-j-desc">Mismo formato SIDEX, mismo tiempo, misma presión. Pero con retroalimentación inmediata al terminar.</div>
+            <div class="cp-j-title">Practicas con parciales reales, a tu ritmo</div>
+            <div class="cp-j-desc">Descargas el PDF, cierras el libro y resuelves con tu propio cronómetro. El simulacro con formato SIDEX automático llega pronto.</div>
           </div>
         </div>
         <div class="cp-j-step" data-i="3" onclick="cpReveal('con',3)">
@@ -5075,7 +5072,7 @@ customElements.define('glass-element', GlassElement);
           <div class="cp-steps">
             <div class="cp-step v"><div class="cp-ico"><svg width="16" height="16" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg></div><div><div class="cp-txt-main">Todo organizado</div></div></div>
             <div class="cp-step v"><div class="cp-ico"><svg width="16" height="16" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14,2 14,8 20,8"/><path d="M9 15l2 2 4-4"/></svg></div><div><div class="cp-txt-main">Parciales resueltos reales</div></div></div>
-            <div class="cp-step v"><div class="cp-ico"><svg width="16" height="16" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"><polygon points="5,3 19,12 5,21" fill="currentColor" stroke="none"/></svg></div><div><div class="cp-txt-main">Simulacro SIDEX real</div></div></div>
+            <div class="cp-step v"><div class="cp-ico"><svg width="16" height="16" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"><polygon points="5,3 19,12 5,21" fill="currentColor" stroke="none"/></svg></div><div><div class="cp-txt-main">Cronómetro por tu cuenta</div></div></div>
             <div class="cp-step v"><div class="cp-ico"><svg width="16" height="16" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg></div><div><div class="cp-txt-main">Preparado y seguro</div></div></div>
           </div>
           <div class="cp-result"><span class="cp-result-big">3.8</span></div>
@@ -5108,8 +5105,8 @@ customElements.define('glass-element', GlassElement);
   </div>
 </section>
 
-<!-- SIMULACROS -->
-<section id="simulacros" class="section-pad">
+<!-- SIMULACROS -- fuera de produccion por ahora, ver SIMULACROS_HABILITADOS -->
+<section id="simulacros" class="section-pad" style="display:none">
   <div class="wrap">
     <div class="sec-split fi">
       <div class="sec-split-l">
@@ -5411,9 +5408,8 @@ customElements.define('glass-element', GlassElement);
           <div class="au-msg-body">MathUNAL tiene los parciales que tus compañeros de semestres anteriores ya presentaron. No necesitas crear cuenta, no necesitas pagar.</div>
           <div class="au-msg-list">
             <div class="au-msg-item"><span class="au-msg-check">✓</span>Parciales organizados por materia y semestre</div>
-            <div class="au-msg-item"><span class="au-msg-check">✓</span>Simulacros con cronómetro y formato SIDEX real</div>
-            <div class="au-msg-item"><span class="au-msg-check ap-soon">🛠</span>Solucionario paso a paso — en construcción</div>
             <div class="au-msg-item"><span class="au-msg-check">✓</span>Formularios de referencia rápida con LaTeX</div>
+            <div class="au-msg-item"><span class="au-msg-check ap-soon">🛠</span>Simulacros con cronómetro — en construcción</div>
           </div>
           <a href="#materias" class="au-msg-cta">Explorar materias →</a>
         </div>
@@ -5422,7 +5418,6 @@ customElements.define('glass-element', GlassElement);
           <div class="au-stats">
             <div class="au-stat"><span class="au-stat-n" data-mu-pdfs>0</span><span class="au-stat-l">PDFs listos</span></div>
             <div class="au-stat"><span class="au-stat-n" data-mu-materias>4</span><span class="au-stat-l">Materias con parciales reales</span></div>
-            <div class="au-stat"><span class="au-stat-n" data-mu-sim>6</span><span class="au-stat-l">Simulacros</span></div>
             <div class="au-stat"><span class="au-stat-n">$0</span><span class="au-stat-l">Costo</span></div>
           </div>
           <div class="au-quote">"Aprender matemáticas de ingeniería no debería depender de con quién te sentaste en clase."</div>
@@ -5431,11 +5426,10 @@ customElements.define('glass-element', GlassElement);
       <div class="au-panel" id="au-p1">
         <div>
           <div class="au-msg-title">Material listo para tus tutorías, sin preparar nada</div>
-          <div class="au-msg-body">Si eres monitor de una materia del núcleo, MathUNAL te ahorra horas de preparación. Tienes parciales organizados y simulacros listos para poner en tus tutorías.</div>
+          <div class="au-msg-body">Si eres monitor de una materia del núcleo, MathUNAL te ahorra horas de preparación con parciales listos para usar en tus tutorías.</div>
           <div class="au-msg-list">
             <div class="au-msg-item"><span class="au-msg-check">✓</span>Parciales listos para usar como ejercicio en tutoría</div>
-            <div class="au-msg-item"><span class="au-msg-check">✓</span>Simulacros para que tus tutorados practiquen solos</div>
-            <div class="au-msg-item"><span class="au-msg-check ap-soon">🛠</span>Solucionario paso a paso — en construcción</div>
+            <div class="au-msg-item"><span class="au-msg-check ap-soon">🛠</span>Simulacros para tus tutorados — en construcción</div>
           </div>
           <a href="#materias" class="au-msg-cta">Ver materias →</a>
         </div>
@@ -5501,7 +5495,7 @@ customElements.define('glass-element', GlassElement);
           ¿El material es gratuito?
           <span class="faq-ico">+</span>
         </div>
-        <div class="faq-a">Sí, todo el sitio es 100% gratuito: programas, libros guía, formularios, notas de clase, talleres, parciales y simulacros. Sin registro, sin costo, sin límites. (El solucionario paso a paso de los simulacros está en construcción.)</div>
+        <div class="faq-a">Sí, todo el sitio es 100% gratuito: programas, libros guía, formularios, notas de clase, talleres y parciales. Sin registro, sin costo, sin límites. (Los simulacros con cronómetro están en construcción.)</div>
       </div>
       <div class="faq-item">
         <div class="faq-q" onclick="toggleFaq(this)">
@@ -5509,13 +5503,6 @@ customElements.define('glass-element', GlassElement);
           <span class="faq-ico">+</span>
         </div>
         <div class="faq-a">Se descargan directamente desde la página de cada materia. Solo haz clic en "Descargar". No necesitas crear cuenta ni registrarte.</div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-q" onclick="toggleFaq(this)">
-          ¿Los simulacros son del mismo nivel que los parciales reales?
-          <span class="faq-ico">+</span>
-        </div>
-        <div class="faq-a">Sí. Las preguntas están basadas en parciales reales de la UNAL Medellín del 2020 al 2025, con el mismo formato SIDEX: 4 opciones (A-D), enunciados en LaTeX y cronómetro. Cada respuesta incorrecta tiene explicación paso a paso.</div>
       </div>
       <div class="faq-item">
         <div class="faq-q" onclick="toggleFaq(this)">
@@ -5558,7 +5545,6 @@ customElements.define('glass-element', GlassElement);
       <div>
         <div class="smap-col-title"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg> Herramientas</div>
         <div class="smap-links">
-          <a href="#simulacros" class="smap-link">▶ Simulacros SIDEX <span class="smap-link-badge" data-mu-sim>6</span></a>
           <a href="#formulas" class="smap-link">∑ Formulario interactivo</a>
           <a href="#calculadora" class="smap-link">≡ Calculadora de notas</a>
           <a href="#promedio" class="smap-link">⊕ Promedio por créditos</a>
@@ -5577,7 +5563,6 @@ customElements.define('glass-element', GlassElement);
       <span class="smap-bottom-l">MathUNAL v23 · 2026 · Proyecto estudiantil independiente</span>
       <div class="smap-bottom-r">
         <a href="#home" class="smap-quick-btn">↑ Volver arriba</a>
-        <a href="#simulacros" class="smap-quick-btn">▶ Simulacros</a>
         <a href="#materias" class="smap-quick-btn"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg> Materias</a>
         <a href="#formulas" class="smap-quick-btn">∑ Formulario</a>
       </div>
@@ -6800,13 +6785,12 @@ function _muSpEnd(){
   </a>
   <div class="nav-links">
     <a href="#materias" class="nav-sec-link">Materias</a>
-    <a href="#simulacros" class="nav-sec-link">Simulacros</a>
     <a href="#formulas" class="nav-sec-link">Formulario</a>
     <a href="#juegos" class="nav-sec-link">Juegos</a>
     <a href="#diagnostico" class="nav-sec-link">Diagnóstico</a>
   </div>
   <div class="nav-r">
-    <a href="#simulacros" class="nav-cta">Simulacros →</a>
+    <a href="#materias" class="nav-cta">Materias →</a>
     <div class="settings-wrap"><button class="settings-btn" aria-label="Ajustes" onclick="toggleSettings(this)" aria-haspopup="true" aria-expanded="false" aria-controls="sd"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></button>
       <div class="settings-dropdown" id="sd"><div class="sd-section"><div class="sd-label">IDIOMA</div><div class="sd-row"><button class="sd-btn on" id="btn-es" onclick="setLang('es')">ES</button><button class="sd-btn" id="btn-en" onclick="setLang('en')">EN</button></div></div><div class="sd-section"><div class="sd-label">TEMA</div><div class="sd-row">
         <button class="sd-btn on" id="th-dark" onclick="setTheme('dark')"><svg width="13" height="13" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" style="vertical-align:-2px"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg> Dark</button>
@@ -12040,6 +12024,14 @@ document.addEventListener('keydown',function(e){
 /* ── MathUNAL SPA Router ── */
 var KNOWN = ['home','simulacro','materia','formulas','juegos','diagnostico','privacidad'];
 
+/* Interruptor unico para toda la seccion de Simulacros (decision de Luis
+   2026-08-25: sacarla de produccion por ahora, sin borrar nada -- se
+   reactiva cuando este lista). Bloquea la ruta #simulacro entera en el
+   router (ver _loadPage mas abajo), asi que cualquier link o URL directa
+   a un simulacro cae de vuelta a home en vez de mostrar la pagina. */
+var SIMULACROS_HABILITADOS = false;
+window.SIMULACROS_HABILITADOS = SIMULACROS_HABILITADOS;
+
 /* Titulos de pestana por pagina. 'materia' NO esta aqui: esa pagina ya pone su
    propio titulo con el nombre de la materia (ver mas abajo, 'MathUNAL · '+sub.nameEs).
    Sin esto, el titulo se quedaba pegado en la ultima materia visitada al navegar
@@ -12079,6 +12071,7 @@ function _loadPage(hash) {
   var parts = raw.split('?');
   var page  = parts[0] || 'home';
   var qs    = parts[1] || '';
+  if ((page==='simulacro'||page==='simulacros') && !SIMULACROS_HABILITADOS) { page='home'; qs=''; hash='#home'; }
   if (page!=='home' && window.__muPresenciaInt){ clearInterval(window.__muPresenciaInt); window.__muPresenciaInt=null; }
   window.__muCurrentPage = page;
   if (MU_PAGE_TITLES[page]) {
@@ -12365,7 +12358,6 @@ var CMD_INDEX = [
   {ico:'π', label:'Matemáticas Básicas',  sub:'Nivelatorio',                       labelEn:'Basic Mathematics', subEn:'Prep course', action:'#materia?s=1000003'},
   {ico:'∇', label:'Cálculo en Varias Variables',    sub:'Semestre 3',                        labelEn:'Multivariable Calculus', subEn:'Semester 3', action:'#materia?s=1000007'},
   // Secciones
-  {ico:'▶',  label:'Simulacros',          sub:'Practica con cronómetro',           labelEn:'Mock Exams', subEn:'Practice with a timer', action:'#simulacro'},
   {ico:'∑',  label:'Formulario',          sub:'Fórmulas con ejemplos paso a paso', labelEn:'Formula Sheet', subEn:'Formulas with step-by-step examples', action:'#formulas'},
   {ico:'<svg width="13" height="13" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" style="vertical-align:-2px"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>', label:'Calculadora de notas',sub:'¿Cuánto necesito para pasar?', labelEn:'Grade Calculator', subEn:'How much do I need to pass?', action:'#calculadora'},
   {ico:'<svg width="13" height="13" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" style="vertical-align:-2px"><path d="M4 12v7a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-7"/><polyline points="16 6 12 2 8 6"/><line x1="12" y1="2" x2="12" y2="15"/></svg>', label:'Aportar material',    sub:'Comparte parciales y talleres', labelEn:'Contribute material', subEn:'Share exams and worksheets', action:'#aportar'},
@@ -12466,7 +12458,7 @@ function navEjemplo(dir){
 }
 /* ── MEJORA 5: Nav active link por scroll ── */
 (function(){
-  var sections = ['materias','simulacros','material','calculadora','comunidad','aportar','promedio'];
+  var sections = ['materias','material','calculadora','comunidad','aportar','promedio'];
   var obs = new IntersectionObserver(function(entries){
     entries.forEach(function(e){
       if(e.isIntersecting){
@@ -13569,14 +13561,14 @@ var LANG_ES={
   "cp-con-1-d-pre":"PDFs organizados por semestre, tipo y materia. Todo verificado. Sin buscar en WhatsApp ni drives perdidos.",
   "cp-con-2-t":"Estudias con parciales reales organizados",
   "cp-con-2-d":"Todo agrupado por materia y semestre, sin perder tiempo buscando entre grupos de WhatsApp.",
-  "cp-con-3-t":"Haces un simulacro en condiciones reales",
-  "cp-con-3-d":"Mismo formato SIDEX, mismo tiempo, misma presión. Pero con retroalimentación inmediata al terminar.",
+  "cp-con-3-t":"Practicas con parciales reales, a tu ritmo",
+  "cp-con-3-d":"Descargas el PDF, cierras el libro y resuelves con tu propio cronómetro. El simulacro con formato SIDEX automático llega pronto.",
   "cp-con-4-t":"Llegas preparado y con confianza",
   "cp-con-4-d":"Ya viste el formato. Ya mediste tu tiempo. Ya sabes que puedes. Eso se refleja en la nota.",
   "cp-con-result-l":"Promedio con práctica estructurada",
   "cp-con-switch":"Ver la comparación →",
   "cp-vs-1":"Buscar en WhatsApp","cp-vs-2":"Sin solucionario","cp-vs-3":"Sin simulacro real","cp-vs-4":"Sin confianza",
-  "cp-vs-5":"Todo organizado","cp-vs-6":"Parciales resueltos reales","cp-vs-7":"Simulacro SIDEX real","cp-vs-8":"Preparado y seguro",
+  "cp-vs-5":"Todo organizado","cp-vs-6":"Parciales resueltos reales","cp-vs-7":"Cronómetro por tu cuenta","cp-vs-8":"Preparado y seguro",
   "cp-quote":"\"No es que los estudiantes no quieran aprender. Es que nunca tuvieron dónde practicar con rigor.\"",
   /* Banner Semana del Parcial */
   "banner-label":"Semana del Parcial","banner-cta":"Ver plan →",
@@ -13697,14 +13689,14 @@ var LANG_ES={
   "au-tab0":"Estudiante","au-tab1":"Monitor",
   "au-p0-t":"Practica con parciales reales, gratis y sin registro",
   "au-p0-d":"MathUNAL tiene los parciales que tus compañeros de semestres anteriores ya presentaron. No necesitas crear cuenta, no necesitas pagar.",
-  "au-p0-i1":"Parciales organizados por materia y semestre","au-p0-i2":"Simulacros con cronómetro y formato SIDEX real",
-  "au-p0-i3":"Solucionario paso a paso — en construcción","au-p0-i4":"Formularios de referencia rápida con LaTeX",
+  "au-p0-i1":"Parciales organizados por materia y semestre","au-p0-i2":"Formularios de referencia rápida con LaTeX",
+  "au-p0-i3":"Simulacros con cronómetro — en construcción",
   "au-p0-card-l":"Lo que ya tienen otros estudiantes",
   "au-p0-quote":"\"Aprender matemáticas de ingeniería no debería depender de con quién te sentaste en clase.\"",
   "au-p1-t":"Material listo para tus tutorías, sin preparar nada",
-  "au-p1-d":"Si eres monitor de una materia del núcleo, MathUNAL te ahorra horas de preparación. Tienes parciales organizados y simulacros listos para poner en tus tutorías.",
-  "au-p1-i1":"Parciales listos para usar como ejercicio en tutoría","au-p1-i2":"Simulacros para que tus tutorados practiquen solos",
-  "au-p1-i3":"Solucionario paso a paso — en construcción","au-p1-cta":"Ver materias →",
+  "au-p1-d":"Si eres monitor de una materia del núcleo, MathUNAL te ahorra horas de preparación con parciales listos para usar en tus tutorías.",
+  "au-p1-i1":"Parciales listos para usar como ejercicio en tutoría","au-p1-i2":"Simulacros para tus tutorados — en construcción",
+  "au-p1-cta":"Ver materias →",
   "au-p1-card-l":"Ahorro estimado para el monitor","au-p1-stat1":"Ahorro semanal",
   "au-p1-quote":"\"En vez de buscar material cada semana, lo tengo todo en un solo lugar. Mis tutorados practican solos entre sesiones.\"",
   /* Apoyar (ap-s) */
@@ -13717,15 +13709,13 @@ var LANG_ES={
   /* FAQ */
   "faq-lbl":"Preguntas frecuentes","faq-h":"Todo lo que necesitas saber",
   "faq-q1":"¿El material es gratuito?",
-  "faq-a1":"Sí, todo el sitio es 100% gratuito: programas, libros guía, formularios, notas de clase, talleres, parciales y simulacros. Sin registro, sin costo, sin límites. (El solucionario paso a paso de los simulacros está en construcción.)",
+  "faq-a1":"Sí, todo el sitio es 100% gratuito: programas, libros guía, formularios, notas de clase, talleres y parciales. Sin registro, sin costo, sin límites. (Los simulacros con cronómetro están en construcción.)",
   "faq-q2":"¿Cómo descargo los PDFs?",
   "faq-a2":"Se descargan directamente desde la página de cada materia. Solo haz clic en \"Descargar\". No necesitas crear cuenta ni registrarte.",
-  "faq-q3":"¿Los simulacros son del mismo nivel que los parciales reales?",
-  "faq-a3":"Sí. Las preguntas están basadas en parciales reales de la UNAL Medellín del 2020 al 2025, con el mismo formato SIDEX: 4 opciones (A-D), enunciados en LaTeX y cronómetro. Cada respuesta incorrecta tiene explicación paso a paso.",
-  "faq-q4":"¿El sitio tiene afiliación oficial con la UNAL?",
-  "faq-a4":"No. MathUNAL es un proyecto estudiantil independiente, creado por y para estudiantes de ingeniería de la UNAL Medellín. No tiene afiliación oficial con la Universidad Nacional de Colombia.",
-  "faq-q5":"¿Puedo aportar material?",
-  "faq-a5":"¡Sí! Cualquier estudiante, egresado o profesor puede enviar talleres, parciales, quices o apuntes. Lo revisamos, lo subimos con tu nombre como crédito y queda disponible para toda la comunidad. Escríbenos por WhatsApp.",
+  "faq-q3":"¿El sitio tiene afiliación oficial con la UNAL?",
+  "faq-a3":"No. MathUNAL es un proyecto estudiantil independiente, creado por y para estudiantes de ingeniería de la UNAL Medellín. No tiene afiliación oficial con la Universidad Nacional de Colombia.",
+  "faq-q4":"¿Puedo aportar material?",
+  "faq-a4":"¡Sí! Cualquier estudiante, egresado o profesor puede enviar talleres, parciales, quices o apuntes. Lo revisamos, lo subimos con tu nombre como crédito y queda disponible para toda la comunidad. Escríbenos por WhatsApp.",
   /* Ruta del semestre */
   "ruta-tag":"Guía del currículo · Ing. UNAL Medellín","ruta-h":"Tu ruta en matemáticas",
   "ruta-p":"Las materias del núcleo, de nivelatorio a semestre 5. Haz clic en cualquiera para ir directo al material disponible.",
@@ -13827,14 +13817,14 @@ var LANG_EN={
   "cp-con-1-d-pre":"PDFs organized by semester, type and subject. All verified. No digging through WhatsApp or lost drives.",
   "cp-con-2-t":"You study with real, organized exams",
   "cp-con-2-d":"Everything grouped by subject and semester, no time wasted digging through WhatsApp groups.",
-  "cp-con-3-t":"You take a mock exam under real conditions",
-  "cp-con-3-d":"Same SIDEX format, same time limit, same pressure. But with instant feedback when you finish.",
+  "cp-con-3-t":"You practice with real exams, at your pace",
+  "cp-con-3-d":"Download the PDF, close the book, and solve it with your own timer. Automated SIDEX-format mock exams are coming soon.",
   "cp-con-4-t":"You walk in prepared and confident",
   "cp-con-4-d":"You've seen the format. You've timed yourself. You know you can do it. It shows in your grade.",
   "cp-con-result-l":"Average with structured practice",
   "cp-con-switch":"See the comparison →",
   "cp-vs-1":"Searching WhatsApp","cp-vs-2":"No solutions","cp-vs-3":"No real mock exam","cp-vs-4":"No confidence",
-  "cp-vs-5":"Everything organized","cp-vs-6":"Real solved exams","cp-vs-7":"Real SIDEX mock exam","cp-vs-8":"Prepared and confident",
+  "cp-vs-5":"Everything organized","cp-vs-6":"Real solved exams","cp-vs-7":"Your own timer","cp-vs-8":"Prepared and confident",
   "cp-quote":"\"It's not that students don't want to learn. They just never had a rigorous place to practice.\"",
   /* Exam Week banner */
   "banner-label":"Exam Week","banner-cta":"See the plan →",
@@ -13955,14 +13945,14 @@ var LANG_EN={
   "au-tab0":"Student","au-tab1":"Monitor",
   "au-p0-t":"Practice with real past exams, free and with no signup",
   "au-p0-d":"MathUNAL has the exams your classmates from previous semesters already took. No account needed, no payment needed.",
-  "au-p0-i1":"Exams organized by subject and semester","au-p0-i2":"Timed mock exams in real SIDEX format",
-  "au-p0-i3":"Step-by-step solutions — coming soon","au-p0-i4":"Quick-reference formula sheets in LaTeX",
+  "au-p0-i1":"Exams organized by subject and semester","au-p0-i2":"Quick-reference formula sheets in LaTeX",
+  "au-p0-i3":"Timed mock exams — coming soon",
   "au-p0-card-l":"What other students already have",
   "au-p0-quote":"\"Learning engineering math shouldn't depend on who you sat next to in class.\"",
   "au-p1-t":"Material ready for your tutoring sessions, no prep needed",
-  "au-p1-d":"If you're a monitor for a core subject, MathUNAL saves you hours of prep. You have organized exams and mock exams ready to assign in your tutoring sessions.",
-  "au-p1-i1":"Exams ready to use as tutoring exercises","au-p1-i2":"Mock exams for your students to practice solo",
-  "au-p1-i3":"Step-by-step solutions — coming soon","au-p1-cta":"See all subjects →",
+  "au-p1-d":"If you're a monitor for a core subject, MathUNAL saves you hours of prep with exams ready to use in your tutoring sessions.",
+  "au-p1-i1":"Exams ready to use as tutoring exercises","au-p1-i2":"Mock exams for your students — coming soon",
+  "au-p1-cta":"See all subjects →",
   "au-p1-card-l":"Estimated savings for the monitor","au-p1-stat1":"Weekly time saved",
   "au-p1-quote":"\"Instead of hunting for material every week, I have it all in one place. My students practice on their own between sessions.\"",
   /* Apoyar (ap-s) */
@@ -13975,15 +13965,13 @@ var LANG_EN={
   /* FAQ */
   "faq-lbl":"Frequently asked questions","faq-h":"Everything you need to know",
   "faq-q1":"Is the material free?",
-  "faq-a1":"Yes, the whole site is 100% free: syllabi, textbooks, formula sheets, class notes, worksheets, exams, and mock exams. No signup, no cost, no limits. (Step-by-step solutions for mock exams are coming soon.)",
+  "faq-a1":"Yes, the whole site is 100% free: syllabi, textbooks, formula sheets, class notes, worksheets and exams. No signup, no cost, no limits. (Timed mock exams are coming soon.)",
   "faq-q2":"How do I download the PDFs?",
   "faq-a2":"They download directly from each subject's page. Just click \"Download\". No account or signup needed.",
-  "faq-q3":"Are the mock exams the same level as real exams?",
-  "faq-a3":"Yes. Questions are based on real UNAL Medellín exams from 2020 to 2025, with the same SIDEX format: 4 options (A-D), LaTeX statements and a timer. Every wrong answer has a step-by-step explanation.",
-  "faq-q4":"Is the site officially affiliated with UNAL?",
-  "faq-a4":"No. MathUNAL is an independent student project, created by and for UNAL Medellín engineering students. It has no official affiliation with Universidad Nacional de Colombia.",
-  "faq-q5":"Can I contribute material?",
-  "faq-a5":"Yes! Any student, alum or professor can send worksheets, exams, quizzes or notes. We review it, post it with your name as credit, and it becomes available to the whole community. Message us on WhatsApp.",
+  "faq-q3":"Is the site officially affiliated with UNAL?",
+  "faq-a3":"No. MathUNAL is an independent student project, created by and for UNAL Medellín engineering students. It has no official affiliation with Universidad Nacional de Colombia.",
+  "faq-q4":"Can I contribute material?",
+  "faq-a4":"Yes! Any student, alum or professor can send worksheets, exams, quizzes or notes. We review it, post it with your name as credit, and it becomes available to the whole community. Message us on WhatsApp.",
   /* Ruta del semestre */
   "ruta-tag":"Curriculum guide · UNAL Medellín Engineering","ruta-h":"Your path through math",
   "ruta-p":"The core subjects, from pre-calc to semester 5. Click any one to go straight to the available material.",
@@ -14412,13 +14400,13 @@ function setLang(lang){
   var auTabs=document.querySelectorAll('.au-tab'); var auTabKeys=['au-tab0','au-tab1'];
   auTabs.forEach(function(el,i){ if(auTabKeys[i]&&L[auTabKeys[i]]){ var svga=el.querySelector('svg'); el.innerHTML=(svga?svga.outerHTML:'')+' '+L[auTabKeys[i]]; } });
   setText('#au-p0 .au-msg-title','au-p0-t'); setText('#au-p0 .au-msg-body','au-p0-d');
-  var au0Items=document.querySelectorAll('#au-p0 .au-msg-item'); var au0Keys=['au-p0-i1','au-p0-i2','au-p0-i3','au-p0-i4'];
+  var au0Items=document.querySelectorAll('#au-p0 .au-msg-item'); var au0Keys=['au-p0-i1','au-p0-i2','au-p0-i3'];
   au0Items.forEach(function(el,i){ if(au0Keys[i]&&L[au0Keys[i]]){ var chk=el.querySelector('.au-msg-check'); el.innerHTML=(chk?chk.outerHTML:'✓')+L[au0Keys[i]]; } });
   setText('#au-p0 .au-card-label','au-p0-card-l'); setText('#au-p0 .au-quote','au-p0-quote');
   var au0StatLs=document.querySelectorAll('#au-p0 .au-stat-l');
   if(au0StatLs[1]&&L['au-p0-stat2']) au0StatLs[1].textContent=L['au-p0-stat2'];
   setText('#au-p1 .au-msg-title','au-p1-t'); setText('#au-p1 .au-msg-body','au-p1-d');
-  var au1Items=document.querySelectorAll('#au-p1 .au-msg-item'); var au1Keys=['au-p1-i1','au-p1-i2','au-p1-i3'];
+  var au1Items=document.querySelectorAll('#au-p1 .au-msg-item'); var au1Keys=['au-p1-i1','au-p1-i2'];
   au1Items.forEach(function(el,i){ if(au1Keys[i]&&L[au1Keys[i]]){ var chk1=el.querySelector('.au-msg-check'); el.innerHTML=(chk1?chk1.outerHTML:'✓')+L[au1Keys[i]]; } });
   setText('#au-p1 .au-msg-cta','au-p1-cta'); setText('#au-p1 .au-card-label','au-p1-card-l');
   var au1Stats=document.querySelectorAll('#au-p1 .au-stat-l'); if(au1Stats[0]&&L['au-p1-stat1']) au1Stats[0].textContent=L['au-p1-stat1'];
@@ -14433,7 +14421,7 @@ function setLang(lang){
   /* FAQ */
   setText('#faq .sec-label','faq-lbl'); setText('#faq h2','faq-h');
   var faqItems=document.querySelectorAll('#faq .faq-item');
-  var faqKeys=[['faq-q1','faq-a1'],['faq-q2','faq-a2'],['faq-q3','faq-a3'],['faq-q4','faq-a4'],['faq-q5','faq-a5']];
+  var faqKeys=[['faq-q1','faq-a1'],['faq-q2','faq-a2'],['faq-q3','faq-a3'],['faq-q4','faq-a4']];
   faqItems.forEach(function(el,i){ if(!faqKeys[i])return;
     var qEl=el.querySelector('.faq-q'), aEl=el.querySelector('.faq-a'), ico=qEl?qEl.querySelector('.faq-ico'):null;
     if(qEl&&L[faqKeys[i][0]]) qEl.innerHTML=L[faqKeys[i][0]]+(ico?ico.outerHTML:'<span class="faq-ico">+</span>');
@@ -14473,7 +14461,7 @@ function setLang(lang){
   });
   var smapToolLinks=document.querySelectorAll('.smap-s .smap-links')[1];
   if(smapToolLinks){
-    var toolAs=smapToolLinks.querySelectorAll('a'); var toolKeys=['smap-sim','smap-form','smap-calc','smap-prom','smap-banco'];
+    var toolAs=smapToolLinks.querySelectorAll('a'); var toolKeys=['smap-form','smap-calc','smap-prom'];
     toolAs.forEach(function(a,i){ if(!toolKeys[i]||!L[toolKeys[i]])return; var badge=a.querySelector('.smap-link-badge');
       var prefix=a.textContent.trim().split(' ')[0];
       a.innerHTML=prefix+' '+L[toolKeys[i]]+(badge?(' '+badge.outerHTML):''); });
@@ -15467,6 +15455,7 @@ function _renderRutaEstudio(sub, mats, lang){
     var prog = null;
     try{ prog = JSON.parse(localStorage.getItem('mu-prog-'+examKey)); }catch(e){}
 
+    if(window.SIMULACROS_HABILITADOS){
     var simCta = '<a href="#simulacro" class="mu-ruta-file" style="color:var(--acc)"><svg width="14" height="14" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg> '+(en?'Go to mock exam':'Ir al simulacro')+'<span class="mu-ruta-file-cta">→</span></a>';
 
     if(done){
@@ -15481,6 +15470,7 @@ function _renderRutaEstudio(sub, mats, lang){
       simState = 'pending'; simPct = 0;
       steps.push({kind:'sim', state:'pending', title:(exam.titulo||sub.nameEs)+' · '+(en?'Mock exam':'Simulacro'),
         sub: en?'not started · '+total+' questions':'sin empezar · '+total+' preguntas', fileHtml: simCta});
+    }
     }
 
   }
