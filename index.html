@@ -5197,15 +5197,15 @@ customElements.define('glass-element', GlassElement);
 </section>
 
 <!-- SIMULACROS -- teaser mientras SIMULACROS_HABILITADOS=false -->
-<section class="section-pad">
+<section class="section-pad" id="sim-teaser">
   <div class="wrap">
     <div class="fi" style="max-width:680px;margin:0 auto;text-align:center;background:var(--card);border:2px solid var(--br2);border-radius:16px;padding:2.6rem 2rem">
-      <span class="sec-label">Próximamente</span>
-      <h2 style="margin:.5rem 0 .7rem">Simulacros con cronómetro, formato SIDEX real</h2>
-      <p style="color:var(--t2);max-width:480px;margin:0 auto 1.3rem;line-height:1.65">30 exámenes de práctica en condiciones reales — mismo tiempo, mismo formato, misma presión que el parcial de verdad. Estamos afinando los últimos detalles antes de soltarlos.</p>
+      <span class="sec-label sim-teaser-tag">Próximamente</span>
+      <h2 class="sim-teaser-h" style="margin:.5rem 0 .7rem">Simulacros con cronómetro, formato SIDEX real</h2>
+      <p class="sim-teaser-p" style="color:var(--t2);max-width:480px;margin:0 auto 1.3rem;line-height:1.65">30 exámenes de práctica en condiciones reales — mismo tiempo, mismo formato, misma presión que el parcial de verdad. Estamos afinando los últimos detalles antes de soltarlos.</p>
       <div style="display:inline-flex;align-items:center;gap:.5rem;font-family:IBM Plex Mono,monospace;font-size:.85rem;font-weight:700;color:var(--acc);background:var(--adim);border:1.5px solid var(--bra);border-radius:99px;padding:.5rem 1.1rem">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="13" r="8"/><line x1="12" y1="13" x2="12" y2="9"/><line x1="12" y1="13" x2="15" y2="15"/><line x1="9" y1="2" x2="15" y2="2"/><line x1="12" y1="5" x2="12" y2="2"/></svg>
-        Muy pronto
+        <span class="sim-teaser-pill">Muy pronto</span>
       </div>
     </div>
   </div>
@@ -5533,8 +5533,8 @@ customElements.define('glass-element', GlassElement);
           <div style="flex:1;min-width:180px;display:flex;flex-direction:column;gap:.5rem">
             <div style="display:flex;justify-content:space-between;gap:.6rem"><span style="color:var(--t3)">Nequi</span><strong style="color:var(--t1)">316 348 0451</strong></div>
             <div style="display:flex;justify-content:space-between;gap:.6rem"><span style="color:var(--t3)">Bancolombia</span><strong style="color:var(--t1)">678 466 530-80</strong></div>
-            <div style="display:flex;justify-content:space-between;gap:.6rem"><span style="color:var(--t3)">Llave Bre-B</span><strong style="color:var(--t1)">0092975496</strong></div>
-            <div style="font-size:.75rem;color:var(--t3);margin-top:.1rem">Cuenta a nombre de Luis García. Cualquier monto ayuda.</div>
+            <div style="display:flex;justify-content:space-between;gap:.6rem"><span style="color:var(--t3)" class="ap-breb-lbl">Llave Bre-B</span><strong style="color:var(--t1)">0092975496</strong></div>
+            <div style="font-size:.75rem;color:var(--t3);margin-top:.1rem" class="ap-acc-note">Cuenta a nombre de Luis García. Cualquier monto ayuda.</div>
           </div>
           <img src="https://goxhxrdchfyphkenixng.supabase.co/storage/v1/object/public/Materiales/Sitio/qr-breb-v2.png" alt="QR Bre-B para transferir a MathUNAL" width="240" height="305" style="border-radius:10px;flex-shrink:0;align-self:center;max-width:100%;height:auto" loading="lazy">
         </div>
@@ -13669,6 +13669,10 @@ var LANG_ES={
   "hf-2-d":"Cada ejercicio resuelto paso a paso. No circulares de WhatsApp sin procedimiento — el método completo para entender dónde fallaste.",
   "hf-3-t":"Simula en condiciones reales",
   "hf-3-d":"Simulacros con cronómetro en formato SIDEX — el mismo que usa la UNAL. Ya conoces el formato. Ya sabes cuánto tiempo tienes. Llegas preparado.",
+  "sim-teaser-tag":"Próximamente","sim-teaser-h":"Simulacros con cronómetro, formato SIDEX real",
+  "sim-teaser-p":"30 exámenes de práctica en condiciones reales — mismo tiempo, mismo formato, misma presión que el parcial de verdad. Estamos afinando los últimos detalles antes de soltarlos.",
+  "sim-teaser-pill":"Muy pronto",
+  "ap-breb-lbl":"Llave Bre-B","ap-acc-note":"Cuenta a nombre de Luis García. Cualquier monto ayuda.",
   "explorar-materias":"Explorar materias →",
   "hf-cta-note":"Gratis · Sin registro · Sin anuncios",
   /* Nav more dropdown */
@@ -13925,6 +13929,10 @@ var LANG_EN={
   "hf-2-d":"Every exercise solved step by step. No more answer-only forwards from WhatsApp — the full method to understand where you went wrong.",
   "hf-3-t":"Simulate real exam conditions",
   "hf-3-d":"Timed mock exams in SIDEX format — the same one UNAL uses. You already know the format. You already know how much time you have. You arrive prepared.",
+  "sim-teaser-tag":"Coming soon","sim-teaser-h":"Timed mock exams, real SIDEX format",
+  "sim-teaser-p":"30 practice exams under real conditions — same time, same format, same pressure as the real thing. We're polishing the last details before we ship it.",
+  "sim-teaser-pill":"Coming soon",
+  "ap-breb-lbl":"Bre-B key","ap-acc-note":"Account under Luis García's name. Any amount helps.",
   "explorar-materias":"Explore subjects →",
   "hf-cta-note":"Free · No signup · No ads",
   /* Nav more dropdown */
@@ -14284,6 +14292,9 @@ function setLang(lang){
   if(typeof muSyncCicloTitle==='function') muSyncCicloTitle(); /* reaplica el titular (dinamico o evergreen) en el idioma correcto */
 
   /* ASÍ DE SIMPLE (3 pasos) */
+  setText('.sim-teaser-tag','sim-teaser-tag'); setText('.sim-teaser-h','sim-teaser-h');
+  setText('.sim-teaser-p','sim-teaser-p'); setText('.sim-teaser-pill','sim-teaser-pill');
+  setText('.ap-breb-lbl','ap-breb-lbl'); setText('.ap-acc-note','ap-acc-note');
   setText('.hf-s .cp-tag','hf-tag');
   setHTML('.hf-s .hf-title','hf-title');
   var hfSteps = document.querySelectorAll('.hf-s .hf-step');
