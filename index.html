@@ -2768,8 +2768,8 @@ body{font-family:'Space Grotesk',system-ui,sans-serif;background:var(--bg);color
 .mat-empty-sub{font-size:1rem;color:var(--t3)}
 
 /* ── Más materias llegando pronto ── */
-.prox-card{background:var(--card);border:2px solid var(--br2);border-radius:12px;padding:1.2rem 1.3rem;display:flex;flex-direction:column;gap:.5rem;transition:border-color .2s}
-.prox-card:hover{border-color:var(--bra)}
+.prox-card{background:var(--card);border:2px solid var(--br2);border-radius:12px;padding:1.2rem 1.3rem;display:flex;flex-direction:column;gap:.5rem;transition:all .2s}
+.prox-card:hover{border-color:var(--bra);transform:translateY(-3px);box-shadow:var(--shadow-hover)}
 .prox-pill svg{flex-shrink:0}
 .prox-pill{display:inline-flex;align-items:center;gap:.35rem;font-family:IBM Plex Mono,monospace;font-size:.78rem;font-weight:700;color:var(--t2);background:var(--lay2);border:2px solid var(--br2);border-radius:5px;padding:.22rem .55rem;width:fit-content;margin-bottom:.3rem}
 .prox-name{font-family:'Literata',Georgia,serif;font-size:1.2rem;font-weight:700;color:var(--t1);line-height:1.25}
@@ -5111,7 +5111,7 @@ customElements.define('glass-element', GlassElement);
     <div class="prox-header fi" style="text-align:center;margin-bottom:2rem">
       <span class="sec-label">En desarrollo · 2026</span>
       <h2>Más materias llegando pronto</h2>
-      <p>MathUNAL se expande más allá de matemáticas. Sigue el canal de Telegram para ser el primero.</p>
+      <p>MathUNAL se expande más allá de matemáticas. Si tienes material de estas materias, puedes aportarlo desde ya.</p>
     </div>
     <div class="fi" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem">
       <div class="prox-card">
@@ -5339,7 +5339,7 @@ customElements.define('glass-element', GlassElement);
           </div>
         </div>
 
-        <a href="javascript:void(0)" onclick="location.href='mail'+'to:mathunal\x40gmail.com?subject=Aporte%20de%20material%20MathUNAL'" style="display:flex;align-items:center;justify-content:center;gap:.4rem;width:100%;background:var(--adim);border:1px solid var(--bra);border-radius:10px;padding:.75rem;font-size:.88rem;font-weight:700;cursor:pointer;text-decoration:none;color:var(--acc);transition:all .2s;font-family:'Space Grotesk',system-ui,sans-serif" onmouseover="this.style.background='rgba(224,93,26,.2)'" onmouseout="this.style.background='var(--adim)'"><svg width="14" height="14" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg> mathunal&#64;gmail.com →</a>
+        <a href="javascript:void(0)" onclick="location.href='mail'+'to:mathunalmed\x40gmail.com?subject=Aporte%20de%20material%20MathUNAL'" style="display:flex;align-items:center;justify-content:center;gap:.4rem;width:100%;background:var(--adim);border:1px solid var(--bra);border-radius:10px;padding:.75rem;font-size:.88rem;font-weight:700;cursor:pointer;text-decoration:none;color:var(--acc);transition:all .2s;font-family:'Space Grotesk',system-ui,sans-serif" onmouseover="this.style.background='rgba(224,93,26,.2)'" onmouseout="this.style.background='var(--adim)'"><svg width="14" height="14" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg> mathunalmed&#64;gmail.com →</a>
       </div>
     </div>
 
@@ -13643,7 +13643,7 @@ var LANG_ES={
   "tl-sub":"MathUNAL no nació como proyecto. Nació como necesidad.",
   /* Proximamente */
   "prox-tag":"En desarrollo · 2026","prox-h":"Más materias llegando pronto",
-  "prox-p":"MathUNAL se expande más allá de matemáticas. Sigue el canal de Telegram para ser el primero.",
+  "prox-p":"MathUNAL se expande más allá de matemáticas. Si tienes material de estas materias, puedes aportarlo desde ya.",
   "prox-1-cat":"Ciencias","prox-1-n":"Física I","prox-1-d":"Mecánica, cinemática, dinámica y energía para ingeniería.",
   "prox-2-cat":"Ciencias","prox-2-n":"Química General","prox-2-d":"Estequiometría, termodinámica química y electroquímica.",
   "prox-3-cat":"Matemáticas","prox-3-n":"Estadística","prox-3-d":"Probabilidad, distribuciones y estadística inferencial.",
@@ -13899,7 +13899,7 @@ var LANG_EN={
   "tl-sub":"MathUNAL wasn't born as a project. It was born out of necessity.",
   /* Proximamente */
   "prox-tag":"In development · 2026","prox-h":"More subjects coming soon",
-  "prox-p":"MathUNAL is expanding beyond math. Follow the Telegram channel to be first.",
+  "prox-p":"MathUNAL is expanding beyond math. If you have material for these subjects, you can contribute it now.",
   "prox-1-cat":"Sciences","prox-1-n":"Physics I","prox-1-d":"Mechanics, kinematics, dynamics and energy for engineering.",
   "prox-2-cat":"Sciences","prox-2-n":"General Chemistry","prox-2-d":"Stoichiometry, chemical thermodynamics and electrochemistry.",
   "prox-3-cat":"Mathematics","prox-3-n":"Statistics","prox-3-d":"Probability, distributions and inferential statistics.",
