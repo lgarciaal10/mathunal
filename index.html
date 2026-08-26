@@ -2632,6 +2632,13 @@ body{font-family:'Space Grotesk',system-ui,sans-serif;background:var(--bg);color
     radial-gradient(50% 100% at 50% 0%, rgba(96,165,250,.10), transparent 65%),
     radial-gradient(55% 100% at 88% 0%, rgba(124,58,237,.12), transparent 70%);
 }
+/* Tema Black (OLED): el aurora multicolor contradice la idea de "negro puro sin
+   ruido de color" -- se apaga casi del todo, dejando solo un toque tenue del
+   acento naranja de marca en vez del degradado azul+morado completo. */
+html[data-theme="black"] .nav-aurora{
+  opacity:.35;
+  background: radial-gradient(60% 100% at 50% 0%, rgba(232,99,42,.08), transparent 70%);
+}
 
 /* ═══ PANEL DE ÉXITO ═══ */
 .panel-exito{margin:1.8rem 0;background:linear-gradient(135deg,var(--card),var(--card2,#102040));border:2px solid var(--br2);border-radius:16px;overflow:hidden;box-shadow:5px 5px 0 rgba(224,93,26,.08)}
