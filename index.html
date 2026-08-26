@@ -2577,8 +2577,10 @@ body{font-family:'Space Grotesk',system-ui,sans-serif;background:var(--bg);color
 .vf-shell .viz-ann{padding:.6rem .85rem;border-top:1.5px solid var(--br);font-size:.77rem;color:var(--t2);line-height:1.6}
 .vf-shell .viz-ann strong{color:var(--t1)}
 .vf-shell .d-acts{display:flex;align-items:center;gap:.5rem;flex-wrap:wrap;padding-top:1.1rem;border-top:1.5px solid var(--br);margin-top:.5rem}
-.vf-shell .dbtn-learn{display:inline-flex;align-items:center;gap:.3rem;background:rgba(34,197,94,.08);border:2px solid rgba(34,197,94,.2);border-radius:8px;padding:.44rem .9rem;font-size:.81rem;font-weight:600;color:var(--grn);cursor:pointer;font-family:inherit}
-.vf-shell .dbtn-s{display:inline-flex;align-items:center;gap:.3rem;background:var(--lay2);border:2px solid var(--br2);border-radius:8px;padding:.44rem .9rem;font-size:.81rem;font-weight:600;color:var(--t2);cursor:pointer;font-family:inherit}
+.vf-shell .dbtn-learn{display:inline-flex;align-items:center;gap:.3rem;background:rgba(34,197,94,.08);border:2px solid rgba(34,197,94,.2);border-radius:8px;padding:.44rem .9rem;font-size:.81rem;font-weight:600;color:var(--grn);cursor:pointer;font-family:inherit;transition:all .15s}
+.vf-shell .dbtn-learn.on{background:var(--grn);border-color:var(--grn);color:#062;font-weight:700}
+.vf-shell .dbtn-s{display:inline-flex;align-items:center;gap:.3rem;background:var(--lay2);border:2px solid var(--br2);border-radius:8px;padding:.44rem .9rem;font-size:.81rem;font-weight:600;color:var(--t2);cursor:pointer;font-family:inherit;transition:all .15s}
+.vf-shell .dbtn-s.copied{background:var(--grn);border-color:var(--grn);color:#062}
 
 
 .mu-calc{padding:2.5rem 3rem;background:linear-gradient(135deg,var(--bg2),var(--card));border-top:1.5px solid var(--br2);border-bottom:1.5px solid var(--br2)}
@@ -8417,9 +8419,11 @@ function _showScreen(id){
    pero mientras tanto el tema activo quedaba corrompido). #mu-app es el contenedor
    real que el router reemplaza por pagina, asi que scopear aqui es lo correcto. */
 #mu-app{
-  --bg:#060B1E;--bg2:#0E1630;--card:#121B35;
-  --acc:#E8632A;--t1:#F0F4FF;--t2:#A8B4D0;--t3:#7C90B4;
-  --br:rgba(255,255,255,.08);--br2:rgba(255,255,255,.14);
+  /* --bg/--bg2/--card/--acc/--t1/--t2/--t3/--br/--br2 ya NO se fijan aqui --
+     se heredan del tema real activo (html[data-theme=...]), igual que el resto
+     del sitio. Antes quedaban hardcodeados a un azul oscuro fijo, asi que
+     Juegos ignoraba el tema Black/Gris/Claro del usuario. Solo quedan variables
+     propias del juego que no existen en el resto del sitio. */
   --grn:var(--ok);--red:#EF4444;--yel:#F59E0B;--purple:#7C3AED;
 }
 html,body{height:100%;background:var(--bg);color:var(--t1);font-family:'Space Grotesk',system-ui,sans-serif;overflow-x:hidden;}
@@ -12011,6 +12015,50 @@ function resetView(){
   if(_sel>=0)doRender(_sel);
 }
 /* ══ SELECT ══ */
+/* "Aprendida" (marcar fórmula como estudiada) y "Copiar LaTeX": tenían el HTML
+   y el CSS listos pero ningún onclick los conectaba -- no hacían nada. */
+function _vfLearnedSet(){
+  try{ return new Set(JSON.parse(localStorage.getItem('mu-formulas-learned')||'[]')); }
+  catch(e){ return new Set(); }
+}
+function vfIsLearned(i){
+  var f=F[i]; if(!f) return false;
+  return _vfLearnedSet().has(f.name);
+}
+function vfToggleLearned(i){
+  var f=F[i]; if(!f) return;
+  var s=_vfLearnedSet();
+  if(s.has(f.name)) s.delete(f.name); else s.add(f.name);
+  try{ localStorage.setItem('mu-formulas-learned', JSON.stringify(Array.from(s))); }catch(e){}
+  var btn=document.querySelector('.dbtn-learn'); if(!btn) return;
+  var en=(window.curLang==='en');
+  var on=s.has(f.name);
+  btn.classList.toggle('on', on);
+  btn.textContent=(on?'✓ ':'○ ')+(en?'Learned':'Aprendida');
+}
+function vfCopyLatex(i,btn){
+  var f=F[i]; if(!f||!f.formula) return;
+  var en=(window.curLang==='en');
+  var done=function(){
+    if(!btn) return;
+    var orig=btn.innerHTML;
+    btn.classList.add('copied');
+    btn.innerHTML='✓ '+(en?'Copied':'Copiado');
+    setTimeout(function(){ btn.classList.remove('copied'); btn.innerHTML=orig; },1400);
+  };
+  if(navigator.clipboard && navigator.clipboard.writeText){
+    navigator.clipboard.writeText(f.formula).then(done).catch(function(){
+      _vfCopyFallback(f.formula); done();
+    });
+  } else { _vfCopyFallback(f.formula); done(); }
+}
+function _vfCopyFallback(text){
+  var ta=document.createElement('textarea');
+  ta.value=text; ta.style.position='fixed'; ta.style.opacity='0';
+  document.body.appendChild(ta); ta.select();
+  try{ document.execCommand('copy'); }catch(e){}
+  document.body.removeChild(ta);
+}
 function vfBackToList(){
   var shell=document.querySelector('.vf-shell');
   if(shell) shell.classList.remove('showing-detail');
@@ -12056,7 +12104,7 @@ function sel(i){
    +(f.tip?'<div class="d-tip"><span>'+'<svg width="13" height="13" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" style="vertical-align:-2px"><path d="M9 18h6M10 22h4M12 2a7 7 0 0 0-4 12.7c.5.4.9 1.1.9 1.8v.5h6.2v-.5c0-.7.4-1.4.9-1.8A7 7 0 0 0 12 2z"/></svg>'+'</span><span class="d-tip-txt">'+f.tip+'</span></div>':'')
    +(f.nemo?'<div class="d-nemo"><div class="d-nemo-l"><svg width="13" height="13" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" style="vertical-align:-2px"><path d="M9.5 2A2.5 2.5 0 0 0 7 4.5v.5a2.5 2.5 0 0 0-2 2.45V9a2.5 2.5 0 0 0-1 4.9v1.6A2.5 2.5 0 0 0 6 18a2.5 2.5 0 0 0 2.5 2.5H9V21a1 1 0 0 0 1 1h1a1 1 0 0 0 1-1V4.5A2.5 2.5 0 0 0 9.5 2z"/><path d="M14.5 2A2.5 2.5 0 0 1 17 4.5v.5a2.5 2.5 0 0 1 2 2.45V9a2.5 2.5 0 0 1 1 4.9v1.6A2.5 2.5 0 0 1 18 18a2.5 2.5 0 0 1-2.5 2.5H15V21a1 1 0 0 1-1 1h-1V4.5A2.5 2.5 0 0 1 14.5 2z"/></svg> Nemotecnia</div><div class="d-nemo-txt">'+f.nemo+'</div></div>':'')
    +vizH
-   +'<div class="d-acts"><button class="dbtn-learn">○ Aprendida</button><button class="dbtn-s">⎘ Copiar LaTeX</button></div>';
+   +'<div class="d-acts"><button class="dbtn-learn'+(vfIsLearned(i)?' on':'')+'" onclick="vfToggleLearned('+i+')">'+(vfIsLearned(i)?'✓':'○')+' '+(en?'Learned':'Aprendida')+'</button><button class="dbtn-s" onclick="vfCopyLatex('+i+',this)">⎘ '+(en?'Copy LaTeX':'Copiar LaTeX')+'</button></div>';
   var fb=document.getElementById('fbox');
   if(fb&&typeof katex!=='undefined')try{katex.render(f.formula,fb,{displayMode:true,throwOnError:false,trust:true});}catch(e){fb.textContent=f.formula;}
   if(f.viz)setTimeout(function(){doRender(i);},250);
