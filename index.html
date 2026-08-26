@@ -1657,7 +1657,7 @@ html[data-theme="gray"]{
 .ruta-sem-lbl.rl-hot{color:var(--acc)}
 .ruta-mat{background:var(--card);border:2px solid var(--br);border-radius:10px;padding:.6rem .65rem;cursor:pointer;transition:all .2s;text-decoration:none;display:block}
 .ruta-mat:hover{border-color:var(--bra);transform:translateY(-2px);box-shadow:0 4px 14px rgba(0,0,0,.22)}
-.ruta-mat.rm-pop{border-color:rgba(224,93,26,.3);background:rgba(224,93,26,.04)}
+.ruta-mat.rm-pop{border-color:var(--bra);background:var(--adim)}
 .ruta-mat.rm-prox{opacity:.5;border-style:dashed}
 .ruta-mat-sym{font-size:1.15rem;display:block;margin-bottom:.22rem;line-height:1}
 .ruta-mat-name{font-size:.78rem;font-weight:700;color:var(--t1);line-height:1.25;display:block}
@@ -13628,7 +13628,7 @@ window.PREREQS = PREREQS; // mismo patron RONDA 5/8: visible desde todas las pag
 var LANG_ES={
   /* Nav */
   "nav-cta":"Materias",
-  "nav-simulacros":"Simulacros","nav-formulas":"Fórmulas",
+  "nav-materias":"Materias","nav-simulacros":"Simulacros","nav-formulas":"Fórmulas",
   "nav-aportar":"Aportar","nav-promedio":"Promedio","nav-comunidad":"Comunidad",
   /* Hero */
   "hero-badge":"Repositorio no oficial · UNAL Medellín · 2026",
@@ -13888,7 +13888,7 @@ var LANG_ES={
 var LANG_EN={
   /* Nav */
   "nav-cta":"Subjects",
-  "nav-simulacros":"Practice","nav-formulas":"Formula Sheet",
+  "nav-materias":"Subjects","nav-simulacros":"Practice","nav-formulas":"Formula Sheet",
   "nav-aportar":"Contribute","nav-promedio":"GPA","nav-comunidad":"Community",
   /* Hero */
   "hero-badge":"Unofficial repository · UNAL Medellín · 2026",
@@ -14184,7 +14184,7 @@ function setLang(lang){
   navLinks.forEach(function(a){
     var href = a.getAttribute('href')||'';
     var map = {
-      '#materias':L['mat-h'], '#simulacros':L['sim-f-all']||'Simulacros',
+      '#materias':L['nav-materias']||L['mat-h'], '#simulacros':L['sim-f-all']||'Simulacros',
       '#formulas':L['nav-formulas'],
       '#aportar':L['nav-aportar'], '#promedio':L['nav-promedio'],
       '#comunidad':L['nav-comunidad']
@@ -14195,7 +14195,7 @@ function setLang(lang){
   document.querySelectorAll('#mob a').forEach(function(a){
     var href = a.getAttribute('href')||'';
     var map = {
-      '#home':'MathUNAL','#materias':L['mat-h'],'#simulacros':lang==='en'?'Practice':'Simulacros',
+      '#home':'MathUNAL','#materias':L['nav-materias']||L['mat-h'],'#simulacros':lang==='en'?'Practice':'Simulacros',
       '#formulas':L['nav-formulas'],'#aportar':lang==='en'?'Contribute':'Aportar material',
       '#promedio':L['nav-promedio'],'#comunidad':L['nav-comunidad']
     };
