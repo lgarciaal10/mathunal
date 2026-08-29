@@ -8627,13 +8627,13 @@ html,body{height:100%;background:var(--bg);color:var(--t1);font-family:'Space Gr
 <div class="scr" id="scr-rebota">
 <div class="rebota-wrap">
   <div class="game-bar">
-    <button class="gbk" onclick="showScr('lobby')">← Salir</button>
+    <button class="gbk" onclick="showScr('lobby')"><span class="jg-salir-txt">← Salir</span></button>
     <div class="gbar-center">
-      <div class="gbar-title"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-2px"><circle cx="3.5" cy="4" r="1.7"/><path d="M4.8 5.3 10 19 15.5 6.5 20.5 16.5"/><circle cx="20.5" cy="16.5" r="2.1"/></svg> Rebota</div>
+      <div class="gbar-title"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-2px"><circle cx="3.5" cy="4" r="1.7"/><path d="M4.8 5.3 10 19 15.5 6.5 20.5 16.5"/><circle cx="20.5" cy="16.5" r="2.1"/></svg> <span id="jg-r-name">Rebota</span></div>
       <div class="gbar-sub" id="rnivel-lbl">Nivel 1 de 5</div>
     </div>
     <div class="gbar-right">
-      <div class="gstat"><div class="gstat-n" id="r-intentos">3</div><div class="gstat-l">intentos</div></div>
+      <div class="gstat"><div class="gstat-n" id="r-intentos">3</div><div class="gstat-l" id="r-intentos-lbl">intentos</div></div>
     </div>
   </div>
   <div class="canvas-wrap">
@@ -8641,7 +8641,7 @@ html,body{height:100%;background:var(--bg);color:var(--t1);font-family:'Space Gr
   </div>
   <div class="rebota-footer">
     <div class="hint-box" id="r-hint">🖱️ Haz clic y arrastra desde la bola para apuntar. Suelta para disparar.</div>
-    <button class="rfoot-btn ghost" onclick="resetRebota()">↺ Reintentar</button>
+    <button class="rfoot-btn ghost" id="r-retry-btn" onclick="resetRebota()">↺ Reintentar</button>
     <button class="rfoot-btn primary" id="r-next-btn" onclick="nextNivel()" style="display:none">Siguiente →</button>
   </div>
 </div>
@@ -8651,17 +8651,17 @@ html,body{height:100%;background:var(--bg);color:var(--t1);font-family:'Space Gr
 <div class="scr" id="scr-casillas">
 <div class="casillas-wrap">
   <div class="game-bar">
-    <button class="gbk" onclick="showScr('lobby')">← Salir</button>
+    <button class="gbk" onclick="showScr('lobby')"><span class="jg-salir-txt">← Salir</span></button>
     <div class="gbar-center">
-      <div class="gbar-title"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-2px"><rect x="3" y="3" width="18" height="18" rx="1"/><line x1="9" y1="3" x2="9" y2="21"/><line x1="15" y1="3" x2="15" y2="21"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="3" y1="15" x2="21" y2="15"/><circle cx="6" cy="6" r="1.4"/><circle cx="18" cy="18" r="1.4"/></svg> Casillas</div>
+      <div class="gbar-title"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-2px"><rect x="3" y="3" width="18" height="18" rx="1"/><line x1="9" y1="3" x2="9" y2="21"/><line x1="15" y1="3" x2="15" y2="21"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="3" y1="15" x2="21" y2="15"/><circle cx="6" cy="6" r="1.4"/><circle cx="18" cy="18" r="1.4"/></svg> <span id="jg-cas-name">Casillas</span></div>
       <div class="gbar-sub" id="cas-nivel-lbl">Nivel 1</div>
     </div>
     <div class="gbar-right">
-      <div class="gstat"><div class="gstat-n" id="cas-moves">0</div><div class="gstat-l">movimientos</div></div>
+      <div class="gstat"><div class="gstat-n" id="cas-moves">0</div><div class="gstat-l" id="cas-moves-lbl">movimientos</div></div>
     </div>
   </div>
   <div class="cas-body">
-    <div class="cas-rules">
+    <div class="cas-rules" id="cas-rules">
       Coloca <strong>una ∫</strong> en cada zona de color.<br>
       Máximo una por <strong>fila</strong> y por <strong>columna</strong>.<br>
       No pueden tocarse, ni en diagonal.
@@ -8670,12 +8670,12 @@ html,body{height:100%;background:var(--bg);color:var(--t1);font-family:'Space Gr
       <div class="cas-grid" id="cas-grid"></div>
     </div>
     <div class="cas-info">
-      <div class="cas-stat"><div class="cas-stat-n" id="cas-placed">0</div><div class="cas-stat-l">colocadas</div></div>
-      <div class="cas-stat"><div class="cas-stat-n" id="cas-total">5</div><div class="cas-stat-l">necesarias</div></div>
+      <div class="cas-stat"><div class="cas-stat-n" id="cas-placed">0</div><div class="cas-stat-l" id="cas-placed-lbl">colocadas</div></div>
+      <div class="cas-stat"><div class="cas-stat-n" id="cas-total">5</div><div class="cas-stat-l" id="cas-total-lbl">necesarias</div></div>
     </div>
     <div class="cas-btns">
-      <button class="cas-btn ghost" onclick="resetCasillas()">↺ Reiniciar</button>
-      <button class="cas-btn primary" onclick="nextCasillas()">Nuevo puzzle →</button>
+      <button class="cas-btn ghost" id="cas-retry-btn" onclick="resetCasillas()">↺ Reiniciar</button>
+      <button class="cas-btn primary" id="cas-next-btn" onclick="nextCasillas()">Nuevo puzzle →</button>
     </div>
   </div>
 </div>
@@ -8724,24 +8724,24 @@ html,body{height:100%;background:var(--bg);color:var(--t1);font-family:'Space Gr
 <div class="scr" id="scr-domainsnake">
 <div class="arc-wrap">
   <div class="game-bar">
-    <button class="gbk" onclick="stopDomainSnake();showScr('lobby')">← Salir</button>
+    <button class="gbk" onclick="stopDomainSnake();showScr('lobby')"><span class="jg-salir-txt">← Salir</span></button>
     <div class="gbar-center">
-      <div class="gbar-title"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-2px"><path d="M4 19c3 0 3-4 6-4s3 4 6 4 3-4 5-5"/><path d="M19 12.3l2.2-1.7-2.7-.7"/></svg> Serpiente de Dominios</div>
+      <div class="gbar-title"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-2px"><path d="M4 19c3 0 3-4 6-4s3 4 6 4 3-4 5-5"/><path d="M19 12.3l2.2-1.7-2.7-.7"/></svg> <span id="jg-ds-name">Serpiente de Dominios</span></div>
       <div class="gbar-sub" id="ds-func-lbl">f(x) = …</div>
     </div>
     <div class="gbar-right">
-      <div class="gstat"><div class="gstat-n" id="ds-score">0</div><div class="gstat-l">puntos</div></div>
+      <div class="gstat"><div class="gstat-n" id="ds-score">0</div><div class="gstat-l" id="ds-score-lbl">puntos</div></div>
     </div>
   </div>
   <div class="arc-canvas-wrap" id="ds-wrap">
     <canvas id="ds-canvas"></canvas>
-    <div class="mg-hint">Flechas (o desliza) para moverte. Solo come números que SÍ estén en el dominio de la función.</div>
+    <div class="mg-hint" id="ds-hint">Flechas (o desliza) para moverte. Solo come números que SÍ estén en el dominio de la función.</div>
     <button class="arc-pause-btn" onclick="dsPauseToggle()" id="ds-pause-btn"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="4" width="4" height="16" rx="1"/><rect x="14" y="4" width="4" height="16" rx="1"/></svg></button>
     <div class="arc-start" id="ds-start">
-      <div class="arc-start-title"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-5px"><path d="M4 19c3 0 3-4 6-4s3 4 6 4 3-4 5-5"/><path d="M19 12.3l2.2-1.7-2.7-.7"/></svg> Serpiente de Dominios</div>
-      <div class="arc-start-desc">Cada nivel te da una función real. El tablero tiene números sueltos — solo puedes comer los que SÍ pertenecen al dominio de esa función. Comer uno que no pertenece termina el juego.</div>
-      <div class="arc-start-note">Las 3 restricciones que casi siempre importan: denominador distinto de cero, raíz par mayor o igual a cero, y logaritmo estrictamente mayor que cero.</div>
-      <button class="arc-start-btn" style="--gc:var(--ok)" onclick="beginDomainSnake()">Jugar →</button>
+      <div class="arc-start-title"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-5px"><path d="M4 19c3 0 3-4 6-4s3 4 6 4 3-4 5-5"/><path d="M19 12.3l2.2-1.7-2.7-.7"/></svg> <span id="jg-ds-name2">Serpiente de Dominios</span></div>
+      <div class="arc-start-desc" id="ds-start-desc">Cada nivel te da una función real. El tablero tiene números sueltos — solo puedes comer los que SÍ pertenecen al dominio de esa función. Comer uno que no pertenece termina el juego.</div>
+      <div class="arc-start-note" id="ds-start-note">Las 3 restricciones que casi siempre importan: denominador distinto de cero, raíz par mayor o igual a cero, y logaritmo estrictamente mayor que cero.</div>
+      <button class="arc-start-btn" id="ds-start-btn" style="--gc:var(--ok)" onclick="beginDomainSnake()">Jugar →</button>
     </div>
     <div class="arc-goover" id="ds-goover">
       <div class="result-box">
@@ -8750,8 +8750,8 @@ html,body{height:100%;background:var(--bg);color:var(--t1);font-family:'Space Gr
         <div class="res-sub" id="ds-goover-sub"></div>
         <div class="res-btns">
           <button class="res-btn primary" id="ds-goover-btn1" onclick="beginDomainSnake()">Jugar otra vez</button>
-          <button class="res-btn ghost" onclick="compartir()">Compartir resultado <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-2px"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.6" y1="10.5" x2="15.4" y2="6.5"/><line x1="8.6" y1="13.5" x2="15.4" y2="17.5"/></svg></button>
-          <button class="res-btn ghost" onclick="stopDomainSnake();showScr('lobby')">Salir al lobby</button>
+          <button class="res-btn ghost" onclick="compartir()"><span class="jg-share-txt">Compartir resultado</span> <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-2px"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.6" y1="10.5" x2="15.4" y2="6.5"/><line x1="8.6" y1="13.5" x2="15.4" y2="17.5"/></svg></button>
+          <button class="res-btn ghost" id="ds-exit-btn" onclick="stopDomainSnake();showScr('lobby')">Salir al lobby</button>
         </div>
       </div>
     </div>
@@ -8763,24 +8763,24 @@ html,body{height:100%;background:var(--bg);color:var(--t1);font-family:'Space Gr
 <div class="scr" id="scr-vectores">
 <div class="arc-wrap">
   <div class="game-bar">
-    <button class="gbk" onclick="stopVectores();showScr('lobby')">← Salir</button>
+    <button class="gbk" onclick="stopVectores();showScr('lobby')"><span class="jg-salir-txt">← Salir</span></button>
     <div class="gbar-center">
-      <div class="gbar-title"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-2px"><path d="M3 19 11 10 19 14" stroke-linejoin="round"/><path d="M3 19 19 14" stroke-dasharray="2.2 2.2"/><path d="M8.2 10.9 11 10 11.6 12.9"/><path d="M16.3 12.6 19 14 16.2 15"/></svg> Vectores</div>
+      <div class="gbar-title"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-2px"><path d="M3 19 11 10 19 14" stroke-linejoin="round"/><path d="M3 19 19 14" stroke-dasharray="2.2 2.2"/><path d="M8.2 10.9 11 10 11.6 12.9"/><path d="M16.3 12.6 19 14 16.2 15"/></svg> <span id="jg-vc-name">Vectores</span></div>
       <div class="gbar-sub" id="vc-nivel-lbl">Nivel 1 de 6</div>
     </div>
     <div class="gbar-right">
-      <div class="gstat"><div class="gstat-n" id="vc-moves">0</div><div class="gstat-l">vectores</div></div>
+      <div class="gstat"><div class="gstat-n" id="vc-moves">0</div><div class="gstat-l" id="vc-moves-lbl">vectores</div></div>
     </div>
   </div>
   <div class="arc-canvas-wrap" id="vc-wrap">
     <canvas id="vc-canvas"></canvas>
-    <div class="mg-hint">Elige vectores de la lista para sumarlos punta con punta. Llega exacto al objetivo (⭐).</div>
+    <div class="mg-hint" id="vc-topinfo-hint">Elige vectores de la lista para sumarlos punta con punta. Llega exacto al objetivo (⭐).</div>
     <button class="arc-pause-btn" onclick="vcReset()" id="vc-reset-btn">↺ Reiniciar</button>
     <div class="arc-start" id="vc-start">
-      <div class="arc-start-title"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-5px"><path d="M3 19 11 10 19 14" stroke-linejoin="round"/><path d="M3 19 19 14" stroke-dasharray="2.2 2.2"/><path d="M8.2 10.9 11 10 11.6 12.9"/><path d="M16.3 12.6 19 14 16.2 15"/></svg> Vectores</div>
-      <div class="arc-start-desc">Parte del punto azul. Cada botón es un vector disponible: al elegirlo, se dibuja punta con punta desde tu posición actual y te mueves ahí. Combina los vectores que necesites, en cualquier orden, hasta caer exactamente sobre el objetivo (⭐). No todos los vectores sirven — algunos son trampas.</div>
-      <div class="arc-start-note">Sumar vectores es sumar sus componentes: (a,b) + (c,d) = (a+c, b+d). Dibujarlos punta con punta es la forma geométrica de hacer esa misma suma.</div>
-      <button class="arc-start-btn" style="--gc:var(--ok)" onclick="beginVectores()">Jugar →</button>
+      <div class="arc-start-title"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-5px"><path d="M3 19 11 10 19 14" stroke-linejoin="round"/><path d="M3 19 19 14" stroke-dasharray="2.2 2.2"/><path d="M8.2 10.9 11 10 11.6 12.9"/><path d="M16.3 12.6 19 14 16.2 15"/></svg> <span id="jg-vc-name2">Vectores</span></div>
+      <div class="arc-start-desc" id="vc-start-desc">Parte del punto azul. Cada botón es un vector disponible: al elegirlo, se dibuja punta con punta desde tu posición actual y te mueves ahí. Combina los vectores que necesites, en cualquier orden, hasta caer exactamente sobre el objetivo (⭐). No todos los vectores sirven — algunos son trampas.</div>
+      <div class="arc-start-note" id="vc-start-note">Sumar vectores es sumar sus componentes: (a,b) + (c,d) = (a+c, b+d). Dibujarlos punta con punta es la forma geométrica de hacer esa misma suma.</div>
+      <button class="arc-start-btn" id="vc-start-btn" style="--gc:var(--ok)" onclick="beginVectores()">Jugar →</button>
     </div>
     <div class="arc-goover" id="vc-goover">
       <div class="result-box">
@@ -8789,8 +8789,8 @@ html,body{height:100%;background:var(--bg);color:var(--t1);font-family:'Space Gr
         <div class="res-sub" id="vc-goover-sub"></div>
         <div class="res-btns">
           <button class="res-btn primary" id="vc-goover-btn1" onclick="vcNextLevel()">Siguiente nivel →</button>
-          <button class="res-btn ghost" onclick="compartir()">Compartir resultado <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-2px"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.6" y1="10.5" x2="15.4" y2="6.5"/><line x1="8.6" y1="13.5" x2="15.4" y2="17.5"/></svg></button>
-          <button class="res-btn ghost" onclick="stopVectores();showScr('lobby')">Salir al lobby</button>
+          <button class="res-btn ghost" onclick="compartir()"><span class="jg-share-txt">Compartir resultado</span> <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-2px"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.6" y1="10.5" x2="15.4" y2="6.5"/><line x1="8.6" y1="13.5" x2="15.4" y2="17.5"/></svg></button>
+          <button class="res-btn ghost" id="vc-exit-btn" onclick="stopVectores();showScr('lobby')">Salir al lobby</button>
         </div>
       </div>
     </div>
@@ -8798,7 +8798,7 @@ html,body{height:100%;background:var(--bg);color:var(--t1);font-family:'Space Gr
   <div class="rebota-footer">
     <div class="hint-box" id="vc-hint">Elige un vector para sumarlo a tu posición.</div>
     <div class="vc-btnrow" id="vc-vecbtns"></div>
-    <button class="rfoot-btn ghost" onclick="vcUndo()">↺ Deshacer último</button>
+    <button class="rfoot-btn ghost" id="vc-undo-btn" onclick="vcUndo()">↺ Deshacer último</button>
   </div>
 </div>
 </div>
@@ -8856,7 +8856,7 @@ html,body{height:100%;background:var(--bg);color:var(--t1);font-family:'Space Gr
     <div class="res-sub" id="res-sub"></div>
     <div class="res-btns">
       <button class="res-btn primary" id="res-btn1" onclick="closeResult()">Continuar →</button>
-      <button class="res-btn ghost" onclick="compartir()">Compartir resultado 📤</button>
+      <button class="res-btn ghost" id="res-btn-share" onclick="compartir()">Compartir resultado 📤</button>
     </div>
   </div>
 </div>
@@ -8903,6 +8903,69 @@ window.muApplyLang_juegos = function(){
     'Classic Snake, but you can only eat numbers that ARE in the level\'s function domain. Eat one outside the domain and it\'s over.');
   t('jg-4-t1','Dominios','Domains'); t('jg-4-t2','Reflejos','Reflexes'); t('jg-4-t3','10 niveles','10 levels');
   ['jg-1-btn','jg-2-btn','jg-3-btn','jg-4-btn'].forEach(function(id){ t(id,'Jugar →','Play →'); });
+
+  /* ── Dentro de cada juego (barra superior, reglas, pantallas de inicio/resultado) ── */
+  document.querySelectorAll('.jg-salir-txt').forEach(function(el){ el.textContent = en?'← Exit':'← Salir'; });
+  document.querySelectorAll('#res-btn1').forEach(function(el){ el.textContent = en?'Continue →':'Continuar →'; });
+  t('res-btn-share', 'Compartir resultado 📤', 'Share result 📤');
+
+  // Rebota
+  t('jg-r-name','Rebota','Bounce');
+  t('r-intentos-lbl','intentos','attempts');
+  t('r-retry-btn','↺ Reintentar','↺ Retry');
+  t('r-next-btn','Siguiente →','Next →');
+  if(typeof niveles!=='undefined' && typeof nivel!=='undefined' && niveles[nivel]){
+    var rh=document.getElementById('r-hint'); if(rh) rh.textContent = en?(niveles[nivel].hintEn||niveles[nivel].hint):niveles[nivel].hint;
+    var rl=document.getElementById('rnivel-lbl'); if(rl) rl.textContent = en?('Level '+(nivel+1)+' of '+niveles.length):('Nivel '+(nivel+1)+' de '+niveles.length);
+  }
+
+  // Casillas
+  t('jg-cas-name','Casillas','Squares');
+  t('cas-moves-lbl','movimientos','moves');
+  t('cas-placed-lbl','colocadas','placed');
+  t('cas-total-lbl','necesarias','needed');
+  t('cas-retry-btn','↺ Reiniciar','↺ Restart');
+  t('cas-next-btn','Nuevo puzzle →','New puzzle →');
+  var casRules=document.getElementById('cas-rules');
+  if(casRules) casRules.innerHTML = en
+    ? 'Place <strong>one ∫</strong> in each colored zone.<br>Max one per <strong>row</strong> and per <strong>column</strong>.<br>They can\'t touch, not even diagonally.'
+    : 'Coloca <strong>una ∫</strong> en cada zona de color.<br>Máximo una por <strong>fila</strong> y por <strong>columna</strong>.<br>No pueden tocarse, ni en diagonal.';
+  if(typeof puzzles!=='undefined' && typeof casPuzzleIdx!=='undefined'){
+    var cnl=document.getElementById('cas-nivel-lbl');
+    if(cnl) cnl.textContent = en?('Puzzle '+(casPuzzleIdx+1)+' of '+puzzles.length):('Puzzle '+(casPuzzleIdx+1)+' de '+puzzles.length);
+  }
+
+  // Vectores
+  t('jg-vc-name','Vectores','Vectors'); t('jg-vc-name2','Vectores','Vectors');
+  t('vc-moves-lbl','vectores','vectors');
+  t('vc-topinfo-hint','Elige vectores de la lista para sumarlos punta con punta. Llega exacto al objetivo (⭐).',
+    'Pick vectors from the list to add them tip-to-tail. Land exactly on the target (⭐).');
+  t('vc-hint','Elige un vector para sumarlo a tu posición.','Pick a vector to add to your position.');
+  t('vc-undo-btn','↺ Deshacer último','↺ Undo last');
+  t('vc-start-desc','Parte del punto azul. Cada botón es un vector disponible: al elegirlo, se dibuja punta con punta desde tu posición actual y te mueves ahí. Combina los vectores que necesites, en cualquier orden, hasta caer exactamente sobre el objetivo (⭐). No todos los vectores sirven — algunos son trampas.',
+    'Start from the blue point. Each button is an available vector: pick it and it draws tip-to-tail from your current position, moving you there. Combine whatever vectors you need, in any order, until you land exactly on the target (⭐). Not every vector helps — some are traps.');
+  t('vc-start-note','Sumar vectores es sumar sus componentes: (a,b) + (c,d) = (a+c, b+d). Dibujarlos punta con punta es la forma geométrica de hacer esa misma suma.',
+    'Adding vectors means adding their components: (a,b) + (c,d) = (a+c, b+d). Drawing them tip-to-tail is the geometric way of doing that same sum.');
+  t('vc-start-btn','Jugar →','Play →');
+  t('vc-exit-btn','Salir al lobby','Exit to lobby');
+  if(typeof VC_LEVELS!=='undefined' && typeof vcLevelIdx!=='undefined'){
+    var vnl=document.getElementById('vc-nivel-lbl');
+    if(vnl) vnl.textContent = en?('Level '+(vcLevelIdx+1)+' of '+VC_LEVELS.length):('Nivel '+(vcLevelIdx+1)+' de '+VC_LEVELS.length);
+  }
+
+  // Serpiente de Dominios
+  t('jg-ds-name','Serpiente de Dominios','Domain Snake'); t('jg-ds-name2','Serpiente de Dominios','Domain Snake');
+  t('ds-score-lbl','puntos','points');
+  t('ds-hint','Flechas (o desliza) para moverte. Solo come números que SÍ estén en el dominio de la función.',
+    'Arrows (or swipe) to move. Only eat numbers that ARE in the function\'s domain.');
+  t('ds-start-desc','Cada nivel te da una función real. El tablero tiene números sueltos — solo puedes comer los que SÍ pertenecen al dominio de esa función. Comer uno que no pertenece termina el juego.',
+    'Each level gives you a real function. The board has loose numbers — you can only eat the ones that ARE in that function\'s domain. Eating one that isn\'t ends the game.');
+  t('ds-start-note','Las 3 restricciones que casi siempre importan: denominador distinto de cero, raíz par mayor o igual a cero, y logaritmo estrictamente mayor que cero.',
+    'The 3 restrictions that almost always matter: denominator not zero, even root greater than or equal to zero, and logarithm strictly greater than zero.');
+  t('ds-start-btn','Jugar →','Play →');
+  t('ds-exit-btn','Salir al lobby','Exit to lobby');
+
+  document.querySelectorAll('.jg-share-txt').forEach(function(el){ el.textContent = en?'Share result':'Compartir resultado'; });
 };
 
 // ── UTILS ──
@@ -8974,9 +9037,9 @@ var timerRebota=null, nivel=0, intentos=3, solved=false;
 
 var niveles=[
   { ball:{x:.15,y:.6}, target:{x:.8,y:.2,r:.06},
-    walls:[], hint:'Apunta directo al círculo — arrastra y suelta.' },
+    walls:[], hint:'Apunta directo al círculo — arrastra y suelta.', hintEn:'Aim straight at the circle — drag and release.' },
   { ball:{x:.1,y:.8}, target:{x:.85,y:.15,r:.055},
-    walls:[{x1:.5,y1:.0,x2:.5,y2:.55}], hint:'Hay una pared en el centro. Rebota en la pared derecha.' },
+    walls:[{x1:.5,y1:.0,x2:.5,y2:.55}], hint:'Hay una pared en el centro. Rebota en la pared derecha.', hintEn:'There\'s a wall in the center. Bounce off the right wall.' },
   /* Niveles 3 y 4 rediseñados: los originales usaban dos paredes con un
      hueco en medio -- geometricamente eso casi siempre deja un tiro
      "directo" a traves del hueco (verificado con un simulador: 0 rebotes
@@ -8984,28 +9047,28 @@ var niveles=[
      Ahora usan paredes SOLIDAS sin hueco (como el nivel 2, que si funciona)
      -- verificado que el nivel 3 exige minimo 1 rebote real y el 4, 2. */
   { ball:{x:.6,y:.85}, target:{x:.1,y:.15,r:.05},
-    walls:[{x1:.0,y1:.5,x2:.75,y2:.5}], hint:'Pared sólida de lado a lado. Rodéala por la derecha.' },
+    walls:[{x1:.0,y1:.5,x2:.75,y2:.5}], hint:'Pared sólida de lado a lado. Rodéala por la derecha.', hintEn:'Solid wall from side to side. Go around it on the right.' },
   { ball:{x:.1,y:.15}, target:{x:.9,y:.85,r:.05},
     walls:[{x1:.35,y1:.0,x2:.35,y2:.65},{x1:.65,y1:.35,x2:.65,y2:1}],
-    hint:'Dos paredes escalonadas. Vas a necesitar más de un rebote.' },
+    hint:'Dos paredes escalonadas. Vas a necesitar más de un rebote.', hintEn:'Two staggered walls. You\'ll need more than one bounce.' },
   { ball:{x:.1,y:.9}, target:{x:.9,y:.1,r:.045},
     walls:[{x1:.35,y1:.0,x2:.35,y2:.7},{x1:.65,y1:.3,x2:.65,y2:1},{x1:.0,y1:.5,x2:.25,y2:.5}],
-    hint:'Múltiples rebotes necesarios. ¡Tú puedes!' },
+    hint:'Múltiples rebotes necesarios. ¡Tú puedes!', hintEn:'Multiple bounces needed. You\'ve got this!' },
   /* Niveles 6-10: dificultad progresiva, cada uno verificado con el mismo
      simulador (barrido de ~2880 ángulos, físicas identicas a updateBall)
      para confirmar el numero minimo real de rebotes necesarios antes de
      agregarlo -- min 1/2/3/3/4 rebotes respectivamente. */
   { ball:{x:.5,y:.1}, target:{x:.1,y:.9,r:.05},
-    walls:[{x1:.0,y1:.4,x2:.6,y2:.4},{x1:.4,y1:.7,x2:1,y2:.7}], hint:'Dos paredes escalonadas en zigzag.' },
+    walls:[{x1:.0,y1:.4,x2:.6,y2:.4},{x1:.4,y1:.7,x2:1,y2:.7}], hint:'Dos paredes escalonadas en zigzag.', hintEn:'Two staggered zigzag walls.' },
   { ball:{x:.9,y:.1}, target:{x:.5,y:.9,r:.045},
-    walls:[{x1:.2,y1:.0,x2:.2,y2:.6},{x1:.65,y1:.4,x2:.65,y2:1},{x1:.0,y1:.75,x2:.4,y2:.75}], hint:'Tres paredes. Piensa el camino completo antes de tirar.' },
+    walls:[{x1:.2,y1:.0,x2:.2,y2:.6},{x1:.65,y1:.4,x2:.65,y2:1},{x1:.0,y1:.75,x2:.4,y2:.75}], hint:'Tres paredes. Piensa el camino completo antes de tirar.', hintEn:'Three walls. Think through the whole path before you shoot.' },
   { ball:{x:.1,y:.5}, target:{x:.9,y:.5,r:.04},
-    walls:[{x1:.25,y1:.0,x2:.25,y2:.7},{x1:.5,y1:.3,x2:.5,y2:1},{x1:.75,y1:.0,x2:.75,y2:.65}], hint:'Tres paredes alternadas arriba/abajo. Objetivo pequeño.' },
+    walls:[{x1:.25,y1:.0,x2:.25,y2:.7},{x1:.5,y1:.3,x2:.5,y2:1},{x1:.75,y1:.0,x2:.75,y2:.65}], hint:'Tres paredes alternadas arriba/abajo. Objetivo pequeño.', hintEn:'Three walls alternating top/bottom. Small target.' },
   { ball:{x:.5,y:.5}, target:{x:.05,y:.05,r:.04},
-    walls:[{x1:.0,y1:.25,x2:.4,y2:.25},{x1:.4,y1:.25,x2:.4,y2:.6},{x1:.6,y1:.4,x2:.6,y2:.75},{x1:.6,y1:.75,x2:1,y2:.75},{x1:.15,y1:.6,x2:.15,y2:1}], hint:'Bola en el centro, objetivo en la esquina. Cinco paredes.' },
+    walls:[{x1:.0,y1:.25,x2:.4,y2:.25},{x1:.4,y1:.25,x2:.4,y2:.6},{x1:.6,y1:.4,x2:.6,y2:.75},{x1:.6,y1:.75,x2:1,y2:.75},{x1:.15,y1:.6,x2:.15,y2:1}], hint:'Bola en el centro, objetivo en la esquina. Cinco paredes.', hintEn:'Ball in the center, target in the corner. Five walls.' },
   { ball:{x:.9,y:.9}, target:{x:.08,y:.08,r:.035},
     walls:[{x1:.15,y1:.0,x2:.15,y2:.55},{x1:.4,y1:.45,x2:.4,y2:1},{x1:.6,y1:.0,x2:.6,y2:.5},{x1:.8,y1:.5,x2:.8,y2:1}],
-    hint:'Nivel final — objetivo diminuto, cuatro paredes. Máxima precisión.' }
+    hint:'Nivel final — objetivo diminuto, cuatro paredes. Máxima precisión.', hintEn:'Final level — tiny target, four walls. Maximum precision.' }
 ];
 
 function initCanvas(){
@@ -9025,8 +9088,9 @@ function startRebota(n){
   initCanvas();
   document.getElementById('r-next-btn').style.display='none';
   document.getElementById('r-intentos').textContent=intentos;
-  document.getElementById('rnivel-lbl').textContent='Nivel '+(nivel+1)+' de '+niveles.length;
-  document.getElementById('r-hint').textContent=niveles[nivel].hint;
+  var _en=(window.curLang==='en');
+  document.getElementById('rnivel-lbl').textContent=_en?('Level '+(nivel+1)+' of '+niveles.length):('Nivel '+(nivel+1)+' de '+niveles.length);
+  document.getElementById('r-hint').textContent=_en?(niveles[nivel].hintEn||niveles[nivel].hint):niveles[nivel].hint;
   ball=null;aiming=false;
   draw();
   canvas.addEventListener('mousedown',onDown,{once:false});
@@ -9044,13 +9108,13 @@ function resetRebota(){
   document.getElementById('r-intentos').textContent=intentos;
   draw();
   if(intentos<=0){
-    showResult(JG_ICO_RETRY,'Sin más intentos','¿Lo intentas de nuevo?',()=>{closeResult();startRebota(nivel);});
+    showResult(JG_ICO_RETRY,(window.curLang==='en')?'Out of attempts':'Sin más intentos',(window.curLang==='en')?'Want to try again?':'¿Lo intentas de nuevo?',()=>{closeResult();startRebota(nivel);});
   }
 }
 function nextNivel(){
   closeResult();
   if(nivel+1>=niveles.length){
-    showResult(JG_ICO_TROPHY,'¡Completaste todos los niveles!','Eres un maestro de las trayectorias.',()=>{closeResult();showScr('lobby');});
+    showResult(JG_ICO_TROPHY,(window.curLang==='en')?'You completed all the levels!':'¡Completaste todos los niveles!',(window.curLang==='en')?'You\'re a trajectory master.':'Eres un maestro de las trayectorias.',()=>{closeResult();showScr('lobby');});
   } else {
     startRebota(nivel+1);
   }
@@ -9136,8 +9200,13 @@ function updateBall(){
     setTimeout(()=>{
       lastGame='rebota';lastScore=3-intentos;
       document.getElementById('r-next-btn').style.display='';
-      showResult(JG_ICO_TARGET,nivel<niveles.length-1?'¡Nivel '+(nivel+1)+' superado!':'¡Todos los niveles!',
-        'La bola llegó al objetivo con '+(3-intentos)+' intentos usados.',
+      showResult(JG_ICO_TARGET,
+        (window.curLang==='en')
+          ? (nivel<niveles.length-1?'Level '+(nivel+1)+' cleared!':'All levels done!')
+          : (nivel<niveles.length-1?'¡Nivel '+(nivel+1)+' superado!':'¡Todos los niveles!'),
+        (window.curLang==='en')
+          ? ('The ball reached the target using '+(3-intentos)+' attempts.')
+          : ('La bola llegó al objetivo con '+(3-intentos)+' intentos usados.'),
         ()=>{closeResult();if(nivel<niveles.length-1)nextNivel();else showScr('lobby');});
     },400);
     return;
@@ -9303,7 +9372,7 @@ function startCasillas(idx){
 function buildCasBoard(){
   var pz=puzzles[casPuzzleIdx];
   casN=pz.n;
-  document.getElementById('cas-nivel-lbl').textContent='Puzzle '+(casPuzzleIdx+1)+' de '+puzzles.length;
+  document.getElementById('cas-nivel-lbl').textContent=(window.curLang==='en')?('Puzzle '+(casPuzzleIdx+1)+' of '+puzzles.length):('Puzzle '+(casPuzzleIdx+1)+' de '+puzzles.length);
   document.getElementById('cas-total').textContent=casN;
   casBoard=Array.from({length:casN},()=>Array(casN).fill(0));
   var pal=colorPalettes[casPuzzleIdx];
@@ -9374,8 +9443,8 @@ function checkWin(){
   if(placed===casN){
     lastGame='casillas';lastScore=casMoves;
     setTimeout(()=>{
-      showResult(JG_ICO_TROPHY,'¡Puzzle resuelto!',
-        `Completaste el puzzle en ${casMoves} movimientos.`,
+      showResult(JG_ICO_TROPHY,(window.curLang==='en')?'Puzzle solved!':'¡Puzzle resuelto!',
+        (window.curLang==='en')?`You solved the puzzle in ${casMoves} moves.`:`Completaste el puzzle en ${casMoves} movimientos.`,
         ()=>{closeResult();});
     },500);
   }
@@ -9679,8 +9748,8 @@ function dsTick(){
   dsDir=dsNextDir;
   var head=dsSnake[dsSnake.length-1];
   var nx=head.x+dsDir.x, ny=head.y+dsDir.y;
-  if(nx<0||nx>=dsGrid||ny<0||ny>=dsGrid){ dsGameOver('¡Chocaste contra el borde!'); return; }
-  if(dsSnake.some(function(s){return s.x===nx&&s.y===ny;})){ dsGameOver('¡Te chocaste contigo mismo!'); return; }
+  if(nx<0||nx>=dsGrid||ny<0||ny>=dsGrid){ dsGameOver('¡Chocaste contra el borde!','You hit the edge!'); return; }
+  if(dsSnake.some(function(s){return s.x===nx&&s.y===ny;})){ dsGameOver('¡Te chocaste contigo mismo!','You ran into yourself!'); return; }
   var numIdx=-1;
   for(var i=0;i<dsNums.length;i++){ if(dsNums[i].x===nx&&dsNums[i].y===ny){ numIdx=i; break; } }
   var grow=false;
@@ -9697,7 +9766,7 @@ function dsTick(){
       if(dsEaten>=DS_EAT_PER_LEVEL){ dsLevelUp(); return; }
     } else {
       beep(140,.3,.1,'sawtooth');
-      dsGameOver('Comiste '+val+', que NO está en el dominio de '+def.label+'.');
+      dsGameOver('Comiste '+val+', que NO está en el dominio de '+def.label+'.', 'You ate '+val+', which is NOT in the domain of '+def.label+'.');
       return;
     }
   }
@@ -9707,11 +9776,12 @@ function dsTick(){
 function dsLevelUp(){
   dsRunning=false;
   var isLast=dsLevelIdx>=DS_LEVELS.length-1;
+  var en=(window.curLang==='en');
   lastGame='domainsnake';lastScore=dsScore;
   document.getElementById('ds-goover-ico').innerHTML=JG_ICO_TROPHY;
-  document.getElementById('ds-goover-title').textContent='¡Nivel superado!';
-  document.getElementById('ds-goover-sub').textContent='Puntos: '+dsScore+(isLast?' · ¡Completaste todos los niveles!':'');
-  document.getElementById('ds-goover-btn1').textContent=isLast?'Reiniciar juego':'Siguiente nivel →';
+  document.getElementById('ds-goover-title').textContent=en?'Level cleared!':'¡Nivel superado!';
+  document.getElementById('ds-goover-sub').textContent=(en?'Points: ':'Puntos: ')+dsScore+(isLast?(en?' · You completed all the levels!':' · ¡Completaste todos los niveles!'):'');
+  document.getElementById('ds-goover-btn1').textContent=isLast?(en?'Restart game':'Reiniciar juego'):(en?'Next level →':'Siguiente nivel →');
   document.getElementById('ds-goover-btn1').onclick=function(){
     dsLevelIdx=isLast?0:dsLevelIdx+1;
     dsBuildLevel(isLast);
@@ -9719,13 +9789,14 @@ function dsLevelUp(){
   document.getElementById('ds-goover').classList.add('on');
   beep(650,.2,.1,'sine');
 }
-function dsGameOver(msg){
+function dsGameOver(msg,msgEn){
   dsRunning=false;
+  var en=(window.curLang==='en');
   lastGame='domainsnake';lastScore=dsScore;
   document.getElementById('ds-goover-ico').innerHTML=JG_ICO_RETRY;
-  document.getElementById('ds-goover-title').textContent='¡Fuera del dominio!';
-  document.getElementById('ds-goover-sub').textContent=msg+' Puntos: '+dsScore;
-  document.getElementById('ds-goover-btn1').textContent='Jugar otra vez';
+  document.getElementById('ds-goover-title').textContent=en?'Outside the domain!':'¡Fuera del dominio!';
+  document.getElementById('ds-goover-sub').textContent=(en?(msgEn||msg):msg)+(en?' Points: ':' Puntos: ')+dsScore;
+  document.getElementById('ds-goover-btn1').textContent=en?'Play again':'Jugar otra vez';
   document.getElementById('ds-goover-btn1').onclick=function(){
     dsLevelIdx=0;
     dsBuildLevel(true);
@@ -9809,7 +9880,7 @@ function vcBuildLevel(){
   vcLevel=VC_LEVELS[Math.min(vcLevelIdx,VC_LEVELS.length-1)];
   vcPos={x:vcLevel.start.x,y:vcLevel.start.y};
   vcPath=[];vcMoves=0;
-  document.getElementById('vc-nivel-lbl').textContent='Nivel '+(vcLevelIdx+1)+' de '+VC_LEVELS.length;
+  document.getElementById('vc-nivel-lbl').textContent=(window.curLang==='en')?('Level '+(vcLevelIdx+1)+' of '+VC_LEVELS.length):('Nivel '+(vcLevelIdx+1)+' de '+VC_LEVELS.length);
   document.getElementById('vc-moves').textContent='0';
   vcRunning=true;
   vcBuildButtons();
@@ -9878,10 +9949,13 @@ function vcWin(){
   var perfect=vcPath.length<=minVecs;
   var isLast=vcLevelIdx>=VC_LEVELS.length-1;
   lastGame='vectores';lastScore=vcPath.length;
+  var en=(window.curLang==='en');
   document.getElementById('vc-goover-ico').innerHTML=perfect?JG_ICO_TROPHY:JG_ICO_VECTORS;
-  document.getElementById('vc-goover-title').textContent='¡Llegaste al objetivo!';
-  document.getElementById('vc-goover-sub').textContent='Lo lograste con '+vcPath.length+' vector'+(vcPath.length===1?'':'es')+' · El mínimo posible era '+minVecs+'.';
-  document.getElementById('vc-goover-btn1').textContent=isLast?'Reiniciar juego':'Siguiente nivel →';
+  document.getElementById('vc-goover-title').textContent=en?'You reached the target!':'¡Llegaste al objetivo!';
+  document.getElementById('vc-goover-sub').textContent=en
+    ? ('You got there with '+vcPath.length+' vector'+(vcPath.length===1?'':'s')+' · The minimum possible was '+minVecs+'.')
+    : ('Lo lograste con '+vcPath.length+' vector'+(vcPath.length===1?'':'es')+' · El mínimo posible era '+minVecs+'.');
+  document.getElementById('vc-goover-btn1').textContent=isLast?(en?'Restart game':'Reiniciar juego'):(en?'Next level →':'Siguiente nivel →');
   document.getElementById('vc-goover').classList.add('on');
   beep(650,.2,.1,'sine');
 }
