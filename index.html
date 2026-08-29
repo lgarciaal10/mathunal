@@ -8586,38 +8586,38 @@ html,body{height:100%;background:var(--bg);color:var(--t1);font-family:'Space Gr
 <div class="scr on" id="scr-lobby">
 <div class="lobby">
   <div class="lhero">
-    <div class="eye">Zona de juegos</div>
-    <h1 class="ltitle">Fortalece tu <span>lógica</span><br>sin darte cuenta</h1>
-    <p class="lsub">Juegos de verdad — mueves cosas, piensas, resuelves. No necesitas saber nada de fórmulas para jugar.</p>
+    <div class="eye" id="jg-eye">Zona de juegos</div>
+    <h1 class="ltitle" id="jg-title">Fortalece tu <span>lógica</span><br>sin darte cuenta</h1>
+    <p class="lsub" id="jg-sub">Juegos de verdad — mueves cosas, piensas, resuelves. No necesitas saber nada de fórmulas para jugar.</p>
   </div>
   <div class="ggrid">
     <div class="gc" style="--gc:#E8632A">
       <div class="gc-ico"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="3.5" cy="4" r="1.7"/><path d="M4.8 5.3 10 19 15.5 6.5 20.5 16.5"/><circle cx="20.5" cy="16.5" r="2.1"/></svg></div>
-      <div class="gc-name">Rebota</div>
-      <div class="gc-desc">Ajusta el ángulo y dispara la bola. Debe rebotar en las paredes y llegar al objetivo. Intuición de trayectorias.</div>
-      <div class="gc-tags"><span class="tag">Física</span><span class="tag">Ángulos</span><span class="tag">10 niveles</span></div>
-      <button class="gc-btn" onclick="startRebota()">Jugar →</button>
+      <div class="gc-name" id="jg-1-name">Rebota</div>
+      <div class="gc-desc" id="jg-1-desc">Ajusta el ángulo y dispara la bola. Debe rebotar en las paredes y llegar al objetivo. Intuición de trayectorias.</div>
+      <div class="gc-tags"><span class="tag" id="jg-1-t1">Física</span><span class="tag" id="jg-1-t2">Ángulos</span><span class="tag" id="jg-1-t3">10 niveles</span></div>
+      <button class="gc-btn" id="jg-1-btn" onclick="startRebota()">Jugar →</button>
     </div>
     <div class="gc" style="--gc:#7C3AED">
       <div class="gc-ico"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="1"/><line x1="9" y1="3" x2="9" y2="21"/><line x1="15" y1="3" x2="15" y2="21"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="3" y1="15" x2="21" y2="15"/><circle cx="6" cy="6" r="1.4"/><circle cx="18" cy="18" r="1.4"/></svg></div>
-      <div class="gc-name">Casillas</div>
-      <div class="gc-desc">Coloca una pieza en cada zona de color, sin que queden dos en la misma fila ni columna, ni tocándose.</div>
-      <div class="gc-tags"><span class="tag">Lógica pura</span><span class="tag">Grid</span><span class="tag">3 puzzles</span></div>
-      <button class="gc-btn" style="background:var(--purple)" onclick="startCasillas()">Jugar →</button>
+      <div class="gc-name" id="jg-2-name">Casillas</div>
+      <div class="gc-desc" id="jg-2-desc">Coloca una pieza en cada zona de color, sin que queden dos en la misma fila ni columna, ni tocándose.</div>
+      <div class="gc-tags"><span class="tag" id="jg-2-t1">Lógica pura</span><span class="tag" id="jg-2-t2">Grid</span><span class="tag" id="jg-2-t3">3 puzzles</span></div>
+      <button class="gc-btn" id="jg-2-btn" style="background:var(--purple)" onclick="startCasillas()">Jugar →</button>
     </div>
     <div class="gc" style="--gc:var(--ok)">
       <div class="gc-ico"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 19 11 10 19 14" stroke-linejoin="round"/><path d="M3 19 19 14" stroke-dasharray="2.2 2.2"/><path d="M8.2 10.9 11 10 11.6 12.9"/><path d="M16.3 12.6 19 14 16.2 15"/></svg></div>
-      <div class="gc-name">Vectores</div>
-      <div class="gc-desc">Navega una cuadrícula eligiendo vectores. Llega exactamente al destino sin pasarte. Suma de vectores sin saberlo.</div>
-      <div class="gc-tags"><span class="tag">Vectores</span><span class="tag">Suma</span><span class="tag">10 niveles</span></div>
-      <button class="gc-btn" style="background:var(--grn)" onclick="startVectores()">Jugar →</button>
+      <div class="gc-name" id="jg-3-name">Vectores</div>
+      <div class="gc-desc" id="jg-3-desc">Navega una cuadrícula eligiendo vectores. Llega exactamente al destino sin pasarte. Suma de vectores sin saberlo.</div>
+      <div class="gc-tags"><span class="tag" id="jg-3-t1">Vectores</span><span class="tag" id="jg-3-t2">Suma</span><span class="tag" id="jg-3-t3">10 niveles</span></div>
+      <button class="gc-btn" id="jg-3-btn" style="background:var(--grn)" onclick="startVectores()">Jugar →</button>
     </div>
     <div class="gc" style="--gc:var(--ok)">
       <div class="gc-ico"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19c3 0 3-4 6-4s3 4 6 4 3-4 5-5"/><path d="M19 12.3l2.2-1.7-2.7-.7"/></svg></div>
-      <div class="gc-name">Serpiente de Dominios</div>
-      <div class="gc-desc">Snake clásico, pero solo puedes comer números que SÍ estén en el dominio de la función del nivel. Un número fuera de dominio y se acaba.</div>
-      <div class="gc-tags"><span class="tag">Dominios</span><span class="tag">Reflejos</span><span class="tag">10 niveles</span></div>
-      <button class="gc-btn" style="background:var(--grn)" onclick="startDomainSnake()">Jugar →</button>
+      <div class="gc-name" id="jg-4-name">Serpiente de Dominios</div>
+      <div class="gc-desc" id="jg-4-desc">Snake clásico, pero solo puedes comer números que SÍ estén en el dominio de la función del nivel. Un número fuera de dominio y se acaba.</div>
+      <div class="gc-tags"><span class="tag" id="jg-4-t1">Dominios</span><span class="tag" id="jg-4-t2">Reflejos</span><span class="tag" id="jg-4-t3">10 niveles</span></div>
+      <button class="gc-btn" id="jg-4-btn" style="background:var(--grn)" onclick="startDomainSnake()">Jugar →</button>
     </div>
   </div>
 </div>
@@ -8874,6 +8874,36 @@ function toggleSettings(btn){
   if(btn) btn.setAttribute('aria-expanded', nowOpen ? 'true' : 'false');
 }
 if(!window.__muSdClickBound){window.__muSdClickBound=true;document.addEventListener('click',function(e){var s=document.getElementById('sd');if(s&&!e.target.closest('.settings-wrap'))s.classList.remove('open');});}
+
+/* Traduce el lobby de Juegos (titulo, subtitulo, las 4 tarjetas). El texto DENTRO
+   de cada juego (reglas, hints, contadores una vez le das Jugar) todavia queda en
+   español -- son 4 pantallas de juego completas, se aborda aparte si se pide. */
+window.muApplyLang_juegos = function(){
+  var en = (window.curLang==='en');
+  var t = function(id, es, enTxt){ var el=document.getElementById(id); if(el) el.textContent = en?enTxt:es; };
+  t('jg-eye','Zona de juegos','Games zone');
+  var titleEl=document.getElementById('jg-title');
+  if(titleEl) titleEl.innerHTML = en ? 'Sharpen your <span>logic</span><br>without noticing' : 'Fortalece tu <span>lógica</span><br>sin darte cuenta';
+  t('jg-sub','Juegos de verdad — mueves cosas, piensas, resuelves. No necesitas saber nada de fórmulas para jugar.',
+    'Real games — you move things, think, solve. You don\'t need to know any formulas to play.');
+  t('jg-1-name','Rebota','Bounce');
+  t('jg-1-desc','Ajusta el ángulo y dispara la bola. Debe rebotar en las paredes y llegar al objetivo. Intuición de trayectorias.',
+    'Adjust the angle and shoot the ball. It must bounce off the walls and reach the target. Trajectory intuition.');
+  t('jg-1-t1','Física','Physics'); t('jg-1-t2','Ángulos','Angles'); t('jg-1-t3','10 niveles','10 levels');
+  t('jg-2-name','Casillas','Squares');
+  t('jg-2-desc','Coloca una pieza en cada zona de color, sin que queden dos en la misma fila ni columna, ni tocándose.',
+    'Place one piece in each colored zone, with no two in the same row or column, and none touching.');
+  t('jg-2-t1','Lógica pura','Pure logic'); t('jg-2-t2','Grid','Grid'); t('jg-2-t3','3 puzzles','3 puzzles');
+  t('jg-3-name','Vectores','Vectors');
+  t('jg-3-desc','Navega una cuadrícula eligiendo vectores. Llega exactamente al destino sin pasarte. Suma de vectores sin saberlo.',
+    'Navigate a grid by picking vectors. Reach the target exactly without overshooting. Vector addition without realizing it.');
+  t('jg-3-t1','Vectores','Vectors'); t('jg-3-t2','Suma','Addition'); t('jg-3-t3','10 niveles','10 levels');
+  t('jg-4-name','Serpiente de Dominios','Domain Snake');
+  t('jg-4-desc','Snake clásico, pero solo puedes comer números que SÍ estén en el dominio de la función del nivel. Un número fuera de dominio y se acaba.',
+    'Classic Snake, but you can only eat numbers that ARE in the level\'s function domain. Eat one outside the domain and it\'s over.');
+  t('jg-4-t1','Dominios','Domains'); t('jg-4-t2','Reflejos','Reflexes'); t('jg-4-t3','10 niveles','10 levels');
+  ['jg-1-btn','jg-2-btn','jg-3-btn','jg-4-btn'].forEach(function(id){ t(id,'Jugar →','Play →'); });
+};
 
 // ── UTILS ──
 function showScr(id){
@@ -10271,13 +10301,13 @@ function vcDraw(){
 
   <!-- ══ PASO 1: momento + materia ══ -->
   <div class="diag-step on" id="diag-step-setup">
-    <div class="diag-eye"><span class="diag-ico" id="diag-eye-ico"></span> Diagnóstico</div>
-    <h1 class="diag-title">¿Dónde estás <span>parado</span> con tu materia?</h1>
-    <p class="diag-sub">5 preguntas reales, sacadas de parciales de verdad. Al final te decimos exactamente qué examen te está costando trabajo — sin inventar temas que no medimos.</p>
+    <div class="diag-eye"><span class="diag-ico" id="diag-eye-ico"></span> <span id="diag-eye-label">Diagnóstico</span></div>
+    <h1 class="diag-title" id="diag-title">¿Dónde estás <span>parado</span> con tu materia?</h1>
+    <p class="diag-sub" id="diag-sub">5 preguntas reales, sacadas de parciales de verdad. Al final te decimos exactamente qué examen te está costando trabajo — sin inventar temas que no medimos.</p>
     <div class="diag-howto">
-      <div class="diag-howto-step"><span class="diag-howto-n">1</span> Elige tu momento y tu materia</div>
-      <div class="diag-howto-step"><span class="diag-howto-n">2</span> Responde 5 preguntas de parciales reales</div>
-      <div class="diag-howto-step"><span class="diag-howto-n">3</span> Recibe qué examen del simulacro repasar primero</div>
+      <div class="diag-howto-step"><span class="diag-howto-n">1</span> <span id="diag-howto-1">Elige tu momento y tu materia</span></div>
+      <div class="diag-howto-step"><span class="diag-howto-n">2</span> <span id="diag-howto-2">Responde 5 preguntas de parciales reales</span></div>
+      <div class="diag-howto-step"><span class="diag-howto-n">3</span> <span id="diag-howto-3">Recibe qué examen del simulacro repasar primero</span></div>
     </div>
 
     <div class="momento-grid" id="diag-momento-grid"></div>
@@ -10287,7 +10317,7 @@ function vcDraw(){
     </div>
 
     <button class="diag-btn" id="diag-start-btn" disabled onclick="_diagStart()">
-      Empezar diagnóstico
+      <span id="diag-start-txt">Empezar diagnóstico</span>
       <span class="diag-ico" id="diag-start-ico"></span>
     </button>
   </div>
@@ -10304,7 +10334,7 @@ function vcDraw(){
     <div class="diag-num-row" id="diag-q-num" style="display:none">
       <input type="text" inputmode="decimal" id="diag-num-input" placeholder="Escribe tu respuesta numérica…">
     </div>
-    <button class="diag-btn" id="diag-next-btn" disabled onclick="_diagNext()">Siguiente →</button>
+    <button class="diag-btn" id="diag-next-btn" disabled onclick="_diagNext()"><span id="diag-next-txt">Siguiente →</span></button>
   </div>
 
   <!-- ══ PASO 3: resultados ══ -->
@@ -10320,7 +10350,7 @@ function vcDraw(){
       <div id="review-list"></div>
     </div>
     <div style="text-align:center;margin-top:2rem">
-      <button class="diag-btn-ghost" onclick="_diagReiniciar()">↺ Elegir otra materia</button>
+      <button class="diag-btn-ghost" id="diag-restart-btn" onclick="_diagReiniciar()">↺ Elegir otra materia</button>
     </div>
   </div>
 
@@ -10337,15 +10367,42 @@ function toggleSettings(btn){
 }
 if(!window.__muSdClickBound){window.__muSdClickBound=true;document.addEventListener('click',function(e){var s=document.getElementById('sd');if(s&&!e.target.closest('.settings-wrap'))s.classList.remove('open');});}
 
+window.muApplyLang_diagnostico = function(){
+  var en = (window.curLang==='en');
+  var t = function(id, es, enTxt){ var el=document.getElementById(id); if(el) el.textContent = en?enTxt:es; };
+  t('diag-eye-label','Diagnóstico','Diagnostic');
+  t('diag-title','¿Dónde estás parado con tu materia?','Where do you stand with your subject?');
+  // El <h1> real tiene un <span> anidado ("parado"/"stand") -- textContent lo aplanaria, se reconstruye con innerHTML.
+  var titleEl=document.getElementById('diag-title');
+  if(titleEl) titleEl.innerHTML = en ? 'Where do you <span>stand</span> with your subject?' : '¿Dónde estás <span>parado</span> con tu materia?';
+  t('diag-sub','5 preguntas reales, sacadas de parciales de verdad. Al final te decimos exactamente qué examen te está costando trabajo — sin inventar temas que no medimos.',
+    '5 real questions, pulled from actual past exams. At the end we tell you exactly which exam is giving you trouble — no invented topics we don\'t actually measure.');
+  t('diag-howto-1','Elige tu momento y tu materia','Pick your moment and your subject');
+  t('diag-howto-2','Responde 5 preguntas de parciales reales','Answer 5 questions from real exams');
+  t('diag-howto-3','Recibe qué examen del simulacro repasar primero','Find out which mock exam to review first');
+  t('diag-start-txt','Empezar diagnóstico','Start diagnostic');
+  t('diag-next-txt','Siguiente →','Next →');
+  t('diag-score-lbl','respuestas correctas','correct answers');
+  t('diag-restart-btn','↺ Elegir otra materia','↺ Choose another subject');
+  var input=document.getElementById('diag-num-input'); if(input) input.setAttribute('placeholder', en?'Type your numeric answer…':'Escribe tu respuesta numérica…');
+  if(typeof _diagRenderMomentos==='function') _diagRenderMomentos();
+  if(typeof _diagRenderMaterias==='function') _diagRenderMaterias();
+  if(typeof _diagRenderPregunta==='function' && typeof _diagPoolQs!=='undefined' && _diagPoolQs.length) _diagRenderPregunta();
+};
+/* No se llama aqui mismo: _loadPage() ya invoca muApplyLang_diagnostico() justo
+   despues de inyectar esta plantilla si el idioma activo es EN (ver router).
+   Llamarla aqui seria prematuro -- _diagPoolQs y las funciones _diagRender* de
+   mas abajo en este mismo script todavia no se han inicializado en este punto. */
+
 /* ── Datos 100% reales: materia elegida por el usuario + pool desde window.EXAMS,
    filtrado a tipo mcq/numerica (las unicas auto-calificables — ver confirmacion
    previa: las preguntas abiertas no tienen "resumen" y no se auto-califican en
    ningun lugar del sitio, asi que quedan fuera del diagnostico). Nada de "tema"
    inventado: el resultado se agrupa por EXAMEN de origen real (EXAM_META + EXAMS). ── */
 var _diagMomentos = [
-  { id:'inicio', ico:'escudo', color:'rgba(34,197,94,.12)', name:'Inicio de semestre', sub:'Quiero arrancar bien' },
-  { id:'malo',   ico:'tendencia', color:'rgba(245,158,11,.12)', name:'Saqué malo en el primero', sub:'Necesito recuperarme' },
-  { id:'urgente',ico:'reloj', color:'rgba(239,68,68,.12)', name:'Parcial en menos de una semana', sub:'Modo emergencia' }
+  { id:'inicio', ico:'escudo', color:'rgba(34,197,94,.12)', name:'Inicio de semestre', sub:'Quiero arrancar bien', nameEn:'Start of semester', subEn:'I want a good start' },
+  { id:'malo',   ico:'tendencia', color:'rgba(245,158,11,.12)', name:'Saqué malo en el primero', sub:'Necesito recuperarme', nameEn:'I did badly on the first one', subEn:'I need to recover' },
+  { id:'urgente',ico:'reloj', color:'rgba(239,68,68,.12)', name:'Parcial en menos de una semana', sub:'Modo emergencia', nameEn:'Exam in under a week', subEn:'Emergency mode' }
 ];
 var _diagMomentoSel = 'inicio'; // 'urgente' agrega un banner con link a Modo Panico en los resultados (ver _diagMostrarResultados)
 var _diagMatSel = null;
@@ -10362,11 +10419,12 @@ function _diagIco(name, extraClass){
 function _diagRenderMomentos(){
   var host = document.getElementById('diag-momento-grid');
   if(!host) return;
+  var en = (window.curLang==='en');
   host.innerHTML = _diagMomentos.map(function(m){
     return '<div class="momento-card'+(m.id===_diagMomentoSel?' sel':'')+'" onclick="_diagPickMomento(\''+m.id+'\')">'
       + '<div class="momento-ico-wrap" style="background:'+m.color+'">'+_diagIco(m.ico)+'</div>'
-      + '<div class="momento-name">'+m.name+'</div>'
-      + '<div class="momento-sub">'+m.sub+'</div>'
+      + '<div class="momento-name">'+(en?m.nameEn:m.name)+'</div>'
+      + '<div class="momento-sub">'+(en?m.subEn:m.sub)+'</div>'
       + '</div>';
   }).join('');
 }
@@ -10404,9 +10462,10 @@ function _diagMateriasConExamenes(){
 function _diagRenderMaterias(){
   var host = document.getElementById('diag-mat-grid');
   if(!host) return;
+  var en = (window.curLang==='en');
   var lista = _diagMateriasConExamenes();
   if(!lista.length){
-    host.innerHTML = '<div class="diag-mat-empty">Todavía no hay materias con banco de preguntas real.</div>';
+    host.innerHTML = '<div class="diag-mat-empty">'+(en?'No subjects with a real question bank yet.':'Todavía no hay materias con banco de preguntas real.')+'</div>';
     return;
   }
   host.innerHTML = lista.map(function(s){
@@ -10414,8 +10473,8 @@ function _diagRenderMaterias(){
     var limitado = n < 10;
     return '<div class="diag-mat-card'+(s.code===_diagMatSel?' sel':'')+'" onclick="_diagPickMateria(\''+s.code+'\')">'
       + '<div class="diag-mat-sym">'+(s.sym||'∫')+'</div>'
-      + '<div class="diag-mat-name">'+s.nameEs+'</div>'
-      + (limitado ? '<div class="diag-mat-limited">Pool limitado ('+n+' preguntas)</div>' : '')
+      + '<div class="diag-mat-name">'+(en&&s.nameEn?s.nameEn:s.nameEs)+'</div>'
+      + (limitado ? '<div class="diag-mat-limited">'+(en?('Limited pool ('+n+' questions)'):('Pool limitado ('+n+' preguntas)'))+'</div>' : '')
       + '</div>';
   }).join('');
 }
@@ -10460,10 +10519,11 @@ function _diagRenderPregunta(){
   var q = item.q;
   _diagSelectedOpt = -1;
 
+  var en = (window.curLang==='en');
   var cnt = document.getElementById('diag-q-count');
-  if(cnt) cnt.textContent = 'Pregunta '+(_diagIdx+1)+' de '+_diagPoolQs.length;
+  if(cnt) cnt.textContent = en ? ('Question '+(_diagIdx+1)+' of '+_diagPoolQs.length) : ('Pregunta '+(_diagIdx+1)+' de '+_diagPoolQs.length);
   var mat = document.getElementById('diag-q-materia');
-  if(mat){ var s=(window.SUBJECTS||[]).find(function(x){return x.code===_diagMatSel;}); mat.textContent = s?s.nameEs:''; }
+  if(mat){ var s=(window.SUBJECTS||[]).find(function(x){return x.code===_diagMatSel;}); mat.textContent = s?(en&&s.nameEn?s.nameEn:s.nameEs):''; }
   var fill = document.getElementById('diag-q-progress-fill');
   if(fill) fill.style.width = (((_diagIdx+1)/_diagPoolQs.length)*100)+'%';
 
@@ -10530,10 +10590,11 @@ function _diagNext(){
    (movidas desde tpl-simulacro para que funcionen sin depender de haber
    visitado #simulacro antes). No se duplica esa logica aquí. ── */
 function _diagMostrarResultados(){
+  var en = (window.curLang==='en');
   var s = (window.SUBJECTS||[]).find(function(x){return x.code===_diagMatSel;});
 
   window._examKey = null; // sin examKey real: _unlockSol nunca intenta leer explicaciones pre-generadas de OTRO examen
-  window._exam = { titulo: (s?s.nameEs:'Diagnóstico'), semestre: 'Diagnóstico · 5 preguntas', preguntas: _diagPoolQs.map(function(it){ return it.q; }) };
+  window._exam = { titulo: (s?(en&&s.nameEn?s.nameEn:s.nameEs):(en?'Diagnostic':'Diagnóstico')), semestre: en?'Diagnostic · 5 questions':'Diagnóstico · 5 preguntas', preguntas: _diagPoolQs.map(function(it){ return it.q; }) };
   window._answers = _diagPoolQs.map(function(it,i){ return (it.q.tipo==='mcq') ? _diagUserAnswers[i] : -1; });
   window._numAns   = {}; _diagPoolQs.forEach(function(it,i){ if(it.q.tipo==='numerica') window._numAns[i]=_diagUserAnswers[i]; });
   window._openAns  = [];
@@ -10556,8 +10617,8 @@ function _diagMostrarResultados(){
   if(urgHost){
     urgHost.innerHTML = (_diagMomentoSel==='urgente')
       ? '<div style="background:rgba(239,68,68,.08);border:1.5px solid rgba(239,68,68,.3);border-radius:12px;padding:.9rem 1.1rem;margin-bottom:1.4rem;display:flex;align-items:center;gap:.7rem;flex-wrap:wrap;justify-content:space-between">'
-        +'<span style="font-size:.85rem;color:var(--t1)">Dijiste que tu parcial es en menos de una semana — mira el plan de emergencia.</span>'
-        +'<a href="#home" onclick="setTimeout(function(){var b=document.querySelector(\'.panic-bar .btn-panic\');if(b)b.click();},500)" class="diag-btn-ghost" style="border-color:var(--red);color:var(--red)">Ver Modo Pánico →</a>'
+        +'<span style="font-size:.85rem;color:var(--t1)">'+(en?'You said your exam is in under a week — check the emergency plan.':'Dijiste que tu parcial es en menos de una semana — mira el plan de emergencia.')+'</span>'
+        +'<a href="#home" onclick="setTimeout(function(){var b=document.querySelector(\'.panic-bar .btn-panic\');if(b)b.click();},500)" class="diag-btn-ghost" style="border-color:var(--red);color:var(--red)">'+(en?'See Panic Mode →':'Ver Modo Pánico →')+'</a>'
         +'</div>'
       : '';
   }
@@ -10581,7 +10642,7 @@ function _diagMostrarResultados(){
       var nivel = pct<50?'critico':(pct<80?'mejorar':'solido');
       var color = nivel==='critico'?'var(--red)':(nivel==='mejorar'?'var(--yel)':'var(--grn)');
       var ico = nivel==='critico'?'alerta':(nivel==='mejorar'?'tendencia':'escudo');
-      var lbl = nivel==='critico'?'Crítico':(nivel==='mejorar'?'Mejorar':'Sólido');
+      var lbl = en ? (nivel==='critico'?'Critical':(nivel==='mejorar'?'Improve':'Solid')) : (nivel==='critico'?'Crítico':(nivel==='mejorar'?'Mejorar':'Sólido'));
       var label = (d.examTitulo||'')+(meta.tipo?(' — '+meta.tipo):'');
       return '<div class="diag-rc" style="--rc-color:'+color+'">'
         + '<div class="diag-rc-hd">'
@@ -10590,7 +10651,7 @@ function _diagMostrarResultados(){
         +   '<span class="diag-rc-lbl diag-badge-'+nivel+'">'+lbl+'</span>'
         + '</div>'
         + '<div class="diag-rc-bar-wrap"><div class="diag-rc-bar" style="width:'+pct+'%;background:'+color+'"></div></div>'
-        + '<div class="diag-rc-detail">'+d.ok+' de '+d.total+' preguntas correctas</div>'
+        + '<div class="diag-rc-detail">'+(en?(d.ok+' of '+d.total+' correct'):(d.ok+' de '+d.total+' preguntas correctas'))+'</div>'
         + '</div>';
     }).join('');
   }
@@ -10630,9 +10691,10 @@ function _diagReiniciar(){
   <div id="pv-body"></div>
 </div>
 <script>
-(function(){
+window.muApplyLang_privacidad = function(){
   var en = (window.curLang==='en');
   document.getElementById('pv-title').textContent = en?'Privacy':'Privacidad';
+  document.getElementById('pv-updated').textContent = en?'Last updated: August 2026':'Última actualización: agosto de 2026';
   var sections = en ? [
     ['What we collect','MathUNAL uses three analytics tools: <strong>Google Analytics 4</strong> and <strong>Microsoft Clarity</strong> (which records anonymized clicks, scrolling and mouse movement to see how people use the site — no keystrokes or form contents are captured), and <strong>Plausible</strong> (cookie-free, aggregate-only). If you unlock premium solutions, we store the email you provide so we can verify your payment — nothing else.'],
     ['Why','Exclusively to understand which parts of the site are useful, fix what\'s broken, and confirm premium payments. We don\'t sell or share this data with third parties, and we don\'t use it for advertising.'],
@@ -10647,7 +10709,8 @@ function _diagReiniciar(){
   document.getElementById('pv-body').innerHTML = sections.map(function(s){
     return '<h2 style="color:var(--t1);font-size:1.1rem;margin:1.6rem 0 .5rem">'+s[0]+'</h2><p>'+s[1]+'</p>';
   }).join('');
-})();
+};
+window.muApplyLang_privacidad();
 </script>
 </template>
 
@@ -12314,9 +12377,19 @@ function _loadPage(hash) {
     setTimeout(function(){
       var _a=document.getElementById('mu-app');
       if(_a) _a.querySelectorAll('.fi').forEach(function(el){el.classList.add('v');});
-      /* Si el idioma activo es EN, aplica la traduccion especifica de ESTA pagina
-         (cada pagina/template define su propia window.muApplyLang_<pagina>, ya
-         que cada una vive en un scope de script distinto al de home/setLang). */
+      /* setLang() traduce lo generico de CUALQUIER pagina (nav-links, boton
+         "<- Inicio", footer, etc.) via querySelector sobre el DOM ya inyectado.
+         Antes esto solo corria una vez al elegir idioma -- al navegar a otra
+         pagina el template se reinyecta con su texto por defecto en español y
+         nadie lo volvia a traducir, asi que el nav/footer se "revertian" al
+         cambiar de pagina aunque siguieras en EN. Se re-corre en cada carga de
+         pagina (idempotente, no hace nada raro si ya esta en el idioma actual). */
+      try { if (typeof setLang === 'function') setLang(window.curLang || 'es'); }
+      catch(e){ console.error('setLang error:', e && e.message); }
+      /* Ademas, si el idioma activo es EN, aplica la traduccion especifica de ESTA
+         pagina (cada pagina/template define su propia window.muApplyLang_<pagina>,
+         para texto que setLang() no conoce -- placeholders, contenido generado
+         dinamicamente, etc). */
       try {
         if (window.curLang === 'en') {
           var fnName = 'muApplyLang_' + page;
