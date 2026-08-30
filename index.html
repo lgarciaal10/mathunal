@@ -15060,7 +15060,6 @@ var MATS = {
     {type:'programa',name:'Plan Curricular',size:'375 KB',sem:'2023-2',url:'https://goxhxrdchfyphkenixng.supabase.co/storage/v1/object/public/Materiales/Programas/calcdif/plan_curricular.pdf'},
     {type:'libro',name:'Cálculo — James Stewart, 8va Ed.',size:'41.8 MB',sem:'Referencia'},
     {type:'formulario',name:'Formulario Completo de Derivadas',size:'380 KB',sem:'General'},
-    {type:'notas',name:'Guía Clases Semana a Semana',size:'22 MB',sem:'General',url:'https://goxhxrdchfyphkenixng.supabase.co/storage/v1/object/public/Materiales/Notas/calcdif/guia_clases_semana.pdf'},
     {type:'notas',name:'Notas — Funciones',size:'3.2 MB',sem:'General',url:'https://goxhxrdchfyphkenixng.supabase.co/storage/v1/object/public/Materiales/Notas/calcdif/funciones.pdf'},
     {type:'notas',name:'Notas — Límites',size:'1.8 MB',sem:'General',url:'https://goxhxrdchfyphkenixng.supabase.co/storage/v1/object/public/Materiales/Notas/calcdif/limites.pdf'},
     {type:'notas',name:'Notas — Derivadas',size:'1.3 MB',sem:'General',url:'https://goxhxrdchfyphkenixng.supabase.co/storage/v1/object/public/Materiales/Notas/calcdif/derivadas.pdf'},
@@ -15196,10 +15195,8 @@ var MATS = {
     {type:'programa',name:'Programa Oficial del Curso 2026-1',size:'220 KB',sem:'2026-1',url:'https://goxhxrdchfyphkenixng.supabase.co/storage/v1/object/public/Materiales/Matematicas/programaMatBasicas.pdf'},
     {type:'libro',name:'Álgebra y Trigonometría — Sullivan',size:'28.5 MB',sem:'Referencia'},
     {type:'formulario',name:'Formulario de Álgebra y Trigonometría',size:'320 KB',sem:'General'},
-    {type:'notas',name:'Notas de Clase · 2025-2',size:'1.9 MB',sem:'2025-2'},
     {type:'parcial',name:'Parcial 1 · 2025-2 (Enunciado)',size:'165 KB',sem:'2025-2'},
     {type:'parcial',name:'Parcial 2 · 2025-2 (Enunciado)',size:'178 KB',sem:'2025-2'},
-    {type:'notas',name:'Notas de Clase',size:'6.4 MB',sem:'General',url:'https://goxhxrdchfyphkenixng.supabase.co/storage/v1/object/public/Materiales/Notas/matbas/notas_clase.pdf'},
     {type:'formulario',name:'Fórmulas Básicas, Unidades y Equivalencias',size:'460 KB',sem:'General',url:'https://goxhxrdchfyphkenixng.supabase.co/storage/v1/object/public/Materiales/Resumenes/matbas/formulario.pdf'},
     {type:'quice',name:'Calendario de Quices',size:'119 KB',sem:'2023-1',url:'https://goxhxrdchfyphkenixng.supabase.co/storage/v1/object/public/Materiales/Quices/matbas/calendario_quices_2023_1.pdf'},
     {type:'quice',name:'Preparación de Quices',size:'2.8 MB',sem:'General',url:'https://goxhxrdchfyphkenixng.supabase.co/storage/v1/object/public/Materiales/Quices/matbas/preparacion_quices.pdf'},
@@ -16139,9 +16136,21 @@ window.__muMateriaInit = function(){
           '</div>';
       }
       var url = expFileUrl(f).replace(/'/g,"\\'");
+      var conSol = /soluci[oó]n|resuelto|answer key/i.test(f.name);
+      // quita la mención "(con solución)" / "— con solución" del nombre visible: se
+      // muestra como badge unificado, no repetido en el texto.
+      var dispName = conSol
+        ? f.name
+            .replace(/\s*\(\s*(con\s+soluci[oó]n|resuelto)\s*\)/ig,'')
+            .replace(/\s*[—\-]\s*(con\s+soluci[oó]n|resuelto)\s*$/i,'')
+            .replace(/\s{2,}/g,' ').trim()
+        : f.name;
+      var solBadge = conSol
+        ? '<span style="display:inline-block;margin-left:.45rem;padding:.05rem .4rem;border-radius:5px;background:rgba(52,211,153,.14);color:var(--grn);font-size:.66rem;font-weight:700;vertical-align:1px">'+(en?'solved':'con solución')+'</span>'
+        : '';
       return '<div class="mu-fc" style="cursor:pointer" onclick="window.open(\''+url+'\',\'_blank\')">'+
         '<span class="mu-fc-ico">'+ico+'</span>'+
-        '<div class="mu-fc-info"><div class="mu-fc-name">'+f.name+'</div>'+
+        '<div class="mu-fc-info"><div class="mu-fc-name">'+dispName+solBadge+'</div>'+
         '<div class="mu-fc-meta"><span>'+f.type+'</span>'+(f.size?' · '+f.size:'')+(f.sem?' · '+f.sem:'')+'</div></div>'+
         '<span class="mu-fc-dl'+(showAsLocked?' pack':'')+'">'+(showAsLocked?'<svg width="11" height="11" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none" style="vertical-align:-1px"><rect x="3" y="11" width="18" height="10" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg> Pack':'↓ Ver')+'</span>'+
         '</div>';
@@ -16149,10 +16158,20 @@ window.__muMateriaInit = function(){
     function expTableRows(){
       var rows = expFiltered();
       if(!rows.length) return '<tr><td colspan="3" style="color:var(--t3);text-align:center;padding:1rem 0">'+(en?'No files':'Sin archivos')+'</td></tr>';
-      return rows.map(function(f){
-        return '<tr><td>'+(ICONS[f.type]||TYPE_ICONS[f.type]||ICO_SVG.programa)+' '+(TYPE_LABELS[f.type]||f.type)+'</td>'+
-          '<td>'+semAbbr(f.sem)+'</td>'+
-          '<td><span class="mu-exp-badge '+(f.access==='premium'?'pack':'free')+'">'+(f.access==='premium'?'Pack':(en?'Free':'Gratis'))+'</span></td></tr>';
+      // Colapsar filas idénticas (mismo tipo + semestre + acceso) en una sola con
+      // contador — antes 26 quices producían 26 filas idénticas "Quices · GRAL · Gratis"
+      // que solo hacían ruido. El nombre de cada archivo ya está en la lista de la izquierda.
+      var groups = [], byKey = {};
+      rows.forEach(function(f){
+        var key = f.type+'|'+(f.sem||'')+'|'+f.access;
+        if(!byKey[key]){ byKey[key] = {type:f.type, sem:f.sem, access:f.access, n:0}; groups.push(byKey[key]); }
+        byKey[key].n++;
+      });
+      return groups.map(function(g){
+        return '<tr><td>'+(ICONS[g.type]||TYPE_ICONS[g.type]||ICO_SVG.programa)+' '+(TYPE_LABELS[g.type]||g.type)+
+            (g.n>1?' <span style="color:var(--t3);font-weight:700;font-size:.82em">×'+g.n+'</span>':'')+'</td>'+
+          '<td>'+semAbbr(g.sem)+'</td>'+
+          '<td><span class="mu-exp-badge '+(g.access==='premium'?'pack':'free')+'">'+(g.access==='premium'?'Pack':(en?'Free':'Gratis'))+'</span></td></tr>';
       }).join('');
     }
     function renderExplorer(){
