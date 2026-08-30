@@ -245,8 +245,8 @@ nav{
   display:flex;align-items:center;gap:1.4rem;
   padding:.75rem 2.5rem;
   background:rgba(6,11,30,.12);
-  backdrop-filter:blur(60px) saturate(2.5) brightness(1.08);
-  -webkit-backdrop-filter:blur(60px) saturate(2.5) brightness(1.08);
+  backdrop-filter:blur(48px) saturate(1.3) brightness(1.04);
+  -webkit-backdrop-filter:blur(48px) saturate(1.3) brightness(1.04);
   border-bottom:1px solid var(--br);
   box-shadow:
     0 1px 0 rgba(255,255,255,.08) inset,
@@ -282,18 +282,19 @@ html[data-theme="light"] nav.scrolled{
 /* Tema Black: fondo del nav neutro (sin el tinte azul rgba(6,11,30)) y sin
    el saturate(2.5) que amplificaba cualquier color de fondo. */
 html[data-theme="black"] nav{
-  background:rgba(0,0,0,.35);
-  backdrop-filter:blur(40px) brightness(1.05);
-  -webkit-backdrop-filter:blur(40px) brightness(1.05);
+  background:rgba(0,0,0,.42) !important;
+  backdrop-filter:blur(40px) saturate(1) brightness(1.05) !important;
+  -webkit-backdrop-filter:blur(40px) saturate(1) brightness(1.05) !important;
 }
-html[data-theme="black"] nav.scrolled{ background:rgba(0,0,0,.6) !important; }
+html[data-theme="black"] nav.scrolled{ background:rgba(0,0,0,.62) !important; }
 /* Tema Gris: gris neutro. */
 html[data-theme="gray"] nav{
-  background:rgba(24,24,27,.4);
-  backdrop-filter:blur(40px) saturate(1) brightness(1.05);
-  -webkit-backdrop-filter:blur(40px) saturate(1) brightness(1.05);
+  background:rgba(24,24,27,.46) !important;
+  backdrop-filter:blur(40px) saturate(1) brightness(1.04) !important;
+  -webkit-backdrop-filter:blur(40px) saturate(1) brightness(1.04) !important;
 }
-html[data-theme="gray"] nav.scrolled{ background:rgba(24,24,27,.62) !important; }
+html[data-theme="gray"] nav.scrolled{ background:rgba(24,24,27,.66) !important; }
+html[data-theme="light"] nav{ background:rgba(245,247,252,.62) !important; }
 .logo{display:flex;align-items:center;gap:.65rem;flex-shrink:0;text-decoration:none}
 .logo-ico{
   background:transparent;box-shadow:none;border-radius:0;
@@ -314,12 +315,8 @@ html[data-theme="gray"] nav.scrolled{ background:rgba(24,24,27,.62) !important; 
 }
 .logo-txt,.flogo-txt{display:flex;align-items:baseline;gap:0}
 
-/* A: Fade gradient debajo del nav — suaviza el corte del blur */
-nav::after{
-  content:'';position:absolute;top:100%;left:0;right:0;height:22px;
-  background:linear-gradient(to bottom,rgba(4,9,28,.35),transparent);
-  pointer-events:none;z-index:-1;
-}
+/* (fade azulado bajo el nav eliminado — se veía como una línea/tinte azul
+   fuera de lugar en los temas Negro/Gris/Claro) */
 
 .nav-links{
   display:flex;align-items:center;gap:.2rem;flex:1;justify-content:center;
@@ -2118,10 +2115,7 @@ html[data-theme="gray"] .hero-bg .lg-blob-center{background:radial-gradient(elli
 
 /* ══ SPA PAGE TRANSITIONS ══ */
 #mu-app{transition:opacity .18s ease}
-/* Fade suave debajo del nav para evitar corte brusco */
-nav::after{content:'';position:absolute;bottom:-18px;left:0;right:0;height:18px;
-            background:linear-gradient(to bottom,rgba(4,9,28,.5),transparent);
-            pointer-events:none;z-index:199}
+/* (segundo fade azulado bajo el nav — también eliminado, misma razón) */
 #mu-app.fading{opacity:0}
 
 /* nav.scrolled: regla única — ver arriba (cerca de línea 158). Antes había
@@ -5054,9 +5048,9 @@ customElements.define('glass-element', GlassElement);
       <div class="sd-divider"></div>
       <span class="sd-label">Tema</span>
       <div class="sd-group">
-        <button class="sd-btn on" id="th-dark"  onclick="setTheme('dark')"  title="Dark Blue"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg> Noche</button>
+        <button class="sd-btn on" id="th-dark"  onclick="setTheme('dark')"  title="Dark Blue"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg> Azul</button>
         <button class="sd-btn"   id="th-black" onclick="setTheme('black')"  title="Black"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="9"/></svg> Negro</button>
-        <button class="sd-btn"   id="th-gray"  onclick="setTheme('gray')"  title="Gray"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="8"/></svg> Gris</button>
+        <button class="sd-btn"   id="th-gray"  onclick="setTheme('gray')"  title="Gray"><svg width="14" height="14" viewBox="0 0 24 24" style="vertical-align:-2px"><circle cx="12" cy="12" r="8.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 3.5a8.5 8.5 0 0 1 0 17Z" fill="currentColor"/></svg> Gris</button>
         <button class="sd-btn"   id="th-light" onclick="setTheme('light')" title="Light"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><line x1="12" y1="2" x2="12" y2="6"/><line x1="12" y1="18" x2="12" y2="22"/><line x1="4.22" y1="4.22" x2="7.05" y2="7.05"/><line x1="16.95" y1="16.95" x2="19.78" y2="19.78"/><line x1="2" y1="12" x2="6" y2="12"/><line x1="18" y1="12" x2="22" y2="12"/><line x1="4.22" y1="19.78" x2="7.05" y2="16.95"/><line x1="16.95" y1="7.05" x2="19.78" y2="4.22"/></svg> Claro</button>
       </div>
     </div>
@@ -5094,9 +5088,9 @@ customElements.define('glass-element', GlassElement);
   </div>
   <div class="mob-theme-row">
     <span>Tema</span>
-    <button class="mob-theme-btn on" onclick="setTheme('dark');syncMobTheme('dark')"><svg width="14" height="14" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg> Noche</button>
+    <button class="mob-theme-btn on" onclick="setTheme('dark');syncMobTheme('dark')"><svg width="14" height="14" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg> Azul</button>
     <button class="mob-theme-btn" onclick="setTheme('black');syncMobTheme('black')"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="9"/></svg> Negro</button>
-    <button class="mob-theme-btn" onclick="setTheme('gray');syncMobTheme('gray')"><svg width="14" height="14" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"><circle cx="12" cy="12" r="8"/></svg> Gris</button>
+    <button class="mob-theme-btn" onclick="setTheme('gray');syncMobTheme('gray')"><svg width="14" height="14" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 3.5a8.5 8.5 0 0 1 0 17Z" fill="currentColor"/></svg> Gris</button>
     <button class="mob-theme-btn" onclick="setTheme('light');syncMobTheme('light')"><svg width="14" height="14" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"><circle cx="12" cy="12" r="4"/><line x1="12" y1="2" x2="12" y2="5"/><line x1="12" y1="19" x2="12" y2="22"/><line x1="4.93" y1="4.93" x2="7.05" y2="7.05"/><line x1="16.95" y1="16.95" x2="19.07" y2="19.07"/><line x1="2" y1="12" x2="5" y2="12"/><line x1="19" y1="12" x2="22" y2="12"/><line x1="4.93" y1="19.07" x2="7.05" y2="16.95"/><line x1="16.95" y1="7.05" x2="19.07" y2="4.93"/></svg> Claro</button>
   </div>
 </div>
@@ -5520,7 +5514,6 @@ customElements.define('glass-element', GlassElement);
       <div style="flex:1;min-width:160px">
         <label class="is-l" style="margin-bottom:.35rem" for="wm-mat">Materia</label>
         <select id="wm-mat" class="prom-inp" style="width:100%;cursor:pointer">
-          <option value="matbas">Matemáticas Básicas</option>
           <option value="matbas">Matemáticas Básicas</option>
           <option value="calcdif" selected>Cálculo Diferencial</option>
           <option value="calcint">Cálculo Integral</option>
@@ -7156,36 +7149,36 @@ function generatePlan(){
     if(!bucket.length){
       return [
         [(L?'Mixed practice: 10 problems pulled at random across all topics':'Práctica mezclada: 10 ejercicios al azar de todos los temas'),'ej'],
-        [(L?'Redo every problem you’ve gotten wrong so far':'Rehacé todos los ejercicios que hayas fallado hasta ahora'),'sol'],
-        [(L?'Re-derive the 3 formulas you keep forgetting':'Re-deducí las 3 fórmulas que siempre se te olvidan'),'form']
+        [(L?'Redo every problem you’ve gotten wrong so far':'Repite todos los ejercicios que hayas fallado hasta ahora'),'sol'],
+        [(L?'Re-derive the 3 formulas you keep forgetting':'Vuelve a deducir las 3 fórmulas que siempre se te olvidan'),'form']
       ];
     }
     var first=bucket[0];
     var r=[
-      [(L?'Study in depth: ':'Estudiá a fondo: ')+bucket.join(' · '),'rep'],
+      [(L?'Study in depth: ':'Estudia a fondo: ')+bucket.join(' · '),'rep'],
       [(L?'Work taller + past-quiz problems on: ':'Ejercicios del taller y de quices viejos de: ')+first,'ej']
     ];
     r.push(isFirst
-      ? [(L?'Build your own formula sheet for '+matName+' (use the site’s Formulas page)':'Armá tu propia hoja de fórmulas de '+matName+' (apóyate en la página de Fórmulas del sitio)'),'form']
-      : [(L?'Redo yesterday’s mistakes with the solutions PDF':'Rehacé los errores de ayer con el solucionario'),'sol']);
+      ? [(L?'Build your own formula sheet for '+matName+' (use the site’s Formulas page)':'Arma tu propia hoja de fórmulas de '+matName+' (apóyate en la página de Fórmulas del sitio)'),'form']
+      : [(L?'Redo yesterday’s mistakes with the solutions PDF':'Repite los errores de ayer con el solucionario al lado'),'sol']);
     return r;
   }
   var SIM_ITEMS=[
     [(L?'Full mock exam with a timer — no notes, no internet':'Simulacro completo con cronómetro — sin notas, sin internet'),'sim'],
-    [(L?'Grade it against the answer key and list every error':'Calificá con el solucionario y anotá cada error'),'sol'],
-    [(L?'Re-study only the topics you missed':'Repasá solo los temas donde fallaste'),'rep'],
-    [(L?'Redo the 3 hardest problems from scratch':'Rehacé de cero los 3 ejercicios más difíciles'),'ej']
+    [(L?'Grade it against the answer key and list every error':'Califica con el solucionario y anota cada error'),'sol'],
+    [(L?'Re-study only the topics you missed':'Repasa solo los temas donde fallaste'),'rep'],
+    [(L?'Redo the 3 hardest problems from scratch':'Vuelve a hacer desde cero los 3 ejercicios más difíciles'),'ej']
   ];
   var MIDSIM_ITEMS=[
-    [(L?'Half-length mock or an old exam — open book, focus on method':'Medio simulacro o un parcial viejo — con apuntes, enfócate en el método'),'sim'],
-    [(L?'Mark which topics still feel shaky':'Marcá qué temas todavía sentís flojos'),'rep'],
-    [(L?'Spend the rest of the day on the shakiest one':'El resto del día dedicalo al tema más flojo'),'ej']
+    [(L?'Half-length mock or an old exam — open book, focus on method':'Medio simulacro o un parcial viejo — con apuntes, concéntrate en el método'),'sim'],
+    [(L?'Mark which topics still feel shaky':'Marca qué temas todavía ves flojos'),'rep'],
+    [(L?'Spend the rest of the day on the shakiest one':'Dedica el resto del día al tema más flojo'),'ej']
   ];
   var EXAM_ITEMS=[
     [(L?'Express formula review — 30 min max':'Repaso exprés de fórmulas — 30 min máximo'),'form'],
     [(L?'5 quick problems per topic, no deep dives':'5 ejercicios rápidos por tema, sin profundizar'),'exp'],
-    [(L?'Re-read the explanations of what cost you most':'Releé las explicaciones de lo que más te costó'),'rep'],
-    [(L?'Sleep 5+ hours. Do not pull an all-nighter.':'Dormí 5+ horas. No trasnochés.'),'rest']
+    [(L?'Re-read the explanations of what cost you most':'Relee las explicaciones de lo que más te costó'),'rep'],
+    [(L?'Sleep 5+ hours. Do not pull an all-nighter.':'Duerme 5+ horas. No trasnoches.'),'rest']
   ];
 
   var planKey='mu-plan-'+matKey+'-'+cIdx+'-'+fechaInput;
@@ -7201,7 +7194,7 @@ function generatePlan(){
     }
   }catch(e){}
   if(daysToShow<5)html+='<div style="margin-bottom:1rem;padding:.7rem 1rem;background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.3);border-radius:10px;font-size:.8rem;color:var(--yel)">'+FIRE+' '+(L?('The exam is in '+diasRestantes+' day'+(diasRestantes===1?'':'s')+'. Plan compressed to '+daysToShow+' day'+(daysToShow===1?'':'s')+'.'):('El parcial es en '+diasRestantes+' día'+(diasRestantes===1?'':'s')+'. Plan comprimido a '+daysToShow+' día'+(daysToShow===1?'':'s')+'.'))+'</div>';
-  else if(diasRestantes>10)html+='<div style="margin-bottom:1rem;padding:.7rem 1rem;background:var(--adim);border:1px solid var(--bra);border-radius:10px;font-size:.78rem;color:var(--t2)">'+(L?('You have '+diasRestantes+' days — plenty. This is the last 10-day stretch; before it, just keep up with class and worksheets.'):('Tenés '+diasRestantes+' días — de sobra. Este es el tramo de los últimos 10 días; antes de eso, andá al día con clases y talleres, sin cranear.'))+'</div>';
+  else if(diasRestantes>10)html+='<div style="margin-bottom:1rem;padding:.7rem 1rem;background:var(--adim);border:1px solid var(--bra);border-radius:10px;font-size:.78rem;color:var(--t2)">'+(L?('You have '+diasRestantes+' days — plenty. This is the last 10-day stretch; before it, just keep up with class and worksheets.'):('Tienes '+diasRestantes+' días — de sobra. Este es el tramo de los últimos 10 días; antes de eso, ponte al día con las clases y los talleres, sin estresarte.'))+'</div>';
   if(cIdx===3)html+='<div style="margin-bottom:1rem;padding:.7rem 1rem;background:var(--adim);border:1px solid var(--bra);border-radius:10px;font-size:.78rem;color:var(--t2)">'+WARN+' '+(L?'A quiz covers just that week’s material. This plan uses the first cut’s topics as a base — adjust to where your course actually is.':'Un quiz evalúa lo de esa semana puntual. Este plan usa los temas del primer corte como base — ajústalo a lo que lleva tu curso.')+'</div>';
   if(cIdx===4)html+='<div style="margin-bottom:1rem;padding:.7rem 1rem;background:var(--adim);border:1px solid var(--bra);border-radius:10px;font-size:.78rem;color:var(--t2)">'+WARN+' '+(L?'The final covers all three cuts. Every topic of the term is below — prioritize where you did worst.':'El examen final acumula los tres cortes. Abajo están todos los temas del semestre — prioriza donde te fue peor.')+'</div>';
   html+='<div style="font-family:\'IBM Plex Mono\',monospace;font-size:.75rem;color:var(--acc);text-transform:uppercase;letter-spacing:.08em;margin-bottom:1rem">'+(L?'Plan':'Plan de')+' '+daysToShow+' '+(L?('day'+(daysToShow===1?'':'s')):('día'+(daysToShow===1?'':'s')))+' · '+matName+' · '+parcial+'</div>';
@@ -7341,9 +7334,9 @@ function _muSpEnd(){
     <a href="#materias" class="nav-cta">Materias →</a>
     <div class="settings-wrap"><button class="settings-btn" aria-label="Ajustes" onclick="toggleSettings(this)" aria-haspopup="true" aria-expanded="false" aria-controls="sd"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></button>
       <div class="settings-dropdown" id="sd"><div class="sd-section"><div class="sd-label">IDIOMA</div><div class="sd-row"><button class="sd-btn on" id="btn-es" onclick="setLang('es')">ES</button><button class="sd-btn" id="btn-en" onclick="setLang('en')">EN</button></div></div><div class="sd-section"><div class="sd-label">TEMA</div><div class="sd-row">
-        <button class="sd-btn on" id="th-dark" onclick="setTheme('dark')"><svg width="13" height="13" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" style="vertical-align:-2px"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg> Noche</button>
+        <button class="sd-btn on" id="th-dark" onclick="setTheme('dark')"><svg width="13" height="13" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" style="vertical-align:-2px"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg> Azul</button>
         <button class="sd-btn" id="th-black" onclick="setTheme('black')"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" style="vertical-align:-2px"><circle cx="12" cy="12" r="9"/></svg> Negro</button>
-        <button class="sd-btn" id="th-gray" onclick="setTheme('gray')"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" style="vertical-align:-2px"><circle cx="12" cy="12" r="9"/></svg> Gris</button>
+        <button class="sd-btn" id="th-gray" onclick="setTheme('gray')"><svg width="13" height="13" viewBox="0 0 24 24" style="vertical-align:-2px"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 3a9 9 0 0 1 0 18Z" fill="currentColor"/></svg> Gris</button>
         <button class="sd-btn" id="th-light" onclick="setTheme('light')"><svg width="13" height="13" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" style="vertical-align:-2px"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.2" y1="4.2" x2="5.6" y2="5.6"/><line x1="18.4" y1="18.4" x2="19.8" y2="19.8"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.2" y1="19.8" x2="5.6" y2="18.4"/><line x1="18.4" y1="5.6" x2="19.8" y2="4.2"/></svg> Light</button>
       </div></div></div>
     </div>
@@ -7418,9 +7411,9 @@ if(!window.__muSdClickBound){window.__muSdClickBound=true;document.addEventListe
     <a href="#formulas" class="nav-sec-link">Fórmulas</a>
     <div class="settings-wrap"><button class="settings-btn" aria-label="Ajustes" onclick="toggleSettings(this)" aria-haspopup="true" aria-expanded="false" aria-controls="sd"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></button>
       <div class="settings-dropdown" id="sd"><div class="sd-section"><div class="sd-label">IDIOMA</div><div class="sd-row"><button class="sd-btn on" id="btn-es" onclick="setLang('es')">ES</button><button class="sd-btn" id="btn-en" onclick="setLang('en')">EN</button></div></div><div class="sd-section"><div class="sd-label">TEMA</div><div class="sd-row">
-        <button class="sd-btn on" id="th-dark" onclick="setTheme('dark')"><svg width="13" height="13" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" style="vertical-align:-2px"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg> Noche</button>
+        <button class="sd-btn on" id="th-dark" onclick="setTheme('dark')"><svg width="13" height="13" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" style="vertical-align:-2px"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg> Azul</button>
         <button class="sd-btn" id="th-black" onclick="setTheme('black')"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" style="vertical-align:-2px"><circle cx="12" cy="12" r="9"/></svg> Negro</button>
-        <button class="sd-btn" id="th-gray" onclick="setTheme('gray')"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" style="vertical-align:-2px"><circle cx="12" cy="12" r="9"/></svg> Gris</button>
+        <button class="sd-btn" id="th-gray" onclick="setTheme('gray')"><svg width="13" height="13" viewBox="0 0 24 24" style="vertical-align:-2px"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 3a9 9 0 0 1 0 18Z" fill="currentColor"/></svg> Gris</button>
         <button class="sd-btn" id="th-light" onclick="setTheme('light')"><svg width="13" height="13" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" style="vertical-align:-2px"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.2" y1="4.2" x2="5.6" y2="5.6"/><line x1="18.4" y1="18.4" x2="19.8" y2="19.8"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.2" y1="19.8" x2="5.6" y2="18.4"/><line x1="18.4" y1="5.6" x2="19.8" y2="4.2"/></svg> Light</button>
       </div></div></div>
     </div>
@@ -8839,9 +8832,9 @@ function _showScreen(id){
     <a href="#home" class="mat-nav-back" style="font-size:.82rem;padding:.36rem .7rem;border-radius:7px;background:var(--lay2);border:1px solid var(--br);color:var(--t2);text-decoration:none">← Inicio</a>
     <div class="settings-wrap"><button class="settings-btn" aria-label="Ajustes" onclick="toggleSettings(this)" aria-haspopup="true" aria-expanded="false" aria-controls="sd"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></button>
       <div class="settings-dropdown" id="sd"><div class="sd-section"><div class="sd-label">IDIOMA</div><div class="sd-row"><button class="sd-btn on" id="btn-es" onclick="setLang('es')">ES</button><button class="sd-btn" id="btn-en" onclick="setLang('en')">EN</button></div></div><div class="sd-section"><div class="sd-label">TEMA</div><div class="sd-row">
-        <button class="sd-btn on" id="th-dark" onclick="setTheme('dark')"><svg width="13" height="13" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" style="vertical-align:-2px"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg> Noche</button>
+        <button class="sd-btn on" id="th-dark" onclick="setTheme('dark')"><svg width="13" height="13" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" style="vertical-align:-2px"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg> Azul</button>
         <button class="sd-btn" id="th-black" onclick="setTheme('black')"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" style="vertical-align:-2px"><circle cx="12" cy="12" r="9"/></svg> Negro</button>
-        <button class="sd-btn" id="th-gray" onclick="setTheme('gray')"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" style="vertical-align:-2px"><circle cx="12" cy="12" r="9"/></svg> Gris</button>
+        <button class="sd-btn" id="th-gray" onclick="setTheme('gray')"><svg width="13" height="13" viewBox="0 0 24 24" style="vertical-align:-2px"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 3a9 9 0 0 1 0 18Z" fill="currentColor"/></svg> Gris</button>
         <button class="sd-btn" id="th-light" onclick="setTheme('light')"><svg width="13" height="13" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" style="vertical-align:-2px"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.2" y1="4.2" x2="5.6" y2="5.6"/><line x1="18.4" y1="18.4" x2="19.8" y2="19.8"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.2" y1="19.8" x2="5.6" y2="18.4"/><line x1="18.4" y1="5.6" x2="19.8" y2="4.2"/></svg> Light</button>
       </div></div></div>
     </div>
@@ -10731,9 +10724,9 @@ function vcDraw(){
     <a href="#home" class="mat-nav-back" style="font-size:.82rem;padding:.36rem .7rem;border-radius:7px;background:var(--lay2);border:1px solid var(--br);color:var(--t2);text-decoration:none">← Inicio</a>
     <div class="settings-wrap"><button class="settings-btn" aria-label="Ajustes" onclick="toggleSettings(this)" aria-haspopup="true" aria-expanded="false" aria-controls="sd"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></button>
       <div class="settings-dropdown" id="sd"><div class="sd-section"><div class="sd-label">IDIOMA</div><div class="sd-row"><button class="sd-btn on" id="btn-es" onclick="setLang('es')">ES</button><button class="sd-btn" id="btn-en" onclick="setLang('en')">EN</button></div></div><div class="sd-section"><div class="sd-label">TEMA</div><div class="sd-row">
-        <button class="sd-btn on" id="th-dark" onclick="setTheme('dark')"><svg width="13" height="13" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" style="vertical-align:-2px"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg> Noche</button>
+        <button class="sd-btn on" id="th-dark" onclick="setTheme('dark')"><svg width="13" height="13" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" style="vertical-align:-2px"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg> Azul</button>
         <button class="sd-btn" id="th-black" onclick="setTheme('black')"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" style="vertical-align:-2px"><circle cx="12" cy="12" r="9"/></svg> Negro</button>
-        <button class="sd-btn" id="th-gray" onclick="setTheme('gray')"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" style="vertical-align:-2px"><circle cx="12" cy="12" r="9"/></svg> Gris</button>
+        <button class="sd-btn" id="th-gray" onclick="setTheme('gray')"><svg width="13" height="13" viewBox="0 0 24 24" style="vertical-align:-2px"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 3a9 9 0 0 1 0 18Z" fill="currentColor"/></svg> Gris</button>
         <button class="sd-btn" id="th-light" onclick="setTheme('light')"><svg width="13" height="13" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" style="vertical-align:-2px"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.2" y1="4.2" x2="5.6" y2="5.6"/><line x1="18.4" y1="18.4" x2="19.8" y2="19.8"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.2" y1="19.8" x2="5.6" y2="18.4"/><line x1="18.4" y1="5.6" x2="19.8" y2="4.2"/></svg> Light</button>
       </div></div></div>
     </div>
@@ -11234,9 +11227,9 @@ window.muApplyLang_privacidad();
     <a href="#home" class="mat-nav-back" style="font-size:.82rem;padding:.36rem .7rem;border-radius:7px;background:var(--lay2);border:1px solid var(--br);color:var(--t2);text-decoration:none">← Inicio</a>
     <div class="settings-wrap"><button class="settings-btn" aria-label="Ajustes" onclick="toggleSettings(this)" aria-haspopup="true" aria-expanded="false" aria-controls="sd"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></button>
       <div class="settings-dropdown" id="sd"><div class="sd-section"><div class="sd-label">IDIOMA</div><div class="sd-row"><button class="sd-btn on" id="btn-es" onclick="setLang('es')">ES</button><button class="sd-btn" id="btn-en" onclick="setLang('en')">EN</button></div></div><div class="sd-section"><div class="sd-label">TEMA</div><div class="sd-row">
-        <button class="sd-btn on" id="th-dark" onclick="setTheme('dark')"><svg width="13" height="13" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" style="vertical-align:-2px"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg> Noche</button>
+        <button class="sd-btn on" id="th-dark" onclick="setTheme('dark')"><svg width="13" height="13" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" style="vertical-align:-2px"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg> Azul</button>
         <button class="sd-btn" id="th-black" onclick="setTheme('black')"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" style="vertical-align:-2px"><circle cx="12" cy="12" r="9"/></svg> Negro</button>
-        <button class="sd-btn" id="th-gray" onclick="setTheme('gray')"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" style="vertical-align:-2px"><circle cx="12" cy="12" r="9"/></svg> Gris</button>
+        <button class="sd-btn" id="th-gray" onclick="setTheme('gray')"><svg width="13" height="13" viewBox="0 0 24 24" style="vertical-align:-2px"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 3a9 9 0 0 1 0 18Z" fill="currentColor"/></svg> Gris</button>
         <button class="sd-btn" id="th-light" onclick="setTheme('light')"><svg width="13" height="13" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" style="vertical-align:-2px"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.2" y1="4.2" x2="5.6" y2="5.6"/><line x1="18.4" y1="18.4" x2="19.8" y2="19.8"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.2" y1="19.8" x2="5.6" y2="18.4"/><line x1="18.4" y1="5.6" x2="19.8" y2="4.2"/></svg> Light</button>
       </div></div></div>
     </div>
@@ -11378,9 +11371,9 @@ window.muApplyLang_acerca();
     <a href="#home" class="mat-nav-back" style="font-size:.82rem;padding:.36rem .7rem;border-radius:7px;background:var(--lay2);border:1px solid var(--br);color:var(--t2);text-decoration:none">← Inicio</a>
     <div class="settings-wrap"><button class="settings-btn" aria-label="Ajustes" onclick="toggleSettings(this)" aria-haspopup="true" aria-expanded="false" aria-controls="sd"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></button>
       <div class="settings-dropdown" id="sd"><div class="sd-section"><div class="sd-label">IDIOMA</div><div class="sd-row"><button class="sd-btn on" id="btn-es" onclick="setLang('es')">ES</button><button class="sd-btn" id="btn-en" onclick="setLang('en')">EN</button></div></div><div class="sd-section"><div class="sd-label">TEMA</div><div class="sd-row">
-        <button class="sd-btn on" id="th-dark" onclick="setTheme('dark')"><svg width="13" height="13" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" style="vertical-align:-2px"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg> Noche</button>
+        <button class="sd-btn on" id="th-dark" onclick="setTheme('dark')"><svg width="13" height="13" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" style="vertical-align:-2px"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg> Azul</button>
         <button class="sd-btn" id="th-black" onclick="setTheme('black')"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" style="vertical-align:-2px"><circle cx="12" cy="12" r="9"/></svg> Negro</button>
-        <button class="sd-btn" id="th-gray" onclick="setTheme('gray')"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" style="vertical-align:-2px"><circle cx="12" cy="12" r="9"/></svg> Gris</button>
+        <button class="sd-btn" id="th-gray" onclick="setTheme('gray')"><svg width="13" height="13" viewBox="0 0 24 24" style="vertical-align:-2px"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 3a9 9 0 0 1 0 18Z" fill="currentColor"/></svg> Gris</button>
         <button class="sd-btn" id="th-light" onclick="setTheme('light')"><svg width="13" height="13" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" style="vertical-align:-2px"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.2" y1="4.2" x2="5.6" y2="5.6"/><line x1="18.4" y1="18.4" x2="19.8" y2="19.8"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.2" y1="19.8" x2="5.6" y2="18.4"/><line x1="18.4" y1="5.6" x2="19.8" y2="4.2"/></svg> Light</button>
       </div></div></div>
     </div>
@@ -15246,10 +15239,10 @@ function setLang(lang){
     };
     if(map[href]) a.textContent = map[href];
   });
-  /* Etiquetas de tema — sin spanglish. ES: Noche/Negro/Gris/Claro · EN: Dark Blue/Black/Gray/Light */
+  /* Etiquetas de tema — sin spanglish. ES: Azul/Negro/Gris/Claro · EN: Dark Blue/Black/Gray/Light */
   (function(){
     var THL = en ? {dark:'Dark Blue',black:'Black',gray:'Gray',light:'Light'}
-                 : {dark:'Noche',black:'Negro',gray:'Gris',light:'Claro'};
+                 : {dark:'Azul',black:'Negro',gray:'Gris',light:'Claro'};
     document.querySelectorAll('#th-dark,#th-black,#th-gray,#th-light,.mob-theme-btn').forEach(function(b){
       var m=(b.getAttribute('onclick')||'').match(/setTheme\('(dark|black|gray|light)'\)/);
       if(!m||!THL[m[1]])return;
