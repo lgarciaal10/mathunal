@@ -524,7 +524,10 @@ h2 span{color:var(--t2);font-weight:400;font-style:italic}
 /* ── BOTONES globales ── */
 .btn-a{display:inline-flex;align-items:center;gap:.5rem;background:var(--acc);color:#fff;border-radius:var(--radius);padding:.9rem 2.2rem;font-size:1.02rem;font-weight:700;box-shadow:0 4px 24px rgba(232,99,42,.3),0 0 0 1px rgba(255,255,255,.06) inset;transition:all var(--transition);border:none;position:relative;overflow:hidden}
 .btn-a::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,255,255,.15) 0%,transparent 50%);pointer-events:none}
+.btn-a::after{content:'';position:absolute;top:0;left:-70%;width:45%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.28),transparent);transform:skewX(-22deg);transition:left .55s ease;pointer-events:none}
+.btn-a:hover::after{left:130%}
 .btn-a:hover{filter:brightness(1.08);transform:translateY(-3px);box-shadow:0 8px 32px rgba(232,99,42,.4),0 0 0 1px rgba(255,255,255,.1) inset}
+@media(prefers-reduced-motion:reduce){.btn-a::after{display:none}}
 .btn-a:active{transform:translateY(-1px) scale(.97);transition:transform .1s ease}
 .btn-o{display:inline-flex;align-items:center;gap:.5rem;background:var(--lay2);color:var(--t1);border-radius:var(--radius);padding:.9rem 2.2rem;font-size:1.02rem;font-weight:700;border:1.3px solid var(--br2);transition:all var(--transition);backdrop-filter:blur(8px)}
 .btn-o:hover{background:var(--lay3);border-color:var(--br2);transform:translateY(-3px)}
@@ -3897,6 +3900,22 @@ input:not([type=checkbox]):not([type=radio]):focus,select:focus,textarea:focus{
   line-height:1.7;opacity:.7;position:relative;padding:0 2rem;
 }
 .cp-quote::before{content:'\201C';position:absolute;left:0;top:-.3rem;font-size:2.5rem;color:var(--acc);opacity:.4;font-style:normal}
+
+/* ── Teaser de Simulacros: "escáner" animado + reloj latiendo ── */
+#sim-teaser > .wrap > .fi{position:relative;overflow:hidden;transition:transform .25s cubic-bezier(.22,1,.36,1),border-color .25s}
+#sim-teaser > .wrap > .fi:hover{transform:translateY(-3px);border-color:var(--bra)}
+#sim-teaser > .wrap > .fi::after{
+  content:'';position:absolute;left:0;top:0;height:2px;width:38%;
+  background:linear-gradient(90deg,transparent,var(--acc),transparent);
+  transform:translateX(-120%);animation:simScan 3.6s cubic-bezier(.5,0,.5,1) infinite;
+}
+@keyframes simScan{0%{transform:translateX(-120%)}62%,100%{transform:translateX(360%)}}
+#sim-teaser svg{animation:simTick 2.4s ease-in-out infinite;transform-origin:12px 13px}
+@keyframes simTick{0%,100%{opacity:.7;transform:rotate(0)}25%{transform:rotate(6deg)}50%{opacity:1;transform:rotate(0)}75%{transform:rotate(-6deg)}}
+@media(prefers-reduced-motion:reduce){
+  #sim-teaser > .wrap > .fi::after,#sim-teaser svg{animation:none}
+  #sim-teaser > .wrap > .fi:hover{transform:none}
+}
 
 /* ── Próximamente cards ── */
 .prox-card{
