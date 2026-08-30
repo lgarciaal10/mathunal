@@ -968,8 +968,9 @@ html[data-theme="light"] .ht-bot{
 .pm-overlay{position:fixed;inset:0;z-index:500;background:rgba(0,0,0,.7);backdrop-filter:blur(8px);display:none;align-items:center;justify-content:center;padding:1.5rem}
 .pm-overlay.open{display:flex}
 .pm-box{background:var(--card);border:2px solid var(--br);border-radius:18px;width:100%;max-width:480px;padding:1.6rem;position:relative;max-height:88vh;overflow-y:auto}
-.pm-close{position:absolute;top:1rem;right:1rem;background:var(--lay2);border:2px solid var(--br);border-radius:8px;width:32px;height:32px;cursor:pointer;color:var(--t2);font-size:1rem;display:flex;align-items:center;justify-content:center;transition:all .15s}
+.pm-close{position:absolute;top:1rem;right:1rem;background:var(--lay2);border:2px solid var(--br);border-radius:8px;width:34px;height:34px;min-width:34px;cursor:pointer;color:var(--t2);font-size:1rem;display:flex;align-items:center;justify-content:center;transition:background .15s,color .15s;z-index:6}
 .pm-close:hover{background:var(--lay4);color:var(--t1)}
+.pm-close:active{transform:scale(.94)}
 .pm-box h3{font-family:'Literata',Georgia,serif;font-size:1.4rem;font-weight:900;margin-bottom:.3rem;color:var(--t1)}
 .pm-sub{font-size:1.02rem;color:var(--t2);margin-bottom:1.4rem}
 .pm-steps{display:flex;flex-direction:column;gap:.5rem}
@@ -3485,6 +3486,11 @@ body{padding-top:var(--mu-banner-h, 0px);transition:padding-top .2s ease}
   #ciclo-parcial .cp-j-action{display:none !important}
   #ciclo-parcial .cp-j-result{max-height:none !important;opacity:1 !important;overflow:visible !important;padding:1.3rem 1rem !important;transform:none !important}
 
+  /* Modales en móvil: que scrollee el overlay entero (no la caja), así el
+     botón X del borde superior siempre se alcanza subiendo. + tap fuera + ESC. */
+  .pm-overlay,.week-modal,.panic-modal{align-items:flex-start !important;overflow-y:auto;padding:1rem .8rem 3rem}
+  .pm-box{max-height:none !important}
+
   /* Header de materia: en móvil se apila (título -> desc -> chips -> código),
      sin la placa de código empujada a la derecha que apretaba todo. */
   .mu-ruta-hero{flex-direction:column;align-items:flex-start;gap:.5rem;padding:16px 16px}
@@ -3569,12 +3575,9 @@ body{padding-top:var(--mu-banner-h, 0px);transition:padding-top .2s ease}
 .cp-j-body{flex:1;min-width:0}
 .cp-j-title{font-size:1.02rem;font-weight:700;color:var(--t1);margin-bottom:.2rem}
 .cp-j-desc{font-size:1rem;color:var(--t2);line-height:1.65}
-.cp-j-step.done .cp-j-desc{display:none}
-.cp-j-action{font-size:1rem;font-weight:700;color:var(--acc);flex-shrink:0;align-self:center;
-              animation:cpPulse 1.5s ease-in-out infinite;white-space:nowrap}
-@keyframes cpPulse{0%{opacity:1}40%{opacity:.4}80%{opacity:1}100%{opacity:1}}
-.cp-j-step:not(.active) .cp-j-action{display:none}
-.cp-j-step.done .cp-j-action{display:none}
+/* La descripción se queda siempre visible: al recorrer con scroll, colapsarla
+   hacía que la página saltara bajo el cursor. */
+.cp-j-action{display:none}
 
 .cp-j-result{text-align:center;padding:1.5rem 1rem;opacity:0;transform:translateY(10px);
               transition:all .5s ease;max-height:0;overflow:hidden}
@@ -5474,7 +5477,7 @@ customElements.define('glass-element', GlassElement);
   </div>
 </section>
 
-<div class="pm-overlay panic-modal" id="panicModal" role="dialog" aria-modal="true" aria-labelledby="panic-modal-title">
+<div class="pm-overlay panic-modal" id="panicModal" role="dialog" aria-modal="true" aria-labelledby="panic-modal-title" onclick="if(event.target===this)this.classList.remove('open')">
   <div class="pm-box">
     <button class="pm-close" onclick="document.getElementById('panicModal').classList.remove('open')" aria-label="Cerrar"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
     <h3 id="panic-modal-title"><svg width="14" height="14" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M12 2a7 7 0 0 0-4 12.7V17h8v-2.3A7 7 0 0 0 12 2z"/></svg> Parcial en &lt;24h</h3>
@@ -5491,7 +5494,7 @@ customElements.define('glass-element', GlassElement);
 </div>
 
 <!-- WEEK MODAL — Plan de estudio de la semana del parcial -->
-<div class="week-modal" id="weekModal" role="dialog" aria-modal="true" aria-labelledby="week-modal-title">
+<div class="week-modal" id="weekModal" role="dialog" aria-modal="true" aria-labelledby="week-modal-title" onclick="if(event.target===this)this.classList.remove('open')">
   <div class="pm-box">
     <button class="pm-close" onclick="document.getElementById('weekModal').classList.remove('open')" aria-label="Cerrar"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
     <h3 id="week-modal-title"><svg width="14" height="14" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M12 2a7 7 0 0 0-4 12.7V17h8v-2.3A7 7 0 0 0 12 2z"/></svg> Plan de la Semana del Parcial</h3>
@@ -5528,7 +5531,18 @@ customElements.define('glass-element', GlassElement);
     <div class="plan-out" id="plan-out"></div>
   </div>
 </div>
-
+<script>
+/* ESC cierra weekModal / panicModal (el tap-fuera ya va por onclick en el overlay). */
+if(!window.__muModalEsc){window.__muModalEsc=true;
+  document.addEventListener('keydown',function(e){
+    if(e.key!=='Escape')return;
+    ['weekModal','panicModal'].forEach(function(id){
+      var m=document.getElementById(id);
+      if(m&&m.classList.contains('open'))m.classList.remove('open');
+    });
+  });
+}
+</script>
 
 <!-- PACK PREMIUM -->
 
@@ -6057,6 +6071,26 @@ function cpReveal(path,idx){
   var result=document.getElementById('cp-'+path+'-result');
   if(result) result.classList.toggle('show', idx===steps.length-1);
 }
+
+/* Ciclo del Parcial guiado por scroll (solo escritorio — en móvil el CSS ya
+   muestra todos los pasos abiertos). Cada paso se activa al llegar al centro
+   del viewport; solo avanza, nunca retrocede. El clic sigue funcionando. */
+(function(){
+  if(window.innerWidth<=768 || !('IntersectionObserver' in window)) return;
+  var io=new IntersectionObserver(function(entries){
+    entries.forEach(function(en){
+      if(!en.isIntersecting) return;
+      var wrap=en.target.closest('.cp-j-steps'); if(!wrap) return;
+      var path=wrap.id.replace('cp-','').replace('-steps','');
+      var steps=[].slice.call(wrap.querySelectorAll('.cp-j-step'));
+      var idx=steps.indexOf(en.target); if(idx<0) return;
+      var cur=-1; for(var i=0;i<steps.length;i++){ if(steps[i].classList.contains('active')) cur=i; }
+      if(idx<=cur) return;                 // no retroceder
+      if(typeof cpReveal==='function') cpReveal(path, idx);
+    });
+  },{threshold:.65, rootMargin:'-12% 0px -30% 0px'});
+  document.querySelectorAll('.cp-j-step').forEach(function(s){ io.observe(s); });
+})();
 
 /* ── Timeline expandible ── */
 function tlToggle(el){
