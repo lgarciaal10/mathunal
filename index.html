@@ -2648,7 +2648,7 @@ body{font-family:'Space Grotesk',system-ui,sans-serif;background:var(--bg);color
 .mu-sp-x{position:absolute;top:.9rem;right:.9rem;width:28px;height:28px;border-radius:7px;background:var(--lay2);border:2px solid var(--br);color:var(--t2);font-size:1rem;display:flex;align-items:center;justify-content:center;cursor:pointer}
 
 /* ── Fondo decorativo para que el blur del header se note en TODAS las páginas ── */
-.nav-aurora{position:fixed;top:0;left:0;right:0;height:120px;z-index:1;pointer-events:none;opacity:.9;
+.nav-aurora{position:fixed;top:0;left:0;right:0;max-width:100%;height:120px;z-index:1;pointer-events:none;opacity:.9;
   background:
     radial-gradient(60% 100% at 12% 0%, rgba(224,93,26,.16), transparent 70%),
     radial-gradient(50% 100% at 50% 0%, rgba(96,165,250,.10), transparent 65%),
@@ -11131,14 +11131,15 @@ viz:{type:'cont',
 {tag:'int',name:'Por partes',formula:'\\int u\\,dv=uv-\\int v\\,du',desc:'Para productos. Para elegir u usa ILATE: Inversa, Logarítmica, Algebraica, Trigonométrica, Exponencial — la primera de la lista que aparezca es u.',nemo:"«Una Vaca Vestida De Uniforme»: ∫u·dv = u·v − ∫v·du. (Y para escoger u: ILATE.)",
 viz:{type:'ilate',
   params:[],
-  live:function(ps){return 'ILATE: Inversa > Log > Algebraica > Trig > Exponencial — el primer tipo de la lista es u';},
+  live:function(ps){return window.curLang==='en'?'LIATE: Log > Inverse > Algebraic > Trig > Exponential — the first type on the list is u':'ILATE: Inversa > Log > Algebraica > Trig > Exponencial — el primer tipo de la lista es u';},
   render:function(ps,cat){
+    var _en=window.curLang==='en';
     var items=[
-      {s:'I',n:'Inversa trig.',e:'arcsin, arctan',c:'#818cf8',ex:'u=arcsin(x), dv=dx'},
-      {s:'L',n:'Logarítmica',e:'ln(x), log',c:'#34d399',ex:'u=ln(x), dv=x²dx'},
-      {s:'A',n:'Algebraica',e:'xⁿ, polinomio',c:cat,ex:'u=x², dv=eˣdx'},
-      {s:'T',n:'Trigonométrica',e:'sin(x), cos(x)',c:'#c084fc',ex:'u=cos(x), dv=eˣdx'},
-      {s:'E',n:'Exponencial',e:'eˣ, aˣ',c:'#FBBF24',ex:'u=eˣ (último recurso)'},
+      {s:'I',n:_en?'Inverse trig':'Inversa trig.',e:'arcsin, arctan',c:'#818cf8',ex:'u=arcsin(x), dv=dx'},
+      {s:'L',n:_en?'Logarithmic':'Logarítmica',e:'ln(x), log',c:'#34d399',ex:'u=ln(x), dv=x²dx'},
+      {s:'A',n:_en?'Algebraic':'Algebraica',e:'xⁿ, polynomial',c:cat,ex:'u=x², dv=eˣdx'},
+      {s:'T',n:_en?'Trigonometric':'Trigonométrica',e:'sin(x), cos(x)',c:'#c084fc',ex:'u=cos(x), dv=eˣdx'},
+      {s:'E',n:_en?'Exponential':'Exponencial',e:'eˣ, aˣ',c:'#FBBF24',ex:_en?'u=eˣ (last resort)':'u=eˣ (último recurso)'},
     ];
     var rows=items.map(function(it,i){
       return '<tr style="border-bottom:1px solid rgba(255,255,255,.06)">'
@@ -11150,9 +11151,9 @@ viz:{type:'ilate',
     }).join('');
     function tex(s){ try{ return katex.renderToString(s,{throwOnError:false}); }catch(e){ return s; } }
     var example='<div style="margin-top:.9rem;padding:.8rem 1rem;background:var(--lay1);border-radius:8px;border:1px solid rgba(255,255,255,.08)">'
-      +'<div style="font-family:IBM Plex Mono,monospace;font-size:.65rem;text-transform:uppercase;letter-spacing:.08em;color:var(--t3);margin-bottom:.5rem">Ejemplo: '+tex('\\int x^2\\cdot\\ln(x)\\,dx')+'</div>'
+      +'<div style="font-family:IBM Plex Mono,monospace;font-size:.65rem;text-transform:uppercase;letter-spacing:.08em;color:var(--t3);margin-bottom:.5rem">'+(_en?'Example: ':'Ejemplo: ')+tex('\\int x^2\\cdot\\ln(x)\\,dx')+'</div>'
       +'<div style="font-size:.92rem;color:var(--t2);line-height:2.1">'
-      +'<span style="color:#34d399">'+tex('u=\\ln(x)')+'</span> <span style="font-family:IBM Plex Mono,monospace;font-size:.72rem">(L antes que A en ILATE)</span><br>'
+      +'<span style="color:#34d399">'+tex('u=\\ln(x)')+'</span> <span style="font-family:IBM Plex Mono,monospace;font-size:.72rem">'+(_en?'(L before A in LIATE)':'(L antes que A en ILATE)')+'</span><br>'
       +'<span style="color:'+cat+'">'+tex('dv=x^2\\,dx')+'</span> <span style="font-family:IBM Plex Mono,monospace;font-size:.72rem">→</span> '+tex('du=\\dfrac{dx}{x},\\ \\ v=\\dfrac{x^3}{3}')+'<br>'
       +tex('=\\dfrac{x^3\\ln(x)}{3}-\\int\\dfrac{x^3}{3}\\cdot\\dfrac{1}{x}\\,dx=\\dfrac{x^3\\ln(x)}{3}-\\dfrac{x^3}{9}+C')
       +'</div></div>';
@@ -12079,7 +12080,7 @@ viz:{type:'rl_circ',
   render:function(ps,cat){
    var rows=[['1','\\dfrac{1}{s}'],['t','\\dfrac{1}{s^2}'],['t^n','\\dfrac{n!}{s^{n+1}}'],['e^{at}','\\dfrac{1}{s-a}'],['\\sin(bt)','\\dfrac{b}{s^2+b^2}'],['\\cos(bt)','\\dfrac{s}{s^2+b^2}'],['e^{at}\\sin(bt)','\\dfrac{b}{(s-a)^2+b^2}'],['e^{at}\\cos(bt)','\\dfrac{s-a}{(s-a)^2+b^2}'],["t\\,f(t)","-F'(s)"],["y'(t)",'sY(s)-y(0)'],["y''(t)","s^2Y(s)-sy(0)-y'(0)"],['u(t-a)\\,f(t-a)','e^{-as}F(s)']];
    var tr=rows.map(function(r){return '<tr><td style="padding:.3rem .7rem;border-bottom:1px solid var(--br)">$'+r[0]+'$</td><td style="padding:.3rem .7rem;border-bottom:1px solid var(--br)">$'+r[1]+'$</td></tr>';}).join('');
-   return {html:'<div style="padding:.5rem 0"><div style="font-family:\'IBM Plex Mono\',monospace;font-size:.66rem;color:var(--t3);text-transform:uppercase;letter-spacing:.05em;margin-bottom:.45rem">Tabla de transformadas comunes</div>'+
+   return {html:'<div style="padding:.5rem 0"><div style="font-family:\'IBM Plex Mono\',monospace;font-size:.66rem;color:var(--t3);text-transform:uppercase;letter-spacing:.05em;margin-bottom:.45rem">'+(window.curLang==='en'?'Common transform pairs':'Tabla de transformadas comunes')+'</div>'+
      '<div style="overflow-x:auto"><table style="width:100%;border-collapse:collapse;font-size:.92rem">'+
      '<thead><tr><th style="text-align:left;padding:.3rem .7rem;color:var(--t3);font-size:.64rem;border-bottom:1px solid var(--br2);font-family:\'IBM Plex Mono\',monospace">f(t)</th><th style="text-align:left;padding:.3rem .7rem;color:var(--t3);font-size:.64rem;border-bottom:1px solid var(--br2);font-family:\'IBM Plex Mono\',monospace">F(s) = L{f(t)}</th></tr></thead><tbody>'+tr+'</tbody></table></div></div>'};
   },
@@ -12092,7 +12093,18 @@ viz:{type:'rl_circ',
  nemo:"«Transforma, despeja, fracciona y devuelve: la EDO entra difícil y sale hecha.»",
  viz:{type:'laplace_steps', params:[],
   render:function(ps,cat){
-   var steps=[['1. Transformar toda la ecuación',"$\\mathcal{L}\\{y''\\}=s^2Y-sy(0)-y'(0),\\quad \\mathcal{L}\\{y'\\}=sY-y(0)$"],['2. Despejar $Y(s)$','$Y(s)=\\dfrac{[\\,\\text{numerador con las C.I.}\\,]}{s^2+as+b}$'],['3. Fracciones parciales','$Y(s)=\\dfrac{A}{s-r_1}+\\dfrac{B}{s-r_2}+\\cdots$'],['4. Antitransformar término a término','$y(t)=A\\,e^{r_1 t}+B\\,e^{r_2 t}+\\cdots$']];
+   var _en=window.curLang==='en';
+   var steps=_en?[
+     ['1. Transform the whole equation',"$\\mathcal{L}\\{y''\\}=s^2Y-sy(0)-y'(0),\\quad \\mathcal{L}\\{y'\\}=sY-y(0)$"],
+     ['2. Solve for $Y(s)$','$Y(s)=\\dfrac{[\\,\\text{numerator with the ICs}\\,]}{s^2+as+b}$'],
+     ['3. Partial fractions','$Y(s)=\\dfrac{A}{s-r_1}+\\dfrac{B}{s-r_2}+\\cdots$'],
+     ['4. Invert term by term','$y(t)=A\\,e^{r_1 t}+B\\,e^{r_2 t}+\\cdots$']
+   ]:[
+     ['1. Transformar toda la ecuación',"$\\mathcal{L}\\{y''\\}=s^2Y-sy(0)-y'(0),\\quad \\mathcal{L}\\{y'\\}=sY-y(0)$"],
+     ['2. Despejar $Y(s)$','$Y(s)=\\dfrac{[\\,\\text{numerador con las C.I.}\\,]}{s^2+as+b}$'],
+     ['3. Fracciones parciales','$Y(s)=\\dfrac{A}{s-r_1}+\\dfrac{B}{s-r_2}+\\cdots$'],
+     ['4. Antitransformar término a término','$y(t)=A\\,e^{r_1 t}+B\\,e^{r_2 t}+\\cdots$']
+   ];
    var h=steps.map(function(s){return '<div style="padding:.55rem .8rem;border-left:2px solid '+cat+';background:var(--lay1);border-radius:0 6px 6px 0;margin-bottom:.45rem"><div style="font-weight:700;font-size:.8rem;color:var(--t1)">'+s[0]+'</div><div style="font-size:.9rem;color:var(--t2);margin-top:.25rem;overflow-x:auto">'+s[1]+'</div></div>';}).join('');
    return {html:'<div style="padding:.5rem 0">'+h+'</div>'};
   },
@@ -12157,7 +12169,7 @@ viz:{type:'rl_circ',
      for(var k=0;k<=n;k++){ cells+='<span style="display:inline-block;min-width:2.2em;text-align:center;color:'+((k===0||k===n)?'var(--t3)':cat)+'">'+Math.round(c)+'</span>'; c=c*(n-k)/(k+1); }
      rows+='<div style="margin:.15rem 0">'+cells+'</div>';
    }
-   return {html:'<div style="padding:.6rem 0;text-align:center;font-family:\'IBM Plex Mono\',monospace;font-size:.82rem"><div style="font-size:.64rem;color:var(--t3);text-transform:uppercase;letter-spacing:.05em;margin-bottom:.5rem">Triángulo de Pascal</div>'+rows+'</div>'};
+   return {html:'<div style="padding:.6rem 0;text-align:center;font-family:\'IBM Plex Mono\',monospace;font-size:.82rem"><div style="font-size:.64rem;color:var(--t3);text-transform:uppercase;letter-spacing:.05em;margin-bottom:.5rem">'+(window.curLang==='en'?"Pascal's triangle":'Triángulo de Pascal')+'</div>'+rows+'</div>'};
   },
   ann:'La fila n del triángulo son los coeficientes de <strong>(a+b)ⁿ</strong>. Ejemplo: fila 3 = 1 3 3 1 → (a+b)³ = a³ + 3a²b + 3ab² + b³.'
  }
@@ -12565,7 +12577,19 @@ function renderCpills(){
   CORD.forEach(function(k){var c=CATS[k];var label=c.i+' '+(en&&c.sEn?c.sEn:c.s);h+='<button class="cpill'+(_flt===k?' on':'')+'" onclick="setFlt(\''+k+'\')" style="'+(_flt===k?'border-color:'+c.c+';color:'+c.c+';background:'+c.c+'18':'')+'">'+label+'</button>';});
   el.innerHTML=h;
 }
-function setFlt(f){_flt=f;renderCpills();renderList();}
+function _vfFirstVisible(){
+  for(var k=0;k<F.length;k++){ if((_flt==='all'||F[k].tag===_flt)&&_matOK(F[k])) return k; }
+  return -1;
+}
+function _vfKeepSelValid(){
+  if(_sel<0) return;
+  var f=F[_sel];
+  if(!f || (_flt!=='all'&&f.tag!==_flt) || !_matOK(f)){
+    var n=_vfFirstVisible();
+    if(n>=0 && n!==_sel) sel(n);
+  }
+}
+function setFlt(f){_flt=f;renderCpills();renderList();_vfKeepSelValid();}
 function renderMatSelect(){
   var el=document.getElementById('vf-mat');if(!el)return;
   var en=(window.curLang==='en');
@@ -12577,7 +12601,7 @@ function renderMatSelect(){
   });
   el.innerHTML=opts;
 }
-function setMat(v){_mat=v;_flt='all';renderCpills();renderList();
+function setMat(v){_mat=v;_flt='all';renderCpills();renderList();_vfKeepSelValid();
   if(typeof window.muTrack==='function'&&v!=='all')window.muTrack('formulas_filter_materia',{code:v});}
 function _matOK(f){return _mat==='all'||(MAT_TAGS[_mat]||[]).indexOf(f.tag)>=0;}
 var _doSearchTrackTO;
@@ -15585,7 +15609,7 @@ var MATS = {
     {type:'parcial',name:'Parcial 1 · 2025-2 (Enunciado)',size:'165 KB',sem:'2025-2'},
     {type:'parcial',name:'Parcial 2 · 2025-2 (Enunciado)',size:'178 KB',sem:'2025-2'},
     {type:'formulario',name:'Fórmulas Básicas, Unidades y Equivalencias',size:'460 KB',sem:'General',url:'https://goxhxrdchfyphkenixng.supabase.co/storage/v1/object/public/Materiales/Resumenes/matbas/formulario.pdf'},
-    {type:'quice',name:'Calendario de Quices (ejemplo 2023-1)',size:'119 KB',sem:'Referencia',url:'https://goxhxrdchfyphkenixng.supabase.co/storage/v1/object/public/Materiales/Quices/matbas/calendario_quices_2023_1.pdf'},
+    {type:'quice',name:'Calendario de Quices (por tema)',size:'147 KB',sem:'General',url:'https://goxhxrdchfyphkenixng.supabase.co/storage/v1/object/public/Materiales/Quices/matbas/calendario_quices.pdf'},
     {type:'quice',name:'Preparación de Quices',size:'2.8 MB',sem:'General',url:'https://goxhxrdchfyphkenixng.supabase.co/storage/v1/object/public/Materiales/Quices/matbas/preparacion_quices.pdf'},
     {type:'simulacro',name:'Simulacros de Parcial 1',size:'466 KB',sem:'General',url:'https://goxhxrdchfyphkenixng.supabase.co/storage/v1/object/public/Materiales/Simulacros/matbas/simulacros_enunciados.pdf'},
     {type:'taller',name:'Taller 1',size:'259 KB',sem:'General',url:'https://goxhxrdchfyphkenixng.supabase.co/storage/v1/object/public/Materiales/Talleres/matbas/taller1.pdf'},
