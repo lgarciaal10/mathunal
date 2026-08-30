@@ -12909,6 +12909,13 @@ function _loadPage(hash) {
          pagina (idempotente, no hace nada raro si ya esta en el idioma actual). */
       try { if (typeof setLang === 'function') setLang(window.curLang || 'es'); }
       catch(e){ console.error('setLang error:', e && e.message); }
+      /* El nav (con el selector de tema) se reinyecta con cada template y trae
+         .on fijo en "Noche" desde el HTML. Re-sincronizarlo con el tema real
+         tras inyectar, si no el dropdown miente cuando estás en claro/gris/negro. */
+      try {
+        if (typeof syncThemeToggle === 'function')
+          syncThemeToggle(document.documentElement.getAttribute('data-theme') || 'dark');
+      } catch(e){}
       /* Ademas, si el idioma activo es EN, aplica la traduccion especifica de ESTA
          pagina (cada pagina/template define su propia window.muApplyLang_<pagina>,
          para texto que setLang() no conoce -- placeholders, contenido generado
@@ -13063,11 +13070,14 @@ if (document.readyState === 'loading') {
 /* ── MEJORA 2: Theme toggle nav sync ── */
 function syncThemeToggle(t){
   ['dark','black','gray','light'].forEach(function(x){
-    var el = document.getElementById('tt-'+x);
-    if(el) el.classList.toggle('on', x===t);
-    // también el settings dropdown original
-    var sd = document.getElementById('th-'+x);
-    if(sd) sd.classList.toggle('on', x===t);
+    document.querySelectorAll('#tt-'+x+', #th-'+x).forEach(function(el){
+      el.classList.toggle('on', x===t);
+    });
+  });
+  // botones de tema del menú móvil (sin id, se identifican por su onclick)
+  document.querySelectorAll('.mob-theme-btn').forEach(function(b){
+    var m = (b.getAttribute('onclick')||'').match(/setTheme\('(dark|black|gray|light)'\)/);
+    if(m) b.classList.toggle('on', m[1]===t);
   });
 }
 // Patch setTheme para que también sincronice el toggle visible
