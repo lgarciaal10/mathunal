@@ -1987,8 +1987,10 @@ html[data-theme="gray"] .hero-bg .lg-blob-center{background:radial-gradient(elli
 .pd-day{font-weight:700;font-size:1rem;color:var(--t1)}
 .pd-date{font-size:.76rem;color:var(--t2);margin-left:auto}
 .pd-tasks{display:flex;flex-direction:column;gap:.5rem;padding:.9rem 1.1rem}
-.pd-task{display:flex;align-items:flex-start;gap:.7rem;font-size:1.02rem;color:var(--t2);line-height:1.4}
-.pd-task::before{content:'•';color:var(--acc);font-weight:900;flex-shrink:0;margin-top:.05em}
+.pd-task{display:flex;align-items:flex-start;gap:.6rem;font-size:1.02rem;color:var(--t2);line-height:1.4;cursor:pointer;-webkit-user-select:none;user-select:none}
+.pd-task .pd-chk{flex-shrink:0;margin:.18em 0 0;width:1.05rem;height:1.05rem;accent-color:var(--acc);cursor:pointer}
+.pd-task.done{color:var(--t3)}
+.pd-task.done > span{text-decoration:line-through;text-decoration-color:var(--t3)}
 .pd-tag{display:inline-block;font-size:.72rem;font-weight:700;padding:.12rem .45rem;border-radius:10px;margin-left:.4rem;vertical-align:middle}
 .pd-tag-rep{background:rgba(99,102,241,.15);color:#818cf8}
 .pd-tag-sim{background:rgba(34,197,94,.12);color:var(--ok)}
@@ -3926,26 +3928,55 @@ input:not([type=checkbox]):not([type=radio]):focus,select:focus,textarea:focus{
 }
 .cp-quote::before{content:'\201C';position:absolute;left:0;top:-.3rem;font-size:2.5rem;color:var(--acc);opacity:.4;font-style:normal}
 
-/* ── Teaser de Simulacros: "escáner" animado + reloj latiendo ── */
-#sim-teaser > .wrap > .fi{position:relative;overflow:hidden;transition:transform .25s cubic-bezier(.22,1,.36,1),border-color .25s}
-#sim-teaser > .wrap > .fi:hover{transform:translateY(-3px);border-color:var(--bra)}
-#sim-teaser > .wrap > .fi::after{
-  content:'';position:absolute;left:0;top:0;height:3px;width:45%;border-radius:0 0 3px 3px;
-  background:linear-gradient(90deg,transparent,var(--acc) 45%,var(--acc2,#FF7A3D) 55%,transparent);
-  box-shadow:0 0 14px 1px rgba(232,99,42,.5);
-  transform:translateX(-120%);animation:simScan 2.8s cubic-bezier(.45,0,.55,1) infinite;
+/* ── Teaser de Simulacros: escáner animado ── */
+#sim-teaser > .wrap > .fi{position:relative;overflow:hidden;transition:transform .3s cubic-bezier(.22,1,.36,1),border-color .3s,box-shadow .3s}
+#sim-teaser > .wrap > .fi:hover{transform:translateY(-4px);border-color:var(--bra);box-shadow:0 20px 55px -22px rgba(232,99,42,.4)}
+#sim-teaser > .wrap > .fi:hover .sim-scan-fx{animation-duration:1.6s}
+
+/* haz vertical que barre todo el card */
+#sim-teaser > .wrap > .fi::before{
+  content:'';position:absolute;top:-12%;left:0;width:34%;height:124%;pointer-events:none;
+  background:linear-gradient(100deg,transparent,rgba(232,99,42,.12) 42%,rgba(255,146,86,.28) 50%,rgba(232,99,42,.12) 58%,transparent);
+  transform:translateX(-150%) skewX(-12deg);
+  animation:simSweep 3.4s cubic-bezier(.5,0,.5,1) infinite;
 }
-@keyframes simScan{0%{transform:translateX(-120%)}55%,100%{transform:translateX(320%)}}
+@keyframes simSweep{0%{transform:translateX(-150%) skewX(-12deg)}62%,100%{transform:translateX(380%) skewX(-12deg)}}
+
+/* línea de escaneo del borde superior */
+#sim-teaser > .wrap > .fi::after{
+  content:'';position:absolute;left:0;top:0;height:4px;width:44%;border-radius:0 0 4px 4px;pointer-events:none;
+  background:linear-gradient(90deg,transparent,var(--acc) 40%,#FF925C 55%,transparent);
+  box-shadow:0 0 20px 2px rgba(232,99,42,.6);
+  transform:translateX(-120%);animation:simScan 3.4s cubic-bezier(.45,0,.55,1) infinite;
+}
+@keyframes simScan{0%{transform:translateX(-120%)}62%,100%{transform:translateX(320%)}}
+
+/* overlay decorativo: rejilla que late + esquinas tipo visor de cámara */
+.sim-scan-fx{position:absolute;inset:0;pointer-events:none;border-radius:inherit;overflow:hidden;
+  background-image:repeating-linear-gradient(0deg,rgba(232,99,42,.05) 0 1px,transparent 1px 5px);
+  animation:simGrid 3.4s ease-in-out infinite}
+@keyframes simGrid{0%,100%{opacity:.35;background-position-y:0}50%{opacity:.7;background-position-y:5px}}
+.sim-scan-fx::before,.sim-scan-fx::after{content:'';position:absolute;width:24px;height:24px;
+  border:2px solid var(--acc);animation:simCorner 3.4s ease-in-out infinite}
+.sim-scan-fx::before{top:12px;left:12px;border-right:0;border-bottom:0;border-radius:5px 0 0 0}
+.sim-scan-fx::after{bottom:12px;right:12px;border-left:0;border-top:0;border-radius:0 0 5px 0;animation-delay:1.7s}
+@keyframes simCorner{0%,100%{opacity:.2;transform:scale(.85)}50%{opacity:.65;transform:scale(1)}}
+
+/* pill "Muy pronto" con destello */
 #sim-teaser .sim-teaser-pill{position:relative;overflow:hidden}
-#sim-teaser .sim-teaser-pill::after{content:'';position:absolute;inset:0;border-radius:inherit;
-  background:radial-gradient(circle at 30% 50%,rgba(232,99,42,.22),transparent 60%);
-  animation:simPulse 2.8s ease-in-out infinite}
-@keyframes simPulse{0%,100%{opacity:.3}50%{opacity:1}}
-#sim-teaser svg{animation:simTick 2.4s ease-in-out infinite;transform-origin:12px 13px}
-@keyframes simTick{0%,100%{opacity:.7;transform:rotate(0)}25%{transform:rotate(8deg)}50%{opacity:1;transform:rotate(0)}75%{transform:rotate(-8deg)}}
+#sim-teaser .sim-teaser-pill::after{content:'';position:absolute;top:0;left:-60%;width:42%;height:100%;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.4),transparent);transform:skewX(-20deg);
+  animation:simShine 3.4s ease-in-out infinite}
+@keyframes simShine{0%,72%{left:-60%}88%,100%{left:135%}}
+
+/* reloj */
+#sim-teaser svg{animation:simTick 3.4s ease-in-out infinite;transform-origin:12px 13px}
+@keyframes simTick{0%,100%{opacity:.7;transform:rotate(0)}18%{transform:rotate(11deg)}44%{opacity:1;transform:rotate(-7deg)}68%{transform:rotate(0)}}
+
 @media(prefers-reduced-motion:reduce){
-  #sim-teaser > .wrap > .fi::after,#sim-teaser svg,#sim-teaser .sim-teaser-pill::after{animation:none}
-  #sim-teaser > .wrap > .fi::after{display:none}
+  #sim-teaser > .wrap > .fi::before,#sim-teaser > .wrap > .fi::after,#sim-teaser svg,
+  .sim-scan-fx,.sim-scan-fx::before,.sim-scan-fx::after,#sim-teaser .sim-teaser-pill::after{animation:none}
+  #sim-teaser > .wrap > .fi::before,#sim-teaser > .wrap > .fi::after,.sim-scan-fx{display:none}
   #sim-teaser > .wrap > .fi:hover{transform:none}
 }
 
@@ -5360,6 +5391,7 @@ customElements.define('glass-element', GlassElement);
 <section class="section-pad" id="sim-teaser">
   <div class="wrap">
     <div class="fi" style="max-width:680px;margin:0 auto;text-align:center;background:var(--card);border:2px solid var(--br2);border-radius:16px;padding:2.6rem 2rem">
+      <span class="sim-scan-fx" aria-hidden="true"></span>
       <span class="sec-label sim-teaser-tag">Próximamente</span>
       <h2 class="sim-teaser-h" style="margin:.5rem 0 .7rem">Simulacros con cronómetro, formato SIDEX real</h2>
       <p class="sim-teaser-p" style="color:var(--t2);max-width:480px;margin:0 auto 1.3rem;line-height:1.65">30 exámenes de práctica en condiciones reales — mismo tiempo, mismo formato, misma presión que el parcial de verdad. Estamos afinando los últimos detalles antes de soltarlos.</p>
@@ -6884,7 +6916,7 @@ function generatePlan(){
     out.innerHTML='<div style="padding:1.2rem;background:var(--adim);border:1px solid var(--bra);border-radius:12px;color:var(--t2)">'+WARN+' '+(L?'That exam date is already in the past. Pick a future date.':'La fecha del parcial ya pasó. Selecciona una fecha futura.')+'</div>';
     out.classList.add('show');out.scrollIntoView({behavior:'smooth',block:'nearest'});return;
   }
-  var daysToShow=Math.min(5,diasRestantes+1);
+  var daysToShow=Math.min(10,diasRestantes+1);
 
   var PLANS={
     calcdif:{
@@ -6961,31 +6993,59 @@ function generatePlan(){
   var monthNames=L?['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec']:['Ene','Feb','Mar','Abr','May','Jun','Jul','Ago','Sep','Oct','Nov','Dic'];
   var TG=L?{rep:'Review',ej:'Exercises',form:'Formulas',sim:'Mock exam',sol:'Solutions',exp:'Express',rest:'Rest'}
          :{rep:'Repaso',ej:'Ejercicios',form:'Fórmulas',sim:'Simulacro',sol:'Solucionario',exp:'Exprés',rest:'Descanso'};
-  function tk(txt,cls,lbl){ return '<div class="pd-task">'+txt+' <span class="pd-tag '+cls+'">'+lbl+'</span></div>'; }
+  var TASK_TAG={rep:'pd-tag-rep',ej:'pd-tag-rep',form:'pd-tag-form',sim:'pd-tag-sim',sol:'pd-tag-sim',exp:'pd-tag-form',rest:'pd-tag-rep'};
 
-  var studyDays=daysToShow<=1?0:(daysToShow>=3?daysToShow-2:1);
-  var hasSimDay=daysToShow>=3;
-  var buckets=[]; for(var b=0;b<studyDays;b++) buckets.push([]);
-  for(var t=0;t<temas.length;t++) buckets[t%Math.max(1,studyDays)].push(temas[t]);
+  /* Estructura adaptativa (1..10 días): resto = estudio · penúltimo = simulacro
+     · último = día del parcial · si hay 8+ días, un chequeo intermedio. */
+  var examIdx=daysToShow-1;
+  var lateSimIdx=daysToShow>=3?daysToShow-2:-1;
+  var midSimIdx=daysToShow>=8?Math.floor(daysToShow*0.5):-1;
+  if(midSimIdx===lateSimIdx||midSimIdx===examIdx||midSimIdx<=0) midSimIdx=-1;
+  var studyIdxs=[];
+  for(var s=0;s<daysToShow;s++){ if(s!==examIdx&&s!==lateSimIdx&&s!==midSimIdx) studyIdxs.push(s); }
+  var nStudy=Math.max(1,studyIdxs.length);
+  var buckets=[]; for(var b=0;b<nStudy;b++) buckets.push([]);
+  for(var t=0;t<temas.length;t++) buckets[t%nStudy].push(temas[t]);
 
-  function studyTasks(bucket,idx){
-    var main=bucket.length?bucket.join(' · '):(L?'Free review of your weakest topics':'Repaso libre de lo que llevás más flojo');
-    var first=bucket[0]||main;
-    var r='';
-    r+=tk((L?'Study in depth: ':'Estudiá a fondo: ')+main,'pd-tag-rep',TG.rep);
-    r+=tk((L?'Work taller + past-quiz problems on: ':'Hacé ejercicios del taller y de quices viejos de: ')+first,'pd-tag-rep',TG.ej);
-    if(idx===0) r+=tk((L?'Build your own formula sheet for '+matName+' (use the site’s Formulas page)':'Armá tu propia hoja de fórmulas de '+matName+' (apóyate en la página de Fórmulas del sitio)'),'pd-tag-form',TG.form);
-    else r+=tk((L?'Redo yesterday’s mistakes with the solutions PDF':'Rehacé los errores de ayer con el solucionario'),'pd-tag-sim',TG.sol);
+  function studyItems(bucket,isFirst){
+    if(!bucket.length){
+      return [
+        [(L?'Mixed practice: 10 problems pulled at random across all topics':'Práctica mezclada: 10 ejercicios al azar de todos los temas'),'ej'],
+        [(L?'Redo every problem you’ve gotten wrong so far':'Rehacé todos los ejercicios que hayas fallado hasta ahora'),'sol'],
+        [(L?'Re-derive the 3 formulas you keep forgetting':'Re-deducí las 3 fórmulas que siempre se te olvidan'),'form']
+      ];
+    }
+    var first=bucket[0];
+    var r=[
+      [(L?'Study in depth: ':'Estudiá a fondo: ')+bucket.join(' · '),'rep'],
+      [(L?'Work taller + past-quiz problems on: ':'Ejercicios del taller y de quices viejos de: ')+first,'ej']
+    ];
+    r.push(isFirst
+      ? [(L?'Build your own formula sheet for '+matName+' (use the site’s Formulas page)':'Armá tu propia hoja de fórmulas de '+matName+' (apóyate en la página de Fórmulas del sitio)'),'form']
+      : [(L?'Redo yesterday’s mistakes with the solutions PDF':'Rehacé los errores de ayer con el solucionario'),'sol']);
     return r;
   }
-  var simTasks=tk((L?'Full mock exam with a timer — no notes, no internet':'Simulacro completo con cronómetro — sin notas, sin internet'),'pd-tag-sim',TG.sim)
-    +tk((L?'Grade it against the answer key and list every error':'Calificá con el solucionario y anotá cada error'),'pd-tag-sim',TG.sol)
-    +tk((L?'Re-study only the topics you missed':'Repasá solo los temas donde fallaste'),'pd-tag-rep',TG.rep)
-    +tk((L?'Redo the 3 hardest problems from scratch':'Rehacé de cero los 3 ejercicios más difíciles'),'pd-tag-rep',TG.ej);
-  var examTasks=tk((L?'Express formula review — 30 min max':'Repaso exprés de fórmulas — 30 min máximo'),'pd-tag-form',TG.form)
-    +tk((L?'5 quick problems per topic, no deep dives':'5 ejercicios rápidos por tema, sin profundizar'),'pd-tag-form',TG.exp)
-    +tk((L?'Re-read the explanations of what cost you most':'Releé las explicaciones de lo que más te costó'),'pd-tag-rep',TG.rep)
-    +tk((L?'Sleep 5+ hours. Do not pull an all-nighter.':'Dormí 5+ horas. No trasnochés.'),'pd-tag-rep',TG.rest);
+  var SIM_ITEMS=[
+    [(L?'Full mock exam with a timer — no notes, no internet':'Simulacro completo con cronómetro — sin notas, sin internet'),'sim'],
+    [(L?'Grade it against the answer key and list every error':'Calificá con el solucionario y anotá cada error'),'sol'],
+    [(L?'Re-study only the topics you missed':'Repasá solo los temas donde fallaste'),'rep'],
+    [(L?'Redo the 3 hardest problems from scratch':'Rehacé de cero los 3 ejercicios más difíciles'),'ej']
+  ];
+  var MIDSIM_ITEMS=[
+    [(L?'Half-length mock or an old exam — open book, focus on method':'Medio simulacro o un parcial viejo — con apuntes, enfócate en el método'),'sim'],
+    [(L?'Mark which topics still feel shaky':'Marcá qué temas todavía sentís flojos'),'rep'],
+    [(L?'Spend the rest of the day on the shakiest one':'El resto del día dedicalo al tema más flojo'),'ej']
+  ];
+  var EXAM_ITEMS=[
+    [(L?'Express formula review — 30 min max':'Repaso exprés de fórmulas — 30 min máximo'),'form'],
+    [(L?'5 quick problems per topic, no deep dives':'5 ejercicios rápidos por tema, sin profundizar'),'exp'],
+    [(L?'Re-read the explanations of what cost you most':'Releé las explicaciones de lo que más te costó'),'rep'],
+    [(L?'Sleep 5+ hours. Do not pull an all-nighter.':'Dormí 5+ horas. No trasnochés.'),'rest']
+  ];
+
+  var planKey='mu-plan-'+matKey+'-'+cIdx+'-'+fechaInput;
+  var done={}; try{ done=JSON.parse(localStorage.getItem(planKey)||'{}')||{}; }catch(e){ done={}; }
+  window.__muPlanKey=planKey;
 
   var html='';
   try{
@@ -6996,25 +7056,42 @@ function generatePlan(){
     }
   }catch(e){}
   if(daysToShow<5)html+='<div style="margin-bottom:1rem;padding:.7rem 1rem;background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.3);border-radius:10px;font-size:.8rem;color:var(--yel)">'+FIRE+' '+(L?('The exam is in '+diasRestantes+' day'+(diasRestantes===1?'':'s')+'. Plan compressed to '+daysToShow+' day'+(daysToShow===1?'':'s')+'.'):('El parcial es en '+diasRestantes+' día'+(diasRestantes===1?'':'s')+'. Plan comprimido a '+daysToShow+' día'+(daysToShow===1?'':'s')+'.'))+'</div>';
+  else if(diasRestantes>10)html+='<div style="margin-bottom:1rem;padding:.7rem 1rem;background:var(--adim);border:1px solid var(--bra);border-radius:10px;font-size:.78rem;color:var(--t2)">'+(L?('You have '+diasRestantes+' days — plenty. This is the last 10-day stretch; before it, just keep up with class and worksheets.'):('Tenés '+diasRestantes+' días — de sobra. Este es el tramo de los últimos 10 días; antes de eso, andá al día con clases y talleres, sin cranear.'))+'</div>';
   if(cIdx===3)html+='<div style="margin-bottom:1rem;padding:.7rem 1rem;background:var(--adim);border:1px solid var(--bra);border-radius:10px;font-size:.78rem;color:var(--t2)">'+WARN+' '+(L?'A quiz covers just that week’s material. This plan uses the first cut’s topics as a base — adjust to where your course actually is.':'Un quiz evalúa lo de esa semana puntual. Este plan usa los temas del primer corte como base — ajústalo a lo que lleva tu curso.')+'</div>';
   if(cIdx===4)html+='<div style="margin-bottom:1rem;padding:.7rem 1rem;background:var(--adim);border:1px solid var(--bra);border-radius:10px;font-size:.78rem;color:var(--t2)">'+WARN+' '+(L?'The final covers all three cuts. Every topic of the term is below — prioritize where you did worst.':'El examen final acumula los tres cortes. Abajo están todos los temas del semestre — prioriza donde te fue peor.')+'</div>';
   html+='<div style="font-family:\'IBM Plex Mono\',monospace;font-size:.75rem;color:var(--acc);text-transform:uppercase;letter-spacing:.08em;margin-bottom:1rem">'+(L?'Plan':'Plan de')+' '+daysToShow+' '+(L?('day'+(daysToShow===1?'':'s')):('día'+(daysToShow===1?'':'s')))+' · '+matName+' · '+parcial+'</div>';
 
+  var daysHtml='',totalTasks=0,doneTasks=0,studyPos=0;
   for(var i=0;i<daysToShow;i++){
     var d=new Date(fecha);
     d.setDate(d.getDate()-(daysToShow-1-i));
-    var esExamDay=i===daysToShow-1;
-    var esSimDay=hasSimDay&&i===daysToShow-2;
-    var body= esExamDay?examTasks : esSimDay?simTasks : studyTasks(buckets[i]||[],i);
-    html+='<div class="plan-day">'
+    var isExam=i===examIdx, isLateSim=i===lateSimIdx, isMidSim=i===midSimIdx;
+    var items;
+    if(isExam) items=EXAM_ITEMS;
+    else if(isLateSim) items=SIM_ITEMS;
+    else if(isMidSim) items=MIDSIM_ITEMS;
+    else { items=studyItems(buckets[studyPos]||[], studyPos===0); studyPos++; }
+    var tasksHtml='';
+    for(var j=0;j<items.length;j++){
+      var tid=i+'-'+j, ck=done[tid]?1:0;
+      totalTasks++; if(ck) doneTasks++;
+      tasksHtml+='<label class="pd-task'+(ck?' done':'')+'"><input type="checkbox" class="pd-chk" data-tid="'+tid+'"'+(ck?' checked':'')+'><span>'+items[j][0]+' <span class="pd-tag '+TASK_TAG[items[j][1]]+'">'+TG[items[j][1]]+'</span></span></label>';
+    }
+    var badge= isExam?(' — '+FIRE+' '+(L?'Exam day':'Día del parcial'))
+             : isLateSim?(' — '+(L?'Mock exam':'Simulacro'))
+             : isMidSim?(' — '+(L?'Checkpoint':'Chequeo')) : '';
+    daysHtml+='<div class="plan-day">'
       +'<div class="pd-header">'
         +'<div class="pd-num">'+(i+1)+'</div>'
-        +'<div class="pd-day">'+(L?'Day ':'Día ')+(i+1)+(esExamDay?' — '+FIRE+' '+(L?'Exam day':'Día del parcial'):esSimDay?' — '+(L?'Mock exam':'Simulacro'):'')+'</div>'
+        +'<div class="pd-day">'+(L?'Day ':'Día ')+(i+1)+badge+'</div>'
         +'<div class="pd-date">'+dayNames[d.getDay()]+' '+d.getDate()+' '+monthNames[d.getMonth()]+'</div>'
       +'</div>'
-      +'<div class="pd-tasks">'+body+'</div>'
+      +'<div class="pd-tasks">'+tasksHtml+'</div>'
       +'</div>';
   }
+  var pct=totalTasks?Math.round(doneTasks/totalTasks*100):0;
+  html+='<div style="margin:.1rem 0 1rem"><div style="display:flex;justify-content:space-between;font-size:.78rem;color:var(--t2);margin-bottom:.35rem"><span>'+(L?'Progress':'Progreso')+'</span><span id="pd-prog-n">'+doneTasks+'/'+totalTasks+'</span></div><div style="height:6px;background:var(--br2);border-radius:3px;overflow:hidden"><div id="pd-prog-bar" style="height:100%;width:'+pct+'%;background:var(--acc);transition:width .35s ease"></div></div></div>';
+  html+=daysHtml;
   html+='<div style="margin-top:.8rem;padding:.85rem;background:var(--adim);border:1px solid var(--bra);border-radius:10px;font-size:.78rem;color:var(--t2);line-height:1.6"><strong style="color:var(--acc)"><svg width="14" height="14" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M12 2a7 7 0 0 0-4 12.7V17h8v-2.3A7 7 0 0 0 12 2z"/></svg> '+(L?'Monitor’s tip:':'Consejo de monitor:')+'</strong> '+(L?'The mock-exam day matters most. Do it under real conditions: no internet, no notes, with a timer.':'El día del simulacro es el que más pesa. Hazlo en condiciones reales: sin internet, sin notas, con cronómetro.')+'</div>';
 
   var MCODE={calcdif:'1000004',calcint:'1000005',alglin:'1000006',calcvec:'1000007',edo:'1000008',matbas:'1000003'};
@@ -7023,6 +7100,20 @@ function generatePlan(){
   out.innerHTML=html;
   out.classList.add('show');
   out.scrollIntoView({behavior:'smooth',block:'nearest'});
+
+  /* Checkboxes: persisten el progreso por (materia, corte, fecha) en localStorage
+     y actualizan la barra en vivo. */
+  out.onchange=function(e){
+    var cb=e.target;
+    if(!cb||!cb.classList||!cb.classList.contains('pd-chk')) return;
+    var store={}; try{ store=JSON.parse(localStorage.getItem(planKey)||'{}')||{}; }catch(_){ store={}; }
+    if(cb.checked) store[cb.getAttribute('data-tid')]=1; else delete store[cb.getAttribute('data-tid')];
+    try{ localStorage.setItem(planKey, JSON.stringify(store)); }catch(_){}
+    var lab=cb.closest('.pd-task'); if(lab) lab.classList.toggle('done', cb.checked);
+    var all=out.querySelectorAll('.pd-chk'), dn=out.querySelectorAll('.pd-chk:checked').length;
+    var n=document.getElementById('pd-prog-n'); if(n) n.textContent=dn+'/'+all.length;
+    var bar=document.getElementById('pd-prog-bar'); if(bar) bar.style.width=(all.length?Math.round(dn/all.length*100):0)+'%';
+  };
 }
 
 
