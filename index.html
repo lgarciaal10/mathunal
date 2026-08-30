@@ -15058,10 +15058,18 @@ function muMateriasConContenido(){
 }
 window.muMateriasConContenido = muMateriasConContenido;
 
-/* ── SEMANA ACTUAL DEL SEMESTRE ──────────────────────────────────────────────
-   Editar a mano. Mismo calendario para todas las materias (UNAL, ~16 semanas).
-   n = semana en curso.  Poner n:0 oculta el banner (vacaciones, paro, etc.). */
-var SEMANA_SEMESTRE = { n: 5, total: 16, periodo: '2026-2' };
+/* ── CALENDARIO ACADÉMICO DEL SEMESTRE ───────────────────────────────────────
+   La semana actual se calcula sola desde 'inicio'. Al cambiar de semestre,
+   actualizar estas 4 fechas con el Acuerdo del Consejo de Sede. Poner
+   visible:false para ocultar el banner (paro, receso). Fechas 2026-2S =
+   Acuerdo 008 de 2026, Sede Medellín. */
+var SEMANA_SEMESTRE = {
+  inicio: '2026-08-27',   // Inicio de clases
+  fin:    '2026-12-17',   // Finalización de clases
+  total:  16,
+  periodo:'2026-2',
+  visible:true
+};
 
 var MATS = {
   '1000004':{free:[
@@ -16003,9 +16011,9 @@ window.__muMateriaInit = function(){
     };
     var TYPE_ICONS = ICO_SVG;
     var TYPE_LABELS = lang==='en'
-      ? {parcial:'Exams',taller:'Worksheets',quice:'Quizzes',
+      ? {parcial:'Exams',taller:'Worksheets',quice:'Quizzes',simulacro:'Mock exams',
          notas:'Notes',libro:'Books',formulario:'Formulas',programa:'Syllabus',solucionario:'Answer keys',tarea:'Homework'}
-      : {parcial:'Parciales',taller:'Talleres',quice:'Quices',
+      : {parcial:'Parciales',taller:'Talleres',quice:'Quices',simulacro:'Simulacros',
          notas:'Notas',libro:'Libros',formulario:'Formularios',programa:'Programa',solucionario:'Solucionarios',tarea:'Tareas'};
     // Colores de semestre (los más recientes más brillantes)
     var SEM_COLORS = {};
@@ -16062,26 +16070,47 @@ window.__muMateriaInit = function(){
       ' · <span style="color:var(--grn)">'+mats.free.length+(lang==='en'?' free':' gratis')+'</span> · <span style="color:var(--yel)">'+mats.premium.length+' premium</span></div>';
 
     // ── Banner "semana actual del semestre" — orientación para el estudiante.
-    //    Se edita a mano en SEMANA_SEMESTRE (buscar más abajo, junto a var MATS).
-    var _sbn = document.getElementById('mu-semana-banner');
-    if(_sbn){
+    //    Config en SEMANA_SEMESTRE (buscar más abajo, junto a var MATS). La semana
+    //    se calcula desde la fecha de inicio de clases del calendario académico.
+    (function(){
+      var _sbn = document.getElementById('mu-semana-banner');
+      if(!_sbn) return;
       var SS = (typeof SEMANA_SEMESTRE!=='undefined') ? SEMANA_SEMESTRE : null;
-      if(SS && SS.n>0){
-        var _pct = Math.max(0, Math.min(100, Math.round(SS.n/(SS.total||16)*100)));
-        _sbn.style.display='';
-        _sbn.innerHTML =
-          '<div style="display:flex;align-items:center;gap:.7rem;padding:.6rem .9rem;background:var(--card);border:1px solid var(--br2);border-left:3px solid var(--acc);border-radius:8px">'+
-            '<span style="font-size:1rem">📅</span>'+
-            '<div style="flex:1;min-width:0">'+
-              '<div style="font-size:.82rem;font-weight:700;color:var(--t1)">'+
-                (lang==='en'?'Week ':'Semana ')+SS.n+(SS.total?(lang==='en'?' of ':' de ')+SS.total:'')+
-                (SS.periodo?' <span style="font-weight:500;color:var(--t3)">· '+SS.periodo+'</span>':'')+'</div>'+
-              '<div style="margin-top:.35rem;height:4px;background:var(--br2);border-radius:2px;overflow:hidden">'+
-                '<div style="height:100%;width:'+_pct+'%;background:var(--acc)"></div></div>'+
-            '</div>'+
-          '</div>';
-      } else { _sbn.style.display='none'; }
-    }
+      if(!SS || SS.visible===false || !SS.inicio){ _sbn.style.display='none'; return; }
+      var DAY = 86400000;
+      var ini = new Date(SS.inicio+'T00:00:00');
+      var fin = SS.fin ? new Date(SS.fin+'T23:59:59') : null;
+      var now = new Date();
+      var total = SS.total || 16;
+      var en = (lang==='en');
+      var titulo, segN;
+      if(now < ini){
+        var dias = Math.ceil((ini-now)/DAY);
+        titulo = en ? ('Term starts in '+dias+' day'+(dias===1?'':'s')) : ('El semestre empieza en '+dias+' día'+(dias===1?'':'s'));
+        segN = 0;
+      } else if(fin && now > fin){
+        titulo = en ? 'Term finished' : 'Semestre finalizado';
+        segN = total;
+      } else {
+        var n = Math.max(1, Math.min(total, Math.floor((now-ini)/(7*DAY)) + 1));
+        titulo = (en?'Week ':'Semana ')+n+(en?' of ':' de ')+total;
+        segN = n;
+      }
+      var cal = '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>';
+      var segs = '';
+      for(var i=1;i<=total;i++){
+        segs += '<span style="flex:1;height:6px;border-radius:2px;background:'+(i<=segN?'var(--acc)':'var(--br2)')+';transition:background .3s"></span>';
+      }
+      _sbn.style.display='';
+      _sbn.innerHTML =
+        '<div style="padding:.65rem .9rem;background:var(--card);border:1px solid var(--br2);border-left:3px solid var(--acc);border-radius:9px">'+
+          '<div style="display:flex;align-items:center;gap:.5rem;color:var(--t1);font-size:.83rem;font-weight:700">'+
+            '<span style="color:var(--acc);display:flex">'+cal+'</span>'+titulo+
+            (SS.periodo?'<span style="margin-left:auto;font-weight:500;color:var(--t3);font-size:.74rem">'+SS.periodo+'</span>':'')+
+          '</div>'+
+          '<div style="display:flex;gap:2px;margin-top:.5rem">'+segs+'</div>'+
+        '</div>';
+    })();
 
     _renderRutaEstudio(sub, mats, lang);
     _renderSideRails(sub, lang);
@@ -16127,7 +16156,13 @@ window.__muMateriaInit = function(){
     var ALL_FILES = (mats.free||[]).map(function(f){ var g={}; for(var k in f) g[k]=f[k]; g.access='free'; return g; })
       .concat((mats.premium||[]).map(function(f){ var g={}; for(var k in f) g[k]=f[k]; g.access='premium'; if(!g.type) g.type='solucionario'; return g; }));
 
-    var expFil = 'all', expSort = 'sem';
+    var expFil = 'all', expSort = 'sug';
+    // Orden pedagógico: primero lo que orienta el curso (programa → notas de
+    // clase → formularios → libro), luego la práctica (talleres → quices),
+    // y al final lo de evaluación (parciales → simulacros). Así el estudiante
+    // no tiene que bajar hasta el fondo para encontrar las guías de clase.
+    var TYPE_ORDER = {programa:1, notas:2, formulario:3, libro:4, taller:5, quice:6, parcial:7, simulacro:8, solucionario:9, tarea:10};
+    function typeRank(t){ return TYPE_ORDER[t] || 50; }
     function expBytes(sizeStr){
       if(!sizeStr || sizeStr==='—') return 0;
       var m = sizeStr.match(/([\d.]+)\s*(KB|MB)/i);
@@ -16138,7 +16173,13 @@ window.__muMateriaInit = function(){
     function expFiltered(){
       var items = expFil==='all' ? ALL_FILES.slice() : ALL_FILES.filter(function(f){ return f.type===expFil; });
       items.sort(function(a,b){
-        return expSort==='size' ? (expBytes(a.size)-expBytes(b.size)) : (b.sem||'').localeCompare(a.sem||'');
+        if(expSort==='size') return expBytes(b.size)-expBytes(a.size);
+        // 'sug': por tipo (orden pedagógico), luego semestre reciente, luego nombre
+        var r = typeRank(a.type)-typeRank(b.type);
+        if(r) return r;
+        var s = (b.sem||'General').localeCompare(a.sem||'General');
+        if(s) return s;
+        return (a.name||'').localeCompare(b.name||'', undefined, {numeric:true});
       });
       return items;
     }
@@ -16188,19 +16229,28 @@ window.__muMateriaInit = function(){
     function expTableRows(){
       var rows = expFiltered();
       if(!rows.length) return '<tr><td colspan="3" style="color:var(--t3);text-align:center;padding:1rem 0">'+(en?'No files':'Sin archivos')+'</td></tr>';
-      // Colapsar filas idénticas (mismo tipo + semestre + acceso) en una sola con
-      // contador — antes 26 quices producían 26 filas idénticas "Quices · GRAL · Gratis"
-      // que solo hacían ruido. El nombre de cada archivo ya está en la lista de la izquierda.
+      // Vista "Todos": UNA fila por tipo (en orden pedagógico) con el total —
+      // el índice queda como un resumen de ~8 filas, no 40. Con un filtro de
+      // tipo activo se abre el desglose por semestre (útil para parciales).
+      var byType = (expFil==='all');
       var groups = [], byKey = {};
       rows.forEach(function(f){
-        var key = f.type+'|'+(f.sem||'')+'|'+f.access;
-        if(!byKey[key]){ byKey[key] = {type:f.type, sem:f.sem, access:f.access, n:0}; groups.push(byKey[key]); }
+        var key = byType ? f.type : (f.type+'|'+(f.sem||'')+'|'+f.access);
+        if(!byKey[key]){ byKey[key] = {type:f.type, sem:f.sem, access:f.access, n:0, sems:{}}; groups.push(byKey[key]); }
         byKey[key].n++;
+        if(f.sem) byKey[key].sems[f.sem]=1;
       });
       return groups.map(function(g){
+        var semTxt;
+        if(byType){
+          var ks = Object.keys(g.sems);
+          semTxt = ks.length===0 ? '—' : ks.length===1 ? semAbbr(ks[0]) : (en?ks.length+' sem.':ks.length+' sem.');
+        } else {
+          semTxt = semAbbr(g.sem);
+        }
         return '<tr><td>'+(ICONS[g.type]||TYPE_ICONS[g.type]||ICO_SVG.programa)+' '+(TYPE_LABELS[g.type]||g.type)+
             (g.n>1?' <span style="color:var(--t3);font-weight:700;font-size:.82em">×'+g.n+'</span>':'')+'</td>'+
-          '<td>'+semAbbr(g.sem)+'</td>'+
+          '<td>'+semTxt+'</td>'+
           '<td><span class="mu-exp-badge '+(g.access==='premium'?'pack':'free')+'">'+(g.access==='premium'?'Pack':(en?'Free':'Gratis'))+'</span></td></tr>';
       }).join('');
     }
@@ -16229,7 +16279,7 @@ window.__muMateriaInit = function(){
       var typesPresent = {};
       ALL_FILES.forEach(function(f){ typesPresent[f.type]=true; });
       var typeBtns = '<button class="mu-exp-fbtn on" onclick="window.muExpFilter(\'all\',this)">'+(en?'All':'Todos')+'</button>'+
-        Object.keys(typesPresent).map(function(t){
+        Object.keys(typesPresent).sort(function(a,b){ return typeRank(a)-typeRank(b); }).map(function(t){
           return '<button class="mu-exp-fbtn" onclick="window.muExpFilter(\''+t+'\',this)">'+(TYPE_LABELS[t]||t)+'</button>';
         }).join('');
       expHost.innerHTML =
@@ -16239,7 +16289,7 @@ window.__muMateriaInit = function(){
           '<div class="mu-exp-sticky"><div class="mu-exp-lbl">'+(en?'File index':'Índice de archivos')+'</div>'+
             '<div class="mu-exp-fbar">'+typeBtns+'</div>'+
             '<div class="mu-exp-sbar"><span>'+(en?'sort:':'ordenar:')+'</span>'+
-              '<button class="mu-exp-sbtn on" onclick="window.muExpSort(\'sem\',this)">'+(en?'by semester':'por semestre')+'</button>'+
+              '<button class="mu-exp-sbtn on" onclick="window.muExpSort(\'sug\',this)">'+(en?'suggested':'sugerido')+'</button>'+
               '<button class="mu-exp-sbtn" onclick="window.muExpSort(\'size\',this)">'+(en?'by size':'por tamaño')+'</button></div>'+
             '<div class="mu-exp-tablewrap"><table><thead><tr><th>'+(en?'Type':'Tipo')+'</th><th>Sem.</th><th>'+(en?'Access':'Acceso')+'</th></tr></thead>'+
             '<tbody id="mu-exp-table"></tbody></table></div></div>'+
