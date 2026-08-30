@@ -3116,6 +3116,9 @@ html[data-theme="black"] .nav-aurora{
 .mu-exp-badge.free{background:rgba(45,212,191,.12);color:var(--grn)}
 .mu-exp-badge.pack{background:var(--adim);color:var(--acc)}
 #mu-exp-list .mu-fc{margin-bottom:.5rem}
+/* altura mínima para que al filtrar por tipo el layout no salte */
+#mu-exp-list{min-height:320px}
+.mu-exp-tablewrap{min-height:110px}
 
 /* Marcador de semestre para vista por tipo */
 .mu-sem-marker{width:2.5px;height:26px;border-radius:2px;flex-shrink:0}
@@ -16295,6 +16298,13 @@ window.__muMateriaInit = function(){
             '<tbody id="mu-exp-table"></tbody></table></div></div>'+
         '</div>';
       renderExplorer();
+      // Congelar la altura de la lista completa como mínimo: al filtrar por tipo
+      // (siempre un subconjunto) el layout ya no se encoge ni salta. Tope 560px
+      // para que en materias con muchísimos archivos no quede un hueco enorme.
+      setTimeout(function(){
+        var le = document.getElementById('mu-exp-list');
+        if(le) le.style.minHeight = Math.max(320, Math.min(le.scrollHeight, 560)) + 'px';
+      }, 60);
     }
 
     // Forzar .fi visibles
