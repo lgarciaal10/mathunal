@@ -2479,7 +2479,7 @@ body{font-family:'Space Grotesk',system-ui,sans-serif;background:var(--bg);color
 .vf-shell .sinput input::placeholder{color:var(--t3)}
 .vf-shell .cpills{display:flex;gap:.2rem;flex-wrap:wrap}
 .vf-shell .cpill{display:inline-flex;align-items:center;gap:.22rem;padding:.22rem .56rem;border-radius:999px;font-family:'Space Grotesk',sans-serif;font-size:.72rem;font-weight:600;color:var(--t2);background:var(--lay1);border:2px solid var(--br);cursor:pointer;transition:all .15s;white-space:nowrap}
-.vf-shell .cpill:hover{background:var(--lay3);color:var(--t1)}
+.vf-shell .cpill:hover{background:var(--lay3);color:var(--t1);transform:translateY(-1px)}
 .vf-shell .cpill.on{background:var(--acd);border-color:var(--acg);color:var(--acc);font-weight:700}
 .vf-shell .items{flex:1;overflow-y:auto;padding-bottom:.5rem}
 .vf-shell .items::-webkit-scrollbar{width:3px}
@@ -2490,10 +2490,13 @@ body{font-family:'Space Grotesk',system-ui,sans-serif;background:var(--bg);color
 .vf-shell .item::before{content:'';position:absolute;left:0;top:0;bottom:0;width:2px;background:var(--cat);transform:scaleY(0);transition:transform .14s;border-radius:0 2px 2px 0}
 .vf-shell .item:hover{background:var(--lay1)}
 .vf-shell .item.on{background:var(--lay1)}
-.vf-shell .item.on::before{transform:scaleY(1)}
-.vf-shell .item-ico{font-size:.72rem;flex-shrink:0;opacity:.7}
-.vf-shell .item-name{flex:1;font-family:'Space Grotesk',sans-serif;font-size:1.02rem;font-weight:500;color:var(--t2);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.vf-shell .item:hover::before{transform:scaleY(1);opacity:.45}
+.vf-shell .item.on::before{transform:scaleY(1);opacity:1}
+.vf-shell .item-ico{font-size:.72rem;flex-shrink:0;opacity:.7;transition:opacity .14s,color .14s}
+.vf-shell .item:hover .item-ico{opacity:1;color:var(--cat)}
+.vf-shell .item-name{flex:1;font-family:'Space Grotesk',sans-serif;font-size:1.02rem;font-weight:500;color:var(--t2);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;transition:color .14s}
 .vf-shell .item:hover .item-name,.item.on .item-name{color:var(--t1)}
+@media(prefers-reduced-motion:reduce){.vf-shell .cpill:hover{transform:none}}
 .vf-shell .item.on .item-name{font-weight:600}
 .vf-shell .list-ft{flex-shrink:0;height:30px;display:flex;align-items:center;padding:0 .75rem;border-top:1.5px solid var(--br);font-family:IBM Plex Mono,monospace;font-size:.72rem;color:var(--t3)}
 .vf-shell .detail{flex:1;min-width:0;overflow-y:auto;background:var(--bg2);display:flex;flex-direction:column}
@@ -10843,6 +10846,8 @@ window.muApplyLang_privacidad();
         <div class="sinput"><span style="color:var(--t3);font-size:.9rem">⌕</span>
           <input type="text" id="vf-search" placeholder="Buscar fórmula…" oninput="doSearch(this.value)" autocomplete="off">
         </div>
+        <select id="vf-mat" onchange="setMat(this.value)" aria-label="Filtrar por materia"
+          style="width:100%;margin:.5rem 0 .1rem;padding:.4rem .55rem;background:var(--lay1);color:var(--t2);border:1px solid var(--br2);border-radius:7px;font-family:'IBM Plex Mono',monospace;font-size:.74rem;cursor:pointer"></select>
         <div class="cpills" id="vf-cpills"></div>
       </div>
       <div class="items" id="vf-items"></div>
@@ -10885,11 +10890,25 @@ window.muApplyLang_formulas = function(){
   if(tips[0]) tips[0].textContent = en?'▶ Animate · 0.25× → 2× · key A':'▶ Animar · 0.25× → 2× · tecla A';
   if(tips[1]) tips[1].innerHTML = '<svg width="12" height="12" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" style="vertical-align:-2px"><circle cx="11" cy="11" r="7"/><line x1="16.5" y1="16.5" x2="21" y2="21"/></svg> Zoom · '+'<svg width="12" height="12" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" style="vertical-align:-2px"><path d="M9 11.5V6a1.5 1.5 0 0 1 3 0v5M12 11V4a1.5 1.5 0 0 1 3 0v7M15 11.5V6a1.5 1.5 0 0 1 3 0v8"/><path d="M9 22h6c2 0 3-1.5 3-3.5v-4"/></svg>'+' Pan · '+'<svg width="12" height="12" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" style="vertical-align:-2px"><path d="M21 12a9 9 0 1 1-3-6.7"/><path d="M21 3v6h-6"/></svg>'+' Reset';
   if(tips[2]) tips[2].innerHTML = en?'<svg width="12" height="12" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" style="vertical-align:-2px"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg> Challenge Mode':'<svg width="12" height="12" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" style="vertical-align:-2px"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg> Modo Reto';
+  if(typeof renderMatSelect==='function') renderMatSelect();
   if(typeof renderCpills==='function') renderCpills();
   if(typeof renderList==='function') renderList();
   if(typeof _sel!=='undefined' && _sel>=0 && typeof sel==='function') sel(_sel);
 };
 
+/* Qué categorías de fórmulas usa cada materia (para el filtro "por materia").
+   Solo se listan en el selector las materias que aparecen aquí. */
+var MAT_TAGS={
+  '1000003':['tri','geo','alg'],        // Matemáticas Básicas
+  '1000004':['lim','der'],              // Cálculo Diferencial
+  '1000005':['int','ser'],              // Cálculo Integral
+  '1000006':['alg'],                    // Álgebra Lineal
+  '1000007':['vec','der','int'],        // Cálculo Vectorial
+  '1000008':['edo','ser'],              // Ecuaciones Diferenciales
+  '1000009':['num'],                    // Métodos Numéricos
+  '1000010':['ser','edo','vec'],        // Matemáticas Especiales
+  '1000013':['geo','vec']               // Geometría Vectorial y Analítica
+};
 var CATS={lim:{l:'Límites',lEn:'Limits',s:'Lím.',sEn:'Lim.',c:'#818cf8',i:'∞'},der:{l:'Derivadas',lEn:'Derivatives',s:'Der.',sEn:'Der.',c:'#fb923c',i:'∂'},int:{l:'Integrales',lEn:'Integrals',s:'Int.',sEn:'Int.',c:'#34d399',i:'∫'},tri:{l:'Trigon.',lEn:'Trig.',s:'Trig.',sEn:'Trig.',c:'#c084fc',i:'△'},ser:{l:'Series',lEn:'Series',s:'Series',sEn:'Series',c:'#FBBF24',i:'∑'},vec:{l:'Vectorial',lEn:'Vector',s:'Vec.',sEn:'Vec.',c:'#2dd4bf',i:'→'},alg:{l:'Álgebra',lEn:'Algebra',s:'Álg.',sEn:'Alg.',c:'#60a5fa',i:'⊕'},num:{l:'Mét. Num.',lEn:'Num. Methods',s:'Num.',sEn:'Num.',c:'#e879f9',i:'f≈'},geo:{l:'Geo. Analítica',lEn:'Analytic Geo.',s:'Geo.',sEn:'Geo.',c:'#38bdf8',i:'↗'},edo:{l:'Ec. Dif.',lEn:'ODEs',s:'EDO',sEn:'ODE',c:'#fb7185',i:'λ'}};
 var CORD=['lim','der','int','tri','ser','alg','vec','num','geo','edo'];
 function fact(n){var r=1;for(var i=2;i<=n;i++)r*=i;return r;}
@@ -10965,7 +10984,7 @@ viz:{type:'cont',
 /* ── DERIVADAS ── */
 {tag:'der',name:'Definición (tangente)',
  formula:"f'(x_0)=\\lim_{h\\to 0}\\dfrac{f(x_0+h)-f(x_0)}{h}",
- desc:'La derivada es la pendiente instantánea en x₀.',nemo:"«La secante se convierte en tangente cuando h → 0.»",
+ desc:'La derivada es la pendiente instantánea en x₀.',nemo:"«La secante se va parando hasta quedar tangente cuando h → 0: esa pendiente es la derivada.»",
  viz:{type:'tangent',
   params:[{id:'x0',l:'Punto x₀',min:-3,max:3,step:.05,def:1,u:''}],
   live:function(ps){var m=2*ps.x0,y0=ps.x0*ps.x0;return 'f('+ps.x0.toFixed(2)+')='+y0.toFixed(2)+'  f\'(x₀)='+m.toFixed(2)+'  tangente: y='+m.toFixed(2)+'x'+(y0-m*ps.x0>=0?'+':'')+(y0-m*ps.x0).toFixed(2);},
@@ -10980,7 +10999,7 @@ viz:{type:'cont',
   ann:'Mueve x₀: la pendiente de la <strong style="color:var(--warn)">tangente</strong> es f\'(x₀) = 2x₀.'
  }
 },
-{tag:'der',name:'Regla de la cadena',formula:"(f\\circ g)'(x)=f'(g(x))\\cdot g'(x)",desc:'Para composición: deriva exterior evaluada en interior × derivada del interior.',nemo:"«La cebolla: capa por capa, multiplicando cada derivada.»",
+{tag:'der',name:'Regla de la cadena',formula:"(f\\circ g)'(x)=f'(g(x))\\cdot g'(x)",desc:'Para composición: deriva exterior evaluada en interior × derivada del interior.',nemo:"«De afuera hacia adentro, como pelando un mango: deriva cada capa y multiplícalas.»",
  viz:{type:'chain',
   params:[{id:'a',l:'Coef. a',min:.1,max:3,step:.05,def:1,u:''},{id:'b',l:'Fase b',min:-3,max:3,step:.1,def:0,u:''}],
   live:function(ps){return 'sin('+ps.a.toFixed(1)+'x+'+ps.b.toFixed(1)+')  →  derivada = '+ps.a.toFixed(1)+'·cos('+ps.a.toFixed(1)+'x+'+ps.b.toFixed(1)+')';},
@@ -11010,7 +11029,7 @@ viz:{type:'cont',
 /* ── INTEGRALES ── */
 {tag:'int',name:'Integral como área',
  formula:'\\int_a^b f(x)\\,dx=F(b)-F(a)',
- desc:'El área orientada bajo la curva entre a y b.',nemo:"«La integral acumula rectángulos infinitamente delgados.»",
+ desc:'El área orientada bajo la curva entre a y b.',nemo:"«Tajaditas cada vez más finas: la integral las suma todas hasta que no queda nada por contar.»",
  viz:{type:'area',
   params:[{id:'a',l:'Límite a',min:-1,max:6,step:.05,def:0,u:''},{id:'b',l:'Límite b',min:0,max:7,step:.05,def:3.14,u:''}],
   live:function(ps){var a=Math.min(ps.a,ps.b),b=Math.max(ps.a,ps.b);return '∫sin(x)dx de '+a.toFixed(2)+' a '+b.toFixed(2)+' = '+(-Math.cos(b)+Math.cos(a)).toFixed(4);},
@@ -11028,7 +11047,7 @@ viz:{type:'cont',
   ann:'Ajusta a y b. Con a=0 y b=π el área vale exactamente <strong>2</strong>.'
  }
 },
-{tag:'int',name:'Por partes',formula:'\\int u\\,dv=uv-\\int v\\,du',desc:'Para productos. Usa ILATE: Inversa, Logarítmica, Algebraica, Trigonométrica, Exponencial.',nemo:"«ILATE: Iba Luis Antes Tomando Espresso — la primera es u.»",
+{tag:'int',name:'Por partes',formula:'\\int u\\,dv=uv-\\int v\\,du',desc:'Para productos. Para elegir u usa ILATE: Inversa, Logarítmica, Algebraica, Trigonométrica, Exponencial — la primera de la lista que aparezca es u.',nemo:"«Una Vaca Vestida De Uniforme»: ∫u·dv = u·v − ∫v·du. (Y para escoger u: ILATE.)",
 viz:{type:'ilate',
   params:[],
   live:function(ps){return 'ILATE: Inversa > Log > Algebraica > Trig > Exponencial — el primer tipo de la lista es u';},
@@ -11079,7 +11098,7 @@ viz:{type:'ilate',
   ann:'<strong>sinh</strong>: impar, cruza origen. <strong>cosh</strong>: par, siempre ≥1, forma de cable colgante. <strong>tanh</strong>: acotado en (−1,1).'
  }
 },
-{tag:'int',name:'Sust. trigonométrica',formula:'\\sqrt{a^2-u^2}\\to u=a\\sin\\theta\\quad\\sqrt{a^2+u^2}\\to u=a\\tan\\theta\\quad\\sqrt{u^2-a^2}\\to u=a\\sec\\theta',desc:'Elimina la raíz usando identidades pitagóricas.',nemo:"«La sustitución disfraza la raíz de función trig para eliminar el radical.»",
+{tag:'int',name:'Sust. trigonométrica',formula:'\\sqrt{a^2-u^2}\\to u=a\\sin\\theta\\quad\\sqrt{a^2+u^2}\\to u=a\\tan\\theta\\quad\\sqrt{u^2-a^2}\\to u=a\\sec\\theta',desc:'Elimina la raíz usando identidades pitagóricas.',nemo:"«a²−u² pide SENO, a²+u² pide TANGENTE, u²−a² pide SECANTE» — y la raíz se disfraza y desaparece.",
 viz:{type:'subtrig',
   params:[{id:'tp',l:'Tipo (1,2,3)',min:1,max:3,step:1,def:1,u:''},{id:'th',l:'Ángulo θ',min:1,max:88,step:1,def:35,u:'°'}],
   live:function(ps){
@@ -11970,6 +11989,35 @@ viz:{type:'rl_circ',
   ann:'La corriente sube <strong>exponencialmente</strong> hasta ε/R. El <strong style="color:#a78bfa">inductor L</strong> resiste el cambio brusco. La aguja del amperímetro sube con t. En t=τ=L/R la corriente tiene 63% de su valor final.'
 }
 },
+{tag:'edo',name:'Transformada de Laplace',
+ formula:"\\mathcal{L}\\{f(t)\\}=\\displaystyle\\int_0^\\infty e^{-st}f(t)\\,dt=F(s)",
+ desc:"Convierte una EDO (con derivadas) en una ecuacion algebraica en s. La clave: L{y'}=sY(s)-y(0) y L{y''}=s^2Y(s)-sy(0)-y'(0). Las condiciones iniciales entran aqui, no al final.",
+ tip:"Linealidad: L{af+bg}=aL{f}+bL{g}.  Corrimiento: L{e^{at}f(t)}=F(s-a).",
+ nemo:"«La maquina del tiempo: manda la ecuacion al 'mundo s', donde derivar es solo multiplicar por s.»",
+ viz:{type:'laplace_table', params:[],
+  render:function(ps,cat){
+   var rows=[['1','1/s'],['t','1/s^2'],['t^n','n! / s^(n+1)'],['e^(at)','1/(s-a)'],['sin(bt)','b/(s^2+b^2)'],['cos(bt)','s/(s^2+b^2)'],['e^(at) sin(bt)','b/((s-a)^2+b^2)'],['e^(at) cos(bt)','(s-a)/((s-a)^2+b^2)'],["t f(t)","-F'(s)"],["y'(t)",'sY(s) - y(0)'],["y''(t)","s^2 Y(s) - s y(0) - y'(0)"],['u(t-a) f(t-a)','e^(-as) F(s)']];
+   var tr=rows.map(function(r){return '<tr><td style="padding:.26rem .7rem;border-bottom:1px solid var(--br)">'+r[0]+'</td><td style="padding:.26rem .7rem;border-bottom:1px solid var(--br);color:'+cat+'">'+r[1]+'</td></tr>';}).join('');
+   return {html:'<div style="padding:.5rem 0"><div style="font-family:\'IBM Plex Mono\',monospace;font-size:.66rem;color:var(--t3);text-transform:uppercase;letter-spacing:.05em;margin-bottom:.45rem">Tabla de transformadas comunes</div>'+
+     '<div style="overflow-x:auto"><table style="width:100%;border-collapse:collapse;font-family:\'IBM Plex Mono\',monospace;font-size:.8rem">'+
+     '<thead><tr><th style="text-align:left;padding:.3rem .7rem;color:var(--t3);font-size:.64rem;border-bottom:1px solid var(--br2)">f(t)</th><th style="text-align:left;padding:.3rem .7rem;color:var(--t3);font-size:.64rem;border-bottom:1px solid var(--br2)">F(s) = L{f(t)}</th></tr></thead><tbody>'+tr+'</tbody></table></div></div>'};
+  },
+  ann:'La transformada de una <strong>derivada</strong> es multiplicar por s y restar el valor inicial. Por eso una EDO se vuelve algebra: despejas F(s) y lo buscas en la tabla al reves (antitransformada).'
+ }
+},
+{tag:'edo',name:'Resolver una EDO con Laplace',
+ formula:"\\mathcal{L}\\{y''\\}+a\\,\\mathcal{L}\\{y'\\}+b\\,\\mathcal{L}\\{y\\}=\\mathcal{L}\\{g(t)\\}",
+ desc:"Metodo en 4 pasos. Sirve sobre todo cuando g(t) es discontinua (escalon, impulso), donde coeficientes indeterminados se vuelve un lio.",
+ nemo:"«Transforma, despeja, fracciona y devuelve: la EDO entra dificil y sale hecha.»",
+ viz:{type:'laplace_steps', params:[],
+  render:function(ps,cat){
+   var steps=[['1. Transformar toda la ecuacion',"L{y''}=s^2Y - s y(0) - y'(0),   L{y'}=sY - y(0)"],['2. Despejar Y(s)','Y(s) = [ numerador con las C.I. ] / (s^2 + a s + b)'],['3. Fracciones parciales','Y(s) = A/(s-r1) + B/(s-r2) + ...'],['4. Antitransformar termino a termino','y(t) = A e^(r1 t) + B e^(r2 t) + ...']];
+   var h=steps.map(function(s){return '<div style="padding:.5rem .8rem;border-left:2px solid '+cat+';background:var(--lay1);border-radius:0 6px 6px 0;margin-bottom:.45rem"><div style="font-weight:700;font-size:.77rem;color:var(--t1)">'+s[0]+'</div><div style="font-family:\'IBM Plex Mono\',monospace;font-size:.72rem;color:var(--t2);margin-top:.15rem;word-break:break-word">'+s[1]+'</div></div>';}).join('');
+   return {html:'<div style="padding:.5rem 0">'+h+'</div>'};
+  },
+  ann:'Las <strong>condiciones iniciales</strong> se sustituyen en el paso 1 (no como constantes libres al final). El resultado ya viene con las C.I. aplicadas.'
+ }
+},
 {tag:'geo',name:'Esfera 3D',
  formula:'V=\\dfrac{4}{3}\\pi r^3\\quad A_{sup}=4\\pi r^2',
  desc:'Rota arrastrando el canvas. Slider de radio actualiza V y A en tiempo real.',
@@ -12012,7 +12060,7 @@ viz:{type:'rl_circ',
 }}
 ];
 /* ══ ESTADO ══ */
-var _flt='all',_q='',_sel=-1,_anim=false,_rafId=null,_animTime=0,_animLastTS=null,_dragMode='zoom';
+var _flt='all',_mat='all',_q='',_sel=-1,_anim=false,_rafId=null,_animTime=0,_animLastTS=null,_dragMode='zoom';
 /* ══ PLOTLY ══ */
 function getPL(){
   // Lee los tokens del tema activo (dark / black / gray / light) para que la
@@ -12261,25 +12309,30 @@ function sel(i){
   di.style.setProperty('--cat',cat.c);
   var vizH='';
   if(f.viz){
+    var _is3d=f.viz.type==='3d';
+    // "estática": tabla/pasos en HTML, sin sliders ni valor en vivo → sin toolbar de zoom/animación
+    var _isStatic=!_is3d && !f.viz.live && !(f.viz.params&&f.viz.params.length);
     var sliders=(f.viz.params||[]).map(function(p){
       return '<div class="param-row"><span class="param-lbl"><em>'+p.l+'</em></span><input type="range" class="param-slider" aria-label="'+p.l+'" data-param="'+p.id+'" min="'+p.min+'" max="'+p.max+'" step="'+p.step+'" value="'+p.def+'" oninput="updateP(\''+p.id+'\',this.value,'+i+')" onchange="updateP(\''+p.id+'\',this.value,'+i+')"><input type="number" class="param-num" aria-label="'+p.l+'" data-num="'+p.id+'" min="'+p.min+'" max="'+p.max+'" step="'+p.step+'" value="'+p.def+'" onchange="updateP(\''+p.id+'\',this.value,'+i+')"><span class="param-unit">'+p.u+'</span></div>';
     }).join('');
     vizH='<div class="viz-wrap"><div class="viz-title">'+'<svg width="13" height="13" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" style="vertical-align:-2px"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>'+' '+(en?'Interactive visualization':'Visualización interactiva')+'</div>'
      +'<div class="viz-box" style="position:relative">'
-     +(f.viz.type!=='3d'?'<div class="viz-live"><span class="viz-live-label">≈</span><span class="viz-live-val" id="viz-live-val">'+(en?'calculating…':'calculando…')+'</span></div>':'')
-     +(f.viz.type!=='3d'?'<div class="viz-toolbar">'
+     +((!_is3d && !_isStatic)?'<div class="viz-live"><span class="viz-live-label">≈</span><span class="viz-live-val" id="viz-live-val">'+(en?'calculating…':'calculando…')+'</span></div>':'')
+     +(_isStatic?''
+      :(f.viz.type!=='3d'?'<div class="viz-toolbar">'
       +'<button class="tb-btn on" data-mode="zoom" onclick="setDragMode(\'zoom\')"><svg width="12" height="12" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" style="vertical-align:-2px"><circle cx="11" cy="11" r="7"/><line x1="16.5" y1="16.5" x2="21" y2="21"/></svg> Zoom</button>'
       +'<button class="tb-btn" data-mode="pan" onclick="setDragMode(\'pan\')"><svg width="12" height="12" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" style="vertical-align:-2px"><path d="M9 11.5V6a1.5 1.5 0 0 1 3 0v5M12 11V4a1.5 1.5 0 0 1 3 0v7M15 11.5V6a1.5 1.5 0 0 1 3 0v8"/><path d="M9 22h6c2 0 3-1.5 3-3.5v-4"/></svg> Pan</button>'
       +'<div class="tb-sep"></div>'
       +'<button class="tb-btn" onclick="resetView()"><svg width="12" height="12" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" style="vertical-align:-2px"><path d="M21 12a9 9 0 1 1-3-6.7"/><path d="M21 3v6h-6"/></svg> '+(en?'View':'Vista')+'</button>'
-     +'</div>':'<div class="viz-toolbar"><span style="font-size:.78rem;color:var(--t3)"><svg width="12" height="12" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" style="vertical-align:-2px"><path d="M13 2 L13 10 L21 10"/><path d="M8 12l-4 4 4 4M4 16h16M16 12l4 4-4 4"/></svg> '+(en?'Drag to rotate · Scroll to zoom':'Arrastra para rotar · Scroll para zoom')+'</span><div class="tb-sep"></div><button class="tb-btn" id="mu3d-pause-btn" onclick="mu3dTogglePause()"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" style="vertical-align:-1px"><rect x="6" y="4" width="4" height="16" rx="1"/><rect x="14" y="4" width="4" height="16" rx="1"/></svg> '+(en?'Pause':'Pausar')+'</button><div class="tb-sep"></div><select class="speed-sel" id="mu3d-speed-sel" onchange="mu3dSetSpeed(this.value)" style="font-size:.78rem"><option value="0.25">0.25×</option><option value="0.5">0.5×</option><option value="1" selected>1×</option><option value="1.5">1.5×</option><option value="2">2×</option></select></div>')
+     +'</div>':'<div class="viz-toolbar"><span style="font-size:.78rem;color:var(--t3)"><svg width="12" height="12" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" style="vertical-align:-2px"><path d="M13 2 L13 10 L21 10"/><path d="M8 12l-4 4 4 4M4 16h16M16 12l4 4-4 4"/></svg> '+(en?'Drag to rotate · Scroll to zoom':'Arrastra para rotar · Scroll para zoom')+'</span><div class="tb-sep"></div><button class="tb-btn" id="mu3d-pause-btn" onclick="mu3dTogglePause()"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" style="vertical-align:-1px"><rect x="6" y="4" width="4" height="16" rx="1"/><rect x="14" y="4" width="4" height="16" rx="1"/></svg> '+(en?'Pause':'Pausar')+'</button><div class="tb-sep"></div><select class="speed-sel" id="mu3d-speed-sel" onchange="mu3dSetSpeed(this.value)" style="font-size:.78rem"><option value="0.25">0.25×</option><option value="0.5">0.5×</option><option value="1" selected>1×</option><option value="1.5">1.5×</option><option value="2">2×</option></select></div>'))
      +'<div class="viz-plot-wrap"><div class="viz-plot" id="viz-plot"></div><div class="viz-coords" id="viz-coords"></div></div>'
      +(sliders?'<div class="viz-controls">'+sliders+'</div>':'')
-     +(f.viz.type!=='3d'?'<div class="viz-actions">'
+     +(_isStatic?''
+      :(f.viz.type!=='3d'?'<div class="viz-actions">'
       +(f.viz.params&&f.viz.params.length?'<button class="vbtn anim-btn" id="anim-btn" onclick="toggleAnim('+i+')"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" style="vertical-align:-1px"><path d="M6 4l14 8-14 8V4z"/></svg> '+(en?'Animate':'Animar')+'</button>':'')
       +'<button class="vbtn" onclick="resetP('+i+')">↺ Reset</button>'
       +'<div class="speed-wrap"><span class="speed-lbl">'+(en?'Speed:':'Vel:')+'</span><select class="speed-sel" id="speed-sel" onchange="if(_anim){cancelAnimationFrame(_rafId);_rafId=null;_animLastTS=null;_anim=false;toggleAnim('+i+');}"><option value="200">0.25×</option><option value="100" selected>0.5×</option><option value="50">1×</option><option value="33">1.5×</option><option value="25">2×</option></select></div>'
-     +'</div>':'<div class="viz-actions"><button class="vbtn" onclick="resetP('+i+')">↺ Reset</button></div>')
+     +'</div>':'<div class="viz-actions"><button class="vbtn" onclick="resetP('+i+')">↺ Reset</button></div>'))
      +(f.viz.ann?'<div class="viz-ann">'+f.viz.ann+'</div>':'')
      +'</div></div>';
   }
@@ -12306,6 +12359,20 @@ function renderCpills(){
   el.innerHTML=h;
 }
 function setFlt(f){_flt=f;renderCpills();renderList();}
+function renderMatSelect(){
+  var el=document.getElementById('vf-mat');if(!el)return;
+  var en=(window.curLang==='en');
+  var subs=(typeof SUBJECTS!=='undefined'&&Array.isArray(SUBJECTS))?SUBJECTS:[];
+  var opts='<option value="all">'+(en?'All subjects':'Todas las materias')+'</option>';
+  subs.forEach(function(s){
+    if(!MAT_TAGS[s.code])return;
+    opts+='<option value="'+s.code+'"'+(_mat===s.code?' selected':'')+'>'+(en?(s.nameEn||s.nameEs):s.nameEs)+'</option>';
+  });
+  el.innerHTML=opts;
+}
+function setMat(v){_mat=v;_flt='all';renderCpills();renderList();
+  if(typeof window.muTrack==='function'&&v!=='all')window.muTrack('formulas_filter_materia',{code:v});}
+function _matOK(f){return _mat==='all'||(MAT_TAGS[_mat]||[]).indexOf(f.tag)>=0;}
 var _doSearchTrackTO;
 function doSearch(v){
   _q=v.toLowerCase().trim();
@@ -12318,7 +12385,7 @@ function doSearch(v){
 function renderList(){
   var el=document.getElementById('vf-items'),ct=document.getElementById('vf-list-ct');
   var en=(window.curLang==='en');
-  var data=F.filter(function(f){return(_flt==='all'||f.tag===_flt)&&(!_q||(f.name+f.desc+(f.nemo||'')).toLowerCase().includes(_q));});
+  var data=F.filter(function(f){return(_flt==='all'||f.tag===_flt)&&_matOK(f)&&(!_q||(f.name+f.desc+(f.nemo||'')).toLowerCase().includes(_q));});
   if(ct)ct.textContent=data.length+(en?' formula'+(data.length===1?'':'s'):' fórmula'+(data.length===1?'':'s'));
   if(!data.length){el.innerHTML='<div style="padding:1.2rem;text-align:center;color:var(--t3);font-size:.8rem">'+(en?'No results':'Sin resultados')+'</div>';return;}
   var h='';
@@ -12338,7 +12405,7 @@ document.addEventListener('keydown',function(e){
   if(e.key.toLowerCase()==='a'&&!isField&&_sel>=0&&F[_sel]&&F[_sel].viz){e.preventDefault();toggleAnim(_sel);return;}
   if((e.key==='ArrowDown'||e.key==='ArrowUp')&&!isField){
     e.preventDefault();
-    var vis=F.map(function(f,i){return(_flt==='all'||f.tag===_flt)?i:-1;}).filter(function(i){return i>=0;});
+    var vis=F.map(function(f,i){return((_flt==='all'||f.tag===_flt)&&_matOK(f))?i:-1;}).filter(function(i){return i>=0;});
     var pos=vis.indexOf(_sel);
     if(e.key==='ArrowDown')pos=Math.min(pos+1,vis.length-1);else pos=Math.max(pos-1,0);
     if(vis[pos]!==undefined)sel(vis[pos]);
@@ -12353,7 +12420,7 @@ document.addEventListener('keydown',function(e){
   function boot(tries){
     var items=document.getElementById('vf-items');
     if(!items){ if(tries<20){ setTimeout(function(){boot(tries+1);},40); } return; }
-    try{ renderCpills(); renderList(); sel(0); }
+    try{ renderMatSelect(); renderCpills(); renderList(); sel(0); }
     catch(err){ console.error('Form init error:',err); if(tries<20) setTimeout(function(){boot(tries+1);},60); }
   }
   boot(0);
