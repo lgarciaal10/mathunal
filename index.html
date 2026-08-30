@@ -5188,6 +5188,7 @@ customElements.define('glass-element', GlassElement);
       </div>
     </div>
     <div class="fi">
+      <div id="mu-home-semana" style="display:none;max-width:520px;margin:0 0 1.1rem"></div>
       <div class="mat-uni-grid" id="mat-grid-uni"></div>
     </div>
   </div>
@@ -5883,6 +5884,7 @@ function renderMaterias(){
   var grid=document.getElementById('mat-grid-uni');
   if(!grid) return;
   var en = (typeof curLang!=='undefined' && curLang==='en');
+  if(typeof window.__muSemanaBanner==='function') window.__muSemanaBanner('mu-home-semana', en?'en':'es');
   grid.innerHTML=SUBS.map(function(s){
     var tags = en && s.tagsEn ? s.tagsEn : s.tags;
     var tagsHtml=tags?'<div class="mc-tags">'+tags.map(function(t){return '<span class="mc-tag-item">'+t+'</span>';}).join('')+'</div>':'';
@@ -12013,10 +12015,26 @@ viz:{type:'rl_circ',
 var _flt='all',_q='',_sel=-1,_anim=false,_rafId=null,_animTime=0,_animLastTS=null,_dragMode='zoom';
 /* ══ PLOTLY ══ */
 function getPL(){
+  // Lee los tokens del tema activo (dark / black / gray / light) para que la
+  // gráfica combine con cualquiera de ellos, no solo dark-blue y light.
+  var cs = getComputedStyle(document.documentElement);
+  var tok = function(n,f){ var x=(cs.getPropertyValue(n)||'').trim(); return x||f; };
   var light = document.documentElement.getAttribute('data-theme')==='light';
-  return light
-    ? {paper_bgcolor:'transparent',plot_bgcolor:'rgba(10,15,28,.035)',font:{family:"'IBM Plex Mono',monospace",color:'#3A4A65',size:10.5},margin:{t:8,b:40,l:42,r:12},xaxis:{gridcolor:'rgba(0,0,0,.08)',zerolinecolor:'rgba(0,0,0,.22)',tickfont:{size:9.5},linecolor:'rgba(0,0,0,.14)'},yaxis:{gridcolor:'rgba(0,0,0,.08)',zerolinecolor:'rgba(0,0,0,.22)',tickfont:{size:9.5},linecolor:'rgba(0,0,0,.14)'},legend:{font:{size:10},bgcolor:'transparent'},hoverlabel:{bgcolor:'#FFFFFF',bordercolor:'rgba(0,0,0,.18)',font:{family:"'IBM Plex Mono',monospace",size:10,color:'#0A0F1C'}}}
-    : {paper_bgcolor:'transparent',plot_bgcolor:'rgba(12,26,52,.6)',font:{family:"'IBM Plex Mono',monospace",color:'#7E94C4',size:10.5},margin:{t:8,b:40,l:42,r:12},xaxis:{gridcolor:'rgba(255,255,255,.05)',zerolinecolor:'rgba(255,255,255,.12)',tickfont:{size:9.5},linecolor:'rgba(255,255,255,.08)'},yaxis:{gridcolor:'rgba(255,255,255,.05)',zerolinecolor:'rgba(255,255,255,.12)',tickfont:{size:9.5},linecolor:'rgba(255,255,255,.08)'},legend:{font:{size:10},bgcolor:'transparent'},hoverlabel:{bgcolor:'#0C1A34',bordercolor:'rgba(255,255,255,.2)',font:{family:"'IBM Plex Mono',monospace",size:10}}};
+  var grid = light ? 'rgba(0,0,0,.08)'  : 'rgba(255,255,255,.055)';
+  var zero = light ? 'rgba(0,0,0,.22)'  : 'rgba(255,255,255,.14)';
+  var line = light ? 'rgba(0,0,0,.14)'  : 'rgba(255,255,255,.09)';
+  return {
+    paper_bgcolor:'transparent',
+    plot_bgcolor: tok('--lay1', light?'rgba(10,15,28,.035)':'rgba(255,255,255,.03)'),
+    font:{family:"'IBM Plex Mono',monospace",color:tok('--t2', light?'#3A4A65':'#7E94C4'),size:10.5},
+    margin:{t:8,b:40,l:42,r:12},
+    xaxis:{gridcolor:grid,zerolinecolor:zero,tickfont:{size:9.5},linecolor:line},
+    yaxis:{gridcolor:grid,zerolinecolor:zero,tickfont:{size:9.5},linecolor:line},
+    legend:{font:{size:10},bgcolor:'transparent'},
+    hoverlabel:{bgcolor:tok('--card', light?'#FFFFFF':'#0C1A34'),
+      bordercolor:light?'rgba(0,0,0,.18)':'rgba(255,255,255,.2)',
+      font:{family:"'IBM Plex Mono',monospace",size:10,color:tok('--t1', light?'#0A0F1C':'#E8F0FF')}}
+  };
 }
 var PC={displayModeBar:false,responsive:false,staticPlot:false};
 /* ══ doRender ══ */
@@ -15099,6 +15117,32 @@ var SEMANA_SEMESTRE = {
   visible:true
 };
 
+/* Pinta el banner "Semana N de 16" dentro del elemento con id=elId. Reutilizado
+   en la portada (#materias) y en la página de materia. */
+window.__muSemanaBanner = function(elId, lang){
+  var el = document.getElementById(elId);
+  if(!el) return;
+  var SS = SEMANA_SEMESTRE;
+  if(!SS || SS.visible===false || !SS.inicio){ el.style.display='none'; return; }
+  var DAY=86400000, ini=new Date(SS.inicio+'T00:00:00'), fin=SS.fin?new Date(SS.fin+'T23:59:59'):null;
+  var now=new Date(), total=SS.total||16, en=(lang==='en'), titulo, segN;
+  if(now<ini){ var d=Math.ceil((ini-now)/DAY); titulo=en?('Term starts in '+d+' day'+(d===1?'':'s')):('El semestre empieza en '+d+' día'+(d===1?'':'s')); segN=0; }
+  else if(fin && now>fin){ titulo=en?'Term finished':'Semestre finalizado'; segN=total; }
+  else { var n=Math.max(1,Math.min(total,Math.floor((now-ini)/(7*DAY))+1)); titulo=(en?'Week ':'Semana ')+n+(en?' of ':' de ')+total; segN=n; }
+  var cal='<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>';
+  var segs='';
+  for(var i=1;i<=total;i++) segs+='<span style="flex:1;height:6px;border-radius:2px;background:'+(i<=segN?'var(--acc)':'var(--br2)')+';transition:background .3s"></span>';
+  el.style.display='';
+  el.innerHTML=
+    '<div style="padding:.65rem .9rem;background:var(--card);border:1px solid var(--br2);border-left:3px solid var(--acc);border-radius:9px">'+
+      '<div style="display:flex;align-items:center;gap:.5rem;color:var(--t1);font-size:.83rem;font-weight:700">'+
+        '<span style="color:var(--acc);display:flex">'+cal+'</span>'+titulo+
+        (SS.periodo?'<span style="margin-left:auto;font-weight:500;color:var(--t3);font-size:.74rem">'+SS.periodo+'</span>':'')+
+      '</div>'+
+      '<div style="display:flex;gap:2px;margin-top:.5rem">'+segs+'</div>'+
+    '</div>';
+};
+
 var MATS = {
   '1000004':{free:[
     {type:'programa',name:'Plan Curricular',size:'375 KB',sem:'2023-2',url:'https://goxhxrdchfyphkenixng.supabase.co/storage/v1/object/public/Materiales/Programas/calcdif/plan_curricular.pdf'},
@@ -16107,48 +16151,8 @@ window.__muMateriaInit = function(){
       '<div class="mu-chip-line">'+((mats.free||[]).length+(mats.premium||[]).length)+(lang==='en'?' files':' archivos')+' · '+orderedSems.length+(lang==='en'?' semesters':' semestres')+
       ' · <span style="color:var(--grn)">'+mats.free.length+(lang==='en'?' free':' gratis')+'</span> · <span style="color:var(--yel)">'+mats.premium.length+' premium</span></div>';
 
-    // ── Banner "semana actual del semestre" — orientación para el estudiante.
-    //    Config en SEMANA_SEMESTRE (buscar más abajo, junto a var MATS). La semana
-    //    se calcula desde la fecha de inicio de clases del calendario académico.
-    (function(){
-      var _sbn = document.getElementById('mu-semana-banner');
-      if(!_sbn) return;
-      var SS = (typeof SEMANA_SEMESTRE!=='undefined') ? SEMANA_SEMESTRE : null;
-      if(!SS || SS.visible===false || !SS.inicio){ _sbn.style.display='none'; return; }
-      var DAY = 86400000;
-      var ini = new Date(SS.inicio+'T00:00:00');
-      var fin = SS.fin ? new Date(SS.fin+'T23:59:59') : null;
-      var now = new Date();
-      var total = SS.total || 16;
-      var en = (lang==='en');
-      var titulo, segN;
-      if(now < ini){
-        var dias = Math.ceil((ini-now)/DAY);
-        titulo = en ? ('Term starts in '+dias+' day'+(dias===1?'':'s')) : ('El semestre empieza en '+dias+' día'+(dias===1?'':'s'));
-        segN = 0;
-      } else if(fin && now > fin){
-        titulo = en ? 'Term finished' : 'Semestre finalizado';
-        segN = total;
-      } else {
-        var n = Math.max(1, Math.min(total, Math.floor((now-ini)/(7*DAY)) + 1));
-        titulo = (en?'Week ':'Semana ')+n+(en?' of ':' de ')+total;
-        segN = n;
-      }
-      var cal = '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>';
-      var segs = '';
-      for(var i=1;i<=total;i++){
-        segs += '<span style="flex:1;height:6px;border-radius:2px;background:'+(i<=segN?'var(--acc)':'var(--br2)')+';transition:background .3s"></span>';
-      }
-      _sbn.style.display='';
-      _sbn.innerHTML =
-        '<div style="padding:.65rem .9rem;background:var(--card);border:1px solid var(--br2);border-left:3px solid var(--acc);border-radius:9px">'+
-          '<div style="display:flex;align-items:center;gap:.5rem;color:var(--t1);font-size:.83rem;font-weight:700">'+
-            '<span style="color:var(--acc);display:flex">'+cal+'</span>'+titulo+
-            (SS.periodo?'<span style="margin-left:auto;font-weight:500;color:var(--t3);font-size:.74rem">'+SS.periodo+'</span>':'')+
-          '</div>'+
-          '<div style="display:flex;gap:2px;margin-top:.5rem">'+segs+'</div>'+
-        '</div>';
-    })();
+    // Banner "Semana N de 16" — ver window.__muSemanaBanner (junto a SEMANA_SEMESTRE).
+    if(typeof window.__muSemanaBanner==='function') window.__muSemanaBanner('mu-semana-banner', lang);
 
     _renderRutaEstudio(sub, mats, lang);
     _renderSideRails(sub, lang);
