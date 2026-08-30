@@ -3014,11 +3014,15 @@ html[data-theme="light"] .nav-aurora{
 .mu-ruta-hero:hover{border-color:var(--bra)}
 .mu-ruta-hero-title{font-family:'Literata',serif;font-weight:700;font-size:1.02rem;color:var(--t1);transition:color .25s}
 /* ── Micro-interacciones de la página de materia (hover) ── */
-.mu-hero-sym{position:absolute;right:18px;top:50%;font-family:'Literata',serif;font-size:5.4rem;line-height:1;
-  font-weight:700;color:var(--br2);opacity:.32;pointer-events:none;user-select:none;z-index:0;
-  transform:translateY(-50%) translateX(20px) rotate(-7deg);transition:all .35s cubic-bezier(.22,1,.36,1)}
+/* Reutiliza el look del símbolo de las tarjetas de portada (.mc-sym): glifo
+   serif pesado como marca de agua, sin rotar ni salirse de la caja (antes se
+   veía "achatado" porque un 5.4rem con cola larga se recortaba en un hero bajo). */
+.mu-hero-sym{position:absolute;right:14px;bottom:8px;
+  font-family:'Literata',Georgia,serif;font-weight:900;font-size:2.4rem;line-height:1;
+  color:var(--t1);opacity:.07;pointer-events:none;user-select:none;z-index:0;
+  transition:opacity .3s,color .3s}
 .mu-ruta-hero > div:not(.mu-hero-sym){position:relative;z-index:1}
-.mu-ruta-hero:hover .mu-hero-sym{opacity:1;color:var(--acc);transform:translateY(-50%) translateX(4px) rotate(-4deg) scale(1.05)}
+.mu-ruta-hero:hover .mu-hero-sym{opacity:.16;color:var(--acc)}
 .mu-ruta-hero:hover .mu-ruta-hero-title{color:var(--acc)}
 .mu-kpi-card{transition:transform .2s cubic-bezier(.22,1,.36,1),border-color .2s,box-shadow .2s}
 .mu-kpi-card:hover{transform:translateY(-3px);border-color:var(--bra);box-shadow:0 8px 22px -10px rgba(0,0,0,.45)}
@@ -3034,7 +3038,6 @@ html[data-theme="light"] .nav-aurora{
 .mu-prereq-chip:hover{transform:translateY(-1px);border-color:var(--bra);color:var(--t1)}
 @media(prefers-reduced-motion:reduce){
   .mu-hero-sym,.mu-kpi-card,.mu-rel-chip,.mu-rel-chip .mu-rel-arr,.mu-prereq-chip{transition:none}
-  .mu-ruta-hero:hover .mu-hero-sym{transform:rotate(-7deg)}
   .mu-kpi-card:hover,.mu-rel-chip:hover,.mu-prereq-chip:hover{transform:none}
 }
 .mu-ruta-hero-sub{color:var(--t2);font-size:.83rem;margin-top:2px}
