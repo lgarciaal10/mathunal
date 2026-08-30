@@ -6930,6 +6930,9 @@ function _muSpEnd(){
     </div>
   </div>
 
+  <!-- Banner "semana actual del semestre" (editable a mano en SEMANA_SEMESTRE) -->
+  <div id="mu-semana-banner" style="display:none;margin:0 0 1rem"></div>
+
   <!-- Ruta de estudio -->
   <div id="mu-ruta-host"></div>
 
@@ -15055,6 +15058,11 @@ function muMateriasConContenido(){
 }
 window.muMateriasConContenido = muMateriasConContenido;
 
+/* ── SEMANA ACTUAL DEL SEMESTRE ──────────────────────────────────────────────
+   Editar a mano. Mismo calendario para todas las materias (UNAL, ~16 semanas).
+   n = semana en curso.  Poner n:0 oculta el banner (vacaciones, paro, etc.). */
+var SEMANA_SEMESTRE = { n: 5, total: 16, periodo: '2026-2' };
+
 var MATS = {
   '1000004':{free:[
     {type:'programa',name:'Plan Curricular',size:'375 KB',sem:'2023-2',url:'https://goxhxrdchfyphkenixng.supabase.co/storage/v1/object/public/Materiales/Programas/calcdif/plan_curricular.pdf'},
@@ -15198,7 +15206,7 @@ var MATS = {
     {type:'parcial',name:'Parcial 1 · 2025-2 (Enunciado)',size:'165 KB',sem:'2025-2'},
     {type:'parcial',name:'Parcial 2 · 2025-2 (Enunciado)',size:'178 KB',sem:'2025-2'},
     {type:'formulario',name:'Fórmulas Básicas, Unidades y Equivalencias',size:'460 KB',sem:'General',url:'https://goxhxrdchfyphkenixng.supabase.co/storage/v1/object/public/Materiales/Resumenes/matbas/formulario.pdf'},
-    {type:'quice',name:'Calendario de Quices',size:'119 KB',sem:'2023-1',url:'https://goxhxrdchfyphkenixng.supabase.co/storage/v1/object/public/Materiales/Quices/matbas/calendario_quices_2023_1.pdf'},
+    {type:'quice',name:'Calendario de Quices (ejemplo 2023-1)',size:'119 KB',sem:'Referencia',url:'https://goxhxrdchfyphkenixng.supabase.co/storage/v1/object/public/Materiales/Quices/matbas/calendario_quices_2023_1.pdf'},
     {type:'quice',name:'Preparación de Quices',size:'2.8 MB',sem:'General',url:'https://goxhxrdchfyphkenixng.supabase.co/storage/v1/object/public/Materiales/Quices/matbas/preparacion_quices.pdf'},
     {type:'simulacro',name:'Simulacros de Parcial 1',size:'466 KB',sem:'General',url:'https://goxhxrdchfyphkenixng.supabase.co/storage/v1/object/public/Materiales/Simulacros/matbas/simulacros_enunciados.pdf'},
     {type:'taller',name:'Taller 1',size:'259 KB',sem:'General',url:'https://goxhxrdchfyphkenixng.supabase.co/storage/v1/object/public/Materiales/Talleres/matbas/taller1.pdf'},
@@ -16052,6 +16060,28 @@ window.__muMateriaInit = function(){
     if(chips) chips.innerHTML =
       '<div class="mu-chip-line">'+((mats.free||[]).length+(mats.premium||[]).length)+(lang==='en'?' files':' archivos')+' · '+orderedSems.length+(lang==='en'?' semesters':' semestres')+
       ' · <span style="color:var(--grn)">'+mats.free.length+(lang==='en'?' free':' gratis')+'</span> · <span style="color:var(--yel)">'+mats.premium.length+' premium</span></div>';
+
+    // ── Banner "semana actual del semestre" — orientación para el estudiante.
+    //    Se edita a mano en SEMANA_SEMESTRE (buscar más abajo, junto a var MATS).
+    var _sbn = document.getElementById('mu-semana-banner');
+    if(_sbn){
+      var SS = (typeof SEMANA_SEMESTRE!=='undefined') ? SEMANA_SEMESTRE : null;
+      if(SS && SS.n>0){
+        var _pct = Math.max(0, Math.min(100, Math.round(SS.n/(SS.total||16)*100)));
+        _sbn.style.display='';
+        _sbn.innerHTML =
+          '<div style="display:flex;align-items:center;gap:.7rem;padding:.6rem .9rem;background:var(--card);border:1px solid var(--br2);border-left:3px solid var(--acc);border-radius:8px">'+
+            '<span style="font-size:1rem">📅</span>'+
+            '<div style="flex:1;min-width:0">'+
+              '<div style="font-size:.82rem;font-weight:700;color:var(--t1)">'+
+                (lang==='en'?'Week ':'Semana ')+SS.n+(SS.total?(lang==='en'?' of ':' de ')+SS.total:'')+
+                (SS.periodo?' <span style="font-weight:500;color:var(--t3)">· '+SS.periodo+'</span>':'')+'</div>'+
+              '<div style="margin-top:.35rem;height:4px;background:var(--br2);border-radius:2px;overflow:hidden">'+
+                '<div style="height:100%;width:'+_pct+'%;background:var(--acc)"></div></div>'+
+            '</div>'+
+          '</div>';
+      } else { _sbn.style.display='none'; }
+    }
 
     _renderRutaEstudio(sub, mats, lang);
     _renderSideRails(sub, lang);
