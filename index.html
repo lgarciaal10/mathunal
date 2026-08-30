@@ -3498,6 +3498,13 @@ body{padding-top:var(--mu-banner-h, 0px);transition:padding-top .2s ease}
   .mu-ruta-hero-title{font-size:1.35rem !important}
   .mu-kpi-row{grid-template-columns:1fr 1fr;gap:.5rem}
   .mu-hero-sym{display:none}
+  /* Explorador de archivos: los items de la grilla se encogían mal (min-width
+     auto) y empujaban ~33px de scroll horizontal. Se fuerzan a caber. */
+  .mu-ruta-wrap.mu-ruta-page{padding-left:16px;padding-right:16px;overflow-x:hidden}
+  .mu-exp-cols,.mu-exp-cols>div{min-width:0;max-width:100%}
+  .mu-fc{min-width:0;max-width:100%}
+  .mu-fc-name,.mu-fc-title,.mu-fc *{overflow-wrap:anywhere;word-break:break-word}
+  .mu-exp-tablewrap{overflow-x:auto}
 
   /* Timeline */
   .tl-s{padding:2.5rem 1.2rem}
@@ -11326,14 +11333,20 @@ window.muApplyLang_acerca = function(){
     },{threshold:.15,rootMargin:'0px 0px -4% 0px'});
     abItems.forEach(function(el){ window.__abIO.observe(el); });
   }
-  /* Red de seguridad: lo que ya está en pantalla al cargar se revela de una
-     (por si el observer tarda o el hito nace visible). */
-  requestAnimationFrame(function(){
+  /* Redes de seguridad: (1) lo visible al cargar se revela ya; (2) en el primer
+     scroll se revela lo que haya entrado; (3) a los 4s se revela todo pase lo
+     que pase, para que el contenido nunca quede invisible. */
+  function abRevealVisible(){
     var vh=window.innerHeight||800;
-    abItems.forEach(function(el){
-      if(el.getBoundingClientRect().top < vh*0.95) el.classList.add('in');
-    });
-  });
+    abItems.forEach(function(el){ if(el.getBoundingClientRect().top < vh*0.98) el.classList.add('in'); });
+  }
+  requestAnimationFrame(abRevealVisible);
+  var onScroll=function(){ abRevealVisible(); };
+  window.addEventListener('scroll',onScroll,{passive:true,once:false});
+  setTimeout(function(){
+    abItems.forEach(function(el){ el.classList.add('in'); });
+    window.removeEventListener('scroll',onScroll);
+  },4000);
 };
 window.muApplyLang_acerca();
 </script>
