@@ -200,14 +200,16 @@ html[data-theme="black"]{
 
 html[data-theme="light"]{
   --bg:#F5F7FC;--bg2:#ECEEF8;--card:#FFFFFF;--card2:#F0F2FA;
-  /* Contraste WCAG AA (>=4.5:1) verificado contra --bg #F5F7FC:
-     t3 4.05->5.26 · acc 4.20->4.84 · grn 3.49->4.73 · yel 2.97->4.69 (fallaba).
-     t1 (17.8) y t2 (8.4) ya cumplian de sobra y no se tocaron. */
-  --t1:#0A0F1C;--t2:#3A4A65;--t3:#5A6880;
+  /* Contraste WCAG AA verificado contra --bg #F5F7FC y contra fondos con tinte
+     de acento (--adim/--aglow). 2026-08-30: t3 y acc se oscurecieron un poco
+     mas porque sobre esos tintes quedaban ~4.0-4.3 (texto de acento en pills y
+     tabs activos). Ahora: acc #A63A08 (~6:1 en blanco, ~5:1 sobre tinte),
+     t3 #505E75 (~5.2:1). t1/t2 ya cumplian de sobra. */
+  --t1:#0A0F1C;--t2:#3A4A65;--t3:#505E75;
   --br:rgba(0,0,0,.08);--br2:rgba(0,0,0,.14);
   --lay1:rgba(10,15,28,.035);--lay2:rgba(10,15,28,.055);--lay3:rgba(10,15,28,.09);--lay4:rgba(10,15,28,.13);
   --bra:rgba(200,70,10,.35);
-  --acc:#C04309;
+  --acc:#A63A08;
   --acc2:#FF7A3D;
   --adim:rgba(200,70,10,.08);
   --grn:#0B7C72;--red:#DC2626;--yel:#B45309;
@@ -593,6 +595,14 @@ h2 span{color:var(--t2);font-weight:400;font-style:italic}
   -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
   filter:drop-shadow(0 0 40px rgba(232,99,42,.45));
   animation:heroGlow 4s ease-in-out infinite alternate;
+}
+/* Tema claro: el gradiente arrancaba en blanco y peach -> invisible sobre
+   fondo claro. Arranca en naranja saturado y sin glow. */
+html[data-theme="light"] .ht-bot{
+  background:linear-gradient(160deg,#F2691A 0%,#E05D1A 45%,#A83100 100%);
+  -webkit-background-clip:text;background-clip:text;
+  filter:none;
+  animation:none;
 }
 @keyframes heroGlow{
   0%{filter:drop-shadow(0 0 30px rgba(232,99,42,.35))}
@@ -4039,8 +4049,9 @@ input:not([type=checkbox]):not([type=radio]):focus,select:focus,textarea:focus{
 .ap-items span{font-size:.82rem;color:var(--t2);display:flex;align-items:center;gap:.5rem}
 .ap-btns{display:flex;gap:.5rem;flex-wrap:wrap}
 .ap-btn{display:inline-flex;align-items:center;gap:.35rem;padding:.55rem 1.1rem;border-radius:var(--radius);font-size:.88rem;font-weight:700;cursor:pointer;font-family:inherit;transition:all .2s;border:none}
-.ap-btn-wa{background:rgba(37,211,102,.12);color:#25D366;border:1px solid rgba(37,211,102,.25)}
+.ap-btn-wa{background:rgba(37,211,102,.12);color:#1FA855;border:1px solid rgba(37,211,102,.25)}
 .ap-btn-wa:hover{background:rgba(37,211,102,.2)}
+html[data-theme="light"] .ap-btn-wa{color:#0A6E45;background:rgba(37,211,102,.14);border-color:rgba(37,211,102,.35)}
 .ap-btn-nq{background:var(--lay2);color:var(--t2);border:1.3px solid var(--br2)}
 .ap-btn-nq:hover{background:var(--lay3)}
 .ap-right{text-align:center;padding:2rem;background:var(--card);border:2px solid var(--br2);border-radius:var(--radius-lg);box-shadow:var(--shadow-card)}
@@ -15271,6 +15282,15 @@ function setLang(lang){
       }
     }
   } catch(e){ console.error('muApplyLang (setLang) error:', e && e.message); }
+
+  /* Contador de presencia: su label lo fija el poll cada 25s con el idioma
+     de ese momento -> al cambiar idioma quedaba desfasado hasta el siguiente
+     poll. Se actualiza aqui de una. */
+  var _lc=document.getElementById('mu-live-count'), _ll=document.getElementById('mu-live-label');
+  if(_ll){ var _n=parseInt(_lc&&_lc.textContent||'1',10)||1;
+    _ll.textContent = en ? (_n===1?'person browsing right now':'people browsing right now')
+                         : (_n===1?'persona navegando ahora':'personas navegando ahora'); }
+  if(typeof muPresenciaContar==='function'){ try{ muPresenciaContar(); }catch(e){} }
 
   /* Guardar preferencia */
   try{ localStorage.setItem('mu-lang', lang); }catch(e){}
