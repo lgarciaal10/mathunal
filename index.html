@@ -2946,8 +2946,33 @@ html[data-theme="black"] .nav-aurora{
 .mu-kpi-lbl{font-size:.68rem;font-weight:800;color:var(--t3);text-transform:uppercase;letter-spacing:.03em;margin-bottom:.25rem}
 .mu-kpi-val{font-size:1.25rem;font-weight:800;color:var(--t1);line-height:1.15}
 .mu-kpi-sub{font-size:.68rem;color:var(--t3);margin-top:.2rem}
-.mu-ruta-hero{display:flex;align-items:center;gap:20px;background:var(--card);border:2px solid var(--br2);border-radius:16px;padding:18px 22px;margin-bottom:16px}
-.mu-ruta-hero-title{font-family:'Literata',serif;font-weight:700;font-size:1.02rem;color:var(--t1)}
+.mu-ruta-hero{display:flex;align-items:center;gap:20px;background:var(--card);border:2px solid var(--br2);border-radius:16px;padding:18px 22px;margin-bottom:16px;position:relative;overflow:hidden;transition:border-color .25s}
+.mu-ruta-hero:hover{border-color:var(--bra)}
+.mu-ruta-hero-title{font-family:'Literata',serif;font-weight:700;font-size:1.02rem;color:var(--t1);transition:color .25s}
+/* ── Micro-interacciones de la página de materia (hover) ── */
+.mu-hero-sym{position:absolute;right:26px;bottom:-1.6rem;font-family:'Literata',serif;font-size:6rem;line-height:1;
+  font-weight:700;color:var(--br2);opacity:.3;pointer-events:none;user-select:none;z-index:0;
+  transform:translateX(18px) rotate(-7deg);transition:all .35s cubic-bezier(.22,1,.36,1)}
+.mu-ruta-hero > div:not(.mu-hero-sym){position:relative;z-index:1}
+.mu-ruta-hero:hover .mu-hero-sym{opacity:1;color:var(--acc);transform:translateX(0) rotate(-4deg) scale(1.06)}
+.mu-ruta-hero:hover .mu-ruta-hero-title{color:var(--acc)}
+.mu-kpi-card{transition:transform .2s cubic-bezier(.22,1,.36,1),border-color .2s,box-shadow .2s}
+.mu-kpi-card:hover{transform:translateY(-3px);border-color:var(--bra);box-shadow:0 8px 22px -10px rgba(0,0,0,.45)}
+.mu-kpi-val{transition:color .2s}
+.mu-kpi-card:hover .mu-kpi-val{color:var(--acc)}
+.mu-rel-chip{display:inline-flex;align-items:center;gap:.5rem;padding:.4rem .8rem;background:var(--card);
+  border:1px solid var(--br2);border-radius:8px;text-decoration:none;font-size:.78rem;font-weight:600;color:var(--t2);
+  transition:transform .18s,border-color .18s,color .18s}
+.mu-rel-chip:hover{transform:translateY(-2px);border-color:var(--bra);color:var(--t1)}
+.mu-rel-chip .mu-rel-arr{color:var(--acc);transition:transform .18s}
+.mu-rel-chip:hover .mu-rel-arr{transform:translateX(3px)}
+.mu-prereq-chip{transition:transform .16s,border-color .16s,color .16s}
+.mu-prereq-chip:hover{transform:translateY(-1px);border-color:var(--bra);color:var(--t1)}
+@media(prefers-reduced-motion:reduce){
+  .mu-hero-sym,.mu-kpi-card,.mu-rel-chip,.mu-rel-chip .mu-rel-arr,.mu-prereq-chip{transition:none}
+  .mu-ruta-hero:hover .mu-hero-sym{transform:rotate(-7deg)}
+  .mu-kpi-card:hover,.mu-rel-chip:hover,.mu-prereq-chip:hover{transform:none}
+}
 .mu-ruta-hero-sub{color:var(--t2);font-size:.83rem;margin-top:2px}
 .mu-ruta-path{position:relative;padding-left:32px;max-width:560px}
 .mu-ruta-path::before{content:'';position:absolute;left:9px;top:8px;bottom:8px;width:2px;background:var(--br)}
@@ -16063,6 +16088,16 @@ window.__muMateriaInit = function(){
       '<span class="sbadge '+sub.diff+'">'+dl+'</span>';
     var ttl = document.getElementById('mu-subj-title');
     if(ttl) ttl.textContent = nm;
+    // Símbolo de la materia como marca de agua en el hero (se ilumina al hover,
+    // igual que las tarjetas de la portada).
+    if(ttl){
+      var heroEl = ttl.closest('.mu-ruta-hero');
+      if(heroEl){
+        var symD = heroEl.querySelector('.mu-hero-sym');
+        if(!symD){ symD = document.createElement('div'); symD.className='mu-hero-sym'; symD.setAttribute('aria-hidden','true'); heroEl.insertBefore(symD, heroEl.firstChild); }
+        symD.textContent = sub.sym || '∑';
+      }
+    }
     var cpv = document.getElementById('mu-codeplate-val');
     if(cpv) cpv.textContent = sub.code;
     var dsc = document.getElementById('mu-subj-desc');
@@ -16130,14 +16165,8 @@ window.__muMateriaInit = function(){
         var rs = mu.SUBJECTS.find(function(s){ return s.code===rc; });
         if(!rs) return '';
         var rn = lang==='en'?rs.nameEn:rs.nameEs;
-        return '<a href="#materia?s='+rs.code+'" style="'+
-          'display:inline-flex;align-items:center;gap:.5rem;padding:.4rem .8rem;'+
-          'background:var(--card);border:1px solid var(--br2);border-radius:8px;'+
-          'text-decoration:none;font-size:.78rem;font-weight:600;color:var(--t2);'+
-          'transition:all .18s" '+
-          'onmouseover="this.style.borderColor=\'var(--bra)\';this.style.color=\'var(--t1)\'" '+
-          'onmouseout="this.style.borderColor=\'var(--br2)\';this.style.color=\'var(--t2)\'">'+
-          rn+' <span style="color:var(--acc)">→</span></a>';
+        return '<a href="#materia?s='+rs.code+'" class="mu-rel-chip">'+
+          rn+' <span class="mu-rel-arr">→</span></a>';
       }).join('');
     }
 
