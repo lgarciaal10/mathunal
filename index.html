@@ -11133,29 +11133,61 @@ window.muApplyLang_privacidad();
     <span class="logo-txt"><span class="logo-m">MATH</span><span class="logo-u">UNAL</span></span></a>
   <div class="nav-r" style="display:flex;align-items:center;gap:.9rem;margin-left:auto">
     <a href="#home" class="mat-nav-back" style="font-size:.82rem;padding:.36rem .7rem;border-radius:7px;background:var(--lay2);border:1px solid var(--br);color:var(--t2);text-decoration:none">← Inicio</a>
+    <div class="settings-wrap"><button class="settings-btn" aria-label="Ajustes" onclick="toggleSettings(this)" aria-haspopup="true" aria-expanded="false" aria-controls="sd"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></button>
+      <div class="settings-dropdown" id="sd"><div class="sd-section"><div class="sd-label">IDIOMA</div><div class="sd-row"><button class="sd-btn on" id="btn-es" onclick="setLang('es')">ES</button><button class="sd-btn" id="btn-en" onclick="setLang('en')">EN</button></div></div><div class="sd-section"><div class="sd-label">TEMA</div><div class="sd-row">
+        <button class="sd-btn on" id="th-dark" onclick="setTheme('dark')"><svg width="13" height="13" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" style="vertical-align:-2px"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg> Noche</button>
+        <button class="sd-btn" id="th-black" onclick="setTheme('black')"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" style="vertical-align:-2px"><circle cx="12" cy="12" r="9"/></svg> Negro</button>
+        <button class="sd-btn" id="th-gray" onclick="setTheme('gray')"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" style="vertical-align:-2px"><circle cx="12" cy="12" r="9"/></svg> Gris</button>
+        <button class="sd-btn" id="th-light" onclick="setTheme('light')"><svg width="13" height="13" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" style="vertical-align:-2px"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.2" y1="4.2" x2="5.6" y2="5.6"/><line x1="18.4" y1="18.4" x2="19.8" y2="19.8"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.2" y1="19.8" x2="5.6" y2="18.4"/><line x1="18.4" y1="5.6" x2="19.8" y2="4.2"/></svg> Light</button>
+      </div></div></div>
+    </div>
   </div>
 </nav>
 <style>
   .ab-wrap{max-width:740px;margin:0 auto;padding:6rem 1.5rem 5rem}
-  .ab-h1{font-family:'Literata',Georgia,serif;font-weight:700;font-size:clamp(1.7rem,3.6vw,2.5rem);color:var(--t1);line-height:1.22;margin:.4rem 0 .7rem}
-  .ab-lead{color:var(--t2);font-size:1.04rem;line-height:1.75;margin-bottom:3.2rem;max-width:620px}
+  .ab-h1{font-family:'Literata',Georgia,serif;font-weight:700;font-size:clamp(2.4rem,6vw,3.4rem);color:var(--t1);line-height:1.06;margin:.5rem 0 .45rem;letter-spacing:-.5px}
+  .ab-sub{font-family:'Literata',Georgia,serif;font-weight:400;font-size:clamp(1.05rem,2.4vw,1.35rem);color:var(--t1);line-height:1.35;margin:0 0 1rem;max-width:600px}
+  .ab-lead{color:var(--t2);font-size:1.02rem;line-height:1.7;margin-bottom:2.8rem;max-width:620px}
   .ab-tl{position:relative;padding-left:2rem}
-  .ab-tl::before{content:'';position:absolute;left:5px;top:6px;bottom:6px;width:2px;background:linear-gradient(var(--acc),var(--br2))}
-  .ab-item{position:relative;padding-bottom:2.5rem;opacity:0;transform:translateY(16px);animation:abIn .6s cubic-bezier(.16,1,.3,1) forwards}
+  .ab-tl::before{content:'';position:absolute;left:5px;top:6px;bottom:6px;width:2px;
+    background:linear-gradient(var(--acc),var(--br2));transform:scaleY(0);transform-origin:top;
+    animation:abLine 1.1s cubic-bezier(.65,0,.35,1) .15s forwards}
+  @keyframes abLine{to{transform:scaleY(1)}}
+  .ab-item{position:relative;padding-bottom:2.5rem;opacity:0;transform:translateX(-14px);
+    transition:opacity .55s cubic-bezier(.16,1,.3,1),transform .55s cubic-bezier(.16,1,.3,1)}
+  .ab-item.in{opacity:1;transform:none}
   .ab-item:last-child{padding-bottom:0}
-  .ab-dot{position:absolute;left:-2rem;top:3px;width:12px;height:12px;border-radius:50%;background:var(--bg);border:2px solid var(--acc);box-sizing:border-box}
-  .ab-item.now .ab-dot{background:var(--acc);box-shadow:0 0 0 4px rgba(232,99,42,.16)}
+  .ab-dot{position:absolute;left:-2rem;top:3px;width:12px;height:12px;border-radius:50%;
+    background:var(--bg);border:2px solid var(--acc);box-sizing:border-box;
+    transform:scale(0);transition:transform .45s cubic-bezier(.34,1.56,.64,1) .12s}
+  .ab-item.in .ab-dot{transform:scale(1)}
+  .ab-item.now .ab-dot{background:var(--acc)}
+  .ab-item.now.in .ab-dot{animation:abPulse 2.2s ease-in-out .7s infinite}
+  @keyframes abPulse{0%,100%{box-shadow:0 0 0 0 rgba(232,99,42,.45)}50%{box-shadow:0 0 0 8px rgba(232,99,42,0)}}
   .ab-date{font-family:'IBM Plex Mono',monospace;font-size:.76rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--acc);margin-bottom:.3rem}
   .ab-t{font-family:'Literata',Georgia,serif;font-weight:700;font-size:1.14rem;color:var(--t1);margin-bottom:.4rem}
   .ab-d{color:var(--t2);font-size:.96rem;line-height:1.72}
-  .ab-foot{margin-top:3.2rem;padding:1.3rem 1.4rem;background:var(--card);border:1px solid var(--br2);border-left:3px solid var(--acc);border-radius:10px;color:var(--t2);font-size:.95rem;line-height:1.72}
-  @keyframes abIn{to{opacity:1;transform:none}}
-  @media(prefers-reduced-motion:reduce){.ab-item{animation:none;opacity:1;transform:none}}
+  .ab-foot{margin-top:3.2rem;padding:1.4rem;background:var(--card);border:1px solid var(--br2);border-left:3px solid var(--acc);border-radius:10px}
+  .ab-foot p{color:var(--t2);font-size:.95rem;line-height:1.72;margin:0 0 1rem}
+  .ab-foot-btns{display:flex;flex-wrap:wrap;gap:.6rem}
+  .ab-foot-btns a{display:inline-flex;align-items:center;gap:.35rem;font-size:.83rem;font-weight:600;
+    padding:.5rem .9rem;border-radius:8px;text-decoration:none;transition:transform .15s,border-color .15s,background .15s}
+  .ab-foot-btns a.p{background:var(--acc);color:#fff}
+  .ab-foot-btns a.p:hover{transform:translateY(-2px);filter:brightness(1.06)}
+  .ab-foot-btns a.g{background:transparent;border:1px solid var(--br2);color:var(--t2)}
+  .ab-foot-btns a.g:hover{transform:translateY(-2px);border-color:var(--bra);color:var(--t1)}
+  @media(prefers-reduced-motion:reduce){
+    .ab-tl::before{animation:none;transform:scaleY(1)}
+    .ab-item{opacity:1;transform:none;transition:none}
+    .ab-dot{transform:scale(1);transition:none}
+    .ab-item.now.in .ab-dot{animation:none}
+  }
 </style>
 <div class="ab-wrap">
-  <span class="sec-label" id="ab-tag">La historia</span>
-  <h1 class="ab-h1" id="ab-h1">Una idea de 2023 que sobrevivió dos pasantías, un cambio de ciudad y un grado</h1>
-  <p class="ab-lead" id="ab-lead">MathUNAL no salió de una incubadora ni de un equipo. Salió de un estudiante de Ingeniería Física de la UNAL Medellín cansado de rebuscar parciales en grupos de WhatsApp y en la papelería. Esta es la historia real, sin adornos.</p>
+  <span class="sec-label" id="ab-tag">Acerca de</span>
+  <h1 class="ab-h1" id="ab-h1">La historia</h1>
+  <p class="ab-sub" id="ab-sub">Una idea de 2023 que sobrevivió dos pasantías, un cambio de ciudad y un grado.</p>
+  <p class="ab-lead" id="ab-lead">MathUNAL no salió de una incubadora ni de un equipo. Salió de un estudiante de Ingeniería Mecánica de la UNAL Medellín cansado de rebuscar parciales en grupos de WhatsApp y en la papelería. Esta es la historia real, sin adornos.</p>
   <div class="ab-tl" id="ab-tl"></div>
   <div class="ab-foot" id="ab-foot"></div>
 </div>
@@ -11163,28 +11195,32 @@ window.muApplyLang_privacidad();
 window.muApplyLang_acerca = function(){
   var en = (window.curLang==='en');
   var d = en ? {
-    tag:'The story',
-    h1:'A 2023 idea that outlasted two research stays, a city move and a graduation',
-    lead:"MathUNAL didn't come out of an incubator or a team. It came from a Physics Engineering student at UNAL Medellín, tired of digging for past exams in WhatsApp groups and the campus copy shop. This is the real story, no polish.",
-    foot:'If this helped you, the best way to support it is to share it with your class and — if you can — contribute material or a small donation. Every exam you upload saves someone hours next semester.',
+    tag:'About',
+    h1:'The story',
+    sub:'A 2023 idea that outlasted two research stays, a city move and a graduation.',
+    lead:"MathUNAL didn't come out of an incubator or a team. It came from a Mechanical Engineering student at UNAL Medellín, tired of digging for past exams in WhatsApp groups and the campus copy shop. This is the real story, no polish.",
+    footP:'Everything on MathUNAL is and will stay free. If it helped and you want it to keep growing, the biggest help is sharing it with your class. And whenever you can, uploading an old exam or leaving a voluntary contribution keeps the project breathing — no pressure at all.',
+    footC1:'Contribute material',footC2:'Support the project',
     items:[
       ['Late 2023','The idea',"While taking my last course — Differential Equations — I thought there should be a single place with everything: syllabi, books, worksheets, old exams. No digging. At the end of the year I started learning to build a website; the first version was on Wix."],
       ['2024','Collecting by hand',"I gathered material from Drive and WhatsApp groups, and went to the campus copy shops to find old exams, scanning them one by one, covering the student's name and running OCR. I worked on it until May, when my internship started."],
       ['2025','On hold',"Internship until January, a research stay at Purdue from February to August, then an exchange semester in Bogotá to finish my degree. The site sat frozen and went stale."],
-      ['April 2026','Graduation',"I graduated in Physics Engineering. MathUNAL was still there — old, but not dead."],
+      ['April 2026','Graduation',"I graduated in Mechanical Engineering. MathUNAL was still there — old, but not dead."],
       ['May–August 2026','The rebuild',"I decided to rebuild it from scratch using AI tools: timed mock exams, an interactive formula sheet, a file bank reorganized by semester and type, a grade calculator. Several months of steady work."],
       ['Today','Ongoing',"The site is live and I keep shipping improvements every week. One person, no team, no budget — but steady."]
     ]
   } : {
-    tag:'La historia',
-    h1:'Una idea de 2023 que sobrevivió dos pasantías, un cambio de ciudad y un grado',
-    lead:'MathUNAL no salió de una incubadora ni de un equipo. Salió de un estudiante de Ingeniería Física de la UNAL Medellín cansado de rebuscar parciales en grupos de WhatsApp y en la papelería. Esta es la historia real, sin adornos.',
-    foot:'Si esto te sirvió, la mejor forma de apoyar es compartirlo con tu grupo y — si puedes — aportar material o un aporte voluntario. Cada parcial que subes le ahorra horas a alguien el próximo semestre.',
+    tag:'Acerca de',
+    h1:'La historia',
+    sub:'Una idea de 2023 que sobrevivió dos pasantías, un cambio de ciudad y un grado.',
+    lead:'MathUNAL no salió de una incubadora ni de un equipo. Salió de un estudiante de Ingeniería Mecánica de la UNAL Medellín cansado de rebuscar parciales en grupos de WhatsApp y en la papelería. Esta es la historia real, sin adornos.',
+    footP:'Todo lo de MathUNAL es y seguirá siendo gratis. Si te sirvió y quieres que siga creciendo, lo que más ayuda es compartirlo con tu grupo. Y si en algún momento puedes, subir un parcial viejo o dejar un aporte voluntario le da aire al proyecto — sin ninguna presión.',
+    footC1:'Aportar material',footC2:'Apoyar el proyecto',
     items:[
       ['Finales de 2023','La idea','Cursando mi última materia de la escuela — Ecuaciones Diferenciales — pensé que debería existir un solo lugar con todo el material: programas, libros, talleres, parciales viejos. Sin rebuscar. A final de año empecé a aprender a hacer una página; la primera versión fue en Wix.'],
       ['2024','Recolección a mano','Junté material de Drive y de grupos de WhatsApp, y me fui a las papelerías de la U a buscar parciales viejos para escanearlos uno por uno, tapar el nombre del estudiante y pasarles OCR. Le metí mano hasta mayo, cuando arrancaron mis prácticas.'],
       ['2025','En pausa','Prácticas hasta enero, una pasantía de investigación en Purdue de febrero a agosto, y luego movilidad interna en Bogotá para cerrar el último semestre. La página quedó congelada y quedándose obsoleta.'],
-      ['Abril 2026','Grado','Me gradué de Ingeniería Física. MathUNAL seguía ahí — vieja, pero sin morir.'],
+      ['Abril 2026','Grado','Me gradué de Ingeniería Mecánica. MathUNAL seguía ahí — vieja, pero sin morir.'],
       ['Mayo–agosto 2026','La reconstrucción','Decidí rehacerla de cero aprovechando las herramientas de IA: simulacros con cronómetro, formulario interactivo, banco de archivos reorganizado por semestre y tipo, calculadora de notas. Varios meses de trabajo juicioso.'],
       ['Hoy','En marcha','El sitio está en línea y le sigo metiendo mejoras cada semana. Una persona, sin equipo y sin presupuesto — pero firme.']
     ]
@@ -11192,17 +11228,39 @@ window.muApplyLang_acerca = function(){
   var byId=function(x){return document.getElementById(x);};
   if(byId('ab-tag')) byId('ab-tag').textContent=d.tag;
   if(byId('ab-h1')) byId('ab-h1').textContent=d.h1;
+  if(byId('ab-sub')) byId('ab-sub').textContent=d.sub;
   if(byId('ab-lead')) byId('ab-lead').textContent=d.lead;
-  if(byId('ab-foot')) byId('ab-foot').textContent=d.foot;
+  if(byId('ab-foot')) byId('ab-foot').innerHTML=
+    '<p>'+d.footP+'</p><div class="ab-foot-btns">'
+    +'<a class="p" href="#aportar">'+d.footC1+' →</a>'
+    +'<a class="g" href="#apoyar">'+d.footC2+' →</a></div>';
   var tl=byId('ab-tl'); if(!tl) return;
   tl.innerHTML=d.items.map(function(it,i){
     var last=i===d.items.length-1;
-    return '<div class="ab-item'+(last?' now':'')+'" style="animation-delay:'+(i*90)+'ms">'
+    return '<div class="ab-item'+(last?' now':'')+'">'
       +'<span class="ab-dot"></span>'
       +'<div class="ab-date">'+it[0]+'</div>'
       +'<div class="ab-t">'+it[1]+'</div>'
       +'<div class="ab-d">'+it[2]+'</div></div>';
   }).join('');
+  /* Revelado en scroll: cada hito entra cuando llega al viewport. */
+  if(window.__abIO) window.__abIO.disconnect();
+  var abItems=tl.querySelectorAll('.ab-item');
+  abItems.forEach(function(el,i){ el.style.transitionDelay=Math.min(i,5)*70+'ms'; });
+  if('IntersectionObserver' in window){
+    window.__abIO=new IntersectionObserver(function(es){
+      es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); window.__abIO.unobserve(e.target); } });
+    },{threshold:.15,rootMargin:'0px 0px -4% 0px'});
+    abItems.forEach(function(el){ window.__abIO.observe(el); });
+  }
+  /* Red de seguridad: lo que ya está en pantalla al cargar se revela de una
+     (por si el observer tarda o el hito nace visible). */
+  requestAnimationFrame(function(){
+    var vh=window.innerHeight||800;
+    abItems.forEach(function(el){
+      if(el.getBoundingClientRect().top < vh*0.95) el.classList.add('in');
+    });
+  });
 };
 window.muApplyLang_acerca();
 </script>
