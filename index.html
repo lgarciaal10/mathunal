@@ -5786,6 +5786,9 @@ customElements.define('glass-element', GlassElement);
             <div class="au-msg-item"><span class="au-msg-check">✓</span>Parciales listos para usar como ejercicio en tutoría</div>
             <div class="au-msg-item"><span class="au-msg-check ap-soon">🛠</span>Simulacros para tus tutorados — en construcción</div>
           </div>
+          <div class="au-monitor-invite" style="margin:.9rem 0;padding:.85rem 1rem;background:var(--adim);border:1px solid var(--bra);border-radius:9px;font-size:.95rem;color:var(--t2);line-height:1.6">
+            <strong style="color:var(--acc)">¿Quieres dar asesorías?</strong> Estamos armando un calendario de asesorías dentro de MathUNAL. Si eres monitor o egresado y quieres ofrecer tutorías a través de la plataforma, <a href="https://wa.me/573163480451?text=Soy%20monitor%2Fegresado%20y%20quiero%20ofrecer%20asesor%C3%ADas%20en%20MathUNAL" target="_blank" style="color:var(--acc);font-weight:600;text-decoration:underline">escríbenos</a> y lo coordinamos.
+          </div>
           <a href="#materias" class="au-msg-cta">Ver materias →</a>
         </div>
         <div class="au-card">
@@ -14811,6 +14814,7 @@ var LANG_ES={
   "au-p1-d":"Si eres monitor de una materia del núcleo, MathUNAL te ahorra horas de preparación con parciales listos para usar en tus tutorías.",
   "au-p1-i1":"Parciales listos para usar como ejercicio en tutoría","au-p1-i2":"Simulacros para tus tutorados — en construcción",
   "au-p1-cta":"Ver materias →",
+  "au-p1-invite":"<strong style=\"color:var(--acc)\">¿Quieres dar asesorías?</strong> Estamos armando un calendario de asesorías dentro de MathUNAL. Si eres monitor o egresado y quieres ofrecer tutorías a través de la plataforma, <a href=\"https://wa.me/573163480451?text=Soy%20monitor%2Fegresado%20y%20quiero%20ofrecer%20asesor%C3%ADas%20en%20MathUNAL\" target=\"_blank\" style=\"color:var(--acc);font-weight:600;text-decoration:underline\">escríbenos</a> y lo coordinamos.",
   "au-p1-card-l":"Ahorro estimado para el monitor","au-p1-stat1":"Ahorro semanal",
   "au-p1-quote":"\"En vez de buscar material cada semana, lo tengo todo en un solo lugar. Mis tutorados practican solos entre sesiones.\"",
   /* Apoyar (ap-s) */
@@ -15075,6 +15079,7 @@ var LANG_EN={
   "au-p1-d":"If you're a monitor for a core subject, MathUNAL saves you hours of prep with exams ready to use in your tutoring sessions.",
   "au-p1-i1":"Exams ready to use as tutoring exercises","au-p1-i2":"Mock exams for your students — coming soon",
   "au-p1-cta":"See all subjects →",
+  "au-p1-invite":"<strong style=\"color:var(--acc)\">Want to tutor?</strong> We're building a tutoring calendar inside MathUNAL. If you're a monitor or a graduate and want to offer tutoring through the platform, <a href=\"https://wa.me/573163480451?text=I%27m%20a%20monitor%2Fgraduate%20and%20want%20to%20offer%20tutoring%20on%20MathUNAL\" target=\"_blank\" style=\"color:var(--acc);font-weight:600;text-decoration:underline\">message us</a> and we'll set it up.",
   "au-p1-card-l":"Estimated savings for the monitor","au-p1-stat1":"Weekly time saved",
   "au-p1-quote":"\"Instead of hunting for material every week, I have it all in one place. My students practice on their own between sessions.\"",
   /* Apoyar (ap-s) */
@@ -15560,6 +15565,7 @@ function setLang(lang){
   setText('#au-p1 .au-msg-title','au-p1-t'); setText('#au-p1 .au-msg-body','au-p1-d');
   var au1Items=document.querySelectorAll('#au-p1 .au-msg-item'); var au1Keys=['au-p1-i1','au-p1-i2'];
   au1Items.forEach(function(el,i){ if(au1Keys[i]&&L[au1Keys[i]]){ var chk1=el.querySelector('.au-msg-check'); el.innerHTML=(chk1?chk1.outerHTML:'✓')+L[au1Keys[i]]; } });
+  setHTML('#au-p1 .au-monitor-invite','au-p1-invite');
   setText('#au-p1 .au-msg-cta','au-p1-cta'); setText('#au-p1 .au-card-label','au-p1-card-l');
   var au1Stats=document.querySelectorAll('#au-p1 .au-stat-l'); if(au1Stats[0]&&L['au-p1-stat1']) au1Stats[0].textContent=L['au-p1-stat1'];
   setText('#au-p1 .au-quote','au-p1-quote');
