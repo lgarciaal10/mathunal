@@ -3482,9 +3482,11 @@ body{padding-top:var(--mu-banner-h, 0px);transition:padding-top .2s ease}
   /* En móvil no hay hover ni ganas de ir tocando paso por paso: se muestran
      todos los pasos abiertos y el resultado, sin el prompt "↓ Sigue el paso 2". */
   #ciclo-parcial .cp-j-step{opacity:1 !important;cursor:default;transform:none !important}
+  #ciclo-parcial .cp-j-step::after{display:none !important}
   #ciclo-parcial .cp-j-step .cp-j-desc{display:block !important}
   #ciclo-parcial .cp-j-action{display:none !important}
-  #ciclo-parcial .cp-j-result{max-height:none !important;opacity:1 !important;overflow:visible !important;padding:1.3rem 1rem !important;transform:none !important}
+  #ciclo-parcial .cp-j-result{display:block !important;max-height:none !important;opacity:1 !important;overflow:visible !important;padding:1.3rem 1rem !important;transform:none !important}
+  #cp-con,#cp-vs{display:block !important}
 
   /* Modales en móvil: que scrollee el overlay entero (no la caja), así el
      botón X del borde superior siempre se alcanza subiendo. + tap fuera + ESC. */
@@ -3925,8 +3927,16 @@ input:not([type=checkbox]):not([type=radio]):focus,select:focus,textarea:focus{
 .cp-path-btn:hover{background:var(--lay2);color:var(--t1)}
 .cp-path-btn.on{background:var(--adim);border-color:var(--bra);color:var(--acc);font-weight:700}
 
+/* Barra de fases: sticky, hace de indicador de progreso mientras se baja
+   por la historia (Sin → Con → Comparar, todo en un solo scroll). */
+.cp-path-toggle{display:flex;justify-content:center;gap:.5rem;margin-bottom:1.8rem;
+  position:sticky;top:64px;z-index:20;padding:.7rem 0 .8rem;
+  background:var(--bg);box-shadow:0 12px 12px -8px var(--bg)}
+@media(max-width:768px){.cp-path-toggle{top:58px;flex-wrap:wrap;gap:.35rem}}
+
 /* ── Journey steps modern ── */
-.cp-journey{max-width:680px;margin:0 auto;scroll-margin-top:150px}
+.cp-journey{max-width:680px;margin:0 auto 3.5rem;scroll-margin-top:120px}
+.cp-journey:last-of-type{margin-bottom:1rem}
 .cp-j-steps{display:flex;flex-direction:column;gap:.5rem}
 /* cp-j-step rules consolidated above — v22 override removed */
 .cp-j-num{
@@ -5252,8 +5262,8 @@ customElements.define('glass-element', GlassElement);
       <div class="cp-sub">Las matemáticas no son el problema. El problema es no tener dónde practicar en el formato real de tu examen.</div>
     </div>
 
-    <!-- Selector de camino -->
-    <div class="cp-path-toggle fi" style="display:flex;justify-content:center;gap:.5rem;margin-bottom:1.5rem">
+    <!-- Selector de camino (sticky: hace de indicador de progreso mientras se baja) -->
+    <div class="cp-path-toggle fi">
       <button class="cp-path-btn on" id="cpb-sin" onclick="cpSetPath('sin')">✗ Sin MathUNAL</button>
       <button class="cp-path-btn" id="cpb-con" onclick="cpSetPath('con')">✓ Con MathUNAL</button>
       <button class="cp-path-btn" id="cpb-vs" onclick="cpSetPath('vs')"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="13,2 3,14 12,14 11,22 21,10 12,10"/></svg> Comparar</button>
@@ -5300,7 +5310,7 @@ customElements.define('glass-element', GlassElement);
     </div>
 
     <!-- CAMINO: Con MathUNAL (paso a paso) -->
-    <div class="cp-journey" id="cp-con" style="display:none">
+    <div class="cp-journey" id="cp-con">
       <div class="cp-j-steps" id="cp-con-steps">
         <div class="cp-j-step active" data-i="0" onclick="cpReveal('con',0)">
           <div class="cp-j-num" style="background:rgba(34,197,94,.1);color:var(--ok)">1</div>
@@ -5340,7 +5350,7 @@ customElements.define('glass-element', GlassElement);
     </div>
 
     <!-- COMPARACIÓN lado a lado -->
-    <div class="cp-journey" id="cp-vs" style="display:none">
+    <div class="cp-journey" id="cp-vs">
       <div class="cp-cols fi">
         <div class="cp-col-left">
           <div class="cp-col-hd">✗ Sin MathUNAL</div>
@@ -6042,29 +6052,12 @@ if(!window.__muModalEsc){window.__muModalEsc=true;
 
 <script>
 /* ── Ciclo del Parcial interactivo ── */
+/* Los 3 caminos (Sin / Con / Comparar) viven apilados y siempre visibles.
+   La barra de botones ya no cambia vistas: solo salta a la fase y marca
+   dónde estás. Toda la narrativa se recorre bajando. */
 function cpSetPath(path){
-  document.querySelectorAll('.cp-path-btn').forEach(function(b){b.classList.remove('on');});
-  var btn=document.getElementById('cpb-'+path);
-  if(btn) btn.classList.add('on');
-  ['sin','con','vs'].forEach(function(p){
-    var el=document.getElementById('cp-'+p);
-    if(el) el.style.display=(p===path)?'block':'none';
-  });
-  if(path==='sin'||path==='con') cpReset(path);
-  /* Antes esto solo cambiaba el display: si el contenido nuevo quedaba
-     mas arriba o mas abajo de donde estaba el scroll del usuario, tenia
-     que buscarlo a mano -- nada "antibobo" en eso. */
-  var shown=document.getElementById('cp-'+path);
-  if(shown) shown.scrollIntoView({behavior:'smooth',block:'start'});
-}
-function cpReset(path){
-  var steps=document.querySelectorAll('#cp-'+path+'-steps .cp-j-step');
-  steps.forEach(function(s,i){
-    s.classList.remove('active','done');
-    if(i===0) s.classList.add('active');
-  });
-  var result=document.getElementById('cp-'+path+'-result');
-  if(result) result.classList.remove('show');
+  var target=document.getElementById('cp-'+path);
+  if(target) target.scrollIntoView({behavior:'smooth',block:'start'});
 }
 function cpReveal(path,idx){
   var steps=document.querySelectorAll('#cp-'+path+'-steps .cp-j-step');
@@ -6079,24 +6072,50 @@ function cpReveal(path,idx){
   if(result) result.classList.toggle('show', idx===steps.length-1);
 }
 
-/* Ciclo del Parcial guiado por scroll (solo escritorio — en móvil el CSS ya
-   muestra todos los pasos abiertos). Cada paso se activa al llegar al centro
-   del viewport; solo avanza, nunca retrocede. El clic sigue funcionando. */
+/* Ciclo del Parcial guiado por scroll: la historia entera (Sin → Con →
+   Comparar) se recorre bajando, sin tocar nada.
+   - cada paso se activa al llegar al centro del viewport (solo avanza)
+   - el "2.4 / 3.8" aparece al llegar a su bloque
+   - la barra de fases marca en cuál estás (scroll-spy)
+   En móvil el CSS ya deja todo abierto; aquí solo corre el scroll-spy. */
 (function(){
-  if(window.innerWidth<=768 || !('IntersectionObserver' in window)) return;
-  var io=new IntersectionObserver(function(entries){
+  if(!('IntersectionObserver' in window)) return;
+  var desktop = window.innerWidth > 768;
+
+  if(desktop){
+    var stepIO=new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if(!en.isIntersecting) return;
+        var wrap=en.target.closest('.cp-j-steps'); if(!wrap) return;
+        var path=wrap.id.replace('cp-','').replace('-steps','');
+        var steps=[].slice.call(wrap.querySelectorAll('.cp-j-step'));
+        var idx=steps.indexOf(en.target); if(idx<0) return;
+        var cur=-1; for(var i=0;i<steps.length;i++){ if(steps[i].classList.contains('active')) cur=i; }
+        if(idx<=cur) return;
+        cpReveal(path, idx);
+      });
+    },{threshold:.6, rootMargin:'-12% 0px -32% 0px'});
+    document.querySelectorAll('.cp-j-step').forEach(function(s){ stepIO.observe(s); });
+
+    var resIO=new IntersectionObserver(function(entries){
+      entries.forEach(function(en){ if(en.isIntersecting) en.target.classList.add('show'); });
+    },{threshold:.4});
+    document.querySelectorAll('.cp-j-result').forEach(function(r){ resIO.observe(r); });
+  }
+
+  /* Scroll-spy: resalta la fase actual en la barra sticky. */
+  var spyIO=new IntersectionObserver(function(entries){
     entries.forEach(function(en){
       if(!en.isIntersecting) return;
-      var wrap=en.target.closest('.cp-j-steps'); if(!wrap) return;
-      var path=wrap.id.replace('cp-','').replace('-steps','');
-      var steps=[].slice.call(wrap.querySelectorAll('.cp-j-step'));
-      var idx=steps.indexOf(en.target); if(idx<0) return;
-      var cur=-1; for(var i=0;i<steps.length;i++){ if(steps[i].classList.contains('active')) cur=i; }
-      if(idx<=cur) return;                 // no retroceder
-      if(typeof cpReveal==='function') cpReveal(path, idx);
+      var path=en.target.id.replace('cp-','');
+      document.querySelectorAll('.cp-path-btn').forEach(function(b){ b.classList.remove('on'); });
+      var btn=document.getElementById('cpb-'+path);
+      if(btn) btn.classList.add('on');
     });
-  },{threshold:.65, rootMargin:'-12% 0px -30% 0px'});
-  document.querySelectorAll('.cp-j-step').forEach(function(s){ io.observe(s); });
+  },{threshold:0, rootMargin:'-45% 0px -45% 0px'});
+  ['cp-sin','cp-con','cp-vs'].forEach(function(id){
+    var el=document.getElementById(id); if(el) spyIO.observe(el);
+  });
 })();
 
 /* ── Timeline expandible ── */
