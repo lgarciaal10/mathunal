@@ -3832,6 +3832,15 @@ button.sd-btn:active,.mc:active{transform:translateY(1px) scale(.985)}
   .nav-links a:hover::after,.nav-links a.nav-active::after{transform:scaleX(1)}
 }
 
+/* iOS Safari hace zoom (y NO lo deshace) al enfocar un campo con font-size < 16px.
+   Forzamos 16px en móvil para todos los controles -> la página deja de "agrandarse sola". */
+@media(max-width:820px){
+  input:not([type=checkbox]):not([type=radio]),select,textarea,
+  .prom-inp,.calc-inp,.rx-input,.rx-textarea,.vf-search input,#vf-mat,.mu-inp{
+    font-size:16px !important;
+  }
+}
+
 /* ── Modern input styles ── */
 input:not([type=checkbox]):not([type=radio]),select,textarea{
   transition:border-color .2s,box-shadow .2s;
@@ -4977,11 +4986,17 @@ customElements.define('glass-element', GlassElement);
 </svg></span>
         <div><div class="nmd-title">Aportar</div><div class="nmd-sub">Sube material al repositorio</div></div>
       </a>
-      <a href="#apoyar" onclick="closeNavMore()">
+      <a href="#comunidad" onclick="closeNavMore()">
         <span class="nmd-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-  <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+  <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>
 </svg></span>
-        <div><div class="nmd-title">Apoyar el proyecto</div><div class="nmd-sub">MathUNAL es gratis y sin sponsor</div></div>
+        <div><div class="nmd-title">Comunidad</div><div class="nmd-sub">Grupo de WhatsApp</div></div>
+      </a>
+      <a href="#acerca" onclick="closeNavMore()">
+        <span class="nmd-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/>
+</svg></span>
+        <div><div class="nmd-title">Acerca de</div><div class="nmd-sub">Cómo empezó MathUNAL</div></div>
       </a>
     </div>
   </div>
@@ -5036,6 +5051,13 @@ customElements.define('glass-element', GlassElement);
   <a href="#diagnostico" onclick="tmob()">Diagnóstico</a>
   <a href="#aportar" onclick="tmob()">Aportar material</a>
   <a href="#promedio" onclick="tmob()">Promedio</a>
+  <a href="#comunidad" onclick="tmob()">Comunidad</a>
+  <a href="#acerca" onclick="tmob()">Acerca de</a>
+  <div class="mob-theme-row" id="mob-lang-row">
+    <span>Idioma</span>
+    <button class="mob-theme-btn mob-lang-btn on" data-lang="es" onclick="setLang('es')">ES</button>
+    <button class="mob-theme-btn mob-lang-btn" data-lang="en" onclick="setLang('en')">EN</button>
+  </div>
   <div class="mob-theme-row">
     <span>Tema</span>
     <button class="mob-theme-btn on" onclick="setTheme('dark');syncMobTheme('dark')"><svg width="14" height="14" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg> Noche</button>
@@ -5776,7 +5798,7 @@ customElements.define('glass-element', GlassElement);
         <div class="ap-desc">MathUNAL se mantiene con tiempo, café y convicción. No hay empresa detrás, no hay sponsor, no hay anuncios. Si esta plataforma te ahorró tiempo, estrés o una ida a extraordinario — considera devolverle algo.</div>
         <div class="ap-items">
           <span><svg width="14" height="14" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"><rect x="2" y="2" width="20" height="8" rx="2"/><rect x="2" y="14" width="20" height="8" rx="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/></svg> Hosting: $0 (GitHub Pages)</span>
-          <span><svg width="14" height="14" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"><path d="M5 4h14v4l-5 4 5 4v4H5v-4l5-4-5-4z"/></svg> 800+ horas invertidas</span>
+          <span><svg width="14" height="14" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"><path d="M5 4h14v4l-5 4 5 4v4H5v-4l5-4-5-4z"/></svg> 2.000+ horas invertidas</span>
         </div>
         <div class="ap-btns">
           <a href="https://wa.me/573163480451?text=Quiero%20apoyar%20MathUNAL" target="_blank" class="ap-btn ap-btn-wa"><svg width="14" height="14" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg> WhatsApp</a>
@@ -11199,7 +11221,7 @@ window.muApplyLang_acerca = function(){
     h1:'The story',
     sub:'A 2023 idea that outlasted two research stays, a city move and a graduation.',
     lead:"MathUNAL didn't come out of an incubator or a team. It came from a Mechanical Engineering student at UNAL Medellín, tired of digging for past exams in WhatsApp groups and the campus copy shop. This is the real story, no polish.",
-    footP:'Everything on MathUNAL is and will stay free. If it helped and you want it to keep growing, the biggest help is sharing it with your class. And whenever you can, uploading an old exam or leaving a voluntary contribution keeps the project breathing — no pressure at all.',
+    footP:'Almost everything here is free and open. If it helped and you want it to keep growing, the biggest help is sharing it with your class. And whenever you can, uploading an old exam or leaving a voluntary contribution keeps the project breathing — no pressure at all.',
     footC1:'Contribute material',footC2:'Support the project',
     items:[
       ['Late 2023','The idea',"While taking my last course — Differential Equations — I thought there should be a single place with everything: syllabi, books, worksheets, old exams. No digging. At the end of the year I started learning to build a website; the first version was on Wix."],
@@ -11214,7 +11236,7 @@ window.muApplyLang_acerca = function(){
     h1:'La historia',
     sub:'Una idea de 2023 que sobrevivió dos pasantías, un cambio de ciudad y un grado.',
     lead:'MathUNAL no salió de una incubadora ni de un equipo. Salió de un estudiante de Ingeniería Mecánica de la UNAL Medellín cansado de rebuscar parciales en grupos de WhatsApp y en la papelería. Esta es la historia real, sin adornos.',
-    footP:'Todo lo de MathUNAL es y seguirá siendo gratis. Si te sirvió y quieres que siga creciendo, lo que más ayuda es compartirlo con tu grupo. Y si en algún momento puedes, subir un parcial viejo o dejar un aporte voluntario le da aire al proyecto — sin ninguna presión.',
+    footP:'Casi todo acá es libre y gratuito. Si te sirvió y quieres que siga creciendo, lo que más ayuda es compartirlo con tu grupo. Y si en algún momento puedes, subir un parcial viejo o dejar un aporte voluntario le da aire al proyecto — sin ninguna presión.',
     footC1:'Aportar material',footC2:'Apoyar el proyecto',
     items:[
       ['Finales de 2023','La idea','Cursando mi última materia de la escuela — Ecuaciones Diferenciales — pensé que debería existir un solo lugar con todo el material: programas, libros, talleres, parciales viejos. Sin rebuscar. A final de año empecé a aprender a hacer una página; la primera versión fue en Wix.'],
@@ -14668,7 +14690,8 @@ var LANG_ES={
   "nmd-1-t":"Banco PDF","nmd-1-s":"Todos los parciales y talleres",
   "nmd-2-t":"Calcular Promedio","nmd-2-s":"Simula tu nota final",
   "nmd-3-t":"Aportar","nmd-3-s":"Sube material al repositorio",
-  "nmd-4-t":"Comunidad","nmd-4-s":"Foro de estudiantes",
+  "nmd-4-t":"Comunidad","nmd-4-s":"Grupo de WhatsApp",
+  "nmd-5-t":"Acerca de","nmd-5-s":"Cómo empezó MathUNAL",
   "hero-ctx":"núcleo completo",
   /* Panic Modal */
   "pm-title":"Parcial en &lt;24h","pm-sub":"Ejecuta esto en orden. No improvises.",
@@ -14780,7 +14803,7 @@ var LANG_ES={
   "ap3-tag":"Apoyar el proyecto",
   "ap3-title":"Este proyecto es gratuito porque creemos que el acceso a práctica no debería tener precio.",
   "ap3-desc":"MathUNAL se mantiene con tiempo, café y convicción. No hay empresa detrás, no hay sponsor, no hay anuncios. Si esta plataforma te ahorró tiempo, estrés o una ida a extraordinario — considera devolverle algo.",
-  "ap3-i1":"Hosting: $0 (GitHub Pages)","ap3-i2":"800+ horas invertidas","ap3-i3":"Financiación recibida: $0",
+  "ap3-i1":"Hosting: $0 (GitHub Pages)","ap3-i2":"2.000+ horas invertidas","ap3-i3":"Financiación recibida: $0",
   "ap3-per":"el costo de un tinto",
   "ap3-cost":"Cada aporte, así sea de <strong style=\"color:var(--t1)\">$5.000</strong>, ayuda a cubrir el tiempo de desarrollo y actualización de contenido.",
   /* FAQ */
@@ -14931,7 +14954,8 @@ var LANG_EN={
   "nmd-1-t":"PDF Bank","nmd-1-s":"All past exams and worksheets",
   "nmd-2-t":"Calculate Average","nmd-2-s":"Simulate your final grade",
   "nmd-3-t":"Contribute","nmd-3-s":"Upload material to the repository",
-  "nmd-4-t":"Community","nmd-4-s":"Student forum",
+  "nmd-4-t":"Community","nmd-4-s":"WhatsApp group",
+  "nmd-5-t":"About","nmd-5-s":"How MathUNAL started",
   "hero-ctx":"core subjects",
   /* Panic Modal */
   "pm-title":"Exam in &lt;24h","pm-sub":"Run this in order. Don't improvise.",
@@ -15043,7 +15067,7 @@ var LANG_EN={
   "ap3-tag":"Support the project",
   "ap3-title":"This project is free because we believe access to practice shouldn't have a price.",
   "ap3-desc":"MathUNAL runs on time, coffee and conviction. No company behind it, no sponsor, no ads. If this platform saved you time, stress, or a make-up exam — consider giving something back.",
-  "ap3-i1":"Hosting: $0 (GitHub Pages)","ap3-i2":"800+ hours invested","ap3-i3":"Funding received: $0",
+  "ap3-i1":"Hosting: $0 (GitHub Pages)","ap3-i2":"2,000+ hours invested","ap3-i3":"Funding received: $0",
   "ap3-per":"the price of a coffee",
   "ap3-cost":"Every contribution, even <strong style=\"color:var(--t1)\">$5,000</strong> COP, helps cover the time spent on development and content updates.",
   /* FAQ */
@@ -15106,10 +15130,13 @@ function setLang(lang){
   document.documentElement.lang = lang; /* <html lang> era estatico -- un lector de
     pantalla seguia anunciando "espanol" con la pagina ya en ingles y viceversa */
   var en = (lang === 'en'); /* usado por las traducciones de ruta-s/smap-s/footer (lookup en SUBJECTS) */
-  /* Botones de idioma (en ambos dropdowns) */
+  /* Botones de idioma (dropdowns + menú móvil) */
   ['btn-es','btn-en'].forEach(function(id){
     var el=document.getElementById(id);
     if(el) el.classList.toggle('on', id==='btn-'+lang);
+  });
+  document.querySelectorAll('.mob-lang-btn').forEach(function(b){
+    b.classList.toggle('on', b.getAttribute('data-lang')===lang);
   });
   var L = lang==="en" ? LANG_EN : LANG_ES;
 
@@ -15150,12 +15177,17 @@ function setLang(lang){
   document.querySelectorAll('#mob a').forEach(function(a){
     var href = a.getAttribute('href')||'';
     var map = {
-      '#home':'MathUNAL','#materias':L['nav-materias']||L['mat-h'],'#simulacros':lang==='en'?'Practice':'Simulacros',
-      '#formulas':L['nav-formulas'],'#aportar':lang==='en'?'Contribute':'Aportar material',
-      '#promedio':L['nav-promedio'],'#comunidad':L['nav-comunidad']
+      '#home':lang==='en'?'Home':'Inicio','#materias':L['nav-materias']||L['mat-h'],'#simulacros':lang==='en'?'Practice':'Simulacros',
+      '#formulas':L['nav-formulas'],'#juegos':lang==='en'?'Games':'Juegos',
+      '#diagnostico':lang==='en'?'Diagnostic':'Diagnóstico',
+      '#aportar':lang==='en'?'Contribute material':'Aportar material',
+      '#promedio':L['nav-promedio'],'#comunidad':lang==='en'?'Community':'Comunidad',
+      '#acerca':lang==='en'?'About':'Acerca de'
     };
     if(map[href]) a.textContent = map[href];
   });
+  var mlr=document.querySelector('#mob-lang-row span'); if(mlr) mlr.textContent=lang==='en'?'Language':'Idioma';
+  var mtr=document.querySelector('.mob-theme-row:not(#mob-lang-row) span'); if(mtr) mtr.textContent=lang==='en'?'Theme':'Tema';
 
   /* HERO */
   setText('.hero-badge', 'hero-badge');
@@ -15238,7 +15270,7 @@ function setLang(lang){
 
   /* NAV-MORE dropdown */
   var nmdItems = document.querySelectorAll('.nav-more-dd a');
-  var nmdKeys = [['nmd-1-t','nmd-1-s'],['nmd-2-t','nmd-2-s'],['nmd-3-t','nmd-3-s'],['nmd-4-t','nmd-4-s']];
+  var nmdKeys = [['nmd-1-t','nmd-1-s'],['nmd-2-t','nmd-2-s'],['nmd-3-t','nmd-3-s'],['nmd-4-t','nmd-4-s'],['nmd-5-t','nmd-5-s']];
   nmdItems.forEach(function(a,i){
     if(!nmdKeys[i]) return;
     var ti=a.querySelector('.nmd-title'); if(ti&&L[nmdKeys[i][0]]) ti.textContent=L[nmdKeys[i][0]];
