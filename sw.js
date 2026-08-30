@@ -1,5 +1,5 @@
 ﻿/* MathUNAL Service Worker â€” offline-first para app shell, network-first para CDN */
-const CACHE = 'mathunal-v127';
+const CACHE = 'mathunal-v128';
 const SHELL = [
   './',
   './index.html',

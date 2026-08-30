@@ -2859,11 +2859,9 @@ html[data-theme="black"] .nav-aurora{
    ═══════════════════════════════════════════════════ */
 
 /* Keyframes */
-@keyframes muFadeUp{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
 @keyframes muFadeIn{from{opacity:0}to{opacity:1}}
 @keyframes muPulse{0%,100%{box-shadow:0 0 0 0 rgba(224,93,26,.4)}50%{box-shadow:0 0 0 5px rgba(224,93,26,0)}}
 @keyframes muDotPulse{0%,100%{transform:scale(1)}50%{transform:scale(1.5)}}
-@keyframes muBorderGlow{0%,100%{border-color:rgba(245,158,11,.28)}50%{border-color:rgba(245,158,11,.55)}}
 
 /* Subj header compacto */
 .mu-subj{max-width:1200px;margin:0 auto;padding:2.4rem 2rem 1.4rem;padding-top:104px;scroll-margin-top:74px;
@@ -10907,10 +10905,13 @@ var MAT_TAGS={
   '1000008':['edo','ser'],              // Ecuaciones Diferenciales
   '1000009':['num'],                    // Métodos Numéricos
   '1000010':['ser','edo','vec'],        // Matemáticas Especiales
-  '1000013':['geo','vec']               // Geometría Vectorial y Analítica
+  '1000011':['dis','ser'],              // Fundamentos de Matemáticas
+  '1000012':['dis','ser','alg'],        // Matemáticas Discretas
+  '1000013':['geo','vec'],              // Geometría Vectorial y Analítica
+  '1000014':['dis','ser']               // Fundamentos de Matemáticas Discretas
 };
-var CATS={lim:{l:'Límites',lEn:'Limits',s:'Lím.',sEn:'Lim.',c:'#818cf8',i:'∞'},der:{l:'Derivadas',lEn:'Derivatives',s:'Der.',sEn:'Der.',c:'#fb923c',i:'∂'},int:{l:'Integrales',lEn:'Integrals',s:'Int.',sEn:'Int.',c:'#34d399',i:'∫'},tri:{l:'Trigon.',lEn:'Trig.',s:'Trig.',sEn:'Trig.',c:'#c084fc',i:'△'},ser:{l:'Series',lEn:'Series',s:'Series',sEn:'Series',c:'#FBBF24',i:'∑'},vec:{l:'Vectorial',lEn:'Vector',s:'Vec.',sEn:'Vec.',c:'#2dd4bf',i:'→'},alg:{l:'Álgebra',lEn:'Algebra',s:'Álg.',sEn:'Alg.',c:'#60a5fa',i:'⊕'},num:{l:'Mét. Num.',lEn:'Num. Methods',s:'Num.',sEn:'Num.',c:'#e879f9',i:'f≈'},geo:{l:'Geo. Analítica',lEn:'Analytic Geo.',s:'Geo.',sEn:'Geo.',c:'#38bdf8',i:'↗'},edo:{l:'Ec. Dif.',lEn:'ODEs',s:'EDO',sEn:'ODE',c:'#fb7185',i:'λ'}};
-var CORD=['lim','der','int','tri','ser','alg','vec','num','geo','edo'];
+var CATS={lim:{l:'Límites',lEn:'Limits',s:'Lím.',sEn:'Lim.',c:'#818cf8',i:'∞'},der:{l:'Derivadas',lEn:'Derivatives',s:'Der.',sEn:'Der.',c:'#fb923c',i:'∂'},int:{l:'Integrales',lEn:'Integrals',s:'Int.',sEn:'Int.',c:'#34d399',i:'∫'},tri:{l:'Trigon.',lEn:'Trig.',s:'Trig.',sEn:'Trig.',c:'#c084fc',i:'△'},ser:{l:'Series',lEn:'Series',s:'Series',sEn:'Series',c:'#FBBF24',i:'∑'},vec:{l:'Vectorial',lEn:'Vector',s:'Vec.',sEn:'Vec.',c:'#2dd4bf',i:'→'},alg:{l:'Álgebra',lEn:'Algebra',s:'Álg.',sEn:'Alg.',c:'#60a5fa',i:'⊕'},num:{l:'Mét. Num.',lEn:'Num. Methods',s:'Num.',sEn:'Num.',c:'#e879f9',i:'f≈'},geo:{l:'Geo. Analítica',lEn:'Analytic Geo.',s:'Geo.',sEn:'Geo.',c:'#38bdf8',i:'↗'},edo:{l:'Ec. Dif.',lEn:'ODEs',s:'EDO',sEn:'ODE',c:'#fb7185',i:'λ'},dis:{l:'Discretas',lEn:'Discrete',s:'Disc.',sEn:'Disc.',c:'#a3e635',i:'{ }'}};
+var CORD=['lim','der','int','tri','ser','alg','vec','num','geo','edo','dis'];
 function fact(n){var r=1;for(var i=2;i<=n;i++)r*=i;return r;}
 function lin(a,b,n){var r=[],s=(b-a)/(n-1);for(var i=0;i<n;i++)r.push(a+i*s);return r;}
 var F=[
@@ -12057,7 +12058,55 @@ viz:{type:'rl_circ',
   render:function(ps){var a=ps.a,b=ps.b,c=ps.c,V=(8*a*b*c).toFixed(3),A=(8*(a*b+b*c+a*c)).toFixed(3);
    return{html:'<div class="mu3d-host" data-shape="box" data-a="'+a+'" data-b="'+b+'" data-c="'+c+'"></div><div class="mu3d-info">a=<b>'+a.toFixed(2)+'</b> b=<b>'+b.toFixed(2)+'</b> c=<b>'+c.toFixed(2)+'</b> | V=<b>'+V+'</b> | A=<b>'+A+'</b></div>'};},
  ann:'Prueba con a=b=c: para el mismo volumen, el cubo es la forma que usa menos material (menor area superficial) de todos los paralelepipedos posibles.'
-}}
+}},
+/* ── DISCRETAS / FUNDAMENTOS ── */
+{tag:'dis',name:'Permutaciones y combinaciones',
+ formula:"P(n,k)=\\dfrac{n!}{(n-k)!}\\qquad \\binom{n}{k}=\\dfrac{n!}{k!\\,(n-k)!}",
+ desc:'La pregunta clave: ¿importa el orden? Si importa → permutación P(n,k). Si no → combinación C(n,k). Segunda pregunta: ¿se puede repetir?',
+ nemo:"«¿Importa el orden? Sí → permuta. No → combina. La combinación divide por k! porque no cuenta las reordenaciones.»"
+},
+{tag:'dis',name:'Teorema del binomio',
+ formula:"(a+b)^n=\\sum_{k=0}^{n}\\binom{n}{k}a^{n-k}b^k",
+ desc:'Los coeficientes son los del triángulo de Pascal: cada uno es la suma de los dos que tiene encima.',
+ nemo:"«El triángulo de Pascal: cada número es la suma de los dos de arriba. La fila n son los coeficientes de (a+b)^n.»",
+ viz:{type:'pascal', params:[],
+  render:function(ps,cat){
+   var N=7, rows='';
+   for(var n=0;n<N;n++){
+     var c=1, cells='';
+     for(var k=0;k<=n;k++){ cells+='<span style="display:inline-block;min-width:2.2em;text-align:center;color:'+((k===0||k===n)?'var(--t3)':cat)+'">'+Math.round(c)+'</span>'; c=c*(n-k)/(k+1); }
+     rows+='<div style="margin:.15rem 0">'+cells+'</div>';
+   }
+   return {html:'<div style="padding:.6rem 0;text-align:center;font-family:\'IBM Plex Mono\',monospace;font-size:.82rem"><div style="font-size:.64rem;color:var(--t3);text-transform:uppercase;letter-spacing:.05em;margin-bottom:.5rem">Triángulo de Pascal</div>'+rows+'</div>'};
+  },
+  ann:'La fila n del triángulo son los coeficientes de <strong>(a+b)ⁿ</strong>. Ejemplo: fila 3 = 1 3 3 1 → (a+b)³ = a³ + 3a²b + 3ab² + b³.'
+ }
+},
+{tag:'dis',name:'Principio de inclusión-exclusión',
+ formula:"|A\\cup B|=|A|+|B|-|A\\cap B|",
+ desc:'Para 3 conjuntos: |A∪B∪C| = Σ|A| − Σ|A∩B| + |A∩B∩C|. Suma los individuales, resta los pares, suma los triples…',
+ nemo:"«Suma todo, resta lo que contaste dos veces, vuelve a sumar lo que quitaste de más.»"
+},
+{tag:'dis',name:'Sumas notables',
+ formula:"\\sum_{k=1}^{n}k=\\dfrac{n(n+1)}{2}\\qquad \\sum_{k=1}^{n}k^2=\\dfrac{n(n+1)(2n+1)}{6}",
+ desc:'La suma de Gauss: empareja el primero con el último (1+n), el segundo con el penúltimo (2 + n−1)… todas las parejas suman n+1, y hay n/2 parejas.',
+ nemo:"«Gauss de niño: 1+2+…+100. Emparejó 1+100, 2+99… 50 parejas de 101 = 5050.»"
+},
+{tag:'dis',name:'Leyes de De Morgan',
+ formula:"\\neg(p\\wedge q)\\equiv \\neg p\\vee\\neg q\\qquad \\neg(p\\vee q)\\equiv \\neg p\\wedge\\neg q",
+ desc:'Negar una conjunción o disyunción: se niega cada parte y se cambia ∧ por ∨ (y al revés). Igual para conjuntos: (A∩B)ᶜ = Aᶜ ∪ Bᶜ.',
+ nemo:"«Al negar, la 'y' se vuelve 'o' (y al revés), negando cada pedazo: 'no (llueve y truena)' = 'no llueve o no truena'.»"
+},
+{tag:'dis',name:'Principio del palomar',
+ formula:"n\\text{ objetos en }k\\text{ cajas},\\ n>k\\ \\Rightarrow\\ \\exists\\ \\text{caja con}\\ \\ge\\left\\lceil \\tfrac{n}{k}\\right\\rceil",
+ desc:'Si hay más palomas que nidos, algún nido tiene ≥ 2 palomas. Versión fuerte: alguna caja tiene al menos ⌈n/k⌉ objetos.',
+ nemo:"«Más palomas que nidos: seguro hay un nido con dos. Suena bobo pero demuestra un montón de cosas.»"
+},
+{tag:'dis',name:'Aritmética modular',
+ formula:"(a+b)\\bmod n=\\big((a\\bmod n)+(b\\bmod n)\\big)\\bmod n",
+ desc:'El "mod" se puede meter dentro de sumas y productos. a ≡ b (mod n) significa que n divide a (a − b).',
+ nemo:"«El reloj: 10 + 5 horas = 3 en punto (mod 12). Puedes reducir en cualquier paso, no solo al final.»"
+}
 ];
 /* ══ ESTADO ══ */
 var _flt='all',_mat='all',_q='',_sel=-1,_anim=false,_rafId=null,_animTime=0,_animLastTS=null,_dragMode='zoom';
