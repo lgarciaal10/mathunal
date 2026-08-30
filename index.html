@@ -5398,6 +5398,7 @@ customElements.define('glass-element', GlassElement);
         <label class="is-l" style="margin-bottom:.35rem" for="wm-mat">Materia</label>
         <select id="wm-mat" class="prom-inp" style="width:100%;cursor:pointer">
           <option value="matbas">Matemáticas Básicas</option>
+          <option value="matbas">Matemáticas Básicas</option>
           <option value="calcdif" selected>Cálculo Diferencial</option>
           <option value="calcint">Cálculo Integral</option>
           <option value="alglin">Álgebra Lineal</option>
@@ -6863,92 +6864,162 @@ tlRender();
 document.querySelectorAll('.fi').forEach(function(el){io.observe(el);});
 
 function generatePlan(){
+  var L=window.curLang==='en';
   var mat=document.getElementById('wm-mat');
   var fechaInput=document.getElementById('wm-fecha').value;
-  if(!fechaInput){alert(window.curLang==='en'?'Select the exam date':'Selecciona la fecha del parcial');return;}
-  
+  var out=document.getElementById('plan-out');
+  var FIRE='<svg width="13" height="13" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" style="vertical-align:-2px"><path d="M12 22c4 0 7-2.5 7-6.5C19 11 15 8 15 8s.5 3-1 3c0-3-1-6-4-8-1 3-1 5-3 7-1.5 1.5-2 3-2 4.5C5 19.5 8 22 12 22z"/></svg>';
+  var WARN='<svg width="12" height="12" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none" style="vertical-align:-1px"><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>';
+  if(!fechaInput){alert(L?'Pick the exam date first':'Selecciona primero la fecha del parcial');return;}
+
   var matName=mat.options[mat.selectedIndex].text;
-  var parcial=document.getElementById('wm-corte').value;
+  var matKey=mat.value;
+  var corteSel=document.getElementById('wm-corte');
+  var parcial=corteSel.options[corteSel.selectedIndex].text;
+  var cIdx=corteSel.selectedIndex;            // 0 P1 · 1 P2 · 2 P3 · 3 Quiz · 4 Final
   var fecha=new Date(fechaInput+'T12:00:00');
   var hoy=new Date(); hoy.setHours(0,0,0,0); fecha.setHours(0,0,0,0);
   var diasRestantes=Math.round((fecha-hoy)/(1000*60*60*24));
   if(diasRestantes<0){
-    var out=document.getElementById('plan-out');
-    out.innerHTML='<div style="padding:1.2rem;background:var(--adim);border:1px solid var(--bra);border-radius:12px;color:var(--t2)">'+'<svg width="12" height="12" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none" style="vertical-align:-1px"><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>'+' La fecha del parcial ya pasó. Selecciona una fecha futura.</div>';
+    out.innerHTML='<div style="padding:1.2rem;background:var(--adim);border:1px solid var(--bra);border-radius:12px;color:var(--t2)">'+WARN+' '+(L?'That exam date is already in the past. Pick a future date.':'La fecha del parcial ya pasó. Selecciona una fecha futura.')+'</div>';
     out.classList.add('show');out.scrollIntoView({behavior:'smooth',block:'nearest'});return;
   }
   var daysToShow=Math.min(5,diasRestantes+1);
 
   var PLANS={
     calcdif:{
-      temas:['Límites y continuidad','Reglas de derivación (cadena, producto, cociente)','Aplicaciones: máximos, mínimos, optimización','Derivadas implícitas y logarítmicas','Repaso general + simulacro completo']
+      p1:['Funciones: dominio, rango y gráficas','Límites y límites laterales','Indeterminaciones y límites al infinito','Continuidad y asíntotas'],
+      p2:['Definición de derivada y recta tangente','Reglas: producto, cociente y cadena','Derivadas de trigonométricas, exponenciales y logaritmos','Derivación implícita y logarítmica'],
+      p3:['Razones de cambio relacionadas','Máximos, mínimos y criterio de la 2ª derivada','Optimización (problemas de aplicación)','Teorema del valor medio y regla de L’Hôpital','Trazado de curvas']
     },
     calcint:{
-      temas:['Integral indefinida y regla de la potencia','Sustitución trigonométrica y u-sustitución','Integración por partes (ILATE)','Fracciones parciales','Repaso general + simulacro completo']
+      p1:['Antiderivadas e integral indefinida','Sumas de Riemann e integral definida','Teorema fundamental del cálculo','Integración por sustitución'],
+      p2:['Integración por partes (Una Vaca Vestida De Uniforme)','Sustitución trigonométrica','Fracciones parciales','Integrales impropias'],
+      p3:['Áreas entre curvas','Volúmenes: discos, arandelas y capas','Longitud de arco y superficies','Sucesiones y series','Criterios de convergencia']
     },
     alglin:{
-      temas:['Sistemas de ecuaciones — Gauss-Jordan','Determinantes y propiedades','Espacios vectoriales y bases','Valores y vectores propios','Repaso general + simulacro completo']
+      p1:['Sistemas de ecuaciones lineales','Eliminación de Gauss-Jordan','Álgebra de matrices','Matriz inversa'],
+      p2:['Determinantes y sus propiedades','Regla de Cramer','Espacios y subespacios vectoriales','Independencia lineal, base y dimensión'],
+      p3:['Producto interno y ortogonalidad (Gram-Schmidt)','Transformaciones lineales','Valores y vectores propios','Diagonalización']
     },
     calcvec:{
-      temas:['Derivadas parciales y gradiente','Optimización con varias variables','Integrales dobles y triples','Integrales de línea (teorema de Green)','Repaso general + simulacro completo']
+      p1:['Vectores, rectas y planos en el espacio','Funciones vectoriales y curvas','Funciones de varias variables y límites','Derivadas parciales'],
+      p2:['Regla de la cadena y derivación implícita','Gradiente y derivadas direccionales','Planos tangentes y aproximación lineal','Máximos, mínimos y multiplicadores de Lagrange'],
+      p3:['Integrales dobles (coordenadas polares)','Integrales triples (cilíndricas y esféricas)','Campos vectoriales e integrales de línea','Teorema de Green']
     },
     edo:{
-      temas:['EDOs separables y lineales de 1er orden','Factor integrante','EDOs de 2do orden: coeficientes constantes','Transformada de Laplace','Repaso general + simulacro completo']
+      p1:['EDO de variables separables','EDO lineales de 1er orden y factor integrante','EDO exactas y ecuación de Bernoulli','Aplicaciones de primer orden'],
+      p2:['EDO lineales de 2º orden homogéneas','Coeficientes indeterminados','Variación de parámetros','Aplicaciones: resortes y circuitos'],
+      p3:['Transformada de Laplace y transformada inversa','Función escalón y traslaciones','Sistemas de ecuaciones diferenciales','Soluciones por series de potencias']
     },
     matbas:{
-      temas:['Álgebra: factorización y ecuaciones','Funciones y sus gráficas','Trigonometría: identidades y ecuaciones','Logaritmos y exponenciales','Repaso general + simulacro completo']
+      p1:['Conjuntos y números reales','Intervalos y valor absoluto','Potenciación, radicación y racionalización','Polinomios, productos notables y factorización','Expresiones racionales'],
+      p2:['Ecuaciones e inecuaciones','Línea recta y circunferencia','Sistemas 2×2','Funciones y sus gráficas','Geometría: áreas, volúmenes y Pitágoras'],
+      p3:['Funciones inyectivas e inversas','Funciones exponenciales y logarítmicas','Trigonometría de ángulos y de números reales','Identidades y ecuaciones trigonométricas']
+    }
+  };
+  var PLANS_EN={
+    calcdif:{
+      p1:['Functions: domain, range and graphs','Limits and one-sided limits','Indeterminate forms and limits at infinity','Continuity and asymptotes'],
+      p2:['Definition of the derivative and tangent line','Product, quotient and chain rules','Derivatives of trig, exp and log functions','Implicit and logarithmic differentiation'],
+      p3:['Related rates','Maxima, minima and the second-derivative test','Optimization (word problems)','Mean value theorem and L’Hôpital’s rule','Curve sketching']
+    },
+    calcint:{
+      p1:['Antiderivatives and the indefinite integral','Riemann sums and the definite integral','Fundamental theorem of calculus','Integration by substitution'],
+      p2:['Integration by parts','Trigonometric substitution','Partial fractions','Improper integrals'],
+      p3:['Area between curves','Volumes: disks, washers and shells','Arc length and surface area','Sequences and series','Convergence tests']
+    },
+    alglin:{
+      p1:['Systems of linear equations','Gauss-Jordan elimination','Matrix algebra','The inverse of a matrix'],
+      p2:['Determinants and their properties','Cramer’s rule','Vector spaces and subspaces','Linear independence, basis and dimension'],
+      p3:['Inner product and orthogonality (Gram-Schmidt)','Linear transformations','Eigenvalues and eigenvectors','Diagonalization']
+    },
+    calcvec:{
+      p1:['Vectors, lines and planes in space','Vector functions and curves','Functions of several variables and limits','Partial derivatives'],
+      p2:['Chain rule and implicit differentiation','Gradient and directional derivatives','Tangent planes and linear approximation','Maxima, minima and Lagrange multipliers'],
+      p3:['Double integrals (polar coordinates)','Triple integrals (cylindrical and spherical)','Vector fields and line integrals','Green’s theorem']
+    },
+    edo:{
+      p1:['Separable ODEs','First-order linear ODEs and integrating factor','Exact equations and the Bernoulli equation','First-order applications'],
+      p2:['Second-order homogeneous linear ODEs','Method of undetermined coefficients','Variation of parameters','Applications: springs and circuits'],
+      p3:['Laplace transform and inverse transform','Step function and shifting theorems','Systems of differential equations','Power series solutions']
+    },
+    matbas:{
+      p1:['Sets and real numbers','Intervals and absolute value','Exponents, radicals and rationalizing','Polynomials, special products and factoring','Rational expressions'],
+      p2:['Equations and inequalities','Line and circle','2×2 systems','Functions and their graphs','Geometry: area, volume and Pythagoras'],
+      p3:['One-to-one and inverse functions','Exponential and logarithmic functions','Trigonometry of angles and real numbers','Trigonometric identities and equations']
     }
   };
 
-  var matKey=mat.value;
-  var temas=PLANS[matKey]?PLANS[matKey].temas:['Repaso tema 1','Repaso tema 2','Repaso tema 3','Repaso tema 4','Simulacro final'];
-  var dayNames=['Dom','Lun','Mar','Mié','Jue','Vie','Sáb'];
-  var monthNames=['Ene','Feb','Mar','Abr','May','Jun','Jul','Ago','Sep','Oct','Nov','Dic'];
+  var src=(L?PLANS_EN:PLANS)[matKey];
+  var cKey=cIdx===1?'p2':cIdx===2?'p3':cIdx===4?'all':'p1';
+  var temas;
+  if(src){ temas=cKey==='all'?[].concat(src.p1,src.p2,src.p3):src[cKey].slice(); }
+  else { temas=[L?'Check the syllabus and list this cut’s topics':'Revisá el programa y listá los temas de este corte']; }
 
-  var activities=[
-    ['Leer el programa del curso e identificar los temas del corte','Resolver ejercicios básicos del Tema 1','Revisar formulario de '+matName,'Descargar 1 simulacro del Tema 1'],
-    ['Estudiar Tema 2 a fondo','Hacer todos los ejercicios del taller del Tema 2','Revisar la hoja de fórmulas si tienes dudas','Anotar fórmulas clave en la hoja de fórmulas'],
-    ['Repasar Tema 3','Hacer ejercicios de quices anteriores','Comparar tus respuestas del simulacro con las correctas','Identificar los ejercicios tipo que más repite el profe'],
-    ['Hacer el Simulacro 1 completo con cronómetro','Revisar cada error con la explicación del simulacro','Repasar los temas donde fallaste','Repetir los ejercicios difíciles'],
-    ['Repaso exprés de fórmulas (30 min máximo)','Hacer 5 ejercicios rápidos de cada tema','Releer las explicaciones extendidas de lo que más te costó','Dormir a tiempo — 5+ horas mínimo']
-  ];
-  var tags=[
-    ['<span class="pd-tag pd-tag-rep">Repaso</span>','<span class="pd-tag pd-tag-rep">Ejercicios</span>','<span class="pd-tag pd-tag-form">Fórmulas</span>','<span class="pd-tag pd-tag-sim">Simulacro</span>'],
-    ['<span class="pd-tag pd-tag-rep">Repaso</span>','<span class="pd-tag pd-tag-rep">Ejercicios</span>','<span class="pd-tag pd-tag-sim">Solucionario</span>','<span class="pd-tag pd-tag-form">Fórmulas</span>'],
-    ['<span class="pd-tag pd-tag-rep">Repaso</span>','<span class="pd-tag pd-tag-sim">Quices</span>','<span class="pd-tag pd-tag-sim">Solucionario</span>','<span class="pd-tag pd-tag-rep">Análisis</span>'],
-    ['<span class="pd-tag pd-tag-sim">Simulacro</span>','<span class="pd-tag pd-tag-sim">Revisión</span>','<span class="pd-tag pd-tag-rep">Refuerzo</span>','<span class="pd-tag pd-tag-rep">Ejercicios</span>'],
-    ['<span class="pd-tag pd-tag-form">Fórmulas</span>','<span class="pd-tag pd-tag-rep">Express</span>','<span class="pd-tag pd-tag-sim">Explicación</span>','<span class="pd-tag pd-tag-rep">Descanso</span>'],
-  ];
+  var dayNames=L?['Sun','Mon','Tue','Wed','Thu','Fri','Sat']:['Dom','Lun','Mar','Mié','Jue','Vie','Sáb'];
+  var monthNames=L?['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec']:['Ene','Feb','Mar','Abr','May','Jun','Jul','Ago','Sep','Oct','Nov','Dic'];
+  var TG=L?{rep:'Review',ej:'Exercises',form:'Formulas',sim:'Mock exam',sol:'Solutions',exp:'Express',rest:'Rest'}
+         :{rep:'Repaso',ej:'Ejercicios',form:'Fórmulas',sim:'Simulacro',sol:'Solucionario',exp:'Exprés',rest:'Descanso'};
+  function tk(txt,cls,lbl){ return '<div class="pd-task">'+txt+' <span class="pd-tag '+cls+'">'+lbl+'</span></div>'; }
+
+  var studyDays=daysToShow<=1?0:(daysToShow>=3?daysToShow-2:1);
+  var hasSimDay=daysToShow>=3;
+  var buckets=[]; for(var b=0;b<studyDays;b++) buckets.push([]);
+  for(var t=0;t<temas.length;t++) buckets[t%Math.max(1,studyDays)].push(temas[t]);
+
+  function studyTasks(bucket,idx){
+    var main=bucket.length?bucket.join(' · '):(L?'Free review of your weakest topics':'Repaso libre de lo que llevás más flojo');
+    var first=bucket[0]||main;
+    var r='';
+    r+=tk((L?'Study in depth: ':'Estudiá a fondo: ')+main,'pd-tag-rep',TG.rep);
+    r+=tk((L?'Work taller + past-quiz problems on: ':'Hacé ejercicios del taller y de quices viejos de: ')+first,'pd-tag-rep',TG.ej);
+    if(idx===0) r+=tk((L?'Build your own formula sheet for '+matName+' (use the site’s Formulas page)':'Armá tu propia hoja de fórmulas de '+matName+' (apóyate en la página de Fórmulas del sitio)'),'pd-tag-form',TG.form);
+    else r+=tk((L?'Redo yesterday’s mistakes with the solutions PDF':'Rehacé los errores de ayer con el solucionario'),'pd-tag-sim',TG.sol);
+    return r;
+  }
+  var simTasks=tk((L?'Full mock exam with a timer — no notes, no internet':'Simulacro completo con cronómetro — sin notas, sin internet'),'pd-tag-sim',TG.sim)
+    +tk((L?'Grade it against the answer key and list every error':'Calificá con el solucionario y anotá cada error'),'pd-tag-sim',TG.sol)
+    +tk((L?'Re-study only the topics you missed':'Repasá solo los temas donde fallaste'),'pd-tag-rep',TG.rep)
+    +tk((L?'Redo the 3 hardest problems from scratch':'Rehacé de cero los 3 ejercicios más difíciles'),'pd-tag-rep',TG.ej);
+  var examTasks=tk((L?'Express formula review — 30 min max':'Repaso exprés de fórmulas — 30 min máximo'),'pd-tag-form',TG.form)
+    +tk((L?'5 quick problems per topic, no deep dives':'5 ejercicios rápidos por tema, sin profundizar'),'pd-tag-form',TG.exp)
+    +tk((L?'Re-read the explanations of what cost you most':'Releé las explicaciones de lo que más te costó'),'pd-tag-rep',TG.rep)
+    +tk((L?'Sleep 5+ hours. Do not pull an all-nighter.':'Dormí 5+ horas. No trasnochés.'),'pd-tag-rep',TG.rest);
 
   var html='';
-  if(daysToShow<5)html+='<div style="margin-bottom:1rem;padding:.7rem 1rem;background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.3);border-radius:10px;font-size:.8rem;color:var(--yel)"><svg width="13" height="13" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" style="vertical-align:-2px"><path d="M12 22c4 0 7-2.5 7-6.5C19 11 15 8 15 8s.5 3-1 3c0-3-1-6-4-8-1 3-1 5-3 7-1.5 1.5-2 3-2 4.5C5 19.5 8 22 12 22z"/></svg> El parcial es en '+diasRestantes+' día'+(diasRestantes===1?'':'s')+'. Plan comprimido a '+daysToShow+' día'+(daysToShow===1?'':'s')+'.</div>';
-  html+='<div style="font-family:\'IBM Plex Mono\',monospace;font-size:.75rem;color:var(--acc);text-transform:uppercase;letter-spacing:.08em;margin-bottom:1rem">Plan de '+daysToShow+' día'+(daysToShow===1?'':'s')+' · '+matName+' · '+parcial+'</div>';
-  var startOffset=5-daysToShow;
+  try{
+    var SS=window.SEMANA_SEMESTRE,DAY=86400000,ini=SS&&SS.inicio?new Date(SS.inicio+'T00:00:00'):null;
+    if(SS&&SS.inicio&&hoy>=ini){
+      var nn=Math.max(1,Math.min(SS.total||16,Math.floor((hoy-ini)/(7*DAY))+1));
+      html+='<div style="margin-bottom:.8rem;font-size:.76rem;color:var(--t3)">'+(L?'You’re in week ':'Vas en la semana ')+nn+(L?' of ':' de ')+(SS.total||16)+(L?' of the term.':' del semestre.')+'</div>';
+    }
+  }catch(e){}
+  if(daysToShow<5)html+='<div style="margin-bottom:1rem;padding:.7rem 1rem;background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.3);border-radius:10px;font-size:.8rem;color:var(--yel)">'+FIRE+' '+(L?('The exam is in '+diasRestantes+' day'+(diasRestantes===1?'':'s')+'. Plan compressed to '+daysToShow+' day'+(daysToShow===1?'':'s')+'.'):('El parcial es en '+diasRestantes+' día'+(diasRestantes===1?'':'s')+'. Plan comprimido a '+daysToShow+' día'+(daysToShow===1?'':'s')+'.'))+'</div>';
+  if(cIdx===3)html+='<div style="margin-bottom:1rem;padding:.7rem 1rem;background:var(--adim);border:1px solid var(--bra);border-radius:10px;font-size:.78rem;color:var(--t2)">'+WARN+' '+(L?'A quiz covers just that week’s material. This plan uses the first cut’s topics as a base — adjust to where your course actually is.':'Un quiz evalúa lo de esa semana puntual. Este plan usa los temas del primer corte como base — ajústalo a lo que lleva tu curso.')+'</div>';
+  if(cIdx===4)html+='<div style="margin-bottom:1rem;padding:.7rem 1rem;background:var(--adim);border:1px solid var(--bra);border-radius:10px;font-size:.78rem;color:var(--t2)">'+WARN+' '+(L?'The final covers all three cuts. Every topic of the term is below — prioritize where you did worst.':'El examen final acumula los tres cortes. Abajo están todos los temas del semestre — prioriza donde te fue peor.')+'</div>';
+  html+='<div style="font-family:\'IBM Plex Mono\',monospace;font-size:.75rem;color:var(--acc);text-transform:uppercase;letter-spacing:.08em;margin-bottom:1rem">'+(L?'Plan':'Plan de')+' '+daysToShow+' '+(L?('day'+(daysToShow===1?'':'s')):('día'+(daysToShow===1?'':'s')))+' · '+matName+' · '+parcial+'</div>';
+
   for(var i=0;i<daysToShow;i++){
-    var realI=startOffset+i;
     var d=new Date(fecha);
     d.setDate(d.getDate()-(daysToShow-1-i));
-    var esHoy=i===daysToShow-1;
+    var esExamDay=i===daysToShow-1;
+    var esSimDay=hasSimDay&&i===daysToShow-2;
+    var body= esExamDay?examTasks : esSimDay?simTasks : studyTasks(buckets[i]||[],i);
     html+='<div class="plan-day">'
       +'<div class="pd-header">'
         +'<div class="pd-num">'+(i+1)+'</div>'
-        +'<div class="pd-day">Día '+(i+1)+(esHoy?' — <svg width="13" height="13" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" style="vertical-align:-2px"><path d="M12 22c4 0 7-2.5 7-6.5C19 11 15 8 15 8s.5 3-1 3c0-3-1-6-4-8-1 3-1 5-3 7-1.5 1.5-2 3-2 4.5C5 19.5 8 22 12 22z"/></svg> Día del Parcial':'')+'</div>'
+        +'<div class="pd-day">'+(L?'Day ':'Día ')+(i+1)+(esExamDay?' — '+FIRE+' '+(L?'Exam day':'Día del parcial'):esSimDay?' — '+(L?'Mock exam':'Simulacro'):'')+'</div>'
         +'<div class="pd-date">'+dayNames[d.getDay()]+' '+d.getDate()+' '+monthNames[d.getMonth()]+'</div>'
       +'</div>'
-      +'<div class="pd-tasks">'
-        +(esHoy
-          ?'<div class="pd-task">Repaso exprés de fórmulas (30 min máximo) <span class="pd-tag pd-tag-form">Fórmulas</span></div>'
-          +' <div class="pd-task">Lee: '+temas[realI]+'</div>'
-          +' <div class="pd-task">5 ejercicios cortos por tema <span class="pd-tag pd-tag-rep">Express</span></div>'
-          +' <div class="pd-task">Duerme 5+ horas mínimo. No madrugar.</div>'
-          :activities[realI].map(function(act,j){return '<div class="pd-task">'+act+' '+tags[realI][j]+'</div>';}).join('')
-        )
-      +'</div>'
+      +'<div class="pd-tasks">'+body+'</div>'
       +'</div>';
   }
-  html+='<div style="margin-top:.8rem;padding:.85rem;background:var(--adim);border:1px solid var(--bra);border-radius:10px;font-size:.78rem;color:var(--t2);line-height:1.6"><strong style="color:var(--acc)"><svg width="14" height="14" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M12 2a7 7 0 0 0-4 12.7V17h8v-2.3A7 7 0 0 0 12 2z"/></svg> Consejo de monitor:</strong> El simulacro del Día 4 es lo más importante. Practica en las mismas condiciones del parcial: sin internet, sin notas, con cronómetro.</div>';
+  html+='<div style="margin-top:.8rem;padding:.85rem;background:var(--adim);border:1px solid var(--bra);border-radius:10px;font-size:.78rem;color:var(--t2);line-height:1.6"><strong style="color:var(--acc)"><svg width="14" height="14" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M12 2a7 7 0 0 0-4 12.7V17h8v-2.3A7 7 0 0 0 12 2z"/></svg> '+(L?'Monitor’s tip:':'Consejo de monitor:')+'</strong> '+(L?'The mock-exam day matters most. Do it under real conditions: no internet, no notes, with a timer.':'El día del simulacro es el que más pesa. Hazlo en condiciones reales: sin internet, sin notas, con cronómetro.')+'</div>';
 
-  var out=document.getElementById('plan-out');
+  var MCODE={calcdif:'1000004',calcint:'1000005',alglin:'1000006',calcvec:'1000007',edo:'1000008',matbas:'1000003'};
+  if(MCODE[matKey]) html+='<a href="#materia?s='+MCODE[matKey]+'" onclick="var m=document.getElementById(\'weekModal\');if(m)m.classList.remove(\'open\')" style="display:inline-flex;align-items:center;gap:.4rem;margin-top:.9rem;padding:.55rem 1rem;background:var(--acc);color:#fff;border-radius:9px;font-size:.82rem;font-weight:600;text-decoration:none"><svg width="13" height="13" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg> '+(L?'Open all '+matName+' material':'Ver todo el material de '+matName)+' →</a>';
+
   out.innerHTML=html;
   out.classList.add('show');
   out.scrollIntoView({behavior:'smooth',block:'nearest'});
@@ -15469,6 +15540,7 @@ var SEMANA_SEMESTRE = {
   periodo:'2026-2',
   visible:true
 };
+try{ window.SEMANA_SEMESTRE = SEMANA_SEMESTRE; }catch(e){}
 
 /* Pinta el banner "Semana N de 16" dentro del elemento con id=elId. Reutilizado
    en la portada (#materias) y en la página de materia. */
