@@ -2480,6 +2480,12 @@ body{font-family:'Space Grotesk',system-ui,sans-serif;background:var(--bg);color
 .vf-shell .cpills{display:flex;gap:.2rem;flex-wrap:wrap}
 .vf-shell .cpill{display:inline-flex;align-items:center;gap:.22rem;padding:.22rem .56rem;border-radius:999px;font-family:'Space Grotesk',sans-serif;font-size:.72rem;font-weight:600;color:var(--t2);background:var(--lay1);border:2px solid var(--br);cursor:pointer;transition:all .15s;white-space:nowrap}
 .vf-shell .cpill:hover{background:var(--lay3);color:var(--t1);transform:translateY(-1px)}
+/* Selector de materia: que el desplegable nativo use el tema oscuro/claro correcto */
+.vf-shell #vf-mat{color-scheme:dark}
+:root[data-theme="light"] .vf-shell #vf-mat{color-scheme:light}
+.vf-shell #vf-mat option{background:var(--card);color:var(--t1)}
+.vf-shell #vf-mat:hover{border-color:var(--bra)}
+.vf-shell #vf-mat:focus{outline:none;border-color:var(--acc)}
 .vf-shell .cpill.on{background:var(--acd);border-color:var(--acg);color:var(--acc);font-weight:700}
 .vf-shell .items{flex:1;overflow-y:auto;padding-bottom:.5rem}
 .vf-shell .items::-webkit-scrollbar{width:3px}
@@ -2951,11 +2957,11 @@ html[data-theme="black"] .nav-aurora{
 .mu-ruta-hero:hover{border-color:var(--bra)}
 .mu-ruta-hero-title{font-family:'Literata',serif;font-weight:700;font-size:1.02rem;color:var(--t1);transition:color .25s}
 /* ── Micro-interacciones de la página de materia (hover) ── */
-.mu-hero-sym{position:absolute;right:26px;bottom:-1.6rem;font-family:'Literata',serif;font-size:6rem;line-height:1;
-  font-weight:700;color:var(--br2);opacity:.3;pointer-events:none;user-select:none;z-index:0;
-  transform:translateX(18px) rotate(-7deg);transition:all .35s cubic-bezier(.22,1,.36,1)}
+.mu-hero-sym{position:absolute;right:18px;top:50%;font-family:'Literata',serif;font-size:5.4rem;line-height:1;
+  font-weight:700;color:var(--br2);opacity:.32;pointer-events:none;user-select:none;z-index:0;
+  transform:translateY(-50%) translateX(20px) rotate(-7deg);transition:all .35s cubic-bezier(.22,1,.36,1)}
 .mu-ruta-hero > div:not(.mu-hero-sym){position:relative;z-index:1}
-.mu-ruta-hero:hover .mu-hero-sym{opacity:1;color:var(--acc);transform:translateX(0) rotate(-4deg) scale(1.06)}
+.mu-ruta-hero:hover .mu-hero-sym{opacity:1;color:var(--acc);transform:translateY(-50%) translateX(4px) rotate(-4deg) scale(1.05)}
 .mu-ruta-hero:hover .mu-ruta-hero-title{color:var(--acc)}
 .mu-kpi-card{transition:transform .2s cubic-bezier(.22,1,.36,1),border-color .2s,box-shadow .2s}
 .mu-kpi-card:hover{transform:translateY(-3px);border-color:var(--bra);box-shadow:0 8px 22px -10px rgba(0,0,0,.45)}
@@ -11992,28 +11998,28 @@ viz:{type:'rl_circ',
 },
 {tag:'edo',name:'Transformada de Laplace',
  formula:"\\mathcal{L}\\{f(t)\\}=\\displaystyle\\int_0^\\infty e^{-st}f(t)\\,dt=F(s)",
- desc:"Convierte una EDO (con derivadas) en una ecuacion algebraica en s. La clave: L{y'}=sY(s)-y(0) y L{y''}=s^2Y(s)-sy(0)-y'(0). Las condiciones iniciales entran aqui, no al final.",
- tip:"Linealidad: L{af+bg}=aL{f}+bL{g}.  Corrimiento: L{e^{at}f(t)}=F(s-a).",
- nemo:"«La maquina del tiempo: manda la ecuacion al 'mundo s', donde derivar es solo multiplicar por s.»",
+ desc:"Convierte una EDO (con derivadas) en una ecuación algebraica en $s$. La clave: $\\mathcal{L}\\{y'\\}=sY(s)-y(0)$ y $\\mathcal{L}\\{y''\\}=s^2Y(s)-sy(0)-y'(0)$. Las condiciones iniciales entran aquí, no al final.",
+ tip:"Linealidad: $\\mathcal{L}\\{af+bg\\}=a\\mathcal{L}\\{f\\}+b\\mathcal{L}\\{g\\}$.  Corrimiento: $\\mathcal{L}\\{e^{at}f(t)\\}=F(s-a)$.",
+ nemo:"«La máquina del tiempo: manda la ecuación al 'mundo $s$', donde derivar es solo multiplicar por $s$.»",
  viz:{type:'laplace_table', params:[],
   render:function(ps,cat){
-   var rows=[['1','1/s'],['t','1/s^2'],['t^n','n! / s^(n+1)'],['e^(at)','1/(s-a)'],['sin(bt)','b/(s^2+b^2)'],['cos(bt)','s/(s^2+b^2)'],['e^(at) sin(bt)','b/((s-a)^2+b^2)'],['e^(at) cos(bt)','(s-a)/((s-a)^2+b^2)'],["t f(t)","-F'(s)"],["y'(t)",'sY(s) - y(0)'],["y''(t)","s^2 Y(s) - s y(0) - y'(0)"],['u(t-a) f(t-a)','e^(-as) F(s)']];
-   var tr=rows.map(function(r){return '<tr><td style="padding:.26rem .7rem;border-bottom:1px solid var(--br)">'+r[0]+'</td><td style="padding:.26rem .7rem;border-bottom:1px solid var(--br);color:'+cat+'">'+r[1]+'</td></tr>';}).join('');
+   var rows=[['1','\\dfrac{1}{s}'],['t','\\dfrac{1}{s^2}'],['t^n','\\dfrac{n!}{s^{n+1}}'],['e^{at}','\\dfrac{1}{s-a}'],['\\sin(bt)','\\dfrac{b}{s^2+b^2}'],['\\cos(bt)','\\dfrac{s}{s^2+b^2}'],['e^{at}\\sin(bt)','\\dfrac{b}{(s-a)^2+b^2}'],['e^{at}\\cos(bt)','\\dfrac{s-a}{(s-a)^2+b^2}'],["t\\,f(t)","-F'(s)"],["y'(t)",'sY(s)-y(0)'],["y''(t)","s^2Y(s)-sy(0)-y'(0)"],['u(t-a)\\,f(t-a)','e^{-as}F(s)']];
+   var tr=rows.map(function(r){return '<tr><td style="padding:.3rem .7rem;border-bottom:1px solid var(--br)">$'+r[0]+'$</td><td style="padding:.3rem .7rem;border-bottom:1px solid var(--br)">$'+r[1]+'$</td></tr>';}).join('');
    return {html:'<div style="padding:.5rem 0"><div style="font-family:\'IBM Plex Mono\',monospace;font-size:.66rem;color:var(--t3);text-transform:uppercase;letter-spacing:.05em;margin-bottom:.45rem">Tabla de transformadas comunes</div>'+
-     '<div style="overflow-x:auto"><table style="width:100%;border-collapse:collapse;font-family:\'IBM Plex Mono\',monospace;font-size:.8rem">'+
-     '<thead><tr><th style="text-align:left;padding:.3rem .7rem;color:var(--t3);font-size:.64rem;border-bottom:1px solid var(--br2)">f(t)</th><th style="text-align:left;padding:.3rem .7rem;color:var(--t3);font-size:.64rem;border-bottom:1px solid var(--br2)">F(s) = L{f(t)}</th></tr></thead><tbody>'+tr+'</tbody></table></div></div>'};
+     '<div style="overflow-x:auto"><table style="width:100%;border-collapse:collapse;font-size:.92rem">'+
+     '<thead><tr><th style="text-align:left;padding:.3rem .7rem;color:var(--t3);font-size:.64rem;border-bottom:1px solid var(--br2);font-family:\'IBM Plex Mono\',monospace">f(t)</th><th style="text-align:left;padding:.3rem .7rem;color:var(--t3);font-size:.64rem;border-bottom:1px solid var(--br2);font-family:\'IBM Plex Mono\',monospace">F(s) = L{f(t)}</th></tr></thead><tbody>'+tr+'</tbody></table></div></div>'};
   },
-  ann:'La transformada de una <strong>derivada</strong> es multiplicar por s y restar el valor inicial. Por eso una EDO se vuelve algebra: despejas F(s) y lo buscas en la tabla al reves (antitransformada).'
+  ann:'La transformada de una <strong>derivada</strong> es multiplicar por s y restar el valor inicial. Por eso una EDO se vuelve álgebra: despejas F(s) y lo buscas en la tabla al revés (antitransformada).'
  }
 },
 {tag:'edo',name:'Resolver una EDO con Laplace',
  formula:"\\mathcal{L}\\{y''\\}+a\\,\\mathcal{L}\\{y'\\}+b\\,\\mathcal{L}\\{y\\}=\\mathcal{L}\\{g(t)\\}",
- desc:"Metodo en 4 pasos. Sirve sobre todo cuando g(t) es discontinua (escalon, impulso), donde coeficientes indeterminados se vuelve un lio.",
- nemo:"«Transforma, despeja, fracciona y devuelve: la EDO entra dificil y sale hecha.»",
+ desc:"Método en 4 pasos. Sirve sobre todo cuando $g(t)$ es discontinua (escalón, impulso), donde coeficientes indeterminados se vuelve un lío.",
+ nemo:"«Transforma, despeja, fracciona y devuelve: la EDO entra difícil y sale hecha.»",
  viz:{type:'laplace_steps', params:[],
   render:function(ps,cat){
-   var steps=[['1. Transformar toda la ecuacion',"L{y''}=s^2Y - s y(0) - y'(0),   L{y'}=sY - y(0)"],['2. Despejar Y(s)','Y(s) = [ numerador con las C.I. ] / (s^2 + a s + b)'],['3. Fracciones parciales','Y(s) = A/(s-r1) + B/(s-r2) + ...'],['4. Antitransformar termino a termino','y(t) = A e^(r1 t) + B e^(r2 t) + ...']];
-   var h=steps.map(function(s){return '<div style="padding:.5rem .8rem;border-left:2px solid '+cat+';background:var(--lay1);border-radius:0 6px 6px 0;margin-bottom:.45rem"><div style="font-weight:700;font-size:.77rem;color:var(--t1)">'+s[0]+'</div><div style="font-family:\'IBM Plex Mono\',monospace;font-size:.72rem;color:var(--t2);margin-top:.15rem;word-break:break-word">'+s[1]+'</div></div>';}).join('');
+   var steps=[['1. Transformar toda la ecuación',"$\\mathcal{L}\\{y''\\}=s^2Y-sy(0)-y'(0),\\quad \\mathcal{L}\\{y'\\}=sY-y(0)$"],['2. Despejar $Y(s)$','$Y(s)=\\dfrac{[\\,\\text{numerador con las C.I.}\\,]}{s^2+as+b}$'],['3. Fracciones parciales','$Y(s)=\\dfrac{A}{s-r_1}+\\dfrac{B}{s-r_2}+\\cdots$'],['4. Antitransformar término a término','$y(t)=A\\,e^{r_1 t}+B\\,e^{r_2 t}+\\cdots$']];
+   var h=steps.map(function(s){return '<div style="padding:.55rem .8rem;border-left:2px solid '+cat+';background:var(--lay1);border-radius:0 6px 6px 0;margin-bottom:.45rem"><div style="font-weight:700;font-size:.8rem;color:var(--t1)">'+s[0]+'</div><div style="font-size:.9rem;color:var(--t2);margin-top:.25rem;overflow-x:auto">'+s[1]+'</div></div>';}).join('');
    return {html:'<div style="padding:.5rem 0">'+h+'</div>'};
   },
   ann:'Las <strong>condiciones iniciales</strong> se sustituyen en el paso 1 (no como constantes libres al final). El resultado ya viene con las C.I. aplicadas.'
@@ -12152,6 +12158,7 @@ function doRender(fIdx){
   if(res.html!==undefined){
     pd.innerHTML=res.html;
     pd.style.height='auto';pd.style.minHeight='180px';pd.style.overflow='visible';
+    if(typeof _renderMath==='function') try{ _renderMath(pd); }catch(e){}
     return;
   }
   pd.style.overflow='';
@@ -12395,6 +12402,7 @@ function sel(i){
    +'<div class="d-acts"><button class="dbtn-learn'+(vfIsLearned(i)?' on':'')+'" onclick="vfToggleLearned('+i+')">'+(vfIsLearned(i)?'✓':'○')+' '+(en?'Learned':'Aprendida')+'</button><button class="dbtn-s" onclick="vfCopyLatex('+i+',this)">⎘ '+(en?'Copy LaTeX':'Copiar LaTeX')+'</button></div>';
   var fb=document.getElementById('fbox');
   if(fb&&typeof katex!=='undefined')try{katex.render(f.formula,fb,{displayMode:true,throwOnError:false,trust:true});}catch(e){fb.textContent=f.formula;}
+  if(typeof _renderMath==='function') try{ _renderMath(di); }catch(e){}
   if(f.viz)setTimeout(function(){doRender(i);},250);
   document.getElementById('vf-detail').scrollTop=0;
   setTimeout(function(){var a=document.querySelector('.item.on');if(a)a.scrollIntoView({block:'nearest',behavior:'smooth'});},30);
