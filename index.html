@@ -12213,6 +12213,9 @@ function lin(a,b,n){var r=[],s=(b-a)/(n-1);for(var i=0;i<n;i++)r.push(a+i*s);ret
    Solo para la curva de fondo f(x); NO para dominios de integración, tiempo o grillas. */
 function linX(a,b,n,uz){ var z=Math.max(1,uz||1); if(z<=1.001) return lin(a,b,n); var m=(a+b)/2,h=(b-a)/2*z; return lin(m-h,m+h,Math.round(n*Math.min(z,2.4))); }
 function _extX(v,uz){ return v*Math.max(1,uz||1); }
+/* linT: dominio de TIEMPO [0,T] para las EDO. Si el usuario aleja (uz>1) muestrea
+   también algo de t<0 y bastante t>T para que la curva llegue a los bordes. */
+function linT(T,n,uz){ var z=Math.max(1,uz||1); var c=T/2, h=T/2*z*1.18; return lin(c-h,c+h,Math.round(n*Math.min(z,2.4))); }
 var F=[
 /* ── LÍMITES ── */
 {tag:'lim',name:'lím sin(x)/x = 1',
@@ -12533,17 +12536,18 @@ viz:{type:'subtrig',
    var terms=['x','-x³/6','+x⁵/120','-x⁷/5040','+x⁹/362880','-x¹¹/39916800','+x¹³/6.2e9','-x¹⁵/1.3e12'];
    return 'sin(x) ≈ '+terms.slice(0,Math.max(1,Math.round(ps.n))).join(' ');},
   render:function(ps,cat,uz,anim){
-   var nf=Math.max(1,ps.n), ni=Math.floor(nf), fr=nf-ni, xs=linX(-8,8,500,uz);
-   var clip=anim?2.2:6;   /* al animar oculta la cola que da latigazos; al pausar muestra todo */
-   var ys=xs.map(function(x){
-     var s=0,k,p;
+   var nf=Math.max(1,ps.n), ni=Math.floor(nf), fr=nf-ni;
+   var xsin=linX(-8,8,500,uz);                 /* sin(x) sí se extiende al alejar */
+   var xtay=lin(-13,13,anim?360:760);          /* Taylor: dominio fijo (fuera de ±6 ya no aproxima) */
+   var clip=anim?2.4:6;
+   function tay(x){ var s=0,k,p;
      for(k=0;k<ni;k++){ p=2*k+1; s+=(k%2===0?1:-1)*Math.pow(x,p)/fact(p); }
      if(fr>1e-4 && ni<20){ p=2*ni+1; s+=(ni%2===0?1:-1)*Math.pow(x,p)/fact(p)*fr; }
-     return (Math.abs(s)>6 || Math.abs(s-Math.sin(x))>clip) ? null : s;
-   });
+     return s; }
+   var yt=xtay.map(function(x){ var s=tay(x); return (Math.abs(s)>6 || Math.abs(s-Math.sin(x))>clip) ? null : s; });
    return {data:[
-    {x:xs,y:xs.map(Math.sin),type:'scatter',mode:'lines',line:{color:cat,width:2.5},name:'sin(x)'},
-    {x:xs,y:ys,type:'scatter',mode:'lines',line:{color:'#FBBF24',width:2,dash:'dash'},name:'Taylor ('+Math.round(nf)+')',connectgaps:false},
+    {x:xsin,y:xsin.map(Math.sin),type:'scatter',mode:'lines',line:{color:cat,width:2.5},name:'sin(x)'},
+    {x:xtay,y:yt,type:'scatter',mode:'lines',line:{color:'#FBBF24',width:2,dash:'dash'},name:'Taylor ('+Math.round(nf)+')',connectgaps:false},
    ],xrange:[-8,8],yrange:[-2.5,2.5]};},
   ann:'Más términos = mejor aproximación. Con 5 términos converge bien en [−5, 5].'
  }
@@ -13055,17 +13059,17 @@ viz:{type:'tank',
 viz:{type:'lineal_ode',
   params:[{id:'P',l:'P (cte)',min:-2,max:2,step:.1,def:.5,u:''},{id:'Q',l:'Q (cte)',min:-2,max:2,step:.1,def:1,u:''},{id:'y0',l:'y(0)',min:-2,max:3,step:.1,def:.5,u:''}],
   live:function(ps){return 'μ(x)=e^('+ps.P.toFixed(1)+'x) | solución: y(x)='+ps.Q.toFixed(1)+'/'+ps.P.toFixed(1)+' + C·e^(-'+ps.P.toFixed(1)+'x) | y(0)='+ps.y0.toFixed(1);},
-  render:function(ps,cat){
-    var P=ps.P,Q=ps.Q,y0=ps.y0,xs=[];
-    for(var i=0;i<=500;i++)xs.push(i/100);
+  render:function(ps,cat,uz){
+    var P=ps.P,Q=ps.Q,y0=ps.y0;
+    var xs=linT(5,500,uz);
     var yss=P!==0?Q/P:0,Cv=y0-yss;
     var ys=xs.map(function(x){return Math.max(-8,Math.min(8,P!==0?yss+Cv*Math.exp(-P*x):y0+Q*x));});
     var mu=xs.map(function(x){return Math.min(6,Math.exp(P*x));});
     return{data:[
       {x:xs,y:mu,type:'scatter',mode:'lines',line:{color:'#a78bfa',width:1.5,dash:'dot'},name:'μ(x)=e^(Px)'},
       {x:xs,y:ys,type:'scatter',mode:'lines',line:{color:cat,width:2.5},name:'y(x)'},
-      {x:[0,5],y:[P!==0?yss:null,P!==0?yss:null],type:'scatter',mode:'lines',line:{color:'rgba(255,255,255,.2)',width:1.5,dash:'dot'},name:'equilibrio Q/P'},
-      {x:[0,5],y:[0,0],type:'scatter',mode:'lines',line:{color:'rgba(255,255,255,.08)',width:1},showlegend:false},
+      {x:[-99,99],y:[P!==0?yss:null,P!==0?yss:null],type:'scatter',mode:'lines',line:{color:'rgba(255,255,255,.2)',width:1.5,dash:'dot'},name:'equilibrio Q/P'},
+      {x:[-99,99],y:[0,0],type:'scatter',mode:'lines',line:{color:'rgba(255,255,255,.08)',width:1},showlegend:false},
     ],xrange:[0,5],yrange:[-3,4]};
   },
   ann:'El <strong style="color:#a78bfa">factor μ=e^(∫P dx)</strong> convierte el lado izquierdo en d(μy)/dx, una derivada exacta. Multiplicas ambos lados por μ e integras. Cambia P para ver cómo μ "amansa" la ecuación.'
@@ -13074,21 +13078,22 @@ viz:{type:'lineal_ode',
 {tag:'edo',name:'EDO de Bernoulli',formula:"y'+P(x)y=Q(x)y^n\\xrightarrow{v=y^{1-n}}v'+(1-n)Pv=(1-n)Q",desc:'La sustitución v=y^(1-n) la convierte en lineal.',nemo:"«Bernoulli: cambia de identidad con v=y^(1-n) y se vuelve lineal.»",
 viz:{type:'bernoulli',
   params:[{id:'n',l:'Exponente n',min:-1,max:4,step:.5,def:2,u:''},{id:'P',l:'P (cte)',min:-2,max:2,step:.1,def:.5,u:''},{id:'Q',l:'Q (cte)',min:.1,max:3,step:.1,def:1,u:''}],
+  anim:{param:'n',smooth:true,from:1.6,to:4},   /* n continuo, salta el rango degenerado n≈0,1 */
   live:function(ps){
     var n=ps.n,alp=1-n;
-    if(n===0||n===1)return 'n='+n+': ya es lineal (no necesita Bernoulli)';
+    if(Math.abs(alp)<.03)return 'n≈'+n.toFixed(1)+': ya es lineal (no necesita Bernoulli)';
     return 'v=y^'+(alp.toFixed(1))+"  | EDO transformada: v'+("+( alp*ps.P).toFixed(2)+')v='+( alp*ps.Q).toFixed(2)+'  [LINEAL]';
   },
-  render:function(ps,cat){
+  render:function(ps,cat,uz){
     var n=ps.n,P=ps.P,Q=ps.Q,alp=1-n;
-    var xs=[];for(var i=0;i<=400;i++)xs.push(i/100);
+    var xs=linT(4,400,uz);
     var vss=P!==0?Q/P:0,C0=1-vss,k=alp*P;
-    var vs=xs.map(function(x){return P!==0?vss+C0*Math.exp(-k*x):1+alp*Q*x;});
-    var ys=vs.map(function(v){var r=v;return (r>0&&isFinite(r)&&alp!==0)?Math.min(5,Math.max(-5,Math.pow(r,1/alp))):null;});
+    var vs=xs.map(function(x){return Math.max(-9,Math.min(12,P!==0?vss+C0*Math.exp(-k*x):1+alp*Q*x));});
+    var ys=vs.map(function(v){return (v>0&&isFinite(v)&&Math.abs(alp)>1e-3)?Math.min(5,Math.max(-5,Math.pow(v,1/alp))):null;});
     return{data:[
       {x:xs,y:ys,type:'scatter',mode:'lines',line:{color:cat,width:2.5},name:'y(x) no lineal',connectgaps:false},
       {x:xs,y:vs,type:'scatter',mode:'lines',line:{color:'#FBBF24',width:2,dash:'dash'},name:'v=y^'+(alp.toFixed(1))+' (lineal)'},
-      {x:[0,4],y:[0,0],type:'scatter',mode:'lines',line:{color:'rgba(255,255,255,.08)',width:1},showlegend:false},
+      {x:[-99,99],y:[0,0],type:'scatter',mode:'lines',line:{color:'rgba(255,255,255,.08)',width:1},showlegend:false},
     ],xrange:[0,4],yrange:[-0.5,4]};
   },
   ann:'La curva <strong>naranja</strong> es la solución no lineal. La <strong style="color:var(--warn)">amarilla</strong> es v=y^(1−n): satisface una EDO <em>lineal</em>. La sustitución "endireza" la ecuación. Cambia n para ver el efecto.'
@@ -13125,9 +13130,9 @@ viz:{type:'exact',
 viz:{type:'ode1',
   params:[{id:'m1',l:'Raíz m₁',min:-2,max:2,step:.1,def:-1,u:''},{id:'m2',l:'Raíz m₂',min:-2,max:2,step:.1,def:-2,u:''},{id:'C1',l:'C₁',min:-2,max:2,step:.1,def:1,u:''},{id:'C2',l:'C₂',min:-2,max:2,step:.1,def:.5,u:''}],
   live:function(ps){var beh=ps.m1<0&&ps.m2<0?'ESTABLE (decae a 0)':ps.m1>0&&ps.m2>0?'INESTABLE (crece ∞)':'SILLA (uno crece, uno decae)';return 'y='+ps.C1.toFixed(1)+'·e^('+ps.m1.toFixed(1)+'x)+'+ps.C2.toFixed(1)+'·e^('+ps.m2.toFixed(1)+'x) → '+beh;},
-  render:function(ps,cat){
-    var m1=ps.m1,m2=ps.m2,C1=ps.C1,C2=ps.C2,xs=[];
-    for(var i=0;i<=400;i++)xs.push(i/100);
+  render:function(ps,cat,uz){
+    var m1=ps.m1,m2=ps.m2,C1=ps.C1,C2=ps.C2;
+    var xs=linT(4,400,uz);
     var t1=xs.map(function(x){return Math.max(-8,Math.min(8,C1*Math.exp(m1*x)));});
     var t2=xs.map(function(x){return Math.max(-8,Math.min(8,C2*Math.exp(m2*x)));});
     var y=xs.map(function(x){return Math.max(-8,Math.min(8,C1*Math.exp(m1*x)+C2*Math.exp(m2*x)));});
@@ -13135,7 +13140,7 @@ viz:{type:'ode1',
       {x:xs,y:t1,type:'scatter',mode:'lines',line:{color:'#FBBF24',width:1.5,dash:'dash'},name:'C₁e^(m₁x)'},
       {x:xs,y:t2,type:'scatter',mode:'lines',line:{color:'#a78bfa',width:1.5,dash:'dot'},name:'C₂e^(m₂x)'},
       {x:xs,y:y,type:'scatter',mode:'lines',line:{color:cat,width:3},name:'y=C₁e^(m₁x)+C₂e^(m₂x)'},
-      {x:[0,4],y:[0,0],type:'scatter',mode:'lines',line:{color:'rgba(255,255,255,.1)',width:1},showlegend:false},
+      {x:[-99,99],y:[0,0],type:'scatter',mode:'lines',line:{color:'rgba(255,255,255,.1)',width:1},showlegend:false},
     ],xrange:[0,4],yrange:[-5,5]};
   },
   ann:'La solución <strong>naranja</strong> = suma de dos exponenciales independientes. <strong>m₁<0 y m₂<0</strong>: estable. <strong>Signos opuestos</strong>: silla. Mueve m₁ y m₂ para ver todos los comportamientos posibles.'
@@ -13145,9 +13150,9 @@ viz:{type:'ode1',
 viz:{type:'ode2',
   params:[{id:'m',l:'Raíz m',min:-2,max:1,step:.1,def:-.5,u:''},{id:'C1',l:'C₁',min:-2,max:2,step:.1,def:1,u:''},{id:'C2',l:'C₂',min:-2,max:2,step:.1,def:.5,u:''}],
   live:function(ps){var beh=ps.m<0?'ESTABLE (decae a 0)':ps.m>0?'INESTABLE (crece ∞)':'lineal cte+lineal';return 'y=e^('+ps.m.toFixed(1)+'x)['+ps.C1.toFixed(1)+'+'+ps.C2.toFixed(1)+'x] → '+beh;},
-  render:function(ps,cat){
-    var m=ps.m,C1=ps.C1,C2=ps.C2,xs=[];
-    for(var i=0;i<=500;i++)xs.push(i/100);
+  render:function(ps,cat,uz){
+    var m=ps.m,C1=ps.C1,C2=ps.C2;
+    var xs=linT(5,500,uz);
     var t1=xs.map(function(x){return Math.max(-8,Math.min(8,C1*Math.exp(m*x)));});
     var t2=xs.map(function(x){return Math.max(-8,Math.min(8,C2*x*Math.exp(m*x)));});
     var y=xs.map(function(x){return Math.max(-8,Math.min(8,(C1+C2*x)*Math.exp(m*x)));});
@@ -13155,7 +13160,7 @@ viz:{type:'ode2',
       {x:xs,y:t1,type:'scatter',mode:'lines',line:{color:'#FBBF24',width:1.5,dash:'dash'},name:'C₁e^(mx)'},
       {x:xs,y:t2,type:'scatter',mode:'lines',line:{color:'#a78bfa',width:1.5,dash:'dot'},name:'C₂xe^(mx) ← novedad'},
       {x:xs,y:y,type:'scatter',mode:'lines',line:{color:cat,width:3},name:'y=(C₁+C₂x)e^(mx)'},
-      {x:[0,5],y:[0,0],type:'scatter',mode:'lines',line:{color:'rgba(255,255,255,.1)',width:1},showlegend:false},
+      {x:[-99,99],y:[0,0],type:'scatter',mode:'lines',line:{color:'rgba(255,255,255,.1)',width:1},showlegend:false},
     ],xrange:[0,5],yrange:[-4,4]};
   },
   ann:'Cuando la raíz está <strong>repetida</strong>, la segunda solución es <strong style="color:#a78bfa">xe^(mx)</strong>. Sin el x, serían la misma función (dependientes). El x garantiza independencia lineal.'
@@ -13169,12 +13174,12 @@ viz:{type:'ode2',
   live:function(ps){
    var tipo=ps.A<-.01?'AMORTIGUADO (oscila y decrece)':ps.A>.01?'INESTABLE (crece sin control)':'OSCILACIÓN PURA';
    return tipo+'  y(π)='+( Math.exp(ps.A*Math.PI)*Math.cos(ps.B*Math.PI)).toFixed(4);},
-  render:function(ps,cat){
-   var A=ps.A,B=ps.B,xs=lin(0,8,500);
-   var ys=xs.map(function(x){return Math.exp(A*x)*Math.cos(B*x);});
-   var ep=xs.map(function(x){return Math.exp(A*x);});
-   var en=xs.map(function(x){return -Math.exp(A*x);});
-   var ymax=Math.min(4,Math.max.apply(null,ys.map(Math.abs)));
+  render:function(ps,cat,uz){
+   var A=ps.A,B=ps.B,xs=linT(8,500,uz);
+   var ys=xs.map(function(x){return Math.max(-30,Math.min(30,Math.exp(A*x)*Math.cos(B*x)));});
+   var ep=xs.map(function(x){return Math.min(30,Math.exp(A*x));});
+   var en=xs.map(function(x){return Math.max(-30,-Math.exp(A*x));});
+   var ymax=Math.min(4,Math.max.apply(null,xs.map(function(x){return x>=0?Math.abs(Math.exp(A*x)*Math.cos(B*x)):0;})));
    return {data:[
     {x:xs,y:ep,type:'scatter',mode:'lines',line:{color:'rgba(255,255,255,.1)',width:1,dash:'dot'},showlegend:false},
     {x:xs,y:en,type:'scatter',mode:'lines',line:{color:'rgba(255,255,255,.1)',width:1,dash:'dot'},showlegend:false},
@@ -13764,8 +13769,8 @@ function updateP(id,val,fIdx){
   doRender(fIdx);
 }
 /* ══ SPEED → factor de ciclo ══ */
-/* 0.85 = animaciones ~15% más lentas en todas las velocidades (pedido de Luis). */
-function getSpeedFactor(){var el=document.getElementById('speed-sel');var v=el?parseInt(el.value):50;return (50/v)*0.85;}
+/* 0.76 = animaciones ~24% más lentas en todas las velocidades (dos bajadas de Luis). */
+function getSpeedFactor(){var el=document.getElementById('speed-sel');var v=el?parseInt(el.value):50;return (50/v)*0.76;}
 
 function toggleAnim(fIdx){
   _anim=!_anim;
@@ -13774,6 +13779,15 @@ function toggleAnim(fIdx){
     if(_rafId){cancelAnimationFrame(_rafId);_rafId=null;}
     _animLastTS=null;
     if(btn){btn.innerHTML='<svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" style="vertical-align:-1px"><path d="M6 4l14 8-14 8V4z"/></svg> Animar';btn.classList.remove('playing');}
+    /* si venía de una anim "smooth" el slider quedó en un valor fraccionario feo
+       (p. ej. 6,2106) → redondéalo al step ahora que se detiene. */
+    if(window._animRawParam){
+      var _rp=window._animRawParam, _pel=document.querySelector('[data-param="'+_rp.id+'"]'), _nel=document.querySelector('[data-num="'+_rp.id+'"]');
+      if(_pel){ var _pp=(F[_sel]&&F[_sel].viz.params||[]).filter(function(x){return x.id===_rp.id;})[0];
+        var _st=_pp?_pp.step:1, _rv=Math.round(_rp.val/_st)*_st;
+        _pel.value=_rv; if(_nel)_nel.value=_rv;
+      }
+    }
     window._animRawParam=null;
     if(_sel>=0)doRender(_sel);   /* redibuja fino ahora que ya no anima */
     return;
@@ -18903,7 +18917,7 @@ window.__muMateriaInit = function(){
       var t3=0;
       (function loop(){
         requestAnimationFrame(loop);
-        var paused=!!el.__mu3dPaused, speed=(el.__mu3dSpeed||1)*0.85;
+        var paused=!!el.__mu3dPaused, speed=(el.__mu3dSpeed||1)*0.76;
         if(!paused){
           t3+=0.009*speed;
           if(mesh){mesh.rotation.y+=0.01*speed;mesh.position.y=Math.sin(t3*0.7)*0.07;}
