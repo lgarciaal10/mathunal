@@ -12430,6 +12430,7 @@ viz:{type:'ilate',
 {tag:'int',name:'Sust. trigonométrica',formula:'\\sqrt{a^2-u^2}\\to u=a\\sin\\theta\\quad\\sqrt{a^2+u^2}\\to u=a\\tan\\theta\\quad\\sqrt{u^2-a^2}\\to u=a\\sec\\theta',desc:'Elimina la raíz usando identidades pitagóricas.',nemo:"«a²−u² pide SENO, a²+u² pide TANGENTE, u²−a² pide SECANTE» — y la raíz se disfraza y desaparece.",
 viz:{type:'subtrig',
   params:[{id:'tp',l:'Tipo (1,2,3)',min:1,max:3,step:1,def:1,u:''},{id:'th',l:'Ángulo θ',min:1,max:88,step:1,def:35,u:'°'}],
+  anim:{param:'th',from:8,to:82},
   live:function(ps){
     var tp=Math.round(ps.tp),th=ps.th*Math.PI/180,a=1.8;
     var u=[a*Math.sin(th),a*Math.tan(th),a/Math.cos(th)][tp-1];
@@ -12524,6 +12525,7 @@ viz:{type:'subtrig',
  desc:'Una función como suma infinita de polinomios. a=0: Maclaurin.',nemo:"«Taylor toma infinitas fotos (derivadas) en un punto y las suma.»",
  viz:{type:'taylor',
   params:[{id:'n',l:'Términos n',min:1,max:8,step:1,def:2,u:''}],
+  anim:{ramp:true},
   live:function(ps){
    var terms=['x','-x³/6','+x⁵/120','-x⁷/5040','+x⁹/362880','-x¹¹/39916800','+x¹³/6.2e9','-x¹⁵/1.3e12'];
    return 'sin(x) ≈ '+terms.slice(0,Math.round(ps.n)).join(' ');},
@@ -12606,6 +12608,7 @@ viz:{type:'eigen',
  desc:'Apunta hacia el máximo crecimiento. Perpendicular a las curvas de nivel.',nemo:"«La brújula del montañista: siempre señala cuesta arriba.»",
  viz:{type:'gradient',
   params:[{id:'k',l:'Función',min:1,max:4,step:1,def:1,u:''}],
+  noAnim:true,
   live:function(ps){return ['x²+y²','x²−y²','sin(x)cos(y)','x²y'][Math.round(ps.k)-1]+' → ∇f = ('+(Math.round(ps.k)===1?'2x, 2y':Math.round(ps.k)===2?'2x, −2y':'ver gráfica')+')';},
   render:function(ps,cat){
    var k=Math.round(ps.k);
@@ -12630,6 +12633,7 @@ viz:{type:'eigen',
 {tag:'vec',name:'Integral de línea',formula:'\\int_C\\vec{F}\\cdot d\\vec{r}=\\int_a^b\\vec{F}(\\vec{r}(t))\\cdot\\vec{r}\'(t)\\,dt',desc:'Trabajo de un campo a lo largo de una curva. Si F conservativo, depende solo de extremos.',nemo:"«El peaje del camino: sumas lo que el campo te cobra en cada pedacito.»",
 viz:{type:'lineint',
   params:[{id:'F',l:'Campo F',min:1,max:3,step:1,def:1,u:''},{id:'C',l:'Curva C',min:1,max:3,step:1,def:1,u:''}],
+  noAnim:true,
   live:function(ps){
     var Ft=Math.round(ps.F),Ct=Math.round(ps.C);
     return ['F=(−y,x) rotacional','F=(x,y) radial','F=(1,sin x) mixto'][Ft-1]+' | C: '+['semicírculo','línea recta','parábola y=x²'][Ct-1];
@@ -12715,6 +12719,7 @@ viz:{type:'err',
  desc:'Divide el intervalo por la mitad en cada paso. Garantiza convergencia.',nemo:"«El método del corte: siempre parte por la mitad hasta atrapar la raíz.»",
  viz:{type:'bisec',
   params:[{id:'ni',l:'Paso',min:1,max:8,step:1,def:1,u:''}],
+  anim:{ramp:true},
   live:function(ps){
    var f=function(x){return x*x*x-x-2;},a=-1,b=3,ni=Math.round(ps.ni);
    for(var i=0;i<ni;i++){var m=(a+b)/2;if(f(a)*f(m)<0)b=m;else a=m;}
@@ -12735,6 +12740,7 @@ viz:{type:'err',
 {tag:'num',name:'Regla Falsa',formula:'x=x_a-\\dfrac{f(x_a)(x_b-x_a)}{f(x_b)-f(x_a)}',desc:'Usa la línea secante entre los extremos. Más eficiente que bisección.',nemo:"«En vez de cortar al medio, traza una línea entre los extremos y corta donde cruza cero.»",
 viz:{type:'falsa',
   params:[{id:'ni',l:'Iteración',min:1,max:7,step:1,def:1,u:''}],
+  anim:{ramp:true},
   live:function(ps){
     var f=function(x){return x*x*x-x-2;},a=-1,b=3,ni=Math.round(ps.ni);
     var af=-1,bf=3,xf=af;
@@ -12835,6 +12841,7 @@ viz:{type:'euler_step',
  desc:'Polinomio único de grado n que pasa por n+1 puntos. No requiere h constante.',nemo:"«A cada punto le construye su propio escudo que vale 1 en él y 0 en los demás.»",
  viz:{type:'lagrange',
   params:[{id:'n',l:'Nº puntos',min:2,max:6,step:1,def:3,u:''},{id:'xq',l:'Interpolar x',min:-0.5,max:4.5,step:.05,def:1.5,u:''}],
+  anim:{param:'xq',from:-0.3,to:4.3},
   live:function(ps){
    var n=Math.round(ps.n),base=[[0,1],[1,2],[2,.5],[3,1.8],[4,.2],[5,1.5]],pts=base.slice(0,n),xq=ps.xq;
    var yq=0;
@@ -13072,6 +13079,7 @@ viz:{type:'bernoulli',
 {tag:'edo',name:'EDO Exacta',formula:'M\\,dx+N\\,dy=0\\quad\\dfrac{\\partial M}{\\partial y}=\\dfrac{\\partial N}{\\partial x}',desc:'Si las derivadas cruzadas son iguales, existe F(x,y) tal que dF=0.',nemo:"«Exacta: si los parciales cruzados son iguales, hay función potencial F.»",
 viz:{type:'exact',
   params:[{id:'fn',l:'Función F(x,y)',min:1,max:4,step:1,def:1,u:''},{id:'C',l:'Constante C',min:-3,max:3,step:.25,def:1,u:''}],
+  anim:{param:'C',from:-2.75,to:2.75},
   live:function(ps){var fn=Math.round(ps.fn);var fns=['x²+y²=C (círculo)','x²−y²=C (hipérbola)','xy=C (hipérbola eq.)','x²+2y²=C (elipse)'];return 'F(x,y)='+fns[fn-1].split('=C')[0]+' = '+ps.C.toFixed(2)+' → esta curva ES la solución';},
   render:function(ps,cat){
     var fn=Math.round(ps.fn),C=ps.C,N=35,xs=[],ys=[];
@@ -13160,6 +13168,7 @@ viz:{type:'ode2',
 {tag:'edo',name:'Wronskiano',formula:'W=\\begin{vmatrix}y_1&y_2\\\\y_1\'&y_2\'\\end{vmatrix}=y_1y_2\'-y_2y_1\'',desc:'Si W≠0, las soluciones son linealmente independientes.',nemo:"«El Wronskiano prueba la independencia: W≠0 → las soluciones son genuinamente diferentes.»",
 viz:{type:'wronsk',
   params:[{id:'a',l:'Funciones',min:1,max:3,step:1,def:1,u:''}],
+  noAnim:true,
   live:function(ps){var a=Math.round(ps.a);return ['sin(x) y cos(x) → W≠0 (independientes)','sin(x) y 2sin(x) → W=0 (dependientes)','eˣ y xeˣ → W≠0 (independientes)'][a-1];},
   render:function(ps,cat){
     var a=Math.round(ps.a),xs=[];
@@ -13228,6 +13237,7 @@ viz:{type:'wronsk',
 {tag:'edo',name:'Coeficientes Indeterminados',formula:'y=y_c+y_p\\quad y_p\\text{ según la forma de }g(x)',desc:'Para EDOs no homogéneas. yp se adivina: eˣ→Aeˣ, senx→Asenx+Bcosx, xⁿ→polinomio.',nemo:"«El método del disfraz: yp se disfraza de g(x).»",
 viz:{type:'coefind',
   params:[{id:'tp',l:'g(x)',min:1,max:5,step:1,def:1,u:''}],
+  noAnim:true,
   live:function(ps){var tp=Math.round(ps.tp);var labs=['constante','exponencial e^(ax)','polinomio xⁿ','trig: sin/cos','x·e^(ax)'];return 'g(x)='+labs[tp-1]+' → buscar yp con la forma correspondiente';},
   render:function(ps,cat){
     var tp=Math.round(ps.tp);
@@ -13254,6 +13264,7 @@ viz:{type:'coefind',
 {tag:'edo',name:'Variación de Parámetros (Wronskiano)',formula:'y_p=u_1y_1+u_2y_2\\quad u_1\'=\\tfrac{W_1}{W},\\;u_2\'=\\tfrac{W_2}{W}',desc:'Para cuando los coeficientes indeterminados no aplican.',nemo:"«Variación de parámetros: C₁ y C₂ se convierten en funciones u₁(x) y u₂(x).»",
 viz:{type:'varpar',
   params:[{id:'fn',l:'g(x)',min:1,max:3,step:1,def:1,u:''},{id:'x0',l:'Ver en x',min:.5,max:4.5,step:.05,def:2,u:''}],
+  anim:{param:'x0',from:0.7,to:4.3},
   live:function(ps){
     var fn=Math.round(ps.fn),x=ps.x0;
     var gs=[Math.sin(x),Math.exp(x),x*x];var gl=['sin(x)','eˣ','x²'];
@@ -13792,15 +13803,26 @@ function _animFrame(ts){
   if(!p)return;
   var _lo=(ac.from!=null)?ac.from:p.min;
   var _hi=(ac.to!=null)?ac.to:p.max;
-  var period=3200;
+  /* Parámetros discretos con POCOS valores (nº de términos, iteraciones): ciclo
+     MÁS LENTO para que cada entero se pueda leer (~650ms/paso) en vez de parpadear.
+     Un ángulo entero de 1..88 NO cuenta como "coarse" → periodo normal. */
+  var _nSt = Math.max(1, Math.round(Math.abs(_hi-_lo)/(p.step||1)));
+  var _coarse = p.step>=1 && _nSt<=16;
+  var period = _coarse ? Math.min(9000, Math.max(3600, _nSt*750)) : 3200;
   var phase=(_animTime%period)/period;
-  /* Onda ida-y-vuelta 0→1→0. Antes era 0.5+0.5·sin: se "pausaba" mucho en los
-     extremos (velocidad → 0) y se sentía como lag al final del zoom. Ahora es
-     ~80% triángulo (velocidad casi constante) + 20% redondeo de las puntas para
-     que el cambio de sentido no dé un tirón. */
-  var _tri = phase<0.5 ? phase*2 : 2-phase*2;
-  var _se  = 0.5 - 0.5*Math.cos(_tri*Math.PI);
-  var e = _tri*0.8 + _se*0.2;
+  var e;
+  if(ac.ramp){
+    /* diente de sierra con pausa arriba: sube 0→1 en el 80% del ciclo y se
+       mantiene en 1 el resto. Para "construir" algo (términos de Taylor,
+       iteraciones que convergen) → una sola vuelta atrás por ciclo, no ping-pong. */
+    e = phase<0.8 ? phase/0.8 : 1;
+  } else {
+    /* onda ida-y-vuelta ~80% triángulo (velocidad casi constante) + 20% redondeo
+       de las puntas para que el cambio de sentido no dé un tirón. */
+    var _tri = phase<0.5 ? phase*2 : 2-phase*2;
+    var _se  = 0.5 - 0.5*Math.cos(_tri*Math.PI);
+    e = _tri*0.8 + _se*0.2;
+  }
   var val;
   if(ac.space==='inv' && _lo>0 && _hi>0){
     var _il=1/_lo, _ih=1/_hi;
@@ -13981,9 +14003,9 @@ function sel(i){
      +(sliders?'<div class="viz-controls">'+sliders+'</div>':'')
      +(_isStatic?''
       :(f.viz.type!=='3d'?'<div class="viz-actions">'
-      +(f.viz.params&&f.viz.params.length?'<button class="vbtn anim-btn" id="anim-btn" onclick="toggleAnim('+i+')"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" style="vertical-align:-1px"><path d="M6 4l14 8-14 8V4z"/></svg> '+(en?'Animate':'Animar')+'</button>':'')
+      +(f.viz.params&&f.viz.params.length&&!f.viz.noAnim?'<button class="vbtn anim-btn" id="anim-btn" onclick="toggleAnim('+i+')"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" style="vertical-align:-1px"><path d="M6 4l14 8-14 8V4z"/></svg> '+(en?'Animate':'Animar')+'</button>':'')
       +'<button class="vbtn" onclick="resetP('+i+')">↺ Reset</button>'
-      +'<div class="speed-wrap"><span class="speed-lbl">'+(en?'Speed:':'Vel:')+'</span><select class="speed-sel" id="speed-sel" onchange="if(_anim){cancelAnimationFrame(_rafId);_rafId=null;_animLastTS=null;_anim=false;toggleAnim('+i+');}"><option value="200">0.25×</option><option value="100">0.5×</option><option value="50" selected>1×</option><option value="33">1.5×</option><option value="25">2×</option></select></div>'
+      +((f.viz.params&&f.viz.params.length&&!f.viz.noAnim)?'<div class="speed-wrap"><span class="speed-lbl">'+(en?'Speed:':'Vel:')+'</span><select class="speed-sel" id="speed-sel" onchange="if(_anim){cancelAnimationFrame(_rafId);_rafId=null;_animLastTS=null;_anim=false;toggleAnim('+i+');}"><option value="200">0.25×</option><option value="100">0.5×</option><option value="50" selected>1×</option><option value="33">1.5×</option><option value="25">2×</option></select></div>':'')
      +'</div>':'<div class="viz-actions"><button class="vbtn" onclick="resetP('+i+')">↺ Reset</button></div>'))
      +((fxT(f,'ann'))?'<div class="viz-ann">'+fxT(f,'ann')+'</div>':'')
      +'</div></div>';
