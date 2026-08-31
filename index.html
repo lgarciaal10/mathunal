@@ -337,7 +337,22 @@ html[data-theme="gray"] nav.scrolled{
   border-radius:0;
   box-shadow:inset 0 1px 0 rgba(255,255,255,.14),0 1px 0 rgba(0,0,0,.35) !important;
 }
-#mu-app > nav:has(~ .vf-shell)::before{display:none}
+/* En Fórmulas el contador "57 fórmulas" vive abajo-izquierda: el badge de versión se le encima. */
+body:has(.vf-shell) #mu-version-badge{display:none}
+/* El contenido de Fórmulas hace scroll interno: nada pasa bajo el header, así que el
+   vidrio no tenía nada que refractar. Le damos su propio brillo y un pelo más de tinte. */
+#mu-app > nav:has(~ .vf-shell){
+  border-radius:0;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.14),0 1px 0 rgba(0,0,0,.35),0 6px 22px -10px rgba(0,0,0,.5) !important;
+  background:
+    linear-gradient(100deg,rgba(232,99,42,.11) 0%,transparent 40%,transparent 62%,rgba(78,128,220,.09) 100%),
+    linear-gradient(180deg,rgba(255,255,255,.12),rgba(255,255,255,.02) 44%,rgba(0,0,0,.10)),
+    rgba(8,13,32,.34);
+}
+#mu-app > nav:has(~ .vf-shell)::before{border-radius:0}
+html[data-theme="black"] #mu-app > nav:has(~ .vf-shell){background:linear-gradient(100deg,rgba(232,99,42,.08),transparent 45%),linear-gradient(180deg,rgba(255,255,255,.07),rgba(0,0,0,.12)),rgba(0,0,0,.42)}
+html[data-theme="gray"] #mu-app > nav:has(~ .vf-shell){background:linear-gradient(100deg,rgba(232,99,42,.08),transparent 45%),linear-gradient(180deg,rgba(255,255,255,.07),rgba(0,0,0,.10)),rgba(24,24,27,.44)}
+html[data-theme="light"] #mu-app > nav:has(~ .vf-shell){background:linear-gradient(100deg,rgba(232,99,42,.07),transparent 45%),linear-gradient(180deg,rgba(255,255,255,.75),rgba(255,255,255,.5)),rgba(244,246,252,.6)}
 .logo{display:flex;align-items:center;gap:.65rem;flex-shrink:0;text-decoration:none}
 .logo-ico{
   background:transparent;box-shadow:none;border-radius:0;
@@ -582,9 +597,9 @@ html[data-theme="light"] .settings-btn:hover{background:rgba(255,255,255,.8)}
 .wrap{max-width:1200px;margin:0 auto}
 .section-pad{padding:4.5rem 2rem}
 @media(max-width:760px){.section-pad{padding:3.5rem 1.5rem}}
-.sec-split{display:flex;align-items:flex-start;justify-content:space-between;gap:2.5rem;margin-bottom:1.5rem}
+.sec-split{display:flex;align-items:center;justify-content:space-between;gap:2.5rem;margin-bottom:1.5rem}
 .sec-split-l{flex-shrink:0;max-width:440px}
-.sec-split-r{font-size:1rem;color:var(--t2);line-height:1.75;max-width:400px;padding-top:.4rem}
+.sec-split-r{font-size:1.02rem;color:var(--t2);line-height:1.75;max-width:480px}
 @media(max-width:900px){.sec-split{flex-direction:column;gap:1rem}.sec-split-l,.sec-split-r{max-width:100%}}
 .sec-label{display:inline-block;font-family:'Space Grotesk',sans-serif;font-size:.73rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--acc);margin-bottom:.7rem}
 h2{font-family:'Literata',Georgia,serif;font-weight:900;font-size:clamp(1.9rem,4vw,2.8rem);line-height:1.1;letter-spacing:-.6px;color:var(--t1);margin-bottom:1.1rem;text-wrap:balance}
@@ -991,12 +1006,12 @@ html[data-theme="light"] .ht-bot{
 .calc-wrap{display:grid;grid-template-columns:1fr 1.1fr;gap:3rem;align-items:start}
 @media(max-width:760px){.calc-wrap{grid-template-columns:1fr;gap:1.5rem}}
 .calc-body{background:var(--card);border:2px solid var(--br2);border-radius:var(--radius);padding:1.5rem;display:none;box-shadow:var(--shadow-card)}.calc-body.on{display:block}
-.calc-hdr{display:flex;align-items:center;gap:.6rem;margin-bottom:.6rem;padding-bottom:.5rem;border-bottom:1.5px solid var(--br)}
+.calc-hdr{display:flex;align-items:center;gap:.6rem;margin-bottom:.85rem;padding-bottom:.55rem;border-bottom:1.5px solid var(--br)}
 .calc-tabs{display:flex;gap:.4rem;margin-bottom:1.4rem}
 .calc-tab{padding:.4rem 1rem;min-width:2.7rem;text-align:center;border-radius:8px;border:2px solid var(--br);background:var(--lay1);font-size:1rem;font-weight:700;color:var(--t2);cursor:pointer;transition:all .18s;font-family:inherit}
 .calc-tab.on{background:var(--adim);border-color:var(--bra);color:var(--acc)}
 .calc-lbl,.calc-label{font-family:IBM Plex Mono,monospace;font-size:.72rem;color:var(--t3);text-transform:uppercase;letter-spacing:.06em;display:block;margin-bottom:.3rem}
-.calc-row{display:flex;align-items:center;gap:.6rem;margin-bottom:.6rem}
+.calc-row{display:flex;align-items:center;gap:.6rem;margin-bottom:.8rem}
 .calc-l{font-size:1.02rem;font-weight:600;color:var(--t1);min-width:80px;flex-shrink:0}.calc-hdr-cell{flex:1;font-size:.72rem;font-weight:700;color:var(--t3);font-family:'IBM Plex Mono',monospace;text-transform:uppercase;letter-spacing:.06em}.calc-hdr-lbl{min-width:80px;flex-shrink:0;font-size:.72rem;font-weight:700;color:var(--t3);font-family:'IBM Plex Mono',monospace;text-transform:uppercase;letter-spacing:.06em}
 .calc-inp,.calc-in{flex:1;background:var(--bg2);border:2px solid var(--br);border-radius:8px;padding:.5rem .8rem;color:var(--t1);font-size:1rem;outline:none;transition:border-color .18s;font-family:inherit}
 .calc-inp:focus,.calc-in:focus{border-color:var(--bra)}
@@ -2741,8 +2756,9 @@ body{font-family:'Space Grotesk',system-ui,sans-serif;background:var(--bg);color
 .mu-sp-ctr{font-family:IBM Plex Mono,monospace;font-size:.72rem;color:var(--t3);margin-bottom:.2rem}
 .mu-sp-cat{font-family:IBM Plex Mono,monospace;font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;margin-bottom:.28rem}
 .mu-sp-name{font-family:'Literata',Georgia,serif;font-style:italic;font-size:1.4rem;font-weight:700;color:var(--t1);line-height:1.2}
-.mu-sp-fbox{padding:1.2rem 1.5rem;min-height:70px;display:flex;align-items:center;justify-content:center;border-bottom:1.5px solid var(--br)}
-.mu-sp-fbox .katex-display{margin:0;font-size:1.22em}
+.mu-sp-fbox{padding:1.2rem 1.5rem;min-height:70px;display:flex;align-items:center;justify-content:center;border-bottom:1.5px solid var(--br);overflow-x:auto;overflow-y:hidden}
+.mu-sp-fbox .katex-display{margin:0;font-size:1.12em;max-width:100%}
+#mu-spfk{max-width:100%;overflow-x:auto;overflow-y:hidden}
 .mu-sp-nemo{padding:.5rem 1.2rem;font-size:.79rem;color:var(--pur);font-style:italic;background:rgba(167,139,250,.06);display:none;border-bottom:1.5px solid var(--br)}
 .mu-sp-nemo.show{display:block}
 .mu-sp-hint{padding:.38rem 1.2rem;font-size:.74rem;color:var(--t3);font-family:IBM Plex Mono,monospace}
@@ -5684,6 +5700,11 @@ if(!window.__muModalEsc){window.__muModalEsc=true;
           <span style="font-family:IBM Plex Mono,monospace;font-size:.75rem;letter-spacing:.03em;line-height:1.35;display:inline-flex;align-items:center;padding:.42rem .8rem;border-radius:7px;color:var(--t2);background:var(--lay2);border:1px solid var(--br)">Escala 0–5</span>
           <span style="font-family:IBM Plex Mono,monospace;font-size:.75rem;letter-spacing:.03em;line-height:1.35;display:inline-flex;align-items:center;padding:.42rem .8rem;border-radius:7px;color:var(--grn);background:rgba(34,197,94,.08);border:1px solid rgba(34,197,94,.2)">Pasa con 3.0 (UNAL)</span>
         </div>
+        <div class="calc-example" id="calc-example" style="margin-top:1.6rem;padding:1.05rem 1.15rem;background:var(--lay2);border:1px solid var(--br);border-radius:11px">
+          <span style="font-family:IBM Plex Mono,monospace;font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--t3)">Ejemplo</span>
+          <p style="margin:.4rem 0 0;font-size:.86rem;color:var(--t2);line-height:1.65">Llevas <strong style="color:var(--t1)">3.5</strong> en el 1° corte (pesa 40%) y el 2° pesa 60%. Necesitas <strong style="color:var(--acc)">2.67</strong> en el 2° corte para pasar con 3.0.</p>
+        </div>
+        <p class="calc-note" id="calc-note" style="margin-top:.9rem;font-size:.78rem;color:var(--t3);line-height:1.6">¿No sabes los pesos? Están en el <strong style="color:var(--t2);font-weight:700">programa del curso</strong> de cada materia.</p>
       </div>
       <div class="calc-widget">
         <span class="calc-lbl" id="calc-tabs-lbl">¿Cuántos cortes (parciales) tiene la materia?</span>
@@ -5692,7 +5713,7 @@ if(!window.__muModalEsc){window.__muModalEsc=true;
           <button class="calc-tab" onclick="switchCalcTab(1)">3 cortes</button>
           <button class="calc-tab" onclick="switchCalcTab(2)">4 cortes</button>
         </div>
-        <p class="calc-hint" id="calc-hint" style="margin:.7rem 0 0;font-size:.78rem;color:var(--t2);line-height:1.6">Los pesos deben sumar <strong style="color:var(--t1)">100%</strong>. La casilla <span style="color:var(--acc);font-weight:700">resaltada</span> es el corte que falta — llena los que ya tienes.</p>
+        <p class="calc-hint" id="calc-hint" style="margin:.9rem 0 1.15rem;font-size:.78rem;color:var(--t2);line-height:1.6">Los pesos deben sumar <strong style="color:var(--t1)">100%</strong>. La casilla <span style="color:var(--acc);font-weight:700">resaltada</span> es el corte que falta — llena los que ya tienes.</p>
         <!-- 2 CORTES -->
         <div class="calc-body on" id="cb0">
           <div class="calc-hdr"><span class="calc-hdr-lbl">Corte</span><span class="calc-hdr-cell">Peso (%)</span><span class="calc-hdr-cell">Nota (0-5)</span></div>
@@ -5803,7 +5824,7 @@ if(!window.__muModalEsc){window.__muModalEsc=true;
       </div>
       <div class="sec-split-r">Más de 2.000 estudiantes activos. Parciales compartidos, dudas resueltas y actualizaciones de material cada semana.</div>
     </div>
-    <div class="fi" style="max-width:460px;margin:1.6rem auto 0">
+    <div class="comm-grid fi">
       <a class="cc cc-wa" href="https://chat.whatsapp.com/JHQLxlqJ8kpCHDWEx3UBAA" target="_blank" rel="noopener">
         <div class="cc-platform-strip"></div>
         <div class="cc-ico-wrap"><span class="cc-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg></span></div>
@@ -5811,6 +5832,15 @@ if(!window.__muModalEsc){window.__muModalEsc=true;
           <h4>Grupo de WhatsApp</h4>
           <p>Dudas rápidas, avisos de nuevos materiales y comunidad activa de estudiantes.</p>
           <span class="cc-link">Unirse al grupo →</span>
+        </div>
+      </a>
+      <a class="cc cc-ig" href="https://www.instagram.com/math.unal/" target="_blank" rel="noopener">
+        <div class="cc-platform-strip"></div>
+        <div class="cc-ico-wrap"><span class="cc-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5.5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.6" cy="6.4" r="1.1" fill="currentColor" stroke="none"/></svg></span></div>
+        <div class="cc-body">
+          <h4>@math.unal</h4>
+          <p>Tips de estudio, noticias de la UNAL y avisos cuando sube material nuevo.</p>
+          <span class="cc-link">Seguir en Instagram →</span>
         </div>
       </a>
     </div>
@@ -6252,6 +6282,33 @@ function cpReveal(path,idx){
   ['cp-sin','cp-con','cp-vs'].forEach(function(id){
     var el=document.getElementById(id); if(el) spyIO.observe(el);
   });
+
+  /* Scroll un poco más lento SOLO mientras se recorre el Ciclo del Parcial,
+     para que dé tiempo de leer cada paso. Solo mouse de rueda en escritorio
+     (los deltas grandes son de rueda; el trackpad manda muchos chiquitos y se
+     deja intacto). Kill switch: window.MU_CP_SLOWSCROLL = false. */
+  (function(){
+    if(window.MU_CP_SLOWSCROLL===false) return;
+    if(!desktop) return;
+    try{
+      if(matchMedia('(prefers-reduced-motion:reduce)').matches) return;
+      if(matchMedia('(pointer:coarse)').matches) return;
+    }catch(e){}
+    var sec=document.getElementById('ciclo-parcial'); if(!sec) return;
+    var inView=false;
+    new IntersectionObserver(function(es){
+      es.forEach(function(en){ inView=en.isIntersecting; });
+    },{rootMargin:'-15% 0px -15% 0px'}).observe(sec);
+    var FACTOR=0.68;
+    window.addEventListener('wheel', function(e){
+      if(!inView || e.ctrlKey || e.defaultPrevented) return;
+      var d=e.deltaY;
+      if(Math.abs(d)<40) return;            /* trackpad / gesto fino: intacto */
+      if(e.deltaMode!==0) d*=16;            /* líneas → px aprox */
+      e.preventDefault();
+      window.scrollBy(0, d*FACTOR);
+    }, {passive:false});
+  })();
 })();
 
 /* ── Timeline expandible ── */
@@ -15022,6 +15079,9 @@ var LANG_ES={
   "calc-tab1":"2 cortes","calc-tab2":"3 cortes","calc-tab3":"4 cortes",
   "calc-tabs-lbl":"¿Cuántos cortes (parciales) tiene la materia?",
   "calc-hint":"Los pesos deben sumar 100%. La casilla resaltada es el corte que falta — llena los que ya tienes.",
+  "calc-ex-lbl":"Ejemplo",
+  "calc-ex":"Llevas 3.5 en el 1° corte (pesa 40%) y el 2° pesa 60%. Necesitas 2.67 en el 2° corte para pasar con 3.0.",
+  "calc-note":"¿No sabes los pesos? Están en el programa del curso de cada materia.",
   "calc-pill1":"2, 3 o 4 cortes","calc-pill2":"Escala 0–5","calc-pill3":"Pasa con 3.0 (UNAL)",
   /* Comunidad */
   "comm-label":"Comunidad","comm-h":"No estudies solo,","comm-hi":"únete",
@@ -15149,6 +15209,9 @@ var LANG_ES={
   "calc-tab1":"2 cortes","calc-tab2":"3 cortes","calc-tab3":"4 cortes",
   "calc-tabs-lbl":"¿Cuántos cortes (parciales) tiene la materia?",
   "calc-hint":"Los pesos deben sumar 100%. La casilla resaltada es el corte que falta — llena los que ya tienes.",
+  "calc-ex-lbl":"Ejemplo",
+  "calc-ex":"Llevas 3.5 en el 1° corte (pesa 40%) y el 2° pesa 60%. Necesitas 2.67 en el 2° corte para pasar con 3.0.",
+  "calc-note":"¿No sabes los pesos? Están en el programa del curso de cada materia.",
   "calc-pill1":"2, 3 o 4 cortes","calc-pill2":"Escala 0–5","calc-pill3":"Pasa con 3.0 (UNAL)",
   "calc-hdr-corte":"Corte","calc-hdr-peso":"Peso (%)","calc-hdr-nota":"Nota (0-5)",
   "calc-corte1":"1° corte","calc-corte2":"2° corte","calc-corte3":"3° corte","calc-corte4":"4° corte",
@@ -15294,6 +15357,9 @@ var LANG_EN={
   "calc-tab1":"2 periods","calc-tab2":"3 periods","calc-tab3":"4 periods",
   "calc-tabs-lbl":"How many grading periods does the course have?",
   "calc-hint":"Weights must add up to 100%. The highlighted box is the pending period — fill in the ones you already have.",
+  "calc-ex-lbl":"Example",
+  "calc-ex":"You have 3.5 in period 1 (worth 40%) and period 2 is worth 60%. You need 2.67 in period 2 to pass with 3.0.",
+  "calc-note":"Don't know the weights? They're in each course's syllabus.",
   "calc-pill1":"2, 3 or 4 periods","calc-pill2":"Scale 0–5","calc-pill3":"Pass with 3.0 (UNAL)",
   /* Comunidad */
   "comm-label":"Community","comm-h":"Don't study alone,","comm-hi":"join us",
@@ -15421,6 +15487,9 @@ var LANG_EN={
   "calc-tab1":"2 periods","calc-tab2":"3 periods","calc-tab3":"4 periods",
   "calc-tabs-lbl":"How many grading periods does the course have?",
   "calc-hint":"Weights must add up to 100%. The highlighted box is the pending period — fill in the ones you already have.",
+  "calc-ex-lbl":"Example",
+  "calc-ex":"You have 3.5 in period 1 (worth 40%) and period 2 is worth 60%. You need 2.67 in period 2 to pass with 3.0.",
+  "calc-note":"Don't know the weights? They're in each course's syllabus.",
   "calc-pill1":"2, 3 or 4 periods","calc-pill2":"Scale 0–5","calc-pill3":"Pass with 3.0 (UNAL)",
   "calc-hdr-corte":"Period","calc-hdr-peso":"Weight (%)","calc-hdr-nota":"Grade (0-5)",
   "calc-corte1":"1st period","calc-corte2":"2nd period","calc-corte3":"3rd period","calc-corte4":"4th period",
@@ -15575,11 +15644,14 @@ function setLang(lang){
     var map = {
       '#materias':L['nav-materias']||L['mat-h'], '#simulacros':L['sim-f-all']||'Simulacros',
       '#formulas':L['nav-formulas'],
+      '#juegos':en?'Games':'Juegos', '#diagnostico':en?'Diagnostic':'Diagnóstico',
       '#aportar':L['nav-aportar'], '#promedio':L['nav-promedio'],
       '#comunidad':L['nav-comunidad']
     };
     if(map[href]) a.textContent = map[href];
   });
+  var navMoreBtn=document.getElementById('nav-more-btn');
+  if(navMoreBtn&&navMoreBtn.firstChild&&navMoreBtn.firstChild.nodeType===3) navMoreBtn.firstChild.textContent=(en?'More ':'Más ');
   /* Etiquetas de tema — sin spanglish. ES: Azul/Negro/Gris/Claro · EN: Dark Blue/Black/Gray/Light */
   (function(){
     var THL = en ? {dark:'Dark Blue',black:'Black',gray:'Gray',light:'Light'}
@@ -15592,6 +15664,12 @@ function setLang(lang){
       b.setAttribute('title', THL[m[1]]);
     });
   })();
+  /* Etiquetas "Idioma" / "Tema" del panel de ajustes (todas las plantillas) */
+  document.querySelectorAll('.sd-label, .mob-theme-row > span').forEach(function(el){
+    var t=el.textContent.trim().toLowerCase();
+    if(t==='idioma'||t==='language') el.textContent = en?'Language':'Idioma';
+    else if(t==='tema'||t==='theme') el.textContent = en?'Theme':'Tema';
+  });
   /* Mobile menu */
   document.querySelectorAll('#mob a').forEach(function(a){
     var href = a.getAttribute('href')||'';
@@ -15861,6 +15939,9 @@ function setLang(lang){
   calcPills.forEach(function(el,i){ if(calcPillKeys[i]&&L[calcPillKeys[i]]) el.textContent=L[calcPillKeys[i]]; });
   var ctl=document.getElementById('calc-tabs-lbl'); if(ctl&&L['calc-tabs-lbl']) ctl.textContent=L['calc-tabs-lbl'];
   var chint=document.getElementById('calc-hint'); if(chint&&L['calc-hint']) chint.textContent=L['calc-hint'];
+  var cexB=document.querySelector('#calc-example span'); if(cexB&&L['calc-ex-lbl']) cexB.textContent=L['calc-ex-lbl'];
+  var cexP=document.querySelector('#calc-example p'); if(cexP&&L['calc-ex']) cexP.textContent=L['calc-ex'];
+  var cnote=document.getElementById('calc-note'); if(cnote&&L['calc-note']) cnote.innerHTML=L['calc-note'].replace(/programa del curso|course's syllabus/,'<strong style="color:var(--t2);font-weight:700">$&</strong>');
   var calcTabs=document.querySelectorAll('#calculadora .calc-tab'); var calcTabKeys=['calc-tab1','calc-tab2','calc-tab3'];
   calcTabs.forEach(function(el,i){ if(calcTabKeys[i]&&L[calcTabKeys[i]]) el.textContent=L[calcTabKeys[i]]; });
   document.querySelectorAll('#calculadora .calc-hdr-lbl').forEach(function(el){ if(L['calc-hdr-corte']) el.textContent=L['calc-hdr-corte']; });
@@ -15881,7 +15962,7 @@ function setLang(lang){
   setText('#comunidad .sec-label','comm-lbl');
   setHTML('#comunidad h2','comm-h'); setHTML('#comunidad .sec-split-r','comm-p');
   var ccCards=document.querySelectorAll('#comunidad .cc');
-  var ccKeys=[['comm-wa-t','comm-wa-d','comm-wa-l'],['comm-tg-t','comm-tg-d','comm-tg-l'],['comm-dc-t','comm-dc-d','comm-dc-l'],['comm-ig-t','comm-ig-d','comm-ig-l']];
+  var ccKeys=[['comm-wa-t','comm-wa-d','comm-wa-l'],['comm-ig-t','comm-ig-d','comm-ig-l']];
   ccCards.forEach(function(el,i){ if(!ccKeys[i])return;
     var h4=el.querySelector('h4'),p=el.querySelector('p'),link=el.querySelector('.cc-link'),soon=el.querySelector('.cc-soon-badge');
     if(h4&&L[ccKeys[i][0]])h4.textContent=L[ccKeys[i][0]]; if(p&&L[ccKeys[i][1]])p.textContent=L[ccKeys[i][1]];
