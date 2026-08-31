@@ -12525,16 +12525,25 @@ viz:{type:'subtrig',
  desc:'Una función como suma infinita de polinomios. a=0: Maclaurin.',nemo:"«Taylor toma infinitas fotos (derivadas) en un punto y las suma.»",
  viz:{type:'taylor',
   params:[{id:'n',l:'Términos n',min:1,max:8,step:1,def:2,u:''}],
-  anim:{ramp:true},
+  /* smooth: n se anima como valor FRACCIONARIO — el término k+1 se desvanece de
+     0 a peso completo según la parte decimal → la curva se deforma continua en
+     vez de saltar entre polinomios enteros. */
+  anim:{param:'n',smooth:true},
   live:function(ps){
    var terms=['x','-x³/6','+x⁵/120','-x⁷/5040','+x⁹/362880','-x¹¹/39916800','+x¹³/6.2e9','-x¹⁵/1.3e12'];
-   return 'sin(x) ≈ '+terms.slice(0,Math.round(ps.n)).join(' ');},
-  render:function(ps,cat,uz){
-   var n=Math.round(ps.n),xs=linX(-8,8,500,uz);
-   var ys=xs.map(function(x){var s=0;for(var k=0;k<n;k++){var p=2*k+1;s+=(k%2===0?1:-1)*Math.pow(x,p)/fact(p);}return Math.abs(s)>6?null:s;});
+   return 'sin(x) ≈ '+terms.slice(0,Math.max(1,Math.round(ps.n))).join(' ');},
+  render:function(ps,cat,uz,anim){
+   var nf=Math.max(1,ps.n), ni=Math.floor(nf), fr=nf-ni, xs=linX(-8,8,500,uz);
+   var clip=anim?2.2:6;   /* al animar oculta la cola que da latigazos; al pausar muestra todo */
+   var ys=xs.map(function(x){
+     var s=0,k,p;
+     for(k=0;k<ni;k++){ p=2*k+1; s+=(k%2===0?1:-1)*Math.pow(x,p)/fact(p); }
+     if(fr>1e-4 && ni<20){ p=2*ni+1; s+=(ni%2===0?1:-1)*Math.pow(x,p)/fact(p)*fr; }
+     return (Math.abs(s)>6 || Math.abs(s-Math.sin(x))>clip) ? null : s;
+   });
    return {data:[
     {x:xs,y:xs.map(Math.sin),type:'scatter',mode:'lines',line:{color:cat,width:2.5},name:'sin(x)'},
-    {x:xs,y:ys,type:'scatter',mode:'lines',line:{color:'#FBBF24',width:2,dash:'dash'},name:'Taylor ('+n+')',connectgaps:false},
+    {x:xs,y:ys,type:'scatter',mode:'lines',line:{color:'#FBBF24',width:2,dash:'dash'},name:'Taylor ('+Math.round(nf)+')',connectgaps:false},
    ],xrange:[-8,8],yrange:[-2.5,2.5]};},
   ann:'Más términos = mejor aproximación. Con 5 términos converge bien en [−5, 5].'
  }
@@ -12719,14 +12728,19 @@ viz:{type:'err',
  desc:'Divide el intervalo por la mitad en cada paso. Garantiza convergencia.',nemo:"«El método del corte: siempre parte por la mitad hasta atrapar la raíz.»",
  viz:{type:'bisec',
   params:[{id:'ni',l:'Paso',min:1,max:8,step:1,def:1,u:''}],
-  anim:{ramp:true},
+  /* smooth: "Paso" se anima fraccionario → el intervalo se DESLIZA continuo hacia
+     la raíz (interpola entre el paso n y n+1) en vez de saltar. */
+  anim:{param:'ni',smooth:true},
   live:function(ps){
    var f=function(x){return x*x*x-x-2;},a=-1,b=3,ni=Math.round(ps.ni);
    for(var i=0;i<ni;i++){var m=(a+b)/2;if(f(a)*f(m)<0)b=m;else a=m;}
    var m=(a+b)/2;return 'Paso '+ni+': ['+a.toFixed(4)+', '+b.toFixed(4)+']  xmedio='+m.toFixed(6)+'  f='+f(m).toFixed(6);},
   render:function(ps,cat,uz){
-   var f=function(x){return x*x*x-x-2;},a=-1,b=3,ni=Math.round(ps.ni);
-   for(var i=0;i<ni;i++){var m=(a+b)/2;if(f(a)*f(m)<0)b=m;else a=m;}
+   var f=function(x){return x*x*x-x-2;};
+   function bi(st){ var a=-1,b=3; for(var i=0;i<st;i++){var m=(a+b)/2;if(f(a)*f(m)<0)b=m;else a=m;} return [a,b]; }
+   var nf=Math.max(0,ps.ni), n0=Math.floor(nf), fr=nf-n0;
+   var I0=bi(n0), I1=bi(n0+1);
+   var a=I0[0]+(I1[0]-I0[0])*fr, b=I0[1]+(I1[1]-I0[1])*fr;
    var xs=linX(-1,3,400,uz);
    return {data:[
     {x:[a,a,b,b,a],y:[-4,6,6,-4,-4],type:'scatter',fill:'toself',fillcolor:'rgba(232,121,249,.07)',line:{color:'rgba(232,121,249,.3)',width:1},name:'Intervalo'},
@@ -12740,11 +12754,12 @@ viz:{type:'err',
 {tag:'num',name:'Regla Falsa',formula:'x=x_a-\\dfrac{f(x_a)(x_b-x_a)}{f(x_b)-f(x_a)}',desc:'Usa la línea secante entre los extremos. Más eficiente que bisección.',nemo:"«En vez de cortar al medio, traza una línea entre los extremos y corta donde cruza cero.»",
 viz:{type:'falsa',
   params:[{id:'ni',l:'Iteración',min:1,max:7,step:1,def:1,u:''}],
-  anim:{ramp:true},
+  /* smooth: la iteración se anima fraccionaria → la secante y el intervalo de
+     bisección SE DESLIZAN continuos hacia la raíz (interpola entre paso n y n+1). */
+  anim:{param:'ni',smooth:true},
   live:function(ps){
-    var f=function(x){return x*x*x-x-2;},a=-1,b=3,ni=Math.round(ps.ni);
-    var af=-1,bf=3,xf=af;
-    var ab=-1,bb=3;
+    var f=function(x){return x*x*x-x-2;},ni=Math.round(ps.ni);
+    var af=-1,bf=3,xf=af,ab=-1,bb=3;
     for(var i=0;i<ni;i++){
       xf=af-f(af)*(bf-af)/(f(bf)-f(af));
       if(f(af)*f(xf)<0)bf=xf;else af=xf;
@@ -12754,26 +12769,29 @@ viz:{type:'falsa',
     return 'Iter '+ni+' | Falsa: x='+xf.toFixed(6)+' f='+f(xf).toFixed(6)+' | Bisec: x='+((ab+bb)/2).toFixed(6);
   },
   render:function(ps,cat,uz){
-    var f=function(x){return x*x*x-x-2;},ni=Math.round(ps.ni);
+    var f=function(x){return x*x*x-x-2;};
+    function run(st){ var af=-1,bf=3,ab=-1,bb=3;
+      for(var i=0;i<st;i++){
+        var xf=af-f(af)*(bf-af)/(f(bf)-f(af));
+        if(f(af)*f(xf)<0)bf=xf;else af=xf;
+        var xb=(ab+bb)/2; if(f(ab)*f(xb)<0)bb=xb;else ab=xb;
+      }
+      return {af:af,bf:bf,ab:ab,bb:bb};
+    }
+    var nf=Math.max(0,ps.ni), n0=Math.floor(nf), fr=nf-n0;
+    var S0=run(n0), S1=run(n0+1), L=function(k){return S0[k]+(S1[k]-S0[k])*fr;};
+    var af=L('af'), bf=L('bf'), ab=L('ab'), bb=L('bb');
     var xs=linX(-1,3,400,uz);
-    var af=-1,bf=3,ab=-1,bb=3;
-    var trc=[
+    var xfl=af-f(af)*(bf-af)/(f(bf)-f(af)), mb=(ab+bb)/2;
+    return{data:[
       {x:xs,y:xs.map(f),type:'scatter',mode:'lines',line:{color:cat,width:2},name:'f(x)=x³−x−2'},
       {x:[-99,99],y:[0,0],type:'scatter',mode:'lines',line:{color:'rgba(255,255,255,.12)',width:1},showlegend:false},
       {x:[1.5214],y:[0],type:'scatter',mode:'markers',marker:{color:cat,size:10,symbol:'star',opacity:.7},name:'raíz≈1.5214'},
-    ];
-    for(var i=0;i<ni;i++){
-      var xf=af-f(af)*(bf-af)/(f(bf)-f(af));
-      if(i===ni-1)trc.push({x:[af,bf],y:[f(af),f(bf)],type:'scatter',mode:'lines',line:{color:'#a78bfa',width:2,dash:'dash'},name:'secante (Falsa)'});
-      if(f(af)*f(xf)<0)bf=xf;else af=xf;
-      var xb=(ab+bb)/2;
-      if(i===ni-1)trc.push({x:[ab,bb],y:[0,0],type:'scatter',mode:'lines',line:{color:'#FBBF24',width:3},name:'intervalo bisec.'});
-      if(f(ab)*f(xb)<0)bb=xb;else ab=xb;
-    }
-    var xfl=af-f(af)*(bf-af)/(f(bf)-f(af));
-    trc.push({x:[xfl],y:[f(xfl)],type:'scatter',mode:'markers',marker:{color:'#a78bfa',size:10},name:'Falsa'});
-    trc.push({x:[(ab+bb)/2],y:[f((ab+bb)/2)],type:'scatter',mode:'markers',marker:{color:'#FBBF24',size:10,symbol:'diamond'},name:'Bisec.'});
-    return{data:trc,xrange:[-1,3],yrange:[-4,6]};
+      {x:[af,bf],y:[f(af),f(bf)],type:'scatter',mode:'lines',line:{color:'#a78bfa',width:2,dash:'dash'},name:'secante (Falsa)'},
+      {x:[ab,bb],y:[0,0],type:'scatter',mode:'lines',line:{color:'#FBBF24',width:3},name:'intervalo bisec.'},
+      {x:[xfl],y:[f(xfl)],type:'scatter',mode:'markers',marker:{color:'#a78bfa',size:10},name:'Falsa'},
+      {x:[mb],y:[f(mb)],type:'scatter',mode:'markers',marker:{color:'#FBBF24',size:10,symbol:'diamond'},name:'Bisec.'},
+    ],xrange:[-1,3],yrange:[-4,6]};
   },
   ann:'La <strong style="color:#a78bfa">secante morada</strong> = Regla Falsa (usa la forma de la curva). La <strong style="color:var(--warn)">barra</strong> = intervalo de Bisección. La Falsa converge más rápido.'
 }
@@ -13629,6 +13647,7 @@ function doRender(fIdx){
   (v.params||[]).forEach(function(p){
     var el=document.querySelector('[data-param="'+p.id+'"]');
     ps[p.id]=el?parseFloat(el.value):p.def;
+    if(_anim && window._animRawParam && window._animRawParam.id===p.id) ps[p.id]=window._animRawParam.val;
   });
   if(v.live){var lv=document.getElementById('viz-live-val');if(lv)try{var _ls=v.live(ps);lv.textContent=(window.curLang==='en')?_liveEN(_ls):_ls;}catch(e){}}
   var pd=document.getElementById('viz-plot');if(!pd)return;
@@ -13755,6 +13774,7 @@ function toggleAnim(fIdx){
     if(_rafId){cancelAnimationFrame(_rafId);_rafId=null;}
     _animLastTS=null;
     if(btn){btn.innerHTML='<svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" style="vertical-align:-1px"><path d="M6 4l14 8-14 8V4z"/></svg> Animar';btn.classList.remove('playing');}
+    window._animRawParam=null;
     if(_sel>=0)doRender(_sel);   /* redibuja fino ahora que ya no anima */
     return;
   }
@@ -13807,8 +13827,8 @@ function _animFrame(ts){
      MÁS LENTO para que cada entero se pueda leer (~650ms/paso) en vez de parpadear.
      Un ángulo entero de 1..88 NO cuenta como "coarse" → periodo normal. */
   var _nSt = Math.max(1, Math.round(Math.abs(_hi-_lo)/(p.step||1)));
-  var _coarse = p.step>=1 && _nSt<=16;
-  var period = _coarse ? Math.min(9000, Math.max(3600, _nSt*750)) : 3200;
+  var _coarse = p.step>=1 && _nSt<=16 && !ac.smooth;
+  var period = _coarse ? Math.min(9000, Math.max(3600, _nSt*750)) : (ac.smooth ? 4600 : 3200);
   var phase=(_animTime%period)/period;
   var e;
   if(ac.ramp){
@@ -13830,14 +13850,17 @@ function _animFrame(ts){
   } else {
     val=_lo+(_hi-_lo)*e;
   }
-  /* Parámetros continuos (step<1): NO cuantizar durante la animación → movimiento
-     fluido en vez de saltos de p.step. Los discretos (nº de términos, iteraciones…)
-     sí se redondean porque la viz espera enteros. */
-  if(p.step>=1) val=Math.round(val/p.step)*p.step;
+  /* Parámetros continuos (step<1): NO cuantizar. Los discretos se redondean…
+     salvo anim.smooth:true (la viz interpola con la parte fraccionaria, p. ej.
+     Taylor desvaneciendo el término siguiente). */
+  if(p.step>=1 && !ac.smooth) val=Math.round(val/p.step)*p.step;
   val=Math.max(p.min,Math.min(p.max,val));
   var s=document.querySelector('[data-param="'+p.id+'"]');
   var n=document.querySelector('[data-num="'+p.id+'"]');
   if(s)s.value=val;if(n)n.value=parseFloat(val.toFixed(4));
+  /* El <input type=range> snapea al step → doRender leería el valor cuantizado.
+     Para smooth, pasamos el valor CRUDO por acá. */
+  window._animRawParam = ac.smooth ? {id:p.id, val:val} : null;
 
   /* ── Camino rápido: anim.viewOnly → la curva NO cambia, solo el encuadre.
      En vez de redibujar toda la gráfica cada frame (Plotly.react ~20ms), solo
