@@ -2983,6 +2983,8 @@ html[data-theme="light"] .nav-aurora{
 /* Badge GRATIS en las primeras preguntas */
 .review-item:nth-child(1) .ri-ans::after,
 .review-item:nth-child(2) .ri-ans::after{content:'✓ Solución disponible';display:inline-block;margin-left:.5rem;font-family:IBM Plex Mono,monospace;font-size:.72rem;color:var(--ok);background:rgba(34,197,94,.1);border:2px solid rgba(34,197,94,.25);border-radius:3px;padding:.06rem .35rem}
+html[lang="en"] .review-item:nth-child(1) .ri-ans::after,
+html[lang="en"] .review-item:nth-child(2) .ri-ans::after{content:'✓ Solution available'}
 
 /* ═══ MATERIA: CARDS DE MATERIAL ═══ */
 .mat-stats-bar{display:flex;gap:.45rem;flex-wrap:wrap;margin-bottom:1.2rem;padding-bottom:1rem;border-bottom:1.5px solid var(--br)}
@@ -13576,6 +13578,10 @@ function doRender(fIdx){
   var res;
   try{res=v.render(ps,cat);}catch(e){console.error('render error:',e);return;}
   if(!res)return;
+  if(window.curLang==='en' && res.data && res.data.length){
+    var _LEG={'término rⁿ':'term rⁿ','suma parcial':'partial sum','círculo original':'original circle','imagen A(círculo)':'image A(circle)','curvas de nivel':'level curves','curvas F=C':'curves F=C','círculo unitario':'unit circle','secante (Falsa)':'secant (False-pos)','intervalo bisec.':'bisection interval','Falsa':'False-pos','Bisec.':'Bisec.','Intervalo':'Interval','x̄ aprox=':'x̄ approx=','Euler h=':'Euler h=','Taylor (':'Taylor (','término':'term','límite=':'limit=','límite':'limit','aprox=':'approx='};
+    res.data.forEach(function(tr){ if(tr && typeof tr.name==='string' && _LEG[tr.name]!==undefined) tr.name=_LEG[tr.name]; else if(tr && typeof tr.name==='string'){ for(var k in _LEG){ if(tr.name.indexOf(k)===0){ tr.name=_LEG[k]+tr.name.slice(k.length); break; } } } });
+  }
   /* HTML/SVG mode */
   if(res.html!==undefined){
     pd.innerHTML=res.html;
@@ -15021,7 +15027,25 @@ var _EXAM_EN = [
   ['Área','Area'],['área','area'],['ángulo','angle'],['Ángulo','Angle'],['recta','line'],['plano','plane'],['punto','point'],
   ['la derivada','the derivative'],['la integral','the integral'],['la matriz','the matrix'],['la ecuación','the equation'],['la función','the function'],
   ['el volumen','the volume'],['el radio','the radius'],['la serie','the series'],['la suma','the sum'],['converge','converges'],['diverge','diverges'],
-  ['usando','using'],['luego','then'],['sobre','on'],['entre','between'],['cada','each'],['dos','two'],['tres','three'],['con','with'],['sin','without'],['para','for'],['como','as'],
+  ['usando','using'],['entre','between'],
+  /* frases de pasos (solución) que quedaban a medio traducir */
+  ['Se simplifica para mostrar que la fórmula vale para','Simplify to show the formula holds for'],
+  ['para mostrar que','to show that'],['mostrar que','show that'],['la fórmula vale para','the formula holds for'],
+  ['El valor real de','The actual value of'],['usa la rama derecha','use the right branch'],['usa la rama izquierda','use the left branch'],
+  ['hay un salto','there is a jump'],['NO es continua en','is NOT continuous at'],['no es continua en','is not continuous at'],
+  ['Asíntota horizontal','Horizontal asymptote'],['Asíntota vertical','Vertical asymptote'],['una asíntota','one asymptote'],
+  ['Por el TFC (regla de Leibniz)','By the FTC (Leibniz rule)'],['regla de Leibniz','Leibniz rule'],['Por el TFC','By the FTC'],
+  ['El denominador','The denominator'],['el denominador','the denominator'],['lineal simple','simple linear'],
+  ['lineal repetido de orden','repeated linear of order'],['de orden','of order'],
+  ['la imagen','the image'],['un plano afín de dimensión','an affine plane of dimension'],['un plano','a plane'],['una recta','a line'],
+  ['subespacio de dimensión','subspace of dimension'],['subespacio de dim','subspace of dim'],['de dimensión','of dimension'],
+  ['no tiene','has no'],['pero sí complejos','but complex ones do exist'],['pero si complejos','but complex ones do exist'],
+  ['El conjunto solución','The solution set'],['el conjunto solución','the solution set'],
+  ['Check en la original','Check in the original'],['en la original','in the original'],
+  ['el cuadrado introduce soluciones espurias','squaring introduces spurious solutions'],['soluciones espurias','spurious solutions'],
+  ['representa una rotación de','represents a rotation of'],['una rotación de','a rotation of'],
+  ['Se simplifica','Simplify'],['se simplifica','simplify'],['Como ','Since '],[' como ',' as '],
+  ['y evaluamos','and evaluate'],['y se evalúa','and evaluate'],['se evalúa','evaluate'],['se halla','find'],['se toma','take'],['se usa','use'],['se aplica','apply'],
   ['y evaluamos','and evaluate'],['y se evalúa','and evaluate'],['se evalúa','evaluate'],['se halla','find'],['se toma','take'],['se usa','use'],['se aplica','apply'],
   /* conectores y verbos en minúscula que quedan sueltos en medio de frase */
   ['calcule','compute'],['halle','find'],['encuentre','find'],['determine','determine'],['exprese','express'],
@@ -15071,6 +15095,51 @@ var _EXAM_EN = [
   ['Aplicar la recurrencia','Apply the recurrence'],['dos veces más','twice more'],['para llegar a','to reach'],
   ['caso base vacío','empty base case'],['caso base vacio','empty base case'],['la cabeza','the head'],['si suma o no','whether to add it or not'],
   ['es siempre par','is always even'],['más impar','plus odd'],['es impar','is odd'],['es par','is even'],
+  /* instrucciones de la herramienta de dibujo (fuera del <svg>, en el texto de la pregunta) */
+  ['Antes de responder, marca con el mouse el punto al que','Before answering, click the point where'],
+  ['Antes de responder, marca con el mouse dónde crees que está','Before answering, click where you think'],
+  ['Marca con el mouse dónde crees que está','Click where you think'],
+  ['marca con el mouse','click with the mouse'],['antes de responder','before answering'],['Borrar marca','Clear mark'],
+  ['dónde crees que está','where you think'],['crees que','you think'],
+  /* nouns comunes en enunciados */
+  ['el dominio','the domain'],['dominio','domain'],['el sistema','the system'],['un sistema','a system'],['el método','the method'],
+  ['la condición','the condition'],['una condición','a condition'],['condición','condition'],
+  ['la ecuación de calor','the heat equation'],['la ecuación','the equation'],['una ecuación','an equation'],['ecuaciones','equations'],['ecuación','equation'],
+  ['la función','the function'],['una función','a function'],['la serie','the series'],['una serie','a series'],
+  ['el límite','the limit'],['la derivada','the derivative'],['la integral','the integral'],['la matriz','the matrix'],['una matriz','a matrix'],
+  ['la raíz','the root'],['una raíz','a root'],['el valor','the value'],['un valor','a value'],['el punto','the point'],['un punto','a point'],
+  ['el área','the area'],['un ángulo','an angle'],['el error','the error'],['el paso inductivo','the inductive step'],['el paso','the step'],
+  ['el nivel','the level'],['el intervalo','the interval'],['un intervalo','an interval'],['la cuerda','the string'],['la cuerda vibrante','the vibrating string'],
+  ['un perímetro','a perimeter'],['el perímetro','the perimeter'],['un rectángulo','a rectangle'],['el rectángulo','the rectangle'],
+  ['la base','the base'],['la altura','the height'],['la gráfica','the graph'],['una gráfica','a graph'],
+  ['la respuesta','the answer'],['una prueba por inducción','an induction proof'],['por inducción','by induction'],
+  /* verbos en 2ª/3ª persona sueltos */
+  ['calcule','compute'],['halle','find'],['encuentre','find'],['exprese','express'],['resuelva','solve'],['evalúe','evaluate'],
+  ['verifique','verify'],['demuestre','prove'],['considere','consider'],['realice','carry out'],['estime','estimate'],
+  ['garantiza','guarantees'],['cumple','satisfies'],['satisface','satisfies'],['muestra','shows'],['indica','indicates'],['exige','requires'],
+  ['la segunda','the second'],['la primera','the first'],['la tercera','the third'],['segunda','second'],['primera','first'],['tercera','third'],
+  ['exactamente una','exactly one'],['exactamente','exactly'],['hay','there is'],['tiene','has'],['tienen','have'],
+  /* palabras función — último recurso, con límite de palabra */
+  ['El sistema','The system'],['La función','The function'],['La ecuación','The equation'],['La serie','The series'],['La gráfica','The graph'],
+  ['En una','In a'],['En el','In the'],['En la','In the'],['Un rectángulo','A rectangle'],['Una','A'],['Sea','Let'],['Sean','Let'],
+  [' para ',' for '],[' con ',' with '],[' según ',' per '],[' sobre ',' on '],[' entre ',' between '],
+  [' donde ',' where '],[' cuando ',' when '],[' entonces ',' then '],[' luego ',' then '],
+  [' los ',' the '],[' las ',' the '],[' unos ',' some '],[' unas ',' some '],
+  [' que ',' that '],[' del ',' of the '],[' al ',' to the '],[' su ',' its '],[' sus ',' their '],
+  [' es ',' is '],[' son ',' are '],[' hay ',' there is '],
+  [' el ',' the '],[' la ',' the '],[' un ',' a '],[' una ',' a '],[' de ',' of '],[' en ',' in '],[' y ',' and '],[' o ',' or '],
+  /* limpieza final: inicios de frase, palabras sin tilde, conectores restantes */
+  ['maximo local','local maximum'],['minimo local','local minimum'],['punto silla','saddle point'],
+  ['Criticos','Critical points'],['criticos','critical points'],['Critico','Critical point'],['critico','critical point'],
+  ['maximo','maximum'],['minimo','minimum'],['Maximo','Maximum'],['Minimo','Minimum'],
+  ['Vectores','Vectors'],['Ecuación','Equation'],['ecuación de la recta','equation of the line'],['Distancia','Distance'],['distancia','distance'],
+  ['Al rotar','Rotating'],['En el método','In the method'],['En una','In a'],['En la','In the'],['En el','In the'],
+  ['pues su','since its'],['pues ','since '],[' pues ',' since '],['es cero','is zero'],['cero','zero'],['positivo','positive'],['negativo','negative'],
+  ['producto punto','dot product'],['producto cruz','cross product'],
+  ['En $','At $'],['En ','In '],
+  ['bisección','bisection'],['Bisección','Bisection'],['encontrar una','finding a'],['encontrar','finding'],['el método de','the method of'],
+  ['diagonal dominante','diagonally dominant'],['diagonal dominance','diagonal dominance'],
+  ['A the line','to the line'],[' a the line',' to the line'],[' a la ',' to the '],
   /* \text{} dentro de LaTeX */
   ['\\text{ y }','\\text{ and }'],['\\text{y}','\\text{and}'],['\\text{ o }','\\text{ or }'],['\\text{o}','\\text{or}'],
   ['\\text{si }','\\text{if }'],['\\text{si}','\\text{if}'],['\\text{ si }','\\text{ if }'],
