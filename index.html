@@ -7500,6 +7500,7 @@ function _muSpFillSetup(pool){
   document.getElementById('mu-sp-mat').innerHTML=opts;
   var seg=document.getElementById('mu-sp-cnt');
   seg.querySelectorAll('button').forEach(function(b){
+    if(b.getAttribute('data-cnt')==='0') b.textContent=en?'All':'Todas';
     b.onclick=function(){seg.querySelectorAll('button').forEach(function(x){x.classList.remove('on');});b.classList.add('on');};
   });
   var miss=_spMiss(),mk=Object.keys(miss).filter(function(k){return miss[k]>0;});
@@ -8359,8 +8360,9 @@ function _goToIntro(key){
   if(prHost){
     var pr=(typeof PREREQS!=='undefined') ? PREREQS[_exam.codigo] : null;
     if(pr && pr.temas && pr.temas.length){
-      var lbl=(window.curLang==='en')?'Good to have down: ':'Conviene dominar: ';
-      prHost.innerHTML='<span class="intro-prereq-lbl">'+lbl+'</span>'+pr.temas.slice(0,4).join(' · ');
+      var _pen=(window.curLang==='en');
+      var lbl=_pen?'Good to have down: ':'Conviene dominar: ';
+      prHost.innerHTML='<span class="intro-prereq-lbl">'+lbl+'</span>'+((_pen&&pr.temasEn)?pr.temasEn:pr.temas).slice(0,4).join(' · ');
     } else prHost.innerHTML='';
   }
 
@@ -11191,7 +11193,7 @@ function vcDraw(){
 
 /* ═══════════════ DUELO DE DERIVADAS ═══════════════ */
 var _DD_ROUND_MS=8500, _DD_TARGET=4, _DD_ROUNDS=7;
-var _DD_DIFF={easy:{min:3200,max:5200,err:.35},normal:{min:2300,max:3700,err:.15},hard:{min:1500,max:2500,err:.05}};
+var _DD_DIFF={easy:{min:4200,max:6200,err:.35},normal:{min:3100,max:4600,err:.15},hard:{min:2100,max:3300,err:.05}};
 var _DD_RULE_ES=['Producto','Cadena','Cociente','Potencia'], _DD_RULE_EN=['Product','Chain','Quotient','Power'];
 var _DD_VF_ES=['Verdadero','Falso'], _DD_VF_EN=['True','False'];
 var _DDD='\\dfrac{d}{dx}';
@@ -15423,17 +15425,17 @@ window.muPresenciaInit = muPresenciaInit;
 //      listados son el nucleo del curso prerrequisito, redactados como
 //      RECOMENDACION ("conviene dominar"), nunca como cita del programa. ──
 var PREREQS={
-  '1000003':{req:[],temas:['Álgebra de bachillerato','Operaciones con fracciones y potencias','Trigonometría básica']},
-  '1000004':{req:['1000003'],temas:['Funciones y sus gráficas','Factorización y productos notables','Desigualdades','Trigonometría']},
-  '1000005':{req:['1000004'],temas:['Límites y continuidad','Reglas de derivación','Regla de la cadena']},
-  '1000006':{req:['1000013'],temas:['Vectores en el plano','Sistemas de ecuaciones lineales','Producto punto']},
-  '1000007':{req:['1000005','1000013'],temas:['Técnicas de integración','Derivación','Vectores en R² y R³']},
-  '1000008':{req:['1000005'],temas:['Técnicas de integración','Derivación implícita','Fracciones parciales']},
-  '1000009':{req:['1000005','1000006'],temas:['Cálculo diferencial e integral','Álgebra matricial básica','Nociones de programación']},
-  '1000010':{req:['1000008'],temas:['EDO lineales de 2º orden','Series','Cálculo en varias variables']},
-  '1000011':{req:[],temas:['Lógica de bachillerato','Operaciones con conjuntos','Álgebra básica']},
-  '1000012':{req:['1000011'],temas:['Lógica proposicional','Conjuntos y funciones','Técnicas de demostración']},
-  '1000013':{req:[],temas:['Notación y operaciones de conjuntos','Ecuaciones con potencias, fracciones y raíces','Productos notables y factorización','Sistemas lineales de ecuaciones','Desigualdades (incluido valor absoluto)','Funciones e identidades trigonométricas, ángulos notables'],fuente:'programa'}
+  '1000003':{req:[],temas:['Álgebra de bachillerato','Operaciones con fracciones y potencias','Trigonometría básica'],temasEn:['High-school algebra','Fractions and exponents','Basic trigonometry']},
+  '1000004':{req:['1000003'],temas:['Funciones y sus gráficas','Factorización y productos notables','Desigualdades','Trigonometría'],temasEn:['Functions and their graphs','Factoring and special products','Inequalities','Trigonometry']},
+  '1000005':{req:['1000004'],temas:['Límites y continuidad','Reglas de derivación','Regla de la cadena'],temasEn:['Limits and continuity','Differentiation rules','Chain rule']},
+  '1000006':{req:['1000013'],temas:['Vectores en el plano','Sistemas de ecuaciones lineales','Producto punto'],temasEn:['Vectors in the plane','Systems of linear equations','Dot product']},
+  '1000007':{req:['1000005','1000013'],temas:['Técnicas de integración','Derivación','Vectores en R² y R³'],temasEn:['Integration techniques','Differentiation','Vectors in R² and R³']},
+  '1000008':{req:['1000005'],temas:['Técnicas de integración','Derivación implícita','Fracciones parciales'],temasEn:['Integration techniques','Implicit differentiation','Partial fractions']},
+  '1000009':{req:['1000005','1000006'],temas:['Cálculo diferencial e integral','Álgebra matricial básica','Nociones de programación'],temasEn:['Differential and integral calculus','Basic matrix algebra','Some programming']},
+  '1000010':{req:['1000008'],temas:['EDO lineales de 2º orden','Series','Cálculo en varias variables'],temasEn:['2nd-order linear ODEs','Series','Multivariable calculus']},
+  '1000011':{req:[],temas:['Lógica de bachillerato','Operaciones con conjuntos','Álgebra básica'],temasEn:['High-school logic','Set operations','Basic algebra']},
+  '1000012':{req:['1000011'],temas:['Lógica proposicional','Conjuntos y funciones','Técnicas de demostración'],temasEn:['Propositional logic','Sets and functions','Proof techniques']},
+  '1000013':{req:[],temas:['Notación y operaciones de conjuntos','Ecuaciones con potencias, fracciones y raíces','Productos notables y factorización','Sistemas lineales de ecuaciones','Desigualdades (incluido valor absoluto)','Funciones e identidades trigonométricas, ángulos notables'],temasEn:['Set notation and operations','Equations with powers, fractions and roots','Special products and factoring','Systems of linear equations','Inequalities (including absolute value)','Trig functions, identities and standard angles'],fuente:'programa'}
 };
 window.PREREQS = PREREQS; // mismo patron RONDA 5/8: visible desde todas las paginas
 
@@ -15664,7 +15666,8 @@ var LANG_ES={
   "au-p1-i1":"Parciales listos para usar como ejercicio en tutoría","au-p1-i2":"Simulacros para tus tutorados — en construcción",
   "au-p1-cta":"Ver materias →",
   "au-p1-invite":"<strong style=\"color:var(--acc)\">¿Quieres dar asesorías?</strong> Estamos armando un calendario de asesorías dentro de MathUNAL. Si eres monitor o egresado y quieres ofrecer tutorías a través de la plataforma, <a href=\"https://wa.me/573163480451?text=Soy%20monitor%2Fegresado%20y%20quiero%20ofrecer%20asesor%C3%ADas%20en%20MathUNAL\" target=\"_blank\" style=\"color:var(--acc);font-weight:600;text-decoration:underline\">escríbenos</a> y lo coordinamos.",
-  "au-p1-card-l":"Ahorro estimado para el monitor","au-p1-stat1":"Ahorro semanal",
+  "au-p0-stat1":"PDFs listos","au-p0-stat3":"Costo",
+  "au-p1-card-l":"Ahorro estimado para el monitor","au-p1-stat1":"Ahorro semanal","au-p1-stat2":"Parciales reales en el banco",
   "au-p1-quote":"\"En vez de buscar material cada semana, lo tengo todo en un solo lugar. Mis tutorados practican solos entre sesiones.\"",
   /* Apoyar (ap-s) */
   "ap3-tag":"Apoyar el proyecto",
@@ -15942,7 +15945,8 @@ var LANG_EN={
   "au-p1-i1":"Exams ready to use as tutoring exercises","au-p1-i2":"Mock exams for your students — coming soon",
   "au-p1-cta":"See all subjects →",
   "au-p1-invite":"<strong style=\"color:var(--acc)\">Want to tutor?</strong> We're building a tutoring calendar inside MathUNAL. If you're a monitor or a graduate and want to offer tutoring through the platform, <a href=\"https://wa.me/573163480451?text=I%27m%20a%20monitor%2Fgraduate%20and%20want%20to%20offer%20tutoring%20on%20MathUNAL\" target=\"_blank\" style=\"color:var(--acc);font-weight:600;text-decoration:underline\">message us</a> and we'll set it up.",
-  "au-p1-card-l":"Estimated savings for the monitor","au-p1-stat1":"Weekly time saved",
+  "au-p0-stat1":"PDFs ready","au-p0-stat3":"Cost",
+  "au-p1-card-l":"Estimated savings for the monitor","au-p1-stat1":"Weekly time saved","au-p1-stat2":"Real exams in the bank",
   "au-p1-quote":"\"Instead of hunting for material every week, I have it all in one place. My students practice on their own between sessions.\"",
   /* Apoyar (ap-s) */
   "ap3-tag":"Support the project",
@@ -16436,13 +16440,17 @@ function setLang(lang){
   au0Items.forEach(function(el,i){ if(au0Keys[i]&&L[au0Keys[i]]){ var chk=el.querySelector('.au-msg-check'); el.innerHTML=(chk?chk.outerHTML:'✓')+L[au0Keys[i]]; } });
   setText('#au-p0 .au-card-label','au-p0-card-l'); setText('#au-p0 .au-quote','au-p0-quote');
   var au0StatLs=document.querySelectorAll('#au-p0 .au-stat-l');
+  if(au0StatLs[0]&&L['au-p0-stat1']) au0StatLs[0].textContent=L['au-p0-stat1'];
   if(au0StatLs[1]&&L['au-p0-stat2']) au0StatLs[1].textContent=L['au-p0-stat2'];
+  if(au0StatLs[2]&&L['au-p0-stat3']) au0StatLs[2].textContent=L['au-p0-stat3'];
   setText('#au-p1 .au-msg-title','au-p1-t'); setText('#au-p1 .au-msg-body','au-p1-d');
   var au1Items=document.querySelectorAll('#au-p1 .au-msg-item'); var au1Keys=['au-p1-i1','au-p1-i2'];
   au1Items.forEach(function(el,i){ if(au1Keys[i]&&L[au1Keys[i]]){ var chk1=el.querySelector('.au-msg-check'); el.innerHTML=(chk1?chk1.outerHTML:'✓')+L[au1Keys[i]]; } });
   setHTML('#au-p1 .au-monitor-invite','au-p1-invite');
   setText('#au-p1 .au-msg-cta','au-p1-cta'); setText('#au-p1 .au-card-label','au-p1-card-l');
-  var au1Stats=document.querySelectorAll('#au-p1 .au-stat-l'); if(au1Stats[0]&&L['au-p1-stat1']) au1Stats[0].textContent=L['au-p1-stat1'];
+  var au1Stats=document.querySelectorAll('#au-p1 .au-stat-l');
+  if(au1Stats[0]&&L['au-p1-stat1']) au1Stats[0].textContent=L['au-p1-stat1'];
+  if(au1Stats[1]&&L['au-p1-stat2']) au1Stats[1].textContent=L['au-p1-stat2'];
   setText('#au-p1 .au-quote','au-p1-quote');
 
   /* AP-S (apoyar) */
@@ -16501,7 +16509,7 @@ function setLang(lang){
   }
   var smapResLinks=document.querySelectorAll('.smap-s .smap-links')[2];
   if(smapResLinks){
-    var resAs=smapResLinks.querySelectorAll('a'); var resKeys=['smap-aportar','smap-faq'];
+    var resAs=smapResLinks.querySelectorAll('a'); var resKeys=['smap-aportar','smap-faq','smap-hist'];
     resAs.forEach(function(a,i){ if(!resKeys[i]||!L[resKeys[i]])return; var prefix=a.textContent.trim().split(' ')[0]; a.textContent=prefix+' '+L[resKeys[i]]; });
   }
   document.querySelectorAll('.smap-s .smap-links a').forEach(function(a){
@@ -16559,6 +16567,18 @@ function setLang(lang){
   var spdEl=document.getElementById('mu-spd');
   if(spdEl&&L['sp-vistas']){ var num=(spdEl.textContent.match(/\d+/)||['0'])[0]; spdEl.textContent=num+' '+L['sp-vistas']; }
   setHTML('.mu-sprint-cta','sp-cta');
+  /* Modo Sprint — pantalla de configuración (labels estáticos) */
+  var _sset=document.getElementById('mu-sp-setup');
+  if(_sset){
+    var _sh=document.getElementById('mu-sp-setup-h'); if(_sh) _sh.textContent=en?'Build your sprint':'Arma tu repaso';
+    var _tl=document.getElementById('mu-sp-timer-lbl'); if(_tl) _tl.textContent=en?'Timer (15 s per card)':'Con cronómetro (15 s por fórmula)';
+    var _ml=document.getElementById('mu-sp-miss-lbl'); if(_ml) _ml.textContent=en?'Review only the ones you missed':'Repasar solo las que fallaste';
+    var _ml2=document.getElementById('mu-sp-mat-lbl'); if(_ml2&&_ml2.childNodes[0]) _ml2.childNodes[0].nodeValue=(en?'Topic':'Tema')+' ';
+    var _cl=document.getElementById('mu-sp-cnt-lbl'); if(_cl&&_cl.childNodes[0]) _cl.childNodes[0].nodeValue=(en?'How many':'Cuántas fórmulas')+' ';
+    var _go=document.getElementById('mu-sp-go'); if(_go) _go.textContent=en?'▶ Start':'▶ Empezar';
+    var _c0=document.querySelector('#mu-sp-cnt button[data-cnt="0"]'); if(_c0) _c0.textContent=en?'All':'Todas';
+  }
+  var _spc=document.getElementById('mu-spcat'); if(_spc&&(_spc.textContent==='Categoría'||_spc.textContent==='Category')) _spc.textContent=en?'Category':'Categoría';
 
   /* Si la pagina activa es un template renderizado por separado (banco, simulacro,
      formulas, materia), tiene su propio window.muApplyLang_<pagina> que _loadPage()
@@ -17536,7 +17556,7 @@ function _renderRutaEstudio(sub, mats, lang){
       + '<div class="mu-prereq-h">'+(en?'Before this course, you should be comfortable with':'Antes de esta materia conviene dominar')
       + (pr.fuente==='programa'?' <span class="mu-prereq-src">('+(en?'from the official syllabus':'según el programa oficial')+')</span>':'')
       + '</div>'
-      + '<div class="mu-prereq-temas">'+pr.temas.map(function(t){return '<span class="mu-prereq-chip">'+t+'</span>';}).join('')+'</div>';
+      + '<div class="mu-prereq-temas">'+((en&&pr.temasEn)?pr.temasEn:pr.temas).map(function(t){return '<span class="mu-prereq-chip">'+t+'</span>';}).join('')+'</div>';
     if(pr.req && pr.req.length){
       var links=pr.req.map(function(code){
         var rsub=(typeof SUBJECTS!=='undefined')?SUBJECTS.find(function(s){return s.code===code;}):null;
@@ -17879,6 +17899,50 @@ window.__muMateriaInit = function(){
       }
       return f.url || '';
     }
+    /* Traducción de nombres de documento y semestre (patrón, no fila por fila).
+       Los nombres del banco son formulaicos: "Parcial 1 · 2023-2", "Guía de clase — Semana 07",
+       "Notas de clase — 12. Límites", "Resumen de repaso — Parcial 2", etc. */
+    var _DOC_EN=[
+      ['Primer Parcial','First Midterm'],['Segundo Parcial','Second Midterm'],['Tercer Parcial','Third Midterm'],
+      ['Cuarto Parcial','Fourth Midterm'],['Parcial Final','Final Exam'],['Examen Final','Final Exam'],
+      ['Guía de clases','Class guide'],['Guía de clase','Class guide'],['Guía Clases','Class guide'],['Guía de estudio','Study guide'],
+      ['Notas de clase','Class notes'],['Notas de Clase','Class notes'],['Apuntes de clase','Class notes'],
+      ['Programa de Referencia','Reference syllabus'],['Plan Curricular','Curriculum plan'],['Plan de Estudios','Curriculum plan'],
+      ['Resumen de repaso','Review summary'],['Hoja de repaso','Review sheet'],['Material de repaso','Review material'],
+      ['Calendario de Quices','Quiz calendar'],['Calendario de Parciales','Exam calendar'],
+      ['Taller con solución','Worksheet with solutions'],['Talleres con solución','Worksheets with solutions'],
+      ['con solución','with solutions'],['con soluciones','with solutions'],['sin solución','no solutions'],
+      ['y solucionario','& answer key'],['Solucionario','Answer key'],['Soluciones','Solutions'],['Solución','Solution'],
+      ['resueltos','solved'],['resuelto','solved'],['Enunciado','Statement'],
+      ['Formulario','Formula sheet'],['Fórmulas','Formulas'],['Formulas','Formulas'],
+      ['Recopilación','Compilation'],['recopilación','compilation'],
+      ['Primer ','First '],['Segundo ','Second '],['Tercer ','Third '],['Cuarto ','Fourth '],['Quinto ','Fifth '],
+      ['Parciales','Midterms'],['Parcial','Midterm'],['Talleres','Worksheets'],['Taller','Worksheet'],
+      ['Quíces','Quizzes'],['Quices','Quizzes'],['Quíz','Quiz'],['Quiz','Quiz'],
+      ['Semana ','Week '],['Tareas','Homework'],['Tarea','Homework'],['Libro','Book'],['Guía','Guide'],['Notas','Notes'],
+      ['Programa','Syllabus'],['Resumen','Summary'],['por tema','by topic'],['por semana','by week'],
+      ['estimado','estimate'],['ejemplo','example'],['de referencia','reference'],['Referencia','Reference'],
+      ['Multi-semestre','Multi-semester'],['Nivelatorio','Pre-calc'],['supletorio','make-up'],
+      /* palabras de tema que aparecen en nombres descriptivos */
+      ['Formulario Completo de Derivadas','Complete Derivatives Formula Sheet'],
+      ['Aplicaciones de la Derivada','Derivative Applications'],['Aplicaciones de la derivada','Derivative applications'],
+      ['Completo de Derivadas','Complete Derivatives'],['Completa de','Complete '],['Completo de','Complete '],
+      ['Cálculo','Calculus'],['Álgebra Lineal','Linear Algebra'],['1ra Ed.','1st ed.'],['2da Ed.','2nd ed.'],['3ra Ed.','3rd ed.'],['4ta Ed.','4th ed.'],['5ta Ed.','5th ed.'],['6ta Ed.','6th ed.'],['7ma Ed.','7th ed.'],['8va Ed.','8th ed.'],['9na Ed.','9th ed.'],['10ma Ed.','10th ed.'],['Ed.','ed.'],
+      ['Derivadas','Derivatives'],['Derivada','Derivative'],['Límites','Limits'],['Continuidad','Continuity'],
+      ['Funciones','Functions'],['Integrales','Integrals'],['Integral','Integral'],['Series','Series'],
+      ['Aplicaciones','Applications'],['Optimización','Optimization'],['Trigonometría','Trigonometry'],
+      ['Ecuaciones','Equations'],['Matrices','Matrices'],['Vectores','Vectors'],['Completo','Complete'],['Completa','Complete'],
+      [' de la ',' of the '],[' del ',' of the ']
+    ];
+    var _SEM_EN=[
+      ['Multi-semestre','Multi-semester'],['Semestre','Semester'],['Nivelatorio','Pre-calc'],
+      ['Referencia','Reference'],['GRAL.','GENERAL'],['GRAL','GENERAL'],['supletorio','make-up']
+    ];
+    function _dictApply(s,d){ s=String(s||''); for(var i=0;i<d.length;i++) s=s.split(d[i][0]).join(d[i][1]); return s; }
+    function _docEN(s){ return en ? _dictApply(s,_DOC_EN) : s; }
+    function _semEN(s){ return en ? _dictApply(s,_SEM_EN) : s; }
+    var _TYPE1_EN={parcial:'Midterm',taller:'Worksheet',quice:'Quiz',simulacro:'Mock exam',notas:'Notes',libro:'Book',formulario:'Formula sheet',programa:'Syllabus',solucionario:'Answer key',tarea:'Homework'};
+    function _typeEN(t){ return (en && _TYPE1_EN[t]) ? _TYPE1_EN[t] : t; }
     function expFileCard(f){
       var ico = ICONS[f.type]||TYPE_ICONS[f.type]||ICO_SVG.programa;
       var isPremiumUnlocked=(typeof muEsPremium==='function') ? muEsPremium() : false;
@@ -17889,8 +17953,8 @@ window.__muMateriaInit = function(){
       if(notAvailable){
         return '<div class="mu-fc mu-fc-na" aria-disabled="true" title="'+(en?'Not uploaded yet':'Todavía no está subido')+'">'+
           '<span class="mu-fc-ico">'+ico+'</span>'+
-          '<div class="mu-fc-info"><div class="mu-fc-name">'+f.name+'</div>'+
-          '<div class="mu-fc-meta"><span>'+f.type+'</span>'+(f.size?' · '+f.size:'')+(f.sem?' · '+f.sem:'')+'</div></div>'+
+          '<div class="mu-fc-info"><div class="mu-fc-name">'+_docEN(f.name)+'</div>'+
+          '<div class="mu-fc-meta"><span>'+_typeEN(f.type)+'</span>'+(f.size?' · '+f.size:'')+(f.sem?' · '+_semEN(f.sem):'')+'</div></div>'+
           '<span class="mu-fc-dl">'+(en?'Not available':'No disponible')+'</span>'+
           '</div>';
       }
@@ -17898,19 +17962,19 @@ window.__muMateriaInit = function(){
       var conSol = /soluci[oó]n|resuelto|answer key/i.test(f.name);
       // quita la mención "(con solución)" / "— con solución" del nombre visible: se
       // muestra como badge unificado, no repetido en el texto.
-      var dispName = conSol
+      var dispName = _docEN(conSol
         ? f.name
             .replace(/\s*\(\s*(con\s+soluci[oó]n|resuelto)\s*\)/ig,'')
             .replace(/\s*[—\-]\s*(con\s+soluci[oó]n|resuelto)\s*$/i,'')
             .replace(/\s{2,}/g,' ').trim()
-        : f.name;
+        : f.name);
       var solBadge = conSol
         ? '<span style="display:inline-block;margin-left:.45rem;padding:.05rem .4rem;border-radius:5px;background:rgba(52,211,153,.14);color:var(--grn);font-size:.66rem;font-weight:700;vertical-align:1px">'+(en?'solved':'con solución')+'</span>'
         : '';
       return '<div class="mu-fc" style="cursor:pointer" onclick="window.open(\''+url+'\',\'_blank\')">'+
         '<span class="mu-fc-ico">'+ico+'</span>'+
         '<div class="mu-fc-info"><div class="mu-fc-name">'+dispName+solBadge+'</div>'+
-        '<div class="mu-fc-meta"><span>'+f.type+'</span>'+(f.size?' · '+f.size:'')+(f.sem?' · '+f.sem:'')+'</div></div>'+
+        '<div class="mu-fc-meta"><span>'+_typeEN(f.type)+'</span>'+(f.size?' · '+f.size:'')+(f.sem?' · '+_semEN(f.sem):'')+'</div></div>'+
         '<span class="mu-fc-dl'+(showAsLocked?' pack':'')+'">'+(showAsLocked?'<svg width="11" height="11" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none" style="vertical-align:-1px"><rect x="3" y="11" width="18" height="10" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg> Pack':'↓ Ver')+'</span>'+
         '</div>';
     }
