@@ -8593,7 +8593,7 @@ function _renderQ(idx){
 
   // Texto
   var qtxt=_el('q-text');
-  if(qtxt){ qtxt.innerHTML=_mathHtml(q.texto)+(q.figura?_renderFigura(q.figura):''); _renderMath(qtxt); _initDrawCanvas(qtxt); }
+  if(qtxt){ qtxt.innerHTML=_mathHtml(_examEN(q.texto))+(q.figura?_renderFigura(q.figura):''); _renderMath(qtxt); _initDrawCanvas(qtxt); }
 
   // Opciones
   var qopts=_el('q-options');
@@ -8607,7 +8607,7 @@ function _renderQ(idx){
         var dis=_checked[idx]?' style="pointer-events:none"':'';
         return '<div class="q-opt'+sel+cor+wrg+'" data-i="'+i+'"'+dis+' role="button" tabindex="'+(_checked[idx]?'-1':'0')+'" aria-label="Opción '+letters[i].toUpperCase()+'">'
           +'<div class="q-opt-circle">'+letters[i]+'</div>'
-          +'<div class="q-opt-text">'+_mathHtml(opt)+'</div>'
+          +'<div class="q-opt-text">'+_mathHtml(_examEN(opt))+'</div>'
           +'</div>';
       }).join('');
       _renderMath(qopts);
@@ -8809,9 +8809,9 @@ function _renderExpl(idx){
     var isOk=_answers[idx]===q.correcta;
     res.innerHTML=(isOk?'<span style="font-size:1.1rem">✓</span> Correcto!':'<span style="font-size:1.1rem">✗</span> Incorrecto — respuesta correcta: <strong>'+letters[q.correcta]+'</strong>');
     res.className='expl-result '+(isOk?'correct-r':'wrong-r');
-    sum.innerHTML=_mathHtml(q.resumen||''); _renderMath(sum);
+    sum.innerHTML=_mathHtml(_examEN(q.resumen||"")); _renderMath(sum);
     stp.innerHTML=(q.pasos||[]).map(function(p,i){
-      return '<div class="expl-step"><div class="step-n">'+(i+1)+'</div><div class="step-txt">'+_mathHtml(p)+'</div></div>';
+      return '<div class="expl-step"><div class="step-n">'+(i+1)+'</div><div class="step-txt">'+_mathHtml(_examEN(p))+'</div></div>';
     }).join('');
     _renderMath(stp);
   } else if(q.tipo==='numerica'){
@@ -8822,9 +8822,9 @@ function _renderExpl(idx){
     var g=_calificarNum(q,_numAns[idx]);
     res.innerHTML=(g===1?'<span style="font-size:1.1rem">✓</span> Correcta!':g===0.5?'<span style="font-size:1.1rem">≈</span> Parcial — dentro del margen':'<span style="font-size:1.1rem">✗</span> Incorrecta — respuesta esperada: <strong>'+q.respuesta+(q.unidad?' '+q.unidad:'')+'</strong>');
     res.className='expl-result '+(g===1?'correct-r':g===0.5?'':'wrong-r');
-    sum.innerHTML=_mathHtml(q.resumen||''); _renderMath(sum);
+    sum.innerHTML=_mathHtml(_examEN(q.resumen||"")); _renderMath(sum);
     stp.innerHTML=(q.pasos||[]).map(function(p,i){
-      return '<div class="expl-step"><div class="step-n">'+(i+1)+'</div><div class="step-txt">'+_mathHtml(p)+'</div></div>';
+      return '<div class="expl-step"><div class="step-n">'+(i+1)+'</div><div class="step-txt">'+_mathHtml(_examEN(p))+'</div></div>';
     }).join('');
     _renderMath(stp);
   } else {
@@ -8832,7 +8832,7 @@ function _renderExpl(idx){
     res.className='expl-result';
     sum.innerHTML='Compara tu desarrollo con la solución y autocalifícate:';
     stp.innerHTML=(q.solucion||[]).map(function(p,i){
-      return '<div class="expl-step"><div class="step-n">'+(i+1)+'</div><div class="step-txt">'+_mathHtml(p)+'</div></div>';
+      return '<div class="expl-step"><div class="step-n">'+(i+1)+'</div><div class="step-txt">'+_mathHtml(_examEN(p))+'</div></div>';
     }).join('');
     _renderMath(stp);
     stp.innerHTML+='<div style="margin-top:.9rem">'
@@ -11772,7 +11772,7 @@ function _diagRenderPregunta(){
   if(fill) fill.style.width = (((_diagIdx+1)/_diagPoolQs.length)*100)+'%';
 
   var texto = document.getElementById('diag-q-texto');
-  if(texto){ texto.innerHTML = _mathHtml(q.texto || ''); if(typeof _renderMath==='function') _renderMath(texto); }
+  if(texto){ texto.innerHTML = _mathHtml(_examEN(q.texto||"")); if(typeof _renderMath==='function') _renderMath(texto); }
 
   var optsHost = document.getElementById('diag-q-opts');
   var numHost = document.getElementById('diag-q-num');
@@ -11784,7 +11784,7 @@ function _diagRenderPregunta(){
     optsHost.innerHTML = q.opciones.map(function(op,i){
       return '<div class="diag-opt" data-i="'+i+'" onclick="_diagSelectOpt('+i+')">'
         + '<div class="diag-opt-l">'+L[i]+'</div>'
-        + '<div data-katex="1">'+_mathHtml(op)+'</div>'
+        + '<div data-katex="1">'+_mathHtml(_examEN(op))+'</div>'
         + '</div>';
     }).join('');
     if(typeof _renderMath==='function') _renderMath(optsHost);
@@ -14735,6 +14735,361 @@ function _renderMath(el){
 function _mathHtml(s){ return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
 window._mathHtml = _mathHtml;
 
+/* ── Traducción EN del banco de preguntas (diagnóstico + simulacros) ──
+   Los enunciados/opciones/soluciones son español formulaico de parcial UNAL.
+   Diccionario por patrones (frases largas → palabras), igual que _liveEN/_DOC_EN.
+   Protege bloques <svg>/HTML: sólo traduce el texto plano entre etiquetas. */
+var _EXAM_EN = [
+  /* verbos y arranques de enunciado */
+  ['Determine el dominio de','Determine the domain of'],
+  ['Determine el tipo de','Determine the type of'],
+  ['Calcule la serie de Fourier de','Compute the Fourier series of'],
+  ['Calcule el área','Compute the area'],['Calcule el valor de','Compute the value of'],
+  ['Calcule','Compute'],['Determine','Determine'],['Halle el área del triángulo','Find the area of the triangle'],
+  ['Halle el área','Find the area'],['Halle','Find'],['Encuentre el valor','Find the value'],
+  ['Encuentre','Find'],['Evalúe','Evaluate'],['Resuelva el problema de valor inicial','Solve the initial value problem'],
+  ['Resuelva','Solve'],['Verifique que','Verify that'],['Verifique','Verify'],
+  ['Demuestre por inducción matemática que','Prove by mathematical induction that'],
+  ['Demuestre por inducción que','Prove by induction that'],['Demuestre que','Prove that'],['Demuestre','Prove'],
+  ['Considere','Consider'],['Grafique','Graph'],['Simplifique','Simplify'],['Exprese','Express'],
+  ['Justifique','Justify'],['Obtenga','Obtain'],['Escriba','Write'],['Identifique','Identify'],['Clasifique','Classify'],
+  ['Para demostrar','To prove'],['Para la','For the'],['Para el','For the'],['Para','For'],
+  ['Dados los nodos','Given the nodes'],['Dado que','Given that'],['Dados','Given'],['Dada','Given'],
+  ['Sean los conjuntos','Let the sets'],['Sean','Let'],['Sea','Let'],['Si','If'],
+  /* preguntas */
+  ['¿Cuál de las siguientes proposiciones es una tautología?','Which of the following propositions is a tautology?'],
+  ['¿Cuál de las siguientes','Which of the following'],['¿Cuál es la distancia del punto','What is the distance from the point'],
+  ['¿Cuál es el último dígito de','What is the last digit of'],['¿Cuál es el cardinal del conjunto potencia','What is the cardinality of the power set'],
+  ['¿Cuál es','What is'],['¿Cuánto vale','What is the value of'],['¿Cuántos subconjuntos tiene un conjunto de','How many subsets does a set of'],
+  ['¿Cuántos','How many'],['¿Cuántas formas','How many ways'],['¿De cuántas formas se pueden','In how many ways can you'],
+  ['¿Qué ocurre en el único punto crítico?','What happens at the unique critical point?'],
+  ['¿Qué relación tienen estos vectores?','What is the relationship between these vectors?'],
+  ['¿Qué ocurre en','What happens at'],['¿Qué relación','What relationship'],['¿Qué','What'],
+  ['¿En cuál de los siguientes intervalos garantiza el método de bisección encontrar una raíz?','On which of these intervals does bisection guarantee finding a root?'],
+  ['¿en cuál de los siguientes intervalos','on which of the following intervals'],
+  ['¿converge?','does it converge?'],['¿satisface las ecuaciones de Cauchy-Riemann?','does it satisfy the Cauchy-Riemann equations?'],
+  ['¿es $f$ continua en','is $f$ continuous at'],['es continua en','is continuous at'],
+  /* frases de enunciado */
+  ['La derivada direccional de','The directional derivative of'],['La negación de','The negation of'],
+  ['La contrarrecíproca de','The contrapositive of'],['La contrapositiva de','The contrapositive of'],
+  ['La función','The function'],['La gráfica muestra','The graph shows'],['La serie de Fourier de','The Fourier series of'],
+  ['La aplicación','The map'],['La EDP','The PDE'],['La cota de error para la regla de Simpson compuesta con','The error bound for the composite Simpson rule with'],
+  ['La cota de error','The error bound'],['El polinomio interpolante de Lagrange que pasa por','The Lagrange interpolating polynomial through'],
+  ['El polinomio','The polynomial'],['El ángulo que forma','The angle between'],['El sistema','The system'],
+  ['El número cromático','The chromatic number'],['El número','The number'],
+  ['la diferencia dividida','the divided difference'],['diferencia dividida de segundo orden','second-order divided difference'],
+  ['en la dirección de','in the direction of'],['en el punto crítico','at the critical point'],
+  ['en el punto','at the point'],['en la dirección','in the direction'],['con respecto a','with respect to'],
+  ['con condiciones de frontera de Dirichlet','with Dirichlet boundary conditions'],['condiciones de frontera','boundary conditions'],
+  ['los coeficientes seno','the sine coefficients'],['de la serie de Fourier','of the Fourier series'],
+  ['el paso inductivo parte de la hipótesis válida para','the inductive step starts from the hypothesis valid for'],
+  ['debe mostrar que la fórmula vale para','must show the formula holds for'],
+  ['los valores propios del problema de Sturm-Liouville','the eigenvalues of the Sturm-Liouville problem'],
+  ['los valores propios son','the eigenvalues are'],['los valores propios','the eigenvalues'],['valores propios','eigenvalues'],['valor propio','eigenvalue'],
+  ['la estrategia más eficiente es','the most efficient strategy is'],['usando el algoritmo de Euclides','using the Euclidean algorithm'],
+  ['el conjunto potencia','the power set'],['conjunto potencia','power set'],
+  ['todos los puntos críticos','all critical points'],['puntos críticos','critical points'],['punto crítico','critical point'],
+  ['clasifíquelos con el criterio del Hessiano','classify them with the Hessian test'],
+  ['valor máximo o mínimo local si existe','local max or min value, if any'],
+  ['el criterio del Hessiano','the Hessian test'],['con el criterio de','with the test of'],
+  ['de la serie resultante','of the resulting series'],['Use la serie resultante para deducir','Use the resulting series to derive'],
+  ['la recta tangente','the tangent line'],['recta tangente','tangent line'],['la recta','the line'],
+  ['al rotar','rotating'],['un ángulo de','by an angle of'],['en sentido antihorario','counterclockwise'],['en sentido horario','clockwise'],
+  ['se obtiene','gives'],['sea ortogonal a','be orthogonal to'],['tal que','such that'],['para todo entero','for every integer'],['para todo','for all'],
+  ['el eje positivo','the positive'],['contiene únicamente','contains only'],['es de tipo','is of type'],
+  ['Triángulo con','Triangle with'],['Urna con','Urn with'],['se extraen','draw'],['sin reposición','without replacement'],
+  ['Probabilidad de que ambas sean rojas','Probability that both are red'],['Probabilidad de que','Probability that'],
+  ['Un grafo conexo tiene','A connected graph has'],['grafo completo de','complete graph on'],['del grafo completo de','of the complete graph on'],
+  ['número de ciclos independientes','number of independent cycles'],['rango de ciclos','cycle rank'],
+  ['En 100 estudiantes:','Among 100 students:'],['estudian inglés','study English'],['francés','French'],['ambos','both'],
+  ['no estudian ninguno','study neither'],['cada uno recibe al menos','each gets at least'],['caramelos idénticos','identical candies'],
+  ['entre 3 niños','among 3 children'],['se pueden repartir','can be distributed'],
+  ['La cuerda vibrante con','The vibrating string with'],['la ecuación de calor','the heat equation'],
+  ['la cuerda vibrante','the vibrating string'],['transforma la franja','maps the strip'],
+  ['conjugado complejo','complex conjugate'],['Es decir','That is'],
+  ['el radical exige','the radical requires'],['el denominador exige','the denominator requires'],
+  ['Según la gráfica','From the graph'],['la pendiente','the slope'],['la magnitud','the magnitude'],
+  ['la mitad de la magnitud del producto cruz','half the magnitude of the cross product'],
+  ['los coeficientes','the coefficients'],['el coeficiente','the coefficient'],
+  ['está dada por','is given by'],['es igual a','equals'],['es proporcional a','is proportional to'],
+  ['El vértice está en','The vertex is at'],['evaluamos $f$ ahí','we evaluate $f$ there'],
+  /* opciones */
+  ['No existe','Does not exist'],['no existe','does not exist'],
+  ['Ninguna de las anteriores','None of the above'],['Todas las anteriores','All of the above'],
+  ['Mínimo local con','Local min with'],['Máximo local con','Local max with'],['Mínimo local','Local min'],['Máximo local','Local max'],
+  ['Punto de silla','Saddle point'],['punto silla','saddle point'],['punto de silla','saddle point'],
+  ['Paralelas no coincidentes','Parallel, distinct'],['Perpendiculares','Perpendicular'],['perpendiculares','perpendicular'],
+  ['Coincidentes','Coincident'],['Se cortan con ángulo','Meet at angle'],['Se cortan','They intersect'],
+  ['Son ortogonales','They are orthogonal'],['Son paralelos','They are parallel'],['ortogonales','orthogonal'],
+  ['Forman ángulo obtuso','They form an obtuse angle'],['Forman','They form'],
+  ['Sí, porque','Yes, because'],['No, porque','No, because'],['Sí, ','Yes, '],
+  ['Solo converge cuadráticamente','Only converges quadratically'],['No se puede determinar','Cannot be determined'],
+  ['Converge para cualquier','Converges for any'],['Solo converge si','Only converges if'],
+  ['Diverge siempre','Always diverges'],['Converge solo si $A$ es simétrica','Converges only if $A$ is symmetric'],
+  ['Ni inyectiva ni sobreyectiva','Neither injective nor surjective'],
+  ['Inyectiva pero no sobreyectiva','Injective but not surjective'],
+  ['Sobreyectiva pero no inyectiva','Surjective but not injective'],['Biyectiva','Bijective'],
+  ['Contrapositiva: si','Contrapositive: if'],['Contrapositiva:','Contrapositive:'],['Contrapositiva','Contrapositive'],
+  ['Directa: suponer','Direct: assume'],['y factorizar','and factor'],['Inducción sobre','Induction on'],
+  ['Por contraejemplo','By counterexample'],['por contraejemplo','by counterexample'],
+  ['no es múltiplo de','is not a multiple of'],['es múltiplo de','is a multiple of'],['múltiplo de','multiple of'],
+  ['entonces','then'],['no es de','is not a multiple of'],['es de','is a multiple of'],
+  /* soluciones (resumen / pasos) */
+  ['El logaritmo exige argumento positivo','The logarithm requires a positive argument'],
+  ['la raíz en denominador exige radicando positivo','the root in the denominator requires a positive radicand'],
+  ['En coordenadas polares','In polar coordinates'],['la expresión tiende a 0 para todo ángulo','the expression tends to 0 for every angle'],
+  ['Derivamos primero respecto a','Differentiate first with respect to'],['luego respecto a','then with respect to'],
+  ['evaluado en el punto','evaluated at the point'],['Regla de la cadena','Chain rule'],['regla de la cadena','chain rule'],
+  ['Regla del producto','Product rule'],['regla del producto','product rule'],['regla de la potencia','power rule'],
+  ['simplifica dramáticamente','simplifies dramatically'],['Igualamos las derivadas parciales','Set the partial derivatives equal'],
+  ['resolvemos y clasificamos con el Hessiano','solve and classify with the Hessian'],
+  ['igualando ambas parciales a 0','setting both partials to 0'],['el Hessiano clasifica cada uno','the Hessian classifies each'],
+  ['Se deriva respecto a','Differentiate with respect to'],['tratando $y$ como constante','treating $y$ as constant'],
+  ['tratando','treating'],['como constante','as a constant'],
+  ['y despejamos','and solve'],['despejamos','solve for'],['Despejamos','Solve for'],['Imponemos','Impose'],['Igualamos','Set equal'],['igualamos','set equal'],
+  ['Proyección','Projection'],['Fórmula punto-recta','Point-line formula'],['punto-pendiente','point-slope'],
+  ['Las normales','The normals'],['son ortogonales pues su producto punto es cero','are orthogonal since their dot product is zero'],
+  ['El producto punto determina la ortogonalidad','The dot product determines orthogonality'],
+  ['la gráfica lo confirma visualmente','the graph confirms it visually'],['producto punto','dot product'],['producto cruz','cross product'],
+  ['dan el área por producto cruz 2D y el ángulo por el producto punto','give the area via the 2D cross product and the angle via the dot product'],
+  ['El área es la mitad de la magnitud del producto cruz de dos lados','The area is half the magnitude of the cross product of two sides'],
+  ['Se necesita cambio de signo en los extremos del intervalo','A sign change at the interval endpoints is needed'],
+  ['cambio de signo','sign change'],['hay cambio de signo','there is a sign change'],
+  ['el sistema da','the system gives'],['Dos iteraciones','Two iterations'],['dos iteraciones','two iterations'],
+  ['integra exactamente polinomios de grado','integrates polynomials of degree'],['dando error','giving error'],
+  ['La condición suficiente de convergencia del punto fijo','The sufficient condition for fixed-point convergence'],
+  ['Diagonal dominante estricta garantiza convergencia de','Strict diagonal dominance guarantees convergence of'],
+  ['diagonal dominante','diagonal dominance'],
+  ['dan la raíz por TVI','give the root by the IVT'],['por TVI','by the IVT'],
+  ['cambia de signo solo una vez en el intervalo','changes sign only once on the interval'],
+  ['El punto medio es el promedio de los extremos del intervalo','The midpoint is the average of the interval endpoints'],
+  ['el punto medio','the midpoint'],['punto medio','midpoint'],['el promedio de los extremos','the average of the endpoints'],
+  ['el condicional es vacuamente','the conditional is vacuously'],['vacuamente','vacuously'],
+  ['La contrapositiva es trivial','The contrapositive is trivial'],['es trivial','is trivial'],
+  ['Unión primero, luego diferencia','Union first, then difference'],['Unión','Union'],['diferencia','difference'],
+  ['no tiene preimagen entera','has no integer preimage'],['no tiene preimagen','has no preimage'],['preimagen','preimage'],
+  ['La inducción estándar prueba el caso','Standard induction proves the case'],
+  ['usando la hipótesis para','using the hypothesis for'],['la hipótesis','the hypothesis'],['hipótesis','hypothesis'],
+  ['Inducción estándar','Standard induction'],['inducción estándar','standard induction'],
+  ['verificar el caso base y sumar el término','verify the base case and add the term'],['el caso base','the base case'],['caso base','base case'],
+  ['El conjunto potencia tiene','The power set has'],['elementos','elements'],['elemento','element'],
+  ['Divisiones sucesivas hasta residuo cero','Successive divisions until zero remainder'],['residuo','remainder'],
+  ['Los poderes de 7 mod 10 tienen período','The powers of 7 mod 10 have period'],['tienen período','have period'],
+  ['Sustitución','Substitution'],['sustitución','substitution'],['Se sustituye','Substitute'],['se sustituye','substitute'],['Sustituir','Substitute'],['Sustituyendo','Substituting'],
+  ['reduce al caso sin restricción','reduces to the unconstrained case'],['sin restricción','unconstrained'],
+  ['Principio de inclusión-exclusión','Inclusion-exclusion principle'],['inclusión-exclusión','inclusion-exclusion'],
+  ['Probabilidades condicionales sin reposición','Conditional probabilities without replacement'],
+  ['para grafo conexo','for a connected graph'],['grafo conexo','connected graph'],['aristas','edges'],['arista','edge'],['vértices','vertices'],['vértice','vertex'],
+  ['cada vértice es adyacente a todos los demás','every vertex is adjacent to all the others'],
+  ['se necesitan','you need'],['colores','colors'],
+  ['en el paso, multiplicar la hipótesis por','in the step, multiply the hypothesis by'],
+  ['y comparar contra','and compare against'],['válido pues','valid since'],['valido pues','valid since'],
+  ['Cada elemento puede estar o no estar','Each element is either in or out'],['subconjuntos','subsets'],['subconjunto','subset'],
+  ['Función impar','Odd function'],['Función par','Even function'],['función impar','odd function'],['función par','even function'],
+  ['se calcula por partes','is computed by parts'],['por partes','by parts'],
+  ['por lo que','so'],['por lo tanto','therefore'],['Por tanto','Therefore'],['por tanto','therefore'],['Por lo tanto','Therefore'],
+  ['Discriminante','Discriminant'],['determina el tipo','determines the type'],['el tipo','the type'],
+  ['Resolvemos','We solve'],['Forma polar de','Polar form of'],['forma polar','polar form'],['módulo','modulus'],['argumento','argument'],
+  ['exige','requires'],['El radical exige','The radical requires'],['El denominador exige','The denominator requires'],
+  ['Hay un salto','There is a jump'],['el límite lateral izquierdo','the left-hand limit'],['límite lateral','one-sided limit'],
+  ['y el valor real de la función no coinciden','and the actual function value do not match'],['no coinciden','do not match'],
+  ['El vértice está en','The vertex is at'],['evaluamos','we evaluate'],['Evaluamos','We evaluate'],['Calculamos','We compute'],['Calculamos el límite','We compute the limit'],
+  ['Igualamos bases','Match the bases'],['Combinamos logaritmos','Combine the logarithms'],['descartamos la raíz fuera del dominio','discard the root outside the domain'],
+  ['tiene soluciones en el primer y segundo cuadrante','has solutions in the first and second quadrants'],
+  ['primer y segundo cuadrante','first and second quadrants'],['primer cuadrante','first quadrant'],
+  ['Sustitución directa desde la segunda ecuación','Direct substitution from the second equation'],
+  ['La parábola abre hacia arriba','The parabola opens upward'],['es negativa entre sus raíces','is negative between its roots'],
+  ['abre hacia arriba','opens upward'],['abre hacia abajo','opens downward'],
+  ['Despejamos $x$ en términos de $y$ y luego intercambiamos','Solve for $x$ in terms of $y$, then swap'],
+  ['en términos de','in terms of'],['luego intercambiamos','then swap'],
+  ['Perímetro fijo da','A fixed perimeter gives'],['Perimetro fijo da','A fixed perimeter gives'],['en función de','as a function of'],['en funcion de','as a function of'],
+  ['derivar el área e igualar a 0 encuentra el máximo','differentiating the area and setting it to 0 finds the maximum'],
+  ['Se expande, se agrupan las','Expand, group the'],['de un lado y las constantes del otro','on one side and the constants on the other'],
+  ['y lo igualamos a','and set it equal to'],['Usamos la expansión de','Use the expansion of'],['alrededor de','around'],
+  ['El término con','The term with'],['como derivada interna','as the inner derivative'],['derivada interna','inner derivative'],
+  ['y encontramos donde','and find where'],['no existe','does not exist'],
+  ['Diferenciamos la condición e igualamos términos','Differentiate the constraint and match terms'],
+  ['Diferenciamos implícitamente','Differentiate implicitly'],['Derivación implícita','Implicit differentiation'],['Derivación logarítmica','Logarithmic differentiation'],
+  ['Analizamos el signo de','Analyze the sign of'],['para determinar el sentido del movimiento','to determine the direction of motion'],
+  ['el sentido del movimiento','the direction of motion'],
+  ['asíntotas verticales','vertical asymptotes'],['asíntota vertical','vertical asymptote'],['horizontal','horizontal'],['total','total'],
+  ['Racionalizar con diferencia de cubos','Rationalize using difference of cubes'],['diferencia de cubos','difference of cubes'],['diferencia de cuadrados','difference of squares'],
+  ['da la derivada; luego la normal usa la pendiente recíproca negativa','gives the derivative; the normal then uses the negative reciprocal slope'],
+  ['pendiente recíproca negativa','negative reciprocal slope'],['pendiente reciproca negativa','negative reciprocal slope'],
+  ['Se deriva con la regla de la potencia y luego se evalúa en el punto','Differentiate with the power rule, then evaluate at the point'],
+  ['TFC con límites variables','FTC with variable limits'],['TFC con limites variables','FTC with variable limits'],
+  ['Diferenciamos implícitamente y evaluamos en','Differentiate implicitly and evaluate at'],
+  ['Minimizamos','Minimize'],['Maximizamos','Maximize'],['sujeto a','subject to'],
+  ['Las opciones B, C son iguales','Options B and C are the same'],
+  ['La sustitución','The substitution'],['convierte la integral a la forma con','converts the integral to the form with'],
+  ['Factor lineal simple','Simple linear factor'],['factor repetido','repeated factor'],['factor lineal','linear factor'],
+  ['Área en polares','Area in polar coordinates'],['Esta es la función Gamma','This is the Gamma function'],
+  ['Esta integral es el área de un cuarto de círculo de radio','This integral is the area of a quarter circle of radius'],
+  ['un cuarto de círculo','a quarter circle'],['de radio','of radius'],
+  ['Método de capas cilíndricas','Cylindrical shells method'],['Metodo de capas cilindricas','Cylindrical shells method'],
+  ['entre los puntos de intersección','between the intersection points'],['puntos de intersección','intersection points'],['punto de intersección','intersection point'],
+  ['Se aplica el Teorema Fundamental del Cálculo','Apply the Fundamental Theorem of Calculus'],
+  ['Teorema Fundamental del Cálculo','Fundamental Theorem of Calculus'],['Teorema del valor medio','Mean Value Theorem'],
+  ['se halla la antiderivada y se evalúa entre límites','find the antiderivative and evaluate between the limits'],['la antiderivada','the antiderivative'],
+  ['son L.D.','are linearly dependent'],['son L.I.','are linearly independent'],
+  ['Resolviendo el sistema homogéneo se halla la combinación exacta','Solving the homogeneous system gives the exact combination'],
+  ['el sistema homogéneo','the homogeneous system'],['sistema homogéneo','homogeneous system'],
+  ['El rango de','The rank of'],['es el espacio generado por las columnas de la matriz de','is the column space of the matrix of'],
+  ['el espacio generado por','the span of'],['espacio generado','span'],
+  ['La ecuación característica da valores propios imaginarios','The characteristic equation gives imaginary eigenvalues'],
+  ['La ecuación característica','The characteristic equation'],['ecuación característica','characteristic equation'],['polinomio característico','characteristic polynomial'],['polinomio caracteristico','characteristic polynomial'],
+  ['tiene rango','has rank'],['La solución es un plano','The solution is a plane'],['variables libres','free variables'],['variable libre','free variable'],
+  ['Matriz simétrica','Symmetric matrix'],['Matriz simetrica','Symmetric matrix'],['Matriz con valor propio repetido','Matrix with a repeated eigenvalue'],
+  ['Expansión por cofactores sobre la primera fila','Cofactor expansion along the first row'],['Expansión por cofactores','Cofactor expansion'],['por cofactores','by cofactors'],
+  ['Verificamos exactitud','Check exactness'],['Como no es exacta','Since it is not exact'],['no es exacta','is not exact'],['es exacta','is exact'],
+  ['depende solo de','depends only on'],['buscamos','we look for'],
+  ['Raíz repetida','Repeated root'],['raíz repetida','repeated root'],['raíces reales','real roots'],['raíces complejas','complex roots'],['raíces','roots'],['raíz','root'],
+  ['La solución particular usa variación de parámetros o coeficientes indeterminados','The particular solution uses variation of parameters or undetermined coefficients'],
+  ['variación de parámetros','variation of parameters'],['coeficientes indeterminados','undetermined coefficients'],
+  ['con multiplicación por','with multiplication by'],['La resonancia introduce el término','Resonance introduces the term'],['resonancia','resonance'],
+  ['Necesitamos vector propio y vector generalizado','We need an eigenvector and a generalized vector'],['vector propio','eigenvector'],['vector generalizado','generalized vector'],
+  ['La serie dada es','The given series is'],['Verificamos','Check'],['por lo que satisface','so it satisfies'],['satisface','satisfies'],
+  ['Sturm-Liouville clásico','Classic Sturm-Liouville'],['Sturm-Liouville clasico','Classic Sturm-Liouville'],
+  ['separar en casos','split into cases'],['y aplicar las condiciones de frontera','and apply the boundary conditions'],
+  ['Derivación implícita: despejamos','Implicit differentiation: solve for'],['y evaluamos en el punto dado','and evaluate at the given point'],['el punto dado','the given point'],
+  ['Reconocemos que','Recognize that'],['por la identidad','by the identity'],['la identidad','the identity'],
+  ['Segunda derivada clasifica los críticos y su signo da la concavidad','The second derivative classifies the critical points and its sign gives concavity'],
+  ['Segunda derivada','Second derivative'],['la concavidad','concavity'],['los críticos','the critical points'],['los criticos','the critical points'],
+  ['Se aísla el radical, se eleva al cuadrado, y se descartan soluciones extrañas fuera del dominio','Isolate the radical, square, and discard extraneous solutions outside the domain'],
+  ['se aísla el radical','isolate the radical'],['se eleva al cuadrado','square both sides'],['soluciones extrañas','extraneous solutions'],['fuera del dominio','outside the domain'],
+  ['Se halla la pendiente de la recta dada','Find the slope of the given line'],['se toma la perpendicular','take the perpendicular'],
+  ['recíproca y de signo opuesto','reciprocal with opposite sign'],['y se usa punto-pendiente','and use point-slope'],
+  ['Multiplicar por el conjugado del numerador para racionalizarlo','Multiply by the conjugate of the numerator to rationalize it'],
+  ['el conjugado','the conjugate'],['para racionalizar','to rationalize'],['racionalizar','rationalize'],
+  ['Se factoriza cada denominador, se halla el común denominador y se combinan las fracciones','Factor each denominator, find the common denominator, and combine the fractions'],
+  ['se factoriza','factor'],['Se factoriza','Factor'],['Factorizando','Factoring'],['Factorizar','Factor'],['común denominador','common denominator'],
+  ['Teorema del residuo','Remainder theorem'],['el residuo al dividir por','the remainder when dividing by'],
+  ['Probar raíces racionales','Try rational roots'],['Probar raices racionales','Try rational roots'],['funciona','works'],
+  ['el cociente cuadrático no tiene más raíces reales','the quadratic quotient has no more real roots'],['el cociente cuadratico','the quadratic quotient'],
+  ['Sustituir','Substitute'],['en el sistema da dos ecuaciones lineales en','into the system gives two linear equations in'],
+  ['Completar cuadrados en','Complete the square in'],['da la forma centro-radio de la circunferencia','gives the center-radius form of the circle'],
+  ['forma centro-radio','center-radius form'],['la circunferencia','the circle'],
+  ['Eliminación: multiplicar una ecuación para cancelar una variable','Elimination: multiply an equation to cancel a variable'],
+  ['Eliminacion','Elimination'],['para cancelar una variable','to cancel a variable'],
+  ['Como el orden no importa','Since order does not matter'],['el orden no importa','order does not matter'],['el orden importa','order matters'],
+  ['se usa una combinación','use a combination'],['una combinación','a combination'],['una permutación','a permutation'],
+  ['verdadero','true'],['falso','false'],['sale','gives'],['combinado con','combined with'],['solo','only'],
+  ['El robot llega dando su último paso de','The robot arrives by taking its last step of'],['sumar los casos da la recurrencia','summing the cases gives the recurrence'],
+  ['Aplicar la recurrencia dos veces más para llegar a','Apply the recurrence twice more to reach'],['la recurrencia','the recurrence'],['recurrencia','recurrence'],
+  ['Recursión típica sobre listas','Typical recursion on lists'],['Recursion tipica sobre listas','Typical recursion on lists'],
+  ['caso base vacío','empty base case'],['caso base vacio','empty base case'],['decidir en la cabeza si suma o no','decide at the head whether to add it or not'],['la cabeza','the head'],
+  ['es siempre par','is always even'],['par más impar','even plus odd'],['es impar','is odd'],['es par','is even'],
+  ['factorizar','factor'],['en el paso inductivo','in the inductive step'],['recupera la fórmula con','recovers the formula with'],
+  ['Newton-Raphson','Newton-Raphson'],['Bisección exige','Bisection requires'],['y $f$ continua','and $f$ continuous'],
+  ['la función es positiva en ambos extremos','the function is positive at both endpoints'],['así que no se garantiza raíz','so a root is not guaranteed'],['no se garantiza','not guaranteed'],
+  ['Respuesta:','Answer:'],['verificación:','check:'],['verificacion:','check:'],['recalculando:','recomputing:'],['Correcto.','Correct.'],
+  ['ambos puntos tienen','both points have'],['el término','the term'],['no depende de','does not depend on'],
+  ['Área','Area'],['área','area'],['ángulo','angle'],['Ángulo','Angle'],['recta','line'],['plano','plane'],['punto','point'],
+  ['la derivada','the derivative'],['la integral','the integral'],['la matriz','the matrix'],['la ecuación','the equation'],['la función','the function'],
+  ['el volumen','the volume'],['el radio','the radius'],['la serie','the series'],['la suma','the sum'],['converge','converges'],['diverge','diverges'],
+  ['usando','using'],['luego','then'],['sobre','on'],['entre','between'],['cada','each'],['dos','two'],['tres','three'],['con','with'],['sin','without'],['para','for'],['como','as'],
+  ['y evaluamos','and evaluate'],['y se evalúa','and evaluate'],['se evalúa','evaluate'],['se halla','find'],['se toma','take'],['se usa','use'],['se aplica','apply'],
+  /* conectores y verbos en minúscula que quedan sueltos en medio de frase */
+  ['calcule','compute'],['halle','find'],['encuentre','find'],['determine','determine'],['exprese','express'],
+  ['resuelva','solve'],['evalúe','evaluate'],['grafique','graph'],['simplifique','simplify'],['demuestre','prove'],
+  ['para que','so that'],['tal que','such that'],['de modo que','so that'],
+  ['sea continua en','is continuous at'],['sea continua','is continuous'],['es continua','is continuous'],
+  ['el valor de','the value of'],['el valor','the value'],['el área de','the area of'],['el ángulo en','the angle at'],
+  ['¿qué ocurre en','what happens at'],['¿cuál es','what is'],['¿cuánto vale','what is the value of'],['¿cuántos','how many'],['¿qué','what'],
+  ['el único','the unique'],['los únicos','the only'],
+  ['no depende de','does not depend on'],['no existe','does not exist'],['no coinciden','do not match'],
+  [' es igual a',' equals'],[' es:',' is:'],[' son:',' are:'],[' es ',' is '],[' son ',' are '],
+  [' y el ',' and the '],[' y la ',' and the '],[' y ',' and '],[' o ',' or '],[' e ',' and '],
+  [' del ',' of the '],[' de la ',' of the '],[' en el punto',' at the point'],
+  ['recalculando','recomputing'],['verificando','verifying'],
+  ['la mitad de','half of'],['dan el área','give the area'],
+  ['puntos críticos','critical points'],['puntos criticos','critical points'],
+  ['la expresión tiende a','the expression tends to'],['tiende a','tends to'],
+  ['para todo ángulo','for every angle'],['para todo','for all'],['para cualquier','for any'],
+  ['Gradiente','Gradient'],['gradiente','gradient'],['evaluado','evaluated'],['evaluada','evaluated'],['evaluamos','evaluate'],
+  ['Puntos críticos','Critical points'],['Puntos criticos','Critical points'],['Puntos','Points'],
+  ['a la recta','to the line'],['a la línea','to the line'],['a la circunferencia','to the circle'],['a esa recta','to that line'],
+  ['Las rectas','The lines'],['la recta','the line'],['las rectas','the lines'],['la línea','the line'],
+  ['con el eje positivo','with the positive axis'],['el eje positivo','the positive axis'],['el eje','the axis'],
+  ['Newton:','Newton:'],['Dos iteraciones','Two iterations'],['una iteración','one iteration'],['iteraciones','iterations'],['iteración','iteration'],
+  ['la antiderivada','the antiderivative'],['se evalúa entre límites','evaluate between the limits'],['entre límites','between the limits'],
+  ['coordenada','coordinate'],['coordenadas','coordinates'],
+  ['el vértice','the vertex'],['los vértices','the vertices'],['con vértices','with vertices'],['vértices','vertices'],
+  ['la pendiente de la tangente','the slope of the tangent'],['la pendiente','the slope'],['pendiente','slope'],
+  ['La sustitución','The substitution'],['convierte la integral','converts the integral'],
+  ['Se aísla','Isolate'],['se descartan','discard'],['se eleva al cuadrado','square both sides'],
+  ['Multiplicar por el conjugado','Multiply by the conjugate'],['el conjugado del numerador','the conjugate of the numerator'],
+  ['La parábola','The parabola'],['la parábola','the parabola'],['abre hacia arriba','opens upward'],['abre hacia abajo','opens downward'],
+  ['entre sus raíces','between its roots'],['es negativa','is negative'],['es positiva','is positive'],
+  ['Igualamos bases','Match the bases'],['Combinamos logaritmos','Combine logarithms'],
+  ['Reconocemos','Recognize'],['Analizamos','Analyze'],['Minimizamos','Minimize'],['Maximizamos','Maximize'],['Diferenciamos','Differentiate'],
+  ['Multiplicar','Multiply'],['multiplicar','multiply'],['Dividir','Divide'],['Sumar','Add'],['Restar','Subtract'],
+  ['el común denominador','the common denominator'],['común denominador','common denominator'],
+  ['La ecuación característica','The characteristic equation'],['ecuación característica','characteristic equation'],
+  ['El determinante es','The determinant is'],['el determinante','the determinant'],['determinante','determinant'],
+  ['Expansión por cofactores','Cofactor expansion'],['sobre la primera fila','along the first row'],['primera fila','first row'],
+  ['Verificamos exactitud','Check exactness'],['no es exacta','is not exact'],
+  ['Raíz repetida','Repeated root'],['raíz doble','double root'],['doble','double'],
+  ['La resonancia','Resonance'],['introduce el término','introduces the term'],
+  ['La serie dada es','The given series is'],['por lo que satisface','so it satisfies'],
+  ['separar en casos','split into cases'],['aplicar las condiciones de frontera','apply the boundary conditions'],
+  ['El robot llega','The robot arrives'],['su último paso','its last step'],['sumar los casos','sum the cases'],
+  ['Aplicar la recurrencia','Apply the recurrence'],['dos veces más','twice more'],['para llegar a','to reach'],
+  ['caso base vacío','empty base case'],['caso base vacio','empty base case'],['la cabeza','the head'],['si suma o no','whether to add it or not'],
+  ['es siempre par','is always even'],['más impar','plus odd'],['es impar','is odd'],['es par','is even'],
+  /* \text{} dentro de LaTeX */
+  ['\\text{ y }','\\text{ and }'],['\\text{y}','\\text{and}'],['\\text{ o }','\\text{ or }'],['\\text{o}','\\text{or}'],
+  ['\\text{si }','\\text{if }'],['\\text{si}','\\text{if}'],['\\text{ si }','\\text{ if }'],
+  ['\\text{mínimo}','\\text{min}'],['\\text{máximo}','\\text{max}'],['\\text{minimo}','\\text{min}'],['\\text{maximo}','\\text{max}'],
+  ['\\text{perpendiculares}','\\text{perpendicular}'],['\\text{ortogonales}','\\text{orthogonal}'],['\\text{paralelas}','\\text{parallel}'],
+  ['\\text{par}','\\text{even}'],['\\text{impar}','\\text{odd}'],['\\text{no existe}','\\text{DNE}'],
+  ['\\text{ sech }','\\;\\operatorname{sech} '],
+  ['\\text{proy}','\\operatorname{proj}'],['\\text{mcd}','\\gcd'],['\\text{Área}','\\text{Area}'],['\\text{Im}','\\operatorname{Im}'],['\\text{Re}','\\operatorname{Re}']
+];
+/* Precompila: las claves LaTeX (con \ $ { }) van literales; las de prosa van con
+   límites de palabra que respetan acentos, para que 'con'→'with' NO rompa 'continua'. */
+(function(){
+  var LTR='A-Za-zÀ-ÖØ-öø-ÿ';
+  _EXAM_EN.forEach(function(p){
+    if(/[\\${}]/.test(p[0])){ p[2]='lit'; return; }
+    var k=p[0].replace(/[.*+?^()|[\]\\]/g,'\\$&');
+    var startLtr=new RegExp('^['+LTR+']').test(p[0]);
+    var endLtr=new RegExp('['+LTR+']$').test(p[0]);
+    var pre=startLtr?('(^|[^'+LTR+'0-9])'):'()';
+    var post=endLtr?('(?![\\wÀ-ÖØ-öø-ÿ])'):'';
+    p[2]=new RegExp(pre+'('+k+')'+post,'g');
+  });
+})();
+function _examEN(s){
+  if(window.curLang!=='en') return s;
+  s = String(s==null?'':s);
+  /* 1) claves LaTeX literales sobre todo el string (son precisas, no falsan) */
+  for(var j=0;j<_EXAM_EN.length;j++){ var e=_EXAM_EN[j]; if(e[2]==='lit') s=s.split(e[0]).join(e[1]); }
+  /* 2) prosa: sólo sobre texto plano — se protegen $$…$$, $…$, <svg>, <tags>, comentarios */
+  var parts = s.split(/(<svg[\s\S]*?<\/svg>|<[^>]+>|<!--[\s\S]*?-->|\$\$[\s\S]*?\$\$|\$[^$]*\$)/i);
+  for(var i=0;i<parts.length;i++){
+    if(/^[<$]/.test(parts[i])) continue;
+    var t = parts[i];
+    for(var k=0;k<_EXAM_EN.length;k++){
+      var e2 = _EXAM_EN[k];
+      if(e2[2]==='lit') continue;
+      t = t.replace(e2[2], function(m,pre){ return pre + e2[1]; });
+    }
+    parts[i] = t;
+  }
+  return parts.join('');
+}
+window._examEN = _examEN;
+
+/* Nombres de documento / semestre del banco — global, para usar desde
+   expFileCard, la "ruta de estudio" y donde haga falta. Ver también _DOC_EN. */
+function _dictApply(s,d){ s=String(s==null?'':s); for(var i=0;i<d.length;i++) s=s.split(d[i][0]).join(d[i][1]); return s; }
+function _docEN(s){ return (window.curLang==='en') ? _dictApply(s,window._DOC_EN||[]) : s; }
+function _semEN(s){ return (window.curLang==='en') ? _dictApply(s,window._SEM_EN||[]) : s; }
+var _TYPE1_EN={parcial:'Midterm',taller:'Worksheet',quice:'Quiz',simulacro:'Mock exam',notas:'Notes',libro:'Book',formulario:'Formula sheet',programa:'Syllabus',solucionario:'Answer key',tarea:'Homework'};
+function _typeEN(t){ return (window.curLang==='en' && _TYPE1_EN[t]) ? _TYPE1_EN[t] : t; }
+window._docEN=_docEN; window._semEN=_semEN; window._typeEN=_typeEN;
+
 function _renderFigura(fig){
   if(!fig || !fig.tipo) return '';
   var W=420, H=280, P=34;                          // lienzo y margen
@@ -15163,7 +15518,7 @@ function _renderReview(nota){
     html += '<div class="' + cls + '">'
          +  '<div class="ri-top">'
          +    '<span class="ri-num">' + (i+1) + '</span>'
-         +    '<div class="ri-q" data-katex="1">' + _mathHtml(q.texto||'')
+         +    '<div class="ri-q" data-katex="1">' + _mathHtml(_examEN(q.texto||""))
          +      (q.figura ? _renderFigura(q.figura) : '')
          +    '</div>'
          +  '</div>';
@@ -15206,8 +15561,8 @@ function _renderReview(nota){
       html += '<div class="ri-solucion-wrap" data-qi="'+i+'">'
            +  '<div class="ri-solucion">'
            +    '<div class="ri-sol-label">\u2713 '+(en?'Step-by-step solution':'Soluci\u00f3n paso a paso')+'</div>'
-           +    (q.resumen ? '<div class="ri-sol-resumen" data-katex="1">'+_mathHtml(q.resumen)+'</div>' : '')
-           +    pasos.map(function(p){ return '<div class="ri-paso" data-katex="1">'+_mathHtml(p)+'</div>'; }).join('')
+           +    (q.resumen ? '<div class="ri-sol-resumen" data-katex="1">'+_mathHtml(_examEN(q.resumen))+'</div>' : '')
+           +    pasos.map(function(p){ return '<div class="ri-paso" data-katex="1">'+_mathHtml(_examEN(p))+'</div>'; }).join('')
            +  '</div>'
            +  '<button type="button" class="ri-expand-cta" onclick="_unlockSol('+i+')">'+(en?'See extended explanation \u2192':'Ver explicaci\u00f3n extendida \u2192')+'</button>'
            +  '</div>';
@@ -17537,10 +17892,10 @@ function _renderRutaEstudio(sub, mats, lang){
     // truco). Se muestra como no disponible, sin destino, dejando claro que falta subirlo.
     if(!hasUrl){
       var iconNA = '<svg width="14" height="14" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><line x1="9" y1="15" x2="15" y2="11"/></svg>';
-      return '<div class="mu-ruta-file mu-ruta-file-na" aria-disabled="true" title="'+(en?'Not uploaded yet':'Todavía no está subido')+'">'+iconNA+' '+m.name+'<span class="mu-ruta-file-cta">'+(en?'Not available':'No disponible')+'</span></div>';
+      return '<div class="mu-ruta-file mu-ruta-file-na" aria-disabled="true" title="'+(en?'Not uploaded yet':'Todavía no está subido')+'">'+iconNA+' '+_docEN(m.name)+'<span class="mu-ruta-file-cta">'+(en?'Not available':'No disponible')+'</span></div>';
     }
     var icon = '<svg width="14" height="14" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>';
-    return '<a href="'+m.url+'" target="_blank" class="mu-ruta-file">'+icon+' '+m.name+'<span class="mu-ruta-file-cta">↓ Ver</span></a>';
+    return '<a href="'+m.url+'" target="_blank" class="mu-ruta-file">'+icon+' '+_docEN(m.name)+'<span class="mu-ruta-file-cta">'+(en?'↓ View':'↓ Ver')+'</span></a>';
   }
 
   var steps = [];
@@ -17943,7 +18298,7 @@ window.__muMateriaInit = function(){
     /* Traducción de nombres de documento y semestre (patrón, no fila por fila).
        Los nombres del banco son formulaicos: "Parcial 1 · 2023-2", "Guía de clase — Semana 07",
        "Notas de clase — 12. Límites", "Resumen de repaso — Parcial 2", etc. */
-    var _DOC_EN=[
+    window._DOC_EN=[
       /* 1 — nombres completos exactos (van primero) */
       ['Formulario Completo de Derivadas','Complete Derivatives Formula Sheet'],
       ['Fórmulas Básicas, Unidades y Equivalencias','Basic Formulas, Units and Conversions'],
@@ -17966,6 +18321,11 @@ window.__muMateriaInit = function(){
       ['Resumen de Teoremas','Theorem Summary'],['Resumen Fórmulas','Formula Summary'],
       ['Programa Oficial del Curso','Official Course Syllabus'],['Programa Oficial','Official Syllabus'],['Programa oficial','Official syllabus'],
       ['transcripción digital','digital transcription'],['Transcripción digital','Digital transcription'],
+      ['Simulacros de','Mock exams —'],['Simulacro de','Mock exam —'],['Simulacros','Mock exams'],['Simulacro','Mock exam'],
+      ['Funciones Pares e Impares','Even and Odd Functions'],['Pares e Impares','Even and Odd'],['Funciones Inyectivas e Inversas','Injective and Inverse Functions'],
+      ['Funciones Trigonométricas','Trigonometric Functions'],['Ecuaciones Trigonométricas','Trigonometric Equations'],
+      ['Identidades Trigonométricas','Trigonometric Identities'],['Aplicaciones de Trigonometría','Trigonometry Applications'],
+      ['Trigonométricas','Trigonometric'],['Trigonométrica','Trigonometric'],['Identidades','Identities'],['Inyectivas','Injective'],['Inversas','Inverse'],['Pares','Even'],['Impares','Odd'],
       ['Notas de Curso','Course Notes'],['Notas Adicionales de Clase','Additional Class Notes'],
       ['Notas de Clase ampliadas','Expanded Class Notes'],['Apuntes Taller','Worksheet notes'],
       ['Geometría Analítica','Analytic Geometry'],['Geometria Vectorial','Vector Geometry'],
@@ -18015,15 +18375,10 @@ window.__muMateriaInit = function(){
       ['Multi-semestre','Multi-semester'],['Nivelatorio','Pre-calc'],['oficial','official'],['Oficial','Official'],
       [' de la ',' of the '],[' del ',' of the '],[' y ',' and '],[' e ',' and '],[' de ',' of ']
     ];
-    var _SEM_EN=[
+    window._SEM_EN=[
       ['Multi-semestre','Multi-semester'],['Semestre','Semester'],['Nivelatorio','Pre-calc'],
       ['Referencia','Reference'],['GRAL.','GENERAL'],['GRAL','GENERAL'],['supletorio','make-up']
     ];
-    function _dictApply(s,d){ s=String(s||''); for(var i=0;i<d.length;i++) s=s.split(d[i][0]).join(d[i][1]); return s; }
-    function _docEN(s){ return en ? _dictApply(s,_DOC_EN) : s; }
-    function _semEN(s){ return en ? _dictApply(s,_SEM_EN) : s; }
-    var _TYPE1_EN={parcial:'Midterm',taller:'Worksheet',quice:'Quiz',simulacro:'Mock exam',notas:'Notes',libro:'Book',formulario:'Formula sheet',programa:'Syllabus',solucionario:'Answer key',tarea:'Homework'};
-    function _typeEN(t){ return (en && _TYPE1_EN[t]) ? _TYPE1_EN[t] : t; }
     function expFileCard(f){
       var ico = ICONS[f.type]||TYPE_ICONS[f.type]||ICO_SVG.programa;
       var isPremiumUnlocked=(typeof muEsPremium==='function') ? muEsPremium() : false;
