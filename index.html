@@ -13491,6 +13491,53 @@ window.addEventListener('scroll', function(){
   }
 }, {passive:true});
 
+/* ── Scroll con inercia (solo escritorio, rueda del mouse) ──
+   Suaviza el scroll de la rueda con interpolación. Guardas: se apaga si el
+   sistema pide menos movimiento, si la pantalla es lenta, en pantallas
+   angostas, o si window.MU_SMOOTH_SCROLL === false (kill switch de 1 línea).
+   No toca contenedores con su propio scroll (listas, modales, Fórmulas). */
+(function(){
+  if(window.MU_SMOOTH_SCROLL === false) return;
+  try{
+    if(matchMedia('(prefers-reduced-motion:reduce)').matches) return;
+    if(matchMedia('(update:slow)').matches) return;
+    if(matchMedia('(pointer:coarse)').matches) return;   // táctil: scroll nativo ya es bueno
+  }catch(e){}
+  if(window.innerWidth < 900) return;
+
+  var target = window.scrollY, current = window.scrollY, EASE = 0.14, running = false, raf = 0;
+
+  function maxScroll(){ return document.documentElement.scrollHeight - window.innerHeight; }
+  function scrollableAncestor(el){
+    while(el && el !== document.body && el.nodeType === 1){
+      if(el.scrollHeight - el.clientHeight > 4){
+        var oy = getComputedStyle(el).overflowY;
+        if(oy === 'auto' || oy === 'scroll') return true;
+      }
+      el = el.parentElement;
+    }
+    return false;
+  }
+  function loop(){
+    var d = target - current;
+    current += d * EASE;
+    if(Math.abs(d) < 0.5){ current = target; running = false; }
+    window.scrollTo(0, Math.round(current * 100) / 100);
+    if(running) raf = requestAnimationFrame(loop);
+  }
+  window.addEventListener('wheel', function(e){
+    if(e.ctrlKey || e.deltaMode !== 0) return;             // zoom / scroll por "líneas"
+    if(maxScroll() < 40) return;                            // página no scrollea (ej. Fórmulas)
+    if(scrollableAncestor(e.target)) return;                // deja el scroll interno tranquilo
+    e.preventDefault();
+    target += e.deltaY;
+    target = Math.max(0, Math.min(target, maxScroll()));
+    if(!running){ running = true; current = window.scrollY; cancelAnimationFrame(raf); raf = requestAnimationFrame(loop); }
+  }, {passive:false});
+  // re-sincronizar si el scroll cambia por otra vía (teclado, barra, anclaje, botones ↑/↓)
+  window.addEventListener('scroll', function(){ if(!running) target = window.scrollY; }, {passive:true});
+})();
+
 
 // Intercept all clicks on hash links
 document.addEventListener('click', function(e){
