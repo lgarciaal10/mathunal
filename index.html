@@ -2662,9 +2662,10 @@ body{font-family:'Space Grotesk',system-ui,sans-serif;background:var(--bg);color
 .vf-shell .d-ol{font-family:IBM Plex Mono,monospace;font-size:.72rem;font-weight:600;text-transform:uppercase;letter-spacing:.12em;color:var(--cat);margin-bottom:.6rem;display:flex;align-items:center;gap:.38rem}
 .vf-shell .d-ol-dot{width:5px;height:5px;border-radius:50%;background:var(--cat);flex-shrink:0}
 .vf-shell .d-name{font-family:'Literata',serif;font-style:italic;font-size:1.75rem;font-weight:700;color:var(--t1);line-height:1.1;margin-bottom:1.2rem}
-.vf-shell .d-fbox{background:var(--card2);border:2px solid var(--br2);border-radius:12px;padding:1.6rem;text-align:center;margin-bottom:1.1rem;position:relative;overflow:hidden;box-shadow:3px 3px 0 rgba(224,93,26,.07)}
+.vf-shell .d-fbox{background:var(--card2);border:2px solid var(--br2);border-radius:12px;padding:1.6rem;text-align:center;margin-bottom:1.1rem;position:relative;overflow-x:auto;overflow-y:hidden;box-shadow:3px 3px 0 rgba(224,93,26,.07)}
 .vf-shell .d-fbox::before{content:'';position:absolute;top:0;left:0;right:0;height:2.5px;background:linear-gradient(90deg,transparent,var(--cat),transparent)}
-.vf-shell .d-fbox .katex-display{margin:0;font-size:1.45em}
+.vf-shell .d-fbox .katex-display{margin:0;font-size:1.32em;max-width:none}
+@media(max-width:1100px){.vf-shell .d-fbox .katex-display{font-size:1.12em}}
 .vf-shell .d-desc{font-size:1.02rem;color:var(--t1);line-height:1.75;opacity:.85;margin-bottom:1rem}
 .vf-shell .d-tip{display:flex;align-items:flex-start;gap:.55rem;background:rgba(245,158,11,.06);border-left:2.5px solid rgba(245,158,11,.5);border-radius:0 8px 8px 0;padding:.7rem .9rem;margin-bottom:.9rem}
 .vf-shell .d-tip-txt{font-size:1rem;color:var(--t1);line-height:1.7;opacity:.88}
@@ -2770,7 +2771,17 @@ body{font-family:'Space Grotesk',system-ui,sans-serif;background:var(--bg);color
 .mu-sb-no{background:rgba(248,113,113,.07);border:2px solid rgba(248,113,113,.2);color:var(--bad)}
 .mu-sp-x{position:absolute;top:.9rem;right:.9rem;width:28px;height:28px;border-radius:7px;background:var(--lay2);border:2px solid var(--br);color:var(--t2);font-size:1rem;display:flex;align-items:center;justify-content:center;cursor:pointer;z-index:3}
 .mu-sp-fld{display:block;font-family:IBM Plex Mono,monospace;font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.09em;color:var(--t3);margin-bottom:.9rem}
-.mu-sp-fld select{display:block;width:100%;margin-top:.35rem;padding:.5rem .6rem;border-radius:8px;background:var(--lay2);border:2px solid var(--br);color:var(--t1);font-family:inherit;font-size:.9rem;font-weight:600;text-transform:none;letter-spacing:0}
+.mu-sp-fld select{display:block;width:100%;margin-top:.35rem;padding:.5rem .6rem;border-radius:8px;background:var(--lay2);border:2px solid var(--br);color:var(--t1);font-family:inherit;font-size:.9rem;font-weight:600;text-transform:none;letter-spacing:0;color-scheme:dark}
+.mu-sp-fld select option{background:#0e1830;color:#e8f0ff}
+html[data-theme="black"] .mu-sp-fld select option{background:#141414;color:#f0f0f0}
+html[data-theme="gray"] .mu-sp-fld select option{background:#1c1c1f;color:#f0f0f0}
+html[data-theme="light"] .mu-sp-fld select{color-scheme:light}
+html[data-theme="light"] .mu-sp-fld select option{background:#fff;color:#1a1420}
+.mu-sp-prefs{display:flex;align-items:center;gap:.35rem;margin-bottom:1.1rem;flex-wrap:wrap}
+.mu-sp-pf{display:inline-flex;align-items:center;justify-content:center;min-width:30px;height:26px;padding:0 .45rem;border-radius:7px;background:var(--lay2);border:2px solid var(--br);color:var(--t3);font-family:'IBM Plex Mono',monospace;font-size:.72rem;font-weight:700;cursor:pointer;transition:all .13s}
+.mu-sp-pf:hover{color:var(--t1);border-color:var(--br2)}
+.mu-sp-pf.on{background:var(--acd);border-color:var(--acg);color:var(--acc)}
+.mu-sp-pf-sep{width:1px;height:16px;background:var(--br);margin:0 .2rem}
 .mu-sp-seg{display:flex;gap:.4rem;margin-top:.4rem}
 .mu-sp-seg button{flex:1;padding:.45rem 0;border-radius:8px;background:var(--lay2);border:2px solid var(--br);color:var(--t2);font-family:inherit;font-size:.9rem;font-weight:700;cursor:pointer;text-transform:none;letter-spacing:0;transition:all .14s}
 .mu-sp-seg button.on{background:var(--acd);border-color:var(--acg);color:var(--acc)}
@@ -6175,7 +6186,16 @@ if(!window.__muModalEsc){window.__muModalEsc=true;
     <button class="mu-sp-x" onclick="muSprintClose()" aria-label="Cerrar"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
     <div style="padding:1.4rem 1.6rem 1.6rem">
       <div class="mu-sp-cat" style="color:var(--acc)">Modo Sprint</div>
-      <div class="mu-sp-name" id="mu-sp-setup-h" style="margin-bottom:1.1rem">Arma tu repaso</div>
+      <div class="mu-sp-name" id="mu-sp-setup-h" style="margin-bottom:.7rem">Arma tu repaso</div>
+      <div class="mu-sp-prefs">
+        <button type="button" class="mu-sp-pf" data-lang="es" onclick="setLang('es')">ES</button>
+        <button type="button" class="mu-sp-pf" data-lang="en" onclick="setLang('en')">EN</button>
+        <span class="mu-sp-pf-sep"></span>
+        <button type="button" class="mu-sp-pf mu-sp-th" data-th="dark" onclick="setTheme('dark')" title="Azul"><svg width="12" height="12" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></button>
+        <button type="button" class="mu-sp-pf mu-sp-th" data-th="black" onclick="setTheme('black')" title="Negro"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="9"/></svg></button>
+        <button type="button" class="mu-sp-pf mu-sp-th" data-th="gray" onclick="setTheme('gray')" title="Gris"><svg width="12" height="12" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 3a9 9 0 0 1 0 18Z" fill="currentColor"/></svg></button>
+        <button type="button" class="mu-sp-pf mu-sp-th" data-th="light" onclick="setTheme('light')" title="Claro"><svg width="12" height="12" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><line x1="12" y1="2" x2="12" y2="5"/><line x1="12" y1="19" x2="12" y2="22"/><line x1="4.9" y1="4.9" x2="6.7" y2="6.7"/><line x1="17.3" y1="17.3" x2="19.1" y2="19.1"/><line x1="2" y1="12" x2="5" y2="12"/><line x1="19" y1="12" x2="22" y2="12"/><line x1="4.9" y1="19.1" x2="6.7" y2="17.3"/><line x1="17.3" y1="6.7" x2="19.1" y2="4.9"/></svg></button>
+      </div>
       <label class="mu-sp-fld" id="mu-sp-mat-lbl">Materia
         <select id="mu-sp-mat"></select>
       </label>
@@ -7513,6 +7533,9 @@ function _muSpFillSetup(pool){
   parts.push((en?'Mastered ':'Dominadas ')+'<b>'+md+'</b> / '+pool.length);
   if(st.best>0)parts.push((en?'Best ':'Mejor ')+'<b>'+st.best+'%</b>');
   document.getElementById('mu-sp-meta').innerHTML=parts.join('&nbsp;·&nbsp;');
+  document.querySelectorAll('#mu-sp-setup .mu-sp-pf[data-lang]').forEach(function(b){ b.classList.toggle('on', b.getAttribute('data-lang')===(en?'en':'es')); });
+  var _cth=document.documentElement.getAttribute('data-theme')||'dark';
+  document.querySelectorAll('#mu-sp-setup .mu-sp-pf[data-th]').forEach(function(b){ b.classList.toggle('on', b.getAttribute('data-th')===_cth); });
 }
 
 function muSprintStart(missOnly){
@@ -8568,7 +8591,7 @@ function _renderQ(idx){
 
   // Texto
   var qtxt=_el('q-text');
-  if(qtxt){ qtxt.innerHTML=q.texto+(q.figura?_renderFigura(q.figura):''); _renderMath(qtxt); _initDrawCanvas(qtxt); }
+  if(qtxt){ qtxt.innerHTML=_mathHtml(q.texto)+(q.figura?_renderFigura(q.figura):''); _renderMath(qtxt); _initDrawCanvas(qtxt); }
 
   // Opciones
   var qopts=_el('q-options');
@@ -8582,7 +8605,7 @@ function _renderQ(idx){
         var dis=_checked[idx]?' style="pointer-events:none"':'';
         return '<div class="q-opt'+sel+cor+wrg+'" data-i="'+i+'"'+dis+' role="button" tabindex="'+(_checked[idx]?'-1':'0')+'" aria-label="Opción '+letters[i].toUpperCase()+'">'
           +'<div class="q-opt-circle">'+letters[i]+'</div>'
-          +'<div class="q-opt-text">'+opt+'</div>'
+          +'<div class="q-opt-text">'+_mathHtml(opt)+'</div>'
           +'</div>';
       }).join('');
       _renderMath(qopts);
@@ -8784,9 +8807,9 @@ function _renderExpl(idx){
     var isOk=_answers[idx]===q.correcta;
     res.innerHTML=(isOk?'<span style="font-size:1.1rem">✓</span> Correcto!':'<span style="font-size:1.1rem">✗</span> Incorrecto — respuesta correcta: <strong>'+letters[q.correcta]+'</strong>');
     res.className='expl-result '+(isOk?'correct-r':'wrong-r');
-    sum.innerHTML=q.resumen||''; _renderMath(sum);
+    sum.innerHTML=_mathHtml(q.resumen||''); _renderMath(sum);
     stp.innerHTML=(q.pasos||[]).map(function(p,i){
-      return '<div class="expl-step"><div class="step-n">'+(i+1)+'</div><div class="step-txt">'+p+'</div></div>';
+      return '<div class="expl-step"><div class="step-n">'+(i+1)+'</div><div class="step-txt">'+_mathHtml(p)+'</div></div>';
     }).join('');
     _renderMath(stp);
   } else if(q.tipo==='numerica'){
@@ -8797,9 +8820,9 @@ function _renderExpl(idx){
     var g=_calificarNum(q,_numAns[idx]);
     res.innerHTML=(g===1?'<span style="font-size:1.1rem">✓</span> Correcta!':g===0.5?'<span style="font-size:1.1rem">≈</span> Parcial — dentro del margen':'<span style="font-size:1.1rem">✗</span> Incorrecta — respuesta esperada: <strong>'+q.respuesta+(q.unidad?' '+q.unidad:'')+'</strong>');
     res.className='expl-result '+(g===1?'correct-r':g===0.5?'':'wrong-r');
-    sum.innerHTML=q.resumen||''; _renderMath(sum);
+    sum.innerHTML=_mathHtml(q.resumen||''); _renderMath(sum);
     stp.innerHTML=(q.pasos||[]).map(function(p,i){
-      return '<div class="expl-step"><div class="step-n">'+(i+1)+'</div><div class="step-txt">'+p+'</div></div>';
+      return '<div class="expl-step"><div class="step-n">'+(i+1)+'</div><div class="step-txt">'+_mathHtml(p)+'</div></div>';
     }).join('');
     _renderMath(stp);
   } else {
@@ -8807,7 +8830,7 @@ function _renderExpl(idx){
     res.className='expl-result';
     sum.innerHTML='Compara tu desarrollo con la solución y autocalifícate:';
     stp.innerHTML=(q.solucion||[]).map(function(p,i){
-      return '<div class="expl-step"><div class="step-n">'+(i+1)+'</div><div class="step-txt">'+p+'</div></div>';
+      return '<div class="expl-step"><div class="step-n">'+(i+1)+'</div><div class="step-txt">'+_mathHtml(p)+'</div></div>';
     }).join('');
     _renderMath(stp);
     stp.innerHTML+='<div style="margin-top:.9rem">'
@@ -11747,7 +11770,7 @@ function _diagRenderPregunta(){
   if(fill) fill.style.width = (((_diagIdx+1)/_diagPoolQs.length)*100)+'%';
 
   var texto = document.getElementById('diag-q-texto');
-  if(texto){ texto.innerHTML = q.texto || ''; if(typeof _renderMath==='function') _renderMath(texto); }
+  if(texto){ texto.innerHTML = _mathHtml(q.texto || ''); if(typeof _renderMath==='function') _renderMath(texto); }
 
   var optsHost = document.getElementById('diag-q-opts');
   var numHost = document.getElementById('diag-q-num');
@@ -11759,7 +11782,7 @@ function _diagRenderPregunta(){
     optsHost.innerHTML = q.opciones.map(function(op,i){
       return '<div class="diag-opt" data-i="'+i+'" onclick="_diagSelectOpt('+i+')">'
         + '<div class="diag-opt-l">'+L[i]+'</div>'
-        + '<div data-katex="1">'+op+'</div>'
+        + '<div data-katex="1">'+_mathHtml(op)+'</div>'
         + '</div>';
     }).join('');
     if(typeof _renderMath==='function') _renderMath(optsHost);
@@ -13401,12 +13424,12 @@ var FT={
 "Integral de línea":{name:"Line integral",desc:"Work of a field along a curve. If F is conservative, it depends only on the endpoints.",nemo:"«The road toll: you add up what the field charges you on each little piece.»",ann:"For a conservative field the line integral is path-independent — only the endpoints matter."},
 "Error absoluto y relativo":{name:"Absolute and relative error",desc:"x is the exact value, x̄ the approximation. The relative error tells you how much it matters.",nemo:"«Absolute = how far off you were. Relative = how bad that is.»",ann:"The relative error scales the mistake to the size of the quantity."},
 "Newton-Raphson":{name:"Newton-Raphson",desc:"Iterates by drawing tangent lines. Converges quadratically near the root.",tip:"Needs f continuous and differentiable. Pick x₀ near the root.",nemo:"«The tangent aims at the strike: each shot is more precise.»",ann:"Each step follows the tangent line down to the axis. Fast, but a bad x₀ can send it off."},
-"Bisección":{name:"Bisection",desc:"Halves the interval at every step. Guarantees convergence.",nemo:"«The cut method: always split in half until you trap the root.»",ann:"Slow but bulletproof: as long as f changes sign on [a,b], it always converges."},
+"Bisección":{name:"Bisection",formula:'x_1=\\dfrac{a+b}{2}\\quad\\text{if }f(a)\\cdot f(x_1)<0\\Rightarrow b=x_1',desc:"Halves the interval at every step. Guarantees convergence.",nemo:"«The cut method: always split in half until you trap the root.»",ann:"Slow but bulletproof: as long as f changes sign on [a,b], it always converges."},
 "Regla Falsa":{name:"False position (Regula Falsi)",desc:"Uses the secant line between the endpoints. More efficient than bisection.",nemo:"«Instead of cutting in the middle, draw a line between the endpoints and cut where it crosses zero.»",ann:"Like bisection but the next point is where the secant hits the axis — usually faster."},
 "Método de Euler (EDO)":{name:"Euler's method (ODE)",desc:"Steps forward using the slope at the current point. Error O(h).",nemo:"«Euler takes baby steps: it uses today's slope to predict the future.»",ann:"Smaller h = smaller error, but more steps. The simplest ODE solver."},
 "Runge-Kutta 4to orden":{name:"Runge-Kutta 4th order",desc:"Error O(h⁵) per step. Uses 4 evaluations of f. The most accurate for ODEs.",nemo:"«RK4 looks ahead 4 times before taking a step: that's why it's so accurate.»",ann:"Four slope samples per step, weighted — dramatically more accurate than Euler for the same h."},
 "Interpolación de Lagrange":{name:"Lagrange interpolation",desc:"The unique degree-n polynomial through n+1 points. Doesn't need a constant step h.",nemo:"«For each point it builds its own shield that is 1 there and 0 at the others.»",ann:"The basis polynomials are 1 at their own node and 0 at every other — their weighted sum passes through all points."},
-"Trapecio + Simpson 1/3":{name:"Trapezoid + Simpson's 1/3",desc:"The trapezoid rule approximates with straight lines. Simpson with parabolas. Error: O(h²) vs O(h⁴).",nemo:"«Simpson: the 1-4-2-4-2…-4-1 pattern is the key. Endpoints count 1, odd points 4, even points 2.»",ann:"Simpson fits parabolas instead of lines — much more accurate for smooth functions."},
+"Trapecio + Simpson 1/3":{name:"Trapezoid + Simpson's 1/3",formula:'\\int_a^b f\\,dx\\approx\\tfrac{h}{2}[y_0+y_n+2\\textstyle\\sum y_i]\\quad\\text{or}\\quad\\tfrac{h}{3}[y_0+y_n+4\\textstyle\\sum_{odd}+2\\textstyle\\sum_{even}]',desc:"The trapezoid rule approximates with straight lines. Simpson with parabolas. Error: O(h²) vs O(h⁴).",nemo:"«Simpson: the 1-4-2-4-2…-4-1 pattern is the key. Endpoints count 1, odd points 4, even points 2.»",ann:"Simpson fits parabolas instead of lines — much more accurate for smooth functions."},
 "Producto escalar":{name:"Dot product",desc:"A scalar measuring how much two vectors point the same way. Zero = perpendicular.",nemo:"«The handshake: if the vectors ignore each other (90°), the product is 0.»",ann:"a·b = |a||b|cosθ. Positive = same general direction, negative = opposite, zero = perpendicular."},
 "Distancia entre puntos":{name:"Distance between points",desc:"The distance is the magnitude of the vector AB. It's the Pythagorean theorem.",nemo:"«The distance is the hypotenuse of the triangle formed by the two points.»",ann:"Just Pythagoras on the coordinate differences."},
 "Vector unitario":{name:"Unit vector",desc:"A vector with magnitude 1 in the same direction.",nemo:"«Direction without magnitude: the compass without the speedometer.»",ann:"Divide a vector by its own length to keep the direction and set the size to 1."},
@@ -13422,7 +13445,7 @@ var FT={
 "Wronskiano":{name:"Wronskian",desc:"If W≠0, the solutions are linearly independent.",nemo:"«The Wronskian proves independence: W≠0 → the solutions are genuinely different.»",ann:"W ≠ 0 anywhere on the interval means the two solutions form a valid fundamental set."},
 "Crecimiento/Decaimiento":{name:"Growth / Decay",desc:"k>0: growth. k<0: decay. Models populations, radioactivity, etc.",nemo:"«k decides the fate: positive → it multiplies, negative → it runs out.»",ann:"y = y₀e^{kt}. The sign of k sets growth vs decay; |k| sets the rate."},
 "Enfriamiento de Newton":{name:"Newton's law of cooling",desc:"The temperature-minus-ambient difference decays exponentially. k<0 for cooling.",nemo:"«The cold coffee: the colder it is, the slower it cools toward equilibrium.»",ann:"The gap to the ambient temperature shrinks exponentially."},
-"Coeficientes Indeterminados":{name:"Undetermined coefficients",desc:"For non-homogeneous ODEs. Guess yp from the form of g(x): eˣ→Aeˣ, sin x→A sin x + B cos x, xⁿ→polynomial.",nemo:"«The disguise method: yp dresses up as g(x).»",ann:"yp mimics the shape of g(x) with unknown constants you solve for by substitution."},
+"Coeficientes Indeterminados":{name:"Undetermined coefficients",formula:'y=y_c+y_p\\quad y_p\\text{ from the form of }g(x)',desc:"For non-homogeneous ODEs. Guess yp from the form of g(x): eˣ→Aeˣ, sin x→A sin x + B cos x, xⁿ→polynomial.",nemo:"«The disguise method: yp dresses up as g(x).»",ann:"yp mimics the shape of g(x) with unknown constants you solve for by substitution."},
 "Variación de Parámetros (Wronskiano)":{name:"Variation of parameters (Wronskian)",desc:"For when undetermined coefficients doesn't apply.",nemo:"«Variation of parameters: C₁ and C₂ become functions u₁(x) and u₂(x).»",ann:"yp (yellow) is built as u₁y₁ + u₂y₂ where u₁, u₂ come from integrating. Total solution = yc (homogeneous) + yp (particular). Change g(x)."},
 "Circuito RL":{name:"RL circuit",desc:"The current rises exponentially to ε/R. The inductance L resists the change.",nemo:"«The inductor is stubborn: it won't let the current change suddenly. Time constant τ=L/R.»",ann:"The current rises <strong>exponentially</strong> to ε/R. The <strong>inductor L</strong> resists the sudden change. At t=τ=L/R the current is at 63% of its final value."},
 "Transformada de Laplace":{name:"Laplace transform",desc:"Turns an ODE (with derivatives) into an algebraic equation in $s$. The key: $\\mathcal{L}\\{y'\\}=sY(s)-y(0)$ and $\\mathcal{L}\\{y''\\}=s^2Y(s)-sy(0)-y'(0)$. Initial conditions go in here, not at the end.",tip:"Linearity: $\\mathcal{L}\\{af+bg\\}=a\\mathcal{L}\\{f\\}+b\\mathcal{L}\\{g\\}$.  Shift: $\\mathcal{L}\\{e^{at}f(t)\\}=F(s-a)$.",nemo:"«The time machine: it sends the equation to the '$s$-world', where differentiating is just multiplying by $s$.»",ann:"The transform of a <strong>derivative</strong> is multiply by s and subtract the initial value. That's why an ODE becomes algebra: solve for F(s) and read the table backwards (inverse transform)."},
@@ -13436,7 +13459,7 @@ var FT={
 "Principio de inclusión-exclusión":{name:"Inclusion-exclusion principle",desc:"For 3 sets: |A∪B∪C| = Σ|A| − Σ|A∩B| + |A∩B∩C|. Add the singles, subtract the pairs, add the triples…",nemo:"«Add everything, subtract what you counted twice, add back what you removed too much.»"},
 "Sumas notables":{name:"Notable sums",desc:"Gauss's sum: pair the first with the last (1+n), the second with the second-to-last (2 + n−1)… every pair sums to n+1, and there are n/2 pairs.",nemo:"«Gauss as a kid: 1+2+…+100. He paired 1+100, 2+99… 50 pairs of 101 = 5050.»"},
 "Leyes de De Morgan":{name:"De Morgan's laws",desc:"Negating a conjunction or a disjunction: negate each part and swap ∧ for ∨ (and vice versa). Same for sets: (A∩B)ᶜ = Aᶜ ∪ Bᶜ.",nemo:"«When you negate, 'and' becomes 'or' (and vice versa), negating each piece: 'not (raining and thundering)' = 'not raining or not thundering'.»"},
-"Principio del palomar":{name:"Pigeonhole principle",desc:"If there are more pigeons than holes, some hole has ≥ 2 pigeons. Strong version: some box holds at least ⌈n/k⌉ objects.",nemo:"«More pigeons than holes: for sure one hole has two. Sounds silly but it proves a lot of things.»"},
+"Principio del palomar":{name:"Pigeonhole principle",formula:'n\\text{ objects in }k\\text{ boxes},\\ n>k\\ \\Rightarrow\\ \\exists\\ \\text{a box with}\\ \\ge\\left\\lceil \\tfrac{n}{k}\\right\\rceil',desc:"If there are more pigeons than holes, some hole has ≥ 2 pigeons. Strong version: some box holds at least ⌈n/k⌉ objects.",nemo:"«More pigeons than holes: for sure one hole has two. Sounds silly but it proves a lot of things.»"},
 "Aritmética modular":{name:"Modular arithmetic",desc:"The 'mod' can be pushed inside sums and products. a ≡ b (mod n) means n divides (a − b).",nemo:"«The clock: 10 + 5 hours = 3 o'clock (mod 12). You can reduce at any step, not only at the end.»"}
 };
 /* getter: devuelve el campo EN si estamos en inglés y existe traducción, si no el ES. */
@@ -13777,7 +13800,7 @@ function sel(i){
       :(f.viz.type!=='3d'?'<div class="viz-actions">'
       +(f.viz.params&&f.viz.params.length?'<button class="vbtn anim-btn" id="anim-btn" onclick="toggleAnim('+i+')"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" style="vertical-align:-1px"><path d="M6 4l14 8-14 8V4z"/></svg> '+(en?'Animate':'Animar')+'</button>':'')
       +'<button class="vbtn" onclick="resetP('+i+')">↺ Reset</button>'
-      +'<div class="speed-wrap"><span class="speed-lbl">'+(en?'Speed:':'Vel:')+'</span><select class="speed-sel" id="speed-sel" onchange="if(_anim){cancelAnimationFrame(_rafId);_rafId=null;_animLastTS=null;_anim=false;toggleAnim('+i+');}"><option value="200">0.25×</option><option value="100" selected>0.5×</option><option value="50">1×</option><option value="33">1.5×</option><option value="25">2×</option></select></div>'
+      +'<div class="speed-wrap"><span class="speed-lbl">'+(en?'Speed:':'Vel:')+'</span><select class="speed-sel" id="speed-sel" onchange="if(_anim){cancelAnimationFrame(_rafId);_rafId=null;_animLastTS=null;_anim=false;toggleAnim('+i+');}"><option value="200">0.25×</option><option value="100">0.5×</option><option value="50" selected>1×</option><option value="33">1.5×</option><option value="25">2×</option></select></div>'
      +'</div>':'<div class="viz-actions"><button class="vbtn" onclick="resetP('+i+')">↺ Reset</button></div>'))
      +((fxT(f,'ann'))?'<div class="viz-ann">'+fxT(f,'ann')+'</div>':'')
      +'</div></div>';
@@ -13792,7 +13815,8 @@ function sel(i){
    +vizH
    +'<div class="d-acts"><button class="dbtn-learn'+(vfIsLearned(i)?' on':'')+'" onclick="vfToggleLearned('+i+')">'+(vfIsLearned(i)?'✓':'○')+' '+(en?'Learned':'Aprendida')+'</button><button class="dbtn-s" onclick="vfCopyLatex('+i+',this)">⎘ '+(en?'Copy LaTeX':'Copiar LaTeX')+'</button></div>';
   var fb=document.getElementById('fbox');
-  if(fb&&typeof katex!=='undefined')try{katex.render(f.formula,fb,{displayMode:true,throwOnError:false,trust:true});}catch(e){fb.textContent=f.formula;}
+  var _fform=fxT(f,'formula')||f.formula;
+  if(fb&&typeof katex!=='undefined')try{katex.render(_fform,fb,{displayMode:true,throwOnError:false,trust:true});}catch(e){fb.textContent=_fform;}
   if(typeof _renderMath==='function') try{ _renderMath(di); }catch(e){}
   if(f.viz)setTimeout(function(){doRender(i);},250);
   document.getElementById('vf-detail').scrollTop=0;
@@ -14232,6 +14256,10 @@ function syncThemeToggle(t){
   document.querySelectorAll('.mob-theme-btn').forEach(function(b){
     var m = (b.getAttribute('onclick')||'').match(/setTheme\('(dark|black|gray|light)'\)/);
     if(m) b.classList.toggle('on', m[1]===t);
+  });
+  // botones de tema dentro del Modo Sprint
+  document.querySelectorAll('.mu-sp-pf[data-th]').forEach(function(b){
+    b.classList.toggle('on', b.getAttribute('data-th')===t);
   });
 }
 // Patch setTheme para que también sincronice el toggle visible
@@ -14698,6 +14726,12 @@ function _renderMath(el){
     });
   }
 }
+/* Texto de pregunta/opción/solución que lleva $LaTeX$: puede contener < > &
+   (p.ej. "x^2<x+2"). Al meterlo por innerHTML el navegador lo parsea como HTML
+   y se corta. Se escapan esos 3 chars; KaTeX auto-render lee el textContent ya
+   decodificado, así que el < vuelve a ser "menor que" dentro de la fórmula. */
+function _mathHtml(s){ return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+window._mathHtml = _mathHtml;
 
 function _renderFigura(fig){
   if(!fig || !fig.tipo) return '';
@@ -15112,6 +15146,7 @@ function _renderReview(nota){
   var host = _el('review-list');
   if(!host || !_exam) return;
   var L = ['A','B','C','D','E'];
+  var en = (window.curLang==='en');
   var html = '';
 
   _exam.preguntas.forEach(function(q,i){
@@ -15126,33 +15161,36 @@ function _renderReview(nota){
     html += '<div class="' + cls + '">'
          +  '<div class="ri-top">'
          +    '<span class="ri-num">' + (i+1) + '</span>'
-         +    '<div class="ri-q" data-katex="1">' + (q.texto||'')
+         +    '<div class="ri-q" data-katex="1">' + _mathHtml(q.texto||'')
          +      (q.figura ? _renderFigura(q.figura) : '')
          +    '</div>'
          +  '</div>';
 
+    var _youAns=en?'You answered: ':'Respondiste: ';
+    var _wasRight=en?' \u2713 correct':' \u2713 correcta';
+    var _correctWas=en?' \u2014 correct was <strong>':' \u2014 la correcta era <strong>';
+    var _noAns=en?'Not answered':'Sin responder';
+    var _expected=en?'expected: <strong>':'esperada: <strong>';
     // Linea de respuesta
     if(esMcq && q.opciones){
       if(elegida >= 0){
-        html += '<div class="ri-ans" data-katex="1">Respondiste: <strong>' + L[elegida] + '</strong>'
-             +  (acerto ? ' \u2713 correcta'
-                        : ' \u2014 la correcta era <strong>' + L[q.correcta] + '</strong>') + '</div>';
+        html += '<div class="ri-ans" data-katex="1">'+_youAns+'<strong>' + L[elegida] + '</strong>'
+             +  (acerto ? _wasRight : _correctWas + L[q.correcta] + '</strong>') + '</div>';
       } else {
-        html += '<div class="ri-ans">Sin responder \u2014 la correcta era <strong>'
-             +  L[q.correcta] + '</strong></div>';
+        html += '<div class="ri-ans">'+_noAns+_correctWas + L[q.correcta] + '</strong></div>';
       }
     } else if(q.tipo==='numerica'){
       var gv=gNum;
       var dado=String(_numAns[i]||'').trim();
       html += '<div class="ri-ans">'+(dado
-                ? 'Respondiste: <strong>'+dado+'</strong>'+(gv===1?' \u2713 correcta'
-                   : gv===0.5?' \u2248 parcial (0.5)':' \u2014 esperada: <strong>'+q.respuesta+'</strong>')
-                : 'Sin responder \u2014 esperada: <strong>'+q.respuesta+'</strong>')+'</div>';
+                ? _youAns+'<strong>'+dado+'</strong>'+(gv===1?_wasRight
+                   : gv===0.5?(en?' \u2248 partial (0.5)':' \u2248 parcial (0.5)'):' \u2014 '+_expected+q.respuesta+'</strong>')
+                : _noAns+' \u2014 '+_expected+q.respuesta+'</strong>')+'</div>';
     } else {
       var txt = (typeof _openAns!=='undefined' && _openAns[i]) ? String(_openAns[i]).trim() : '';
       html += '<div class="ri-ans">' + (txt
-                ? 'Pregunta de desarrollo \u2014 revisa tu procedimiento contra la soluci\u00f3n.'
-                : 'Pregunta de desarrollo \u2014 sin responder.') + '</div>';
+                ? (en?'Open-ended question \u2014 check your work against the solution.':'Pregunta de desarrollo \u2014 revisa tu procedimiento contra la soluci\u00f3n.')
+                : (en?'Open-ended question \u2014 not answered.':'Pregunta de desarrollo \u2014 sin responder.')) + '</div>';
     }
 
     // Solucion: OCULTA por decision de Luis 2026-08-24 -- se lanza gratis
@@ -15165,14 +15203,14 @@ function _renderReview(nota){
     if(pasos.length && SOLUCIONES_HABILITADAS){
       html += '<div class="ri-solucion-wrap" data-qi="'+i+'">'
            +  '<div class="ri-solucion">'
-           +    '<div class="ri-sol-label">\u2713 Soluci\u00f3n paso a paso</div>'
-           +    (q.resumen ? '<div class="ri-sol-resumen" data-katex="1">'+q.resumen+'</div>' : '')
-           +    pasos.map(function(p){ return '<div class="ri-paso" data-katex="1">'+p+'</div>'; }).join('')
+           +    '<div class="ri-sol-label">\u2713 '+(en?'Step-by-step solution':'Soluci\u00f3n paso a paso')+'</div>'
+           +    (q.resumen ? '<div class="ri-sol-resumen" data-katex="1">'+_mathHtml(q.resumen)+'</div>' : '')
+           +    pasos.map(function(p){ return '<div class="ri-paso" data-katex="1">'+_mathHtml(p)+'</div>'; }).join('')
            +  '</div>'
-           +  '<button type="button" class="ri-expand-cta" onclick="_unlockSol('+i+')">Ver explicaci\u00f3n extendida \u2192</button>'
+           +  '<button type="button" class="ri-expand-cta" onclick="_unlockSol('+i+')">'+(en?'See extended explanation \u2192':'Ver explicaci\u00f3n extendida \u2192')+'</button>'
            +  '</div>';
     } else if(pasos.length && !acerto){
-      html += '<div class="ri-sol-soon">\ud83d\udee0 Solucionario paso a paso \u2014 en construcci\u00f3n</div>';
+      html += '<div class="ri-sol-soon">\ud83d\udee0 '+(en?'Step-by-step solutions \u2014 under construction':'Solucionario paso a paso \u2014 en construcci\u00f3n')+'</div>';
     }
 
     html += '</div>';
@@ -16577,6 +16615,7 @@ function setLang(lang){
     var _cl=document.getElementById('mu-sp-cnt-lbl'); if(_cl&&_cl.childNodes[0]) _cl.childNodes[0].nodeValue=(en?'How many':'Cuántas fórmulas')+' ';
     var _go=document.getElementById('mu-sp-go'); if(_go) _go.textContent=en?'▶ Start':'▶ Empezar';
     var _c0=document.querySelector('#mu-sp-cnt button[data-cnt="0"]'); if(_c0) _c0.textContent=en?'All':'Todas';
+    document.querySelectorAll('#mu-sp-setup .mu-sp-pf[data-lang]').forEach(function(b){ b.classList.toggle('on', b.getAttribute('data-lang')===(en?'en':'es')); });
   }
   var _spc=document.getElementById('mu-spcat'); if(_spc&&(_spc.textContent==='Categoría'||_spc.textContent==='Category')) _spc.textContent=en?'Category':'Categoría';
 
@@ -17903,36 +17942,76 @@ window.__muMateriaInit = function(){
        Los nombres del banco son formulaicos: "Parcial 1 · 2023-2", "Guía de clase — Semana 07",
        "Notas de clase — 12. Límites", "Resumen de repaso — Parcial 2", etc. */
     var _DOC_EN=[
+      /* 1 — nombres completos exactos (van primero) */
+      ['Formulario Completo de Derivadas','Complete Derivatives Formula Sheet'],
+      ['Fórmulas Básicas, Unidades y Equivalencias','Basic Formulas, Units and Conversions'],
+      ['Ejercicios de triángulos, circunferencias y elipses','Triangle, circle and ellipse exercises'],
+      ['Ejercicios para preparar el 3er parcial','Exercises to prep for the 3rd midterm'],
+      ['Ejercicios 3er Examen Parcial (Grupos de Estudio Autónomo)','3rd Midterm Exercises (Autonomous Study Groups)'],
+      ['Ejercicios Desafiantes de Repaso','Challenging Review Exercises'],
+      ['Ejercicios de Geometría Analítica','Analytic Geometry Exercises'],
+      ['Apuntes de Repaso: Divisibilidad, Congruencias e Inversos Modulares','Review notes: Divisibility, Congruences and Modular Inverses'],
+      ['Apuntes de Repaso: Teoría de Números y Grafos','Review notes: Number Theory and Graphs'],
+      ['Calendario de Quices (por semana, estimado)','Quiz calendar (weekly, estimated)'],
+      ['Calendario de Quices (por tema)','Quiz calendar (by topic)'],
+      ['Notas de Clase (Escuela de Matemáticas UNAL)','Class Notes (UNAL School of Mathematics)'],
+      ['Notas de clase (Escuela de Matemáticas UNAL)','Class notes (UNAL School of Mathematics)'],
+      ['Notas de Clase (General, por unidades)','Class Notes (General, by units)'],
+      ['Notas de Clase — Series de Potencia 2022-2','Class Notes — Power Series 2022-2'],
+      ['Notas de Clase 27 (Plano de Fase)','Class Notes 27 (Phase Plane)'],
+      ['Resumen Fórmulas Parcial 1, 2 y 3','Formula Summary — Midterms 1, 2 and 3'],
+      ['Resúmenes de fórmulas','Formula summaries'],
+      ['Resumen de Teoremas','Theorem Summary'],['Resumen Fórmulas','Formula Summary'],
+      ['Programa Oficial del Curso','Official Course Syllabus'],['Programa Oficial','Official Syllabus'],['Programa oficial','Official syllabus'],
+      ['transcripción digital','digital transcription'],['Transcripción digital','Digital transcription'],
+      ['Notas de Curso','Course Notes'],['Notas Adicionales de Clase','Additional Class Notes'],
+      ['Notas de Clase ampliadas','Expanded Class Notes'],['Apuntes Taller','Worksheet notes'],
+      ['Geometría Analítica','Analytic Geometry'],['Geometria Vectorial','Vector Geometry'],
+      ['Grupos de Estudio Autónomo','Autonomous Study Groups'],['Escuela de Matemáticas','School of Mathematics'],
+      ['Series de Potencia','Power Series'],['Plano de Fase','Phase Plane'],
+      ['Teoría de Números','Number Theory'],
+      /* 2 — frases estructurales */
       ['Primer Parcial','First Midterm'],['Segundo Parcial','Second Midterm'],['Tercer Parcial','Third Midterm'],
-      ['Cuarto Parcial','Fourth Midterm'],['Parcial Final','Final Exam'],['Examen Final','Final Exam'],
+      ['Cuarto Parcial','Fourth Midterm'],['Parcial Final','Final Exam'],['Examen Final','Final Exam'],['Examen Parcial','Midterm'],
       ['Guía de clases','Class guide'],['Guía de clase','Class guide'],['Guía Clases','Class guide'],['Guía de estudio','Study guide'],
-      ['Notas de clase','Class notes'],['Notas de Clase','Class notes'],['Apuntes de clase','Class notes'],
+      ['Notas de clase','Class notes'],['Notas de Clase','Class notes'],['Notas de clase','Class notes'],
+      ['Apuntes de Repaso','Review notes'],['Apuntes de clase','Class notes'],['Apuntes de','Notes on'],
       ['Programa de Referencia','Reference syllabus'],['Plan Curricular','Curriculum plan'],['Plan de Estudios','Curriculum plan'],
-      ['Resumen de repaso','Review summary'],['Hoja de repaso','Review sheet'],['Material de repaso','Review material'],
+      ['Resumen de repaso','Review summary'],['Hoja de repaso','Review sheet'],['Material de repaso','Review material'],['de Repaso','review'],['de repaso','review'],
       ['Calendario de Quices','Quiz calendar'],['Calendario de Parciales','Exam calendar'],
-      ['Taller con solución','Worksheet with solutions'],['Talleres con solución','Worksheets with solutions'],
+      ['Talleres con solución','Worksheets with solutions'],['Taller con solución','Worksheet with solutions'],
       ['con solución','with solutions'],['con soluciones','with solutions'],['sin solución','no solutions'],
       ['y solucionario','& answer key'],['Solucionario','Answer key'],['Soluciones','Solutions'],['Solución','Solution'],
       ['resueltos','solved'],['resuelto','solved'],['Enunciado','Statement'],
+      ['Aplicaciones de la Derivada','Derivative Applications'],['Aplicaciones de la derivada','Derivative applications'],
+      ['Ejercicios para preparar','Exercises to prep for'],['Ejercicios de ','Exercises: '],['Ejercicios','Exercises'],
       ['Formulario','Formula sheet'],['Fórmulas','Formulas'],['Formulas','Formulas'],
       ['Recopilación','Compilation'],['recopilación','compilation'],
+      ['Álgebra Lineal','Linear Algebra'],['Cálculo','Calculus'],
+      ['1ra Ed.','1st ed.'],['2da Ed.','2nd ed.'],['3ra Ed.','3rd ed.'],['4ta Ed.','4th ed.'],['5ta Ed.','5th ed.'],['6ta Ed.','6th ed.'],['7ma Ed.','7th ed.'],['8va Ed.','8th ed.'],['9na Ed.','9th ed.'],['10ma Ed.','10th ed.'],['Ed.','ed.'],
+      /* 3 — palabras */
       ['Primer ','First '],['Segundo ','Second '],['Tercer ','Third '],['Cuarto ','Fourth '],['Quinto ','Fifth '],
+      ['3er ','3rd '],['1er ','1st '],['2do ','2nd '],
       ['Parciales','Midterms'],['Parcial','Midterm'],['Talleres','Worksheets'],['Taller','Worksheet'],
-      ['Quíces','Quizzes'],['Quices','Quizzes'],['Quíz','Quiz'],['Quiz','Quiz'],
-      ['Semana ','Week '],['Tareas','Homework'],['Tarea','Homework'],['Libro','Book'],['Guía','Guide'],['Notas','Notes'],
-      ['Programa','Syllabus'],['Resumen','Summary'],['por tema','by topic'],['por semana','by week'],
-      ['estimado','estimate'],['ejemplo','example'],['de referencia','reference'],['Referencia','Reference'],
-      ['Multi-semestre','Multi-semester'],['Nivelatorio','Pre-calc'],['supletorio','make-up'],
-      /* palabras de tema que aparecen en nombres descriptivos */
-      ['Formulario Completo de Derivadas','Complete Derivatives Formula Sheet'],
-      ['Aplicaciones de la Derivada','Derivative Applications'],['Aplicaciones de la derivada','Derivative applications'],
-      ['Completo de Derivadas','Complete Derivatives'],['Completa de','Complete '],['Completo de','Complete '],
-      ['Cálculo','Calculus'],['Álgebra Lineal','Linear Algebra'],['1ra Ed.','1st ed.'],['2da Ed.','2nd ed.'],['3ra Ed.','3rd ed.'],['4ta Ed.','4th ed.'],['5ta Ed.','5th ed.'],['6ta Ed.','6th ed.'],['7ma Ed.','7th ed.'],['8va Ed.','8th ed.'],['9na Ed.','9th ed.'],['10ma Ed.','10th ed.'],['Ed.','ed.'],
+      ['Quíces','Quizzes'],['Quices','Quizzes'],['Quíz','Quiz'],
+      ['Semana ','Week '],['Tareas','Homework'],['Tarea','Homework'],['Libro','Book'],['Guía','Guide'],
+      ['Apuntes','Notes'],['Notas','Notes'],['Curso','Course'],
+      ['Programa','Syllabus'],['Resumen','Summary'],['Resúmenes','Summaries'],
+      ['Tema ','Version '],['Supletorio','make-up'],['supletorio','make-up'],
+      ['Adicionales','Additional'],['ampliadas','expanded'],['Desafiantes','Challenging'],['Básicas','Basic'],
+      ['Unidades','Units'],['Equivalencias','Conversions'],['unidades','units'],
       ['Derivadas','Derivatives'],['Derivada','Derivative'],['Límites','Limits'],['Continuidad','Continuity'],
       ['Funciones','Functions'],['Integrales','Integrals'],['Integral','Integral'],['Series','Series'],
       ['Aplicaciones','Applications'],['Optimización','Optimization'],['Trigonometría','Trigonometry'],
-      ['Ecuaciones','Equations'],['Matrices','Matrices'],['Vectores','Vectors'],['Completo','Complete'],['Completa','Complete'],
-      [' de la ',' of the '],[' del ',' of the ']
+      ['Ecuaciones','Equations'],['Matrices','Matrices'],['Vectores','Vectors'],
+      ['triángulos','triangles'],['circunferencias','circles'],['elipses','ellipses'],
+      ['Divisibilidad','Divisibility'],['Congruencias','Congruences'],['Inversos Modulares','Modular Inverses'],
+      ['Números','Numbers'],['Grafos','Graphs'],['Potencia','Power'],
+      ['Completo','Complete'],['Completa','Complete'],['Completos','Complete'],
+      ['por semana, estimado','weekly, estimated'],['por unidades','by units'],['por tema','by topic'],['por semana','by week'],
+      ['estimado','estimated'],['ejemplo','example'],['de referencia','reference'],['Referencia','Reference'],['de Referencia','Reference'],
+      ['Multi-semestre','Multi-semester'],['Nivelatorio','Pre-calc'],['oficial','official'],['Oficial','Official'],
+      [' de la ',' of the '],[' del ',' of the '],[' y ',' and '],[' e ',' and '],[' de ',' of ']
     ];
     var _SEM_EN=[
       ['Multi-semestre','Multi-semester'],['Semestre','Semester'],['Nivelatorio','Pre-calc'],
@@ -17975,7 +18054,7 @@ window.__muMateriaInit = function(){
         '<span class="mu-fc-ico">'+ico+'</span>'+
         '<div class="mu-fc-info"><div class="mu-fc-name">'+dispName+solBadge+'</div>'+
         '<div class="mu-fc-meta"><span>'+_typeEN(f.type)+'</span>'+(f.size?' · '+f.size:'')+(f.sem?' · '+_semEN(f.sem):'')+'</div></div>'+
-        '<span class="mu-fc-dl'+(showAsLocked?' pack':'')+'">'+(showAsLocked?'<svg width="11" height="11" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none" style="vertical-align:-1px"><rect x="3" y="11" width="18" height="10" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg> Pack':'↓ Ver')+'</span>'+
+        '<span class="mu-fc-dl'+(showAsLocked?' pack':'')+'">'+(showAsLocked?'<svg width="11" height="11" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none" style="vertical-align:-1px"><rect x="3" y="11" width="18" height="10" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg> Pack':(en?'↓ View':'↓ Ver'))+'</span>'+
         '</div>';
     }
     function expTableRows(){
