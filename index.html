@@ -2752,7 +2752,22 @@ body{font-family:'Space Grotesk',system-ui,sans-serif;background:var(--bg);color
 .mu-sb-ver:hover{filter:brightness(1.1)}
 .mu-sb-si{background:rgba(34,197,94,.1);border:2px solid rgba(34,197,94,.28);color:var(--ok)}
 .mu-sb-no{background:rgba(248,113,113,.07);border:2px solid rgba(248,113,113,.2);color:var(--bad)}
-.mu-sp-x{position:absolute;top:.9rem;right:.9rem;width:28px;height:28px;border-radius:7px;background:var(--lay2);border:2px solid var(--br);color:var(--t2);font-size:1rem;display:flex;align-items:center;justify-content:center;cursor:pointer}
+.mu-sp-x{position:absolute;top:.9rem;right:.9rem;width:28px;height:28px;border-radius:7px;background:var(--lay2);border:2px solid var(--br);color:var(--t2);font-size:1rem;display:flex;align-items:center;justify-content:center;cursor:pointer;z-index:3}
+.mu-sp-fld{display:block;font-family:IBM Plex Mono,monospace;font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.09em;color:var(--t3);margin-bottom:.9rem}
+.mu-sp-fld select{display:block;width:100%;margin-top:.35rem;padding:.5rem .6rem;border-radius:8px;background:var(--lay2);border:2px solid var(--br);color:var(--t1);font-family:inherit;font-size:.9rem;font-weight:600;text-transform:none;letter-spacing:0}
+.mu-sp-seg{display:flex;gap:.4rem;margin-top:.4rem}
+.mu-sp-seg button{flex:1;padding:.45rem 0;border-radius:8px;background:var(--lay2);border:2px solid var(--br);color:var(--t2);font-family:inherit;font-size:.9rem;font-weight:700;cursor:pointer;text-transform:none;letter-spacing:0;transition:all .14s}
+.mu-sp-seg button.on{background:var(--acd);border-color:var(--acg);color:var(--acc)}
+.mu-sp-chk{display:flex;align-items:center;gap:.5rem;font-size:.82rem;color:var(--t2);font-weight:600;cursor:pointer;margin-bottom:.4rem}
+.mu-sp-chk input{width:16px;height:16px;accent-color:var(--acc);cursor:pointer}
+.mu-sp-meta{margin-top:.9rem;font-size:.76rem;color:var(--t3);line-height:1.6}
+.mu-sp-meta b{color:var(--t1)}
+.mu-sp-timer{position:absolute;top:0;left:0;height:3px;background:var(--acc);border-radius:16px 0 0 0;width:100%}
+.mu-sp-timer.run{transition:width linear}
+.mu-sp-timer.low{background:var(--bad)}
+.mu-sp-kbd{padding:0 1.2rem .7rem;font-size:.68rem;color:var(--t3);font-family:IBM Plex Mono,monospace}
+.mu-sp-kbd kbd{background:var(--lay2);border:1px solid var(--br);border-radius:4px;padding:.05rem .3rem;font-size:.9em}
+@media(max-width:600px){.mu-sp-kbd{display:none}}
 
 /* ── Fondo decorativo para que el blur del header se note en TODAS las páginas ── */
 .nav-aurora{position:fixed;top:0;left:0;right:0;max-width:100%;height:110px;z-index:1;pointer-events:none;opacity:.6;
@@ -6119,16 +6134,43 @@ if(!window.__muModalEsc){window.__muModalEsc=true;
   <div class="mu-calc-inner" style="grid-template-columns:1fr;max-width:600px;text-align:center;gap:1rem">
     <div>
       <h3 style="justify-content:center;display:flex;align-items:center;gap:.45rem"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="14" height="12" rx="2"/><rect x="8" y="2" width="14" height="12" rx="2"/></svg> Modo Sprint — repasa antes del parcial</h3>
-      <p class="mu-calc-sub" style="max-width:460px;margin:.3rem auto 1rem">Flashcards con las fórmulas clave: la app te pregunta, tú recuerdas y marcas si la sabías. Rápido, cronometrado, ideal para la semana del parcial.</p>
+      <p class="mu-calc-sub" style="max-width:460px;margin:.3rem auto 1rem">Flashcards con las fórmulas clave: eliges el tema, la app te pregunta y marcas si la sabías. Guarda las que fallas, lleva tu racha y tus fórmulas dominadas. Rápido y cronometrado, ideal para la semana del parcial.</p>
       <button class="mu-sprint-cta" onclick="muSprintOpen()" style="font-size:1.02rem;padding:.6rem 1.5rem"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-2px"><path d="M6 4l14 8-14 8V4z" fill="currentColor" stroke="none"/></svg> Iniciar Modo Sprint →</button>
     </div>
   </div>
 </section>
 <div class="mu-sp-ov" id="mu-sp" style="position:fixed">
+
+  <div class="mu-sp-card" id="mu-sp-setup" style="max-width:440px">
+    <button class="mu-sp-x" onclick="muSprintClose()" aria-label="Cerrar"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
+    <div style="padding:1.4rem 1.6rem 1.6rem">
+      <div class="mu-sp-cat" style="color:var(--acc)">Modo Sprint</div>
+      <div class="mu-sp-name" id="mu-sp-setup-h" style="margin-bottom:1.1rem">Arma tu repaso</div>
+      <label class="mu-sp-fld" id="mu-sp-mat-lbl">Materia
+        <select id="mu-sp-mat"></select>
+      </label>
+      <div class="mu-sp-fld" id="mu-sp-cnt-lbl" style="margin-bottom:1.1rem">Cuántas fórmulas
+        <div class="mu-sp-seg" id="mu-sp-cnt">
+          <button type="button" data-cnt="10" class="on">10</button>
+          <button type="button" data-cnt="20">20</button>
+          <button type="button" data-cnt="0">Todas</button>
+        </div>
+      </div>
+      <label class="mu-sp-chk"><input type="checkbox" id="mu-sp-timer" checked> <span id="mu-sp-timer-lbl">Con cronómetro (15 s por fórmula)</span></label>
+      <div id="mu-sp-miss-row" style="display:none;margin-top:.7rem">
+        <button type="button" class="mu-sb mu-sb-no" style="width:100%;justify-content:center" onclick="muSprintStart(true)"><span id="mu-sp-miss-lbl">Repasar solo las que fallaste</span> (<span id="mu-sp-miss-n">0</span>)</button>
+      </div>
+      <div class="mu-sp-meta" id="mu-sp-meta"></div>
+      <button type="button" class="mu-sb mu-sb-si" style="width:100%;margin-top:1.1rem;justify-content:center" onclick="muSprintStart(false)" id="mu-sp-go">▶ Empezar</button>
+    </div>
+  </div>
+
+  <div id="mu-sp-run" style="display:none;width:100%;flex-direction:column;align-items:center;gap:1.2rem">
   <div class="mu-sp-prog"><div class="mu-sp-bar-bg"><div class="mu-sp-bar" id="mu-spb" style="width:0%"></div></div>
     <div class="mu-sp-stats"><span id="mu-spd">0 vistas</span><span id="mu-sps">✓ 0 · ✗ 0</span></div>
   </div>
   <div class="mu-sp-card" id="mu-spc">
+    <div class="mu-sp-timer" id="mu-sp-tmr"></div>
     <button class="mu-sp-x" onclick="muSprintClose()" aria-label="Cerrar"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
     <div class="mu-sp-head">
       <div class="mu-sp-ctr" id="mu-spctr">1 / 15</div>
@@ -6139,6 +6181,8 @@ if(!window.__muModalEsc){window.__muModalEsc=true;
     <div class="mu-sp-nemo" id="mu-spnm"></div>
     <div class="mu-sp-hint" id="mu-sph">Pulsa cuando estés listo</div>
     <div class="mu-sp-btns" id="mu-spbt"><button class="mu-sb mu-sb-ver" onclick="muSprintReveal()"><svg width="14" height="14" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg> Ver fórmula</button></div>
+    <div class="mu-sp-kbd"><kbd>Espacio</kbd> revela · <kbd>1</kbd> la sabía · <kbd>2</kbd> repasar · <kbd>Esc</kbd> salir</div>
+  </div>
   </div>
 </div>
 
@@ -7376,42 +7420,211 @@ function muCalc(){
     else msg.innerHTML='Para pasar necesitas al menos <strong style="color:var(--t1)">'+need.toFixed(2)+'</strong> en el final.';
   } else {nota.textContent='—';nota.style.color='var(--t3)';el.className='mu-calc-res';msg.textContent='Ingresa P1 y P2 para calcular';}
 }
-var _muSp={q:[],i:0,si:0,no:0};
+/* ═══════════ MODO SPRINT ═══════════ */
+var _muSp={q:[],i:0,si:0,no:0,rev:false,timer:true,tmrId:0,tmrEnd:0,missSess:[]};
+var _MU_SP_SECS=15, _MU_SP_CARD_HTML='';
+var _MU_SP_EYE='<svg width="14" height="14" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>';
+
+function _spKey(f){return f.tag+'|'+f.name;}
+function _spLoad(k,d){try{return JSON.parse(localStorage.getItem(k))||d;}catch(e){return d;}}
+function _spSave(k,v){try{localStorage.setItem(k,JSON.stringify(v));}catch(e){}}
+function _spToday(){var d=new Date();return d.getFullYear()+'-'+(d.getMonth()+1)+'-'+d.getDate();}
+function _spMiss(){return _spLoad('mu-sprint-miss',{});}
+function _spStats(){return _spLoad('mu-sprint-stats',{streak:0,lastDay:'',best:0,runs:0,mastered:{}});}
+
 function muSprintOpen(){
+  var ov=document.getElementById('mu-sp');
+  if(ov&&ov.parentNode!==document.body)document.body.appendChild(ov);
+  ov=document.getElementById('mu-sp');
+  if(!ov)return;
+  if(!_MU_SP_CARD_HTML){var c0=document.getElementById('mu-spc');if(c0)_MU_SP_CARD_HTML=c0.innerHTML;}
   var pool=(window._MU_FORMULAS||[]);
-  if(!pool.length){window.location.hash='#formulas';setTimeout(function(){muSprintOpen();},700);return;}
-  _muSp.q=pool.slice().sort(function(){return Math.random()-.5;}).slice(0,Math.min(15,pool.length));
-  _muSp.i=0;_muSp.si=0;_muSp.no=0;
-  document.getElementById('mu-sp').classList.add('open');_muSpShow();
+  if(!pool.length){
+    try{sessionStorage.setItem('mu-sprint-pending','1');}catch(e){}
+    window.location.hash='#formulas';
+    return;
+  }
+  ov.classList.add('open');
+  document.getElementById('mu-sp-setup').style.display='';
+  document.getElementById('mu-sp-run').style.display='none';
+  _muSpFillSetup(pool);
 }
-function muSprintClose(){document.getElementById('mu-sp').classList.remove('open');}
+
+function _muSpFillSetup(pool){
+  var en=(window.curLang==='en'), cats=window.MU_CATS||{};
+  var T=en?{h:'Build your sprint',mat:'Topic',cnt:'How many',tm:'Timer (15 s per card)',miss:'Review only the ones you missed',go:'▶ Start'}
+          :{h:'Arma tu repaso',mat:'Tema',cnt:'Cuántas fórmulas',tm:'Con cronómetro (15 s por fórmula)',miss:'Repasar solo las que fallaste',go:'▶ Empezar'};
+  document.getElementById('mu-sp-setup-h').textContent=T.h;
+  document.getElementById('mu-sp-mat-lbl').childNodes[0].nodeValue=T.mat+' ';
+  document.getElementById('mu-sp-cnt-lbl').childNodes[0].nodeValue=T.cnt+' ';
+  document.getElementById('mu-sp-timer-lbl').textContent=T.tm;
+  document.getElementById('mu-sp-miss-lbl').textContent=T.miss;
+  document.getElementById('mu-sp-go').textContent=T.go;
+  var tags=[];pool.forEach(function(f){if(tags.indexOf(f.tag)<0)tags.push(f.tag);});
+  var opts='<option value="all">'+(en?'All topics':'Todos los temas')+' ('+pool.length+')</option>';
+  tags.forEach(function(t){
+    var c=cats[t],lab=c?(en&&c.lEn?c.lEn:c.l):t;
+    var n=pool.filter(function(f){return f.tag===t;}).length;
+    opts+='<option value="'+t+'">'+lab+' ('+n+')</option>';
+  });
+  document.getElementById('mu-sp-mat').innerHTML=opts;
+  var seg=document.getElementById('mu-sp-cnt');
+  seg.querySelectorAll('button').forEach(function(b){
+    b.onclick=function(){seg.querySelectorAll('button').forEach(function(x){x.classList.remove('on');});b.classList.add('on');};
+  });
+  var miss=_spMiss(),mk=Object.keys(miss).filter(function(k){return miss[k]>0;});
+  var mr=document.getElementById('mu-sp-miss-row');
+  if(mk.length){mr.style.display='';document.getElementById('mu-sp-miss-n').textContent=mk.length;}
+  else mr.style.display='none';
+  var st=_spStats(),md=Object.keys(st.mastered||{}).filter(function(k){return st.mastered[k]>=2;}).length;
+  var parts=[];
+  if(st.streak>0)parts.push((en?'Streak ':'Racha ')+'<b>'+st.streak+(en?(st.streak===1?' day':' days'):(st.streak===1?' día':' días'))+'</b> 🔥');
+  parts.push((en?'Mastered ':'Dominadas ')+'<b>'+md+'</b> / '+pool.length);
+  if(st.best>0)parts.push((en?'Best ':'Mejor ')+'<b>'+st.best+'%</b>');
+  document.getElementById('mu-sp-meta').innerHTML=parts.join('&nbsp;·&nbsp;');
+}
+
+function muSprintStart(missOnly){
+  var pool=(window._MU_FORMULAS||[]);if(!pool.length)return;
+  var list;
+  if(missOnly){
+    var miss=_spMiss();
+    list=pool.filter(function(f){return miss[_spKey(f)]>0;}).sort(function(){return Math.random()-.5;});
+  }else{
+    var tag=document.getElementById('mu-sp-mat').value;
+    list=pool.filter(function(f){return tag==='all'||f.tag===tag;}).sort(function(){return Math.random()-.5;});
+    var sb=document.querySelector('#mu-sp-cnt button.on');
+    var n=sb?parseInt(sb.getAttribute('data-cnt'),10):10;
+    if(n>0)list=list.slice(0,n);
+  }
+  if(!list.length)return;
+  _muSp.q=list;_muSp.i=0;_muSp.si=0;_muSp.no=0;_muSp.missSess=[];_muSp.rev=false;
+  _muSp.timer=document.getElementById('mu-sp-timer').checked;
+  var card=document.getElementById('mu-spc');
+  if(_MU_SP_CARD_HTML)card.innerHTML=_MU_SP_CARD_HTML;
+  card.style.display='';
+  document.getElementById('mu-sp-setup').style.display='none';
+  document.getElementById('mu-sp-run').style.display='flex';
+  _muSpShow();
+}
+
+function muSprintClose(){
+  _muSpStopTimer();
+  var ov=document.getElementById('mu-sp');if(ov)ov.classList.remove('open');
+}
+
+function _muSpStopTimer(){
+  if(_muSp.tmrId){clearInterval(_muSp.tmrId);_muSp.tmrId=0;}
+  var t=document.getElementById('mu-sp-tmr');
+  if(t){t.className='mu-sp-timer';t.style.transition='none';t.style.width='100%';}
+}
+function _muSpStartTimer(){
+  var t=document.getElementById('mu-sp-tmr');if(!t)return;
+  t.className='mu-sp-timer';t.style.transition='none';t.style.width='100%';
+  if(!_muSp.timer){t.style.width='0%';return;}
+  void t.offsetWidth;
+  t.classList.add('run');
+  t.style.transition='width '+_MU_SP_SECS+'s linear';
+  t.style.width='0%';
+  _muSp.tmrEnd=Date.now()+_MU_SP_SECS*1000;
+  _muSp.tmrId=setInterval(function(){
+    var left=_muSp.tmrEnd-Date.now();
+    if(left<=3500)t.classList.add('low');
+    if(left<=0){_muSpStopTimer();if(!_muSp.rev)muSprintReveal();}
+  },250);
+}
+
 function _muSpShow(){
   var f=_muSp.q[_muSp.i];if(!f)return _muSpEnd();
-  var total=_muSp.q.length,cat=window.MU_CATS&&window.MU_CATS[f.tag]?window.MU_CATS[f.tag]:{l:f.tag,c:'var(--acc)'};
+  _muSp.rev=false;
+  var en=(window.curLang==='en');
+  var total=_muSp.q.length,cats=window.MU_CATS||{},cat=cats[f.tag]?cats[f.tag]:{l:f.tag,c:'var(--acc)'};
   document.getElementById('mu-spctr').textContent=(_muSp.i+1)+' / '+total;
-  var ce=document.getElementById('mu-spcat');ce.textContent=cat.l;ce.style.color=cat.c;
+  var ce=document.getElementById('mu-spcat');ce.textContent=(en&&cat.lEn?cat.lEn:cat.l);ce.style.color=cat.c;
   document.getElementById('mu-spn').textContent=f.name;
-  document.getElementById('mu-spf').innerHTML='<span style="color:var(--t3);font-size:.85rem">¿Recuerdas esta fórmula? Visuálzala mentalmente…</span>';
+  document.getElementById('mu-spf').innerHTML='<span style="color:var(--t3);font-size:.85rem">'+(en?'Recall this formula — picture it…':'¿Recuerdas esta fórmula? Visualízala mentalmente…')+'</span>';
   var nm=document.getElementById('mu-spnm');nm.textContent='';nm.className='mu-sp-nemo';
-  document.getElementById('mu-sph').textContent='Pulsa cuando estés listo';
-  document.getElementById('mu-spbt').innerHTML='<button class="mu-sb mu-sb-ver" onclick="muSprintReveal()"><svg width="14" height="14" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg> Ver fórmula</button>';
+  document.getElementById('mu-sph').textContent=(en?'Hit Space when ready':'Pulsa Espacio cuando estés listo');
+  document.getElementById('mu-spbt').innerHTML='<button class="mu-sb mu-sb-ver" onclick="muSprintReveal()">'+_MU_SP_EYE+' '+(en?'Show formula':'Ver fórmula')+'</button>';
   document.getElementById('mu-spb').style.width=((_muSp.i/total)*100)+'%';
-  document.getElementById('mu-spd').textContent=_muSp.i+' de '+total;
+  document.getElementById('mu-spd').textContent=_muSp.i+(en?' of ':' de ')+total;
   document.getElementById('mu-sps').textContent='✓ '+_muSp.si+' · ✗ '+_muSp.no;
+  _muSpStartTimer();
 }
+
 function muSprintReveal(){
-  var f=_muSp.q[_muSp.i];if(!f)return;
-  var fb=document.getElementById('mu-spf');
-  fb.innerHTML='<div id="mu-spfk" style="width:100%;display:flex;align-items:center;justify-content:center;min-height:54px"></div>';
+  var f=_muSp.q[_muSp.i];if(!f||_muSp.rev)return;
+  _muSp.rev=true;_muSpStopTimer();
+  var en=(window.curLang==='en');
+  document.getElementById('mu-spf').innerHTML='<div id="mu-spfk" style="width:100%;display:flex;align-items:center;justify-content:center;min-height:54px"></div>';
   try{if(typeof katex!=='undefined')katex.render(f.formula,document.getElementById('mu-spfk'),{displayMode:true,throwOnError:false});}catch(e){}
   if(f.nemo){var nm=document.getElementById('mu-spnm');nm.textContent=f.nemo;nm.className='mu-sp-nemo show';}
-  document.getElementById('mu-sph').textContent='¿La recordabas?';
-  document.getElementById('mu-spbt').innerHTML='<button class="mu-sb mu-sb-si" onclick="muSprintVote(1)">✓ La sabía</button><button class="mu-sb mu-sb-no" onclick="muSprintVote(0)">✗ Repasar</button>';
+  document.getElementById('mu-sph').textContent=(en?'Did you remember it?':'¿La recordabas?');
+  document.getElementById('mu-spbt').innerHTML='<button class="mu-sb mu-sb-si" onclick="muSprintVote(1)">✓ '+(en?'I knew it':'La sabía')+'</button><button class="mu-sb mu-sb-no" onclick="muSprintVote(0)">✗ '+(en?'Review':'Repasar')+'</button>';
 }
-function muSprintVote(k){if(k)_muSp.si++;else _muSp.no++;_muSp.i++;if(_muSp.i>=_muSp.q.length)_muSpEnd();else _muSpShow();}
+
+function muSprintVote(k){
+  if(!_muSp.rev)return;
+  var f=_muSp.q[_muSp.i];
+  var miss=_spMiss(),st=_spStats();st.mastered=st.mastered||{};
+  var key=_spKey(f);
+  if(k){
+    _muSp.si++;
+    if(miss[key]){miss[key]--;if(miss[key]<=0)delete miss[key];}
+    st.mastered[key]=(st.mastered[key]||0)+1;
+  }else{
+    _muSp.no++;
+    miss[key]=Math.min((miss[key]||0)+1,5);
+    st.mastered[key]=0;
+    if(_muSp.missSess.indexOf(key)<0)_muSp.missSess.push(key);
+  }
+  _spSave('mu-sprint-miss',miss);_spSave('mu-sprint-stats',st);
+  _muSp.i++;
+  if(_muSp.i>=_muSp.q.length)_muSpEnd();else _muSpShow();
+}
+
 function _muSpEnd(){
-  var t=_muSp.q.length,pct=Math.round(_muSp.si/t*100),e=pct>=80?'<svg width="13" height="13" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" style="vertical-align:-2px"><path d="M8 21h8M12 17v4M7 4h10v4a5 5 0 0 1-10 0z"/><path d="M7 5H4a1 1 0 0 0-1 1 5 5 0 0 0 4 5M17 5h3a1 1 0 0 1 1 1 5 5 0 0 1-4 5"/></svg>':pct>=60?'':'<svg width="13" height="13" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" style="vertical-align:-2px"><path d="M17 3a2.85 2.85 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5z"/></svg>';
-  document.getElementById('mu-spc').innerHTML='<div style="text-align:center;padding:2rem 1.5rem"><div style="font-size:2.5rem;margin-bottom:.6rem">'+e+'</div><div style="font-family:Literata,serif;font-size:1.3rem;font-weight:700;margin-bottom:.35rem">Sprint completado</div><div style="font-size:2.8rem;font-family:Literata,serif;font-weight:900;color:'+(pct>=80?'var(--ok)':pct>=60?'#f59e0b':'var(--bad)')+'">'+pct+'%</div><div style="font-size:.84rem;color:var(--t2);margin:.4rem 0 1.2rem">Sabías '+_muSp.si+' de '+t+'</div><div style="display:flex;gap:.5rem;justify-content:center"><button class="mu-sb mu-sb-no" onclick="muSprintClose()">Cerrar</button><button class="mu-sb mu-sb-si" onclick="muSprintOpen()">Repetir <svg width="14" height="14" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"><polyline points="23,4 23,10 17,10"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></svg></button></div></div>';
+  _muSpStopTimer();
+  var en=(window.curLang==='en');
+  var t=_muSp.q.length,pct=t?Math.round(_muSp.si/t*100):0;
+  var st=_spStats(),today=_spToday();
+  if(st.lastDay!==today){
+    var y=new Date();y.setDate(y.getDate()-1);
+    var yes=y.getFullYear()+'-'+(y.getMonth()+1)+'-'+y.getDate();
+    st.streak=(st.lastDay===yes)?(st.streak||0)+1:1;
+    st.lastDay=today;
+  }
+  st.runs=(st.runs||0)+1;
+  if(pct>st.best)st.best=pct;
+  _spSave('mu-sprint-stats',st);
+  var md=Object.keys(st.mastered||{}).filter(function(k){return st.mastered[k]>=2;}).length;
+  var trophy=pct>=80?'🏆':pct>=60?'👍':'✏️';
+  var col=pct>=80?'var(--ok)':pct>=60?'#f59e0b':'var(--bad)';
+  var mc=_muSp.missSess.length;
+  var missBtn=mc?'<button class="mu-sb mu-sb-no" onclick="muSprintStart(true)">↻ '+(en?('Review the '+mc+(mc===1?' miss':' misses')):('Repasar '+(mc===1?'la ':'las ')+mc+(mc===1?' fallada':' falladas')))+'</button>':'';
+  document.getElementById('mu-spc').innerHTML='<div style="text-align:center;padding:2rem 1.5rem">'+
+    '<div style="font-size:2.4rem;margin-bottom:.35rem">'+trophy+'</div>'+
+    '<div style="font-family:Literata,serif;font-size:1.3rem;font-weight:700;margin-bottom:.3rem">'+(en?'Sprint done':'Sprint completado')+'</div>'+
+    '<div style="font-size:2.8rem;font-family:Literata,serif;font-weight:900;color:'+col+'">'+pct+'%</div>'+
+    '<div style="font-size:.84rem;color:var(--t2);margin:.35rem 0 .15rem">'+(en?'You knew ':'Sabías ')+_muSp.si+(en?' of ':' de ')+t+'</div>'+
+    '<div style="font-size:.75rem;color:var(--t3);margin-bottom:1.1rem">'+(en?'Streak ':'Racha ')+st.streak+' 🔥&nbsp;·&nbsp;'+(en?'Mastered ':'Dominadas ')+md+'</div>'+
+    '<div style="display:flex;gap:.5rem;justify-content:center;flex-wrap:wrap">'+
+      '<button class="mu-sb mu-sb-no" onclick="muSprintClose()">'+(en?'Close':'Cerrar')+'</button>'+missBtn+
+      '<button class="mu-sb mu-sb-si" onclick="muSprintOpen()">'+(en?'New sprint':'Nuevo sprint')+'</button>'+
+    '</div></div>';
+}
+
+if(!window.__muSpKey){window.__muSpKey=1;
+document.addEventListener('keydown',function(e){
+  var ov=document.getElementById('mu-sp');
+  if(!ov||!ov.classList.contains('open'))return;
+  var run=document.getElementById('mu-sp-run');
+  if(!run||run.style.display==='none')return;
+  if(e.key==='Escape'){muSprintClose();return;}
+  if(e.key===' '||e.key==='Enter'){e.preventDefault();if(!_muSp.rev)muSprintReveal();return;}
+  if(_muSp.rev&&e.key==='1'){e.preventDefault();muSprintVote(1);}
+  else if(_muSp.rev&&e.key==='2'){e.preventDefault();muSprintVote(0);}
+});
 }
 </script>
 </template>
@@ -13211,6 +13424,7 @@ document.addEventListener('keydown',function(e){
   try{var t=localStorage.getItem('mu-theme');if(t)document.documentElement.setAttribute('data-theme',t);}catch(e){}
   window._MU_FORMULAS=F;
   window.MU_CATS=CATS;
+  try{if(sessionStorage.getItem('mu-sprint-pending')){sessionStorage.removeItem('mu-sprint-pending');setTimeout(function(){if(typeof muSprintOpen==='function')muSprintOpen();},400);}}catch(e){}
   function boot(tries){
     var items=document.getElementById('vf-items');
     if(!items){ if(tries<20){ setTimeout(function(){boot(tries+1);},40); } return; }
@@ -15034,7 +15248,7 @@ var LANG_ES={
   "foot-vertodas":"Ver todas →",
   /* Botones flotantes / Pomodoro / Sprint */
   "fab-semana":"Semana del Parcial","pomo-h":"Pomodoro","pomo-start":"<svg width='11' height='11' viewBox='0 0 24 24' fill='currentColor' style='vertical-align:-1px'><path d='M6 4l14 8-14 8V4z'/></svg> Iniciar","pomo-reset":"<svg width='12' height='12' viewBox='0 0 24 24' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' fill='none' style='vertical-align:-2px'><path d='M21 12a9 9 0 1 1-3-6.7'/><path d='M21 3v6h-6'/></svg> Reset",
-  "mu-calc-h":"Modo Sprint — repasa antes del parcial","mu-calc-sub":"Flashcards con las fórmulas clave: la app te pregunta, tú recuerdas y marcas si la sabías. Rápido, cronometrado, ideal para la semana del parcial.",
+  "mu-calc-h":"Modo Sprint — repasa antes del parcial","mu-calc-sub":"Flashcards con las fórmulas clave: eliges el tema, la app te pregunta y marcas si la sabías. Guarda las que fallas, lleva tu racha y tus fórmulas dominadas. Rápido y cronometrado, ideal para la semana del parcial.",
   "mu-calc-p1":"Parcial 1","mu-calc-p2":"Parcial 2","mu-calc-pf":"Final (opcional)","mu-calc-pf-ph":"Si ya lo sabes",
   "au-tag":"Para quién es MathUNAL","au-p0-stat2":"Materias con parciales reales",
   "prom-ej-line":"4 créd. × 4.0 + 3 créd. × 3.5 + 4 créd. × 3.0 + 3 créd. × 4.5","prom-ej-div":"÷ 14 créditos =",
@@ -15304,7 +15518,7 @@ var LANG_EN={
   "foot-vertodas":"See all →",
   /* Botones flotantes / Pomodoro / Sprint */
   "fab-semana":"Exam Week","pomo-h":"Pomodoro","pomo-start":"<svg width='11' height='11' viewBox='0 0 24 24' fill='currentColor' style='vertical-align:-1px'><path d='M6 4l14 8-14 8V4z'/></svg> Start","pomo-reset":"<svg width='12' height='12' viewBox='0 0 24 24' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' fill='none' style='vertical-align:-2px'><path d='M21 12a9 9 0 1 1-3-6.7'/><path d='M21 3v6h-6'/></svg> Reset",
-  "mu-calc-h":"Sprint Mode — review before the exam","mu-calc-sub":"Flashcards of the key formulas: the app asks, you recall and mark whether you knew it. Fast, timed, perfect for exam week.",
+  "mu-calc-h":"Sprint Mode — review before the exam","mu-calc-sub":"Flashcards of the key formulas: pick a topic, the app asks, you mark whether you knew it. It saves the ones you miss, tracks your streak and mastered formulas. Fast and timed, perfect for exam week.",
   "mu-calc-p1":"Exam 1","mu-calc-p2":"Exam 2","mu-calc-pf":"Final (optional)","mu-calc-pf-ph":"If you already know it",
   "au-tag":"Who MathUNAL is for","au-p0-stat2":"Subjects with real exams",
   "prom-ej-line":"4 cr. × 4.0 + 3 cr. × 3.5 + 4 cr. × 3.0 + 3 cr. × 4.5","prom-ej-div":"÷ 14 credits =",
