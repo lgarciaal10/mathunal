@@ -331,6 +331,13 @@ html[data-theme="gray"] nav{
 html[data-theme="gray"] nav.scrolled{
   background:linear-gradient(180deg,rgba(255,255,255,.08),rgba(255,255,255,.012) 42%,rgba(0,0,0,.13)),rgba(24,24,27,.58) !important;
 }
+/* En páginas "app" a pantalla completa (Fórmulas) el nav va pegado y plano:
+   las esquinas redondeadas + la sombra flotante se comían el contenido de arriba. */
+#mu-app > nav:has(~ .vf-shell){
+  border-radius:0;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.14),0 1px 0 rgba(0,0,0,.35) !important;
+}
+#mu-app > nav:has(~ .vf-shell)::before{display:none}
 .logo{display:flex;align-items:center;gap:.65rem;flex-shrink:0;text-decoration:none}
 .logo-ico{
   background:transparent;box-shadow:none;border-radius:0;
@@ -2599,8 +2606,8 @@ body{font-family:'Space Grotesk',system-ui,sans-serif;background:var(--bg);color
 .vf-shell #vf-mat:focus{outline:none;border-color:var(--acc)}
 .vf-shell .cpill.on{background:var(--acd);border-color:var(--acg);color:var(--acc);font-weight:700}
 .vf-shell .items{flex:1;overflow-y:auto;padding-bottom:.5rem}
-.vf-shell .items::-webkit-scrollbar{width:3px}
-.vf-shell .items::-webkit-scrollbar-thumb{background:var(--br2);border-radius:99px}
+.vf-shell .items::-webkit-scrollbar{width:10px}
+.vf-shell .items::-webkit-scrollbar-thumb{background:var(--t3);border-radius:99px;border:2px solid transparent;background-clip:content-box}
 .vf-shell .chd{display:flex;align-items:center;gap:.4rem;padding:.5rem .75rem .22rem;font-family:IBM Plex Mono,monospace;font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat);position:sticky;top:0;background:var(--bg2);z-index:2;border-bottom:1.5px solid var(--br)}
 .vf-shell .chd-n{margin-left:auto;opacity:.5;font-size:.72rem}
 .vf-shell .item{display:flex;align-items:center;gap:.45rem;padding:.34rem .75rem;cursor:pointer;transition:background .1s;position:relative}
@@ -2617,8 +2624,8 @@ body{font-family:'Space Grotesk',system-ui,sans-serif;background:var(--bg);color
 .vf-shell .item.on .item-name{font-weight:600}
 .vf-shell .list-ft{flex-shrink:0;height:30px;display:flex;align-items:center;padding:0 .75rem;border-top:1.5px solid var(--br);font-family:IBM Plex Mono,monospace;font-size:.72rem;color:var(--t3)}
 .vf-shell .detail{flex:1;min-width:0;overflow-y:auto;background:var(--bg2);display:flex;flex-direction:column}
-.vf-shell .detail::-webkit-scrollbar{width:4px}
-.vf-shell .detail::-webkit-scrollbar-thumb{background:var(--br2);border-radius:99px}
+.vf-shell .detail::-webkit-scrollbar{width:11px}
+.vf-shell .detail::-webkit-scrollbar-thumb{background:var(--t3);border-radius:99px;border:3px solid transparent;background-clip:content-box}
 .vf-mob-back{display:none}
 @media(max-width:760px){
   .vf-shell .shell{position:relative}
@@ -3849,11 +3856,15 @@ a{text-decoration-skip-ink:auto}
 *{scroll-behavior:smooth}
 ::selection{background:rgba(232,99,42,.25);color:var(--t1)}
 
-/* ── Modern scrollbar ── */
-::-webkit-scrollbar{width:5px;height:5px}
+/* ── Scrollbar — visible, no ese hilito que casi no se ve ── */
+html{scrollbar-width:auto;scrollbar-color:var(--t3) transparent}
+::-webkit-scrollbar{width:13px;height:13px}
 ::-webkit-scrollbar-track{background:transparent}
-::-webkit-scrollbar-thumb{background:var(--lay3);border-radius:99px}
-::-webkit-scrollbar-thumb:hover{background:var(--lay4)}
+::-webkit-scrollbar-thumb{background:var(--t3);border-radius:99px;border:3px solid transparent;background-clip:content-box;min-height:40px}
+::-webkit-scrollbar-thumb:hover{background:var(--acc);background-clip:content-box}
+html[data-theme="light"]{scrollbar-color:rgba(0,0,0,.32) transparent}
+html[data-theme="light"] ::-webkit-scrollbar-thumb{background:rgba(0,0,0,.32);background-clip:content-box}
+html[data-theme="light"] ::-webkit-scrollbar-thumb:hover{background:var(--acc);background-clip:content-box}
 
 /* ── Staggered fade-in for grids ── */
 .mat-uni-grid .mc,.sim-section-grid .sim-card,.bkl-grid .bkl-card,.comm-grid .cc{
@@ -5654,9 +5665,9 @@ if(!window.__muModalEsc){window.__muModalEsc=true;
         <h2>¿Cuánto necesito<br>para <i>pasar</i>?</h2>
         <p>Ingresa las notas que ya tienes y los pesos de cada corte. La calculadora te dice exactamente qué necesitas en el corte pendiente — sin drama, sin calculadoras rotas.</p>
         <div style="display:flex;gap:.5rem;flex-wrap:wrap">
-          <span style="font-family:IBM Plex Mono,monospace;font-size:.75rem;letter-spacing:.03em;padding:.34rem .7rem;border-radius:6px;color:var(--t2);background:var(--lay2);border:1px solid var(--br)">2, 3 o 4 cortes</span>
-          <span style="font-family:IBM Plex Mono,monospace;font-size:.75rem;letter-spacing:.03em;padding:.34rem .7rem;border-radius:6px;color:var(--t2);background:var(--lay2);border:1px solid var(--br)">Escala 0–5</span>
-          <span style="font-family:IBM Plex Mono,monospace;font-size:.75rem;letter-spacing:.03em;padding:.34rem .7rem;border-radius:6px;color:var(--grn);background:rgba(34,197,94,.08);border:1px solid rgba(34,197,94,.2)">Pasa con 3.0 (UNAL)</span>
+          <span style="font-family:IBM Plex Mono,monospace;font-size:.75rem;letter-spacing:.03em;line-height:1.35;display:inline-flex;align-items:center;padding:.42rem .8rem;border-radius:7px;color:var(--t2);background:var(--lay2);border:1px solid var(--br)">2, 3 o 4 cortes</span>
+          <span style="font-family:IBM Plex Mono,monospace;font-size:.75rem;letter-spacing:.03em;line-height:1.35;display:inline-flex;align-items:center;padding:.42rem .8rem;border-radius:7px;color:var(--t2);background:var(--lay2);border:1px solid var(--br)">Escala 0–5</span>
+          <span style="font-family:IBM Plex Mono,monospace;font-size:.75rem;letter-spacing:.03em;line-height:1.35;display:inline-flex;align-items:center;padding:.42rem .8rem;border-radius:7px;color:var(--grn);background:rgba(34,197,94,.08);border:1px solid rgba(34,197,94,.2)">Pasa con 3.0 (UNAL)</span>
         </div>
         <p style="margin-top:1.2rem;font-size:.8rem;color:var(--t2);line-height:1.7">Los pesos deben sumar <strong style="color:var(--t1)">100%</strong>. La casilla resaltada es el corte que falta — ingresa los que ya tienes.</p>
       </div>
@@ -13491,52 +13502,7 @@ window.addEventListener('scroll', function(){
   }
 }, {passive:true});
 
-/* ── Scroll con inercia (solo escritorio, rueda del mouse) ──
-   Suaviza el scroll de la rueda con interpolación. Guardas: se apaga si el
-   sistema pide menos movimiento, si la pantalla es lenta, en pantallas
-   angostas, o si window.MU_SMOOTH_SCROLL === false (kill switch de 1 línea).
-   No toca contenedores con su propio scroll (listas, modales, Fórmulas). */
-(function(){
-  if(window.MU_SMOOTH_SCROLL === false) return;
-  try{
-    if(matchMedia('(prefers-reduced-motion:reduce)').matches) return;
-    if(matchMedia('(update:slow)').matches) return;
-    if(matchMedia('(pointer:coarse)').matches) return;   // táctil: scroll nativo ya es bueno
-  }catch(e){}
-  if(window.innerWidth < 900) return;
-
-  var target = window.scrollY, current = window.scrollY, EASE = 0.14, running = false, raf = 0;
-
-  function maxScroll(){ return document.documentElement.scrollHeight - window.innerHeight; }
-  function scrollableAncestor(el){
-    while(el && el !== document.body && el.nodeType === 1){
-      if(el.scrollHeight - el.clientHeight > 4){
-        var oy = getComputedStyle(el).overflowY;
-        if(oy === 'auto' || oy === 'scroll') return true;
-      }
-      el = el.parentElement;
-    }
-    return false;
-  }
-  function loop(){
-    var d = target - current;
-    current += d * EASE;
-    if(Math.abs(d) < 0.5){ current = target; running = false; }
-    window.scrollTo(0, Math.round(current * 100) / 100);
-    if(running) raf = requestAnimationFrame(loop);
-  }
-  window.addEventListener('wheel', function(e){
-    if(e.ctrlKey || e.deltaMode !== 0) return;             // zoom / scroll por "líneas"
-    if(maxScroll() < 40) return;                            // página no scrollea (ej. Fórmulas)
-    if(scrollableAncestor(e.target)) return;                // deja el scroll interno tranquilo
-    e.preventDefault();
-    target += e.deltaY;
-    target = Math.max(0, Math.min(target, maxScroll()));
-    if(!running){ running = true; current = window.scrollY; cancelAnimationFrame(raf); raf = requestAnimationFrame(loop); }
-  }, {passive:false});
-  // re-sincronizar si el scroll cambia por otra vía (teclado, barra, anclaje, botones ↑/↓)
-  window.addEventListener('scroll', function(){ if(!running) target = window.scrollY; }, {passive:true});
-})();
+/* (scroll con inercia probado y retirado — se sentía lento) */
 
 
 // Intercept all clicks on hash links
