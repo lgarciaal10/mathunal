@@ -2604,7 +2604,9 @@ body{font-family:'Space Grotesk',system-ui,sans-serif;background:var(--bg);color
 .vf-shell .nav-hint{font-family:IBM Plex Mono,monospace;font-size:.72rem;color:var(--t3)}
 .vf-shell .nav-kbd{background:var(--lay2);border:2px solid var(--br2);border-radius:3px;padding:.05rem .28rem;font-size:.72rem}
 .vf-shell .shell{flex:1;display:flex;overflow:hidden}
-.vf-shell .list{width:255px;flex-shrink:0;border-right:1px solid var(--br);background:var(--bg2);display:flex;flex-direction:column}
+.vf-shell .list{width:255px;flex-shrink:0;border-right:1px solid var(--br);background:var(--bg2);display:flex;flex-direction:column;padding-top:61px}
+.vf-shell .detail{padding-top:61px}
+.vf-shell .items{overscroll-behavior:contain}
 .vf-shell .list-hd{flex-shrink:0;padding:.65rem .75rem .5rem;border-bottom:1.5px solid var(--br)}
 .vf-shell .sinput{display:flex;align-items:center;gap:.42rem;background:var(--card);border:2px solid var(--br);border-radius:8px;padding:.32rem .6rem;margin-bottom:.45rem;transition:border-color .15s}
 .vf-shell .sinput:focus-within{border-color:var(--acg)}
@@ -12117,7 +12119,7 @@ window.muApplyLang_acerca();
     </div>
   </div>
 </nav>
-<div class="vf-shell" style="position:fixed;inset:0;z-index:5;padding-top:66px;display:flex;background:var(--bg)">
+<div class="vf-shell" style="position:fixed;inset:0;z-index:5;display:flex;background:var(--bg)">
   <div class="shell" style="display:flex;flex:1;min-height:0;overflow:hidden;width:100%">
     <aside class="list">
       <div class="list-hd">
