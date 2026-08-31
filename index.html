@@ -12233,7 +12233,7 @@ var F=[
 {tag:'lim',name:"Regla de L'Hôpital",formula:"\\lim_{x\\to a}\\frac{f(x)}{g(x)}=\\lim_{x\\to a}\\frac{f'(x)}{g'(x)}",desc:"Solo para formas 0/0 o ∞/∞. Deriva numerador y denominador por separado.",nemo:"«Hospital de límites: solo entran los indeterminados 0/0 y ∞/∞.»",
 viz:{type:'lhop',
   params:[{id:'fn',l:'Función 0/0',min:1,max:4,step:1,def:1,u:''},{id:'zm',l:'Zoom al 0',min:.002,max:2,step:.002,def:.5,u:''}],
-  anim:{param:'zm',from:2,to:.02},
+  anim:{param:'zm',from:1,to:.02},
   live:function(ps){
     var fn=Math.round(ps.fn),z=ps.zm;
     var fns=[function(x){return Math.sin(x)/x;},function(x){return (Math.exp(x)-1)/x;},function(x){return (1-Math.cos(x))/(x*x/2);},function(x){return Math.log(1+x)/x;}];
@@ -12244,22 +12244,21 @@ viz:{type:'lhop',
     var fn=Math.round(ps.fn),z=ps.zm;
     var fns=[function(x){return Math.sin(x)/x;},function(x){return (Math.exp(x)-1)/x;},function(x){return (1-Math.cos(x))/(x*x/2);},function(x){return Math.log(1+x)/x;}];
     var labs=["sin(x)/x","(e^x-1)/x","(1-cos x)/(x^2/2)","ln(1+x)/x"];
-    var f=fns[fn-1], xs=[];
-    for(var i=-200;i<=200;i++)if(Math.abs(i)>2)xs.push(i/200*z*2);
+    /* dominio mínimo por variante: ln(1+x)/x explota en x→-1⁺ (y es NaN para x≤-1) */
+    var dmin=[-1e9,-1e9,-1e9,-0.8][fn-1];
+    var f=fns[fn-1], xs=[], hw=z*2;
+    for(var i=-200;i<=200;i++){ if(Math.abs(i)<=2) continue; var x=i/200*hw; if(x<=dmin) continue; xs.push(x); }
     var ys=xs.map(f);
-    /* yrange que se ajusta a la variante elegida: las 4 funciones tienen pendientes
-       muy distintas cerca de 0, con [.85,1.08] fijo las más empinadas se salían y
-       parecían una raya vertical rota. */
-    var _yf=ys.filter(function(v){return isFinite(v);});
-    var _ylo=Math.min.apply(null,_yf), _yhi=Math.max.apply(null,_yf);
-    var _yp=Math.max((_yhi-_ylo)*0.18,0.04);
-    var _y0=Math.min(0.92,_ylo-_yp), _y1=Math.max(1.08,_yhi+_yp);
+    /* Ventana en y FIJA y centrada en 1: el punto de la viz es ver f→1 cerca de 0.
+       Las variantes que se disparan lejos de 0 (e^x-1)/x, ln(1+x)/x) simplemente se
+       salen por arriba — es correcto (tienen asíntota), y la parte relevante (el
+       cruce por 1 en x=0) queda siempre bien encuadrada. */
     return{data:[
       {x:xs,y:ys,type:'scatter',mode:'lines',line:{color:cat,width:2.5},name:labs[fn-1]},
-      {x:[-z*2,z*2],y:[1,1],type:'scatter',mode:'lines',line:{color:'#FBBF24',width:1.5,dash:'dot'},name:'límite = 1'},
+      {x:[-hw,hw],y:[1,1],type:'scatter',mode:'lines',line:{color:'#FBBF24',width:1.5,dash:'dot'},name:'límite = 1'},
       {x:[0],y:[1],type:'scatter',mode:'markers',marker:{color:cat,size:11,symbol:'circle-open',line:{width:2}},showlegend:false},
-    ],xrange:[-z*2,z*2],yrange:[_y0,_y1],
-    annots:[{x:0,y:_y0+(_y1-_y0)*0.08,text:"0/0 → L'Hôpital → 1",showarrow:false,font:{color:'#FBBF24',size:11}}]};
+    ],xrange:[-hw,hw],yrange:[.45,1.7],
+    annots:[{x:0,y:.53,text:"0/0 → L'Hôpital → 1",showarrow:false,font:{color:'#FBBF24',size:11}}]};
   },
   ann:"Reduce <strong>Zoom</strong> para acercarte al x=0 donde f es 0/0. L'Hôpital muestra que el límite = f'(0)/g'(0) = 1. Prueba las 4 variantes."
 }
@@ -13497,11 +13496,9 @@ function fxT(f, field){
 }
 /* ══ ESTADO ══ */
 var _flt='all',_mat='all',_q='',_sel=-1,_anim=false,_rafId=null,_animTime=0,_animLastTS=null,_dragMode='zoom';
-/* _vizLock: si el usuario acercó/alejó/hizo pan a mano, guardamos AQUÍ su encuadre
-   (snapshot fijo, no se re-lee del gráfico cada frame → no deriva). Mientras exista,
-   los redibujados del slider/animación conservan ese rango. null = encuadre auto.
-   Se limpia con "Vista", Reset o al cambiar de fórmula. */
-var _vizLock=null;
+/* _vizZoom: factor de zoom del usuario (botones + / −) sobre el encuadre natural.
+   1 = sin zoom. <1 acerca, >1 aleja. Se aplica en doRender cada frame. */
+var _vizZoom=1;
 /* ══ PLOTLY ══ */
 function getPL(){
   // Lee los tokens del tema activo (dark / black / gray / light) para que la
@@ -13608,12 +13605,17 @@ function doRender(fIdx){
   var H=240;
   pd.style.width='100%';pd.style.height=H+'px';
   var PL=getPL();
-  /* Si el usuario tiene un encuadre propio (zoom/pan a mano o botones +/−),
-     conservamos el rango actual en vez de volver a res.xrange/yrange. Así el
-     zoom "pega" aunque el slider o la animación sigan redibujando. */
-  var _keepView=_vizLock && _vizLock.x && _vizLock.y;
-  var _xr=_keepView?_vizLock.x.slice():res.xrange;
-  var _yr=_keepView?_vizLock.y.slice():res.yrange;
+  /* Zoom del usuario (botones + / −): factor multiplicativo SOBRE el encuadre
+     natural de cada frame, no un encuadre absoluto congelado. Así el zoom "pega"
+     durante el slider y la animación sin pelear con el re-encuadre propio de la
+     viz (p. ej. sin(x)/x cuya animación YA es un zoom). 1 = sin zoom del usuario.
+     "Vista"/Reset/cambiar de fórmula lo devuelven a 1. */
+  var _xr=(res.xrange||[]).slice(), _yr=(res.yrange||[]).slice();
+  if(_vizZoom!==1 && _xr.length===2 && _yr.length===2){
+    var _xc=(_xr[0]+_xr[1])/2, _xh=(_xr[1]-_xr[0])/2*_vizZoom;
+    var _yc=(_yr[0]+_yr[1])/2, _yh=(_yr[1]-_yr[0])/2*_vizZoom;
+    _xr=[_xc-_xh,_xc+_xh]; _yr=[_yc-_yh,_yc+_yh];
+  }
   var layout=Object.assign({},PL,{
     width:W,height:H,dragmode:_dragMode,
     xaxis:Object.assign({},PL.xaxis,{range:_xr,autorange:false,tickvals:res.xticks||undefined,ticktext:res.xtlbls||undefined}),
@@ -13623,10 +13625,6 @@ function doRender(fIdx){
      2.30 pelea con los rangos de eje explícitos + autorange:false y el eje acababa
      en un estado intermedio. La "abruptez" real de la animación se resolvió eligiendo
      bien qué parámetro barre cada viz — ver viz.anim.) */
-  var _now=(window.performance&&performance.now)?performance.now():+new Date();
-  /* Ventana en la que los eventos plotly_relayout son NUESTROS (react programático)
-     y NO del usuario → el handler los ignora para no congelar el encuadre. */
-  window._vizProgUntil=_now+260;
   if(res.annots){
     layout.annotations=res.annots.map(function(a){
       return Object.assign({showarrow:false,font:{color:cat,size:11}},a);
@@ -13668,21 +13666,6 @@ function doRender(fIdx){
       pd.on('plotly_hover',function(d){
         var pt=d.points&&d.points[0],cv=document.getElementById('viz-coords');
         if(cv&&pt&&pt.x!==undefined)cv.textContent='x='+pt.x.toFixed(3)+'  y='+pt.y.toFixed(3);
-      });
-      /* zoom/pan con el mouse o la rueda → guardar snapshot del encuadre; autorange → soltar */
-      pd.on('plotly_relayout',function(e){
-        if(!e) return;
-        /* Ignora eventos que dispara Plotly durante NUESTRA transición/react
-           (rangos intermedios de la interpolación) o durante la animación en play. */
-        var _p=(window.performance&&performance.now)?performance.now():+new Date();
-        if(_anim || _p<(window._vizProgUntil||0)) return;
-        if(e['xaxis.autorange']===true||e['yaxis.autorange']===true){ _vizLock=null; return; }
-        if(e['xaxis.range[0]']!==undefined||e['yaxis.range[0]']!==undefined||
-           e['xaxis.range']!==undefined||e['yaxis.range']!==undefined){
-          var fl=pd._fullLayout;
-          if(fl&&fl.xaxis&&fl.xaxis.range&&fl.yaxis&&fl.yaxis.range)
-            _vizLock={x:fl.xaxis.range.slice(),y:fl.yaxis.range.slice()};
-        }
       });
     }
   }catch(e){console.error('Plotly.react error:',e);}
@@ -13781,7 +13764,7 @@ function resetP(fIdx){
   if(_anim){if(_rafId)cancelAnimationFrame(_rafId);_rafId=null;_anim=false;_animLastTS=null;var btn=document.getElementById('anim-btn');if(btn){btn.innerHTML='<svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" style="vertical-align:-1px"><path d="M6 4l14 8-14 8V4z"/></svg> Animar';btn.classList.remove('playing');}}
   var f=F[fIdx];if(!f||!f.viz)return;
   (f.viz.params||[]).forEach(function(p){var s=document.querySelector('[data-param="'+p.id+'"]');var n=document.querySelector('[data-num="'+p.id+'"]');if(s)s.value=p.def;if(n)n.value=p.def;});
-  _animDir=1;_vizLock=null;doRender(fIdx);
+  _animDir=1;_vizZoom=1;doRender(fIdx);
 }
 /* ══ DRAG MODE (zoom/pan) ══ */
 function setDragMode(mode){
@@ -13791,9 +13774,7 @@ function setDragMode(mode){
   if(pd&&pd.layout)Plotly.relayout(pd,{dragmode:mode});
 }
 function resetView(){
-  _vizLock=null;
-  var pd=document.getElementById('viz-plot');
-  if(pd&&pd.data){Plotly.relayout(pd,'xaxis.autorange',true);Plotly.relayout(pd,'yaxis.autorange',true);}
+  _vizZoom=1;
   if(_sel>=0)doRender(_sel);
 }
 /* Botones + / − de la barra: acerca/aleja la gráfica sin usar la rueda del mouse.
@@ -13806,19 +13787,11 @@ var _VF_PLAB={ 'Raíz':'Root','Raiz':'Root','Ángulo':'Angle','Angulo':'Angle','
   'Desfase':'Shift','Fase':'Phase','Multiplicidad':'Multiplicity','Constante':'Constant' };
 function _vfParamEN(s){ s=String(s||''); for(var k in _VF_PLAB){ s=s.split(k).join(_VF_PLAB[k]); } return s; }
 function vizZoom(dir){
-  var pd=document.getElementById('viz-plot');
-  if(!pd||!pd.data) return;
-  var L = pd._fullLayout || pd.layout || {};
-  function rng(ax){ var a=(pd.layout&&pd.layout[ax]&&pd.layout[ax].range)||(L[ax]&&L[ax].range); return a?[+a[0],+a[1]]:null; }
-  var f = dir>0 ? 0.72 : 1/0.72;
-  var xr=rng('xaxis'), yr=rng('yaxis'), upd={};
-  if(xr){ var xc=(xr[0]+xr[1])/2, xh=(xr[1]-xr[0])/2*f; upd['xaxis.range']=[xc-xh,xc+xh]; upd['xaxis.autorange']=false; }
-  if(yr){ var yc=(yr[0]+yr[1])/2, yh=(yr[1]-yr[0])/2*f; upd['yaxis.range']=[yc-yh,yc+yh]; upd['yaxis.autorange']=false; }
-  if(Object.keys(upd).length){
-    _vizLock={ x: upd['xaxis.range']?upd['xaxis.range'].slice():(xr?xr.slice():null),
-               y: upd['yaxis.range']?upd['yaxis.range'].slice():(yr?yr.slice():null) };
-    try{ Plotly.relayout(pd, upd); }catch(e){}
-  }
+  /* Acumula un factor sobre el encuadre natural y re-renderiza. Persiste durante
+     el slider y la animación (doRender lo aplica cada frame) y no pelea con el
+     re-encuadre propio de cada viz. dir>0 = acercar, dir<0 = alejar. */
+  _vizZoom = Math.max(0.05, Math.min(20, _vizZoom * (dir>0 ? 0.72 : 1/0.72)));
+  if(_sel>=0) doRender(_sel);
 }
 /* ══ SELECT ══ */
 /* "Aprendida" (marcar fórmula como estudiada) y "Copiar LaTeX": tenían el HTML
@@ -13871,7 +13844,7 @@ function vfBackToList(){
 }
 function sel(i){
   if(_anim)toggleAnim(_sel);
-  _vizLock=null;
+  _vizZoom=1;
   _sel=i;
   renderList();
   var f=F[i],cat=CATS[f.tag];
