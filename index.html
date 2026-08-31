@@ -12208,6 +12208,11 @@ var CATS={lim:{l:'Límites',lEn:'Limits',s:'Lím.',sEn:'Lim.',c:'#818cf8',i:'∞
 var CORD=['lim','der','int','tri','ser','alg','vec','num','geo','edo','dis'];
 function fact(n){var r=1;for(var i=2;i<=n;i++)r*=i;return r;}
 function lin(a,b,n){var r=[],s=(b-a)/(n-1);for(var i=0;i<n;i++)r.push(a+i*s);return r;}
+/* linX: como lin pero si el usuario alejó con − (uz>1) ensancha el dominio para
+   que la curva llegue hasta los bordes del plot en vez de "quedarse corta".
+   Solo para la curva de fondo f(x); NO para dominios de integración, tiempo o grillas. */
+function linX(a,b,n,uz){ var z=Math.max(1,uz||1); if(z<=1.001) return lin(a,b,n); var m=(a+b)/2,h=(b-a)/2*z; return lin(m-h,m+h,Math.round(n*Math.min(z,2.4))); }
+function _extX(v,uz){ return v*Math.max(1,uz||1); }
 var F=[
 /* ── LÍMITES ── */
 {tag:'lim',name:'lím sin(x)/x = 1',
@@ -12311,11 +12316,11 @@ viz:{type:'cont',
  viz:{type:'tangent',
   params:[{id:'x0',l:'Punto x₀',min:-3,max:3,step:.05,def:1,u:''}],
   live:function(ps){var m=2*ps.x0,y0=ps.x0*ps.x0;return 'f('+ps.x0.toFixed(2)+')='+y0.toFixed(2)+'  f\'(x₀)='+m.toFixed(2)+'  tangente: y='+m.toFixed(2)+'x'+(y0-m*ps.x0>=0?'+':'')+(y0-m*ps.x0).toFixed(2);},
-  render:function(ps,cat){
-   var x0=ps.x0,xs=lin(-3.5,3.5,400),m=2*x0,y0=x0*x0,b=y0-m*x0;
+  render:function(ps,cat,uz){
+   var x0=ps.x0,xs=linX(-3.5,3.5,400,uz),m=2*x0,y0=x0*x0,b=y0-m*x0,E=_extX(3.5,uz);
    return {data:[
     {x:xs,y:xs.map(function(x){return x*x;}),type:'scatter',mode:'lines',line:{color:cat,width:2.5},name:'f(x)=x²'},
-    {x:[-3.5,3.5],y:[-3.5*m+b,3.5*m+b],type:'scatter',mode:'lines',line:{color:'#FBBF24',width:2,dash:'dash'},name:'tangente'},
+    {x:[-E,E],y:[-E*m+b,E*m+b],type:'scatter',mode:'lines',line:{color:'#FBBF24',width:2,dash:'dash'},name:'tangente'},
     {x:[x0],y:[y0],type:'scatter',mode:'markers',marker:{color:'#FBBF24',size:10},showlegend:false},
    ],xrange:[-3.5,3.5],yrange:[-.5,9],
    annots:[{x:x0,y:y0+.7,text:"m="+m.toFixed(2),showarrow:false,font:{color:'#FBBF24',size:11}}]};},
@@ -12326,8 +12331,8 @@ viz:{type:'cont',
  viz:{type:'chain',
   params:[{id:'a',l:'Coef. a',min:.1,max:3,step:.05,def:1,u:''},{id:'b',l:'Fase b',min:-3,max:3,step:.1,def:0,u:''}],
   live:function(ps){return 'sin('+ps.a.toFixed(1)+'x+'+ps.b.toFixed(1)+')  →  derivada = '+ps.a.toFixed(1)+'·cos('+ps.a.toFixed(1)+'x+'+ps.b.toFixed(1)+')';},
-  render:function(ps,cat){
-   var a=ps.a,b=ps.b,xs=lin(-8,8,500);
+  render:function(ps,cat,uz){
+   var a=ps.a,b=ps.b,xs=linX(-8,8,500,uz);
    return {data:[
     {x:xs,y:xs.map(function(x){return Math.sin(a*x+b);}),type:'scatter',mode:'lines',line:{color:cat,width:2.5},name:'sin(ax+b)'},
     {x:xs,y:xs.map(function(x){return a*Math.cos(a*x+b);}),type:'scatter',mode:'lines',line:{color:'#FBBF24',width:1.8,dash:'dash'},name:"a·cos(ax+b)"},
@@ -12339,8 +12344,8 @@ viz:{type:'cont',
  viz:{type:'trig_d',
   params:[{id:'sh',l:'Fase',min:-6.28,max:6.28,step:.1,def:0,u:''}],
   live:function(ps){return 'En x='+ps.sh.toFixed(2)+': sin='+Math.sin(ps.sh).toFixed(3)+'  cos='+Math.cos(ps.sh).toFixed(3);},
-  render:function(ps,cat){
-   var sh=ps.sh,xs=lin(-8,8,400);
+  render:function(ps,cat,uz){
+   var sh=ps.sh,xs=linX(-8,8,400,uz);
    return {data:[
     {x:xs,y:xs.map(function(x){return Math.sin(x+sh);}),type:'scatter',mode:'lines',line:{color:cat,width:2.5},name:'sin(x)'},
     {x:xs,y:xs.map(function(x){return Math.cos(x+sh);}),type:'scatter',mode:'lines',line:{color:'#FBBF24',width:2,dash:'dash'},name:"sin'=cos(x)"},
@@ -12356,9 +12361,9 @@ viz:{type:'cont',
  viz:{type:'area',
   params:[{id:'a',l:'Límite a',min:-1,max:6,step:.05,def:0,u:''},{id:'b',l:'Límite b',min:0,max:7,step:.05,def:3.14,u:''}],
   live:function(ps){var a=Math.min(ps.a,ps.b),b=Math.max(ps.a,ps.b);return '∫sin(x)dx de '+a.toFixed(2)+' a '+b.toFixed(2)+' = '+(-Math.cos(b)+Math.cos(a)).toFixed(4);},
-  render:function(ps,cat){
+  render:function(ps,cat,uz){
    var a=Math.min(ps.a,ps.b),b=Math.max(ps.a,ps.b);
-   var xs=lin(-1,8,500),fx=lin(a,b,200),fy=fx.map(Math.sin);
+   var xs=linX(-1,8,500,uz),fx=lin(a,b,200),fy=fx.map(Math.sin);
    var area=-Math.cos(b)+Math.cos(a);
    return {data:[
     {x:fx.concat(fx.slice().reverse()),y:fy.concat(fx.map(function(){return 0;})),type:'scatter',fill:'tozeroy',fillcolor:'rgba(52,211,153,.15)',line:{color:'transparent'},showlegend:false},
@@ -12410,8 +12415,8 @@ viz:{type:'ilate',
  viz:{type:'hyperb',
   params:[{id:'t',l:'Punto x',min:-3,max:3,step:.05,def:1,u:''}],
   live:function(ps){var x=ps.t,s=Math.sinh(x),c=Math.cosh(x);return 'sinh('+x.toFixed(2)+')='+s.toFixed(4)+'  cosh='+c.toFixed(4)+'  cosh²-sinh²='+(c*c-s*s).toFixed(5)+' = 1 ✓';},
-  render:function(ps,cat){
-   var xs=lin(-3,3,300),t=ps.t;
+  render:function(ps,cat,uz){
+   var xs=linX(-3,3,300,uz),t=ps.t;
    return {data:[
     {x:xs,y:xs.map(Math.sinh),type:'scatter',mode:'lines',line:{color:cat,width:2.5},name:'sinh(x)'},
     {x:xs,y:xs.map(Math.cosh),type:'scatter',mode:'lines',line:{color:'#FBBF24',width:2,dash:'dash'},name:'cosh(x)'},
@@ -12522,8 +12527,8 @@ viz:{type:'subtrig',
   live:function(ps){
    var terms=['x','-x³/6','+x⁵/120','-x⁷/5040','+x⁹/362880','-x¹¹/39916800','+x¹³/6.2e9','-x¹⁵/1.3e12'];
    return 'sin(x) ≈ '+terms.slice(0,Math.round(ps.n)).join(' ');},
-  render:function(ps,cat){
-   var n=Math.round(ps.n),xs=lin(-8,8,500);
+  render:function(ps,cat,uz){
+   var n=Math.round(ps.n),xs=linX(-8,8,500,uz);
    var ys=xs.map(function(x){var s=0;for(var k=0;k<n;k++){var p=2*k+1;s+=(k%2===0?1:-1)*Math.pow(x,p)/fact(p);}return Math.abs(s)>6?null:s;});
    return {data:[
     {x:xs,y:xs.map(Math.sin),type:'scatter',mode:'lines',line:{color:cat,width:2.5},name:'sin(x)'},
@@ -12684,12 +12689,12 @@ viz:{type:'err',
    var f=function(x){return x*x*x-x-2;},fp=function(x){return 3*x*x-1;},x=ps.x0;
    for(var i=0;i<Math.round(ps.ni);i++)x=x-f(x)/fp(x);
    return 'x'+Math.round(ps.ni)+'='+x.toFixed(8)+'  f(x)='+f(x).toFixed(8);},
-  render:function(ps,cat){
+  render:function(ps,cat,uz){
    var f=function(x){return x*x*x-x-2;},fp=function(x){return 3*x*x-1;};
-   var xs=lin(-1,3,400),ni=Math.round(ps.ni);
+   var xs=linX(-1,3,400,uz),ni=Math.round(ps.ni);
    var trc=[
     {x:xs,y:xs.map(f),type:'scatter',mode:'lines',line:{color:cat,width:2.5},name:'f(x)=x³−x−2'},
-    {x:[-1,3],y:[0,0],type:'scatter',mode:'lines',line:{color:'rgba(255,255,255,.15)',width:1},showlegend:false},
+    {x:[-99,99],y:[0,0],type:'scatter',mode:'lines',line:{color:'rgba(255,255,255,.15)',width:1},showlegend:false},
     {x:[1.5214],y:[0],type:'scatter',mode:'markers',marker:{color:cat,size:10,symbol:'star',opacity:.7},name:'raíz≈1.5214'},
    ];
    var x=ps.x0,pts=[x];
@@ -12714,14 +12719,14 @@ viz:{type:'err',
    var f=function(x){return x*x*x-x-2;},a=-1,b=3,ni=Math.round(ps.ni);
    for(var i=0;i<ni;i++){var m=(a+b)/2;if(f(a)*f(m)<0)b=m;else a=m;}
    var m=(a+b)/2;return 'Paso '+ni+': ['+a.toFixed(4)+', '+b.toFixed(4)+']  xmedio='+m.toFixed(6)+'  f='+f(m).toFixed(6);},
-  render:function(ps,cat){
+  render:function(ps,cat,uz){
    var f=function(x){return x*x*x-x-2;},a=-1,b=3,ni=Math.round(ps.ni);
    for(var i=0;i<ni;i++){var m=(a+b)/2;if(f(a)*f(m)<0)b=m;else a=m;}
-   var xs=lin(-1,3,400);
+   var xs=linX(-1,3,400,uz);
    return {data:[
     {x:[a,a,b,b,a],y:[-4,6,6,-4,-4],type:'scatter',fill:'toself',fillcolor:'rgba(232,121,249,.07)',line:{color:'rgba(232,121,249,.3)',width:1},name:'Intervalo'},
     {x:xs,y:xs.map(f),type:'scatter',mode:'lines',line:{color:cat,width:2.5},name:'f(x)=x³−x−2'},
-    {x:[-1,3],y:[0,0],type:'scatter',mode:'lines',line:{color:'rgba(255,255,255,.15)',width:1},showlegend:false},
+    {x:[-99,99],y:[0,0],type:'scatter',mode:'lines',line:{color:'rgba(255,255,255,.15)',width:1},showlegend:false},
     {x:[(a+b)/2],y:[0],type:'scatter',mode:'markers',marker:{color:'#FBBF24',size:12,symbol:'diamond'},name:'x₁=(a+b)/2'},
    ],xrange:[-1,3],yrange:[-4,5]};},
   ann:'El intervalo (zona morada) se reduce a la mitad en cada paso. Más iteraciones = mayor precisión.'
@@ -12742,13 +12747,13 @@ viz:{type:'falsa',
     }
     return 'Iter '+ni+' | Falsa: x='+xf.toFixed(6)+' f='+f(xf).toFixed(6)+' | Bisec: x='+((ab+bb)/2).toFixed(6);
   },
-  render:function(ps,cat){
+  render:function(ps,cat,uz){
     var f=function(x){return x*x*x-x-2;},ni=Math.round(ps.ni);
-    var xs=[];for(var i=-100;i<=300;i++)xs.push(i/100);
+    var xs=linX(-1,3,400,uz);
     var af=-1,bf=3,ab=-1,bb=3;
     var trc=[
       {x:xs,y:xs.map(f),type:'scatter',mode:'lines',line:{color:cat,width:2},name:'f(x)=x³−x−2'},
-      {x:[-1,3],y:[0,0],type:'scatter',mode:'lines',line:{color:'rgba(255,255,255,.12)',width:1},showlegend:false},
+      {x:[-99,99],y:[0,0],type:'scatter',mode:'lines',line:{color:'rgba(255,255,255,.12)',width:1},showlegend:false},
       {x:[1.5214],y:[0],type:'scatter',mode:'markers',marker:{color:cat,size:10,symbol:'star',opacity:.7},name:'raíz≈1.5214'},
     ];
     for(var i=0;i<ni;i++){
@@ -13619,6 +13624,27 @@ function doRender(fIdx){
   var res;
   try{res=v.render(ps,cat,_vizZoom||1,_anim);}catch(e){console.error('render error:',e);return;}
   if(!res)return;
+  /* Mientras la animación corre, Plotly.react cuesta ~23ms/frame con curvas de
+     ~600 puntos (= ~44fps, se siente lag). Diezmamos a ~170 pts por traza durante
+     la animación (→ ~13ms = 60fps) y redibujamos fino al pausar. No toca trazas
+     cortas, ni las que llevan `null` (separadores de rectángulos, etc.). */
+  if(_anim && !res.html && res.data && !(v.anim && v.anim.viewOnly)){
+    var _CAP=170;
+    res.data.forEach(function(d){
+      if(!d||!Array.isArray(d.x)||!Array.isArray(d.y)||d.x.length!==d.y.length) return;
+      if(d.x.length<=_CAP*1.3) return;
+      /* trazas con MUCHOS null = rectángulos de Riemann / rellenos (null separa
+         cada figura) → diezmarlas las rompe. Las de pocos null (asíntota de
+         Taylor recortada) sí se pueden. */
+      var _nu=0; for(var q=0;q<d.y.length;q++){ if(d.y[q]===null){ if(++_nu>8) break; } }
+      if(_nu>8) return;
+      var st=Math.ceil(d.x.length/_CAP), nx=[], ny=[];
+      for(var i=0;i<d.x.length;i+=st){ nx.push(d.x[i]); ny.push(d.y[i]); }
+      var L=d.x.length-1;
+      if(nx[nx.length-1]!==d.x[L]){ nx.push(d.x[L]); ny.push(d.y[L]); }
+      d.x=nx; d.y=ny;
+    });
+  }
   if(window.curLang==='en' && res.data && res.data.length){
     var _LEG={'término rⁿ':'term rⁿ','suma parcial':'partial sum','círculo original':'original circle','imagen A(círculo)':'image A(circle)','curvas de nivel':'level curves','curvas F=C':'curves F=C','círculo unitario':'unit circle','secante (Falsa)':'secant (False-pos)','intervalo bisec.':'bisection interval','Falsa':'False-pos','Bisec.':'Bisec.','Intervalo':'Interval','x̄ aprox=':'x̄ approx=','Euler h=':'Euler h=','Taylor (':'Taylor (','término':'term','límite=':'limit=','límite':'limit','aprox=':'approx='};
     res.data.forEach(function(tr){ if(tr && typeof tr.name==='string' && _LEG[tr.name]!==undefined) tr.name=_LEG[tr.name]; else if(tr && typeof tr.name==='string'){ for(var k in _LEG){ if(tr.name.indexOf(k)===0){ tr.name=_LEG[k]+tr.name.slice(k.length); break; } } } });
