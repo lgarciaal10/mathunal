@@ -16874,28 +16874,24 @@ function setLang(lang){
 
   /* APORTAR (ap2) */
   setText('#aportar .sec-label','ap2-lbl'); setHTML('#aportar h2','ap2-h'); setText('#aportar .sec-split-r','ap2-p');
-  var ap2Cards=document.querySelectorAll('#aportar .aportar-grid > div');
-  if(ap2Cards[0]){
-    var fastBadge=ap2Cards[0].querySelector('div'); if(fastBadge&&L['ap2-fast']) fastBadge.textContent=L['ap2-fast'];
-    var titles=ap2Cards[0].querySelectorAll('div'); /* fallback simple por texto */
-  }
-  document.querySelectorAll('#aportar .aportar-grid > div').forEach(function(card,ci){
-    var allDivs=card.querySelectorAll(':scope > div');
-    allDivs.forEach(function(d){
-      var t=d.textContent.trim();
-      if(t==='✓ MÁS RÁPIDO'&&L['ap2-fast']) d.textContent=L['ap2-fast'];
-      if(t==='Por WhatsApp'&&L['ap2-wa-t']) d.textContent=L['ap2-wa-t'];
-      if(t==='Por Email o Drive'&&L['ap2-em-t']) d.textContent=L['ap2-em-t'];
-      var ps=card.querySelectorAll(':scope > p');
-    ps.forEach(function(pEl){
-      if(pEl.textContent.indexOf('Mándanos')>=0&&L['ap2-wa-d']) pEl.textContent=L['ap2-wa-d'];
-      if(pEl.textContent.indexOf('Para aportes')>=0&&L['ap2-em-d']) pEl.textContent=L['ap2-em-d'];
-    });
-  });
-  });
+  /* Tarjetas Aportar: se identifican por texto ES *o* EN (antes solo ES, así que
+     al volver de EN→ES no revertían y quedaban en inglés). */
+  function _apSet(el,key){ if(el&&L[key]!==undefined) el.textContent=L[key]; }
+  var _apM={
+    '✓ MÁS RÁPIDO':'ap2-fast','✓ FASTEST':'ap2-fast',
+    'Por WhatsApp':'ap2-wa-t','Via WhatsApp':'ap2-wa-t',
+    'Por Email o Drive':'ap2-em-t','Via Email or Drive':'ap2-em-t',
+    'Qué incluir en tu mensaje':'ap2-inc-h','What to include in your message':'ap2-inc-h',
+    'QUÉ INCLUIR EN TU MENSAJE':'ap2-inc-h','WHAT TO INCLUDE IN YOUR MESSAGE':'ap2-inc-h'
+  };
   document.querySelectorAll('#aportar .aportar-grid > div div').forEach(function(d){
-    if(d.children.length>0) return;
-    if(d.textContent.trim()==='Qué incluir en tu mensaje'&&L['ap2-inc-h']) d.textContent=L['ap2-inc-h'];
+    if(d.children.length) return;
+    var k=_apM[d.textContent.trim()]; if(k) _apSet(d,k);
+  });
+  document.querySelectorAll('#aportar .aportar-grid > div > p').forEach(function(pEl){
+    var t=pEl.textContent;
+    if((/Mándanos|Send us the photo/.test(t))&&L['ap2-wa-d']) pEl.textContent=L['ap2-wa-d'];
+    if((/Para aportes|For bigger contributions/.test(t))&&L['ap2-em-d']) pEl.textContent=L['ap2-em-d'];
   });
   var ap2WaChecks=document.querySelectorAll('#aportar .aportar-grid > div:first-child > div > div');
   var ap2WaKeys=['ap2-wa-i1','ap2-wa-i2'];
