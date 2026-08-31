@@ -12217,11 +12217,15 @@ var F=[
  nemo:'«El seno le pide perdón al x: en el origen se hacen iguales.»',
  viz:{type:'limit',
   params:[{id:'z',l:'Zoom',min:.1,max:5,step:.05,def:1,u:'×'}],
-  anim:{param:'z',from:1.5,to:5},
+  anim:{param:'z',from:.1,to:5,space:'inv'},
   live:function(ps){var x=.001/ps.z;return 'En x='+x.toExponential(1)+': sin(x)/x ≈ '+(Math.sin(x)/x).toFixed(6)+' → 1';},
-  render:function(ps,cat){
-   var z=ps.z,xr=[-8/z,8/z];
-   var xs=lin(xr[0],xr[1],600).filter(function(x){return Math.abs(x)>.002;});
+  render:function(ps,cat,uz){
+   var z=ps.z, half=8/z, xr=[-half,half];
+   /* Genera la curva sobre un dominio MÁS ANCHO que la vista (x2.4, y más si el
+      usuario alejó con − → uz>1) para que no se "quede corta" al alejar. */
+   var dh=half*Math.max(2.4, (uz||1)*2.4);
+   var npts=Math.min(2600, Math.max(700, Math.round(dh*7)));
+   var xs=lin(-dh,dh,npts).filter(function(x){return Math.abs(x)>.002;});
    return {data:[
     {x:xs,y:xs.map(function(x){return Math.sin(x)/x;}),type:'scatter',mode:'lines',line:{color:cat,width:2.5},name:'sin(x)/x'},
     {x:[0],y:[1],type:'scatter',mode:'markers',marker:{color:cat,size:10,symbol:'circle-open',line:{width:2}},showlegend:false},
@@ -12233,21 +12237,25 @@ var F=[
 {tag:'lim',name:"Regla de L'Hôpital",formula:"\\lim_{x\\to a}\\frac{f(x)}{g(x)}=\\lim_{x\\to a}\\frac{f'(x)}{g'(x)}",desc:"Solo para formas 0/0 o ∞/∞. Deriva numerador y denominador por separado.",nemo:"«Hospital de límites: solo entran los indeterminados 0/0 y ∞/∞.»",
 viz:{type:'lhop',
   params:[{id:'fn',l:'Función 0/0',min:1,max:4,step:1,def:1,u:''},{id:'zm',l:'Zoom al 0',min:.002,max:2,step:.002,def:.5,u:''}],
-  anim:{param:'zm',from:1,to:.02},
+  anim:{param:'zm',from:2,to:.02,space:'inv'},
   live:function(ps){
     var fn=Math.round(ps.fn),z=ps.zm;
     var fns=[function(x){return Math.sin(x)/x;},function(x){return (Math.exp(x)-1)/x;},function(x){return (1-Math.cos(x))/(x*x/2);},function(x){return Math.log(1+x)/x;}];
     var f=fns[fn-1], val=f(z);
     return 'f('+z.toExponential(1)+') = '+val.toFixed(8)+' → 1  (forma 0/0 en x=0)';
   },
-  render:function(ps,cat){
+  render:function(ps,cat,uz){
     var fn=Math.round(ps.fn),z=ps.zm;
     var fns=[function(x){return Math.sin(x)/x;},function(x){return (Math.exp(x)-1)/x;},function(x){return (1-Math.cos(x))/(x*x/2);},function(x){return Math.log(1+x)/x;}];
     var labs=["sin(x)/x","(e^x-1)/x","(1-cos x)/(x^2/2)","ln(1+x)/x"];
     /* dominio mínimo por variante: ln(1+x)/x explota en x→-1⁺ (y es NaN para x≤-1) */
-    var dmin=[-1e9,-1e9,-1e9,-0.8][fn-1];
-    var f=fns[fn-1], xs=[], hw=z*2;
-    for(var i=-200;i<=200;i++){ if(Math.abs(i)<=2) continue; var x=i/200*hw; if(x<=dmin) continue; xs.push(x); }
+    var dmin=[-1e9,-1e9,-1e9,-0.93][fn-1];
+    var hw=z*2;
+    /* dibuja sobre un dominio más ancho que la vista (y aún más si el usuario alejó) */
+    var dw=hw*Math.max(2.4,(uz||1)*2.4);
+    var np=Math.min(1200,Math.max(400,Math.round(dw*60)));
+    var f=fns[fn-1], xs=[];
+    for(var i=-np;i<=np;i++){ var x=i/np*dw; if(Math.abs(x)<=hw/200) continue; if(x<=dmin) continue; xs.push(x); }
     var ys=xs.map(f);
     /* Ventana en y FIJA y centrada en 1: el punto de la viz es ver f→1 cerca de 0.
        Las variantes que se disparan lejos de 0 (e^x-1)/x, ln(1+x)/x) simplemente se
@@ -13587,7 +13595,7 @@ function doRender(fIdx){
   if(v.live){var lv=document.getElementById('viz-live-val');if(lv)try{var _ls=v.live(ps);lv.textContent=(window.curLang==='en')?_liveEN(_ls):_ls;}catch(e){}}
   var pd=document.getElementById('viz-plot');if(!pd)return;
   var res;
-  try{res=v.render(ps,cat);}catch(e){console.error('render error:',e);return;}
+  try{res=v.render(ps,cat,_vizZoom||1);}catch(e){console.error('render error:',e);return;}
   if(!res)return;
   if(window.curLang==='en' && res.data && res.data.length){
     var _LEG={'término rⁿ':'term rⁿ','suma parcial':'partial sum','círculo original':'original circle','imagen A(círculo)':'image A(circle)','curvas de nivel':'level curves','curvas F=C':'curves F=C','círculo unitario':'unit circle','secante (Falsa)':'secant (False-pos)','intervalo bisec.':'bisection interval','Falsa':'False-pos','Bisec.':'Bisec.','Intervalo':'Interval','x̄ aprox=':'x̄ approx=','Euler h=':'Euler h=','Taylor (':'Taylor (','término':'term','límite=':'limit=','límite':'limit','aprox=':'approx='};
@@ -13678,7 +13686,8 @@ function updateP(id,val,fIdx){
   doRender(fIdx);
 }
 /* ══ SPEED → factor de ciclo ══ */
-function getSpeedFactor(){var el=document.getElementById('speed-sel');var v=el?parseInt(el.value):50;return 50/v;}
+/* 0.85 = animaciones ~15% más lentas en todas las velocidades (pedido de Luis). */
+function getSpeedFactor(){var el=document.getElementById('speed-sel');var v=el?parseInt(el.value):50;return (50/v)*0.85;}
 
 function toggleAnim(fIdx){
   _anim=!_anim;
@@ -13721,10 +13730,10 @@ function _animFrame(ts){
   _animLastTS=ts;
   var f=F[_sel];if(!f||!f.viz)return;
   var prm=f.viz.params||[];
-  /* viz.anim = {param:'id', from:x, to:y} → barre ESE parámetro entre from/to.
-     Sin config: barre el 1º entre su min/max (comportamiento previo). Evita animar
-     selectores discretos (p. ej. "Función 0/0" de L'Hôpital) o rangos que rompen
-     la gráfica en los extremos. */
+  /* viz.anim = {param:'id', from:x, to:y, space:'inv'} → barre ESE parámetro entre
+     from/to. space:'inv' interpola 1/param (para parámetros tipo "zoom" donde la
+     ventana visible es ~1/param → así el zoom se ve lineal y no a tirones).
+     Sin config: barre el 1º entre su min/max. */
   var ac=f.viz.anim||{};
   var p=null;
   if(ac.param){ for(var _pi=0;_pi<prm.length;_pi++) if(prm[_pi].id===ac.param){ p=prm[_pi]; break; } }
@@ -13734,7 +13743,14 @@ function _animFrame(ts){
   var _hi=(ac.to!=null)?ac.to:p.max;
   var period=3200;
   var phase=(_animTime%period)/period;
-  var val=_lo+(_hi-_lo)*(0.5+0.5*Math.sin(phase*2*Math.PI));
+  var e=0.5+0.5*Math.sin(phase*2*Math.PI);   // 0.5→1→0→0.5, suave en los extremos
+  var val;
+  if(ac.space==='inv' && _lo>0 && _hi>0){
+    var _il=1/_lo, _ih=1/_hi;
+    val=1/(_il+(_ih-_il)*e);
+  } else {
+    val=_lo+(_hi-_lo)*e;
+  }
   /* Parámetros continuos (step<1): NO cuantizar durante la animación → movimiento
      fluido en vez de saltos de p.step. Los discretos (nº de términos, iteraciones…)
      sí se redondean porque la viz espera enteros. */
@@ -18756,7 +18772,7 @@ window.__muMateriaInit = function(){
       var t3=0;
       (function loop(){
         requestAnimationFrame(loop);
-        var paused=!!el.__mu3dPaused, speed=el.__mu3dSpeed||1;
+        var paused=!!el.__mu3dPaused, speed=(el.__mu3dSpeed||1)*0.85;
         if(!paused){
           t3+=0.009*speed;
           if(mesh){mesh.rotation.y+=0.01*speed;mesh.position.y=Math.sin(t3*0.7)*0.07;}
