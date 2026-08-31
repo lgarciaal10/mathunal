@@ -13488,6 +13488,10 @@ function fxT(f, field){
 }
 /* ══ ESTADO ══ */
 var _flt='all',_mat='all',_q='',_sel=-1,_anim=false,_rafId=null,_animTime=0,_animLastTS=null,_dragMode='zoom';
+/* _vizUserView: el usuario acercó/alejó/hizo pan a mano → los redibujados (slider
+   o animación) conservan SU encuadre en vez de re-encuadrar a res.xrange/yrange.
+   Se limpia con "Vista", Reset o al cambiar de fórmula. */
+var _vizUserView=false;
 /* ══ PLOTLY ══ */
 function getPL(){
   // Lee los tokens del tema activo (dark / black / gray / light) para que la
@@ -13594,11 +13598,25 @@ function doRender(fIdx){
   var H=240;
   pd.style.width='100%';pd.style.height=H+'px';
   var PL=getPL();
+  /* Si el usuario tiene un encuadre propio (zoom/pan a mano o botones +/−),
+     conservamos el rango actual en vez de volver a res.xrange/yrange. Así el
+     zoom "pega" aunque el slider o la animación sigan redibujando. */
+  var _fl=pd._fullLayout||{};
+  var _keepView=_vizUserView && _fl.xaxis && _fl.xaxis.range && _fl.yaxis && _fl.yaxis.range;
+  var _xr=_keepView?_fl.xaxis.range.slice():res.xrange;
+  var _yr=_keepView?_fl.yaxis.range.slice():res.yrange;
   var layout=Object.assign({},PL,{
     width:W,height:H,dragmode:_dragMode,
-    xaxis:Object.assign({},PL.xaxis,{range:res.xrange,tickvals:res.xticks||undefined,ticktext:res.xtlbls||undefined}),
-    yaxis:Object.assign({},PL.yaxis,{range:res.yrange,scaleanchor:res.scaleanchor?'x':undefined})
+    xaxis:Object.assign({},PL.xaxis,{range:_xr,autorange:false,tickvals:res.xticks||undefined,ticktext:res.xtlbls||undefined}),
+    yaxis:Object.assign({},PL.yaxis,{range:_yr,autorange:false,scaleanchor:res.scaleanchor?'x':undefined})
   });
+  /* Transición suave: SOLO fuera del bucle de animación y SOLO si el redibujado
+     anterior no fue hace nada (≥180ms) — así un arrastre continuo del slider no
+     encola una transición por evento (se trabaría), pero un cambio suelto o un
+     cambio de fórmula sí interpolan la curva en ~240ms en vez de saltar. */
+  var _now=(window.performance&&performance.now)?performance.now():+new Date();
+  if(!_anim && !_keepView && (_now-(window._vizLastRender||0))>180) layout.transition={duration:240,easing:'cubic-in-out'};
+  window._vizLastRender=_now;
   if(res.annots){
     layout.annotations=res.annots.map(function(a){
       return Object.assign({showarrow:false,font:{color:cat,size:11}},a);
@@ -13635,10 +13653,20 @@ function doRender(fIdx){
       var wrap=pd.parentElement, cw=Math.round((wrap?wrap.clientWidth:pd.clientWidth)||0);
       if(cw>0&&pd.data){ pd.__muW=cw; try{Plotly.relayout(pd,{width:cw,height:H});}catch(e){} }
     },80);}
-    pd.on&&pd.on('plotly_hover',function(d){
-      var pt=d.points&&d.points[0],cv=document.getElementById('viz-coords');
-      if(cv&&pt&&pt.x!==undefined)cv.textContent='x='+pt.x.toFixed(3)+'  y='+pt.y.toFixed(3);
-    });
+    if(pd.on&&!pd.__muVizBound){
+      pd.__muVizBound=true;
+      pd.on('plotly_hover',function(d){
+        var pt=d.points&&d.points[0],cv=document.getElementById('viz-coords');
+        if(cv&&pt&&pt.x!==undefined)cv.textContent='x='+pt.x.toFixed(3)+'  y='+pt.y.toFixed(3);
+      });
+      /* zoom/pan con el mouse o la rueda → marcar encuadre propio; autorange → soltar */
+      pd.on('plotly_relayout',function(e){
+        if(!e) return;
+        if(e['xaxis.autorange']===true||e['yaxis.autorange']===true){ _vizUserView=false; return; }
+        if(e['xaxis.range[0]']!==undefined||e['yaxis.range[0]']!==undefined||
+           e['xaxis.range']!==undefined||e['yaxis.range']!==undefined) _vizUserView=true;
+      });
+    }
   }catch(e){console.error('Plotly.react error:',e);}
 }
 /* ══ PARAM UPDATE ══ */
@@ -13695,7 +13723,10 @@ function _animFrame(ts){
   var period=3200;
   var phase=(_animTime%period)/period;
   var val=p.min+(p.max-p.min)*(0.5+0.5*Math.sin(phase*2*Math.PI));
-  val=Math.round(val/p.step)*p.step;
+  /* Parámetros continuos (step<1): NO cuantizar durante la animación → movimiento
+     fluido en vez de saltos de p.step. Los discretos (nº de términos, iteraciones…)
+     sí se redondean porque la viz espera enteros. */
+  if(p.step>=1) val=Math.round(val/p.step)*p.step;
   val=Math.max(p.min,Math.min(p.max,val));
   var s=document.querySelector('[data-param="'+p.id+'"]');
   var n=document.querySelector('[data-num="'+p.id+'"]');
@@ -13721,7 +13752,7 @@ function resetP(fIdx){
   if(_anim){if(_rafId)cancelAnimationFrame(_rafId);_rafId=null;_anim=false;_animLastTS=null;var btn=document.getElementById('anim-btn');if(btn){btn.innerHTML='<svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" style="vertical-align:-1px"><path d="M6 4l14 8-14 8V4z"/></svg> Animar';btn.classList.remove('playing');}}
   var f=F[fIdx];if(!f||!f.viz)return;
   (f.viz.params||[]).forEach(function(p){var s=document.querySelector('[data-param="'+p.id+'"]');var n=document.querySelector('[data-num="'+p.id+'"]');if(s)s.value=p.def;if(n)n.value=p.def;});
-  _animDir=1;doRender(fIdx);
+  _animDir=1;_vizUserView=false;doRender(fIdx);
 }
 /* ══ DRAG MODE (zoom/pan) ══ */
 function setDragMode(mode){
@@ -13731,6 +13762,7 @@ function setDragMode(mode){
   if(pd&&pd.layout)Plotly.relayout(pd,{dragmode:mode});
 }
 function resetView(){
+  _vizUserView=false;
   var pd=document.getElementById('viz-plot');
   if(pd&&pd.data){Plotly.relayout(pd,'xaxis.autorange',true);Plotly.relayout(pd,'yaxis.autorange',true);}
   if(_sel>=0)doRender(_sel);
@@ -13753,7 +13785,7 @@ function vizZoom(dir){
   var xr=rng('xaxis'), yr=rng('yaxis'), upd={};
   if(xr){ var xc=(xr[0]+xr[1])/2, xh=(xr[1]-xr[0])/2*f; upd['xaxis.range']=[xc-xh,xc+xh]; upd['xaxis.autorange']=false; }
   if(yr){ var yc=(yr[0]+yr[1])/2, yh=(yr[1]-yr[0])/2*f; upd['yaxis.range']=[yc-yh,yc+yh]; upd['yaxis.autorange']=false; }
-  if(Object.keys(upd).length){ try{ Plotly.relayout(pd, upd); }catch(e){} }
+  if(Object.keys(upd).length){ _vizUserView=true; try{ Plotly.relayout(pd, upd); }catch(e){} }
 }
 /* ══ SELECT ══ */
 /* "Aprendida" (marcar fórmula como estudiada) y "Copiar LaTeX": tenían el HTML
@@ -13806,6 +13838,7 @@ function vfBackToList(){
 }
 function sel(i){
   if(_anim)toggleAnim(_sel);
+  _vizUserView=false;
   _sel=i;
   renderList();
   var f=F[i],cat=CATS[f.tag];
