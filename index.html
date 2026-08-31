@@ -9378,9 +9378,12 @@ html,body{height:100%;background:var(--bg);color:var(--t1);font-family:'Space Gr
 .dd-timer{height:100%;width:100%;background:#E8632A;border-radius:99px;}
 .dd-timer.run{transition:width linear;}
 .dd-timer.low{background:var(--bad);}
-.dd-q{font-family:'IBM Plex Mono',monospace;font-size:1.35rem;font-weight:600;color:var(--t1);text-align:center;background:var(--card);border:2px solid var(--br2);border-radius:14px;padding:1.5rem 1rem;margin-bottom:.9rem;line-height:1.4;min-height:92px;display:flex;align-items:center;justify-content:center;overflow-x:auto;}
+.dd-q{color:var(--t1);text-align:center;background:var(--card);border:2px solid var(--br2);border-radius:14px;padding:1.5rem 1rem;margin-bottom:.9rem;min-height:104px;font-size:1.15rem;font-family:'IBM Plex Mono',monospace;display:flex;align-items:center;justify-content:center;overflow-x:auto;overflow-y:hidden;}
+.dd-q .katex{font-size:1.75em;}
 .dd-opts{display:grid;grid-template-columns:1fr 1fr;gap:.6rem;}
-.dd-opt{padding:.85rem .6rem;border-radius:11px;background:var(--card);border:2px solid var(--br2);color:var(--t1);font-family:'IBM Plex Mono',monospace;font-size:1rem;font-weight:600;cursor:pointer;transition:transform .1s,background .12s,border-color .12s;}
+.dd-opt{padding:.9rem .6rem;border-radius:11px;background:var(--card);border:2px solid var(--br2);color:var(--t1);font-family:'IBM Plex Mono',monospace;font-size:1rem;font-weight:600;cursor:pointer;transition:transform .1s,background .12s,border-color .12s;min-height:52px;display:flex;align-items:center;justify-content:center;}
+.dd-opt .katex{font-size:1.25em;}
+.dd-res-missed .katex{font-size:1em;}
 .dd-opt:hover{border-color:#E8632A;} .dd-opt:active{transform:scale(.97);}
 .dd-opt.good{border-color:var(--ok);background:rgba(34,197,94,.16);color:var(--ok);}
 .dd-opt.bad{border-color:var(--bad);background:rgba(248,113,113,.14);color:var(--bad);}
@@ -11187,56 +11190,64 @@ function vcDraw(){
 }
 
 /* ═══════════════ DUELO DE DERIVADAS ═══════════════ */
-var _DD_ROUND_MS=5000, _DD_TARGET=4, _DD_ROUNDS=7;
-var _DD_DIFF={easy:{min:2500,max:3800,err:.35},normal:{min:1700,max:2600,err:.15},hard:{min:1000,max:1800,err:.05}};
+var _DD_ROUND_MS=8500, _DD_TARGET=4, _DD_ROUNDS=7;
+var _DD_DIFF={easy:{min:3200,max:5200,err:.35},normal:{min:2300,max:3700,err:.15},hard:{min:1500,max:2500,err:.05}};
 var _DD_RULE_ES=['Producto','Cadena','Cociente','Potencia'], _DD_RULE_EN=['Product','Chain','Quotient','Power'];
 var _DD_VF_ES=['Verdadero','Falso'], _DD_VF_EN=['True','False'];
-/* reglas: [expresión, índice de regla correcta] */
+var _DDD='\\dfrac{d}{dx}';
+/* reglas: [LaTeX de la expresión, índice de regla correcta] */
 var _DD_REGLAS=[
-  ['d/dx [ x²·sin x ]',0],['d/dx [ sin(x²) ]',1],['d/dx [ (x+1)/(x−1) ]',2],['d/dx [ x⁷ ]',3],
-  ['d/dx [ eˣ·ln x ]',0],['d/dx [ cos(3x) ]',1],['d/dx [ x² / (x²+1) ]',2],['d/dx [ √x ]',3],
-  ['d/dx [ tan x · x³ ]',0],['d/dx [ ln(x²+1) ]',1],['d/dx [ 2x / sin x ]',2],['d/dx [ 5x⁻³ ]',3],
-  ['d/dx [ (x³+2x)⁵ ]',1],['d/dx [ x·eˣ ]',0],['d/dx [ (sin x)/(x²) ]',2],['d/dx [ x^(1/2) ]',3],
-  ['d/dx [ e^(3x) ]',1],['d/dx [ ln x · cos x ]',0],['d/dx [ (2x−1)/(x+4) ]',2],['d/dx [ √(4x+1) ]',1]
+  [_DDD+'\\left[x^2\\sin x\\right]',0],[_DDD+'\\left[\\sin(x^2)\\right]',1],[_DDD+'\\left[\\dfrac{x+1}{x-1}\\right]',2],[_DDD+'\\left[x^7\\right]',3],
+  [_DDD+'\\left[e^x\\ln x\\right]',0],[_DDD+'\\left[\\cos(3x)\\right]',1],[_DDD+'\\left[\\dfrac{x^2}{x^2+1}\\right]',2],[_DDD+'\\left[\\sqrt{x}\\right]',3],
+  [_DDD+'\\left[\\tan x\\cdot x^3\\right]',0],[_DDD+'\\left[\\ln(x^2+1)\\right]',1],[_DDD+'\\left[\\dfrac{2x}{\\sin x}\\right]',2],[_DDD+'\\left[5x^{-3}\\right]',3],
+  [_DDD+'\\left[(x^3+2x)^5\\right]',1],[_DDD+'\\left[x\\,e^x\\right]',0],[_DDD+'\\left[\\dfrac{\\sin x}{x^2}\\right]',2],[_DDD+'\\left[x^{1/2}\\right]',3],
+  [_DDD+'\\left[e^{3x}\\right]',1],[_DDD+'\\left[\\ln x\\cdot\\cos x\\right]',0],[_DDD+'\\left[\\dfrac{2x-1}{x+4}\\right]',2],[_DDD+'\\left[\\sqrt{4x+1}\\right]',1]
 ];
 var _DD_DERIV=[
-  {q:'d/dx  sin x',o:['cos x','−cos x','−sin x','sec²x'],a:0},
-  {q:'d/dx  cos x',o:['sin x','−sin x','−cos x','tan x'],a:1},
-  {q:'d/dx  eˣ',o:['eˣ','x·eˣ','eˣ⁻¹','1'],a:0},
-  {q:'d/dx  ln x',o:['1/x','ln x','x','−1/x²'],a:0},
-  {q:'d/dx  tan x',o:['sec²x','sec x·tan x','1/cos x','−csc²x'],a:0},
-  {q:'d/dx  x',o:['1','0','x','2x'],a:0},
-  {q:'d/dx  1/x',o:['−1/x²','1/x²','ln x','−1/x'],a:0},
-  {q:'d/dx  √x',o:['1/(2√x)','2√x','√x/2','1/√x'],a:0},
-  {q:'d/dx  x³',o:['3x²','x²','3x','x⁴/4'],a:0},
-  {q:'d/dx  aˣ',o:['aˣ·ln a','x·aˣ⁻¹','aˣ','aˣ/ln a'],a:0},
-  {q:'d/dx  arctan x',o:['1/(1+x²)','1/√(1−x²)','−1/(1+x²)','1+x²'],a:0},
-  {q:'d/dx  sec x',o:['sec x·tan x','sec²x','tan²x','−sec x·tan x'],a:0},
-  {q:'d/dx  c   (constante)',o:['0','1','c','x'],a:0},
-  {q:'d/dx  e^(2x)',o:['2e^(2x)','e^(2x)','2x·e^(2x)','e^(2x)/2'],a:0}
+  {q:_DDD+'\\,\\sin x',o:['\\cos x','-\\cos x','-\\sin x','\\sec^2 x'],a:0},
+  {q:_DDD+'\\,\\cos x',o:['\\sin x','-\\sin x','-\\cos x','\\tan x'],a:1},
+  {q:_DDD+'\\,e^x',o:['e^x','x\\,e^x','e^{x-1}','1'],a:0},
+  {q:_DDD+'\\,\\ln x',o:['\\dfrac{1}{x}','\\ln x','x','-\\dfrac{1}{x^2}'],a:0},
+  {q:_DDD+'\\,\\tan x',o:['\\sec^2 x','\\sec x\\tan x','\\dfrac{1}{\\cos x}','-\\csc^2 x'],a:0},
+  {q:_DDD+'\\,x',o:['1','0','x','2x'],a:0},
+  {q:_DDD+'\\,\\dfrac{1}{x}',o:['-\\dfrac{1}{x^2}','\\dfrac{1}{x^2}','\\ln x','-\\dfrac{1}{x}'],a:0},
+  {q:_DDD+'\\,\\sqrt{x}',o:['\\dfrac{1}{2\\sqrt{x}}','2\\sqrt{x}','\\dfrac{\\sqrt{x}}{2}','\\dfrac{1}{\\sqrt{x}}'],a:0},
+  {q:_DDD+'\\,x^3',o:['3x^2','x^2','3x','\\dfrac{x^4}{4}'],a:0},
+  {q:_DDD+'\\,a^x',o:['a^x\\ln a','x\\,a^{x-1}','a^x','\\dfrac{a^x}{\\ln a}'],a:0},
+  {q:_DDD+'\\,\\arctan x',o:['\\dfrac{1}{1+x^2}','\\dfrac{1}{\\sqrt{1-x^2}}','-\\dfrac{1}{1+x^2}','1+x^2'],a:0},
+  {q:_DDD+'\\,\\sec x',o:['\\sec x\\tan x','\\sec^2 x','\\tan^2 x','-\\sec x\\tan x'],a:0},
+  {q:_DDD+'\\,c\\quad(c=\\text{cte})',o:['0','1','c','x'],a:0},
+  {q:_DDD+'\\,e^{2x}',o:['2e^{2x}','e^{2x}','2x\\,e^{2x}','\\dfrac{e^{2x}}{2}'],a:0}
 ];
+var _LIM='\\displaystyle\\lim';
 var _DD_LIM=[
-  {q:'lím x→0   sin x / x',o:['1','0','∞','no existe'],a:0},
-  {q:'lím x→∞   1 / x',o:['0','1','∞','−1'],a:0},
-  {q:'lím x→0   (1 − cos x) / x',o:['0','1','1/2','∞'],a:0},
-  {q:'lím x→∞   (2x²+1)/(x²−3)',o:['2','1','0','∞'],a:0},
-  {q:'lím x→0   (eˣ − 1) / x',o:['1','0','e','∞'],a:0},
-  {q:'lím x→∞   ln x / x',o:['0','1','∞','e'],a:0},
-  {q:'lím x→∞   x / eˣ',o:['0','1','∞','e'],a:0},
-  {q:'lím x→0   tan x / x',o:['1','0','∞','1/2'],a:0},
-  {q:'lím x→∞   (3x−1)/(x+5)',o:['3','1','0','∞'],a:0},
-  {q:'lím x→0⁺  x · ln x',o:['0','−∞','1','∞'],a:0},
-  {q:'lím x→2   (x²−4)/(x−2)',o:['4','0','2','∞'],a:0},
-  {q:'lím x→∞   (1 + 1/x)ˣ',o:['e','1','∞','0'],a:0},
-  {q:'lím x→0   x / sin x',o:['1','0','∞','no existe'],a:0}
+  {q:_LIM+'_{x\\to 0}\\dfrac{\\sin x}{x}',o:['1','0','\\infty','@dne'],a:0},
+  {q:_LIM+'_{x\\to\\infty}\\dfrac{1}{x}',o:['0','1','\\infty','-1'],a:0},
+  {q:_LIM+'_{x\\to 0}\\dfrac{1-\\cos x}{x}',o:['0','1','\\tfrac{1}{2}','\\infty'],a:0},
+  {q:_LIM+'_{x\\to\\infty}\\dfrac{2x^2+1}{x^2-3}',o:['2','1','0','\\infty'],a:0},
+  {q:_LIM+'_{x\\to 0}\\dfrac{e^x-1}{x}',o:['1','0','e','\\infty'],a:0},
+  {q:_LIM+'_{x\\to\\infty}\\dfrac{\\ln x}{x}',o:['0','1','\\infty','e'],a:0},
+  {q:_LIM+'_{x\\to\\infty}\\dfrac{x}{e^x}',o:['0','1','\\infty','e'],a:0},
+  {q:_LIM+'_{x\\to 0}\\dfrac{\\tan x}{x}',o:['1','0','\\infty','\\tfrac{1}{2}'],a:0},
+  {q:_LIM+'_{x\\to\\infty}\\dfrac{3x-1}{x+5}',o:['3','1','0','\\infty'],a:0},
+  {q:_LIM+'_{x\\to 0^+}x\\ln x',o:['0','-\\infty','1','\\infty'],a:0},
+  {q:_LIM+'_{x\\to 2}\\dfrac{x^2-4}{x-2}',o:['4','0','2','\\infty'],a:0},
+  {q:_LIM+'_{x\\to\\infty}\\left(1+\\tfrac{1}{x}\\right)^x',o:['e','1','\\infty','0'],a:0},
+  {q:_LIM+'_{x\\to 0}\\dfrac{x}{\\sin x}',o:['1','0','\\infty','@dne'],a:0}
 ];
 var _DD_VF=[
-  ['d/dx [ ln x ] = 1/x',0],['d/dx [ eˣ ] = x·eˣ',1],['∫ (1/x) dx = ln|x| + C',0],
-  ['d/dx [ x² ] = 2x',0],['sin²x + cos²x = 1',0],['d/dx [ sin x ] = −cos x',1],
-  ['d/dx [ c ] = 0',0],['∫ cos x dx = −sin x + C',1],['d/dx [ √x ] = 1/(2√x)',0],
-  ['lím x→0  sin x / x = 0',1],['d/dx [ tan x ] = sec²x',0],['(x²)′ = x',1],
-  ['d/dx [ eˣ ] = eˣ',0],['∫ 2x dx = x² + C',0],['d/dx [ 1/x ] = 1/x²',1]
+  [_DDD+'\\left[\\ln x\\right]=\\dfrac{1}{x}',0],[_DDD+'\\left[e^x\\right]=x\\,e^x',1],['\\displaystyle\\int\\dfrac{1}{x}\\,dx=\\ln|x|+C',0],
+  [_DDD+'\\left[x^2\\right]=2x',0],['\\sin^2 x+\\cos^2 x=1',0],[_DDD+'\\left[\\sin x\\right]=-\\cos x',1],
+  [_DDD+'\\left[c\\right]=0',0],['\\displaystyle\\int\\cos x\\,dx=-\\sin x+C',1],[_DDD+'\\left[\\sqrt{x}\\right]=\\dfrac{1}{2\\sqrt{x}}',0],
+  ['\\displaystyle\\lim_{x\\to 0}\\dfrac{\\sin x}{x}=0',1],[_DDD+'\\left[\\tan x\\right]=\\sec^2 x',0],["(x^2)'=x",1],
+  [_DDD+'\\left[e^x\\right]=e^x',0],['\\displaystyle\\int 2x\\,dx=x^2+C',0],[_DDD+'\\left[\\dfrac{1}{x}\\right]=\\dfrac{1}{x^2}',1]
 ];
+/* render LaTeX en un elemento; fallback a texto plano si KaTeX no está */
+function _ddTex(el,s){
+  s=String(s).replace('@dne', window.curLang==='en'?'\\text{DNE}':'\\text{no existe}');
+  if(window.katex){ try{ window.katex.render(s,el,{throwOnError:false,displayMode:false}); return; }catch(e){} }
+  el.textContent=s.replace(/@dne/,'—').replace(/\\left|\\right|\\displaystyle|\\dfrac|\\tfrac|\\,|\\quad/g,' ').replace(/[{}\\]/g,'').replace(/\s+/g,' ').trim();
+}
 var _dd={mode:'reglas',diff:'normal',q:[],i:0,you:0,bot:0,rts:[],missed:[],answered:false,botMissed:false,tId:0,bId:0,dId:0,lowId:0,rs:0};
 
 function _ddShuf(a){a=a.slice();for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=a[i];a[i]=a[j];a[j]=t;}return a;}
@@ -11304,12 +11315,15 @@ function _ddRound(){
   document.getElementById('dd-score-top').textContent=_dd.you+'–'+_dd.bot;
   document.querySelector('.dd-you').classList.toggle('dd-lead',_dd.you>_dd.bot);
   document.querySelector('.dd-bot').classList.toggle('dd-lead',_dd.bot>_dd.you);
-  document.getElementById('dd-q').textContent=it.q;
+  _ddTex(document.getElementById('dd-q'), it.q);
+  var mathOpts=(_dd.mode==='deriv'||_dd.mode==='lim');
   var fb=document.getElementById('dd-fb'); fb.textContent=' '; fb.className='dd-feedback';
   var box=document.getElementById('dd-opts'); box.innerHTML='';
   it.o.forEach(function(opt,k){
     var b=document.createElement('button');
-    b.className='dd-opt'; b.textContent=opt; b.onclick=function(){ _ddAnswer(k); };
+    b.className='dd-opt';
+    if(mathOpts) _ddTex(b, opt); else b.textContent=opt;
+    b.onclick=function(){ _ddAnswer(k); };
     box.appendChild(b);
   });
   /* timer */
@@ -11360,7 +11374,7 @@ function _ddResolve(winner, pickIdx, slow){
     fb.className='dd-feedback you'; fb.textContent=en?'Point for you ✓':'Punto para ti ✓';
   }else{
     _dd.bot++;
-    _dd.missed.push(it.q+'  →  '+it.o[it.a]);
+    _dd.missed.push({q:it.q, ans:it.o[it.a], mode:_dd.mode});
     fb.className='dd-feedback bot';
     fb.textContent=slow?(en?'Too slow — bot point':'Muy lento — punto del bot')
       :(pickIdx>=0?(en?'Wrong — bot point ✗':'Fallaste — punto del bot ✗')
@@ -11390,10 +11404,20 @@ function _ddEnd(){
     ? (en?('Avg reaction: '+(avg/1000).toFixed(2)+'s on '+_dd.rts.length+' correct'):('Reacción media: '+(avg/1000).toFixed(2)+'s en '+_dd.rts.length+' aciertos'))
     : (en?'No correct answers this round':'Sin aciertos esta ronda');
   var mEl=document.getElementById('dd-res-missed');
+  mEl.innerHTML='';
   if(_dd.missed.length){
-    mEl.innerHTML='<div style="color:var(--t2);border:none;margin-bottom:.2rem">'+(en?'Review:':'Para repasar:')+'</div>'+
-      _dd.missed.slice(0,6).map(function(s){return '<div>'+s.replace(/</g,'&lt;')+'</div>';}).join('');
-  } else mEl.innerHTML='';
+    var hd=document.createElement('div'); hd.style.cssText='color:var(--t2);border:none;margin-bottom:.3rem'; hd.textContent=en?'Review:':'Para repasar:';
+    mEl.appendChild(hd);
+    _dd.missed.slice(0,6).forEach(function(m){
+      var row=document.createElement('div'); row.style.cssText='display:flex;align-items:center;gap:.5rem;flex-wrap:wrap';
+      var qs=document.createElement('span'); _ddTex(qs, m.q); row.appendChild(qs);
+      var ar=document.createElement('span'); ar.textContent='→'; ar.style.color='var(--t3)'; row.appendChild(ar);
+      var as=document.createElement('span'); as.style.color='var(--ok)';
+      if(m.mode==='deriv'||m.mode==='lim') _ddTex(as, m.ans); else as.textContent=m.ans;
+      row.appendChild(as);
+      mEl.appendChild(row);
+    });
+  }
   document.getElementById('dd-again').textContent=en?'Rematch':'Revancha';
   document.getElementById('dd-change').textContent=en?'Change mode':'Cambiar modo';
   document.getElementById('dd-quit').textContent=en?'Back to lobby':'Salir al lobby';
