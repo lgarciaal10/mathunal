@@ -5684,15 +5684,15 @@ if(!window.__muModalEsc){window.__muModalEsc=true;
           <span style="font-family:IBM Plex Mono,monospace;font-size:.75rem;letter-spacing:.03em;line-height:1.35;display:inline-flex;align-items:center;padding:.42rem .8rem;border-radius:7px;color:var(--t2);background:var(--lay2);border:1px solid var(--br)">Escala 0–5</span>
           <span style="font-family:IBM Plex Mono,monospace;font-size:.75rem;letter-spacing:.03em;line-height:1.35;display:inline-flex;align-items:center;padding:.42rem .8rem;border-radius:7px;color:var(--grn);background:rgba(34,197,94,.08);border:1px solid rgba(34,197,94,.2)">Pasa con 3.0 (UNAL)</span>
         </div>
-        <p style="margin-top:1.2rem;font-size:.8rem;color:var(--t2);line-height:1.7">Los pesos deben sumar <strong style="color:var(--t1)">100%</strong>. La casilla resaltada es el corte que falta — ingresa los que ya tienes.</p>
       </div>
       <div class="calc-widget">
-        <span class="calc-lbl" id="calc-tabs-lbl">Cortes / parciales de la materia</span>
+        <span class="calc-lbl" id="calc-tabs-lbl">¿Cuántos cortes (parciales) tiene la materia?</span>
         <div class="calc-tabs">
-          <button class="calc-tab on" onclick="switchCalcTab(0)">2</button>
-          <button class="calc-tab" onclick="switchCalcTab(1)">3</button>
-          <button class="calc-tab" onclick="switchCalcTab(2)">4</button>
+          <button class="calc-tab on" onclick="switchCalcTab(0)">2 cortes</button>
+          <button class="calc-tab" onclick="switchCalcTab(1)">3 cortes</button>
+          <button class="calc-tab" onclick="switchCalcTab(2)">4 cortes</button>
         </div>
+        <p class="calc-hint" id="calc-hint" style="margin:.7rem 0 0;font-size:.78rem;color:var(--t2);line-height:1.6">Los pesos deben sumar <strong style="color:var(--t1)">100%</strong>. La casilla <span style="color:var(--acc);font-weight:700">resaltada</span> es el corte que falta — llena los que ya tienes.</p>
         <!-- 2 CORTES -->
         <div class="calc-body on" id="cb0">
           <div class="calc-hdr"><span class="calc-hdr-lbl">Corte</span><span class="calc-hdr-cell">Peso (%)</span><span class="calc-hdr-cell">Nota (0-5)</span></div>
@@ -15019,8 +15019,9 @@ var LANG_ES={
   /* Calculadora */
   "calc-label":"Herramienta gratuita","calc-h":"¿Cuánto necesito<br>para","calc-hi":"pasar?",
   "calc-sub":"Ingresa las notas que ya tienes y los pesos de cada corte. La calculadora te dice exactamente qué necesitas.",
-  "calc-tab1":"2","calc-tab2":"3","calc-tab3":"4",
-  "calc-tabs-lbl":"Cortes / parciales de la materia",
+  "calc-tab1":"2 cortes","calc-tab2":"3 cortes","calc-tab3":"4 cortes",
+  "calc-tabs-lbl":"¿Cuántos cortes (parciales) tiene la materia?",
+  "calc-hint":"Los pesos deben sumar 100%. La casilla resaltada es el corte que falta — llena los que ya tienes.",
   "calc-pill1":"2, 3 o 4 cortes","calc-pill2":"Escala 0–5","calc-pill3":"Pasa con 3.0 (UNAL)",
   /* Comunidad */
   "comm-label":"Comunidad","comm-h":"No estudies solo,","comm-hi":"únete",
@@ -15145,8 +15146,9 @@ var LANG_ES={
   "calc-p":"Ingresa las notas que ya tienes y los pesos de cada corte. La calculadora te dice exactamente qué necesitas en el corte pendiente — sin drama, sin calculadoras rotas.",
   "calc-min":"Nota mínima 3.0 UNAL",
   "calc-p2":"Los pesos deben sumar <strong style=\"color:var(--t1)\">100%</strong>. La casilla resaltada es el corte que falta — ingresa los que ya tienes.",
-  "calc-tab1":"2","calc-tab2":"3","calc-tab3":"4",
-  "calc-tabs-lbl":"Cortes / parciales de la materia",
+  "calc-tab1":"2 cortes","calc-tab2":"3 cortes","calc-tab3":"4 cortes",
+  "calc-tabs-lbl":"¿Cuántos cortes (parciales) tiene la materia?",
+  "calc-hint":"Los pesos deben sumar 100%. La casilla resaltada es el corte que falta — llena los que ya tienes.",
   "calc-pill1":"2, 3 o 4 cortes","calc-pill2":"Escala 0–5","calc-pill3":"Pasa con 3.0 (UNAL)",
   "calc-hdr-corte":"Corte","calc-hdr-peso":"Peso (%)","calc-hdr-nota":"Nota (0-5)",
   "calc-corte1":"1° corte","calc-corte2":"2° corte","calc-corte3":"3° corte","calc-corte4":"4° corte",
@@ -15289,8 +15291,9 @@ var LANG_EN={
   /* Calculadora */
   "calc-label":"Free tool","calc-h":"How much do I need<br>to","calc-hi":"pass?",
   "calc-sub":"Enter the grades you already have and the weight of each exam. The calculator tells you exactly what you need.",
-  "calc-tab1":"2","calc-tab2":"3","calc-tab3":"4",
-  "calc-tabs-lbl":"Grading periods in the course",
+  "calc-tab1":"2 periods","calc-tab2":"3 periods","calc-tab3":"4 periods",
+  "calc-tabs-lbl":"How many grading periods does the course have?",
+  "calc-hint":"Weights must add up to 100%. The highlighted box is the pending period — fill in the ones you already have.",
   "calc-pill1":"2, 3 or 4 periods","calc-pill2":"Scale 0–5","calc-pill3":"Pass with 3.0 (UNAL)",
   /* Comunidad */
   "comm-label":"Community","comm-h":"Don't study alone,","comm-hi":"join us",
@@ -15415,8 +15418,9 @@ var LANG_EN={
   "calc-p":"Enter the grades you already have and the weight of each exam period. The calculator tells you exactly what you need on the remaining one — no drama, no broken calculators.",
   "calc-min":"UNAL passing grade 3.0",
   "calc-p2":"The weights must add up to <strong style=\"color:var(--t1)\">100%</strong>. The highlighted box is the period you're missing — enter the ones you already have.",
-  "calc-tab1":"2","calc-tab2":"3","calc-tab3":"4",
-  "calc-tabs-lbl":"Grading periods in the course",
+  "calc-tab1":"2 periods","calc-tab2":"3 periods","calc-tab3":"4 periods",
+  "calc-tabs-lbl":"How many grading periods does the course have?",
+  "calc-hint":"Weights must add up to 100%. The highlighted box is the pending period — fill in the ones you already have.",
   "calc-pill1":"2, 3 or 4 periods","calc-pill2":"Scale 0–5","calc-pill3":"Pass with 3.0 (UNAL)",
   "calc-hdr-corte":"Period","calc-hdr-peso":"Weight (%)","calc-hdr-nota":"Grade (0-5)",
   "calc-corte1":"1st period","calc-corte2":"2nd period","calc-corte3":"3rd period","calc-corte4":"4th period",
@@ -15856,7 +15860,7 @@ function setLang(lang){
   var calcPillKeys=['calc-pill1','calc-pill2','calc-pill3'];
   calcPills.forEach(function(el,i){ if(calcPillKeys[i]&&L[calcPillKeys[i]]) el.textContent=L[calcPillKeys[i]]; });
   var ctl=document.getElementById('calc-tabs-lbl'); if(ctl&&L['calc-tabs-lbl']) ctl.textContent=L['calc-tabs-lbl'];
-  setHTML('#calculadora .calc-l > p:nth-of-type(2)','calc-p2');
+  var chint=document.getElementById('calc-hint'); if(chint&&L['calc-hint']) chint.textContent=L['calc-hint'];
   var calcTabs=document.querySelectorAll('#calculadora .calc-tab'); var calcTabKeys=['calc-tab1','calc-tab2','calc-tab3'];
   calcTabs.forEach(function(el,i){ if(calcTabKeys[i]&&L[calcTabKeys[i]]) el.textContent=L[calcTabKeys[i]]; });
   document.querySelectorAll('#calculadora .calc-hdr-lbl').forEach(function(el){ if(L['calc-hdr-corte']) el.textContent=L['calc-hdr-corte']; });
