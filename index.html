@@ -9353,6 +9353,49 @@ html,body{height:100%;background:var(--bg);color:var(--t1);font-family:'Space Gr
 .arc-goover.on{display:flex;}
 .mg-hint{position:absolute;bottom:.8rem;left:.8rem;right:5.5rem;font-size:.72rem;color:var(--t3);
   background:rgba(10,14,30,.6);border-radius:8px;padding:.4rem .7rem;pointer-events:none;z-index:5;}
+
+/* ══ DUELO DE DERIVADAS ══ */
+.dd-wrap{flex:1;display:flex;flex-direction:column;}
+.dd-stage{flex:1;display:flex;align-items:flex-start;justify-content:center;padding:1.6rem 1.2rem 3rem;}
+.dd-panel{width:100%;max-width:520px;}
+.dd-setup-h{font-family:IBM Plex Mono,monospace;font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.09em;color:var(--t3);margin-bottom:.55rem;}
+.dd-modes{display:grid;gap:.5rem;}
+.dd-mode{text-align:left;padding:.7rem .9rem;border-radius:11px;background:var(--card);border:2px solid var(--br2);cursor:pointer;font-family:inherit;transition:all .14s;}
+.dd-mode b{display:block;font-size:.92rem;color:var(--t1);margin-bottom:.1rem;}
+.dd-mode span{font-size:.76rem;color:var(--t3);}
+.dd-mode.on{border-color:#E8632A;background:rgba(232,99,42,.09);}
+.dd-diffs{display:flex;gap:.5rem;}
+.dd-diff{flex:1;padding:.55rem 0;border-radius:9px;background:var(--card);border:2px solid var(--br2);color:var(--t2);font-family:inherit;font-weight:700;font-size:.88rem;cursor:pointer;transition:all .14s;}
+.dd-diff.on{border-color:#E8632A;background:rgba(232,99,42,.09);color:var(--acc);}
+.dd-board{display:flex;align-items:center;justify-content:center;gap:1.2rem;margin-bottom:1rem;}
+.dd-side{display:flex;flex-direction:column;align-items:center;min-width:74px;padding:.5rem .8rem;border-radius:11px;border:2px solid var(--br2);background:var(--card);}
+.dd-side span{font-family:IBM Plex Mono,monospace;font-size:.64rem;font-weight:700;letter-spacing:.1em;color:var(--t3);}
+.dd-side b{font-family:Literata,serif;font-size:1.7rem;font-weight:900;color:var(--t1);line-height:1.1;}
+.dd-you.dd-lead{border-color:var(--ok);} .dd-you.dd-lead b{color:var(--ok);}
+.dd-bot.dd-lead{border-color:var(--bad);} .dd-bot.dd-lead b{color:var(--bad);}
+.dd-vs{font-family:Literata,serif;font-style:italic;color:var(--t3);font-size:.9rem;}
+.dd-timer-track{height:5px;background:var(--lay3);border-radius:99px;overflow:hidden;margin-bottom:1.1rem;}
+.dd-timer{height:100%;width:100%;background:#E8632A;border-radius:99px;}
+.dd-timer.run{transition:width linear;}
+.dd-timer.low{background:var(--bad);}
+.dd-q{font-family:'IBM Plex Mono',monospace;font-size:1.35rem;font-weight:600;color:var(--t1);text-align:center;background:var(--card);border:2px solid var(--br2);border-radius:14px;padding:1.5rem 1rem;margin-bottom:.9rem;line-height:1.4;min-height:92px;display:flex;align-items:center;justify-content:center;overflow-x:auto;}
+.dd-opts{display:grid;grid-template-columns:1fr 1fr;gap:.6rem;}
+.dd-opt{padding:.85rem .6rem;border-radius:11px;background:var(--card);border:2px solid var(--br2);color:var(--t1);font-family:'IBM Plex Mono',monospace;font-size:1rem;font-weight:600;cursor:pointer;transition:transform .1s,background .12s,border-color .12s;}
+.dd-opt:hover{border-color:#E8632A;} .dd-opt:active{transform:scale(.97);}
+.dd-opt.good{border-color:var(--ok);background:rgba(34,197,94,.16);color:var(--ok);}
+.dd-opt.bad{border-color:var(--bad);background:rgba(248,113,113,.14);color:var(--bad);}
+.dd-opt[disabled]{cursor:default;opacity:.85;}
+.dd-feedback{text-align:center;font-size:.86rem;font-weight:700;margin-top:.8rem;min-height:1.3em;}
+.dd-feedback.you{color:var(--ok);} .dd-feedback.bot{color:var(--bad);}
+.dd-res-ico{font-size:2.6rem;text-align:center;}
+.dd-res-title{font-family:Literata,serif;font-size:1.4rem;font-weight:800;text-align:center;margin:.2rem 0;}
+.dd-res-score{font-family:Literata,serif;font-size:2.4rem;font-weight:900;text-align:center;color:#E8632A;}
+.dd-res-meta{text-align:center;font-size:.82rem;color:var(--t2);margin:.5rem 0 .3rem;}
+.dd-res-missed{font-size:.76rem;color:var(--t3);font-family:IBM Plex Mono,monospace;line-height:1.7;margin:.6rem auto 1.2rem;max-width:420px;}
+.dd-res-missed div{padding:.15rem 0;border-bottom:1px solid var(--br);}
+.dd-res-btns{display:flex;flex-direction:column;gap:.5rem;align-items:center;}
+.dd-ghost{padding:.5rem 1rem;border-radius:9px;background:transparent;border:2px solid var(--br2);color:var(--t2);font-family:inherit;font-weight:700;font-size:.85rem;cursor:pointer;}
+@media(max-width:520px){.dd-q{font-size:1.12rem;}.dd-opts{grid-template-columns:1fr;}}
 </style>
 
 
@@ -9392,6 +9435,74 @@ html,body{height:100%;background:var(--bg);color:var(--t1);font-family:'Space Gr
       <div class="gc-desc" id="jg-4-desc">Snake clásico, pero solo puedes comer números que SÍ estén en el dominio de la función del nivel. Un número fuera de dominio y se acaba.</div>
       <div class="gc-tags"><span class="tag" id="jg-4-t1">Dominios</span><span class="tag" id="jg-4-t2">Reflejos</span><span class="tag" id="jg-4-t3">10 niveles</span></div>
       <button class="gc-btn" id="jg-4-btn" style="background:var(--grn)" onclick="startDomainSnake()">Jugar →</button>
+    </div>
+    <div class="gc" style="--gc:#E8632A">
+      <div class="gc-ico"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h7l-1 8 10-12h-7l1-8z"/></svg></div>
+      <div class="gc-name" id="jg-5-name">Duelo de Derivadas</div>
+      <div class="gc-desc" id="jg-5-desc">Aparece una expresión, corres contra el bot a marcar la respuesta correcta. Reconoce qué regla aplica sin pensarlo — el reflejo que salva parciales.</div>
+      <div class="gc-tags"><span class="tag" id="jg-5-t1">Derivadas</span><span class="tag" id="jg-5-t2">Reflejos</span><span class="tag" id="jg-5-t3">vs Bot</span></div>
+      <button class="gc-btn" id="jg-5-btn" onclick="startDuelo()">Jugar →</button>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- ══ DUELO DE DERIVADAS ══ -->
+<div class="scr" id="scr-duelo">
+<div class="dd-wrap">
+  <div class="game-bar">
+    <button class="gbk" onclick="ddExit()"><span class="jg-salir-txt">← Salir</span></button>
+    <div class="gbar-center">
+      <div class="gbar-title"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-2px"><path d="M13 2 3 14h7l-1 8 10-12h-7l1-8z"/></svg> <span id="jg-dd-name">Duelo de Derivadas</span></div>
+      <div class="gbar-sub" id="dd-round-lbl">Ronda 1 de 7</div>
+    </div>
+    <div class="gbar-right"><div class="gstat"><div class="gstat-n" id="dd-score-top">0–0</div><div class="gstat-l" id="dd-score-lbl">tú–bot</div></div></div>
+  </div>
+
+  <div class="dd-stage" id="dd-stage">
+    <!-- SETUP -->
+    <div class="dd-panel" id="dd-setup">
+      <div class="dd-setup-h" id="dd-setup-h">Elige el modo</div>
+      <div class="dd-modes" id="dd-modes">
+        <button type="button" class="dd-mode on" data-mode="reglas"><b id="dd-m1-t">Reglas de derivación</b><span id="dd-m1-s">¿Producto, cadena, cociente o potencia?</span></button>
+        <button type="button" class="dd-mode" data-mode="deriv"><b id="dd-m2-t">Derivadas rápidas</b><span id="dd-m2-s">La derivada de la función que aparece</span></button>
+        <button type="button" class="dd-mode" data-mode="lim"><b id="dd-m3-t">Límites relámpago</b><span id="dd-m3-s">El valor del límite, entre 4 opciones</span></button>
+        <button type="button" class="dd-mode" data-mode="vf"><b id="dd-m4-t">Verdadero / Falso</b><span id="dd-m4-s">¿La igualdad es correcta?</span></button>
+      </div>
+      <div class="dd-setup-h" id="dd-diff-h" style="margin-top:1.1rem">Dificultad del bot</div>
+      <div class="dd-diffs" id="dd-diffs">
+        <button type="button" class="dd-diff" data-diff="easy" id="dd-d1">Fácil</button>
+        <button type="button" class="dd-diff on" data-diff="normal" id="dd-d2">Normal</button>
+        <button type="button" class="dd-diff" data-diff="hard" id="dd-d3">Difícil</button>
+      </div>
+      <button type="button" class="arc-start-btn" style="--gc:#E8632A;margin-top:1.3rem" onclick="ddBegin()" id="dd-go">Empezar →</button>
+    </div>
+
+    <!-- DUEL -->
+    <div class="dd-panel" id="dd-duel" style="display:none">
+      <div class="dd-board">
+        <div class="dd-side dd-you"><span id="dd-you-lbl">TÚ</span><b id="dd-you-n">0</b></div>
+        <div class="dd-vs">vs</div>
+        <div class="dd-side dd-bot"><span id="dd-bot-lbl">BOT</span><b id="dd-bot-n">0</b></div>
+      </div>
+      <div class="dd-timer-track"><div class="dd-timer" id="dd-timer"></div></div>
+      <div class="dd-q" id="dd-q">—</div>
+      <div class="dd-opts" id="dd-opts"></div>
+      <div class="dd-feedback" id="dd-fb">&nbsp;</div>
+    </div>
+
+    <!-- RESULT -->
+    <div class="dd-panel" id="dd-result" style="display:none">
+      <div class="dd-res-ico" id="dd-res-ico">🏆</div>
+      <div class="dd-res-title" id="dd-res-title">Ganaste</div>
+      <div class="dd-res-score" id="dd-res-score">4–2</div>
+      <div class="dd-res-meta" id="dd-res-meta"></div>
+      <div class="dd-res-missed" id="dd-res-missed"></div>
+      <div class="dd-res-btns">
+        <button type="button" class="arc-start-btn" style="--gc:#E8632A" onclick="ddBegin()" id="dd-again">Revancha</button>
+        <button type="button" class="dd-ghost" onclick="ddToSetup()" id="dd-change">Cambiar modo</button>
+        <button type="button" class="dd-ghost" onclick="ddExit()" id="dd-quit">Salir al lobby</button>
+      </div>
     </div>
   </div>
 </div>
@@ -9676,7 +9787,27 @@ window.muApplyLang_juegos = function(){
   t('jg-4-desc','Snake clásico, pero solo puedes comer números que SÍ estén en el dominio de la función del nivel. Un número fuera de dominio y se acaba.',
     'Classic Snake, but you can only eat numbers that ARE in the level\'s function domain. Eat one outside the domain and it\'s over.');
   t('jg-4-t1','Dominios','Domains'); t('jg-4-t2','Reflejos','Reflexes'); t('jg-4-t3','10 niveles','10 levels');
-  ['jg-1-btn','jg-2-btn','jg-3-btn','jg-4-btn'].forEach(function(id){ t(id,'Jugar →','Play →'); });
+  t('jg-5-name','Duelo de Derivadas','Derivative Duel');
+  t('jg-5-desc','Aparece una expresión, corres contra el bot a marcar la respuesta correcta. Reconoce qué regla aplica sin pensarlo — el reflejo que salva parciales.',
+    'An expression pops up, you race the bot to mark the right answer. Spot which rule applies without thinking — the reflex that saves exams.');
+  t('jg-5-t1','Derivadas','Derivatives'); t('jg-5-t2','Reflejos','Reflexes'); t('jg-5-t3','vs Bot','vs Bot');
+  ['jg-1-btn','jg-2-btn','jg-3-btn','jg-4-btn','jg-5-btn'].forEach(function(id){ t(id,'Jugar →','Play →'); });
+
+  // Duelo de Derivadas
+  t('jg-dd-name','Duelo de Derivadas','Derivative Duel');
+  t('dd-score-lbl','tú–bot','you–bot');
+  t('dd-setup-h','Elige el modo','Choose the mode');
+  t('dd-diff-h','Dificultad del bot','Bot difficulty');
+  t('dd-m1-t','Reglas de derivación','Differentiation rules');
+  t('dd-m1-s','¿Producto, cadena, cociente o potencia?','Product, chain, quotient or power?');
+  t('dd-m2-t','Derivadas rápidas','Quick derivatives');
+  t('dd-m2-s','La derivada de la función que aparece','The derivative of the function shown');
+  t('dd-m3-t','Límites relámpago','Lightning limits');
+  t('dd-m3-s','El valor del límite, entre 4 opciones','The value of the limit, out of 4 options');
+  t('dd-m4-t','Verdadero / Falso','True / False');
+  t('dd-m4-s','¿La igualdad es correcta?','Is the equality correct?');
+  t('dd-d1','Fácil','Easy'); t('dd-d2','Normal','Normal'); t('dd-d3','Difícil','Hard');
+  t('dd-go','Empezar →','Start →');
 
   /* ── Dentro de cada juego (barra superior, reglas, pantallas de inicio/resultado) ── */
   document.querySelectorAll('.jg-salir-txt').forEach(function(el){ el.textContent = en?'← Exit':'← Salir'; });
@@ -11053,6 +11184,220 @@ function vcDraw(){
   vcCtx.fillStyle='#38BDF8';
   vcCtx.beginPath();vcCtx.arc(cp.x,cp.y,6,0,Math.PI*2);vcCtx.fill();
   vcCtx.strokeStyle='#fff';vcCtx.lineWidth=2;vcCtx.stroke();
+}
+
+/* ═══════════════ DUELO DE DERIVADAS ═══════════════ */
+var _DD_ROUND_MS=5000, _DD_TARGET=4, _DD_ROUNDS=7;
+var _DD_DIFF={easy:{min:2500,max:3800,err:.35},normal:{min:1700,max:2600,err:.15},hard:{min:1000,max:1800,err:.05}};
+var _DD_RULE_ES=['Producto','Cadena','Cociente','Potencia'], _DD_RULE_EN=['Product','Chain','Quotient','Power'];
+var _DD_VF_ES=['Verdadero','Falso'], _DD_VF_EN=['True','False'];
+/* reglas: [expresión, índice de regla correcta] */
+var _DD_REGLAS=[
+  ['d/dx [ x²·sin x ]',0],['d/dx [ sin(x²) ]',1],['d/dx [ (x+1)/(x−1) ]',2],['d/dx [ x⁷ ]',3],
+  ['d/dx [ eˣ·ln x ]',0],['d/dx [ cos(3x) ]',1],['d/dx [ x² / (x²+1) ]',2],['d/dx [ √x ]',3],
+  ['d/dx [ tan x · x³ ]',0],['d/dx [ ln(x²+1) ]',1],['d/dx [ 2x / sin x ]',2],['d/dx [ 5x⁻³ ]',3],
+  ['d/dx [ (x³+2x)⁵ ]',1],['d/dx [ x·eˣ ]',0],['d/dx [ (sin x)/(x²) ]',2],['d/dx [ x^(1/2) ]',3],
+  ['d/dx [ e^(3x) ]',1],['d/dx [ ln x · cos x ]',0],['d/dx [ (2x−1)/(x+4) ]',2],['d/dx [ √(4x+1) ]',1]
+];
+var _DD_DERIV=[
+  {q:'d/dx  sin x',o:['cos x','−cos x','−sin x','sec²x'],a:0},
+  {q:'d/dx  cos x',o:['sin x','−sin x','−cos x','tan x'],a:1},
+  {q:'d/dx  eˣ',o:['eˣ','x·eˣ','eˣ⁻¹','1'],a:0},
+  {q:'d/dx  ln x',o:['1/x','ln x','x','−1/x²'],a:0},
+  {q:'d/dx  tan x',o:['sec²x','sec x·tan x','1/cos x','−csc²x'],a:0},
+  {q:'d/dx  x',o:['1','0','x','2x'],a:0},
+  {q:'d/dx  1/x',o:['−1/x²','1/x²','ln x','−1/x'],a:0},
+  {q:'d/dx  √x',o:['1/(2√x)','2√x','√x/2','1/√x'],a:0},
+  {q:'d/dx  x³',o:['3x²','x²','3x','x⁴/4'],a:0},
+  {q:'d/dx  aˣ',o:['aˣ·ln a','x·aˣ⁻¹','aˣ','aˣ/ln a'],a:0},
+  {q:'d/dx  arctan x',o:['1/(1+x²)','1/√(1−x²)','−1/(1+x²)','1+x²'],a:0},
+  {q:'d/dx  sec x',o:['sec x·tan x','sec²x','tan²x','−sec x·tan x'],a:0},
+  {q:'d/dx  c   (constante)',o:['0','1','c','x'],a:0},
+  {q:'d/dx  e^(2x)',o:['2e^(2x)','e^(2x)','2x·e^(2x)','e^(2x)/2'],a:0}
+];
+var _DD_LIM=[
+  {q:'lím x→0   sin x / x',o:['1','0','∞','no existe'],a:0},
+  {q:'lím x→∞   1 / x',o:['0','1','∞','−1'],a:0},
+  {q:'lím x→0   (1 − cos x) / x',o:['0','1','1/2','∞'],a:0},
+  {q:'lím x→∞   (2x²+1)/(x²−3)',o:['2','1','0','∞'],a:0},
+  {q:'lím x→0   (eˣ − 1) / x',o:['1','0','e','∞'],a:0},
+  {q:'lím x→∞   ln x / x',o:['0','1','∞','e'],a:0},
+  {q:'lím x→∞   x / eˣ',o:['0','1','∞','e'],a:0},
+  {q:'lím x→0   tan x / x',o:['1','0','∞','1/2'],a:0},
+  {q:'lím x→∞   (3x−1)/(x+5)',o:['3','1','0','∞'],a:0},
+  {q:'lím x→0⁺  x · ln x',o:['0','−∞','1','∞'],a:0},
+  {q:'lím x→2   (x²−4)/(x−2)',o:['4','0','2','∞'],a:0},
+  {q:'lím x→∞   (1 + 1/x)ˣ',o:['e','1','∞','0'],a:0},
+  {q:'lím x→0   x / sin x',o:['1','0','∞','no existe'],a:0}
+];
+var _DD_VF=[
+  ['d/dx [ ln x ] = 1/x',0],['d/dx [ eˣ ] = x·eˣ',1],['∫ (1/x) dx = ln|x| + C',0],
+  ['d/dx [ x² ] = 2x',0],['sin²x + cos²x = 1',0],['d/dx [ sin x ] = −cos x',1],
+  ['d/dx [ c ] = 0',0],['∫ cos x dx = −sin x + C',1],['d/dx [ √x ] = 1/(2√x)',0],
+  ['lím x→0  sin x / x = 0',1],['d/dx [ tan x ] = sec²x',0],['(x²)′ = x',1],
+  ['d/dx [ eˣ ] = eˣ',0],['∫ 2x dx = x² + C',0],['d/dx [ 1/x ] = 1/x²',1]
+];
+var _dd={mode:'reglas',diff:'normal',q:[],i:0,you:0,bot:0,rts:[],missed:[],answered:false,botMissed:false,tId:0,bId:0,dId:0,lowId:0,rs:0};
+
+function _ddShuf(a){a=a.slice();for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=a[i];a[i]=a[j];a[j]=t;}return a;}
+function _ddEN(){return window.curLang==='en';}
+
+function startDuelo(){
+  showScr('duelo');
+  ddToSetup();
+  var modes=document.getElementById('dd-modes');
+  modes.querySelectorAll('.dd-mode').forEach(function(b){
+    b.onclick=function(){modes.querySelectorAll('.dd-mode').forEach(function(x){x.classList.remove('on');});b.classList.add('on');_dd.mode=b.getAttribute('data-mode');};
+  });
+  var diffs=document.getElementById('dd-diffs');
+  diffs.querySelectorAll('.dd-diff').forEach(function(b){
+    b.onclick=function(){diffs.querySelectorAll('.dd-diff').forEach(function(x){x.classList.remove('on');});b.classList.add('on');_dd.diff=b.getAttribute('data-diff');};
+  });
+}
+function ddToSetup(){
+  _ddClear();
+  document.getElementById('dd-setup').style.display='';
+  document.getElementById('dd-duel').style.display='none';
+  document.getElementById('dd-result').style.display='none';
+  document.getElementById('dd-round-lbl').textContent=_ddEN()?'Ready':'Listo';
+  document.getElementById('dd-score-top').textContent='0–0';
+}
+function ddExit(){ _ddClear(); showScr('lobby'); }
+function _ddClear(){ clearTimeout(_dd.bId);clearTimeout(_dd.dId);clearTimeout(_dd.tId);clearTimeout(_dd.lowId); }
+
+function _ddBuild(){
+  var en=_ddEN(), m=_dd.mode, out=[];
+  if(m==='reglas'){
+    _ddShuf(_DD_REGLAS).forEach(function(r){ out.push({q:r[0],o:(en?_DD_RULE_EN:_DD_RULE_ES).slice(),a:r[1]}); });
+  }else if(m==='vf'){
+    _ddShuf(_DD_VF).forEach(function(r){ out.push({q:r[0],o:(en?_DD_VF_EN:_DD_VF_ES).slice(),a:r[1]}); });
+  }else{
+    var bank=(m==='deriv')?_DD_DERIV:_DD_LIM;
+    _ddShuf(bank).forEach(function(it){
+      var idx=[0,1,2,3], correct=it.o[it.a];
+      idx=_ddShuf(idx);
+      var opts=idx.map(function(k){return it.o[k];});
+      out.push({q:it.q,o:opts,a:opts.indexOf(correct)});
+    });
+  }
+  return out.slice(0,_DD_ROUNDS);
+}
+
+function ddBegin(){
+  _ddClear();
+  _dd.q=_ddBuild(); _dd.i=0; _dd.you=0; _dd.bot=0; _dd.rts=[]; _dd.missed=[];
+  document.getElementById('dd-setup').style.display='none';
+  document.getElementById('dd-result').style.display='none';
+  document.getElementById('dd-duel').style.display='';
+  document.getElementById('dd-you-lbl').textContent=_ddEN()?'YOU':'TÚ';
+  document.getElementById('dd-bot-lbl').textContent='BOT';
+  _ddRound();
+}
+
+function _ddRound(){
+  var it=_dd.q[_dd.i]; if(!it) return _ddEnd();
+  var en=_ddEN();
+  _dd.answered=false; _dd.botMissed=false; _dd.rs=Date.now();
+  document.getElementById('dd-round-lbl').textContent=(en?'Round ':'Ronda ')+(_dd.i+1)+(en?' of ':' de ')+_dd.q.length;
+  document.getElementById('dd-you-n').textContent=_dd.you;
+  document.getElementById('dd-bot-n').textContent=_dd.bot;
+  document.getElementById('dd-score-top').textContent=_dd.you+'–'+_dd.bot;
+  document.querySelector('.dd-you').classList.toggle('dd-lead',_dd.you>_dd.bot);
+  document.querySelector('.dd-bot').classList.toggle('dd-lead',_dd.bot>_dd.you);
+  document.getElementById('dd-q').textContent=it.q;
+  var fb=document.getElementById('dd-fb'); fb.textContent=' '; fb.className='dd-feedback';
+  var box=document.getElementById('dd-opts'); box.innerHTML='';
+  it.o.forEach(function(opt,k){
+    var b=document.createElement('button');
+    b.className='dd-opt'; b.textContent=opt; b.onclick=function(){ _ddAnswer(k); };
+    box.appendChild(b);
+  });
+  /* timer */
+  var tm=document.getElementById('dd-timer');
+  tm.className='dd-timer'; tm.style.transition='none'; tm.style.width='100%';
+  void tm.offsetWidth;
+  tm.classList.add('run'); tm.style.transition='width '+_DD_ROUND_MS+'ms linear'; tm.style.width='0%';
+  _dd.lowId=setTimeout(function(){ tm.classList.add('low'); }, _DD_ROUND_MS-1500);
+  /* bot + deadline */
+  var cfg=_DD_DIFF[_dd.diff]||_DD_DIFF.normal;
+  var delay=cfg.min+Math.random()*(cfg.max-cfg.min);
+  _dd.bId=setTimeout(_ddBotBuzz, delay);
+  _dd.dId=setTimeout(_ddTimeout, _DD_ROUND_MS);
+}
+
+function _ddBotBuzz(){
+  if(_dd.answered) return;
+  var cfg=_DD_DIFF[_dd.diff]||_DD_DIFF.normal;
+  if(Math.random()>=cfg.err){ _ddResolve('bot', -1); }
+  else{
+    _dd.botMissed=true;
+    var fb=document.getElementById('dd-fb');
+    fb.className='dd-feedback'; fb.textContent=_ddEN()?'The bot missed ✗ — your turn!':'El bot falló ✗ — ¡responde tú!';
+  }
+}
+function _ddTimeout(){
+  if(_dd.answered) return;
+  _ddResolve('bot', -1, true);
+}
+function _ddAnswer(k){
+  if(_dd.answered) return;
+  _dd.answered=true;
+  clearTimeout(_dd.bId); clearTimeout(_dd.dId); clearTimeout(_dd.lowId);
+  var it=_dd.q[_dd.i], right=(k===it.a);
+  _ddResolve(right?'you':'bot', k);
+}
+
+function _ddResolve(winner, pickIdx, slow){
+  _dd.answered=true;
+  clearTimeout(_dd.bId); clearTimeout(_dd.dId); clearTimeout(_dd.lowId);
+  var it=_dd.q[_dd.i], en=_ddEN();
+  var tm=document.getElementById('dd-timer'); tm.style.transition='none'; tm.style.width=getComputedStyle(tm).width;
+  var btns=document.querySelectorAll('#dd-opts .dd-opt');
+  btns.forEach(function(b,idx){ b.disabled=true; if(idx===it.a) b.classList.add('good'); if(idx===pickIdx && pickIdx!==it.a) b.classList.add('bad'); });
+  var fb=document.getElementById('dd-fb');
+  if(winner==='you'){
+    _dd.you++; _dd.rts.push(Date.now()-_dd.rs);
+    fb.className='dd-feedback you'; fb.textContent=en?'Point for you ✓':'Punto para ti ✓';
+  }else{
+    _dd.bot++;
+    _dd.missed.push(it.q+'  →  '+it.o[it.a]);
+    fb.className='dd-feedback bot';
+    fb.textContent=slow?(en?'Too slow — bot point':'Muy lento — punto del bot')
+      :(pickIdx>=0?(en?'Wrong — bot point ✗':'Fallaste — punto del bot ✗')
+      :(en?'Bot answered first ✗':'El bot respondió primero ✗'));
+  }
+  document.getElementById('dd-you-n').textContent=_dd.you;
+  document.getElementById('dd-bot-n').textContent=_dd.bot;
+  document.getElementById('dd-score-top').textContent=_dd.you+'–'+_dd.bot;
+  _dd.tId=setTimeout(function(){
+    _dd.i++;
+    if(_dd.you>=_DD_TARGET || _dd.bot>=_DD_TARGET || _dd.i>=_dd.q.length) _ddEnd();
+    else _ddRound();
+  }, 1250);
+}
+
+function _ddEnd(){
+  _ddClear();
+  var en=_ddEN(), won=_dd.you>_dd.bot, tie=_dd.you===_dd.bot;
+  document.getElementById('dd-duel').style.display='none';
+  document.getElementById('dd-setup').style.display='none';
+  document.getElementById('dd-result').style.display='';
+  document.getElementById('dd-res-ico').textContent=won?'🏆':tie?'🤝':'🤖';
+  document.getElementById('dd-res-title').textContent=won?(en?'You win':'Ganaste'):tie?(en?'Tie':'Empate'):(en?'Bot wins':'Ganó el bot');
+  document.getElementById('dd-res-score').textContent=_dd.you+'–'+_dd.bot;
+  var avg=_dd.rts.length?Math.round(_dd.rts.reduce(function(a,b){return a+b;},0)/_dd.rts.length):0;
+  document.getElementById('dd-res-meta').textContent=avg
+    ? (en?('Avg reaction: '+(avg/1000).toFixed(2)+'s on '+_dd.rts.length+' correct'):('Reacción media: '+(avg/1000).toFixed(2)+'s en '+_dd.rts.length+' aciertos'))
+    : (en?'No correct answers this round':'Sin aciertos esta ronda');
+  var mEl=document.getElementById('dd-res-missed');
+  if(_dd.missed.length){
+    mEl.innerHTML='<div style="color:var(--t2);border:none;margin-bottom:.2rem">'+(en?'Review:':'Para repasar:')+'</div>'+
+      _dd.missed.slice(0,6).map(function(s){return '<div>'+s.replace(/</g,'&lt;')+'</div>';}).join('');
+  } else mEl.innerHTML='';
+  document.getElementById('dd-again').textContent=en?'Rematch':'Revancha';
+  document.getElementById('dd-change').textContent=en?'Change mode':'Cambiar modo';
+  document.getElementById('dd-quit').textContent=en?'Back to lobby':'Salir al lobby';
+  lastGame='duelo'; lastScore=_dd.you;
 }
 
 </script>
