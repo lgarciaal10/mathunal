@@ -12219,13 +12219,15 @@ var F=[
   params:[{id:'z',l:'Zoom',min:.1,max:5,step:.05,def:1,u:'×'}],
   anim:{param:'z',from:.1,to:5,space:'inv'},
   live:function(ps){var x=.001/ps.z;return 'En x='+x.toExponential(1)+': sin(x)/x ≈ '+(Math.sin(x)/x).toFixed(6)+' → 1';},
-  render:function(ps,cat,uz){
+  render:function(ps,cat,uz,anim){
    var z=ps.z, half=8/z, xr=[-half,half];
-   /* Genera la curva sobre un dominio MÁS ANCHO que la vista (x2.4, y más si el
-      usuario alejó con − → uz>1) para que no se "quede corta" al alejar. */
-   var dh=half*Math.max(2.4, (uz||1)*2.4);
-   var npts=Math.min(2600, Math.max(700, Math.round(dh*7)));
-   var xs=lin(-dh,dh,npts).filter(function(x){return Math.abs(x)>.002;});
+   /* Dominio más ancho que la vista para que no se "quede corta" al alejar, con
+      cap. Muestreo NO uniforme (denso cerca de 0, ralo en las colas) y menos
+      puntos mientras la animación corre → 60fps de verdad; al pausar redibuja fino. */
+   var dh=Math.min(170, half*Math.max(2.2, (uz||1)*2.2));
+   var N=anim?150:340;
+   var xs=[];
+   for(var i=-N;i<=N;i++){ var t=i/N; var x=(t<0?-1:1)*Math.pow(Math.abs(t),1.7)*dh; if(Math.abs(x)>.002) xs.push(x); }
    return {data:[
     {x:xs,y:xs.map(function(x){return Math.sin(x)/x;}),type:'scatter',mode:'lines',line:{color:cat,width:2.5},name:'sin(x)/x'},
     {x:[0],y:[1],type:'scatter',mode:'markers',marker:{color:cat,size:10,symbol:'circle-open',line:{width:2}},showlegend:false},
@@ -12244,16 +12246,17 @@ viz:{type:'lhop',
     var f=fns[fn-1], val=f(z);
     return 'f('+z.toExponential(1)+') = '+val.toFixed(8)+' → 1  (forma 0/0 en x=0)';
   },
-  render:function(ps,cat,uz){
+  render:function(ps,cat,uz,anim){
     var fn=Math.round(ps.fn),z=ps.zm;
     var fns=[function(x){return Math.sin(x)/x;},function(x){return (Math.exp(x)-1)/x;},function(x){return (1-Math.cos(x))/(x*x/2);},function(x){return Math.log(1+x)/x;}];
     var labs=["sin(x)/x","(e^x-1)/x","(1-cos x)/(x^2/2)","ln(1+x)/x"];
     /* dominio mínimo por variante: ln(1+x)/x explota en x→-1⁺ (y es NaN para x≤-1) */
     var dmin=[-1e9,-1e9,-1e9,-0.93][fn-1];
     var hw=z*2;
-    /* dibuja sobre un dominio más ancho que la vista (y aún más si el usuario alejó) */
+    /* dibuja sobre un dominio más ancho que la vista (y aún más si el usuario alejó);
+       menos puntos mientras anima → fps */
     var dw=hw*Math.max(2.4,(uz||1)*2.4);
-    var np=Math.min(1200,Math.max(400,Math.round(dw*60)));
+    var np=anim?160:340;
     var f=fns[fn-1], xs=[];
     for(var i=-np;i<=np;i++){ var x=i/np*dw; if(Math.abs(x)<=hw/200) continue; if(x<=dmin) continue; xs.push(x); }
     var ys=xs.map(f);
@@ -13508,7 +13511,17 @@ var _flt='all',_mat='all',_q='',_sel=-1,_anim=false,_rafId=null,_animTime=0,_ani
    1 = sin zoom. <1 acerca, >1 aleja. Se aplica en doRender cada frame. */
 var _vizZoom=1;
 /* ══ PLOTLY ══ */
+/* getPL() lee ~10 custom properties vía getComputedStyle. Llamarlo en cada frame
+   de la animación (60fps) costaba fps. Cacheamos el resultado por tema; se
+   invalida solo al cambiar de tema (o de idioma, por si acaso). */
+var _plCache=null, _plKey='';
 function getPL(){
+  var k=(document.documentElement.getAttribute('data-theme')||'')+'|'+(window.curLang||'');
+  if(_plCache && _plKey===k) return _plCache;
+  _plKey=k; _plCache=_getPL();
+  return _plCache;
+}
+function _getPL(){
   // Lee los tokens del tema activo (dark / black / gray / light) para que la
   // gráfica combine con cualquiera de ellos, no solo dark-blue y light.
   var cs = getComputedStyle(document.documentElement);
@@ -13595,7 +13608,7 @@ function doRender(fIdx){
   if(v.live){var lv=document.getElementById('viz-live-val');if(lv)try{var _ls=v.live(ps);lv.textContent=(window.curLang==='en')?_liveEN(_ls):_ls;}catch(e){}}
   var pd=document.getElementById('viz-plot');if(!pd)return;
   var res;
-  try{res=v.render(ps,cat,_vizZoom||1);}catch(e){console.error('render error:',e);return;}
+  try{res=v.render(ps,cat,_vizZoom||1,_anim);}catch(e){console.error('render error:',e);return;}
   if(!res)return;
   if(window.curLang==='en' && res.data && res.data.length){
     var _LEG={'término rⁿ':'term rⁿ','suma parcial':'partial sum','círculo original':'original circle','imagen A(círculo)':'image A(circle)','curvas de nivel':'level curves','curvas F=C':'curves F=C','círculo unitario':'unit circle','secante (Falsa)':'secant (False-pos)','intervalo bisec.':'bisection interval','Falsa':'False-pos','Bisec.':'Bisec.','Intervalo':'Interval','x̄ aprox=':'x̄ approx=','Euler h=':'Euler h=','Taylor (':'Taylor (','término':'term','límite=':'limit=','límite':'limit','aprox=':'approx='};
@@ -13696,6 +13709,7 @@ function toggleAnim(fIdx){
     if(_rafId){cancelAnimationFrame(_rafId);_rafId=null;}
     _animLastTS=null;
     if(btn){btn.innerHTML='<svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" style="vertical-align:-1px"><path d="M6 4l14 8-14 8V4z"/></svg> Animar';btn.classList.remove('playing');}
+    if(_sel>=0)doRender(_sel);   /* redibuja fino ahora que ya no anima */
     return;
   }
   _animTime=0;
@@ -13743,7 +13757,13 @@ function _animFrame(ts){
   var _hi=(ac.to!=null)?ac.to:p.max;
   var period=3200;
   var phase=(_animTime%period)/period;
-  var e=0.5+0.5*Math.sin(phase*2*Math.PI);   // 0.5→1→0→0.5, suave en los extremos
+  /* Onda ida-y-vuelta 0→1→0. Antes era 0.5+0.5·sin: se "pausaba" mucho en los
+     extremos (velocidad → 0) y se sentía como lag al final del zoom. Ahora es
+     ~80% triángulo (velocidad casi constante) + 20% redondeo de las puntas para
+     que el cambio de sentido no dé un tirón. */
+  var _tri = phase<0.5 ? phase*2 : 2-phase*2;
+  var _se  = 0.5 - 0.5*Math.cos(_tri*Math.PI);
+  var e = _tri*0.8 + _se*0.2;
   var val;
   if(ac.space==='inv' && _lo>0 && _hi>0){
     var _il=1/_lo, _ih=1/_hi;
