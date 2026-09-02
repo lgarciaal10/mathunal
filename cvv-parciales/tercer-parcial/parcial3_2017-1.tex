@@ -1,0 +1,119 @@
+\documentclass[11pt]{article}
+\usepackage{mathunal-base}
+\mathunalfuente{serif}
+
+\renewcommand{\examtitulo}{Cálculo en Varias Variables --- Tercer Parcial}
+\renewcommand{\examfecha}{Semestre 01-2017, 1 de junio de 2017}
+
+\begin{document}
+
+\examheader
+
+\vspace{4pt}
+\noindent Nombre: \dotfill\ Cédula: \dotfill
+
+\vspace{4pt}
+\noindent Grupo: \dotfill\ Salón: \dotfill
+
+\vspace{4pt}
+\noindent Puntaje. Solo para uso oficial:\quad 1--4 (40\,\%) \dotfill;\quad 5 (30\,\%) \dotfill;\quad 6 (30\,\%) \dotfill.\quad Total: \dotfill\quad Nota: \dotfill
+
+\vspace{6pt}
+\noindent\textbf{Instrucciones.} La duración del examen es de 1 hora y 50 minutos. El examen consta de nueve preguntas en dos hojas. Antes de empezar verifique que su examen esté completo y que sus datos sean correctos. No desengrape su examen ni añada otras grapas. Utilice los espacios asignados para resolver cada pregunta. No está permitido: hacer preguntas, usar calculadoras, sacar hojas en blanco, ni tomar apuntes en hojas diferentes a las del examen. No se permite que ningún celular se encuentre a la vista.
+
+\vspace{8pt}
+\noindent\textit{Las preguntas 1 a 4 se calificarán solo teniendo en cuenta la opción o respuesta señalada y no se evaluará ningún procedimiento efectuado en el espacio que se provee para realizar operaciones.}
+
+\begin{enumerate}
+\item{} (10\,\%) Sean
+\[
+S_1 = \left\{(x,y,z)\ \middle|\ z = \sqrt{x^2+y^2},\ z \leq 2\right\}
+\]
+orientada con el normal que tiene tercera componente negativa y
+\[
+S_2 = \left\{(x,y,z)\ \middle|\ z = 2,\ x^2+y^2 \leq 4\right\},
+\]
+orientada con el normal hacia arriba. Sea $C$ la frontera de $S_1$ y de $S_2$ orientada de manera antihoraria vista desde arriba. Sea además $\vec F = \vec F(x,y,z)$ un campo con divergente nulo. Considere las siguientes afirmaciones:
+\begin{itemize}
+\item[(A)] $\displaystyle \iint_{S_1} \vec F \cdot d\vec S = -\iint_{S_2} \vec F \cdot d\vec S$.
+\item[(B)] $\displaystyle \int_C \vec F \cdot d\vec r = \int_0^{2\pi} \vec F(2\cos t,\, 2\operatorname{sen} t,\, 2)\cdot(-2\operatorname{sen} t,\, 2\cos t,\, 0)\,dt$.
+\end{itemize}
+Escoja la opción adecuada:
+\begin{opciones}
+\item (A) es verdadera y (B) es falsa.
+\item (A) es falsa y (B) es verdadera.
+\item (A) es verdadera y (B) es verdadera.
+\item (A) y (B) son falsas.
+\end{opciones}
+
+\item{} (10\,\%) Sea
+\[
+S = \left\{(x,y,z)\ \middle|\ x^2+z^2 = 1,\ z \geq 0,\ 0 \leq y \leq 1\right\},
+\]
+orientada con el normal que tiene tercera componente positiva y sea $C$ la frontera de $S$ orientada de manera antihoraria vista desde arriba. Considere las siguientes afirmaciones para un campo $\vec F$:
+\begin{itemize}
+\item[(A)] $\displaystyle \int_C \vec F \cdot d\vec r = \iint_S (\nabla \times \vec F)\cdot d\vec S$.
+\item[(B)] $\displaystyle \iint_S \vec F \cdot d\vec S = \iint_S (\nabla \cdot \vec F)\,dS$.
+\item[(C)] $\displaystyle \int_C (\nabla \times \vec F)\cdot d\vec r = \iint_S \vec F \cdot d\vec S$.
+\end{itemize}
+Escoja la opción adecuada:
+\begin{opciones}
+\item (A), (B) y (C) son verdaderas.
+\item (A) y (B) son verdaderas y (C) es falsa.
+\item (A) y (C) son verdaderas y (B) es falsa.
+\item (A) es verdadera y (B) y (C) son falsas.
+\item (A) es falsa y (B) y (C) son verdaderas.
+\item (A) y (C) son falsas y (B) es verdadera.
+\item (A) y (B) son falsas y (C) es verdadera.
+\item (A), (B) y (C) son falsas.
+\end{opciones}
+
+\item{} (10\,\%) Sean $\vec F(x,y,z) = (2xyz,\ x^2z,\ x^2y)$ y $C$ la curva definida por la parametrización
+\[
+\vec r(t) = \left(\operatorname{sen} t,\ 2\operatorname{sen} t,\ \frac{4t^2}{\pi^2}\right)\quad\text{con } t \in [0,\pi/2].
+\]
+Complete el espacio en blanco para dar el valor de la integral pedida:
+\[
+\int_C \vec F \cdot d\vec r = \underline{\phantom{XXXXXX}}\,.
+\]
+\noindent\textbf{Nota:} La orientación de $C$ es la que corresponde al sentido de recorrido que se obtiene cuando $t$ va desde $0$ hasta $\pi/2$.
+
+\item{} (10\,\%) Sean
+\[
+S_1 = \left\{(x,y,z)\ \middle|\ z = x^2+y^2,\ z \leq 4\right\}
+\qquad\text{y}\qquad
+S_2 = \left\{(x,y,z)\ \middle|\ z = 4,\ x^2+y^2 \leq 4\right\}.
+\]
+$S_1$ y $S_2$ están orientadas con el normal que tiene tercera componente positiva. Sea además
+\[
+D = \left\{(x,y,z)\ \middle|\ x^2+y^2 \leq z \leq 4\right\}.
+\]
+Para un campo $\vec F(x,y,z)$ con derivadas continuas marque como verdadera o falsa cada una de las siguientes afirmaciones:
+\begin{itemize}
+\item[(a)] $\displaystyle \iint_{S_1} (\nabla \times \vec F)\cdot d\vec S = \iint_{S_2} (\nabla \times \vec F)\cdot d\vec S$. \hfill \fbox{\phantom{V}}
+\item[(b)] $\displaystyle \iiint_D (\nabla \cdot \vec F)\,dv = \iint_{S_2} \vec F \cdot \vec n\,dS - \iint_{S_1} \vec F \cdot \vec n\,dS$. \hfill \fbox{\phantom{V}}
+\end{itemize}
+\noindent\textbf{Nota:} Examine bien las orientaciones dadas a las superficies.
+
+\end{enumerate}
+
+\vspace{4pt}
+\noindent\textsc{Preguntas con procedimiento.} En las preguntas que siguen responda mostrando \textsc{detalladamente} el procedimiento utilizado.
+
+\begin{enumerate}[start=5]
+\item{} (30\,\%) Sean $S$ la porción en el primer octante del plano $2x+2y+z = 1$ y $C$ la frontera de $S$ orientada de manera antihoraria si se mira desde el punto $(10,10,10)$. Para
+\[
+\vec F(x,y,z) = (e^x + y^2,\ y^8,\ e^z)
+\]
+calcule $\displaystyle \int_C \vec F \cdot d\vec r$.
+
+\item{} (30\,\%) Sea $D$ el sólido limitado inferiormente por la superficie $z = \sqrt{x^2+y^2}$ y superiormente por el plano $z = 2$, y sea $S$ la frontera de $D$ orientada con el normal que apunta hacia afuera de $D$. Para
+\[
+\vec F(x,y,z) = \left(e^{(y+z)},\ z^2x^5,\ z\sqrt{x^2+y^2}\right),
+\]
+calcule $\displaystyle \iint_S \vec F \cdot d\vec S$.
+\end{enumerate}
+
+\examfooter
+
+\end{document}
