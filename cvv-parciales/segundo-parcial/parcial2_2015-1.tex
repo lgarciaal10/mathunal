@@ -1,0 +1,109 @@
+\documentclass[11pt]{article}
+\usepackage{mathunal-base}
+\mathunalfuente{serif}
+\providecommand{\nota}[1]{\par\smallskip\noindent{\small\itshape\color{unalblue}#1}\par\smallskip}
+
+\renewcommand{\examtitulo}{Cálculo en Varias Variables --- Segundo Parcial}
+\renewcommand{\examfecha}{Semestre 01-2015, 25 de abril de 2015}
+
+\begin{document}
+
+\examheader
+
+\vspace{4pt}
+\noindent Nombre: \dotfill\ Cédula: \dotfill
+
+\vspace{4pt}
+\noindent Grupo: \dotfill\ Salón: \dotfill
+
+\vspace{4pt}
+\noindent Calificación: 1 \dotfill; 2 \dotfill; 3 \dotfill; 4 \dotfill.\quad Total: \dotfill
+
+\vspace{6pt}
+\noindent\textbf{Instrucciones.} El examen tiene una duración de 1 hora y 40 minutos. No se admiten preguntas durante el examen. No está permitido el uso de calculadora, ni teléfonos móviles, ni cualquier otro tipo de aparato electrónico; los teléfonos móviles deben estar guardados. Cualquier intento de fraude será sancionado con anulación del examen. En los puntos 2, 3 y 4 justifique sus respuestas.
+
+\begin{enumerate}
+\item{} En los siguientes numerales no necesita justificar su respuesta. Elija sólo la opción correcta en cada caso.
+
+\begin{enumerate}[label=(\alph*)]
+\item (8\,\%) Asocie cada región con la integral dada:
+\[
+\text{(1)}\ \int_0^{\pi/2} \int_1^2 f(r,\theta)\,r\,dr\,d\theta
+\qquad
+\text{(2)}\ \int_0^{\pi/2} \int_{2\cos(\theta)}^{1} f(r,\theta)\,r\,dr\,d\theta
+\]
+\[
+\text{(3)}\ \int_0^{2\pi} \int_{3+\operatorname{sen}(5\theta)}^{6+\operatorname{sen}(5\theta)} f(r,\theta)\,r\,dr\,d\theta
+\qquad
+\text{(4)}\ \int_0^{2\pi} \int_0^1 f(r,\theta)\,r\,dr\,d\theta
+\]
+\nota{Transcripción: el examen original muestra cuatro regiones rotuladas (I), (II), (III), (IV) para emparejar con las integrales: (I) región del primer cuadrante limitada por la circunferencia $r = 2\cos\theta$; (II) región anular en forma de flor de cinco pétalos entre $r = 3+\operatorname{sen}(5\theta)$ y $r = 6+\operatorname{sen}(5\theta)$; (III) cuarto de anillo entre $r = 1$ y $r = 2$ en el primer cuadrante; (IV) disco completo de radio $1$. Las figuras no se reproducen aquí.}
+
+\item (8\,\%) Si cambiamos el orden de integración en la integral
+\[
+\int_1^2 \int_0^{\sqrt{y-1}} f(x,y)\,dx\,dy,
+\]
+¿cuál de las siguientes integrales se obtiene?
+\begin{enumerate}[label=\roman*.]
+\item $\displaystyle\int_0^{\sqrt{y-1}} \int_1^2 f(x,y)\,dy\,dx$
+\item $\displaystyle\int_0^1 \int_0^{x^2+1} f(x,y)\,dy\,dx$
+\item $\displaystyle\int_1^2 \int_{x^2+1}^2 f(x,y)\,dy\,dx$
+\item $\displaystyle\int_0^1 \int_{x^2+1}^2 f(x,y)\,dy\,dx$
+\item Ninguna de las anteriores.
+\end{enumerate}
+
+\item (8\,\%) Sea $E$ el sólido en el primer octante limitado por el paraboloide $z = 1 - x^2 - y^2$ y el plano $XY$. ¿Cuál de las siguientes integrales \textbf{NO} calcula el volumen de $E$?
+\begin{enumerate}[label=\roman*.]
+\item $\displaystyle\int_0^1 \int_0^{1-y^2} \int_0^{\sqrt{1-y^2-z}} dx\,dz\,dy$
+\item $\displaystyle\int_0^2 \int_0^{\sqrt{1-x^2}} \int_0^{\sqrt{1-x^2-z}} dy\,dz\,dx$
+\item $\displaystyle\int_0^1 \int_0^{\sqrt{1-x^2}} \int_0^{1-x^2-y^2} dz\,dy\,dx$
+\item Todas las integrales calculan el volumen de $E$.
+\end{enumerate}
+
+\item (8\,\%) Considere la función $f(x,y) = 2x + 2y + xy - x^2 - y^2$. Acerca de esta función podemos afirmar:
+\begin{enumerate}[label=\roman*.]
+\item Posee tanto un máximo local como un punto de silla.
+\item Posee solamente un mínimo local.
+\item Posee solamente un máximo local.
+\item Ninguno de los anteriores.
+\end{enumerate}
+\end{enumerate}
+
+\item{} (24\,\%) Calcule
+\[
+\iint_D xy\,e^{2y^2}\,dA
+\]
+donde $D$ es la región del primer cuadrante limitada por las curvas $x^2 + y^2 = 16$, $x^2 + y^2 = 25$, $x^2 - y^2 = 1$ y $x^2 - y^2 = 4$.
+
+\item{} (24\,\%) Sea $E$ la región, del primer octante, limitada por las superficies
+\[
+z = \sqrt{\tfrac13(x^2 + y^2)}, \qquad z = \sqrt{x^2 + y^2} \qquad\text{y}\qquad x^2 + y^2 + z^2 = 2z
+\]
+(ver figura). Si suponemos que $\rho(x,y,z) = \dfrac{1}{x^2 + y^2 + z^2}$ denota la densidad de $E$ en un punto $(x,y,z)$ de $E$, halle la masa de $E$.
+
+\begin{center}
+\begin{tikzpicture}[scale=1.05]
+  \draw[->] (0,0) -- (0,3.1) node[above] {$z$};
+  \draw[->] (0,0) -- (2.9,0) node[right] {$x,y$};
+  % esfera x^2+y^2+z^2=2z : centro (0,1), radio 1  (media, primer octante)
+  \draw[gray] (0,1) ++(0:1) arc (0:180:1);
+  \draw[gray,dashed] (0,1) ++(0:1) arc (0:-180:1);
+  % cono interior z = sqrt(x^2+y^2)  (pendiente 1)
+  \draw[thick] (0,0) -- (2.2,2.2);
+  % cono exterior z = sqrt((x^2+y^2)/3)  (pendiente 1/sqrt3)
+  \draw[thick] (0,0) -- (2.6,1.5);
+  \fill[unalblue!18]
+    (0,0) -- (1.9,1.9)
+    arc (68:44:{1} and {1}) -- (0,0);
+  \node[unalblue] at (1.35,0.95) {$E$};
+\end{tikzpicture}
+\end{center}
+
+\item{} (20\,\%) Encuentre los valores máximos y mínimos de la función $f$ definida por $f(x,y) = x^2 + 3y^2$ en la región cerrada y acotada dada por $D = \{(x,y) : x^2 + y^2 \leq 1\}$.
+
+\nota{Sugerencia: para los extremos en la frontera de $D$ use el método de los multiplicadores de Lagrange.}
+\end{enumerate}
+
+\examfooter
+
+\end{document}

@@ -1,0 +1,80 @@
+\documentclass[11pt]{article}
+\usepackage{mathunal-base}
+\mathunalfuente{serif}
+\providecommand{\nota}[1]{\par\smallskip\noindent{\small\itshape\color{unalblue}#1}\par\smallskip}
+
+\renewcommand{\examtitulo}{Cálculo en Varias Variables --- Segundo Parcial}
+\renewcommand{\examfecha}{27 de julio de 2019}
+
+\begin{document}
+
+\examheader
+
+\vspace{4pt}
+\noindent Nombre: \dotfill\ Cédula: \dotfill
+
+\vspace{4pt}
+\noindent Grupo: \dotfill\ Salón: \dotfill
+
+\vspace{4pt}
+\noindent Puntaje. Solo para uso oficial:\quad 1--4 (/20) \dotfill;\quad 5 (/25) \dotfill;\quad 6 (/30) \dotfill;\quad 7 (/25) \dotfill.\quad Total: \dotfill\quad Nota: \dotfill
+
+\vspace{6pt}
+\noindent\textbf{Instrucciones.} La duración del examen es de 1 hora y 45 minutos. El examen consta de siete preguntas en dos hojas impresas por ambos lados. Antes de empezar verifique que su examen esté completo y que su nombre y datos sean asignados a Usted. No desengrape su examen ni añada otras grapas. Utilice los espacios asignados para resolver cada pregunta. No está permitido: hacer preguntas, usar calculadoras, sacar hojas en blanco, ni tomar apuntes en hojas diferentes a las del examen. No se permite que ningún celular se encuentre a la vista.
+
+\vspace{8pt}
+\noindent\textit{En cada una de las preguntas 1 a 4 marque solamente todas las afirmaciones correctas cruzando con una ``$\times$'' la caja correspondiente. Una marcación incorrecta anula una correcta. Se obtiene crédito de 5\,\% marcando todas las opciones correctas y no marcando ninguna de las incorrectas. Se obtiene crédito de 3\,\% con solo una opción mal escogida, y crédito de 0\,\% en todos los demás casos. En estas preguntas la calificación tendrá en cuenta sólo la respuesta.}
+
+\begin{enumerate}
+\item{} (5\,\%) Sea $I_x$ el momento de inercia respecto del eje $x$ de la lámina ocupando la región $D = \{(x,y) \mid 0 \leq x \leq 1,\ x \leq y \leq 1\}$ con densidad superficial $\sigma(x,y) = xe^{y^5}$. Entonces:
+\begin{itemize}
+\item[] \fbox{\phantom{x}}\ (a) $I_x = \displaystyle\int_0^1 \int_0^y y^2 x\, e^{y^5}\,dx\,dy$.
+\item[] \fbox{\phantom{x}}\ (b) $I_x = (e - 1)/20$.
+\item[] \fbox{\phantom{x}}\ (c) $I_x = \displaystyle\iint_D x^2 \sigma(x,y)\,dA$.
+\item[] \fbox{\phantom{x}}\ (d) $I_x = \displaystyle\iint_D y^2 \sigma(x,y)\,dA$.
+\end{itemize}
+
+\item{} (5\,\%) Sea $L = \displaystyle\int_{\pi/2}^{\pi} \int_0^{2\operatorname{sen}\theta} f(r\cos\theta, r\operatorname{sen}\theta)\,r\,dr\,d\theta$. La región de integración $D$ de $L$ en coordenadas cartesianas es:
+\begin{itemize}
+\item[] \fbox{\phantom{x}}\ (a) $D = \{(x,y) \mid (x - 1)^2 + y^2 \leq 1,\ x \leq 0\}$.
+\item[] \fbox{\phantom{x}}\ (b) $D = \{(x,y) \mid (x + 1)^2 + y^2 \leq 1,\ x \leq 0\}$.
+\item[] \fbox{\phantom{x}}\ (c) $D = \{(x,y) \mid x^2 + (y - 1)^2 \leq 1,\ x \leq 0\}$.
+\item[] \fbox{\phantom{x}}\ (d) $D = \{(x,y) \mid x^2 + (y + 1)^2 \leq 1,\ x \leq 0\}$.
+\end{itemize}
+
+\item{} (5\,\%) Un sólido de masa $M$ y centro de masa $(\bar x, \bar y, \bar z)$ que ocupa la región $E = \{(x,y,z) \mid x^2 + y^2 \leq 1,\ y \geq 0,\ 0 \leq z \leq 1\}$ tiene una densidad volumétrica $\sigma(x,y,z) = k(x^2 + y^2)$, con $k > 0$ constante. Entonces:
+\begin{itemize}
+\item[] \fbox{\phantom{x}}\ (a) $\bar y = 0$.
+\item[] \fbox{\phantom{x}}\ (b) $M = \pi k/2$.
+\item[] \fbox{\phantom{x}}\ (c) $\bar x = 0$.
+\item[] \fbox{\phantom{x}}\ (d) $\bar z = \pi k/8$.
+\end{itemize}
+
+\item{} (5\,\%) Sea $S = \displaystyle\int_0^3 \int_0^{x^2} f(x,y)\,dy\,dx + \int_3^4 \int_0^9 f(x,y)\,dy\,dx$, con $f$ función continua. Entonces:
+\begin{itemize}
+\item[] \fbox{\phantom{x}}\ (a) $S = \displaystyle\int_0^4 \int_0^{x^2} f(x,y)\,dy\,dx$.
+\item[] \fbox{\phantom{x}}\ (b) $S = \displaystyle\int_0^9 \int_{\sqrt y}^3 f(x,y)\,dx\,dy + \int_0^9 \int_3^4 f(x,y)\,dx\,dy$.
+\item[] \fbox{\phantom{x}}\ (c) $S = \displaystyle\int_0^9 \int_{\sqrt y}^4 f(x,y)\,dx\,dy$.
+\item[] \fbox{\phantom{x}}\ (d) $S = \displaystyle\int_0^9 \int_{-\sqrt y}^{\sqrt y} f(x,y)\,dx\,dy$.
+\end{itemize}
+\end{enumerate}
+
+\vspace{4pt}
+\noindent\textsc{Preguntas con procedimiento.} En las preguntas 5 a 7 responda mostrando \textit{detalladamente} el procedimiento de cálculo empleado. Indique los teoremas o procesos que sustentan sus cálculos.
+
+\begin{enumerate}[start=5]
+\item{} (25\,\%) Sea $D$ el interior del triángulo con vértices $(-1,0)$, $(0,0)$ y $(0,1)$. Evaluar
+\[
+\iint_D e^{\frac{x+y}{x-y}}\,dA.
+\]
+Grafique la región de integración original $D$, y la región $S$ si hace cambio de variables $T$, con $T(S) = D$.
+
+\item{} (30\,\%) Considere el sólido $E$ limitado por abajo por el plano $z = 3$ y por arriba por la superficie $z = 11 - 2x^2 - 2y^2$. Suponga que la densidad en cada punto es igual a la distancia al plano $XY$. Halle la masa $M$ de $E$. Incluya bosquejo del volumen de integración, e indique la proyección $D$ usada para calcular el volumen.
+
+\item{} (25\,\%) Calcule el volumen de la porción de la esfera sólida $x^2 + y^2 + z^2 \leq a^2$ que está entre los conos $z = \sqrt{3x^2 + 3y^2}$ y $z = \sqrt{\dfrac{x^2 + y^2}{3}}$.
+\nota{Si los ángulos involucrados son de frecuente ocurrencia debe usar valores algebraicos exactos de las funciones trigonométricas.}
+\end{enumerate}
+
+\examfooter
+
+\end{document}
