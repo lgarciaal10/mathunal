@@ -4414,6 +4414,31 @@ body{animation:pageIn .6s ease}
 .mu-rc-done-tx b{color:var(--t1);font-size:.95rem}
 .mu-rc-done-tx span{color:var(--t2);font-size:.82rem;line-height:1.5}
 .mu-rc-stats{margin-top:.9rem;padding-top:.8rem;border-top:1px solid var(--br2);font-size:.78rem;color:var(--t3);font-family:'IBM Plex Mono',monospace}
+.mu-rc-mat{margin-top:.9rem;display:flex;align-items:center;gap:.55rem;flex-wrap:wrap}
+.mu-rc-mat label{font-size:.78rem;color:var(--t3);font-weight:600}
+.mu-rc-mat select{flex:1;min-width:150px;padding:.4rem .55rem;border:1px solid var(--br2);border-radius:8px;background:var(--bg);color:var(--t1);font-size:.82rem;font-family:inherit}
+.mu-rc-acct{margin-top:.6rem;display:flex;align-items:center;justify-content:space-between;gap:.6rem;flex-wrap:wrap;padding:.55rem .7rem;background:var(--bg);border:1px dashed var(--br2);border-radius:9px}
+.mu-rc-acct span{font-size:.76rem;color:var(--t3);line-height:1.35}
+.mu-rc-acct.on{border-style:solid;border-color:color-mix(in srgb,var(--acc) 40%,var(--br2))}
+.mu-rc-acct.on span b{color:var(--t2);font-weight:600}
+.mu-rc-acct button{border:0;background:var(--acc);color:#fff;font-weight:700;font-size:.76rem;padding:.4rem .7rem;border-radius:7px;cursor:pointer;white-space:nowrap;font-family:inherit}
+.mu-rc-acct.on button{background:transparent;color:var(--t3);text-decoration:underline;padding:.4rem .3rem}
+.mu-auth-ov{position:fixed;inset:0;z-index:9000;background:rgba(10,14,22,.62);backdrop-filter:blur(3px);display:flex;align-items:center;justify-content:center;padding:1.2rem}
+.mu-auth-box{position:relative;width:100%;max-width:390px;background:var(--card);border:1px solid var(--br2);border-radius:16px;padding:1.5rem 1.4rem;box-shadow:0 24px 60px rgba(0,0,0,.32);animation:muCalRise .28s cubic-bezier(.22,1,.36,1) both}
+.mu-auth-x{position:absolute;top:.7rem;right:.8rem;border:0;background:transparent;color:var(--t3);font-size:1rem;cursor:pointer;line-height:1}
+.mu-auth-hd{text-align:center;margin-bottom:1.1rem}
+.mu-auth-ic{font-size:1.7rem;margin-bottom:.3rem}
+.mu-auth-hd b{display:block;font-size:1.08rem;color:var(--t1);margin-bottom:.35rem}
+.mu-auth-hd span{display:block;font-size:.8rem;color:var(--t3);line-height:1.45}
+.mu-auth-lb{display:block;font-size:.78rem;color:var(--t2);font-weight:600;margin-bottom:.35rem}
+.mu-auth-box input{width:100%;padding:.6rem .7rem;border:1px solid var(--br2);border-radius:9px;background:var(--bg);color:var(--t1);font-size:.95rem;font-family:inherit;margin-bottom:.7rem}
+.mu-auth-box input#mu-auth-cd{letter-spacing:.35em;text-align:center;font-family:'IBM Plex Mono',monospace}
+.mu-auth-go{width:100%;border:0;background:var(--acc);color:#fff;font-weight:700;font-size:.9rem;padding:.65rem;border-radius:9px;cursor:pointer;font-family:inherit}
+.mu-auth-go:disabled{opacity:.6;cursor:default}
+.mu-auth-alt{width:100%;border:0;background:transparent;color:var(--t3);font-size:.8rem;padding:.5rem;cursor:pointer;margin-top:.2rem;font-family:inherit}
+.mu-auth-msg{margin-top:.7rem;font-size:.8rem;color:var(--t2);text-align:center}
+.mu-auth-msg.err{color:#d64545}
+.mu-auth-ft{margin-top:1rem;padding-top:.8rem;border-top:1px solid var(--br2);font-size:.72rem;color:var(--t3);text-align:center;line-height:1.4}
 
 /* mini teaser calendario */
 .mu-calmini-in{display:block;background:var(--card);border:1px solid var(--br2);border-radius:14px;padding:1rem 1.1rem;text-decoration:none;transition:border-color .18s,transform .18s}
@@ -17826,69 +17851,281 @@ window.__muCalICS = function(){
   if(typeof window.muTrack==='function') try{ window.muTrack('calendar_ics_download',{periodo:C.periodo}); }catch(e){}
 };
 
-/* ── RACHA + PREGUNTA DEL DÍA ────────────────────────────────────────────────
-   Sin backend: el estado vive en localStorage['mu-racha']. La pregunta del día
-   es determinista (misma para todos según la fecha). Responder = +1 a la racha
-   (acertar o no da igual: cuenta la constancia); acertar sube la precisión. */
-window.__muRacha = (function(){
-  var KEY='mu-racha';
-  function today(){ var d=new Date(); return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0'); }
-  function get(){
-    var s; try{ s=JSON.parse(localStorage.getItem(KEY)||'{}')||{}; }catch(e){ s={}; }
-    if(typeof s.streak!=='number') s.streak=0;
-    if(typeof s.best!=='number') s.best=0;
-    if(!s.hist||typeof s.hist!=='object') s.hist={};
-    if(!s.tot||typeof s.tot!=='object') s.tot={ok:0,n:0};
-    return s;
+/* ── CUENTA OPCIONAL (Supabase Auth · código al correo) ──────────────────────
+   Solo para NO perder el progreso al borrar caché. Nada de contraseñas. NO toca
+   el flujo de pago/premium. Anónimo funciona igual; logueado sincroniza. */
+window.__muAuth = (function(){
+  var URL_ = (window.MU_SB_URL||'https://goxhxrdchfyphkenixng.supabase.co');
+  var ANON = (window.MU_SB_ANON||'sb_publishable_rR_f3qmPj_L-tuwrGUYxnA__MWGwobe');
+  var SKEY='mu-auth', _s=null, _subs=[];
+  function load(){ try{ _s=JSON.parse(localStorage.getItem(SKEY)||'null'); }catch(e){ _s=null; } return _s; }
+  function store(s){ _s=s; try{ s?localStorage.setItem(SKEY,JSON.stringify(s)):localStorage.removeItem(SKEY); }catch(e){} _subs.forEach(function(f){try{f(s);}catch(e){}}); }
+  function onChange(f){ _subs.push(f); }
+  function session(){ return _s; }
+  function email(){ return _s && _s.user && _s.user.email; }
+  function _setFromTokenResp(j){
+    if(!j || !j.access_token) return null;
+    var s={ access_token:j.access_token, refresh_token:j.refresh_token,
+      expires_at: Date.now() + (j.expires_in||3600)*1000, user: j.user||_s&&_s.user };
+    store(s); return s;
   }
-  function save(s){ try{ localStorage.setItem(KEY, JSON.stringify(s)); }catch(e){} }
-  function diffDays(a,b){ return Math.round((new Date(b+'T00:00:00')-new Date(a+'T00:00:00'))/86400000); }
-  /* racha "viva": si la última respuesta fue hoy o ayer, cuenta; si no, está rota */
-  function liveStreak(s){
-    if(!s.lastDay) return 0;
-    var g=diffDays(s.lastDay, today());
-    return (g<=1) ? s.streak : 0;
+  function sendCode(mail){
+    return fetch(URL_+'/auth/v1/otp', {method:'POST',
+      headers:{'Content-Type':'application/json', apikey:ANON},
+      body: JSON.stringify({ email: mail, create_user: true })
+    }).then(function(r){ return r.ok ? {ok:true} : r.json().then(function(e){ return {ok:false, err:(e&&(e.msg||e.error_description||e.message))||('HTTP '+r.status)}; }); });
   }
-  /* pool de preguntas: MCQ con 4 opciones de TODO el banco */
-  function pool(){
-    var out=[]; var E=window.EXAMS||{};
-    Object.keys(E).forEach(function(k){
-      var ex=E[k]; if(!ex||!ex.preguntas) return;
-      ex.preguntas.forEach(function(q,i){
-        if(q && q.tipo!=='vf' && Array.isArray(q.opciones) && q.opciones.length>=3 && typeof q.correcta==='number')
-          out.push({q:q, ex:ex, key:k, i:i});
-      });
+  function verify(mail, code){
+    return fetch(URL_+'/auth/v1/verify', {method:'POST',
+      headers:{'Content-Type':'application/json', apikey:ANON},
+      body: JSON.stringify({ email: mail, token: String(code).trim(), type:'email' })
+    }).then(function(r){ return r.json().then(function(j){
+        if(r.ok && j.access_token){ _setFromTokenResp(j); return {ok:true}; }
+        return {ok:false, err:(j&&(j.msg||j.error_description||j.message))||'Código inválido'};
+      }); });
+  }
+  function refresh(){
+    if(!_s||!_s.refresh_token) return Promise.resolve(null);
+    return fetch(URL_+'/auth/v1/token?grant_type=refresh_token', {method:'POST',
+      headers:{'Content-Type':'application/json', apikey:ANON},
+      body: JSON.stringify({ refresh_token: _s.refresh_token })
+    }).then(function(r){ return r.ok ? r.json() : null; })
+      .then(function(j){ if(j&&j.access_token) return _setFromTokenResp(j); store(null); return null; })
+      .catch(function(){ return _s; });
+  }
+  function signOut(){
+    var s=_s;
+    if(s&&s.access_token){ try{ fetch(URL_+'/auth/v1/logout',{method:'POST',headers:{apikey:ANON,Authorization:'Bearer '+s.access_token}}); }catch(e){} }
+    store(null);
+  }
+  /* fetch autenticado contra el REST de Supabase, con auto-refresh si expiró */
+  function api(path, opts){
+    opts=opts||{};
+    var run=function(){
+      var h=Object.assign({apikey:ANON, Authorization:'Bearer '+(_s&&_s.access_token), 'Content-Type':'application/json'}, opts.headers||{});
+      return fetch(URL_+path, Object.assign({}, opts, {headers:h}));
+    };
+    var pre = (_s && _s.expires_at && Date.now() > _s.expires_at - 60000) ? refresh() : Promise.resolve();
+    return pre.then(run).then(function(r){
+      if(r.status===401){ return refresh().then(function(ns){ return ns?run():r; }); }
+      return r;
     });
-    return out;
   }
-  function hash(str){ var h=0; for(var i=0;i<str.length;i++){ h=((h<<5)-h+str.charCodeAt(i))|0; } return Math.abs(h); }
-  function preguntaDelDia(){
-    var p=pool(); if(!p.length) return null;
-    return p[ hash(today()) % p.length ];
+  /* magic-link: si el correo trae link en vez de código, al abrirlo llega
+     #access_token=...&refresh_token=... en la URL → lo capturamos */
+  function captureHash(){
+    var h=location.hash||'';
+    if(h.indexOf('access_token=')<0) return false;
+    var p=new URLSearchParams(h.replace(/^#/,''));
+    if(p.get('access_token')){
+      _setFromTokenResp({ access_token:p.get('access_token'), refresh_token:p.get('refresh_token'),
+        expires_in:+(p.get('expires_in')||3600), user:null });
+      /* limpia el hash y trae el user */
+      try{ history.replaceState(null,'',location.pathname+location.search); }catch(e){}
+      api('/auth/v1/user',{method:'GET'}).then(function(r){return r.ok?r.json():null;}).then(function(u){
+        if(u&&u.id && _s){ _s.user=u; store(_s); }
+      });
+      return true;
+    }
+    return false;
   }
-  /* registra la respuesta de hoy */
-  function responder(correcta){
-    var s=get(), t=today();
-    if(s.hist[t]!==undefined) return s;             /* ya respondió hoy */
-    var g = s.lastDay ? diffDays(s.lastDay, t) : 99;
-    s.streak = (g===1) ? (liveStreak(s)+1) : 1;
-    s.best = Math.max(s.best, s.streak);
-    s.lastDay = t;
-    s.hist[t] = !!correcta;
-    s.tot.n++; if(correcta) s.tot.ok++;
-    save(s);
+  load();
+  return { session:session, email:email, onChange:onChange, sendCode:sendCode, verify:verify,
+           refresh:refresh, signOut:signOut, api:api, captureHash:captureHash };
+})();
+
+/* ── SINCRONIZACIÓN DE PROGRESO ─────────────────────────────────────────────── */
+window.__muSync = (function(){
+  var KEYS=['mu-racha','mu-formulas-learned'];
+  function lget(k, def){ try{ return JSON.parse(localStorage.getItem(k)||JSON.stringify(def)); }catch(e){ return def; } }
+  function lset(k, v){ try{ localStorage.setItem(k, JSON.stringify(v)); }catch(e){} }
+  function snapshot(){
+    return { racha: lget('mu-racha',{}), formulas: lget('mu-formulas-learned',[]), v:2 };
+  }
+  /* merge sin perder nada: hist se unen (true gana), fórmulas se unen */
+  function mergeInto(remote){
+    if(!remote||typeof remote!=='object') return false;
+    var changed=false;
+    // racha: unir hist
+    var lr=lget('mu-racha',{}), rr=remote.racha||{};
+    var lh=(lr.hist&&typeof lr.hist==='object')?lr.hist:{}, rh=(rr.hist&&typeof rr.hist==='object')?rr.hist:{};
+    var mh={}; Object.keys(rh).forEach(function(d){ mh[d]=rh[d]; });
+    Object.keys(lh).forEach(function(d){ mh[d]= (mh[d]===true||lh[d]===true) ? true : lh[d]; });
+    if(JSON.stringify(mh)!==JSON.stringify(lh)) changed=true;
+    lr.hist=mh;
+    if(typeof rr.best==='number') lr.best=Math.max(lr.best||0, rr.best);
+    lr.lastDay = [lr.lastDay, rr.lastDay].filter(Boolean).sort().pop() || lr.lastDay;
+    lset('mu-racha', lr);
+    // fórmulas: unión
+    var lf=lget('mu-formulas-learned',[]), rf=(remote.formulas&&Array.isArray(remote.formulas))?remote.formulas:[];
+    var set={}; lf.concat(rf).forEach(function(x){ set[x]=1; });
+    var mf=Object.keys(set);
+    if(mf.length!==lf.length) changed=true;
+    lset('mu-formulas-learned', mf);
+    return changed;
+  }
+  var _t=null;
+  function push(){
+    var s=window.__muAuth&&window.__muAuth.session();
+    if(!s||!s.user||!s.user.id) return;
+    clearTimeout(_t);
+    _t=setTimeout(function(){
+      window.__muAuth.api('/rest/v1/progreso?on_conflict=user_id', {
+        method:'POST',
+        headers:{ Prefer:'resolution=merge-duplicates,return=minimal' },
+        body: JSON.stringify({ user_id: s.user.id, data: snapshot() })
+      }).catch(function(){});
+    }, 1200);
+  }
+  function pull(){
+    var s=window.__muAuth&&window.__muAuth.session();
+    if(!s||!s.user||!s.user.id) return Promise.resolve(false);
+    return window.__muAuth.api('/rest/v1/progreso?user_id=eq.'+s.user.id+'&select=data', {method:'GET'})
+      .then(function(r){ return r.ok?r.json():[]; })
+      .then(function(rows){
+        var remote = rows&&rows[0]&&rows[0].data;
+        var changed = remote ? mergeInto(remote) : false;
+        push();  /* sube el merge (o el estado local si no había fila) */
+        return changed;
+      }).catch(function(){ return false; });
+  }
+  return { snapshot:snapshot, push:push, pull:pull, mergeInto:mergeInto };
+})();
+
+/* ── RACHA + PREGUNTA DEL DÍA ────────────────────────────────────────────────
+   El estado vive en localStorage['mu-racha'] y (si hay cuenta) se sincroniza.
+   Todo se DERIVA de `hist` {'YYYY-MM-DD': acertó?} → el merge entre dispositivos
+   es trivial. Responder = +1 a la racha aunque falles; faltar un día la rompe. */
+window.__muRacha = (function(){
+  var KEY='mu-racha', MKEY='mu-racha-mat';
+  function today(){ var d=new Date(); return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0'); }
+  /* Materias (prefijo de la clave de EXAMS → código + nombre) */
+  var MATS=[
+    {id:'matbas',      es:'Matemáticas Básicas',  en:'Basic Mathematics'},
+    {id:'fundamentos', es:'Fundamentos de Mat.',  en:'Foundations of Math'},
+    {id:'discretas',   es:'Matemáticas Discretas', en:'Discrete Mathematics'},
+    {id:'calcdif',     es:'Cálculo Diferencial',  en:'Differential Calculus'},
+    {id:'calcint',     es:'Cálculo Integral',     en:'Integral Calculus'},
+    {id:'calcvec',     es:'Cálculo Vectorial',    en:'Vector Calculus'},
+    {id:'geovec',      es:'Geometría Vectorial',  en:'Vector Geometry'},
+    {id:'alglin',      es:'Álgebra Lineal',       en:'Linear Algebra'},
+    {id:'edo',         es:'Ecuaciones Diferenciales', en:'Differential Equations'},
+    {id:'metnum',      es:'Métodos Numéricos',    en:'Numerical Methods'},
+    {id:'especiales',  es:'Funciones Especiales', en:'Special Functions'}
+  ];
+  function getMat(){ try{ return localStorage.getItem(MKEY)||'todas'; }catch(e){ return 'todas'; } }
+  function setMat(m){ try{ localStorage.setItem(MKEY, m); }catch(e){} }
+  function matName(id, en){ var m=MATS.filter(function(x){return x.id===id;})[0]; return m?(en?m.en:m.es):id; }
+
+  function today(){ var d=new Date(); return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0'); }
+  function diffDays(a,b){ return Math.round((new Date(b+'T00:00:00')-new Date(a+'T00:00:00'))/86400000); }
+  function addDays(s,n){ var d=new Date(s+'T00:00:00'); d.setDate(d.getDate()+n); return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0'); }
+
+  /* Estado crudo: solo `hist` importa. Todo lo demás se DERIVA de hist
+     → el merge entre dispositivos es una simple unión de hist. */
+  function raw(){
+    var s; try{ s=JSON.parse(localStorage.getItem(KEY)||'{}')||{}; }catch(e){ s={}; }
+    if(!s.hist||typeof s.hist!=='object') s.hist={};
     return s;
+  }
+  function saveHist(hist, extra){
+    var s=raw(); s.hist=hist;
+    var d=derive(hist);
+    s.best=d.best; s.lastDay=d.lastDay;            /* se guardan por compat / merge */
+    if(extra&&typeof extra==='object') Object.keys(extra).forEach(function(k){ s[k]=extra[k]; });
+    try{ localStorage.setItem(KEY, JSON.stringify(s)); }catch(e){}
+    if(window.__muSync && window.__muSync.push) try{ window.__muSync.push(); }catch(e){}
+  }
+  /* deriva streak / best / precisión a partir de hist */
+  function derive(hist){
+    var days=Object.keys(hist).sort();
+    var ok=0,n=0; days.forEach(function(d){ n++; if(hist[d]===true) ok++; });
+    var lastDay = days.length?days[days.length-1]:null;
+    /* mejor racha histórica: días consecutivos con registro */
+    var best=0, cur=0, prev=null;
+    days.forEach(function(d){
+      if(prev && diffDays(prev,d)===1) cur++; else cur=1;
+      if(cur>best) best=cur; prev=d;
+    });
+    /* racha actual: cuenta hacia atrás desde hoy/ayer */
+    var t=today(), streak=0, probe;
+    if(hist[t]!==undefined) probe=t; else if(hist[addDays(t,-1)]!==undefined) probe=addDays(t,-1); else probe=null;
+    while(probe && hist[probe]!==undefined){ streak++; probe=addDays(probe,-1); }
+    return { streak:streak, best:best, lastDay:lastDay, tot:{ok:ok,n:n} };
+  }
+  function get(){
+    var s=raw(), d=derive(s.hist);
+    return { hist:s.hist, streak:d.streak, best:d.best, lastDay:d.lastDay, tot:d.tot };
+  }
+  function liveStreak(){ return derive(raw().hist).streak; }
+
+  function hash(str){ var h=0; for(var i=0;i<str.length;i++){ h=((h<<5)-h+str.charCodeAt(i))|0; } return Math.abs(h); }
+  function optLen(o){ return String(o).length; }
+  /* pool de preguntas: MCQ cortas. Si hay materia, filtra por prefijo de clave.
+     "corta" = enunciado < 170 y todas las opciones < 42 (mental, no cuaderno). */
+  function pool(materia){
+    var E=window.EXAMS||{}, want=(materia&&materia!=='todas')?materia:null;
+    function collect(maxTx, maxOp){
+      var out=[];
+      Object.keys(E).forEach(function(k){
+        if(want && k.indexOf(want+'_')!==0 && k!==want) return;
+        var ex=E[k]; if(!ex||!ex.preguntas) return;
+        ex.preguntas.forEach(function(q,i){
+          if(!q || q.tipo==='vf' || !Array.isArray(q.opciones) || q.opciones.length<3 || typeof q.correcta!=='number') return;
+          if(String(q.texto||'').length>maxTx) return;
+          if(q.opciones.some(function(o){ return optLen(o)>maxOp; })) return;
+          out.push({q:q, ex:ex, key:k, i:i});
+        });
+      });
+      return out;
+    }
+    var p=collect(170,42);
+    if(p.length<5) p=collect(240,70);                 /* afloja si la materia tiene pocas */
+    if(want && p.length<3) p=pool('todas');           /* último recurso: banco completo */
+    return p;
+  }
+  function preguntaDelDia(){
+    var m=getMat(), p=pool(m); if(!p.length) return null;
+    /* determinista por (fecha + materia): cada quien ve la de su materia */
+    return p[ hash(today()+'|'+m) % p.length ];
+  }
+  /* registra la respuesta de hoy (acumula en hist; el resto se deriva) */
+  function responder(correcta){
+    var s=raw(), t=today();
+    if(s.hist[t]!==undefined) return get();           /* ya respondió hoy */
+    s.hist[t]=!!correcta;
+    saveHist(s.hist);
+    return get();
   }
   function render(elId, lang){
     var el=document.getElementById(elId); if(!el) return;
     var en=(lang==='en'), s=get(), t=today();
     var answered = s.hist[t]!==undefined;
-    var stk = answered ? s.streak : liveStreak(s);
+    var stk = answered ? s.streak : liveStreak();
     var pd = preguntaDelDia();
     if(!pd){ el.style.display='none'; return; }
     el.style.display='';
     var q=pd.q;
-    var badge = (pd.ex && pd.ex.titulo) ? pd.ex.titulo : (en?'Daily':'Diaria');
+    var mSel=getMat();
+    var badge = (mSel!=='todas') ? matName(mSel,en)
+              : (pd.ex && pd.ex.titulo) ? pd.ex.titulo : (en?'Diaria':'Daily');
+
+    /* selector de materia */
+    var matOpts = '<option value="todas">'+(en?'All subjects':'Todas las materias')+'</option>'+
+      MATS.map(function(m){ return '<option value="'+m.id+'"'+(m.id===mSel?' selected':'')+'>'+(en?m.en:m.es)+'</option>'; }).join('');
+    var matPicker =
+      '<div class="mu-rc-mat">'+
+        '<label for="mu-rc-mat-sel">'+(en?'Your subject':'Tu materia')+'</label>'+
+        '<select id="mu-rc-mat-sel" onchange="window.__muRacha.setMat(this.value)">'+matOpts+'</select>'+
+      '</div>';
+
+    /* fila de cuenta: guardar progreso / sesión activa */
+    var au=window.__muAuth, mail=au&&au.email&&au.email();
+    var acct = mail
+      ? '<div class="mu-rc-acct on"><span>✓ '+(en?'Progress saved to ':'Progreso guardado en ')+'<b>'+mail+'</b></span>'+
+          '<button onclick="window.__muRacha.logout()">'+(en?'Sign out':'Cerrar sesión')+'</button></div>'
+      : '<div class="mu-rc-acct"><span>'+(en?'Streak lives only on this device.':'Tu racha vive solo en este dispositivo.')+'</span>'+
+          '<button onclick="window.__muAuthUI&&window.__muAuthUI.open()">'+(en?'Save my progress':'Guardar mi progreso')+'</button></div>';
 
     /* cabecera: racha */
     var flame='<svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M12 2s4 4 4 8a4 4 0 0 1-8 0c0-1 .5-2 .5-2S6 10 6 14a6 6 0 0 0 12 0c0-6-6-12-6-12z"/></svg>';
@@ -17907,7 +18144,8 @@ window.__muRacha = (function(){
           '<div class="mu-rc-done-tx"><b>'+(en?'Done for today':'Listo por hoy')+'</b>'+
             '<span>'+(en?'Come back tomorrow for the next one. Don’t break the streak.':'Vuelve mañana por la siguiente. No rompas la racha.')+'</span></div>'+
         '</div>'+
-        '<div class="mu-rc-stats">'+(en?'Accuracy: ':'Precisión: ')+(s.tot.n?Math.round(100*s.tot.ok/s.tot.n):0)+'% · '+s.tot.n+(en?' answered':' respondidas')+'</div>';
+        '<div class="mu-rc-stats">'+(en?'Accuracy: ':'Precisión: ')+(s.tot.n?Math.round(100*s.tot.ok/s.tot.n):0)+'% · '+s.tot.n+(en?' answered':' respondidas')+'</div>'+
+        matPicker + acct;
       return;
     }
 
@@ -17924,8 +18162,19 @@ window.__muRacha = (function(){
         '<div class="mu-rc-q-tx" id="mu-rc-qtx">'+tx(String(q.texto||''))+'</div>'+
         '<div class="mu-rc-opts">'+opts+'</div>'+
         '<div class="mu-rc-fb" id="mu-rc-fb"></div>'+
-      '</div>';
+      '</div>'+
+      matPicker + acct;
     if(typeof window._renderMath==='function'){ try{ window._renderMath(el); }catch(e){} }
+  }
+  function setMatAndRender(m){
+    setMat(m);
+    var host=document.getElementById('mu-racha-mount');
+    if(host) render('mu-racha-mount', window.curLang||'es');
+  }
+  function logout(){
+    if(window.__muAuth) window.__muAuth.signOut();
+    var host=document.getElementById('mu-racha-mount');
+    if(host) render('mu-racha-mount', window.curLang||'es');
   }
   /* click en una opción */
   function pick(btn, i, correcta){
@@ -17952,7 +18201,117 @@ window.__muRacha = (function(){
       if(host) render('mu-racha-mount', window.curLang||'es');
     }, 1100);
   }
-  return { get:get, render:render, pick:pick, responder:responder, preguntaDelDia:preguntaDelDia, liveStreak:function(){return liveStreak(get());} };
+  return { get:get, render:render, pick:pick, responder:responder, preguntaDelDia:preguntaDelDia,
+           liveStreak:liveStreak, setMat:setMatAndRender, getMat:getMat, logout:logout,
+           MATS:MATS, matName:matName };
+})();
+
+/* ── MODAL DE CUENTA (código al correo · sin contraseña) ─────────────────────── */
+window.__muAuthUI = (function(){
+  var _wrap=null, _step='email', _email='', _busy=false, _msg='';
+  function en(){ return window.curLang==='en'; }
+  function build(){
+    if(_wrap) return;
+    _wrap=document.createElement('div');
+    _wrap.className='mu-auth-ov'; _wrap.style.display='none';
+    _wrap.addEventListener('click', function(e){ if(e.target===_wrap) close(); });
+    document.body.appendChild(_wrap);
+  }
+  function render(){
+    if(!_wrap) return;
+    var E=en();
+    var h='<div class="mu-auth-box" role="dialog" aria-modal="true">'+
+      '<button class="mu-auth-x" aria-label="'+(E?'Close':'Cerrar')+'" onclick="window.__muAuthUI.close()">✕</button>'+
+      '<div class="mu-auth-hd">'+
+        '<div class="mu-auth-ic">🔥</div>'+
+        '<b>'+(E?'Save your streak':'Guarda tu racha')+'</b>'+
+        '<span>'+(E?'So it survives if you clear your cache or switch device. No password — we email you a 6-digit code. Separate from any premium plan.'
+                   :'Para que no se pierda si borras el caché o cambias de dispositivo. Sin contraseña: te enviamos un código de 6 dígitos al correo. Nada que ver con el plan premium.')+'</span>'+
+      '</div>';
+    if(_step==='email'){
+      h+='<label class="mu-auth-lb">'+(E?'Your email':'Tu correo')+'</label>'+
+        '<input id="mu-auth-em" type="email" inputmode="email" autocomplete="email" placeholder="tu.correo@unal.edu.co" value="'+_email.replace(/"/g,'&quot;')+'">'+
+        '<button class="mu-auth-go" onclick="window.__muAuthUI.submitEmail()"'+(_busy?' disabled':'')+'>'+
+          (_busy?(E?'Sending…':'Enviando…'):(E?'Send code':'Enviar código'))+'</button>';
+    } else {
+      h+='<label class="mu-auth-lb">'+(E?'6-digit code sent to ':'Código de 6 dígitos enviado a ')+'<b>'+_email+'</b></label>'+
+        '<input id="mu-auth-cd" type="text" inputmode="numeric" autocomplete="one-time-code" maxlength="6" placeholder="000000">'+
+        '<button class="mu-auth-go" onclick="window.__muAuthUI.submitCode()"'+(_busy?' disabled':'')+'>'+
+          (_busy?(E?'Checking…':'Verificando…'):(E?'Confirm':'Confirmar'))+'</button>'+
+        '<button class="mu-auth-alt" onclick="window.__muAuthUI.back()">'+(E?'← Change email':'← Cambiar correo')+'</button>';
+    }
+    if(_msg) h+='<div class="mu-auth-msg'+(_msg[0]==='!'?' err':'')+'">'+_msg.replace(/^!/,'')+'</div>';
+    h+='<div class="mu-auth-ft">'+(E?'We only store your streak and learned formulas. Nothing else.'
+                                    :'Solo guardamos tu racha y las fórmulas que marcas como aprendidas. Nada más.')+'</div>'+
+      '</div>';
+    _wrap.innerHTML=h;
+    var f=_wrap.querySelector('input'); if(f) setTimeout(function(){ try{ f.focus(); }catch(e){} },40);
+    var inp=_wrap.querySelector('input');
+    if(inp) inp.addEventListener('keydown', function(e){ if(e.key==='Enter'){ _step==='email'?submitEmail():submitCode(); } });
+  }
+  function open(){ build(); _step='email'; _msg=''; _busy=false;
+    var m=window.__muAuth&&window.__muAuth.email&&window.__muAuth.email(); if(m) _email=m;
+    _wrap.style.display='flex'; document.body.style.overflow='hidden'; render();
+    if(window.muTrack) try{ window.muTrack('auth_open'); }catch(e){}
+  }
+  function close(){ if(_wrap){ _wrap.style.display='none'; document.body.style.overflow=''; } }
+  function back(){ _step='email'; _msg=''; render(); }
+  function submitEmail(){
+    var v=(_wrap.querySelector('#mu-auth-em')||{}).value||''; v=v.trim().toLowerCase();
+    if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(v)){ _msg='!'+(en()?'That email doesn’t look right.':'Ese correo no parece válido.'); render(); return; }
+    _email=v; _busy=true; _msg=''; render();
+    window.__muAuth.sendCode(v).then(function(r){
+      _busy=false;
+      if(r.ok){ _step='code'; _msg=en()?'Check your inbox (and spam).':'Revisa tu bandeja (y el spam).'; }
+      else _msg='!'+(r.err||(en()?'Could not send the code.':'No se pudo enviar el código.'));
+      render();
+    });
+  }
+  function submitCode(){
+    var v=(_wrap.querySelector('#mu-auth-cd')||{}).value||''; v=v.trim();
+    if(!/^\d{6}$/.test(v)){ _msg='!'+(en()?'Enter the 6 digits.':'Escribe los 6 dígitos.'); render(); return; }
+    _busy=true; _msg=''; render();
+    window.__muAuth.verify(_email, v).then(function(r){
+      _busy=false;
+      if(r.ok){
+        _msg=en()?'Done! Syncing…':'¡Listo! Sincronizando…'; render();
+        if(window.__muSync) window.__muSync.pull().then(function(){ afterLogin(); });
+        else afterLogin();
+      } else { _msg='!'+(r.err||(en()?'Invalid or expired code.':'Código inválido o vencido.')); render(); }
+    });
+  }
+  function afterLogin(){
+    close();
+    var host=document.getElementById('mu-racha-mount');
+    if(host && window.__muRacha) window.__muRacha.render('mu-racha-mount', window.curLang||'es');
+    if(window.muTrack) try{ window.muTrack('auth_success'); }catch(e){}
+  }
+  return { open:open, close:close, back:back, submitEmail:submitEmail, submitCode:submitCode };
+})();
+
+/* Al cargar: captura magic-link del hash, restaura sesión y sincroniza */
+(function(){
+  function boot(){
+    if(!window.__muAuth) return;
+    var fresh = window.__muAuth.captureHash();
+    var s = window.__muAuth.session();
+    if(s && s.user && s.user.id){
+      window.__muAuth.refresh();
+      if(window.__muSync) window.__muSync.pull().then(function(changed){
+        var host=document.getElementById('mu-racha-mount');
+        if(host && window.__muRacha) window.__muRacha.render('mu-racha-mount', window.curLang||'es');
+      });
+    } else if(fresh){
+      /* el user llega asíncrono tras captureHash */
+      setTimeout(function(){
+        if(window.__muSync) window.__muSync.pull();
+        var host=document.getElementById('mu-racha-mount');
+        if(host && window.__muRacha) window.__muRacha.render('mu-racha-mount', window.curLang||'es');
+      }, 1200);
+    }
+  }
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded', boot);
+  else boot();
 })();
 
 /* Mini-teaser: la próxima fecha del calendario, linkea a #calendario */
