@@ -4368,6 +4368,106 @@ body{animation:pageIn .6s ease}
 /* ── Hover lift for all interactive cards ── */
 [onclick]:not(nav):not(.burger):not(.settings-btn){transition:all var(--transition)}
 
+/* ══════ HOY: racha + pregunta del día ══════ */
+.mu-hoy-s{padding:4rem 0;background:var(--bg2)}
+#hoy,#calendario{scroll-margin-top:5rem}
+.mu-hoy-hd{max-width:640px;margin:0 auto 2rem;text-align:center}
+.mu-hoy-hd h2{font-size:clamp(1.6rem,4vw,2.3rem);margin:.5rem 0 .6rem;color:var(--t1)}
+.mu-hoy-hd p{color:var(--t2);font-size:.95rem;line-height:1.6}
+.mu-hoy-grid{display:grid;grid-template-columns:1fr 300px;gap:1.4rem;max-width:900px;margin:0 auto;align-items:start}
+.mu-hoy-card{background:var(--card);border:1px solid var(--br2);border-radius:16px;padding:1.4rem}
+.mu-hoy-side{display:flex;flex-direction:column;gap:1rem}
+@media(max-width:760px){.mu-hoy-grid{grid-template-columns:1fr}}
+
+.mu-rc-head{display:flex;align-items:center;gap:.7rem;margin-bottom:1rem}
+.mu-rc-streak{display:flex;align-items:center;gap:.35rem;padding:.4rem .7rem;border-radius:999px;background:var(--lay1);border:1px solid var(--br2);color:var(--t3)}
+.mu-rc-streak.on{color:#fb923c;border-color:rgba(251,146,60,.35);background:rgba(251,146,60,.1)}
+.mu-rc-streak b{font-size:1.15rem;line-height:1}
+.mu-rc-streak span{font-size:.74rem;color:var(--t3);font-weight:500}
+.mu-rc-streak.on span{color:#fdba74}
+.mu-rc-best{margin-left:auto;font-size:.74rem;color:var(--t3);font-family:'IBM Plex Mono',monospace}
+
+.mu-rc-q-badge{font-family:'IBM Plex Mono',monospace;font-size:.7rem;text-transform:uppercase;letter-spacing:.07em;color:var(--acc);margin-bottom:.7rem}
+.mu-rc-q-tx{color:var(--t1);font-size:1.02rem;line-height:1.6;margin-bottom:1.1rem}
+.mu-rc-q-tx .katex{font-size:1.05em}
+.mu-rc-opts{display:flex;flex-direction:column;gap:.5rem}
+.mu-rc-opt{display:flex;align-items:flex-start;gap:.7rem;width:100%;text-align:left;padding:.75rem .85rem;border-radius:11px;background:var(--lay1);border:1.5px solid var(--br2);color:var(--t1);font-size:.92rem;line-height:1.45;cursor:pointer;transition:border-color .15s,background .15s}
+.mu-rc-opt:hover:not(:disabled){border-color:var(--acc)}
+.mu-rc-opt:disabled{cursor:default}
+.mu-rc-opt-l{flex:none;width:22px;height:22px;border-radius:6px;background:var(--card2,var(--bg2));border:1px solid var(--br2);display:flex;align-items:center;justify-content:center;font-size:.72rem;font-weight:700;color:var(--t2);font-family:'IBM Plex Mono',monospace}
+.mu-rc-opts.answered .mu-rc-opt{opacity:.55}
+.mu-rc-opt.correct{border-color:#22c55e;background:rgba(34,197,94,.12);opacity:1 !important}
+.mu-rc-opt.correct .mu-rc-opt-l{background:#22c55e;color:#052e16;border-color:#22c55e}
+.mu-rc-opt.wrong{border-color:#fb7185;background:rgba(251,113,133,.1);opacity:1 !important}
+.mu-rc-opt.wrong .mu-rc-opt-l{background:#fb7185;color:#4c0519;border-color:#fb7185}
+.mu-rc-fb{display:none;margin-top:.9rem;padding:.7rem .9rem;border-radius:10px;font-size:.86rem;font-weight:600}
+.mu-rc-fb.show{display:flex;flex-wrap:wrap;align-items:center;gap:.5rem}
+.mu-rc-fb.ok{background:rgba(34,197,94,.12);color:#22c55e}
+.mu-rc-fb.no{background:rgba(251,113,133,.1);color:#fb7185}
+.mu-rc-fb-stk{padding:.15rem .5rem;border-radius:999px;background:rgba(251,146,60,.15);color:#fdba74;font-size:.78rem}
+.mu-rc-fb-more{margin-left:auto;color:var(--acc);font-size:.8rem;font-weight:600;text-decoration:none}
+.mu-rc-done{display:flex;align-items:center;gap:.9rem;padding:.3rem 0 .2rem}
+.mu-rc-done-ic{flex:none;width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.2rem;font-weight:700}
+.mu-rc-done-ic.ok{background:rgba(34,197,94,.15);color:#22c55e}
+.mu-rc-done-ic.no{background:rgba(251,113,133,.12);color:#fb7185}
+.mu-rc-done-tx{display:flex;flex-direction:column;gap:.15rem}
+.mu-rc-done-tx b{color:var(--t1);font-size:.95rem}
+.mu-rc-done-tx span{color:var(--t2);font-size:.82rem;line-height:1.5}
+.mu-rc-stats{margin-top:.9rem;padding-top:.8rem;border-top:1px solid var(--br2);font-size:.78rem;color:var(--t3);font-family:'IBM Plex Mono',monospace}
+
+/* mini teaser calendario */
+.mu-calmini-in{display:block;background:var(--card);border:1px solid var(--br2);border-radius:14px;padding:1rem 1.1rem;text-decoration:none;transition:border-color .15s}
+.mu-calmini-in:hover{border-color:var(--acc)}
+.mu-calmini-lbl{display:flex;align-items:center;gap:.4rem;font-size:.72rem;color:var(--t3);font-family:'IBM Plex Mono',monospace;text-transform:uppercase;letter-spacing:.05em}
+.mu-calmini-cd{font-size:1.35rem;font-weight:800;color:var(--acc);margin:.35rem 0 .15rem}
+.mu-calmini-t{font-size:.85rem;color:var(--t1);line-height:1.4}
+.mu-calmini-a{margin-top:.5rem;font-size:.78rem;color:var(--t2);font-weight:600}
+.mu-hoy-how{background:var(--card);border:1px solid var(--br2);border-radius:14px;padding:1rem 1.1rem}
+.mu-hoy-how-t{font-size:.72rem;color:var(--t3);font-family:'IBM Plex Mono',monospace;text-transform:uppercase;letter-spacing:.05em;margin-bottom:.5rem}
+.mu-hoy-how-l{margin:0;padding-left:1.1rem;display:flex;flex-direction:column;gap:.35rem}
+.mu-hoy-how-l li{font-size:.82rem;color:var(--t2);line-height:1.4}
+
+/* ══════ CALENDARIO ACADÉMICO ══════ */
+.mu-cal-s{padding:4rem 0}
+.mu-cal-hd{max-width:640px;margin:0 auto 2rem;text-align:center}
+.mu-cal-hd h2{font-size:clamp(1.6rem,4vw,2.3rem);margin:.5rem 0 .6rem;color:var(--t1)}
+.mu-cal-hd p{color:var(--t2);font-size:.95rem;line-height:1.6}
+.mu-cal-wrap{max-width:760px;margin:0 auto;background:var(--card);border:1px solid var(--br2);border-radius:16px;padding:1.5rem}
+.mu-cal-head{margin-bottom:1.3rem}
+.mu-cal-week{display:flex;align-items:center;gap:.5rem;color:var(--t1);font-size:.9rem;font-weight:700}
+.mu-cal-week>svg{color:var(--acc)}
+.mu-cal-per{margin-left:auto;font-weight:500;color:var(--t3);font-size:.76rem;font-family:'IBM Plex Mono',monospace}
+.mu-cal-bar{display:flex;gap:3px;margin-top:.7rem}
+.mu-cal-seg{flex:1;height:6px;border-radius:2px;background:var(--br2)}
+.mu-cal-seg.on{background:var(--acc)}
+.mu-cal-nexts{display:grid;grid-template-columns:repeat(3,1fr);gap:.8rem;margin-bottom:.4rem}
+@media(max-width:620px){.mu-cal-nexts{grid-template-columns:1fr}}
+.mu-cal-next{background:var(--lay1);border:1px solid var(--br2);border-left:3px solid var(--dot,var(--acc));border-radius:11px;padding:.8rem .9rem;display:flex;flex-direction:column;gap:.25rem}
+.mu-cal-next-cd{font-size:1.05rem;font-weight:800;color:var(--t2)}
+.mu-cal-next-cd.soon{color:var(--dot,var(--acc))}
+.mu-cal-next-t{font-size:.82rem;color:var(--t1);line-height:1.4}
+.mu-cal-next-d{font-size:.72rem;color:var(--t3);font-family:'IBM Plex Mono',monospace}
+.mu-cal-next-a{margin-top:.3rem;font-size:.76rem;font-weight:600;color:var(--acc);text-decoration:none}
+.mu-cal-more{margin-top:1.1rem;border-top:1px solid var(--br2);padding-top:.9rem}
+.mu-cal-more summary{cursor:pointer;font-size:.85rem;color:var(--acc);font-weight:600;list-style:none}
+.mu-cal-more summary::-webkit-details-marker{display:none}
+.mu-cal-more summary::before{content:'▸ ';font-size:.7rem}
+.mu-cal-more[open] summary::before{content:'▾ '}
+.mu-cal-list{margin-top:1rem;display:flex;flex-direction:column}
+.mu-cal-row{display:grid;grid-template-columns:52px 12px 1fr auto;align-items:center;gap:.6rem;padding:.6rem 0;border-bottom:1px solid var(--br2);font-size:.85rem}
+.mu-cal-row:last-child{border-bottom:none}
+.mu-cal-row.past{opacity:.42}
+.mu-cal-row.next{background:var(--lay1);margin:0 -.6rem;padding-left:.6rem;padding-right:.6rem;border-radius:8px;border-bottom-color:transparent}
+.mu-cal-row-date{font-family:'IBM Plex Mono',monospace;font-size:.74rem;color:var(--t3);text-align:right}
+.mu-cal-row-dot{width:8px;height:8px;border-radius:50%;background:var(--dot,var(--acc))}
+.mu-cal-row-t{color:var(--t1);line-height:1.4}
+.mu-cal-row-tag{display:inline-block;margin-left:.4rem;font-size:.66rem;color:var(--t3);border:1px solid var(--br2);border-radius:4px;padding:.02rem .3rem;vertical-align:middle;white-space:nowrap}
+.mu-cal-row-cd{font-family:'IBM Plex Mono',monospace;font-size:.72rem;color:var(--t3);white-space:nowrap}
+.mu-cal-row-cd.soon{color:var(--acc);font-weight:700}
+.mu-cal-row-cd.done{color:#22c55e}
+.mu-cal-src{margin-top:1rem;font-size:.72rem;color:var(--t3)}
+.mu-cal-src a{color:var(--t2)}
+
 </style>
 <!-- ── Liquid Glass Web Component (github.com/simeydotme/liquid-glass) ── -->
 <script>
@@ -5168,6 +5268,12 @@ customElements.define('glass-element', GlassElement);
 </svg></span>
         <div><div class="nmd-title">Aportar</div><div class="nmd-sub">Sube material al repositorio</div></div>
       </a>
+      <a href="#calendario" onclick="closeNavMore()">
+        <span class="nmd-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/>
+</svg></span>
+        <div><div class="nmd-title" id="nmd-cal-t">Calendario académico</div><div class="nmd-sub" id="nmd-cal-s">Cortes y fechas del semestre</div></div>
+      </a>
       <a href="#comunidad" onclick="closeNavMore()">
         <span class="nmd-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
   <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>
@@ -5231,6 +5337,8 @@ customElements.define('glass-element', GlassElement);
   <a href="#formulas" onclick="tmob()">Fórmulas</a>
   <a href="#juegos" onclick="tmob()">Juegos</a>
   <a href="#diagnostico" onclick="tmob()">Diagnóstico</a>
+  <a href="#hoy" onclick="tmob()" id="mob-hoy">Pregunta del día</a>
+  <a href="#calendario" onclick="tmob()" id="mob-cal">Calendario académico</a>
   <a href="#aportar" onclick="tmob()">Aportar material</a>
   <a href="#promedio" onclick="tmob()">Promedio</a>
   <a href="#comunidad" onclick="tmob()">Comunidad</a>
@@ -5303,6 +5411,31 @@ customElements.define('glass-element', GlassElement);
     </div>
 
 
+  </div>
+</section>
+
+<!-- HOY: racha + pregunta del día -->
+<section id="hoy" class="mu-hoy-s">
+  <div class="wrap">
+    <div class="mu-hoy-hd fi">
+      <span class="cp-tag" id="hoy-tag">Vuelve cada día</span>
+      <h2 id="hoy-h">La pregunta del día</h2>
+      <p id="hoy-sub">Una pregunta rápida de parcial, distinta cada día. Respóndela y mantén tu racha — es la forma más simple de no llegar en blanco al parcial.</p>
+    </div>
+    <div class="mu-hoy-grid fi">
+      <div class="mu-hoy-card" id="mu-racha-mount"></div>
+      <div class="mu-hoy-side">
+        <div class="mu-hoy-mini" id="mu-hoy-cal"></div>
+        <div class="mu-hoy-how">
+          <div class="mu-hoy-how-t" id="hoy-how-t">Cómo funciona</div>
+          <ul class="mu-hoy-how-l">
+            <li id="hoy-how-1">1 pregunta nueva cada día</li>
+            <li id="hoy-how-2">Responder suma +1 a tu racha</li>
+            <li id="hoy-how-3">Fallar no la rompe — faltar un día, sí</li>
+          </ul>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -5528,7 +5661,17 @@ customElements.define('glass-element', GlassElement);
   </div>
 </section>
 
-
+<!-- CALENDARIO ACADÉMICO -->
+<section id="calendario" class="mu-cal-s">
+  <div class="wrap">
+    <div class="mu-cal-hd fi">
+      <span class="cp-tag" id="cal-tag">UNAL Medellín · 2026-2S</span>
+      <h2 id="cal-h">Calendario académico</h2>
+      <p id="cal-sub">Cortes, cancelaciones y fechas límite del semestre — con la cuenta regresiva. Se actualiza solo.</p>
+    </div>
+    <div class="mu-cal-wrap fi" id="mu-calendario-mount"></div>
+  </div>
+</section>
 
 <!-- MATERIAS -->
 <section id="materias" class="section-pad" style="background:var(--bg2)">
@@ -6361,7 +6504,24 @@ function renderMaterias(){
   var grid=document.getElementById('mat-grid-uni');
   if(!grid) return;
   var en = (typeof curLang!=='undefined' && curLang==='en');
-  if(typeof window.__muSemanaBanner==='function') window.__muSemanaBanner('mu-home-semana', en?'en':'es');
+  var _lg = en?'en':'es';
+  if(typeof window.__muSemanaBanner==='function') window.__muSemanaBanner('mu-home-semana', _lg);
+  if(typeof window.__muRacha==='object' && window.__muRacha.render) window.__muRacha.render('mu-racha-mount', _lg);
+  if(typeof window.__muCalMini==='function') window.__muCalMini('mu-hoy-cal', _lg);
+  if(typeof window.__muCalendario==='function') window.__muCalendario('mu-calendario-mount', _lg);
+  (function(){ /* i18n de las cabeceras de #hoy y #calendario */
+    var H={ 'hoy-tag':[en?'Come back every day':'Vuelve cada día'],
+      'hoy-h':[en?'Question of the day':'La pregunta del día'],
+      'hoy-sub':[en?'One quick exam question, different every day. Answer it and keep your streak — the simplest way to not show up blank to the exam.':'Una pregunta rápida de parcial, distinta cada día. Respóndela y mantén tu racha — es la forma más simple de no llegar en blanco al parcial.'],
+      'cal-tag':[en?'UNAL Medellín · 2026-2S':'UNAL Medellín · 2026-2S'],
+      'cal-h':[en?'Academic calendar':'Calendario académico'],
+      'cal-sub':[en?'Cuts, drop deadlines and key dates of the term — with a countdown. Updates itself.':'Cortes, cancelaciones y fechas límite del semestre — con la cuenta regresiva. Se actualiza solo.'],
+      'hoy-how-t':[en?'How it works':'Cómo funciona'],
+      'hoy-how-1':[en?'One new question every day':'1 pregunta nueva cada día'],
+      'hoy-how-2':[en?'Answering adds +1 to your streak':'Responder suma +1 a tu racha'],
+      'hoy-how-3':[en?'Getting it wrong doesn’t break it — skipping a day does':'Fallar no la rompe — faltar un día, sí'] };
+    Object.keys(H).forEach(function(id){ var e=document.getElementById(id); if(e) e.textContent=H[id][0]; });
+  })();
   grid.innerHTML=SUBS.map(function(s){
     var tags = en && s.tagsEn ? s.tagsEn : s.tags;
     var tagsHtml=tags?'<div class="mc-tags">'+tags.map(function(t){return '<span class="mc-tag-item">'+t+'</span>';}).join('')+'</div>':'';
@@ -16250,6 +16410,7 @@ var LANG_ES={
   "nmd-1-t":"Banco PDF","nmd-1-s":"Todos los parciales y talleres",
   "nmd-2-t":"Calcular Promedio","nmd-2-s":"Simula tu nota final",
   "nmd-3-t":"Aportar","nmd-3-s":"Sube material al repositorio",
+  "nmd-cal-t":"Calendario académico","nmd-cal-s":"Cortes y fechas del semestre",
   "nmd-4-t":"Comunidad","nmd-4-s":"Grupo de WhatsApp",
   "nmd-5-t":"Acerca de","nmd-5-s":"Cómo empezó MathUNAL",
   "hero-ctx":"núcleo completo",
@@ -16529,6 +16690,7 @@ var LANG_EN={
   "nmd-1-t":"PDF Bank","nmd-1-s":"All past exams and worksheets",
   "nmd-2-t":"Calculate Average","nmd-2-s":"Simulate your final grade",
   "nmd-3-t":"Contribute","nmd-3-s":"Upload material to the repository",
+  "nmd-cal-t":"Academic calendar","nmd-cal-s":"Cuts and key dates of the term",
   "nmd-4-t":"Community","nmd-4-s":"WhatsApp group",
   "nmd-5-t":"About","nmd-5-s":"How MathUNAL started",
   "hero-ctx":"core subjects",
@@ -16773,6 +16935,8 @@ function setLang(lang){
       '#home':lang==='en'?'Home':'Inicio','#materias':L['nav-materias']||L['mat-h'],'#simulacros':lang==='en'?'Practice':'Simulacros',
       '#formulas':L['nav-formulas'],'#juegos':lang==='en'?'Games':'Juegos',
       '#diagnostico':lang==='en'?'Diagnostic':'Diagnóstico',
+      '#hoy':lang==='en'?'Question of the day':'Pregunta del día',
+      '#calendario':lang==='en'?'Academic calendar':'Calendario académico',
       '#aportar':lang==='en'?'Contribute material':'Aportar material',
       '#promedio':L['nav-promedio'],'#comunidad':lang==='en'?'Community':'Comunidad',
       '#acerca':lang==='en'?'About':'Acerca de'
@@ -16864,7 +17028,7 @@ function setLang(lang){
 
   /* NAV-MORE dropdown */
   var nmdItems = document.querySelectorAll('.nav-more-dd a');
-  var nmdKeys = [['nmd-1-t','nmd-1-s'],['nmd-2-t','nmd-2-s'],['nmd-3-t','nmd-3-s'],['nmd-4-t','nmd-4-s'],['nmd-5-t','nmd-5-s']];
+  var nmdKeys = [['nmd-1-t','nmd-1-s'],['nmd-2-t','nmd-2-s'],['nmd-3-t','nmd-3-s'],['nmd-cal-t','nmd-cal-s'],['nmd-4-t','nmd-4-s'],['nmd-5-t','nmd-5-s']];
   nmdItems.forEach(function(a,i){
     if(!nmdKeys[i]) return;
     var ti=a.querySelector('.nmd-title'); if(ti&&L[nmdKeys[i][0]]) ti.textContent=L[nmdKeys[i][0]];
@@ -17481,6 +17645,262 @@ var SEMANA_SEMESTRE = {
   visible:true
 };
 try{ window.SEMANA_SEMESTRE = SEMANA_SEMESTRE; }catch(e){}
+
+/* ── CALENDARIO ACADÉMICO 2026-2S (Acuerdo 008 de 2026, Consejo de Sede Medellín) ──
+   Solo fechas que le importan a un estudiante de pregrado. tipo:
+   'inicio'|'corte'|'critico'|'limite'. 'accion' (opcional) linkea a algo útil.
+   Al cambiar de semestre: reemplazar 'eventos' y las 4 fechas de SEMANA_SEMESTRE. */
+var CALENDARIO_ACADEMICO = {
+  periodo: '2026-2S',
+  fuente: 'Acuerdo 008 de 2026 · Consejo de Sede Medellín',
+  fuenteUrl: 'https://drive.google.com/drive/folders/0B5phnDudISDrMHdMbXo4X0FMazA',
+  eventos: [
+    {f:'2026-08-27', t:'Inicio de clases', tEn:'Classes begin', sem:1, tipo:'inicio'},
+    {f:'2026-09-10', t:'Límite: adición y cancelación de asignaturas sin descuento de créditos', tEn:'Deadline: add/drop courses with no credit penalty', sem:2, tipo:'limite'},
+    {f:'2026-09-14', t:'Consolidación de matrícula', tEn:'Enrollment consolidation', sem:3, tipo:'limite'},
+    {f:'2026-10-01', t:'Reporte de notas — 1.er corte (30%)', tEn:'Grade report — 1st cut (30%)', sem:5, tipo:'corte', accion:{txt:'Practicá el 1.er corte', txtEn:'Practice the 1st cut', href:'#diagnostico'}},
+    {f:'2026-10-08', t:'Límite: solicitud de traslado de programa (2027-1S)', tEn:'Deadline: program transfer request (2027-1S)', sem:6, tipo:'limite'},
+    {f:'2026-10-15', t:'Límite: solicitud de validación y de reingreso', tEn:'Deadline: validation & re-admission requests', sem:7, tipo:'limite'},
+    {f:'2026-10-22', t:'Última cancelación de asignaturas (con descuento de créditos)', tEn:'Last day to drop courses (with credit penalty)', sem:8, tipo:'critico'},
+    {f:'2026-11-05', t:'Reporte de notas — 2.º corte (60%) · Exámenes de validación', tEn:'Grade report — 2nd cut (60%) · Validation exams', sem:10, tipo:'corte', accion:{txt:'Practicá el 2.º corte', txtEn:'Practice the 2nd cut', href:'#diagnostico'}},
+    {f:'2026-12-17', t:'Fin de clases · Última cancelación por fuerza mayor', tEn:'Classes end · Last drop by force majeure', sem:16, tipo:'inicio'},
+    {f:'2026-12-19', t:'Reporte de notas final (100%) — hasta las 8:00 p.m.', tEn:'Final grade report (100%) — until 8:00 p.m.', sem:17, tipo:'corte'}
+  ]
+};
+try{ window.CALENDARIO_ACADEMICO = CALENDARIO_ACADEMICO; }catch(e){}
+
+/* Pinta el calendario académico dentro del elemento id=elId. */
+window.__muCalendario = function(elId, lang){
+  var el = document.getElementById(elId); if(!el) return;
+  var C = CALENDARIO_ACADEMICO, SS = SEMANA_SEMESTRE;
+  if(!C || !C.eventos || !C.eventos.length){ el.style.display='none'; return; }
+  var en = (lang==='en'), DAY=86400000, now=new Date();
+  var today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+  function d(s){ return new Date(s+'T00:00:00'); }
+  function fmt(dt){
+    var mesEs=['ene','feb','mar','abr','may','jun','jul','ago','sep','oct','nov','dic'];
+    var mesEn=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+    return dt.getDate()+' '+(en?mesEn:mesEs)[dt.getMonth()];
+  }
+  function cuenta(dt){
+    var n = Math.round((dt - today)/DAY);
+    if(n<0) return {done:true, txt:en?'done':'pasó'};
+    if(n===0) return {soon:true, txt:en?'today':'hoy'};
+    if(n===1) return {soon:true, txt:en?'tomorrow':'mañana'};
+    if(n<=14) return {soon:true, txt:(en?'in ':'en ')+n+(en?' days':' días')};
+    if(n<=60) return {txt:(en?'in ':'en ')+Math.round(n/7)+(en?' weeks':' semanas')};
+    return {txt:(en?'in ':'en ')+Math.round(n/30)+(en?' months':' meses')};
+  }
+  var TIPO = {
+    inicio:  {c:'var(--acc)',   lbl:en?'Milestone':'Hito'},
+    corte:   {c:'#FBBF24',      lbl:en?'Cut / exams':'Corte'},
+    critico: {c:'#fb7185',      lbl:en?'Critical':'Crítico'},
+    limite:  {c:'var(--t3)',    lbl:en?'Deadline':'Fecha límite'}
+  };
+  var evs = C.eventos.slice().sort(function(a,b){ return d(a.f)-d(b.f); });
+  var proximos = evs.filter(function(e){ return d(e.f) >= today; }).slice(0,3);
+
+  /* cabecera: semana actual */
+  var ini = SS && SS.inicio ? d(SS.inicio) : null, total = (SS&&SS.total)||16, segN=0, cab='';
+  if(ini){
+    if(today < ini){ var dd=Math.ceil((ini-today)/DAY); cab=(en?'Term starts in ':'El semestre empieza en ')+dd+(en?' day':' día')+(dd===1?'':'s'); }
+    else if(SS.fin && today > d(SS.fin)){ cab=en?'Term finished':'Semestre finalizado'; segN=total; }
+    else { segN=Math.max(1,Math.min(total,Math.floor((today-ini)/(7*DAY))+1)); cab=(en?'Week ':'Semana ')+segN+(en?' of ':' de ')+total; }
+  }
+  var segs='';
+  for(var i=1;i<=total;i++) segs+='<span class="mu-cal-seg'+(i<=segN?' on':'')+'"></span>';
+
+  var proxHtml = proximos.map(function(e){
+    var ct=cuenta(d(e.f)), tp=TIPO[e.tipo]||TIPO.limite;
+    return '<div class="mu-cal-next" style="--dot:'+tp.c+'">'+
+      '<div class="mu-cal-next-cd'+(ct.soon?' soon':'')+'">'+ct.txt+'</div>'+
+      '<div class="mu-cal-next-t">'+(en?(e.tEn||e.t):e.t)+'</div>'+
+      '<div class="mu-cal-next-d">'+fmt(d(e.f))+' · '+(en?'wk ':'sem ')+e.sem+'</div>'+
+      (e.accion?'<a class="mu-cal-next-a" href="'+e.accion.href+'">'+(en?e.accion.txtEn:e.accion.txt)+' →</a>':'')+
+    '</div>';
+  }).join('');
+
+  var listHtml = evs.map(function(e){
+    var dt=d(e.f), ct=cuenta(dt), tp=TIPO[e.tipo]||TIPO.limite, past=dt<today;
+    var isNext = proximos.length && e===proximos[0];
+    return '<div class="mu-cal-row'+(past?' past':'')+(isNext?' next':'')+'" style="--dot:'+tp.c+'">'+
+      '<span class="mu-cal-row-date">'+fmt(dt)+'</span>'+
+      '<span class="mu-cal-row-dot"></span>'+
+      '<span class="mu-cal-row-t">'+(en?(e.tEn||e.t):e.t)+
+        '<span class="mu-cal-row-tag">'+tp.lbl+'</span></span>'+
+      '<span class="mu-cal-row-cd'+(ct.soon?' soon':'')+(past?' done':'')+'">'+(past?'✓':ct.txt)+'</span>'+
+    '</div>';
+  }).join('');
+
+  el.style.display='';
+  el.innerHTML =
+    '<div class="mu-cal-head">'+
+      '<div class="mu-cal-week">'+
+        '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>'+
+        '<span>'+cab+'</span>'+
+        '<span class="mu-cal-per">'+(C.periodo||'')+'</span>'+
+      '</div>'+
+      '<div class="mu-cal-bar">'+segs+'</div>'+
+    '</div>'+
+    '<div class="mu-cal-nexts">'+proxHtml+'</div>'+
+    '<details class="mu-cal-more"><summary>'+(en?'See the full semester calendar':'Ver el calendario completo del semestre')+'</summary>'+
+      '<div class="mu-cal-list">'+listHtml+'</div>'+
+      '<div class="mu-cal-src">'+(en?'Source: ':'Fuente: ')+(C.fuente||'')+
+        (C.fuenteUrl?' · <a href="'+C.fuenteUrl+'" target="_blank" rel="noopener">'+(en?'official document':'documento oficial')+'</a>':'')+'</div>'+
+    '</details>';
+};
+
+/* ── RACHA + PREGUNTA DEL DÍA ────────────────────────────────────────────────
+   Sin backend: el estado vive en localStorage['mu-racha']. La pregunta del día
+   es determinista (misma para todos según la fecha). Responder = +1 a la racha
+   (acertar o no da igual: cuenta la constancia); acertar sube la precisión. */
+window.__muRacha = (function(){
+  var KEY='mu-racha';
+  function today(){ var d=new Date(); return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0'); }
+  function get(){
+    var s; try{ s=JSON.parse(localStorage.getItem(KEY)||'{}')||{}; }catch(e){ s={}; }
+    if(typeof s.streak!=='number') s.streak=0;
+    if(typeof s.best!=='number') s.best=0;
+    if(!s.hist||typeof s.hist!=='object') s.hist={};
+    if(!s.tot||typeof s.tot!=='object') s.tot={ok:0,n:0};
+    return s;
+  }
+  function save(s){ try{ localStorage.setItem(KEY, JSON.stringify(s)); }catch(e){} }
+  function diffDays(a,b){ return Math.round((new Date(b+'T00:00:00')-new Date(a+'T00:00:00'))/86400000); }
+  /* racha "viva": si la última respuesta fue hoy o ayer, cuenta; si no, está rota */
+  function liveStreak(s){
+    if(!s.lastDay) return 0;
+    var g=diffDays(s.lastDay, today());
+    return (g<=1) ? s.streak : 0;
+  }
+  /* pool de preguntas: MCQ con 4 opciones de TODO el banco */
+  function pool(){
+    var out=[]; var E=window.EXAMS||{};
+    Object.keys(E).forEach(function(k){
+      var ex=E[k]; if(!ex||!ex.preguntas) return;
+      ex.preguntas.forEach(function(q,i){
+        if(q && q.tipo!=='vf' && Array.isArray(q.opciones) && q.opciones.length>=3 && typeof q.correcta==='number')
+          out.push({q:q, ex:ex, key:k, i:i});
+      });
+    });
+    return out;
+  }
+  function hash(str){ var h=0; for(var i=0;i<str.length;i++){ h=((h<<5)-h+str.charCodeAt(i))|0; } return Math.abs(h); }
+  function preguntaDelDia(){
+    var p=pool(); if(!p.length) return null;
+    return p[ hash(today()) % p.length ];
+  }
+  /* registra la respuesta de hoy */
+  function responder(correcta){
+    var s=get(), t=today();
+    if(s.hist[t]!==undefined) return s;             /* ya respondió hoy */
+    var g = s.lastDay ? diffDays(s.lastDay, t) : 99;
+    s.streak = (g===1) ? (liveStreak(s)+1) : 1;
+    s.best = Math.max(s.best, s.streak);
+    s.lastDay = t;
+    s.hist[t] = !!correcta;
+    s.tot.n++; if(correcta) s.tot.ok++;
+    save(s);
+    return s;
+  }
+  function render(elId, lang){
+    var el=document.getElementById(elId); if(!el) return;
+    var en=(lang==='en'), s=get(), t=today();
+    var answered = s.hist[t]!==undefined;
+    var stk = answered ? s.streak : liveStreak(s);
+    var pd = preguntaDelDia();
+    if(!pd){ el.style.display='none'; return; }
+    el.style.display='';
+    var q=pd.q;
+    var badge = (pd.ex && pd.ex.titulo) ? pd.ex.titulo : (en?'Daily':'Diaria');
+
+    /* cabecera: racha */
+    var flame='<svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M12 2s4 4 4 8a4 4 0 0 1-8 0c0-1 .5-2 .5-2S6 10 6 14a6 6 0 0 0 12 0c0-6-6-12-6-12z"/></svg>';
+    var head =
+      '<div class="mu-rc-head">'+
+        '<div class="mu-rc-streak'+(stk>0?' on':'')+'">'+flame+'<b>'+stk+'</b>'+
+          '<span>'+(en?(stk===1?'day streak':'day streak'):(stk===1?'día de racha':'días de racha'))+'</span></div>'+
+        (s.best>0?'<div class="mu-rc-best">'+(en?'best ':'récord ')+s.best+'</div>':'')+
+      '</div>';
+
+    if(answered){
+      var ok = s.hist[t];
+      el.innerHTML = head +
+        '<div class="mu-rc-done">'+
+          '<div class="mu-rc-done-ic '+(ok?'ok':'no')+'">'+(ok?'✓':'✕')+'</div>'+
+          '<div class="mu-rc-done-tx"><b>'+(en?'Done for today':'Listo por hoy')+'</b>'+
+            '<span>'+(en?'Come back tomorrow for the next one. Don’t break the streak.':'Vuelve mañana por la siguiente. No rompas la racha.')+'</span></div>'+
+        '</div>'+
+        '<div class="mu-rc-stats">'+(en?'Accuracy: ':'Precisión: ')+(s.tot.n?Math.round(100*s.tot.ok/s.tot.n):0)+'% · '+s.tot.n+(en?' answered':' respondidas')+'</div>';
+      return;
+    }
+
+    var _en = (window.curLang==='en');
+    function tx(str){ str = _en && window._examEN ? window._examEN(str) : str; return window._mathHtml ? window._mathHtml(str) : str; }
+    var opts = q.opciones.map(function(o,i){
+      return '<button class="mu-rc-opt" data-i="'+i+'" onclick="window.__muRacha.pick(this,'+i+','+q.correcta+')">'+
+        '<span class="mu-rc-opt-l">'+String.fromCharCode(65+i)+'</span><span class="mu-rc-opt-t">'+tx(String(o))+'</span></button>';
+    }).join('');
+
+    el.innerHTML = head +
+      '<div class="mu-rc-q">'+
+        '<div class="mu-rc-q-badge">'+badge+' · '+(en?'question of the day':'pregunta del día')+'</div>'+
+        '<div class="mu-rc-q-tx" id="mu-rc-qtx">'+tx(String(q.texto||''))+'</div>'+
+        '<div class="mu-rc-opts">'+opts+'</div>'+
+        '<div class="mu-rc-fb" id="mu-rc-fb"></div>'+
+      '</div>';
+    if(typeof window._renderMath==='function'){ try{ window._renderMath(el); }catch(e){} }
+  }
+  /* click en una opción */
+  function pick(btn, i, correcta){
+    var box=btn.closest('.mu-rc-opts'); if(!box || box.classList.contains('answered')) return;
+    box.classList.add('answered');
+    var en=(window.curLang==='en');
+    var ok = (i===correcta);
+    box.querySelectorAll('.mu-rc-opt').forEach(function(b){
+      var bi=+b.dataset.i; b.disabled=true;
+      if(bi===correcta) b.classList.add('correct');
+      else if(bi===i) b.classList.add('wrong');
+    });
+    var s=responder(ok);
+    var fb=document.getElementById('mu-rc-fb');
+    if(fb){
+      fb.className='mu-rc-fb show '+(ok?'ok':'no');
+      fb.innerHTML = (ok?('✓ '+(en?'Correct!':'¡Correcto!')):('✕ '+(en?'The answer was ':'La correcta era ')+String.fromCharCode(65+correcta)))+
+        ' <span class="mu-rc-fb-stk">🔥 '+s.streak+' '+(en?'day'+(s.streak===1?'':'s'):'día'+(s.streak===1?'':'s'))+'</span>'+
+        '<a class="mu-rc-fb-more" href="#diagnostico">'+(en?'Full practice →':'Practicar más →')+'</a>';
+    }
+    /* refresca la cabecera de racha en 900ms para que se sienta el +1 */
+    setTimeout(function(){
+      var host=document.getElementById('mu-racha-mount');
+      if(host) render('mu-racha-mount', window.curLang||'es');
+    }, 1100);
+  }
+  return { get:get, render:render, pick:pick, responder:responder, preguntaDelDia:preguntaDelDia, liveStreak:function(){return liveStreak(get());} };
+})();
+
+/* Mini-teaser: la próxima fecha del calendario, linkea a #calendario */
+window.__muCalMini = function(elId, lang){
+  var el=document.getElementById(elId); if(!el) return;
+  var C=CALENDARIO_ACADEMICO; if(!C||!C.eventos||!C.eventos.length){ el.style.display='none'; return; }
+  var en=(lang==='en'), DAY=86400000, now=new Date();
+  var today=new Date(now.getFullYear(),now.getMonth(),now.getDate());
+  function d(s){ return new Date(s+'T00:00:00'); }
+  var next = C.eventos.slice().sort(function(a,b){return d(a.f)-d(b.f);}).filter(function(e){return d(e.f)>=today;})[0];
+  if(!next){ el.style.display='none'; return; }
+  var n=Math.round((d(next.f)-today)/DAY);
+  var cd = n===0?(en?'today':'hoy') : n===1?(en?'tomorrow':'mañana') : n<=21?((en?'in ':'en ')+n+(en?' days':' días')) : ((en?'in ':'en ')+Math.round(n/7)+(en?' weeks':' semanas'));
+  el.style.display='';
+  el.innerHTML =
+    '<a href="#calendario" class="mu-calmini-in">'+
+      '<div class="mu-calmini-lbl">'+
+        '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>'+
+        (en?'Next academic date':'Próxima fecha académica')+'</div>'+
+      '<div class="mu-calmini-cd">'+cd+'</div>'+
+      '<div class="mu-calmini-t">'+(en?(next.tEn||next.t):next.t)+'</div>'+
+      '<div class="mu-calmini-a">'+(en?'Full calendar →':'Ver calendario →')+'</div>'+
+    '</a>';
+};
 
 /* Pinta el banner "Semana N de 16" dentro del elemento con id=elId. Reutilizado
    en la portada (#materias) y en la página de materia. */
