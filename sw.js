@@ -1,12 +1,13 @@
 ﻿/* MathUNAL Service Worker â€” offline-first para app shell, network-first para CDN */
-const CACHE = 'mathunal-v198';
+const CACHE = 'mathunal-v199';
 const SHELL = [
   './',
   './index.html',
   './manifest.json',
   './icon-192.png',
   './icon-512.png',
-  './favicon.png'
+  './favicon.png',
+  './qr-wa-grupo.png'
 ];
 const CDN = [
   'https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css',

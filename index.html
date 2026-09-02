@@ -4416,57 +4416,83 @@ body{animation:pageIn .6s ease}
 .mu-rc-stats{margin-top:.9rem;padding-top:.8rem;border-top:1px solid var(--br2);font-size:.78rem;color:var(--t3);font-family:'IBM Plex Mono',monospace}
 
 /* mini teaser calendario */
-.mu-calmini-in{display:block;background:var(--card);border:1px solid var(--br2);border-radius:14px;padding:1rem 1.1rem;text-decoration:none;transition:border-color .15s}
-.mu-calmini-in:hover{border-color:var(--acc)}
-.mu-calmini-lbl{display:flex;align-items:center;gap:.4rem;font-size:.72rem;color:var(--t3);font-family:'IBM Plex Mono',monospace;text-transform:uppercase;letter-spacing:.05em}
-.mu-calmini-cd{font-size:1.35rem;font-weight:800;color:var(--acc);margin:.35rem 0 .15rem}
-.mu-calmini-t{font-size:.85rem;color:var(--t1);line-height:1.4}
-.mu-calmini-a{margin-top:.5rem;font-size:.78rem;color:var(--t2);font-weight:600}
+.mu-calmini-in{display:block;background:var(--card);border:1px solid var(--br2);border-radius:14px;padding:1rem 1.1rem;text-decoration:none;transition:border-color .18s,transform .18s}
+.mu-calmini-in:hover{border-color:var(--acc);transform:translateY(-2px)}
+.mu-calmini-lbl{display:flex;align-items:center;gap:.4rem;font-size:.75rem;color:var(--t3);font-family:'IBM Plex Mono',monospace;text-transform:uppercase;letter-spacing:.05em}
+.mu-calmini-cd{font-size:1.4rem;font-weight:800;color:var(--acc);margin:.35rem 0 .15rem}
+.mu-calmini-t{font-size:.9rem;color:var(--t1);line-height:1.45}
+.mu-calmini-a{margin-top:.5rem;font-size:.82rem;color:var(--t2);font-weight:600}
+.mu-calmini-in:hover .mu-calmini-a{color:var(--acc)}
 .mu-hoy-how{background:var(--card);border:1px solid var(--br2);border-radius:14px;padding:1rem 1.1rem}
-.mu-hoy-how-t{font-size:.72rem;color:var(--t3);font-family:'IBM Plex Mono',monospace;text-transform:uppercase;letter-spacing:.05em;margin-bottom:.5rem}
-.mu-hoy-how-l{margin:0;padding-left:1.1rem;display:flex;flex-direction:column;gap:.35rem}
-.mu-hoy-how-l li{font-size:.82rem;color:var(--t2);line-height:1.4}
+.mu-hoy-how-t{font-size:.75rem;color:var(--t3);font-family:'IBM Plex Mono',monospace;text-transform:uppercase;letter-spacing:.05em;margin-bottom:.5rem}
+.mu-hoy-how-l{margin:0;padding-left:1.1rem;display:flex;flex-direction:column;gap:.4rem}
+.mu-hoy-how-l li{font-size:.88rem;color:var(--t2);line-height:1.45}
 
 /* ══════ CALENDARIO ACADÉMICO ══════ */
+@keyframes muCalSeg{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+@keyframes muCalRise{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+@keyframes muCalPulse{0%,100%{box-shadow:0 0 0 0 rgba(224,93,26,.35)}50%{box-shadow:0 0 0 5px rgba(224,93,26,0)}}
 .mu-cal-s{padding:4rem 0}
 .mu-cal-hd{max-width:640px;margin:0 auto 2rem;text-align:center}
 .mu-cal-hd h2{font-size:clamp(1.6rem,4vw,2.3rem);margin:.5rem 0 .6rem;color:var(--t1)}
-.mu-cal-hd p{color:var(--t2);font-size:.95rem;line-height:1.6}
+.mu-cal-hd p{color:var(--t2);font-size:.98rem;line-height:1.6}
 .mu-cal-wrap{max-width:760px;margin:0 auto;background:var(--card);border:1px solid var(--br2);border-radius:16px;padding:1.5rem}
 .mu-cal-head{margin-bottom:1.3rem}
-.mu-cal-week{display:flex;align-items:center;gap:.5rem;color:var(--t1);font-size:.9rem;font-weight:700}
+.mu-cal-week{display:flex;align-items:center;gap:.5rem;color:var(--t1);font-size:.95rem;font-weight:700}
 .mu-cal-week>svg{color:var(--acc)}
-.mu-cal-per{margin-left:auto;font-weight:500;color:var(--t3);font-size:.76rem;font-family:'IBM Plex Mono',monospace}
+.mu-cal-per{margin-left:auto;font-weight:500;color:var(--t3);font-size:.8rem;font-family:'IBM Plex Mono',monospace}
 .mu-cal-bar{display:flex;gap:3px;margin-top:.7rem}
-.mu-cal-seg{flex:1;height:6px;border-radius:2px;background:var(--br2)}
-.mu-cal-seg.on{background:var(--acc)}
+.mu-cal-seg{flex:1;height:7px;border-radius:2px;background:var(--br2);transform-origin:left;transition:background .3s}
+.mu-cal-seg.on{background:var(--acc);animation:muCalSeg .5s cubic-bezier(.22,1,.36,1) both}
+.mu-cal-seg.on:nth-child(1){animation-delay:.04s}.mu-cal-seg.on:nth-child(2){animation-delay:.08s}.mu-cal-seg.on:nth-child(3){animation-delay:.12s}.mu-cal-seg.on:nth-child(4){animation-delay:.16s}.mu-cal-seg.on:nth-child(5){animation-delay:.2s}.mu-cal-seg.on:nth-child(6){animation-delay:.24s}.mu-cal-seg.on:nth-child(7){animation-delay:.28s}.mu-cal-seg.on:nth-child(8){animation-delay:.32s}
 .mu-cal-nexts{display:grid;grid-template-columns:repeat(3,1fr);gap:.8rem;margin-bottom:.4rem}
 @media(max-width:620px){.mu-cal-nexts{grid-template-columns:1fr}}
-.mu-cal-next{background:var(--lay1);border:1px solid var(--br2);border-left:3px solid var(--dot,var(--acc));border-radius:11px;padding:.8rem .9rem;display:flex;flex-direction:column;gap:.25rem}
-.mu-cal-next-cd{font-size:1.05rem;font-weight:800;color:var(--t2)}
+.mu-cal-next{background:var(--lay1);border:1px solid var(--br2);border-left:3px solid var(--dot,var(--acc));border-radius:11px;padding:.85rem .95rem;display:flex;flex-direction:column;gap:.28rem;animation:muCalRise .45s cubic-bezier(.22,1,.36,1) both;transition:transform .18s,border-color .18s}
+.mu-cal-next:nth-child(2){animation-delay:.09s}.mu-cal-next:nth-child(3){animation-delay:.18s}
+.mu-cal-next:hover{transform:translateY(-3px);border-color:var(--dot,var(--acc))}
+.mu-cal-next-cd{font-size:1.1rem;font-weight:800;color:var(--t2)}
 .mu-cal-next-cd.soon{color:var(--dot,var(--acc))}
-.mu-cal-next-t{font-size:.82rem;color:var(--t1);line-height:1.4}
-.mu-cal-next-d{font-size:.72rem;color:var(--t3);font-family:'IBM Plex Mono',monospace}
-.mu-cal-next-a{margin-top:.3rem;font-size:.76rem;font-weight:600;color:var(--acc);text-decoration:none}
+.mu-cal-next-t{font-size:.88rem;color:var(--t1);line-height:1.45}
+.mu-cal-next-d{font-size:.78rem;color:var(--t3);font-family:'IBM Plex Mono',monospace}
+.mu-cal-next-a{margin-top:.35rem;font-size:.82rem;font-weight:600;color:var(--acc);text-decoration:none}
+.mu-cal-next-a:hover{text-decoration:underline}
 .mu-cal-more{margin-top:1.1rem;border-top:1px solid var(--br2);padding-top:.9rem}
-.mu-cal-more summary{cursor:pointer;font-size:.85rem;color:var(--acc);font-weight:600;list-style:none}
+.mu-cal-more summary{cursor:pointer;font-size:.9rem;color:var(--acc);font-weight:600;list-style:none;transition:opacity .15s}
+.mu-cal-more summary:hover{opacity:.75}
 .mu-cal-more summary::-webkit-details-marker{display:none}
-.mu-cal-more summary::before{content:'▸ ';font-size:.7rem}
+.mu-cal-more summary::before{content:'▸ ';font-size:.72rem;transition:transform .2s;display:inline-block}
 .mu-cal-more[open] summary::before{content:'▾ '}
 .mu-cal-list{margin-top:1rem;display:flex;flex-direction:column}
-.mu-cal-row{display:grid;grid-template-columns:52px 12px 1fr auto;align-items:center;gap:.6rem;padding:.6rem 0;border-bottom:1px solid var(--br2);font-size:.85rem}
+.mu-cal-more[open] .mu-cal-row{animation:muCalRise .4s ease both}
+.mu-cal-more[open] .mu-cal-row:nth-child(2){animation-delay:.03s}.mu-cal-more[open] .mu-cal-row:nth-child(3){animation-delay:.06s}.mu-cal-more[open] .mu-cal-row:nth-child(4){animation-delay:.09s}.mu-cal-more[open] .mu-cal-row:nth-child(5){animation-delay:.12s}.mu-cal-more[open] .mu-cal-row:nth-child(6){animation-delay:.15s}.mu-cal-more[open] .mu-cal-row:nth-child(n+7){animation-delay:.18s}
+.mu-cal-row{display:grid;grid-template-columns:56px 12px 1fr auto;align-items:center;gap:.65rem;padding:.65rem 0;border-bottom:1px solid var(--br2);font-size:.9rem}
 .mu-cal-row:last-child{border-bottom:none}
-.mu-cal-row.past{opacity:.42}
+.mu-cal-row.past{opacity:.45}
 .mu-cal-row.next{background:var(--lay1);margin:0 -.6rem;padding-left:.6rem;padding-right:.6rem;border-radius:8px;border-bottom-color:transparent}
-.mu-cal-row-date{font-family:'IBM Plex Mono',monospace;font-size:.74rem;color:var(--t3);text-align:right}
-.mu-cal-row-dot{width:8px;height:8px;border-radius:50%;background:var(--dot,var(--acc))}
-.mu-cal-row-t{color:var(--t1);line-height:1.4}
-.mu-cal-row-tag{display:inline-block;margin-left:.4rem;font-size:.66rem;color:var(--t3);border:1px solid var(--br2);border-radius:4px;padding:.02rem .3rem;vertical-align:middle;white-space:nowrap}
-.mu-cal-row-cd{font-family:'IBM Plex Mono',monospace;font-size:.72rem;color:var(--t3);white-space:nowrap}
+.mu-cal-row.next .mu-cal-row-dot{animation:muCalPulse 2.4s ease-in-out infinite}
+.mu-cal-row-date{font-family:'IBM Plex Mono',monospace;font-size:.8rem;color:var(--t3);text-align:right}
+.mu-cal-row-dot{width:9px;height:9px;border-radius:50%;background:var(--dot,var(--acc))}
+.mu-cal-row-t{color:var(--t1);line-height:1.45}
+.mu-cal-row-tag{display:inline-block;margin-left:.4rem;font-size:.72rem;color:var(--t3);border:1px solid var(--br2);border-radius:4px;padding:.03rem .35rem;vertical-align:middle;white-space:nowrap}
+.mu-cal-row-cd{font-family:'IBM Plex Mono',monospace;font-size:.78rem;color:var(--t3);white-space:nowrap}
 .mu-cal-row-cd.soon{color:var(--acc);font-weight:700}
 .mu-cal-row-cd.done{color:#22c55e}
-.mu-cal-src{margin-top:1rem;font-size:.72rem;color:var(--t3)}
+.mu-cal-src{margin-top:1rem;font-size:.78rem;color:var(--t3)}
 .mu-cal-src a{color:var(--t2)}
+.mu-cal-actions{margin-top:.9rem}
+.mu-cal-ics{display:inline-flex;align-items:center;gap:.45rem;background:var(--lay1);border:1px solid var(--br2);color:var(--t1);border-radius:9px;padding:.55rem .85rem;font-size:.82rem;font-weight:600;cursor:pointer;font-family:inherit;transition:border-color .15s,background .15s}
+.mu-cal-ics:hover{border-color:var(--acc);background:var(--adim,var(--lay1))}
+.mu-cal-ics>svg{color:var(--acc)}
+@media(prefers-reduced-motion:reduce){.mu-cal-seg.on,.mu-cal-next,.mu-cal-more[open] .mu-cal-row,.mu-cal-row.next .mu-cal-row-dot{animation:none}}
+
+/* QR del grupo de WhatsApp en Comunidad */
+.comm-qr{display:flex;align-items:center;gap:1.3rem;max-width:520px;margin:1.5rem auto 0;background:var(--card);border:1px solid var(--br2);border-radius:16px;padding:1.1rem 1.3rem}
+.comm-qr img{width:132px;height:132px;border-radius:10px;background:#fff;padding:6px;flex:none;transition:transform .2s}
+.comm-qr:hover img{transform:scale(1.05)}
+.comm-qr-tx{display:flex;flex-direction:column;gap:.3rem}
+.comm-qr-tx b{color:var(--t1);font-size:.95rem}
+.comm-qr-tx span{color:var(--t2);font-size:.85rem;line-height:1.5}
+@media(max-width:520px){.comm-qr{flex-direction:column;text-align:center}}
 
 </style>
 <!-- ── Liquid Glass Web Component (github.com/simeydotme/liquid-glass) ── -->
@@ -5993,7 +6019,7 @@ if(!window.__muModalEsc){window.__muModalEsc=true;
       <div class="sec-split-r">Más de 2.000 estudiantes activos. Parciales compartidos, dudas resueltas y actualizaciones de material cada semana.</div>
     </div>
     <div class="comm-grid fi">
-      <a class="cc cc-wa" href="https://chat.whatsapp.com/JHQLxlqJ8kpCHDWEx3UBAA" target="_blank" rel="noopener">
+      <a class="cc cc-wa" href="https://chat.whatsapp.com/EJIpLwYqKlQ81bQJ2EzUhq" target="_blank" rel="noopener">
         <div class="cc-platform-strip"></div>
         <div class="cc-ico-wrap"><span class="cc-ico"><svg width="19" height="19" viewBox="0 0 24 24" fill="currentColor" stroke="none" aria-hidden="true"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.075-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413z"/></svg></span></div>
         <div class="cc-body">
@@ -6011,6 +6037,13 @@ if(!window.__muModalEsc){window.__muModalEsc=true;
           <span class="cc-link">Seguir en Instagram →</span>
         </div>
       </a>
+    </div>
+    <div class="comm-qr fi">
+      <img src="qr-wa-grupo.png" alt="Código QR del grupo de WhatsApp de MathUNAL" width="132" height="132" loading="lazy">
+      <div class="comm-qr-tx">
+        <b id="comm-qr-t">Escanéalo desde otro teléfono</b>
+        <span id="comm-qr-s">Abre la cámara de WhatsApp y apúntala al código para entrar al grupo.</span>
+      </div>
     </div>
   </div>
 </section>
@@ -6285,7 +6318,7 @@ if(!window.__muModalEsc){window.__muModalEsc=true;
       <div class="fcol">
         <h4>Comunidad</h4>
         <ul>
-          <li><a href="https://chat.whatsapp.com/JHQLxlqJ8kpCHDWEx3UBAA" target="_blank"><span class="fi-ico"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" stroke="none" aria-hidden="true"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.075-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413z"/></svg></span>Grupo WhatsApp</a></li>
+          <li><a href="https://chat.whatsapp.com/EJIpLwYqKlQ81bQJ2EzUhq" target="_blank"><span class="fi-ico"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" stroke="none" aria-hidden="true"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.075-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413z"/></svg></span>Grupo WhatsApp</a></li>
           <li><a href="https://www.instagram.com/math.unal/" target="_blank"><span class="fi-ico"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5.5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.6" cy="6.4" r="1.1" fill="currentColor" stroke="none"/></svg></span>@math.unal</a></li>
         </ul>
       </div>
@@ -16479,6 +16512,7 @@ var LANG_ES={
   "comm-tg-t":"Canal de Telegram","comm-tg-d":"Notificaciones de nuevos PDFs, actualizaciones del solucionario y anuncios.","comm-tg-l":"Seguir canal →",
   "comm-dc-t":"Servidor Discord","comm-dc-d":"Canales por materia, sesiones de estudio en voz y resolución colaborativa.","comm-dc-l":"Entrar al servidor →",
   "comm-ig-t":"@math.unal","comm-ig-d":"Tips de estudio, noticias de la UNAL y actualizaciones de material nuevo.","comm-ig-l":"Seguir en Instagram →",
+  "comm-qr-t":"Escanéalo desde otro teléfono","comm-qr-s":"Abre la cámara de WhatsApp y apúntala al código para entrar al grupo.",
   "comm-soon":"Próximamente",
   /* Estadisticas */
   "stats-lbl":"El proyecto en números","stats-h":"Lo que han construido los estudiantes",
@@ -16759,6 +16793,7 @@ var LANG_EN={
   "comm-tg-t":"Telegram Channel","comm-tg-d":"Notifications for new PDFs, solution updates and announcements.","comm-tg-l":"Follow the channel →",
   "comm-dc-t":"Discord Server","comm-dc-d":"Channels per subject, voice study sessions and collaborative problem-solving.","comm-dc-l":"Join the server →",
   "comm-ig-t":"@math.unal","comm-ig-d":"Study tips, UNAL news and new material updates.","comm-ig-l":"Follow on Instagram →",
+  "comm-qr-t":"Scan it from another phone","comm-qr-s":"Open the WhatsApp camera and point it at the code to join the group.",
   "comm-soon":"Coming soon",
   /* Estadisticas */
   "stats-lbl":"The project in numbers","stats-h":"What students have built",
@@ -17228,6 +17263,8 @@ function setLang(lang){
     if(h4&&L[ccKeys[i][0]])h4.textContent=L[ccKeys[i][0]]; if(p&&L[ccKeys[i][1]])p.textContent=L[ccKeys[i][1]];
     if(link&&L[ccKeys[i][2]])link.textContent=L[ccKeys[i][2]]; if(soon&&L['comm-soon'])soon.textContent=L['comm-soon'];
   });
+  var _cqt=document.getElementById('comm-qr-t'); if(_cqt&&L['comm-qr-t']) _cqt.textContent=L['comm-qr-t'];
+  var _cqs=document.getElementById('comm-qr-s'); if(_cqs&&L['comm-qr-s']) _cqs.textContent=L['comm-qr-s'];
 
   /* ESTADISTICAS */
   setText('#estadisticas .sec-label','stats-lbl'); setText('#estadisticas h2','stats-h'); setText('#estadisticas .stats-mega-hd p','stats-p');
@@ -17653,16 +17690,16 @@ try{ window.SEMANA_SEMESTRE = SEMANA_SEMESTRE; }catch(e){}
 var CALENDARIO_ACADEMICO = {
   periodo: '2026-2S',
   fuente: 'Acuerdo 008 de 2026 · Consejo de Sede Medellín',
-  fuenteUrl: 'https://drive.google.com/drive/folders/0B5phnDudISDrMHdMbXo4X0FMazA',
+  fuenteUrl: 'https://legal.unal.edu.co/rlunal/home/doc.jsp?d_i=115270',
   eventos: [
     {f:'2026-08-27', t:'Inicio de clases', tEn:'Classes begin', sem:1, tipo:'inicio'},
     {f:'2026-09-10', t:'Límite: adición y cancelación de asignaturas sin descuento de créditos', tEn:'Deadline: add/drop courses with no credit penalty', sem:2, tipo:'limite'},
     {f:'2026-09-14', t:'Consolidación de matrícula', tEn:'Enrollment consolidation', sem:3, tipo:'limite'},
-    {f:'2026-10-01', t:'Reporte de notas — 1.er corte (30%)', tEn:'Grade report — 1st cut (30%)', sem:5, tipo:'corte', accion:{txt:'Practicá el 1.er corte', txtEn:'Practice the 1st cut', href:'#diagnostico'}},
+    {f:'2026-10-01', t:'Reporte de notas — 1.er corte (30%)', tEn:'Grade report — 1st cut (30%)', sem:5, tipo:'corte', accion:{txt:'Practica para el 1.er corte', txtEn:'Practice the 1st cut', href:'#diagnostico'}},
     {f:'2026-10-08', t:'Límite: solicitud de traslado de programa (2027-1S)', tEn:'Deadline: program transfer request (2027-1S)', sem:6, tipo:'limite'},
     {f:'2026-10-15', t:'Límite: solicitud de validación y de reingreso', tEn:'Deadline: validation & re-admission requests', sem:7, tipo:'limite'},
     {f:'2026-10-22', t:'Última cancelación de asignaturas (con descuento de créditos)', tEn:'Last day to drop courses (with credit penalty)', sem:8, tipo:'critico'},
-    {f:'2026-11-05', t:'Reporte de notas — 2.º corte (60%) · Exámenes de validación', tEn:'Grade report — 2nd cut (60%) · Validation exams', sem:10, tipo:'corte', accion:{txt:'Practicá el 2.º corte', txtEn:'Practice the 2nd cut', href:'#diagnostico'}},
+    {f:'2026-11-05', t:'Reporte de notas — 2.º corte (60%) · Exámenes de validación', tEn:'Grade report — 2nd cut (60%) · Validation exams', sem:10, tipo:'corte', accion:{txt:'Practica para el 2.º corte', txtEn:'Practice the 2nd cut', href:'#diagnostico'}},
     {f:'2026-12-17', t:'Fin de clases · Última cancelación por fuerza mayor', tEn:'Classes end · Last drop by force majeure', sem:16, tipo:'inicio'},
     {f:'2026-12-19', t:'Reporte de notas final (100%) — hasta las 8:00 p.m.', tEn:'Final grade report (100%) — until 8:00 p.m.', sem:17, tipo:'corte'}
   ]
@@ -17743,11 +17780,50 @@ window.__muCalendario = function(elId, lang){
       '<div class="mu-cal-bar">'+segs+'</div>'+
     '</div>'+
     '<div class="mu-cal-nexts">'+proxHtml+'</div>'+
+    '<div class="mu-cal-actions">'+
+      '<button type="button" class="mu-cal-ics" onclick="window.__muCalICS()">'+
+        '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18M12 14v4M10 16h4"/></svg>'+
+        (en?'Add the key dates to my calendar':'Añadir las fechas a mi calendario')+'</button>'+
+    '</div>'+
     '<details class="mu-cal-more"><summary>'+(en?'See the full semester calendar':'Ver el calendario completo del semestre')+'</summary>'+
       '<div class="mu-cal-list">'+listHtml+'</div>'+
       '<div class="mu-cal-src">'+(en?'Source: ':'Fuente: ')+(C.fuente||'')+
         (C.fuenteUrl?' · <a href="'+C.fuenteUrl+'" target="_blank" rel="noopener">'+(en?'official document':'documento oficial')+'</a>':'')+'</div>'+
     '</details>';
+};
+
+/* Descarga un .ics con todas las fechas del calendario (funciona en iPhone y
+   Android — al abrirlo pregunta si agregarlas al calendario del teléfono). */
+window.__muCalICS = function(){
+  var C = CALENDARIO_ACADEMICO; if(!C||!C.eventos) return;
+  function pad(n){ return String(n).padStart(2,'0'); }
+  function stamp(dt){ return dt.getUTCFullYear()+pad(dt.getUTCMonth()+1)+pad(dt.getUTCDate())+'T'+pad(dt.getUTCHours())+pad(dt.getUTCMinutes())+'00Z'; }
+  var now = new Date();
+  var lines = ['BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//MathUNAL//Calendario Academico//ES','CALSCALE:GREGORIAN'];
+  C.eventos.forEach(function(e,i){
+    var d = e.f.replace(/-/g,'');
+    lines.push('BEGIN:VEVENT');
+    lines.push('UID:mathunal-'+(C.periodo||'')+'-'+i+'@mathunal');
+    lines.push('DTSTAMP:'+stamp(now));
+    lines.push('DTSTART;VALUE=DATE:'+d);
+    lines.push('DTEND;VALUE=DATE:'+d);
+    lines.push('SUMMARY:'+(e.t||'').replace(/[,;\\]/g,' '));
+    lines.push('DESCRIPTION:'+(C.fuente||'')+' — mathunal.co');
+    lines.push('BEGIN:VALARM');
+    lines.push('TRIGGER:-P2D');
+    lines.push('ACTION:DISPLAY');
+    lines.push('DESCRIPTION:'+(e.t||''));
+    lines.push('END:VALARM');
+    lines.push('END:VEVENT');
+  });
+  lines.push('END:VCALENDAR');
+  var blob = new Blob([lines.join('\r\n')], {type:'text/calendar;charset=utf-8'});
+  var url = URL.createObjectURL(blob);
+  var a = document.createElement('a');
+  a.href = url; a.download = 'mathunal-calendario-'+(C.periodo||'semestre')+'.ics';
+  document.body.appendChild(a); a.click();
+  setTimeout(function(){ document.body.removeChild(a); URL.revokeObjectURL(url); }, 100);
+  if(typeof window.muTrack==='function') try{ window.muTrack('calendar_ics_download',{periodo:C.periodo}); }catch(e){}
 };
 
 /* ── RACHA + PREGUNTA DEL DÍA ────────────────────────────────────────────────
