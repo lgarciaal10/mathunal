@@ -1,6 +1,6 @@
-/* MathUNAL Service Worker — offline-first para app shell, network-first para CDN
-   NOTA: actualmente NO se registra desde index.html (se quitó el 2026-07-27).
-   Si se vuelve a activar, subir el número de CACHE en cada release. */
+/* MathUNAL Service Worker — network-first para el HTML, cache para el resto.
+   Registrado desde index.html (window load). Subir el número de CACHE en cada
+   release para forzar la actualización de los assets cacheados. */
 const CACHE = 'mathunal-v201';
 const SHELL = [
   './',

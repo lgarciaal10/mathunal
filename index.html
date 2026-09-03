@@ -56,6 +56,11 @@
   <link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png">
   <link rel="icon" type="image/png" sizes="512x512" href="/icon-512.png">
   <link rel="apple-touch-icon" href="/icon-192.png">
+  <link rel="manifest" href="/manifest.json">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="MathUNAL">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Literata:ital,wght@0,400;0,600;0,700;0,900;1,400;1,700&family=Space+Grotesk:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=Source+Serif+4:ital,wght@0,400;0,500;0,600;0,700;1,400&family=EB+Garamond:ital@0;1&display=swap" rel="stylesheet">
@@ -18349,6 +18354,25 @@ window.__muAuthUI = (function(){
   if(document.readyState==='loading') document.addEventListener('DOMContentLoaded', boot);
   else boot();
 })();
+
+/* ── PWA: registrar el Service Worker ────────────────────────────────────────
+   sw.js es network-first para el HTML (nunca sirve una versión vieja de la app)
+   y cache para el resto de assets → funciona offline sin quedarse pegado.
+   sw.js hace skipWaiting() solo, así que una versión nueva toma el control al
+   toque; si eso pasa con la pestaña ABIERTA (era una actualización, no la 1ª
+   instalación), recargamos una sola vez para que HTML y assets queden en la
+   misma versión. En la primera visita NO se recarga. */
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', function(){
+    var hadController = !!navigator.serviceWorker.controller;
+    navigator.serviceWorker.register('/sw.js').catch(function(e){ console.warn('SW no registrado:', e && e.message); });
+    var reloaded = false;
+    navigator.serviceWorker.addEventListener('controllerchange', function(){
+      if (reloaded || !hadController) return;
+      reloaded = true; location.reload();
+    });
+  });
+}
 
 /* Mini-teaser: la próxima fecha del calendario, linkea a #calendario */
 window.__muCalMini = function(elId, lang){
