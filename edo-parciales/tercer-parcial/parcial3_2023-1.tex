@@ -1,0 +1,85 @@
+\documentclass[11pt]{article}
+\usepackage{mathunal-base}
+\mathunalfuente{serif}
+\newcommand{\rp}{\underline{\hspace{2.2cm}}}
+
+% #1 EDO Q1 | #2 EDO Q2 | #3 y(0) | #4 y'(0) | #5 e^{ctau} | #6 1/[...] | #7 (as+b)^2 | #8 c) f(t) | #9 d) F(s)
+\newcommand{\temacuerpo}[9]{%
+\begin{enumerate}
+\item $(35\%)$ Usando transformada de Laplace, halle una solución del problema de valor inicial
+\[
+\begin{cases}
+#1, & t \in [0, \infty) \\
+y(0) = 0, \quad y'(0) = 0.
+\end{cases}
+\]
+\textbf{Nota:} debe justificar paso a paso su procedimiento.
+
+\item $(20\%)$ Considere el problema de valor inicial
+\[
+\begin{cases}
+#2, & x \in \mathbb{R}, \\
+y(0) = #3, \quad y'(0) = #4.
+\end{cases}
+\]
+La solución de este problema de valor inicial es $y = \displaystyle\sum_{n=0}^\infty a_n x^n$, donde
+$a_1 = \rp$, \quad $a_2 = \rp$, \quad $a_3 = \rp$, \quad $a_4 = \rp$.
+\textbf{Nota:} sólo se calificará la respuesta.
+
+\item $(45\%)$ En los literales a), b), c) y d) complete según corresponda. Sólo se calificará la respuesta; no es necesario que escriba el procedimiento.
+\begin{enumerate}[label=(\alph*)]
+\item $(12\%)$ Sabiendo que $f$ es una función continua en $[0, \infty)$, de orden exponencial y que
+$\mathcal{L}\left\{\displaystyle\int_0^t #5\,d\tau * f(t)\right\} = #6$,
+entonces $f(t) = ae^{pt} + be^{-2t} + c$, donde los valores de $a$, $b$, $c$ y $p$ son:
+$a = \rp$, \ $b = \rp$, \ $c = \rp$, \ $p = \rp$.
+\item $(10\%)$ $\mathcal{L}^{-1}\left\{\dfrac{1}{#7\, s}\right\} = bte^{at} + ce^{at} + d$, donde las constantes $a$, $b$, $c$ y $d$ son:
+$a = \rp$, \ $b = \rp$, \ $c = \rp$, \ $d = \rp$.
+\item $(10\%)$ Sea $f(t) = \begin{cases} #8, & 0 \leq t < \pi, \\ #9, & \pi \leq t, \end{cases}$ \ entonces $\mathcal{L}\{f(t)\} = \rp$.
+\item $(13\%)$ Si $F(s) = \ln\!\left(\FSdesta\right)$, entonces su transformada inversa es $\mathcal{L}^{-1}\{F(s)\} = \rp$.
+\end{enumerate}
+\textit{Indicaciones:} \ a) puede ser útil usar $\mathcal{L}\{t\,g(t)\} = -\dfrac{d}{ds}\mathcal{L}\{g(t)\}$; \ b) recuerde que $\ln\!\left(\dfrac{a}{b}\right) = \ln(a) - \ln(b)$.
+\end{enumerate}
+}
+
+\begin{document}
+
+{\large\bfseries Tercer Parcial de Ecuaciones Diferenciales --- Semestre 01-2023}
+
+\medskip
+\noindent Escuela de Matemáticas. Universidad Nacional de Colombia, Sede Medellín.
+
+\medskip
+\noindent\textit{Duración: 1 hora y 50 minutos. Tres preguntas. Puntaje: 1 (/35), 2 (/20), 3 (/45). En el punto 1 debe justificar paso a paso; en los puntos 2 y 3 sólo se califica la respuesta. No está permitido hacer preguntas, usar calculadoras, sacar hojas en blanco ni ningún tipo de apuntes. Este documento reúne los cuatro temas (A, B, C y D).}
+
+\bigskip\hrule\medskip
+\begin{center}\bfseries\large Tema A\end{center}
+\newcommand{\FSdesta}{\dfrac{3s + 7}{-5 + 2s}}
+\temacuerpo{ty'' - y' = 2t^2}{y'' - xy' - y = 0}{1}{1}%
+{e^{-2\tau}}{\dfrac{1}{s^2(s+2)(s+3)}}{(s - 1)^2}{3t}{t - \pi}
+\let\FSdesta\undefined
+
+\bigskip\hrule\medskip
+\begin{center}\bfseries\large Tema B\end{center}
+\newcommand{\FSdesta}{\dfrac{2s - 7}{4 + 3s}}
+\temacuerpo{ty'' - 2y' = 2t^3}{y'' - 2xy' + y = 0}{1}{1}%
+{e^{-3\tau}}{\dfrac{1}{s^2(s+3)(s+4)}}{(2s - 1)^2}{5t}{t - \pi}
+\let\FSdesta\undefined
+
+\bigskip\hrule\medskip
+\begin{center}\bfseries\large Tema C\end{center}
+\newcommand{\FSdesta}{\dfrac{-3s + 2}{5 + 7s}}
+\temacuerpo{ty'' - 3y' = 3t^4}{y'' - xy' + 2y = 0}{1}{-1}%
+{e^{-4\tau}}{\dfrac{1}{s^2(s+4)(s+5)}}{(3s + 1)^2}{-7t}{3t - \pi}
+\let\FSdesta\undefined
+
+\bigskip\hrule\medskip
+\begin{center}\bfseries\large Tema D\end{center}
+\newcommand{\FSdesta}{\dfrac{2s + 1}{-1 + 3s}}
+\temacuerpo{ty'' - 4y' = t^3}{y'' + 2xy' - y = 0}{-1}{1}%
+{e^{2\tau}}{\dfrac{1}{s^2(s-2)(s+7)}}{(5s - 3)^2}{-5t}{2t - \pi}
+\let\FSdesta\undefined
+
+\vfill
+\noindent{\small\itshape Transcripción digital --- MathUNAL}
+
+\end{document}
