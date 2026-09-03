@@ -4414,6 +4414,15 @@ body{animation:pageIn .6s ease}
 .mu-rc-done-tx b{color:var(--t1);font-size:.95rem}
 .mu-rc-done-tx span{color:var(--t2);font-size:.82rem;line-height:1.5}
 .mu-rc-stats{margin-top:.9rem;padding-top:.8rem;border-top:1px solid var(--br2);font-size:.78rem;color:var(--t3);font-family:'IBM Plex Mono',monospace}
+.mu-rc-expl{margin-top:.8rem;border:1px solid var(--br2);border-radius:10px;background:var(--bg);overflow:hidden}
+.mu-rc-expl>summary{cursor:pointer;padding:.6rem .8rem;font-size:.82rem;font-weight:600;color:var(--acc);list-style:none}
+.mu-rc-expl>summary::-webkit-details-marker{display:none}
+.mu-rc-expl>summary::before{content:'▸ ';font-size:.7rem}
+.mu-rc-expl[open]>summary::before{content:'▾ '}
+.mu-rc-expl-sum{padding:.2rem .85rem .6rem;color:var(--t1);font-size:.88rem;line-height:1.55}
+.mu-rc-step{display:flex;gap:.6rem;padding:.4rem .85rem;border-top:1px solid var(--br2);font-size:.85rem;line-height:1.55;color:var(--t2)}
+.mu-rc-step>span{flex:none;width:19px;height:19px;border-radius:5px;background:var(--lay1);border:1px solid var(--br2);display:flex;align-items:center;justify-content:center;font-size:.68rem;font-weight:700;color:var(--t3);font-family:'IBM Plex Mono',monospace}
+.mu-rc-step .katex{font-size:1em}
 .mu-rc-mat{margin-top:.9rem;display:flex;align-items:center;gap:.55rem;flex-wrap:wrap}
 .mu-rc-mat label{font-size:.78rem;color:var(--t3);font-weight:600}
 .mu-rc-mat select{flex:1;min-width:150px;padding:.4rem .55rem;border:1px solid var(--br2);border-radius:8px;background:var(--bg);color:var(--t1);font-size:.82rem;font-family:inherit}
@@ -18089,6 +18098,21 @@ window.__muRacha = (function(){
     /* determinista por (fecha + materia): cada quien ve la de su materia */
     return p[ hash(today()+'|'+m) % p.length ];
   }
+  var _curPD=null;
+  /* explicación colapsable: resumen + pasos de la pregunta (reusa el math del sitio) */
+  function explHtml(q, enArg){
+    if(!q || (!q.resumen && !(q.pasos && q.pasos.length))) return '';
+    var en=(enArg!==undefined)?!!enArg:(window.curLang==='en');
+    function tx(s){ s=String(s==null?'':s); s=(en && window._examEN)?window._examEN(s):s; return window._mathHtml?window._mathHtml(s):s; }
+    var pasos=(q.pasos||[]).map(function(p,i){
+      return '<div class="mu-rc-step"><span>'+(i+1)+'</span><div>'+tx(p)+'</div></div>';
+    }).join('');
+    return '<details class="mu-rc-expl">'+
+      '<summary>'+(en?'See explanation':'Ver explicación')+'</summary>'+
+      (q.resumen?'<div class="mu-rc-expl-sum">'+tx(q.resumen)+'</div>':'')+
+      pasos+
+    '</details>';
+  }
   /* registra la respuesta de hoy (acumula en hist; el resto se deriva) */
   function responder(correcta){
     var s=raw(), t=today();
@@ -18105,6 +18129,7 @@ window.__muRacha = (function(){
     var pd = preguntaDelDia();
     if(!pd){ el.style.display='none'; return; }
     el.style.display='';
+    _curPD=pd;
     var q=pd.q;
     var mSel=getMat();
     /* si el pool cayó al banco completo (la materia tenía muy pocas), no mientas
@@ -18147,8 +18172,10 @@ window.__muRacha = (function(){
           '<div class="mu-rc-done-tx"><b>'+(en?'Done for today':'Listo por hoy')+'</b>'+
             '<span>'+(en?'Come back tomorrow for the next one. Don’t break the streak.':'Vuelve mañana por la siguiente. No rompas la racha.')+'</span></div>'+
         '</div>'+
+        explHtml(q,en)+
         '<div class="mu-rc-stats">'+(en?'Accuracy: ':'Precisión: ')+(s.tot.n?Math.round(100*s.tot.ok/s.tot.n):0)+'% · '+s.tot.n+(en?' answered':' respondidas')+'</div>'+
         matPicker + acct;
+      if(typeof window._renderMath==='function'){ try{ window._renderMath(el); }catch(e){} }
       return;
     }
 
@@ -18197,6 +18224,11 @@ window.__muRacha = (function(){
       fb.innerHTML = (ok?('✓ '+(en?'Correct!':'¡Correcto!')):('✕ '+(en?'The answer was ':'La correcta era ')+String.fromCharCode(65+correcta)))+
         ' <span class="mu-rc-fb-stk">🔥 '+s.streak+' '+(en?'day'+(s.streak===1?'':'s'):'día'+(s.streak===1?'':'s'))+'</span>'+
         '<a class="mu-rc-fb-more" href="#diagnostico">'+(en?'Full practice →':'Practicar más →')+'</a>';
+      var ex=_curPD&&_curPD.q&&explHtml(_curPD.q,en);
+      if(ex){
+        fb.insertAdjacentHTML('afterend', ex);
+        if(typeof window._renderMath==='function'){ try{ window._renderMath(fb.parentNode); }catch(e){} }
+      }
     }
     /* refresca la cabecera de racha en 900ms para que se sienta el +1 */
     setTimeout(function(){
