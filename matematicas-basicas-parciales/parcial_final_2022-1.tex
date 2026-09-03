@@ -1,0 +1,94 @@
+\documentclass[11pt]{article}
+\usepackage{mathunal-base}
+\mathunalfuente{serif}
+\newcommand{\resp}{\ \underline{\hspace{3.2cm}}}
+\newcommand{\resplong}{\par\vspace{2pt}\noindent\underline{\hspace{9cm}}\par\vspace{6pt}}
+
+\begin{document}
+
+{\large\bfseries Parcial Final de Matemáticas Básicas --- Semestre 01-2022}
+
+\medskip
+\noindent Escuela de Matemáticas. Universidad Nacional de Colombia, Sede Medellín.
+
+\begin{enumerate}
+\item $(10\%)$ Se divide el polinomio $p(x) = 5x^3 + 17x^2 - 4x + 7$ entre $q(x) = 5x^2 - 3x + 2$, obteniéndose el cociente $c(x)$ y el residuo $r(x)$. Entonces:
+\begin{itemize}
+\item[] $(5\%)$ $c(x) = $\resp
+\item[] $(5\%)$ $r(x) = $\resp
+\end{itemize}
+
+\item $(10\%)$ Sea $\theta$ el ángulo en posición estándar del tercer cuadrante con $\tan\theta = \tfrac{6}{8}$. Entonces:
+\begin{itemize}
+\item[] $(5\%)$ $\cos\theta = $\resp
+\item[] $(5\%)$ $\operatorname{sen}(2\theta) = $\resp
+\end{itemize}
+
+\item $(10\%)$ Considere la función inyectiva $f(x) = \dfrac{4x + 7}{3x - 5}$. Al calcular la inversa $f^{-1}$ se puede obtener una expresión de la forma $f^{-1}(x) = \dfrac{ax + b}{cx + d}$. Con base en esto, se puede decir que:
+\begin{itemize}
+\item[] $(2{,}5\%)$ $a = $\resp \qquad $(2{,}5\%)$ $b = $\resp
+\item[] $(2{,}5\%)$ $c = $\resp \qquad $(2{,}5\%)$ $d = $\resp
+\end{itemize}
+
+\item $(10\%)$ Considere la función $f$ cuyo gráfico se observa en la figura. Las coordenadas de los puntos dados son $A(0, 21)$, $B(5, 0)$, $C(5, 10)$ y $D(15, 0)$. Con base en esto, la ecuación de la función $f$ se puede escribir de la siguiente forma:
+\[
+f(x) = \begin{cases}
+mx + b, & 0 < x \leq 5 \\
+nx + d, & 5 < x \leq 15.
+\end{cases}
+\]
+Así, los valores de las constantes son:
+\begin{center}
+\begin{tikzpicture}[scale=0.3]
+  \draw[->] (-1,0) -- (17,0) node[right] {\scriptsize $x$};
+  \draw[->] (0,-1) -- (0,24) node[above] {\scriptsize $y$};
+  \draw[thick] (0,21) -- (5,0);
+  \draw[thick] (5,10) -- (15,0);
+  \foreach \p/\c/\pos in {A/{(0,21)}/left, B/{(5,0)}/below, C/{(5,10)}/above, D/{(15,0)}/below}
+     \fill \c circle (10pt) node[\pos] {\scriptsize $\p$};
+\end{tikzpicture}
+\end{center}
+\begin{itemize}
+\item[] $(2{,}5\%)$ $m = $\resp \qquad $(2{,}5\%)$ $b = $\resp
+\item[] $(2{,}5\%)$ $n = $\resp \qquad $(2{,}5\%)$ $d = $\resp
+\end{itemize}
+
+\item $(10\%)$ Considere la ecuación $x^2 + y^2 = \beta x$, con $\beta \in \mathbb{R} - \{0\}$. Esta ecuación describe una circunferencia en el plano cartesiano. El valor de $\beta$ para el cual $(-1, 0)$ es el centro de dicha circunferencia es:
+\begin{opciones}
+\item $-2$
+\item $-4$
+\item $-8$
+\item $-16$
+\end{opciones}
+
+\item $(10\%)$ Sean $f$ y $g$ funciones con dominio el conjunto de los números reales, con $f$ par y $g$ impar. Si sabemos que $f(-11) = -9$ y $g(7) = 11$, entonces:
+\begin{itemize}
+\item[] $(5\%)$ $f(11) + g(-7) = $\resp
+\item[] $(5\%)$ $(f \circ g)(-7) = $\resp
+\end{itemize}
+
+\item $(10\%)$ La expresión $13\log_2 x^2 - 7\log_2 x^3 - \log_2 z$ es igual a:
+\begin{opciones}
+\item $\log_2\!\left(\dfrac{x^5}{z}\right)$
+\item $\log_2\!\left(\dfrac{x^{18}}{z}\right)$
+\item $\log_2\!\left(\dfrac{z}{x^5}\right)$
+\item $\log_2\!\left(\dfrac{z}{x^{18}}\right)$
+\end{opciones}
+
+\item $(10\%)$ El valor de $\cos 148^\circ \cos 28^\circ + \operatorname{sen} 148^\circ \operatorname{sen} 28^\circ$ es:
+\begin{opciones}
+\item $\tfrac{1}{2}$
+\item $-\tfrac{\sqrt3}{2}$
+\item $-\tfrac{1}{2}$
+\item $\tfrac{\sqrt3}{2}$
+\end{opciones}
+
+\item $(10\%)$ El conjunto solución de la ecuación $4^{x^2}\,(4^x)^{-15} - 4^{-56} = 0$ es:\resplong
+
+\item $(10\%)$ Un terreno rectangular plano tiene un área de $735$ m$^2$ y un perímetro de $112$ m. Con base en lo anterior, las longitudes en metros de los lados del rectángulo son \resp $(5\%)$ y \resp $(5\%)$.
+\end{enumerate}
+
+\vfill
+\noindent{\small\itshape Transcripción digital --- MathUNAL}
+
+\end{document}
