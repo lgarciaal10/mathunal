@@ -18002,16 +18002,16 @@ window.__muRacha = (function(){
   /* Materias (prefijo de la clave de EXAMS → código + nombre) */
   var MATS=[
     {id:'matbas',      es:'Matemáticas Básicas',  en:'Basic Mathematics'},
-    {id:'fundamentos', es:'Fundamentos de Mat.',  en:'Foundations of Math'},
+    {id:'fundamentos', es:'Fundamentos de Matemáticas', en:'Math Foundations'},
     {id:'discretas',   es:'Matemáticas Discretas', en:'Discrete Mathematics'},
     {id:'calcdif',     es:'Cálculo Diferencial',  en:'Differential Calculus'},
     {id:'calcint',     es:'Cálculo Integral',     en:'Integral Calculus'},
-    {id:'calcvec',     es:'Cálculo Vectorial',    en:'Vector Calculus'},
-    {id:'geovec',      es:'Geometría Vectorial',  en:'Vector Geometry'},
+    {id:'calcvec',     es:'Cálculo en Varias Variables', en:'Multivariable Calculus'},
+    {id:'geovec',      es:'Geometría Vectorial y Analítica', en:'Vector & Analytic Geometry'},
     {id:'alglin',      es:'Álgebra Lineal',       en:'Linear Algebra'},
     {id:'edo',         es:'Ecuaciones Diferenciales', en:'Differential Equations'},
     {id:'metnum',      es:'Métodos Numéricos',    en:'Numerical Methods'},
-    {id:'especiales',  es:'Funciones Especiales', en:'Special Functions'}
+    {id:'especiales',  es:'Matemáticas Especiales', en:'Advanced Mathematics'}
   ];
   function getMat(){ try{ return localStorage.getItem(MKEY)||'todas'; }catch(e){ return 'todas'; } }
   function setMat(m){ try{ localStorage.setItem(MKEY, m); }catch(e){} }
@@ -18107,7 +18107,10 @@ window.__muRacha = (function(){
     el.style.display='';
     var q=pd.q;
     var mSel=getMat();
-    var badge = (mSel!=='todas') ? matName(mSel,en)
+    /* si el pool cayó al banco completo (la materia tenía muy pocas), no mientas
+       en el badge: muestra el examen real de donde salió la pregunta. */
+    var fromSel = mSel!=='todas' && pd.key && (pd.key.indexOf(mSel+'_')===0 || pd.key===mSel);
+    var badge = fromSel ? matName(mSel,en)
               : (pd.ex && pd.ex.titulo) ? pd.ex.titulo : (en?'Diaria':'Daily');
 
     /* selector de materia */
@@ -18215,6 +18218,7 @@ window.__muAuthUI = (function(){
     _wrap=document.createElement('div');
     _wrap.className='mu-auth-ov'; _wrap.style.display='none';
     _wrap.addEventListener('click', function(e){ if(e.target===_wrap) close(); });
+    document.addEventListener('keydown', function(e){ if(e.key==='Escape' && _wrap && _wrap.style.display!=='none') close(); });
     document.body.appendChild(_wrap);
   }
   function render(){

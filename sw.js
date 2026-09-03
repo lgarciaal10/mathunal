@@ -1,5 +1,7 @@
-﻿/* MathUNAL Service Worker â€” offline-first para app shell, network-first para CDN */
-const CACHE = 'mathunal-v200';
+/* MathUNAL Service Worker — offline-first para app shell, network-first para CDN
+   NOTA: actualmente NO se registra desde index.html (se quitó el 2026-07-27).
+   Si se vuelve a activar, subir el número de CACHE en cada release. */
+const CACHE = 'mathunal-v201';
 const SHELL = [
   './',
   './index.html',
@@ -18,7 +20,7 @@ const CDN = [
 self.addEventListener('install', function(e){
   e.waitUntil(
     caches.open(CACHE).then(function(c){
-      // Cachea el shell local; intenta el CDN sin bloquear la instalaciÃ³n si falla
+      // Cachea el shell local; intenta el CDN sin bloquear la instalación si falla
       return c.addAll(SHELL).then(function(){
         return Promise.allSettled(CDN.map(function(u){
           return fetch(u, {mode:'cors'}).then(function(r){ if(r.ok) return c.put(u, r); });
@@ -39,11 +41,26 @@ self.addEventListener('activate', function(e){
 self.addEventListener('fetch', function(e){
   var req = e.request;
   if (req.method !== 'GET') return;
-  // Cache-first con actualizaciÃ³n en segundo plano (stale-while-revalidate)
+  // Para el HTML: network-first (evita servir una versión vieja de la app).
+  var isDoc = req.mode === 'navigate' ||
+              (req.headers.get('accept') || '').indexOf('text/html') !== -1;
+  if (isDoc) {
+    e.respondWith(
+      fetch(req).then(function(res){
+        if (res && res.status === 200) {
+          var copy = res.clone();
+          caches.open(CACHE).then(function(c){ try{ c.put(req, copy); }catch(_){} });
+        }
+        return res;
+      }).catch(function(){ return caches.match(req).then(function(c){ return c || caches.match('./index.html'); }); })
+    );
+    return;
+  }
+  // Resto de assets: stale-while-revalidate.
   e.respondWith(
     caches.match(req).then(function(cached){
       var net = fetch(req).then(function(res){
-        if (res && res.status === 200 && (req.url.startsWith('http'))) {
+        if (res && res.status === 200 && req.url.startsWith('http')) {
           var copy = res.clone();
           caches.open(CACHE).then(function(c){ try{ c.put(req, copy); }catch(_){} });
         }
