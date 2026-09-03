@@ -1,0 +1,172 @@
+\documentclass[11pt]{article}
+\usepackage{mathunal-base}
+\mathunalfuente{serif}
+\usepackage{amssymb}
+
+\newcommand{\resp}{\underline{\hspace{2.5cm}}}
+\newcommand{\resplong}{\underline{\hspace{9cm}}}
+
+\newenvironment{pseudo}{%
+  \begin{quote}\ttfamily\small\begin{tabbing}
+  \hspace{2em}\=\hspace{2em}\=\hspace{2em}\=\hspace{2em}\=\kill}{%
+  \end{tabbing}\end{quote}}
+
+\begin{document}
+
+{\large\bfseries Primer Parcial de Matemáticas Discretas --- 16 de septiembre de 2023}
+
+\medskip
+\noindent Escuela de Matemáticas. Universidad Nacional de Colombia, Sede Medellín.
+
+\medskip
+\noindent\textit{Este documento reúne los dos temas del examen (A y B). Duración: 1 hora y 50 minutos. Seis preguntas. En las preguntas 1 a 4 conteste en el espacio destinado para cada respuesta; la calificación tendrá en cuenta sólo la respuesta. En las preguntas 5 y 6 muestre detalladamente el procedimiento.}
+
+\medskip
+\noindent Puntaje: 1 (16\,\%), 2 (12\,\%), 3 (20\,\%), 4 (12\,\%), 5 (20\,\%), 6 (20\,\%).
+
+\bigskip\hrule\medskip
+\begin{center}\bfseries\large Tema A\end{center}
+
+\begin{enumerate}
+\item (16\,\%) Sean $p$, $q$ y $r$ proposiciones. Complete los valores indicados en la siguiente tabla de verdad (las casillas con porcentaje son las que debe completar):
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|c|}
+\hline
+$p$ & $q$ & $r$ & $p \to q$ & $\neg r$ & $(\neg r) \wedge (p \to q)$ & $p \leftrightarrow q$ \\
+\small(4\,\%) & \small(4\,\%) & & \small(2\,\%) & \small(3\,\%) & \small(3\,\%) & \\
+\hline
+ & & V & & & & F \\
+\hline
+\end{tabular}
+\end{center}
+
+\item (12\,\%) Considere las proposiciones $p$, $q$ dadas por
+\[
+p : \ \forall x\ \exists y\ (x \leq y^2 + 1), \qquad
+q : \ \exists z\ \forall w\ (z + 1 = w),
+\]
+donde el dominio de discurso son los números enteros ($x,y,z,w \in \mathbb{Z}$). Determine la contrarrecíproca (o contrapositiva) de la afirmación $p \to q$. (Puede emplear los símbolos $\neq$, $<$, $\leq$, $>$, $\geq$.)
+
+\vspace{4pt}
+Respuesta: \resplong
+
+\item (20\,\%)
+\begin{enumerate}
+\item Un pequeño robot está programado para dar pasos en línea recta de longitudes $2$ ó $3$ centímetros. Si $P(n)$ es el número de formas de recorrer un camino de $n$ centímetros, note que $P(1) = 0$ y $P(2) = P(3) = 1$. Complete el siguiente pseudocódigo recursivo para calcular la función $P(n)$:
+\begin{pseudo}
+Procedure P($n$)\\
+\>If $n == 1$, Return $0$\\
+\>If $n == 2$ or $n == 3$, Return \underline{\hspace{2cm}} \quad\textbf{(2\,\%)}\\
+\>Else\\
+\>\>Return \underline{\hspace{4cm}} \quad\textbf{(10\,\%)}\\
+End
+\end{pseudo}
+\emph{Nota:} las palabras \texttt{Procedure} y \texttt{End} indican dónde comienza y termina el pseudocódigo.
+\item (8\,\%) Se da el siguiente código para calcular recursivamente la sucesión $P_a(n)$:
+\begin{pseudo}
+Procedure Pa($n$)\\
+\>If $n == 1$, Return $8$\\
+\>If $n == 2$, Return $4$\\
+\>Else\\
+\>\>Return $6 \cdot P_a(n-1) - 2 \cdot P_a(n-2)$\\
+End
+\end{pseudo}
+Si damos el valor $n = 5$, el valor que retorna este programa es $P_a(5) = \resp$.
+\end{enumerate}
+
+\item (12\,\%) Se requiere un código que calcule la suma de las entradas mayores a $100$ de una lista $s = [s_1, s_2, \dots, s_n]$ de números enteros. Si la lista no tiene valores mayores que $100$, la salida debe ser cero. Por ejemplo, si $s = [100, 65, 101, -1, 110]$, el programa debe retornar $101 + 110 = 211$. Complete el siguiente código recursivo:
+\begin{pseudo}
+\textbf{Entrada:} la lista $s = [s_1, \dots, s_n]$ y la longitud $n$.\\
+\textbf{Salida:} la suma de los elementos mayores a $100$, ó $0$ si no hay tales elementos.\\[2pt]
+Mayores\_a\_100($s$, $n$)\\
+\>If $n == 0$, Return \underline{\hspace{2cm}} \quad\textbf{(2\,\%)}\\
+\>$x = $ Mayores\_a\_100($s$, $n-1$)\\
+\>If \underline{\hspace{3cm}} \quad\textbf{(4\,\%)}\\
+\>\>Return \underline{\hspace{3cm}} \quad\textbf{(4\,\%)}\\
+\>Else, Return \underline{\hspace{2cm}} \quad\textbf{(2\,\%)}
+\end{pseudo}
+\emph{Nota:} si $n = 0$ la lista es vacía. Además, Mayores\_a\_100($s$, $n-1$) indica la función aplicada a la lista $[s_1, \dots, s_{n-1}]$ de longitud $n-1$.
+
+\item (20\,\%) Demuestre que si $n$ es un número entero, entonces $20 \cdot n + 2023$ es impar.
+
+\item (20\,\%) Demuestre empleando inducción matemática que la siguiente afirmación es válida para todo entero $n \geq 1$:
+\[
+(3 \cdot 5) + (3 \cdot 5^2) + \cdots + (3 \cdot 5^n) = \frac{15}{4}(5^n - 1).
+\]
+\end{enumerate}
+
+\bigskip\hrule\medskip
+\begin{center}\bfseries\large Tema B\end{center}
+
+\begin{enumerate}
+\item (16\,\%) Sean $p$, $q$ y $r$ proposiciones. Complete los valores indicados en la siguiente tabla de verdad (las casillas con porcentaje son las que debe completar):
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|c|}
+\hline
+$p$ & $q$ & $r$ & $q \to p$ & $\neg r$ & $(\neg r) \vee (q \to p)$ & $q \leftrightarrow p$ \\
+\small(4\,\%) & \small(4\,\%) & & \small(2\,\%) & \small(3\,\%) & \small(3\,\%) & \\
+\hline
+ & & F & & & & F \\
+\hline
+\end{tabular}
+\end{center}
+
+\item (12\,\%) Considere las proposiciones $p$, $q$ dadas por
+\[
+p : \ \forall x\ \exists y\ (x^2 \geq y + 1), \qquad
+q : \ \exists z\ \forall w\ (z + 3 = w),
+\]
+donde el dominio de discurso son los números enteros ($x,y,z,w \in \mathbb{Z}$). Determine la contrarrecíproca (o contrapositiva) de la afirmación $p \to q$. (Puede emplear los símbolos $\neq$, $<$, $\leq$, $>$, $\geq$.)
+
+\vspace{4pt}
+Respuesta: \resplong
+
+\item (20\,\%)
+\begin{enumerate}
+\item Un pequeño robot está programado para dar pasos en línea recta de longitudes $1$ ó $3$ centímetros. Si $Q(n)$ es el número de formas de recorrer un camino de $n \geq 1$ centímetros, note que $Q(1) = Q(2) = 1$ y $Q(3) = 2$. Complete el siguiente pseudocódigo recursivo para calcular la función $Q(n)$:
+\begin{pseudo}
+Procedure Q($n$)\\
+\>If $n == 1$ or $n == 2$, Return $1$\\
+\>If $n == 3$, Return \underline{\hspace{2cm}} \quad\textbf{(2\,\%)}\\
+\>Else\\
+\>\>Return \underline{\hspace{4cm}} \quad\textbf{(10\,\%)}\\
+End
+\end{pseudo}
+\emph{Nota:} las palabras \texttt{Procedure} y \texttt{End} indican dónde comienza y termina el pseudocódigo.
+\item (8\,\%) Se da el siguiente código para calcular recursivamente la sucesión $T_a(n)$:
+\begin{pseudo}
+Procedure Ta($n$)\\
+\>If $n == 1$, Return $6$\\
+\>If $n == 2$, Return $4$\\
+\>Else\\
+\>\>Return $8 \cdot T_a(n-1) - 4 \cdot T_a(n-2)$\\
+End
+\end{pseudo}
+Si damos el valor $n = 5$, el valor que retorna este programa es $T_a(5) = \resp$.
+\end{enumerate}
+
+\item (12\,\%) Se requiere un código que calcule la suma de las entradas menores a $50$ de una lista $s = [s_1, s_2, \dots, s_n]$ de números enteros. Si la lista no tiene valores menores que $50$, la salida debe ser cero. Por ejemplo, si $s = [20, 65, 32, 50, -1]$, el programa debe retornar $20 + 32 + (-1) = 51$. Complete el siguiente código recursivo:
+\begin{pseudo}
+\textbf{Entrada:} la lista $s = [s_1, \dots, s_n]$ y la longitud $n$.\\
+\textbf{Salida:} la suma de los elementos menores a $50$, ó $0$ si no hay tales elementos.\\[2pt]
+Menores\_a\_50($s$, $n$)\\
+\>If $n == 0$, Return \underline{\hspace{2cm}} \quad\textbf{(2\,\%)}\\
+\>$x = $ Menores\_a\_50($s$, $n-1$)\\
+\>If \underline{\hspace{3cm}} \quad\textbf{(4\,\%)}\\
+\>\>Return \underline{\hspace{3cm}} \quad\textbf{(4\,\%)}\\
+\>Else, Return \underline{\hspace{2cm}} \quad\textbf{(2\,\%)}
+\end{pseudo}
+\emph{Nota:} si $n = 0$ la lista es vacía. Además, Menores\_a\_50($s$, $n-1$) indica la función aplicada a la lista $[s_1, \dots, s_{n-1}]$ de longitud $n-1$.
+
+\item (20\,\%) Demuestre que si $n$ es un número entero, entonces $14 \cdot n + 2025$ es impar.
+
+\item (20\,\%) Demuestre empleando inducción matemática que la siguiente afirmación es válida para todo entero $n \geq 1$:
+\[
+(5 \cdot 3) + (5 \cdot 3^2) + \cdots + (5 \cdot 3^n) = \frac{15}{2}(3^n - 1).
+\]
+\end{enumerate}
+
+\vfill
+\noindent{\small\itshape Transcripción digital --- MathUNAL}
+
+\end{document}

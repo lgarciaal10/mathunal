@@ -1,0 +1,89 @@
+\documentclass[11pt]{article}
+\usepackage{mathunal-base}
+\mathunalfuente{serif}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\graphicspath{{fig/}}
+\providecommand{\nota}[1]{\par\smallskip\noindent{\small\itshape\color{unalblue}#1}\par\smallskip}
+\newcommand{\resp}{\underline{\hspace{3cm}}}
+\newcommand{\vf}{\underline{\hspace{1.2cm}}}
+
+\begin{document}
+
+{\large\bfseries Segundo Parcial de Matemáticas Discretas --- mayo de 2023}
+
+\medskip
+\noindent Escuela de Matemáticas. Universidad Nacional de Colombia, Sede Medellín.
+
+\medskip
+\noindent\textit{Duración: 1 hora y 50 minutos. Seis preguntas. Puntaje: 1 (15\,\%), 2 (15\,\%), 3 (15\,\%), 4 (15\,\%), 5 (20\,\%), 6 (20\,\%). Está permitido usar una calculadora básica. En las preguntas 1 a 4 conteste en el espacio destinado para cada respuesta; la calificación tendrá en cuenta sólo la respuesta. En las preguntas 5 y 6 muestre detalladamente el procedimiento.}
+
+\nota{Transcripción: los grafos se reproducen a partir de las figuras digitales del examen original. Las preguntas 1, 2 y 4 son comunes a los dos temas; las preguntas 3, 5 y 6 difieren.}
+
+\begin{enumerate}
+\item[]\textbf{1.} Considere el siguiente grafo $G$:
+\begin{center}\includegraphics[height=3.6cm]{p2023a_G_0}\end{center}
+\begin{enumerate}[label=(\alph*)]
+\item (5\,\%) El número de aristas de $G$ es \resp
+\item (5\,\%) Si calcula el grado de cada vértice de $G$, ¿cuál es el mayor valor que se obtiene? \resp
+\item (5\,\%) La arista que se le debe agregar a $G$ para que el grafo resultante tenga un circuito de Euler es \resp
+\end{enumerate}
+
+\item[]\textbf{2.}
+\begin{enumerate}[label=(\alph*)]
+\item (8\,\%) La representación decimal (base 10) del número $n = 110110_2$ es \resp
+\item (7\,\%) La representación binaria de $74$ es \resp
+\end{enumerate}
+
+\item[]\textbf{4.} Considere el siguiente grafo $G$:
+\begin{center}\includegraphics[height=3.6cm]{p2023a_Gq4_0}\end{center}
+Determine si las siguientes afirmaciones son verdaderas (V) o falsas (F):
+\begin{enumerate}[label=(\alph*)]
+\item (5\,\%) El grafo $G$ es Euleriano, es decir, tiene un circuito de Euler. \hfill Respuesta: \vf
+\item (5\,\%) El grafo $G$ tiene un camino de Euler, pero no un circuito de Euler. \hfill Respuesta: \vf
+\item (5\,\%) El grafo $G$ es bipartito. \hfill Respuesta: \vf
+\end{enumerate}
+\end{enumerate}
+
+\bigskip\hrule\medskip
+\begin{center}\bfseries Tema A --- preguntas 3, 5 y 6\end{center}
+
+\begin{enumerate}
+\item[]\textbf{3.}
+\begin{enumerate}[label=(\alph*)]
+\item (7\,\%) Encontrar un entero $s \in \{0, 1, 2, \dots, 2324\}$ tal que $11s \equiv 1 \pmod{2325}$. \hfill Respuesta: \resp
+\item (8\,\%) Resolver la congruencia lineal $11x \equiv 2 \pmod{2325}$, donde $x \in \{0, 1, 2, \dots, 2324\}$. \hfill Respuesta: \resp
+\end{enumerate}
+
+\item[]\textbf{5.} (20\,\%) Demuestre que si $a, b, c \in \mathbb{Z}$ son números enteros con $a \neq 0$, $a \mid b$ y $a \mid c$, entonces $a \mid (b^2 + 5c^3)$.
+
+\item[]\textbf{6.}
+\begin{enumerate}[label=(\alph*)]
+\item (10\,\%) Utilice el pequeño teorema de Fermat para encontrar $\ell \in \{0, 1, 2, \dots, 96\}$ tal que $\ell \equiv 2023^{194} \pmod{97}$.
+\item (10\,\%) Empleando la técnica que desee (por ejemplo, exponenciación modular rápida), halle $c \in \{0, 1, 2, \dots, 30\}$ con $c \equiv 7^{21} \pmod{31}$.
+\end{enumerate}
+\end{enumerate}
+
+\bigskip\hrule\medskip
+\begin{center}\bfseries Tema B --- preguntas 3, 5 y 6\end{center}
+
+\begin{enumerate}
+\item[]\textbf{3.}
+\begin{enumerate}[label=(\alph*)]
+\item (7\,\%) Encontrar un entero $s \in \{0, 1, 2, \dots, 2809\}$ tal que $17s \equiv 1 \pmod{2810}$. \hfill Respuesta: \resp
+\item (8\,\%) Resolver la congruencia lineal $17x \equiv 3 \pmod{2810}$, donde $x \in \{0, 1, 2, \dots, 2809\}$. \hfill Respuesta: \resp
+\end{enumerate}
+
+\item[]\textbf{5.} (20\,\%) Demuestre que si $a, b, c \in \mathbb{Z}$ son números enteros con $a \neq 0$, $a \mid b$ y $a \mid c$, entonces $a \mid (b^3 + 7c^2)$.
+
+\item[]\textbf{6.}
+\begin{enumerate}[label=(\alph*)]
+\item (10\,\%) Utilice el pequeño teorema de Fermat para encontrar $\ell \in \{0, 1, 2, \dots, 88\}$ tal que $\ell \equiv 2024^{180} \pmod{89}$.
+\item (10\,\%) Empleando la técnica que desee (por ejemplo, exponenciación modular rápida), halle $c \in \{0, 1, 2, \dots, 28\}$ con $c \equiv 5^{25} \pmod{29}$.
+\end{enumerate}
+\end{enumerate}
+
+\vfill
+\noindent{\small\itshape Transcripción digital --- MathUNAL}
+
+\end{document}

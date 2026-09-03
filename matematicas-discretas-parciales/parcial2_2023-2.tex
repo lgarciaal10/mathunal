@@ -1,0 +1,125 @@
+\documentclass[11pt]{article}
+\usepackage{mathunal-base}
+\mathunalfuente{serif}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\graphicspath{{fig/}}
+\providecommand{\nota}[1]{\par\smallskip\noindent{\small\itshape\color{unalblue}#1}\par\smallskip}
+\newcommand{\resp}{\underline{\hspace{3cm}}}
+\newcommand{\vf}{\underline{\hspace{1.2cm}}}
+
+\begin{document}
+
+{\large\bfseries Segundo Parcial de Matemáticas Discretas --- 28 de octubre de 2023}
+
+\medskip
+\noindent Escuela de Matemáticas. Universidad Nacional de Colombia, Sede Medellín.
+
+\medskip
+\noindent\textit{Duración: 1 hora y 50 minutos. Seis preguntas. Puntaje: 1 (16\,\%), 2 (16\,\%), 3 (16\,\%), 4 (12\,\%), 5 (20\,\%), 6 (20\,\%). Está permitido usar una calculadora básica. En las preguntas 1 a 4 conteste en el espacio destinado para cada respuesta; la calificación tendrá en cuenta sólo la respuesta. En las preguntas 5 y 6 muestre detalladamente el procedimiento. Este documento reúne los dos temas (A y B).}
+
+\nota{Transcripción: el grafo del Problema 3 se reproduce a partir de la figura digital del examen original.}
+
+\bigskip\hrule\medskip
+\begin{center}\bfseries\large Tema A\end{center}
+
+\begin{enumerate}
+\item[]\textbf{1.} Cada uno de los grafos $G_1$, $G_2$, $G_3$ y $G_4$ tiene como vértices los números del $1$ al $25$. Las aristas están determinadas por:
+\begin{itemize}
+\item En $G_1$, dos vértices distintos $i, j$ están conectados si y sólo si $i \equiv j \pmod 2$.
+\item En $G_2$, dos vértices distintos $i, j$ están conectados si y sólo si $i \not\equiv j \pmod 2$.
+\item En $G_3$, dos vértices distintos $i, j$ están conectados si y sólo si $i \equiv j \pmod 3$.
+\item En $G_4$, dos vértices distintos $i, j$ están conectados si y sólo si $i \not\equiv j \pmod 3$.
+\end{itemize}
+Determine si las siguientes afirmaciones son verdaderas (V) o falsas (F).
+\begin{enumerate}[label=(\alph*)]
+\item (4\,\%) $G_1$ es un grafo bipartito. \hfill Respuesta: \vf
+\item (4\,\%) $G_3$ admite un circuito de Euler. \hfill Respuesta: \vf
+\item (4\,\%) $G_4$ es un grafo conexo. \hfill Respuesta: \vf
+\item (4\,\%) $G_2$ es un grafo bipartito. \hfill Respuesta: \vf
+\end{enumerate}
+
+\item[]\textbf{2.}
+\begin{enumerate}[label=(\alph*)]
+\item Sean $a, b, c \in \mathbb{Z}$ números enteros. Determine si las siguientes afirmaciones son verdaderas (V) o falsas (F).
+\begin{enumerate}[label=\roman*.]
+\item (3\,\%) Si $a \mid (b - c)$ y $a \mid b$, entonces $a \mid c$. \hfill \vf
+\item (3\,\%) Si $a \mid (b + c)$, entonces $a \mid b$. \hfill \vf
+\item (3\,\%) Si $a \mid bc$, entonces $a \mid c$. \hfill \vf
+\item (3\,\%) Si $a \mid b$, entonces $a \mid bc$. \hfill \vf
+\end{enumerate}
+\item (4\,\%) Considere el número $n = 4321_5$, dado en base $5$. Su representación en base $7$ es \resp \\ \emph{Indicación: puede pasar primero a base decimal.}
+\end{enumerate}
+
+\item[]\textbf{3.} (16\,\%) Recuerde que un grafo es Euleriano si admite un circuito Euleriano. El siguiente grafo $G$ puede hacerse Euleriano agregando una arista que una dos de sus vértices.
+\begin{center}\includegraphics[height=3.8cm]{p20232a_G3_0}\end{center}
+\begin{enumerate}[label=(\alph*)]
+\item (8\,\%) Los vértices que deben ser unidos para hacer a $G$ Euleriano son: \resp
+\item (8\,\%) Al agregar dicha arista, la longitud del circuito Euleriano del grafo obtenido es: \resp \\ \emph{Nota: la longitud de un camino es el número de aristas que lo conforman.}
+\end{enumerate}
+
+\item[]\textbf{4.} (12\,\%) Un programa acepta como válido un código de cinco dígitos (entre $0$ y $9$) $a_0 a_1 a_2 a_3 a_4$ si estos valores satisfacen la relación
+\[
+(a_0 + a_1 + a_2 + a_3) \cdot a_4 \equiv 1 \pmod{15}.
+\]
+Dado $3\ 5\ 0\ 9\ x$, el valor que debe tener $x$ para que este código sea válido es: \resp
+
+\item[]\textbf{5.}
+\begin{enumerate}[label=(\alph*)]
+\item (10\,\%) Aplique exponenciación modular rápida u otra técnica para hallar $q \in \{0, 1, 2, \dots, 24\}$ con $q \equiv 6^{33} \pmod{25}$.
+\item (10\,\%) Mediante el pequeño teorema de Fermat, halle $j \in \{0, 1, 2, \dots, 130\}$ tal que $j \equiv 1969^{1954} \pmod{131}$.
+\end{enumerate}
+
+\item[]\textbf{6.} (20\,\%) Sea $d = \gcd(11268, 932)$. Encuentre enteros $s, t \in \mathbb{Z}$ tales que $s \cdot 11268 + t \cdot 932 = d$.
+\end{enumerate}
+
+\bigskip\hrule\medskip
+\begin{center}\bfseries\large Tema B\end{center}
+
+\begin{enumerate}
+\item[]\textbf{1.} (Los grafos $G_1$, $G_2$, $G_3$, $G_4$ se definen igual que en el Tema A.) Determine si las siguientes afirmaciones son verdaderas (V) o falsas (F).
+\begin{enumerate}[label=(\alph*)]
+\item (4\,\%) $G_3$ es un grafo bipartito. \hfill Respuesta: \vf
+\item (4\,\%) $G_1$ admite un circuito de Euler. \hfill Respuesta: \vf
+\item (4\,\%) $G_2$ es un grafo conexo. \hfill Respuesta: \vf
+\item (4\,\%) $G_4$ es un grafo bipartito. \hfill Respuesta: \vf
+\end{enumerate}
+
+\item[]\textbf{2.}
+\begin{enumerate}[label=(\alph*)]
+\item Sean $a, b, c \in \mathbb{Z}$ números enteros. Determine el valor de verdad de cada una de las siguientes afirmaciones (V ó F).
+\begin{enumerate}[label=\roman*.]
+\item (3\,\%) Si $a \mid (b - c)$, entonces $a \mid b$. \hfill \vf
+\item (3\,\%) Si $a \mid (b + c)$ y $a \mid c$, entonces $a \mid b$. \hfill \vf
+\item (3\,\%) Si $b \mid c$, entonces $b \mid ac$. \hfill \vf
+\item (3\,\%) Si $b \mid ac$, entonces $b \mid c$. \hfill \vf
+\end{enumerate}
+\item (4\,\%) Considere el número $n = 7531_8$, dado en base $8$. Su representación en base $9$ es \resp \\ \emph{Indicación: puede pasar primero a base decimal.}
+\end{enumerate}
+
+\item[]\textbf{3.} (16\,\%) Recuerde que un grafo es Euleriano si admite un circuito Euleriano. El siguiente grafo $G$ puede hacerse Euleriano agregando una arista que una dos de sus vértices.
+\begin{center}\includegraphics[height=3.8cm]{p20232b_G3_0}\end{center}
+\begin{enumerate}[label=(\alph*)]
+\item (8\,\%) Los vértices que deben ser unidos para hacer a $G$ Euleriano son: \resp
+\item (8\,\%) Al agregar dicha arista, la longitud del circuito Euleriano del grafo obtenido es: \resp
+\end{enumerate}
+
+\item[]\textbf{4.} (12\,\%) Un programa acepta como válido un código de cinco dígitos (entre $0$ y $9$) $a_0 a_1 a_2 a_3 a_4$ si estos valores satisfacen la relación
+\[
+(a_1 + a_2 + a_3 + a_4) \cdot a_0 \equiv 1 \pmod{17}.
+\]
+Dado $x\ 8\ 0\ 5\ 9$, el valor que debe tener $x$ para que este código sea válido es: \resp
+
+\item[]\textbf{5.}
+\begin{enumerate}[label=(\alph*)]
+\item (10\,\%) Aplique exponenciación modular rápida u otra técnica para hallar $q \in \{0, 1, 2, \dots, 35\}$ con $q \equiv 5^{34} \pmod{36}$.
+\item (10\,\%) Mediante el pequeño teorema de Fermat, halle $j \in \{0, 1, 2, \dots, 112\}$ tal que $j \equiv 1699^{1684} \pmod{113}$.
+\end{enumerate}
+
+\item[]\textbf{6.} (20\,\%) Sea $d = \gcd(8385, 831)$. Encuentre enteros $s, t \in \mathbb{Z}$ tales que $s \cdot 8385 + t \cdot 831 = d$.
+\end{enumerate}
+
+\vfill
+\noindent{\small\itshape Transcripción digital --- MathUNAL}
+
+\end{document}

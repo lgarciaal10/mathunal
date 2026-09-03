@@ -1,0 +1,174 @@
+\documentclass[11pt]{article}
+\usepackage{mathunal-base}
+\mathunalfuente{serif}
+\usepackage{amssymb}
+
+\newcommand{\resp}{\underline{\hspace{2.5cm}}}
+
+\newenvironment{pseudo}{%
+  \begin{quote}\ttfamily\small\begin{tabbing}
+  \hspace{2em}\=\hspace{2em}\=\hspace{2em}\=\kill}{%
+  \end{tabbing}\end{quote}}
+
+\begin{document}
+
+{\large\bfseries Primer Parcial de Matemáticas Discretas --- 18 de marzo de 2023}
+
+\medskip
+\noindent Escuela de Matemáticas. Universidad Nacional de Colombia, Sede Medellín.
+
+\medskip
+\noindent\textit{Este documento reúne los dos temas del examen (A y B). Duración: 1 hora y 50 minutos. El examen consta de seis preguntas. En las preguntas 1 a 4 conteste en el espacio destinado para cada respuesta; en estas preguntas la calificación tendrá en cuenta sólo la respuesta. En las preguntas 5 y 6 responda mostrando detalladamente el procedimiento utilizado.}
+
+\bigskip
+\hrule
+\bigskip
+
+\begin{center}\bfseries\large Tema A\end{center}
+
+\noindent Puntaje: 1 (16\,\%), 2 (16\,\%), 3 (14\,\%), 4 (14\,\%), 5 (20\,\%), 6 (20\,\%).
+
+\begin{enumerate}
+\item (16\,\%) Sean $p$, $q$ y $r$ proposiciones. Complete los valores indicados en la siguiente tabla de verdad:
+\begin{center}
+\begin{tabular}{|c|c|c||c|c|c|c|}
+\hline
+$p$ & $q$ & $r$ & \small(2\,\%) $p \leftrightarrow q$ & \small(2\,\%) $r \vee (p \leftrightarrow q)$ & \small(2\,\%) $\neg q$ & \small(10\,\%) $(\neg q) \to \neg\bigl(r \vee (p \leftrightarrow q)\bigr)$ \\
+\hline
+F & F & V & & & & \\
+\hline
+\end{tabular}
+\end{center}
+
+\item (16\,\%) Considere la proposición $P$ dada por
+\[
+P : \ \forall x\ \exists y\ \bigl((x^2 = y) \to (y < x + 1)\bigr),
+\]
+donde el dominio de discurso son los números enteros (es decir, $x, y \in \mathbb{Z}$). Determine la negación $\neg P$ empleando solamente cuantificadores y las operaciones $\wedge$ y $\vee$.
+
+\vspace{4pt}
+Respuesta: \underline{\hspace{9cm}}
+
+\item (14\,\%) Considere el siguiente algoritmo en pseudo-código, cuya entrada es una lista $s = [s_1, s_2, \dots, s_n]$ de $n$ números, junto con su longitud $n$:
+\begin{pseudo}
+Procedure Funcion1($s$, $n$)\\
+\>$z = 0$\\
+\>For $i$ desde $1$ hasta $n$\\
+\>\>If $s_i = 0$, Return $z = z + 1$\\
+\>\>Else, Return $z$\\
+\>Return $z$\\
+End
+\end{pseudo}
+Si introducimos $[1, 0, 1, 0, 1]$ en este algoritmo, el resultado que devuelve es \resp.
+
+\emph{Nota:} recuerde que las palabras \texttt{Procedure} y \texttt{End} indican dónde comienza y dónde termina el pseudo-código.
+
+\item (14\,\%) Se da parte de un pseudo-código recursivo que calcula la sucesión definida por $\text{Funcion2}(1) = 3$ y
+\[
+\text{Funcion2}(n) = 3 + 6 + 9 + \cdots + (3n), \qquad n \geq 2.
+\]
+Complete las líneas faltantes:
+\begin{pseudo}
+Procedure Funcion2($n$)\\
+\>\textbf{(4\,\%)}\quad If $n ==$ \resp\\
+\>\>Return $3$\\
+\>\textbf{(10\,\%)}\quad Else, Return \underline{\hspace{5cm}}\\
+End
+\end{pseudo}
+
+\item[]
+\item[5.] \begin{enumerate}
+  \item (5\,\%) Sea $n$ un entero positivo. Considere la proposición
+  \[
+  S(n) : \ \text{Si } 7n + 10 \text{ es impar, entonces } n \text{ es impar.}
+  \]
+  Si $R(n)$ es la contrarrecíproca (o contrapositiva) de la afirmación $S(n)$, escriba $R(n)$:
+
+  \vspace{4pt}
+  $R(n)$: \underline{\hspace{10cm}}
+  \item (15\,\%) Demuestre que la afirmación $S(n)$ es verdadera, o bien de manera equivalente, que $R(n)$ es verdadera.
+  \end{enumerate}
+
+\item[6.] (20\,\%) Demuestre empleando inducción matemática que la siguiente afirmación es válida para todo entero $n \geq 1$:
+\[
+9 + 13 + 17 + \cdots + (4n + 5) = n(2n + 7).
+\]
+\end{enumerate}
+
+\bigskip
+\hrule
+\bigskip
+
+\begin{center}\bfseries\large Tema B\end{center}
+
+\noindent Puntaje: 1 (16\,\%), 2 (16\,\%), 3 (14\,\%), 4 (14\,\%), 5 (20\,\%), 6 (20\,\%).
+
+\begin{enumerate}
+\item (16\,\%) Sean $p$, $q$ y $r$ proposiciones. Complete los valores indicados en la siguiente tabla de verdad:
+\begin{center}
+\begin{tabular}{|c|c|c||c|c|c|c|}
+\hline
+$p$ & $q$ & $r$ & \small(2\,\%) $\neg p \to q$ & \small(2\,\%) $r \wedge (\neg p \to q)$ & \small(2\,\%) $\neg q$ & \small(10\,\%) $(\neg q) \leftrightarrow \bigl(r \wedge (\neg p \to q)\bigr)$ \\
+\hline
+V & V & F & & & & \\
+\hline
+\end{tabular}
+\end{center}
+
+\item (16\,\%) Considere la proposición $P$ dada por
+\[
+P : \ \forall y\ \exists x\ \bigl((x = y^2) \to (x + 1 < y)\bigr),
+\]
+donde el dominio de discurso son los números enteros (es decir, $x, y \in \mathbb{Z}$). Determine la negación $\neg P$ empleando solamente cuantificadores y las operaciones $\wedge$ y $\vee$.
+
+\vspace{4pt}
+Respuesta: \underline{\hspace{9cm}}
+
+\item (14\,\%) Considere el siguiente algoritmo en pseudo-código, cuya entrada es una lista $s = [s_1, s_2, \dots, s_n]$ de $n$ números, junto con su longitud $n$:
+\begin{pseudo}
+Procedure Funcion1($s$, $n$)\\
+\>$z = 0$\\
+\>For $i$ desde $1$ hasta $n$\\
+\>\>If $s_i = 1$, Return $z = z + 1$\\
+\>\>Else, Return $z$\\
+\>Return $z$\\
+End
+\end{pseudo}
+Si introducimos $[0, 1, 0, 1, 0]$ en este algoritmo, el resultado que devuelve es \resp.
+
+\item (14\,\%) Se da parte de un pseudo-código recursivo que calcula la sucesión definida por $\text{Funcion2}(1) = 2$ y
+\[
+\text{Funcion2}(n) = 2 + 4 + 6 + \cdots + (2n), \qquad n \geq 2.
+\]
+Complete las líneas faltantes:
+\begin{pseudo}
+Procedure Funcion2($n$)\\
+\>\textbf{(4\,\%)}\quad If $n ==$ \resp\\
+\>\>Return $2$\\
+\>\textbf{(10\,\%)}\quad Else, Return \underline{\hspace{5cm}}\\
+End
+\end{pseudo}
+
+\item[]
+\item[5.] \begin{enumerate}
+  \item (5\,\%) Sea $n$ un entero positivo. Considere la proposición
+  \[
+  S(n) : \ \text{Si } 5n + 8 \text{ es impar, entonces } n \text{ es impar.}
+  \]
+  Si $R(n)$ es la contrarrecíproca (o contrapositiva) de la afirmación $S(n)$, escriba $R(n)$:
+
+  \vspace{4pt}
+  $R(n)$: \underline{\hspace{10cm}}
+  \item (15\,\%) Demuestre que la afirmación $S(n)$ es verdadera, o bien de manera equivalente, que $R(n)$ es verdadera.
+  \end{enumerate}
+
+\item[6.] (20\,\%) Demuestre empleando inducción matemática que la siguiente afirmación es válida para todo entero $n \geq 1$:
+\[
+11 + 15 + 19 + \cdots + (4n + 7) = n(2n + 9).
+\]
+\end{enumerate}
+
+\vfill
+\noindent{\small\itshape Transcripción digital --- MathUNAL}
+
+\end{document}

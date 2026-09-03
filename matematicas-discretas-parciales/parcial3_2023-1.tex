@@ -1,0 +1,110 @@
+\documentclass[11pt]{article}
+\usepackage{mathunal-base}
+\mathunalfuente{serif}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\graphicspath{{fig/}}
+\providecommand{\nota}[1]{\par\smallskip\noindent{\small\itshape\color{unalblue}#1}\par\smallskip}
+\newcommand{\resp}{\underline{\hspace{3cm}}}
+\newcommand{\vf}{\underline{\hspace{1.2cm}}}
+
+\begin{document}
+
+{\large\bfseries Tercer Parcial de Matemáticas Discretas --- lunes 26 de junio de 2023}
+
+\medskip
+\noindent Escuela de Matemáticas. Universidad Nacional de Colombia, Sede Medellín.
+
+\medskip
+\noindent\textit{Duración: 1 hora y 50 minutos. Seis preguntas. Puntaje: 1 (16\,\%), 2 (16\,\%), 3 (16\,\%), 4 (16\,\%), 5 (18\,\%), 6 (18\,\%). Se puede utilizar una calculadora básica, mas no una programable. En las preguntas 1 a 4 conteste en el espacio destinado para cada respuesta; la calificación tendrá en cuenta sólo la respuesta. En los ejercicios de conteo, la respuesta debe ser un número entero. En las preguntas 5 y 6 muestre detalladamente el procedimiento. Este documento reúne los dos temas (A y B).}
+
+\nota{Transcripción: el grafo de la pregunta 1 se reproduce a partir de la figura digital del examen original.}
+
+\bigskip\hrule\medskip
+\begin{center}\bfseries\large Tema A\end{center}
+
+\begin{enumerate}
+\item[]\textbf{1.} Considere el grafo $G$ descrito en la siguiente figura:
+\begin{center}\includegraphics[height=3.6cm]{p32023a_G_0}\end{center}
+\begin{enumerate}[label=(\alph*)]
+\item (4\,\%) ¿Cuál es el número cromático $\chi(G)$? \hfill Respuesta: \resp
+\item (8\,\%) Sabiendo que el grafo $G$ es planar, ¿en cuántas regiones descompone al plano cuando se presenta gráficamente sin que sus aristas se crucen? \hfill Respuesta: \resp
+\item (4\,\%) Se sabe que al remover el vértice $A$, el grafo resultante es Hamiltoniano, es decir, tiene un circuito que pasa exactamente una vez por cada vértice. Este circuito es: \resp \\
+\emph{Nota: un circuito es un camino que comienza y termina en el mismo vértice. Al remover un vértice se borran también todas las aristas incidentes a él.}
+\end{enumerate}
+
+\item[]\textbf{2.}
+\begin{enumerate}[label=(\alph*)]
+\item (8\,\%) Encuentre el coeficiente que acompaña a $x^5$ en la expansión de $(1 - 4x)^{12}$. \hfill Respuesta: \resp
+\item (8\,\%) Un programa le pide crear una clave de $4$ caracteres. Para ello puede emplear las $26$ letras del abecedario (sólo minúsculas), los $10$ dígitos y los $4$ caracteres especiales ``$<$'', ``$>$'', ``$*$'', ``$=$''. Si la clave debe tener exactamente un dígito y un caracter especial, ¿cuántas claves posibles se pueden formar? \hfill Respuesta: \resp
+\end{enumerate}
+
+\item[]\textbf{3.}
+\begin{enumerate}[label=(\alph*)]
+\item (8\,\%) ¿Cuántas palabras diferentes (no tienen que tener sentido) se pueden obtener al reordenar las letras de la palabra \textsc{labrar}? \hfill Respuesta: \resp
+\item (8\,\%) ¿Cuántas permutaciones de los dígitos $0, 1, 2, \dots, 9$ contienen los números de tres dígitos $231$ y $579$? (Por ejemplo, $0579462318$ es una de estas permutaciones.) \hfill Respuesta: \resp
+\end{enumerate}
+
+\item[]\textbf{4.}
+\begin{enumerate}[label=(\alph*)]
+\item (8\,\%) ¿Cuántas palabras formadas con las letras A, B y C de longitud $7$ hay que comiencen con AB o terminen en AC? \hfill Respuesta: \resp
+\item (8\,\%) Un almacén de cadena vende tazas de color azul, blanco, negro, gris, verde y magenta. Si las tazas del mismo color son indistinguibles entre sí, ¿de cuántas formas se pueden comprar $14$ tazas? \hfill Respuesta: \resp
+\end{enumerate}
+
+\item[]\textbf{5.} (18\,\%) Demuestre que para todo entero $n \geq 1$ se verifica que
+\[
+1 + \binom{n+1}{n} + \binom{n+2}{n} = \binom{n+3}{n+1}.
+\]
+
+\item[]\textbf{6.} (18\,\%) Resuelva la siguiente recurrencia lineal homogénea con las condiciones iniciales dadas:
+\[
+a_{n+2} = 12 a_{n+1} - 35 a_n \ \text{ si } n \geq 0, \qquad a_0 = 2,\ a_1 = 12.
+\]
+\end{enumerate}
+
+\bigskip\hrule\medskip
+\begin{center}\bfseries\large Tema B\end{center}
+
+\begin{enumerate}
+\item[]\textbf{1.} Considere el grafo $G$ descrito en la siguiente figura:
+\begin{center}\includegraphics[height=3.6cm]{p32023b_G_0}\end{center}
+\begin{enumerate}[label=(\alph*)]
+\item (4\,\%) ¿Cuál es el número cromático $\chi(G)$? \hfill Respuesta: \resp
+\item (8\,\%) Sabiendo que el grafo $G$ es planar, ¿en cuántas regiones descompone al plano cuando se presenta gráficamente sin que sus aristas se crucen? \hfill Respuesta: \resp
+\item (4\,\%) Se sabe que al remover el vértice $A$, el grafo resultante es Hamiltoniano. Este circuito es: \resp
+\end{enumerate}
+
+\item[]\textbf{2.}
+\begin{enumerate}[label=(\alph*)]
+\item (8\,\%) Encuentre el coeficiente que acompaña a $x^5$ en la expansión de $(1 - 5x)^{11}$. \hfill Respuesta: \resp
+\item (8\,\%) Un programa le pide crear una clave de $5$ caracteres. Para ello puede emplear las $26$ letras del abecedario (sólo mayúsculas), los $10$ dígitos y los $4$ caracteres especiales ``$<$'', ``?'', ``$*$'', ``$=$''. Si la clave debe tener exactamente una letra y un caracter especial, ¿cuántas claves posibles se pueden formar? \hfill Respuesta: \resp
+\end{enumerate}
+
+\item[]\textbf{3.}
+\begin{enumerate}[label=(\alph*)]
+\item (8\,\%) ¿Cuántas palabras diferentes se pueden obtener al reordenar las letras de la palabra \textsc{cerrar}? \hfill Respuesta: \resp
+\item (8\,\%) ¿Cuántas permutaciones de los dígitos $0, 1, 2, \dots, 9$ contienen los números de tres dígitos $456$ y $109$? \hfill Respuesta: \resp
+\end{enumerate}
+
+\item[]\textbf{4.}
+\begin{enumerate}[label=(\alph*)]
+\item (8\,\%) ¿Cuántas palabras formadas con los dígitos $0$, $1$ y $2$ de longitud $9$ hay que comiencen con $12$ o terminen en $01$? \hfill Respuesta: \resp
+\item (8\,\%) Un almacén de cadena vende balones de fútbol, baloncesto, voleibol y fútbol americano. Si los balones del mismo deporte son indistinguibles entre sí, ¿de cuántas formas se pueden comprar $49$ balones? \hfill Respuesta: \resp
+\end{enumerate}
+
+\item[]\textbf{5.} (18\,\%) Determine si para todo entero $n \geq 1$ se verifica que
+\[
+\binom{2n}{n} = 2\binom{n}{2} + n^2.
+\]
+Justifique su respuesta.
+
+\item[]\textbf{6.} (18\,\%) Resuelva la siguiente recurrencia lineal homogénea con las condiciones iniciales dadas:
+\[
+a_{n+2} = 9 a_{n+1} - 18 a_n \ \text{ si } n \geq 0, \qquad a_0 = 9,\ a_1 = 45.
+\]
+\end{enumerate}
+
+\vfill
+\noindent{\small\itshape Transcripción digital --- MathUNAL}
+
+\end{document}

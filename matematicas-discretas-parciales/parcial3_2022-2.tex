@@ -1,0 +1,112 @@
+\documentclass[11pt]{article}
+\usepackage{mathunal-base}
+\mathunalfuente{serif}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\graphicspath{{fig/}}
+\providecommand{\nota}[1]{\par\smallskip\noindent{\small\itshape\color{unalblue}#1}\par\smallskip}
+\newcommand{\resp}{\underline{\hspace{3cm}}}
+\newcommand{\vf}{\underline{\hspace{1.2cm}}}
+
+\begin{document}
+
+{\large\bfseries Tercer Parcial de Matemáticas Discretas --- viernes 2 de diciembre de 2022}
+
+\medskip
+\noindent Escuela de Matemáticas. Universidad Nacional de Colombia, Sede Medellín.
+
+\medskip
+\noindent\textit{Duración: 1 hora y 50 minutos. Seis preguntas. Puntaje: 1 (/10), 2 (/20), 3 (/22), 4 (/16), 5 (/16), 6 (/16). Se puede utilizar una calculadora básica, mas no una programable. En las preguntas 1 a 4 conteste en el espacio destinado para cada respuesta; la calificación tendrá en cuenta sólo la respuesta. En los ejercicios de conteo, la respuesta debe ser un número entero: dé una respuesta exacta realizando las operaciones necesarias. En las preguntas 5 y 6 muestre detalladamente el procedimiento. Este documento reúne los dos temas (A y B).}
+
+\nota{Transcripción: los grafos de las preguntas 1 y 2 se reproducen a partir de las figuras digitales del examen original.}
+
+\bigskip\hrule\medskip
+\begin{center}\bfseries\large Tema A\end{center}
+
+\begin{enumerate}
+\item[]\textbf{1.} Considere el grafo $G$ descrito en la siguiente figura:
+\begin{center}\includegraphics[height=3.4cm]{p32022a_G1_0}\end{center}
+\begin{enumerate}[label=(\alph*)]
+\item (6\,\%) Si se sabe que el grafo $G$ es planar, ¿en cuántas regiones descompone al plano cuando se presenta gráficamente sin que sus aristas se crucen? \hfill Respuesta: \resp
+\item (4\,\%) Determine si la siguiente afirmación es verdadera (V) o falsa (F): el grafo $G$ es bipartito. \hfill Respuesta: \vf
+\end{enumerate}
+
+\item[]\textbf{2.} Responda las siguientes preguntas relativas al siguiente grafo $G$:
+\begin{center}\includegraphics[height=3.6cm]{p32022a_G2_0}\end{center}
+\begin{enumerate}[label=(\alph*)]
+\item (6\,\%) ¿Cuántas aristas tiene $G$? \hfill Respuesta: \resp
+\item (6\,\%) ¿Qué par de vértices de $G$ se deben conectar con una nueva arista para que el grafo resultante tenga un circuito Euleriano? \hfill Respuesta: \resp
+\item (8\,\%) ¿Cuál es el número cromático $\chi(G)$? \hfill Respuesta: \resp
+\end{enumerate}
+
+\item[]\textbf{3.}
+\begin{enumerate}[label=(\alph*)]
+\item (8\,\%) Considere códigos de longitud $13$ formados por las letras A y B. ¿Cuántos códigos contienen al menos tres B? \hfill Respuesta: \resp
+\item (8\,\%) A un congreso asisten $60$ personas, de las cuales $40$ sólo hablan inglés y $20$ sólo hablan chino. ¿Cuántos diálogos pueden establecerse sin intérprete? \hfill Respuesta: \resp
+\item (6\,\%) ¿Cuál es el coeficiente de $x^4 y^3$ en la expansión de $(x - 3y)^7$? \hfill Respuesta: \resp
+\end{enumerate}
+
+\item[]\textbf{4.}
+\begin{enumerate}[label=(\alph*)]
+\item (8\,\%) ¿Cuántas palabras diferentes se pueden obtener al reordenar las letras de la palabra \textsc{tratar}? \hfill Respuesta: \resp
+\item (8\,\%) Una piscina de pelotas tiene bolas de color amarillo, azul, rojo, blanco y verde. Si las bolas del mismo color son indistinguibles entre sí, ¿de cuántas formas puede un niño sacar $20$ pelotas de la piscina? \hfill Respuesta: \resp
+\end{enumerate}
+
+\item[]\textbf{5.} (16\,\%) Resuelva la siguiente recurrencia lineal no homogénea mediante iteraciones:
+\[
+a_n = 5 a_{n-1} + 8 \ \text{ si } n \geq 1, \qquad a_0 = 10.
+\]
+
+\item[]\textbf{6.} (16\,\%) Resuelva la siguiente recurrencia lineal homogénea con las condiciones iniciales dadas:
+\[
+a_n = \tfrac{5}{2} a_{n-1} - a_{n-2} \ \text{ si } n \geq 2, \qquad a_0 = a_1 = 3.
+\]
+\end{enumerate}
+
+\bigskip\hrule\medskip
+\begin{center}\bfseries\large Tema B\end{center}
+
+\begin{enumerate}
+\item[]\textbf{1.} Considere el grafo $G$ descrito en la siguiente figura:
+\begin{center}\includegraphics[height=3.4cm]{p32022b_G1_0}\end{center}
+\begin{enumerate}[label=(\alph*)]
+\item (6\,\%) Si se sabe que el grafo $G$ es planar, ¿en cuántas regiones descompone al plano cuando se presenta gráficamente sin que sus aristas se crucen? \hfill Respuesta: \resp
+\item (4\,\%) Determine si la siguiente afirmación es verdadera (V) o falsa (F): el grafo $G$ es bipartito. \hfill Respuesta: \vf
+\end{enumerate}
+
+\item[]\textbf{2.} Responda las siguientes preguntas relativas al siguiente grafo $T$:
+\begin{center}\includegraphics[height=3.6cm]{p32022b_T_0}\end{center}
+\begin{enumerate}[label=(\alph*)]
+\item (6\,\%) ¿Cuántas aristas tiene $T$? \hfill Respuesta: \resp
+\item (6\,\%) ¿Qué par de vértices de $T$ se deben conectar con una nueva arista para que el grafo resultante tenga un circuito Euleriano? \hfill Respuesta: \resp
+\item (8\,\%) ¿Cuál es el número cromático $\chi(T)$? \hfill Respuesta: \resp
+\end{enumerate}
+
+\item[]\textbf{3.}
+\begin{enumerate}[label=(\alph*)]
+\item (8\,\%) Considere códigos binarios (cadenas de $0$s y $1$s) de longitud $12$. ¿Cuántos contienen al menos cuatro $1$s? \hfill Respuesta: \resp
+\item (8\,\%) A una cumbre asisten $70$ personas, de las cuales $40$ sólo hablan francés y $30$ sólo hablan japonés. ¿Cuántos diálogos pueden establecerse sin intérprete? \hfill Respuesta: \resp
+\item (6\,\%) ¿Cuál es el coeficiente de $x^3 y^5$ en la expansión de $(x - 2y)^8$? \hfill Respuesta: \resp
+\end{enumerate}
+
+\item[]\textbf{4.}
+\begin{enumerate}[label=(\alph*)]
+\item (8\,\%) ¿Cuántas palabras diferentes se pueden obtener al reordenar las letras de la palabra \textsc{crecer}? \hfill Respuesta: \resp
+\item (8\,\%) Un jardín tiene flores de color amarillo, azul, rojo, blanco, naranja y lila. Si las flores del mismo color son indistinguibles entre sí, ¿de cuántas formas puede un jardinero cortar $15$ flores del jardín? \hfill Respuesta: \resp
+\end{enumerate}
+
+\item[]\textbf{5.} (16\,\%) Resuelva la siguiente recurrencia lineal no homogénea mediante iteraciones:
+\[
+a_n = 6 a_{n-1} + 25 \ \text{ si } n \geq 1, \qquad a_0 = 11.
+\]
+
+\item[]\textbf{6.} (16\,\%) Resuelva la siguiente recurrencia lineal homogénea con las condiciones iniciales dadas:
+\[
+a_n = \tfrac{10}{3} a_{n-1} - a_{n-2} \ \text{ si } n \geq 2, \qquad a_0 = a_1 = 4.
+\]
+\end{enumerate}
+
+\vfill
+\noindent{\small\itshape Transcripción digital --- MathUNAL}
+
+\end{document}
