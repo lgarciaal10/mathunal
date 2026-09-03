@@ -18266,8 +18266,8 @@ window.__muAuthUI = (function(){
       '<div class="mu-auth-hd">'+
         '<div class="mu-auth-ic">🔥</div>'+
         '<b>'+(E?'Save your streak':'Guarda tu racha')+'</b>'+
-        '<span>'+(E?'So it survives if you clear your cache or switch device. No password — we email you a 6-digit code. Separate from any premium plan.'
-                   :'Para que no se pierda si borras el caché o cambias de dispositivo. Sin contraseña: te enviamos un código de 6 dígitos al correo. Nada que ver con el plan premium.')+'</span>'+
+        '<span>'+(E?'So it survives if you clear your cache or switch device. No password — we email you a one-time code. Separate from any premium plan.'
+                   :'Para que no se pierda si borras el caché o cambias de dispositivo. Sin contraseña: te enviamos un código al correo. Nada que ver con el plan premium.')+'</span>'+
       '</div>';
     if(_step==='email'){
       h+='<label class="mu-auth-lb">'+(E?'Your email':'Tu correo')+'</label>'+
@@ -18275,8 +18275,8 @@ window.__muAuthUI = (function(){
         '<button class="mu-auth-go" onclick="window.__muAuthUI.submitEmail()"'+(_busy?' disabled':'')+'>'+
           (_busy?(E?'Sending…':'Enviando…'):(E?'Send code':'Enviar código'))+'</button>';
     } else {
-      h+='<label class="mu-auth-lb">'+(E?'6-digit code sent to ':'Código de 6 dígitos enviado a ')+'<b>'+_email+'</b></label>'+
-        '<input id="mu-auth-cd" type="text" inputmode="numeric" autocomplete="one-time-code" maxlength="6" placeholder="000000">'+
+      h+='<label class="mu-auth-lb">'+(E?'Code sent to ':'Código enviado a ')+'<b>'+_email+'</b></label>'+
+        '<input id="mu-auth-cd" type="text" inputmode="numeric" autocomplete="one-time-code" maxlength="10" placeholder="••••••">'+
         '<button class="mu-auth-go" onclick="window.__muAuthUI.submitCode()"'+(_busy?' disabled':'')+'>'+
           (_busy?(E?'Checking…':'Verificando…'):(E?'Confirm':'Confirmar'))+'</button>'+
         '<button class="mu-auth-alt" onclick="window.__muAuthUI.back()">'+(E?'← Change email':'← Cambiar correo')+'</button>';
@@ -18309,8 +18309,8 @@ window.__muAuthUI = (function(){
     });
   }
   function submitCode(){
-    var v=(_wrap.querySelector('#mu-auth-cd')||{}).value||''; v=v.trim();
-    if(!/^\d{6}$/.test(v)){ _msg='!'+(en()?'Enter the 6 digits.':'Escribe los 6 dígitos.'); render(); return; }
+    var v=(_wrap.querySelector('#mu-auth-cd')||{}).value||''; v=v.replace(/\D/g,'');
+    if(!/^\d{4,10}$/.test(v)){ _msg='!'+(en()?'Enter the code from the email.':'Escribe el código del correo.'); render(); return; }
     _busy=true; _msg=''; render();
     window.__muAuth.verify(_email, v).then(function(r){
       _busy=false;
