@@ -1,50 +1,43 @@
-/* MathUNAL Service Worker — network-first para el HTML, cache para el resto.
-   Registrado desde index.html (window load). Subir el número de CACHE en cada
-   release para forzar la actualización de los assets cacheados. */
-const CACHE = 'mathunal-v201';
-const SHELL = [
-  './',
-  './index.html',
+/* MathUNAL Service Worker
+   - HTML: SIEMPRE de la red; solo se usa el caché si no hay conexión.
+   - No se precachea el HTML (evita que una respuesta parcial de GitHub Pages
+     durante un deploy quede congelada como "versión offline").
+   - Resto de assets (iconos, CDN): stale-while-revalidate.
+   Subir el número de CACHE en cada release. */
+const CACHE = 'mathunal-v202';
+const STATIC = [
   './manifest.json',
   './icon-192.png',
   './icon-512.png',
   './favicon.png',
   './qr-wa-grupo.png'
 ];
-const CDN = [
-  'https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css',
-  'https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js',
-  'https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js'
-];
 
 self.addEventListener('install', function(e){
   e.waitUntil(
-    caches.open(CACHE).then(function(c){
-      // Cachea el shell local; intenta el CDN sin bloquear la instalación si falla
-      return c.addAll(SHELL).then(function(){
-        return Promise.allSettled(CDN.map(function(u){
-          return fetch(u, {mode:'cors'}).then(function(r){ if(r.ok) return c.put(u, r); });
-        }));
-      });
-    }).then(function(){ return self.skipWaiting(); })
+    caches.open(CACHE)
+      .then(function(c){ return Promise.allSettled(STATIC.map(function(u){ return c.add(u); })); })
+      .then(function(){ return self.skipWaiting(); })
   );
 });
 
 self.addEventListener('activate', function(e){
   e.waitUntil(
-    caches.keys().then(function(keys){
-      return Promise.all(keys.filter(function(k){return k!==CACHE;}).map(function(k){return caches.delete(k);}));
-    }).then(function(){ return self.clients.claim(); })
+    caches.keys()
+      .then(function(keys){ return Promise.all(keys.filter(function(k){ return k!==CACHE; }).map(function(k){ return caches.delete(k); })); })
+      .then(function(){ return self.clients.claim(); })
   );
 });
 
 self.addEventListener('fetch', function(e){
   var req = e.request;
   if (req.method !== 'GET') return;
-  // Para el HTML: network-first (evita servir una versión vieja de la app).
+
   var isDoc = req.mode === 'navigate' ||
               (req.headers.get('accept') || '').indexOf('text/html') !== -1;
+
   if (isDoc) {
+    // Network-first, sin fallback a HTML viejo salvo que NO haya red.
     e.respondWith(
       fetch(req).then(function(res){
         if (res && res.status === 200) {
@@ -52,15 +45,18 @@ self.addEventListener('fetch', function(e){
           caches.open(CACHE).then(function(c){ try{ c.put(req, copy); }catch(_){} });
         }
         return res;
-      }).catch(function(){ return caches.match(req).then(function(c){ return c || caches.match('./index.html'); }); })
+      }).catch(function(){
+        return caches.match(req).then(function(hit){ return hit || caches.match('./'); });
+      })
     );
     return;
   }
-  // Resto de assets: stale-while-revalidate.
+
+  // Assets: responde del caché si está, y refresca en segundo plano.
   e.respondWith(
     caches.match(req).then(function(cached){
       var net = fetch(req).then(function(res){
-        if (res && res.status === 200 && req.url.startsWith('http')) {
+        if (res && res.status === 200 && req.url.indexOf('http') === 0) {
           var copy = res.clone();
           caches.open(CACHE).then(function(c){ try{ c.put(req, copy); }catch(_){} });
         }
