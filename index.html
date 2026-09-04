@@ -236,6 +236,15 @@ html[data-theme="light"]{
 }
 :focus-visible{outline:2px solid var(--acc);outline-offset:3px;border-radius:4px}
 
+/* Al cambiar de tema, `transition:all` en cientos de elementos intenta animar
+   background/border/color a la vez. Chrome 152+ NO actualiza propiedades que
+   vienen de var() cuando solo cambió la custom property -> se quedan congeladas
+   en el color viejo (tarjetas oscuras sobre fondo claro). Solucion: apagar las
+   transiciones un instante durante el cambio de tema. */
+html.mu-no-tr *,html.mu-no-tr *::before,html.mu-no-tr *::after{
+  transition:none !important;animation-duration:0s !important;
+}
+
 /* ── BARRA SCROLL ── */
 #mu-progress-bar{
   position:fixed;top:0;left:0;z-index:9999;height:2px;width:0%;
@@ -14797,10 +14806,19 @@ function copyResult(){
 window.copyResult = copyResult;
 
 var _origSetTheme = window.setTheme;
+var _muNoTrTO=null;
 window.setTheme = function(t){
   var prev = document.documentElement.getAttribute('data-theme');
   if (typeof window.muTrack==='function' && prev!==t) window.muTrack('theme_change', {to: t});
-  document.documentElement.setAttribute('data-theme', t);
+  /* apaga las transiciones durante el cambio (ver CSS .mu-no-tr) y las reactiva
+     tras 2 frames — evita que background/border via var() queden congelados. */
+  var de=document.documentElement;
+  de.classList.add('mu-no-tr');
+  de.setAttribute('data-theme', t);
+  void de.offsetWidth;                         /* fuerza recálculo con el tema nuevo */
+  clearTimeout(_muNoTrTO);
+  requestAnimationFrame(function(){ requestAnimationFrame(function(){ de.classList.remove('mu-no-tr'); }); });
+  _muNoTrTO=setTimeout(function(){ de.classList.remove('mu-no-tr'); }, 120);
   syncThemeToggle(t);
   try{ localStorage.setItem('mu-theme', t); }catch(e){}
   /* Si Fórmulas está abierta con un gráfico activo, recolorea el chart
