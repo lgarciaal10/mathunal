@@ -17950,11 +17950,12 @@ window.__muAuth = (function(){
 
 /* ── SINCRONIZACIÓN DE PROGRESO ─────────────────────────────────────────────── */
 window.__muSync = (function(){
-  var KEYS=['mu-racha','mu-formulas-learned'];
+  var KEYS=['mu-racha','mu-formulas-learned','mu-qotd-log'];
   function lget(k, def){ try{ return JSON.parse(localStorage.getItem(k)||JSON.stringify(def)); }catch(e){ return def; } }
   function lset(k, v){ try{ localStorage.setItem(k, JSON.stringify(v)); }catch(e){} }
   function snapshot(){
-    return { racha: lget('mu-racha',{}), formulas: lget('mu-formulas-learned',[]), v:2 };
+    return { racha: lget('mu-racha',{}), formulas: lget('mu-formulas-learned',[]),
+             qotd: lget('mu-qotd-log',[]), v:2 };
   }
   /* merge sin perder nada: hist se unen (true gana), fórmulas se unen */
   function mergeInto(remote){
@@ -17976,6 +17977,17 @@ window.__muSync = (function(){
     var mf=Object.keys(set);
     if(mf.length!==lf.length) changed=true;
     lset('mu-formulas-learned', mf);
+    // registro de respuestas de la pregunta del día: unión por (fecha|examen)
+    var lq=lget('mu-qotd-log',[]), rq=(remote.qotd&&Array.isArray(remote.qotd))?remote.qotd:[];
+    var seen={}, mq=[];
+    lq.concat(rq).forEach(function(e){
+      if(!e||!e.d) return; var id=e.d+'|'+(e.k||'');
+      if(seen[id]) return; seen[id]=1; mq.push(e);
+    });
+    mq.sort(function(a,b){ return a.d<b.d?-1:a.d>b.d?1:0; });
+    if(mq.length>180) mq=mq.slice(-180);
+    if(mq.length!==lq.length) changed=true;
+    lset('mu-qotd-log', mq);
     return changed;
   }
   var _t=null;
@@ -18118,6 +18130,18 @@ window.__muRacha = (function(){
       pasos+
     '</details>';
   }
+  /* registro detallado de la respuesta del día (para analítica: qué materia /
+     examen / opción, y si acertó). Se sincroniza vía __muSync. */
+  function logAnswer(picked, ok){
+    try{
+      var log=JSON.parse(localStorage.getItem('mu-qotd-log')||'[]'); if(!Array.isArray(log)) log=[];
+      log.push({ d:today(), m:getMat(), k:(_curPD&&_curPD.key)||'',
+                 qi:(_curPD&&_curPD.i), pick:picked, ok:ok?1:0 });
+      if(log.length>180) log=log.slice(-180);
+      localStorage.setItem('mu-qotd-log', JSON.stringify(log));
+      if(window.__muSync && window.__muSync.push) window.__muSync.push();
+    }catch(e){}
+  }
   /* registra la respuesta de hoy (acumula en hist; el resto se deriva) */
   function responder(correcta){
     var s=raw(), t=today();
@@ -18222,7 +18246,9 @@ window.__muRacha = (function(){
       if(bi===correcta) b.classList.add('correct');
       else if(bi===i) b.classList.add('wrong');
     });
+    var first=(raw().hist[today()]===undefined);
     var s=responder(ok);
+    if(first) logAnswer(i, ok);
     var fb=document.getElementById('mu-rc-fb');
     if(fb){
       fb.className='mu-rc-fb show '+(ok?'ok':'no');
