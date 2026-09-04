@@ -12784,6 +12784,26 @@ viz:{type:'subtrig',
   ann:'Más términos = mejor aproximación. Con 5 términos converge bien en [−5, 5].'
  }
 },
+{tag:'ser',name:'Serie de Fourier (onda cuadrada)',
+ formula:'f(x)\\approx\\dfrac{4}{\\pi}\\sum_{k=1}^{N}\\dfrac{\\sin\\big((2k-1)x\\big)}{2k-1}',
+ desc:'Toda onda periódica es una suma de senos y cosenos. La onda cuadrada usa solo los armónicos impares, con peso 1/(2k−1).',
+ tip:'El “rebote” en los saltos que no desaparece por más términos que sumes es el fenómeno de Gibbs.',
+ nemo:'«Cuadrada = solo impares, y el peso es 1 sobre ese impar.»',
+ viz:{type:'fourier',
+  params:[{id:'N',l:'Armónicos (N)',min:1,max:24,step:1,def:4,u:''}],
+  anim:{param:'N',from:1,to:24},
+  live:function(ps){ var n=Math.round(ps.N); return 'N = '+n+(n===1?' término':' términos'); },
+  render:function(ps,cat,uz,anim){
+   var N=Math.max(1,Math.round(ps.N)), P=anim?360:700, xs=lin(-Math.PI,Math.PI,P);
+   var tgt=xs.map(function(x){ return x<0?-1:(x>0?1:0); });
+   var apx=xs.map(function(x){ var s=0; for(var k=1;k<=N;k++){ var m=2*k-1; s+=Math.sin(m*x)/m; } return 4/Math.PI*s; });
+   return {data:[
+    {x:xs,y:tgt,type:'scatter',mode:'lines',line:{color:'#8b8ba0',width:1.5,dash:'dot'},name:'onda objetivo'},
+    {x:xs,y:apx,type:'scatter',mode:'lines',line:{color:cat,width:2.5},name:'suma de N armónicos'}
+   ],xrange:[-Math.PI,Math.PI],yrange:[-1.55,1.55]};},
+  ann:'<button class="vbtn" onclick="window.__muFourierPlay&&window.__muFourierPlay(this)"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" style="vertical-align:-1px"><path d="M6 4l14 8-14 8V4z"/></svg> Escuchar</button> <span style="color:var(--t3);font-size:.76rem">cada término es un tono puro (un armónico impar). Súmalos y el timbre se acerca al de la onda cuadrada.</span>'
+ }
+},
 {tag:'ser',name:'Serie geométrica',
  formula:'\\sum_{n=0}^{\\infty}ar^n=\\dfrac{a}{1-r},\\;|r|<1',
  desc:'Converge si |r|<1. La suma parcial de N términos = a(1−rᴺ)/(1−r).',nemo:"«La escalera que se encoge: cada escalón es r veces el anterior.»",
@@ -18270,6 +18290,50 @@ window.__muRacha = (function(){
   return { get:get, render:render, pick:pick, responder:responder, preguntaDelDia:preguntaDelDia,
            liveStreak:liveStreak, setMat:setMatAndRender, getMat:getMat, logout:logout,
            MATS:MATS, matName:matName };
+})();
+
+/* ── FOURIER AUDIBLE ────────────────────────────────────────────────────────────
+   Suma N armónicos impares (onda cuadrada) y los REPRODUCE. Lee el slider "N"
+   de la viz de Fórmulas. Toggle play/stop. Silencioso si Web Audio está bloqueado.
+   Vive en este bloque (siempre se ejecuta) porque el módulo de Fórmulas es lazy. */
+window.__muFourierPlay = (function(){
+  var ac=null, master=null, oscs=[], playing=false, to=null;
+  function icon(on){
+    var en=(window.curLang==='en');
+    return on
+      ? '<svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" style="vertical-align:-1px"><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></svg> '+(en?'Stop':'Detener')
+      : '<svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" style="vertical-align:-1px"><path d="M6 4l14 8-14 8V4z"/></svg> '+(en?'Listen':'Escuchar');
+  }
+  function stop(btn){
+    playing=false; clearTimeout(to);
+    try{ if(master&&ac){ master.gain.cancelScheduledValues(ac.currentTime); master.gain.setTargetAtTime(0.0001,ac.currentTime,0.03); } }catch(e){}
+    oscs.forEach(function(o){ try{ o.stop(ac.currentTime+0.25); }catch(e){} });
+    oscs=[]; master=null;
+    if(btn) btn.innerHTML=icon(false);
+  }
+  return function(btn){
+    try{
+      if(playing){ stop(btn); return; }
+      if(!ac) ac=new (window.AudioContext||window.webkitAudioContext)();
+      if(ac.state==='suspended') ac.resume();
+      var el=document.querySelector('[data-param="N"]');
+      var N=Math.max(1,Math.min(24,Math.round(el?parseFloat(el.value):4)));
+      var f0=196, t0=ac.currentTime, DUR=2.4;
+      master=ac.createGain(); master.gain.value=0.0001; master.connect(ac.destination);
+      master.gain.setTargetAtTime(0.85,t0,0.02);
+      master.gain.setTargetAtTime(0.0001,t0+DUR-0.35,0.12);
+      oscs=[];
+      for(var k=1;k<=N;k++){
+        var m=2*k-1;
+        var o=ac.createOscillator(); o.type='sine'; o.frequency.value=f0*m;
+        var g=ac.createGain(); g.gain.value=(4/Math.PI)*(1/m)*0.26;
+        o.connect(g); g.connect(master); o.start(t0); o.stop(t0+DUR);
+        oscs.push(o);
+      }
+      playing=true; if(btn) btn.innerHTML=icon(true);
+      to=setTimeout(function(){ playing=false; oscs=[]; master=null; if(btn) btn.innerHTML=icon(false); }, DUR*1000);
+    }catch(e){}
+  };
 })();
 
 /* ── MODAL DE CUENTA (código al correo · sin contraseña) ─────────────────────── */
