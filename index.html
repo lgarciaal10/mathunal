@@ -9463,6 +9463,33 @@ window.muApplyLang_simulacro = function(){
   document.querySelectorAll('#submit-overlay .qbtn.primary').forEach(function(b){
     if(b.textContent==='Entregar así') b.textContent='Submit';
   });
+  // ── SIMULACROS PRO: onboarding + Modo Real + paywall (estáticos del HTML) ──
+  var _set=function(sel,txt){ var el=document.querySelector(sel); if(el) el.textContent=txt; };
+  var _seth=function(sel,html){ var el=document.querySelector(sel); if(el) el.innerHTML=html; };
+  _set('#sim-onb .sim-onb-q','What are you sitting?');
+  var _onbL=document.querySelectorAll('#sim-onb .sim-onb-lbl');
+  if(_onbL[0]) _onbL[0].textContent='Subject';
+  if(_onbL[1]) _onbL[1].textContent='Corte';
+  if(_onbL[2]) _onbL[2].textContent='Exam date';
+  var _onbH=document.querySelectorAll('#sim-onb .sim-onb-hint');
+  if(_onbH[0]) _onbH[0].textContent='the other subjects have practice exams below ↓';
+  if(_onbH[1]) _onbH[1].textContent='curated mock by corte + solution + analysis';
+  var _mr=document.querySelector('#sim-modoreal span');
+  if(_mr) _mr.innerHTML='<b>Real Exam Mode</b> — full screen, no solutions until you submit. Feels like the real thing.';
+  _set('#sim-pw-overlay .sim-pw-tag','MathUNAL Pro · Differential Calculus');
+  _set('#sim-pw-h','Unlock full preparation');
+  var _pwLi=document.querySelectorAll('#sim-pw-overlay .sim-pw-list li');
+  var _pwEn=['Every mock for the 3 cortes, as many as you want',
+    'Step-by-step solution + the trick for each question',
+    'Drill only your mistakes · spaced repetition',
+    'Dashboard "My preparation" + grade estimate'];
+  _pwLi.forEach(function(li,i){ if(_pwEn[i]) li.textContent=_pwEn[i]; });
+  _seth('#sim-pw-overlay .sim-pw-price','<b>$12,000</b> <span>one payment · access all semester · no auto-renewal</span>');
+  document.querySelectorAll('#sim-pw-overlay .qbtn').forEach(function(b){
+    if(b.textContent.indexOf('Ahora no')>=0) b.textContent='Not now';
+    if(b.id==='sim-pw-pay') b.textContent='Pay (simulated) →';
+  });
+  _set('#sim-pw-overlay .sim-pw-note','Prototype: payment is simulated, it only enables Pro mode locally. Real billing and the server-side lock come with Supabase.');
   /* Las tarjetas de examen (_renderCards) tenian su propio texto de interfaz
      ("Nuevo"/"preguntas"/"Comenzar"/etc.) 100% hardcodeado en español, sin
      ningun chequeo de idioma -- se quedaban en español aunque el resto de
@@ -17499,6 +17526,12 @@ window.__SIMPRO_DEV = /[?&]simpro=1/.test(location.href) || !!window.__SIM_LOCAL
   if(!TAX||!META){ return; }
   var EX=window.EXAMS||{}, EM=window.EXAM_META||{};
 
+  /* i18n mínimo del entrenador. curLang lo fija el switch ES/EN del sitio.
+     _t('es','en') devuelve la variante activa. */
+  function _en(){ return window.curLang==='en'; }
+  function _t(es,en){ return _en()? en : es; }
+  window.__simT=_t;
+
   /* 1. metadata sobre preguntas existentes */
   Object.keys(META).forEach(function(slug){
     Object.keys(META[slug]).forEach(function(examKey){
@@ -17594,29 +17627,31 @@ window.__SIMPRO_DEV = /[?&]simpro=1/.test(location.href) || !!window.__SIM_LOCAL
     if(!_isPro){
       stp.innerHTML='<div class="sim-sol-lock">'+
         '<div class="sim-free-lock-ic">🔒</div>'+
-        '<div><strong>Solución paso a paso · MathUNAL Pro</strong>'+
-        '<div class="sim-free-lock-sub">El desarrollo completo, el truco para reconocerlo en el parcial y la gráfica interactiva son de Pro.</div></div>'+
-        '<button type="button" class="sim-free-lock-btn" onclick="window.__simPaywall&&window.__simPaywall(\'solucion\')">Ver MathUNAL Pro →</button></div>';
+        '<div><strong>'+_t('Solución paso a paso · MathUNAL Pro','Step-by-step solution · MathUNAL Pro')+'</strong>'+
+        '<div class="sim-free-lock-sub">'+_t('El desarrollo completo, el truco para reconocerlo en el parcial y la gráfica interactiva son de Pro.','The full work-through, the trick to spot it on the exam and the interactive graph are Pro.')+'</div></div>'+
+        '<button type="button" class="sim-free-lock-btn" onclick="window.__simPaywall&&window.__simPaywall(\'solucion\')">'+_t('Ver MathUNAL Pro →','See MathUNAL Pro →')+'</button></div>';
       return;
     }
     /* Pro pero las soluciones aún no llegaron del servidor */
     if(window.__simPro && window.__simPro.isPro() && !window.__simSolReady && !q.antibobo && !(q.pasos&&q.pasos.length)){
       try{ if(window.__simFetchSol) window.__simFetchSol(); }catch(e){}
       stp.innerHTML='<div class="sim-sol-lock" style="opacity:.7"><div class="sim-free-lock-ic">⏳</div>'+
-        '<div><strong>Cargando la solución…</strong>'+
-        '<div class="sim-free-lock-sub">Si no aparece, revisa tu conexión y vuelve a abrir la explicación.</div></div></div>';
+        '<div><strong>'+_t('Cargando la solución…','Loading the solution…')+'</strong>'+
+        '<div class="sim-free-lock-sub">'+_t('Si no aparece, revisa tu conexión y vuelve a abrir la explicación.','If it does not appear, check your connection and reopen the explanation.')+'</div></div></div>';
       return;
     }
     var h='';
-    if(q.reconocer) h+='<div class="sim-extra sim-rc-block"><span class="sim-mini-lbl">Cómo reconocerlo en el parcial</span><div>'+mh(q.reconocer)+'</div></div>';
-    if(q.antibobo)  h+='<div class="sim-extra sim-ab-block"><span class="sim-mini-lbl">El truco</span><b>'+mh(q.antibobo)+'</b></div>';
-    if(q.freq){ var fl={alta:'Muy frecuente en parciales',media:'Frecuencia media',baja:'Poco frecuente'}[q.freq];
+    if(q.reconocer) h+='<div class="sim-extra sim-rc-block"><span class="sim-mini-lbl">'+_t('Cómo reconocerlo en el parcial','How to spot it on the exam')+'</span><div>'+mh(q.reconocer)+'</div></div>';
+    if(q.antibobo)  h+='<div class="sim-extra sim-ab-block"><span class="sim-mini-lbl">'+_t('El truco','The trick')+'</span><b>'+mh(q.antibobo)+'</b></div>';
+    if(q.freq){ var fl=_en()
+        ? {alta:'Very common on exams',media:'Medium frequency',baja:'Uncommon'}[q.freq]
+        : {alta:'Muy frecuente en parciales',media:'Frecuencia media',baja:'Poco frecuente'}[q.freq];
       if(fl) h+='<div class="sim-freq-note sim-freq-'+q.freq+'">'+fl+'</div>'; }
     if(h){ stp.insertAdjacentHTML('beforeend',h); if(window._renderMath) window._renderMath(stp); }
     // Compruébalo tú mismo (widget interactivo)
     if(q.compruebalo && window.__simLab && window.__simLab.has(q.compruebalo)){
       var box=document.createElement('div'); box.className='sim-lab-box';
-      box.innerHTML='<span class="sim-mini-lbl">Compruébalo tú mismo</span><div class="sim-lab-host"></div>';
+      box.innerHTML='<span class="sim-mini-lbl">'+_t('Compruébalo tú mismo','See it for yourself')+'</span><div class="sim-lab-host"></div>';
       stp.appendChild(box);
       window.__simLab.mount(box.querySelector('.sim-lab-host'), q.compruebalo);
     }
@@ -17634,7 +17669,7 @@ window.__SIMPRO_DEV = /[?&]simpro=1/.test(location.href) || !!window.__SIM_LOCAL
       var gq=__simGetQ(q.gemela);
       if(gq && gq.tipo==='mcq' && gq!==q){
         var gwrap=document.createElement('div'); gwrap.className='sim-gem';
-        gwrap.innerHTML='<button class="sim-gem-btn" type="button">¿Ya lo entendiste? Prueba una parecida →</button>';
+        gwrap.innerHTML='<button class="sim-gem-btn" type="button">'+_t('¿Ya lo entendiste? Prueba una parecida →','Got it now? Try a similar one →')+'</button>';
         stp.appendChild(gwrap);
         gwrap.querySelector('button').addEventListener('click',function(){ __simRenderGemela(gwrap, gq); });
       }
@@ -17672,11 +17707,11 @@ window.__SIMPRO_DEV = /[?&]simpro=1/.test(location.href) || !!window.__SIM_LOCAL
     if(qs.length<3) return null;
     var tax=(window.SIM_TAX||{})[slug]||{}, cinfo=(tax.cortes||{})[corte]||{};
     var mins=qs.reduce(function(a,q){return a+(q.tEsp?q.tEsp/60:(q.tipo==='abierta'?8:2));},0);
-    EX['reto_x']={ titulo:tax.materia||'Reto', semestre:'RETO DE UN AMIGO'+(corte?(' · CORTE '+corte):''),
+    EX['reto_x']={ titulo:tax.materia||'Reto', semestre:(_en()?'A FRIEND’S CHALLENGE':'RETO DE UN AMIGO')+(corte?(' · CORTE '+corte):''),
       codigo:tax.codigo||'1000004', tiempo:Math.max(15,Math.round(mins/5)*5),
-      desc:(cinfo.temas||[]).slice(0,4).join(', ')||'Mismas preguntas que tu amigo.', preguntas:qs,
+      desc:(cinfo.temas||[]).slice(0,4).join(', ')||_t('Mismas preguntas que tu amigo.','The same questions as your friend.'), preguntas:qs,
       _reto:true, _corte:corte, _slug:slug };
-    EM['reto_x']={mat:slug,color:'#E05D1A',badge:'Reto',tipo:'Reto de un amigo',nuevo:false,_ord:-30};
+    EM['reto_x']={mat:slug,color:'#E05D1A',badge:_t('Reto','Challenge'),tipo:_t('Reto de un amigo','Friend challenge'),nuevo:false,_ord:-30};
     return 'reto_x';
   };
   window.__simRetar=function(){
@@ -17684,16 +17719,18 @@ window.__SIMPRO_DEV = /[?&]simpro=1/.test(location.href) || !!window.__SIM_LOCAL
     if(!tok){ if(window.shareWA) window.shareWA(); return; }
     var url=location.origin+location.pathname+'#simulacro?reto='+tok;
     var nota=(function(){ var g=document.getElementById('grade-stamp-n'); return g?g.textContent:''; })();
-    var txt='Te reto al simulacro de '+((window._exam&&window._exam.titulo)||'Cálculo')+
-      (window._exam&&window._exam._corte?(' — Corte '+window._exam._corte):'')+
-      (nota?('. Yo saqué '+nota+'/5.0. ¿Me ganas?'):'. ¿Me ganas?')+'\n\n'+url;
+    var _mn=(window._exam&&window._exam.titulo)||'Cálculo';
+    var _co=window._exam&&window._exam._corte?(' — Corte '+window._exam._corte):'';
+    var txt=_en()
+      ? ('I challenge you to the '+_mn+_co+' mock'+(nota?('. I got '+nota+'/5.0. Can you beat me?'):'. Can you beat me?')+'\n\n'+url)
+      : ('Te reto al simulacro de '+_mn+_co+(nota?('. Yo saqué '+nota+'/5.0. ¿Me ganas?'):'. ¿Me ganas?')+'\n\n'+url);
     try{ var _cp=navigator.clipboard&&navigator.clipboard.writeText(url); if(_cp&&_cp.catch) _cp.catch(function(){}); }catch(e){}
     window.open('https://wa.me/?text='+encodeURIComponent(txt),'_blank');
   };
   function __simRenderGemela(wrap, gq){
     var L=['A','B','C','D','E'];
     var mh=window._mathHtml||function(x){return x;};
-    wrap.innerHTML='<div class="sim-gem-lbl">Pregunta gemela — mismo concepto, otra cara</div>'+
+    wrap.innerHTML='<div class="sim-gem-lbl">'+_t('Pregunta gemela — mismo concepto, otra cara','Twin question — same concept, different face')+'</div>'+
       '<div class="sim-gem-q">'+mh(gq.texto)+'</div>'+
       gq.opciones.map(function(o,i){ return '<button class="sim-gem-opt" data-i="'+i+'"><span>'+L[i]+'</span>'+mh(o)+'</button>'; }).join('');
     if(window._renderMath) window._renderMath(wrap);
@@ -17706,8 +17743,8 @@ window.__SIMPRO_DEV = /[?&]simpro=1/.test(location.href) || !!window.__SIM_LOCAL
           else if(x===b) x.classList.add('no');
         });
         wrap.insertAdjacentHTML('beforeend', ok
-          ? '<div class="sim-gem-res ok">✓ Concepto recuperado.</div>'
-          : '<div class="sim-gem-res no">Todavía no — vuelve a mirar el truco de arriba y reintenta el simulacro.</div>');
+          ? '<div class="sim-gem-res ok">'+_t('✓ Concepto recuperado.','✓ Concept recovered.')+'</div>'
+          : '<div class="sim-gem-res no">'+_t('Todavía no — vuelve a mirar el truco de arriba y reintenta el simulacro.','Not yet — look at the trick above again and retry the mock.')+'</div>');
       });
     });
   }
@@ -17719,8 +17756,8 @@ window.__SIMPRO_DEV = /[?&]simpro=1/.test(location.href) || !!window.__SIM_LOCAL
     if(!q || q.tipo!=='mcq' || window._checked[idx]) return;
     var opts=document.getElementById('q-options'); if(!opts || document.getElementById('sim-conf-'+idx)) return;
     var row=document.createElement('div'); row.className='sim-conf'; row.id='sim-conf-'+idx;
-    row.innerHTML='<span class="sim-conf-lbl">¿Qué tan seguro estás?</span>'+
-      ['Seguro','Dudoso','Adiviné'].map(function(c){
+    row.innerHTML='<span class="sim-conf-lbl">'+_t('¿Qué tan seguro estás?','How sure are you?')+'</span>'+
+      (_en()?['Sure','Unsure','Guessed']:['Seguro','Dudoso','Adiviné']).map(function(c){
         var on=window._simConf[idx]===c;
         return '<button type="button" class="sim-conf-b'+(on?' on':'')+'" data-c="'+c+'">'+c+'</button>';
       }).join('');
@@ -17780,37 +17817,45 @@ window.__SIMPRO_DEV = /[?&]simpro=1/.test(location.href) || !!window.__SIM_LOCAL
     if(!_isPro){
       var flojo = rows.filter(function(r){ return r.p<75; })[0] || rows[0];
       var h2='<div class="sim-dom-card sim-dom-free">'+
-        '<div class="sim-dom-h">Tu diagnóstico</div>';
-      if(flojo) h2+='<p class="sim-free-teaser">Tu mayor fuga: <b>'+flojo.t+'</b>. Ahí es donde estás perdiendo puntos.</p>';
+        '<div class="sim-dom-h">'+_t('Tu diagnóstico','Your diagnosis')+'</div>';
+      if(flojo) h2+='<p class="sim-free-teaser">'+_t('Tu mayor fuga: <b>'+flojo.t+'</b>. Ahí es donde estás perdiendo puntos.','Your biggest leak: <b>'+flojo.t+'</b>. That is where you are losing points.')+'</p>';
       h2+='<div class="sim-free-lock">'+
         '<div class="sim-free-lock-ic">🔒</div>'+
-        '<div><strong>Desbloquea el análisis completo</strong>'+
-        '<div class="sim-free-lock-sub">dominio de los '+rows.length+' temas · qué tipo de error cometes · todas las soluciones con el truco · entrenar tus fallos</div></div>'+
-        '<button type="button" class="sim-free-lock-btn" onclick="window.__simPaywall&&window.__simPaywall(\'analisis\')">Ver MathUNAL Pro →</button>'+
+        '<div><strong>'+_t('Desbloquea el análisis completo','Unlock the full analysis')+'</strong>'+
+        '<div class="sim-free-lock-sub">'+_t('dominio de los '+rows.length+' temas · qué tipo de error cometes · todas las soluciones con el truco · entrenar tus fallos','mastery of all '+rows.length+' topics · what kind of mistake you make · every solution with the trick · drill your misses')+'</div></div>'+
+        '<button type="button" class="sim-free-lock-btn" onclick="window.__simPaywall&&window.__simPaywall(\'analisis\')">'+_t('Ver MathUNAL Pro →','See MathUNAL Pro →')+'</button>'+
         '</div></div>';
       host.insertAdjacentHTML('afterbegin', h2);
       if(window._renderMath) window._renderMath(host);
       return;
     }
 
-    var html='<div class="sim-dom-card"><div class="sim-dom-h">Dominio por tema</div><table class="sim-dom-t">';
+    var _rkL=_en()?{bajo:'LOW',medio:'MED',alto:'HIGH'}:{bajo:'BAJO',medio:'MEDIO',alto:'ALTO'};
+    var html='<div class="sim-dom-card"><div class="sim-dom-h">'+_t('Dominio por tema','Mastery by topic')+'</div><table class="sim-dom-t">';
     rows.forEach(function(r){
       var col=r.p>=75?'var(--ok)':r.p>=50?'var(--warn)':'var(--bad)';
       var rk=r.p>=75?'bajo':r.p>=50?'medio':'alto';
       html+='<tr><td>'+r.t+'</td><td><span class="sim-bar"><i style="width:'+r.p+'%;background:'+col+'"></i></span></td>'+
-        '<td class="sim-dom-n">'+r.p+'%</td><td><span class="sim-risk sim-risk-'+rk+'">'+rk.toUpperCase()+'</span></td></tr>';
+        '<td class="sim-dom-n">'+r.p+'%</td><td><span class="sim-risk sim-risk-'+rk+'">'+_rkL[rk]+'</span></td></tr>';
     });
     html+='</table>';
     var topErr=Object.keys(byErr).sort(function(a,b){return byErr[b]-byErr[a];})[0];
     if(topErr){
-      var em={
+      var em=(_en()?{
+        conceptual:'Your misses are <b>conceptual</b>: the method is not clear, it is not an arithmetic issue.',
+        procedimiento:'Your misses are <b>procedural</b>: you know what to do but a step slips (almost always the chain-rule factor).',
+        algebra:'You do not have a concept problem. You are losing points to <b>algebra</b>.',
+        signo:'Your misses are <b>sign</b> errors: the setup is right, a minus flips.',
+        formula:'Your misses are <b>formula</b> errors: you are misremembering a base formula.',
+        interpretacion:'Your misses are <b>interpretation</b> errors: you read the prompt differently from what it asks.'
+      }:{
         conceptual:'Tus fallos son de <b>concepto</b>: el método no está claro, no es cuestión de cuentas.',
         procedimiento:'Tus fallos son de <b>procedimiento</b>: sabes qué hacer pero se te salta un paso (casi siempre el factor de la regla de la cadena).',
         algebra:'No tienes un problema de concepto. Estás perdiendo puntos por <b>álgebra</b>.',
         signo:'Tus fallos son de <b>signo</b>: el planteo está bien, se te voltea un menos.',
         formula:'Tus fallos son de <b>fórmula</b>: estás recordando mal una fórmula base.',
         interpretacion:'Tus fallos son de <b>interpretación</b>: lees el enunciado distinto de lo que pide.'
-      }[topErr];
+      })[topErr];
       if(em) html+='<div class="sim-err-msg">'+em+'</div>';
     }
     // insight de confianza calibrada
@@ -17820,16 +17865,19 @@ window.__SIMPRO_DEV = /[?&]simpro=1/.test(location.href) || !!window.__SIM_LOCAL
       cg[conf[i]]=cg[conf[i]]||{ok:0,n:0}; cg[conf[i]].n++;
       if(A[i]===q.correcta) cg[conf[i]].ok++;
     });
-    var seg=cg['Seguro'], dud=cg['Dudoso'], adiv=cg['Adiviné'];
+    var seg=cg[_t('Seguro','Sure')]||cg['Seguro'], dud=cg[_t('Dudoso','Unsure')]||cg['Dudoso'], adiv=cg[_t('Adiviné','Guessed')]||cg['Adiviné'];
     if(seg && seg.n>=2){
       var pS=Math.round(seg.ok/seg.n*100);
       var cmsg='';
-      if(pS<70) cmsg='Marcaste <b>'+seg.n+'</b> como "Seguro" y solo acertaste el <b>'+pS+'%</b>. Ese es el error caro del parcial: no es que no sepas, es que no reconoces cuándo NO sabes. Repasa esos temas con calma.';
-      else if(dud && dud.n>=2 && (dud.ok/dud.n) < 0.5) cmsg='En las que dijiste "Seguro" vas bien ('+pS+'%), pero en las "Dudoso" caes al '+Math.round(dud.ok/dud.n*100)+'%. Tu instinto es bueno — cuando dudes, tómate 30 s más antes de marcar.';
-      else cmsg='Tu confianza está calibrada: acertaste el '+pS+'% de las que marcaste "Seguro". Buena señal para el parcial.';
+      if(pS<70) cmsg=_t('Marcaste <b>'+seg.n+'</b> como "Seguro" y solo acertaste el <b>'+pS+'%</b>. Ese es el error caro del parcial: no es que no sepas, es que no reconoces cuándo NO sabes. Repasa esos temas con calma.',
+                        'You marked <b>'+seg.n+'</b> as "Sure" and got only <b>'+pS+'%</b> right. That is the expensive exam mistake: it is not that you do not know, it is that you do not notice when you do NOT know. Review those topics calmly.');
+      else if(dud && dud.n>=2 && (dud.ok/dud.n) < 0.5) cmsg=_t('En las que dijiste "Seguro" vas bien ('+pS+'%), pero en las "Dudoso" caes al '+Math.round(dud.ok/dud.n*100)+'%. Tu instinto es bueno — cuando dudes, tómate 30 s más antes de marcar.',
+                        'On the ones you called "Sure" you do well ('+pS+'%), but on the "Unsure" ones you drop to '+Math.round(dud.ok/dud.n*100)+'%. Your instinct is good — when in doubt, take 30 s more before answering.');
+      else cmsg=_t('Tu confianza está calibrada: acertaste el '+pS+'% de las que marcaste "Seguro". Buena señal para el parcial.',
+                        'Your confidence is calibrated: you got '+pS+'% of your "Sure" answers right. Good sign for the exam.');
       if(cmsg) html+='<div class="sim-err-msg sim-conf-msg">'+cmsg+'</div>';
     } else if(adiv && adiv.n>=3 && (adiv.ok/adiv.n)>0.5){
-      html+='<div class="sim-err-msg sim-conf-msg">Acertaste varias que marcaste "Adiviné". No cuentan como dominadas — míralas en la revisión antes de confiarte.</div>';
+      html+='<div class="sim-err-msg sim-conf-msg">'+_t('Acertaste varias que marcaste "Adiviné". No cuentan como dominadas — míralas en la revisión antes de confiarte.','You got several right that you marked "Guessed". They do not count as mastered — review them before you rely on them.')+'</div>';
     }
     html+='</div>';
     host.insertAdjacentHTML('afterbegin',html);
@@ -17901,37 +17949,37 @@ window.__SIMPRO_DEV = /[?&]simpro=1/.test(location.href) || !!window.__SIM_LOCAL
       host.insertAdjacentHTML('beforeend',
         '<div class="sim-prep"><div class="sim-free-lock">'+
         '<div class="sim-free-lock-ic">📊</div>'+
-        '<div><strong>Mi preparación · MathUNAL Pro</strong>'+
-        '<div class="sim-free-lock-sub">Tu nivel /100 por corte, tu punto ciego, la predicción de nota y el badge "LISTO PARA EL CORTE".</div></div>'+
-        '<button type="button" class="sim-free-lock-btn" onclick="window.__simPaywall&&window.__simPaywall(\'analisis\')">Ver Pro →</button>'+
+        '<div><strong>'+_t('Mi preparación · MathUNAL Pro','My preparation · MathUNAL Pro')+'</strong>'+
+        '<div class="sim-free-lock-sub">'+_t('Tu nivel /100 por corte, tu punto ciego, la predicción de nota y el badge "LISTO PARA EL CORTE".','Your score /100 per corte, your blind spot, the grade prediction and the "READY FOR THE CORTE" badge.')+'</div></div>'+
+        '<button type="button" class="sim-free-lock-btn" onclick="window.__simPaywall&&window.__simPaywall(\'analisis\')">'+_t('Ver Pro →','See Pro →')+'</button>'+
         '</div></div>');
       return;
     }
-    var st=function(s){ return s>=85?['🔥','Muy preparado','var(--acc)'] : s>=70?['🟢','Listo','var(--ok)'] : s>=50?['🟡','En riesgo','var(--warn)'] : ['🔴','No listo','var(--bad)']; };
+    var st=function(s){ return s>=85?['🔥',_t('Muy preparado','Very ready'),'var(--acc)'] : s>=70?['🟢',_t('Listo','Ready'),'var(--ok)'] : s>=50?['🟡',_t('En riesgo','At risk'),'var(--warn)'] : ['🔴',_t('No listo','Not ready'),'var(--bad)']; };
     var h='<div class="sim-prep">';
     var dias=(window.__simDiasRestantes&&window.__simDiasRestantes());
     if(dias!=null && dias>=0){
       h+='<div class="sim-prep-fecha'+(dias<=3?' urgent':'')+'">'+
-        (dias>1?('Faltan <b>'+dias+' días</b> para tu parcial'):dias===1?'Tu parcial es <b>mañana</b>':'Tu parcial es <b>hoy</b>')+
-        (data[0]&&!data.some(function(d){return d.listo;})?' — todavía no estás listo en ningún corte.':'')+'</div>';
+        (dias>1?_t('Faltan <b>'+dias+' días</b> para tu parcial','<b>'+dias+' days</b> until your exam'):dias===1?_t('Tu parcial es <b>mañana</b>','Your exam is <b>tomorrow</b>'):_t('Tu parcial es <b>hoy</b>','Your exam is <b>today</b>'))+
+        (data[0]&&!data.some(function(d){return d.listo;})?_t(' — todavía no estás listo en ningún corte.',' — you are not ready in any corte yet.'):'')+'</div>';
     }
     data.forEach(function(d){
       var s=st(d.score);
       h+='<div class="sim-prep-c">'+
         '<div class="sim-prep-top"><div><div class="sim-prep-corte">Corte '+d.corte+' · '+d.nombre+'</div>'+
           '<div class="sim-prep-score">'+s[0]+' <b style="color:'+s[2]+'">'+d.score+'</b><span>/100 · '+s[1]+'</span></div></div>'+
-          (d.listo?'<span class="sim-prep-badge">✓ LISTO PARA EL CORTE</span>':'')+'</div>'+
-        '<div class="sim-prep-sub">Conocimiento '+d.conocimiento+' · Velocidad '+d.velocidad+' · Cobertura '+d.cobertura+
-          ' <span class="sim-prep-mini">('+d.intentos+' intento'+(d.intentos>1?'s':'')+': '+d.notas.map(function(n){return n.toFixed(1);}).join(' → ')+')</span></div>'+
+          (d.listo?'<span class="sim-prep-badge">'+_t('✓ LISTO PARA EL CORTE','✓ READY FOR THE CORTE')+'</span>':'')+'</div>'+
+        '<div class="sim-prep-sub">'+_t('Conocimiento','Knowledge')+' '+d.conocimiento+' · '+_t('Velocidad','Speed')+' '+d.velocidad+' · '+_t('Cobertura','Coverage')+' '+d.cobertura+
+          ' <span class="sim-prep-mini">('+d.intentos+' '+_t(d.intentos>1?'intentos':'intento',d.intentos>1?'attempts':'attempt')+': '+d.notas.map(function(n){return n.toFixed(1);}).join(' → ')+')</span></div>'+
         (d.realNota!=null
-          ? '<div class="sim-prep-pred">En el parcial real sacaste <b>'+d.realNota.toFixed(1)+'</b>'+
-            (d.predLo<=d.realNota&&d.realNota<=d.predHi+0.2?' — dentro del rango estimado ✓':'')+'</div>'
-          : '<div class="sim-prep-pred">Estimación MathUNAL <span class="sim-prep-beta">'+(d.calibrada?'calibrada':'beta')+'</span> · rango esperado en el parcial: <b>'+d.predLo.toFixed(1)+' – '+d.predHi.toFixed(1)+'</b></div>')+
+          ? '<div class="sim-prep-pred">'+_t('En el parcial real sacaste <b>'+d.realNota.toFixed(1)+'</b>','On the real exam you got <b>'+d.realNota.toFixed(1)+'</b>')+
+            (d.predLo<=d.realNota&&d.realNota<=d.predHi+0.2?_t(' — dentro del rango estimado ✓',' — within the estimated range ✓'):'')+'</div>'
+          : '<div class="sim-prep-pred">'+_t('Estimación MathUNAL','MathUNAL estimate')+' <span class="sim-prep-beta">'+(d.calibrada?_t('calibrada','calibrated'):'beta')+'</span> · '+_t('rango esperado en el parcial','expected range on the exam')+': <b>'+d.predLo.toFixed(1)+' – '+d.predHi.toFixed(1)+'</b></div>')+
         (d.realNota==null && window.__simDiasRestantes && window.__simDiasRestantes()!=null && window.__simDiasRestantes()<0
-          ? '<div class="sim-prep-realq" data-slug="'+d.slug+'" data-corte="'+d.corte+'">¿Ya presentaste? ¿Qué nota sacaste de verdad? '+
+          ? '<div class="sim-prep-realq" data-slug="'+d.slug+'" data-corte="'+d.corte+'">'+_t('¿Ya presentaste? ¿Qué nota sacaste de verdad?','Already sat it? What grade did you actually get?')+' '+
             [2.0,2.5,3.0,3.5,4.0,4.5,5.0].map(function(n){return '<button class="sim-realq-b" data-n="'+n+'">'+n.toFixed(1)+'</button>';}).join('')+'</div>'
           : '')+
-        (d.ciego?'<div class="sim-prep-ciego">Tu punto ciego: <b>'+d.ciego+'</b> — '+d.cieboP+'% en '+d.intentos+' intentos. No es mala suerte, repásalo.</div>':'')+
+        (d.ciego?'<div class="sim-prep-ciego">'+_t('Tu punto ciego: <b>'+d.ciego+'</b> — '+d.cieboP+'% en '+d.intentos+' intentos. No es mala suerte, repásalo.','Your blind spot: <b>'+d.ciego+'</b> — '+d.cieboP+'% over '+d.intentos+' attempts. Not bad luck, review it.')+'</div>':'')+
       '</div>';
     });
     h+='</div>';
@@ -18017,22 +18065,23 @@ window.__SIMPRO_DEV = /[?&]simpro=1/.test(location.href) || !!window.__SIM_LOCAL
     var due=window.__simSRS.due();
     if(!due.length) return '';
     var _isPro = !(window.__simPro) || window.__simPro.isPro();
+    var _q=function(n){ return _en()?(n>1?'questions':'question'):(n>1?'preguntas':'pregunta'); };
     if(!_isPro){
       return '<div class="sim-srs-card sim-srs-locked">'+
-        '<div class="sim-srs-tag">Repaso espaciado · Pro</div>'+
-        '<div class="sim-srs-h">🔒 Repasar mis errores</div>'+
-        '<div class="sim-srs-sub">Tienes <b>'+due.length+'</b> pregunta'+(due.length>1?'s':'')+' que fallaste esperando. Con Pro vuelven en el momento justo (1, 2, 4, 9, 18 días) hasta que las domines.</div>'+
-        '<button class="sim-srs-btn" type="button" onclick="event.stopPropagation();window.__simPaywall&&window.__simPaywall(\'analisis\')">Ver Pro →</button>'+
+        '<div class="sim-srs-tag">'+_t('Repaso espaciado · Pro','Spaced repetition · Pro')+'</div>'+
+        '<div class="sim-srs-h">'+_t('🔒 Repasar mis errores','🔒 Review my mistakes')+'</div>'+
+        '<div class="sim-srs-sub">'+_t('Tienes <b>'+due.length+'</b> '+_q(due.length)+' que fallaste esperando. Con Pro vuelven en el momento justo (1, 2, 4, 9, 18 días) hasta que las domines.','You have <b>'+due.length+'</b> missed '+_q(due.length)+' waiting. Pro brings them back at the right moment (1, 2, 4, 9, 18 days) until you master them.')+'</div>'+
+        '<button class="sim-srs-btn" type="button" onclick="event.stopPropagation();window.__simPaywall&&window.__simPaywall(\'analisis\')">'+_t('Ver Pro →','See Pro →')+'</button>'+
       '</div>';
     }
     var temas=[]; due.forEach(function(q){ if(q.tema && temas.indexOf(q.tema)<0) temas.push(q.tema); });
     return '<div class="sim-srs-card">'+
-      '<div class="sim-srs-tag">Repaso espaciado</div>'+
-      '<div class="sim-srs-h">Repasar mis errores</div>'+
-      '<div class="sim-srs-sub">'+due.length+' pregunta'+(due.length>1?'s':'')+' que fallaste vuelven hoy'+
+      '<div class="sim-srs-tag">'+_t('Repaso espaciado','Spaced repetition')+'</div>'+
+      '<div class="sim-srs-h">'+_t('Repasar mis errores','Review my mistakes')+'</div>'+
+      '<div class="sim-srs-sub">'+due.length+' '+_t(_q(due.length)+' que fallaste vuelven hoy','missed '+_q(due.length)+' come back today')+
         (temas.length?' · '+temas.slice(0,3).join(', '):'')+'</div>'+
-      '<div class="sim-srs-note">Sin reloj. Las que aciertes vuelven más tarde; las que falles, mañana.</div>'+
-      '<button class="sim-srs-btn" type="button">▶ Repasar ahora</button>'+
+      '<div class="sim-srs-note">'+_t('Sin reloj. Las que aciertes vuelven más tarde; las que falles, mañana.','No timer. The ones you get right come back later; the ones you miss, tomorrow.')+'</div>'+
+      '<button class="sim-srs-btn" type="button">'+_t('▶ Repasar ahora','▶ Review now')+'</button>'+
     '</div>';
   };
   window.__simSRSStart=function(){
@@ -18040,10 +18089,10 @@ window.__SIMPRO_DEV = /[?&]simpro=1/.test(location.href) || !!window.__SIM_LOCAL
     var due=window.__simSRS.due().slice(0,12);
     if(!due.length) return;
     EX['srs_review']={
-      titulo:'Repaso de errores', semestre:'REPETICIÓN ESPACIADA · SIN RELOJ',
-      codigo:'1000004', tiempo:99, desc:'Preguntas que fallaste, de nuevo.', preguntas:due, _srs:true
+      titulo:_t('Repaso de errores','Mistake review'), semestre:_t('REPETICIÓN ESPACIADA · SIN RELOJ','SPACED REPETITION · NO TIMER'),
+      codigo:'1000004', tiempo:99, desc:_t('Preguntas que fallaste, de nuevo.','Questions you missed, again.'), preguntas:due, _srs:true
     };
-    EM['srs_review']={mat:'calcdif',color:'#E05D1A',badge:'Repaso',tipo:'Repaso de errores',nuevo:false,_ord:-20};
+    EM['srs_review']={mat:'calcdif',color:'#E05D1A',badge:_t('Repaso','Review'),tipo:_t('Repaso de errores','Mistake review'),nuevo:false,_ord:-20};
     if(window._goToIntro) window._goToIntro('srs_review');
   };
 
@@ -18165,15 +18214,19 @@ window.__SIMPRO_DEV = /[?&]simpro=1/.test(location.href) || !!window.__SIM_LOCAL
   window.__simPaywall=function(ctx){
     var ov=document.getElementById('sim-pw-overlay'); if(!ov) return;
     var b=document.getElementById('sim-pw-body');
-    if(b) b.textContent = ({
+    if(b) b.textContent = ((_en()?{
+      corte:'You already used your free mock for this corte. Pro gives you unlimited mocks and tracks your progress.',
+      analisis:'The full diagnosis — mastery of each topic, what kind of mistake you make and the plan — is MathUNAL Pro.',
+      solucion:'Every step-by-step solution, with the trick and the interactive graph, is MathUNAL Pro.'
+    }:{
       corte:'Ya hiciste tu simulacro gratis de este corte. Con Pro haces todos los que quieras y comparas tu evolución.',
       analisis:'El diagnóstico completo — dominio de cada tema, qué tipo de error cometes y el plan — es de MathUNAL Pro.',
-      solucion:'Cada solución paso a paso, con el truco y la gráfica interactiva, es de MathUNAL Pro. En el gratis tienes una de muestra.'
-    }[ctx]) || 'Esta parte es de MathUNAL Pro.';
+      solucion:'Cada solución paso a paso, con el truco y la gráfica interactiva, es de MathUNAL Pro.'
+    })[ctx]) || _t('Esta parte es de MathUNAL Pro.','This part is MathUNAL Pro.');
     ov.classList.add('open');
     var pay=document.getElementById('sim-pw-pay');
     if(pay) pay.onclick=function(){ window.__simPro.unlock(); ov.classList.remove('open');
-      if(window._muToast) window._muToast('Modo Pro activado (simulado)'); };
+      if(window._muToast) window._muToast(_t('Modo Pro activado (simulado)','Pro mode enabled (simulated)')); };
   };
   window.__simPaywallClose=function(){ var ov=document.getElementById('sim-pw-overlay'); if(ov) ov.classList.remove('open'); };
   /* gate: devuelve true si puede continuar */
@@ -18221,7 +18274,9 @@ window.__SIMPRO_DEV = /[?&]simpro=1/.test(location.href) || !!window.__SIM_LOCAL
       var saved=_lsGet('mu-sim-fecha'); if(saved) fi.value=saved;
       var upd=function(){
         var d=window.__simDiasRestantes();
-        if(fc) fc.textContent = d==null?'' : d>1?('faltan '+d+' días') : d===1?'¡es mañana!' : d===0?'¡es hoy!' : 'ya pasó';
+        if(fc) fc.textContent = d==null?'' : _en()
+          ? (d>1?(d+' days left') : d===1?'tomorrow!' : d===0?'today!' : 'already passed')
+          : (d>1?('faltan '+d+' días') : d===1?'¡es mañana!' : d===0?'¡es hoy!' : 'ya pasó');
         if(fc) fc.className='sim-onb-count'+(d!=null&&d<=3&&d>=0?' urgent':'');
       };
       fi.addEventListener('change',function(){ _lsSet('mu-sim-fecha', fi.value); upd();
