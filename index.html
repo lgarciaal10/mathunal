@@ -72,7 +72,8 @@
   <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous" onload="window.__katexReady=true; if(window.__onKatexReady) window.__onKatexReady(); if(window.__muRerender) try{window.__muRerender();}catch(e){}"></script>
   <!-- Simulacros Pro (rama simulacros-pro): banco enriquecido de Cálculo Diferencial.
        Sync, sin deps, solo setea window.SIM_*. La fusion a EXAMS corre mas abajo. -->
-  <script src="sim-calcdif.js"></script>
+  <script src="sim-calcdif.js?v=4"></script>
+  <script src="sim-lab.js?v=4"></script>
   <!-- SEO: datos estructurados -->
   <script type="application/ld+json">
   {
@@ -2170,6 +2171,17 @@ html[data-theme="gray"] .hero-bg .lg-blob-center{background:radial-gradient(elli
 .sim-risk-alto{color:var(--bad);background:rgba(248,113,113,.12)}
 .sim-err-msg{margin-top:.8rem;padding:.7rem .9rem;border-radius:9px;background:var(--lay1);border:1px solid var(--br);font-size:.9rem;line-height:1.5;color:var(--t2)}
 .sim-err-msg b{color:var(--t1)}
+
+/* ── Laboratorio "Compruébalo tú mismo" ── */
+.sim-lab-box{margin-top:.9rem;border:1px solid var(--bra);background:var(--card2);border-radius:12px;padding:.9rem 1rem}
+.sl-wrap{display:flex;flex-direction:column;gap:.4rem}
+.sl-svg{width:100%;height:auto;max-height:220px;background:var(--bg);border-radius:8px;display:block}
+.sl-lbl{font-size:.78rem;color:var(--t3);font-family:'IBM Plex Mono',monospace}
+.sl-range{width:100%;accent-color:var(--acc);height:22px;cursor:pointer}
+.sl-out{font-family:'IBM Plex Mono',monospace;font-size:.82rem;color:var(--t2);line-height:1.5}
+.sl-out b{color:var(--acc2);font-weight:700}
+.sl-note{font-size:.82rem;color:var(--t3);line-height:1.5;margin-top:.2rem}
+.sl-note b{color:var(--t2)}
 
 /* prom-row — fila en tabla de promedio */
 .prom-row{display:grid;grid-template-columns:1fr 80px 120px 36px;gap:.4rem;padding:.45rem .9rem;border-top:1.5px solid var(--br);align-items:center}
@@ -16427,6 +16439,8 @@ window.__SIMPRO_DEV = /[?&]simpro=1/.test(location.href);
     ((NEW&&NEW[slug])||[]).forEach(function(q){
       q.tema=q.t; q.corte=q.c; q.freq=q.f; q.tipoError=q.e;
       q.antibobo=q.ab; q.reconocer=q.rc; q._src=q.id;
+      if(q.cx) q.compruebalo=q.cx;
+      if(q.gem) q.gemela=q.gem;
       pool.push(q);
     });
     window.SIM_POOL[slug]=pool;
@@ -16467,7 +16481,7 @@ window.__SIMPRO_DEV = /[?&]simpro=1/.test(location.href);
     });
   });
 
-  /* 5a. hook de _renderExpl: Antibobo + cómo reconocerlo + frecuencia */
+  /* 5a. hook de _renderExpl: Antibobo + cómo reconocerlo + frecuencia + Compruébalo */
   window.__simExplHook=function(idx){
     var q=window._exam&&window._exam.preguntas[idx]; if(!q) return;
     var stp=document.getElementById('expl-steps'); if(!stp || stp.querySelector('.sim-ab-block')) return;
@@ -16478,6 +16492,13 @@ window.__SIMPRO_DEV = /[?&]simpro=1/.test(location.href);
     if(q.freq){ var fl={alta:'Muy frecuente en parciales',media:'Frecuencia media',baja:'Poco frecuente'}[q.freq];
       if(fl) h+='<div class="sim-freq-note sim-freq-'+q.freq+'">'+fl+'</div>'; }
     if(h){ stp.insertAdjacentHTML('beforeend',h); if(window._renderMath) window._renderMath(stp); }
+    // Compruébalo tú mismo (widget interactivo)
+    if(q.compruebalo && window.__simLab && window.__simLab.has(q.compruebalo)){
+      var box=document.createElement('div'); box.className='sim-lab-box';
+      box.innerHTML='<span class="sim-mini-lbl">Compruébalo tú mismo</span><div class="sim-lab-host"></div>';
+      stp.appendChild(box);
+      window.__simLab.mount(box.querySelector('.sim-lab-host'), q.compruebalo);
+    }
   };
 
   /* 5b. hook de _finishExam: dominio por tema + tipo de error dominante */

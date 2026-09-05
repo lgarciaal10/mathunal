@@ -47,7 +47,7 @@ var SIM_TAX = {
 var SIM_META = {
  calcdif: {
   calcdif_p1: [
-   {c:1,t:`Continuidad`,f:`alta`,e:`algebra`,
+   {c:1,t:`Continuidad`,f:`alta`,e:`algebra`,cx:`limite`,
     ab:`Continua en $a$ = el límite existe Y vale $f(a)$. Factoriza y cancela el $(x-a)$ que causa el $0/0$.`,
     rc:`Función a trozos + "para que sea continua" → calcula el límite y ponlo igual al valor puntual.`},
    {c:1,t:`Límites notables`,f:`media`,e:`conceptual`,
@@ -94,7 +94,7 @@ var SIM_META = {
    {c:2,t:`Razón de cambio`,f:`alta`,e:`procedimiento`,cx:`escalera`,
     ab:`Dibuja el triángulo. Pitágoras relaciona los lados; deriva respecto de $t$. El ángulo va con $\\cos\\theta = x/L$.`,
     rc:`Escalera / sombra / triángulo que cambia de forma → Pitágoras + $d/dt$.`},
-   {c:2,t:`Recta tangente y normal`,f:`media`,e:`formula`,
+   {c:2,t:`Recta tangente y normal`,f:`media`,e:`formula`,cx:`tangente`,
     ab:`Pendiente de la tangente $= f'(a)$. $(\\ln x)' = 1/x$.`,
     rc:`"Pendiente de la recta tangente en $x=a$" → deriva y evalúa en $a$.`}
   ],
