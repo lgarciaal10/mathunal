@@ -2183,6 +2183,30 @@ html[data-theme="gray"] .hero-bg .lg-blob-center{background:radial-gradient(elli
 .sl-note{font-size:.82rem;color:var(--t3);line-height:1.5;margin-top:.2rem}
 .sl-note b{color:var(--t2)}
 
+/* ── pregunta gemela ── */
+.sim-gem{margin-top:.9rem}
+.sim-gem-btn{background:var(--adim);border:1px dashed var(--bra);color:var(--acc);border-radius:9px;padding:.55rem 1rem;font-weight:700;font-size:.88rem;font-family:inherit;cursor:pointer;transition:all .18s}
+.sim-gem-btn:hover{background:var(--acc);color:#fff}
+.sim-gem-lbl{font-family:'IBM Plex Mono',monospace;font-size:.62rem;letter-spacing:.11em;text-transform:uppercase;color:var(--acc);font-weight:700;margin-bottom:.4rem}
+.sim-gem-q{font-family:'Literata',Georgia,serif;font-size:1rem;line-height:1.5;margin-bottom:.7rem}
+.sim-gem-opt{display:flex;align-items:center;gap:.6rem;width:100%;text-align:left;background:var(--lay1);border:1.5px solid var(--br);border-radius:9px;padding:.6rem .8rem;margin:.35rem 0;font-size:.92rem;color:var(--t1);font-family:inherit;cursor:pointer}
+.sim-gem-opt:hover{border-color:var(--br2)}
+.sim-gem-opt span{width:22px;height:22px;flex:none;display:grid;place-items:center;border:1px solid var(--br);border-radius:6px;font-family:'IBM Plex Mono',monospace;font-weight:700;font-size:.72rem;color:var(--t3)}
+.sim-gem-opt.ok{border-color:var(--ok);background:rgba(34,197,94,.12)}
+.sim-gem-opt.no{border-color:var(--bad);background:rgba(248,113,113,.12)}
+.sim-gem-res{margin-top:.6rem;padding:.5rem .8rem;border-radius:8px;font-size:.9rem;font-weight:600}
+.sim-gem-res.ok{color:var(--ok);background:rgba(34,197,94,.1)}
+.sim-gem-res.no{color:var(--t2);background:var(--lay1)}
+
+/* ── confianza de respuesta ── */
+.sim-conf{display:flex;align-items:center;gap:.4rem;flex-wrap:wrap;margin-top:.7rem;opacity:.75;transition:opacity .2s}
+.sim-conf.lit{opacity:1}
+.sim-conf-lbl{font-size:.78rem;color:var(--t3);font-family:'IBM Plex Mono',monospace;margin-right:.2rem}
+.sim-conf-b{background:var(--lay1);border:1.3px solid var(--br);color:var(--t2);border-radius:999px;padding:.28rem .8rem;font-size:.8rem;font-weight:600;font-family:inherit;cursor:pointer;transition:all .15s}
+.sim-conf-b:hover{border-color:var(--br2)}
+.sim-conf-b.on{background:var(--acc);border-color:var(--acc);color:#fff}
+.sim-conf-msg{border-color:var(--bra)!important;background:var(--adim)!important}
+
 /* prom-row — fila en tabla de promedio */
 .prom-row{display:grid;grid-template-columns:1fr 80px 120px 36px;gap:.4rem;padding:.45rem .9rem;border-top:1.5px solid var(--br);align-items:center}
 .prom-row:first-child{border-top:none}
@@ -8725,6 +8749,7 @@ function startExam(){
   _checked=new Array(_exam.preguntas.length).fill(false);
   _hintUsed=[]; _flagged=new Array(_exam.preguntas.length).fill(false); _currentQ=0; _toastShown=false;
   _qTimes=new Array(_exam.preguntas.length).fill(0); _qStartTime=null; _lastQ=-1;
+  window._simConf=new Array(_exam.preguntas.length).fill(null);
   _timerSec=_exam.tiempo*60; _startTime=Date.now();
   _updateSidexHeader();
   _showScreen('screen-q');
@@ -8972,12 +8997,14 @@ function _renderQ(idx){
       bc.className='qbtn '+(idx<nq-1?'primary':'submit');
     } else { bc.textContent='Confirmar respuesta'; bc.className='qbtn primary'; }
   }
+  try{ if(window.__simQHook) window.__simQHook(idx); }catch(e){}
 }
 
 function _selectOpt(i){
   if(_checked[_currentQ]) return;
   _answers[_currentQ]=i;
   _qsa('.q-opt').forEach(function(btn,j){ btn.classList.toggle('selected',j===i); });
+  try{ if(window.__simSelHook) window.__simSelHook(_currentQ); }catch(e){}
 }
 
 function checkAnswer(){
@@ -16499,6 +16526,75 @@ window.__SIMPRO_DEV = /[?&]simpro=1/.test(location.href);
       stp.appendChild(box);
       window.__simLab.mount(box.querySelector('.sim-lab-host'), q.compruebalo);
     }
+    // Pregunta gemela — solo si falló esta y hay gemela disponible
+    var fallo = (q.tipo==='mcq') ? (window._answers[idx]!==q.correcta && window._answers[idx]>=0)
+              : (q.tipo==='numerica') ? (window._calificarNum && window._calificarNum(q,window._numAns[idx])<1)
+              : false;
+    if(fallo && q.gemela){
+      var gq=__simGetQ(q.gemela);
+      if(gq && gq.tipo==='mcq' && gq!==q){
+        var gwrap=document.createElement('div'); gwrap.className='sim-gem';
+        gwrap.innerHTML='<button class="sim-gem-btn" type="button">¿Ya lo entendiste? Prueba una parecida →</button>';
+        stp.appendChild(gwrap);
+        gwrap.querySelector('button').addEventListener('click',function(){ __simRenderGemela(gwrap, gq); });
+      }
+    }
+  };
+
+  /* resolver referencia de gemela: 'examKey_idx' o id de SIM_NEW */
+  function __simGetQ(ref){
+    if(!ref) return null;
+    var m=(''+ref).match(/^(.+)_(\d+)$/);
+    if(m && EX[m[1]] && EX[m[1]].preguntas[+m[2]]) return EX[m[1]].preguntas[+m[2]];
+    var slug='calcdif';
+    var pool=(window.SIM_POOL&&window.SIM_POOL[slug])||[];
+    for(var i=0;i<pool.length;i++){ if(pool[i]._src===ref || pool[i].id===ref) return pool[i]; }
+    return null;
+  }
+  function __simRenderGemela(wrap, gq){
+    var L=['A','B','C','D','E'];
+    var mh=window._mathHtml||function(x){return x;};
+    wrap.innerHTML='<div class="sim-gem-lbl">Pregunta gemela — mismo concepto, otra cara</div>'+
+      '<div class="sim-gem-q">'+mh(gq.texto)+'</div>'+
+      gq.opciones.map(function(o,i){ return '<button class="sim-gem-opt" data-i="'+i+'"><span>'+L[i]+'</span>'+mh(o)+'</button>'; }).join('');
+    if(window._renderMath) window._renderMath(wrap);
+    wrap.querySelectorAll('.sim-gem-opt').forEach(function(b){
+      b.addEventListener('click',function(){
+        var ok=(+b.dataset.i===gq.correcta);
+        wrap.querySelectorAll('.sim-gem-opt').forEach(function(x){
+          x.style.pointerEvents='none';
+          if(+x.dataset.i===gq.correcta) x.classList.add('ok');
+          else if(x===b) x.classList.add('no');
+        });
+        wrap.insertAdjacentHTML('beforeend', ok
+          ? '<div class="sim-gem-res ok">✓ Concepto recuperado.</div>'
+          : '<div class="sim-gem-res no">Todavía no — vuelve a mirar el Antibobo de arriba y reintenta el simulacro.</div>');
+      });
+    });
+  }
+
+  /* ── confianza de respuesta ── */
+  window._simConf = window._simConf || [];
+  window.__simQHook=function(idx){
+    var q=window._exam&&window._exam.preguntas[idx];
+    if(!q || q.tipo!=='mcq' || window._checked[idx]) return;
+    var opts=document.getElementById('q-options'); if(!opts || document.getElementById('sim-conf-'+idx)) return;
+    var row=document.createElement('div'); row.className='sim-conf'; row.id='sim-conf-'+idx;
+    row.innerHTML='<span class="sim-conf-lbl">¿Qué tan seguro estás?</span>'+
+      ['Seguro','Dudoso','Adiviné'].map(function(c){
+        var on=window._simConf[idx]===c;
+        return '<button type="button" class="sim-conf-b'+(on?' on':'')+'" data-c="'+c+'">'+c+'</button>';
+      }).join('');
+    opts.parentNode.insertBefore(row, opts.nextSibling);
+    row.querySelectorAll('button').forEach(function(b){
+      b.addEventListener('click',function(){
+        window._simConf[idx]=b.dataset.c;
+        row.querySelectorAll('button').forEach(function(x){ x.classList.toggle('on', x===b); });
+      });
+    });
+  };
+  window.__simSelHook=function(idx){
+    var r=document.getElementById('sim-conf-'+idx); if(r) r.classList.add('lit');
   };
 
   /* 5b. hook de _finishExam: dominio por tema + tipo de error dominante */
@@ -16537,6 +16633,24 @@ window.__SIMPRO_DEV = /[?&]simpro=1/.test(location.href);
         interpretacion:'Tus fallos son de <b>interpretación</b>: lees el enunciado distinto de lo que pide.'
       }[topErr];
       if(em) html+='<div class="sim-err-msg">'+em+'</div>';
+    }
+    // insight de confianza calibrada
+    var conf=window._simConf||[], cg={};
+    ex.preguntas.forEach(function(q,i){
+      if(q.tipo!=='mcq' || !conf[i]) return;
+      cg[conf[i]]=cg[conf[i]]||{ok:0,n:0}; cg[conf[i]].n++;
+      if(A[i]===q.correcta) cg[conf[i]].ok++;
+    });
+    var seg=cg['Seguro'], dud=cg['Dudoso'], adiv=cg['Adiviné'];
+    if(seg && seg.n>=2){
+      var pS=Math.round(seg.ok/seg.n*100);
+      var cmsg='';
+      if(pS<70) cmsg='Marcaste <b>'+seg.n+'</b> como "Seguro" y solo acertaste el <b>'+pS+'%</b>. Ese es el error caro del parcial: no es que no sepas, es que no reconoces cuándo NO sabes. Repasa esos temas con calma.';
+      else if(dud && dud.n>=2 && (dud.ok/dud.n) < 0.5) cmsg='En las que dijiste "Seguro" vas bien ('+pS+'%), pero en las "Dudoso" caes al '+Math.round(dud.ok/dud.n*100)+'%. Tu instinto es bueno — cuando dudes, tómate 30 s más antes de marcar.';
+      else cmsg='Tu confianza está calibrada: acertaste el '+pS+'% de las que marcaste "Seguro". Buena señal para el parcial.';
+      if(cmsg) html+='<div class="sim-err-msg sim-conf-msg">'+cmsg+'</div>';
+    } else if(adiv && adiv.n>=3 && (adiv.ok/adiv.n)>0.5){
+      html+='<div class="sim-err-msg sim-conf-msg">Acertaste varias que marcaste "Adiviné". No cuentan como dominadas — míralas en la revisión antes de confiarte.</div>';
     }
     html+='</div>';
     host.insertAdjacentHTML('afterbegin',html);
