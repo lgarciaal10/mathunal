@@ -1,0 +1,128 @@
+\documentclass[11pt]{article}
+\usepackage{mathunal-base}
+\mathunalfuente{serif}
+\providecommand{\nota}[1]{\par\smallskip\noindent{\small\itshape\color{unalblue}#1}\par\smallskip}
+\newlist{opciones}{enumerate}{1}
+\setlist[opciones]{label=(\alph*),itemsep=1pt,topsep=2pt,leftmargin=1.8em,font=\normalfont}
+
+\renewcommand{\examtitulo}{Ecuaciones Diferenciales (1000007) --- Segundo Examen Parcial}
+\renewcommand{\examfecha}{Semestre 02-2014, 25 de Octubre de 2014, TEMA A}
+
+\begin{document}
+
+\examheader
+
+\vspace{4pt}
+\noindent
+\begin{minipage}[t]{0.62\linewidth}
+\textbf{Duración: 1 hora y 40 minutos}
+
+\vspace{8pt}
+Nombre y carnet: \dotfill
+
+\vspace{6pt}
+Profesor y grupo: \dotfill
+\end{minipage}%
+\hfill
+\begin{minipage}[t]{0.32\linewidth}
+\begin{tabular}{|l|c|}
+\hline
+\multicolumn{2}{|c|}{\textbf{Calificación}} \\ \hline
+1. & \\ \hline
+2. & \\ \hline
+3. & \\ \hline
+4. & \\ \hline
+Total & \\ \hline
+\end{tabular}
+\end{minipage}
+
+\vspace{8pt}
+\noindent\textbf{Instrucciones.} No está permitido el uso de calculadora ni de cualquier otro tipo de aparato electrónico, incluyendo teléfonos móviles, los cuales deben permanecer apagados durante el tiempo de duración del examen. Tampoco está permitido hacer preguntas a las personas encargadas de la vigilancia.
+
+\vspace{4pt}
+\noindent El examen consta de 4 puntos distribuidos en 5 páginas.
+
+\vspace{6pt}
+\noindent\textbf{1.} En los numerales i), ii), iii) y iv) encierre en un círculo la letra correspondiente a la respuesta correcta.
+
+\vspace{0.25cm}
+\noindent\textbf{i. (8\%)} Una forma apropiada de solución particular de la ecuación diferencial (ED)
+\[
+y^{(4)}+4y^{(2)}=\sin(2t)+te^t+4
+\]
+es:
+\begin{opciones}
+\item $y_p(t)=tA\cos(2t)+tB\sin(2t)+(Ct+D)e^t+Et^2$
+\item $y_p(t)=t^2A\cos(2t)+t^2B\sin(2t)+(Ct+D)e^t+Et^2$
+\item $y_p(t)=tA\cos(2t)+tB\sin(2t)+Cte^t+D$
+\item $y_p(t)=tA\cos(2t)+tB\sin(2t)+Cte^t+Dt$
+\end{opciones}
+
+\vspace{0.25cm}
+\noindent\textbf{ii. (8\%)} Se sabe que un sistema masa-resorte está descrito por el problema de valor inicial (PVI)
+\[
+u''(t)+2u'(t)+u(t)=0;\qquad u(0)=1,\ u'(0)=0.
+\]
+Entonces la masa pasa por la posición de equilibrio después del instante inicial:
+\begin{opciones}
+\item una vez
+\item dos veces
+\item cero veces
+\item infinitas veces
+\end{opciones}
+
+\vspace{0.25cm}
+\noindent\textbf{iii. (7\%)} Se sabe que dos raíces de la ecuación característica correspondiente a una ecuación diferencial (ED) lineal homogénea de tercer orden con coeficientes reales son $r_1=-1$ y $r_2=i$. Entonces la ED es:
+\begin{opciones}
+\item $y^{(3)}-y^{(2)}+y'-y=0$
+\item $y^{(3)}+y^{(2)}+y'+y=0$
+\item $y^{(3)}+3y^{(2)}+3y'+y=0$
+\item $y^{(3)}-3y^{(2)}+3y'-y=0$
+\end{opciones}
+
+\vspace{0.25cm}
+\noindent\textbf{iv. (7\%)} Sean $y_1$ y $y_2$ dos soluciones de la ED
+\[
+xy''+2y'+xe^xy=0 \qquad (x>0).
+\]
+Si se sabe que el Wronskiano de $y_1$ y $y_2$ en $1$ es igual a $2$, es decir $W(y_1,y_2)(1)=2$, entonces el valor de $W(y_1,y_2)(5)$ es:
+\begin{opciones}
+\item $50$
+\item $2e^{-8}$
+\item $\dfrac{2}{25}$
+\item $2e^{8}$
+\end{opciones}
+\nota{Sugerencia: use el teorema de Abel.}
+
+\newpage
+
+\noindent\textbf{2. (20\%)} Se sabe que $y_1(t)=t$, $t>0$, es una solución de la ecuación diferencial (ED)
+\[
+t^2y''-t(t+2)y'+(t+2)y=0.
+\]
+Encuentre la solución general de esta ED.
+
+\vspace{9cm}
+
+\newpage
+
+\noindent\textbf{3. (25\%)} Una masa que pesa 8 lbf estira 6 pulgadas un resorte. La masa se desplaza 3 pulgadas hacia abajo desde su posición de equilibrio y se suelta sin velocidad inicial. Si se supone que no hay amortiguamiento y que sobre la masa actúa una fuerza externa de $8\sin(8t)$ lbf, determine la posición $u(t)$ de la masa en cualquier instante $t$. Determine, además, las primeras tres veces, después del instante inicial, en que la velocidad de la masa es cero.
+
+\textit{(Recuerde que la constante $g$ es 32 pies sobre segundo al cuadrado y que un pie son 12 pulgadas)}
+
+\vspace{9cm}
+
+\newpage
+
+\noindent\textbf{4. (25\%)} Encuentre la solución general de la ED
+\[
+y^{(3)}+y'=\sec(t).
+\]
+
+\vspace{9cm}
+
+\vfill
+\rule{\linewidth}{0.4pt}\\[1pt]
+{\scriptsize\textit{Transcripción digital --- MathUNAL}\hfill\textcolor{unalblue}{\textbf{1}}}
+
+\end{document}
