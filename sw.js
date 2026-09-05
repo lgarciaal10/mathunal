@@ -4,7 +4,7 @@
      durante un deploy quede congelada como "versión offline").
    - Resto de assets (iconos, CDN): stale-while-revalidate.
    Subir el número de CACHE en cada release. */
-const CACHE = 'mathunal-v202';
+const CACHE = 'mathunal-v203';
 const STATIC = [
   './manifest.json',
   './icon-192.png',
