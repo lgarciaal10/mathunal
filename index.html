@@ -2207,6 +2207,20 @@ html[data-theme="gray"] .hero-bg .lg-blob-center{background:radial-gradient(elli
 .sim-conf-b.on{background:var(--acc);border-color:var(--acc);color:#fff}
 .sim-conf-msg{border-color:var(--bra)!important;background:var(--adim)!important}
 
+/* ── Dashboard "Mi preparación" ── */
+.sim-prep{margin-top:.9rem;display:flex;flex-direction:column;gap:.7rem}
+.sim-prep-c{background:var(--card);border:1px solid var(--br2);border-radius:12px;padding:.9rem 1.1rem}
+.sim-prep-top{display:flex;justify-content:space-between;align-items:flex-start;gap:1rem;flex-wrap:wrap}
+.sim-prep-corte{font-family:'IBM Plex Mono',monospace;font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;color:var(--t3)}
+.sim-prep-score{font-family:'Literata',Georgia,serif;font-size:1.15rem;margin-top:.15rem}
+.sim-prep-score b{font-size:1.5rem;font-weight:900}
+.sim-prep-score span{font-size:.8rem;color:var(--t3);font-family:'Space Grotesk',sans-serif}
+.sim-prep-badge{font-family:'IBM Plex Mono',monospace;font-size:.62rem;font-weight:700;letter-spacing:.05em;color:var(--ok);background:rgba(34,197,94,.12);border:1px solid rgba(34,197,94,.3);border-radius:5px;padding:.2rem .5rem;white-space:nowrap}
+.sim-prep-sub{font-size:.8rem;color:var(--t2);margin-top:.45rem;font-family:'IBM Plex Mono',monospace}
+.sim-prep-mini{color:var(--t3)}
+.sim-prep-ciego{margin-top:.5rem;font-size:.82rem;color:var(--warn);background:rgba(251,191,36,.08);border:1px solid rgba(251,191,36,.25);border-radius:8px;padding:.45rem .7rem;line-height:1.45}
+.sim-prep-ciego b{color:var(--t1)}
+
 /* prom-row — fila en tabla de promedio */
 .prom-row{display:grid;grid-template-columns:1fr 80px 120px 36px;gap:.4rem;padding:.45rem .9rem;border-top:1.5px solid var(--br);align-items:center}
 .prom-row:first-child{border-top:none}
@@ -8610,6 +8624,7 @@ function _updateSimCounts(){
 
 function _renderCards(){
   _renderContinueBand();
+  if(window.muRenderProgreso) try{ window.muRenderProgreso(); }catch(e){}
   var grid=_el('sim-cards-grid');
   if(!grid) return;
   var en=(window.curLang==='en');
@@ -16612,6 +16627,19 @@ window.__SIMPRO_DEV = /[?&]simpro=1/.test(location.href);
       byTema[q.tema]=byTema[q.tema]||{ok:0,n:0}; byTema[q.tema].n++; if(ok) byTema[q.tema].ok++;
       if(!ok && q.tipoError) byErr[q.tipoError]=(byErr[q.tipoError]||0)+1;
     });
+    // enriquecer el resultado recién guardado (para el dashboard de preparación)
+    try{
+      var _rs=JSON.parse(localStorage.getItem('mu-results'))||[];
+      if(_rs[0] && _rs[0].exam===window._examKey){
+        _rs[0].temas={}; Object.keys(byTema).forEach(function(t){ _rs[0].temas[t]={ok:byTema[t].ok,n:byTema[t].n}; });
+        if(ex._corte) _rs[0].corte=ex._corte;
+        if(ex._slug) _rs[0].slug=ex._slug;
+        _rs[0].nq=ex.preguntas.length;
+        _rs[0].timeSec=Math.max(0,(ex.tiempo*60)-(window._timerSec||0));
+        _rs[0].budget=ex.tiempo*60;
+        localStorage.setItem('mu-results', JSON.stringify(_rs));
+      }
+    }catch(e){}
     var rows=Object.keys(byTema).map(function(t){return {t:t,p:Math.round(byTema[t].ok/byTema[t].n*100)};})
       .sort(function(a,b){return a.p-b.p;});
     var html='<div class="sim-dom-card"><div class="sim-dom-h">Dominio por tema</div><table class="sim-dom-t">';
@@ -16655,6 +16683,78 @@ window.__SIMPRO_DEV = /[?&]simpro=1/.test(location.href);
     html+='</div>';
     host.insertAdjacentHTML('afterbegin',html);
     if(window._renderMath) window._renderMath(host);
+  };
+
+  /* ── 6. Dashboard "Mi preparación" (se engancha a muRenderProgreso) ────── */
+  function _prepData(){
+    var rs; try{ rs=JSON.parse(localStorage.getItem('mu-results'))||[]; }catch(e){ return null; }
+    var conMeta=rs.filter(function(r){ return r.temas && r.corte; });
+    if(!conMeta.length) return null;
+    var byCorte={};
+    conMeta.forEach(function(r){
+      var slug=r.slug||'calcdif', k=slug+'|'+r.corte;
+      (byCorte[k]=byCorte[k]||[]).push(r);
+    });
+    var out=[];
+    Object.keys(byCorte).forEach(function(k){
+      var arr=byCorte[k].slice(0,5); // más recientes primero (unshift)
+      var slug=k.split('|')[0], corte=+k.split('|')[1];
+      var tax=(window.SIM_TAX||{})[slug]; if(!tax) return;
+      var cinfo=tax.cortes[corte]||{};
+      // agregación por tema sobre los intentos
+      var tt={};
+      arr.forEach(function(r){ Object.keys(r.temas).forEach(function(t){
+        tt[t]=tt[t]||{ok:0,n:0}; tt[t].ok+=r.temas[t].ok; tt[t].n+=r.temas[t].n; }); });
+      var conocimiento=0, tn=0;
+      Object.keys(tt).forEach(function(t){ conocimiento+=tt[t].ok; tn+=tt[t].n; });
+      conocimiento = tn? conocimiento/tn : 0;
+      // velocidad: mejor ratio tiempo-usado/presupuesto de intentos con nota>=3
+      var buenos=arr.filter(function(r){ return (r.nota||0)>=3 && r.budget; });
+      var velocidad = buenos.length
+        ? Math.max.apply(null, buenos.map(function(r){
+            var ts=(r.timeSec!=null?r.timeSec:r.budget);
+            return 1 - Math.min(1, ts/r.budget)*0.6;
+          }))
+        : 0.4;
+      var cobertura = (cinfo.temas&&cinfo.temas.length) ? Math.min(1, Object.keys(tt).length/cinfo.temas.length) : 0.6;
+      var score = Math.round((conocimiento*0.6 + velocidad*0.2 + cobertura*0.2)*100);
+      // punto ciego
+      var ciego=null, lo=1;
+      Object.keys(tt).forEach(function(t){ var p=tt[t].ok/tt[t].n; if(tt[t].n>=2 && p<lo){ lo=p; ciego=t; } });
+      if(lo>=0.5) ciego=null;
+      // LISTO: 2 intentos consecutivos (por fecha, arr ya viene reciente->viejo) con nota>=4
+      var listo = arr.length>=2 && (arr[0].nota||0)>=4 && (arr[1].nota||0)>=4;
+      var notas = arr.map(function(r){ return (r.nota||0); }).reverse();
+      out.push({slug:slug, corte:corte, nombre:cinfo.nombre||('Corte '+corte), pct:cinfo.pct,
+        score:score, conocimiento:Math.round(conocimiento*100), velocidad:Math.round(velocidad*100),
+        cobertura:Math.round(cobertura*100), ciego:ciego, cieboP:Math.round(lo*100), listo:listo,
+        intentos:arr.length, notas:notas, temas:tt});
+    });
+    return out.sort(function(a,b){ return a.corte-b.corte; });
+  }
+  window.__simRenderPrep=function(){
+    var host=document.getElementById('mu-progreso'); if(!host) return;
+    var data=_prepData(); if(!data||!data.length) return;
+    var st=function(s){ return s>=85?['🔥','Muy preparado','var(--acc)'] : s>=70?['🟢','Listo','var(--ok)'] : s>=50?['🟡','En riesgo','var(--warn)'] : ['🔴','No listo','var(--bad)']; };
+    var h='<div class="sim-prep">';
+    data.forEach(function(d){
+      var s=st(d.score);
+      h+='<div class="sim-prep-c">'+
+        '<div class="sim-prep-top"><div><div class="sim-prep-corte">Corte '+d.corte+' · '+d.nombre+'</div>'+
+          '<div class="sim-prep-score">'+s[0]+' <b style="color:'+s[2]+'">'+d.score+'</b><span>/100 · '+s[1]+'</span></div></div>'+
+          (d.listo?'<span class="sim-prep-badge">✓ LISTO PARA EL CORTE</span>':'')+'</div>'+
+        '<div class="sim-prep-sub">Conocimiento '+d.conocimiento+' · Velocidad '+d.velocidad+' · Cobertura '+d.cobertura+
+          ' <span class="sim-prep-mini">('+d.intentos+' intento'+(d.intentos>1?'s':'')+': '+d.notas.map(function(n){return n.toFixed(1);}).join(' → ')+')</span></div>'+
+        (d.ciego?'<div class="sim-prep-ciego">Tu punto ciego: <b>'+d.ciego+'</b> — '+d.cieboP+'% en '+d.intentos+' intentos. No es mala suerte, repásalo.</div>':'')+
+      '</div>';
+    });
+    h+='</div>';
+    host.insertAdjacentHTML('beforeend', h);
+  };
+  var _origMRP=window.muRenderProgreso;
+  window.muRenderProgreso=function(){
+    if(_origMRP) try{ _origMRP.apply(this, arguments); }catch(e){}
+    try{ window.__simRenderPrep(); }catch(e){}
   };
 })();
 
