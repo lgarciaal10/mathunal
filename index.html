@@ -8399,7 +8399,7 @@ if(!window.__muSdClickBound){window.__muSdClickBound=true;document.addEventListe
       <div class="sc-brand">mathunal.co · <em>MathUNAL</em></div>
     </div>
     <div class="share-btns-row">
-      <button class="shr-btn shr-wa" onclick="shareWA()">Compartir por WhatsApp</button>
+      <button class="shr-btn shr-wa" onclick="window.__simRetar?window.__simRetar():shareWA()" id="shr-reto-btn">Retar a un amigo</button>
       <button class="shr-btn shr-copy" id="copy-result-btn" onclick="copyResult()">Copiar resultado</button>
     </div>
   </div>
@@ -8794,7 +8794,7 @@ function startExam(){
   var _mrChk=document.getElementById('sim-modoreal-chk');
   window._modoReal=!!(_mrChk&&_mrChk.checked&&!_exam._srs);
   if(window._modoReal){
-    try{ var _de=document.documentElement; if(_de.requestFullscreen) _de.requestFullscreen(); }catch(e){}
+    try{ var _de=document.documentElement; if(_de.requestFullscreen){ var _fp=_de.requestFullscreen(); if(_fp&&_fp.catch) _fp.catch(function(){}); } }catch(e){}
     _muToast('Modo Examen Real — las soluciones salen al entregar');
   }
   _timerSec=_exam.tiempo*60; _startTime=Date.now();
@@ -9330,7 +9330,7 @@ document.addEventListener('keydown',function(e){
 
 function _finishExam(){
   clearInterval(_timerInt);
-  if(window._modoReal){ try{ if(document.fullscreenElement && document.exitFullscreen) document.exitFullscreen(); }catch(e){} window._modoReal=false; }
+  if(window._modoReal){ try{ if(document.fullscreenElement && document.exitFullscreen){ var _xp=document.exitFullscreen(); if(_xp&&_xp.catch) _xp.catch(function(){}); } }catch(e){} window._modoReal=false; }
   // Capturar tiempo de la última pregunta vista
   if(_lastQ>=0 && _qStartTime){ _qTimes[_lastQ]=(_qTimes[_lastQ]||0)+(Date.now()-_qStartTime)/1000; _qStartTime=null; }
   var total=_exam.preguntas.length;
@@ -9559,6 +9559,11 @@ function _showScreen(id){
 (function(){
   try {
     var params = window.__pageParams;
+    var reto = params && params.get('reto');
+    if(reto && window.__simBuildReto){
+      var rk = window.__simBuildReto(reto);
+      if(rk){ _goToIntro(rk); return; }
+    }
     var examKey = params && params.get('exam');
     if(examKey && typeof EXAMS !== 'undefined' && EXAMS[examKey]){
       _goToIntro(examKey);
@@ -16593,16 +16598,55 @@ window.__SIMPRO_DEV = /[?&]simpro=1/.test(location.href);
     }
   };
 
-  /* resolver referencia de gemela: 'examKey_idx' o id de SIM_NEW */
+  /* resolver referencia: 'examKey_idx' o id de SIM_NEW */
   function __simGetQ(ref){
     if(!ref) return null;
     var m=(''+ref).match(/^(.+)_(\d+)$/);
+    if(m && EX[m[1]] && EX[m[1]].preguntas[+m[2]] && EX[m[1]].preguntas[+m[2]]._src===ref) return EX[m[1]].preguntas[+m[2]];
+    var slugs=Object.keys(window.SIM_POOL||{});
+    for(var s=0;s<slugs.length;s++){
+      var pool=window.SIM_POOL[slugs[s]]||[];
+      for(var i=0;i<pool.length;i++){ if(pool[i]._src===ref || pool[i].id===ref) return pool[i]; }
+    }
     if(m && EX[m[1]] && EX[m[1]].preguntas[+m[2]]) return EX[m[1]].preguntas[+m[2]];
-    var slug='calcdif';
-    var pool=(window.SIM_POOL&&window.SIM_POOL[slug])||[];
-    for(var i=0;i<pool.length;i++){ if(pool[i]._src===ref || pool[i].id===ref) return pool[i]; }
     return null;
   }
+  window.__simGetQ=__simGetQ;
+
+  /* ── reto por WhatsApp con seed ── */
+  window.__simRetoToken=function(ex){
+    ex=ex||window._exam; if(!ex||!ex.preguntas) return '';
+    var srcs=ex.preguntas.map(function(q){return q._src;}).filter(Boolean);
+    if(!srcs.length) return '';
+    var payload=(ex._slug||'calcdif')+'~'+(ex._corte||0)+'~'+srcs.join(',');
+    try{ return btoa(payload).replace(/\+/g,'-').replace(/\//g,'_').replace(/=+$/,''); }catch(e){ return ''; }
+  };
+  window.__simBuildReto=function(token){
+    var s; try{ s=atob((''+token).replace(/-/g,'+').replace(/_/g,'/')); }catch(e){ return null; }
+    var p=s.split('~'); if(p.length<3) return null;
+    var slug=p[0], corte=+p[1], srcs=p[2].split(',');
+    var qs=srcs.map(function(k){ return __simGetQ(k); }).filter(Boolean);
+    if(qs.length<3) return null;
+    var tax=(window.SIM_TAX||{})[slug]||{}, cinfo=(tax.cortes||{})[corte]||{};
+    var mins=qs.reduce(function(a,q){return a+(q.tEsp?q.tEsp/60:(q.tipo==='abierta'?8:2));},0);
+    EX['reto_x']={ titulo:tax.materia||'Reto', semestre:'RETO DE UN AMIGO'+(corte?(' · CORTE '+corte):''),
+      codigo:tax.codigo||'1000004', tiempo:Math.max(15,Math.round(mins/5)*5),
+      desc:(cinfo.temas||[]).slice(0,4).join(', ')||'Mismas preguntas que tu amigo.', preguntas:qs,
+      _reto:true, _corte:corte, _slug:slug };
+    EM['reto_x']={mat:slug,color:'#E05D1A',badge:'Reto',tipo:'Reto de un amigo',nuevo:false,_ord:-30};
+    return 'reto_x';
+  };
+  window.__simRetar=function(){
+    var tok=window.__simRetoToken();
+    if(!tok){ if(window.shareWA) window.shareWA(); return; }
+    var url=location.origin+location.pathname+'#simulacro?reto='+tok;
+    var nota=(function(){ var g=document.getElementById('grade-stamp-n'); return g?g.textContent:''; })();
+    var txt='Te reto al simulacro de '+((window._exam&&window._exam.titulo)||'Cálculo')+
+      (window._exam&&window._exam._corte?(' — Corte '+window._exam._corte):'')+
+      (nota?('. Yo saqué '+nota+'/5.0. ¿Me ganas?'):'. ¿Me ganas?')+'\n\n'+url;
+    try{ var _cp=navigator.clipboard&&navigator.clipboard.writeText(url); if(_cp&&_cp.catch) _cp.catch(function(){}); }catch(e){}
+    window.open('https://wa.me/?text='+encodeURIComponent(txt),'_blank');
+  };
   function __simRenderGemela(wrap, gq){
     var L=['A','B','C','D','E'];
     var mh=window._mathHtml||function(x){return x;};
