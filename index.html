@@ -75,7 +75,7 @@
   <!-- Simulacros Pro (rama simulacros-pro): banco + laboratorio, inline single-file -->
   <script>
 /* ═══════════════════════════════════════════════════════════════════════════
-   MathUNAL · Simulacros Pro — Banco (inline FLACO): CÁLCULO DIFERENCIAL + CÁLCULO INTEGRAL + ÁLGEBRA LINEAL + ECUACIONES DIFERENCIALES + CÁLCULO EN VARIAS VARIABLES + GEOMETRÍA VECTORIAL Y ANALÍTICA
+   MathUNAL · Simulacros Pro — Banco (inline FLACO): CÁLCULO DIFERENCIAL + CÁLCULO INTEGRAL + ÁLGEBRA LINEAL + ECUACIONES DIFERENCIALES + CÁLCULO EN VARIAS VARIABLES + GEOMETRÍA VECTORIAL Y ANALÍTICA + MATEMÁTICAS DISCRETAS
    Solo lo renderizable + el resumen (teaser gratis). El contenido Pro
    (pasos, "el truco", cómo reconocerlo, soluciones y rúbricas) vive en Supabase
    → sim_solutions, RLS por sim_has_pro(course_id). El motor lo trae con
@@ -324,6 +324,43 @@ var SIM_TAX = {
      "Rectas en el espacio e intersecciones",
      "Distancias en R³",
      "Cónicas y coordenadas polares"
+    ]
+   }
+  }
+ },
+ "discretas": {
+  "materia": "Matemáticas Discretas",
+  "codigo": "1000012",
+  "slug": "discretas",
+  "cortes": {
+   "1": {
+    "nombre": "Lógica y demostración",
+    "pct": 30,
+    "temas": [
+     "Lógica proposicional",
+     "Cuantificadores y predicados",
+     "Métodos de demostración",
+     "Inducción matemática"
+    ]
+   },
+   "2": {
+    "nombre": "Conjuntos, conteo y combinatoria",
+    "pct": 35,
+    "temas": [
+     "Teoría de conjuntos e inclusión-exclusión",
+     "Principios de conteo",
+     "Permutaciones y combinaciones",
+     "Probabilidad discreta"
+    ]
+   },
+   "3": {
+    "nombre": "Recurrencias, grafos y teoría de números",
+    "pct": 35,
+    "temas": [
+     "Relaciones de recurrencia",
+     "Funciones generatrices",
+     "Teoría de grafos",
+     "Aritmética modular y Euclides"
     ]
    }
   }
@@ -1273,6 +1310,170 @@ var SIM_META = {
    {
     "c": 3,
     "t": "Planos en el espacio",
+    "f": "alta",
+    "e": "procedimiento"
+   }
+  ]
+ },
+ "discretas": {
+  "discretas_p1": [
+   {
+    "c": 3,
+    "t": "Aritmética modular y Euclides",
+    "f": "alta",
+    "e": "procedimiento"
+   },
+   {
+    "c": 3,
+    "t": "Aritmética modular y Euclides",
+    "f": "alta",
+    "e": "procedimiento"
+   },
+   {
+    "c": 2,
+    "t": "Permutaciones y combinaciones",
+    "f": "alta",
+    "e": "procedimiento"
+   },
+   {
+    "c": 2,
+    "t": "Teoría de conjuntos e inclusión-exclusión",
+    "f": "alta",
+    "e": "formula"
+   },
+   {
+    "c": 2,
+    "t": "Probabilidad discreta",
+    "f": "alta",
+    "e": "procedimiento"
+   },
+   {
+    "c": 3,
+    "t": "Teoría de grafos",
+    "f": "media",
+    "e": "formula"
+   },
+   {
+    "c": 3,
+    "t": "Teoría de grafos",
+    "f": "media",
+    "e": "conceptual"
+   },
+   {
+    "c": 1,
+    "t": "Inducción matemática",
+    "f": "alta",
+    "e": "procedimiento"
+   },
+   {
+    "c": 2,
+    "t": "Teoría de conjuntos e inclusión-exclusión",
+    "f": "alta",
+    "e": "formula"
+   }
+  ],
+  "discretas_p2": [
+   {
+    "c": 2,
+    "t": "Permutaciones y combinaciones",
+    "f": "alta",
+    "e": "formula"
+   },
+   {
+    "c": 2,
+    "t": "Teoría de conjuntos e inclusión-exclusión",
+    "f": "alta",
+    "e": "formula"
+   },
+   {
+    "c": 1,
+    "t": "Lógica proposicional",
+    "f": "alta",
+    "e": "procedimiento"
+   },
+   {
+    "c": 1,
+    "t": "Cuantificadores y predicados",
+    "f": "media",
+    "e": "conceptual"
+   },
+   {
+    "c": 3,
+    "t": "Relaciones de recurrencia",
+    "f": "media",
+    "e": "conceptual"
+   },
+   {
+    "c": 3,
+    "t": "Relaciones de recurrencia",
+    "f": "alta",
+    "e": "procedimiento"
+   },
+   {
+    "c": 3,
+    "t": "Relaciones de recurrencia",
+    "f": "baja",
+    "e": "procedimiento"
+   },
+   {
+    "c": 1,
+    "t": "Métodos de demostración",
+    "f": "alta",
+    "e": "conceptual"
+   },
+   {
+    "c": 1,
+    "t": "Inducción matemática",
+    "f": "alta",
+    "e": "procedimiento"
+   }
+  ],
+  "discretas_p3": [
+   {
+    "c": 3,
+    "t": "Relaciones de recurrencia",
+    "f": "alta",
+    "e": "procedimiento"
+   },
+   {
+    "c": 3,
+    "t": "Teoría de grafos",
+    "f": "alta",
+    "e": "conceptual"
+   },
+   {
+    "c": 3,
+    "t": "Teoría de grafos",
+    "f": "media",
+    "e": "formula"
+   },
+   {
+    "c": 2,
+    "t": "Permutaciones y combinaciones",
+    "f": "media",
+    "e": "formula"
+   },
+   {
+    "c": 3,
+    "t": "Relaciones de recurrencia",
+    "f": "media",
+    "e": "formula"
+   },
+   {
+    "c": 3,
+    "t": "Relaciones de recurrencia",
+    "f": "media",
+    "e": "conceptual"
+   },
+   {
+    "c": 3,
+    "t": "Funciones generatrices",
+    "f": "media",
+    "e": "formula"
+   },
+   {
+    "c": 3,
+    "t": "Relaciones de recurrencia",
     "f": "alta",
     "e": "procedimiento"
    }
@@ -3096,6 +3297,278 @@ var SIM_NEW = {
    "correcta": 0,
    "resumen": "$z(t)=3+2t=1\\Rightarrow t=-1$; sustituye."
   }
+ ],
+ "discretas": [
+  {
+   "id": "di_c1_01",
+   "c": 1,
+   "t": "Cuantificadores y predicados",
+   "f": "alta",
+   "e": "conceptual",
+   "tipo": "mcq",
+   "dif": 1,
+   "tEsp": 40,
+   "texto": "La negación de $\\forall x\\,P(x)$ es:",
+   "opciones": [
+    "$\\exists x\\,\\neg P(x)$",
+    "$\\forall x\\,\\neg P(x)$",
+    "$\\neg\\exists x\\,P(x)$",
+    "$\\exists x\\,P(x)$"
+   ],
+   "correcta": 0,
+   "resumen": "$\\neg\\forall = \\exists\\neg$: basta un contraejemplo."
+  },
+  {
+   "id": "di_c1_02",
+   "c": 1,
+   "t": "Lógica proposicional",
+   "f": "alta",
+   "e": "conceptual",
+   "tipo": "mcq",
+   "dif": 1,
+   "tEsp": 45,
+   "texto": "$p\\rightarrow q$ es lógicamente equivalente a:",
+   "opciones": [
+    "$\\neg p\\lor q$",
+    "$p\\lor\\neg q$",
+    "$\\neg p\\land q$",
+    "$q\\rightarrow p$"
+   ],
+   "correcta": 0,
+   "resumen": "La implicación se reescribe como \"$\\neg p$ o $q$\"."
+  },
+  {
+   "id": "di_c1_03",
+   "c": 1,
+   "t": "Métodos de demostración",
+   "f": "alta",
+   "e": "conceptual",
+   "tipo": "mcq",
+   "dif": 1,
+   "tEsp": 45,
+   "texto": "La contrarrecíproca de \"si llueve, entonces el piso está mojado\" es:",
+   "opciones": [
+    "si el piso NO está mojado, entonces NO llueve",
+    "si el piso está mojado, entonces llueve",
+    "si NO llueve, entonces el piso NO está mojado",
+    "llueve y el piso está mojado"
+   ],
+   "correcta": 0,
+   "resumen": "Contrarrecíproca de $p\\to q$: $\\neg q\\to\\neg p$."
+  },
+  {
+   "id": "di_c1_04",
+   "c": 1,
+   "t": "Inducción matemática",
+   "f": "media",
+   "e": "formula",
+   "tipo": "numerica",
+   "dif": 1,
+   "tEsp": 40,
+   "texto": "Según la fórmula $\\displaystyle\\sum_{k=1}^{n} k = \\dfrac{n(n+1)}{2}$, ¿cuánto vale $\\displaystyle\\sum_{k=1}^{10} k$?",
+   "resumen": "$\\dfrac{10\\cdot11}{2}$.",
+   "respuesta": "55",
+   "unidad": "",
+   "tolNum": 0.001,
+   "puntaje": 10
+  },
+  {
+   "id": "di_c1_05",
+   "c": 1,
+   "t": "Lógica proposicional",
+   "f": "media",
+   "e": "conceptual",
+   "tipo": "mcq",
+   "dif": 1,
+   "tEsp": 35,
+   "texto": "La proposición $p\\land\\neg p$ es:",
+   "opciones": [
+    "una contradicción (siempre falsa)",
+    "una tautología (siempre verdadera)",
+    "verdadera solo si $p$ es verdadera",
+    "una contingencia"
+   ],
+   "correcta": 0,
+   "resumen": "Algo y su negación no pueden ser ambos verdaderos."
+  },
+  {
+   "id": "di_c2_01",
+   "c": 2,
+   "t": "Teoría de conjuntos e inclusión-exclusión",
+   "f": "alta",
+   "e": "formula",
+   "tipo": "numerica",
+   "dif": 1,
+   "tEsp": 40,
+   "texto": "Si $|A|=20$, $|B|=15$ y $|A\\cap B|=5$, ¿cuánto vale $|A\\cup B|$?",
+   "resumen": "$|A\\cup B| = |A|+|B|-|A\\cap B|$.",
+   "respuesta": "30",
+   "unidad": "",
+   "tolNum": 0.001,
+   "puntaje": 10
+  },
+  {
+   "id": "di_c2_02",
+   "c": 2,
+   "t": "Permutaciones y combinaciones",
+   "f": "alta",
+   "e": "formula",
+   "tipo": "mcq",
+   "dif": 1,
+   "tEsp": 35,
+   "texto": "¿De cuántas maneras se pueden ordenar en fila $4$ personas distintas?",
+   "opciones": [
+    "$24$",
+    "$16$",
+    "$4$",
+    "$12$"
+   ],
+   "correcta": 0,
+   "resumen": "$4! = 4\\cdot3\\cdot2\\cdot1$."
+  },
+  {
+   "id": "di_c2_03",
+   "c": 2,
+   "t": "Permutaciones y combinaciones",
+   "f": "alta",
+   "e": "formula",
+   "tipo": "numerica",
+   "dif": 1,
+   "tEsp": 40,
+   "texto": "Calcule $\\dbinom{6}{2}$.",
+   "resumen": "$\\dfrac{6!}{2!\\,4!} = \\dfrac{6\\cdot5}{2}$.",
+   "respuesta": "15",
+   "unidad": "",
+   "tolNum": 0.001,
+   "puntaje": 10
+  },
+  {
+   "id": "di_c2_04",
+   "c": 2,
+   "t": "Principios de conteo",
+   "f": "alta",
+   "e": "formula",
+   "tipo": "mcq",
+   "dif": 1,
+   "tEsp": 35,
+   "texto": "¿Cuántas cadenas binarias de longitud $5$ existen?",
+   "opciones": [
+    "$32$",
+    "$25$",
+    "$10$",
+    "$5$"
+   ],
+   "correcta": 0,
+   "resumen": "$2$ opciones por posición, $5$ posiciones → $2^5$."
+  },
+  {
+   "id": "di_c2_05",
+   "c": 2,
+   "t": "Probabilidad discreta",
+   "f": "media",
+   "e": "procedimiento",
+   "tipo": "mcq",
+   "dif": 1,
+   "tEsp": 40,
+   "texto": "Se lanza una moneda justa $2$ veces. La probabilidad de obtener cara en AMBOS lanzamientos es:",
+   "opciones": [
+    "$\\dfrac14$",
+    "$\\dfrac12$",
+    "$\\dfrac13$",
+    "$1$"
+   ],
+   "correcta": 0,
+   "resumen": "Eventos independientes: $\\dfrac12\\cdot\\dfrac12$."
+  },
+  {
+   "id": "di_c3_01",
+   "c": 3,
+   "t": "Relaciones de recurrencia",
+   "f": "alta",
+   "e": "procedimiento",
+   "tipo": "numerica",
+   "dif": 1,
+   "tEsp": 45,
+   "texto": "Si $a_n = 3\\,a_{n-1}$ con $a_0 = 2$, ¿cuánto vale $a_3$?",
+   "resumen": "Recurrencia geométrica: $a_n = 2\\cdot 3^n$.",
+   "respuesta": "54",
+   "unidad": "",
+   "tolNum": 0.001,
+   "puntaje": 10
+  },
+  {
+   "id": "di_c3_02",
+   "c": 3,
+   "t": "Teoría de grafos",
+   "f": "alta",
+   "e": "formula",
+   "tipo": "mcq",
+   "dif": 1,
+   "tEsp": 45,
+   "texto": "En cualquier grafo, la suma de los grados de todos los vértices es igual a:",
+   "opciones": [
+    "$2\\times$ (número de aristas)",
+    "el número de aristas",
+    "el número de vértices",
+    "$0$"
+   ],
+   "correcta": 0,
+   "resumen": "Lema del apretón de manos: cada arista aporta $1$ a dos grados."
+  },
+  {
+   "id": "di_c3_03",
+   "c": 3,
+   "t": "Aritmética modular y Euclides",
+   "f": "alta",
+   "e": "formula",
+   "tipo": "numerica",
+   "dif": 1,
+   "tEsp": 35,
+   "texto": "Calcule $17 \\bmod 5$.",
+   "resumen": "$17 = 3\\cdot5 + 2$; el resto es $2$.",
+   "respuesta": "2",
+   "unidad": "",
+   "tolNum": 0.001,
+   "puntaje": 10
+  },
+  {
+   "id": "di_c3_04",
+   "c": 3,
+   "t": "Teoría de grafos",
+   "f": "alta",
+   "e": "conceptual",
+   "tipo": "mcq",
+   "dif": 1,
+   "tEsp": 40,
+   "texto": "Un árbol con $n$ vértices tiene exactamente:",
+   "opciones": [
+    "$n-1$ aristas",
+    "$n$ aristas",
+    "$n+1$ aristas",
+    "$2n$ aristas"
+   ],
+   "correcta": 0,
+   "resumen": "Un árbol es conexo y sin ciclos → $e = v - 1$."
+  },
+  {
+   "id": "di_c3_05",
+   "c": 3,
+   "t": "Relaciones de recurrencia",
+   "f": "alta",
+   "e": "procedimiento",
+   "tipo": "mcq",
+   "dif": 2,
+   "tEsp": 55,
+   "texto": "La ecuación característica de la recurrencia $a_n = a_{n-1} + 2\\,a_{n-2}$ es:",
+   "opciones": [
+    "$r^2 - r - 2 = 0$, con raíces $2$ y $-1$",
+    "$r^2 + r + 2 = 0$",
+    "$r^2 - r + 2 = 0$",
+    "$r - 3 = 0$"
+   ],
+   "correcta": 0,
+   "resumen": "$a_n - a_{n-1} - 2a_{n-2} = 0$ → $r^2 - r - 2 = 0$."
+  }
  ]
 };
 window.SIM_TAX = SIM_TAX;
@@ -3383,8 +3856,8 @@ var W2={
      // relleno hasta b
      var fill='M'+fmt(X(0),1)+' '+fmt(Y(0),1);
      for(var s=0;s<=b+1e-9;s+=0.02) fill+=' L'+fmt(X(s),1)+' '+fmt(Y(s),1);
-     for(var s2=b;s2>=-1e-9;s2-=0.02) fill+=' L'+fmt(X(s2),1)+' '+fmt(Y(s2*s2),1);
-     fill+=' Z';
+     for(var s2=b;s2>=0;s2-=0.02) fill+=' L'+fmt(X(s2),1)+' '+fmt(Y(s2*s2),1);
+     fill+=' L'+fmt(X(0),1)+' '+fmt(Y(0),1)+' Z';
      svg.appendChild(ns('path',{d:fill,fill:'var(--adim)',stroke:'none'}));
      svg.appendChild(ns('path',{d:du,fill:'none',stroke:'var(--acc)','stroke-width':2}));
      svg.appendChild(ns('path',{d:dl,fill:'none',stroke:'var(--t2)','stroke-width':2}));
@@ -3404,10 +3877,11 @@ var W2={
      var d='M'; for(var t=0;t<=4+1e-9;t+=0.05){ d+=(t>0?' L':'')+fmt(ox+t*sx,1)+' '+fmt(oy-Math.sqrt(t)*sy,1); }
      var dn='M'; for(var t2=0;t2<=4+1e-9;t2+=0.05){ dn+=(t2>0?' L':'')+fmt(ox+t2*sx,1)+' '+fmt(oy+Math.sqrt(t2)*sy,1); }
      // sólido hasta b (relleno)
+     var sq=function(t){ return Math.sqrt(Math.max(0,t)); };
      var fill='M'+fmt(ox,1)+' '+fmt(oy,1);
-     for(var s=0;s<=b+1e-9;s+=0.05) fill+=' L'+fmt(ox+s*sx,1)+' '+fmt(oy-Math.sqrt(s)*sy,1);
-     for(var s2b=b;s2b>=-1e-9;s2b-=0.05) fill+=' L'+fmt(ox+s2b*sx,1)+' '+fmt(oy+Math.sqrt(s2b)*sy,1);
-     fill+=' Z';
+     for(var s=0;s<=b+1e-9;s+=0.05) fill+=' L'+fmt(ox+s*sx,1)+' '+fmt(oy-sq(s)*sy,1);
+     for(var s2b=b;s2b>=0;s2b-=0.05) fill+=' L'+fmt(ox+s2b*sx,1)+' '+fmt(oy+sq(s2b)*sy,1);
+     fill+=' L'+fmt(ox,1)+' '+fmt(oy,1)+' Z';
      svg.appendChild(ns('path',{d:fill,fill:'var(--adim)',stroke:'none'}));
      svg.appendChild(ns('path',{d:d,fill:'none',stroke:'var(--acc)','stroke-width':2}));
      svg.appendChild(ns('path',{d:dn,fill:'none',stroke:'var(--acc)','stroke-width':1,'stroke-opacity':0.5}));
@@ -20832,7 +21306,7 @@ window.__SIMPRO_DEV = /[?&]simpro=1/.test(location.href) || !!window.__SIM_LOCAL
        { user_id, product_id:'calcdif_pro', course_id:'1000004',
          exam_period_id:'2026-2', valid_until }                                */
   /* materias con banco Pro. course = código UNAL; el entitlement es por materia. */
-  var PRO_COURSES = ['1000004','1000005', '1000006', '1000008', '1000007', '1000013'];
+  var PRO_COURSES = ['1000004','1000005', '1000006', '1000008', '1000007', '1000013', '1000012'];
   function _courseOf(slug){
     return (slug && (window.SIM_TAX||{})[slug] && window.SIM_TAX[slug].codigo) || null;
   }
