@@ -4954,6 +4954,7 @@ input:not([type=checkbox]):not([type=radio]):focus,select:focus,textarea:focus{
 .cp-result-big{font-family:'Literata',Georgia,serif;font-size:2.5rem;font-weight:900;letter-spacing:-1px;line-height:1}
 .cp-col-left .cp-result-big{color:var(--red)}
 .cp-col-right .cp-result-big{color:var(--grn)}
+.cp-result-sub{display:block;font-size:.72rem;font-family:'IBM Plex Mono',monospace;text-transform:uppercase;letter-spacing:.08em;color:var(--t3);margin-top:.2rem}
 .cp-mid{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.5rem;padding-top:3rem}
 .cp-mid-line{width:1px;height:40px;background:var(--br)}
 .cp-mid-or{font-family:IBM Plex Mono,monospace;font-size:.72rem;font-weight:700;color:var(--t3);letter-spacing:.1em}
@@ -6459,8 +6460,8 @@ customElements.define('glass-element', GlassElement);
         </div>
       </div>
       <div class="cp-j-result" id="cp-sin-result">
-        <div class="cp-j-result-n" style="color:var(--bad)">2.4</div>
-        <div class="cp-j-result-l">Promedio típico sin práctica estructurada</div>
+        <div class="cp-j-result-n" style="color:var(--bad)">?</div>
+        <div class="cp-j-result-l">Llegas al parcial sin saber en qué nivel estás ni qué te va a costar.</div>
         <button class="cp-j-switch" onclick="cpSetPath('con')">¿Y con MathUNAL? →</button>
       </div>
     </div>
@@ -6499,8 +6500,8 @@ customElements.define('glass-element', GlassElement);
         </div>
       </div>
       <div class="cp-j-result" id="cp-con-result">
-        <div class="cp-j-result-n" style="color:var(--ok)">3.8</div>
-        <div class="cp-j-result-l">Promedio con práctica estructurada</div>
+        <div class="cp-j-result-n" style="color:var(--ok)">✓</div>
+        <div class="cp-j-result-l">Sabes tu nivel, en qué temas fallas y exactamente qué repasar antes.</div>
         <button class="cp-j-switch" onclick="cpSetPath('vs')"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="13,2 3,14 12,14 11,22 21,10 12,10"/></svg> Ver la comparación →</button>
       </div>
     </div>
@@ -6516,7 +6517,7 @@ customElements.define('glass-element', GlassElement);
             <div class="cp-step v"><div class="cp-ico"><svg width="16" height="16" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"><circle cx="12" cy="12" r="9"/><polyline points="12,7 12,12 15,15"/></svg></div><div><div class="cp-txt-main">Sin simulacro real</div></div></div>
             <div class="cp-step v"><div class="cp-ico"><svg width="16" height="16" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"><circle cx="12" cy="12" r="10"/><path d="M16 16s-1.5-2-4-2-4 2-4 2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg></div><div><div class="cp-txt-main">Sin confianza</div></div></div>
           </div>
-          <div class="cp-result"><span class="cp-result-big">2.4</span></div>
+          <div class="cp-result"><span class="cp-result-big">?</span><span class="cp-result-sub">a ciegas</span></div>
         </div>
         <div class="cp-mid"><div class="cp-mid-line"></div><div class="cp-mid-or">VS</div><div class="cp-mid-line"></div></div>
         <div class="cp-col-right">
@@ -6527,7 +6528,7 @@ customElements.define('glass-element', GlassElement);
             <div class="cp-step v"><div class="cp-ico"><svg width="16" height="16" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"><polygon points="5,3 19,12 5,21" fill="currentColor" stroke="none"/></svg></div><div><div class="cp-txt-main">Cronómetro por tu cuenta</div></div></div>
             <div class="cp-step v"><div class="cp-ico"><svg width="16" height="16" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg></div><div><div class="cp-txt-main">Preparado y seguro</div></div></div>
           </div>
-          <div class="cp-result"><span class="cp-result-big">3.8</span></div>
+          <div class="cp-result"><span class="cp-result-big">✓</span><span class="cp-result-sub">con plan</span></div>
         </div>
       </div>
     </div>
@@ -18093,7 +18094,7 @@ var LANG_ES={
   "cp-sin-4-t":"Llegas al parcial sin confianza",
   "cp-sin-4-d":"Primera vez que ves el formato real. El tiempo se siente diferente. Eso se refleja en la nota.",
   "cp-action":"↓ Sigue el paso 2",
-  "cp-sin-result-l":"Promedio típico sin práctica estructurada",
+  "cp-sin-result-l":"Llegas al parcial sin saber en qué nivel estás ni qué te va a costar.",
   "cp-sin-switch":"¿Y con MathUNAL? →",
   "cp-con-1-t":"Abres tu materia en un clic",
   "cp-con-1-d-pre":"PDFs organizados por semestre, tipo y materia. Todo verificado. Sin buscar en WhatsApp ni drives perdidos.",
@@ -18103,7 +18104,7 @@ var LANG_ES={
   "cp-con-3-d":"Descargas el PDF, cierras el libro y resuelves con tu propio cronómetro. El simulacro con formato SIDEX automático llega pronto.",
   "cp-con-4-t":"Llegas preparado y con confianza",
   "cp-con-4-d":"Ya viste el formato. Ya mediste tu tiempo. Ya sabes que puedes. Eso se refleja en la nota.",
-  "cp-con-result-l":"Promedio con práctica estructurada",
+  "cp-con-result-l":"Sabes tu nivel, en qué temas fallas y exactamente qué repasar antes.",
   "cp-con-switch":"Ver la comparación →",
   "cp-vs-1":"Buscar en WhatsApp","cp-vs-2":"Sin solucionario","cp-vs-3":"Sin simulacro real","cp-vs-4":"Sin confianza",
   "cp-vs-5":"Todo organizado","cp-vs-6":"Parciales resueltos reales","cp-vs-7":"Cronómetro por tu cuenta","cp-vs-8":"Preparado y seguro",
@@ -18374,7 +18375,7 @@ var LANG_EN={
   "cp-sin-4-t":"You walk into the exam without confidence",
   "cp-sin-4-d":"First time seeing the real format. Time feels different. It shows in your grade.",
   "cp-action":"↓ See step 2",
-  "cp-sin-result-l":"Typical average without structured practice",
+  "cp-sin-result-l":"You walk into the exam not knowing your level or what will trip you up.",
   "cp-sin-switch":"What about with MathUNAL? →",
   "cp-con-1-t":"You open your subject in one click",
   "cp-con-1-d-pre":"PDFs organized by semester, type and subject. All verified. No digging through WhatsApp or lost drives.",
@@ -18384,7 +18385,7 @@ var LANG_EN={
   "cp-con-3-d":"Download the PDF, close the book, and solve it with your own timer. Automated SIDEX-format mock exams are coming soon.",
   "cp-con-4-t":"You walk in prepared and confident",
   "cp-con-4-d":"You've seen the format. You've timed yourself. You know you can do it. It shows in your grade.",
-  "cp-con-result-l":"Average with structured practice",
+  "cp-con-result-l":"You know your level, which topics you fail, and exactly what to review.",
   "cp-con-switch":"See the comparison →",
   "cp-vs-1":"Searching WhatsApp","cp-vs-2":"No solutions","cp-vs-3":"No real mock exam","cp-vs-4":"No confidence",
   "cp-vs-5":"Everything organized","cp-vs-6":"Real solved exams","cp-vs-7":"Your own timer","cp-vs-8":"Prepared and confident",
