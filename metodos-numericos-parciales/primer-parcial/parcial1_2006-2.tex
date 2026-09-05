@@ -1,0 +1,61 @@
+\documentclass[11pt]{article}
+\usepackage{mathunal-base}
+\mathunalfuente{serif}
+\providecommand{\nota}[1]{\par\smallskip\noindent{\small\itshape\color{unalblue}#1}\par\smallskip}
+\newlist{opciones}{enumerate}{1}
+\setlist[opciones]{label=\alph*.,itemsep=1pt,topsep=2pt,leftmargin=1.8em,font=\normalfont}
+
+\renewcommand{\examtitulo}{Métodos Numéricos 3002192 --- Primer Parcial}
+\renewcommand{\examfecha}{Septiembre 4 de 2006}
+
+\begin{document}
+
+\examheader
+
+\vspace{6pt}
+\noindent Nombre \dotfill\ Carné \dotfill
+
+\vspace{10pt}
+\noindent\textbf{1.} Sea
+\[
+g(x)=-1+\frac{1}{4}(x+1)^2.
+\]
+\begin{opciones}
+\item (5\%) Resuelva $x=g(x)$ y compruebe que los puntos fijos de $g(x)$ son $x=-1$ y $x=3$.
+\item (5\%) Para el intervalo $I=[-2,0]$ pruebe que $g(x)\in I$ para todo $x\in I$. ¿Qué se concluye de este hecho?
+\item (5\%) Para el mismo intervalo $I$, encuentre una constante $K$ tal que $|g'(x)|\leq K<1$. ¿Qué se concluye de este hecho?
+\item (5\%) Realice dos iteraciones de punto fijo para $g(x)$ con punto inicial $x=-5$. Compruebe que se trata de una iteración convergente. ¿A qué punto fijo converge?
+\item (5\%) Si el punto inicial es $x=3$, ¿será convergente la iteración de punto fijo? ¿A cuál punto fijo?
+\item (5\%) Si el punto inicial es $x=-1.5$, ¿será convergente la iteración de punto fijo? ¿A cuál punto fijo?
+\end{opciones}
+
+\vspace{5mm}
+\noindent\textbf{2.}
+\begin{opciones}
+\item (10\%) Sea $f(x)=x^{1/3}$. Enuncie el método iterativo de Newton Raphson para aproximar la solución de $f(x)=0$. Justifique la siguiente afirmación: La iteración de Newton Raphson para $f(x)=0$ converge únicamente si el punto inicial es la raíz $x=0$.
+\item (10\%) Pruebe que la función $f(x)=x-\tan(x)$ tiene una raíz en $[-1.5,1]$. Encuentre dicha raíz. ¿Cuál es su multiplicidad? ¿Qué tipo de convergencia espera del método de Newton Raphson si lo aplica a este problema con punto inicial $x=-1$?
+\end{opciones}
+
+\vspace{5mm}
+\noindent\textbf{3. (20\%)} Sea
+\[
+A=\begin{bmatrix} 1 & s \\ -s & 1 \end{bmatrix}.
+\]
+¿Bajo qué condiciones sobre $s$ convergen las iteraciones de Jacobi y Gauss Seidel?
+
+\nota{Ayuda: $\begin{bmatrix} 1 & 0 \\ -s & 1 \end{bmatrix}^{-1}=\begin{bmatrix} 1 & 0 \\ s & 1 \end{bmatrix}$.}
+
+\vspace{5mm}
+\noindent\textbf{4.} Considere el sistema $Ax=b$, con $A$ no singular con diagonal no nula. Deseamos resolver este sistema por un método iterativo, ya sea Jacobi, Gauss Seidel o SOR. Suponga que $A=D-L-U$, donde $D$ es la matriz diagonal con la diagonal de $A$ como diagonal, $L$ es el negativo de la parte estrictamente triangular inferior de $A$ y $U$ es el negativo de la parte estrictamente triangular superior de $A$.
+\begin{opciones}
+\item (5\%) ¿Qué condición sobre la matriz $D^{-1}(L+U)$ garantiza la convergencia de uno de los tres métodos para cualquier vector inicial? ¿Cuál es el método que tiene que ser convergente en este caso?
+\item (10\%) Establezca tres condiciones que garantizan la convergencia del método de Gauss Seidel para cualquier vector inicial.
+\item (10\%) Suponga que $0<\omega<2$. Establezca dos condiciones que garantizan la convergencia del método SOR para cualquier vector inicial.
+\item (5\%) Suponga que se sabe que la iteración de Gauss Seidel converge para cualquier vector inicial pero la iteración de Jacobi no converge para cualquier vector inicial. ¿Puede ser $A$ una matriz estrictamente diagonalmente dominante?
+\end{opciones}
+
+\vfill
+\rule{\linewidth}{0.4pt}\\[1pt]
+{\scriptsize\textit{Transcripción digital --- MathUNAL}\hfill\textcolor{unalblue}{\textbf{1}}}
+
+\end{document}

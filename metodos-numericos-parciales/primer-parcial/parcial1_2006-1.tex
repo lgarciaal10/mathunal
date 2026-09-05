@@ -1,0 +1,88 @@
+\documentclass[11pt]{article}
+\usepackage{mathunal-base}
+\mathunalfuente{serif}
+\newlist{opciones}{enumerate}{1}
+\setlist[opciones]{label=\alph*.,itemsep=1pt,topsep=2pt,leftmargin=1.8em,font=\normalfont}
+\newlist{romanitos}{enumerate}{1}
+\setlist[romanitos]{label=\roman*.,itemsep=1pt,topsep=2pt,leftmargin=1.8em,font=\normalfont}
+
+\renewcommand{\examtitulo}{3002192 Métodos Numéricos --- Primer Examen Parcial}
+\renewcommand{\examfecha}{6 de Marzo de 2006}
+
+\begin{document}
+
+\examheader
+
+\vspace{6pt}
+\noindent Nombre \dotfill\ Carné \dotfill\ Profesor \dotfill\ Grupo \dotfill
+
+\vspace{10pt}
+\noindent\textbf{1.} Considere la ecuación
+\[
+x-2+\ln(x)=0, \qquad \text{con } x>0.
+\]
+\begin{opciones}
+\item (5\%) Compruebe que hay un único número real positivo $p$ que es raíz de esta ecuación.
+\item (5\%) Verifique que se puede aplicar el método de Bisección a la función
+\[
+f(x)=x-2+\ln(x)
+\]
+en el intervalo $[1.5,1.6]$ para aproximar la raíz $p$.
+\item (5\%) Calcule las dos primeras iteraciones del método de bisección.
+\item (15\%) Verifique que la función $g(x)=2-\ln(x)$ es tal que:
+\begin{romanitos}
+\item $x=g(x)$ si y solo si $f(x)=0$.
+\item $g(x)$ satisface las hipótesis del Teorema de Punto Fijo en $[1.5,1.6]$.
+\end{romanitos}
+\item (5\%) Calcule las dos primeras iteraciones de punto fijo con 1.55 como aproximación inicial. ¿Cuál es el valor aproximado de la raíz $p$?
+\end{opciones}
+
+\vspace{5mm}
+\noindent\textbf{2.} Considere la ecuación polinómica
+\[
+p(x)=x^3+3x-1=0.
+\]
+Al dividir $p(x)$ por el factor cuadrático $(x^2-ux-v)$ resulta
+\[
+p(x)=(x^2-ux-v)q(x)+r(x),
+\]
+con cociente y residuo dados por
+\[
+q(x)=b_nx^{n-2}+b_{n-1}x^{n-3}+\ldots+b_3x+b_2 \qquad \text{y} \qquad r(x)=b_1(x-u)+b_0
+\]
+respectivamente.
+\begin{opciones}
+\item (20\%) Calcule la primera iteración del método de Bairstow para aproximar un factor cuadrático $x^2-ux-v$ del polinomio $p(x)$. Utilice $u_0=-1$ y $v_0=-3$ como aproximaciones iniciales.
+\item (10\%) Suponga que el valor de los coeficientes del factor cuadrático es $u=-0.32$ y $v=-3.1$. Encuentre las tres raíces de la ecuación $p(x)=0$.
+\end{opciones}
+
+\vspace{5mm}
+\noindent\textbf{3.} Considere el sistema lineal
+\[
+\begin{aligned}
+4x_1+2x_2+2x_3&=1\\
+x_1+5x_2-x_3&=1\\
+2x_1+x_2-3x_3&=1.
+\end{aligned}
+\]
+Se sabe que:
+\begin{opciones}
+\item[i.] El polinomio característico de la matriz de iteración de Jacobi $T_J$ es $p_{T_J}(x)=-x^3-\dfrac{1}{6}x-\dfrac{1}{30}$.
+\item[ii.] La matriz de iteración del método de Gauss-Seidel es
+\[
+T_G=\begin{bmatrix} 0 & -0.5 & -0.5 \\ 0 & 0.1 & 0.3 \\ 0 & -0.3 & -0.7 \end{bmatrix}.
+\]
+\item[iii.] El polinomio característico de $T_G$ es $p_{T_G}(x)=-x\left(x^2+\dfrac{2}{15}x+\dfrac{1}{15}\right)$.
+\end{opciones}
+\begin{opciones}
+\item (10\%) Analice la convergencia del método de Jacobi para este sistema.
+\item (10\%) Analice la convergencia del método de Gauss-Seidel para este sistema.
+\item (7\%) Escriba las fórmulas escalares de iteración del método de Jacobi para el sistema dado y calcule una iteración con aproximación inicial $X^{(0)}$ dada por el vector nulo.
+\item (8\%) Escriba las fórmulas escalares de iteración del método de Gauss-Seidel para el sistema dado y calcule una iteración con aproximación inicial $X^{(0)}$ dada por el vector nulo.
+\end{opciones}
+
+\vfill
+\rule{\linewidth}{0.4pt}\\[1pt]
+{\scriptsize\textit{Transcripción digital --- MathUNAL}\hfill\textcolor{unalblue}{\textbf{1}}}
+
+\end{document}

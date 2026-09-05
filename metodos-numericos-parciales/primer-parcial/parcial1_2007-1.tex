@@ -1,0 +1,64 @@
+\documentclass[11pt]{article}
+\usepackage{mathunal-base}
+\mathunalfuente{serif}
+\newlist{opciones}{enumerate}{1}
+\setlist[opciones]{label=(\alph*),itemsep=1pt,topsep=2pt,leftmargin=1.8em,font=\normalfont}
+
+\renewcommand{\examtitulo}{Primer Parcial, Métodos Numéricos}
+\renewcommand{\examfecha}{Marzo 10 de 2007}
+
+\begin{document}
+
+\examheader
+
+\vspace{6pt}
+\noindent Nombre \dotfill\ Carné \dotfill\ Grupo \dotfill
+
+\vspace{8pt}
+\noindent\textbf{La interpretación del examen hace parte de la evaluación, por tanto no se admiten preguntas.}
+
+\vspace{10pt}
+\noindent\textbf{1.} Considere el proceso de iteración de punto fijo $x_{n+1}=g(x_n)$ con $g(x)=\dfrac{1}{3}x-5$.
+\begin{opciones}
+\item (5\%) Pruebe que $\alpha=-\dfrac{15}{2}$ es un punto fijo de $g$.
+\item (10\%) Pruebe que $|\alpha-x_{n+1}|=\dfrac{1}{3}|\alpha-x_n|$ para $n=0,1,\ldots$
+\item (5\%) Pruebe que $|\alpha-x_{n+1}|=\dfrac{1}{3^{n+1}}|\alpha-x_0|$ para $n=0,1,\ldots$
+\item (5\%) Con base en lo anterior, justifique la siguiente afirmación: Esta iteración de punto fijo converge para cualquier aproximación inicial $x_0$.
+\end{opciones}
+
+\vspace{5mm}
+\noindent\textbf{2.} Consideremos el sistema no lineal
+\[
+\begin{aligned} x^2+y^2&=2\\ xy&=1 \end{aligned}
+\]
+\begin{opciones}
+\item (5\%) Compruebe que las soluciones del sistema son: $\begin{bmatrix}1\\1\end{bmatrix}$ y $\begin{bmatrix}-1\\-1\end{bmatrix}$.
+\item (10\%) Realice una iteración del método de Newton con primera aproximación $x^{(0)}=\begin{bmatrix}0\\2\end{bmatrix}$.
+\item (10\%) Justifique el siguiente enunciado: Para este sistema, el método de Newton no se puede aplicar con cualquier aproximación inicial.
+\end{opciones}
+
+\vspace{5mm}
+\noindent\textbf{3. (25\%)} Indique si los siguientes enunciados son verdaderos o falsos y justifique su respuesta.
+
+\noindent Sean $A=\begin{bmatrix}2&3\\1&4\end{bmatrix}$ y $b=\begin{bmatrix}5\\5\end{bmatrix}$.
+\begin{opciones}
+\item \rule{2cm}{0.4pt} El sistema $Ax=b$ tiene una única solución.
+\item \rule{2cm}{0.4pt} Si $x^{(0)}=\begin{bmatrix}0\\0\end{bmatrix}$, entonces la iteración de Gauss-Seidel para aproximar la solución de $Ax=b$ converge.
+\item \rule{2cm}{0.4pt} $\|A\|_1=\|A\|_\infty$.
+\item \rule{2cm}{0.4pt} Si las dos componentes de un vector $z$ son iguales, entonces $z$ es una solución de $Ax=b$.
+\item \rule{2cm}{0.4pt} La iteración de Jacobi para aproximar la solución de $Ax=b$ no converge para cualquier vector inicial $x^{(0)}$.
+\end{opciones}
+
+\vspace{5mm}
+\noindent\textbf{4.} Sea $f(x)=e^{2x}-e^x-2$.
+\begin{opciones}
+\item (10\%) Pruebe que $f$ tiene una única raíz en el intervalo $[0,1]$.
+\item (5\%) Realice una iteración del método de Newton con primera aproximación $x_0=0$.
+\item (10\%) Pruebe o refute la afirmación siguiente: Para encontrar esta raíz, el método de Newton converge cuadráticamente.
+\end{opciones}
+
+\vfill
+\rule{\linewidth}{0.4pt}\\[1pt]
+{\scriptsize\textit{Transcripción digital --- MathUNAL}\hfill\textcolor{unalblue}{\textbf{1}}}
+
+\end{document}

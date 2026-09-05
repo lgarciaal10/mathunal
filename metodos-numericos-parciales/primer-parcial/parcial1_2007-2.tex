@@ -1,0 +1,136 @@
+\documentclass[11pt]{article}
+\usepackage{mathunal-base}
+\mathunalfuente{serif}
+\providecommand{\nota}[1]{\par\smallskip\noindent{\small\itshape\color{unalblue}#1}\par\smallskip}
+\newlist{opciones}{enumerate}{1}
+\setlist[opciones]{label=\alph*.,itemsep=1pt,topsep=2pt,leftmargin=1.8em,font=\normalfont}
+\newlist{romanitos}{enumerate}{1}
+\setlist[romanitos]{label=\roman*.,itemsep=1pt,topsep=2pt,leftmargin=1.8em,font=\normalfont}
+
+\renewcommand{\examtitulo}{Primer Examen Parcial de Métodos Numéricos (20\%)}
+\renewcommand{\examfecha}{17 de septiembre de 2007}
+
+\begin{document}
+
+\examheader
+
+\vspace{4pt}
+\noindent\textit{Duración: 1 hora y 50 minutos.}
+
+\vspace{6pt}
+\noindent Nombre \dotfill\ Carné \dotfill\ Grupo \dotfill
+
+\vspace{10pt}
+\noindent\textbf{1.} La ecuación $f(x)=\sin(x)-e^{-x}=0$ tiene infinitas raíces y se desea aproximar la menor raíz positiva.
+\begin{opciones}
+\item (5\%) Pruebe que esta ecuación tiene una única raíz en el intervalo $[0,1]$, llamémosla $p$.
+\item (5\%) Si aplicamos el método de bisección con $a_0=0$, $b_0=1$, encontramos una sucesión de aproximaciones $c_k$, $k=0,1,\ldots$ Sin tener que calcular las iteraciones encuentre el menor $n$ tal que $|p-c_n|\leq 10^{-4}$.
+\item (5\%) Escriba la fórmula de iteración de Newton para aproximar la raíz $p$.
+\item (10\%) ¿Cuál es el orden de convergencia del método de Newton en este caso? Justifique su respuesta.
+\item Sea $g(x)=\sin^{-1}(e^{-x})$ definida en $I=[0.5,0.7]$. Verifique:
+\begin{romanitos}
+\item (10\%) $f(x)=0$ si y solo si $x=g(x)$. Además, las funciones $g$ y $g'$ son continuas en $I$.
+\item (10\%) Si $x\in I$, entonces $g(x)\in I$ y existe una constante $K$ tal que $|g'(x)|\leq K<1$.
+\end{romanitos}
+(5\%) ¿Qué puede afirmar sobre puntos fijos de la función $g$ y sobre la iteración de punto fijo $p_n=g(p_{n-1})$ para cualquier aproximación inicial $p_0\in I$?
+
+\nota{AYUDA: $g'(x)=\dfrac{-1}{\left[e^{2x}-1\right]^{\frac12}}$, \quad $g''(x)=\dfrac{e^{2x}}{\left[e^{2x}-1\right]^{\frac32}}$.}
+\end{opciones}
+
+\vspace{5mm}
+\noindent\textbf{2.} Considere el sistema lineal $Ax=b$ donde
+\[
+A=\begin{bmatrix} 2&-1&-3&2\\5&-10&2&-6\\5&-9&15&-6\\2&1&-1&10 \end{bmatrix}
+\qquad\text{y}\qquad
+b=\begin{bmatrix}4\\3\\2\\1\end{bmatrix}.
+\]
+Si conocemos que:
+\[
+T_J=\begin{bmatrix}
+0 & \frac12 & \frac32 & -1\\
+\frac12 & 0 & \frac15 & \frac{-3}5\\
+\frac{-1}3 & \frac35 & 0 & \frac25\\
+\frac{-1}5 & \frac{-1}{10} & \frac1{10} & 0
+\end{bmatrix}
+\qquad
+T_G=\begin{bmatrix}
+0 & \frac12 & \frac32 & -1\\
+0 & \frac14 & \frac{19}{20} & \frac{-11}{10}\\
+0 & \frac{-1}{60} & \frac7{100} & \frac{11}{150}\\
+0 & \frac{-19}{150} & \frac{-97}{250} & \frac{119}{375}
+\end{bmatrix}
+\qquad
+T_{S_{w=0.9}}=\begin{bmatrix}
+\frac1{10} & \frac9{20} & \frac{27}{20} & \frac{-9}{10}\\
+\frac9{200} & \frac{121}{400} & \frac{63}{80} & \frac{-189}{200}\\
+\frac{-57}{10000} & \frac{139}{4903} & \frac{481}{4000} & \frac{415}{3467}\\
+\frac{-103}{4565} & \frac{-244}{2309} & \frac{-417}{1376} & \frac{263}{735}
+\end{bmatrix}
+\]
+con espectros:
+\[
+\{-0.10365,\ 0.83645,\ -0.3664+0.56520i,\ -0.3664-0.56520i\} \text{ para } T_J
+\]
+\[
+\{0.57072,\ 0.15630,\ -8.9684\times10^{-2},\ 0\} \text{ para } T_G
+\]
+\[
+\{2.0606\times10^{-2},\ 0.68060,\ 5.9469\times10^{-2},\ 0.1199\} \text{ para } T_{S_{w=0.9}}
+\]
+\begin{opciones}
+\item (10\%) Encuentre $\|T_J\|_1$ y $\|T_G\|_\infty$.
+\item (5\%) ¿Qué puede decir sobre la convergencia del método de Jacobi?
+\item (5\%) ¿Qué puede decir sobre la convergencia del método de Gauss-Seidel?
+\item (5\%) ¿Qué puede decir sobre la convergencia del método de SOR?
+\end{opciones}
+
+\newpage
+\noindent\textbf{3. (5\%)} El método de bisección aplicado a la función $f(x)=(x+1)(x-1)(x-2)$ en el intervalo $[-2,3]$:
+\begin{opciones}
+\item Converge a la raíz $p_1=-1$.
+\item Converge a la raíz $p_2=1$.
+\item Converge a la raíz $p_3=2$.
+\item Puede converger a cualquiera de las raíces.
+\end{opciones}
+
+\vspace{0.3cm}
+\noindent\textbf{4. (5\%)} Si se utiliza el método de Newton para el sistema no lineal $\begin{cases}3x^2-y^2=0\\3xy^2-x^3-1=0\end{cases}$ con primera aproximación $(p_0,q_0)=(1,1)$, la matriz jacobiana $J(p_0,q_0)$ es
+\begin{opciones}
+\item $\begin{bmatrix}0&6\\6&-2\end{bmatrix}$
+\item $\begin{bmatrix}-2&6\\6&0\end{bmatrix}$
+\item $\begin{bmatrix}6&-2\\0&6\end{bmatrix}$
+\item $\begin{bmatrix}6&-2\\6&6\end{bmatrix}$
+\end{opciones}
+
+\vspace{0.3cm}
+\noindent\textbf{5. (5\%)} Para el método iterativo de Jacobi para resolver un sistema lineal, la matriz de iteración es $T=\begin{bmatrix}0&0&1\\0&0&1\\0&2&0\end{bmatrix}$. Entonces es falso que:
+\begin{opciones}
+\item El método de Jacobi converge.
+\item El método de Jacobi no converge para todo vector inicial.
+\item El número 0 es un valor propio de $T$.
+\item El radio espectral de $T$ es $\sqrt2$.
+\end{opciones}
+
+\vspace{0.3cm}
+\noindent\textbf{6. (5\%)} Los puntos fijos de $g(x)=-4+4x-\dfrac12x^2$ son:
+\begin{opciones}
+\item -2 y 4.
+\item 2 y -4.
+\item -2 y -4.
+\item 2 y 4.
+\end{opciones}
+
+\vspace{0.3cm}
+\noindent\textbf{7. (5\%)} Se usa método de Newton para aproximar la raíz $(1,1)$ del sistema $\begin{cases}x^2+y^2-2=0\\xy-1=0\end{cases}$. Entonces:
+\begin{opciones}
+\item La iteración con $(p_0,q_0)=(1.1,1.1)$ converge.
+\item La iteración con $(p_0,q_0)=(1.1,1.1)$ diverge.
+\item Para toda aproximación inicial $(p_0,q_0)$, la matriz jacobiana $J(p_0,q_0)$ es no singular.
+\item Ninguna de las anteriores.
+\end{opciones}
+
+\vfill
+\rule{\linewidth}{0.4pt}\\[1pt]
+{\scriptsize\textit{Transcripción digital --- MathUNAL}\hfill\textcolor{unalblue}{\textbf{1}}}
+
+\end{document}
