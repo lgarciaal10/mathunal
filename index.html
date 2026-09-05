@@ -8006,6 +8006,14 @@ muAplicarPremium();
 window.muRenderProgreso();
 renderMaterias();
 renderSimPreview();
+/* rama simulacros-pro: en local se muestra la seccion real de Simulacros y se
+   oculta el teaser "Muy pronto"; en produccion queda como estaba. */
+(function(){
+  if(!window.SIMULACROS_HABILITADOS) return;
+  var full=document.getElementById('simulacros'), teaser=document.getElementById('sim-teaser');
+  if(full) full.style.display='';
+  if(teaser) teaser.style.display='none';
+})();
 renderContentMap();
 renderSims('all');
 if(typeof window.muPresenciaInit==='function') window.muPresenciaInit();
@@ -15342,12 +15350,21 @@ document.addEventListener('keydown',function(e){
 /* ── MathUNAL SPA Router ── */
 var KNOWN = ['home','simulacro','materia','formulas','juegos','diagnostico','privacidad','acerca'];
 
-/* Interruptor unico para toda la seccion de Simulacros (decision de Luis
-   2026-08-25: sacarla de produccion por ahora, sin borrar nada -- se
-   reactiva cuando este lista). Bloquea la ruta #simulacro entera en el
-   router (ver _loadPage mas abajo), asi que cualquier link o URL directa
-   a un simulacro cae de vuelta a home en vez de mostrar la pagina. */
-var SIMULACROS_HABILITADOS = false;
+/* Interruptor unico para toda la seccion de Simulacros.
+   RAMA simulacros-pro: habilitado SOLO en local (localhost / 127.* / red
+   privada / file://) para que Luis lo vea completo en su index.html sin
+   tocar produccion. En mathunal.com sigue apagado (teaser "Muy pronto").
+   Para soltarlo en produccion: cambiar la linea a "= true". */
+window.__SIM_LOCAL = (function(){
+  try{
+    var h = location.hostname || '';
+    return h==='' || h==='localhost' || h==='127.0.0.1' || h==='0.0.0.0'
+      || location.protocol==='file:'
+      || /^192\.168\./.test(h) || /^10\./.test(h) || /^172\.(1[6-9]|2\d|3[01])\./.test(h)
+      || /\.local$/.test(h);
+  }catch(e){ return false; }
+})();
+var SIMULACROS_HABILITADOS = !!window.__SIM_LOCAL;
 window.SIMULACROS_HABILITADOS = SIMULACROS_HABILITADOS;
 
 /* Interruptor para el banner "¿Sabes cuándo es tu próximo parcial? Cuéntanos
@@ -17226,7 +17243,7 @@ window.EXAM_META = EXAM_META;
    NO toca producción: la sección sigue detrás de SIMULACROS_HABILITADOS.
    DEV: abrir con ?simpro=1 en la URL fuerza la ruta #simulacro.
    ═══════════════════════════════════════════════════════════════════════════ */
-window.__SIMPRO_DEV = /[?&]simpro=1/.test(location.href);
+window.__SIMPRO_DEV = /[?&]simpro=1/.test(location.href) || !!window.__SIM_LOCAL;
 (function(){
   var TAX=window.SIM_TAX, META=window.SIM_META, SOL=window.SIM_SOL, NEW=window.SIM_NEW;
   if(!TAX||!META){ return; }
