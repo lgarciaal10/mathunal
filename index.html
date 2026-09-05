@@ -2796,7 +2796,8 @@ html[data-theme="gray"] .hero-bg .lg-blob-center{background:radial-gradient(elli
 .self-btn{border-radius:8px;padding:.38rem .85rem;font-size:1rem;font-weight:700;cursor:pointer;border:2px solid var(--br);font-family:inherit;transition:all .18s}
 .self-btn:hover{filter:brightness(1.15)}
 
-/* ── SIMULACROS PRO (rama simulacros-pro): Antibobo, dominio por tema, frecuencia ── */
+.smp-pro{font-family:'IBM Plex Mono',monospace;font-size:.54rem;font-weight:700;letter-spacing:.06em;color:var(--acc);background:var(--adim);border:1px solid var(--bra);border-radius:3px;padding:.02rem .28rem;vertical-align:1px}
+/* ── SIMULACROS PRO (rama simulacros-pro): "el truco", dominio por tema, frecuencia ── */
 .sim-extra{margin-top:.7rem;border-radius:10px;padding:.7rem .9rem;font-size:.9rem;line-height:1.5}
 .sim-mini-lbl{display:block;font-family:'IBM Plex Mono',monospace;font-size:.62rem;letter-spacing:.11em;
   text-transform:uppercase;color:var(--acc);font-weight:700;margin-bottom:.25rem}
@@ -6524,6 +6525,65 @@ customElements.define('glass-element', GlassElement);
   </div>
 </section>
 
+
+<!-- SIMULACROS -- fuera de produccion por ahora, ver SIMULACROS_HABILITADOS -->
+<section id="simulacros" class="section-pad" style="display:none">
+  <div class="wrap">
+    <div class="sec-split fi">
+      <div class="sec-split-l">
+        <span class="sec-label">Simulacros interactivos</span>
+        <h2>¿Qué tan listo estás<br>para el parcial?</h2>
+      </div>
+      <div class="sec-split-r">
+        Haz un simulacro con cronómetro y formato SIDEX. Al final sabes tu nota, en qué temas fallas
+        y exactamente qué estudiar. <strong>Cálculo Diferencial</strong> tiene el modo completo (por corte,
+        con solución paso a paso y el truco de cada pregunta); el resto de materias tiene sus parciales de práctica.
+      </div>
+    </div>
+
+    <!-- Mi Progreso rápido -->
+    <div id="mu-progreso" class="fi" style="margin-bottom:1.4rem"></div>
+
+    <!-- Preview de simulacros por materia -->
+    <div class="sim-preview-grid fi" id="sim-preview-grid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:.75rem;margin-bottom:1.5rem"></div>
+
+    <!-- CTA principal -->
+    <div class="fi" style="display:flex;align-items:center;gap:.7rem;flex-wrap:wrap;margin-bottom:1.8rem">
+      <a href="#simulacro" class="btn-a" id="sim-cta-link" style="font-size:.95rem"><svg width="16" height="16" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"><polygon points="5,3 19,12 5,21" fill="currentColor" stroke="none"/></svg> Ir a Simulacros →</a>
+      <a href="#diagnostico" class="btn-o" style="font-size:.92rem">Diagnóstico rápido (gratis)</a>
+      <span id="sim-cta-sub" style="font-size:.85rem;color:var(--t2)"></span>
+    </div>
+
+    <!-- Modo Pánico -->
+    <div class="panic-bar fi">
+      <div class="panic-l">
+        <span class="panic-ico"><svg width="20" height="20" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"><path d="M7 12h10l2 8H5z"/><circle cx="12" cy="7" r="3"/><line x1="12" y1="2" x2="12" y2="4"/><line x1="4.93" y1="4.93" x2="6.34" y2="6.34"/><line x1="19.07" y1="4.93" x2="17.66" y2="6.34"/></svg></span>
+        <div>
+          <h4>Modo Pánico activado</h4>
+          <p>¿Tienes parcial en menos de 24 horas? Esto es lo que necesitas hacer ahora mismo.</p>
+        </div>
+      </div>
+      <button class="btn-panic" onclick="document.getElementById('panicModal').classList.add('open')"><svg width="14" height="14" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22,2 15,22 11,13 2,9"/></svg> Plan de emergencia</button>
+    </div>
+  </div>
+</section>
+
+<!-- SIMULACROS -- teaser mientras SIMULACROS_HABILITADOS=false -->
+<section class="section-pad" id="sim-teaser">
+  <div class="wrap">
+    <div class="fi" style="max-width:680px;margin:0 auto;text-align:center;background:var(--card);border:2px solid var(--br2);border-radius:16px;padding:2.6rem 2rem">
+      <span class="sim-scan-fx" aria-hidden="true"></span>
+      <span class="sec-label sim-teaser-tag">Próximamente</span>
+      <h2 class="sim-teaser-h" style="margin:.5rem 0 .7rem">Simulacros con cronómetro, formato SIDEX real</h2>
+      <p class="sim-teaser-p" style="color:var(--t2);max-width:480px;margin:0 auto 1.3rem;line-height:1.65">30 exámenes de práctica en condiciones reales — mismo tiempo, mismo formato, misma presión que el parcial de verdad. Estamos afinando los últimos detalles antes de soltarlos.</p>
+      <div style="display:inline-flex;align-items:center;gap:.5rem;font-family:IBM Plex Mono,monospace;font-size:.85rem;font-weight:700;color:var(--acc);background:var(--adim);border:1.5px solid var(--bra);border-radius:99px;padding:.5rem 1.1rem">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="13" r="8"/><line x1="12" y1="13" x2="12" y2="9"/><line x1="12" y1="13" x2="15" y2="15"/><line x1="9" y1="2" x2="15" y2="2"/><line x1="12" y1="5" x2="12" y2="2"/></svg>
+        <span class="sim-teaser-pill">Muy pronto</span>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- CALENDARIO ACADÉMICO -->
 <section id="calendario" class="mu-cal-s">
   <div class="wrap">
@@ -6588,61 +6648,6 @@ customElements.define('glass-element', GlassElement);
         <span class="prox-pill"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="10" width="16" height="4"/><line x1="7" y1="10" x2="7" y2="4"/><line x1="17" y1="10" x2="17" y2="4"/><line x1="7" y1="20" x2="7" y2="14"/><line x1="17" y1="20" x2="17" y2="14"/></svg> Ingeniería</span>
         <div class="prox-name">Mecánica de Sólidos</div>
         <div class="prox-sub">Estática, resistencia de materiales y análisis estructural.</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- SIMULACROS -- fuera de produccion por ahora, ver SIMULACROS_HABILITADOS -->
-<section id="simulacros" class="section-pad" style="display:none">
-  <div class="wrap">
-    <div class="sec-split fi">
-      <div class="sec-split-l">
-        <span class="sec-label">Practica en condiciones reales</span>
-        <h2>Simula antes<br>de que sea real.</h2>
-      </div>
-      <div class="sec-split-r">
-        Parciales de semestres anteriores como PDF descargable. Pon el cronómetro, cierra el libro y practica.
-      </div>
-    </div>
-
-    <!-- Mi Progreso rápido -->
-    <div id="mu-progreso" class="fi" style="margin-bottom:1.4rem"></div>
-
-    <!-- Preview de simulacros por materia -->
-    <div class="sim-preview-grid fi" id="sim-preview-grid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:.75rem;margin-bottom:1.5rem"></div>
-
-    <!-- CTA principal -->
-    <div class="fi" style="display:flex;align-items:center;gap:1rem;flex-wrap:wrap;margin-bottom:1.8rem">
-      <a href="#simulacro" class="btn-a" id="sim-cta-link" style="font-size:.95rem"><svg width="16" height="16" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"><polygon points="5,3 19,12 5,21" fill="currentColor" stroke="none"/></svg> Ir a Simulacros →</a>
-      <span id="sim-cta-sub" style="font-size:.85rem;color:var(--t2)">6 simulacros disponibles · Formato SIDEX · Con cronómetro y LaTeX</span>
-    </div>
-
-    <!-- Modo Pánico -->
-    <div class="panic-bar fi">
-      <div class="panic-l">
-        <span class="panic-ico"><svg width="20" height="20" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"><path d="M7 12h10l2 8H5z"/><circle cx="12" cy="7" r="3"/><line x1="12" y1="2" x2="12" y2="4"/><line x1="4.93" y1="4.93" x2="6.34" y2="6.34"/><line x1="19.07" y1="4.93" x2="17.66" y2="6.34"/></svg></span>
-        <div>
-          <h4>Modo Pánico activado</h4>
-          <p>¿Tienes parcial en menos de 24 horas? Esto es lo que necesitas hacer ahora mismo.</p>
-        </div>
-      </div>
-      <button class="btn-panic" onclick="document.getElementById('panicModal').classList.add('open')"><svg width="14" height="14" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22,2 15,22 11,13 2,9"/></svg> Plan de emergencia</button>
-    </div>
-  </div>
-</section>
-
-<!-- SIMULACROS -- teaser mientras SIMULACROS_HABILITADOS=false -->
-<section class="section-pad" id="sim-teaser">
-  <div class="wrap">
-    <div class="fi" style="max-width:680px;margin:0 auto;text-align:center;background:var(--card);border:2px solid var(--br2);border-radius:16px;padding:2.6rem 2rem">
-      <span class="sim-scan-fx" aria-hidden="true"></span>
-      <span class="sec-label sim-teaser-tag">Próximamente</span>
-      <h2 class="sim-teaser-h" style="margin:.5rem 0 .7rem">Simulacros con cronómetro, formato SIDEX real</h2>
-      <p class="sim-teaser-p" style="color:var(--t2);max-width:480px;margin:0 auto 1.3rem;line-height:1.65">30 exámenes de práctica en condiciones reales — mismo tiempo, mismo formato, misma presión que el parcial de verdad. Estamos afinando los últimos detalles antes de soltarlos.</p>
-      <div style="display:inline-flex;align-items:center;gap:.5rem;font-family:IBM Plex Mono,monospace;font-size:.85rem;font-weight:700;color:var(--acc);background:var(--adim);border:1.5px solid var(--bra);border-radius:99px;padding:.5rem 1.1rem">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="13" r="8"/><line x1="12" y1="13" x2="12" y2="9"/><line x1="12" y1="13" x2="15" y2="15"/><line x1="9" y1="2" x2="15" y2="2"/><line x1="12" y1="5" x2="12" y2="2"/></svg>
-        <span class="sim-teaser-pill">Muy pronto</span>
       </div>
     </div>
   </div>
@@ -7548,25 +7553,29 @@ function renderSimPreview(){
   var g=document.getElementById('sim-preview-grid');
   if(!g) return;
   var en = (window.curLang==='en');
-  var matEn={'Cálculo Diferencial':'Differential Calculus','Cálculo Integral':'Integral Calculus',
-    'Álgebra Lineal':'Linear Algebra','Matemáticas Básicas':'Basic Mathematics','Ecuaciones Diferenciales':'Differential Equations'};
-  var mats={};
-  SIMS.forEach(function(s){
-    if(!mats[s.cat]) mats[s.cat]={mat:s.mat,free:0,total:0};
-    mats[s.cat].total++;
-    if(s.free) mats[s.cat].free++;
+  var EX=window.EXAMS||{}, EM=window.EXAM_META||{};
+  var NAMES=window._SIM_MAT_NAMES||{calcdif:'Cálculo Diferencial',calcint:'Cálculo Integral',alglin:'Álgebra Lineal',matbas:'Matemáticas Básicas',edo:'Ecuaciones Diferenciales',calcvec:'Cálculo en Varias Variables',geovec:'Geometría Vectorial',metnum:'Métodos Numéricos',fundamentos:'Fundamentos de Matemáticas',discretas:'Matemáticas Discretas',especiales:'Matemáticas Especiales'};
+  var SYM={calcdif:'∂',calcint:'∫',alglin:'[ ]',matbas:'π',edo:'λ',calcvec:'∇',geovec:'⟂',metnum:'≈',fundamentos:'∈',discretas:'∑',especiales:'∂²'};
+  var NAME_EN={calcdif:'Differential Calculus',calcint:'Integral Calculus',alglin:'Linear Algebra',matbas:'Basic Mathematics',edo:'Differential Equations',calcvec:'Multivariable Calculus',geovec:'Vector Geometry',metnum:'Numerical Methods',fundamentos:'Math Foundations',discretas:'Discrete Math',especiales:'Advanced Mathematics'};
+  var mats={}, order=[];
+  Object.keys(EX).forEach(function(k){
+    var e=EX[k]; if(e._corte||e._srs||e._reto) return;
+    var slug=(EM[k]||{}).mat; if(!slug) return;
+    if(!mats[slug]){ mats[slug]={n:0,color:(EM[k]||{}).color||'#e05d1a'}; order.push(slug); }
+    mats[slug].n++;
   });
-  var colors={'calc-dif':'#e05d1a','calc-int':'#0F6E2D','alg-lin':'#1E3A8A','mat-bas':'#7C3AED','edo':'#065F46'};
-  var syms={'calc-dif':'∂','calc-int':'∫','alg-lin':'[]','mat-bas':'π','edo':'λ'};
-  g.innerHTML=Object.keys(mats).map(function(k){
-    var m=mats[k],col=colors[k]||'#e05d1a',sym=syms[k]||'∑';
-    var matName = en && matEn[m.mat] ? matEn[m.mat] : m.mat;
-    var metaTxt = en ? (m.free+' free · '+m.total+' total') : (m.free+' gratis · '+m.total+' total');
-    return '<a href="#simulacro" class="sim-prev-card" data-col="'+col+'">'
+  order.sort(function(a,b){ return (a==='calcdif'?-1:0)-(b==='calcdif'?-1:0); });
+  g.innerHTML=order.map(function(slug){
+    var m=mats[slug], col=m.color, sym=SYM[slug]||'∑';
+    var nm = en ? (NAME_EN[slug]||slug) : (NAMES[slug]||slug);
+    var meta = slug==='calcdif'
+      ? (en?'Full mode · by cut':'Modo completo · por corte')
+      : (m.n+(en?' practice exams':' parciales de práctica'));
+    return '<a href="#simulacro" class="sim-prev-card'+(slug==='calcdif'?' sim-prev-pro':'')+'" data-col="'+col+'">'
       +'<div class="sim-prev-ico" style="background:'+col+'22;color:'+col+'">'+sym+'</div>'
       +'<div class="sim-prev-info">'
-        +'<div class="sim-prev-name">'+matName+'</div>'
-        +'<div class="sim-prev-meta">'+metaTxt+'</div>'
+        +'<div class="sim-prev-name">'+nm+(slug==='calcdif'?' <span class="smp-pro">PRO</span>':'')+'</div>'
+        +'<div class="sim-prev-meta">'+meta+'</div>'
       +'</div>'
       +'<span class="sim-prev-arr" style="color:'+col+'">→</span>'
     +'</a>';
@@ -8879,12 +8888,13 @@ if(!window.__muSdClickBound){window.__muSdClickBound=true;document.addEventListe
     <div class="sim-onb-q">¿Qué vas a presentar?</div>
     <div class="sim-onb-row">
       <span class="sim-onb-lbl">Materia</span>
-      <button class="sim-onb-chip on" disabled>Cálculo Diferencial</button>
-      <span class="sim-onb-hint">más materias pronto</span>
+      <button class="sim-onb-chip on" disabled>Cálculo Diferencial <span class="smp-pro">PRO</span></button>
+      <span class="sim-onb-hint">las otras materias tienen sus parciales de práctica más abajo ↓</span>
     </div>
     <div class="sim-onb-row">
       <span class="sim-onb-lbl">Corte</span>
       <div id="sim-onb-cortes"></div>
+      <span class="sim-onb-hint">simulacro curado por corte + solución + análisis</span>
     </div>
     <div class="sim-onb-row">
       <span class="sim-onb-lbl">Fecha del parcial</span>
@@ -8901,32 +8911,8 @@ if(!window.__muSdClickBound){window.__muSdClickBound=true;document.addEventListe
 
       <div class="sim-lp-section">
         <div class="sim-lp-lbl">Materia</div>
-        <div class="sim-mat-pills" id="sim-filter-btns">
-          <button class="sim-mat-pill on" data-mat="all" onclick="simSelFilter(this,'all')">
-            <span class="smp-dot" style="background:var(--t3)"></span>Todas
-            <span class="smp-n" id="cnt-all"></span>
-          </button>
-          <button class="sim-mat-pill" data-mat="calcdif" onclick="simSelFilter(this,'calcdif')">
-            <span class="smp-dot" style="background:#E05D1A"></span>Cálculo Diferencial
-            <span class="smp-n" id="cnt-calcdif"></span>
-          </button>
-          <button class="sim-mat-pill" data-mat="calcint" onclick="simSelFilter(this,'calcint')">
-            <span class="smp-dot" style="background:#0F6E2D"></span>Cálculo Integral
-            <span class="smp-n" id="cnt-calcint"></span>
-          </button>
-          <button class="sim-mat-pill" data-mat="alglin" onclick="simSelFilter(this,'alglin')">
-            <span class="smp-dot" style="background:#1E3A8A"></span>Álgebra Lineal
-            <span class="smp-n" id="cnt-alglin"></span>
-          </button>
-          <button class="sim-mat-pill" data-mat="matbas" onclick="simSelFilter(this,'matbas')">
-            <span class="smp-dot" style="background:#7C3AED"></span>Matemáticas Básicas
-            <span class="smp-n" id="cnt-matbas"></span>
-          </button>
-          <button class="sim-mat-pill" data-mat="edo" onclick="simSelFilter(this,'edo')">
-            <span class="smp-dot" style="background:#065F46"></span>EDO
-            <span class="smp-n" id="cnt-edo"></span>
-          </button>
-        </div>
+        <!-- pills generadas en _renderMatPills() desde EXAM_META (todas las materias con banco) -->
+        <div class="sim-mat-pills" id="sim-filter-btns"></div>
       </div>
 
       <div class="sim-lp-div"></div>
@@ -9077,7 +9063,7 @@ if(!window.__muSdClickBound){window.__muSdClickBound=true;document.addEventListe
     <div class="sim-pw-body" id="sim-pw-body"></div>
     <ul class="sim-pw-list">
       <li>Todos los simulacros de los 3 cortes, cuantos quieras</li>
-      <li>Solución paso a paso + Antibobo de cada pregunta</li>
+      <li>Solución paso a paso + el truco de cada pregunta</li>
       <li>Entrenar solo tus errores · repaso espaciado</li>
       <li>Dashboard "Mi preparación" + estimación de nota</li>
     </ul>
@@ -9351,13 +9337,48 @@ function simViewToggle(btn,mode){
   _viewMode=mode;
   _renderCards();
 }
+/* nombres bonitos por slug de materia; el color sale de EXAM_META */
+var _SIM_MAT_NAMES={
+  calcdif:'Cálculo Diferencial', calcint:'Cálculo Integral', alglin:'Álgebra Lineal',
+  matbas:'Matemáticas Básicas', edo:'Ecuaciones Diferenciales',
+  calcvec:'Cálculo en Varias Variables', geovec:'Geometría Vectorial', metnum:'Métodos Numéricos',
+  fundamentos:'Fundamentos de Matemáticas', discretas:'Matemáticas Discretas', especiales:'Matemáticas Especiales'
+};
+window._SIM_MAT_NAMES=_SIM_MAT_NAMES;
+/* materias que tienen banco real, en orden de aparición en EXAM_META (calcdif primero) */
+function _simMatList(){
+  var seen={}, out=[];
+  Object.keys(EXAMS).forEach(function(k){
+    if(EXAMS[k]._corte||EXAMS[k]._srs||EXAMS[k]._reto) return;
+    var m=(EXAM_META[k]||{}).mat;
+    if(m && !seen[m]){ seen[m]=1; out.push(m); }
+  });
+  out.sort(function(a,b){ return (a==='calcdif'?-1:0) - (b==='calcdif'?-1:0); });
+  return out;
+}
+function _simMatColor(slug){
+  var k=Object.keys(EXAMS).find(function(x){ return (EXAM_META[x]||{}).mat===slug; });
+  return (k && EXAM_META[k] && EXAM_META[k].color) || '#E05D1A';
+}
+function _renderMatPills(){
+  var host=document.getElementById('sim-filter-btns'); if(!host) return;
+  var list=_simMatList();
+  var h='<button class="sim-mat-pill'+(_selFilter==='all'?' on':'')+'" data-mat="all" onclick="simSelFilter(this,\'all\')">'
+    +'<span class="smp-dot" style="background:var(--t3)"></span>Todas <span class="smp-n" id="cnt-all"></span></button>';
+  list.forEach(function(slug){
+    h+='<button class="sim-mat-pill'+(_selFilter===slug?' on':'')+'" data-mat="'+slug+'" onclick="simSelFilter(this,\''+slug+'\')">'
+      +'<span class="smp-dot" style="background:'+_simMatColor(slug)+'"></span>'+(_SIM_MAT_NAMES[slug]||slug)
+      +(slug==='calcdif'?' <span class="smp-pro">PRO</span>':'')
+      +' <span class="smp-n" id="cnt-'+slug+'"></span></button>';
+  });
+  host.innerHTML=h;
+  _updateSimCounts();
+}
 function _updateSimHeader(){
   var tEl=document.getElementById('sim-right-title');
   var nEl=document.getElementById('sim-right-n');
   if(!tEl) return;
-  var matNames={all:'Todos los simulacros',calcdif:'Cálculo Diferencial',
-    calcint:'Cálculo Integral',alglin:'Álgebra Lineal',matbas:'Matemáticas Básicas',edo:'EDO'};
-  var title=matNames[_selFilter]||'Simulacros';
+  var title=_selFilter==='all'?'Todos los simulacros':(_SIM_MAT_NAMES[_selFilter]||'Simulacros');
   var _tipoPlural={'Parcial':'Parciales','Quiz':'Quices','Taller':'Talleres'};
   if(_tipoFilter!=='all') title+=' · '+(_tipoPlural[_tipoFilter]||_tipoFilter+'s');
   tEl.textContent=title;
@@ -9372,19 +9393,21 @@ function _updateSimHeader(){
   }
 }
 function _updateSimCounts(){
-  var mats=['all','calcdif','calcint','alglin','matbas','edo'];
+  var mats=_simMatList();
+  var elAll=document.getElementById('cnt-all');
+  if(elAll) elAll.textContent=Object.keys(EXAMS).filter(function(k){ var e=EXAMS[k]; return !(e._corte||e._srs||e._reto); }).length;
   mats.forEach(function(mat){
-    var el=document.getElementById('cnt-'+mat);
-    if(!el) return;
-    var cnt=Object.keys(EXAMS).filter(function(k){
-      return mat==='all'||(EXAM_META[k]||{}).mat===mat;
-    }).length;
-    el.textContent=cnt||'';
+    var el=document.getElementById('cnt-'+mat); if(!el) return;
+    el.textContent=Object.keys(EXAMS).filter(function(k){
+      var e=EXAMS[k]; if(e._corte||e._srs||e._reto) return false;
+      return (EXAM_META[k]||{}).mat===mat;
+    }).length||'';
   });
 }
 
 function _renderCards(){
   _renderContinueBand();
+  try{ _renderMatPills(); }catch(e){}
   if(window.muRenderProgreso) try{ window.muRenderProgreso(); }catch(e){}
   var grid=_el('sim-cards-grid');
   if(!grid) return;
@@ -17339,7 +17362,7 @@ window.__SIMPRO_DEV = /[?&]simpro=1/.test(location.href) || !!window.__SIM_LOCAL
     var mh=window._mathHtml||function(x){return x;};
     var h='';
     if(q.reconocer) h+='<div class="sim-extra sim-rc-block"><span class="sim-mini-lbl">Cómo reconocerlo en el parcial</span><div>'+mh(q.reconocer)+'</div></div>';
-    if(q.antibobo)  h+='<div class="sim-extra sim-ab-block"><span class="sim-mini-lbl">Antibobo</span><b>'+mh(q.antibobo)+'</b></div>';
+    if(q.antibobo)  h+='<div class="sim-extra sim-ab-block"><span class="sim-mini-lbl">El truco</span><b>'+mh(q.antibobo)+'</b></div>';
     if(q.freq){ var fl={alta:'Muy frecuente en parciales',media:'Frecuencia media',baja:'Poco frecuente'}[q.freq];
       if(fl) h+='<div class="sim-freq-note sim-freq-'+q.freq+'">'+fl+'</div>'; }
     if(h){ stp.insertAdjacentHTML('beforeend',h); if(window._renderMath) window._renderMath(stp); }
@@ -17437,7 +17460,7 @@ window.__SIMPRO_DEV = /[?&]simpro=1/.test(location.href) || !!window.__SIM_LOCAL
         });
         wrap.insertAdjacentHTML('beforeend', ok
           ? '<div class="sim-gem-res ok">✓ Concepto recuperado.</div>'
-          : '<div class="sim-gem-res no">Todavía no — vuelve a mirar el Antibobo de arriba y reintenta el simulacro.</div>');
+          : '<div class="sim-gem-res no">Todavía no — vuelve a mirar el truco de arriba y reintenta el simulacro.</div>');
       });
     });
   }
@@ -19234,8 +19257,8 @@ function muSyncSimCtaSub(){
     var curLang local (ver línea ~9888) que sombrea la global y nunca se actualiza -- el bare
     'curLang' aquí NO es el mismo que el que actualiza el setLang ganador (vive en home). */
   el.textContent = en
-    ? n+' mock exams available · SIDEX format · With timer and LaTeX'
-    : n+' simulacros disponibles · Formato SIDEX · Con cronómetro y LaTeX';
+    ? n+' mock exams · 11 subjects · timer + step-by-step'
+    : n+' simulacros · 11 materias · cronómetro + paso a paso';
   var link=document.getElementById('sim-cta-link');
   if(link) link.innerHTML = link.querySelector('svg').outerHTML+' '+(en?'Go to Mock Exams →':'Ir a Simulacros →');
 }
