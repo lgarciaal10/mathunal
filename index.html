@@ -17944,7 +17944,7 @@ window.__SIMPRO_DEV = /[?&]simpro=1/.test(location.href) || !!window.__SIM_LOCAL
   window.__simRenderPrep=function(){
     var host=document.getElementById('mu-progreso'); if(!host) return;
     var data=_prepData(); if(!data||!data.length) return;
-    var _isPro = !(window.__simPro) || window.__simPro.isPro();
+    var _isPro = !(window.__simPro) || window.__simPro.anyPro();
     if(!_isPro){
       host.insertAdjacentHTML('beforeend',
         '<div class="sim-prep"><div class="sim-free-lock">'+
@@ -18101,15 +18101,33 @@ window.__SIMPRO_DEV = /[?&]simpro=1/.test(location.href) || !!window.__SIM_LOCAL
      con Supabase. Forma del entitlement pensada para eso:
        { user_id, product_id:'calcdif_pro', course_id:'1000004',
          exam_period_id:'2026-2', valid_until }                                */
+  /* materias con banco Pro. course = código UNAL; el entitlement es por materia. */
+  var PRO_COURSES = ['1000004','1000005'];
+  function _courseOf(slug){
+    return (slug && (window.SIM_TAX||{})[slug] && window.SIM_TAX[slug].codigo) || null;
+  }
   window.__simPro={
     /* sync: cache local (entitlement de Supabase se refresca en syncFromServer).
-       'mu-sim-pro' = mock de dev; 'mu-sim-pro-srv' = último resultado real. */
-    isPro:function(){
+       'mu-sim-pro' = mock de dev (todas las materias);
+       'mu-sim-pro-srv-<course>' = último resultado real por materia. */
+    isPro:function(arg){
       try{
-        if(localStorage.getItem('mu-sim-pro-srv')==='1') return true;
-        if(localStorage.getItem('mu-sim-pro')==='1') return true;
+        if(localStorage.getItem('mu-sim-pro')==='1') return true;  // mock dev = todo
+        var course = arg;
+        if(!course){
+          var ex=window._exam;
+          course = (ex && (_courseOf(ex._slug) || ex.codigo)) ||
+                   _courseOf(localStorage.getItem('mu-sim-materia')) || '1000004';
+        } else if(!/^\d+$/.test(course)){ course = _courseOf(course) || course; }
+        return localStorage.getItem('mu-sim-pro-srv-'+course)==='1';
       }catch(e){}
       return false;
+    },
+    anyPro:function(){
+      try{
+        if(localStorage.getItem('mu-sim-pro')==='1') return true;
+        return PRO_COURSES.some(function(c){ return localStorage.getItem('mu-sim-pro-srv-'+c)==='1'; });
+      }catch(e){ return false; }
     },
     unlock:function(){ try{ localStorage.setItem('mu-sim-pro','1'); }catch(e){}
       try{ if(window._renderCards) window._renderCards(); }catch(e){}
@@ -18125,15 +18143,16 @@ window.__SIMPRO_DEV = /[?&]simpro=1/.test(location.href) || !!window.__SIM_LOCAL
     syncFromServer:function(){
       var au=window.__muAuth, s=au&&au.session&&au.session();
       if(!au||!s||!s.access_token) return Promise.resolve(false);
-      return au.api('/rest/v1/rpc/sim_has_pro',{method:'POST',body:JSON.stringify({p_course:'1000004'})})
-        .then(function(r){ return r.ok? r.json() : null; })
-        .then(function(v){
-          var pro = v===true;
-          try{ localStorage.setItem('mu-sim-pro-srv', pro?'1':'0'); }catch(e){}
-          if(pro){ try{ if(window._renderCards) window._renderCards(); }catch(e){} }
-          return pro;
-        })
-        .catch(function(){ return false; });
+      return Promise.all(PRO_COURSES.map(function(course){
+        return au.api('/rest/v1/rpc/sim_has_pro',{method:'POST',body:JSON.stringify({p_course:course})})
+          .then(function(r){ return r.ok? r.json() : null; })
+          .then(function(v){ try{ localStorage.setItem('mu-sim-pro-srv-'+course, v===true?'1':'0'); }catch(e){} return v===true; })
+          .catch(function(){ return false; });
+      })).then(function(res){
+        var any=res.some(Boolean);
+        if(any){ try{ if(window._renderCards) window._renderCards(); }catch(e){} }
+        return any;
+      });
     }
   };
   /* ── contenido Pro desde el servidor ───────────────────────────────────────
@@ -18181,7 +18200,7 @@ window.__SIMPRO_DEV = /[?&]simpro=1/.test(location.href) || !!window.__SIM_LOCAL
   }
   window.__simFetchSol = function(){
     if(window.__simSolReady) return Promise.resolve(true);
-    if(!window.__simPro || !window.__simPro.isPro()) return Promise.resolve(false);
+    if(!window.__simPro || !window.__simPro.anyPro()) return Promise.resolve(false);
     /* local: espejo gitignored, sin servidor */
     if(window.__SIM_LOCAL && window.__SIM_SOL_DEV){
       __simApplySrcMap(Object.keys(window.__SIM_SOL_DEV).map(function(k){
@@ -18191,7 +18210,9 @@ window.__SIMPRO_DEV = /[?&]simpro=1/.test(location.href) || !!window.__SIM_LOCAL
     }
     var au = window.__muAuth, s = au && au.session && au.session();
     if(!au || !s || !s.access_token) return Promise.resolve(false);
-    return au.api('/rest/v1/sim_solutions?course_id=eq.1000004&select=src,body', {method:'GET'})
+    /* sin filtro de course: la RLS (sim_has_pro por course_id) devuelve solo las
+       materias que el usuario compró. */
+    return au.api('/rest/v1/sim_solutions?select=src,body', {method:'GET'})
       .then(function(r){ return r.ok ? r.json() : []; })
       .then(function(rows){
         if(!Array.isArray(rows) || !rows.length) return false;
@@ -18204,15 +18225,22 @@ window.__SIMPRO_DEV = /[?&]simpro=1/.test(location.href) || !!window.__SIM_LOCAL
   function __simSyncPro(){
     try{
       var p = window.__simPro.syncFromServer();
-      if(p && p.then) p.then(function(isPro){ if(isPro) try{ window.__simFetchSol(); }catch(e){} });
+      if(p && p.then) p.then(function(any){ if(any) try{ window.__simFetchSol(); }catch(e){} });
     }catch(e){}
     /* si ya venía Pro por cache local, no esperes al RPC */
-    if(window.__simPro && window.__simPro.isPro()) try{ window.__simFetchSol(); }catch(e){}
+    if(window.__simPro && window.__simPro.anyPro()) try{ window.__simFetchSol(); }catch(e){}
   }
   __simSyncPro();
   if(window.__muAuth && window.__muAuth.onChange) window.__muAuth.onChange(__simSyncPro);
   window.__simPaywall=function(ctx){
     var ov=document.getElementById('sim-pw-overlay'); if(!ov) return;
+    /* materia de contexto (para el título del modal y qué SKU se vende) */
+    var _ex=window._exam, _slug=(_ex&&_ex._slug)||_lsGet('mu-sim-materia')||'calcdif';
+    var _tax=(window.SIM_TAX||{})[_slug]||{};
+    var _matName=_tax.materia || (_ex&&_ex.titulo) || 'Cálculo Diferencial';
+    var _matEn={'Cálculo Diferencial':'Differential Calculus','Cálculo Integral':'Integral Calculus'}[_matName]||_matName;
+    var _tg=document.querySelector('#sim-pw-overlay .sim-pw-tag');
+    if(_tg) _tg.textContent='MathUNAL Pro · '+(_en()?_matEn:_matName);
     var b=document.getElementById('sim-pw-body');
     if(b) b.textContent = ((_en()?{
       corte:'You already used your free mock for this corte. Pro gives you unlimited mocks and tracks your progress.',
@@ -18232,7 +18260,7 @@ window.__SIMPRO_DEV = /[?&]simpro=1/.test(location.href) || !!window.__SIM_LOCAL
   /* gate: devuelve true si puede continuar */
   window.__simProGate=function(ex){
     if(!ex || !ex._corte || ex._reto || ex._srs) return true;
-    if(window.__simPro.isPro()) return true;
+    if(window.__simPro.isPro(ex._slug||'calcdif')) return true;
     var hechos=0;
     try{
       (JSON.parse(localStorage.getItem('mu-results'))||[]).forEach(function(r){
