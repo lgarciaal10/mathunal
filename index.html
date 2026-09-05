@@ -75,11 +75,11 @@
   <!-- Simulacros Pro (rama simulacros-pro): banco + laboratorio, inline single-file -->
   <script>
 /* ═══════════════════════════════════════════════════════════════════════════
-   MathUNAL · Simulacros Pro — Banco de CÁLCULO DIFERENCIAL + CÁLCULO INTEGRAL
-   (inline FLACO) — solo lo renderizable + el resumen (teaser gratis). El
-   contenido Pro (pasos, "el truco", cómo reconocerlo, soluciones y rúbricas)
-   vive en Supabase → sim_solutions, RLS por sim_has_pro(course_id). El motor
-   lo trae con __simFetchSol() y lo fusiona sobre las preguntas.  [simulacros-pro]
+   MathUNAL · Simulacros Pro — Banco (inline FLACO): CÁLCULO DIFERENCIAL + CÁLCULO INTEGRAL + ÁLGEBRA LINEAL
+   Solo lo renderizable + el resumen (teaser gratis). El contenido Pro
+   (pasos, "el truco", cómo reconocerlo, soluciones y rúbricas) vive en Supabase
+   → sim_solutions, RLS por sim_has_pro(course_id). El motor lo trae con
+   __simFetchSol() y lo fusiona sobre las preguntas.  [rama simulacros-pro]
    ═══════════════════════════════════════════════════════════════════════════ */
 (function(){
 "use strict";
@@ -167,6 +167,43 @@ var SIM_TAX = {
      "Trabajo y valor promedio",
      "Coordenadas polares",
      "Sucesiones y series"
+    ]
+   }
+  }
+ },
+ "alglin": {
+  "materia": "Álgebra Lineal",
+  "codigo": "1000006",
+  "slug": "alglin",
+  "cortes": {
+   "1": {
+    "nombre": "Matrices, determinantes y sistemas",
+    "pct": 30,
+    "temas": [
+     "Matrices y operaciones",
+     "Determinantes",
+     "Sistemas de ecuaciones lineales",
+     "Eliminación de Gauss-Jordan"
+    ]
+   },
+   "2": {
+    "nombre": "Espacios vectoriales y transformaciones",
+    "pct": 35,
+    "temas": [
+     "Independencia lineal, base y dimensión",
+     "Espacios fundamentales y rango",
+     "Transformaciones lineales",
+     "Producto punto y proyección"
+    ]
+   },
+   "3": {
+    "nombre": "Ortogonalidad y valores propios",
+    "pct": 35,
+    "temas": [
+     "Gram-Schmidt y ortogonalidad",
+     "Valores y vectores propios",
+     "Diagonalización",
+     "Matrices simétricas y formas cuadráticas"
     ]
    }
   }
@@ -503,6 +540,158 @@ var SIM_META = {
     "t": "Volúmenes de revolución",
     "f": "alta",
     "e": "procedimiento"
+   }
+  ]
+ },
+ "alglin": {
+  "alglin_p1": [
+   {
+    "c": 1,
+    "t": "Determinantes",
+    "f": "alta",
+    "e": "formula"
+   },
+   {
+    "c": 2,
+    "t": "Independencia lineal, base y dimensión",
+    "f": "alta",
+    "e": "procedimiento"
+   },
+   {
+    "c": 2,
+    "t": "Transformaciones lineales",
+    "f": "media",
+    "e": "conceptual"
+   },
+   {
+    "c": 3,
+    "t": "Valores y vectores propios",
+    "f": "media",
+    "e": "formula"
+   },
+   {
+    "c": 1,
+    "t": "Sistemas de ecuaciones lineales",
+    "f": "alta",
+    "e": "conceptual"
+   },
+   {
+    "c": 3,
+    "t": "Diagonalización",
+    "f": "alta",
+    "e": "procedimiento"
+   },
+   {
+    "c": 1,
+    "t": "Determinantes",
+    "f": "alta",
+    "e": "procedimiento"
+   }
+  ],
+  "alglin_p2": [
+   {
+    "c": 1,
+    "t": "Determinantes",
+    "f": "alta",
+    "e": "formula"
+   },
+   {
+    "c": 1,
+    "t": "Determinantes",
+    "f": "alta",
+    "e": "formula"
+   },
+   {
+    "c": 2,
+    "t": "Producto punto y proyección",
+    "f": "media",
+    "e": "procedimiento"
+   },
+   {
+    "c": 1,
+    "t": "Eliminación de Gauss-Jordan",
+    "f": "alta",
+    "e": "procedimiento"
+   },
+   {
+    "c": 2,
+    "t": "Independencia lineal, base y dimensión",
+    "f": "media",
+    "e": "conceptual"
+   },
+   {
+    "c": 2,
+    "t": "Independencia lineal, base y dimensión",
+    "f": "media",
+    "e": "procedimiento"
+   },
+   {
+    "c": 2,
+    "t": "Independencia lineal, base y dimensión",
+    "f": "alta",
+    "e": "procedimiento"
+   },
+   {
+    "c": 2,
+    "t": "Producto punto y proyección",
+    "f": "alta",
+    "e": "formula"
+   },
+   {
+    "c": 1,
+    "t": "Determinantes",
+    "f": "alta",
+    "e": "procedimiento"
+   },
+   {
+    "c": 1,
+    "t": "Sistemas de ecuaciones lineales",
+    "f": "alta",
+    "e": "procedimiento"
+   }
+  ],
+  "alglin_p3": [
+   {
+    "c": 3,
+    "t": "Gram-Schmidt y ortogonalidad",
+    "f": "alta",
+    "e": "procedimiento"
+   },
+   {
+    "c": 3,
+    "t": "Diagonalización",
+    "f": "alta",
+    "e": "procedimiento"
+   },
+   {
+    "c": 3,
+    "t": "Matrices simétricas y formas cuadráticas",
+    "f": "alta",
+    "e": "formula"
+   },
+   {
+    "c": 3,
+    "t": "Matrices simétricas y formas cuadráticas",
+    "f": "media",
+    "e": "conceptual"
+   },
+   {
+    "c": 3,
+    "t": "Gram-Schmidt y ortogonalidad",
+    "f": "media",
+    "e": "procedimiento"
+   },
+   {
+    "c": 3,
+    "t": "Matrices simétricas y formas cuadráticas",
+    "f": "alta",
+    "e": "procedimiento"
+   },
+   {
+    "c": 1,
+    "t": "Matrices y operaciones",
+    "f": "baja",
+    "e": "formula"
    }
   ]
  }
@@ -1217,6 +1406,278 @@ var SIM_NEW = {
    ],
    "correcta": 0,
    "resumen": "$A=\\tfrac12\\displaystyle\\int_0^{\\pi}(2\\sin\\theta)^2\\,d\\theta$ (la curva se traza entera en $[0,\\pi]$)."
+  }
+ ],
+ "alglin": [
+  {
+   "id": "al_c1_01",
+   "c": 1,
+   "t": "Matrices y operaciones",
+   "f": "alta",
+   "e": "procedimiento",
+   "tipo": "mcq",
+   "dif": 1,
+   "tEsp": 60,
+   "texto": "El producto $\\begin{pmatrix}1&2\\\\3&4\\end{pmatrix}\\begin{pmatrix}0&1\\\\1&0\\end{pmatrix}$ es:",
+   "opciones": [
+    "$\\begin{pmatrix}2&1\\\\4&3\\end{pmatrix}$",
+    "$\\begin{pmatrix}1&2\\\\3&4\\end{pmatrix}$",
+    "$\\begin{pmatrix}0&2\\\\3&0\\end{pmatrix}$",
+    "$\\begin{pmatrix}3&4\\\\1&2\\end{pmatrix}$"
+   ],
+   "correcta": 0,
+   "resumen": "Fila por columna. Multiplicar por $\\begin{pmatrix}0&1\\\\1&0\\end{pmatrix}$ por la derecha intercambia las columnas."
+  },
+  {
+   "id": "al_c1_02",
+   "c": 1,
+   "t": "Matrices y operaciones",
+   "f": "media",
+   "e": "conceptual",
+   "tipo": "mcq",
+   "dif": 1,
+   "tEsp": 50,
+   "texto": "Si $A$ y $B$ son matrices tales que $AB$ está definido, entonces $(AB)^T=$",
+   "opciones": [
+    "$B^T A^T$",
+    "$A^T B^T$",
+    "$(BA)^T$",
+    "$A B$"
+   ],
+   "correcta": 0,
+   "resumen": "La transpuesta de un producto invierte el orden: $(AB)^T=B^TA^T$."
+  },
+  {
+   "id": "al_c1_03",
+   "c": 1,
+   "t": "Determinantes",
+   "f": "alta",
+   "e": "procedimiento",
+   "tipo": "numerica",
+   "dif": 2,
+   "tEsp": 75,
+   "texto": "Calcule $\\det\\begin{pmatrix}2&0&1\\\\1&3&2\\\\0&1&1\\end{pmatrix}$.",
+   "resumen": "Cofactores por la primera columna (tiene un cero).",
+   "respuesta": "3",
+   "unidad": "",
+   "tolNum": 0.001,
+   "puntaje": 15
+  },
+  {
+   "id": "al_c1_04",
+   "c": 1,
+   "t": "Sistemas de ecuaciones lineales",
+   "f": "alta",
+   "e": "conceptual",
+   "tipo": "mcq",
+   "dif": 2,
+   "tEsp": 70,
+   "texto": "El sistema $\\begin{pmatrix}1&2\\\\2&a\\end{pmatrix}\\mathbf{x}=\\mathbf{b}$ tiene solución única para todo $\\mathbf{b}$ si y solo si:",
+   "opciones": [
+    "$a\\neq4$",
+    "$a=4$",
+    "$a\\neq0$",
+    "para todo $a$"
+   ],
+   "correcta": 0,
+   "resumen": "Solución única ⟺ la matriz es invertible ⟺ $\\det\\neq0$."
+  },
+  {
+   "id": "al_c1_05",
+   "c": 1,
+   "t": "Sistemas de ecuaciones lineales",
+   "f": "media",
+   "e": "procedimiento",
+   "tipo": "mcq",
+   "dif": 2,
+   "tEsp": 70,
+   "texto": "El rango de $\\begin{pmatrix}1&2&3\\\\2&4&6\\\\1&1&1\\end{pmatrix}$ es:",
+   "opciones": [
+    "$2$",
+    "$1$",
+    "$3$",
+    "$0$"
+   ],
+   "correcta": 0,
+   "resumen": "La fila 2 es $2\\times$ la fila 1; quedan 2 filas independientes."
+  },
+  {
+   "id": "al_c2_01",
+   "c": 2,
+   "t": "Espacios fundamentales y rango",
+   "f": "alta",
+   "e": "formula",
+   "tipo": "mcq",
+   "dif": 2,
+   "tEsp": 70,
+   "texto": "Si $A$ es $2\\times3$ con rango $2$, la dimensión del espacio nulo de $A$ es:",
+   "opciones": [
+    "$1$",
+    "$0$",
+    "$2$",
+    "$3$"
+   ],
+   "correcta": 0,
+   "resumen": "Teorema del rango–nulidad: $\\text{rango}+\\text{nulidad}=$ número de columnas."
+  },
+  {
+   "id": "al_c2_02",
+   "c": 2,
+   "t": "Independencia lineal, base y dimensión",
+   "f": "media",
+   "e": "conceptual",
+   "tipo": "mcq",
+   "dif": 1,
+   "tEsp": 45,
+   "texto": "El vector $(2,4,6)$ pertenece a $\\text{gen}\\{(1,2,3)\\}$ porque:",
+   "opciones": [
+    "$(2,4,6)=2\\,(1,2,3)$",
+    "$(2,4,6)\\cdot(1,2,3)=0$",
+    "tienen la misma norma",
+    "no pertenece"
+   ],
+   "correcta": 0,
+   "resumen": "Estar en $\\text{gen}\\{v\\}$ = ser un múltiplo escalar de $v$."
+  },
+  {
+   "id": "al_c2_03",
+   "c": 2,
+   "t": "Independencia lineal, base y dimensión",
+   "f": "alta",
+   "e": "conceptual",
+   "tipo": "mcq",
+   "dif": 2,
+   "tEsp": 65,
+   "texto": "¿Cuál conjunto es una base de $\\mathbb{R}^3$?",
+   "opciones": [
+    "$\\{(1,0,0),(1,1,0),(1,1,1)\\}$",
+    "$\\{(1,2,3),(2,4,6)\\}$",
+    "$\\{(1,0,0),(0,1,0)\\}$",
+    "$\\{(1,1,1),(2,2,2),(0,0,1)\\}$"
+   ],
+   "correcta": 0,
+   "resumen": "Base de $\\mathbb{R}^3$ = exactamente $3$ vectores linealmente independientes."
+  },
+  {
+   "id": "al_c2_04",
+   "c": 2,
+   "t": "Transformaciones lineales",
+   "f": "alta",
+   "e": "procedimiento",
+   "tipo": "mcq",
+   "dif": 2,
+   "tEsp": 65,
+   "texto": "Para $T:\\mathbb{R}^3\\to\\mathbb{R}^2$ dada por $T(x,y,z)=(x,y)$, el núcleo (kernel) de $T$ es:",
+   "opciones": [
+    "el eje $z$: $\\{(0,0,z):z\\in\\mathbb{R}\\}$",
+    "$\\{(0,0,0)\\}$",
+    "todo $\\mathbb{R}^3$",
+    "el plano $xy$"
+   ],
+   "correcta": 0,
+   "resumen": "El núcleo son los vectores que $T$ manda al cero."
+  },
+  {
+   "id": "al_c2_05",
+   "c": 2,
+   "t": "Independencia lineal, base y dimensión",
+   "f": "media",
+   "e": "procedimiento",
+   "tipo": "numerica",
+   "dif": 2,
+   "tEsp": 70,
+   "texto": "Las coordenadas de $(5,3)$ en la base $\\{(1,1),(1,-1)\\}$ son $(a,b)$. ¿Cuánto vale $a$?",
+   "resumen": "Resuelve $a(1,1)+b(1,-1)=(5,3)$.",
+   "respuesta": "4",
+   "unidad": "",
+   "tolNum": 0.001,
+   "puntaje": 15
+  },
+  {
+   "id": "al_c3_01",
+   "c": 3,
+   "t": "Valores y vectores propios",
+   "f": "alta",
+   "e": "formula",
+   "tipo": "numerica",
+   "dif": 1,
+   "tEsp": 50,
+   "texto": "El valor propio más grande de $\\begin{pmatrix}4&0\\\\1&2\\end{pmatrix}$ es:",
+   "resumen": "Matriz triangular → los valores propios son la diagonal.",
+   "respuesta": "4",
+   "unidad": "",
+   "tolNum": 0.001,
+   "puntaje": 10
+  },
+  {
+   "id": "al_c3_02",
+   "c": 3,
+   "t": "Valores y vectores propios",
+   "f": "alta",
+   "e": "procedimiento",
+   "tipo": "mcq",
+   "dif": 2,
+   "tEsp": 70,
+   "texto": "Los valores propios de $\\begin{pmatrix}2&-1\\\\-1&2\\end{pmatrix}$ son:",
+   "opciones": [
+    "$1$ y $3$",
+    "$2$ y $2$",
+    "$-1$ y $2$",
+    "$0$ y $4$"
+   ],
+   "correcta": 0,
+   "resumen": "$\\lambda^2-(\\text{traza})\\lambda+\\det=0$: $\\lambda^2-4\\lambda+3=0$."
+  },
+  {
+   "id": "al_c3_03",
+   "c": 3,
+   "t": "Producto punto y proyección",
+   "f": "media",
+   "e": "procedimiento",
+   "tipo": "numerica",
+   "dif": 1,
+   "tEsp": 55,
+   "texto": "La norma de la proyección de $(3,4)$ sobre $(1,0)$ es:",
+   "resumen": "Proyectar sobre $(1,0)$ deja solo la primera componente.",
+   "respuesta": "3",
+   "unidad": "",
+   "tolNum": 0.001,
+   "puntaje": 10
+  },
+  {
+   "id": "al_c3_04",
+   "c": 3,
+   "t": "Matrices simétricas y formas cuadráticas",
+   "f": "alta",
+   "e": "conceptual",
+   "tipo": "mcq",
+   "dif": 2,
+   "tEsp": 75,
+   "texto": "La matriz $\\begin{pmatrix}1&2\\\\2&1\\end{pmatrix}$ es:",
+   "opciones": [
+    "indefinida (un valor propio $+$ y otro $-$)",
+    "definida positiva",
+    "definida negativa",
+    "semidefinida positiva"
+   ],
+   "correcta": 0,
+   "resumen": "Los valores propios son $3$ y $-1$: signos opuestos."
+  },
+  {
+   "id": "al_c3_05",
+   "c": 3,
+   "t": "Gram-Schmidt y ortogonalidad",
+   "f": "media",
+   "e": "formula",
+   "tipo": "numerica",
+   "dif": 1,
+   "tEsp": 45,
+   "texto": "Calcule $(1,1,1)\\cdot(1,-1,0)$. (Si da $0$, los vectores son ortogonales.)",
+   "resumen": "Producto punto = suma de productos componente a componente.",
+   "respuesta": "0",
+   "unidad": "",
+   "tolNum": 0.001,
+   "puntaje": 10
   }
  ]
 };
@@ -18632,7 +19093,7 @@ window.__SIMPRO_DEV = /[?&]simpro=1/.test(location.href) || !!window.__SIM_LOCAL
        { user_id, product_id:'calcdif_pro', course_id:'1000004',
          exam_period_id:'2026-2', valid_until }                                */
   /* materias con banco Pro. course = código UNAL; el entitlement es por materia. */
-  var PRO_COURSES = ['1000004','1000005'];
+  var PRO_COURSES = ['1000004','1000005', '1000006'];
   function _courseOf(slug){
     return (slug && (window.SIM_TAX||{})[slug] && window.SIM_TAX[slug].codigo) || null;
   }
