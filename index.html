@@ -2824,6 +2824,17 @@ html[data-theme="gray"] .hero-bg .lg-blob-center{background:radial-gradient(elli
 .sim-err-msg{margin-top:.8rem;padding:.7rem .9rem;border-radius:9px;background:var(--lay1);border:1px solid var(--br);font-size:.9rem;line-height:1.5;color:var(--t2)}
 .sim-err-msg b{color:var(--t1)}
 
+/* ── gate del gratis ── */
+.sim-free-teaser{font-size:.95rem;color:var(--t2);margin:.2rem 0 .9rem}
+.sim-free-teaser b{color:var(--acc2)}
+.sim-free-lock,.sim-sol-lock{display:flex;gap:.9rem;align-items:center;flex-wrap:wrap;background:var(--adim);border:1px dashed var(--bra);border-radius:11px;padding:1rem 1.1rem}
+.sim-sol-lock{margin-top:.5rem}
+.sim-free-lock-ic{font-size:1.4rem;flex:none}
+.sim-free-lock strong,.sim-sol-lock strong{display:block;font-size:.95rem;color:var(--t1)}
+.sim-free-lock-sub{font-size:.82rem;color:var(--t3);line-height:1.45;margin-top:.15rem}
+.sim-free-lock-btn{margin-left:auto;background:var(--acc);color:#fff;border:none;border-radius:9px;padding:.5rem 1rem;font-size:.85rem;font-weight:700;font-family:inherit;cursor:pointer;white-space:nowrap}
+.sim-free-lock-btn:hover{filter:brightness(1.08)}
+
 /* ── Laboratorio "Compruébalo tú mismo" ── */
 .sim-lab-box{margin-top:.9rem;border:1px solid var(--bra);background:var(--card2);border-radius:12px;padding:.9rem 1rem}
 .sl-wrap{display:flex;flex-direction:column;gap:.4rem}
@@ -17356,10 +17367,34 @@ window.__SIMPRO_DEV = /[?&]simpro=1/.test(location.href) || !!window.__SIM_LOCAL
   });
 
   /* 5a. hook de _renderExpl: Antibobo + cómo reconocerlo + frecuencia + Compruébalo */
+  /* índice de la 1ª pregunta fallada = la "solución de muestra" gratis */
+  function _sampleIdx(){
+    var ex=window._exam; if(!ex) return -1;
+    var A=window._answers||[], NA=window._numAns||{}, SG=window._selfGrades||[];
+    for(var i=0;i<ex.preguntas.length;i++){
+      var q=ex.preguntas[i], ok;
+      if(q.tipo==='mcq') ok=(A[i]===q.correcta);
+      else if(q.tipo==='numerica') ok=(window._calificarNum?window._calificarNum(q,NA[i])>=1:false);
+      else ok=((SG[i]||0)>=0.6);
+      if(!ok) return i;
+    }
+    return 0;
+  }
   window.__simExplHook=function(idx){
     var q=window._exam&&window._exam.preguntas[idx]; if(!q) return;
-    var stp=document.getElementById('expl-steps'); if(!stp || stp.querySelector('.sim-ab-block')) return;
+    var stp=document.getElementById('expl-steps'); if(!stp || stp.querySelector('.sim-ab-block')||stp.querySelector('.sim-sol-lock')) return;
     var mh=window._mathHtml||function(x){return x;};
+    // GATE: gratis solo ve la solución de UNA pregunta (la 1ª fallada)
+    var _isPro = !(window.__simPro) || window.__simPro.isPro();
+    if(!_isPro && idx!==_sampleIdx()){
+      var _es=document.getElementById('expl-summary'); if(_es) _es.innerHTML='';
+      stp.innerHTML='<div class="sim-sol-lock">'+
+        '<div class="sim-free-lock-ic">🔒</div>'+
+        '<div><strong>Solución paso a paso · MathUNAL Pro</strong>'+
+        '<div class="sim-free-lock-sub">El desarrollo, el truco y la gráfica de esta pregunta están en Pro. En el gratis tienes la solución de una pregunta de muestra.</div></div>'+
+        '<button type="button" class="sim-free-lock-btn" onclick="window.__simPaywall&&window.__simPaywall(\'solucion\')">Desbloquear →</button></div>';
+      return;
+    }
     var h='';
     if(q.reconocer) h+='<div class="sim-extra sim-rc-block"><span class="sim-mini-lbl">Cómo reconocerlo en el parcial</span><div>'+mh(q.reconocer)+'</div></div>';
     if(q.antibobo)  h+='<div class="sim-extra sim-ab-block"><span class="sim-mini-lbl">El truco</span><b>'+mh(q.antibobo)+'</b></div>';
@@ -17527,6 +17562,25 @@ window.__SIMPRO_DEV = /[?&]simpro=1/.test(location.href) || !!window.__SIM_LOCAL
     }catch(e){}
     var rows=Object.keys(byTema).map(function(t){return {t:t,p:Math.round(byTema[t].ok/byTema[t].n*100)};})
       .sort(function(a,b){return a.p-b.p;});
+
+    // ── GATE: gratis solo ve el nombre de UN tema flojo + un enganche a Pro ──
+    var _isPro = !(window.__simPro) || window.__simPro.isPro();
+    if(!_isPro){
+      var flojo = rows.filter(function(r){ return r.p<75; })[0] || rows[0];
+      var h2='<div class="sim-dom-card sim-dom-free">'+
+        '<div class="sim-dom-h">Tu diagnóstico</div>';
+      if(flojo) h2+='<p class="sim-free-teaser">Tu mayor fuga: <b>'+flojo.t+'</b>. Ahí es donde estás perdiendo puntos.</p>';
+      h2+='<div class="sim-free-lock">'+
+        '<div class="sim-free-lock-ic">🔒</div>'+
+        '<div><strong>Desbloquea el análisis completo</strong>'+
+        '<div class="sim-free-lock-sub">dominio de los '+rows.length+' temas · qué tipo de error cometes · todas las soluciones con el truco · entrenar tus fallos</div></div>'+
+        '<button type="button" class="sim-free-lock-btn" onclick="window.__simPaywall&&window.__simPaywall(\'analisis\')">Ver MathUNAL Pro →</button>'+
+        '</div></div>';
+      host.insertAdjacentHTML('afterbegin', h2);
+      if(window._renderMath) window._renderMath(host);
+      return;
+    }
+
     var html='<div class="sim-dom-card"><div class="sim-dom-h">Dominio por tema</div><table class="sim-dom-t">';
     rows.forEach(function(r){
       var col=r.p>=75?'var(--ok)':r.p>=50?'var(--warn)':'var(--bad)';
@@ -17630,6 +17684,17 @@ window.__SIMPRO_DEV = /[?&]simpro=1/.test(location.href) || !!window.__SIM_LOCAL
   window.__simRenderPrep=function(){
     var host=document.getElementById('mu-progreso'); if(!host) return;
     var data=_prepData(); if(!data||!data.length) return;
+    var _isPro = !(window.__simPro) || window.__simPro.isPro();
+    if(!_isPro){
+      host.insertAdjacentHTML('beforeend',
+        '<div class="sim-prep"><div class="sim-free-lock">'+
+        '<div class="sim-free-lock-ic">📊</div>'+
+        '<div><strong>Mi preparación · MathUNAL Pro</strong>'+
+        '<div class="sim-free-lock-sub">Tu nivel /100 por corte, tu punto ciego, la predicción de nota y el badge "LISTO PARA EL CORTE".</div></div>'+
+        '<button type="button" class="sim-free-lock-btn" onclick="window.__simPaywall&&window.__simPaywall(\'analisis\')">Ver Pro →</button>'+
+        '</div></div>');
+      return;
+    }
     var st=function(s){ return s>=85?['🔥','Muy preparado','var(--acc)'] : s>=70?['🟢','Listo','var(--ok)'] : s>=50?['🟡','En riesgo','var(--warn)'] : ['🔴','No listo','var(--bad)']; };
     var h='<div class="sim-prep">';
     var dias=(window.__simDiasRestantes&&window.__simDiasRestantes());
@@ -17739,6 +17804,15 @@ window.__SIMPRO_DEV = /[?&]simpro=1/.test(location.href) || !!window.__SIM_LOCAL
   window.__simSRSHtml=function(){
     var due=window.__simSRS.due();
     if(!due.length) return '';
+    var _isPro = !(window.__simPro) || window.__simPro.isPro();
+    if(!_isPro){
+      return '<div class="sim-srs-card sim-srs-locked">'+
+        '<div class="sim-srs-tag">Repaso espaciado · Pro</div>'+
+        '<div class="sim-srs-h">🔒 Repasar mis errores</div>'+
+        '<div class="sim-srs-sub">Tienes <b>'+due.length+'</b> pregunta'+(due.length>1?'s':'')+' que fallaste esperando. Con Pro vuelven en el momento justo (1, 2, 4, 9, 18 días) hasta que las domines.</div>'+
+        '<button class="sim-srs-btn" type="button" onclick="event.stopPropagation();window.__simPaywall&&window.__simPaywall(\'analisis\')">Ver Pro →</button>'+
+      '</div>';
+    }
     var temas=[]; due.forEach(function(q){ if(q.tema && temas.indexOf(q.tema)<0) temas.push(q.tema); });
     return '<div class="sim-srs-card">'+
       '<div class="sim-srs-tag">Repaso espaciado</div>'+
@@ -17750,6 +17824,7 @@ window.__SIMPRO_DEV = /[?&]simpro=1/.test(location.href) || !!window.__SIM_LOCAL
     '</div>';
   };
   window.__simSRSStart=function(){
+    if(window.__simPro && !window.__simPro.isPro()){ window.__simPaywall&&window.__simPaywall('analisis'); return; }
     var due=window.__simSRS.due().slice(0,12);
     if(!due.length) return;
     EX['srs_review']={
@@ -17804,9 +17879,11 @@ window.__SIMPRO_DEV = /[?&]simpro=1/.test(location.href) || !!window.__SIM_LOCAL
   window.__simPaywall=function(ctx){
     var ov=document.getElementById('sim-pw-overlay'); if(!ov) return;
     var b=document.getElementById('sim-pw-body');
-    if(b) b.textContent = ctx==='corte'
-      ? 'Ya hiciste tu simulacro gratis de este corte. Con Pro haces todos los que quieras y comparas tu evolución.'
-      : 'Esta parte es de MathUNAL Pro.';
+    if(b) b.textContent = ({
+      corte:'Ya hiciste tu simulacro gratis de este corte. Con Pro haces todos los que quieras y comparas tu evolución.',
+      analisis:'El diagnóstico completo — dominio de cada tema, qué tipo de error cometes y el plan — es de MathUNAL Pro.',
+      solucion:'Cada solución paso a paso, con el truco y la gráfica interactiva, es de MathUNAL Pro. En el gratis tienes una de muestra.'
+    }[ctx]) || 'Esta parte es de MathUNAL Pro.';
     ov.classList.add('open');
     var pay=document.getElementById('sim-pw-pay');
     if(pay) pay.onclick=function(){ window.__simPro.unlock(); ov.classList.remove('open');
