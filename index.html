@@ -16990,6 +16990,16 @@ window.__SIMPRO_DEV = /[?&]simpro=1/.test(location.href);
     }
     arr.push({slug:slug,corte:corte,nota:nota,score:score||50,fecha:new Date().toISOString().slice(0,10)});
     try{ localStorage.setItem('mu-sim-notas-reales', JSON.stringify(arr.slice(-60))); }catch(e){}
+    // best-effort al servidor (para el modelo de calibración global)
+    try{
+      var au=window.__muAuth, s=au&&au.session&&au.session();
+      if(au&&s&&s.access_token){
+        au.api('/rest/v1/sim_real_grades',{method:'POST',
+          headers:{Prefer:'return=minimal'},
+          body:JSON.stringify({user_id:s.user.id, course_id:'1000004', corte:corte, sim_score:score||null, real_nota:nota})
+        }).catch(function(){});
+      }
+    }catch(e){}
   };
   window.__simRealNotaDe=function(slug,corte){
     try{ var a=JSON.parse(localStorage.getItem('mu-sim-notas-reales'))||[];
@@ -17065,7 +17075,15 @@ window.__SIMPRO_DEV = /[?&]simpro=1/.test(location.href);
        { user_id, product_id:'calcdif_pro', course_id:'1000004',
          exam_period_id:'2026-2', valid_until }                                */
   window.__simPro={
-    isPro:function(){ try{ return localStorage.getItem('mu-sim-pro')==='1'; }catch(e){ return false; } },
+    /* sync: cache local (entitlement de Supabase se refresca en syncFromServer).
+       'mu-sim-pro' = mock de dev; 'mu-sim-pro-srv' = último resultado real. */
+    isPro:function(){
+      try{
+        if(localStorage.getItem('mu-sim-pro-srv')==='1') return true;
+        if(localStorage.getItem('mu-sim-pro')==='1') return true;
+      }catch(e){}
+      return false;
+    },
     unlock:function(){ try{ localStorage.setItem('mu-sim-pro','1'); }catch(e){}
       try{ if(window._renderCards) window._renderCards(); }catch(e){} },
     licencia:function(){
@@ -17073,8 +17091,25 @@ window.__SIMPRO_DEV = /[?&]simpro=1/.test(location.href);
       if(!id){ id=(Math.random().toString(36).slice(2,6)+Math.random().toString(36).slice(2,4)).toUpperCase();
         try{ localStorage.setItem('mu-sim-lic',id); }catch(e){} }
       return id;
+    },
+    /* llama a la RPC sim_has_pro si el usuario está logueado y la función existe.
+       Degrada en silencio (tabla/función aún no creada → sigue con el mock). */
+    syncFromServer:function(){
+      var au=window.__muAuth, s=au&&au.session&&au.session();
+      if(!au||!s||!s.access_token) return Promise.resolve(false);
+      return au.api('/rest/v1/rpc/sim_has_pro',{method:'POST',body:JSON.stringify({p_course:'1000004'})})
+        .then(function(r){ return r.ok? r.json() : null; })
+        .then(function(v){
+          var pro = v===true;
+          try{ localStorage.setItem('mu-sim-pro-srv', pro?'1':'0'); }catch(e){}
+          if(pro){ try{ if(window._renderCards) window._renderCards(); }catch(e){} }
+          return pro;
+        })
+        .catch(function(){ return false; });
     }
   };
+  try{ window.__simPro.syncFromServer(); }catch(e){}
+  if(window.__muAuth && window.__muAuth.onChange) window.__muAuth.onChange(function(){ try{ window.__simPro.syncFromServer(); }catch(e){} });
   window.__simPaywall=function(ctx){
     var ov=document.getElementById('sim-pw-overlay'); if(!ov) return;
     var b=document.getElementById('sim-pw-body');
