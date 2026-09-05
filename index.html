@@ -75,7 +75,7 @@
   <!-- Simulacros Pro (rama simulacros-pro): banco + laboratorio, inline single-file -->
   <script>
 /* ═══════════════════════════════════════════════════════════════════════════
-   MathUNAL · Simulacros Pro — Banco (inline FLACO): CÁLCULO DIFERENCIAL + CÁLCULO INTEGRAL + ÁLGEBRA LINEAL + ECUACIONES DIFERENCIALES
+   MathUNAL · Simulacros Pro — Banco (inline FLACO): CÁLCULO DIFERENCIAL + CÁLCULO INTEGRAL + ÁLGEBRA LINEAL + ECUACIONES DIFERENCIALES + CÁLCULO EN VARIAS VARIABLES
    Solo lo renderizable + el resumen (teaser gratis). El contenido Pro
    (pasos, "el truco", cómo reconocerlo, soluciones y rúbricas) vive en Supabase
    → sim_solutions, RLS por sim_has_pro(course_id). El motor lo trae con
@@ -244,6 +244,49 @@ var SIM_TAX = {
      "Función escalón y delta de Dirac",
      "Sistemas lineales y plano fase",
      "Series y problemas de frontera"
+    ]
+   }
+  }
+ },
+ "calcvec": {
+  "materia": "Cálculo en Varias Variables",
+  "codigo": "1000007",
+  "slug": "calcvec",
+  "cortes": {
+   "1": {
+    "nombre": "Cálculo diferencial en varias variables",
+    "pct": 30,
+    "temas": [
+     "Dominio, límites y continuidad",
+     "Derivadas parciales",
+     "Regla de la cadena",
+     "Gradiente y derivada direccional",
+     "Plano tangente y linealización",
+     "Máximos y mínimos (Hessiano)",
+     "Multiplicadores de Lagrange"
+    ]
+   },
+   "2": {
+    "nombre": "Integrales múltiples",
+    "pct": 35,
+    "temas": [
+     "Integrales dobles y cambio de orden",
+     "Coordenadas polares",
+     "Integrales triples",
+     "Coordenadas cilíndricas y esféricas",
+     "Cambio de variable y jacobiano",
+     "Aplicaciones (masa, centroide, inercia)"
+    ]
+   },
+   "3": {
+    "nombre": "Cálculo vectorial",
+    "pct": 35,
+    "temas": [
+     "Campos vectoriales e integrales de línea",
+     "Teorema de Green",
+     "Rotacional y divergencia",
+     "Integrales de superficie y flujo",
+     "Teoremas de Stokes y de la Divergencia"
     ]
    }
   }
@@ -871,6 +914,170 @@ var SIM_META = {
     "c": 3,
     "t": "Transformada de Laplace",
     "f": "baja",
+    "e": "formula"
+   }
+  ]
+ },
+ "calcvec": {
+  "calcvec_p1": [
+   {
+    "c": 1,
+    "t": "Dominio, límites y continuidad",
+    "f": "alta",
+    "e": "procedimiento"
+   },
+   {
+    "c": 1,
+    "t": "Dominio, límites y continuidad",
+    "f": "alta",
+    "e": "procedimiento"
+   },
+   {
+    "c": 1,
+    "t": "Derivadas parciales",
+    "f": "alta",
+    "e": "procedimiento"
+   },
+   {
+    "c": 1,
+    "t": "Gradiente y derivada direccional",
+    "f": "alta",
+    "e": "procedimiento"
+   },
+   {
+    "c": 1,
+    "t": "Gradiente y derivada direccional",
+    "f": "alta",
+    "e": "formula"
+   },
+   {
+    "c": 1,
+    "t": "Regla de la cadena",
+    "f": "media",
+    "e": "procedimiento"
+   },
+   {
+    "c": 1,
+    "t": "Máximos y mínimos (Hessiano)",
+    "f": "alta",
+    "e": "procedimiento"
+   },
+   {
+    "c": 1,
+    "t": "Máximos y mínimos (Hessiano)",
+    "f": "alta",
+    "e": "procedimiento"
+   },
+   {
+    "c": 1,
+    "t": "Derivadas parciales",
+    "f": "alta",
+    "e": "formula"
+   }
+  ],
+  "calcvec_p2": [
+   {
+    "c": 2,
+    "t": "Coordenadas polares",
+    "f": "alta",
+    "e": "procedimiento"
+   },
+   {
+    "c": 2,
+    "t": "Cambio de variable y jacobiano",
+    "f": "alta",
+    "e": "procedimiento"
+   },
+   {
+    "c": 2,
+    "t": "Integrales dobles y cambio de orden",
+    "f": "alta",
+    "e": "procedimiento"
+   },
+   {
+    "c": 2,
+    "t": "Integrales dobles y cambio de orden",
+    "f": "alta",
+    "e": "formula"
+   },
+   {
+    "c": 2,
+    "t": "Coordenadas polares",
+    "f": "alta",
+    "e": "formula"
+   },
+   {
+    "c": 2,
+    "t": "Coordenadas cilíndricas y esféricas",
+    "f": "alta",
+    "e": "procedimiento"
+   },
+   {
+    "c": 2,
+    "t": "Aplicaciones (masa, centroide, inercia)",
+    "f": "media",
+    "e": "formula"
+   },
+   {
+    "c": 2,
+    "t": "Cambio de variable y jacobiano",
+    "f": "media",
+    "e": "formula"
+   }
+  ],
+  "calcvec_p3": [
+   {
+    "c": 2,
+    "t": "Integrales triples",
+    "f": "alta",
+    "e": "formula"
+   },
+   {
+    "c": 2,
+    "t": "Coordenadas cilíndricas y esféricas",
+    "f": "alta",
+    "e": "formula"
+   },
+   {
+    "c": 2,
+    "t": "Coordenadas cilíndricas y esféricas",
+    "f": "media",
+    "e": "procedimiento"
+   },
+   {
+    "c": 3,
+    "t": "Teorema de Green",
+    "f": "alta",
+    "e": "procedimiento"
+   },
+   {
+    "c": 3,
+    "t": "Rotacional y divergencia",
+    "f": "alta",
+    "e": "formula"
+   },
+   {
+    "c": 3,
+    "t": "Rotacional y divergencia",
+    "f": "alta",
+    "e": "formula"
+   },
+   {
+    "c": 3,
+    "t": "Teoremas de Stokes y de la Divergencia",
+    "f": "alta",
+    "e": "procedimiento"
+   },
+   {
+    "c": 3,
+    "t": "Teoremas de Stokes y de la Divergencia",
+    "f": "alta",
+    "e": "procedimiento"
+   },
+   {
+    "c": 3,
+    "t": "Rotacional y divergencia",
+    "f": "media",
     "e": "formula"
    }
   ]
@@ -2139,6 +2346,281 @@ var SIM_NEW = {
    ],
    "correcta": 0,
    "resumen": "Valores propios $1$ y $-1$: signos opuestos → silla."
+  }
+ ],
+ "calcvec": [
+  {
+   "id": "cv_c1_01",
+   "c": 1,
+   "t": "Derivadas parciales",
+   "f": "alta",
+   "e": "formula",
+   "tipo": "numerica",
+   "dif": 1,
+   "tEsp": 45,
+   "texto": "Para $f(x,y)=x^2y^3$, calcule $f_y(2,1)$.",
+   "resumen": "$f_y$: deriva respecto de $y$ (con $x$ constante).",
+   "respuesta": "12",
+   "unidad": "",
+   "tolNum": 0.001,
+   "puntaje": 10
+  },
+  {
+   "id": "cv_c1_02",
+   "c": 1,
+   "t": "Gradiente y derivada direccional",
+   "f": "alta",
+   "e": "formula",
+   "tipo": "mcq",
+   "dif": 1,
+   "tEsp": 45,
+   "texto": "El gradiente de $f(x,y)=x^2+y^2$ en $(1,2)$ es:",
+   "opciones": [
+    "$(2,4)$",
+    "$(1,2)$",
+    "$(2,2)$",
+    "$(4,2)$"
+   ],
+   "correcta": 0,
+   "resumen": "$\\nabla f = (2x, 2y)$, evaluado en $(1,2)$."
+  },
+  {
+   "id": "cv_c1_03",
+   "c": 1,
+   "t": "Dominio, límites y continuidad",
+   "f": "alta",
+   "e": "conceptual",
+   "tipo": "mcq",
+   "dif": 2,
+   "tEsp": 80,
+   "texto": "$\\displaystyle\\lim_{(x,y)\\to(0,0)}\\frac{xy}{x^2+y^2}$:",
+   "opciones": [
+    "no existe",
+    "$0$",
+    "$\\tfrac12$",
+    "$1$"
+   ],
+   "correcta": 0,
+   "resumen": "Por caminos distintos da valores distintos."
+  },
+  {
+   "id": "cv_c1_04",
+   "c": 1,
+   "t": "Plano tangente y linealización",
+   "f": "alta",
+   "e": "procedimiento",
+   "tipo": "mcq",
+   "dif": 2,
+   "tEsp": 80,
+   "texto": "El plano tangente a $z=x^2+y^2$ en el punto $(1,1,2)$ es:",
+   "opciones": [
+    "$z=2x+2y-2$",
+    "$z=2x+2y+2$",
+    "$z=x+y$",
+    "$z=2x+2y$"
+   ],
+   "correcta": 0,
+   "resumen": "$z-z_0 = f_x(x-x_0)+f_y(y-y_0)$ con $f_x=2x$, $f_y=2y$."
+  },
+  {
+   "id": "cv_c1_05",
+   "c": 1,
+   "t": "Multiplicadores de Lagrange",
+   "f": "alta",
+   "e": "procedimiento",
+   "tipo": "mcq",
+   "dif": 2,
+   "tEsp": 90,
+   "texto": "El valor máximo de $f(x,y)=xy$ sujeto a $x+y=10$ (con $x,y>0$) es:",
+   "opciones": [
+    "$25$",
+    "$10$",
+    "$50$",
+    "$100$"
+   ],
+   "correcta": 0,
+   "resumen": "Lagrange: $\\nabla f = \\lambda\\nabla g$ → $(y,x)=\\lambda(1,1)$ → $x=y$."
+  },
+  {
+   "id": "cv_c2_01",
+   "c": 2,
+   "t": "Integrales dobles y cambio de orden",
+   "f": "alta",
+   "e": "procedimiento",
+   "tipo": "numerica",
+   "dif": 1,
+   "tEsp": 55,
+   "texto": "Calcule $\\displaystyle\\int_0^1\\!\\int_0^2 xy\\,dy\\,dx$.",
+   "resumen": "Interna en $y$ (con $x$ fijo), luego externa en $x$.",
+   "respuesta": "1",
+   "unidad": "",
+   "tolNum": 0.001,
+   "puntaje": 10
+  },
+  {
+   "id": "cv_c2_02",
+   "c": 2,
+   "t": "Coordenadas polares",
+   "f": "alta",
+   "e": "formula",
+   "tipo": "mcq",
+   "dif": 1,
+   "tEsp": 50,
+   "texto": "$\\displaystyle\\iint_D dA$ sobre el disco $x^2+y^2\\le 1$, en polares, es:",
+   "opciones": [
+    "$\\displaystyle\\int_0^{2\\pi}\\!\\int_0^1 r\\,dr\\,d\\theta = \\pi$",
+    "$\\displaystyle\\int_0^{2\\pi}\\!\\int_0^1 dr\\,d\\theta = 2\\pi$",
+    "$\\displaystyle\\int_0^{\\pi}\\!\\int_0^1 r\\,dr\\,d\\theta$",
+    "$\\displaystyle\\int_0^{2\\pi}\\!\\int_0^1 r^2\\,dr\\,d\\theta$"
+   ],
+   "correcta": 0,
+   "resumen": "$dA = r\\,dr\\,d\\theta$; el área del disco unitario es $\\pi$."
+  },
+  {
+   "id": "cv_c2_03",
+   "c": 2,
+   "t": "Integrales dobles y cambio de orden",
+   "f": "media",
+   "e": "conceptual",
+   "tipo": "mcq",
+   "dif": 1,
+   "tEsp": 45,
+   "texto": "El intercambio del orden de integración de $\\displaystyle\\int_0^1\\!\\int_y^1 f(x,y)\\,dx\\,dy$ es:",
+   "opciones": [
+    "$\\displaystyle\\int_0^1\\!\\int_0^x f(x,y)\\,dy\\,dx$",
+    "$\\displaystyle\\int_0^1\\!\\int_0^1 f(x,y)\\,dy\\,dx$",
+    "$\\displaystyle\\int_0^1\\!\\int_x^1 f(x,y)\\,dy\\,dx$",
+    "$\\displaystyle\\int_0^1\\!\\int_1^y f(x,y)\\,dy\\,dx$"
+   ],
+   "correcta": 0,
+   "resumen": "La región es el triángulo $0\\le y\\le x\\le 1$."
+  },
+  {
+   "id": "cv_c2_04",
+   "c": 2,
+   "t": "Coordenadas polares",
+   "f": "alta",
+   "e": "procedimiento",
+   "tipo": "mcq",
+   "dif": 2,
+   "tEsp": 85,
+   "texto": "El volumen bajo $z=4-x^2-y^2$ sobre el disco $x^2+y^2\\le 4$ es:",
+   "opciones": [
+    "$8\\pi$",
+    "$4\\pi$",
+    "$16\\pi$",
+    "$\\dfrac{32\\pi}{3}$"
+   ],
+   "correcta": 0,
+   "resumen": "Polares: $\\displaystyle\\int_0^{2\\pi}\\!\\int_0^2 (4-r^2)\\,r\\,dr\\,d\\theta$."
+  },
+  {
+   "id": "cv_c2_05",
+   "c": 2,
+   "t": "Integrales triples",
+   "f": "alta",
+   "e": "formula",
+   "tipo": "numerica",
+   "dif": 1,
+   "tEsp": 45,
+   "texto": "Calcule $\\displaystyle\\iiint_{[0,1]^3} x\\,dV$.",
+   "resumen": "Sobre el cubo unitario, $\\iiint x\\,dV = \\left(\\int_0^1 x\\,dx\\right)(1)(1)$.",
+   "respuesta": "0.5",
+   "unidad": "",
+   "tolNum": 0.001,
+   "puntaje": 10
+  },
+  {
+   "id": "cv_c3_01",
+   "c": 3,
+   "t": "Rotacional y divergencia",
+   "f": "alta",
+   "e": "formula",
+   "tipo": "numerica",
+   "dif": 1,
+   "tEsp": 55,
+   "texto": "Para $\\mathbf{F}=(xy,\\,yz,\\,zx)$, calcule $\\nabla\\cdot\\mathbf{F}$ en $(1,1,1)$.",
+   "resumen": "$\\nabla\\cdot\\mathbf{F} = \\partial_x(xy)+\\partial_y(yz)+\\partial_z(zx)$.",
+   "respuesta": "3",
+   "unidad": "",
+   "tolNum": 0.001,
+   "puntaje": 10
+  },
+  {
+   "id": "cv_c3_02",
+   "c": 3,
+   "t": "Rotacional y divergencia",
+   "f": "media",
+   "e": "conceptual",
+   "tipo": "mcq",
+   "dif": 2,
+   "tEsp": 60,
+   "texto": "Si $g$ es un campo escalar con segundas derivadas continuas, $\\nabla\\times(\\nabla g)$ es:",
+   "opciones": [
+    "$\\mathbf{0}$",
+    "$\\nabla g$",
+    "$\\nabla^2 g$",
+    "$g$"
+   ],
+   "correcta": 0,
+   "resumen": "Identidad: el rotacional de un gradiente es siempre cero."
+  },
+  {
+   "id": "cv_c3_03",
+   "c": 3,
+   "t": "Teorema de Green",
+   "f": "alta",
+   "e": "procedimiento",
+   "tipo": "mcq",
+   "dif": 2,
+   "tEsp": 75,
+   "texto": "Por el Teorema de Green, $\\displaystyle\\oint_C x\\,dy$ sobre el círculo unitario $C$ (antihorario) es:",
+   "opciones": [
+    "$\\pi$",
+    "$0$",
+    "$2\\pi$",
+    "$-\\pi$"
+   ],
+   "correcta": 0,
+   "resumen": "$P=0$, $Q=x$ → $Q_x-P_y = 1$ → $\\iint_D 1\\,dA = \\text{Área}$."
+  },
+  {
+   "id": "cv_c3_04",
+   "c": 3,
+   "t": "Campos vectoriales e integrales de línea",
+   "f": "alta",
+   "e": "conceptual",
+   "tipo": "mcq",
+   "dif": 2,
+   "tEsp": 65,
+   "texto": "El campo $\\mathbf{F}=(2x,\\,2y,\\,2z)$ es conservativo, con función potencial:",
+   "opciones": [
+    "$\\varphi=x^2+y^2+z^2$",
+    "$\\varphi=2xyz$",
+    "$\\varphi=x^2+y^2+z^2+xyz$",
+    "no es conservativo"
+   ],
+   "correcta": 0,
+   "resumen": "$\\nabla\\varphi = \\mathbf{F}$: hay que hallar $\\varphi$ con $\\varphi_x=2x$, etc."
+  },
+  {
+   "id": "cv_c3_05",
+   "c": 3,
+   "t": "Integrales de superficie y flujo",
+   "f": "media",
+   "e": "procedimiento",
+   "tipo": "mcq",
+   "dif": 1,
+   "tEsp": 60,
+   "texto": "El flujo de $\\mathbf{F}=(0,0,z)$ a través de la cara superior ($z=1$) del cubo $[0,1]^3$ (normal hacia arriba) es:",
+   "opciones": [
+    "$1$",
+    "$0$",
+    "$\\tfrac12$",
+    "$3$"
+   ],
+   "correcta": 0,
+   "resumen": "En $z=1$: $\\hat n=(0,0,1)$, $\\mathbf{F}\\cdot\\hat n = z = 1$."
   }
  ]
 };
@@ -19554,7 +20036,7 @@ window.__SIMPRO_DEV = /[?&]simpro=1/.test(location.href) || !!window.__SIM_LOCAL
        { user_id, product_id:'calcdif_pro', course_id:'1000004',
          exam_period_id:'2026-2', valid_until }                                */
   /* materias con banco Pro. course = código UNAL; el entitlement es por materia. */
-  var PRO_COURSES = ['1000004','1000005', '1000006', '1000008'];
+  var PRO_COURSES = ['1000004','1000005', '1000006', '1000008', '1000007'];
   function _courseOf(slug){
     return (slug && (window.SIM_TAX||{})[slug] && window.SIM_TAX[slug].codigo) || null;
   }
