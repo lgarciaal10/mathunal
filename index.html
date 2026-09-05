@@ -75,7 +75,7 @@
   <!-- Simulacros Pro (rama simulacros-pro): banco + laboratorio, inline single-file -->
   <script>
 /* ═══════════════════════════════════════════════════════════════════════════
-   MathUNAL · Simulacros Pro — Banco (inline FLACO): CÁLCULO DIFERENCIAL + CÁLCULO INTEGRAL + ÁLGEBRA LINEAL + ECUACIONES DIFERENCIALES + CÁLCULO EN VARIAS VARIABLES
+   MathUNAL · Simulacros Pro — Banco (inline FLACO): CÁLCULO DIFERENCIAL + CÁLCULO INTEGRAL + ÁLGEBRA LINEAL + ECUACIONES DIFERENCIALES + CÁLCULO EN VARIAS VARIABLES + GEOMETRÍA VECTORIAL Y ANALÍTICA
    Solo lo renderizable + el resumen (teaser gratis). El contenido Pro
    (pasos, "el truco", cómo reconocerlo, soluciones y rúbricas) vive en Supabase
    → sim_solutions, RLS por sim_has_pro(course_id). El motor lo trae con
@@ -287,6 +287,43 @@ var SIM_TAX = {
      "Rotacional y divergencia",
      "Integrales de superficie y flujo",
      "Teoremas de Stokes y de la Divergencia"
+    ]
+   }
+  }
+ },
+ "geovec": {
+  "materia": "Geometría Vectorial y Analítica",
+  "codigo": "1000013",
+  "slug": "geovec",
+  "cortes": {
+   "1": {
+    "nombre": "Vectores y rectas en el plano",
+    "pct": 30,
+    "temas": [
+     "Vectores en el plano",
+     "Producto punto y proyección",
+     "Rectas en el plano",
+     "Área y aplicaciones"
+    ]
+   },
+   "2": {
+    "nombre": "Vectores en el espacio",
+    "pct": 35,
+    "temas": [
+     "Vectores en R³ y producto punto",
+     "Producto vectorial (cruz)",
+     "Triple producto escalar y volumen",
+     "Combinaciones lineales y dependencia"
+    ]
+   },
+   "3": {
+    "nombre": "Rectas, planos y cónicas",
+    "pct": 35,
+    "temas": [
+     "Planos en el espacio",
+     "Rectas en el espacio e intersecciones",
+     "Distancias en R³",
+     "Cónicas y coordenadas polares"
     ]
    }
   }
@@ -1086,6 +1123,158 @@ var SIM_META = {
     "t": "Rotacional y divergencia",
     "f": "media",
     "e": "formula"
+   }
+  ]
+ },
+ "geovec": {
+  "geovec_p1": [
+   {
+    "c": 1,
+    "t": "Producto punto y proyección",
+    "f": "alta",
+    "e": "procedimiento"
+   },
+   {
+    "c": 1,
+    "t": "Producto punto y proyección",
+    "f": "alta",
+    "e": "formula"
+   },
+   {
+    "c": 1,
+    "t": "Rectas en el plano",
+    "f": "alta",
+    "e": "formula"
+   },
+   {
+    "c": 1,
+    "t": "Rectas en el plano",
+    "f": "alta",
+    "e": "conceptual"
+   },
+   {
+    "c": 1,
+    "t": "Vectores en el plano",
+    "f": "media",
+    "e": "formula"
+   },
+   {
+    "c": 1,
+    "t": "Vectores en el plano",
+    "f": "media",
+    "e": "procedimiento"
+   },
+   {
+    "c": 1,
+    "t": "Vectores en el plano",
+    "f": "media",
+    "e": "conceptual"
+   },
+   {
+    "c": 1,
+    "t": "Área y aplicaciones",
+    "f": "alta",
+    "e": "procedimiento"
+   },
+   {
+    "c": 1,
+    "t": "Área y aplicaciones",
+    "f": "alta",
+    "e": "formula"
+   }
+  ],
+  "geovec_p2": [
+   {
+    "c": 2,
+    "t": "Vectores en R³ y producto punto",
+    "f": "alta",
+    "e": "formula"
+   },
+   {
+    "c": 2,
+    "t": "Vectores en R³ y producto punto",
+    "f": "alta",
+    "e": "formula"
+   },
+   {
+    "c": 2,
+    "t": "Combinaciones lineales y dependencia",
+    "f": "media",
+    "e": "procedimiento"
+   },
+   {
+    "c": 1,
+    "t": "Producto punto y proyección",
+    "f": "media",
+    "e": "procedimiento"
+   },
+   {
+    "c": 1,
+    "t": "Producto punto y proyección",
+    "f": "media",
+    "e": "procedimiento"
+   },
+   {
+    "c": 1,
+    "t": "Producto punto y proyección",
+    "f": "media",
+    "e": "conceptual"
+   },
+   {
+    "c": 1,
+    "t": "Rectas en el plano",
+    "f": "media",
+    "e": "procedimiento"
+   }
+  ],
+  "geovec_p3": [
+   {
+    "c": 3,
+    "t": "Planos en el espacio",
+    "f": "alta",
+    "e": "formula"
+   },
+   {
+    "c": 3,
+    "t": "Distancias en R³",
+    "f": "alta",
+    "e": "formula"
+   },
+   {
+    "c": 3,
+    "t": "Planos en el espacio",
+    "f": "media",
+    "e": "formula"
+   },
+   {
+    "c": 2,
+    "t": "Producto vectorial (cruz)",
+    "f": "alta",
+    "e": "procedimiento"
+   },
+   {
+    "c": 2,
+    "t": "Triple producto escalar y volumen",
+    "f": "alta",
+    "e": "formula"
+   },
+   {
+    "c": 3,
+    "t": "Rectas en el espacio e intersecciones",
+    "f": "alta",
+    "e": "procedimiento"
+   },
+   {
+    "c": 3,
+    "t": "Distancias en R³",
+    "f": "media",
+    "e": "formula"
+   },
+   {
+    "c": 3,
+    "t": "Planos en el espacio",
+    "f": "alta",
+    "e": "procedimiento"
    }
   ]
  }
@@ -2634,6 +2823,278 @@ var SIM_NEW = {
    ],
    "correcta": 0,
    "resumen": "En $z=1$: $\\hat n=(0,0,1)$, $\\mathbf{F}\\cdot\\hat n = z = 1$."
+  }
+ ],
+ "geovec": [
+  {
+   "id": "gv_c1_01",
+   "c": 1,
+   "t": "Producto punto y proyección",
+   "f": "alta",
+   "e": "formula",
+   "tipo": "numerica",
+   "dif": 1,
+   "tEsp": 35,
+   "texto": "Calcule $\\mathbf{u}\\cdot\\mathbf{v}$ para $\\mathbf{u}=(2,3)$ y $\\mathbf{v}=(4,-1)$.",
+   "resumen": "Suma de productos coordenada a coordenada.",
+   "respuesta": "5",
+   "unidad": "",
+   "tolNum": 0.001,
+   "puntaje": 10
+  },
+  {
+   "id": "gv_c1_02",
+   "c": 1,
+   "t": "Vectores en el plano",
+   "f": "alta",
+   "e": "formula",
+   "tipo": "mcq",
+   "dif": 1,
+   "tEsp": 35,
+   "texto": "La magnitud de $\\mathbf{u}=(3,4)$ es:",
+   "opciones": [
+    "$5$",
+    "$7$",
+    "$\\sqrt{7}$",
+    "$25$"
+   ],
+   "correcta": 0,
+   "resumen": "$\\|\\mathbf{u}\\|=\\sqrt{u_1^2+u_2^2}$."
+  },
+  {
+   "id": "gv_c1_03",
+   "c": 1,
+   "t": "Vectores en el plano",
+   "f": "media",
+   "e": "conceptual",
+   "tipo": "mcq",
+   "dif": 1,
+   "tEsp": 40,
+   "texto": "Los vectores $\\mathbf{u}=(2,4)$ y $\\mathbf{v}=(-1,-2)$ son:",
+   "opciones": [
+    "paralelos ($\\mathbf{v}=-\\tfrac12\\mathbf{u}$)",
+    "perpendiculares",
+    "iguales",
+    "ninguna de las anteriores"
+   ],
+   "correcta": 0,
+   "resumen": "Uno es múltiplo escalar del otro."
+  },
+  {
+   "id": "gv_c1_04",
+   "c": 1,
+   "t": "Rectas en el plano",
+   "f": "alta",
+   "e": "procedimiento",
+   "tipo": "mcq",
+   "dif": 1,
+   "tEsp": 50,
+   "texto": "La recta que pasa por $(1,2)$ y $(3,6)$ es:",
+   "opciones": [
+    "$y=2x$",
+    "$y=2x-2$",
+    "$y=x+1$",
+    "$y=3x-1$"
+   ],
+   "correcta": 0,
+   "resumen": "Pendiente $m=\\dfrac{6-2}{3-1}=2$; luego punto-pendiente."
+  },
+  {
+   "id": "gv_c1_05",
+   "c": 1,
+   "t": "Rectas en el plano",
+   "f": "alta",
+   "e": "formula",
+   "tipo": "numerica",
+   "dif": 1,
+   "tEsp": 45,
+   "texto": "La distancia del origen a la recta $3x+4y-10=0$ es:",
+   "resumen": "$d=\\dfrac{|a\\cdot0+b\\cdot0+c|}{\\sqrt{a^2+b^2}}$.",
+   "respuesta": "2",
+   "unidad": "",
+   "tolNum": 0.001,
+   "puntaje": 10
+  },
+  {
+   "id": "gv_c2_01",
+   "c": 2,
+   "t": "Producto vectorial (cruz)",
+   "f": "alta",
+   "e": "formula",
+   "tipo": "mcq",
+   "dif": 1,
+   "tEsp": 45,
+   "texto": "$\\mathbf{i}\\times\\mathbf{j}=$",
+   "opciones": [
+    "$\\mathbf{k}$",
+    "$-\\mathbf{k}$",
+    "$\\mathbf{0}$",
+    "$1$"
+   ],
+   "correcta": 0,
+   "resumen": "Regla de la mano derecha: $\\mathbf{i}\\times\\mathbf{j}=\\mathbf{k}$."
+  },
+  {
+   "id": "gv_c2_02",
+   "c": 2,
+   "t": "Triple producto escalar y volumen",
+   "f": "alta",
+   "e": "formula",
+   "tipo": "numerica",
+   "dif": 1,
+   "tEsp": 45,
+   "texto": "Calcule $\\|\\mathbf{u}\\times\\mathbf{v}\\|$ para $\\mathbf{u}=(3,0,0)$ y $\\mathbf{v}=(0,4,0)$.",
+   "resumen": "$\\mathbf{u}\\times\\mathbf{v}=(0,0,12)$; su norma es $12$ = área del rectángulo.",
+   "respuesta": "12",
+   "unidad": "",
+   "tolNum": 0.001,
+   "puntaje": 10
+  },
+  {
+   "id": "gv_c2_03",
+   "c": 2,
+   "t": "Vectores en R³ y producto punto",
+   "f": "alta",
+   "e": "conceptual",
+   "tipo": "mcq",
+   "dif": 1,
+   "tEsp": 40,
+   "texto": "Los vectores $\\mathbf{u}=(1,2,3)$ y $\\mathbf{v}=(2,-1,0)$ son:",
+   "opciones": [
+    "ortogonales",
+    "paralelos",
+    "iguales",
+    "unitarios"
+   ],
+   "correcta": 0,
+   "resumen": "$\\mathbf{u}\\cdot\\mathbf{v}=2-2+0=0$."
+  },
+  {
+   "id": "gv_c2_04",
+   "c": 2,
+   "t": "Combinaciones lineales y dependencia",
+   "f": "media",
+   "e": "conceptual",
+   "tipo": "mcq",
+   "dif": 2,
+   "tEsp": 55,
+   "texto": "Los vectores $(1,2,3)$, $(2,4,6)$ y $(0,0,1)$ son:",
+   "opciones": [
+    "linealmente dependientes",
+    "linealmente independientes",
+    "una base de $\\mathbb{R}^3$",
+    "todos unitarios"
+   ],
+   "correcta": 0,
+   "resumen": "$(2,4,6)=2(1,2,3)$: dos de ellos ya son proporcionales."
+  },
+  {
+   "id": "gv_c2_05",
+   "c": 2,
+   "t": "Triple producto escalar y volumen",
+   "f": "alta",
+   "e": "formula",
+   "tipo": "numerica",
+   "dif": 1,
+   "tEsp": 45,
+   "texto": "El volumen del paralelepípedo con aristas $(2,0,0)$, $(0,2,0)$, $(0,0,2)$ es:",
+   "resumen": "$V=|\\det[\\,\\mathbf{a}\\ \\mathbf{b}\\ \\mathbf{c}\\,]|$; matriz diagonal → producto de la diagonal.",
+   "respuesta": "8",
+   "unidad": "",
+   "tolNum": 0.001,
+   "puntaje": 10
+  },
+  {
+   "id": "gv_c3_01",
+   "c": 3,
+   "t": "Planos en el espacio",
+   "f": "alta",
+   "e": "formula",
+   "tipo": "mcq",
+   "dif": 1,
+   "tEsp": 45,
+   "texto": "El plano que pasa por el origen con vector normal $\\mathbf{n}=(1,2,3)$ es:",
+   "opciones": [
+    "$x+2y+3z=0$",
+    "$x+2y+3z=6$",
+    "$3x+2y+z=0$",
+    "$x+y+z=0$"
+   ],
+   "correcta": 0,
+   "resumen": "$\\mathbf{n}\\cdot(x,y,z)=\\mathbf{n}\\cdot\\mathbf{0}=0$."
+  },
+  {
+   "id": "gv_c3_02",
+   "c": 3,
+   "t": "Distancias en R³",
+   "f": "alta",
+   "e": "formula",
+   "tipo": "numerica",
+   "dif": 2,
+   "tEsp": 55,
+   "texto": "La distancia del punto $(1,1,1)$ al plano $x+y+z=0$ es (decimal, 3 cifras):",
+   "resumen": "$d=\\dfrac{|1+1+1-0|}{\\sqrt{1+1+1}}=\\dfrac{3}{\\sqrt3}=\\sqrt3$.",
+   "respuesta": "1.732",
+   "unidad": "",
+   "tolNum": 0.01,
+   "puntaje": 12
+  },
+  {
+   "id": "gv_c3_03",
+   "c": 3,
+   "t": "Cónicas y coordenadas polares",
+   "f": "alta",
+   "e": "formula",
+   "tipo": "mcq",
+   "dif": 1,
+   "tEsp": 40,
+   "texto": "La ecuación de la circunferencia de centro $(0,0)$ y radio $3$ es:",
+   "opciones": [
+    "$x^2+y^2=9$",
+    "$x^2+y^2=3$",
+    "$x+y=3$",
+    "$\\dfrac{x^2}{9}+\\dfrac{y^2}{9}=3$"
+   ],
+   "correcta": 0,
+   "resumen": "$x^2+y^2=r^2$ con $r=3$."
+  },
+  {
+   "id": "gv_c3_04",
+   "c": 3,
+   "t": "Cónicas y coordenadas polares",
+   "f": "alta",
+   "e": "conceptual",
+   "tipo": "mcq",
+   "dif": 1,
+   "tEsp": 45,
+   "texto": "La curva $\\dfrac{x^2}{4}+\\dfrac{y^2}{9}=1$ es:",
+   "opciones": [
+    "una elipse con semiejes $2$ y $3$",
+    "una circunferencia de radio $\\sqrt{6}$",
+    "una hipérbola",
+    "una parábola"
+   ],
+   "correcta": 0,
+   "resumen": "$\\dfrac{x^2}{a^2}+\\dfrac{y^2}{b^2}=1$ con signos $+$ → elipse; $a=2$, $b=3$."
+  },
+  {
+   "id": "gv_c3_05",
+   "c": 3,
+   "t": "Rectas en el espacio e intersecciones",
+   "f": "alta",
+   "e": "procedimiento",
+   "tipo": "mcq",
+   "dif": 2,
+   "tEsp": 60,
+   "texto": "La recta $(x,y,z)=(1,2,3)+t(1,-1,2)$ corta al plano $z=1$ en el punto:",
+   "opciones": [
+    "$(0,3,1)$",
+    "$(2,1,1)$",
+    "$(1,2,1)$",
+    "$(-1,4,1)$"
+   ],
+   "correcta": 0,
+   "resumen": "$z(t)=3+2t=1\\Rightarrow t=-1$; sustituye."
   }
  ]
 };
@@ -20371,7 +20832,7 @@ window.__SIMPRO_DEV = /[?&]simpro=1/.test(location.href) || !!window.__SIM_LOCAL
        { user_id, product_id:'calcdif_pro', course_id:'1000004',
          exam_period_id:'2026-2', valid_until }                                */
   /* materias con banco Pro. course = código UNAL; el entitlement es por materia. */
-  var PRO_COURSES = ['1000004','1000005', '1000006', '1000008', '1000007'];
+  var PRO_COURSES = ['1000004','1000005', '1000006', '1000008', '1000007', '1000013'];
   function _courseOf(slug){
     return (slug && (window.SIM_TAX||{})[slug] && window.SIM_TAX[slug].codigo) || null;
   }
