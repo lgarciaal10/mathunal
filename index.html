@@ -2240,6 +2240,19 @@ html[data-theme="gray"] .hero-bg .lg-blob-center{background:radial-gradient(elli
 .sim-modoreal input{margin-top:.15rem;accent-color:var(--acc);flex:none}
 .sim-modoreal b{color:var(--t1)}
 
+/* ── Paywall MathUNAL Pro ── */
+.sim-pw{max-width:440px}
+.sim-pw-tag{font-family:'IBM Plex Mono',monospace;font-size:.62rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--acc)}
+.sim-pw-h{font-family:'Literata',Georgia,serif;font-size:1.4rem;font-weight:900;margin:.3rem 0 .5rem}
+.sim-pw-body{font-size:.9rem;color:var(--t2);line-height:1.5;margin-bottom:.8rem}
+.sim-pw-list{margin:.6rem 0;padding-left:1.1rem;font-size:.88rem;color:var(--t2);line-height:1.7}
+.sim-pw-price{margin:.8rem 0;font-size:.9rem;color:var(--t3)}
+.sim-pw-price b{font-family:'Literata',Georgia,serif;font-size:1.5rem;color:var(--t1)}
+.sim-pw-price s{margin:0 .3rem}
+.sim-pw-price span{display:block;font-size:.76rem;margin-top:.1rem}
+.sim-pw-note{font-size:.72rem;color:var(--t3);margin-top:.7rem;line-height:1.45}
+.sim-wm{margin-top:1rem;font-family:'IBM Plex Mono',monospace;font-size:.6rem;letter-spacing:.06em;color:var(--t3);opacity:.5;text-align:right}
+
 /* prom-row — fila en tabla de promedio */
 .prom-row{display:grid;grid-template-columns:1fr 80px 120px 36px;gap:.4rem;padding:.45rem .9rem;border-top:1.5px solid var(--br);align-items:center}
 .prom-row:first-child{border-top:none}
@@ -8352,6 +8365,27 @@ if(!window.__muSdClickBound){window.__muSdClickBound=true;document.addEventListe
   </div>
 </div>
 
+<!-- Paywall MathUNAL Pro (rama simulacros-pro) -->
+<div class="submit-overlay" id="sim-pw-overlay" onclick="if(event.target===this)window.__simPaywallClose&&window.__simPaywallClose()">
+  <div class="submit-modal sim-pw" role="dialog" aria-modal="true">
+    <div class="sim-pw-tag">MathUNAL Pro · Cálculo Diferencial</div>
+    <div class="sim-pw-h" id="sim-pw-h">Desbloquea la preparación completa</div>
+    <div class="sim-pw-body" id="sim-pw-body"></div>
+    <ul class="sim-pw-list">
+      <li>Todos los simulacros de los 3 cortes, cuantos quieras</li>
+      <li>Solución paso a paso + Antibobo de cada pregunta</li>
+      <li>Entrenar solo tus errores · repaso espaciado</li>
+      <li>Dashboard "Mi preparación" + estimación de nota</li>
+    </ul>
+    <div class="sim-pw-price"><b>$16.900</b> <s>$24.900</s> <span>precio de lanzamiento · acceso todo el semestre</span></div>
+    <div class="submit-actions">
+      <button class="qbtn" onclick="window.__simPaywallClose&&window.__simPaywallClose()">Ahora no</button>
+      <button class="qbtn primary" id="sim-pw-pay">Pagar (simulado) →</button>
+    </div>
+    <div class="sim-pw-note">Prototipo: el pago es simulado, solo activa el modo Pro localmente. El cobro real y el candado por servidor llegan con Supabase.</div>
+  </div>
+</div>
+
 <!-- RESULTADOS -->
 <div class="screen" id="screen-results">
   <div class="sidex-header">
@@ -8783,6 +8817,7 @@ function _renderIntroHistory(){
    EXAMEN
 ════════════════════════════════════════════════════════ */
 function startExam(){
+  if(window.__simProGate && !window.__simProGate(_exam)) return;
   _clearProgress();
   _answers=new Array(_exam.preguntas.length).fill(-1);
   _selfGrades=new Array(_exam.preguntas.length).fill(null);
@@ -16583,6 +16618,12 @@ window.__SIMPRO_DEV = /[?&]simpro=1/.test(location.href);
       stp.appendChild(box);
       window.__simLab.mount(box.querySelector('.sim-lab-host'), q.compruebalo);
     }
+    // Marca de agua discreta en la solución (Pro)
+    if(window.__simPro && window.__simPro.isPro() && !stp.querySelector('.sim-wm')){
+      var wm=document.createElement('div'); wm.className='sim-wm';
+      wm.textContent='MathUNAL · Lic. '+window.__simPro.licencia();
+      stp.appendChild(wm);
+    }
     // Pregunta gemela — solo si falló esta y hay gemela disponible
     var fallo = (q.tipo==='mcq') ? (window._answers[idx]!==q.correcta && window._answers[idx]>=0)
               : (q.tipo==='numerica') ? (window._calificarNum && window._calificarNum(q,window._numAns[idx])<1)
@@ -16891,6 +16932,48 @@ window.__SIMPRO_DEV = /[?&]simpro=1/.test(location.href);
     };
     EM['srs_review']={mat:'calcdif',color:'#E05D1A',badge:'Repaso',tipo:'Repaso de errores',nuevo:false,_ord:-20};
     if(window._goToIntro) window._goToIntro('srs_review');
+  };
+
+  /* ── 8. MathUNAL Pro — gate + paywall (pilot: 1 simulacro gratis por corte) ─
+     El candado REAL (entitlements por servidor, contenido no-en-index) llega
+     con Supabase. Forma del entitlement pensada para eso:
+       { user_id, product_id:'calcdif_pro', course_id:'1000004',
+         exam_period_id:'2026-2', valid_until }                                */
+  window.__simPro={
+    isPro:function(){ try{ return localStorage.getItem('mu-sim-pro')==='1'; }catch(e){ return false; } },
+    unlock:function(){ try{ localStorage.setItem('mu-sim-pro','1'); }catch(e){}
+      try{ if(window._renderCards) window._renderCards(); }catch(e){} },
+    licencia:function(){
+      var id; try{ id=localStorage.getItem('mu-sim-lic'); }catch(e){}
+      if(!id){ id=(Math.random().toString(36).slice(2,6)+Math.random().toString(36).slice(2,4)).toUpperCase();
+        try{ localStorage.setItem('mu-sim-lic',id); }catch(e){} }
+      return id;
+    }
+  };
+  window.__simPaywall=function(ctx){
+    var ov=document.getElementById('sim-pw-overlay'); if(!ov) return;
+    var b=document.getElementById('sim-pw-body');
+    if(b) b.textContent = ctx==='corte'
+      ? 'Ya hiciste tu simulacro gratis de este corte. Con Pro haces todos los que quieras y comparas tu evolución.'
+      : 'Esta parte es de MathUNAL Pro.';
+    ov.classList.add('open');
+    var pay=document.getElementById('sim-pw-pay');
+    if(pay) pay.onclick=function(){ window.__simPro.unlock(); ov.classList.remove('open');
+      if(window._muToast) window._muToast('Modo Pro activado (simulado)'); };
+  };
+  window.__simPaywallClose=function(){ var ov=document.getElementById('sim-pw-overlay'); if(ov) ov.classList.remove('open'); };
+  /* gate: devuelve true si puede continuar */
+  window.__simProGate=function(ex){
+    if(!ex || !ex._corte || ex._reto || ex._srs) return true;
+    if(window.__simPro.isPro()) return true;
+    var hechos=0;
+    try{
+      (JSON.parse(localStorage.getItem('mu-results'))||[]).forEach(function(r){
+        if(r.corte===ex._corte && (r.slug||'calcdif')===(ex._slug||'calcdif')) hechos++;
+      });
+    }catch(e){}
+    if(hechos>=1){ window.__simPaywall('corte'); return false; }
+    return true;
   };
 
   var _origMRP=window.muRenderProgreso;
