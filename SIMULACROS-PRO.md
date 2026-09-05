@@ -32,7 +32,7 @@ Frase norte: **no vendemos preguntas, vendemos certeza antes del parcial.**
 | Reto por WhatsApp (adquisición) | Repaso espaciado (Leitner) de lo que fallas |
 | | Dashboard "Mi preparación" + predicción de nota |
 
-El **2.º simulacro del mismo corte** dispara el paywall ($16.900 lanzamiento).
+El **2.º simulacro del mismo corte** dispara el paywall (**$12.000**, un pago, acceso todo el semestre, sin renovación automática).
 
 ---
 
