@@ -10102,7 +10102,17 @@ var _SIM_MAT_NAMES={
   calcvec:'Cálculo en Varias Variables', geovec:'Geometría Vectorial', metnum:'Métodos Numéricos',
   fundamentos:'Fundamentos de Matemáticas', discretas:'Matemáticas Discretas', especiales:'Matemáticas Especiales'
 };
+var _SIM_MAT_NAMES_EN={
+  calcdif:'Differential Calculus', calcint:'Integral Calculus', alglin:'Linear Algebra',
+  matbas:'Basic Mathematics', edo:'Differential Equations',
+  calcvec:'Multivariable Calculus', geovec:'Vector Geometry', metnum:'Numerical Methods',
+  fundamentos:'Foundations of Mathematics', discretas:'Discrete Mathematics', especiales:'Special Mathematics'
+};
+function _simMatName(slug){
+  return ((window.curLang==='en')?_SIM_MAT_NAMES_EN:_SIM_MAT_NAMES)[slug]||slug;
+}
 window._SIM_MAT_NAMES=_SIM_MAT_NAMES;
+window._simMatName=_simMatName;
 /* materias que tienen banco real, en orden de aparición en EXAM_META (calcdif primero) */
 function _simMatList(){
   var seen={}, out=[];
@@ -10122,11 +10132,12 @@ function _simMatColor(slug){
 function _renderMatPills(){
   var host=document.getElementById('sim-filter-btns'); if(!host) return;
   var list=_simMatList();
+  var _en=(window.curLang==='en');
   var h='<button class="sim-mat-pill'+(_selFilter==='all'?' on':'')+'" data-mat="all" onclick="simSelFilter(this,\'all\')">'
-    +'<span class="smp-dot" style="background:var(--t3)"></span>Todas <span class="smp-n" id="cnt-all"></span></button>';
+    +'<span class="smp-dot" style="background:var(--t3)"></span>'+(_en?'All':'Todas')+' <span class="smp-n" id="cnt-all"></span></button>';
   list.forEach(function(slug){
     h+='<button class="sim-mat-pill'+(_selFilter===slug?' on':'')+'" data-mat="'+slug+'" onclick="simSelFilter(this,\''+slug+'\')">'
-      +'<span class="smp-dot" style="background:'+_simMatColor(slug)+'"></span>'+(_SIM_MAT_NAMES[slug]||slug)
+      +'<span class="smp-dot" style="background:'+_simMatColor(slug)+'"></span>'+_simMatName(slug)
       +((window.SIM_TAX&&window.SIM_TAX[slug])?' <span class="smp-pro">PRO</span>':'')
       +' <span class="smp-n" id="cnt-'+slug+'"></span></button>';
   });
@@ -10137,8 +10148,9 @@ function _updateSimHeader(){
   var tEl=document.getElementById('sim-right-title');
   var nEl=document.getElementById('sim-right-n');
   if(!tEl) return;
-  var title=_selFilter==='all'?'Todos los simulacros':(_SIM_MAT_NAMES[_selFilter]||'Simulacros');
-  var _tipoPlural={'Parcial':'Parciales','Quiz':'Quices','Taller':'Talleres'};
+  var _enH=(window.curLang==='en');
+  var title=_selFilter==='all'?(_enH?'All mock exams':'Todos los simulacros'):_simMatName(_selFilter);
+  var _tipoPlural=_enH?{'Parcial':'Exams','Quiz':'Quizzes','Taller':'Worksheets'}:{'Parcial':'Parciales','Quiz':'Quices','Taller':'Talleres'};
   if(_tipoFilter!=='all') title+=' · '+(_tipoPlural[_tipoFilter]||_tipoFilter+'s');
   tEl.textContent=title;
   if(nEl){
