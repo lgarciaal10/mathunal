@@ -49,15 +49,16 @@ acceso todo el semestre, sin renovación automática). El Pro se compra **por ma
 La sección **Simulacros** está justo después de "Hoy" (racha). Muestra:
 - "¿Qué tan listo estás para el parcial?"
 - Mi Progreso (si ya hiciste alguno)
-- Grid de las **11 materias**: Cálculo Diferencial y Cálculo Integral = "Modo completo · por corte"
-  (marcadas **PRO**, van primero); el resto = "N parciales de práctica"
+- Grid de las **11 materias**: las 5 con modo Pro (Cálc. Diferencial, Cálc. Integral, Álgebra
+  Lineal, EDO, CVV) = "Modo completo · por corte", marcadas **PRO** y primero; el resto =
+  "N parciales de práctica"
 - Botones: *Ir a Simulacros* · *Diagnóstico rápido (gratis)*
 - Modo Pánico (parcial en <24h)
 
 ### En `#simulacro`
 1. **Selector** — filtro por materia (11 pills), por tipo (parcial/quiz/taller). Arriba de todo:
    - Card **"Repasar mis errores (N)"** si hay preguntas pendientes de repaso espaciado
-   - Los **Simulacros por Corte** de Cálculo Diferencial y Cálculo Integral (3 cada una)
+   - Los **Simulacros por Corte** de las 5 materias Pro (3 cada una)
    - Onboarding "¿Qué vas a presentar?" (materia · corte · **fecha del parcial**) — hoy calcdif
 2. **Intro** — instrucciones + toggle **"Modo Examen Real"** (pantalla completa, sin ver soluciones hasta entregar)
 3. **Examen** — cronómetro, navegador de preguntas, marcar, autoguardado, chips de **confianza** ("¿seguro / dudoso / adiviné?")
@@ -83,13 +84,22 @@ fallas → vuelve a caja 1. Sin reloj.
 
 ## 4. Cobertura de contenido
 
-| Materia | Código | Estado |
-|---|---|---|
-| **Cálculo Diferencial** | 1000004 | Modo completo: 49 preguntas por corte/tema, 3 simulacros por corte, soluciones con "el truco", 6 gráficas interactivas, diagnóstico por tema |
-| **Cálculo Integral** | 1000005 | Modo completo: 40 preguntas (22 de los parciales reales + 18 nuevas), 3 simulacros por corte, soluciones + "el truco". Sin gráficas interactivas todavía |
-| Otras 9 materias | — | Los parciales reales funcionan como simulacros con cronómetro y solución, pero **sin** el enriquecimiento Pro |
+**5 materias con modo Pro completo** (taxonomía por corte/tema, 3 simulacros por
+corte, "el truco" + "cómo reconocerlo" + solución en cada pregunta, diagnóstico
+por tema). Total: **206 filas en `sim_solutions`**.
 
-La enriquecida se hace **materia por materia**. Siguiente: Álgebra Lineal / EDO / CVV.
+| Materia | Código | Filas | Preguntas | Gráficas interactivas |
+|---|---|---|---|---|
+| **Cálculo Diferencial** | 1000004 | 49 | 29 reales + 20 nuevas | 6 (escalera, cono, globo, caja, tangente, límite) |
+| **Cálculo Integral** | 1000005 | 40 | 22 + 18 | — |
+| **Álgebra Lineal** | 1000006 | 39 | 24 + 15 | — |
+| **Ecuaciones Diferenciales** | 1000008 | 37 | 22 + 15 | — |
+| **Cálculo en Varias Variables** (CVV) | 1000007 | 41 | 26 + 15 | — |
+| Otras 6 materias | — | — | los parciales reales sirven como simulacro con cronómetro, **sin** enriquecimiento Pro | — |
+
+`PRO_COURSES = ['1000004','1000005','1000006','1000008','1000007']`. Siguiente:
+Geometría Vectorial, Matemáticas Discretas, etc. (misma pasada). Gráficas
+interactivas para calcint/alglin/edo/cvv: pendiente.
 
 ---
 
@@ -154,7 +164,7 @@ revisión, tutoría con IA (Supabase `explicaciones` + endpoint + fallback local
 `sim_purchases`, `sim_solutions` (**el contenido Pro**, `src` PK + `course_id` + `body` jsonb, RLS
 `using sim_has_pro(course_id)` — **anti-piratería**), `sim_real_grades`, función
 `sim_has_pro(p_course)` (SECURITY DEFINER, revocada de anon), vista `sim_calib_agg`.
-Hoy `sim_solutions` tiene **89 filas** (49 calcdif + 40 calcint).
+Hoy `sim_solutions` tiene **206 filas** (calcdif 49 · calcint 40 · alglin 39 · edo 37 · cvv 41).
 
 **Para darle Pro a alguien:** insertar fila en `sim_entitlements` con su `user_id`
 (de `auth.users`, tras login OTP), `product_id`, `course_id`, `valid_until`.
@@ -183,10 +193,12 @@ loguearse por OTP y meter una fila en `sim_entitlements`.
    Falta: merchant keys de Luis + webhook/edge-function que, al confirmarse el pago, escriba
    `sim_entitlements` + `sim_purchases`.
 2. Cambiar `SIMULACROS_HABILITADOS` a `true` cuando se quiera soltar la capa gratis.
-3. Enriquecer la 3.ª materia (Álgebra Lineal / EDO / CVV).
+3. Gráficas interactivas "compruébalo tú mismo" para calcint / alglin / edo / cvv
+   (hoy solo Cálculo Diferencial tiene las 6).
 4. Traducción EN del **contenido** de las soluciones (hoy solo el chrome está en inglés).
-5. Micro-simulacros de 10 min, ranking opcional, más badges (aplazados).
-6. Piloto con 20–30 estudiantes, medir el embudo demo → compra → 2.º simulacro.
+5. Más materias con modo Pro (Geometría Vectorial, Matemáticas Discretas, …) — misma pasada.
+6. Micro-simulacros de 10 min, ranking opcional, más badges (aplazados).
+7. Piloto con 20–30 estudiantes, medir el embudo demo → compra → 2.º simulacro.
 
 ---
 
