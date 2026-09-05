@@ -2220,6 +2220,9 @@ html[data-theme="gray"] .hero-bg .lg-blob-center{background:radial-gradient(elli
 .sim-prep-mini{color:var(--t3)}
 .sim-prep-ciego{margin-top:.5rem;font-size:.82rem;color:var(--warn);background:rgba(251,191,36,.08);border:1px solid rgba(251,191,36,.25);border-radius:8px;padding:.45rem .7rem;line-height:1.45}
 .sim-prep-ciego b{color:var(--t1)}
+.sim-prep-pred{margin-top:.4rem;font-size:.82rem;color:var(--t2)}
+.sim-prep-pred b{color:var(--acc2);font-family:'IBM Plex Mono',monospace}
+.sim-prep-beta{font-family:'IBM Plex Mono',monospace;font-size:.58rem;letter-spacing:.06em;text-transform:uppercase;color:var(--t3);border:1px solid var(--br);border-radius:3px;padding:.02rem .3rem;vertical-align:1px}
 
 /* ── Repaso espaciado (card en el selector) ── */
 .sim-srs-card{grid-column:1/-1;background:linear-gradient(120deg,var(--adim),transparent 60%),var(--card);border:2px solid var(--bra);border-radius:var(--radius);padding:1.2rem 1.4rem;cursor:pointer;transition:all var(--transition);box-shadow:var(--shadow-card)}
@@ -2229,6 +2232,13 @@ html[data-theme="gray"] .hero-bg .lg-blob-center{background:radial-gradient(elli
 .sim-srs-sub{font-size:.9rem;color:var(--t2)}
 .sim-srs-note{font-size:.78rem;color:var(--t3);margin-top:.3rem}
 .sim-srs-btn{margin-top:.8rem;background:var(--acc);color:#fff;border:none;border-radius:9px;padding:.5rem 1.1rem;font-size:.85rem;font-weight:700;font-family:inherit;cursor:pointer}
+
+/* ── Modo Examen Real (toggle en el intro) ── */
+.sim-modoreal{display:flex;gap:.6rem;align-items:flex-start;max-width:440px;margin:0 auto 1rem;padding:.7rem .9rem;
+  background:var(--lay1);border:1px solid var(--br);border-radius:10px;cursor:pointer;font-size:.82rem;color:var(--t2);line-height:1.45}
+.sim-modoreal:hover{border-color:var(--bra)}
+.sim-modoreal input{margin-top:.15rem;accent-color:var(--acc);flex:none}
+.sim-modoreal b{color:var(--t1)}
 
 /* prom-row — fila en tabla de promedio */
 .prom-row{display:grid;grid-template-columns:1fr 80px 120px 36px;gap:.4rem;padding:.45rem .9rem;border-top:1.5px solid var(--br);align-items:center}
@@ -8267,6 +8277,10 @@ if(!window.__muSdClickBound){window.__muSdClickBound=true;document.addEventListe
         <li>Teclado: <b>A–D</b> selecciona · <b>←/→</b> navega · <b>Enter</b> confirma.</li>
       </ul>
       <div id="intro-history"></div>
+      <label class="sim-modoreal" id="sim-modoreal">
+        <input type="checkbox" id="sim-modoreal-chk">
+        <span><b>Modo Examen Real</b> — pantalla completa, sin ver soluciones hasta entregar. Se siente como el parcial de verdad.</span>
+      </label>
       <div style="display:flex;flex-direction:column;align-items:center;gap:.6rem">
         <a href="#" class="btn-ghost-sub" onclick="_showScreen('screen-sel');_renderCards();return false;">← Elegir otro examen</a>
         <a href="#" class="btn-resume" id="btn-resume" style="display:none" onclick="resumeExam();return false;">↩ Continuar donde lo dejé</a>
@@ -8777,6 +8791,12 @@ function startExam(){
   _hintUsed=[]; _flagged=new Array(_exam.preguntas.length).fill(false); _currentQ=0; _toastShown=false;
   _qTimes=new Array(_exam.preguntas.length).fill(0); _qStartTime=null; _lastQ=-1;
   window._simConf=new Array(_exam.preguntas.length).fill(null);
+  var _mrChk=document.getElementById('sim-modoreal-chk');
+  window._modoReal=!!(_mrChk&&_mrChk.checked&&!_exam._srs);
+  if(window._modoReal){
+    try{ var _de=document.documentElement; if(_de.requestFullscreen) _de.requestFullscreen(); }catch(e){}
+    _muToast('Modo Examen Real — las soluciones salen al entregar');
+  }
   _timerSec=_exam.tiempo*60; _startTime=Date.now();
   _updateSidexHeader();
   _showScreen('screen-q');
@@ -8951,8 +8971,8 @@ function _renderQ(idx){
       var letters=['A','B','C','D','E','F'];
       qopts.innerHTML=q.opciones.map(function(opt,i){
         var sel=_answers[idx]===i?' selected':'';
-        var cor=_checked[idx]&&i===q.correcta?' correct':'';
-        var wrg=_checked[idx]&&i===_answers[idx]&&i!==q.correcta?' wrong':'';
+        var cor=_checked[idx]&&!window._modoReal&&i===q.correcta?' correct':'';
+        var wrg=_checked[idx]&&!window._modoReal&&i===_answers[idx]&&i!==q.correcta?' wrong':'';
         var dis=_checked[idx]?' style="pointer-events:none"':'';
         return '<div class="q-opt'+sel+cor+wrg+'" data-i="'+i+'"'+dis+' role="button" tabindex="'+(_checked[idx]?'-1':'0')+'" aria-label="Opción '+letters[i].toUpperCase()+'">'
           +'<div class="q-opt-circle">'+letters[i]+'</div>'
@@ -9005,7 +9025,7 @@ function _renderQ(idx){
   // Explicacion
   var expl=_el('expl-card');
   if(expl){
-    if(_checked[idx]){ expl.classList.add('show'); _renderExpl(idx); }
+    if(_checked[idx] && !window._modoReal){ expl.classList.add('show'); _renderExpl(idx); }
     else {
       expl.classList.remove('show');
       var er=_el('expl-result'); if(er){er.innerHTML='';er.className='expl-result';}
@@ -9052,22 +9072,24 @@ function checkAnswer(){
     return;
   }
   _checked[_currentQ]=true; _saveProgress();
-  if(q.tipo==='mcq'){
+  if(q.tipo==='mcq' && !window._modoReal){
     _qsa('.q-opt').forEach(function(btn,i){
       btn.style.pointerEvents='none';
       if(i===q.correcta) btn.classList.add('correct');
       else if(i===_answers[_currentQ]) btn.classList.add('wrong');
     });
+  } else if(q.tipo==='mcq'){
+    _qsa('.q-opt').forEach(function(btn){ btn.style.pointerEvents='none'; });
   }
   if(q.tipo==='numerica'){
     var g=_calificarNum(q,_numAns[_currentQ]);
     var ni2=_el('num-ans');
     if(ni2){
       ni2.disabled=true;
-      ni2.classList.add(g===1?'num-ok':g===0.5?'num-medio':'num-mal');
+      if(!window._modoReal) ni2.classList.add(g===1?'num-ok':g===0.5?'num-medio':'num-mal');
     }
     var w=document.querySelector('.num-wrap');
-    if(w){
+    if(w && !window._modoReal){
       var msg = g===1 ? '\u2713 Correcta'
               : g===0.5 ? '\u2248 Casi \u2014 dentro del margen, puntaje parcial (0.5)'
               : '\u2717 Incorrecta';
@@ -9075,8 +9097,10 @@ function checkAnswer(){
       w.insertAdjacentHTML('beforeend','<div class="num-veredicto '+(g===1?'v-ok':g===0.5?'v-medio':'v-mal')+'">'+msg+'</div>'+esp);
     }
   }
-  var expl=_el('expl-card'); if(expl) expl.classList.add('show');
-  _renderExpl(_currentQ);
+  if(!window._modoReal){
+    var expl=_el('expl-card'); if(expl) expl.classList.add('show');
+    _renderExpl(_currentQ);
+  }
   var bc=_el('btn-check');
   if(bc){
     if(_currentQ<_exam.preguntas.length-1){ bc.textContent='Siguiente →'; bc.className='qbtn primary'; }
@@ -9306,6 +9330,7 @@ document.addEventListener('keydown',function(e){
 
 function _finishExam(){
   clearInterval(_timerInt);
+  if(window._modoReal){ try{ if(document.fullscreenElement && document.exitFullscreen) document.exitFullscreen(); }catch(e){} window._modoReal=false; }
   // Capturar tiempo de la última pregunta vista
   if(_lastQ>=0 && _qStartTime){ _qTimes[_lastQ]=(_qTimes[_lastQ]||0)+(Date.now()-_qStartTime)/1000; _qStartTime=null; }
   var total=_exam.preguntas.length;
@@ -16745,10 +16770,13 @@ window.__SIMPRO_DEV = /[?&]simpro=1/.test(location.href);
       // LISTO: 2 intentos consecutivos (por fecha, arr ya viene reciente->viejo) con nota>=4
       var listo = arr.length>=2 && (arr[0].nota||0)>=4 && (arr[1].nota||0)>=4;
       var notas = arr.map(function(r){ return (r.nota||0); }).reverse();
+      // predicción de nota (beta): centro = score escalado a 5, banda ±0.4, sesgada a la baja
+      var centro = score/100*5;
+      var lo5 = Math.max(0, centro-0.45), hi5 = Math.min(5, centro+0.35);
       out.push({slug:slug, corte:corte, nombre:cinfo.nombre||('Corte '+corte), pct:cinfo.pct,
         score:score, conocimiento:Math.round(conocimiento*100), velocidad:Math.round(velocidad*100),
         cobertura:Math.round(cobertura*100), ciego:ciego, cieboP:Math.round(lo*100), listo:listo,
-        intentos:arr.length, notas:notas, temas:tt});
+        intentos:arr.length, notas:notas, temas:tt, predLo:lo5, predHi:hi5});
     });
     return out.sort(function(a,b){ return a.corte-b.corte; });
   }
@@ -16765,6 +16793,7 @@ window.__SIMPRO_DEV = /[?&]simpro=1/.test(location.href);
           (d.listo?'<span class="sim-prep-badge">✓ LISTO PARA EL CORTE</span>':'')+'</div>'+
         '<div class="sim-prep-sub">Conocimiento '+d.conocimiento+' · Velocidad '+d.velocidad+' · Cobertura '+d.cobertura+
           ' <span class="sim-prep-mini">('+d.intentos+' intento'+(d.intentos>1?'s':'')+': '+d.notas.map(function(n){return n.toFixed(1);}).join(' → ')+')</span></div>'+
+        '<div class="sim-prep-pred">Estimación MathUNAL <span class="sim-prep-beta">beta</span> · rango esperado en el parcial: <b>'+d.predLo.toFixed(1)+' – '+d.predHi.toFixed(1)+'</b></div>'+
         (d.ciego?'<div class="sim-prep-ciego">Tu punto ciego: <b>'+d.ciego+'</b> — '+d.cieboP+'% en '+d.intentos+' intentos. No es mala suerte, repásalo.</div>':'')+
       '</div>';
     });
