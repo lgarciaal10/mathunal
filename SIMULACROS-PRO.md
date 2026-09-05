@@ -49,16 +49,16 @@ acceso todo el semestre, sin renovación automática). El Pro se compra **por ma
 La sección **Simulacros** está justo después de "Hoy" (racha). Muestra:
 - "¿Qué tan listo estás para el parcial?"
 - Mi Progreso (si ya hiciste alguno)
-- Grid de las **11 materias**: las 5 con modo Pro (Cálc. Diferencial, Cálc. Integral, Álgebra
-  Lineal, EDO, CVV) = "Modo completo · por corte", marcadas **PRO** y primero; el resto =
-  "N parciales de práctica"
+- Grid de las **11 materias**: las 7 con modo Pro (calcdif, calcint, alglin, edo, cvv,
+  geovec, discretas) = "Modo completo · por corte", marcadas **PRO** y primero; el resto
+  = "N parciales de práctica"
 - Botones: *Ir a Simulacros* · *Diagnóstico rápido (gratis)*
 - Modo Pánico (parcial en <24h)
 
 ### En `#simulacro`
 1. **Selector** — filtro por materia (11 pills), por tipo (parcial/quiz/taller). Arriba de todo:
    - Card **"Repasar mis errores (N)"** si hay preguntas pendientes de repaso espaciado
-   - Los **Simulacros por Corte** de las 5 materias Pro (3 cada una)
+   - Los **Simulacros por Corte** de las 7 materias Pro (3 cada una)
    - Onboarding "¿Qué vas a presentar?" (materia · corte · **fecha del parcial**) — hoy calcdif
 2. **Intro** — instrucciones + toggle **"Modo Examen Real"** (pantalla completa, sin ver soluciones hasta entregar)
 3. **Examen** — cronómetro, navegador de preguntas, marcar, autoguardado, chips de **confianza** ("¿seguro / dudoso / adiviné?")
@@ -84,22 +84,25 @@ fallas → vuelve a caja 1. Sin reloj.
 
 ## 4. Cobertura de contenido
 
-**5 materias con modo Pro completo** (taxonomía por corte/tema, 3 simulacros por
+**7 materias con modo Pro completo** (taxonomía por corte/tema, 3 simulacros por
 corte, "el truco" + "cómo reconocerlo" + solución en cada pregunta, diagnóstico
-por tema). Total: **206 filas en `sim_solutions`**.
+por tema). Total: **286 filas en `sim_solutions`**.
 
-| Materia | Código | Filas | Preguntas | Gráficas interactivas |
+| Materia | Código | Filas | Preguntas | Widgets "compruébalo" |
 |---|---|---|---|---|
 | **Cálculo Diferencial** | 1000004 | 49 | 29 reales + 20 nuevas | 6 (escalera, cono, globo, caja, tangente, límite) |
-| **Cálculo Integral** | 1000005 | 40 | 22 + 18 | — |
-| **Álgebra Lineal** | 1000006 | 39 | 24 + 15 | — |
-| **Ecuaciones Diferenciales** | 1000008 | 37 | 22 + 15 | — |
-| **Cálculo en Varias Variables** (CVV) | 1000007 | 41 | 26 + 15 | — |
-| Otras 6 materias | — | — | los parciales reales sirven como simulacro con cronómetro, **sin** enriquecimiento Pro | — |
+| **Cálculo Integral** | 1000005 | 40 | 22 + 18 | 4 (riemann, arearegion, revol, polararea) |
+| **Álgebra Lineal** | 1000006 | 39 | 24 + 15 | 3 (transformlin, proj, eigen) |
+| **Ecuaciones Diferenciales** | 1000008 | 37 | 22 + 15 | 3 (campodir, expdecay, fase) |
+| **Cálculo en Varias Variables** (CVV) | 1000007 | 41 | 26 + 15 | 3 (dirderiv, planotan, green) |
+| **Geometría Vectorial y Analítica** | 1000013 | 39 | 24 + 15 | — |
+| **Matemáticas Discretas** | 1000012 | 41 | 26 + 15 | — |
+| Otras 4 materias | — | — | los parciales reales sirven como simulacro con cronómetro, **sin** enriquecimiento Pro | — |
 
-`PRO_COURSES = ['1000004','1000005','1000006','1000008','1000007']`. Siguiente:
-Geometría Vectorial, Matemáticas Discretas, etc. (misma pasada). Gráficas
-interactivas para calcint/alglin/edo/cvv: pendiente.
+`PRO_COURSES = ['1000004','1000005','1000006','1000008','1000007','1000013','1000012']`.
+Los widgets están en un 2º bloque inline `__simLab` (Laboratorio 2), 13 nuevos +
+los 6 de calcdif. Siguiente: Matemáticas Básicas, Fundamentos, Métodos Numéricos,
+Matemáticas Especiales (misma pasada); widgets para geovec/discretas.
 
 ---
 
@@ -120,7 +123,7 @@ cronómetro, tipos mcq/numérica/abierta, autoevaluación con crédito parcial, 
 revisión, tutoría con IA (Supabase `explicaciones` + endpoint + fallback local), diagnóstico (`#diag-*`).
 
 ### La capa Pro (esta rama)
-- **`SIM_TAX`** — taxonomía: cortes + temas (calcdif, calcint)
+- **`SIM_TAX`** — taxonomía: cortes + temas (7 materias)
 - **`SIM_META`** (inline, lite) — `c/t/f/e/gem/cx` por pregunta existente. El `ab`/`rc` ("el truco",
   "cómo reconocerlo") **salió del inline** → `sim_solutions`
 - **`SIM_NEW`** (inline, lite) — preguntas nuevas: solo `texto/opciones/correcta/tipo/resumen`.
@@ -128,7 +131,7 @@ revisión, tutoría con IA (Supabase `explicaciones` + endpoint + fallback local
 - **`__simFetchSol()`** — GET autenticado a `/rest/v1/sim_solutions` (sin filtro de course; la RLS
   devuelve solo lo comprado); `__simMergeSol()` fusiona sobre los objetos-pregunta
 - **`SIM_POOL`** / **`__simBuildCorte(slug, corte)`** — pool por materia + simulacro curado por corte
-- **`__simLab`** — 6 widgets SVG interactivos (solo calcdif por ahora)
+- **`__simLab`** — 19 widgets SVG interactivos (6 calcdif + 13 en el 2� bloque "Laboratorio 2")
 - **Hooks** (`__simExplHook`, `__simResultHook`, `__simQHook`, ...): "el truco", dominio por tema,
   confianza, candados del gratis, sin reescribir el motor
 - **`__simSRS`** / **`__simRenderPrep`** — repaso espaciado + dashboard
@@ -164,7 +167,7 @@ revisión, tutoría con IA (Supabase `explicaciones` + endpoint + fallback local
 `sim_purchases`, `sim_solutions` (**el contenido Pro**, `src` PK + `course_id` + `body` jsonb, RLS
 `using sim_has_pro(course_id)` — **anti-piratería**), `sim_real_grades`, función
 `sim_has_pro(p_course)` (SECURITY DEFINER, revocada de anon), vista `sim_calib_agg`.
-Hoy `sim_solutions` tiene **206 filas** (calcdif 49 · calcint 40 · alglin 39 · edo 37 · cvv 41).
+Hoy `sim_solutions` tiene **286 filas** (7 materias).
 
 **Para darle Pro a alguien:** insertar fila en `sim_entitlements` con su `user_id`
 (de `auth.users`, tras login OTP), `product_id`, `course_id`, `valid_until`.
