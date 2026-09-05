@@ -75,13 +75,11 @@
   <!-- Simulacros Pro (rama simulacros-pro): banco + laboratorio, inline single-file -->
   <script>
 /* ═══════════════════════════════════════════════════════════════════════════
-   MathUNAL · Simulacros Pro — Banco de CÁLCULO DIFERENCIAL (inline FLACO)
-   ---------------------------------------------------------------------------
-   Solo lo necesario para RENDERIZAR la pregunta + el resumen (teaser gratis).
-   El contenido Pro (pasos, "el truco", cómo reconocerlo, soluciones y rúbricas
-   de las abiertas) vive en Supabase → tabla sim_solutions, con RLS que exige
-   entitlement Pro (función sim_has_pro). El motor lo trae en runtime con
-   __simFetchSol() y lo fusiona sobre las preguntas.  [rama simulacros-pro]
+   MathUNAL · Simulacros Pro — Banco de CÁLCULO DIFERENCIAL + CÁLCULO INTEGRAL
+   (inline FLACO) — solo lo renderizable + el resumen (teaser gratis). El
+   contenido Pro (pasos, "el truco", cómo reconocerlo, soluciones y rúbricas)
+   vive en Supabase → sim_solutions, RLS por sim_has_pro(course_id). El motor
+   lo trae con __simFetchSol() y lo fusiona sobre las preguntas.  [simulacros-pro]
    ═══════════════════════════════════════════════════════════════════════════ */
 (function(){
 "use strict";
@@ -131,6 +129,44 @@ var SIM_TAX = {
      "Monotonía y concavidad",
      "Método de Newton",
      "Teorema fundamental del cálculo"
+    ]
+   }
+  }
+ },
+ "calcint": {
+  "materia": "Cálculo Integral",
+  "codigo": "1000005",
+  "slug": "calcint",
+  "cortes": {
+   "1": {
+    "nombre": "Integral definida y técnicas básicas",
+    "pct": 30,
+    "temas": [
+     "Integral definida y TFC",
+     "Sustitución",
+     "Integración por partes",
+     "Área entre curvas"
+    ]
+   },
+   "2": {
+    "nombre": "Técnicas avanzadas e impropias",
+    "pct": 35,
+    "temas": [
+     "Integrales trigonométricas",
+     "Sustitución trigonométrica",
+     "Fracciones parciales",
+     "Integrales impropias"
+    ]
+   },
+   "3": {
+    "nombre": "Aplicaciones, polares y series",
+    "pct": 35,
+    "temas": [
+     "Volúmenes de revolución",
+     "Longitud de arco y superficies",
+     "Trabajo y valor promedio",
+     "Coordenadas polares",
+     "Sucesiones y series"
     ]
    }
   }
@@ -329,9 +365,149 @@ var SIM_META = {
     "e": "formula"
    }
   ]
+ },
+ "calcint": {
+  "calcint_p1": [
+   {
+    "c": 1,
+    "t": "Integral definida y TFC",
+    "f": "media",
+    "e": "conceptual"
+   },
+   {
+    "c": 2,
+    "t": "Fracciones parciales",
+    "f": "alta",
+    "e": "procedimiento"
+   },
+   {
+    "c": 3,
+    "t": "Coordenadas polares",
+    "f": "alta",
+    "e": "formula"
+   },
+   {
+    "c": 2,
+    "t": "Integrales impropias",
+    "f": "alta",
+    "e": "procedimiento"
+   },
+   {
+    "c": 2,
+    "t": "Sustitución trigonométrica",
+    "f": "alta",
+    "e": "procedimiento"
+   },
+   {
+    "c": 3,
+    "t": "Volúmenes de revolución",
+    "f": "alta",
+    "e": "procedimiento"
+   },
+   {
+    "c": 1,
+    "t": "Integral definida y TFC",
+    "f": "alta",
+    "e": "formula"
+   }
+  ],
+  "calcint_p2": [
+   {
+    "c": 3,
+    "t": "Sucesiones y series",
+    "f": "alta",
+    "e": "conceptual"
+   },
+   {
+    "c": 3,
+    "t": "Sucesiones y series",
+    "f": "media",
+    "e": "procedimiento"
+   },
+   {
+    "c": 3,
+    "t": "Sucesiones y series",
+    "f": "alta",
+    "e": "procedimiento"
+   },
+   {
+    "c": 3,
+    "t": "Sucesiones y series",
+    "f": "alta",
+    "e": "formula"
+   },
+   {
+    "c": 3,
+    "t": "Sucesiones y series",
+    "f": "media",
+    "e": "conceptual"
+   },
+   {
+    "c": 3,
+    "t": "Sucesiones y series",
+    "f": "alta",
+    "e": "procedimiento"
+   },
+   {
+    "c": 1,
+    "t": "Integral definida y TFC",
+    "f": "alta",
+    "e": "formula"
+   }
+  ],
+  "calcint_pa": [
+   {
+    "c": 3,
+    "t": "Volúmenes de revolución",
+    "f": "alta",
+    "e": "formula"
+   },
+   {
+    "c": 3,
+    "t": "Volúmenes de revolución",
+    "f": "alta",
+    "e": "procedimiento"
+   },
+   {
+    "c": 3,
+    "t": "Longitud de arco y superficies",
+    "f": "alta",
+    "e": "procedimiento"
+   },
+   {
+    "c": 3,
+    "t": "Coordenadas polares",
+    "f": "alta",
+    "e": "formula"
+   },
+   {
+    "c": 3,
+    "t": "Trabajo y valor promedio",
+    "f": "media",
+    "e": "formula"
+   },
+   {
+    "c": 3,
+    "t": "Trabajo y valor promedio",
+    "f": "media",
+    "e": "formula"
+   },
+   {
+    "c": 3,
+    "t": "Trabajo y valor promedio",
+    "f": "baja",
+    "e": "procedimiento"
+   },
+   {
+    "c": 3,
+    "t": "Volúmenes de revolución",
+    "f": "alta",
+    "e": "procedimiento"
+   }
+  ]
  }
 };
-var SIM_SOL = { };            /* vacío: las abiertas se resuelven desde el server */
+var SIM_SOL = { };
 var SIM_NEW = {
  "calcdif": [
   {
@@ -703,6 +879,344 @@ var SIM_NEW = {
    "unidad": "",
    "tolNum": 0.001,
    "puntaje": 15
+  }
+ ],
+ "calcint": [
+  {
+   "id": "ci_c1_01",
+   "c": 1,
+   "t": "Sustitución",
+   "f": "alta",
+   "e": "procedimiento",
+   "tipo": "mcq",
+   "dif": 1,
+   "tEsp": 60,
+   "texto": "Calcule $\\displaystyle\\int (2x+1)^5\\,dx$.",
+   "opciones": [
+    "$\\dfrac{(2x+1)^6}{12}+C$",
+    "$\\dfrac{(2x+1)^6}{6}+C$",
+    "$5(2x+1)^4+C$",
+    "$\\dfrac{(2x+1)^6}{2}+C$"
+   ],
+   "correcta": 0,
+   "resumen": "Sustitución lineal $u=2x+1$; el $du=2\\,dx$ mete un factor $\\tfrac12$."
+  },
+  {
+   "id": "ci_c1_02",
+   "c": 1,
+   "t": "Integral definida y TFC",
+   "f": "alta",
+   "e": "procedimiento",
+   "tipo": "numerica",
+   "dif": 2,
+   "tEsp": 70,
+   "texto": "Calcule $\\displaystyle\\int_1^{e}\\frac{\\ln x}{x}\\,dx$. (Responde en decimal.)",
+   "resumen": "$u=\\ln x$, $du=\\tfrac{dx}{x}$; cambia los límites a $u$.",
+   "respuesta": "0.5",
+   "unidad": "",
+   "tolNum": 0.001,
+   "puntaje": 15
+  },
+  {
+   "id": "ci_c1_03",
+   "c": 1,
+   "t": "Integración por partes",
+   "f": "alta",
+   "e": "procedimiento",
+   "tipo": "mcq",
+   "dif": 1,
+   "tEsp": 70,
+   "texto": "$\\displaystyle\\int x\\,e^{x}\\,dx=$",
+   "opciones": [
+    "$(x-1)e^x+C$",
+    "$(x+1)e^x+C$",
+    "$xe^x+C$",
+    "$\\dfrac{x^2}{2}e^x+C$"
+   ],
+   "correcta": 0,
+   "resumen": "Por partes con $u=x$, $dv=e^x\\,dx$."
+  },
+  {
+   "id": "ci_c1_04",
+   "c": 1,
+   "t": "Integración por partes",
+   "f": "alta",
+   "e": "procedimiento",
+   "tipo": "mcq",
+   "dif": 2,
+   "tEsp": 90,
+   "texto": "$\\displaystyle\\int_0^{\\pi/2} x\\cos x\\,dx=$",
+   "opciones": [
+    "$\\dfrac{\\pi}{2}-1$",
+    "$\\dfrac{\\pi}{2}+1$",
+    "$1-\\dfrac{\\pi}{2}$",
+    "$\\dfrac{\\pi}{2}$"
+   ],
+   "correcta": 0,
+   "resumen": "Por partes, $u=x$, $dv=\\cos x\\,dx$; luego evalúa entre $0$ y $\\pi/2$."
+  },
+  {
+   "id": "ci_c1_05",
+   "c": 1,
+   "t": "Área entre curvas",
+   "f": "alta",
+   "e": "procedimiento",
+   "tipo": "mcq",
+   "dif": 1,
+   "tEsp": 75,
+   "texto": "El área de la región encerrada entre $y=x^2$ y $y=2x$ es:",
+   "opciones": [
+    "$\\dfrac{4}{3}$",
+    "$\\dfrac{8}{3}$",
+    "$\\dfrac{2}{3}$",
+    "$4$"
+   ],
+   "correcta": 0,
+   "resumen": "$\\displaystyle\\int_0^2(\\text{arriba}-\\text{abajo})\\,dx=\\int_0^2(2x-x^2)\\,dx$."
+  },
+  {
+   "id": "ci_c1_06",
+   "c": 1,
+   "t": "Integral definida y TFC",
+   "f": "alta",
+   "e": "formula",
+   "tipo": "numerica",
+   "dif": 1,
+   "tEsp": 45,
+   "texto": "Calcule $\\displaystyle\\int_0^{1}(3x^2+2x)\\,dx$.",
+   "resumen": "Antideriva término a término y evalúa (regla de Barrow).",
+   "respuesta": "2",
+   "unidad": "",
+   "tolNum": 0.001,
+   "puntaje": 10
+  },
+  {
+   "id": "ci_c1_07",
+   "c": 1,
+   "t": "Integral definida y TFC",
+   "f": "media",
+   "e": "conceptual",
+   "tipo": "mcq",
+   "dif": 2,
+   "tEsp": 75,
+   "texto": "Si $\\displaystyle F(x)=\\int_1^{x^2}\\sin(t^2)\\,dt$, entonces $F'(x)=$",
+   "opciones": [
+    "$2x\\sin(x^4)$",
+    "$\\sin(x^4)$",
+    "$\\sin(x^2)$",
+    "$2x\\sin(x^2)$"
+   ],
+   "correcta": 0,
+   "resumen": "TFC parte 1 + regla de la cadena en el límite superior."
+  },
+  {
+   "id": "ci_c1_08",
+   "c": 1,
+   "t": "Sustitución",
+   "f": "media",
+   "e": "procedimiento",
+   "tipo": "mcq",
+   "dif": 2,
+   "tEsp": 70,
+   "texto": "$\\displaystyle\\int \\sin^3 x\\cos x\\,dx=$",
+   "opciones": [
+    "$\\dfrac{\\sin^4 x}{4}+C$",
+    "$\\dfrac{\\sin^4 x}{3}+C$",
+    "$\\dfrac{\\cos^4 x}{4}+C$",
+    "$-\\dfrac{\\cos^4 x}{4}+C$"
+   ],
+   "correcta": 0,
+   "resumen": "$u=\\sin x$ porque su derivada $\\cos x$ ya está de factor."
+  },
+  {
+   "id": "ci_c2_01",
+   "c": 2,
+   "t": "Integrales trigonométricas",
+   "f": "alta",
+   "e": "formula",
+   "tipo": "mcq",
+   "dif": 2,
+   "tEsp": 80,
+   "texto": "$\\displaystyle\\int \\sin^2 x\\,dx=$",
+   "opciones": [
+    "$\\dfrac{x}{2}-\\dfrac{\\sin 2x}{4}+C$",
+    "$\\dfrac{x}{2}+\\dfrac{\\sin 2x}{4}+C$",
+    "$\\dfrac{\\sin^3 x}{3}+C$",
+    "$-\\dfrac{\\cos^3 x}{3}+C$"
+   ],
+   "correcta": 0,
+   "resumen": "Identidad de ángulo doble: $\\sin^2 x=\\tfrac{1-\\cos 2x}{2}$."
+  },
+  {
+   "id": "ci_c2_02",
+   "c": 2,
+   "t": "Sustitución trigonométrica",
+   "f": "alta",
+   "e": "formula",
+   "tipo": "mcq",
+   "dif": 2,
+   "tEsp": 80,
+   "texto": "$\\displaystyle\\int \\frac{dx}{\\sqrt{9-x^2}}=$",
+   "opciones": [
+    "$\\arcsin\\dfrac{x}{3}+C$",
+    "$\\dfrac13\\arcsin\\dfrac{x}{3}+C$",
+    "$\\ln\\!\\big|x+\\sqrt{9-x^2}\\big|+C$",
+    "$3\\arcsin\\dfrac{x}{3}+C$"
+   ],
+   "correcta": 0,
+   "resumen": "Forma $\\sqrt{a^2-x^2}$ en el denominador, sin $x$ arriba → $\\arcsin(x/a)$."
+  },
+  {
+   "id": "ci_c2_03",
+   "c": 2,
+   "t": "Fracciones parciales",
+   "f": "alta",
+   "e": "procedimiento",
+   "tipo": "mcq",
+   "dif": 2,
+   "tEsp": 90,
+   "texto": "$\\displaystyle\\int \\frac{dx}{x^2-1}=$",
+   "opciones": [
+    "$\\dfrac12\\ln\\!\\left|\\dfrac{x-1}{x+1}\\right|+C$",
+    "$\\dfrac12\\ln\\!\\left|\\dfrac{x+1}{x-1}\\right|+C$",
+    "$\\ln|x^2-1|+C$",
+    "$\\arctan x+C$"
+   ],
+   "correcta": 0,
+   "resumen": "$\\dfrac{1}{(x-1)(x+1)}=\\dfrac{1/2}{x-1}-\\dfrac{1/2}{x+1}$."
+  },
+  {
+   "id": "ci_c2_04",
+   "c": 2,
+   "t": "Fracciones parciales",
+   "f": "media",
+   "e": "algebra",
+   "tipo": "mcq",
+   "dif": 2,
+   "tEsp": 85,
+   "texto": "En $\\displaystyle\\int\\frac{3x+1}{(x+1)(x-2)}\\,dx$, la descomposición $\\dfrac{A}{x+1}+\\dfrac{B}{x-2}$ tiene:",
+   "opciones": [
+    "$A=\\tfrac23,\\ B=\\tfrac73$",
+    "$A=\\tfrac73,\\ B=\\tfrac23$",
+    "$A=1,\\ B=2$",
+    "$A=-\\tfrac23,\\ B=\\tfrac73$"
+   ],
+   "correcta": 0,
+   "resumen": "$3x+1=A(x-2)+B(x+1)$; evalúa en $x=-1$ y $x=2$."
+  },
+  {
+   "id": "ci_c2_05",
+   "c": 2,
+   "t": "Integrales impropias",
+   "f": "alta",
+   "e": "conceptual",
+   "tipo": "mcq",
+   "dif": 1,
+   "tEsp": 65,
+   "texto": "$\\displaystyle\\int_1^{\\infty}\\frac{dx}{x^2}$",
+   "opciones": [
+    "Converge a $1$",
+    "Converge a $\\tfrac12$",
+    "Diverge",
+    "Converge a $0$"
+   ],
+   "correcta": 0,
+   "resumen": "$\\displaystyle\\int_1^\\infty x^{-2}\\,dx=\\lim_{b\\to\\infty}\\big[-x^{-1}\\big]_1^b$."
+  },
+  {
+   "id": "ci_c2_06",
+   "c": 2,
+   "t": "Integrales impropias",
+   "f": "media",
+   "e": "conceptual",
+   "tipo": "mcq",
+   "dif": 2,
+   "tEsp": 70,
+   "texto": "La integral $\\displaystyle\\int_0^{1}\\frac{dx}{x}$",
+   "opciones": [
+    "Diverge",
+    "Converge a $1$",
+    "Converge a $0$",
+    "Converge a $2$"
+   ],
+   "correcta": 0,
+   "resumen": "El integrando explota en $x=0$: $\\lim_{a\\to0^+}\\int_a^1\\tfrac{dx}{x}=\\lim_{a\\to0^+}(-\\ln a)=\\infty$."
+  },
+  {
+   "id": "ci_c3_01",
+   "c": 3,
+   "t": "Volúmenes de revolución",
+   "f": "alta",
+   "e": "procedimiento",
+   "tipo": "mcq",
+   "dif": 1,
+   "tEsp": 65,
+   "texto": "El volumen del sólido al rotar la región bajo $y=x$, sobre $[0,1]$, alrededor del eje $x$ (discos) es:",
+   "opciones": [
+    "$\\dfrac{\\pi}{3}$",
+    "$\\dfrac{\\pi}{2}$",
+    "$\\pi$",
+    "$\\dfrac{2\\pi}{3}$"
+   ],
+   "correcta": 0,
+   "resumen": "Discos: $V=\\pi\\displaystyle\\int_0^1 [R(x)]^2\\,dx=\\pi\\int_0^1 x^2\\,dx$."
+  },
+  {
+   "id": "ci_c3_02",
+   "c": 3,
+   "t": "Sucesiones y series",
+   "f": "alta",
+   "e": "procedimiento",
+   "tipo": "mcq",
+   "dif": 2,
+   "tEsp": 75,
+   "texto": "$\\displaystyle\\sum_{n=1}^{\\infty}\\frac{1}{n(n+1)}=$",
+   "opciones": [
+    "$1$",
+    "$\\dfrac12$",
+    "$2$",
+    "Diverge"
+   ],
+   "correcta": 0,
+   "resumen": "Telescópica: $\\dfrac{1}{n(n+1)}=\\dfrac1n-\\dfrac1{n+1}$."
+  },
+  {
+   "id": "ci_c3_03",
+   "c": 3,
+   "t": "Sucesiones y series",
+   "f": "alta",
+   "e": "procedimiento",
+   "tipo": "mcq",
+   "dif": 3,
+   "tEsp": 100,
+   "texto": "El intervalo de convergencia de $\\displaystyle\\sum_{n=1}^{\\infty}\\frac{x^n}{n}$ es:",
+   "opciones": [
+    "$[-1,\\,1)$",
+    "$(-1,\\,1)$",
+    "$(-1,\\,1]$",
+    "$[-1,\\,1]$"
+   ],
+   "correcta": 0,
+   "resumen": "Radio $R=1$ por el cociente; revisa $x=\\pm1$ por separado."
+  },
+  {
+   "id": "ci_c3_04",
+   "c": 3,
+   "t": "Coordenadas polares",
+   "f": "media",
+   "e": "formula",
+   "tipo": "mcq",
+   "dif": 2,
+   "tEsp": 90,
+   "texto": "El área encerrada por la circunferencia $r=2\\sin\\theta$ es:",
+   "opciones": [
+    "$\\pi$",
+    "$2\\pi$",
+    "$4\\pi$",
+    "$\\dfrac{\\pi}{2}$"
+   ],
+   "correcta": 0,
+   "resumen": "$A=\\tfrac12\\displaystyle\\int_0^{\\pi}(2\\sin\\theta)^2\\,d\\theta$ (la curva se traza entera en $[0,\\pi]$)."
   }
  ]
 };
@@ -7778,17 +8292,18 @@ function renderSimPreview(){
     if(!mats[slug]){ mats[slug]={n:0,color:(EM[k]||{}).color||'#e05d1a'}; order.push(slug); }
     mats[slug].n++;
   });
-  order.sort(function(a,b){ return (a==='calcdif'?-1:0)-(b==='calcdif'?-1:0); });
+  var _isProMat=function(s){ return !!(window.SIM_TAX && window.SIM_TAX[s]); };
+  order.sort(function(a,b){ return (_isProMat(b)?1:0)-(_isProMat(a)?1:0) || (a==='calcdif'?-1:b==='calcdif'?1:0); });
   g.innerHTML=order.map(function(slug){
     var m=mats[slug], col=m.color, sym=SYM[slug]||'∑';
     var nm = en ? (NAME_EN[slug]||slug) : (NAMES[slug]||slug);
-    var meta = slug==='calcdif'
-      ? (en?'Full mode · by cut':'Modo completo · por corte')
+    var meta = _isProMat(slug)
+      ? (en?'Full mode · by corte':'Modo completo · por corte')
       : (m.n+(en?' practice exams':' parciales de práctica'));
-    return '<a href="#simulacro" class="sim-prev-card'+(slug==='calcdif'?' sim-prev-pro':'')+'" data-col="'+col+'">'
+    return '<a href="#simulacro" class="sim-prev-card'+(_isProMat(slug)?' sim-prev-pro':'')+'" data-col="'+col+'">'
       +'<div class="sim-prev-ico" style="background:'+col+'22;color:'+col+'">'+sym+'</div>'
       +'<div class="sim-prev-info">'
-        +'<div class="sim-prev-name">'+nm+(slug==='calcdif'?' <span class="smp-pro">PRO</span>':'')+'</div>'
+        +'<div class="sim-prev-name">'+nm+(_isProMat(slug)?' <span class="smp-pro">PRO</span>':'')+'</div>'
         +'<div class="sim-prev-meta">'+meta+'</div>'
       +'</div>'
       +'<span class="sim-prev-arr" style="color:'+col+'">→</span>'
@@ -9594,7 +10109,8 @@ function _simMatList(){
     var m=(EXAM_META[k]||{}).mat;
     if(m && !seen[m]){ seen[m]=1; out.push(m); }
   });
-  out.sort(function(a,b){ return (a==='calcdif'?-1:0) - (b==='calcdif'?-1:0); });
+  var _pro=function(s){ return !!(window.SIM_TAX && window.SIM_TAX[s]); };
+  out.sort(function(a,b){ return (_pro(b)?1:0)-(_pro(a)?1:0) || (a==='calcdif'?-1:b==='calcdif'?1:0); });
   return out;
 }
 function _simMatColor(slug){
@@ -9609,7 +10125,7 @@ function _renderMatPills(){
   list.forEach(function(slug){
     h+='<button class="sim-mat-pill'+(_selFilter===slug?' on':'')+'" data-mat="'+slug+'" onclick="simSelFilter(this,\''+slug+'\')">'
       +'<span class="smp-dot" style="background:'+_simMatColor(slug)+'"></span>'+(_SIM_MAT_NAMES[slug]||slug)
-      +(slug==='calcdif'?' <span class="smp-pro">PRO</span>':'')
+      +((window.SIM_TAX&&window.SIM_TAX[slug])?' <span class="smp-pro">PRO</span>':'')
       +' <span class="smp-n" id="cnt-'+slug+'"></span></button>';
   });
   host.innerHTML=h;
@@ -15637,7 +16153,7 @@ window.SIMULACROS_HABILITADOS = SIMULACROS_HABILITADOS;
 if(window.__SIM_LOCAL){
   try{
     var _devSol=document.createElement('script');
-    _devSol.src='sim-solutions.dev.js'; _devSol.async=false;
+    _devSol.src='sim-solutions.dev.js?t='+Date.now(); _devSol.async=false;
     _devSol.onerror=function(){};
     _devSol.onload=function(){ try{ if(window.__simFetchSol) window.__simFetchSol(); }catch(e){} };
     document.head.appendChild(_devSol);
