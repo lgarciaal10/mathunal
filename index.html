@@ -75,7 +75,7 @@
   <!-- Simulacros Pro (rama simulacros-pro): banco + laboratorio, inline single-file -->
   <script>
 /* ═══════════════════════════════════════════════════════════════════════════
-   MathUNAL · Simulacros Pro — Banco (inline FLACO): CÁLCULO DIFERENCIAL + CÁLCULO INTEGRAL + ÁLGEBRA LINEAL
+   MathUNAL · Simulacros Pro — Banco (inline FLACO): CÁLCULO DIFERENCIAL + CÁLCULO INTEGRAL + ÁLGEBRA LINEAL + ECUACIONES DIFERENCIALES
    Solo lo renderizable + el resumen (teaser gratis). El contenido Pro
    (pasos, "el truco", cómo reconocerlo, soluciones y rúbricas) vive en Supabase
    → sim_solutions, RLS por sim_has_pro(course_id). El motor lo trae con
@@ -204,6 +204,46 @@ var SIM_TAX = {
      "Valores y vectores propios",
      "Diagonalización",
      "Matrices simétricas y formas cuadráticas"
+    ]
+   }
+  }
+ },
+ "edo": {
+  "materia": "Ecuaciones Diferenciales",
+  "codigo": "1000008",
+  "slug": "edo",
+  "cortes": {
+   "1": {
+    "nombre": "EDO de primer orden",
+    "pct": 30,
+    "temas": [
+     "Variables separables",
+     "EDO lineal de primer orden",
+     "Exactas y factor integrante",
+     "Bernoulli y sustituciones",
+     "Autónomas y estabilidad",
+     "Existencia y unicidad"
+    ]
+   },
+   "2": {
+    "nombre": "Orden superior y coeficientes constantes",
+    "pct": 35,
+    "temas": [
+     "Homogénea con coeficientes constantes",
+     "Coeficientes indeterminados",
+     "Reducción de orden y Wronskiano",
+     "Cauchy-Euler"
+    ]
+   },
+   "3": {
+    "nombre": "Laplace, sistemas y series",
+    "pct": 35,
+    "temas": [
+     "Transformada de Laplace",
+     "Laplace inversa y PVI",
+     "Función escalón y delta de Dirac",
+     "Sistemas lineales y plano fase",
+     "Series y problemas de frontera"
     ]
    }
   }
@@ -690,6 +730,146 @@ var SIM_META = {
    {
     "c": 1,
     "t": "Matrices y operaciones",
+    "f": "baja",
+    "e": "formula"
+   }
+  ]
+ },
+ "edo": {
+  "edo_p1": [
+   {
+    "c": 1,
+    "t": "Exactas y factor integrante",
+    "f": "alta",
+    "e": "procedimiento"
+   },
+   {
+    "c": 2,
+    "t": "Coeficientes indeterminados",
+    "f": "alta",
+    "e": "procedimiento"
+   },
+   {
+    "c": 3,
+    "t": "Laplace inversa y PVI",
+    "f": "alta",
+    "e": "procedimiento"
+   },
+   {
+    "c": 3,
+    "t": "Sistemas lineales y plano fase",
+    "f": "media",
+    "e": "procedimiento"
+   },
+   {
+    "c": 3,
+    "t": "Series y problemas de frontera",
+    "f": "baja",
+    "e": "conceptual"
+   },
+   {
+    "c": 3,
+    "t": "Series y problemas de frontera",
+    "f": "media",
+    "e": "procedimiento"
+   },
+   {
+    "c": 1,
+    "t": "Variables separables",
+    "f": "alta",
+    "e": "formula"
+   }
+  ],
+  "edo_p2": [
+   {
+    "c": 1,
+    "t": "Autónomas y estabilidad",
+    "f": "alta",
+    "e": "conceptual"
+   },
+   {
+    "c": 1,
+    "t": "Existencia y unicidad",
+    "f": "media",
+    "e": "conceptual"
+   },
+   {
+    "c": 1,
+    "t": "EDO lineal de primer orden",
+    "f": "alta",
+    "e": "formula"
+   },
+   {
+    "c": 1,
+    "t": "Bernoulli y sustituciones",
+    "f": "alta",
+    "e": "formula"
+   },
+   {
+    "c": 2,
+    "t": "Reducción de orden y Wronskiano",
+    "f": "media",
+    "e": "formula"
+   },
+   {
+    "c": 3,
+    "t": "Sistemas lineales y plano fase",
+    "f": "alta",
+    "e": "conceptual"
+   },
+   {
+    "c": 2,
+    "t": "Reducción de orden y Wronskiano",
+    "f": "media",
+    "e": "procedimiento"
+   },
+   {
+    "c": 1,
+    "t": "Existencia y unicidad",
+    "f": "alta",
+    "e": "conceptual"
+   }
+  ],
+  "edo_p3": [
+   {
+    "c": 3,
+    "t": "Transformada de Laplace",
+    "f": "media",
+    "e": "procedimiento"
+   },
+   {
+    "c": 3,
+    "t": "Laplace inversa y PVI",
+    "f": "alta",
+    "e": "procedimiento"
+   },
+   {
+    "c": 2,
+    "t": "Homogénea con coeficientes constantes",
+    "f": "alta",
+    "e": "procedimiento"
+   },
+   {
+    "c": 3,
+    "t": "Sistemas lineales y plano fase",
+    "f": "alta",
+    "e": "procedimiento"
+   },
+   {
+    "c": 3,
+    "t": "Función escalón y delta de Dirac",
+    "f": "media",
+    "e": "formula"
+   },
+   {
+    "c": 3,
+    "t": "Laplace inversa y PVI",
+    "f": "alta",
+    "e": "procedimiento"
+   },
+   {
+    "c": 3,
+    "t": "Transformada de Laplace",
     "f": "baja",
     "e": "formula"
    }
@@ -1678,6 +1858,287 @@ var SIM_NEW = {
    "unidad": "",
    "tolNum": 0.001,
    "puntaje": 10
+  }
+ ],
+ "edo": [
+  {
+   "id": "ed_c1_01",
+   "c": 1,
+   "t": "Variables separables",
+   "f": "alta",
+   "e": "procedimiento",
+   "tipo": "mcq",
+   "dif": 1,
+   "tEsp": 60,
+   "texto": "La solución general de $\\dfrac{dy}{dx}=2xy$ es:",
+   "opciones": [
+    "$y=Ce^{x^2}$",
+    "$y=Ce^{2x}$",
+    "$y=x^2+C$",
+    "$y=Cx^2$"
+   ],
+   "correcta": 0,
+   "resumen": "Separables: $\\dfrac{dy}{y}=2x\\,dx$, integra ambos lados."
+  },
+  {
+   "id": "ed_c1_02",
+   "c": 1,
+   "t": "Variables separables",
+   "f": "alta",
+   "e": "formula",
+   "tipo": "numerica",
+   "dif": 1,
+   "tEsp": 45,
+   "texto": "Si $y'=y$ con $y(0)=1$, ¿cuánto vale $y(1)$? (Decimal, 3 cifras.)",
+   "resumen": "$y'=y$ → $y=y_0e^{t}$.",
+   "respuesta": "2.718",
+   "unidad": "",
+   "tolNum": 0.01,
+   "puntaje": 10
+  },
+  {
+   "id": "ed_c1_03",
+   "c": 1,
+   "t": "EDO lineal de primer orden",
+   "f": "alta",
+   "e": "procedimiento",
+   "tipo": "mcq",
+   "dif": 2,
+   "tEsp": 85,
+   "texto": "La solución general de $y'+y=e^{x}$ es:",
+   "opciones": [
+    "$y=\\tfrac12 e^{x}+Ce^{-x}$",
+    "$y=e^{x}+Ce^{-x}$",
+    "$y=xe^{x}+C$",
+    "$y=\\tfrac12 e^{2x}+C$"
+   ],
+   "correcta": 0,
+   "resumen": "Factor integrante $\\mu=e^{x}$; luego $(e^{x}y)'=e^{2x}$."
+  },
+  {
+   "id": "ed_c1_04",
+   "c": 1,
+   "t": "Exactas y factor integrante",
+   "f": "alta",
+   "e": "procedimiento",
+   "tipo": "mcq",
+   "dif": 2,
+   "tEsp": 75,
+   "texto": "La EDO $2xy\\,dx + x^2\\,dy = 0$:",
+   "opciones": [
+    "es exacta, con solución $x^2y=C$",
+    "no es exacta",
+    "es exacta, con solución $x^2+y^2=C$",
+    "es separable, con solución $y=Cx$"
+   ],
+   "correcta": 0,
+   "resumen": "$M_y=2x=N_x$ → exacta. La función potencial es $F=x^2y$."
+  },
+  {
+   "id": "ed_c1_05",
+   "c": 1,
+   "t": "Bernoulli y sustituciones",
+   "f": "media",
+   "e": "formula",
+   "tipo": "mcq",
+   "dif": 2,
+   "tEsp": 70,
+   "texto": "Para linealizar $y'+\\dfrac{y}{x}=y^{2}$ se sustituye:",
+   "opciones": [
+    "$v=y^{-1}$",
+    "$v=y^{2}$",
+    "$v=y'$",
+    "$v=xy$"
+   ],
+   "correcta": 0,
+   "resumen": "Bernoulli con $n=2$: $v=y^{1-n}=y^{-1}$."
+  },
+  {
+   "id": "ed_c2_01",
+   "c": 2,
+   "t": "Homogénea con coeficientes constantes",
+   "f": "alta",
+   "e": "procedimiento",
+   "tipo": "mcq",
+   "dif": 1,
+   "tEsp": 60,
+   "texto": "La solución general de $y''+y'-6y=0$ es:",
+   "opciones": [
+    "$y=c_1e^{2x}+c_2e^{-3x}$",
+    "$y=c_1e^{-2x}+c_2e^{3x}$",
+    "$y=(c_1+c_2x)e^{2x}$",
+    "$y=c_1\\cos 6x+c_2\\sin 6x$"
+   ],
+   "correcta": 0,
+   "resumen": "Ecuación característica $r^2+r-6=(r-2)(r+3)=0$."
+  },
+  {
+   "id": "ed_c2_02",
+   "c": 2,
+   "t": "Homogénea con coeficientes constantes",
+   "f": "alta",
+   "e": "formula",
+   "tipo": "mcq",
+   "dif": 1,
+   "tEsp": 55,
+   "texto": "La solución general de $y''+4y=0$ es:",
+   "opciones": [
+    "$y=c_1\\cos 2x+c_2\\sin 2x$",
+    "$y=c_1e^{2x}+c_2e^{-2x}$",
+    "$y=c_1\\cos 4x+c_2\\sin 4x$",
+    "$y=(c_1+c_2x)e^{2x}$"
+   ],
+   "correcta": 0,
+   "resumen": "$r^2+4=0 \\Rightarrow r=\\pm 2i$."
+  },
+  {
+   "id": "ed_c2_03",
+   "c": 2,
+   "t": "Homogénea con coeficientes constantes",
+   "f": "media",
+   "e": "procedimiento",
+   "tipo": "mcq",
+   "dif": 2,
+   "tEsp": 60,
+   "texto": "La solución general de $y''-6y'+9y=0$ es:",
+   "opciones": [
+    "$y=(c_1+c_2x)e^{3x}$",
+    "$y=c_1e^{3x}+c_2e^{-3x}$",
+    "$y=c_1e^{3x}+c_2xe^{-3x}$",
+    "$y=c_1\\cos 3x+c_2\\sin 3x$"
+   ],
+   "correcta": 0,
+   "resumen": "$r^2-6r+9=(r-3)^2=0$ → raíz doble $r=3$."
+  },
+  {
+   "id": "ed_c2_04",
+   "c": 2,
+   "t": "Coeficientes indeterminados",
+   "f": "alta",
+   "e": "procedimiento",
+   "tipo": "mcq",
+   "dif": 2,
+   "tEsp": 80,
+   "texto": "Una solución particular de $y''+y=3x$ es:",
+   "opciones": [
+    "$y_p=3x$",
+    "$y_p=3x^2$",
+    "$y_p=3x-3$",
+    "$y_p=x\\sin x$"
+   ],
+   "correcta": 0,
+   "resumen": "RHS polinómica de grado 1, no está en $y_h=c_1\\cos x+c_2\\sin x$ → $y_p=Ax+B$."
+  },
+  {
+   "id": "ed_c2_05",
+   "c": 2,
+   "t": "Cauchy-Euler",
+   "f": "alta",
+   "e": "procedimiento",
+   "tipo": "mcq",
+   "dif": 2,
+   "tEsp": 80,
+   "texto": "La solución general de $x^2y''-3xy'+4y=0$ ($x>0$) es:",
+   "opciones": [
+    "$y=(c_1+c_2\\ln x)\\,x^{2}$",
+    "$y=c_1x^{2}+c_2x^{-2}$",
+    "$y=c_1x+c_2x^{4}$",
+    "$y=c_1x^{2}+c_2x^{3}$"
+   ],
+   "correcta": 0,
+   "resumen": "$y=x^r$: $r(r-1)-3r+4=(r-2)^2=0$ → raíz doble $r=2$."
+  },
+  {
+   "id": "ed_c3_01",
+   "c": 3,
+   "t": "Transformada de Laplace",
+   "f": "alta",
+   "e": "formula",
+   "tipo": "mcq",
+   "dif": 1,
+   "tEsp": 40,
+   "texto": "$\\mathcal{L}\\{e^{3t}\\}=$",
+   "opciones": [
+    "$\\dfrac{1}{s-3}$",
+    "$\\dfrac{1}{s+3}$",
+    "$\\dfrac{3}{s}$",
+    "$\\dfrac{1}{s^2-9}$"
+   ],
+   "correcta": 0,
+   "resumen": "$\\mathcal{L}\\{e^{at}\\}=\\dfrac{1}{s-a}$ (para $s>a$)."
+  },
+  {
+   "id": "ed_c3_02",
+   "c": 3,
+   "t": "Laplace inversa y PVI",
+   "f": "alta",
+   "e": "formula",
+   "tipo": "mcq",
+   "dif": 1,
+   "tEsp": 50,
+   "texto": "$\\mathcal{L}^{-1}\\left\\{\\dfrac{1}{s^2+4}\\right\\}=$",
+   "opciones": [
+    "$\\tfrac12\\sin 2t$",
+    "$\\sin 2t$",
+    "$\\cos 2t$",
+    "$\\tfrac12\\cos 2t$"
+   ],
+   "correcta": 0,
+   "resumen": "$\\mathcal{L}\\{\\sin bt\\}=\\dfrac{b}{s^2+b^2}$; aquí falta el $b=2$ del numerador."
+  },
+  {
+   "id": "ed_c3_03",
+   "c": 3,
+   "t": "Laplace inversa y PVI",
+   "f": "alta",
+   "e": "conceptual",
+   "tipo": "mcq",
+   "dif": 1,
+   "tEsp": 45,
+   "texto": "Al transformar un PVI, $\\mathcal{L}\\{y'\\}=$",
+   "opciones": [
+    "$sY(s)-y(0)$",
+    "$sY(s)$",
+    "$Y(s)-y(0)$",
+    "$s^2Y(s)-sy(0)-y'(0)$"
+   ],
+   "correcta": 0,
+   "resumen": "$\\mathcal{L}\\{y'\\}=sY(s)-y(0)$ (por partes)."
+  },
+  {
+   "id": "ed_c3_04",
+   "c": 3,
+   "t": "Transformada de Laplace",
+   "f": "media",
+   "e": "formula",
+   "tipo": "numerica",
+   "dif": 2,
+   "tEsp": 55,
+   "texto": "Sabiendo que $\\mathcal{L}\\{t\\,e^{t}\\}=\\dfrac{1}{(s-1)^2}$, evalúe esa transformada en $s=3$.",
+   "resumen": "Sustituye $s=3$ en $\\dfrac{1}{(s-1)^2}$.",
+   "respuesta": "0.25",
+   "unidad": "",
+   "tolNum": 0.001,
+   "puntaje": 10
+  },
+  {
+   "id": "ed_c3_05",
+   "c": 3,
+   "t": "Sistemas lineales y plano fase",
+   "f": "media",
+   "e": "conceptual",
+   "tipo": "mcq",
+   "dif": 2,
+   "tEsp": 70,
+   "texto": "El origen del sistema $\\mathbf{x}'=\\begin{pmatrix}1&0\\\\0&-1\\end{pmatrix}\\mathbf{x}$ es:",
+   "opciones": [
+    "un punto silla (inestable)",
+    "un nodo estable",
+    "un centro",
+    "una espiral estable"
+   ],
+   "correcta": 0,
+   "resumen": "Valores propios $1$ y $-1$: signos opuestos → silla."
   }
  ]
 };
@@ -19093,7 +19554,7 @@ window.__SIMPRO_DEV = /[?&]simpro=1/.test(location.href) || !!window.__SIM_LOCAL
        { user_id, product_id:'calcdif_pro', course_id:'1000004',
          exam_period_id:'2026-2', valid_until }                                */
   /* materias con banco Pro. course = código UNAL; el entitlement es por materia. */
-  var PRO_COURSES = ['1000004','1000005', '1000006'];
+  var PRO_COURSES = ['1000004','1000005', '1000006', '1000008'];
   function _courseOf(slug){
     return (slug && (window.SIM_TAX||{})[slug] && window.SIM_TAX[slug].codigo) || null;
   }
