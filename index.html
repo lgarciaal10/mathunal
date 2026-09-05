@@ -2223,6 +2223,9 @@ html[data-theme="gray"] .hero-bg .lg-blob-center{background:radial-gradient(elli
 .sim-prep-pred{margin-top:.4rem;font-size:.82rem;color:var(--t2)}
 .sim-prep-pred b{color:var(--acc2);font-family:'IBM Plex Mono',monospace}
 .sim-prep-beta{font-family:'IBM Plex Mono',monospace;font-size:.58rem;letter-spacing:.06em;text-transform:uppercase;color:var(--t3);border:1px solid var(--br);border-radius:3px;padding:.02rem .3rem;vertical-align:1px}
+.sim-prep-realq{margin-top:.5rem;font-size:.8rem;color:var(--t3);display:flex;gap:.3rem;flex-wrap:wrap;align-items:center}
+.sim-realq-b{background:var(--lay1);border:1px solid var(--br);color:var(--t2);border-radius:6px;padding:.15rem .5rem;font-size:.76rem;font-family:'IBM Plex Mono',monospace;cursor:pointer}
+.sim-realq-b:hover{border-color:var(--acc);color:var(--acc)}
 
 /* ── Repaso espaciado (card en el selector) ── */
 .sim-srs-card{grid-column:1/-1;background:linear-gradient(120deg,var(--adim),transparent 60%),var(--card);border:2px solid var(--bra);border-radius:var(--radius);padding:1.2rem 1.4rem;cursor:pointer;transition:all var(--transition);box-shadow:var(--shadow-card)}
@@ -16916,13 +16919,20 @@ window.__SIMPRO_DEV = /[?&]simpro=1/.test(location.href);
       // LISTO: 2 intentos consecutivos (por fecha, arr ya viene reciente->viejo) con nota>=4
       var listo = arr.length>=2 && (arr[0].nota||0)>=4 && (arr[1].nota||0)>=4;
       var notas = arr.map(function(r){ return (r.nota||0); }).reverse();
-      // predicción de nota (beta): centro = score escalado a 5, banda ±0.4, sesgada a la baja
-      var centro = score/100*5;
-      var lo5 = Math.max(0, centro-0.45), hi5 = Math.min(5, centro+0.35);
+      // predicción de nota (beta): centro = score escalado a 5, calibrado con notas reales si hay ≥4
+      var cal=window.__simCalib&&window.__simCalib();
+      var centro;
+      if(cal){ centro = cal.a*(score/100*5) + cal.b; }
+      else { centro = score/100*5 - 0.2; }
+      centro = Math.max(0, Math.min(5, centro));
+      var banda = cal ? cal.sd : 0.45;
+      var lo5 = Math.max(0, centro-banda-0.1), hi5 = Math.min(5, centro+banda*0.7);
+      var realNota=(window.__simRealNotaDe&&window.__simRealNotaDe(slug,corte));
       out.push({slug:slug, corte:corte, nombre:cinfo.nombre||('Corte '+corte), pct:cinfo.pct,
         score:score, conocimiento:Math.round(conocimiento*100), velocidad:Math.round(velocidad*100),
         cobertura:Math.round(cobertura*100), ciego:ciego, cieboP:Math.round(lo*100), listo:listo,
-        intentos:arr.length, notas:notas, temas:tt, predLo:lo5, predHi:hi5});
+        intentos:arr.length, notas:notas, temas:tt, predLo:lo5, predHi:hi5,
+        calibrada:!!cal, realNota:realNota});
     });
     return out.sort(function(a,b){ return a.corte-b.corte; });
   }
@@ -16945,12 +16955,60 @@ window.__SIMPRO_DEV = /[?&]simpro=1/.test(location.href);
           (d.listo?'<span class="sim-prep-badge">✓ LISTO PARA EL CORTE</span>':'')+'</div>'+
         '<div class="sim-prep-sub">Conocimiento '+d.conocimiento+' · Velocidad '+d.velocidad+' · Cobertura '+d.cobertura+
           ' <span class="sim-prep-mini">('+d.intentos+' intento'+(d.intentos>1?'s':'')+': '+d.notas.map(function(n){return n.toFixed(1);}).join(' → ')+')</span></div>'+
-        '<div class="sim-prep-pred">Estimación MathUNAL <span class="sim-prep-beta">beta</span> · rango esperado en el parcial: <b>'+d.predLo.toFixed(1)+' – '+d.predHi.toFixed(1)+'</b></div>'+
+        (d.realNota!=null
+          ? '<div class="sim-prep-pred">En el parcial real sacaste <b>'+d.realNota.toFixed(1)+'</b>'+
+            (d.predLo<=d.realNota&&d.realNota<=d.predHi+0.2?' — dentro del rango estimado ✓':'')+'</div>'
+          : '<div class="sim-prep-pred">Estimación MathUNAL <span class="sim-prep-beta">'+(d.calibrada?'calibrada':'beta')+'</span> · rango esperado en el parcial: <b>'+d.predLo.toFixed(1)+' – '+d.predHi.toFixed(1)+'</b></div>')+
+        (d.realNota==null && window.__simDiasRestantes && window.__simDiasRestantes()!=null && window.__simDiasRestantes()<0
+          ? '<div class="sim-prep-realq" data-slug="'+d.slug+'" data-corte="'+d.corte+'">¿Ya presentaste? ¿Qué nota sacaste de verdad? '+
+            [2.0,2.5,3.0,3.5,4.0,4.5,5.0].map(function(n){return '<button class="sim-realq-b" data-n="'+n+'">'+n.toFixed(1)+'</button>';}).join('')+'</div>'
+          : '')+
         (d.ciego?'<div class="sim-prep-ciego">Tu punto ciego: <b>'+d.ciego+'</b> — '+d.cieboP+'% en '+d.intentos+' intentos. No es mala suerte, repásalo.</div>':'')+
       '</div>';
     });
     h+='</div>';
     host.insertAdjacentHTML('beforeend', h);
+    host.querySelectorAll('.sim-prep-realq').forEach(function(row){
+      row.querySelectorAll('.sim-realq-b').forEach(function(b){
+        b.addEventListener('click',function(){
+          window.__simRealNota(row.dataset.slug, +row.dataset.corte, +b.dataset.n, null);
+          try{ window.muRenderProgreso&&window.muRenderProgreso(); }catch(e){}
+        });
+      });
+    });
+  };
+  /* notas reales post-parcial → calibración de la predicción */
+  window.__simRealNota=function(slug,corte,nota,score){
+    var arr; try{ arr=JSON.parse(localStorage.getItem('mu-sim-notas-reales'))||[]; }catch(e){ arr=[]; }
+    if(score==null){
+      try{ (JSON.parse(localStorage.getItem('mu-results'))||[]).forEach(function(r){
+        if(r.corte===corte && (r.slug||'calcdif')===slug && r.temas){
+          var ok=0,n=0; Object.keys(r.temas).forEach(function(t){ ok+=r.temas[t].ok; n+=r.temas[t].n; });
+          if(n) score=Math.round(ok/n*100);
+        }
+      }); }catch(e){}
+    }
+    arr.push({slug:slug,corte:corte,nota:nota,score:score||50,fecha:new Date().toISOString().slice(0,10)});
+    try{ localStorage.setItem('mu-sim-notas-reales', JSON.stringify(arr.slice(-60))); }catch(e){}
+  };
+  window.__simRealNotaDe=function(slug,corte){
+    try{ var a=JSON.parse(localStorage.getItem('mu-sim-notas-reales'))||[];
+      for(var i=a.length-1;i>=0;i--){ if(a[i].slug===slug && a[i].corte===corte) return a[i].nota; }
+      return null;
+    }catch(e){ return null; }
+  };
+  window.__simCalib=function(){
+    var a; try{ a=JSON.parse(localStorage.getItem('mu-sim-notas-reales'))||[]; }catch(e){ return null; }
+    var pts=a.filter(function(x){ return x.score!=null && x.nota!=null; });
+    if(pts.length<4) return null;
+    // regresión lineal simple: nota ≈ m*(score/20) + b
+    var n=pts.length, sx=0,sy=0,sxx=0,sxy=0;
+    pts.forEach(function(p){ var x=p.score/20; sx+=x; sy+=p.nota; sxx+=x*x; sxy+=x*p.nota; });
+    var m=(n*sxy-sx*sy)/(n*sxx-sx*sx), b=(sy-m*sx)/n;
+    if(!isFinite(m)) return null;
+    var res=0; pts.forEach(function(p){ var e=p.nota-(m*(p.score/20)+b); res+=e*e; });
+    var sd=Math.max(0.25, Math.sqrt(res/n));
+    return {a:m, b:b, sd:sd, n:n};
   };
   /* ── 7. Repetición espaciada de errores (Leitner) ─────────────────────── */
   var SRS_KEY='mu-sim-srs', SRS_STEPS=[1,2,4,9,18];
