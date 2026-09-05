@@ -72,8 +72,659 @@
   <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous" onload="window.__katexReady=true; if(window.__onKatexReady) window.__onKatexReady(); if(window.__muRerender) try{window.__muRerender();}catch(e){}"></script>
   <!-- Simulacros Pro (rama simulacros-pro): banco enriquecido de Cálculo Diferencial.
        Sync, sin deps, solo setea window.SIM_*. La fusion a EXAMS corre mas abajo. -->
-  <script src="sim-calcdif.js?v=6"></script>
-  <script src="sim-lab.js?v=6"></script>
+  <!-- Simulacros Pro (rama simulacros-pro): banco + laboratorio, inline single-file -->
+  <script>
+/* ═══════════════════════════════════════════════════════════════════════════
+   MathUNAL · Simulacros Pro — Banco enriquecido de CÁLCULO DIFERENCIAL
+   ---------------------------------------------------------------------------
+   TANDA 1 (rama simulacros-pro, sin desplegar). Este archivo:
+     1. SIM_TAX   — taxonomía: cortes + temas de la materia
+     2. SIM_META  — overlay posicional sobre las 29 preguntas ya en EXAMS
+                    (agrega corte/tema/freq/tipoError/antibobo/reconocer)
+     3. SIM_SOL   — solución + rúbrica para las 4 abiertas que no tenían
+     4. SIM_NEW   — preguntas nuevas para cubrir bien cada corte
+   El motor (Tanda 2) fusiona esto en window.EXAMS y arma "Simulacro por Corte".
+   Nota: strings con backtick porque el contenido lleva apóstrofes (f', L'Hôpital).
+   ═══════════════════════════════════════════════════════════════════════════ */
+(function(){
+"use strict";
+
+/* ── 1. Taxonomía ─────────────────────────────────────────────────────────── */
+var SIM_TAX = {
+  calcdif: {
+    materia: `Cálculo Diferencial`, codigo: `1000004`, slug: `calcdif`,
+    cortes: {
+      1: { nombre: `Funciones, límites y continuidad`, pct: 30,
+           temas: [`Límites algebraicos`,`Límites indeterminados`,`Límites notables`,
+                   `Límites al infinito`,`Continuidad`,`Asíntotas`] },
+      2: { nombre: `La derivada y sus reglas`, pct: 30,
+           temas: [`Definición de derivada`,`Reglas de derivación`,`Regla de la cadena`,
+                   `Derivación implícita`,`Derivación logarítmica`,`Derivadas de orden superior`,
+                   `Recta tangente y normal`,`Aproximación lineal`,`Razón de cambio`,
+                   `Movimiento rectilíneo`] },
+      3: { nombre: `Aplicaciones de la derivada`, pct: 40,
+           temas: [`Regla de L'Hôpital`,`Valores extremos`,`Optimización`,
+                   `Teorema del valor medio`,`Análisis de gráficas`,`Monotonía y concavidad`,
+                   `Método de Newton`,`Teorema fundamental del cálculo`] }
+    }
+  }
+};
+
+/* ── 2. Overlay de metadata sobre las 29 preguntas existentes ─────────────────
+   Índice = posición en EXAMS[examKey].preguntas. Campos:
+     c   corte (1|2|3)
+     t   tema
+     f   frecuencia en parciales reales: 'alta'|'media'|'baja'
+     e   tipoError dominante: conceptual|algebra|signo|procedimiento|formula|interpretacion
+     ab  Antibobo (regla corta y memorable)
+     rc  cómo reconocer el ejercicio en el parcial
+     gem examKey_idx de una pregunta gemela (opcional)
+     cx  id de widget "compruébalo" (opcional)                                   */
+var SIM_META = {
+ calcdif: {
+  calcdif_p1: [
+   {c:1,t:`Continuidad`,f:`alta`,e:`algebra`,cx:`limite`,
+    ab:`Continua en $a$ = el límite existe Y vale $f(a)$. Factoriza y cancela el $(x-a)$ que causa el $0/0$.`,
+    rc:`Función a trozos + "para que sea continua" → calcula el límite y ponlo igual al valor puntual.`},
+   {c:1,t:`Límites notables`,f:`media`,e:`conceptual`,
+    ab:`$(1+x)^{1/x}\\to e$. Si además aparece un $-e$ y un $/x$, es una derivada disfrazada (o Taylor de primer orden).`,
+    rc:`$(1+x)^{1/x}$ o $(1+a/x)^{x}$ cerca de $0$ o $\\infty$ → piensa en $e$.`},
+   {c:2,t:`Regla de la cadena`,f:`alta`,e:`procedimiento`,gem:`calcdif_quiz3_1`,
+    ab:`AFUERA · DEJA · ADENTRO. La derivada interna de $3/x$ es $-3/x^2$; al multiplicar por el $x^2$ del producto queda $-3$.`,
+    rc:`Aparece una $f$ genérica con algo adentro → cadena; y si hay un $x^2$ multiplicando → también producto.`},
+   {c:3,t:`Valores extremos`,f:`alta`,e:`procedimiento`,
+    ab:`Punto crítico = donde $f'=0$ O donde $f'$ no existe. La potencia fraccionaria casi siempre esconde un crítico del segundo tipo.`,
+    rc:`Potencia fraccionaria, raíz o valor absoluto → revisa dónde $f'$ NO existe, no solo dónde vale 0.`},
+   {c:2,t:`Reglas de derivación`,f:`baja`,e:`procedimiento`,
+    ab:`Deriva TODO el lado izquierdo (producto + cadena), y solo entonces sustituye el $x$ y los datos $f(1)$, etc.`,
+    rc:`Te dan una identidad con $f$ y piden $f'$ en un punto → deriva la identidad completa y sustituye.`},
+   {c:2,t:`Movimiento rectilíneo`,f:`media`,e:`signo`,
+    ab:`Sentido = signo de $v(t)=s'(t)$. "Sentido negativo" = va hacia atrás, NO que está frenando.`,
+    rc:`"Sentido / dirección" del movimiento = signo de $v$. "Frena o acelera" = signo de $a\\cdot v$.`},
+   {c:1,t:`Asíntotas`,f:`alta`,e:`conceptual`,
+    ab:`Verticales: denominador $=0$ y numerador $\\neq0$. Horizontal: límite en $\\pm\\infty$; cuenta UNA sola aunque salga igual por ambos lados.`,
+    rc:`Racional: grados iguales → AH en el cociente de coeficientes líderes; raíces del denominador → AV.`},
+   {c:2,t:`Definición de derivada`,f:`alta`,e:`algebra`,
+    ab:`En el cociente incremental con raíces: racionaliza por el conjugado. La NORMAL tiene pendiente $-1/f'(a)$.`,
+    rc:`"Usando la definición" = límite del cociente incremental, obligatorio (no reglas de derivación).`},
+   {c:2,t:`Reglas de derivación`,f:`baja`,e:`formula`,
+    ab:`Regla de la potencia: baja el exponente, réstale 1. Luego evalúa.`,
+    rc:`Polinomio y piden $f'(a)$ → deriva término a término y sustituye.`}
+  ],
+  calcdif_p2: [
+   {c:3,t:`Teorema fundamental del cálculo`,f:`baja`,e:`signo`,
+    ab:`$\\dfrac{d}{dx}\\displaystyle\\int_{a(x)}^{b(x)}\\! g\\,dt = g(b)\\,b' - g(a)\\,a'$. El límite de ABAJO entra restando.`,
+    rc:`Derivada de una integral cuyos límites dependen de $x$ → TFC + regla de la cadena en cada límite.`},
+   {c:2,t:`Derivación implícita`,f:`alta`,e:`procedimiento`,
+    ab:`Cada término con $y$ suelta un $y'$ pegado. Deriva todo, agrupa los $y'$ a un lado, despeja.`,
+    rc:`Ecuación que enreda $x$ e $y$ y no puedes despejar $y$ → implícita.`},
+   {c:3,t:`Optimización`,f:`alta`,e:`procedimiento`,cx:`caja`,gem:`calcdif_p3_5`,
+    ab:`Función OBJETIVO (lo que optimizas) + RESTRICCIÓN (el dato fijo). Sustituye para dejar una variable, deriva, iguala a 0.`,
+    rc:`"Minimice el material / maximice el volumen" con un dato fijo → optimización con restricción.`},
+   {c:2,t:`Regla de la cadena`,f:`baja`,e:`formula`,
+    ab:`$(\\arctan u)' = \\dfrac{u'}{1+u^2}$. Con $u=\\sinh x$: $1+\\sinh^2 x = \\cosh^2 x$.`,
+    rc:`Trig inversa compuesta con hiperbólica → cadena + identidad $\\cosh^2 x - \\sinh^2 x = 1$.`},
+   {c:3,t:`Método de Newton`,f:`baja`,e:`formula`,
+    ab:`$x_1 = x_0 - \\dfrac{f(x_0)}{f'(x_0)}$. Nada más. Evalúa con cuidado y no busques la raíz exacta.`,
+    rc:`"Método de Newton" / "primera iteración" → aplica la fórmula UNA vez.`},
+   {c:2,t:`Razón de cambio`,f:`alta`,e:`procedimiento`,cx:`escalera`,
+    ab:`Dibuja el triángulo. Pitágoras relaciona los lados; deriva respecto de $t$. El ángulo va con $\\cos\\theta = x/L$.`,
+    rc:`Escalera / sombra / triángulo que cambia de forma → Pitágoras + $d/dt$.`},
+   {c:2,t:`Recta tangente y normal`,f:`media`,e:`formula`,cx:`tangente`,
+    ab:`Pendiente de la tangente $= f'(a)$. $(\\ln x)' = 1/x$.`,
+    rc:`"Pendiente de la recta tangente en $x=a$" → deriva y evalúa en $a$.`}
+  ],
+  calcdif_quiz3: [
+   {c:2,t:`Derivación implícita`,f:`alta`,e:`algebra`,
+    ab:`Deriva, mete el punto $(1,2)$ lo antes posible para trabajar con números, y despeja $y'$.`,
+    rc:`Ecuación implícita + "en el punto $(a,b)$" → deriva y sustituye el punto de una.`},
+   {c:2,t:`Derivación logarítmica`,f:`alta`,e:`procedimiento`,gem:`calcdif_p1_2`,
+    ab:`Variable en la BASE y en el EXPONENTE → $\\ln$ a ambos lados PRIMERO. Nunca derives $x^{\\sin x}$ directo.`,
+    rc:`$x^{g(x)}$ (base y exponente con $x$) → derivación logarítmica, siempre.`},
+   {c:2,t:`Regla de la cadena`,f:`baja`,e:`conceptual`,
+    ab:`Antes de derivar el monstruo: ¿se simplifica? $\\dfrac{2x}{1-x^2} = \\tan(2\\arctan x)$, así que $f(x)=2\\arctan x$.`,
+    rc:`Argumento de $\\arctan$ con forma $\\dfrac{2u}{1-u^2}$ → es $2\\arctan u$. Simplifica y ahórrate el trabajo.`},
+   {c:3,t:`Análisis de gráficas`,f:`alta`,e:`procedimiento`,
+    ab:`Críticos: $f'=0$. Criterio 2ª: $f''(c)>0$ mínimo, $<0$ máximo. Concavidad: signo de $f''$.`,
+    rc:`"Clasifique los críticos / intervalos de concavidad" → $f'$ para críticos, $f''$ para clasificar y concavidad.`}
+  ],
+  calcdif_p3: [
+   {c:3,t:`Regla de L'Hôpital`,f:`alta`,e:`procedimiento`,
+    ab:`L'Hôpital SOLO si es $0/0$ o $\\infty/\\infty$. Verifica la forma ANTES y DESPUÉS de cada derivada.`,
+    rc:`Cociente que al sustituir da $0/0$ o $\\infty/\\infty$ → L'Hôpital (o Taylor si se repite).`},
+   {c:3,t:`Regla de L'Hôpital`,f:`media`,e:`conceptual`,
+    ab:`La exponencial le gana a cualquier polinomio: $x^n/e^x \\to 0$.`,
+    rc:`Polinomio sobre exponencial cuando $x\\to\\infty$ → tiende a 0 (la exponencial manda).`},
+   {c:2,t:`Razón de cambio`,f:`alta`,e:`procedimiento`,cx:`globo`,
+    ab:`Fórmula → deriva respecto de $t$ → sustituye AL FINAL. $\\dfrac{dV}{dt}=4\\pi r^2\\dfrac{dr}{dt}$.`,
+    rc:`Te dan una razón (cm/s) y piden otra (cm³/s) en un instante → razón de cambio.`},
+   {c:2,t:`Aproximación lineal`,f:`media`,e:`algebra`,
+    ab:`$L(x)=f(a)+f'(a)(x-a)$. $a$ es el número "bonito" más cercano; $x-a$ es chiquito.`,
+    rc:`Aproximar $\\sqrt{\\ }$, $\\ln$, trig de un número cercano a uno fácil → linealización.`},
+   {c:3,t:`Valores extremos`,f:`alta`,e:`procedimiento`,
+    ab:`Máx/mín absoluto en $[a,b]$: evalúa $f$ en los críticos internos Y en $a$ y $b$. Compara valores; el mayor gana.`,
+    rc:`"Máximo/mínimo absoluto en intervalo cerrado" → críticos + extremos del intervalo, compara.`},
+   {c:3,t:`Optimización`,f:`alta`,e:`procedimiento`,gem:`calcdif_p2_2`,
+    ab:`Objetivo + restricción. Deja una variable, deriva, iguala a 0, verifica que sea mínimo (2ª derivada o signo de $S'$).`,
+    rc:`"Lado / dimensión que minimiza..." con volumen o área fija → optimización.`},
+   {c:3,t:`Teorema del valor medio`,f:`media`,e:`formula`,
+    ab:`$f'(c)=\\dfrac{f(b)-f(a)}{b-a}$. Despeja $c$ y descarta los que caen fuera de $(a,b)$.`,
+    rc:`"Valor $c$ que garantiza el TVM / Rolle" → iguala $f'(c)$ a la pendiente de la secante.`},
+   {c:2,t:`Movimiento rectilíneo`,f:`alta`,e:`signo`,
+    ab:`Sentido = signo de $v=s'$. Distancia $\\neq$ desplazamiento: parte en los $t$ donde $v=0$ y suma valores absolutos.`,
+    rc:`Partícula con $s(t)$: sentido → $v$; frena/acelera → $a\\cdot v$; distancia total → parte en los ceros de $v$.`},
+   {c:2,t:`Reglas de derivación`,f:`baja`,e:`formula`,
+    ab:`Regla de la potencia y evalúa. $f'(x)=3x^2-4$.`,
+    rc:`Polinomio, piden $f'(a)$.`}
+  ]
+ }
+};
+
+/* ── 3. Solución + rúbrica para las 4 abiertas ────────────────────────────────
+   key = examKey + '_' + idx. rubrica: [criterio, "obtenido / total"].          */
+var SIM_SOL = {
+ calcdif: {
+  calcdif_p1_7: {
+   concepto:`Derivada por definición (límite del cociente incremental) y recta normal.`,
+   quePregunta:`Probar $f'(x)=\\tfrac{3\\sqrt{x}}{2}$ SIN reglas, solo con el límite, y luego la recta normal en $x=4$.`,
+   solucion:[
+    `$f(x)=x\\sqrt{x}=x^{3/2}$. Por definición: $f'(x)=\\displaystyle\\lim_{h\\to0}\\dfrac{(x+h)^{3/2}-x^{3/2}}{h}$.`,
+    `Multiplico y divido por el conjugado $(x+h)^{3/2}+x^{3/2}$:`,
+    `$f'(x)=\\displaystyle\\lim_{h\\to0}\\dfrac{(x+h)^3-x^3}{h\\left[(x+h)^{3/2}+x^{3/2}\\right]}$.`,
+    `Numerador: $(x+h)^3-x^3 = h(3x^2+3xh+h^2)$.`,
+    `$f'(x)=\\displaystyle\\lim_{h\\to0}\\dfrac{3x^2+3xh+h^2}{(x+h)^{3/2}+x^{3/2}} = \\dfrac{3x^2}{2x^{3/2}} = \\dfrac{3\\sqrt{x}}{2}$. $\\blacksquare$`,
+    `Recta normal en $x=4$: $f(4)=8$, $f'(4)=3$. Pendiente normal $=-\\tfrac13$.`,
+    `$y-8 = -\\tfrac13(x-4)\\ \\Rightarrow\\ y = -\\tfrac13 x + \\tfrac{28}{3}$.`
+   ],
+   resultado:`$f'(x)=\\dfrac{3\\sqrt{x}}{2}$; recta normal $y = -\\dfrac{1}{3}x + \\dfrac{28}{3}$.`,
+   errorComun:`Usar la regla de la potencia (la pregunta EXIGE la definición) o poner la pendiente de la normal $=f'(4)$ en vez de $-1/f'(4)$.`,
+   antibobo:`"Por definición" = límite, sí o sí. Normal = perpendicular = pendiente $-1/f'(a)$.`,
+   reconocer:`"Demuestre usando la definición" → cociente incremental. "Recta normal" → $-1/f'(a)$.`,
+   rubrica:[[`Planteo del límite (definición)`,`0 / 0.20`],[`Racionalización / manejo algebraico`,`0 / 0.30`],
+            [`Límite y resultado de $f'(x)$`,`0 / 0.20`],[`Pendiente normal $-1/f'(4)$`,`0 / 0.15`],
+            [`Ecuación de la recta`,`0 / 0.15`],[`Total`,`0 / 1.00`]]
+  },
+  calcdif_p2_5: {
+   concepto:`Razón de cambio: escalera (Pitágoras) + razón angular.`,
+   quePregunta:`(a) rapidez de descenso del extremo superior; (b) rapidez de cambio del ángulo con el suelo, cuando la base está a 6 m.`,
+   solucion:[
+    `Sea $x$ la distancia base–pared, $y$ la altura del tope. $x^2+y^2=100$. Dato: $\\tfrac{dx}{dt}=0.5$.`,
+    `En $x=6$: $y=\\sqrt{100-36}=8$.`,
+    `(a) $2x\\tfrac{dx}{dt}+2y\\tfrac{dy}{dt}=0 \\Rightarrow \\tfrac{dy}{dt}=-\\dfrac{x}{y}\\tfrac{dx}{dt}=-\\dfrac{6}{8}(0.5)=-0.375$ m/s (baja a $0.375$ m/s).`,
+    `(b) $\\cos\\theta = \\dfrac{x}{10}$. Derivo: $-\\sin\\theta\\,\\tfrac{d\\theta}{dt} = \\dfrac{1}{10}\\tfrac{dx}{dt}$.`,
+    `$\\sin\\theta = \\dfrac{y}{10}=0.8$. Entonces $\\tfrac{d\\theta}{dt} = -\\dfrac{0.5}{10(0.8)} = -0.0625$ rad/s.`
+   ],
+   resultado:`(a) $\\dfrac{dy}{dt}=-0.375$ m/s. (b) $\\dfrac{d\\theta}{dt}=-0.0625$ rad/s (el ángulo disminuye).`,
+   errorComun:`Sustituir $x=6$ ANTES de derivar (pierdes la relación), o no hallar $y$ con Pitágoras.`,
+   antibobo:`Dibuja el triángulo, escribe la relación, deriva respecto de $t$, y SOLO al final metes los números.`,
+   reconocer:`Escalera que resbala → $x^2+y^2=L^2$. Piden ángulo → relación trig con un lado.`,
+   rubrica:[[`Planteo (Pitágoras + datos)`,`0 / 0.20`],[`Derivar y despejar $dy/dt$ (a)`,`0 / 0.30`],
+            [`Relación trig del ángulo (b)`,`0 / 0.20`],[`Derivar y despejar $d\\theta/dt$`,`0 / 0.20`],
+            [`Interpretación (signos, unidades)`,`0 / 0.10`],[`Total`,`0 / 1.00`]]
+  },
+  calcdif_quiz3_3: {
+   concepto:`Puntos críticos, criterio de la segunda derivada, concavidad.`,
+   quePregunta:`(a) críticos de $f(x)=x^3-3x^2+2$; (b) clasificarlos con $f''$; (c) intervalos de concavidad.`,
+   solucion:[
+    `(a) $f'(x)=3x^2-6x=3x(x-2)=0 \\Rightarrow x=0,\\ x=2$.`,
+    `(b) $f''(x)=6x-6$. $f''(0)=-6<0 \\Rightarrow$ máximo local en $x=0$ ($f(0)=2$). $f''(2)=6>0 \\Rightarrow$ mínimo local en $x=2$ ($f(2)=-2$).`,
+    `(c) $f''(x)=0 \\Rightarrow x=1$. $f''<0$ en $(-\\infty,1)$: cóncava hacia abajo. $f''>0$ en $(1,\\infty)$: cóncava hacia arriba. Inflexión en $(1,0)$.`
+   ],
+   resultado:`Máx local $(0,2)$; mín local $(2,-2)$; cóncava abajo en $(-\\infty,1)$, arriba en $(1,\\infty)$; inflexión $(1,0)$.`,
+   errorComun:`Confundir el criterio: $f''>0$ es MÍNIMO (cara feliz), $f''<0$ es MÁXIMO.`,
+   antibobo:`$f''>0$ = sonrisa = mínimo. $f''<0$ = ceño = máximo. Concavidad = signo de $f''$.`,
+   reconocer:`"Clasifique los críticos" → $f'$ para hallarlos, $f''$ evaluada en cada uno para el tipo.`,
+   rubrica:[[`Puntos críticos ($f'=0$)`,`0 / 0.25`],[`Segunda derivada y clasificación`,`0 / 0.35`],
+            [`Concavidad + inflexión`,`0 / 0.30`],[`Valores de $f$ en los críticos`,`0 / 0.10`],[`Total`,`0 / 1.00`]]
+  },
+  calcdif_p3_7: {
+   concepto:`Movimiento rectilíneo: velocidad, aceleración, distancia total.`,
+   quePregunta:`$s(t)=2t^3-9t^2+12t-4$. (a) intervalos de sentido $\\pm$; (b) aceleración cuando $v=0$; (c) distancia total en $[0,3]$.`,
+   solucion:[
+    `$v(t)=s'(t)=6t^2-18t+12=6(t-1)(t-2)$. $v=0$ en $t=1,\\ t=2$.`,
+    `(a) $v>0$ en $[0,1)$ y $(2,3]$ (sentido positivo); $v<0$ en $(1,2)$ (sentido negativo).`,
+    `(b) $a(t)=s''(t)=12t-18$. $a(1)=-6$, $a(2)=6$.`,
+    `(c) Posiciones: $s(0)=-4$, $s(1)=1$, $s(2)=0$, $s(3)=5$.`,
+    `Distancia $=|1-(-4)| + |0-1| + |5-0| = 5+1+5 = 11$.`
+   ],
+   resultado:`(a) $+$ en $[0,1)\\cup(2,3]$, $-$ en $(1,2)$. (b) $a=-6$ en $t=1$, $a=6$ en $t=2$. (c) distancia total $=11$.`,
+   errorComun:`Calcular $|s(3)-s(0)|=9$ como "distancia" — eso es el desplazamiento. La distancia parte en los $t$ donde $v=0$.`,
+   antibobo:`Distancia total: encuentra dónde $v=0$, evalúa $s$ en esos puntos y en los extremos, suma los saltos en valor absoluto.`,
+   reconocer:`"Distancia total recorrida" (no "desplazamiento") → siempre parte en los ceros de la velocidad.`,
+   rubrica:[[`Velocidad y sus ceros`,`0 / 0.20`],[`Intervalos de sentido`,`0 / 0.20`],
+            [`Aceleración en $v=0$`,`0 / 0.20`],[`Distancia total (parte en $v=0$)`,`0 / 0.30`],
+            [`Unidades / interpretación`,`0 / 0.10`],[`Total`,`0 / 1.00`]]
+  }
+ }
+};
+
+/* ── 4. Preguntas nuevas por corte ─────────────────────────────────────────── */
+var SIM_NEW = {
+ calcdif: [
+  /* ---------- CORTE 1 ---------- */
+  {id:`cd_c1_01`,c:1,t:`Límites indeterminados`,f:`alta`,e:`algebra`,tipo:`mcq`,dif:1,tEsp:75,
+   texto:`Calcule $\\displaystyle\\lim_{x\\to0}\\dfrac{\\sqrt{x+4}-2}{x}$.`,
+   opciones:[`$\\dfrac{1}{4}$`,`$0$`,`$\\dfrac{1}{2}$`,`No existe`],correcta:0,
+   resumen:`Forma $0/0$: se racionaliza multiplicando por el conjugado.`,
+   pasos:[`Multiplico por $\\dfrac{\\sqrt{x+4}+2}{\\sqrt{x+4}+2}$:`,
+     `$\\dfrac{(x+4)-4}{x(\\sqrt{x+4}+2)} = \\dfrac{x}{x(\\sqrt{x+4}+2)} = \\dfrac{1}{\\sqrt{x+4}+2}$.`,
+     `$\\displaystyle\\lim_{x\\to0}\\dfrac{1}{\\sqrt{x+4}+2} = \\dfrac{1}{4}$.`],
+   ab:`Raíz menos número sobre algo que tiende a 0 → racionaliza por el conjugado, se cancela el factor problemático.`,
+   rc:`Raíz menos constante en el numerador y $0/0$ → conjugado.`},
+
+  {id:`cd_c1_02`,c:1,t:`Límites al infinito`,f:`alta`,e:`algebra`,tipo:`mcq`,dif:2,tEsp:90,
+   texto:`Calcule $\\displaystyle\\lim_{x\\to\\infty}\\left(\\sqrt{x^2+3x}-x\\right)$.`,
+   opciones:[`$\\dfrac{3}{2}$`,`$0$`,`$3$`,`$\\infty$`],correcta:0,
+   resumen:`Forma $\\infty-\\infty$: se racionaliza y se divide por $x$.`,
+   pasos:[`$\\left(\\sqrt{x^2+3x}-x\\right)\\dfrac{\\sqrt{x^2+3x}+x}{\\sqrt{x^2+3x}+x} = \\dfrac{3x}{\\sqrt{x^2+3x}+x}$.`,
+     `Divido arriba y abajo por $x$ (con $x>0$, $\\sqrt{x^2}=x$): $\\dfrac{3}{\\sqrt{1+3/x}+1}$.`,
+     `$\\displaystyle\\lim_{x\\to\\infty} \\dfrac{3}{\\sqrt{1}+1} = \\dfrac{3}{2}$.`],
+   ab:`$\\sqrt{\\ }-x$ en $\\infty$ → conjugado, luego saca $x$ de la raíz ($\\sqrt{x^2}=|x|=x$ para $x\\to+\\infty$).`,
+   rc:`Diferencia de una raíz y un polinomio en $\\infty$ ($\\infty-\\infty$) → racionaliza.`},
+
+  {id:`cd_c1_03`,c:1,t:`Límites notables`,f:`alta`,e:`formula`,tipo:`mcq`,dif:1,tEsp:60,
+   texto:`Calcule $\\displaystyle\\lim_{x\\to0}\\dfrac{\\operatorname{sen}(3x)}{\\tan(5x)}$.`,
+   opciones:[`$\\dfrac{3}{5}$`,`$1$`,`$\\dfrac{5}{3}$`,`$0$`],correcta:0,
+   resumen:`Se usan $\\dfrac{\\operatorname{sen} u}{u}\\to1$ y $\\dfrac{\\tan u}{u}\\to1$.`,
+   pasos:[`$\\dfrac{\\operatorname{sen}(3x)}{\\tan(5x)} = \\dfrac{\\operatorname{sen}(3x)}{3x}\\cdot\\dfrac{5x}{\\tan(5x)}\\cdot\\dfrac{3x}{5x}$.`,
+     `Los dos primeros factores $\\to 1$; el tercero es $\\dfrac{3}{5}$.`,
+     `Límite $= \\dfrac{3}{5}$.`],
+   ab:`$\\dfrac{\\operatorname{sen}(ax)}{\\operatorname{sen}(bx)}\\to\\dfrac{a}{b}$ (con $\\tan$ igual). Arma los cocientes "$\\operatorname{sen} u/u$".`,
+   rc:`Cociente de senos/tangentes de múltiplos de $x$ cuando $x\\to0$ → cociente de los coeficientes.`},
+
+  {id:`cd_c1_04`,c:1,t:`Continuidad`,f:`media`,e:`procedimiento`,tipo:`mcq`,dif:2,tEsp:90,
+   texto:`Sea $f(x)=\\begin{cases} ax+3 & x\\le 1\\\\ x^2+b & 1<x<3\\\\ bx+1 & x\\ge 3\\end{cases}$. Si $f$ es continua en todo $\\mathbb{R}$, entonces $a+b$ es:`,
+   opciones:[`$6$`,`$2$`,`$-2$`,`$4$`],correcta:0,
+   resumen:`Se igualan los límites laterales en $x=1$ y $x=3$.`,
+   pasos:[`En $x=1$: $a(1)+3 = 1+b \\Rightarrow a - b = -2$.`,
+     `En $x=3$: $9+b = 3b+1 \\Rightarrow 8 = 2b \\Rightarrow b = 4$.`,
+     `$a = b - 2 = 2$. Entonces $a+b = 6$.`],
+   ab:`Continuidad en cada frontera de la definición a trozos = un límite lateral igual al otro. Una ecuación por frontera.`,
+   rc:`Función a trozos + "continua en todo $\\mathbb{R}$" → una ecuación por cada punto de empalme.`},
+
+  {id:`cd_c1_05`,c:1,t:`Límites indeterminados`,f:`media`,e:`interpretacion`,tipo:`mcq`,dif:1,tEsp:50,
+   texto:`El valor de $\\displaystyle\\lim_{x\\to2}\\dfrac{|x-2|}{x-2}$ es:`,
+   opciones:[`No existe`,`$1$`,`$-1$`,`$0$`],correcta:0,
+   resumen:`Los límites laterales dan $+1$ y $-1$: no coinciden.`,
+   pasos:[`Para $x>2$: $|x-2|=x-2$, cociente $=1$. Límite por derecha $=1$.`,
+     `Para $x<2$: $|x-2|=-(x-2)$, cociente $=-1$. Límite por izquierda $=-1$.`,
+     `$1\\neq-1 \\Rightarrow$ el límite no existe.`],
+   ab:`Valor absoluto dividido por su argumento = función signo. En la raíz del argumento, los laterales chocan.`,
+   rc:`$|g(x)|/g(x)$ cerca de una raíz de $g$ → revisa los dos lados por separado.`},
+
+  {id:`cd_c1_06`,c:1,t:`Límites notables`,f:`media`,e:`formula`,tipo:`numerica`,dif:2,tEsp:70,
+   texto:`Calcule $\\displaystyle\\lim_{x\\to0}\\dfrac{1-\\cos x}{x^2}$. (Responde en decimal.)`,
+   respuesta:`0.5`,unidad:``,tolNum:0.001,puntaje:15,
+   resumen:`Multiplicar por $\\dfrac{1+\\cos x}{1+\\cos x}$ y usar $\\operatorname{sen}^2 x = 1-\\cos^2 x$.`,
+   pasos:[`$\\dfrac{1-\\cos x}{x^2}\\cdot\\dfrac{1+\\cos x}{1+\\cos x} = \\dfrac{\\operatorname{sen}^2 x}{x^2(1+\\cos x)}$.`,
+     `$= \\left(\\dfrac{\\operatorname{sen} x}{x}\\right)^2\\cdot\\dfrac{1}{1+\\cos x} \\to 1\\cdot\\dfrac{1}{2} = \\dfrac{1}{2}$.`],
+   ab:`$\\dfrac{1-\\cos x}{x^2}\\to\\dfrac12$. Sale con el conjugado $1+\\cos x$ y $\\operatorname{sen}^2=1-\\cos^2$.`,
+   rc:`$1-\\cos x$ sobre $x^2$ → conjugado; sobre $x$ → tiende a 0.`},
+
+  {id:`cd_c1_07`,c:1,t:`Límites algebraicos`,f:`alta`,e:`algebra`,tipo:`mcq`,dif:1,tEsp:60,
+   texto:`Calcule $\\displaystyle\\lim_{x\\to3}\\dfrac{x^2-9}{x^2-x-6}$.`,
+   opciones:[`$\\dfrac{6}{5}$`,`$1$`,`$0$`,`No existe`],correcta:0,
+   resumen:`Forma $0/0$: se factoriza y se cancela $(x-3)$.`,
+   pasos:[`$\\dfrac{(x-3)(x+3)}{(x-3)(x+2)} = \\dfrac{x+3}{x+2}$ para $x\\neq3$.`,
+     `$\\displaystyle\\lim_{x\\to3}\\dfrac{x+3}{x+2} = \\dfrac{6}{5}$.`],
+   ab:`$0/0$ en un cociente de polinomios → el factor $(x-a)$ está arriba y abajo. Factoriza y cancélalo.`,
+   rc:`Sustituyes y da $0/0$ con polinomios → factoriza (Ruffini si hace falta).`},
+
+  {id:`cd_c1_08`,c:1,t:`Límites al infinito`,f:`alta`,e:`conceptual`,tipo:`mcq`,dif:1,tEsp:55,
+   texto:`Calcule $\\displaystyle\\lim_{x\\to\\infty}\\dfrac{3x^2-x+5}{2x^2+7}$.`,
+   opciones:[`$\\dfrac{3}{2}$`,`$0$`,`$\\infty$`,`$1$`],correcta:0,
+   resumen:`Mismo grado arriba y abajo → cociente de los coeficientes líderes.`,
+   pasos:[`Divido todo por $x^2$: $\\dfrac{3-1/x+5/x^2}{2+7/x^2}$.`,
+     `Cuando $x\\to\\infty$: $\\dfrac{3}{2}$.`],
+   ab:`Racional en $\\infty$: grados iguales → coef. líder / coef. líder. Grado de arriba mayor → $\\pm\\infty$. Menor → $0$.`,
+   rc:`"Límite cuando $x\\to\\infty$" de una fracción de polinomios → compara los grados.`},
+
+  {id:`cd_c1_09`,c:1,t:`Límites notables`,f:`media`,e:`procedimiento`,tipo:`numerica`,dif:2,tEsp:60,
+   texto:`Calcule $\\displaystyle\\lim_{x\\to0}\\dfrac{\\operatorname{sen}(5x)}{x}$.`,
+   respuesta:`5`,unidad:``,tolNum:0.001,puntaje:15,
+   resumen:`$\\dfrac{\\operatorname{sen}(5x)}{x} = 5\\cdot\\dfrac{\\operatorname{sen}(5x)}{5x} \\to 5\\cdot1$.`,
+   pasos:[`Multiplico y divido por 5: $5\\cdot\\dfrac{\\operatorname{sen}(5x)}{5x}$.`,
+     `$\\dfrac{\\operatorname{sen}(5x)}{5x}\\to1$, así que el límite es $5$.`],
+   ab:`$\\dfrac{\\operatorname{sen}(ax)}{x}\\to a$. Fabrica el "$\\operatorname{sen} u/u$" metiendo el coeficiente.`,
+   rc:`$\\operatorname{sen}$ de un múltiplo de $x$ sobre $x$ cuando $x\\to0$ → el coeficiente.`},
+
+  {id:`cd_c1_10`,c:1,t:`Asíntotas`,f:`media`,e:`procedimiento`,tipo:`mcq`,dif:2,tEsp:80,
+   texto:`La asíntota oblicua de $f(x)=\\dfrac{x^2+1}{x}$ cuando $x\\to\\pm\\infty$ es:`,
+   opciones:[`$y = x$`,`$y = x+1$`,`$y = 0$`,`no tiene asíntota oblicua`],correcta:0,
+   resumen:`Se divide: $\\dfrac{x^2+1}{x} = x + \\dfrac{1}{x}$.`,
+   pasos:[`División: $\\dfrac{x^2+1}{x} = x + \\dfrac{1}{x}$.`,
+     `Cuando $x\\to\\pm\\infty$, $\\dfrac{1}{x}\\to0$, así que $f(x)$ se pega a $y=x$.`],
+   ab:`Asíntota oblicua: divide el numerador entre el denominador; el cociente (sin el resto) es la recta.`,
+   rc:`Racional con grado de arriba = grado de abajo + 1 → hay asíntota oblicua. Haz la división.`},
+
+  {id:`cd_c1_11`,c:1,t:`Límites indeterminados`,f:`baja`,e:`conceptual`,tipo:`mcq`,dif:2,tEsp:70,
+   texto:`Calcule $\\displaystyle\\lim_{x\\to0} x^2\\operatorname{sen}\\!\\left(\\dfrac{1}{x}\\right)$.`,
+   opciones:[`$0$`,`$1$`,`No existe`,`$\\infty$`],correcta:0,
+   resumen:`Teorema del emparedado: $-x^2 \\le x^2\\operatorname{sen}(1/x) \\le x^2$.`,
+   pasos:[`$-1 \\le \\operatorname{sen}(1/x) \\le 1$, así que $-x^2 \\le x^2\\operatorname{sen}(1/x) \\le x^2$.`,
+     `$\\displaystyle\\lim_{x\\to0}(-x^2) = \\lim_{x\\to0} x^2 = 0$.`,
+     `Por el emparedado, el límite es $0$.`],
+   ab:`Algo acotado ($\\operatorname{sen}$, $\\cos$) por algo que tiende a 0 → el producto tiende a 0 (emparedado).`,
+   rc:`Aparece $\\operatorname{sen}(1/x)$ o $\\cos(1/x)$ (oscila) multiplicado por algo que $\\to0$ → teorema del emparedado.`},
+
+  /* ---------- CORTE 2 ---------- */
+  {id:`cd_c2_01`,c:2,t:`Regla de la cadena`,f:`alta`,e:`procedimiento`,tipo:`mcq`,dif:3,tEsp:90,gem:`calcdif_p1_2`,
+   texto:`Si $y=\\sqrt{\\tan(3x)}$, entonces $\\dfrac{dy}{dx}=$`,
+   opciones:[`$\\dfrac{3\\sec^2(3x)}{2\\sqrt{\\tan(3x)}}$`,`$\\dfrac{\\sec^2(3x)}{2\\sqrt{\\tan(3x)}}$`,
+             `$\\dfrac{3\\sec^2(3x)}{\\sqrt{\\tan(3x)}}$`,`$\\dfrac{1}{2\\sqrt{\\tan(3x)}}$`],correcta:0,
+   resumen:`Cadena de tres capas: raíz, tangente y $3x$.`,
+   pasos:[`$y=[\\tan(3x)]^{1/2}$. Capa 1: $\\dfrac12[\\tan(3x)]^{-1/2}\\cdot\\dfrac{d}{dx}\\tan(3x)$.`,
+     `Capa 2: $\\dfrac{d}{dx}\\tan(3x) = 3\\sec^2(3x)$.`,
+     `$\\dfrac{dy}{dx} = \\dfrac{1}{2\\sqrt{\\tan(3x)}}\\cdot 3\\sec^2(3x) = \\dfrac{3\\sec^2(3x)}{2\\sqrt{\\tan(3x)}}$.`],
+   ab:`Cuenta las capas: raíz, $\\tan$, $3x$ = tres derivadas encadenadas, todas multiplicadas. El $3$ del $3x$ es el que más se olvida.`,
+   rc:`Raíz de una trig de un múltiplo de $x$ → tres capas.`},
+
+  {id:`cd_c2_02`,c:2,t:`Derivación implícita`,f:`media`,e:`procedimiento`,tipo:`mcq`,dif:3,tEsp:95,
+   texto:`Si $x^2+y^2=25$, entonces $\\dfrac{d^2y}{dx^2}$ en el punto $(3,4)$ es:`,
+   opciones:[`$-\\dfrac{25}{64}$`,`$-\\dfrac{3}{4}$`,`$\\dfrac{25}{64}$`,`$-\\dfrac{7}{16}$`],correcta:0,
+   resumen:`Se deriva $y'=-x/y$ con la regla del cociente y se sustituye el punto.`,
+   pasos:[`Primera: $2x+2yy'=0 \\Rightarrow y'=-\\dfrac{x}{y}$. En $(3,4)$: $y'=-\\dfrac34$.`,
+     `Segunda (cociente): $y'' = -\\dfrac{y - x y'}{y^2} = -\\dfrac{y - x\\left(-\\tfrac{x}{y}\\right)}{y^2} = -\\dfrac{y^2+x^2}{y^3}$.`,
+     `Como $x^2+y^2=25$: $y'' = -\\dfrac{25}{y^3}$.`,
+     `En $(3,4)$: $y'' = -\\dfrac{25}{64}$.`],
+   ab:`$y''$ implícita: deriva $y'$ con la regla del cociente, y donde aparezca $y'$ mete su expresión ($-x/y$).`,
+   rc:`"Segunda derivada implícita" → deriva $y'$ otra vez; usa la ecuación original para simplificar al final.`},
+
+  {id:`cd_c2_03`,c:2,t:`Razón de cambio`,f:`alta`,e:`procedimiento`,tipo:`numerica`,dif:2,tEsp:100,cx:`cono`,
+   texto:`Un tanque cónico (vértice abajo, radio 3 m, altura 6 m) se llena a $2\\ \\text{m}^3/\\text{min}$. ¿A qué rapidez (m/min) sube el nivel cuando $h=4$ m? Responde en la forma $\\tfrac{1}{a\\pi}$ escribiendo solo $a$.`,
+   respuesta:`2`,unidad:`(es decir $\\tfrac{1}{2\\pi}$ m/min)`,tolNum:0.001,puntaje:20,
+   resumen:`Semejanza $r=h/2$ para dejar $V$ en función de $h$, luego derivar.`,
+   pasos:[`Semejanza: $\\dfrac{r}{h}=\\dfrac{3}{6}\\Rightarrow r=\\dfrac{h}{2}$.`,
+     `$V=\\dfrac13\\pi r^2 h = \\dfrac{\\pi h^3}{12}$.`,
+     `$\\dfrac{dV}{dt}=\\dfrac{\\pi h^2}{4}\\dfrac{dh}{dt}$. Con $h=4$: $2 = 4\\pi\\dfrac{dh}{dt}$.`,
+     `$\\dfrac{dh}{dt}=\\dfrac{1}{2\\pi}\\approx0.159$ m/min.`],
+   ab:`Cono que se llena → el radio depende del nivel. Usa semejanza para dejar $V(h)$ ANTES de derivar.`,
+   rc:`Recipiente que "se abre" hacia arriba (cono, pirámide) → semejanza de triángulos primero.`},
+
+  {id:`cd_c2_04`,c:2,t:`Recta tangente y normal`,f:`media`,e:`algebra`,tipo:`mcq`,dif:2,tEsp:80,
+   texto:`La recta tangente a la curva $x^3+y^3=9$ en el punto $(1,2)$ es:`,
+   opciones:[`$y = -\\dfrac{1}{4}x + \\dfrac{9}{4}$`,`$y = -\\dfrac{1}{4}x + 2$`,`$y = 4x-2$`,`$y = -4x+6$`],correcta:0,
+   resumen:`Derivación implícita para la pendiente, luego punto–pendiente.`,
+   pasos:[`$3x^2+3y^2y'=0 \\Rightarrow y' = -\\dfrac{x^2}{y^2}$.`,
+     `En $(1,2)$: $y' = -\\dfrac{1}{4}$.`,
+     `$y-2 = -\\dfrac14(x-1) \\Rightarrow y = -\\dfrac14 x + \\dfrac94$.`],
+   ab:`Curva implícita: pendiente por implícita, luego $y-y_0 = m(x-x_0)$. No olvides el punto.`,
+   rc:`"Recta tangente a la curva $F(x,y)=c$ en $(a,b)$" → implícita para $m$, punto–pendiente.`},
+
+  /* ---------- CORTE 3 ---------- */
+  {id:`cd_c3_01`,c:3,t:`Regla de L'Hôpital`,f:`alta`,e:`procedimiento`,tipo:`mcq`,dif:2,tEsp:80,
+   texto:`Calcule $\\displaystyle\\lim_{x\\to0^+} x\\ln x$.`,
+   opciones:[`$0$`,`$-\\infty$`,`$1$`,`No existe`],correcta:0,
+   resumen:`Forma $0\\cdot(-\\infty)$: se reescribe como cociente para aplicar L'Hôpital.`,
+   pasos:[`$x\\ln x = \\dfrac{\\ln x}{1/x}$, forma $\\dfrac{-\\infty}{\\infty}$.`,
+     `L'Hôpital: $\\dfrac{1/x}{-1/x^2} = -x$.`,
+     `$\\displaystyle\\lim_{x\\to0^+}(-x) = 0$.`],
+   ab:`$0\\cdot\\infty$: pasa uno de los factores al denominador como su recíproco para volverlo $0/0$ o $\\infty/\\infty$.`,
+   rc:`Producto donde un factor $\\to0$ y el otro $\\to\\pm\\infty$ → reescribe como cociente.`},
+
+  {id:`cd_c3_02`,c:3,t:`Regla de L'Hôpital`,f:`media`,e:`procedimiento`,tipo:`mcq`,dif:3,tEsp:100,
+   texto:`Calcule $\\displaystyle\\lim_{x\\to0}(1+2x)^{1/x}$.`,
+   opciones:[`$e^2$`,`$e$`,`$1$`,`$2$`],correcta:0,
+   resumen:`Forma $1^\\infty$: tomar $\\ln$, resolver, y exponenciar.`,
+   pasos:[`Sea $L$ el límite. $\\ln L = \\displaystyle\\lim_{x\\to0}\\dfrac{\\ln(1+2x)}{x}$, forma $0/0$.`,
+     `L'Hôpital: $\\dfrac{2/(1+2x)}{1} \\to 2$.`,
+     `$\\ln L = 2 \\Rightarrow L = e^2$.`],
+   ab:`$1^\\infty$ (o $0^0$, $\\infty^0$): $\\ln$ a ambos lados, resuelve el límite del exponente, y al final $e^{(\\text{resultado})}$.`,
+   rc:`Base $\\to1$ y exponente $\\to\\infty$ → toma logaritmo.`},
+
+  {id:`cd_c3_03`,c:3,t:`Optimización`,f:`alta`,e:`procedimiento`,tipo:`mcq`,dif:3,tEsp:110,
+   texto:`El punto de la parábola $y=x^2$ más cercano al punto $(0,3)$ tiene abscisa:`,
+   opciones:[`$\\pm\\sqrt{\\dfrac{5}{2}}$`,`$0$`,`$\\pm\\dfrac{3}{2}$`,`$\\pm\\sqrt{3}$`],correcta:0,
+   resumen:`Minimizar la distancia al cuadrado $D(x)=x^2+(x^2-3)^2$.`,
+   pasos:[`$D(x)=x^2+(x^2-3)^2$ (misma $x$ que minimiza la distancia).`,
+     `$D'(x) = 2x + 2(x^2-3)(2x) = 2x(2x^2-5)$.`,
+     `$D'(x)=0 \\Rightarrow x=0$ (da $D=9$) o $x^2=\\dfrac52$ (da $D$ menor).`,
+     `Abscisa $= \\pm\\sqrt{\\dfrac{5}{2}}$.`],
+   ab:`"Punto más cercano" → minimiza la distancia AL CUADRADO (te ahorra la raíz, mismo mínimo).`,
+   rc:`"Punto de la curva más cercano a $P$" → $D^2$ = suma de cuadrados de las diferencias, deriva.`},
+
+  {id:`cd_c3_04`,c:3,t:`Análisis de gráficas`,f:`media`,e:`conceptual`,tipo:`mcq`,dif:2,tEsp:70,
+   texto:`¿Cuántos puntos de inflexión tiene $f(x)=x^4-6x^2+5$?`,
+   opciones:[`$2$`,`$1$`,`$0$`,`$3$`],correcta:0,
+   resumen:`Contar los cambios de signo de $f''$.`,
+   pasos:[`$f'(x)=4x^3-12x$; $f''(x)=12(x^2-1)$.`,
+     `$f''=0$ en $x=\\pm1$. $f''>0$ para $|x|>1$, $f''<0$ para $|x|<1$.`,
+     `Cambio de concavidad en $x=-1$ y en $x=1$: $2$ puntos de inflexión.`],
+   ab:`Inflexión = $f''$ CAMBIA de signo. No basta $f''=0$ ($x^4$ tiene $f''(0)=0$ y no hay inflexión).`,
+   rc:`"Cuántos puntos de inflexión" → raíces de $f''$ donde además cambia de signo.`},
+
+  {id:`cd_c3_05`,c:3,t:`Teorema del valor medio`,f:`media`,e:`formula`,tipo:`numerica`,dif:2,tEsp:70,
+   texto:`Para $f(x)=\\sqrt{x}$ en $[0,4]$, el valor $c\\in(0,4)$ del Teorema del Valor Medio es:`,
+   respuesta:`1`,unidad:``,tolNum:0.001,puntaje:15,
+   resumen:`$f'(c) = \\dfrac{f(4)-f(0)}{4-0}$.`,
+   pasos:[`Pendiente secante: $\\dfrac{\\sqrt4-\\sqrt0}{4} = \\dfrac{1}{2}$.`,
+     `$f'(x) = \\dfrac{1}{2\\sqrt x}$. Igualo: $\\dfrac{1}{2\\sqrt c} = \\dfrac12 \\Rightarrow \\sqrt c = 1 \\Rightarrow c = 1$.`],
+   ab:`TVM: $f'(c)$ = pendiente de la recta que une los extremos. Despeja $c$, verifica que caiga dentro.`,
+   rc:`"Valor $c$ del TVM" → $f'(c) = $ pendiente secante entre los extremos.`}
+ ]
+};
+
+/* ── export ──────────────────────────────────────────────────────────────── */
+window.SIM_TAX = SIM_TAX;
+window.SIM_META = SIM_META;
+window.SIM_SOL = SIM_SOL;
+window.SIM_NEW = SIM_NEW;
+})();
+  </script>
+  <script>
+/* ═══════════════════════════════════════════════════════════════════════════
+   MathUNAL · Simulacros Pro — Laboratorio ("Compruébalo tú mismo")
+   ---------------------------------------------------------------------------
+   Widgets SVG interactivos, sin dependencias. Cada uno: un slider que mueve
+   algo y un readout que muestra cómo cambia la cantidad que pregunta el
+   ejercicio. Se montan desde __simExplHook cuando la pregunta trae `compruebalo`.
+   window.__simLab.mount(hostEl, id)  ·  ids: escalera cono globo caja tangente limite
+   Rama simulacros-pro. Sin desplegar.
+   ═══════════════════════════════════════════════════════════════════════════ */
+(function(){
+"use strict";
+
+function el(tag, attrs, kids){
+  var n=document.createElementNS(tag==='svg'||SVG_TAGS[tag]?'http://www.w3.org/2000/svg':'http://www.w3.org/1999/xhtml', tag);
+  if(attrs) Object.keys(attrs).forEach(function(k){ n.setAttribute(k, attrs[k]); });
+  (kids||[]).forEach(function(c){ n.appendChild(typeof c==='string'?document.createTextNode(c):c); });
+  return n;
+}
+var SVG_TAGS={svg:1,g:1,path:1,line:1,circle:1,ellipse:1,rect:1,polyline:1,polygon:1,text:1,'text':1};
+
+/* shell común: título, SVG, slider, readout, nota */
+function shell(host, opts){
+  host.innerHTML='';
+  var wrap=document.createElement('div'); wrap.className='sl-wrap';
+  var svg=document.createElementNS('http://www.w3.org/2000/svg','svg');
+  svg.setAttribute('viewBox','0 0 320 200'); svg.setAttribute('class','sl-svg');
+  var rng=document.createElement('input');
+  rng.type='range'; rng.className='sl-range';
+  rng.min=opts.min; rng.max=opts.max; rng.step=opts.step; rng.value=opts.def;
+  var out=document.createElement('div'); out.className='sl-out';
+  var note=document.createElement('div'); note.className='sl-note'; note.innerHTML=opts.note||'';
+  var lbl=document.createElement('div'); lbl.className='sl-lbl'; lbl.textContent=opts.label||'';
+  wrap.appendChild(svg); wrap.appendChild(lbl); wrap.appendChild(rng); wrap.appendChild(out); wrap.appendChild(note);
+  host.appendChild(wrap);
+  function upd(){ opts.draw(svg, parseFloat(rng.value), out); }
+  rng.addEventListener('input', upd);
+  upd();
+  return {svg:svg, rng:rng, out:out};
+}
+function fmt(x,d){ return (Math.round(x*Math.pow(10,d||2))/Math.pow(10,d||2)).toString(); }
+function ns(t,a){ var n=document.createElementNS('http://www.w3.org/2000/svg',t); if(a) Object.keys(a).forEach(function(k){n.setAttribute(k,a[k]);}); return n; }
+
+var W={
+ /* ── ESCALERA que resbala (razón de cambio) ─────────────────────────────── */
+ escalera:function(host){
+  var L=5;
+  shell(host,{min:0.6,max:L-0.15,step:0.05,def:3,
+   label:'Distancia de la base a la pared  ·  dx/dt = 1 m/s',
+   note:'Mueve la base. Lejos de la pared (escalera casi acostada) la punta baja lentísimo; cerca de la pared baja rapidísimo. Eso es <b>dy/dt = −(x/y)·(dx/dt)</b>: cuando y es chico, la razón se dispara.',
+   draw:function(svg,x,out){
+     var y=Math.sqrt(L*L-x*x), s=30, ox=45, oy=175;
+     var bx=ox+x*s, ty=oy-y*s, dydt=-x/y;
+     svg.innerHTML='';
+     svg.appendChild(ns('line',{x1:ox,y1:20,x2:ox,y2:oy,stroke:'var(--t3)','stroke-width':3}));
+     svg.appendChild(ns('line',{x1:ox,y1:oy,x2:ox+170,y2:oy,stroke:'var(--t3)','stroke-width':3}));
+     svg.appendChild(ns('path',{d:'M'+ox+' '+ty+' L'+ox+' '+oy+' L'+bx+' '+oy,fill:'var(--adim)',stroke:'none'}));
+     svg.appendChild(ns('line',{x1:ox,y1:ty,x2:bx,y2:oy,stroke:'var(--acc)','stroke-width':5,'stroke-linecap':'round'}));
+     svg.appendChild(ns('circle',{cx:ox,cy:ty,r:4.5,fill:'var(--acc2)'}));
+     svg.appendChild(ns('circle',{cx:bx,cy:oy,r:4.5,fill:'var(--acc2)'}));
+     var tY=ns('text',{x:ox-8,y:ty+4,fill:'var(--t2)','font-size':11,'text-anchor':'end'}); tY.textContent='y='+fmt(y);
+     var tX=ns('text',{x:(ox+bx)/2,y:oy+16,fill:'var(--t2)','font-size':11,'text-anchor':'middle'}); tX.textContent='x='+fmt(x);
+     svg.appendChild(tY); svg.appendChild(tX);
+     // flecha de descenso proporcional a |dydt|
+     var arr=Math.min(40,Math.abs(dydt)*22);
+     svg.appendChild(ns('line',{x1:ox+13,y1:ty,x2:ox+13,y2:ty+arr,stroke:'var(--bad)','stroke-width':2.5,'marker-end':''}));
+     svg.appendChild(ns('polygon',{points:(ox+9)+','+(ty+arr-5)+' '+(ox+17)+','+(ty+arr-5)+' '+(ox+13)+','+(ty+arr+3),fill:'var(--bad)'}));
+     out.innerHTML='x = '+fmt(x)+' m  ·  y = '+fmt(y)+' m  ·  <b>dy/dt = '+fmt(dydt)+' m/s</b> (la punta baja)';
+   }});
+ },
+
+ /* ── CONO que se llena (razón de cambio + semejanza) ────────────────────── */
+ cono:function(host){
+  var R=3,H=6,dVdt=2;
+  shell(host,{min:0.4,max:H,step:0.05,def:3,
+   label:'Nivel del agua h  ·  entra a 2 m³/min',
+   note:'El radio de la superficie crece con el nivel (<b>r = h/2</b>), así que la superficie se ensancha y el mismo caudal sube el nivel cada vez más lento: <b>dh/dt = 8/(πh²)</b>.',
+   draw:function(svg,h,out){
+     var r=h/2, dhdt=8/(Math.PI*h*h);
+     var cx=160, top=25, bot=185, ch=bot-top, s=ch/H;
+     var halfTop=(R/H)*ch;
+     // cono (triángulo invertido)
+     svg.innerHTML='';
+     svg.appendChild(ns('path',{d:'M'+(cx-halfTop)+' '+top+' L'+cx+' '+bot+' L'+(cx+halfTop)+' '+top,fill:'none',stroke:'var(--t3)','stroke-width':2.5,'stroke-linejoin':'round'}));
+     svg.appendChild(ns('line',{x1:cx-halfTop,y1:top,x2:cx+halfTop,y2:top,stroke:'var(--t3)','stroke-width':2.5}));
+     // agua
+     var wy=bot-h*s, wHalf=(r/H)*ch;
+     svg.appendChild(ns('path',{d:'M'+(cx-wHalf)+' '+wy+' L'+cx+' '+bot+' L'+(cx+wHalf)+' '+wy+' Z',fill:'var(--adim)',stroke:'var(--acc)','stroke-width':1.5}));
+     svg.appendChild(ns('ellipse',{cx:cx,cy:wy,rx:wHalf,ry:5,fill:'var(--acc)','fill-opacity':0.35,stroke:'var(--acc)','stroke-width':1.5}));
+     var tH=ns('text',{x:cx+halfTop+8,y:wy+4,fill:'var(--t2)','font-size':11}); tH.textContent='h='+fmt(h);
+     svg.appendChild(tH);
+     out.innerHTML='h = '+fmt(h)+' m  ·  r = '+fmt(r)+' m  ·  <b>dh/dt = '+fmt(dhdt)+' m/min</b>';
+   }});
+ },
+
+ /* ── GLOBO que se infla (razón de cambio, esfera) ───────────────────────── */
+ globo:function(host){
+  var dVdt=100;
+  shell(host,{min:1,max:8,step:0.1,def:5,
+   label:'Radio r (cm)  ·  entra aire a 100 cm³/s',
+   note:'Metes aire al mismo ritmo, pero el globo ya es más grande: la superficie 4πr² crece con r², así que <b>dr/dt = 100/(4πr²)</b> se hace cada vez más chico.',
+   draw:function(svg,r,out){
+     var drdt=dVdt/(4*Math.PI*r*r);
+     var cx=160, cy=105, pr=r*10;
+     svg.innerHTML='';
+     svg.appendChild(ns('circle',{cx:cx,cy:cy,r:pr,fill:'var(--adim)',stroke:'var(--acc)','stroke-width':2}));
+     svg.appendChild(ns('line',{x1:cx,y1:cy,x2:cx+pr,y2:cy,stroke:'var(--acc2)','stroke-width':2,'stroke-dasharray':'3 3'}));
+     var tR=ns('text',{x:cx+pr/2,y:cy-5,fill:'var(--t2)','font-size':11,'text-anchor':'middle'}); tR.textContent='r='+fmt(r);
+     svg.appendChild(tR);
+     // nudo
+     svg.appendChild(ns('path',{d:'M'+(cx-4)+' '+(cy+pr)+' l4 8 l4 -8 Z',fill:'var(--acc)'}));
+     out.innerHTML='r = '+fmt(r)+' cm  ·  superficie = '+fmt(4*Math.PI*r*r,0)+' cm²  ·  <b>dr/dt = '+fmt(drdt,3)+' cm/s</b>';
+   }});
+ },
+
+ /* ── CAJA de material mínimo (optimización) ─────────────────────────────── */
+ caja:function(host){
+  var V=32;
+  shell(host,{min:1.4,max:7,step:0.05,def:2.5,
+   label:'Lado de la base x  ·  volumen fijo V = 32',
+   note:'La curva es el material total S(x) = x² + 128/x. Muévete: baja hasta un <b>valle en x = ∛64 = 4</b> y vuelve a subir. Ese valle es donde S′(x) = 0 — el mínimo.',
+   draw:function(svg,x,out){
+     var h=V/(x*x), S=x*x+128/x;
+     // curva S(x) en un mini-plot
+     var px0=30,px1=200,py0=185,py1=30, xa=1.4,xb=7;
+     function Sf(t){ return t*t+128/t; }
+     var sMin=Sf(4), sMax=Math.max(Sf(xa),Sf(xb));
+     function X(t){ return px0+(t-xa)/(xb-xa)*(px1-px0); }
+     function Y(v){ return py0-(v-sMin)/(sMax-sMin)*(py0-py1); }
+     var d='M';
+     for(var t=xa;t<=xb+1e-9;t+=0.1){ d+=(t>xa?' L':'')+fmt(X(t),1)+' '+fmt(Y(Sf(t)),1); }
+     svg.innerHTML='';
+     svg.appendChild(ns('line',{x1:px0,y1:py0,x2:px1,y2:py0,stroke:'var(--t3)','stroke-width':1.5}));
+     svg.appendChild(ns('line',{x1:px0,y1:py0,x2:px0,y2:py1,stroke:'var(--t3)','stroke-width':1.5}));
+     svg.appendChild(ns('path',{d:d,fill:'none',stroke:'var(--acc)','stroke-width':2}));
+     // marca del mínimo
+     svg.appendChild(ns('line',{x1:X(4),y1:py0,x2:X(4),y2:py1,stroke:'var(--t3)','stroke-width':1,'stroke-dasharray':'2 3'}));
+     // punto actual
+     svg.appendChild(ns('circle',{cx:X(x),cy:Y(S),r:4.5,fill:'var(--acc2)'}));
+     // caja chiquita a la derecha
+     var bx=230,by=95, w=Math.min(60,x*10), hh=Math.min(70,h*14);
+     svg.appendChild(ns('path',{d:'M'+bx+' '+by+' l'+w+' 0 l0 '+hh+' l-'+w+' 0 Z M'+bx+' '+by+' l14 -10 l'+w+' 0 l-14 10 M'+(bx+w)+' '+by+' l14 -10 l0 '+hh+' l-14 10',fill:'var(--adim)',stroke:'var(--acc)','stroke-width':1.3,'stroke-linejoin':'round'}));
+     var tX=ns('text',{x:X(x),y:py0+14,fill:'var(--t2)','font-size':10,'text-anchor':'middle'}); tX.textContent='x='+fmt(x,1);
+     svg.appendChild(tX);
+     out.innerHTML='x = '+fmt(x,2)+'  ·  altura h = '+fmt(h,2)+'  ·  <b>material S = '+fmt(S,1)+'</b>'+(Math.abs(x-4)<0.06?'  ← ¡mínimo!':'');
+   }});
+ },
+
+ /* ── TANGENTE: la derivada es la pendiente ──────────────────────────────── */
+ tangente:function(host){
+  shell(host,{min:-2.4,max:2.4,step:0.05,def:1,
+   label:'Punto  x = a  sobre  f(x) = x³ − 3x',
+   note:'La <b>pendiente</b> de la recta que toca la curva en un punto <b>ES f′(a)</b>. Donde la curva está plana (máximo/mínimo), la recta queda horizontal y f′(a) = 0.',
+   draw:function(svg,a,out){
+     var px0=20,px1=300,py=105, sx=45, sy=13;
+     function f(t){ return t*t*t-3*t; }
+     function fp(t){ return 3*t*t-3; }
+     function X(t){ return 160+t*sx; }
+     function Y(v){ return py-v*sy; }
+     var d='M';
+     for(var t=-2.6;t<=2.6+1e-9;t+=0.08){ d+=(t>-2.6?' L':'')+fmt(X(t),1)+' '+fmt(Y(f(t)),1); }
+     svg.innerHTML='';
+     svg.appendChild(ns('line',{x1:px0,y1:py,x2:px1,y2:py,stroke:'var(--t3)','stroke-width':1}));
+     svg.appendChild(ns('line',{x1:160,y1:15,x2:160,y2:195,stroke:'var(--t3)','stroke-width':1}));
+     svg.appendChild(ns('path',{d:d,fill:'none',stroke:'var(--t2)','stroke-width':2}));
+     // tangente
+     var m=fp(a), b=f(a);
+     var x1=a-1.6, x2=a+1.6;
+     svg.appendChild(ns('line',{x1:X(x1),y1:Y(b+m*(x1-a)),x2:X(x2),y2:Y(b+m*(x2-a)),stroke:'var(--acc)','stroke-width':2.5}));
+     svg.appendChild(ns('circle',{cx:X(a),cy:Y(b),r:4.5,fill:'var(--acc2)'}));
+     out.innerHTML='a = '+fmt(a,2)+'  ·  f(a) = '+fmt(b,2)+'  ·  <b>pendiente f′(a) = '+fmt(m,2)+'</b>'+(Math.abs(m)<0.12?'  ← recta horizontal':'');
+   }});
+ },
+
+ /* ── LÍMITE: acercarse a un punto ───────────────────────────────────────── */
+ limite:function(host){
+  shell(host,{min:0.02,max:1.2,step:0.02,def:0.6,
+   label:'Qué tan cerca de x = 2 estás mirando (|x − 2|)',
+   note:'La función tiene un hueco en x = 2, pero al acercarte por los dos lados f(x) se apila alrededor de <b>4</b>. Ese número es el límite, exista o no f(2).',
+   draw:function(svg,dx,out){
+     // f(x) = (x^2-4)/(x-2) = x+2, hueco en x=2 -> limite 4
+     var px0=20,px1=300, sy=18, oy=175, sx=55, cx=90;
+     function X(t){ return cx+(t-1)*sx; }
+     function Y(v){ return oy-v*sy; }
+     svg.innerHTML='';
+     svg.appendChild(ns('line',{x1:px0,y1:oy,x2:px1,y2:oy,stroke:'var(--t3)','stroke-width':1}));
+     // recta y = x+2
+     svg.appendChild(ns('line',{x1:X(1),y1:Y(3),x2:X(3.4),y2:Y(5.4),stroke:'var(--t2)','stroke-width':2}));
+     // hueco
+     svg.appendChild(ns('circle',{cx:X(2),cy:Y(4),r:4,fill:'var(--bg)',stroke:'var(--t2)','stroke-width':2}));
+     // linea horizontal en y=4
+     svg.appendChild(ns('line',{x1:px0,y1:Y(4),x2:px1,y2:Y(4),stroke:'var(--acc)','stroke-width':1,'stroke-dasharray':'3 3'}));
+     var t4=ns('text',{x:px1-4,y:Y(4)-4,fill:'var(--acc)','font-size':10,'text-anchor':'end'}); t4.textContent='y → 4';
+     svg.appendChild(t4);
+     // puntos acercándose
+     [-1,1].forEach(function(sgn){
+       var xv=2+sgn*dx, yv=xv+2;
+       svg.appendChild(ns('circle',{cx:X(xv),cy:Y(yv),r:4,fill:'var(--acc)'}));
+     });
+     svg.appendChild(ns('line',{x1:X(2),y1:oy,x2:X(2),y2:20,stroke:'var(--t3)','stroke-width':1,'stroke-dasharray':'2 3'}));
+     var t2=ns('text',{x:X(2),y:oy+13,fill:'var(--t2)','font-size':10,'text-anchor':'middle'}); t2.textContent='x=2';
+     svg.appendChild(t2);
+     var xl=2-dx, xr=2+dx;
+     out.innerHTML='f('+fmt(xl,2)+') = '+fmt(xl+2,2)+'  ·  f('+fmt(xr,2)+') = '+fmt(xr+2,2)+'  ·  <b>límite = 4</b>';
+   }});
+ }
+};
+
+window.__simLab = {
+  has:function(id){ return !!W[id]; },
+  mount:function(host, id){ if(W[id]) try{ W[id](host); }catch(e){ host.innerHTML='<div class="sl-note">(no se pudo cargar el widget)</div>'; } }
+};
+})();
+  </script>
   <!-- SEO: datos estructurados -->
   <script type="application/ld+json">
   {
