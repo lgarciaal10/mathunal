@@ -1,0 +1,137 @@
+\documentclass[11pt]{article}
+\usepackage{mathunal-base}
+\mathunalfuente{serif}
+\providecommand{\nota}[1]{\par\smallskip\noindent{\small\itshape\color{unalblue}#1}\par\smallskip}
+\newlist{opciones}{enumerate}{1}
+\setlist[opciones]{label=\alph*.,itemsep=1pt,topsep=2pt,leftmargin=1.8em,font=\normalfont}
+\newlist{romanitos}{enumerate}{1}
+\setlist[romanitos]{label=\roman*.,itemsep=1pt,topsep=2pt,leftmargin=1.8em,font=\normalfont}
+
+\renewcommand{\examtitulo}{Segundo Examen Parcial de Métodos Numéricos (25\%)}
+\renewcommand{\examfecha}{20 de octubre de 2007}
+
+\begin{document}
+
+\examheader
+
+\vspace{4pt}
+\noindent\textit{Duración: 1 hora y 50 minutos.}
+
+\vspace{6pt}
+\noindent Nombre \dotfill\ Carné \dotfill\ Grupo \dotfill
+
+\vspace{10pt}
+\noindent\textbf{1. (15\%)} Determine los pesos $w_0$, $w_1$ y el nodo $x_1$ de modo que la fórmula de cuadratura
+\[
+\int_0^1 f(x)\,dx\approx w_0f(0)+w_1f(x_1)
+\]
+tenga el grado de precisión más alto posible. Indique el procedimiento utilizado.
+
+\vspace{5mm}
+\noindent\textbf{2. (20\%)} Determine el número mínimo de subintervalos que se requiere para que la regla de Simpson compuesta permita obtener un valor de la integral
+\[
+\int_2^6 \ln(x-1)\,dx
+\]
+con una precisión de $5\times10^{-9}$.
+
+\nota{Ayuda: $E_S(f,h)=-\dfrac{b-a}{180}h^4f^{(4)}(c)$.}
+
+\vspace{5mm}
+\noindent\textbf{3. (25\%)} Sea $S$ la \textit{cercha cúbica} que interpola los puntos de la tabla
+\[
+\begin{array}{c|c|c|c|c}
+x_k & -1 & 2 & 5 & 7\\ \hline
+y_k & 5 & 14 & 2 & -8
+\end{array}
+\]
+y tal que $S''(-1)=1$ y $S''(7)=7$. Halle $S(x)$ para $x\in[5,7]$. Justifique su respuesta.
+
+\nota{Ayuda: $S''(5)=-\dfrac{35}{37}$.}
+
+\vspace{5mm}
+\noindent\textbf{4. (20\%)} \textbf{Señale} la única respuesta verdadera en cada una de las siguientes preguntas (no necesita justificar).
+\begin{romanitos}
+\item (8\%) Uno de los nodos de Chebyshev para aproximar a $f$ en $[-3,4]$ por medio de un polinomio interpolante de grado menor o igual que 3 es aproximadamente:
+\begin{opciones}
+\item $-0.9239$
+\item $1.8394$
+\item $0.5$
+\item $0.866$
+\end{opciones}
+\item (6\%) El valor de $A$ que hace que la fórmula de cuadratura
+\[
+\int_{-1}^2 xf(x)\,dx\approx -\frac34 f(-1)+\frac98 f(0)+Af(2)
+\]
+sea exacta para polinomios de grado menor o igual que 2 es:
+\begin{opciones}
+\item $\dfrac98$
+\item $\dfrac{21}8$
+\item $-\dfrac34$
+\item $\dfrac38$
+\end{opciones}
+\item (6\%) Para los datos
+\[
+\begin{array}{c|c|c|c|c}
+x_k & 2 & 5 & 8 & 12\\ \hline
+y_k & 1 & 2 & -3 & -8
+\end{array}
+\]
+el polinomio de Lagrange $L_2(x)$ está dado por:
+\begin{opciones}
+\item $\dfrac1{72}(x-2)(x-5)(x-12)$
+\item $\dfrac1{72}(2-x)(5-x)(12-x)$
+\item $\dfrac1{63}(x-2)(x-8)(x-12)$
+\item $\dfrac1{63}(2-x)(8-x)(12-x)$
+\end{opciones}
+\end{romanitos}
+
+\vspace{5mm}
+\noindent\textbf{5.} Para los datos
+\[
+\begin{array}{c|c|c|c|c|c|c|c}
+x_k & -2 & -1 & 0 & 1 & 2 & 3 & 4\\ \hline
+y_k=f(x_k) & -39 & 1 & 1 & 3 & 25 & 181 & 801
+\end{array}
+\]
+la tabla de diferencias divididas es
+\[
+\begin{array}{cccccccc}
+-2 & -39 & & & & & & \\
+-1 & 1 & 40 & & & & & \\
+0 & 1 & 0 & -20 & & & & \\
+1 & 3 & 2 & 1 & 7 & & & \\
+2 & 25 & 22 & 10 & 3 & -1 & & \\
+3 & 181 & 156 & 67 & 19 & 4 & 1 & \\
+4 & 801 & 620 & 232 & \alpha & 9 & 1 & 0
+\end{array}
+\]
+Utilice esta tabla para encontrar y \textbf{señalar} la única respuesta verdadera en cada una de las siguientes preguntas (no necesita justificar).
+\begin{romanitos}
+\item (6\%) El coeficiente de $x$ en el polinomio interpolante para $f(x)$ en los nodos 1, 2 y 3 es:
+\begin{opciones}
+\item $22$
+\item $-201$
+\item $-179$
+\item $-45$
+\end{opciones}
+\item (7\%) Si $p_3$ es el polinomio interpolante para $f(x)$ en los nodos $-2$, $-1$, $0$ y $1$, entonces $p_3(-3)$ es:
+\begin{opciones}
+\item $181$
+\item $-181$
+\item $161$
+\item $-161$
+\end{opciones}
+\item (7\%) El valor de $\alpha$ en la tabla de diferencias divididas es:
+\begin{opciones}
+\item $82.5$
+\item $55$
+\item $165$
+\item $41.25$
+\end{opciones}
+\end{romanitos}
+
+\vfill
+\rule{\linewidth}{0.4pt}\\[1pt]
+{\scriptsize\textit{Transcripción digital --- MathUNAL}\hfill\textcolor{unalblue}{\textbf{1}}}
+
+\end{document}

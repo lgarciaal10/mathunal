@@ -1,0 +1,129 @@
+\documentclass[11pt]{article}
+\usepackage{mathunal-base}
+\mathunalfuente{serif}
+\providecommand{\nota}[1]{\par\smallskip\noindent{\small\itshape\color{unalblue}#1}\par\smallskip}
+\newlist{romanitos}{enumerate}{1}
+\setlist[romanitos]{label=\roman*.,itemsep=1pt,topsep=2pt,leftmargin=1.8em,font=\normalfont}
+
+\renewcommand{\examtitulo}{Métodos Numéricos (3006907) --- Segundo Examen Parcial, TEMA A}
+\renewcommand{\examfecha}{Semestre 02-2018, 4 de Marzo de 2019}
+
+\begin{document}
+
+\examheader
+
+\vspace{4pt}
+\noindent\textit{Duración: 1 hora y 40 minutos.}
+
+\vspace{6pt}
+\noindent Nombre completo \dotfill
+
+\noindent Carné \dotfill\ Grupo \dotfill
+
+\vspace{8pt}
+\noindent\textbf{Instrucciones.} No está permitido el uso de calculadora ni de cualquier otro tipo de aparato electrónico, incluyendo teléfonos móviles, los cuales deben permanecer apagados durante el tiempo de duración del examen. La interpretación del examen hace parte de la evaluación, por tanto no se admiten preguntas.
+
+\vspace{10pt}
+\noindent\textbf{1.} Las siguientes preguntas son de \textbf{selección múltiple con única respuesta} o de \textbf{completación}. En el primer caso, seleccione \textbf{solo} la respuesta que considere correcta y márquela de manera adecuada; en el segundo caso escriba la respuesta de manera legible.
+
+\begin{enumerate}
+\item[(a)] (5\%) Considere la tabla de datos
+\[
+\begin{array}{c|c|c|c|c}
+x_k & -1 & 1 & 2 & 3\\ \hline
+y_k=f(x_k) & 1 & 0 & -2 & -1
+\end{array}
+\]
+Sabemos que el polinomio interpolante de Lagrange tiene la forma
+\[
+P_3(x)=y_0L_0(x)+y_1L_1(x)+y_2L_2(x)+y_3L_3(x),
+\]
+donde el polinomio básico de Lagrange $L_2$ está dado por:
+\begin{romanitos}
+\item $L_2(x)=\dfrac{(x+1)(x-1)(x-3)}{(2+1)(2-1)(2-3)}$
+\item $L_2(x)=\dfrac{(x+1)(x-1)(x-1)}{(-2-1)(-2-0)(-2+1)}$
+\item $L_2(x)=\dfrac{(x-1)(x-0)(x+1)}{(-2-1)(-2-0)(-2+1)}$
+\item $L_2(x)=\dfrac{(x-1)(x-0)(x+1)}{(2+1)(2-1)(2-3)}$
+\item Ninguno de los anteriores.
+\end{romanitos}
+
+\item[(b)] (5\%) Considere la fórmula de cuadratura
+\[
+\int_0^4 f(x)\,dx\approx\frac23f(0)+\frac83f(2)+\frac23f(4).
+\]
+El grado de precisión de esta fórmula es
+\begin{romanitos}
+\item $1$.
+\item $2$.
+\item $3$.
+\item Ninguno de las anteriores.
+\end{romanitos}
+
+\item[(c)] (5\%) Sabemos que las raíces del polinomio de Chebyshev de grado tres, en el intervalo $[-1,1]$, son $z_0=\dfrac{\sqrt3}2$, $z_1=0$, $z_2=-\dfrac{\sqrt3}2$. Si queremos hallar el polinomio interpolante de grado menor o igual que tres, para una función $f$, en el intervalo $[0,2]$, de manera que el error de interpolación sea el más pequeño posible, entonces los nodos en los que debemos interpolar son:
+\[
+x_0=\underline{\hspace{2.5cm}},\ x_1=\underline{\hspace{2.5cm}} \ \text{y}\ x_2=\underline{\hspace{2.5cm}}
+\]
+
+\item[(d)] (5\%) Suponga que disponemos de un conjunto de datos $(x_0,y_0),(x_1,y_1),\cdots,(x_n,y_n)$, que queremos aproximar mediante una función de la forma $y=\dfrac5{Cx+D}$. Entonces, un posible cambio de variable para linealizar los datos es
+\[
+X=\underline{\hspace{2.5cm}} \qquad Y=\underline{\hspace{2.5cm}}
+\]
+\end{enumerate}
+
+\vspace{5mm}
+\noindent\textbf{2.} Considere la función $S$ definida por:
+\[
+S(x)=\begin{cases}
+1+ax+2x^2-2x^3, & 0\leq x\leq1\\
+1+b(x-1)-4(x-1)^2+7(x-1)^3, & 1\leq x\leq2
+\end{cases}
+\]
+\begin{enumerate}
+\item[(a)] (20\%) Determine, \textbf{si es posible}, los valores de $a$ y $b$ que hacen que $S$ sea un spline cúbico sujeto, para una cierta función $f$.
+\item[(b)] (5\%) Obtenga $f'(0)$ y $f'(2)$, en caso que existan. De lo contrario diga por qué no existen.
+\end{enumerate}
+
+\vspace{5mm}
+\noindent\textbf{3.}
+\begin{enumerate}
+\item[(a)] (15\%) Considere la fórmula de cuadratura
+\[
+\int_0^1 f(x)\,dx\approx Af(0)+Bf(z).
+\]
+Calcule los coeficientes $A$ y $B$ y el nodo $z$ de tal manera que la fórmula sea exacta para todos los polinomios de grado tan alto como sea posible. ¿Cuál es el grado de precisión de esta fórmula?
+\item[(b)] (15\%) Use la fórmula de cuadratura gaussiana de dos puntos para encontrar una expresión que permita aproximar el valor de
+\[
+\int_1^\infty \frac{\log\!\left(1+\frac1x\right)}{x(x+2)}\,dx.
+\]
+\nota{Nota: No evalúe la expresión. Solo deje indicados los puntos donde se debe evaluar la función e indique la función que se está evaluando.}
+\end{enumerate}
+
+\vspace{5mm}
+\noindent\textbf{4.} Considere la nube de puntos $\{(x_k,y_k)\}_{k=0}^4$ asociada a una función $f$:
+\[
+\begin{array}{c|c|c|c|c|c}
+x_k & -2 & -1 & 1 & 3 & 4\\ \hline
+y_k=f(x_k) & -8 & 2 & -2 & \alpha & -2
+\end{array}
+\]
+Si la tabla de diferencias divididas asociada a la nube de puntos está dada por:
+\[
+\begin{array}{c|c|c|c|c|c}
+x_k & f[x_k] & f[x_{k-1},x_k] & f[x_{k-2},x_{k-1},x_k] & f[x_{k-3},\ldots,x_k] & f[x_{k-4},\ldots,x_k]\\ \hline
+-2 & -8 & & & & \\
+-1 & 2 & 10 & & & \\
+1 & -2 & -2 & -4 & & \\
+3 & \alpha & 6 & \beta & \dfrac65 & \\
+4 & -2 & -12 & -6 & -\dfrac85 & \gamma
+\end{array}
+\]
+\begin{enumerate}
+\item[(a)] (15\%) Complete los valores de la tabla, es decir, halle los valores $\alpha$, $\beta$ y $\gamma$.
+\item[(b)] (10\%) Halle el polinomio de interpolación de Newton para la función $f$ en los nodos $-1,1,3$ y $4$.
+\end{enumerate}
+
+\vfill
+\rule{\linewidth}{0.4pt}\\[1pt]
+{\scriptsize\textit{Transcripción digital --- MathUNAL}\hfill\textcolor{unalblue}{\textbf{1}}}
+
+\end{document}

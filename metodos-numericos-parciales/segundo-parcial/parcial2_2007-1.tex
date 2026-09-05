@@ -1,0 +1,81 @@
+\documentclass[11pt]{article}
+\usepackage{mathunal-base}
+\mathunalfuente{serif}
+\providecommand{\nota}[1]{\par\smallskip\noindent{\small\itshape\color{unalblue}#1}\par\smallskip}
+\newlist{opciones}{enumerate}{1}
+\setlist[opciones]{label=\alph*.,itemsep=1pt,topsep=2pt,leftmargin=1.8em,font=\normalfont}
+
+\renewcommand{\examtitulo}{Métodos Numéricos 3002192 --- Segundo Parcial}
+\renewcommand{\examfecha}{Abril 14 de 2007}
+
+\begin{document}
+
+\examheader
+
+\vspace{6pt}
+\noindent Nombre \dotfill\ Carné \dotfill\ Grupo \dotfill
+
+\vspace{8pt}
+\noindent\textbf{Duración del examen: 1 hora y 50 minutos. Toda respuesta debe estar justificada en la hoja de examen. Por favor, no haga preguntas sobre el examen a los vigilantes de las aulas.}
+
+\vspace{4pt}
+\nota{NOTA: El ejercicio 5 tiene un literal con puntaje extra que es opcional. Si alguien queda con puntaje por encima del 100\% en este examen, el puntaje extra se le cuenta para algún otro examen del semestre.}
+
+\vspace{10pt}
+\noindent\textbf{1. (15\%)} La tabla de diferencias divididas para el polinomio interpolante de una función $f(x)$ definida en $[0,0.7]$ está dada por
+\[
+\begin{array}{c|c|c|c}
+x_0=0 & f[x_0] & & \\ \hline
+x_1=0.4 & f[x_1] & f[x_0,x_1] & \\ \hline
+x_2=0.7 & f[x_2]=6 & f[x_1,x_2]=10 & f[x_0,x_1,x_2]=\dfrac{50}{7}
+\end{array}
+\]
+Encuentre $f[x_0]$, $f[x_1]$ y $f[x_0,x_1]$.
+
+\vspace{5mm}
+\noindent\textbf{2. (15\%)} Supongamos $f(-0.5)=f(0.5)=b$. Determine $b$ a partir de los siguientes hechos:
+\begin{opciones}
+\item La regla trapezoidal compuesta con $n=2$ para $\displaystyle\int_{-1}^1 f(x)\,dx$ da el valor 1.5.
+\item La regla trapezoidal compuesta con $n=4$ para $\displaystyle\int_{-1}^1 f(x)\,dx$ da el valor 1.55.
+\end{opciones}
+
+\vspace{5mm}
+\noindent\textbf{3. (15\%)} La función $f(x)=e^x$ se aproxima con su polinomio de Taylor de grado 6 alrededor de $x_0=0$. Encuentre una cota \textit{razonable} para el valor absoluto del error en esta aproximación sabiendo que se trabaja en el intervalo $|x|\leq 1$.
+
+\vspace{5mm}
+\noindent\textbf{4. (15\%)}
+\begin{opciones}
+\item Pruebe que el polinomio interpolante $p(x)$ de la siguiente tabla tiene grado 3.
+\[
+\begin{array}{c|c|c|c|c|c}
+x_j & -2 & 0 & 1 & 2 & 4\\ \hline
+y_j & -12 & 4 & 3 & 4 & 36
+\end{array}
+\]
+\item Calcule $p(3)$.
+\end{opciones}
+
+\vspace{5mm}
+\noindent\textbf{5.} Se sabe que los primeros polinomios de Chebyshev son $T_0(x)=1$ y $T_1(x)=x$ y que para calcular $T_k(x)$ para $k=2,3,\ldots$ se utiliza la relación de recurrencia $T_k(x)=2xT_{k-1}(x)-T_{k-2}(x)$.
+\begin{opciones}
+\item (10\%) Utilice esta relación de recurrencia para hallar $T_3(x)$.
+\item (10\%) Use los ceros de $T_3(x)$ como nodos de interpolación en el intervalo $[-1,1]$ y obtenga el polinomio interpolante de grado a lo más dos de la función $f(x)=x^4$.
+\item (10\% puntaje extra) ¿Cuáles son los correspondientes tres nodos de interpolación de Chebyshev en el intervalo $[0,2]$?
+\end{opciones}
+
+\vspace{5mm}
+\noindent\textbf{6. (20\%)} Determine valores de $A$, $B$ y $C$ que hagan que la expresión
+\[
+Af(0)+Bf(1)+Cf(2)
+\]
+sea una fórmula de cuadratura para la integral
+\[
+\int_0^2 xf(x)\,dx
+\]
+que es exacta para todos los polinomios de grado tan alto como sea posible. ¿Cuál es el grado máximo?
+
+\vfill
+\rule{\linewidth}{0.4pt}\\[1pt]
+{\scriptsize\textit{Transcripción digital --- MathUNAL}\hfill\textcolor{unalblue}{\textbf{1}}}
+
+\end{document}

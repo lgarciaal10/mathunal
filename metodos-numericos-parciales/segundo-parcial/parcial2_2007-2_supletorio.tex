@@ -1,0 +1,86 @@
+\documentclass[11pt]{article}
+\usepackage{mathunal-base}
+\mathunalfuente{serif}
+\providecommand{\nota}[1]{\par\smallskip\noindent{\small\itshape\color{unalblue}#1}\par\smallskip}
+\newlist{romanitos}{enumerate}{1}
+\setlist[romanitos]{label=\roman*.,itemsep=1pt,topsep=2pt,leftmargin=1.8em,font=\normalfont}
+
+\renewcommand{\examtitulo}{Supletorio Segundo Examen Parcial de Métodos Numéricos (25\%)}
+\renewcommand{\examfecha}{29 de octubre de 2007}
+
+\begin{document}
+
+\examheader
+
+\vspace{4pt}
+\noindent\textit{Duración: 1 hora y 50 minutos.}
+
+\vspace{6pt}
+\noindent Nombre \dotfill\ Carné \dotfill\ Grupo \dotfill
+
+\vspace{8pt}
+\noindent\textbf{TODA RESPUESTA DEBE ESTAR DEBIDAMENTE JUSTIFICADA. NO SE ACEPTAN PREGUNTAS DURANTE EL DESARROLLO DE ESTE EXAMEN.}
+
+\vspace{10pt}
+\noindent\textbf{1. (25\%)} Determine valores de $A$, $B$ y $C$ que hagan que la fórmula de cuadratura:
+\[
+\int_{-1}^2 xf(x)\,dx\approx Af(-1)+Bf(1)+Cf(2)
+\]
+sea exacta para todos los polinomios de grado tan alto como sea posible. ¿Cuál es el grado de precisión de la fórmula obtenida?
+
+\vspace{5mm}
+\noindent\textbf{2. (25\%)} Una \textit{cercha cúbica} $S$ para una función $f(x)$ definida en $[-3,1]$ está dada por
+\[
+S(x)=\begin{cases}
+-\dfrac23(x+3)^3-\dfrac12(x+3)^2+\dfrac{20}3(x+3)-7, & -3\leq x\leq -1\\[4pt]
+a+b(x+1)+c(x+1)^2+d(x+1)^3, & -1\leq x\leq 1
+\end{cases}
+\]
+Si $S''(1)=1$, encuentre $a$, $b$, $c$ y $d$. Escriba una tabla de interpolación para esta cercha.
+
+\vspace{5mm}
+\noindent\textbf{3. (20\%)} Si $f(x)=\ln(5-x)$ se aproxima en $[1,3]$ mediante el polinomio interpolante de grado menor igual que 3 empleando los nodos de Chebyshev, encuentre una cota \textit{razonable} para el valor absoluto del error en esta aproximación.
+
+\nota{Ayuda: $|E_n(x)|=|f(x)-P_n(x)|\leq\dfrac{2(b-a)^{n+1}}{4^{n+1}(n+1)!}\displaystyle\max_{a\leq x\leq b}\left\{\left|f^{(n+1)}(x)\right|\right\}$.}
+
+\vspace{5mm}
+\noindent\textbf{4. (15\%)} Para los datos
+\[
+\begin{array}{c|c|c|c|c}
+x_k & 2 & 5 & 8 & 12\\ \hline
+f(x_k) & 1 & 2 & -3 & -8
+\end{array}
+\]
+halle el polinomio interpolante de Lagrange y úselo para aproximar $f(6)$.
+
+\vspace{5mm}
+\noindent\textbf{5. (15\%)} Para los datos
+\[
+\begin{array}{c|c|c|c|c|c|c|c}
+x_k & -3 & -2 & -1 & 0 & 1 & 3 & 5\\ \hline
+y_k=f(x_k) & 4096 & 729 & 64 & 1 & 0 & 64 & 4096
+\end{array}
+\]
+la tabla de diferencias divididas es
+\[
+\begin{array}{ccccccc}
+-3 & 4096 & & & & & \\
+-2 & 729 & -3367 & & & & \\
+-1 & 64 & -665 & 1351 & & & \\
+0 & 1 & -63 & 301 & -350 & & \\
+1 & 0 & -1 & 31 & -90 & 65 & \\
+3 & 64 & 32 & 11 & \alpha & 17 & -8\\
+5 & 4096 & 2016 & 496 & 97 & 17 & 0 & 1
+\end{array}
+\]
+Utilice esta tabla para encontrar:
+\begin{romanitos}
+\item (10\%) El polinomio interpolante $p(x)$ para $f(x)$ en los nodos $-2$, $-1$, $0$ y $1$.
+\item (5\%) El valor de $\alpha$ en la tabla de diferencias divididas.
+\end{romanitos}
+
+\vfill
+\rule{\linewidth}{0.4pt}\\[1pt]
+{\scriptsize\textit{Transcripción digital --- MathUNAL}\hfill\textcolor{unalblue}{\textbf{1}}}
+
+\end{document}

@@ -1,0 +1,82 @@
+\documentclass[11pt]{article}
+\usepackage{mathunal-base}
+\mathunalfuente{serif}
+\newlist{opciones}{enumerate}{1}
+\setlist[opciones]{label=\alph*.,itemsep=1pt,topsep=2pt,leftmargin=1.8em,font=\normalfont}
+
+\renewcommand{\examtitulo}{3002192 Métodos Numéricos --- Segundo Examen Parcial}
+\renewcommand{\examfecha}{5 de Abril de 2006}
+
+\begin{document}
+
+\examheader
+
+\vspace{6pt}
+\noindent Nombre \dotfill\ Carné \dotfill\ Profesor \dotfill\ Grupo \dotfill\ Puntaje \dotfill
+
+\vspace{8pt}
+\noindent Este es un examen en el que queremos evaluar su capacidad para plantear los métodos numéricos presentados en clase. Por tanto le pedimos que escriba todos los pasos intermedios, que es lo que nos interesa calificar.
+
+\vspace{10pt}
+\noindent\textbf{1.} Considere el PVI
+\[
+\begin{aligned} y'&=2y(\sin(t))+1\\ y(0)&=1 \end{aligned}
+\]
+\begin{opciones}
+\item (10\%) Demuestre que tiene solución única en el intervalo $[0,1]$.
+\item (20\%) Utilice un paso del método clásico de Runge-Kutta de orden 4 para obtener una aproximación de la solución $y(t)$ en el punto $t=0.1$.
+\end{opciones}
+
+\vspace{5mm}
+\noindent\textbf{2.} El PVI
+\[
+\begin{aligned} y''+3y'+y&=t^2-4\\ y(0)&=-1,\\ y'(0)&=1 \end{aligned}
+\]
+modela la elongación $y(t)$ y la velocidad de cambio $y'(t)$ de un resorte.
+\begin{opciones}
+\item (15\%) Convierta este PVI a la forma
+\[
+u'=F(t,u), \qquad u(0)=\alpha
+\]
+con $u$ y $\alpha$ vectores de $\mathbb{R}^2$.
+\item (15\%) Aplique un paso del método de Euler para aproximar la elongación y la velocidad del resorte en $t=0.1$.
+\end{opciones}
+
+\vspace{5mm}
+\noindent\textbf{3. (40\%)} Sea $R=\{(x,y)\ /\ 0<x<1,\ 0<y<1\}$ y considere el problema de Dirichlet
+\[
+\nabla^2 u=\frac{\partial^2 u}{\partial x^2}+\frac{\partial^2 u}{\partial y^2}=0 \ \text{ en } R
+\]
+\[
+u(x,y)=9(x^2-y^2) \ \text{ en la frontera de } R.
+\]
+Aplique el método de diferencias finitas con tamaño de paso $h=k=\dfrac13$ en ambos ejes para calcular valores aproximados de $u(x,y)$ en los puntos interiores de la malla. Precise todos los puntos de la malla y escriba en forma matricial el sistema lineal asociado con el problema dado. NO RESUELVA EL SISTEMA.
+
+\vspace{5mm}
+\noindent\rule{\linewidth}{0.3pt}
+
+\vspace{3mm}
+\noindent\textbf{AYUDA}: Para el PVI
+\[
+u'=F(t,u), \qquad u(0)=\alpha
+\]
+que puede ser escalar o vectorial y para $h>0$, se define:
+\begin{enumerate}
+\item Método de Euler: $w^{(0)}=\alpha$, \quad $w^{(j+1)}=w^{(j)}+hF\!\left(t_j,w^{(j)}\right)$
+\item Método clásico de Runge-Kutta orden 4:\\
+$w^{(0)}=\alpha$, \quad $w^{(j+1)}=w^{(j)}+\dfrac16\left(k_1+2k_2+2k_3+k_4\right)$, donde
+\[
+k_1=hF\!\left(t_j,w^{(j)}\right), \quad
+k_2=hF\!\left(t_j+\tfrac{h}2,w^{(j)}+\tfrac{k_1}2\right), \quad
+k_3=hF\!\left(t_j+\tfrac{h}2,w^{(j)}+\tfrac{k_2}2\right)
+\]
+\[
+\text{y} \quad k_4=hF\!\left(t_j+h,w^{(j)}+k_3\right)
+\]
+\end{enumerate}
+
+\vfill
+\rule{\linewidth}{0.4pt}\\[1pt]
+{\scriptsize\textit{Transcripción digital --- MathUNAL}\hfill\textcolor{unalblue}{\textbf{1}}}
+
+\end{document}

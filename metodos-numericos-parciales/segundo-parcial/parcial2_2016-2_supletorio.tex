@@ -1,0 +1,80 @@
+\documentclass[11pt]{article}
+\usepackage{mathunal-base}
+\mathunalfuente{serif}
+
+\renewcommand{\examtitulo}{Métodos Numéricos (3006907) --- Supletorio, Segundo Examen Parcial}
+\renewcommand{\examfecha}{Semestre 02-2016, 31 de Octubre de 2016}
+
+\begin{document}
+
+\examheader
+
+\vspace{4pt}
+\noindent\textit{Duración: 1 hora y 50 minutos.}
+
+\vspace{6pt}
+\noindent Nombre completo \dotfill
+
+\noindent Carné \dotfill\ Grupo \dotfill
+
+\vspace{8pt}
+\noindent\textbf{La interpretación del examen hace parte de la evaluación, por tanto NO se admiten preguntas una vez comenzada la prueba.}
+
+\vspace{10pt}
+\noindent\textbf{1. (15\%)} Encuentre el ajuste para una curva de la forma $y=\dfrac{B}{A+x}$ para los siguientes conjuntos de datos, mediante la teoría de los mínimos cuadrados.
+\[
+\begin{array}{c|c|c|c|c|c}
+x_i & -1 & 0 & 1 & 2 & 5\\ \hline
+y_i & -\dfrac12 & \dfrac14 & \dfrac15 & \dfrac27 & \dfrac53
+\end{array}
+\]
+
+\vspace{5mm}
+\noindent\textbf{2. (15\%)} Considere la siguiente tabla de diferencias divididas
+\[
+\begin{array}{c|c|c|c}
+x_k & f[x_k] & f[x_{k-1},x_k] & f[x_{k-2},x_{k-1},x_k]\\ \hline
+x_0=-1 & \gamma & & \\
+x_1=1 & \alpha & -3 & \\
+x_2=2.5 & 4 & \beta & 4
+\end{array}
+\]
+Encuentre el valor de $\alpha=f(1)$.
+
+\vspace{5mm}
+\noindent\textbf{3. (25\%)} Considere la función $S(x)$ definida por:
+\[
+S(x)=\begin{cases}
+1+a(x-1)+b(x-1)^3, & 1\leq x\leq 2\\
+1+c(x-2)-\dfrac34(x-2)^2+d(x-2)^3, & 2\leq x\leq 3
+\end{cases}
+\]
+\begin{enumerate}
+\item[a.] (20\%) Determine los valores de $a,b,c$ y $d$ que hacen que $S(x)$ sea un spline cúbico natural para el conjunto de puntos $(x,f(x))$ dado por $\{(1,1),(2,1),(3,0)\}$.
+\item[b.] (5\%) Obtenga el valor aproximado de $f(3/2)$.
+\end{enumerate}
+
+\vspace{5mm}
+\noindent\textbf{4. (25\%)} Considere la fórmula de cuadratura
+\[
+\int_0^1 f(x)\,dx\approx Af(0)+Bf(z)
+\]
+\begin{enumerate}
+\item[i.] (15\%) Calcule los coeficientes $A$ y $B$ y el nodo $z$ de tal manera que la fórmula sea exacta para todos los polinomios de grado tan alto como sea posible. ¿Cuál es el grado de precisión de esta fórmula?
+\item[ii.] (10\%) Use la fórmula anterior para dar un valor aproximado de $\displaystyle\int_{\pi/4}^{\pi/3}\cos x^2\,dx$.
+\end{enumerate}
+
+\vspace{5mm}
+\noindent\textbf{5. (20\%)} Las \textbf{fórmulas de Newton-Cotes abiertas} no incluyen los extremos del intervalo $[a,b]$. Éstas utilizan los nodos $x_j=a+(j+1)h$, para $j=-1,0,\ldots,n,n+1$ donde $h=\dfrac{b-a}{n+2}$. Esto implica que los nodos interiores serán los $x_i$ para $i=0,\ldots,n$ y los extremos del intervalo son $x_{-1}=a$ y $x_{n+1}=b$.
+
+La fórmula de Newton-Cotes abierta que se obtiene al tomar 2 subintervalos, es decir, al tomar $h=\dfrac{b-a}2$ se conoce como la \textit{regla del punto medio simple} y esta dada por:
+\[
+\int_a^b f(x)\,dx=\int_{x_{-1}}^{x_1} f(x)\,dx\approx 2hf(x_0).
+\]
+\textbf{Deduzca} la \underline{regla del punto medio compuesta} que se obtiene al tomar $h=\dfrac{b-a}{n+2}$, nodos $x_j=a+(j+1)h$, $j=-1,0,\ldots,n,n+1$, para $n$ entero par mayor o igual a 2.
+
+\vfill
+\rule{\linewidth}{0.4pt}\\[1pt]
+{\scriptsize\textit{Transcripción digital --- MathUNAL}\hfill\textcolor{unalblue}{\textbf{1}}}
+
+\end{document}

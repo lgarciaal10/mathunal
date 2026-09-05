@@ -1,0 +1,102 @@
+\documentclass[11pt]{article}
+\usepackage{mathunal-base}
+\mathunalfuente{serif}
+
+\renewcommand{\examtitulo}{Métodos Numéricos (3006907) --- Segundo Examen Parcial, TEMA A}
+\renewcommand{\examfecha}{Semestre 01-2017, 17 de Abril de 2017}
+
+\begin{document}
+
+\examheader
+
+\vspace{4pt}
+\noindent\textit{Duración: 1 hora y 40 minutos.}
+
+\vspace{6pt}
+\noindent Nombre completo \dotfill
+
+\noindent Carné \dotfill\ Grupo \dotfill
+
+\vspace{8pt}
+\noindent\textbf{La interpretación del examen hace parte de la evaluación, por tanto no se admiten preguntas comenzada la prueba. No está permitido el uso teléfonos móviles, los cuales deben permanecer apagados durante el tiempo de duración del examen.}
+
+\vspace{6pt}
+\noindent\textbf{TODA RESPUESTA DEBE ESTAR DEBIDAMENTE JUSTIFICADA}
+
+\vspace{10pt}
+\noindent\textbf{1. (20\%)} Determine (si existen) coeficientes $a$, $b$ y $c$ de tal forma que la función
+\[
+S(x)=\begin{cases}
+4+ax-\dfrac{41}5x^2+\dfrac{21}5x^3, & x\in[0,1)\\[4pt]
+1-\dfrac{14}5(x-1)+b(x-1)^2-\dfrac85(x-1)^3, & x\in[1,2]\\[4pt]
+1+c(x-2)-\dfrac25(x-2)^2+\dfrac15(x-2)^3, & x\in(2,3]
+\end{cases}
+\]
+sea un spline en el intervalo $[0,3]$. ¿Es un spline cúbico natural?
+
+\vspace{5mm}
+\noindent\textbf{2.} Considere la nube de puntos $\{(x_k,y_k)\}_{k=0}^4$ asociada a una función $f$:
+\[
+\begin{array}{c|c|c|c|c|c}
+x_k & -2 & -1 & 0 & 1 & 2\\ \hline
+y_k=f(x_k) & -39 & 1 & 1 & \alpha & 23
+\end{array}
+\]
+\begin{enumerate}
+\item[a.] (7\%) El polinomio de interpolación de Lagrange $P_4(x)$ para la nube de puntos tiene la forma:
+\[
+P_4(x)=y_0\mathcal{L}_0(x)+y_1\mathcal{L}_1(x)+y_2\mathcal{L}_2(x)+y_3\mathcal{L}_3(x)+y_4\mathcal{L}_4(x).
+\]
+El coeficiente polinómico de Lagrange $\mathcal{L}_3$ en \underline{este} caso está dado por: $\mathcal{L}_3(x)=$~\underline{\hspace{4cm}}
+\item[b.] La tabla de diferencias divididas asociada a la nube de puntos está dada por:
+\[
+\begin{array}{c|c|c|c|c|c}
+x_k & f[x_k] & f[x_{k-1},x_k] & f[x_{k-2},x_{k-1},x_k] & f[x_{k-3},\ldots,x_k] & f[x_{k-4},\ldots,x_k]\\ \hline
+-2 & -39 & & & & \\
+-1 & 1 & 40 & & & \\
+0 & 1 & 0 & \beta & & \\
+1 & \alpha & 2 & 1 & 7 & \\
+2 & 23 & 20 & 9 & \dfrac83 & \gamma
+\end{array}
+\]
+\begin{enumerate}
+\item[i.] (15\%) Complete los valores de la tabla, es decir, halle los valores $\alpha$, $\beta$ y $\gamma$.
+\item[ii.] (8\%) Halle el polinomio de interpolación de Newton para la función $f$ en los nodos $-1,0,1$ y $2$.
+\end{enumerate}
+\end{enumerate}
+
+\vspace{5mm}
+\noindent\textbf{3.} Las \textbf{fórmulas de Newton-Cotes abiertas} no incluyen los extremos del intervalo $[a,b]$. Éstas utilizan los nodos $x_j=x_0+(j+1)h$, para $j=0,1,\ldots,n$ donde $h=\dfrac{b-a}{n+2}$. Esto implica que $x_0=a+h$ y $x_n=b-h$, por lo cual se marcan los extremos haciendo $x_{-1}=a$ y $x_{n+1}=b$. Las fórmulas de Newton-Cotes abiertas tienen la forma:
+\[
+\int_a^b f(x)\,dx=\int_{x_{-1}}^{x_{n+1}} f(x)\,dx=\sum_{j=0}^n w_jf(x_j).
+\]
+La fórmula de Newton-Cotes abierta que se obtiene al tomar 3 subintervalos, es decir, al tomar $n=1$, está dada por:
+\[
+\int_{x_{-1}}^{x_2} f(x)\,dx\approx\frac{3h}2\left[f(x_0)+f(x_1)\right].
+\]
+(15\%) \textbf{Deduzca} la fórmula de Newton-Cotes abierta \underline{compuesta} (para la fórmula anterior) que se obtiene al tomar $h=\dfrac{b-a}{n+2}$, para $n$ entero de la forma $n=3m+1$ ($m\in\mathbb{N}$, $m\geq1$).
+
+\vspace{5mm}
+\noindent\textbf{4. (20\%)} Calcule la siguiente integral impropia empleando la fórmula de cuadratura Gaussiana con 2 nodos.
+\[
+\int_{5/2}^{\infty} \frac{2}{\tan^{-1}\left(\frac1y\right)}\,dy.
+\]
+
+\vspace{5mm}
+\noindent\textbf{5.} Se desea encontrar la curva $y=\dfrac1{(Cx+D)^2}$ que mejor se ajusta según mínimos cuadrados, después de una linealización apropiada, a los siguientes datos:
+\[
+\begin{array}{c|c|c|c|c}
+x_k & -3 & -1 & 0 & 2\\ \hline
+y_k & 14 & 5 & 4 & 2
+\end{array}
+\]
+\begin{enumerate}
+\item[a.] (5\%) Indique el cambio de variables apropiado para obtener la ecuación linealizada de la forma $Y=AX+B$.
+\item[b.] (10\%) \textbf{Plantee} el sistema de ecuaciones normales a resolver para determinar $A$ y $B$.
+\end{enumerate}
+
+\vfill
+\rule{\linewidth}{0.4pt}\\[1pt]
+{\scriptsize\textit{Transcripción digital --- MathUNAL}\hfill\textcolor{unalblue}{\textbf{1}}}
+
+\end{document}
