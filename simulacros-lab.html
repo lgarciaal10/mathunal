@@ -1,121 +1,189 @@
 <!doctype html>
-<html lang="es">
+<html lang="es" data-theme="dark">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>MathUNAL · Lab de Simulacros (prototipo)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Literata:ital,wght@0,400;0,600;0,700;0,900;1,400&family=Space+Grotesk:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css">
 <script defer src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js"></script>
 <script defer src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/auto-render.min.js"></script>
 <style>
 :root{
-  --bg:#F6F5F1; --card:#ffffff; --ink:#101B33; --muted:#5A6472; --line:#E4E1D8;
-  --accent:#D0480B; --accent-ink:#A63A08; --ok:#0A6E45; --okbg:#E6F2EC;
-  --bad:#C0392B; --badbg:#FBECEA; --navy:#0E1D3C; --soft:#FAF9F6;
-  --shadow:0 1px 2px rgba(16,27,51,.06), 0 8px 24px rgba(16,27,51,.06);
+  --bg:#060B1E; --bg2:#0A1330; --card:#0E1D3C; --card2:#132648;
+  --acc:#E8632A; --acc2:#FF8F5C; --adim:rgba(232,99,42,.10); --aglow:rgba(232,99,42,.25);
+  --grn:#2DD4BF; --yel:#FBBF24; --red:#FB7185;
+  --ok:#22C55E; --bad:#F87171; --warn:#FBBF24;
+  --t1:#F0F4FF; --t2:#94ADDA; --t3:#7C90B4;
+  --br:rgba(255,255,255,.06); --br2:rgba(255,255,255,.10); --bra:rgba(232,99,42,.35);
+  --lay1:rgba(255,255,255,.03); --lay2:rgba(255,255,255,.05); --lay3:rgba(255,255,255,.09); --lay4:rgba(255,255,255,.14);
+  --radius:14px; --radius-sm:8px; --radius-lg:22px;
+  --shadow-card:0 2px 8px rgba(0,0,0,.25), 0 0 0 1px rgba(255,255,255,.04);
+  --shadow-hover:0 12px 40px rgba(0,0,0,.35), 0 0 0 1px rgba(232,99,42,.15);
+  --transition:.28s cubic-bezier(.22,.61,.36,1);
 }
+html[data-theme="gray"]{--bg:#111114;--bg2:#1A1A1E;--card:#222226;--card2:#2A2A30;--t1:#F0F0F3;--t2:#9898A8;--t3:#8B8BA0;--br:rgba(255,255,255,.08);--br2:rgba(255,255,255,.12);--lay1:rgba(255,255,255,.03);--lay2:rgba(255,255,255,.05);--lay3:rgba(255,255,255,.09);--lay4:rgba(255,255,255,.14)}
+html[data-theme="black"]{--bg:#000;--bg2:#0A0A0A;--card:#0D0D0D;--card2:#141414;--t1:#F5F5F5;--t2:#9A9A9A;--t3:#6E6E6E;--br:rgba(255,255,255,.07);--br2:rgba(255,255,255,.11);--lay1:rgba(255,255,255,.035);--lay2:rgba(255,255,255,.055);--lay3:rgba(255,255,255,.09);--lay4:rgba(255,255,255,.14)}
+html[data-theme="light"]{--bg:#F5F7FC;--bg2:#ECEEF8;--card:#FFFFFF;--card2:#F0F2FA;--t1:#0A0F1C;--t2:#3A4A65;--t3:#505E75;--br:rgba(0,0,0,.08);--br2:rgba(0,0,0,.14);--lay1:rgba(10,15,28,.035);--lay2:rgba(10,15,28,.055);--lay3:rgba(10,15,28,.09);--lay4:rgba(10,15,28,.13);--bra:rgba(200,70,10,.35);--acc:#A63A08;--acc2:#FF7A3D;--adim:rgba(200,70,10,.08);--aglow:rgba(200,70,10,.12);--ok:#15803D;--bad:#C0261F;--warn:#B45309;--shadow-card:0 2px 8px rgba(20,30,60,.08),0 0 0 1px rgba(0,0,0,.04);--shadow-hover:0 12px 40px rgba(20,30,60,.14),0 0 0 1px rgba(200,70,10,.15)}
+
 *{box-sizing:border-box}
 html,body{margin:0}
-body{background:var(--bg);color:var(--ink);
-  font:15px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
-  -webkit-font-smoothing:antialiased}
-h1,h2,h3{font-family:Georgia,"Times New Roman",serif;font-weight:700;line-height:1.2;margin:0}
-.wrap{max-width:820px;margin:0 auto;padding:24px 20px 80px}
+body{background:var(--bg);color:var(--t1);
+  font:16px/1.6 'Space Grotesk',system-ui,-apple-system,sans-serif;-webkit-font-smoothing:antialiased}
+h1,h2,h3,h4{font-family:'Literata',Georgia,serif;font-weight:900;line-height:1.1;letter-spacing:-.6px;margin:0;color:var(--t1)}
+button{font-family:inherit;cursor:pointer}
+input{font-family:inherit}
+.wrap{max-width:1060px;margin:0 auto;padding:22px 20px 90px}
 .screen{display:none}
-.screen.on{display:block;animation:fade .25s ease}
-@keyframes fade{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
+.screen.on{display:block;animation:fade .28s var(--transition)}
+@keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
 
 /* dev bar */
-#dev{position:sticky;top:0;z-index:50;background:var(--navy);color:#cdd6e6;
-  font-size:11px;padding:6px 10px;display:flex;flex-wrap:wrap;gap:4px;align-items:center}
-#dev b{color:#fff;margin-right:6px;letter-spacing:.04em;text-transform:uppercase;font-size:10px}
-#dev button{background:#1d2f52;color:#cdd6e6;border:1px solid #2e4066;border-radius:5px;
-  padding:3px 7px;font-size:11px;cursor:pointer}
-#dev button:hover{background:#26406e;color:#fff}
-#dev button.here{background:var(--accent);border-color:var(--accent);color:#fff}
+#dev{position:sticky;top:0;z-index:60;background:var(--bg2);border-bottom:1px solid var(--br);
+  font-family:'IBM Plex Mono',monospace;font-size:11px;padding:7px 12px;display:flex;flex-wrap:wrap;gap:5px;align-items:center}
+#dev b{color:var(--acc);margin-right:8px;letter-spacing:.1em;text-transform:uppercase}
+#dev button{background:var(--lay2);color:var(--t2);border:1px solid var(--br);border-radius:6px;padding:3px 8px;font-size:11px;font-family:inherit}
+#dev button:hover{background:var(--lay3);color:var(--t1)}
+#dev button.here{background:var(--acc);border-color:var(--acc);color:#fff}
 #dev .sp{flex:1}
+#dev select{background:var(--lay2);color:var(--t2);border:1px solid var(--br);border-radius:6px;padding:3px 6px;font-family:inherit;font-size:11px}
 
-.eyebrow{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent-ink);font-weight:700}
-.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:22px;box-shadow:var(--shadow);margin:16px 0}
-.muted{color:var(--muted)}
-.big{font-size:2.6rem;font-family:Georgia,serif;font-weight:700}
-.btn{display:inline-flex;align-items:center;gap:8px;background:var(--accent);color:#fff;border:0;
-  border-radius:10px;padding:12px 20px;font-size:15px;font-weight:600;cursor:pointer;text-decoration:none}
-.btn:hover{background:var(--accent-ink)}
-.btn.ghost{background:transparent;color:var(--accent-ink);border:1.5px solid var(--accent-ink)}
-.btn.ghost:hover{background:#F6E9E2}
-.btn.big{font-size:17px;padding:16px 26px;width:100%;justify-content:center}
-.btn:disabled{opacity:.4;cursor:not-allowed}
-.pill{display:inline-block;background:var(--soft);border:1px solid var(--line);border-radius:999px;
-  padding:3px 10px;font-size:12px;color:var(--muted);margin:2px 4px 2px 0}
+.sec-label{display:inline-block;font-family:'Space Grotesk',sans-serif;font-size:.73rem;font-weight:700;
+  text-transform:uppercase;letter-spacing:.1em;color:var(--acc);margin-bottom:.7rem}
+h2{font-size:clamp(1.9rem,4vw,2.8rem);margin-bottom:1rem;text-wrap:balance}
+h3{font-size:1.35rem;letter-spacing:-.3px}
+.muted{color:var(--t3)}
+.t2{color:var(--t2)}
+.mono{font-family:'IBM Plex Mono',monospace}
+
+.card{background:var(--card);border:2px solid var(--br2);border-radius:var(--radius);
+  padding:1.5rem 1.6rem;box-shadow:var(--shadow-card);margin:14px 0}
+.card.tight{padding:1.1rem 1.2rem}
+
+.btn-a{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;background:var(--acc);color:#fff;
+  border:none;border-radius:var(--radius);padding:.85rem 1.8rem;font-size:1rem;font-weight:700;
+  box-shadow:0 4px 24px rgba(232,99,42,.3),0 0 0 1px rgba(255,255,255,.06) inset;transition:all var(--transition)}
+.btn-a:hover{filter:brightness(1.08);transform:translateY(-2px)}
+.btn-a:active{transform:translateY(0) scale(.98)}
+.btn-a:disabled{opacity:.4;transform:none;filter:none;cursor:not-allowed}
+.btn-a.full{width:100%}
+.btn-o{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;background:var(--lay2);color:var(--t1);
+  border-radius:var(--radius);padding:.85rem 1.8rem;font-size:1rem;font-weight:700;border:1.3px solid var(--br2);transition:all var(--transition)}
+.btn-o:hover{background:var(--lay3);transform:translateY(-2px)}
+.btn-o.sm{padding:.55rem 1rem;font-size:.88rem}
 .row{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
-hr{border:0;border-top:1px solid var(--line);margin:18px 0}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+@media(max-width:800px){.grid3{grid-template-columns:1fr}}
+hr{border:0;border-top:1px solid var(--br);margin:18px 0}
 
-/* question */
-.qnum{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:700}
-.qtext{font-size:16px;margin:8px 0 16px}
-.opt{display:block;width:100%;text-align:left;background:var(--soft);border:1.5px solid var(--line);
-  border-radius:10px;padding:12px 14px;margin:8px 0;cursor:pointer;font-size:15px;color:var(--ink)}
-.opt:hover{border-color:#b9c0cc}
-.opt.sel{border-color:var(--accent);background:#FCEDE5}
-.opt.correct{border-color:var(--ok);background:var(--okbg)}
-.opt.wrong{border-color:var(--bad);background:var(--badbg)}
-.opt .k{display:inline-block;width:22px;font-weight:700;color:var(--muted)}
+.pill{display:inline-flex;align-items:center;gap:.4rem;background:var(--lay1);border:1.3px solid var(--br);
+  border-radius:999px;padding:.3rem .85rem;font-size:.78rem;font-weight:600;color:var(--t3);margin:2px 4px 2px 0}
+.freq{font-family:'IBM Plex Mono',monospace;font-size:.68rem;font-weight:700;padding:.12rem .5rem;border-radius:4px;letter-spacing:.04em}
+.freq.alta{color:var(--acc);background:var(--adim);border:1px solid var(--bra)}
+.freq.media{color:var(--warn);background:rgba(251,191,36,.1);border:1px solid rgba(251,191,36,.3)}
+.freq.baja{color:var(--t3);background:var(--lay1);border:1px solid var(--br)}
+
+/* mode cards (.mc style) */
+.mc{background:var(--card);border:2px solid var(--br2);border-radius:var(--radius);padding:1.5rem;
+  display:flex;flex-direction:column;cursor:pointer;transition:all var(--transition);position:relative;overflow:hidden;box-shadow:var(--shadow-card)}
+.mc:hover{border-color:var(--acc);background:var(--card2);box-shadow:var(--shadow-hover);transform:translateY(-4px)}
+.mc::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--acc),var(--acc2));opacity:0;transition:opacity .3s}
+.mc:hover::before{opacity:1}
+.mc h3{margin:.7rem 0 .4rem}
+.mc p{color:var(--t3);font-size:.92rem;min-height:52px;margin:0 0 .9rem}
 
 /* progress */
-.prog{height:6px;background:var(--line);border-radius:999px;overflow:hidden;margin:10px 0}
-.prog i{display:block;height:100%;background:var(--accent);border-radius:999px;transition:width .3s}
+.prog{height:6px;background:var(--lay2);border-radius:999px;overflow:hidden;margin:12px 0}
+.prog i{display:block;height:100%;background:var(--acc);border-radius:999px;transition:width .3s}
 
-/* exam navigator */
-.exambar{display:flex;justify-content:space-between;align-items:center;gap:12px;
-  background:var(--navy);color:#fff;border-radius:12px;padding:12px 16px;margin:16px 0}
-.timer{font:700 20px/1 "IBM Plex Mono",ui-monospace,Menlo,monospace;letter-spacing:.04em}
-.timer.warn{color:#FFB454}
-.timer.danger{color:#FF6B6B}
+/* question */
+.qkick{font-family:'Space Grotesk',sans-serif;font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--acc)}
+.qtext{font-family:'Literata',Georgia,serif;font-size:1.2rem;line-height:1.45;margin:.6rem 0 1.1rem}
+.mathbox{background:var(--bg);border:1px solid var(--br);border-radius:10px;padding:1rem 1.2rem;margin:.8rem 0;overflow-x:auto}
+.opt{display:flex;align-items:center;gap:.8rem;width:100%;text-align:left;background:var(--lay1);border:1.5px solid var(--br);
+  border-radius:11px;padding:.85rem 1rem;margin:.5rem 0;color:var(--t1);font-size:1rem;transition:all .16s}
+.opt:hover{border-color:var(--br2);background:var(--lay2)}
+.opt.sel{border-color:var(--acc);background:var(--adim)}
+.opt.correct{border-color:var(--ok);background:rgba(34,197,94,.12)}
+.opt.wrong{border-color:var(--bad);background:rgba(248,113,113,.12)}
+.opt .k{width:28px;height:28px;flex:none;display:grid;place-items:center;border:1px solid var(--br);border-radius:8px;
+  font-family:'IBM Plex Mono',monospace;font-weight:700;font-size:.85rem;color:var(--t2)}
+.numin{background:var(--bg);border:1.5px solid var(--br2);border-radius:10px;padding:.75rem 1rem;color:var(--t1);
+  font-size:1.05rem;font-family:'IBM Plex Mono',monospace;width:200px;outline:none}
+.numin:focus{border-color:var(--acc)}
+
+/* exam bar */
+.exambar{display:flex;justify-content:space-between;align-items:center;gap:12px;background:var(--card);
+  border:2px solid var(--br2);border-radius:var(--radius);padding:.9rem 1.2rem;margin:14px 0;box-shadow:var(--shadow-card)}
+.timer{font-family:'IBM Plex Mono',monospace;font-weight:600;font-size:1.35rem;letter-spacing:.04em;
+  border:1px solid var(--bra);background:var(--adim);color:var(--acc2);padding:.4rem .8rem;border-radius:10px}
+.timer.warn{color:var(--warn);border-color:rgba(251,191,36,.4);background:rgba(251,191,36,.1)}
+.timer.danger{color:var(--bad);border-color:rgba(248,113,113,.4);background:rgba(248,113,113,.1)}
 .nav{display:flex;flex-wrap:wrap;gap:6px;margin:12px 0}
-.nav button{width:34px;height:34px;border-radius:8px;border:1.5px solid var(--line);background:var(--card);
-  font-size:13px;font-weight:700;cursor:pointer;color:var(--muted)}
-.nav button.ans{border-color:var(--ok);color:var(--ok);background:var(--okbg)}
-.nav button.mark{border-color:#E8A33D;color:#B9741A;background:#FDF3E4}
-.nav button.here{outline:3px solid var(--accent);outline-offset:1px;color:var(--ink)}
+.nav button{width:36px;height:36px;border-radius:9px;border:1.5px solid var(--br);background:var(--lay1);
+  font-family:'IBM Plex Mono',monospace;font-size:.8rem;font-weight:700;color:var(--t3)}
+.nav button.ans{border-color:var(--ok);color:var(--ok);background:rgba(34,197,94,.1)}
+.nav button.mark{border-color:var(--warn);color:var(--warn);background:rgba(251,191,36,.1)}
+.nav button.here{outline:3px solid var(--acc);outline-offset:1px;color:var(--t1)}
 
-/* result */
-.grade{display:flex;align-items:baseline;gap:14px}
-.ring{--p:72;width:120px;height:120px;border-radius:50%;
-  background:conic-gradient(var(--accent) calc(var(--p)*1%), var(--line) 0);
-  display:grid;place-items:center;flex:0 0 auto}
+/* results */
+.ring{--p:0;width:118px;height:118px;border-radius:50%;flex:none;display:grid;place-items:center;
+  background:conic-gradient(var(--acc) calc(var(--p)*1%), var(--lay2) 0)}
 .ring i{width:92px;height:92px;border-radius:50%;background:var(--card);display:grid;place-items:center;
-  font:700 24px Georgia,serif;font-style:normal}
-table.dom{width:100%;border-collapse:collapse;margin:12px 0}
-table.dom td{padding:8px 6px;border-bottom:1px solid var(--line);font-size:14px}
-table.dom td:last-child{text-align:right;font-weight:700;font-family:"IBM Plex Mono",monospace}
-.bar{height:8px;background:var(--line);border-radius:999px;overflow:hidden;min-width:120px;display:inline-block;vertical-align:middle}
+  font:900 1.7rem 'Literata',serif;font-style:normal;color:var(--t1)}
+.big{font-family:'Literata',serif;font-weight:900;font-size:2.8rem;letter-spacing:-1px}
+table.dom{width:100%;border-collapse:collapse;margin:10px 0;font-size:.92rem}
+table.dom th{text-align:left;font-family:'IBM Plex Mono',monospace;font-size:.68rem;text-transform:uppercase;letter-spacing:.08em;color:var(--t3);padding:6px 8px;border-bottom:1px solid var(--br)}
+table.dom td{padding:9px 8px;border-bottom:1px solid var(--br)}
+table.dom td.n{text-align:right;font-family:'IBM Plex Mono',monospace;font-weight:600}
+.bar{height:8px;background:var(--lay2);border-radius:999px;overflow:hidden;min-width:90px}
 .bar i{display:block;height:100%;border-radius:999px}
+.riesgo{font-family:'IBM Plex Mono',monospace;font-size:.7rem;font-weight:700;padding:.1rem .45rem;border-radius:4px}
+.riesgo.bajo{color:var(--ok);background:rgba(34,197,94,.12)}
+.riesgo.medio{color:var(--warn);background:rgba(251,191,36,.12)}
+.riesgo.alto{color:var(--bad);background:rgba(248,113,113,.12)}
 .todo{counter-reset:s;list-style:none;padding:0;margin:10px 0}
-.todo li{counter-increment:s;position:relative;padding:10px 10px 10px 42px;background:var(--soft);
-  border:1px solid var(--line);border-radius:10px;margin:8px 0}
-.todo li::before{content:counter(s);position:absolute;left:10px;top:10px;width:22px;height:22px;
-  background:var(--accent);color:#fff;border-radius:50%;display:grid;place-items:center;font-size:12px;font-weight:700}
+.todo li{counter-increment:s;position:relative;padding:12px 12px 12px 46px;background:var(--lay1);
+  border:1px solid var(--br);border-radius:11px;margin:8px 0;font-size:.95rem}
+.todo li::before{content:counter(s);position:absolute;left:12px;top:12px;width:24px;height:24px;background:var(--acc);
+  color:#fff;border-radius:7px;display:grid;place-items:center;font-family:'IBM Plex Mono',monospace;font-size:.78rem;font-weight:700}
+.alert{border:1px solid rgba(251,191,36,.28);background:rgba(251,191,36,.08);color:var(--warn);
+  border-radius:11px;padding:.8rem 1rem;font-size:.9rem;margin:12px 0}
 
-/* solutions */
-.sol{border:1px solid var(--line);border-radius:12px;margin:10px 0;overflow:hidden}
-.sol>summary{padding:12px 16px;cursor:pointer;font-weight:600;display:flex;justify-content:space-between;gap:10px;list-style:none}
+/* solutions / antibobos */
+.sol{border:1px solid var(--br);border-radius:12px;margin:10px 0;overflow:hidden;background:var(--card)}
+.sol>summary{padding:.9rem 1.1rem;cursor:pointer;font-weight:600;display:flex;justify-content:space-between;gap:10px;list-style:none}
 .sol>summary::-webkit-details-marker{display:none}
-.sol[open]>summary{border-bottom:1px solid var(--line);background:var(--soft)}
-.sol .body{padding:16px}
-.sol .lbl{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent-ink);font-weight:700;margin-top:14px}
-.sol .lbl:first-child{margin-top:0}
-.lock{filter:blur(4px);pointer-events:none;user-select:none}
-.lockwrap{position:relative}
-.lockcta{position:absolute;inset:0;display:grid;place-items:center;background:linear-gradient(180deg,rgba(246,245,241,.4),rgba(246,245,241,.95))}
-.tag-ok{color:var(--ok);font-weight:700}.tag-bad{color:var(--bad);font-weight:700}
+.sol[open]>summary{border-bottom:1px solid var(--br);background:var(--lay1)}
+.sol .body{padding:1.1rem}
+.lbl{font-family:'IBM Plex Mono',monospace;font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--acc);font-weight:700;margin:16px 0 4px}
+.lbl:first-child{margin-top:0}
+.abtabs{display:flex;gap:6px;flex-wrap:wrap;margin:6px 0 10px}
+.abtab{font-size:.78rem;padding:.35rem .75rem;border-radius:999px;border:1.3px solid var(--br);background:var(--lay1);color:var(--t3);font-weight:600}
+.abtab.on{border-color:var(--acc);color:var(--acc);background:var(--adim)}
+.antibobo{border:1px dashed var(--bra);background:var(--adim);border-radius:11px;padding:.8rem 1rem;font-size:.95rem}
+.antibobo b{font-family:'Literata',serif;font-size:1.05rem;letter-spacing:.02em}
+.lockwrap{position:relative;margin-top:10px}
+.lockwrap .lock{filter:blur(5px);pointer-events:none;user-select:none}
+.lockcta{position:absolute;inset:0;display:grid;place-items:center;text-align:center;
+  background:linear-gradient(180deg,transparent,var(--bg) 92%)}
 
-/* share card */
-.sharecard{background:linear-gradient(135deg,#0E1D3C,#1d3566);color:#fff;border-radius:16px;padding:24px;text-align:center}
-.sharecard .n{font:700 48px Georgia,serif}
-.sharecard .wa{background:#25D366;color:#06331d}
+/* interactive widget */
+.lab{border:1px solid var(--bra);background:var(--card2);border-radius:12px;padding:1rem;margin-top:10px}
+.lab svg{width:100%;height:auto;display:block;background:var(--bg);border-radius:8px}
+.lab input[type=range]{width:100%;accent-color:var(--acc)}
+.lab .readout{font-family:'IBM Plex Mono',monospace;font-size:.9rem;color:var(--t2);margin-top:6px}
 
-.note{background:#FFF8E8;border:1px solid #EAD9A8;border-radius:10px;padding:10px 14px;font-size:13px;color:#7A5B12;margin:12px 0}
+/* share */
+.share{background:linear-gradient(135deg,#0E1D3C,#1d3566);color:#fff;border-radius:16px;padding:1.6rem;text-align:center;border:1px solid var(--br2)}
+.share .n{font-family:'Literata',serif;font-weight:900;font-size:3rem}
+.wa{background:#25D366;color:#06331d}
+
+.note{background:var(--lay1);border:1px solid var(--br);border-radius:10px;padding:.7rem 1rem;font-size:.82rem;color:var(--t3);margin:12px 0}
+[hidden]{display:none!important}
 </style>
 </head>
 <body>
@@ -123,419 +191,528 @@ table.dom td:last-child{text-align:right;font-weight:700;font-family:"IBM Plex M
 <div id="dev">
   <b>Prototipo</b>
   <button data-go="home">Landing</button>
+  <button data-go="onb">Onboarding</button>
   <button data-go="diag">Diagnóstico</button>
   <button data-go="diagResult">Result. diag</button>
   <button data-go="paywall">Paywall</button>
-  <button data-go="examIntro">Intro simulacro</button>
+  <button data-go="examIntro">Intro sim.</button>
   <button data-go="exam">Simulacro</button>
-  <button data-go="examResult">Result. simulacro</button>
+  <button data-go="examReview">Revisión</button>
+  <button data-go="examResult">Result. sim.</button>
   <button data-go="solutions">Soluciones</button>
-  <button data-go="train">Entrenar errores</button>
+  <button data-go="train">Entrenar</button>
   <button data-go="dashboard">Dashboard</button>
   <span class="sp"></span>
+  <select id="themeSel">
+    <option value="dark">Noche</option><option value="black">Negro</option>
+    <option value="gray">Gris</option><option value="light">Claro</option>
+  </select>
   <button id="reset">↻ Reiniciar</button>
 </div>
 
 <div class="wrap">
 
-<!-- ============ HOME / LANDING ============ -->
+<!-- HOME -->
 <section class="screen" data-screen="home">
-  <p class="eyebrow">MathUNAL Pro · Cálculo Diferencial</p>
-  <h1 style="font-size:2.2rem;margin:8px 0">¿Estás listo para el<br>Segundo Corte?</h1>
-  <p class="muted" style="max-width:52ch">Haz un diagnóstico corto y gratis. En 6 minutos sabes en qué nivel vas,
-  qué temas te van a costar el parcial y qué estudiar antes del martes.</p>
-  <div class="row" style="margin:18px 0">
-    <button class="btn" data-go="diag">Hacer el diagnóstico gratis →</button>
-    <span class="muted" style="font-size:13px">8 preguntas · sin registro</span>
-  </div>
-  <div class="card">
-    <div class="row" style="justify-content:space-between">
-      <div><strong>Todo el banco académico sigue gratis</strong>
-        <div class="muted" style="font-size:13px">Parciales, talleres, fórmulas, calendario, racha. Siempre.</div></div>
-      <div style="text-align:right">
-        <div class="eyebrow">Pro añade</div>
-        <div class="muted" style="font-size:13px">simulacros reales · soluciones paso a paso · plan de repaso · progreso</div>
-      </div>
+  <div class="sec-label">— Simulacros MathUNAL</div>
+  <h2 style="font-size:clamp(2.4rem,6vw,4rem);line-height:.95">¿Qué tan listo estás<br>para el parcial?</h2>
+  <p class="t2" style="max-width:56ch;font-size:1.05rem">Practica con presión real, descubre exactamente dónde estás perdiendo
+  puntos y sal con un plan claro de qué estudiar antes del examen. No vendemos preguntas — vendemos claridad.</p>
+
+  <div class="grid3" style="margin:26px 0">
+    <div class="mc" data-go="onb">
+      <span class="pill" style="color:var(--ok);border-color:rgba(34,197,94,.3)">Gratis</span>
+      <h3>Diagnóstico</h3>
+      <p>Una prueba corta para saber cómo vas antes de decidir qué estudiar.</p>
+      <span class="mono muted" style="font-size:.78rem">8 preg · ~12 min · 1 solución de muestra</span>
+    </div>
+    <div class="mc" data-go="examIntro" style="border-color:var(--bra)">
+      <span class="pill" style="color:var(--acc);border-color:var(--bra)">Experiencia principal</span>
+      <h3>Simulacro real</h3>
+      <p>Un parcial completo: tiempo límite, navegación, entrega. Nota sobre 5.0 + análisis.</p>
+      <span class="mono muted" style="font-size:.78rem">12 preg · cronometrado</span>
+    </div>
+    <div class="mc" data-go="train">
+      <span class="pill">Pro</span>
+      <h3>Entrenar errores</h3>
+      <p>Practica únicamente los conceptos que MathUNAL detectó como débiles.</p>
+      <span class="mono muted" style="font-size:.78rem">Adaptado · sin reloj · feedback inmediato</span>
     </div>
   </div>
-  <div class="note">Prototipo local. Nada de esto está conectado a pagos, cuentas ni servidor. Los datos se borran al recargar.</div>
+
+  <div class="card">
+    <div class="sec-label">— Cómo funciona</div>
+    <div class="row" style="gap:24px;align-items:flex-start">
+      <div style="flex:1;min-width:240px">
+        <h3 style="margin-bottom:.5rem">De respuestas a un plan.</h3>
+        <p class="t2" style="font-size:.95rem">El simulacro mide tu desempeño cerca de las condiciones del parcial.
+        Después MathUNAL convierte tus respuestas en un diagnóstico accionable: qué tema, qué tipo de error, qué hacer ahora.</p>
+      </div>
+      <ol class="todo" style="flex:1;min-width:240px">
+        <li><b>Simula</b> — tiempo, nota y dificultad realista.</li>
+        <li><b>Diagnostica</b> — temas débiles y errores repetidos.</li>
+        <li><b>Corrige</b> — soluciones, Antibobos y entrenamiento dirigido.</li>
+      </ol>
+    </div>
+  </div>
+  <div class="note">Prototipo local. Nada conectado a pagos, cuentas ni servidor. Se borra al recargar. La barra de arriba es solo para saltar entre pantallas.</div>
 </section>
 
-<!-- ============ DIAGNÓSTICO ============ -->
+<!-- ONBOARDING -->
+<section class="screen" data-screen="onb">
+  <div class="sec-label">— Antes de empezar</div>
+  <h2>¿Qué vas a presentar?</h2>
+  <div class="card">
+    <div class="lbl">Materia</div>
+    <div class="row">
+      <button class="btn-o sm" style="border-color:var(--acc);color:var(--acc)">Cálculo Diferencial</button>
+      <span class="muted mono" style="font-size:.78rem">(el resto llega después)</span>
+    </div>
+    <div class="lbl">Corte</div>
+    <div class="row" id="onbCorte">
+      <button class="btn-o sm" data-c="1">Corte 1 · 30%</button>
+      <button class="btn-o sm" data-c="2" style="border-color:var(--acc);color:var(--acc)">Corte 2 · 30%</button>
+      <button class="btn-o sm" data-c="3">Corte 3 · 40%</button>
+    </div>
+    <div class="lbl">Fecha del parcial</div>
+    <input type="date" class="numin" id="onbFecha" style="width:220px">
+    <div id="onbCount" class="mono muted" style="font-size:.82rem;margin-top:6px"></div>
+    <hr>
+    <button class="btn-a full" data-go="diag">Hacer el diagnóstico gratis →</button>
+  </div>
+</section>
+
+<!-- DIAGNÓSTICO -->
 <section class="screen" data-screen="diag">
-  <p class="eyebrow">Diagnóstico gratis · Cálculo Diferencial · Corte 2</p>
+  <div class="sec-label">— Diagnóstico gratis · Cálculo Diferencial · <span id="diagCorteL">Corte 2</span></div>
   <div class="prog"><i id="diagProg"></i></div>
   <div id="diagHost"></div>
 </section>
 
-<!-- ============ RESULTADO DIAGNÓSTICO ============ -->
+<!-- RESULTADO DIAGNÓSTICO -->
 <section class="screen" data-screen="diagResult">
-  <p class="eyebrow">Tu diagnóstico</p>
+  <div class="sec-label">— Tu diagnóstico</div>
   <div class="card">
-    <div class="grade">
-      <div class="ring" id="diagRing"><i id="diagRingN">–</i></div>
+    <div class="row" style="gap:20px">
+      <div class="ring" id="dRing"><i id="dRingN">–</i></div>
       <div>
-        <div style="font-size:13px" class="muted">Nivel de preparación estimado</div>
-        <div class="big" id="diagPrep">–%</div>
-        <div class="muted" id="diagVerdict" style="font-size:14px"></div>
+        <div class="mono muted" style="font-size:.78rem">Nivel de preparación estimado</div>
+        <div class="big" id="dPrep">–%</div>
+        <div class="t2" id="dVerdict" style="font-size:.95rem"></div>
       </div>
     </div>
     <hr>
-    <div class="eyebrow">Dónde estás perdiendo puntos</div>
-    <table class="dom" id="diagDom"></table>
+    <div class="lbl">Dónde estás perdiendo puntos</div>
+    <table class="dom" id="dDom"></table>
+    <div class="t2" id="dErrType" style="font-size:.92rem;margin-top:8px"></div>
   </div>
 
   <div class="card">
-    <div class="eyebrow">Mira cómo te ayudaría MathUNAL Pro</div>
-    <p class="muted" style="font-size:14px">Esta es una de las preguntas que fallaste, resuelta completa. Así son todas en Pro.</p>
-    <div id="diagSample"></div>
-    <div class="lockwrap" style="margin-top:10px">
+    <div class="sec-label">— Mira cómo te ayudaría MathUNAL Pro</div>
+    <p class="t2" style="font-size:.92rem">Una de las que fallaste, resuelta con el estándar completo. Así son todas en Pro.</p>
+    <div id="dSample"></div>
+    <div class="lockwrap">
       <div class="lock">
         <div class="sol"><div class="body">
-          <div class="lbl">Concepto</div><p>Regla de la cadena con función trigonométrica…</p>
-          <div class="lbl">Desarrollo</div><p>Aplicamos primero la potencia, luego …</p>
+          <div class="lbl">Antibobo</div><div class="antibobo"><b>AFUERA · DEJA · ADENTRO</b></div>
+          <div class="lbl">Cómo reconocerlo en el parcial</div><p>Cuando ves una función metida dentro de otra…</p>
         </div></div>
       </div>
       <div class="lockcta">
-        <div style="text-align:center">
-          <div style="font-size:22px">🔒</div>
+        <div>
+          <div style="font-size:1.6rem">🔒</div>
           <strong>Desbloquea las otras 5 explicaciones + el simulacro completo</strong>
         </div>
       </div>
     </div>
   </div>
-
-  <button class="btn big" data-go="paywall">Prepararme para el Corte 2 →</button>
+  <button class="btn-a full" data-go="paywall">Prepararme para el Corte 2 →</button>
 </section>
 
-<!-- ============ PAYWALL (mock) ============ -->
+<!-- PAYWALL -->
 <section class="screen" data-screen="paywall">
-  <p class="eyebrow">MathUNAL Pro · Cálculo Diferencial</p>
-  <h2 style="font-size:1.7rem;margin:6px 0 4px">Pase Materia</h2>
-  <p class="muted">Acceso a todo el Pro de Cálculo Diferencial durante este semestre académico.
-  Un solo pago, sin renovación automática.</p>
-
+  <div class="sec-label">— MathUNAL Pro · Cálculo Diferencial</div>
+  <h2>Pase Materia</h2>
+  <p class="t2">Acceso a todo el Pro de Cálculo Diferencial durante este semestre académico. Un solo pago, sin renovación automática.</p>
   <div class="card">
     <div class="row" style="justify-content:space-between;align-items:flex-start">
       <div>
-        <div class="big" style="font-size:2rem">$16.900</div>
-        <div class="muted" style="font-size:13px"><s>$24.900</s> · precio de lanzamiento</div>
+        <div class="big" style="font-size:2.2rem">$16.900</div>
+        <div class="muted mono" style="font-size:.78rem"><s>$24.900</s> · precio de lanzamiento</div>
       </div>
-      <ul style="margin:0;padding-left:18px;font-size:14px">
+      <ul class="t2" style="margin:0;padding-left:18px;font-size:.92rem;max-width:44ch">
         <li>Los 3 cortes · simulacros cronometrados</li>
-        <li>Todas las soluciones paso a paso</li>
-        <li>Diagnóstico por tema + análisis de tiempo</li>
-        <li>Entrenar solo mis errores</li>
-        <li>Dashboard de progreso + predicción</li>
+        <li>Todas las soluciones paso a paso + Antibobos</li>
+        <li>Diagnóstico por tema y tipo de error + análisis de tiempo</li>
+        <li>Entrenar solo mis errores + preguntas gemelas</li>
+        <li>Dashboard de progreso + preparación por corte</li>
       </ul>
     </div>
     <hr>
-    <button class="btn big" id="payBtn">Pagar (simulado) →</button>
-    <p class="muted" style="font-size:12px;text-align:center;margin:8px 0 0">
-      En el prototipo este botón solo te deja pasar. No hay cobro.</p>
+    <button class="btn-a full" id="payBtn">Pagar (simulado) →</button>
+    <p class="muted" style="font-size:.75rem;text-align:center;margin:8px 0 0">En el prototipo este botón solo te deja pasar. No hay cobro.</p>
   </div>
-  <p class="muted" style="font-size:13px">¿Solo quieres un corte? <a href="#" data-go="paywall" style="color:var(--accent-ink)">Pase Corte · $9.900</a> (mock)</p>
+  <p class="muted" style="font-size:.85rem">¿Solo quieres un corte? <a href="#" data-go="paywall" style="color:var(--acc)">Pase Corte · $9.900</a> (mock)</p>
 </section>
 
-<!-- ============ INTRO SIMULACRO ============ -->
+<!-- INTRO SIMULACRO -->
 <section class="screen" data-screen="examIntro">
-  <p class="eyebrow">Simulacro real · Cálculo Diferencial · Corte 2</p>
+  <div class="sec-label">— Simulacro real · Cálculo Diferencial · Corte 2</div>
   <div class="card">
-    <h2 style="font-size:1.5rem;margin-bottom:8px">Antes de empezar</h2>
-    <ul style="font-size:14.5px">
-      <li><strong>12 preguntas</strong> · selección múltiple</li>
-      <li><strong>Tiempo comprimido en el prototipo:</strong> <span id="examTimeLabel">20:00</span> (el real serían ~105 min)</li>
-      <li>Puedes marcar preguntas y devolverte</li>
-      <li>Al entregar (o al acabarse el tiempo) ves tu nota y el análisis</li>
-      <li>No hay soluciones hasta entregar</li>
+    <h3 style="margin-bottom:.6rem">Antes de empezar</h3>
+    <ul class="t2" style="font-size:.95rem">
+      <li><strong>12 preguntas</strong> — selección múltiple, respuesta numérica y un desarrollo por pasos</li>
+      <li><strong>Tiempo (comprimido en el prototipo):</strong> <span id="examTimeLabel">20:00</span> — el real sería ~105 min</li>
+      <li>Puedes marcar preguntas y devolverte · autoguardado</li>
+      <li>Revisión antes de entregar · entrega automática al acabarse el tiempo</li>
+      <li>Sin soluciones hasta entregar</li>
     </ul>
-    <div class="row">
-      <label style="font-size:13px" class="muted"><input type="checkbox" id="turbo"> modo turbo (60 s, para probar la entrega automática)</label>
-    </div>
-    <button class="btn big" id="startExam">Empezar el simulacro</button>
+    <label class="muted" style="font-size:.82rem;display:block;margin:.4rem 0"><input type="checkbox" id="turbo"> modo turbo (60 s, para probar la entrega automática)</label>
+    <button class="btn-a full" id="startExam">Empezar el simulacro</button>
   </div>
 </section>
 
-<!-- ============ SIMULACRO ============ -->
+<!-- SIMULACRO -->
 <section class="screen" data-screen="exam">
   <div class="exambar">
-    <div><div style="font-size:11px;letter-spacing:.1em;text-transform:uppercase;opacity:.7">Cálculo Diferencial · Corte 2</div>
+    <div><div class="mono muted" style="font-size:.68rem;letter-spacing:.1em">CÁLCULO DIFERENCIAL · CORTE 2</div>
       <div id="examPos" style="font-weight:700">Pregunta 1 de 12</div></div>
     <div class="timer" id="examTimer">20:00</div>
   </div>
   <div class="nav" id="examNav"></div>
   <div class="card" id="examHost"></div>
   <div class="row" style="justify-content:space-between">
-    <div>
-      <button class="btn ghost" id="examPrev">← Anterior</button>
-      <button class="btn ghost" id="examMark">⚑ Marcar</button>
-    </div>
-    <div>
-      <button class="btn ghost" id="examNext">Siguiente →</button>
-      <button class="btn" id="examSubmit">Entregar</button>
+    <div><button class="btn-o sm" id="examPrev">← Anterior</button>
+      <button class="btn-o sm" id="examMark">⚑ Marcar</button></div>
+    <div><button class="btn-o sm" id="examNext">Siguiente →</button>
+      <button class="btn-a" style="padding:.55rem 1.2rem" id="examSubmit">Entregar</button></div>
+  </div>
+</section>
+
+<!-- REVISIÓN -->
+<section class="screen" data-screen="examReview">
+  <div class="sec-label">— Antes de entregar</div>
+  <h2>Revisa</h2>
+  <div class="card">
+    <div class="row" style="gap:22px" id="revStats"></div>
+    <hr>
+    <div class="nav" id="revNav"></div>
+    <p class="muted" style="font-size:.82rem">Toca una para volver a ella. Amarillo = marcada, gris = en blanco.</p>
+    <div class="row" style="justify-content:space-between">
+      <button class="btn-o sm" data-go="exam">← Volver al simulacro</button>
+      <button class="btn-a" style="padding:.55rem 1.4rem" id="revSubmit">Entregar definitivo</button>
     </div>
   </div>
 </section>
 
-<!-- ============ RESULTADO SIMULACRO ============ -->
+<!-- RESULTADO SIMULACRO -->
 <section class="screen" data-screen="examResult">
-  <p class="eyebrow">Resultado del simulacro</p>
+  <div class="sec-label">— Resultado del simulacro</div>
+  <h2 style="font-size:clamp(1.8rem,4vw,2.6rem)">Ya sabes dónde estás parado.</h2>
   <div class="card">
-    <div class="grade">
+    <div class="row" style="gap:20px">
       <div class="ring" id="exRing"><i id="exRingN">–</i></div>
       <div>
         <div class="big" id="exGrade">–</div>
-        <div class="muted">de 5.0 · preparación estimada <strong id="exPrep">–%</strong></div>
-        <div id="exVerdict" style="font-size:14px;margin-top:4px"></div>
+        <div class="t2">de 5.0 · preparación estimada <strong id="exPrep">–%</strong></div>
+        <div id="exVerdict" style="font-size:.95rem;margin-top:4px"></div>
       </div>
     </div>
   </div>
 
   <div class="card">
-    <div class="eyebrow">Dominio por tema</div>
+    <div class="sec-label">— Dominio por tema</div>
     <table class="dom" id="exDom"></table>
+    <div class="t2" id="exErrType" style="font-size:.92rem;margin-top:6px"></div>
   </div>
 
   <div class="card">
-    <div class="eyebrow">Tiempo</div>
-    <p id="exTime" style="font-size:14.5px"></p>
+    <div class="sec-label">— Tiempo</div>
+    <p class="t2" id="exTime" style="font-size:.95rem"></p>
   </div>
 
   <div class="card">
-    <div class="eyebrow">Lo que deberías hacer ahora</div>
+    <div class="sec-label">— Qué estudiar ahora</div>
     <ol class="todo" id="exTodo"></ol>
-    <button class="btn big" data-go="train">Entrenar mis errores →</button>
+    <button class="btn-a full" data-go="train">Entrenar mis errores →</button>
     <div class="row" style="justify-content:center;margin-top:8px">
-      <a class="btn ghost" data-go="solutions">Ver soluciones</a>
-      <a class="btn ghost" data-go="dashboard">Mi progreso</a>
+      <button class="btn-o sm" data-go="solutions">Ver soluciones</button>
+      <button class="btn-o sm" data-go="dashboard">Mi progreso</button>
     </div>
   </div>
 
   <div class="card">
-    <div class="eyebrow">Compartir</div>
-    <div class="sharecard" id="shareCard">
-      <div style="font-size:12px;letter-spacing:.14em;opacity:.75">MATHUNAL · SIMULACRO</div>
+    <div class="sec-label">— Compartir</div>
+    <div class="share">
+      <div class="mono" style="font-size:.7rem;letter-spacing:.16em;opacity:.75">MATHUNAL · SIMULACRO</div>
       <div style="opacity:.9;margin:2px 0 6px">Cálculo Diferencial · Corte 2</div>
       <div class="n" id="shareN">–</div>
       <div style="opacity:.9">🔥 Preparación <span id="sharePrep">–%</span></div>
-      <div style="margin-top:12px;font-size:14px">¿Me ganas?</div>
-      <div style="font-size:12px;opacity:.7">mathunal.com/reto/x93K2</div>
+      <div style="margin-top:10px;font-size:.9rem">¿Me ganas?</div>
+      <div class="mono" style="font-size:.72rem;opacity:.7">mathunal.com/reto/x93K2</div>
     </div>
-    <button class="btn wa big" style="margin-top:10px" onclick="alert('mock: abriría WhatsApp con el reto')">Retar por WhatsApp</button>
-    <p class="muted" style="font-size:12px;text-align:center">El reto es gratis — es lo que trae más gente.</p>
+    <button class="btn-a wa full" style="margin-top:10px" onclick="alert('mock: abriría WhatsApp con el reto')">Retar por WhatsApp</button>
+    <p class="muted" style="font-size:.75rem;text-align:center">El reto es gratis — es lo que trae más gente.</p>
   </div>
 </section>
 
-<!-- ============ SOLUCIONES ============ -->
+<!-- SOLUCIONES -->
 <section class="screen" data-screen="solutions">
-  <p class="eyebrow">Soluciones paso a paso · Cálculo Diferencial · Corte 2</p>
-  <p class="muted" style="font-size:14px">Estándar Pro: cada solución tiene concepto, desarrollo, resultado, el error común y un consejo para el parcial.</p>
+  <div class="sec-label">— Soluciones · Cálculo Diferencial · Corte 2</div>
+  <p class="t2" style="font-size:.92rem">Estándar Pro: concepto, desarrollo, resultado, error común, cómo reconocerlo, Antibobo y (cuando aporta) una gráfica para comprobar.</p>
   <div id="solHost"></div>
 </section>
 
-<!-- ============ ENTRENAR ERRORES ============ -->
+<!-- ENTRENAR -->
 <section class="screen" data-screen="train">
-  <p class="eyebrow">Entrenar mis errores</p>
-  <p class="muted" style="font-size:14px" id="trainIntro">Preguntas de tus temas flojos. Feedback inmediato, sin reloj.</p>
+  <div class="sec-label">— Entrenar mis errores</div>
+  <p class="t2" style="font-size:.92rem" id="trainIntro">Preguntas de tus temas flojos. Feedback inmediato, sin reloj.</p>
   <div class="prog"><i id="trainProg"></i></div>
   <div id="trainHost"></div>
 </section>
 
-<!-- ============ DASHBOARD ============ -->
+<!-- DASHBOARD -->
 <section class="screen" data-screen="dashboard">
-  <p class="eyebrow">Mi progreso · Cálculo Diferencial</p>
+  <div class="sec-label">— Mi progreso · Cálculo Diferencial</div>
   <div class="card">
-    <h2 style="font-size:1.4rem">Has hecho 3 simulacros del Corte 2</h2>
-    <p style="font-size:15px">Preparación: <strong>42% → 61% → <span style="color:var(--ok)">74%</span></strong></p>
-    <div class="row" style="align-items:flex-end;gap:18px;margin:14px 0">
-      <div style="text-align:center"><div class="bar" style="width:40px;height:60px;position:relative;background:var(--line)"><i style="position:absolute;bottom:0;width:100%;height:42%;background:var(--accent)"></i></div><div class="muted" style="font-size:11px">S1</div></div>
-      <div style="text-align:center"><div class="bar" style="width:40px;height:60px;position:relative;background:var(--line)"><i style="position:absolute;bottom:0;width:100%;height:61%;background:var(--accent)"></i></div><div class="muted" style="font-size:11px">S2</div></div>
-      <div style="text-align:center"><div class="bar" style="width:40px;height:60px;position:relative;background:var(--line)"><i style="position:absolute;bottom:0;width:100%;height:74%;background:var(--ok)"></i></div><div class="muted" style="font-size:11px">S3</div></div>
+    <h3>Has hecho 3 simulacros del Corte 2</h3>
+    <p class="t2" style="font-size:1rem">Preparación: <strong>42% → 61% → <span style="color:var(--ok)">74%</span></strong></p>
+    <div class="row" style="align-items:flex-end;gap:16px;margin:14px 0">
+      <div style="text-align:center"><div style="width:44px;height:64px;background:var(--lay2);border-radius:6px;position:relative"><i style="position:absolute;bottom:0;width:100%;height:42%;background:var(--acc);border-radius:6px"></i></div><div class="muted mono" style="font-size:.68rem">S1</div></div>
+      <div style="text-align:center"><div style="width:44px;height:64px;background:var(--lay2);border-radius:6px;position:relative"><i style="position:absolute;bottom:0;width:100%;height:61%;background:var(--acc);border-radius:6px"></i></div><div class="muted mono" style="font-size:.68rem">S2</div></div>
+      <div style="text-align:center"><div style="width:44px;height:64px;background:var(--lay2);border-radius:6px;position:relative"><i style="position:absolute;bottom:0;width:100%;height:74%;background:var(--ok);border-radius:6px"></i></div><div class="muted mono" style="font-size:.68rem">S3</div></div>
     </div>
   </div>
   <div class="card">
-    <div class="eyebrow">Tu cuello de botella</div>
-    <p style="font-size:15px"><strong>Regla de la cadena</strong> y <strong>razón de cambio</strong>.
-    Estás demorando <strong>2.1×</strong> más que el promedio en problemas de razón de cambio.</p>
+    <div class="sec-label">— Tu cuello de botella</div>
+    <p class="t2" style="font-size:1rem"><strong>Regla de la cadena</strong> y <strong>razón de cambio</strong>. Estás demorando <strong>2.1×</strong> más que el promedio en razón de cambio.</p>
     <table class="dom">
-      <tr><td>Reglas de derivación</td><td><span class="bar" style="width:140px"><i style="width:88%;background:var(--ok)"></i></span></td><td>88%</td></tr>
-      <tr><td>Regla de la cadena</td><td><span class="bar" style="width:140px"><i style="width:52%;background:var(--accent)"></i></span></td><td>52%</td></tr>
-      <tr><td>Derivación implícita</td><td><span class="bar" style="width:140px"><i style="width:70%;background:#E8A33D"></i></span></td><td>70%</td></tr>
-      <tr><td>Razón de cambio</td><td><span class="bar" style="width:140px"><i style="width:44%;background:var(--bad)"></i></span></td><td>44%</td></tr>
-      <tr><td>Tangente y aproximación</td><td><span class="bar" style="width:140px"><i style="width:79%;background:var(--ok)"></i></span></td><td>79%</td></tr>
+      <tr><td>Reglas de derivación</td><td><span class="bar" style="display:inline-block"><i style="width:88%;background:var(--ok)"></i></span></td><td class="n">88%</td></tr>
+      <tr><td>Regla de la cadena</td><td><span class="bar" style="display:inline-block"><i style="width:52%;background:var(--acc)"></i></span></td><td class="n">52%</td></tr>
+      <tr><td>Derivación implícita</td><td><span class="bar" style="display:inline-block"><i style="width:70%;background:var(--warn)"></i></span></td><td class="n">70%</td></tr>
+      <tr><td>Razón de cambio</td><td><span class="bar" style="display:inline-block"><i style="width:44%;background:var(--bad)"></i></span></td><td class="n">44%</td></tr>
     </table>
   </div>
   <div class="card">
-    <div class="eyebrow">Estimación MathUNAL · Beta</div>
-    <p style="font-size:15px">Rango de desempeño estimado en el parcial: <strong>3.3 – 3.9</strong></p>
-    <p class="muted" style="font-size:13px">Basado en precisión, dificultad, tiempo y consistencia. Todavía sin calibrar con notas reales.</p>
+    <div class="sec-label">— Preparación Corte 2 · Beta</div>
+    <div class="big" style="font-size:2rem">73<span style="font-size:1rem;color:var(--t3)"> / 100</span></div>
+    <p class="t2" style="font-size:.9rem">Conocimiento 78 · Velocidad 61 · Cobertura 80. Consistencia / retención / presión: <span class="muted">en construcción (necesitan más intentos)</span>.</p>
   </div>
   <div class="card">
-    <div class="eyebrow">Meta</div>
-    <div class="lockwrap">
-      <div style="display:flex;gap:12px;align-items:center;opacity:.5">
-        <div style="font-size:28px">🎯</div>
-        <div><strong>LISTO PARA EL CORTE</strong><div class="muted" style="font-size:13px">2 simulacros seguidos por encima de 4.0 dentro del tiempo</div></div>
-      </div>
-    </div>
-    <p class="muted" style="font-size:13px;margin-top:8px">Vas 1 de 2. El último fue 3.7 — te faltó poco.</p>
+    <div class="sec-label">— Meta</div>
+    <p style="font-size:1rem;opacity:.6">🎯 <strong>LISTO PARA EL CORTE 2</strong> — 2 simulacros seguidos por encima de 4.0 dentro del tiempo.</p>
+    <p class="muted" style="font-size:.85rem">Vas 1 de 2. El último fue 3.7 — te faltó poco.</p>
   </div>
   <div class="card">
-    <div class="eyebrow">Recomendación</div>
-    <p style="font-size:15px">🔴 Hoy <strong>no</strong> hagas otro simulacro. Tus errores están concentrados en razón de cambio.
-    Repasa esa sección y resuelve estas 4 preguntas primero.</p>
-    <button class="btn" data-go="train">Ir a esas 4 preguntas →</button>
+    <div class="sec-label">— Recomendación</div>
+    <p style="font-size:1rem">🔴 Hoy <strong>no</strong> hagas otro simulacro. Tus errores están concentrados en razón de cambio. Repasa esa sección y resuelve estas 4 preguntas primero.</p>
+    <button class="btn-a" data-go="train">Ir a esas 4 preguntas →</button>
   </div>
 </section>
 
 </div>
 
 <script>
-/* ================= FAKE QUESTION BANK — Cálculo Diferencial, Corte 2 ================= */
+/* ===== BANCO FALSO — Cálculo Diferencial, Corte 2 (prototipo) ===== */
+/* tipoError: conceptual | algebra | signo | procedimiento | formula */
 var BANK = {
- q1:{tema:"Reglas de derivación",dif:1,tEsp:60,
+ q1:{tema:"Reglas de derivación",freq:"alta",dif:1,tEsp:60,tipo:"mcq",
    texto:"Si $f(x)=x^2\\operatorname{sen} x$, entonces $f'(x)$ es:",
    op:["$2x\\operatorname{sen} x + x^2\\cos x$","$2x\\cos x$","$x^2\\cos x + 2x$","$2x\\operatorname{sen} x - x^2\\cos x$"],
-   ok:0,trampa:2,
+   ok:0,trampa:2,tipoError:"procedimiento",
    sol:{concepto:"Regla del producto: $(uv)'=u'v+uv'$.",
+     quePregunta:"Derivar un producto de dos funciones ($x^2$ y $\\operatorname{sen} x$).",
      pasos:["$u=x^2,\\ v=\\operatorname{sen} x$.","$u'=2x,\\ v'=\\cos x$.","$f'(x)=2x\\cdot\\operatorname{sen} x + x^2\\cdot\\cos x$."],
      resultado:"$f'(x)=2x\\operatorname{sen} x + x^2\\cos x$",
-     error:"Derivar cada factor por separado y multiplicar ($2x\\cos x$). El producto NO se deriva factor a factor.",
-     consejo:"Cuando veas dos funciones multiplicadas, marca $u$ y $v$ antes de derivar. Medio segundo que te salva el punto."}},
- q2:{tema:"Reglas de derivación",dif:2,tEsp:75,
+     errorComun:"Derivar cada factor por separado y multiplicar ($2x\\cos x$). El producto NO se deriva factor a factor.",
+     comoReconocer:"Dos cosas multiplicadas, cada una función de $x$. Si puedes decir 'esto por esto', es regla del producto.",
+     antibobo:"UNO por la derivada del OTRO, y viceversa. \u00abderiva-deja, deja-deja\u2011deriva\u00bb.",
+     desdeCero:"La derivada mide c\u00f3mo cambia $f$. Si $f$ es un \u00e1rea de lados $u$ y $v$, al crecer un poquito cambian los dos lados: por eso hay dos t\u00e9rminos."}},
+ q2:{tema:"Reglas de derivación",freq:"alta",dif:2,tEsp:75,tipo:"mcq",
    texto:"Si $f(x)=\\dfrac{x+1}{x-1}$, entonces $f'(x)$ es:",
    op:["$\\dfrac{-2}{(x-1)^2}$","$\\dfrac{2}{(x-1)^2}$","$\\dfrac{-2}{x-1}$","$1$"],
-   ok:0,trampa:3,
+   ok:0,trampa:3,tipoError:"signo",
    sol:{concepto:"Regla del cociente: $\\left(\\dfrac{u}{v}\\right)'=\\dfrac{u'v-uv'}{v^2}$.",
-     pasos:["$u=x+1,\\ v=x-1$; $u'=1,\\ v'=1$.","Numerador: $1\\cdot(x-1)-(x+1)\\cdot1=x-1-x-1=-2$.","Denominador: $(x-1)^2$."],
+     quePregunta:"Derivar un cociente.",
+     pasos:["$u=x+1,\\ v=x-1$; $u'=1,\\ v'=1$.","Numerador: $1(x-1)-(x+1)(1)=-2$.","Denominador: $(x-1)^2$."],
      resultado:"$f'(x)=\\dfrac{-2}{(x-1)^2}$",
-     error:"Simplificar $\\frac{x+1}{x-1}$ 'cancelando' y concluir que la derivada es $1$. No se puede cancelar.",
-     consejo:"El orden en el numerador importa: $u'v-uv'$, no al revés. Un signo cambiado = respuesta B (la trampa)."}},
- q3:{tema:"Regla de la cadena",dif:2,tEsp:60,
+     errorComun:"Creer que $\\frac{x+1}{x-1}$ se 'cancela' a $1$, o invertir el orden del numerador a $uv'-u'v$.",
+     comoReconocer:"Una fracción con $x$ arriba y abajo. Si el de abajo no es constante, es regla del cociente.",
+     antibobo:"\u00abBAJO\u2011deriva\u2011ARRIBA menos ARRIBA\u2011deriva\u2011BAJO, todo sobre BAJO al cuadrado.\u00bb El orden importa: un signo cambiado = respuesta B."}},
+ q3:{tema:"Regla de la cadena",freq:"alta",dif:2,tEsp:60,tipo:"mcq",
    texto:"$\\dfrac{d}{dx}\\left[\\cos(3x^2)\\right]$ es:",
    op:["$-6x\\operatorname{sen}(3x^2)$","$-\\operatorname{sen}(3x^2)$","$6x\\operatorname{sen}(3x^2)$","$-\\operatorname{sen}(6x)$"],
-   ok:0,trampa:1,
+   ok:0,trampa:1,tipoError:"procedimiento",
    sol:{concepto:"Regla de la cadena: derivada de afuera por derivada de adentro.",
+     quePregunta:"Derivar una composición ($\\cos$ de algo que no es solo $x$).",
      pasos:["Afuera: $\\cos(\\cdot)\\Rightarrow -\\operatorname{sen}(\\cdot)$, evaluado en $3x^2$.","Adentro: $\\dfrac{d}{dx}(3x^2)=6x$.","Multiplico: $-\\operatorname{sen}(3x^2)\\cdot 6x$."],
      resultado:"$-6x\\operatorname{sen}(3x^2)$",
-     error:"Olvidar multiplicar por la derivada interna y dejar $-\\operatorname{sen}(3x^2)$ (opción B).",
-     consejo:"Después de derivar 'lo de afuera', pregúntate siempre: ¿ya multipliqué por lo de adentro?"}},
- q4:{tema:"Regla de la cadena",dif:2,tEsp:75,
+     errorComun:"Olvidar multiplicar por la derivada interna y dejar $-\\operatorname{sen}(3x^2)$ (opción B).",
+     comoReconocer:"Dentro del $\\cos$, $\\operatorname{sen}$, raíz o potencia hay algo distinto de $x$ solo.",
+     antibobo:"AFUERA · DEJA · ADENTRO. Derivas la de afuera, DEJAS lo de adentro igual, y multiplicas por la derivada de adentro."}},
+ q4:{tema:"Regla de la cadena",freq:"media",dif:2,tEsp:75,tipo:"mcq",
    texto:"$\\dfrac{d}{dx}\\left[\\sqrt{x^2+1}\\right]$ es:",
    op:["$\\dfrac{x}{\\sqrt{x^2+1}}$","$\\dfrac{1}{2\\sqrt{x^2+1}}$","$\\dfrac{2x}{\\sqrt{x^2+1}}$","$\\dfrac{x^2}{\\sqrt{x^2+1}}$"],
-   ok:0,trampa:1,
+   ok:0,trampa:1,tipoError:"procedimiento",
    sol:{concepto:"$\\sqrt{u}=u^{1/2}$, luego cadena.",
-     pasos:["$\\dfrac{d}{du}u^{1/2}=\\dfrac{1}{2}u^{-1/2}=\\dfrac{1}{2\\sqrt{u}}$.","$u=x^2+1\\Rightarrow u'=2x$.","$\\dfrac{1}{2\\sqrt{x^2+1}}\\cdot 2x=\\dfrac{x}{\\sqrt{x^2+1}}$."],
+     quePregunta:"Derivar una raíz de algo que no es solo $x$.",
+     pasos:["$\\dfrac{d}{du}u^{1/2}=\\dfrac{1}{2\\sqrt{u}}$.","$u=x^2+1\\Rightarrow u'=2x$.","$\\dfrac{1}{2\\sqrt{x^2+1}}\\cdot 2x=\\dfrac{x}{\\sqrt{x^2+1}}$."],
      resultado:"$\\dfrac{x}{\\sqrt{x^2+1}}$",
-     error:"Dejar $\\dfrac{1}{2\\sqrt{x^2+1}}$ sin multiplicar por $u'=2x$ (opción B).",
-     consejo:"La raíz casi siempre esconde una cadena. Reescríbela como potencia $u^{1/2}$ y no se te olvida."}},
- q5:{tema:"Regla de la cadena",dif:3,tEsp:90,
+     errorComun:"Dejar $\\dfrac{1}{2\\sqrt{x^2+1}}$ sin multiplicar por $u'=2x$ (opción B).",
+     comoReconocer:"Raíz con algo adentro que no es $x$ pelado → cadena escondida.",
+     antibobo:"La raíz es un disfraz de $(\\ )^{1/2}$. Reescríbela como potencia y la cadena aparece sola."}},
+ q5:{tema:"Regla de la cadena",freq:"alta",dif:3,tEsp:90,tipo:"mcq",
    texto:"$\\dfrac{d}{dx}\\left[\\operatorname{sen}^3(2x)\\right]$ es:",
    op:["$6\\operatorname{sen}^2(2x)\\cos(2x)$","$3\\operatorname{sen}^2(2x)\\cos(2x)$","$6\\operatorname{sen}(2x)\\cos(2x)$","$3\\operatorname{sen}^2(2x)$"],
-   ok:0,trampa:1,
+   ok:0,trampa:1,tipoError:"procedimiento",gemela:"q13",
    sol:{concepto:"Cadena doble: potencia $\\circ$ seno $\\circ$ $(2x)$.",
-     pasos:["$\\operatorname{sen}^3(2x)=[\\operatorname{sen}(2x)]^3$.","Potencia: $3[\\operatorname{sen}(2x)]^2\\cdot\\dfrac{d}{dx}\\operatorname{sen}(2x)$.","$\\dfrac{d}{dx}\\operatorname{sen}(2x)=\\cos(2x)\\cdot 2$.","Junto todo: $3\\operatorname{sen}^2(2x)\\cdot\\cos(2x)\\cdot 2$."],
+     quePregunta:"Derivar tres capas anidadas: un exponente, un seno y un $2x$.",
+     pasos:["$\\operatorname{sen}^3(2x)=[\\operatorname{sen}(2x)]^3$.","Potencia: $3[\\operatorname{sen}(2x)]^2\\cdot\\dfrac{d}{dx}\\operatorname{sen}(2x)$.","$\\dfrac{d}{dx}\\operatorname{sen}(2x)=\\cos(2x)\\cdot 2$.","Todo junto: $3\\operatorname{sen}^2(2x)\\cdot\\cos(2x)\\cdot 2$."],
      resultado:"$6\\operatorname{sen}^2(2x)\\cos(2x)$",
-     error:"Aplicar solo una capa de la cadena y dejar $3\\operatorname{sen}^2(2x)\\cos(2x)$ (opción B) — falta el $2$ del $2x$.",
-     consejo:"Cuenta las capas ANTES de derivar. Acá hay tres: exponente 3, el seno, y el $2x$. Una derivada por capa."}},
- q6:{tema:"Derivación implícita",dif:2,tEsp:75,
+     errorComun:"Aplicar solo una capa y dejar $3\\operatorname{sen}^2(2x)\\cos(2x)$ (opción B) — falta el $2$ del $2x$.",
+     comoReconocer:"Hay potencia Y función trig Y argumento con coeficiente → tres derivadas encadenadas.",
+     antibobo:"Cuenta las capas ANTES de derivar. Acá son 3: exponente, seno, y $2x$. Una derivada por capa, todas multiplicadas."}},
+ q6:{tema:"Derivación implícita",freq:"alta",dif:2,tEsp:75,tipo:"mcq",
    texto:"Si $x^2+y^2=25$, entonces $\\dfrac{dy}{dx}$ es:",
    op:["$-\\dfrac{x}{y}$","$\\dfrac{x}{y}$","$-\\dfrac{x}{2y}$","$-\\dfrac{2x}{y}$"],
-   ok:0,trampa:2,
+   ok:0,trampa:2,tipoError:"procedimiento",
    sol:{concepto:"Derivo ambos lados respecto de $x$, tratando $y=y(x)$.",
-     pasos:["$\\dfrac{d}{dx}(x^2)=2x$.","$\\dfrac{d}{dx}(y^2)=2y\\cdot y'$ (cadena).","$2x+2y\\,y'=0\\Rightarrow y'=-\\dfrac{2x}{2y}=-\\dfrac{x}{y}$."],
+     quePregunta:"Hallar $y'$ sin despejar $y$.",
+     pasos:["$\\dfrac{d}{dx}(x^2)=2x$.","$\\dfrac{d}{dx}(y^2)=2y\\cdot y'$ (cadena).","$2x+2y\\,y'=0\\Rightarrow y'=-\\dfrac{x}{y}$."],
      resultado:"$\\dfrac{dy}{dx}=-\\dfrac{x}{y}$",
-     error:"Derivar $y^2$ como $2y$ sin el $y'$, o no cancelar el $2$ (opción C).",
-     consejo:"Cada vez que derivas un término con $y$, aparece un $y'$ pegado. Márcalo apenas lo escribes."}},
- q7:{tema:"Derivación implícita",dif:3,tEsp:100,
+     errorComun:"Derivar $y^2$ como $2y$ sin el $y'$.",
+     comoReconocer:"La ecuación mezcla $x$ y $y$ y no puedes (o no quieres) despejar $y$.",
+     antibobo:"Cada término con $y$ suelta un $y'$ pegado. Escríbelo apenas derivas ese término, no después."}},
+ q7:{tema:"Derivación implícita",freq:"media",dif:3,tEsp:100,tipo:"mcq",
    texto:"Si $xy^2+x^2=3$, entonces $\\dfrac{dy}{dx}$ es:",
    op:["$-\\dfrac{y^2+2x}{2xy}$","$-\\dfrac{y^2+2x}{2y}$","$\\dfrac{y^2+2x}{2xy}$","$-\\dfrac{2x}{y^2}$"],
-   ok:0,trampa:1,
+   ok:0,trampa:1,tipoError:"procedimiento",
    sol:{concepto:"Producto $xy^2$ + implícita.",
-     pasos:["$\\dfrac{d}{dx}(xy^2)=1\\cdot y^2 + x\\cdot 2y\\,y'$ (producto y cadena).","$\\dfrac{d}{dx}(x^2)=2x$.","$y^2+2xy\\,y'+2x=0$.","$y'=-\\dfrac{y^2+2x}{2xy}$."],
+     quePregunta:"Implícita cuando además hay un producto de $x$ por algo con $y$.",
+     pasos:["$\\dfrac{d}{dx}(xy^2)=y^2 + x\\cdot 2y\\,y'$ (producto y cadena).","$\\dfrac{d}{dx}(x^2)=2x$.","$y^2+2xy\\,y'+2x=0$.","$y'=-\\dfrac{y^2+2x}{2xy}$."],
      resultado:"$\\dfrac{dy}{dx}=-\\dfrac{y^2+2x}{2xy}$",
-     error:"Olvidar la regla del producto en $xy^2$ y escribir solo $2xy\\,y'$ (lleva a la opción B).",
-     consejo:"$xy^2$ son DOS funciones multiplicadas. Producto primero, cadena adentro."}},
- q8:{tema:"Razón de cambio",dif:2,tEsp:90,
-   texto:"Un globo esférico se infla a $100\\ \\text{cm}^3/\\text{s}$. ¿Qué tan rápido crece el radio cuando $r=5$ cm? ($V=\\tfrac{4}{3}\\pi r^3$)",
-   op:["$\\dfrac{1}{\\pi}\\ \\text{cm/s}$","$\\dfrac{4}{\\pi}\\ \\text{cm/s}$","$\\dfrac{1}{4\\pi}\\ \\text{cm/s}$","$4\\pi\\ \\text{cm/s}$"],
-   ok:0,trampa:2,
-   sol:{concepto:"Razón de cambio: derivo $V$ respecto del tiempo.",
-     pasos:["$\\dfrac{dV}{dt}=4\\pi r^2\\dfrac{dr}{dt}$.","$100=4\\pi(5)^2\\dfrac{dr}{dt}=100\\pi\\dfrac{dr}{dt}$.","$\\dfrac{dr}{dt}=\\dfrac{100}{100\\pi}=\\dfrac{1}{\\pi}$."],
+     errorComun:"Olvidar la regla del producto en $xy^2$ y escribir solo $2xy\\,y'$ (lleva a la opción B).",
+     comoReconocer:"Un término tiene $x$ multiplicando una expresión con $y$ → producto DENTRO de la implícita.",
+     antibobo:"$xy^2$ son dos cosas multiplicadas. Producto primero, cadena adentro, y el $y'$ no se olvida."}},
+ q8:{tema:"Razón de cambio",freq:"alta",dif:2,tEsp:90,tipo:"num",
+   texto:"Un globo esférico se infla a $100\\ \\text{cm}^3/\\text{s}$. ¿Qué tan rápido crece el radio (en cm/s) cuando $r=5$? Usa $V=\\tfrac{4}{3}\\pi r^3$. Responde en la forma $a/\\pi$ escribiendo solo $a$.",
+   respNum:1,tolNum:0.001,tipoError:"procedimiento",unidad:"(es decir, $\\tfrac{1}{\\pi}$ cm/s)",
+   sol:{concepto:"Derivo $V$ respecto del tiempo y despejo $dr/dt$.",
+     quePregunta:"Relacionar dos razones de cambio ($dV/dt$ y $dr/dt$).",
+     pasos:["$\\dfrac{dV}{dt}=4\\pi r^2\\dfrac{dr}{dt}$.","$100=4\\pi(25)\\dfrac{dr}{dt}=100\\pi\\dfrac{dr}{dt}$.","$\\dfrac{dr}{dt}=\\dfrac{1}{\\pi}$."],
      resultado:"$\\dfrac{dr}{dt}=\\dfrac{1}{\\pi}\\ \\text{cm/s}$",
-     error:"Usar $r$ en vez de $r^2$ en $\\frac{dV}{dt}$, o cancelar mal los números.",
-     consejo:"Escribe la fórmula, deriva respecto de $t$, y SOLO al final reemplaza los números. Reemplazar antes es el error #1."}},
- q9:{tema:"Razón de cambio",dif:3,tEsp:110,
-   texto:"Una escalera de 5 m está apoyada en una pared. La base se aleja a $1$ m/s. ¿Qué tan rápido baja la punta cuando la base está a 3 m de la pared?",
+     errorComun:"Reemplazar $r=5$ ANTES de derivar, o usar $r$ en vez de $r^2$.",
+     comoReconocer:"Te dan una razón (cm³/s) y piden otra (cm/s) en un instante → razón de cambio.",
+     antibobo:"Fórmula → deriva respecto de $t$ → SOLO al final metes los números. Meterlos antes es el error #1."}},
+ q9:{tema:"Razón de cambio",freq:"alta",dif:3,tEsp:110,tipo:"mcq",
+   texto:"Una escalera de 5 m se apoya en una pared. La base se aleja a $1$ m/s. ¿Qué tan rápido baja la punta cuando la base está a 3 m?",
    op:["$-\\dfrac{3}{4}$ m/s","$-\\dfrac{4}{3}$ m/s","$-1$ m/s","$-\\dfrac{3}{5}$ m/s"],
-   ok:0,trampa:1,
+   ok:0,trampa:1,tipoError:"procedimiento",compruebalo:"escalera",
    sol:{concepto:"Pitágoras $x^2+y^2=25$, derivo respecto de $t$.",
-     pasos:["En $x=3$: $y=\\sqrt{25-9}=4$.","$2x\\,x'+2y\\,y'=0$.","$y'=-\\dfrac{x\\,x'}{y}=-\\dfrac{3\\cdot 1}{4}$."],
-     resultado:"$\\dfrac{dy}{dt}=-\\dfrac{3}{4}$ m/s (la punta baja a $0.75$ m/s)",
-     error:"Invertir la fracción ($-4/3$) o no calcular $y$ con Pitágoras primero.",
-     consejo:"Dibuja el triángulo, marca qué cambia y qué te preguntan, y halla el lado que falta ANTES de derivar."}},
- q10:{tema:"Tangente y aproximación",dif:1,tEsp:60,
+     quePregunta:"Cómo cambia la altura cuando cambia la base, con la escalera fija.",
+     pasos:["En $x=3$: $y=\\sqrt{25-9}=4$.","$2x\\,x'+2y\\,y'=0$.","$y'=-\\dfrac{x\\,x'}{y}=-\\dfrac{3(1)}{4}$."],
+     resultado:"$\\dfrac{dy}{dt}=-\\dfrac{3}{4}$ m/s (baja a $0{,}75$ m/s)",
+     errorComun:"Invertir la fracción ($-4/3$) o no hallar $y$ con Pitágoras primero.",
+     comoReconocer:"Escalera / sombra / triángulo que cambia de forma → Pitágoras + derivar respecto de $t$.",
+     antibobo:"Dibuja el triángulo, marca qué se mueve y qué te preguntan, halla el lado que falta, y RECIÉN derivas."}},
+ q10:{tema:"Tangente y aproximación",freq:"media",dif:1,tEsp:60,tipo:"mcq",
    texto:"La recta tangente a $y=x^2$ en $x=1$ es:",
    op:["$y=2x-1$","$y=2x+1$","$y=x-1$","$y=2x$"],
-   ok:0,trampa:3,
+   ok:0,trampa:3,tipoError:"conceptual",
    sol:{concepto:"Recta tangente: $y-f(a)=f'(a)(x-a)$.",
+     quePregunta:"Ecuación de la recta tangente en un punto.",
      pasos:["$f(1)=1$.","$f'(x)=2x\\Rightarrow f'(1)=2$.","$y-1=2(x-1)\\Rightarrow y=2x-1$."],
      resultado:"$y=2x-1$",
-     error:"Usar la pendiente $f'(1)=2$ pero olvidar el punto y dejar $y=2x$ (opción D).",
-     consejo:"Necesitas DOS cosas: la pendiente $f'(a)$ y el punto $(a,f(a))$. Si te falta una, la recta está mal."}},
- q11:{tema:"Tangente y aproximación",dif:2,tEsp:80,
+     errorComun:"Tener la pendiente $2$ pero olvidar el punto y dejar $y=2x$ (opción D).",
+     comoReconocer:"Piden 'la recta tangente' o 'la aproximación lineal' en $x=a$.",
+     antibobo:"Necesitas DOS cosas: pendiente $f'(a)$ y punto $(a,f(a))$. Si te falta una, la recta está mal."}},
+ q11:{tema:"Tangente y aproximación",freq:"baja",dif:2,tEsp:80,tipo:"mcq",
    texto:"Usando linealización de $f(x)=\\sqrt{x}$ en $a=4$, el valor aproximado de $\\sqrt{4.1}$ es:",
    op:["$2.025$","$2.05$","$2.1$","$2.0025$"],
-   ok:0,trampa:1,
+   ok:0,trampa:1,tipoError:"algebra",
    sol:{concepto:"$L(x)=f(a)+f'(a)(x-a)$.",
-     pasos:["$f(4)=2$; $f'(x)=\\dfrac{1}{2\\sqrt{x}}\\Rightarrow f'(4)=\\dfrac{1}{4}$.","$L(x)=2+\\dfrac{1}{4}(x-4)$.","$L(4.1)=2+\\dfrac{1}{4}(0.1)=2+0.025$."],
+     quePregunta:"Aproximar un valor difícil con la recta tangente.",
+     pasos:["$f(4)=2$; $f'(x)=\\dfrac{1}{2\\sqrt{x}}\\Rightarrow f'(4)=\\dfrac{1}{4}$.","$L(x)=2+\\dfrac{1}{4}(x-4)$.","$L(4.1)=2+\\dfrac{1}{4}(0.1)=2.025$."],
      resultado:"$\\sqrt{4.1}\\approx 2.025$",
-     error:"Multiplicar $0.1$ por $\\frac12$ en vez de $\\frac14$, dando $2.05$ (opción B).",
-     consejo:"$f'(a)$ es la pendiente que multiplica al $\\Delta x$. Calcula $f'(a)$ con cuidado — es donde se pierde el punto."}},
- q12:{tema:"Reglas de derivación",dif:1,tEsp:45,
+     errorComun:"Multiplicar $0.1$ por $\\frac12$ en vez de $\\frac14$, dando $2.05$ (opción B).",
+     comoReconocer:"Piden aproximar $\\sqrt{\\ }$, $\\ln$, etc. de un número cercano a uno 'bonito'.",
+     antibobo:"$f'(a)$ es la pendiente que multiplica al $\\Delta x$. Calcúlala con calma — ahí se pierde el punto."}},
+ q12:{tema:"Reglas de derivación",freq:"baja",dif:1,tEsp:45,tipo:"mcq",
    texto:"Si $f(x)=x^4$, entonces $f''(x)$ es:",
    op:["$12x^2$","$4x^3$","$24x$","$12x^3$"],
-   ok:0,trampa:1,
+   ok:0,trampa:1,tipoError:"conceptual",
    sol:{concepto:"Derivada segunda = derivar dos veces.",
+     quePregunta:"Segunda derivada.",
      pasos:["$f'(x)=4x^3$.","$f''(x)=12x^2$."],
      resultado:"$f''(x)=12x^2$",
-     error:"Derivar una sola vez y responder $4x^3$ (opción B).",
-     consejo:"$f''$ significa DOS derivadas. Cuenta las primas."}},
- q13:{tema:"Regla de la cadena",dif:3,tEsp:90,
+     errorComun:"Derivar una sola vez y responder $4x^3$ (opción B).",
+     comoReconocer:"Aparece $f''$, $\\frac{d^2}{dx^2}$ o 'concavidad'.",
+     antibobo:"Cuenta las primas. $f''$ = dos derivadas."}},
+ q13:{tema:"Regla de la cadena",freq:"media",dif:3,tEsp:90,tipo:"mcq",
    texto:"$\\dfrac{d}{dx}\\left[x\\,e^{2x}\\right]$ es:",
    op:["$e^{2x}(1+2x)$","$2xe^{2x}$","$e^{2x}+2x$","$2e^{2x}$"],
-   ok:0,trampa:1,
+   ok:0,trampa:1,tipoError:"procedimiento",
    sol:{concepto:"Producto + cadena en $e^{2x}$.",
-     pasos:["$u=x,\\ v=e^{2x}$; $u'=1,\\ v'=e^{2x}\\cdot 2$.","$f'=1\\cdot e^{2x}+x\\cdot 2e^{2x}$.","Factorizo: $e^{2x}(1+2x)$."],
+     quePregunta:"Derivar $x$ por una exponencial con $2x$ en el exponente.",
+     pasos:["$u=x,\\ v=e^{2x}$; $u'=1,\\ v'=2e^{2x}$.","$f'=e^{2x}+x\\cdot 2e^{2x}$.","Factorizo: $e^{2x}(1+2x)$."],
      resultado:"$e^{2x}(1+2x)$",
-     error:"Derivar solo el segundo factor y dejar $2xe^{2x}$ (opción B).",
-     consejo:"$e^{\\text{algo}}$: la derivada es $e^{\\text{algo}}$ por la derivada del exponente. Y si hay un $x$ multiplicando, es producto."}},
- q14:{tema:"Análisis de gráficas",dif:2,tEsp:60,
+     errorComun:"Derivar solo el segundo factor y dejar $2xe^{2x}$ (opción B).",
+     comoReconocer:"Un $x$ (o polinomio) multiplicando $e^{(\\ )}$, $\\ln(\\ )$, $\\operatorname{sen}(\\ )$…",
+     antibobo:"$e^{\\text{algo}}$ deriva a $e^{\\text{algo}}$ por la derivada del exponente. Y si hay algo multiplicando, es producto."}},
+ q14:{tema:"Análisis de gráficas",freq:"media",dif:2,tEsp:60,tipo:"mcq",
    texto:"Si $f'(x)>0$ y $f''(x)<0$ en un intervalo, la gráfica de $f$ ahí es:",
    op:["creciente y cóncava hacia abajo","creciente y cóncava hacia arriba","decreciente y cóncava hacia abajo","decreciente y cóncava hacia arriba"],
-   ok:0,trampa:1,
+   ok:0,trampa:1,tipoError:"conceptual",
    sol:{concepto:"$f'$ da el crecimiento; $f''$ da la concavidad.",
+     quePregunta:"Traducir signos de $f'$ y $f''$ a la forma de la curva.",
      pasos:["$f'>0\\Rightarrow f$ creciente.","$f''<0\\Rightarrow$ cóncava hacia abajo."],
      resultado:"Creciente y cóncava hacia abajo.",
-     error:"Confundir el signo de $f''$: $f''<0$ es cóncava hacia ABAJO, no arriba.",
-     consejo:"$f''<0$: la pendiente va bajando aunque la función suba (como el final de una loma)."}}
+     errorComun:"Confundir el signo: $f''<0$ es cóncava hacia ABAJO, no arriba.",
+     comoReconocer:"Te dan signos de derivadas y piden describir o bosquejar la gráfica.",
+     antibobo:"$f''<0$: la subida se va aplanando (como el final de una loma). $f''>0$: sonrisa."}},
+ /* pregunta de PROCEDIMIENTO POR PASOS */
+ s1:{tema:"Razón de cambio",freq:"alta",dif:2,tipo:"steps",
+   texto:"Un tanque cónico (vértice abajo) con radio 3 m y altura 6 m se llena a $2\\ \\text{m}^3/\\text{min}$. Se quiere $dh/dt$ cuando $h=4$. Desarrolla por pasos.",
+   pasos:[
+     {q:"1. ¿Qué relación conviene usar para dejar $V$ en función de solo $h$?",
+      op:["Semejanza: $r=\\tfrac{h}{2}$, luego $V=\\tfrac{1}{3}\\pi r^2 h$","$V=\\pi r^2 h$ con $r=3$ fijo","$V=\\tfrac{1}{3}\\pi (3)^2 h$ directamente"],ok:0,
+      fb:"Bien: el radio cambia con el nivel, hay que ponerlo en función de $h$ por semejanza de triángulos."},
+     {q:"2. Con $r=h/2$, ¿cuál es $V(h)$?",
+      op:["$V=\\dfrac{\\pi h^3}{12}$","$V=\\dfrac{\\pi h^3}{3}$","$V=\\dfrac{\\pi h^2}{4}$"],ok:0,
+      fb:"$V=\\tfrac13\\pi(h/2)^2 h=\\tfrac{\\pi h^3}{12}$."},
+     {q:"3. Deriva respecto de $t$:",
+      op:["$\\dfrac{dV}{dt}=\\dfrac{\\pi h^2}{4}\\dfrac{dh}{dt}$","$\\dfrac{dV}{dt}=\\dfrac{\\pi h^3}{12}\\dfrac{dh}{dt}$","$\\dfrac{dV}{dt}=\\dfrac{3\\pi h^2}{12}$"],ok:0,
+      fb:"$\\tfrac{d}{dt}\\!\\left(\\tfrac{\\pi h^3}{12}\\right)=\\tfrac{\\pi h^2}{4}\\tfrac{dh}{dt}$ (cadena en $h$)."},
+     {q:"4. Sustituye $dV/dt=2$ y $h=4$ y despeja $dh/dt$:",
+      op:["$\\dfrac{dh}{dt}=\\dfrac{1}{2\\pi}$ m/min","$\\dfrac{dh}{dt}=\\dfrac{2}{\\pi}$ m/min","$\\dfrac{dh}{dt}=\\dfrac{1}{8\\pi}$ m/min"],ok:0,
+      fb:"$2=\\tfrac{\\pi(16)}{4}\\tfrac{dh}{dt}=4\\pi\\tfrac{dh}{dt}\\Rightarrow \\tfrac{dh}{dt}=\\tfrac{1}{2\\pi}$."}
+   ],
+   sol:{concepto:"Razón de cambio con semejanza para eliminar una variable.",
+     quePregunta:"$dh/dt$ en un cono que se llena, cuando el radio también cambia.",
+     pasos:["Semejanza $r=h/2$.","$V=\\dfrac{\\pi h^3}{12}$.","$\\dfrac{dV}{dt}=\\dfrac{\\pi h^2}{4}\\dfrac{dh}{dt}$.","Sustituir y despejar: $\\dfrac{dh}{dt}=\\dfrac{1}{2\\pi}$ m/min."],
+     resultado:"$\\dfrac{dh}{dt}=\\dfrac{1}{2\\pi}\\approx 0.159$ m/min",
+     errorComun:"Dejar $r=3$ constante (no lo es mientras el tanque se llena).",
+     comoReconocer:"Cono/pirámide que se llena o vacía → casi siempre necesitas semejanza.",
+     antibobo:"Si el recipiente 'se abre' hacia arriba, el radio depende de la altura. Relaciónalos ANTES de derivar.",
+     puntajeParcial:[["Semejanza / plantear V(h)","0.25 / 0.25"],["Derivar respecto de t","0.30 / 0.30"],["Sustituir valores","0.15 / 0.20"],["Resultado con unidades","0.10 / 0.25"],["Total","0.80 / 1.00"]]}}
 };
 var DIAG_IDS = ["q1","q3","q5","q6","q8","q10","q11","q14"];
-var EXAM_IDS = ["q1","q2","q3","q4","q5","q6","q8","q9","q10","q11","q12","q13"];
+var EXAM_IDS = ["q1","q2","q3","q4","q5","q6","q8","q9","s1","q10","q12","q13"];
 
-/* ================= navigation ================= */
-var screens = {}, devbtns = {};
+/* ===== navegación ===== */
+var screens={}, devbtns={};
 document.querySelectorAll('.screen').forEach(function(s){ screens[s.dataset.screen]=s; });
 document.querySelectorAll('#dev button[data-go]').forEach(function(b){ devbtns[b.dataset.go]=b; });
 function go(name){
   Object.values(screens).forEach(function(s){ s.classList.remove('on'); });
-  screens[name].classList.add('on');
+  (screens[name]||screens.home).classList.add('on');
   document.querySelectorAll('#dev button').forEach(function(b){ b.classList.remove('here'); });
   if(devbtns[name]) devbtns[name].classList.add('here');
   window.scrollTo(0,0);
   if(name==='diag') startDiag();
   if(name==='diagResult') renderDiagResult();
-  if(name==='exam') { if(!exam.started) startExamRun(); }
+  if(name==='exam'){ if(!exam.started) startExamRun(); else renderExam(); }
+  if(name==='examReview') renderReview();
   if(name==='examResult') renderExamResult();
   if(name==='solutions') renderSolutions();
   if(name==='train') startTrain();
@@ -545,268 +722,391 @@ document.querySelectorAll('[data-go]').forEach(function(el){
   el.addEventListener('click',function(e){ e.preventDefault(); go(el.dataset.go); });
 });
 document.getElementById('reset').addEventListener('click',function(){ location.reload(); });
+document.getElementById('themeSel').addEventListener('change',function(){
+  document.documentElement.setAttribute('data-theme', this.value);
+});
 function typeset(){
   if(window.renderMathInElement) renderMathInElement(document.body,{delimiters:[
-    {left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}]});
+    {left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}],throwOnError:false});
 }
 window.addEventListener('load',function(){ go('home'); });
 
-/* ================= generic MCQ runner ================= */
-function mcqCard(qid, state, opts){
+/* ===== onboarding ===== */
+var onb={corte:2,fecha:null};
+document.querySelectorAll('#onbCorte button').forEach(function(b){
+  b.addEventListener('click',function(){
+    onb.corte=+b.dataset.c;
+    document.querySelectorAll('#onbCorte button').forEach(function(x){ x.style.borderColor='';x.style.color=''; });
+    b.style.borderColor='var(--acc)'; b.style.color='var(--acc)';
+    document.getElementById('diagCorteL').textContent='Corte '+onb.corte;
+  });
+});
+document.getElementById('onbFecha').addEventListener('change',function(){
+  onb.fecha=this.value;
+  var d=Math.ceil((new Date(this.value)-new Date())/86400000);
+  document.getElementById('onbCount').textContent = isNaN(d)?'' : (d>0?('Faltan '+d+' días para tu parcial.'):'Esa fecha ya pasó.');
+});
+
+/* ===== MCQ / NUM renderer ===== */
+function qCard(qid,state,opts){
   var q=BANK[qid], html='';
-  html+='<div class="qnum">'+opts.label+' · '+q.tema+'</div>';
+  html+='<div class="qkick">'+opts.label+' · '+q.tema+' <span class="freq '+q.freq+'">'+({alta:'MUY FRECUENTE',media:'FRECUENCIA MEDIA',baja:'POCO FRECUENTE'}[q.freq])+'</span></div>';
   html+='<div class="qtext">'+q.texto+'</div>';
+  if(q.tipo==='num'){
+    html+='<div class="row"><input class="numin" id="numIn" placeholder="a" value="'+(state.val!=null?state.val:'')+'"'+(opts.reveal?' disabled':'')+'> <span class="muted">'+(q.unidad||'')+'</span></div>';
+    if(opts.reveal){
+      var okn = Math.abs(parseFloat(state.val)-q.respNum)<=q.tolNum;
+      html+='<div style="margin-top:10px;font-size:.92rem">'+(okn?'<span style="color:var(--ok);font-weight:700">Correcta ✓</span>':'<span style="color:var(--bad);font-weight:700">Incorrecta ✗</span> — era '+q.respNum)+'</div>';
+    }
+    return html;
+  }
   q.op.forEach(function(o,i){
     var cls='opt';
     if(state.pick===i) cls+=' sel';
-    if(opts.reveal){
-      if(i===q.ok) cls+=' correct';
-      else if(state.pick===i) cls+=' wrong';
-    }
-    html+='<button class="'+cls+'" data-i="'+i+'"'+(opts.reveal?' disabled':'')+'>'+
-      '<span class="k">'+"ABCD"[i]+'</span>'+o+'</button>';
+    if(opts.reveal){ if(i===q.ok) cls+=' correct'; else if(state.pick===i) cls+=' wrong'; }
+    html+='<button class="'+cls+'" data-i="'+i+'"'+(opts.reveal?' disabled':'')+'><span class="k">'+"ABCD"[i]+'</span><span>'+o+'</span></button>';
   });
   if(opts.reveal){
-    html+='<div style="margin-top:10px;font-size:14px">'+
-      (state.pick===q.ok?'<span class="tag-ok">Correcta ✓</span>':
-       '<span class="tag-bad">Incorrecta ✗</span> — la respuesta es '+"ABCD"[q.ok])+
-      '</div>';
-    html+='<div class="note" style="margin-top:8px"><strong>Error común:</strong> '+q.sol.error+'</div>';
+    html+='<div style="margin-top:10px;font-size:.92rem">'+
+      (state.pick===q.ok?'<span style="color:var(--ok);font-weight:700">Correcta ✓</span>':
+       '<span style="color:var(--bad);font-weight:700">Incorrecta ✗</span> — la respuesta es '+"ABCD"[q.ok])+'</div>';
+    html+='<div class="alert"><b>Error común:</b> '+q.sol.errorComun+'</div>';
   }
   return html;
 }
 
-/* ================= DIAGNÓSTICO ================= */
+/* ===== DIAGNÓSTICO ===== */
 var diag={i:0,ans:{}};
 function startDiag(){ diag={i:0,ans:{}}; renderDiag(); }
 function renderDiag(){
-  var host=document.getElementById('diagHost');
-  var qid=DIAG_IDS[diag.i];
-  document.getElementById('diagProg').style.width=((diag.i)/DIAG_IDS.length*100)+'%';
-  var st={pick:diag.ans[qid]!==undefined?diag.ans[qid]:null};
-  host.innerHTML='<div class="card">'+mcqCard(qid,st,{label:'Pregunta '+(diag.i+1)+' de '+DIAG_IDS.length,reveal:false})+
-    '<div class="row" style="justify-content:flex-end;margin-top:12px">'+
-    '<button class="btn" id="diagNext"'+(st.pick===null?' disabled':'')+'>'+
+  var host=document.getElementById('diagHost'), qid=DIAG_IDS[diag.i];
+  document.getElementById('diagProg').style.width=(diag.i/DIAG_IDS.length*100)+'%';
+  var q=BANK[qid], st={pick:diag.ans[qid], val:diag.ans[qid]};
+  var answered = diag.ans[qid]!==undefined && diag.ans[qid]!=='' && diag.ans[qid]!==null;
+  host.innerHTML='<div class="card">'+qCard(qid,st,{label:'Pregunta '+(diag.i+1)+' de '+DIAG_IDS.length,reveal:false})+
+    '<div class="row" style="justify-content:flex-end;margin-top:12px"><button class="btn-a" style="padding:.55rem 1.4rem" id="diagNext"'+(answered?'':' disabled')+'>'+
     (diag.i===DIAG_IDS.length-1?'Ver mi diagnóstico':'Siguiente')+'</button></div></div>';
-  host.querySelectorAll('.opt').forEach(function(b){
-    b.addEventListener('click',function(){ diag.ans[qid]=+b.dataset.i; renderDiag(); });
-  });
+  host.querySelectorAll('.opt').forEach(function(b){ b.addEventListener('click',function(){ diag.ans[qid]=+b.dataset.i; renderDiag(); }); });
+  var ni=document.getElementById('numIn'); if(ni) ni.addEventListener('input',function(){ diag.ans[qid]=this.value; document.getElementById('diagNext').disabled=this.value===''; });
   var nx=document.getElementById('diagNext');
-  if(nx) nx.addEventListener('click',function(){
-    if(diag.i===DIAG_IDS.length-1) go('diagResult');
-    else { diag.i++; renderDiag(); }
-  });
+  if(nx) nx.addEventListener('click',function(){ if(diag.i===DIAG_IDS.length-1) go('diagResult'); else { diag.i++; renderDiag(); } });
   typeset();
 }
-function domainFromAnswers(ids,ans){
+function isRight(qid,ans){
+  var q=BANK[qid];
+  if(q.tipo==='num') return Math.abs(parseFloat(ans)-q.respNum)<=q.tolNum;
+  return ans===q.ok;
+}
+function domainOf(ids,ans){
   var by={};
-  ids.forEach(function(qid){
-    var q=BANK[qid]; by[q.tema]=by[q.tema]||{ok:0,n:0};
-    by[q.tema].n++; if(ans[qid]===q.ok) by[q.tema].ok++;
-  });
+  ids.forEach(function(qid){ var q=BANK[qid]; by[q.tema]=by[q.tema]||{ok:0,n:0}; by[q.tema].n++; if(isRight(qid,ans[qid])) by[q.tema].ok++; });
   return by;
 }
-function domTable(by){
+function domRows(by,withRisk){
   var rows=Object.keys(by).map(function(t){
     var p=Math.round(by[t].ok/by[t].n*100);
-    var col=p>=75?'var(--ok)':p>=50?'#E8A33D':'var(--bad)';
-    return {t:t,p:p,col:col};
+    var col=p>=75?'var(--ok)':p>=50?'var(--warn)':'var(--bad)';
+    var risk=p>=75?'bajo':p>=50?'medio':'alto';
+    return {t:t,p:p,col:col,risk:risk};
   }).sort(function(a,b){return a.p-b.p;});
   return rows.map(function(r){
-    return '<tr><td>'+r.t+'</td><td><span class="bar" style="width:150px"><i style="width:'+r.p+'%;background:'+r.col+'"></i></span></td><td>'+r.p+'%</td></tr>';
+    return '<tr><td>'+r.t+'</td><td><span class="bar" style="display:inline-block;vertical-align:middle"><i style="width:'+r.p+'%;background:'+r.col+'"></i></span></td><td class="n">'+r.p+'%</td>'+
+      (withRisk?'<td class="n"><span class="riesgo '+r.risk+'">'+r.risk.toUpperCase()+'</span></td>':'')+'</tr>';
   }).join('');
 }
+function errTypeMsg(ids,ans){
+  var t={}; ids.forEach(function(qid){ if(!isRight(qid,ans[qid])){ var k=BANK[qid].tipoError; t[k]=(t[k]||0)+1; } });
+  var top=Object.keys(t).sort(function(a,b){return t[b]-t[a];})[0];
+  if(!top) return 'Sin errores — dominas el corte.';
+  var m={conceptual:'Tus fallos son de <b>concepto</b>: no es que te equivoques en cuentas, es que el método no está claro.',
+    procedimiento:'Tus fallos son de <b>procedimiento</b>: sabes qué hacer pero se te salta un paso (casi siempre la regla de la cadena).',
+    algebra:'No tienes un problema de concepto. Estás perdiendo puntos por <b>álgebra</b>.',
+    signo:'Tus fallos son de <b>signo</b>: el planteamiento está bien, se te voltea un menos.',
+    formula:'Tus fallos son de <b>fórmula</b>: estás recordando mal una fórmula base.'};
+  return m[top]||'';
+}
 function renderDiagResult(){
-  var by=domainFromAnswers(DIAG_IDS,diag.ans);
-  var tot=DIAG_IDS.reduce(function(a,qid){return a+(diag.ans[qid]===BANK[qid].ok?1:0);},0);
+  var by=domainOf(DIAG_IDS,diag.ans);
+  var tot=DIAG_IDS.reduce(function(a,qid){return a+(isRight(qid,diag.ans[qid])?1:0);},0);
   var prep=Math.round(tot/DIAG_IDS.length*100);
-  document.getElementById('diagRing').style.setProperty('--p',prep);
-  document.getElementById('diagRingN').textContent=prep+'%';
-  document.getElementById('diagPrep').textContent=prep+'%';
-  var v=prep>=75?'Vas bien. Un par de temas por pulir y quedas listo.':
-        prep>=50?'Vas a medias. Hay dos áreas que te pueden costar el parcial.':
-        'Vas flojo todavía. Con foco esta semana lo levantas.';
-  document.getElementById('diagVerdict').textContent=v;
-  document.getElementById('diagDom').innerHTML=domTable(by);
-  // sample solution = first wrong answer
-  var wrongId=DIAG_IDS.find(function(qid){return diag.ans[qid]!==BANK[qid].ok;})||DIAG_IDS[2];
-  var q=BANK[wrongId];
-  document.getElementById('diagSample').innerHTML=
-    '<div class="sol" open><summary>'+q.tema+' · pregunta que fallaste</summary><div class="body">'+
-    '<div class="qtext">'+q.texto+'</div>'+
-    '<div class="lbl">Concepto</div><p>'+q.sol.concepto+'</p>'+
-    '<div class="lbl">Desarrollo</div><ol>'+q.sol.pasos.map(function(p){return '<li>'+p+'</li>';}).join('')+'</ol>'+
-    '<div class="lbl">Resultado</div><p>'+q.sol.resultado+'</p>'+
-    '<div class="lbl">Error común</div><p>'+q.sol.error+'</p>'+
-    '<div class="lbl">Consejo para el parcial</div><p>'+q.sol.consejo+'</p>'+
-    '</div></div>';
+  document.getElementById('dRing').style.setProperty('--p',prep);
+  document.getElementById('dRingN').textContent=prep+'%';
+  document.getElementById('dPrep').textContent=prep+'%';
+  document.getElementById('dVerdict').textContent = prep>=75?'Vas bien. Un par de temas por pulir y quedas listo.':
+    prep>=50?'Vas a medias. Hay dos áreas que te pueden costar el parcial.':'Vas flojo todavía. Con foco esta semana lo levantas.';
+  document.getElementById('dDom').innerHTML='<tr><th>Tema</th><th>Dominio</th><th></th></tr>'+domRows(by,false);
+  document.getElementById('dErrType').innerHTML=errTypeMsg(DIAG_IDS,diag.ans);
+  var wrongId=DIAG_IDS.find(function(qid){return !isRight(qid,diag.ans[qid]);})||"q5";
+  document.getElementById('dSample').innerHTML=solBlock(wrongId,true);
   typeset();
 }
 
-/* ================= PAYWALL ================= */
-document.getElementById('payBtn').addEventListener('click',function(){
-  window.__pro=true; go('examIntro');
-});
-
-/* ================= SIMULACRO ================= */
-var exam={started:false,i:0,ans:{},mark:{},left:1200,timer:null,spent:{}};
+/* ===== SIMULACRO ===== */
+var exam={started:false,i:0,ans:{},mark:{},steps:{},left:1200,timer:null,spent:{},_enter:0};
 document.getElementById('turbo').addEventListener('change',function(){
   document.getElementById('examTimeLabel').textContent=this.checked?'01:00':'20:00';
 });
 document.getElementById('startExam').addEventListener('click',function(){
-  exam.left=document.getElementById('turbo').checked?60:1200;
-  exam.started=false; go('exam');
+  exam.left=document.getElementById('turbo').checked?60:1200; exam.started=false; go('exam');
 });
 function fmt(s){var m=Math.floor(s/60),ss=s%60;return (m<10?'0':'')+m+':'+(ss<10?'0':'')+ss;}
 function startExamRun(){
-  exam.started=true; exam.i=0; exam.ans={}; exam.mark={}; exam.spent={}; exam._enter=Date.now();
+  exam.started=true; exam.i=0; exam.ans={}; exam.mark={}; exam.steps={}; exam.spent={}; exam._enter=Date.now();
   clearInterval(exam.timer);
   exam.timer=setInterval(function(){
     exam.left--;
     var t=document.getElementById('examTimer'); t.textContent=fmt(Math.max(0,exam.left));
     t.className='timer'+(exam.left<=60?' danger':exam.left<=180?' warn':'');
-    if(exam.left<=0){ clearInterval(exam.timer); doSubmit(true); }
+    if(exam.left<=0){ clearInterval(exam.timer); alert('Se acabó el tiempo. Se entregó automáticamente.'); go('examResult'); }
   },1000);
   renderExam();
 }
+function saveSpent(){ var qid=EXAM_IDS[exam.i]; exam.spent[qid]=(exam.spent[qid]||0)+(Date.now()-(exam._enter||Date.now()))/1000; exam._enter=Date.now(); }
+function examAnswered(qid){
+  var q=BANK[qid];
+  if(q.tipo==='steps') return (exam.steps[qid]||[]).filter(function(v){return v!=null;}).length===q.pasos.length;
+  if(q.tipo==='num') return exam.ans[qid]!=null && exam.ans[qid]!=='';
+  return exam.ans[qid]!==undefined;
+}
 function renderExam(){
-  var ids=EXAM_IDS, qid=ids[exam.i];
+  var ids=EXAM_IDS, qid=ids[exam.i], q=BANK[qid];
   document.getElementById('examPos').textContent='Pregunta '+(exam.i+1)+' de '+ids.length;
   document.getElementById('examTimer').textContent=fmt(Math.max(0,exam.left));
   var nav=document.getElementById('examNav'); nav.innerHTML='';
   ids.forEach(function(id,k){
     var b=document.createElement('button'); b.textContent=k+1;
-    if(exam.ans[id]!==undefined) b.classList.add('ans');
+    if(examAnswered(id)) b.classList.add('ans');
     if(exam.mark[id]) b.classList.add('mark');
     if(k===exam.i) b.classList.add('here');
     b.addEventListener('click',function(){ saveSpent(); exam.i=k; renderExam(); });
     nav.appendChild(b);
   });
-  var st={pick:exam.ans[qid]!==undefined?exam.ans[qid]:null};
-  document.getElementById('examHost').innerHTML=mcqCard(qid,st,{label:'Pregunta '+(exam.i+1),reveal:false});
-  document.getElementById('examHost').querySelectorAll('.opt').forEach(function(b){
-    b.addEventListener('click',function(){ exam.ans[qid]=+b.dataset.i; renderExam(); });
-  });
+  var host=document.getElementById('examHost');
+  if(q.tipo==='steps'){
+    exam.steps[qid]=exam.steps[qid]||[];
+    var h='<div class="qkick">Pregunta '+(exam.i+1)+' · '+q.tema+' <span class="freq '+q.freq+'">DESARROLLO POR PASOS</span></div><div class="qtext">'+q.texto+'</div>';
+    q.pasos.forEach(function(p,pi){
+      h+='<div class="lbl">Paso '+(pi+1)+'</div><div style="margin-bottom:.4rem">'+p.q+'</div>';
+      p.op.forEach(function(o,oi){
+        var picked=exam.steps[qid][pi]===oi;
+        h+='<button class="opt'+(picked?' sel':'')+'" data-p="'+pi+'" data-o="'+oi+'"><span class="k">'+"ABC"[oi]+'</span><span>'+o+'</span></button>';
+      });
+    });
+    host.innerHTML=h;
+    host.querySelectorAll('.opt').forEach(function(b){
+      b.addEventListener('click',function(){ exam.steps[qid][+b.dataset.p]=+b.dataset.o; renderExam(); });
+    });
+  } else {
+    var st={pick:exam.ans[qid], val:exam.ans[qid]};
+    host.innerHTML=qCard(qid,st,{label:'Pregunta '+(exam.i+1),reveal:false});
+    host.querySelectorAll('.opt').forEach(function(b){ b.addEventListener('click',function(){ exam.ans[qid]=+b.dataset.i; renderExam(); }); });
+    var ni=host.querySelector('#numIn'); if(ni) ni.addEventListener('input',function(){ exam.ans[qid]=this.value; });
+  }
   document.getElementById('examMark').textContent=exam.mark[qid]?'⚑ Quitar marca':'⚑ Marcar';
   document.getElementById('examPrev').disabled=exam.i===0;
   document.getElementById('examNext').disabled=exam.i===ids.length-1;
   typeset();
 }
-function saveSpent(){
-  var qid=EXAM_IDS[exam.i];
-  exam.spent[qid]=(exam.spent[qid]||0)+(Date.now()-(exam._enter||Date.now()))/1000;
-  exam._enter=Date.now();
-}
 document.getElementById('examPrev').addEventListener('click',function(){ saveSpent(); exam.i--; renderExam(); });
 document.getElementById('examNext').addEventListener('click',function(){ saveSpent(); exam.i++; renderExam(); });
-document.getElementById('examMark').addEventListener('click',function(){
-  var qid=EXAM_IDS[exam.i]; exam.mark[qid]=!exam.mark[qid]; renderExam();
-});
-document.getElementById('examSubmit').addEventListener('click',function(){ doSubmit(false); });
-function doSubmit(auto){
-  saveSpent();
-  var unans=EXAM_IDS.filter(function(id){return exam.ans[id]===undefined;}).length;
-  if(!auto && unans>0 && !confirm('Te quedan '+unans+' preguntas sin responder. ¿Entregar de todas formas?')) return;
-  clearInterval(exam.timer); exam.started=false;
-  if(auto) alert('Se acabó el tiempo. Se entregó automáticamente.');
-  go('examResult');
+document.getElementById('examMark').addEventListener('click',function(){ var qid=EXAM_IDS[exam.i]; exam.mark[qid]=!exam.mark[qid]; renderExam(); });
+document.getElementById('examSubmit').addEventListener('click',function(){ saveSpent(); go('examReview'); });
+document.getElementById('revSubmit').addEventListener('click',function(){ clearInterval(exam.timer); exam.started=false; go('examResult'); });
+
+function renderReview(){
+  var ans=EXAM_IDS.filter(examAnswered).length, mk=EXAM_IDS.filter(function(id){return exam.mark[id];}).length, blank=EXAM_IDS.length-ans;
+  document.getElementById('revStats').innerHTML=
+    '<div><div class="big" style="font-size:1.8rem;color:var(--ok)">'+ans+'</div><div class="muted mono" style="font-size:.72rem">RESPONDIDAS</div></div>'+
+    '<div><div class="big" style="font-size:1.8rem;color:var(--warn)">'+mk+'</div><div class="muted mono" style="font-size:.72rem">MARCADAS</div></div>'+
+    '<div><div class="big" style="font-size:1.8rem;color:'+(blank?'var(--bad)':'var(--t3)')+'">'+blank+'</div><div class="muted mono" style="font-size:.72rem">EN BLANCO</div></div>';
+  var nav=document.getElementById('revNav'); nav.innerHTML='';
+  EXAM_IDS.forEach(function(id,k){
+    var b=document.createElement('button'); b.textContent=k+1;
+    if(examAnswered(id)) b.classList.add('ans');
+    if(exam.mark[id]) b.classList.add('mark');
+    b.addEventListener('click',function(){ exam.i=k; go('exam'); });
+    nav.appendChild(b);
+  });
 }
 function renderExamResult(){
   var ids=EXAM_IDS;
-  var correct=ids.filter(function(id){return exam.ans[id]===BANK[id].ok;}).length;
-  var prep=Math.round(correct/ids.length*100);
-  var grade=(correct/ids.length*5).toFixed(1);
+  var correct=ids.filter(function(id){
+    var q=BANK[id];
+    if(q.tipo==='steps'){ var s=exam.steps[id]||[]; return q.pasos.every(function(p,i){return s[i]===p.ok;}); }
+    return isRight(id,exam.ans[id]);
+  }).length;
+  var prep=Math.round(correct/ids.length*100), grade=(correct/ids.length*5).toFixed(1);
   document.getElementById('exRing').style.setProperty('--p',prep);
   document.getElementById('exRingN').textContent=grade;
   document.getElementById('exGrade').textContent=grade+' / 5.0';
   document.getElementById('exPrep').textContent=prep+'%';
-  var v=grade>=4?'Vas listo. Mantén el ritmo y repasa lo marcado.':
-        grade>=3?'Pasas raspando. Dos temas te están costando puntos — arregla eso antes del parcial.':
-        'Todavía no. Concéntrate en los temas rojos esta semana y vuelve a intentar.';
-  document.getElementById('exVerdict').textContent=v;
-  var by=domainFromAnswers(ids,exam.ans);
-  document.getElementById('exDom').innerHTML=domTable(by);
+  document.getElementById('exVerdict').textContent = grade>=4?'Vas listo. Mantén el ritmo y repasa lo marcado.':
+    grade>=3?'Pasas raspando. Dos temas te están costando puntos — arréglalos antes del parcial.':
+    'Todavía no. Concéntrate en los temas rojos esta semana y vuelve a intentar.';
+  var by={};
+  ids.forEach(function(id){ var q=BANK[id]; var r; if(q.tipo==='steps'){var s=exam.steps[id]||[];r=q.pasos.every(function(p,i){return s[i]===p.ok;});} else r=isRight(id,exam.ans[id]);
+    by[q.tema]=by[q.tema]||{ok:0,n:0}; by[q.tema].n++; if(r) by[q.tema].ok++; });
+  document.getElementById('exDom').innerHTML='<tr><th>Tema</th><th>Dominio</th><th></th><th>Riesgo</th></tr>'+domRows(by,true);
+  var mockAns={}; ids.forEach(function(id){ mockAns[id]=exam.ans[id]; });
+  document.getElementById('exErrType').innerHTML=errTypeMsg(ids.filter(function(id){return BANK[id].tipo!=='steps';}),mockAns);
   var used=(document.getElementById('turbo').checked?60:1200)-Math.max(0,exam.left);
   var slow=Object.keys(exam.spent).sort(function(a,b){return exam.spent[b]-exam.spent[a];}).slice(0,2);
-  document.getElementById('exTime').innerHTML=
-    'Usaste <strong>'+fmt(Math.round(used))+'</strong> de '+(document.getElementById('turbo').checked?'01:00':'20:00')+'. '+
-    'Donde más te demoraste: <strong>'+slow.map(function(id){return BANK[id].tema;}).filter(function(v,i,a){return a.indexOf(v)===i;}).join(', ')+'</strong>. '+
-    'En el parcial real ese tiempo cuesta — practica esos hasta que salgan rápido.';
-  // weak topics -> todo
+  document.getElementById('exTime').innerHTML='Usaste <strong>'+fmt(Math.round(used))+'</strong> de '+(document.getElementById('turbo').checked?'01:00':'20:00')+
+    '. Donde más te demoraste: <strong>'+slow.map(function(id){return BANK[id].tema;}).filter(function(v,i,a){return a.indexOf(v)===i;}).join(', ')+
+    '</strong>. En el parcial ese tiempo cuesta — practica esos hasta que salgan rápido.';
   var weak=Object.keys(by).filter(function(t){return by[t].ok/by[t].n<0.6;});
   if(!weak.length) weak=[Object.keys(by).sort(function(a,b){return by[a].ok/by[a].n-by[b].ok/by[b].n;})[0]];
+  var wrongN=ids.filter(function(id){var q=BANK[id]; if(q.tipo==='steps'){var s=exam.steps[id]||[];return !q.pasos.every(function(p,i){return s[i]===p.ok;});} return !isRight(id,exam.ans[id]);}).length;
   var td=document.getElementById('exTodo'); td.innerHTML='';
-  ['Repasar '+weak.join(' y '),'Resolver las '+ids.filter(function(id){return exam.ans[id]!==BANK[id].ok;}).length+' preguntas que fallaste (con solución)','Repetir un simulacro en 2 días']
+  ['Repasar '+weak.join(' y '),'Resolver las '+wrongN+' preguntas que fallaste (con solución + Antibobo)','Repetir un simulacro en 2 días']
     .forEach(function(x){ var li=document.createElement('li'); li.textContent=x; td.appendChild(li); });
   document.getElementById('shareN').textContent=grade;
   document.getElementById('sharePrep').textContent=prep+'%';
   typeset();
 }
 
-/* ================= SOLUCIONES ================= */
+/* ===== SOLUCIONES + Antibobos + compruébalo ===== */
+function solBlock(qid,openIt){
+  var q=BANK[qid], s=q.sol, id='ab-'+qid;
+  var h='<div class="sol"'+(openIt?' open':'')+'><summary><span>'+q.tema+' · '+q.texto.replace(/\$[^$]*\$/g,'…').slice(0,60)+'…</span></summary><div class="body">';
+  h+='<div class="qtext" style="font-size:1rem">'+q.texto+'</div>';
+  h+='<div class="lbl">Qué está preguntando</div><p>'+s.quePregunta+'</p>';
+  h+='<div class="lbl">Concepto</div><p>'+s.concepto+'</p>';
+  h+='<div class="lbl">Desarrollo</div><ol>'+s.pasos.map(function(p){return '<li>'+p+'</li>';}).join('')+'</ol>';
+  h+='<div class="lbl">Resultado</div><p>'+s.resultado+'</p>';
+  if(s.puntajeParcial){
+    h+='<div class="lbl">Puntaje parcial (así calificaría)</div><table class="dom">'+
+      s.puntajeParcial.map(function(r){return '<tr><td>'+r[0]+'</td><td class="n">'+r[1]+'</td></tr>';}).join('')+'</table>';
+  }
+  h+='<div class="lbl">Error común</div><p>'+s.errorComun+'</p>';
+  h+='<div class="lbl">Cómo reconocerlo en el parcial</div><p>'+s.comoReconocer+'</p>';
+  h+='<div class="lbl">Antibobo</div><div class="antibobo"><b>'+s.antibobo+'</b></div>';
+  if(s.desdeCero) h+='<div class="lbl">Explícamelo desde cero</div><p>'+s.desdeCero+'</p>';
+  if(q.compruebalo==='escalera') h+='<div class="lbl">Compruébalo tú mismo</div>'+ladderLab();
+  h+='</div></div>';
+  return h;
+}
 function renderSolutions(){
   var host=document.getElementById('solHost'); host.innerHTML='';
   EXAM_IDS.forEach(function(qid,k){
-    var q=BANK[qid], mine=exam.ans[qid], right=(mine===q.ok);
-    var d=document.createElement('details'); d.className='sol'; if(!right) d.open=true;
-    d.innerHTML='<summary><span>Pregunta '+(k+1)+' · '+q.tema+'</span>'+
-      '<span>'+(mine===undefined?'<span class="muted">sin responder</span>':right?'<span class="tag-ok">✓</span>':'<span class="tag-bad">✗</span>')+'</span></summary>'+
-      '<div class="body"><div class="qtext">'+q.texto+'</div>'+
-      (mine!==undefined&&!right?'<p style="font-size:14px">Tu respuesta: <strong>'+"ABCD"[mine]+'</strong> · Correcta: <strong>'+"ABCD"[q.ok]+'</strong></p>':'')+
-      '<div class="lbl">Concepto</div><p>'+q.sol.concepto+'</p>'+
-      '<div class="lbl">Desarrollo</div><ol>'+q.sol.pasos.map(function(p){return '<li>'+p+'</li>';}).join('')+'</ol>'+
-      '<div class="lbl">Resultado</div><p>'+q.sol.resultado+'</p>'+
-      '<div class="lbl">Error común</div><p>'+q.sol.error+'</p>'+
-      '<div class="lbl">Consejo para el parcial</div><p>'+q.sol.consejo+'</p></div>';
-    host.appendChild(d);
+    var q=BANK[qid], mine, right;
+    if(q.tipo==='steps'){ var st=exam.steps[qid]||[]; right=q.pasos.every(function(p,i){return st[i]===p.ok;}); mine=st.length?1:undefined; }
+    else { mine=exam.ans[qid]; right=isRight(qid,mine); }
+    var d=document.createElement('div'); d.innerHTML=solBlock(qid,!right && mine!==undefined);
+    var det=d.firstChild;
+    det.querySelector('summary').insertAdjacentHTML('beforeend','<span>'+(mine===undefined?'<span class="muted">sin responder</span>':right?'<span style="color:var(--ok)">✓</span>':'<span style="color:var(--bad)">✗</span>')+'</span>');
+    host.appendChild(det);
   });
-  typeset();
+  wireLabs(); typeset();
 }
 
-/* ================= ENTRENAR ERRORES ================= */
-var train={ids:[],i:0,ans:{}};
+/* ---- SVG interactivo: escalera ---- */
+function ladderLab(){
+  return '<div class="lab" data-lab="ladder">'+
+    '<svg viewBox="0 0 300 200" data-svg></svg>'+
+    '<input type="range" min="0.5" max="4.8" step="0.1" value="3" data-r>'+
+    '<div class="readout" data-out></div>'+
+    '<p class="muted" style="font-size:.8rem;margin:.4rem 0 0">Mueve la base. Fíjate: cuando la base está lejos (escalera casi acostada), la punta baja lentísimo; cuando está cerca de la pared, baja rapidísimo. Eso es $\\dfrac{dy}{dt}=-\\dfrac{x}{y}$.</p></div>';
+}
+function wireLabs(){
+  document.querySelectorAll('.lab[data-lab="ladder"]').forEach(function(lab){
+    var svg=lab.querySelector('[data-svg]'), rng=lab.querySelector('[data-r]'), out=lab.querySelector('[data-out]');
+    function draw(){
+      var x=parseFloat(rng.value), y=Math.sqrt(25-x*x);
+      var ox=40, oy=170, sc=26;
+      var bx=ox+x*sc, ty=oy-y*sc;
+      var dydt=(-x/y).toFixed(2);
+      svg.innerHTML=
+        '<line x1="'+ox+'" y1="20" x2="'+ox+'" y2="'+oy+'" stroke="var(--t3)" stroke-width="2"/>'+
+        '<line x1="'+ox+'" y1="'+oy+'" x2="'+(ox+150)+'" y2="'+oy+'" stroke="var(--t3)" stroke-width="2"/>'+
+        '<line x1="'+ox+'" y1="'+ty+'" x2="'+bx+'" y2="'+oy+'" stroke="var(--acc)" stroke-width="4" stroke-linecap="round"/>'+
+        '<circle cx="'+ox+'" cy="'+ty+'" r="4" fill="var(--acc2)"/>'+
+        '<circle cx="'+bx+'" cy="'+oy+'" r="4" fill="var(--acc2)"/>'+
+        '<text x="'+(ox-6)+'" y="'+(ty-6)+'" fill="var(--t2)" font-size="10" text-anchor="end">y='+y.toFixed(2)+'</text>'+
+        '<text x="'+((ox+bx)/2)+'" y="'+(oy+14)+'" fill="var(--t2)" font-size="10" text-anchor="middle">x='+x.toFixed(2)+'</text>';
+      out.innerHTML='x = '+x.toFixed(2)+' m · y = '+y.toFixed(2)+' m · dy/dt = '+dydt+' m/s (con dx/dt = 1)';
+      if(window.renderMathInElement) renderMathInElement(lab,{delimiters:[{left:'$',right:'$',display:false}],throwOnError:false});
+    }
+    rng.addEventListener('input',draw); draw();
+  });
+}
+
+/* ===== ENTRENAR ERRORES (con confianza + gemela) ===== */
+var train={ids:[],i:0,ans:{},conf:{},phase:{}};
 function startTrain(){
-  // wrong ones from exam, else weak temas from diag
-  var wrong=EXAM_IDS.filter(function(id){return exam.ans[id]!==undefined && exam.ans[id]!==BANK[id].ok;});
+  var wrong=EXAM_IDS.filter(function(id){ var q=BANK[id]; if(q.tipo==='steps') return false; return exam.ans[id]!==undefined && !isRight(id,exam.ans[id]); });
   if(!wrong.length){
-    var by=domainFromAnswers(DIAG_IDS,diag.ans);
+    var by=domainOf(DIAG_IDS,diag.ans);
     var weak=Object.keys(by).filter(function(t){return by[t].ok/by[t].n<0.75;});
-    wrong=Object.keys(BANK).filter(function(id){return weak.indexOf(BANK[id].tema)>=0;});
+    wrong=Object.keys(BANK).filter(function(id){return BANK[id].tipo==='mcq' && weak.indexOf(BANK[id].tema)>=0;});
   }
-  if(!wrong.length) wrong=['q5','q9','q7','q13'];
-  train={ids:wrong.slice(0,6),i:0,ans:{}};
+  if(!wrong.length) wrong=['q5','q9','q3','q13'];
+  train={ids:wrong.slice(0,5),i:0,ans:{},conf:{},phase:{}};
   document.getElementById('trainIntro').textContent='Preguntas de tus temas flojos ('+
-    train.ids.map(function(id){return BANK[id].tema;}).filter(function(v,i,a){return a.indexOf(v)===i;}).join(', ')+
-    '). Feedback inmediato, sin reloj.';
+    train.ids.map(function(id){return BANK[id].tema;}).filter(function(v,i,a){return a.indexOf(v)===i;}).join(', ')+'). Feedback inmediato, sin reloj.';
   renderTrain();
 }
 function renderTrain(){
-  var host=document.getElementById('trainHost'); var qid=train.ids[train.i];
+  var host=document.getElementById('trainHost'), qid=train.ids[train.i];
   document.getElementById('trainProg').style.width=(train.i/train.ids.length*100)+'%';
   if(train.i>=train.ids.length){
-    host.innerHTML='<div class="card"><h3>Listo por hoy</h3><p class="muted">Hiciste '+train.ids.length+' preguntas de repaso.</p>'+
-      '<button class="btn" data-go="dashboard">Ver mi progreso →</button></div>';
+    host.innerHTML='<div class="card"><h3>Listo por hoy</h3><p class="t2">Hiciste '+train.ids.length+' preguntas de repaso.</p><button class="btn-a" data-go="dashboard">Ver mi progreso →</button></div>';
     host.querySelector('[data-go]').addEventListener('click',function(){go('dashboard');});
     document.getElementById('trainProg').style.width='100%'; return;
   }
-  var answered=train.ans[qid]!==undefined;
-  var st={pick:answered?train.ans[qid]:null};
-  host.innerHTML='<div class="card">'+mcqCard(qid,st,{label:'Repaso '+(train.i+1)+' de '+train.ids.length,reveal:answered})+
-    (answered?'<div class="sol" open style="margin-top:10px"><div class="body">'+
-      '<div class="lbl">Desarrollo</div><ol>'+BANK[qid].sol.pasos.map(function(p){return '<li>'+p+'</li>';}).join('')+'</ol>'+
-      '<div class="lbl">Consejo</div><p>'+BANK[qid].sol.consejo+'</p></div></div>'+
-      '<div class="row" style="justify-content:flex-end;margin-top:10px"><button class="btn" id="trainNext">'+
-      (train.i===train.ids.length-1?'Terminar':'Siguiente')+'</button></div>':'')+
-    '</div>';
+  var q=BANK[qid], ph=train.phase[qid]||'confianza';
+  if(ph==='confianza'){
+    host.innerHTML='<div class="card"><div class="qkick">Repaso '+(train.i+1)+' de '+train.ids.length+' · '+q.tema+'</div>'+
+      '<div class="qtext">'+q.texto+'</div><p class="muted" style="font-size:.85rem">Antes de responder: ¿qué tan seguro estás?</p>'+
+      '<div class="row">'+['Seguro','Dudoso','Adiviné'].map(function(c){return '<button class="btn-o sm" data-c="'+c+'">'+c+'</button>';}).join('')+'</div></div>';
+    host.querySelectorAll('[data-c]').forEach(function(b){ b.addEventListener('click',function(){ train.conf[qid]=b.dataset.c; train.phase[qid]='responder'; renderTrain(); }); });
+    typeset(); return;
+  }
+  var answered = train.ans[qid]!==undefined;
+  var st={pick:train.ans[qid]};
+  var h='<div class="card">'+qCard(qid,st,{label:'Repaso '+(train.i+1)+' ('+train.conf[qid]+')',reveal:answered});
+  if(answered){
+    var right=isRight(qid,train.ans[qid]);
+    if(train.conf[qid]==='Seguro' && !right) h+='<div class="alert">Dijiste "Seguro" y fallaste — ese es el error caro en el parcial. Revisa bien el Antibobo.</div>';
+    if(train.conf[qid]==='Adiviné' && right) h+='<div class="alert">Acertaste pero adivinaste. No cuenta como dominado — mira la solución.</div>';
+    h+='<div class="sol" open style="margin-top:10px"><div class="body"><div class="lbl">Desarrollo</div><ol>'+q.sol.pasos.map(function(p){return '<li>'+p+'</li>';}).join('')+
+       '</ol><div class="lbl">Antibobo</div><div class="antibobo"><b>'+q.sol.antibobo+'</b></div></div></div>';
+    if(q.gemela && !train._gem){
+      h+='<div class="row" style="justify-content:flex-end;margin-top:10px"><button class="btn-a" style="padding:.55rem 1.2rem" id="gemBtn">¿Ya lo entendiste? Prueba otra →</button></div>';
+    } else {
+      h+='<div class="row" style="justify-content:flex-end;margin-top:10px"><button class="btn-a" style="padding:.55rem 1.2rem" id="trainNext">'+(train.i===train.ids.length-1?'Terminar':'Siguiente')+'</button></div>';
+    }
+  }
+  h+='</div>';
+  host.innerHTML=h;
   if(!answered){
-    host.querySelectorAll('.opt').forEach(function(b){
-      b.addEventListener('click',function(){ train.ans[qid]=+b.dataset.i; renderTrain(); });
-    });
+    host.querySelectorAll('.opt').forEach(function(b){ b.addEventListener('click',function(){ train.ans[qid]=+b.dataset.i; renderTrain(); }); });
+    var ni=host.querySelector('#numIn'); if(ni) ni.addEventListener('input',function(){ train.ans[qid]=this.value; });
   } else {
-    document.getElementById('trainNext').addEventListener('click',function(){ train.i++; renderTrain(); });
+    var g=document.getElementById('gemBtn');
+    if(g) g.addEventListener('click',function(){
+      train._gem=true; var gid=q.gemela;
+      train.ids.splice(train.i+1,0,gid); train.phase[gid]='responder'; train.conf[gid]='—';
+      host.innerHTML='<div class="card"><div class="alert" style="border-color:var(--bra);background:var(--adim);color:var(--acc2)">Pregunta gemela — mismo concepto, otra cara.</div>'+
+        qCard(gid,{pick:undefined},{label:'Gemela',reveal:false})+'</div>';
+      host.querySelectorAll('.opt').forEach(function(b){ b.addEventListener('click',function(){
+        var ok=+b.dataset.i===BANK[gid].ok;
+        host.innerHTML='<div class="card">'+qCard(gid,{pick:+b.dataset.i},{label:'Gemela',reveal:true})+
+          (ok?'<div class="alert" style="border-color:var(--ok);background:rgba(34,197,94,.1);color:var(--ok)">✓ Concepto recuperado.</div>':'')+
+          '<div class="row" style="justify-content:flex-end"><button class="btn-a" style="padding:.55rem 1.2rem" id="trainNext2">Siguiente →</button></div></div>';
+        document.getElementById('trainNext2').addEventListener('click',function(){ train._gem=false; train.i+=2; renderTrain(); });
+        typeset();
+      }); });
+      typeset();
+    });
+    var n=document.getElementById('trainNext');
+    if(n) n.addEventListener('click',function(){ train.i++; renderTrain(); });
   }
   typeset();
 }
+
+/* paywall */
+document.getElementById('payBtn').addEventListener('click',function(){ go('examIntro'); });
 </script>
 </body>
 </html>
