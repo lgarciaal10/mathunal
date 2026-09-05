@@ -1,8 +1,10 @@
 # MathUNAL · Simulacros Pro
 
 Documento de referencia de la feature de simulacros. Rama `simulacros-pro`,
-**sin desplegar** — activa solo al abrir `index.html` en local (`localhost`,
+**sin pushear ni desplegar** — activa solo al abrir `index.html` en local (`localhost`,
 red privada o `file://`). En `mathunal.com` sigue apagada, con el teaser "Muy pronto".
+El esquema de Supabase SÍ está aplicado en producción (tablas nuevas, no tocan lo existente).
+Falta Wompi para poder cobrar de verdad.
 
 ---
 
@@ -24,15 +26,20 @@ Frase norte: **no vendemos preguntas, vendemos certeza antes del parcial.**
 
 ## 2. Gratis vs Pro
 
-| GRATIS (todos) | PRO (pago) |
+| GRATIS (todos) | PRO (pago, **por materia**) |
 |---|---|
-| Diagnóstico corto por materia/corte (8 preguntas) | Todos los simulacros por corte, cuantos quieras |
-| **1 simulacro gratis por corte** con nota + dominio por tema | Todas las soluciones paso a paso + "el truco" + gráficas interactivas |
-| Qué temas fallaste, qué tipo de error (concepto / álgebra / signo / procedimiento) | Entrenar solo tus errores + pregunta gemela |
-| Reto por WhatsApp (adquisición) | Repaso espaciado (Leitner) de lo que fallas |
-| | Dashboard "Mi preparación" + predicción de nota |
+| Diagnóstico corto por materia/corte (8 preguntas) | Simulacros por corte ilimitados |
+| **1 simulacro gratis por corte** con nota /5.0 + "Preparación X%" | Tabla **dominio por tema** completa + tipo de error + insight de confianza |
+| El **resumen** (1 línea) de cada pregunta | Todas las soluciones paso a paso + **"el truco"** + gráficas interactivas |
+| **1 tema flojo** como adelanto ("tu mayor fuga: X") | Pregunta gemela + entrenar errores + repaso espaciado |
+| Modo Examen Real · reto por WhatsApp | Dashboard "Mi preparación" + predicción de nota calibrada |
 
-El **2.º simulacro del mismo corte** dispara el paywall (**$12.000**, un pago, acceso todo el semestre, sin renovación automática).
+**No hay solución de muestra en el gratis** — se ve el resumen y un candado. (Decisión:
+"en el gratis no decir en qué falla"; el enganche es el resumen + el teaser del diagnóstico.)
+
+El **2.º simulacro del mismo corte** dispara el paywall (**$12.000 COP**, un pago,
+acceso todo el semestre, sin renovación automática). El Pro se compra **por materia**
+(SKU por materia), no "todas".
 
 ---
 
@@ -42,16 +49,16 @@ El **2.º simulacro del mismo corte** dispara el paywall (**$12.000**, un pago, 
 La sección **Simulacros** está justo después de "Hoy" (racha). Muestra:
 - "¿Qué tan listo estás para el parcial?"
 - Mi Progreso (si ya hiciste alguno)
-- Grid de las **11 materias**: Cálculo Diferencial = "Modo completo · por corte" (PRO);
-  el resto = "N parciales de práctica"
+- Grid de las **11 materias**: Cálculo Diferencial y Cálculo Integral = "Modo completo · por corte"
+  (marcadas **PRO**, van primero); el resto = "N parciales de práctica"
 - Botones: *Ir a Simulacros* · *Diagnóstico rápido (gratis)*
 - Modo Pánico (parcial en <24h)
 
 ### En `#simulacro`
 1. **Selector** — filtro por materia (11 pills), por tipo (parcial/quiz/taller). Arriba de todo:
    - Card **"Repasar mis errores (N)"** si hay preguntas pendientes de repaso espaciado
-   - Los **3 Simulacros por Corte** de Cálculo Diferencial
-   - Onboarding "¿Qué vas a presentar?" (materia · corte · **fecha del parcial**)
+   - Los **Simulacros por Corte** de Cálculo Diferencial y Cálculo Integral (3 cada una)
+   - Onboarding "¿Qué vas a presentar?" (materia · corte · **fecha del parcial**) — hoy calcdif
 2. **Intro** — instrucciones + toggle **"Modo Examen Real"** (pantalla completa, sin ver soluciones hasta entregar)
 3. **Examen** — cronómetro, navegador de preguntas, marcar, autoguardado, chips de **confianza** ("¿seguro / dudoso / adiviné?")
 4. **Entrega** — resumen (respondidas / marcadas / en blanco)
@@ -76,22 +83,26 @@ fallas → vuelve a caja 1. Sin reloj.
 
 ## 4. Cobertura de contenido
 
-| Materia | Estado |
-|---|---|
-| **Cálculo Diferencial** | Modo completo: 49 preguntas etiquetadas por corte/tema, 3 simulacros por corte, soluciones con "el truco", 6 gráficas interactivas, diagnóstico por tema |
-| Otras 10 materias | Los parciales reales (30 exámenes en total) funcionan como simulacros con cronómetro y solución, pero **sin** el enriquecimiento Pro (corte, "el truco", gráficas) |
+| Materia | Código | Estado |
+|---|---|---|
+| **Cálculo Diferencial** | 1000004 | Modo completo: 49 preguntas por corte/tema, 3 simulacros por corte, soluciones con "el truco", 6 gráficas interactivas, diagnóstico por tema |
+| **Cálculo Integral** | 1000005 | Modo completo: 40 preguntas (22 de los parciales reales + 18 nuevas), 3 simulacros por corte, soluciones + "el truco". Sin gráficas interactivas todavía |
+| Otras 9 materias | — | Los parciales reales funcionan como simulacros con cronómetro y solución, pero **sin** el enriquecimiento Pro |
 
-La enriquecida se hace **materia por materia**. Cálculo Diferencial es el piloto —
-cuando convierta, se replica.
+La enriquecida se hace **materia por materia**. Siguiente: Álgebra Lineal / EDO / CVV.
 
 ---
 
 ## 5. Arquitectura
 
 ### Archivos
-- **`index.html`** — todo el código (single-file). Los datos de simulacros (`sim-calcdif.js` +
-  `sim-lab.js`) están **inline** en `<script>` dentro del `<head>`.
-- **`sim-pro-schema.sql`** — el esquema de Supabase para el Pro real. **NO aplicado.**
+- **`index.html`** — todo el código (single-file). Inline en el `<head>`: el bloque **FLACO**
+  (SIM_TAX + SIM_META lite + SIM_NEW lite — solo lo renderizable + el `resumen`) y `sim-lab.js`.
+- **`sim-pro-schema.sql`** — esquema de Supabase. **APLICADO** en producción (`goxhxrdchfyphkenixng`).
+- **`sim-solutions.dev.js`** — espejo local de la tabla `sim_solutions` (GITIGNORED, solo
+  localhost). El contenido Pro real (pasos, "el truco", soluciones de abiertas) **ya no está
+  en `index.html`**: vive en `sim_solutions` con RLS. En local se lee de este espejo para QA
+  sin entitlement; se regenera con `scratchpad/build-dev-sol.js` + `build-calcint.js`.
 
 ### El motor (ya existía)
 `tpl-simulacro` en `index.html`: pantallas `screen-sel → screen-intro → screen-q → screen-results`,
@@ -99,18 +110,22 @@ cronómetro, tipos mcq/numérica/abierta, autoevaluación con crédito parcial, 
 revisión, tutoría con IA (Supabase `explicaciones` + endpoint + fallback local), diagnóstico (`#diag-*`).
 
 ### La capa Pro (esta rama)
-- **`SIM_TAX`** — taxonomía: cortes + temas de cada materia
-- **`SIM_META`** — metadata sobre las 29 preguntas existentes (corte, tema, frecuencia, tipoError, "el truco", cómo reconocerlo)
-- **`SIM_SOL`** — solución + rúbrica para las 4 abiertas que no tenían
-- **`SIM_NEW`** — 20 preguntas nuevas
-- **`SIM_POOL`** — pool plano por materia (existentes enriquecidas + nuevas)
-- **`__simBuildCorte(slug, corte)`** — arma un simulacro curado por corte
-- **`__simLab`** — 6 widgets SVG interactivos (escalera, cono, globo, caja, tangente, límite)
-- **Hooks** en el motor (`__simExplHook`, `__simResultHook`, `__simQHook`, ...): agregan "el truco",
-  dominio por tema, confianza, etc. sin reescribir el motor
-- **`__simSRS`** — repaso espaciado (localStorage `mu-sim-srs`)
-- **`__simRenderPrep`** — dashboard "Mi preparación"
-- **`__simPro`** — gate: `isPro()` mira Supabase si hay sesión, si no el mock local
+- **`SIM_TAX`** — taxonomía: cortes + temas (calcdif, calcint)
+- **`SIM_META`** (inline, lite) — `c/t/f/e/gem/cx` por pregunta existente. El `ab`/`rc` ("el truco",
+  "cómo reconocerlo") **salió del inline** → `sim_solutions`
+- **`SIM_NEW`** (inline, lite) — preguntas nuevas: solo `texto/opciones/correcta/tipo/resumen`.
+  Los `pasos`/`ab`/`rc` → `sim_solutions`
+- **`__simFetchSol()`** — GET autenticado a `/rest/v1/sim_solutions` (sin filtro de course; la RLS
+  devuelve solo lo comprado); `__simMergeSol()` fusiona sobre los objetos-pregunta
+- **`SIM_POOL`** / **`__simBuildCorte(slug, corte)`** — pool por materia + simulacro curado por corte
+- **`__simLab`** — 6 widgets SVG interactivos (solo calcdif por ahora)
+- **Hooks** (`__simExplHook`, `__simResultHook`, `__simQHook`, ...): "el truco", dominio por tema,
+  confianza, candados del gratis, sin reescribir el motor
+- **`__simSRS`** / **`__simRenderPrep`** — repaso espaciado + dashboard
+- **`__simPro`** — `isPro(course)` (entitlement por materia, `mu-sim-pro-srv-<course>`) ·
+  `anyPro()` para las vistas globales · `syncFromServer()` consulta `sim_has_pro` por cada materia
+- **`_t(es,en)` / `window.__simT`** — i18n del chrome del entrenador (candados, dashboard, paywall…).
+  El **contenido** de las soluciones sigue en español (igual que todo el banco)
 
 ### Interruptores
 | Flag | Qué controla |
@@ -118,7 +133,8 @@ revisión, tutoría con IA (Supabase `explicaciones` + endpoint + fallback local
 | `window.__SIM_LOCAL` | true en localhost / red privada / file:// |
 | `SIMULACROS_HABILITADOS` | = `!!__SIM_LOCAL` (para soltar en prod: cambiar a `true`) |
 | `window.__SIMPRO_DEV` | = `__SIM_LOCAL` o `?simpro=1` — activa toda la capa Pro en dev |
-| `localStorage['mu-sim-pro']` | mock de "es Pro" para probar en local |
+| `localStorage['mu-sim-pro']` | mock de "es Pro" para probar en local (`window.__simPro.unlock()`) |
+| `sim-solutions.dev.js` | espejo de `sim_solutions`, se carga solo si `__SIM_LOCAL` (en prod da 404) |
 
 ---
 
@@ -130,11 +146,18 @@ revisión, tutoría con IA (Supabase `explicaciones` + endpoint + fallback local
 | `mu-sim-srs` | cajas de repaso espaciado por pregunta |
 | `mu-sim-corte` / `mu-sim-fecha` | onboarding |
 | `mu-sim-notas-reales` | notas reales post-parcial (calibración de la predicción) |
-| `mu-sim-pro` / `mu-sim-pro-srv` / `mu-sim-lic` | flag Pro (mock / servidor) + licencia para marca de agua |
+| `mu-sim-pro` | mock de dev ("es Pro en todo") |
+| `mu-sim-pro-srv-<course>` | último resultado real de `sim_has_pro` por materia |
+| `mu-sim-lic` | licencia corta para la marca de agua de las soluciones |
 
-`sim-pro-schema.sql` traduce esto a Supabase: `sim_entitlements` (RLS: cada quien ve solo lo suyo),
-`sim_purchases`, `sim_solutions` (el contenido Pro, servido solo a quien pagó — **anti-piratería**),
-`sim_real_grades` + vista de calibración.
+**Supabase (aplicado):** `sim_entitlements` (RLS: cada quien ve solo lo suyo, `unique(user,product,period)`),
+`sim_purchases`, `sim_solutions` (**el contenido Pro**, `src` PK + `course_id` + `body` jsonb, RLS
+`using sim_has_pro(course_id)` — **anti-piratería**), `sim_real_grades`, función
+`sim_has_pro(p_course)` (SECURITY DEFINER, revocada de anon), vista `sim_calib_agg`.
+Hoy `sim_solutions` tiene **89 filas** (49 calcdif + 40 calcint).
+
+**Para darle Pro a alguien:** insertar fila en `sim_entitlements` con su `user_id`
+(de `auth.users`, tras login OTP), `product_id`, `course_id`, `valid_until`.
 
 ---
 
@@ -147,26 +170,30 @@ python -m http.server 8791
 Abre `http://localhost:8791/` (sin parámetros). Todo está activo.
 Si no ves los cambios: agrega `?nc=1` a la URL (el navegador cachea localhost).
 
+**Para verlo como Pro en local:** `window.__simPro.unlock()` en la consola (o el botón "Pagar"
+del paywall, que en local desbloquea directo). Trae las soluciones del espejo `sim-solutions.dev.js`.
+El `unlock()` NO usa un entitlement real: para probar el camino completo con Supabase hay que
+loguearse por OTP y meter una fila en `sim_entitlements`.
+
 ---
 
 ## 8. Pendiente para producción
 
-1. Cambiar `SIMULACROS_HABILITADOS` a `true`
-2. Reescribir el copy inventado "2.4 vs 3.8" del Pack
-3. **Pro real:** aplicar `sim-pro-schema.sql` + migrar las soluciones a `sim_solutions` +
-   conectar Wompi + decidir si el Pro requiere cuenta con correo (ver §9)
-4. Enriquecer la 2.ª materia (Cálculo Integral es la de más impacto)
-5. Piloto con 20–30 estudiantes, medir el embudo demo → compra → 2.º simulacro
+1. **Conectar Wompi** — hoy el botón "Pagar" del paywall es un mock (`__simPro.unlock()`).
+   Falta: merchant keys de Luis + webhook/edge-function que, al confirmarse el pago, escriba
+   `sim_entitlements` + `sim_purchases`.
+2. Cambiar `SIMULACROS_HABILITADOS` a `true` cuando se quiera soltar la capa gratis.
+3. Enriquecer la 3.ª materia (Álgebra Lineal / EDO / CVV).
+4. Traducción EN del **contenido** de las soluciones (hoy solo el chrome está en inglés).
+5. Micro-simulacros de 10 min, ranking opcional, más badges (aplazados).
+6. Piloto con 20–30 estudiantes, medir el embudo demo → compra → 2.º simulacro.
 
 ---
 
-## 9. Decisión pendiente: ¿el Pro requiere cuenta con correo?
+## 9. Decisión tomada: el Pro requiere cuenta
 
-- **Sin cuenta** (solo navegador): cero fricción, pero se pierde al borrar caché, no pasa entre
-  dispositivos, y **es imposible frenar que alguien comparta el acceso** (paga uno, lo usan 10).
-- **Con cuenta** (correo + código, ya existe en el sitio): el Pro queda atado a la persona,
-  funciona entre dispositivos y se puede limitar el abuso. El diagnóstico y el simulacro gratis
-  **no piden nada** — la cuenta solo aparece al pagar.
-
-Recomendación: **con cuenta** (el login por código que ya está), correo abierto (no solo `@unal.edu.co`)
-para no cerrar la puerta. Es el único camino que hace que el Pro no sea trivial de piratear.
+Login por **correo + código** (el que ya existe en el sitio), **por materia**. El diagnóstico y
+el simulacro gratis **no piden nada** — la cuenta solo aparece al pagar (`__muAuthUI.open('pro')`).
+Se acepta **cualquier correo**, pero el copy **recomienda el `@unal.edu.co`** ("más fácil de
+recuperar y es el que reconocemos"). Es lo que hace que el Pro no sea trivial de piratear:
+queda atado a la persona, funciona entre dispositivos, y la marca de agua lleva la licencia.
