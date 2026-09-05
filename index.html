@@ -5974,6 +5974,8 @@ body{animation:pageIn .6s ease}
 .mu-auth-lb{display:block;font-size:.78rem;color:var(--t2);font-weight:600;margin-bottom:.35rem}
 .mu-auth-box input{width:100%;padding:.6rem .7rem;border:1px solid var(--br2);border-radius:9px;background:var(--bg);color:var(--t1);font-size:.95rem;font-family:inherit;margin-bottom:.7rem}
 .mu-auth-box input#mu-auth-cd{letter-spacing:.35em;text-align:center;font-family:'IBM Plex Mono',monospace}
+.mu-auth-hint{margin:-.3rem 0 .8rem;font-size:.74rem;color:var(--t3);line-height:1.4}
+.mu-auth-hint b{color:var(--t2)}
 .mu-auth-go{width:100%;border:0;background:var(--acc);color:#fff;font-weight:700;font-size:.9rem;padding:.65rem;border-radius:9px;cursor:pointer;font-family:inherit}
 .mu-auth-go:disabled{opacity:.6;cursor:default}
 .mu-auth-alt{width:100%;border:0;background:transparent;color:var(--t3);font-size:.8rem;padding:.5rem;cursor:pointer;margin-top:.2rem;font-family:inherit}
@@ -18769,8 +18771,22 @@ window.__SIMPRO_DEV = /[?&]simpro=1/.test(location.href) || !!window.__SIM_LOCAL
     })[ctx]) || _t('Esta parte es de MathUNAL Pro.','This part is MathUNAL Pro.');
     ov.classList.add('open');
     var pay=document.getElementById('sim-pw-pay');
-    if(pay) pay.onclick=function(){ window.__simPro.unlock(); ov.classList.remove('open');
-      if(window._muToast) window._muToast(_t('Modo Pro activado (simulado)','Pro mode enabled (simulated)')); };
+    if(pay) pay.onclick=function(){
+      /* cuenta primero: el Pro va ligado a la cuenta (anti-piratería). El cobro
+         real (Wompi) aún no está — hoy "pagar" simula el desbloqueo. */
+      var s=window.__muAuth&&window.__muAuth.session&&window.__muAuth.session();
+      if((!s || !s.user) && !window.__SIM_LOCAL){
+        ov.classList.remove('open');
+        if(window.__muAuthUI){
+          window.__muAuthUI.open('pro');
+          if(window._muToast) window._muToast(_t('Primero crea tu cuenta; luego vuelve a "'+(_matName)+'" y desbloquea.',
+                                                 'Create your account first, then come back and unlock.'));
+        }
+        return;
+      }
+      window.__simPro.unlock(); ov.classList.remove('open');
+      if(window._muToast) window._muToast(_t('Modo Pro activado (simulado)','Pro mode enabled (simulated)'));
+    };
   };
   window.__simPaywallClose=function(){ var ov=document.getElementById('sim-pw-overlay'); if(ov) ov.classList.remove('open'); };
   /* gate: devuelve true si puede continuar */
@@ -20857,7 +20873,7 @@ window.__muFourierPlay = (function(){
 
 /* ── MODAL DE CUENTA (código al correo · sin contraseña) ─────────────────────── */
 window.__muAuthUI = (function(){
-  var _wrap=null, _step='email', _email='', _busy=false, _msg='';
+  var _wrap=null, _step='email', _email='', _busy=false, _msg='', _ctx='';
   function en(){ return window.curLang==='en'; }
   function build(){
     if(_wrap) return;
@@ -20870,17 +20886,23 @@ window.__muAuthUI = (function(){
   function render(){
     if(!_wrap) return;
     var E=en();
+    var _pro=(_ctx==='pro');
     var h='<div class="mu-auth-box" role="dialog" aria-modal="true">'+
       '<button class="mu-auth-x" aria-label="'+(E?'Close':'Cerrar')+'" onclick="window.__muAuthUI.close()">✕</button>'+
       '<div class="mu-auth-hd">'+
-        '<div class="mu-auth-ic">🔥</div>'+
-        '<b>'+(E?'Save your streak':'Guarda tu racha')+'</b>'+
-        '<span>'+(E?'So it survives if you clear your cache or switch device. No password — we email you a one-time code. Separate from any premium plan.'
-                   :'Para que no se pierda si borras el caché o cambias de dispositivo. Sin contraseña: te enviamos un código al correo. Nada que ver con el plan premium.')+'</span>'+
+        '<div class="mu-auth-ic">'+(_pro?'🔓':'🔥')+'</div>'+
+        '<b>'+(_pro?(E?'Your MathUNAL Pro account':'Tu cuenta MathUNAL Pro'):(E?'Save your streak':'Guarda tu racha'))+'</b>'+
+        '<span>'+(_pro
+          ? (E?'Pro is tied to this account, so it works on any device and can’t be shared around. No password — we email you a one-time code.'
+              :'El Pro queda ligado a esta cuenta: te funciona en cualquier dispositivo y no se puede regalar por ahí. Sin contraseña: te mandamos un código al correo.')
+          : (E?'So it survives if you clear your cache or switch device. No password — we email you a one-time code. Separate from any premium plan.'
+              :'Para que no se pierda si borras el caché o cambias de dispositivo. Sin contraseña: te enviamos un código al correo. Nada que ver con el plan premium.'))+'</span>'+
       '</div>';
     if(_step==='email'){
       h+='<label class="mu-auth-lb">'+(E?'Your email':'Tu correo')+'</label>'+
         '<input id="mu-auth-em" type="email" inputmode="email" autocomplete="email" placeholder="tu.correo@unal.edu.co" value="'+_email.replace(/"/g,'&quot;')+'">'+
+        '<div class="mu-auth-hint">'+(E?'Use your <b>@unal.edu.co</b> if you can — easier to recover and it’s the one we recognize. Any email works too.'
+                                       :'Usa tu <b>@unal.edu.co</b> si puedes — es más fácil de recuperar y es el que reconocemos. Cualquier correo también sirve.')+'</div>'+
         '<button class="mu-auth-go" onclick="window.__muAuthUI.submitEmail()"'+(_busy?' disabled':'')+'>'+
           (_busy?(E?'Sending…':'Enviando…'):(E?'Send code':'Enviar código'))+'</button>';
     } else {
@@ -20899,10 +20921,10 @@ window.__muAuthUI = (function(){
     var inp=_wrap.querySelector('input');
     if(inp) inp.addEventListener('keydown', function(e){ if(e.key==='Enter'){ _step==='email'?submitEmail():submitCode(); } });
   }
-  function open(){ build(); _step='email'; _msg=''; _busy=false;
+  function open(ctx){ build(); _step='email'; _msg=''; _busy=false; _ctx=(ctx||'');
     var m=window.__muAuth&&window.__muAuth.email&&window.__muAuth.email(); if(m) _email=m;
     _wrap.style.display='flex'; document.body.style.overflow='hidden'; render();
-    if(window.muTrack) try{ window.muTrack('auth_open'); }catch(e){}
+    if(window.muTrack) try{ window.muTrack('auth_open',{ctx:_ctx||'streak'}); }catch(e){}
   }
   function close(){ if(_wrap){ _wrap.style.display='none'; document.body.style.overflow=''; } }
   function back(){ _step='email'; _msg=''; render(); }
