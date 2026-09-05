@@ -2221,6 +2221,15 @@ html[data-theme="gray"] .hero-bg .lg-blob-center{background:radial-gradient(elli
 .sim-prep-ciego{margin-top:.5rem;font-size:.82rem;color:var(--warn);background:rgba(251,191,36,.08);border:1px solid rgba(251,191,36,.25);border-radius:8px;padding:.45rem .7rem;line-height:1.45}
 .sim-prep-ciego b{color:var(--t1)}
 
+/* ── Repaso espaciado (card en el selector) ── */
+.sim-srs-card{grid-column:1/-1;background:linear-gradient(120deg,var(--adim),transparent 60%),var(--card);border:2px solid var(--bra);border-radius:var(--radius);padding:1.2rem 1.4rem;cursor:pointer;transition:all var(--transition);box-shadow:var(--shadow-card)}
+.sim-srs-card:hover{transform:translateY(-3px);box-shadow:var(--shadow-hover)}
+.sim-srs-tag{font-family:'IBM Plex Mono',monospace;font-size:.62rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--acc)}
+.sim-srs-h{font-family:'Literata',Georgia,serif;font-size:1.35rem;font-weight:900;margin:.2rem 0 .3rem}
+.sim-srs-sub{font-size:.9rem;color:var(--t2)}
+.sim-srs-note{font-size:.78rem;color:var(--t3);margin-top:.3rem}
+.sim-srs-btn{margin-top:.8rem;background:var(--acc);color:#fff;border:none;border-radius:9px;padding:.5rem 1.1rem;font-size:.85rem;font-weight:700;font-family:inherit;cursor:pointer}
+
 /* prom-row — fila en tabla de promedio */
 .prom-row{display:grid;grid-template-columns:1fr 80px 120px 36px;gap:.4rem;padding:.45rem .9rem;border-top:1.5px solid var(--br);align-items:center}
 .prom-row:first-child{border-top:none}
@@ -8674,7 +8683,10 @@ function _renderCards(){
     +'</div>';
   });
 
-  grid.innerHTML=html||'<div style="padding:2.5rem 1rem;text-align:center;color:var(--t3)">'+(en?'No mock exams for this filter.':'Sin simulacros para este filtro.')+'</div>';
+  var _srsHtml=''; try{ if(window.__simSRSHtml) _srsHtml=window.__simSRSHtml(); }catch(e){}
+  grid.innerHTML=_srsHtml+(html||(_srsHtml?'':'<div style="padding:2.5rem 1rem;text-align:center;color:var(--t3)">'+(en?'No mock exams for this filter.':'Sin simulacros para este filtro.')+'</div>'));
+  var _srsCard=grid.querySelector('.sim-srs-card');
+  if(_srsCard) _srsCard.addEventListener('click',function(){ if(window.__simSRSStart) window.__simSRSStart(); });
   _qsa('.sim-card').forEach(function(card){
     card.addEventListener('click',function(){ _goToIntro(card.getAttribute('data-key')); });
   });
@@ -16618,12 +16630,20 @@ window.__SIMPRO_DEV = /[?&]simpro=1/.test(location.href);
     var host=document.getElementById('next-step'); if(!host) return;
     var A=window._answers||[], NA=window._numAns||{}, SG=window._selfGrades||[];
     var byTema={}, byErr={};
+    var isSrs=!!ex._srs;
     ex.preguntas.forEach(function(q,i){
-      if(!q.tema) return;
       var ok;
       if(q.tipo==='mcq') ok=(A[i]===q.correcta);
       else if(q.tipo==='numerica') ok=(window._calificarNum? window._calificarNum(q,NA[i])>=1 : false);
       else ok=((SG[i]||0)>=0.6);
+      // SRS: si esto era un repaso, promueve/degrada; si no, añade los fallos
+      try{
+        if(window.__simSRS){
+          if(isSrs && q._src) window.__simSRS.grade(q._src, ok);
+          else if(!ok && q._src && q.tipo!=='abierta') window.__simSRS.add(q);
+        }
+      }catch(e){}
+      if(!q.tema) return;
       byTema[q.tema]=byTema[q.tema]||{ok:0,n:0}; byTema[q.tema].n++; if(ok) byTema[q.tema].ok++;
       if(!ok && q.tipoError) byErr[q.tipoError]=(byErr[q.tipoError]||0)+1;
     });
@@ -16751,6 +16771,55 @@ window.__SIMPRO_DEV = /[?&]simpro=1/.test(location.href);
     h+='</div>';
     host.insertAdjacentHTML('beforeend', h);
   };
+  /* ── 7. Repetición espaciada de errores (Leitner) ─────────────────────── */
+  var SRS_KEY='mu-sim-srs', SRS_STEPS=[1,2,4,9,18];
+  function _srsLoad(){ try{ return JSON.parse(localStorage.getItem(SRS_KEY))||{}; }catch(e){ return {}; } }
+  function _srsSave(o){ try{ localStorage.setItem(SRS_KEY, JSON.stringify(o)); }catch(e){} }
+  function _today(){ return new Date().toISOString().slice(0,10); }
+  function _addDays(d,n){ var x=new Date(d+'T00:00:00'); x.setDate(x.getDate()+n); return x.toISOString().slice(0,10); }
+  window.__simSRS={
+    add:function(q){
+      if(!q||!q._src) return;
+      var o=_srsLoad();
+      o[q._src]={box:1, due:_addDays(_today(),1), tema:q.tema||'', slug:(q.corte?'calcdif':'')};
+      _srsSave(o);
+    },
+    grade:function(src, ok){
+      var o=_srsLoad(), e=o[src]; if(!e) return;
+      if(ok){ e.box=Math.min(SRS_STEPS.length, (e.box||1)+1); e.due=_addDays(_today(), SRS_STEPS[e.box-1]); }
+      else { e.box=1; e.due=_addDays(_today(),1); }
+      _srsSave(o);
+    },
+    due:function(){
+      var o=_srsLoad(), t=_today(), r=[];
+      Object.keys(o).forEach(function(k){ if(o[k].due<=t){ var q=__simGetQ(k); if(q) r.push(q); } });
+      return r;
+    }
+  };
+  window.__simSRSHtml=function(){
+    var due=window.__simSRS.due();
+    if(!due.length) return '';
+    var temas=[]; due.forEach(function(q){ if(q.tema && temas.indexOf(q.tema)<0) temas.push(q.tema); });
+    return '<div class="sim-srs-card">'+
+      '<div class="sim-srs-tag">Repaso espaciado</div>'+
+      '<div class="sim-srs-h">Repasar mis errores</div>'+
+      '<div class="sim-srs-sub">'+due.length+' pregunta'+(due.length>1?'s':'')+' que fallaste vuelven hoy'+
+        (temas.length?' · '+temas.slice(0,3).join(', '):'')+'</div>'+
+      '<div class="sim-srs-note">Sin reloj. Las que aciertes vuelven más tarde; las que falles, mañana.</div>'+
+      '<button class="sim-srs-btn" type="button">▶ Repasar ahora</button>'+
+    '</div>';
+  };
+  window.__simSRSStart=function(){
+    var due=window.__simSRS.due().slice(0,12);
+    if(!due.length) return;
+    EX['srs_review']={
+      titulo:'Repaso de errores', semestre:'REPETICIÓN ESPACIADA · SIN RELOJ',
+      codigo:'1000004', tiempo:99, desc:'Preguntas que fallaste, de nuevo.', preguntas:due, _srs:true
+    };
+    EM['srs_review']={mat:'calcdif',color:'#E05D1A',badge:'Repaso',tipo:'Repaso de errores',nuevo:false,_ord:-20};
+    if(window._goToIntro) window._goToIntro('srs_review');
+  };
+
   var _origMRP=window.muRenderProgreso;
   window.muRenderProgreso=function(){
     if(_origMRP) try{ _origMRP.apply(this, arguments); }catch(e){}
