@@ -70,6 +70,9 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous">
   <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" crossorigin="anonymous"></script>
   <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous" onload="window.__katexReady=true; if(window.__onKatexReady) window.__onKatexReady(); if(window.__muRerender) try{window.__muRerender();}catch(e){}"></script>
+  <!-- Simulacros Pro (rama simulacros-pro): banco enriquecido de Cálculo Diferencial.
+       Sync, sin deps, solo setea window.SIM_*. La fusion a EXAMS corre mas abajo. -->
+  <script src="sim-calcdif.js"></script>
   <!-- SEO: datos estructurados -->
   <script type="application/ld+json">
   {
@@ -2140,6 +2143,33 @@ html[data-theme="gray"] .hero-bg .lg-blob-center{background:radial-gradient(elli
 /* self-btn — botones de autoevaluación en simulacro */
 .self-btn{border-radius:8px;padding:.38rem .85rem;font-size:1rem;font-weight:700;cursor:pointer;border:2px solid var(--br);font-family:inherit;transition:all .18s}
 .self-btn:hover{filter:brightness(1.15)}
+
+/* ── SIMULACROS PRO (rama simulacros-pro): Antibobo, dominio por tema, frecuencia ── */
+.sim-extra{margin-top:.7rem;border-radius:10px;padding:.7rem .9rem;font-size:.9rem;line-height:1.5}
+.sim-mini-lbl{display:block;font-family:'IBM Plex Mono',monospace;font-size:.62rem;letter-spacing:.11em;
+  text-transform:uppercase;color:var(--acc);font-weight:700;margin-bottom:.25rem}
+.sim-rc-block{background:var(--lay1);border:1px solid var(--br)}
+.sim-ab-block{background:var(--adim);border:1px dashed var(--bra)}
+.sim-ab-block b{font-family:'Literata',Georgia,serif;font-size:1rem;font-weight:700;letter-spacing:.01em}
+.sim-freq-note{margin-top:.6rem;display:inline-block;font-family:'IBM Plex Mono',monospace;font-size:.66rem;
+  font-weight:700;letter-spacing:.04em;padding:.16rem .55rem;border-radius:5px}
+.sim-freq-alta{color:var(--acc);background:var(--adim);border:1px solid var(--bra)}
+.sim-freq-media{color:var(--warn);background:rgba(251,191,36,.1);border:1px solid rgba(251,191,36,.3)}
+.sim-freq-baja{color:var(--t3);background:var(--lay1);border:1px solid var(--br)}
+.sim-dom-card{background:var(--card);border:2px solid var(--br2);border-radius:var(--radius);padding:1.2rem 1.3rem;margin-bottom:1.2rem;box-shadow:var(--shadow-card)}
+.sim-dom-h{font-family:'Space Grotesk',sans-serif;font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--acc);margin-bottom:.7rem}
+.sim-dom-t{width:100%;border-collapse:collapse;font-size:.86rem}
+.sim-dom-t td{padding:.5rem .4rem;border-bottom:1px solid var(--br);vertical-align:middle}
+.sim-dom-t td:first-child{color:var(--t1)}
+.sim-dom-n{text-align:right;font-family:'IBM Plex Mono',monospace;font-weight:600;color:var(--t2)}
+.sim-bar{display:inline-block;width:100%;min-width:80px;height:7px;background:var(--lay2);border-radius:999px;overflow:hidden}
+.sim-bar i{display:block;height:100%;border-radius:999px}
+.sim-risk{font-family:'IBM Plex Mono',monospace;font-size:.6rem;font-weight:700;padding:.1rem .4rem;border-radius:4px}
+.sim-risk-bajo{color:var(--ok);background:rgba(34,197,94,.12)}
+.sim-risk-medio{color:var(--warn);background:rgba(251,191,36,.12)}
+.sim-risk-alto{color:var(--bad);background:rgba(248,113,113,.12)}
+.sim-err-msg{margin-top:.8rem;padding:.7rem .9rem;border-radius:9px;background:var(--lay1);border:1px solid var(--br);font-size:.9rem;line-height:1.5;color:var(--t2)}
+.sim-err-msg b{color:var(--t1)}
 
 /* prom-row — fila en tabla de promedio */
 .prom-row{display:grid;grid-template-columns:1fr 80px 120px 36px;gap:.4rem;padding:.45rem .9rem;border-top:1.5px solid var(--br);align-items:center}
@@ -9097,6 +9127,7 @@ function _renderExpl(idx){
       }).join('')
       +'</div></div>';
   }
+  try{ if(window.__simExplHook) window.__simExplHook(idx); }catch(e){}
 }
 
 /* ── PISTA ── */
@@ -9271,6 +9302,7 @@ function _finishExam(){
   _renderNextStep(nota, en);
   _saveResult({exam:_examKey,nota:nota,fecha:new Date().toLocaleDateString('es-CO'),tiempo:_timeUsed()});
   _renderPanelExito(nota, passed, mcq_ok, mcq_tot);
+  try{ if(window.__simResultHook) window.__simResultHook({nota:nota,passed:passed}); }catch(e){}
   _clearProgress();
   _showScreen('screen-results');
 }
@@ -14514,7 +14546,7 @@ function _loadPage(hash) {
   var parts = raw.split('?');
   var page  = parts[0] || 'home';
   var qs    = parts[1] || '';
-  if ((page==='simulacro'||page==='simulacros') && !SIMULACROS_HABILITADOS) { page='home'; qs=''; hash='#home'; }
+  if ((page==='simulacro'||page==='simulacros') && !SIMULACROS_HABILITADOS && !window.__SIMPRO_DEV) { page='home'; qs=''; hash='#home'; }
   if (page!=='home' && window.__muPresenciaInt){ clearInterval(window.__muPresenciaInt); window.__muPresenciaInt=null; }
   window.__muCurrentPage = page;
   if (MU_PAGE_TITLES[page]) {
@@ -16335,6 +16367,146 @@ window.MU_SB_URL = MU_SB_URL;
 window.MU_SB_ANON = MU_SB_ANON;
 window.MU_AI = MU_AI;
 window.EXAM_META = EXAM_META;
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   SIMULACROS PRO — fusión de metadata + "Simulacro por Corte"  [rama simulacros-pro]
+   Consume window.SIM_TAX/SIM_META/SIM_SOL/SIM_NEW (sim-calcdif.js, cargado en <head>).
+   NO toca producción: la sección sigue detrás de SIMULACROS_HABILITADOS.
+   DEV: abrir con ?simpro=1 en la URL fuerza la ruta #simulacro.
+   ═══════════════════════════════════════════════════════════════════════════ */
+window.__SIMPRO_DEV = /[?&]simpro=1/.test(location.href);
+(function(){
+  var TAX=window.SIM_TAX, META=window.SIM_META, SOL=window.SIM_SOL, NEW=window.SIM_NEW;
+  if(!TAX||!META){ return; }
+  var EX=window.EXAMS||{}, EM=window.EXAM_META||{};
+
+  /* 1. metadata sobre preguntas existentes */
+  Object.keys(META).forEach(function(slug){
+    Object.keys(META[slug]).forEach(function(examKey){
+      var ex=EX[examKey]; if(!ex) return;
+      META[slug][examKey].forEach(function(m,i){
+        var q=ex.preguntas[i]; if(!q) return;
+        q.tema=m.t; q.corte=m.c; q.freq=m.f; q.tipoError=m.e;
+        q.antibobo=m.ab; q.reconocer=m.rc;
+        if(m.gem) q.gemela=m.gem;
+        if(m.cx) q.compruebalo=m.cx;
+        q._src=examKey+'_'+i;
+      });
+    });
+  });
+
+  /* 2. rellenar abiertas con solución + rúbrica */
+  if(SOL) Object.keys(SOL).forEach(function(slug){
+    Object.keys(SOL[slug]).forEach(function(key){
+      var mm=key.match(/^(.+)_(\d+)$/); if(!mm) return;
+      var ex=EX[mm[1]]; if(!ex) return;
+      var q=ex.preguntas[+mm[2]]; if(!q) return;
+      var s=SOL[slug][key];
+      q.solucion=s.solucion; q.rubrica=s.rubrica;
+      q.resumen=q.resumen||s.concepto;
+      q.concepto=s.concepto; q.quePregunta=s.quePregunta; q.resultado=s.resultado;
+      q.errorComun=s.errorComun; q.antibobo=s.antibobo; q.reconocer=s.reconocer;
+      q._src=key;
+    });
+  });
+
+  /* 3. pool plano por materia (existentes con corte + nuevas) */
+  window.SIM_POOL={};
+  Object.keys(TAX).forEach(function(slug){
+    var codigo=TAX[slug].codigo, pool=[];
+    Object.keys(EX).forEach(function(k){
+      if(EX[k].codigo!==codigo || EX[k]._corte) return;
+      EX[k].preguntas.forEach(function(q){ if(q.corte) pool.push(q); });
+    });
+    ((NEW&&NEW[slug])||[]).forEach(function(q){
+      q.tema=q.t; q.corte=q.c; q.freq=q.f; q.tipoError=q.e;
+      q.antibobo=q.ab; q.reconocer=q.rc; q._src=q.id;
+      pool.push(q);
+    });
+    window.SIM_POOL[slug]=pool;
+  });
+
+  /* 4. construir "Simulacro por Corte" bajo demanda */
+  var CORTE_MIN=6;
+  window.__simBuildCorte=function(slug,corte){
+    corte=+corte;
+    var key=slug+'_c'+corte;
+    if(EX[key]) return key;
+    var all=(window.SIM_POOL[slug]||[]).filter(function(q){return q.corte===corte;});
+    if(all.length<CORTE_MIN) return null;
+    for(var i=all.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=all[i];all[i]=all[j];all[j]=t;}
+    var pick=[], seen={};
+    all.forEach(function(q){ if(pick.length<9 && (seen[q.tema]||0)<2){ pick.push(q); seen[q.tema]=(seen[q.tema]||0)+1; } });
+    var idx=0;
+    while(pick.length<Math.min(9,all.length) && idx<all.length){ if(pick.indexOf(all[idx])<0) pick.push(all[idx]); idx++; }
+    var tax=TAX[slug], cinfo=tax.cortes[corte];
+    var mins=pick.reduce(function(a,q){return a+(q.tEsp?q.tEsp/60:(q.tipo==='abierta'?8:2));},0);
+    EX[key]={
+      titulo:tax.materia,
+      semestre:'SIMULACRO · CORTE '+corte+' · '+cinfo.nombre.toUpperCase(),
+      codigo:tax.codigo, tiempo:Math.max(20,Math.round(mins/5)*5),
+      desc:cinfo.temas.slice(0,4).join(', ')+'.',
+      preguntas:pick, _corte:corte, _slug:slug
+    };
+    EM[key]={mat:slug,color:((EM[slug+'_p1']||{}).color)||'#E05D1A',badge:tax.materia,tipo:'Simulacro · Corte '+corte,nuevo:true};
+    return key;
+  };
+
+  /* 5a. hook de _renderExpl: Antibobo + cómo reconocerlo + frecuencia */
+  window.__simExplHook=function(idx){
+    var q=window._exam&&window._exam.preguntas[idx]; if(!q) return;
+    var stp=document.getElementById('expl-steps'); if(!stp || stp.querySelector('.sim-ab-block')) return;
+    var mh=window._mathHtml||function(x){return x;};
+    var h='';
+    if(q.reconocer) h+='<div class="sim-extra sim-rc-block"><span class="sim-mini-lbl">Cómo reconocerlo en el parcial</span><div>'+mh(q.reconocer)+'</div></div>';
+    if(q.antibobo)  h+='<div class="sim-extra sim-ab-block"><span class="sim-mini-lbl">Antibobo</span><b>'+mh(q.antibobo)+'</b></div>';
+    if(q.freq){ var fl={alta:'Muy frecuente en parciales',media:'Frecuencia media',baja:'Poco frecuente'}[q.freq];
+      if(fl) h+='<div class="sim-freq-note sim-freq-'+q.freq+'">'+fl+'</div>'; }
+    if(h){ stp.insertAdjacentHTML('beforeend',h); if(window._renderMath) window._renderMath(stp); }
+  };
+
+  /* 5b. hook de _finishExam: dominio por tema + tipo de error dominante */
+  window.__simResultHook=function(){
+    var ex=window._exam; if(!ex||!ex.preguntas.some(function(q){return q.tema;})) return;
+    var host=document.getElementById('next-step'); if(!host) return;
+    var A=window._answers||[], NA=window._numAns||{}, SG=window._selfGrades||[];
+    var byTema={}, byErr={};
+    ex.preguntas.forEach(function(q,i){
+      if(!q.tema) return;
+      var ok;
+      if(q.tipo==='mcq') ok=(A[i]===q.correcta);
+      else if(q.tipo==='numerica') ok=(window._calificarNum? window._calificarNum(q,NA[i])>=1 : false);
+      else ok=((SG[i]||0)>=0.6);
+      byTema[q.tema]=byTema[q.tema]||{ok:0,n:0}; byTema[q.tema].n++; if(ok) byTema[q.tema].ok++;
+      if(!ok && q.tipoError) byErr[q.tipoError]=(byErr[q.tipoError]||0)+1;
+    });
+    var rows=Object.keys(byTema).map(function(t){return {t:t,p:Math.round(byTema[t].ok/byTema[t].n*100)};})
+      .sort(function(a,b){return a.p-b.p;});
+    var html='<div class="sim-dom-card"><div class="sim-dom-h">Dominio por tema</div><table class="sim-dom-t">';
+    rows.forEach(function(r){
+      var col=r.p>=75?'var(--ok)':r.p>=50?'var(--warn)':'var(--bad)';
+      var rk=r.p>=75?'bajo':r.p>=50?'medio':'alto';
+      html+='<tr><td>'+r.t+'</td><td><span class="sim-bar"><i style="width:'+r.p+'%;background:'+col+'"></i></span></td>'+
+        '<td class="sim-dom-n">'+r.p+'%</td><td><span class="sim-risk sim-risk-'+rk+'">'+rk.toUpperCase()+'</span></td></tr>';
+    });
+    html+='</table>';
+    var topErr=Object.keys(byErr).sort(function(a,b){return byErr[b]-byErr[a];})[0];
+    if(topErr){
+      var em={
+        conceptual:'Tus fallos son de <b>concepto</b>: el método no está claro, no es cuestión de cuentas.',
+        procedimiento:'Tus fallos son de <b>procedimiento</b>: sabes qué hacer pero se te salta un paso (casi siempre el factor de la regla de la cadena).',
+        algebra:'No tienes un problema de concepto. Estás perdiendo puntos por <b>álgebra</b>.',
+        signo:'Tus fallos son de <b>signo</b>: el planteo está bien, se te voltea un menos.',
+        formula:'Tus fallos son de <b>fórmula</b>: estás recordando mal una fórmula base.',
+        interpretacion:'Tus fallos son de <b>interpretación</b>: lees el enunciado distinto de lo que pide.'
+      }[topErr];
+      if(em) html+='<div class="sim-err-msg">'+em+'</div>';
+    }
+    html+='</div>';
+    host.insertAdjacentHTML('afterbegin',html);
+    if(window._renderMath) window._renderMath(host);
+  };
+})();
 
 /* Contador de presencia en vivo ("X personas navegando ahora") en el hero de
    home. Real, no inventado: cada pestaña abierta hace upsert de un session_id
