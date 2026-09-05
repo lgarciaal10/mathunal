@@ -2253,6 +2253,29 @@ html[data-theme="gray"] .hero-bg .lg-blob-center{background:radial-gradient(elli
 .sim-pw-note{font-size:.72rem;color:var(--t3);margin-top:.7rem;line-height:1.45}
 .sim-wm{margin-top:1rem;font-family:'IBM Plex Mono',monospace;font-size:.6rem;letter-spacing:.06em;color:var(--t3);opacity:.5;text-align:right}
 
+/* ── Onboarding ── */
+.sim-onb{max-width:1200px;margin:0 auto 1.4rem;padding:1rem 1.2rem;background:var(--card);border:1px solid var(--br2);border-radius:var(--radius)}
+.sim-onb-q{font-family:'Literata',Georgia,serif;font-weight:900;font-size:1.05rem;margin-bottom:.7rem}
+.sim-onb-row{display:flex;align-items:center;gap:.55rem;flex-wrap:wrap;margin:.4rem 0}
+.sim-onb-row>div{display:flex;gap:.4rem;flex-wrap:wrap}
+.sim-onb-lbl{font-family:'IBM Plex Mono',monospace;font-size:.66rem;letter-spacing:.08em;text-transform:uppercase;color:var(--t3);min-width:118px}
+.sim-onb-chip{background:var(--lay1);border:1.5px solid var(--br);color:var(--t2);border-radius:999px;padding:.32rem .9rem;font-size:.82rem;font-weight:600;font-family:inherit;cursor:pointer;transition:all .15s}
+.sim-onb-chip span{color:var(--t3);font-weight:400}
+.sim-onb-chip:hover:not([disabled]){border-color:var(--br2)}
+.sim-onb-chip.on{background:var(--acc);border-color:var(--acc);color:#fff}
+.sim-onb-chip.on span{color:rgba(255,255,255,.7)}
+.sim-onb-chip[disabled]{opacity:.9;cursor:default;border-color:var(--bra);color:var(--t1)}
+.sim-onb-hint{font-size:.74rem;color:var(--t3)}
+.sim-onb-date{background:var(--bg);border:1.5px solid var(--br2);border-radius:8px;padding:.35rem .6rem;color:var(--t1);font-family:'IBM Plex Mono',monospace;font-size:.82rem;color-scheme:dark}
+html[data-theme="light"] .sim-onb-date{color-scheme:light}
+.sim-onb-count{font-size:.8rem;color:var(--t2);font-family:'IBM Plex Mono',monospace}
+.sim-onb-count.urgent{color:var(--acc);font-weight:700}
+.sim-card-hi{animation:simCardHi 1.6s ease}
+@keyframes simCardHi{0%,100%{box-shadow:var(--shadow-card)}30%{box-shadow:0 0 0 3px var(--acc),var(--shadow-hover)}}
+.sim-prep-fecha{font-size:.85rem;color:var(--t2);background:var(--lay1);border:1px solid var(--br);border-radius:9px;padding:.5rem .8rem}
+.sim-prep-fecha.urgent{color:var(--acc);border-color:var(--bra);background:var(--adim)}
+.sim-prep-fecha b{color:var(--t1)}
+
 /* prom-row — fila en tabla de promedio */
 .prom-row{display:grid;grid-template-columns:1fr 80px 120px 36px;gap:.4rem;padding:.45rem .9rem;border-top:1.5px solid var(--br);align-items:center}
 .prom-row:first-child{border-top:none}
@@ -8189,6 +8212,25 @@ if(!window.__muSdClickBound){window.__muSdClickBound=true;document.addEventListe
     <div id="mu-progreso" style="flex:1;max-width:560px"></div>
   </div>
 
+  <!-- ONBOARDING (rama simulacros-pro) -->
+  <div class="sim-onb" id="sim-onb">
+    <div class="sim-onb-q">¿Qué vas a presentar?</div>
+    <div class="sim-onb-row">
+      <span class="sim-onb-lbl">Materia</span>
+      <button class="sim-onb-chip on" disabled>Cálculo Diferencial</button>
+      <span class="sim-onb-hint">más materias pronto</span>
+    </div>
+    <div class="sim-onb-row">
+      <span class="sim-onb-lbl">Corte</span>
+      <div id="sim-onb-cortes"></div>
+    </div>
+    <div class="sim-onb-row">
+      <span class="sim-onb-lbl">Fecha del parcial</span>
+      <input type="date" id="sim-onb-fecha" class="sim-onb-date">
+      <span class="sim-onb-count" id="sim-onb-count"></span>
+    </div>
+  </div>
+
   <!-- TWO-PANE -->
   <div class="sim-two">
 
@@ -8685,6 +8727,7 @@ function _renderCards(){
   var grid=_el('sim-cards-grid');
   if(!grid) return;
   var en=(window.curLang==='en');
+  if(window.__simOnbInit) try{ window.__simOnbInit(); }catch(e){}
   var results=_getResults();
   var html='';
 
@@ -16870,6 +16913,12 @@ window.__SIMPRO_DEV = /[?&]simpro=1/.test(location.href);
     var data=_prepData(); if(!data||!data.length) return;
     var st=function(s){ return s>=85?['🔥','Muy preparado','var(--acc)'] : s>=70?['🟢','Listo','var(--ok)'] : s>=50?['🟡','En riesgo','var(--warn)'] : ['🔴','No listo','var(--bad)']; };
     var h='<div class="sim-prep">';
+    var dias=(window.__simDiasRestantes&&window.__simDiasRestantes());
+    if(dias!=null && dias>=0){
+      h+='<div class="sim-prep-fecha'+(dias<=3?' urgent':'')+'">'+
+        (dias>1?('Faltan <b>'+dias+' días</b> para tu parcial'):dias===1?'Tu parcial es <b>mañana</b>':'Tu parcial es <b>hoy</b>')+
+        (data[0]&&!data.some(function(d){return d.listo;})?' — todavía no estás listo en ningún corte.':'')+'</div>';
+    }
     data.forEach(function(d){
       var s=st(d.score);
       h+='<div class="sim-prep-c">'+
@@ -16974,6 +17023,46 @@ window.__SIMPRO_DEV = /[?&]simpro=1/.test(location.href);
     }catch(e){}
     if(hechos>=1){ window.__simPaywall('corte'); return false; }
     return true;
+  };
+
+  /* ── 9. Onboarding "¿Qué vas a presentar?" ────────────────────────────── */
+  function _lsGet(k){ try{ return localStorage.getItem(k); }catch(e){ return null; } }
+  function _lsSet(k,v){ try{ localStorage.setItem(k,v); }catch(e){} }
+  window.__simFechaParcial=function(){ return _lsGet('mu-sim-fecha')||''; };
+  window.__simDiasRestantes=function(){
+    var f=_lsGet('mu-sim-fecha'); if(!f) return null;
+    var d=Math.ceil((new Date(f+'T00:00:00')-new Date())/86400000);
+    return d;
+  };
+  window.__simOnbInit=function(){
+    var host=document.getElementById('sim-onb-cortes'); if(!host) return;
+    var tax=(window.SIM_TAX||{}).calcdif; if(!tax) return;
+    var sel=_lsGet('mu-sim-corte');
+    host.innerHTML=Object.keys(tax.cortes).map(function(c){
+      var ci=tax.cortes[c];
+      return '<button class="sim-onb-chip'+(sel===c?' on':'')+'" data-c="'+c+'">Corte '+c+' <span>· '+ci.pct+'%</span></button>';
+    }).join('');
+    host.querySelectorAll('.sim-onb-chip').forEach(function(b){
+      b.addEventListener('click',function(){
+        _lsSet('mu-sim-corte', b.dataset.c);
+        host.querySelectorAll('.sim-onb-chip').forEach(function(x){ x.classList.toggle('on', x===b); });
+        var card=document.querySelector('.sim-card[data-key="calcdif_c'+b.dataset.c+'"]');
+        if(card){ card.scrollIntoView({behavior:'smooth',block:'center'});
+          card.classList.add('sim-card-hi'); setTimeout(function(){ card.classList.remove('sim-card-hi'); }, 1600); }
+      });
+    });
+    var fi=document.getElementById('sim-onb-fecha'), fc=document.getElementById('sim-onb-count');
+    if(fi){
+      var saved=_lsGet('mu-sim-fecha'); if(saved) fi.value=saved;
+      var upd=function(){
+        var d=window.__simDiasRestantes();
+        if(fc) fc.textContent = d==null?'' : d>1?('faltan '+d+' días') : d===1?'¡es mañana!' : d===0?'¡es hoy!' : 'ya pasó';
+        if(fc) fc.className='sim-onb-count'+(d!=null&&d<=3&&d>=0?' urgent':'');
+      };
+      fi.addEventListener('change',function(){ _lsSet('mu-sim-fecha', fi.value); upd();
+        try{ window.muRenderProgreso&&window.muRenderProgreso(); }catch(e){} });
+      upd();
+    }
   };
 
   var _origMRP=window.muRenderProgreso;
