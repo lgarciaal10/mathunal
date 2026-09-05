@@ -1,0 +1,104 @@
+\documentclass[11pt]{article}
+\usepackage{mathunal-base}
+\mathunalfuente{serif}
+\providecommand{\nota}[1]{\par\smallskip\noindent{\small\itshape\color{unalblue}#1}\par\smallskip}
+\newlist{opciones}{enumerate}{1}
+\setlist[opciones]{label=(\roman*),itemsep=1pt,topsep=2pt,leftmargin=1.8em,font=\normalfont}
+\newcommand{\rp}{\underline{\hspace{3cm}}}
+
+\renewcommand{\examtitulo}{Ecuaciones Diferenciales (1000007) --- Segundo Examen Parcial}
+\renewcommand{\examfecha}{28 de Abril del 2018}
+
+\begin{document}
+
+\examheader
+
+\vspace{4pt}
+\noindent\textit{Duración: 1 hora y 45 minutos. Antes de empezar verifique que su examen esté completo y que sus datos sean correctos. Por favor verifique que su celular esté apagado. No está permitido el uso de calculadora ni de otros aparatos electrónicos. Solucione las preguntas en los espacios en blanco asignados a cada una de ellas. No está permitido sacar hojas en blanco ni ningún tipo de apuntes durante el examen.}
+
+\vspace{6pt}
+\noindent\textbf{1. a) (15\%)} Dado que $x$, $x^2$, $\dfrac{1}{x}$ son soluciones de la ecuación diferencial homogénea asociada a la ecuación diferencial
+\[
+x^3y'''+x^2y''-2xy'+2y=5x^4+7x^5, \qquad x>0, \tag{*}
+\]
+halle una solución particular de la ecuación diferencial (*) en $(0,\infty)$.
+
+\vspace{6cm}
+
+\newpage
+
+\noindent\textbf{b) (15\%)} Si se sabe que $y_1(x)=5x^{-1/2}\sin(x)$ es una solución de la ecuación diferencial
+\[
+x^2y''+xy'+\left(x^2-\frac{1}{4}\right)y=0, \qquad x>0,
+\]
+halle la solución general de dicha ecuación diferencial en $(0,\infty)$ (Justifique su procedimiento).
+
+\vspace{7cm}
+
+\newpage
+
+\noindent\textbf{2. (30\%) Aplicaciones}
+
+\vspace{0.2cm}
+\noindent\textbf{a) (10\%)} Un objeto que pesa 4 lb hace que se alargue 2 pies un resorte. El objeto se desplaza 11 pulg hacia arriba de su posición de equilibrio y se libera con una velocidad inicial descendente de 2 pie/s. Suponiendo que el sistema masa-resorte está inmerso en un medio que presenta una resistencia al movimiento con una constante de amortiguamiento 4 lb$\cdot$s/pie y una fuerza externa de $-\cos(t)+2\sin(t)$ lb actúa sobre el cuerpo, escriba el problema de valores iniciales que describe el movimiento de la masa (en su respuesta las constantes deben ser números explícitos).
+
+\nota{NOTA: NO es necesario que resuelva este PVI, ni tal solución será tenida en cuenta.}
+
+\vspace{4.5cm}
+
+\noindent\textbf{b) (20\%)} La posición de un cuerpo, cuya masa es 1 slug, que está sujeto a un resorte, está dada por
+\[
+x(t)=e^{-4t}\sin\!\left(4t+\frac{3\pi}{4}\right)=e^{-4t}\cos\!\left(4t+\frac{\pi}{4}\right)
+\]
+pies, para cada instante $t\geq 0$ (medido en segundos).
+\begin{opciones}
+\item \textbf{(6\%)} La posición inicial de la masa es \rp\ y su velocidad inicial es \rp\ (Sus respuestas deben ser números explícitos).
+\item \textbf{(8\%)} El instante de tiempo en el cual el cuerpo está en su posición más alta con respecto al equilibrio es \rp
+\item \textbf{(6\%)} La constante de amortiguamiento $\beta$ es \rp
+\end{opciones}
+
+\newpage
+
+\noindent\textbf{3. (10\%)} Sean $p$ y $q$ funciones continuas en un intervalo abierto $I$ y supongamos que $p(x)\neq 0$ para cada $x\in I$. Si $y_1$ y $y_2$ son soluciones de la ecuación diferencial
+\[
+\frac{d^2y}{dx^2}+p(x)\frac{dy}{dx}+q(x)y=0
+\]
+en $I$, y además, $y_1$ y $y_2$ tienen ambas un punto de inflexión en $x_0\in I$, demuestre que $y_1$ y $y_2$ son linealmente dependientes en $I$.
+
+\vspace{6cm}
+
+\noindent\textbf{4. (30\%)} En los literales a), b), c) y d) complete según corresponda. Sólo se calificará respuesta, no es necesario que escriba el procedimiento.
+
+\vspace{0.25cm}
+\noindent\textbf{a) (8\%)} Los valores de $\alpha$, si los hay, para los cuales todas las soluciones de la ecuación diferencial
+\[
+x^2y''-(3\alpha-4)xy'+\frac{9}{4}\alpha(\alpha-2)y=0, \qquad x>0,
+\]
+tienden a cero cuando $x\to\infty$ son: \rp
+
+\vspace{0.3cm}
+\noindent\textbf{b) (8\%)} Una forma apropiada de solución particular de la ecuación diferencial
+\[
+y^{(4)}+y''=\sin(x)-xe^{-x}+5
+\]
+es: \rp\ (No calcule las constantes).
+
+\vspace{0.3cm}
+\noindent\textbf{c) (8\%)} Se sabe que un sistema masa-resorte está descrito por el problema de valor inicial
+\[
+x''+10x'+25x=0, \qquad x(0)=-1,\ x'(0)=4.
+\]
+El número de veces que la masa pasa por la posición de equilibrio es: \rp
+
+\vspace{0.3cm}
+\noindent\textbf{d) (6\%)} La posición $x(t)$ de cierto sistema masa-resorte satisface el problema de valor inicial
+\[
+\frac{1}{16}x''+9x=2\cos(\gamma t), \qquad x(0)=2,\ x'(0)=3.
+\]
+El valor de $\gamma$ que hace que ocurra el fenómeno de resonancia es: \rp
+
+\vfill
+\rule{\linewidth}{0.4pt}\\[1pt]
+{\scriptsize\textit{Transcripción digital --- MathUNAL}\hfill\textcolor{unalblue}{\textbf{1}}}
+
+\end{document}
