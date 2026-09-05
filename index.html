@@ -12149,6 +12149,7 @@ function _diagGradablesDeMateria(code){
   Object.keys(EX).forEach(function(examKey){
     var ex = EX[examKey];
     if(ex.codigo !== code) return;
+    if(ex._corte || ex._srs || ex._reto) return; // excluir simulacros/repasos/retos derivados
     (ex.preguntas||[]).forEach(function(q, origIdx){
       if(q.tipo==='mcq' || q.tipo==='numerica'){
         qs.push({ q:q, examKey:examKey, examTitulo:ex.titulo, origIdx:origIdx });
@@ -12203,6 +12204,18 @@ function _diagBuildPool(code){
   for(var i=qs.length-1;i>0;i--){
     var j=Math.floor(Math.random()*(i+1));
     var tmp=qs[i]; qs[i]=qs[j]; qs[j]=tmp;
+  }
+  // Simulacros Pro: si hay banco con tema (y un corte elegido en el onboarding),
+  // arma 8 preguntas con spread por tema del corte; si no, comportamiento viejo.
+  var conTema = qs.filter(function(x){ return x.q && x.q.tema; });
+  if(conTema.length>=8){
+    var corte=null; try{ corte=+(localStorage.getItem('mu-sim-corte')||0)||null; }catch(e){}
+    var base = corte ? conTema.filter(function(x){ return x.q.corte===corte; }) : conTema;
+    if(base.length<8) base=conTema;
+    var pick=[], seen={};
+    base.forEach(function(x){ if(pick.length<8 && (seen[x.q.tema]||0)<2){ pick.push(x); seen[x.q.tema]=(seen[x.q.tema]||0)+1; } });
+    var k=0; while(pick.length<8 && k<base.length){ if(pick.indexOf(base[k])<0) pick.push(base[k]); k++; }
+    if(pick.length>=6) return pick;
   }
   return qs.slice(0, Math.min(5, qs.length));
 }
@@ -12332,27 +12345,32 @@ function _diagMostrarResultados(){
       : '';
   }
 
-  // Agrupar por EXAMEN DE ORIGEN real (nunca por tema inventado)
+  // Agrupar por TEMA si las preguntas lo traen (metadata de Simulacros Pro);
+  // si no, caer al EXAMEN DE ORIGEN real (nunca inventar un tema).
+  var usaTema = _diagPoolQs.some(function(it){ return it.q && it.q.tema; });
   var porExamen = {};
   var orden = [];
   _diagPoolQs.forEach(function(it,i){
-    if(!porExamen[it.examKey]){ porExamen[it.examKey]={ok:0,total:0,examKey:it.examKey,examTitulo:it.examTitulo}; orden.push(it.examKey); }
+    var key = usaTema ? (it.q.tema || it.examTitulo) : it.examKey;
+    if(!porExamen[key]){ porExamen[key]={ok:0,total:0,examKey:it.examKey,examTitulo:it.examTitulo,tema:it.q&&it.q.tema}; orden.push(key); }
     var g = it.q.tipo==='mcq' ? (_diagUserAnswers[i]===it.q.correcta) : ((typeof _calificarNum==='function'?_calificarNum(it.q,_diagUserAnswers[i]):0)===1);
-    porExamen[it.examKey].total++;
-    if(g) porExamen[it.examKey].ok++;
+    porExamen[key].total++;
+    if(g) porExamen[key].ok++;
   });
 
   var cardsHost=document.getElementById('diag-cards');
   if(cardsHost){
-    cardsHost.innerHTML = orden.map(function(examKey){
-      var d=porExamen[examKey];
-      var meta=(window.EXAM_META&&window.EXAM_META[examKey])?window.EXAM_META[examKey]:{};
+    cardsHost.innerHTML = orden.sort(function(a,b){
+      return (porExamen[a].ok/porExamen[a].total) - (porExamen[b].ok/porExamen[b].total);
+    }).map(function(key){
+      var d=porExamen[key];
+      var meta=(window.EXAM_META&&window.EXAM_META[d.examKey])?window.EXAM_META[d.examKey]:{};
       var pct = d.total ? Math.round((d.ok/d.total)*100) : 0;
       var nivel = pct<50?'critico':(pct<80?'mejorar':'solido');
       var color = nivel==='critico'?'var(--red)':(nivel==='mejorar'?'var(--yel)':'var(--grn)');
       var ico = nivel==='critico'?'alerta':(nivel==='mejorar'?'tendencia':'escudo');
       var lbl = en ? (nivel==='critico'?'Critical':(nivel==='mejorar'?'Improve':'Solid')) : (nivel==='critico'?'Crítico':(nivel==='mejorar'?'Mejorar':'Sólido'));
-      var label = (d.examTitulo||'')+(meta.tipo?(' — '+meta.tipo):'');
+      var label = d.tema || ((d.examTitulo||'')+(meta.tipo?(' — '+meta.tipo):''));
       return '<div class="diag-rc" style="--rc-color:'+color+'">'
         + '<div class="diag-rc-hd">'
         +   '<div class="diag-rc-badge" style="background:'+color+'26;color:'+color+'">'+_diagIco(ico)+'</div>'
