@@ -1,0 +1,100 @@
+\documentclass[11pt]{article}
+\usepackage{mathunal-base}
+\mathunalfuente{serif}
+\providecommand{\nota}[1]{\par\smallskip\noindent{\small\itshape\color{unalblue}#1}\par\smallskip}
+\newlist{opciones}{enumerate}{1}
+\setlist[opciones]{label=(\alph*),itemsep=1pt,topsep=2pt,leftmargin=1.8em,font=\normalfont}
+\newcommand{\rp}{\underline{\hspace{3cm}}}
+
+\renewcommand{\examtitulo}{Ecuaciones Diferenciales (1000007) --- Segundo Examen Parcial}
+\renewcommand{\examfecha}{17 de Abril del 2017}
+
+\begin{document}
+
+\examheader
+
+\vspace{4pt}
+\noindent\textit{Duración: 1 hora y 50 minutos. Antes de empezar verifique que su examen esté completo y que sus datos sean correctos. No está permitido el uso de calculadora ni de otros aparatos electrónicos. Solucione las preguntas en los espacios en blanco asignados a cada una de ellas. No está permitido sacar hojas en blanco ni ningún tipo de apuntes durante el examen.}
+
+\vspace{6pt}
+\noindent\textbf{1. (30\%)} Una masa que pesa 4 lb estira un resorte $\frac{1}{2}$ pie. El sistema masa-resorte se ubica en un medio que presenta una resistencia que es numéricamente igual a $\beta$ veces la velocidad instantánea ($\beta>0$). En el instante inicial la masa se libera desde un punto situado a $\frac{1}{4}$ de pie por encima de la posición de equilibrio, con una velocidad inicial de 3 pies/seg hacia abajo.
+
+\begin{opciones}
+\item[a.] \textbf{(5\%)} Determine el valor de la constante $\beta$ para el cual el sistema está críticamente amortiguado.
+\item[b.] \textbf{(10\%)} Tomando el valor de $\beta$ hallado en a), encuentre la posición $x(t)$ de la masa en cualquier instante $t\geq 0$.
+\item[c.] \textbf{(5\%)} Determine el tiempo o tiempos en que la masa pasa por la posición de equilibrio.
+\item[d.] \textbf{(5\%)} En el instante $t=3$ seg, determine la posición de la masa e indique hacia dónde se dirige.
+\item[e.] \textbf{(5\%)} Bosqueje la gráfica del movimiento $x(t)$ contra $t$.
+\end{opciones}
+
+\textit{(Recuerde que la constante $g$ es 32 pies sobre segundo al cuadrado)}
+
+\vspace{6cm}
+
+\newpage
+
+\noindent\textbf{2. (30\%)}
+
+\vspace{0.2cm}
+\noindent\textbf{a) (20\%)} Encuentre la solución general de la ecuación diferencial
+\[
+y''-6y'+5y=\frac{4e^{9x}}{1+e^{4x}}, \qquad x\in\mathbb{R}.
+\]
+
+\vspace{6.5cm}
+
+\noindent\textbf{b) (10\%)} Suponga que $p$ y $q$ son funciones continuas en un intervalo abierto $I$, y que $y_1$ y $y_2$ son soluciones de la ecuación diferencial
+\[
+y''+p(x)y'+q(x)y=0, \qquad x\in I.
+\]
+Demuestre que si $y_1$ y $y_2$ tienen ambas un punto crítico en el mismo punto $x_0\in I$, entonces sobre ese intervalo no pueden ser un conjunto fundamental de soluciones.
+
+\nota{Un punto crítico es donde $y_i'(x_0)=0$.}
+
+\vspace{5cm}
+
+\newpage
+
+\noindent\textbf{3. (40\%)} En los literales a), b) y c) complete según corresponda, y en los literales d), e) y f) responda falso o verdadero según corresponda. Sólo se calificará la respuesta, no es necesario que escriba el procedimiento.
+
+\vspace{0.25cm}
+\noindent\textbf{a) (9\%)} Una forma adecuada de solución particular $y_p$ para la ecuación diferencial
+\[
+y^{(4)}-4y'''+20y''=-4+3e^{2x}-5e^{2x}\cos(4x), \qquad x\in\mathbb{R},
+\]
+es \rp\ (No halle constantes).
+
+\vspace{0.25cm}
+\noindent\textbf{b) (8\%)} Una ecuación diferencial homogénea de Cauchy-Euler tiene por solución general
+\[
+y(x)=c_1x\cos(\ln x)+c_2x\sin(\ln x), \qquad x>0.
+\]
+Entonces la ecuación diferencial es \rp
+
+\vspace{0.25cm}
+\noindent\textbf{c) (8\%)} La posición $x(t)$ de determinado sistema masa-resorte satisface la ecuación diferencial
+\[
+\frac{5}{4}x''(t)+\beta x'(t)+4x(t)=0.
+\]
+Los valores de la constante $\beta$ para que el movimiento posterior sea sobre-amortiguado son \rp, críticamente amortiguado es \rp\ y sub-amortiguado son \rp
+
+\vspace{0.3cm}
+\noindent\textbf{d) (5\%)} Si $f$ y $g$ son funciones diferenciables y linealmente independientes en un intervalo abierto $I$, entonces $W(f,g)(x_0)\neq 0$ para algún $x_0\in I$.
+
+\rp
+
+\vspace{0.3cm}
+\noindent\textbf{e) (5\%)} Si $y''+p(x)y'+q(x)y=0$ es una ecuación diferencial con coeficientes continuos en un intervalo abierto $I$, con $0\in I$, entonces es posible que $y(x)=x^2e^x$ sea una solución de dicha ecuación en $I$.
+
+\rp
+
+\vspace{0.3cm}
+\noindent\textbf{f) (5\%)} Si $f$ y $g$ son funciones diferenciables y $W(f,g)(x)=(x^2-9)e^x$, $x\in\mathbb{R}$, entonces $f$ y $g$ son linealmente independientes en $\mathbb{R}$.
+
+\rp
+
+\vfill
+\rule{\linewidth}{0.4pt}\\[1pt]
+{\scriptsize\textit{Transcripción digital --- MathUNAL}\hfill\textcolor{unalblue}{\textbf{1}}}
+
+\end{document}

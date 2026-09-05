@@ -1,0 +1,87 @@
+\documentclass[11pt]{article}
+\usepackage{mathunal-base}
+\mathunalfuente{serif}
+\providecommand{\nota}[1]{\par\smallskip\noindent{\small\itshape\color{unalblue}#1}\par\smallskip}
+\newlist{opciones}{enumerate}{1}
+\setlist[opciones]{label=(\alph*),itemsep=1pt,topsep=2pt,leftmargin=1.8em,font=\normalfont}
+\newcommand{\rp}{\underline{\hspace{3.2cm}}}
+
+\renewcommand{\examtitulo}{Ecuaciones Diferenciales (1000007) --- Segundo Examen Parcial}
+\renewcommand{\examfecha}{Segundo Parcial de Ecuaciones Diferenciales --- 15 de Octubre del 2016}
+
+\begin{document}
+
+\examheader
+
+\vspace{4pt}
+\noindent\textit{Duración: 1 hora y 50 minutos. Antes de empezar verifique que su examen esté completo y que sus datos sean correctos. No está permitido el uso de calculadora ni de otros aparatos electrónicos, hacer preguntas, sacar hojas en blanco ni ningún tipo de apuntes durante el examen.}
+
+\vspace{6pt}
+\noindent\textbf{1. (25\%)} Encuentre la solución general de la siguiente ecuación diferencial
+\[
+y''-2y'+2y=\frac{e^{x}\sec x}{3}, \qquad \text{en el intervalo } \left(0,\frac{\pi}{8}\right).
+\]
+
+\vspace{7cm}
+
+\newpage
+
+\noindent\textbf{2. (40\%)} En los literales a), b), c) y d) complete según corresponda. Sólo se calificará la respuesta, no es necesario que escriba el procedimiento.
+
+\vspace{0.3cm}
+\noindent\textbf{a) (10\%)} Una forma adecuada de solución particular $y_p$ para la ecuación diferencial
+\[
+y^{(4)}+4y''=\sin(2t)+te^t+15,
+\]
+en el intervalo $(-\infty,\infty)$ es \rp\ (No evalúe constantes)
+
+\vspace{0.3cm}
+\noindent\textbf{b) (10\%)} Considere la ecuación diferencial
+\[
+4y''-ky'+9y=0.
+\]
+El valor de $k$ para que $\left\{e^{\frac{3}{2}x},\ xe^{\frac{3}{2}x}\right\}$ sea un conjunto fundamental de soluciones de la ecuación diferencial es \rp
+
+\vspace{0.3cm}
+\noindent\textbf{c) (10\%)} Una ecuación diferencial homogénea de Cauchy-Euler de orden dos tiene a $r=-2+5i$ como una raíz de la ecuación característica. La ecuación diferencial es
+
+\rp
+
+\vspace{0.3cm}
+\noindent\textbf{d) (10\%)} El mayor intervalo para el cual se tiene la certeza de que el problema de valor inicial
+\[
+(\ln x)y''+\sqrt{10-x}\,y'+\frac{1}{x-5}y=0, \qquad y(3)=1,\ y'(3)=1,
+\]
+tiene solución única es \rp\ (No es necesario hallar la solución)
+
+\newpage
+
+\noindent\textbf{3. (25\%)} Una masa que pesa 2 lb estira un resorte 1 pie. A este resorte se le retira esta masa y en su lugar se reemplaza por otra masa que pesa 3.2 lb. Suponga que la masa está sujeta a un amortiguador cuyo coeficiente de fricción $\beta$ es de 0.4 lb-seg/pie. La masa se tira desde $\frac{1}{2}$ pie arriba de la posición de equilibrio, con una velocidad inicial hacia arriba de 1 pies/seg.
+
+\begin{opciones}
+\item[a.] \textbf{(15\%)} Halle la posición $u(t)$ de la masa en cualquier instante $t$.
+\item[b.] \textbf{(5\%)} Calcule el instante de tiempo en el que la masa pasa por la posición de equilibrio por segunda vez dirigiéndose hacia arriba.
+\item[c.] \textbf{(5\%)} Bosqueje la gráfica del movimiento.
+\end{opciones}
+
+\vspace{6cm}
+
+\newpage
+
+\noindent\textbf{4. (10\%)} Sean $y_1$ y $y_2$ soluciones de la ecuación diferencial
+\[
+y''+p(x)y'+q(x)y=0
+\]
+en un intervalo $I$, donde además las funciones $p$ y $q$ son continuas. Pruebe que el Wronskiano $W(y_1,y_2)(x)$ está dado por
+\[
+W(y_1,y_2)(x)=ce^{-\int p(x)\,dx},
+\]
+donde $c$ es una constante que depende de $y_1,y_2$ y no de $x$. \textit{(Teorema de Abel)}
+
+\vspace{8cm}
+
+\vfill
+\rule{\linewidth}{0.4pt}\\[1pt]
+{\scriptsize\textit{Transcripción digital --- MathUNAL}\hfill\textcolor{unalblue}{\textbf{1}}}
+
+\end{document}
