@@ -8580,7 +8580,9 @@ function _renderCards(){
   var results=_getResults();
   var html='';
 
-  Object.keys(EXAMS).forEach(function(key){
+  Object.keys(EXAMS).sort(function(a,b){
+    return (((EXAM_META[a]||{})._ord)||0) - (((EXAM_META[b]||{})._ord)||0);
+  }).forEach(function(key){
     var ex=EXAMS[key];
     var meta=EXAM_META[key]||{mat:'calcdif',color:'#E05D1A',badge:'Examen',tipo:'Parcial',nuevo:false};
     if(_selFilter!=='all' && meta.mat!==_selFilter) return;
@@ -9458,6 +9460,10 @@ function _showScreen(id){
     el.style.display='';              // limpia cualquier inline viejo
     el.classList.toggle('active', sid===id);   // .screen{display:none} / .screen.active{display:block}
   });
+  // la barra de tiempo solo tiene sentido durante la pregunta (antes se quedaba
+  // huerfana en resultados con su margin-top de 100px)
+  var _tb=document.getElementById('timer-bar');
+  if(_tb) _tb.style.display = (id==='screen-q') ? 'flex' : 'none';
 }
 (function(){
   try {
@@ -16443,14 +16449,23 @@ window.__SIMPRO_DEV = /[?&]simpro=1/.test(location.href);
     var mins=pick.reduce(function(a,q){return a+(q.tEsp?q.tEsp/60:(q.tipo==='abierta'?8:2));},0);
     EX[key]={
       titulo:tax.materia,
-      semestre:'SIMULACRO · CORTE '+corte+' · '+cinfo.nombre.toUpperCase(),
+      semestre:cinfo.nombre.toUpperCase()+' · CORTE '+corte+' ('+cinfo.pct+'%)',
       codigo:tax.codigo, tiempo:Math.max(20,Math.round(mins/5)*5),
       desc:cinfo.temas.slice(0,4).join(', ')+'.',
       preguntas:pick, _corte:corte, _slug:slug
     };
-    EM[key]={mat:slug,color:((EM[slug+'_p1']||{}).color)||'#E05D1A',badge:tax.materia,tipo:'Simulacro · Corte '+corte,nuevo:true};
+    EM[key]={mat:slug,color:((EM[slug+'_p1']||{}).color)||'#E05D1A',badge:tax.materia,tipo:'Simulacro · Corte '+corte,nuevo:true,_corteSim:true,_ord:-10+corte};
     return key;
   };
+
+  /* construir de una los simulacros por corte de cada materia con banco, para
+     que aparezcan como cards en el selector (pick fijo = "reintentar" es comparable) */
+  Object.keys(TAX).forEach(function(slug){
+    Object.keys(TAX[slug].cortes).forEach(function(c){
+      try{ window.__simBuildCorte(slug,c); }
+      catch(e){ try{ console.error('[simpro] buildCorte '+slug+' c'+c+':', e); }catch(_){} }
+    });
+  });
 
   /* 5a. hook de _renderExpl: Antibobo + cómo reconocerlo + frecuencia */
   window.__simExplHook=function(idx){
