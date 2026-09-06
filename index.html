@@ -36286,4 +36286,142 @@ window.__muMateriaInit = function(){
   }
 })();
 </script>
+
+<!-- ════════════════════════════════════════════════════════════════════════
+     PANEL DEV — SOLO PARA LUIS. Nunca visible para usuarios normales.
+     Gate: localhost, o ?dev=1 (fija localStorage['mu-dev']='1'), o ?dev=0 lo quita.
+     Sirve para previsualizar el sitio como distintos tipos de usuario
+     (nuevo / con historial / Pro) sin borrar cache a mano.
+     Para quitarlo del todo: borrar este bloque <script> entero.
+     ════════════════════════════════════════════════════════════════════════ -->
+<script>
+(function(){
+  var qs = location.search;
+  if(/[?&]dev=0\b/.test(qs)){ try{ localStorage.removeItem('mu-dev'); }catch(e){} }
+  if(/[?&]dev=1\b/.test(qs)){ try{ localStorage.setItem('mu-dev','1'); }catch(e){} }
+  var ON = false;
+  try{ ON = !!window.__SIM_LOCAL || localStorage.getItem('mu-dev')==='1'; }catch(e){ ON = !!window.__SIM_LOCAL; }
+  if(!ON) return;
+
+  var KEEP = {'mu-theme':1,'mu-lang':1,'mu-dev':1};
+  function lsKeys(){ var a=[]; try{ for(var i=0;i<localStorage.length;i++){ var k=localStorage.key(i); if(k&&k.indexOf('mu-')===0) a.push(k); } }catch(e){} return a; }
+  function wipeUser(){ lsKeys().forEach(function(k){ if(!KEEP[k]) try{ localStorage.removeItem(k); }catch(e){} }); }
+  function delMany(list){ list.forEach(function(k){ try{ localStorage.removeItem(k); }catch(e){} }); }
+  function today(){ return new Date().toISOString().slice(0,10); }
+
+  function seedHistorial(pro){
+    var now=Date.now(), D=864e5;
+    var res=[
+      {exam:'calcint_c1', slug:'calcint', corte:1, nota:2.0, ts:now-6*D,
+        temas:{'Sustitución':{ok:1,n:4},'Integral definida':{ok:3,n:4},'Área entre curvas':{ok:2,n:3}},
+        tiempoUsado:1500, tiempoPresupuesto:1500},
+      {exam:'calcint_c1', slug:'calcint', corte:1, nota:2.5, ts:now-4*D,
+        temas:{'Sustitución':{ok:1,n:3},'Integral definida':{ok:4,n:4},'Área entre curvas':{ok:2,n:3}},
+        tiempoUsado:1400, tiempoPresupuesto:1500},
+      {exam:'calcint_c2', slug:'calcint', corte:2, nota:1.5, ts:now-2*D,
+        temas:{'Integración por partes':{ok:1,n:4},'Fracciones parciales':{ok:1,n:3},'Sustitución trigonométrica':{ok:2,n:4}},
+        tiempoUsado:1600, tiempoPresupuesto:1500}
+    ];
+    try{ localStorage.setItem('mu-results', JSON.stringify(res)); }catch(e){}
+    try{ localStorage.setItem('mu-racha', JSON.stringify({streak:3,best:6,tot:14,lastDay:today(),hist:{}})); }catch(e){}
+    try{ localStorage.setItem('mu-sim-materia','calcint'); }catch(e){}
+    if(pro){ try{ localStorage.setItem('mu-sim-pro','1'); }catch(e){} }
+    else   { delMany(['mu-sim-pro']); }
+  }
+
+  function estado(){
+    var g=function(k,d){ try{ var v=localStorage.getItem(k); return v==null?d:v; }catch(e){ return d; } };
+    var res=[]; try{ res=JSON.parse(g('mu-results','[]'))||[]; }catch(e){}
+    var sims=res.filter(function(r){ return r.exam; }).length;
+    var pro = g('mu-sim-pro','')==='1' || !!lsKeys().filter(function(k){return k.indexOf('mu-sim-pro-srv-')===0;}).length;
+    var auth=null; try{ auth=JSON.parse(g('mu-auth','null')); }catch(e){}
+    var mail = (auth&&auth.user&&auth.user.email) || g('mu-email','');
+    var racha=null; try{ racha=JSON.parse(g('mu-racha','null')); }catch(e){}
+    var tags=[];
+    tags.push(sims?('<b>'+sims+'</b> simulacros'):'<b>0</b> simulacros · NUEVO');
+    if(pro) tags.push('<b style="color:var(--acc)">PRO</b>');
+    if(mail) tags.push('registrado: '+mail);
+    else tags.push('sin cuenta');
+    if(racha&&racha.streak) tags.push('racha '+racha.streak+' (max '+(racha.best||racha.streak)+')');
+    return tags.join(' · ');
+  }
+
+  var box, open=false;
+  function render(){
+    if(!box) return;
+    box.querySelector('#mud-state').innerHTML = estado();
+  }
+  function build(){
+    box=document.createElement('div');
+    box.id='mu-dev-panel';
+    box.style.cssText='position:fixed;left:10px;bottom:52px;z-index:2147483000;width:270px;'+
+      'font:12px/1.4 ui-monospace,SFMono-Regular,Menlo,monospace;background:#0d1526;color:#cdd7e6;'+
+      'border:1px solid #2b3a55;border-radius:10px;padding:10px;box-shadow:0 12px 40px rgba(0,0,0,.5);display:none';
+    box.innerHTML =
+      '<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px">'+
+        '<b style="color:#e8632a;letter-spacing:.05em">DEV · Luis</b>'+
+        '<button data-a="close" style="background:none;border:none;color:#7d8aa3;cursor:pointer;font-size:14px">✕</button></div>'+
+      '<div id="mud-state" style="font-size:11px;color:#93a1bd;background:#0a1120;border:1px solid #1e2b44;border-radius:6px;padding:6px;margin-bottom:8px"></div>'+
+      '<div style="color:#7d8aa3;font-size:10px;letter-spacing:.08em;margin-bottom:3px">PONERME COMO…</div>'+
+      '<div style="display:flex;gap:4px;margin-bottom:8px">'+
+        '<button data-a="nuevo"   style="flex:1">Nuevo</button>'+
+        '<button data-a="freeh"   style="flex:1">Free+hist</button>'+
+        '<button data-a="proh"    style="flex:1">Pro+hist</button></div>'+
+      '<div style="color:#7d8aa3;font-size:10px;letter-spacing:.08em;margin-bottom:3px">ACCIONES</div>'+
+      '<div style="display:grid;grid-template-columns:1fr 1fr;gap:4px;margin-bottom:8px">'+
+        '<button data-a="pro">Toggle Pro</button>'+
+        '<button data-a="sims">Borrar simulacros</button>'+
+        '<button data-a="racha">Borrar racha</button>'+
+        '<button data-a="logout">Cerrar sesión</button>'+
+        '<button data-a="wipe" style="grid-column:1/-1;color:#ff8a8a">Wipe total (mu-*)</button></div>'+
+      '<div style="display:flex;gap:4px">'+
+        '<button data-a="reload" style="flex:1">Recargar</button>'+
+        '<button data-a="exit"   style="flex:1;color:#7d8aa3">Salir de dev</button></div>';
+    Array.prototype.forEach.call(box.querySelectorAll('button'), function(b){
+      b.style.cssText += ';background:#1b2740;border:1px solid #2b3a55;color:#cdd7e6;border-radius:5px;padding:5px 4px;cursor:pointer;font:inherit;font-size:11px';
+      b.addEventListener('mouseenter',function(){ b.style.borderColor='#e8632a'; });
+      b.addEventListener('mouseleave',function(){ b.style.borderColor='#2b3a55'; });
+    });
+    box.addEventListener('click', function(e){
+      var a=e.target && e.target.getAttribute && e.target.getAttribute('data-a'); if(!a) return;
+      if(a==='close'||a==='exit'){ if(a==='exit'){ try{ localStorage.removeItem('mu-dev'); }catch(e2){} } toggle(false); if(a==='exit') location.reload(); return; }
+      if(a==='reload'){ location.reload(); return; }
+      if(a==='nuevo'){ if(confirm('¿Borrar TODO tu progreso local y quedar como usuario nuevo?')){ wipeUser(); location.reload(); } return; }
+      if(a==='freeh'){ wipeUser(); seedHistorial(false); location.reload(); return; }
+      if(a==='proh'){ wipeUser(); seedHistorial(true); location.reload(); return; }
+      if(a==='pro'){
+        var isPro = false; try{ isPro = localStorage.getItem('mu-sim-pro')==='1'; }catch(e2){}
+        try{ isPro ? localStorage.removeItem('mu-sim-pro') : localStorage.setItem('mu-sim-pro','1'); }catch(e2){}
+        location.reload(); return;
+      }
+      if(a==='sims'){ delMany(['mu-results','mu-sim-notas-reales','mu-sim-srs']); location.reload(); return; }
+      if(a==='racha'){ delMany(['mu-racha','mu-racha-mat']); location.reload(); return; }
+      if(a==='logout'){ try{ window.__muAuth && window.__muAuth.signOut(); }catch(e2){} delMany(['mu-email','mu-premium']); location.reload(); return; }
+      if(a==='wipe'){ if(confirm('¿Borrar TODAS las claves mu-* (menos tema/idioma)?')){ wipeUser(); location.reload(); } return; }
+    });
+    document.body.appendChild(box);
+
+    var tab=document.createElement('button');
+    tab.id='mu-dev-tab';
+    tab.textContent='⚙ dev';
+    tab.title='Panel dev (Ctrl+Shift+D)';
+    tab.style.cssText='position:fixed;left:10px;bottom:10px;z-index:2147483000;background:#0d1526;color:#e8632a;'+
+      'border:1px solid #2b3a55;border-radius:8px;padding:5px 9px;font:11px ui-monospace,monospace;cursor:pointer;opacity:.6';
+    tab.addEventListener('mouseenter',function(){ tab.style.opacity='1'; });
+    tab.addEventListener('mouseleave',function(){ tab.style.opacity='.6'; });
+    tab.addEventListener('click', function(){ toggle(); });
+    document.body.appendChild(tab);
+  }
+  function toggle(force){
+    open = (force===undefined) ? !open : !!force;
+    if(!box) return;
+    box.style.display = open ? 'block' : 'none';
+    if(open) render();
+  }
+  document.addEventListener('keydown', function(e){
+    if((e.ctrlKey||e.metaKey) && e.shiftKey && (e.key==='D'||e.key==='d')){ e.preventDefault(); toggle(); }
+  });
+  if(document.body) build(); else document.addEventListener('DOMContentLoaded', build);
+})();
+</script>
 </body>
