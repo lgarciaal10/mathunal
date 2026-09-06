@@ -16596,6 +16596,25 @@ html[data-theme="gray"] .hero-bg .lg-blob-center{background:radial-gradient(elli
 .sim-logro.on .sim-logro-e{color:var(--acc)}
 .sim-logro-n{font-size:.72rem;font-weight:700;color:var(--t1);line-height:1.2}
 
+/* ── Home Pro: encabezados de bloque ── */
+.sim-home-hd{font-family:'IBM Plex Mono',monospace;font-size:.72rem;font-weight:700;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--t3);margin:1.8rem 0 .5rem;padding-bottom:.4rem;border-bottom:1px solid var(--br2)}
+.sim-home-hd:first-of-type{margin-top:.4rem}
+.sim-home-hd-sub{font-size:.9rem;color:var(--t2);margin:0 0 1rem;max-width:560px;line-height:1.5}
+
+/* ── Logros como tira compacta (en #sim-logros-home) ── */
+#sim-logros-home .sim-logros{margin-top:0;margin-bottom:.6rem;padding:.7rem .9rem;background:transparent;border:1px dashed var(--br2)}
+#sim-logros-home .sim-logros-grid{display:flex;gap:.4rem;overflow-x:auto;padding-bottom:.3rem;grid-template-columns:none}
+#sim-logros-home .sim-logro{flex:0 0 auto;flex-direction:row;gap:.4rem;padding:.35rem .6rem;border-radius:99px}
+#sim-logros-home .sim-logro-n{font-size:.7rem;white-space:nowrap}
+#sim-logros-home .sim-logro:not(.on) .sim-logro-n{display:none}
+#sim-logros-home .sim-logro-e svg{width:16px;height:16px}
+
+/* ── Banner Pro compacto (bloque 3, al final del home) ── */
+.sim-pro-banner-slim{margin-top:1.6rem;opacity:.92}
+.sim-pro-banner-slim h3{font-size:1.02rem}
+.sim-pro-banner-slim p{font-size:.86rem}
+
 /* ── Repaso espaciado (card en el selector) ── */
 .sim-srs-card{grid-column:1/-1;background:linear-gradient(120deg,var(--adim),transparent 60%),var(--card);border:2px solid var(--bra);border-radius:var(--radius);padding:1.2rem 1.4rem;cursor:pointer;transition:all var(--transition);box-shadow:var(--shadow-card)}
 .sim-srs-card:hover{transform:translateY(-3px);box-shadow:var(--shadow-hover)}
@@ -20342,25 +20361,17 @@ customElements.define('glass-element', GlassElement);
       </div>
     </div>
 
-    <!-- Banner Pro -->
-    <div class="sim-pro-banner fi">
-      <div>
-        <span class="spb-tag">MathUNAL Pro</span>
-        <h3>El entrenador completo, no solo el banco</h3>
-        <p>Simulacros ilimitados por corte · solución paso a paso + el truco de cada pregunta · gráficas para comprobarlo · entrenar solo tus errores · dashboard "Mi preparación".</p>
-        <div class="sim-loop" aria-hidden="true" style="justify-content:flex-start;margin:.8rem 0 0">
-          <span>Simulacro</span><i>→</i><span>Diagnóstico</span><i>→</i><span>Solución</span><i>→</i><span>Entrenar</span><i>→</i><span class="sim-loop-end">Listo</span>
-        </div>
-        <div class="spb-price">$12.000 · un pago · acceso todo el semestre · sin suscripción</div>
-      </div>
-      <a href="#simulacro" class="btn-a" style="font-size:.92rem;white-space:nowrap"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5,3 19,12 5,21" fill="currentColor" stroke="none"/></svg> Probar un simulacro</a>
-    </div>
+    <!-- ── BLOQUE 1 · Tu entrenamiento (solo si hay historial) ─────────────── -->
+    <h3 class="sim-home-hd" id="sim-hd-train" hidden>Tu entrenamiento</h3>
+    <div id="mu-progreso" class="fi" style="margin-bottom:1rem"></div>
+    <div id="sim-logros-home" class="fi"></div>
 
-    <!-- Mi Progreso rápido -->
-    <div id="mu-progreso" class="fi" style="margin-bottom:1.4rem"></div>
+    <!-- ── BLOQUE 2 · Elige materia ────────────────────────────────────────── -->
+    <h3 class="sim-home-hd" id="sim-hd-pick">Elige materia</h3>
+    <p class="sim-home-hd-sub" id="sim-hd-pick-sub">Simulacro con cronómetro y formato SIDEX. Al final sabes tu nota, en qué fallas y qué estudiar.</p>
 
     <!-- Preview de simulacros por materia -->
-    <div class="sim-preview-grid fi" id="sim-preview-grid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:.75rem;margin-bottom:1.5rem"></div>
+    <div class="sim-preview-grid fi" id="sim-preview-grid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:.75rem;margin-bottom:1.2rem"></div>
 
     <!-- CTA principal -->
     <div class="fi" style="display:flex;align-items:center;gap:.7rem;flex-wrap:wrap;margin-bottom:1.8rem">
@@ -20379,6 +20390,17 @@ customElements.define('glass-element', GlassElement);
         </div>
       </div>
       <button class="btn-panic" onclick="document.getElementById('panicModal').classList.add('open')"><svg width="14" height="14" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22,2 15,22 11,13 2,9"/></svg> Plan de emergencia</button>
+    </div>
+
+    <!-- ── BLOQUE 3 · MathUNAL Pro (precio, al final) ──────────────────────── -->
+    <div class="sim-pro-banner sim-pro-banner-slim fi">
+      <div>
+        <span class="spb-tag">MathUNAL Pro</span>
+        <h3 id="spb-h">El entrenador completo, no solo el banco</h3>
+        <p id="spb-p">Simulacros ilimitados por corte · solución paso a paso + el truco de cada pregunta · gráficas para comprobarlo · entrenar solo tus errores · dashboard "Mi preparación".</p>
+        <div class="spb-price" id="spb-price">$12.000 · un pago · acceso todo el semestre · sin suscripción</div>
+      </div>
+      <a href="#simulacro" class="btn-a" id="spb-cta" style="font-size:.92rem;white-space:nowrap"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5,3 19,12 5,21" fill="currentColor" stroke="none"/></svg> Probar un simulacro</a>
     </div>
   </div>
 </section>
@@ -21406,14 +21428,12 @@ function renderSimPreview(){
   g.innerHTML=order.map(function(slug){
     var m=mats[slug], col=m.color, sym=SYM[slug]||'∑';
     var nm = en ? (NAME_EN[slug]||slug) : (NAMES[slug]||slug);
-    var meta = _isProMat(slug)
-      ? (en?'Full mode · by corte':'Modo completo · por corte')
-      : (m.n+(en?' practice exams':' parciales de práctica'));
+    var meta = _isProMat(slug) ? '' : (m.n+(en?' practice exams':' parciales de práctica'));
     return '<a href="#simulacro" class="sim-prev-card'+(_isProMat(slug)?' sim-prev-pro':'')+'" data-col="'+col+'">'
       +'<div class="sim-prev-ico" style="background:'+col+'22;color:'+col+'">'+sym+'</div>'
       +'<div class="sim-prev-info">'
         +'<div class="sim-prev-name">'+nm+(_isProMat(slug)?' <span class="smp-pro">PRO</span>':'')+'</div>'
-        +'<div class="sim-prev-meta">'+meta+'</div>'
+        +(meta?'<div class="sim-prev-meta">'+meta+'</div>':'')
       +'</div>'
       +'<span class="sim-prev-arr" style="color:'+col+'">→</span>'
     +'</a>';
@@ -21860,6 +21880,11 @@ if(!window.muRenderProgreso.__simWrapped){
     if(_mrpBase) try{ _mrpBase.apply(this, arguments); }catch(e){}
     try{ window.__simRenderPrep && window.__simRenderPrep(); }catch(e){}
     try{ window.__simRenderLogros && window.__simRenderLogros(); }catch(e){}
+    /* "Tu entrenamiento": solo si mu-progreso quedó con contenido */
+    try{
+      var _hd=document.getElementById('sim-hd-train'), _mp=document.getElementById('mu-progreso');
+      if(_hd) _hd.hidden = !(_mp && _mp.children.length);
+    }catch(e){}
   };
   window.muRenderProgreso.__simWrapped=true;
 }
@@ -31916,8 +31941,9 @@ window.__SIMPRO_DEV = /[?&]simpro=1/.test(location.href) || !!window.__SIM_LOCAL
 
   /* ── 6b. Logros (badges) — 100% local, sale de mu-results + __muRacha + notas reales ── */
   window.__simRenderLogros=function(){
-    var host=document.getElementById('mu-progreso'); if(!host) return;
-    if(host.querySelector('.sim-logros')) return;
+    var host=document.getElementById('sim-logros-home')||document.getElementById('mu-progreso'); if(!host) return;
+    var _ex=host.querySelector('.sim-logros');
+    if(_ex){ if(host.id==='mu-progreso') return; _ex.remove(); } /* en su propio div: re-pinta (idioma) */
     var rs; try{ rs=JSON.parse(localStorage.getItem('mu-results'))||[]; }catch(e){ rs=[]; }
     var sims=rs.filter(function(r){ return r.exam; });
     if(!sims.length) return; /* solo aparece cuando ya hiciste al menos un simulacro */
@@ -32131,16 +32157,19 @@ window.__SIMPRO_DEV = /[?&]simpro=1/.test(location.href) || !!window.__SIM_LOCAL
      para el usuario Pro y se fusionan sobre los MISMOS objetos-pregunta que ya
      usan EXAMS / SIM_POOL / los simulacros por corte (identidad preservada). */
   window.__simSolBySrc = window.__simSolBySrc || {};
+  window.__simSolEnBySrc = window.__simSolEnBySrc || {};
   window.__simSolReady = false;
   var _SOL_FIELDS = ['pasos','solucion','rubrica','antibobo','reconocer',
                      'concepto','quePregunta','resultado','errorComun'];
   function __simMergeSol(){
-    var map = window.__simSolBySrc, n=0;
+    var map = window.__simSolBySrc, mapEn = window.__simSolEnBySrc, n=0;
+    var useEn = (window.curLang==='en');
     function apply(q){
       if(!q || !q._src) return;
       var b = map[q._src]; if(!b) return;
+      var be = useEn ? mapEn[q._src] : null;
       _SOL_FIELDS.forEach(function(k){
-        var v = b[k];
+        var v = (be && be[k]!=null) ? be[k] : b[k];
         if(v==null) return;
         if(Array.isArray(v) && !v.length) return;
         q[k] = v;
@@ -32157,7 +32186,11 @@ window.__SIMPRO_DEV = /[?&]simpro=1/.test(location.href) || !!window.__SIM_LOCAL
   }
   window.__simMergeSol = __simMergeSol;
   function __simApplySrcMap(rows){
-    (rows||[]).forEach(function(row){ if(row && row.src) window.__simSolBySrc[row.src] = row.body||{}; });
+    (rows||[]).forEach(function(row){
+      if(!row || !row.src) return;
+      window.__simSolBySrc[row.src] = row.body||{};
+      if(row.body_en) window.__simSolEnBySrc[row.src] = row.body_en;
+    });
     window.__simSolReady = true;
     __simMergeSol();
     try{
@@ -32181,7 +32214,7 @@ window.__SIMPRO_DEV = /[?&]simpro=1/.test(location.href) || !!window.__SIM_LOCAL
     if(!au || !s || !s.access_token) return Promise.resolve(false);
     /* sin filtro de course: la RLS (sim_has_pro por course_id) devuelve solo las
        materias que el usuario compró. */
-    return au.api('/rest/v1/sim_solutions?select=src,body', {method:'GET'})
+    return au.api('/rest/v1/sim_solutions?select=src,body,body_en', {method:'GET'})
       .then(function(r){ return r.ok ? r.json() : []; })
       .then(function(rows){
         if(!Array.isArray(rows) || !rows.length) return false;
@@ -33281,6 +33314,23 @@ function setLang(lang){
     /* la sección se renombra a #simulacros cuando SIMULACROS_HABILITADOS=false;
        la tarjeta premium siempre lleva .sim-prem-card */
     document.querySelectorAll('.sim-prem-card .sim-loop span').forEach(function(s,i){ if((en?loopEn:loopEs)[i]) s.textContent=(en?loopEn:loopEs)[i]; }); })();
+  /* Home Pro: bloques reorganizados */
+  (function(){
+    var m={
+      'sim-hd-train':[ 'Tu entrenamiento','Your training' ],
+      'sim-hd-pick':[ 'Elige materia','Pick a subject' ],
+      'sim-hd-pick-sub':[ 'Simulacro con cronómetro y formato SIDEX. Al final sabes tu nota, en qué fallas y qué estudiar.','Timed mock in SIDEX format. At the end you know your grade, what you get wrong and what to study.' ],
+      'spb-h':[ 'El entrenador completo, no solo el banco','The full trainer, not just the bank' ],
+      'spb-p':[ 'Simulacros ilimitados por corte · solución paso a paso + el truco de cada pregunta · gráficas para comprobarlo · entrenar solo tus errores · dashboard "Mi preparación".','Unlimited mocks per corte · step-by-step solutions + the trick to each question · graphs to check it · drill only your mistakes · "My preparation" dashboard.' ],
+      'spb-price':[ '$12.000 · un pago · acceso todo el semestre · sin suscripción','$12,000 COP · one payment · all-semester access · no subscription' ],
+      'spb-cta':[ 'Probar un simulacro','Try a mock' ]
+    };
+    Object.keys(m).forEach(function(id){ var el=document.getElementById(id); if(!el) return;
+      var t=m[id][en?1:0];
+      if(id==='spb-cta'){ el.lastChild && el.lastChild.nodeType===3 ? el.lastChild.textContent=' '+t : el.appendChild(document.createTextNode(' '+t)); }
+      else el.textContent=t;
+    });
+  })();
   setText('.ap-breb-lbl','ap-breb-lbl'); setText('.ap-acc-note','ap-acc-note');
   setText('.hf-s .cp-tag','hf-tag');
   setHTML('.hf-s .hf-title','hf-title');
@@ -33661,6 +33711,18 @@ function setLang(lang){
     _ll.textContent = en ? (_n===1?'person browsing right now':'people browsing right now')
                          : (_n===1?'persona navegando ahora':'personas navegando ahora'); }
   if(typeof muPresenciaContar==='function'){ try{ muPresenciaContar(); }catch(e){} }
+
+  /* Soluciones Pro: body vs body_en. Re-fusiona sobre los objetos-pregunta con
+     el idioma nuevo y re-pinta la explicación abierta si la hay. */
+  try{
+    if(window.__simSolReady && window.__simMergeSol){
+      window.__simMergeSol();
+      var _ec=document.getElementById('expl-card');
+      if(_ec && _ec.classList.contains('show') && window._renderExpl && window._currentQ!=null){
+        window._renderExpl(window._currentQ);
+      }
+    }
+  }catch(e){}
 
   /* Guardar preferencia */
   try{ localStorage.setItem('mu-lang', lang); }catch(e){}
