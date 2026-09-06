@@ -16610,6 +16610,20 @@ html[data-theme="gray"] .hero-bg .lg-blob-center{background:radial-gradient(elli
 #sim-logros-home .sim-logro:not(.on) .sim-logro-n{display:none}
 #sim-logros-home .sim-logro-e svg{width:16px;height:16px}
 
+/* ── Picker "mis materias del semestre" (grid de simulacros) ── */
+.sim-mat-pick{background:var(--adim);border:1px solid var(--bra);border-radius:12px;padding:.9rem 1rem;margin-bottom:.4rem}
+.sim-mat-pick-q{font-size:.92rem;font-weight:700;color:var(--t1);margin-bottom:.6rem}
+.sim-mat-pick-chips{display:flex;flex-wrap:wrap;gap:.4rem;margin-bottom:.7rem}
+.sim-mat-chip{font:inherit;font-size:.8rem;font-weight:600;padding:.34rem .7rem;border-radius:999px;border:1.3px solid var(--br);background:var(--lay1);color:var(--t2);cursor:pointer;transition:all .15s}
+.sim-mat-chip:hover{border-color:var(--bra);color:var(--t1)}
+.sim-mat-chip.on{background:var(--acc);border-color:var(--acc);color:#fff}
+.sim-mat-pick-act{display:flex;align-items:center;gap:.8rem;flex-wrap:wrap}
+.sim-mat-pick-skip{background:none;border:none;color:var(--t3);font:inherit;font-size:.82rem;cursor:pointer;text-decoration:underline}
+.sim-mat-mine-bar{font-family:'IBM Plex Mono',monospace;font-size:.7rem;letter-spacing:.06em;text-transform:uppercase;color:var(--t3);margin-bottom:-.2rem}
+.sim-mat-edit{background:none;border:none;color:var(--acc);font:inherit;font-size:.7rem;cursor:pointer;text-decoration:underline;text-transform:uppercase;letter-spacing:.06em}
+#sim-mat-more{font:inherit;font-size:.85rem;font-weight:600;color:var(--t2);background:var(--card);border:1px dashed var(--br2);border-radius:10px;padding:.6rem;cursor:pointer;transition:all .15s}
+#sim-mat-more:hover{border-color:var(--bra);color:var(--t1)}
+
 /* ── Banner Pro compacto (bloque 3, al final del home) ── */
 .sim-pro-banner-slim{margin-top:1.6rem;opacity:.92}
 .sim-pro-banner-slim h3{font-size:1.02rem}
@@ -21425,11 +21439,18 @@ function renderSimPreview(){
   });
   var _isProMat=function(s){ return !!(window.SIM_TAX && window.SIM_TAX[s]); };
   order.sort(function(a,b){ return (_isProMat(b)?1:0)-(_isProMat(a)?1:0) || (a==='calcdif'?-1:b==='calcdif'?1:0); });
-  g.innerHTML=order.map(function(slug){
+
+  /* ── "Mis materias del semestre": el usuario elige y el grid le muestra solo
+     esas (el resto queda plegado). Reusa localStorage['mu-sem-mats']. ── */
+  var _lsg=function(k,d){ try{ var v=localStorage.getItem(k); return v==null?d:v; }catch(e){ return d; } };
+  var sel=[]; try{ sel=(JSON.parse(_lsg('mu-sem-mats','[]'))||[]).filter(function(s){ return order.indexOf(s)>=0; }); }catch(e){}
+  var picked = _lsg('mu-sem-set','')==='1';
+
+  function card(slug, hidden){
     var m=mats[slug], col=m.color, sym=SYM[slug]||'∑';
     var nm = en ? (NAME_EN[slug]||slug) : (NAMES[slug]||slug);
     var meta = _isProMat(slug) ? '' : (m.n+(en?' practice exams':' parciales de práctica'));
-    return '<a href="#simulacro" class="sim-prev-card'+(_isProMat(slug)?' sim-prev-pro':'')+'" data-col="'+col+'">'
+    return '<a href="#simulacro" class="sim-prev-card'+(_isProMat(slug)?' sim-prev-pro':'')+(hidden?' sim-prev-hid':'')+'"'+(hidden?' hidden':'')+' data-col="'+col+'">'
       +'<div class="sim-prev-ico" style="background:'+col+'22;color:'+col+'">'+sym+'</div>'
       +'<div class="sim-prev-info">'
         +'<div class="sim-prev-name">'+nm+(_isProMat(slug)?' <span class="smp-pro">PRO</span>':'')+'</div>'
@@ -21437,11 +21458,64 @@ function renderSimPreview(){
       +'</div>'
       +'<span class="sim-prev-arr" style="color:'+col+'">→</span>'
     +'</a>';
-  }).join('');
+  }
+
+  var html='';
+  if(!picked){
+    html += '<div class="sim-mat-pick" style="grid-column:1/-1">'
+      + '<div class="sim-mat-pick-q">'+(en?'Which subjects are you taking this semester?':'¿Qué materias estás viendo este semestre?')+'</div>'
+      + '<div class="sim-mat-pick-chips">'
+      + order.map(function(s){ return '<button type="button" class="sim-mat-chip'+(sel.indexOf(s)>=0?' on':'')+'" data-s="'+s+'">'+(en?(NAME_EN[s]||s):(NAMES[s]||s))+'</button>'; }).join('')
+      + '</div>'
+      + '<div class="sim-mat-pick-act">'
+        + '<button type="button" class="btn-a" data-act="save" style="font-size:.88rem">'+(en?'Show me these →':'Mostrarme solo esas →')+'</button>'
+        + '<button type="button" class="sim-mat-pick-skip" data-act="all">'+(en?'Show all':'Ver todas')+'</button>'
+      + '</div></div>';
+    html += order.map(function(s){ return card(s,false); }).join('');
+  } else if(sel.length){
+    var mine=order.filter(function(s){ return sel.indexOf(s)>=0; });
+    var rest=order.filter(function(s){ return sel.indexOf(s)<0; });
+    html += '<div class="sim-mat-mine-bar" style="grid-column:1/-1">'+(en?'Your subjects':'Tus materias')
+      + ' · <button type="button" class="sim-mat-edit" data-act="edit">'+(en?'edit':'editar')+'</button></div>';
+    html += mine.map(function(s){ return card(s,false); }).join('');
+    if(rest.length){
+      html += '<button type="button" id="sim-mat-more" style="grid-column:1/-1">'
+        + (en?('Show the other '+rest.length+' subjects'):('Ver las otras '+rest.length+' materias'))+' ▾</button>';
+      html += rest.map(function(s){ return card(s,true); }).join('');
+    }
+  } else {
+    html += order.map(function(s){ return card(s,false); }).join('');
+  }
+  g.innerHTML = html;
+
   g.querySelectorAll('.sim-prev-card').forEach(function(c){
     var col=c.getAttribute('data-col');
     c.addEventListener('mouseenter',function(){c.style.borderColor=col;c.style.transform='translateY(-2px)';});
     c.addEventListener('mouseleave',function(){c.style.borderColor='';c.style.transform='';});
+  });
+  g.querySelectorAll('.sim-mat-chip').forEach(function(b){
+    b.addEventListener('click',function(e){ e.preventDefault(); b.classList.toggle('on'); });
+  });
+  g.querySelectorAll('[data-act]').forEach(function(b){
+    b.addEventListener('click',function(e){
+      e.preventDefault();
+      var act=b.getAttribute('data-act');
+      if(act==='save'){
+        var chosen=[]; g.querySelectorAll('.sim-mat-chip.on').forEach(function(x){ chosen.push(x.getAttribute('data-s')); });
+        try{ localStorage.setItem('mu-sem-mats', JSON.stringify(chosen)); localStorage.setItem('mu-sem-set','1'); }catch(e2){}
+      } else if(act==='all'){
+        try{ localStorage.setItem('mu-sem-mats','[]'); localStorage.setItem('mu-sem-set','1'); }catch(e2){}
+      } else if(act==='edit'){
+        try{ localStorage.removeItem('mu-sem-set'); }catch(e2){}
+      }
+      renderSimPreview();
+      try{ if(typeof renderMaterias==='function') renderMaterias(); }catch(e2){}
+    });
+  });
+  var more=document.getElementById('sim-mat-more');
+  if(more) more.addEventListener('click',function(){
+    g.querySelectorAll('.sim-prev-hid').forEach(function(c){ c.hidden=false; });
+    more.remove();
   });
 }
 
