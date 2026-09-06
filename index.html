@@ -16343,7 +16343,7 @@ html[data-theme="gray"]{
 
 /* ── WEEK PILL ── */
 .week-pill{
-  position:fixed;bottom:1.5rem;left:1.5rem;z-index:150;
+  position:fixed;bottom:2.7rem;left:1rem;z-index:150;
   display:flex;align-items:center;gap:.5rem;
   background:var(--card);border:2px solid var(--br);border-radius:999px;
   padding:.52rem 1rem;font-size:1rem;font-weight:600;color:var(--t1);
@@ -19868,7 +19868,7 @@ customElements.define('glass-element', GlassElement);
 </head>
 
 <body>
-<div id="mu-version-badge" style="position:fixed;bottom:7px;left:50%;transform:translateX(-50%);z-index:99;font-family:IBM Plex Mono,monospace;font-size:.78rem;font-weight:600;color:var(--t2);pointer-events:none;letter-spacing:.06em;opacity:.75">MathUNAL v2 · © 2026</div>
+<div id="mu-version-badge" style="position:fixed;bottom:9px;left:1rem;z-index:99;font-family:IBM Plex Mono,monospace;font-size:.78rem;font-weight:600;color:var(--t2);pointer-events:none;letter-spacing:.06em;opacity:.7">MathUNAL v2 · © 2026</div>
 
 <div class="nav-aurora"></div>
 <a href="#mu-app" class="skip-link">Saltar al contenido</a>
@@ -36372,7 +36372,7 @@ window.__muMateriaInit = function(){
   function build(){
     box=document.createElement('div');
     box.id='mu-dev-panel';
-    box.style.cssText='position:fixed;left:1.5rem;bottom:8rem;z-index:2147483000;width:296px;max-height:74vh;overflow:auto;'+
+    box.style.cssText='position:fixed;right:1rem;bottom:11rem;z-index:2147483000;width:296px;max-height:74vh;overflow:auto;'+
       'font:12px/1.4 ui-monospace,SFMono-Regular,Menlo,monospace;background:#0d1526;color:#cdd7e6;'+
       'border:1px solid #2b3a55;border-radius:10px;padding:10px;box-shadow:0 12px 40px rgba(0,0,0,.55);display:none';
     box.innerHTML =
@@ -36477,7 +36477,7 @@ window.__muMateriaInit = function(){
     tab.id='mu-dev-tab';
     tab.textContent='⚙ dev';
     tab.title='Panel dev (Ctrl+Shift+D)';
-    tab.style.cssText='position:fixed;left:1.5rem;bottom:5rem;z-index:2147483000;background:#0d1526;color:#e8632a;'+
+    tab.style.cssText='position:fixed;right:1rem;bottom:8rem;z-index:2147483000;background:#0d1526;color:#e8632a;'+
       'border:1px solid #2b3a55;border-radius:8px;padding:5px 10px;font:11px ui-monospace,monospace;cursor:pointer;opacity:.55';
     tab.addEventListener('mouseenter',function(){ tab.style.opacity='1'; });
     tab.addEventListener('mouseleave',function(){ tab.style.opacity='.55'; });
