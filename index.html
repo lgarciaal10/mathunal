@@ -16583,6 +16583,17 @@ html[data-theme="gray"] .hero-bg .lg-blob-center{background:radial-gradient(elli
 .sim-realq-b{background:var(--lay1);border:1px solid var(--br);color:var(--t2);border-radius:6px;padding:.15rem .5rem;font-size:.76rem;font-family:'IBM Plex Mono',monospace;cursor:pointer}
 .sim-realq-b:hover{border-color:var(--acc);color:var(--acc)}
 
+/* ── Logros (badges locales) ── */
+.sim-logros{margin-top:.9rem;background:var(--card);border:1px solid var(--br2);border-radius:12px;padding:.9rem 1.1rem}
+.sim-logros-hd{font-family:'IBM Plex Mono',monospace;font-size:.7rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--t3);margin-bottom:.7rem;display:flex;align-items:center;gap:.5rem}
+.sim-logros-hd span{color:var(--acc);background:var(--adim);border:1px solid var(--bra);border-radius:99px;padding:.05rem .5rem;font-size:.68rem}
+.sim-logros-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:.5rem}
+.sim-logro{display:flex;flex-direction:column;align-items:center;text-align:center;gap:.25rem;padding:.7rem .4rem;
+  border:1px solid var(--br);border-radius:10px;background:var(--lay1);opacity:.4;filter:grayscale(1);transition:opacity .2s}
+.sim-logro.on{opacity:1;filter:none;border-color:var(--bra);background:linear-gradient(180deg,var(--adim),transparent 70%)}
+.sim-logro-e{font-size:1.35rem;line-height:1}
+.sim-logro-n{font-size:.72rem;font-weight:700;color:var(--t1);line-height:1.2}
+
 /* ── Repaso espaciado (card en el selector) ── */
 .sim-srs-card{grid-column:1/-1;background:linear-gradient(120deg,var(--adim),transparent 60%),var(--card);border:2px solid var(--bra);border-radius:var(--radius);padding:1.2rem 1.4rem;cursor:pointer;transition:all var(--transition);box-shadow:var(--shadow-card)}
 .sim-srs-card:hover{transform:translateY(-3px);box-shadow:var(--shadow-hover)}
@@ -21849,6 +21860,19 @@ muAplicarPremium();
   try{ email = localStorage.getItem('mu-email'); }catch(e){ email = null; }
   if (muEsPremium() && email) window.muVerificarEmail(email);
 })();
+/* El <script> de tpl-home re-define window.muRenderProgreso en cada render de
+   home, pisando el wrapper del IIFE de simpro. Lo re-envolvemos aquí para que
+   TODA llamada (venga de donde venga) re-pinte "Mi preparación" + los logros.
+   __simRenderPrep/__simRenderLogros son idempotentes (no duplican). */
+if(!window.muRenderProgreso.__simWrapped){
+  var _mrpBase=window.muRenderProgreso;
+  window.muRenderProgreso=function(){
+    if(_mrpBase) try{ _mrpBase.apply(this, arguments); }catch(e){}
+    try{ window.__simRenderPrep && window.__simRenderPrep(); }catch(e){}
+    try{ window.__simRenderLogros && window.__simRenderLogros(); }catch(e){}
+  };
+  window.muRenderProgreso.__simWrapped=true;
+}
 window.muRenderProgreso();
 renderMaterias();
 renderSimPreview();
@@ -22827,6 +22851,7 @@ if(!window.__muSdClickBound){window.__muSdClickBound=true;document.addEventListe
         <div class="sim-pmode-q" id="sim-pmode-q">¿Qué quieres practicar?</div>
         <div class="sim-pmode-opts">
           <button type="button" class="sim-pmode-b on" data-m="completo">Simulacro completo</button>
+          <button type="button" class="sim-pmode-b" data-m="micro">Repaso rápido</button>
           <button type="button" class="sim-pmode-b" data-m="tema">Un tema</button>
           <button type="button" class="sim-pmode-b" data-m="aleatorio">Aleatorio</button>
         </div>
@@ -23457,7 +23482,7 @@ function _simPmodeInit(){
   window._simPmode = { mode:'completo', tema:null };
   var en=(window.curLang==='en');
   _el('sim-pmode-q').textContent = en?'What do you want to practice?':'¿Qué quieres practicar?';
-  var lbls = en?{completo:'Full mock',tema:'One topic',aleatorio:'Random'}:{completo:'Simulacro completo',tema:'Un tema',aleatorio:'Aleatorio'};
+  var lbls = en?{completo:'Full mock',micro:'Quick review',tema:'One topic',aleatorio:'Random'}:{completo:'Simulacro completo',micro:'Repaso rápido',tema:'Un tema',aleatorio:'Aleatorio'};
   var temas = ((window.SIM_TAX[slug].cortes[corte]||{}).temas)||[];
   var cPool=(window.SIM_POOL[slug]||[]).filter(function(q){return q.corte===corte;});
   function tCount(t){ return cPool.filter(function(q){return (q.tema||q.t)===t;}).length; }
@@ -31469,6 +31494,14 @@ window.__SIMPRO_DEV = /[?&]simpro=1/.test(location.href) || !!window.__SIM_LOCAL
       pick=shuffle(pool).slice(0, Math.min(10, pool.length));
       key=slug+'_c'+corte+'_rnd';
       tipo=(_en()?'Random · Corte ':'Aleatorio · Corte ')+corte;
+    } else if(mode==='micro'){
+      /* repaso rápido: 4 preguntas, diversidad de tema (máx 2 por tema) */
+      var mseen={}, mpool=shuffle(pool), mpick=[];
+      mpool.forEach(function(q){ var t=q.tema||q.t||'_'; if(mpick.length<4 && (mseen[t]||0)<2){ mpick.push(q); mseen[t]=(mseen[t]||0)+1; } });
+      var mk=0; while(mpick.length<4 && mk<mpool.length){ if(mpick.indexOf(mpool[mk])<0) mpick.push(mpool[mk]); mk++; }
+      pick=mpick.slice(0, Math.min(4, pool.length));
+      key=slug+'_c'+corte+'_micro';
+      tipo=(_en()?'Quick review · Corte ':'Repaso rápido · Corte ')+corte;
     } else {
       return window.__simBuildCorte(slug,corte);
     }
@@ -31839,6 +31872,7 @@ window.__SIMPRO_DEV = /[?&]simpro=1/.test(location.href) || !!window.__SIM_LOCAL
   }
   window.__simRenderPrep=function(){
     var host=document.getElementById('mu-progreso'); if(!host) return;
+    if(host.querySelector('.sim-prep')) return; /* idempotente: se llama desde el wrapper Y desde tpl-home */
     var data=_prepData(); if(!data||!data.length) return;
     var _isPro = !(window.__simPro) || window.__simPro.anyPro();
     if(!_isPro){
@@ -31888,6 +31922,41 @@ window.__SIMPRO_DEV = /[?&]simpro=1/.test(location.href) || !!window.__SIM_LOCAL
         });
       });
     });
+  };
+
+  /* ── 6b. Logros (badges) — 100% local, sale de mu-results + __muRacha + notas reales ── */
+  window.__simRenderLogros=function(){
+    var host=document.getElementById('mu-progreso'); if(!host) return;
+    if(host.querySelector('.sim-logros')) return;
+    var rs; try{ rs=JSON.parse(localStorage.getItem('mu-results'))||[]; }catch(e){ rs=[]; }
+    var sims=rs.filter(function(r){ return r.exam; });
+    if(!sims.length) return; /* solo aparece cuando ya hiciste al menos un simulacro */
+    var notaMax=sims.reduce(function(m,r){ return Math.max(m,(r.nota||0)); },0);
+    var mats={}; sims.forEach(function(r){ mats[r.slug||'calcdif']=1; });
+    var cxm={}; sims.forEach(function(r){ var s=r.slug||'calcdif'; (cxm[s]=cxm[s]||{})[r.corte]=1; });
+    var vuelta=Object.keys(cxm).some(function(s){ return Object.keys(cxm[s]).length>=3; });
+    var racha=(window.__muRacha&&window.__muRacha.get&&window.__muRacha.get())||{best:0};
+    var nreal=0; try{ nreal=(JSON.parse(localStorage.getItem('mu-sim-notas-reales'))||[]).length; }catch(e){}
+    var limpio=sims.some(function(r){ return (r.nota||0)>=4 && !/_(micro|rnd|tema)$/.test(r.exam||''); });
+    var L=[
+      {e:'🎯',done:sims.length>=1,  n:_t('Primer simulacro','First mock'),    d:_t('Rompiste el hielo.','You broke the ice.')},
+      {e:'🔁',done:sims.length>=5,  n:_t('Rodado','Warmed up'),               d:_t('5 simulacros hechos.','5 mocks done.')},
+      {e:'🏃',done:sims.length>=15, n:_t('Maratón','Marathon'),               d:_t('15 simulacros. En serio.','15 mocks. Serious.')},
+      {e:'🟢',done:notaMax>=4,      n:_t('Nota verde','Green grade'),         d:_t('Sacaste 4.0 o más.','Scored 4.0+.')},
+      {e:'💯',done:notaMax>=5,      n:_t('Perfecto','Perfect'),               d:_t('Un 5.0 completo.','A full 5.0.')},
+      {e:'🔥',done:(racha.best||0)>=7, n:_t('Constancia','Consistency'),      d:_t('Racha de 7 días.','7-day streak.')},
+      {e:'🧭',done:vuelta,          n:_t('Vuelta completa','Full loop'),      d:_t('Los 3 cortes de una materia.','All 3 cortes of one subject.')},
+      {e:'📚',done:Object.keys(mats).length>=3, n:_t('Multimateria','Multi-subject'), d:_t('Simulacros en 3 materias.','Mocks in 3 subjects.')},
+      {e:'🎓',done:limpio,          n:_t('Sin bobadas','No fumbles'),         d:_t('Simulacro completo con 4.0+.','Full mock with 4.0+.')},
+      {e:'🤝',done:nreal>=1,        n:_t('Honesto','Honest'),                 d:_t('Reportaste tu nota real.','Reported your real grade.')}
+    ];
+    var got=L.filter(function(x){return x.done;}).length;
+    var h='<div class="sim-logros"><div class="sim-logros-hd">'+_t('Logros','Achievements')+' <span>'+got+' / '+L.length+'</span></div><div class="sim-logros-grid">';
+    L.forEach(function(x){
+      h+='<div class="sim-logro'+(x.done?' on':'')+'" title="'+String(x.d).replace(/"/g,'')+'">'+
+         '<span class="sim-logro-e">'+x.e+'</span><span class="sim-logro-n">'+x.n+'</span></div>';
+    });
+    host.insertAdjacentHTML('beforeend', h+'</div></div>');
   };
   /* notas reales post-parcial → calibración de la predicción */
   window.__simRealNota=function(slug,corte,nota,score){
@@ -32312,6 +32381,7 @@ window.__SIMPRO_DEV = /[?&]simpro=1/.test(location.href) || !!window.__SIM_LOCAL
   window.muRenderProgreso=function(){
     if(_origMRP) try{ _origMRP.apply(this, arguments); }catch(e){}
     try{ window.__simRenderPrep(); }catch(e){}
+    try{ window.__simRenderLogros(); }catch(e){}
   };
 })();
 
