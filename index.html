@@ -19868,7 +19868,7 @@ customElements.define('glass-element', GlassElement);
 </head>
 
 <body>
-<div id="mu-version-badge" style="position:fixed;bottom:6px;left:8px;z-index:99;font-family:IBM Plex Mono,monospace;font-size:.6rem;color:var(--t3);pointer-events:none;letter-spacing:.05em">MathUNAL v2 · © 2026</div>
+<div id="mu-version-badge" style="position:fixed;bottom:7px;left:50%;transform:translateX(-50%);z-index:99;font-family:IBM Plex Mono,monospace;font-size:.78rem;font-weight:600;color:var(--t2);pointer-events:none;letter-spacing:.06em;opacity:.75">MathUNAL v2 · © 2026</div>
 
 <div class="nav-aurora"></div>
 <a href="#mu-app" class="skip-link">Saltar al contenido</a>
@@ -36304,10 +36304,14 @@ window.__muMateriaInit = function(){
   if(!ON) return;
 
   var KEEP = {'mu-theme':1,'mu-lang':1,'mu-dev':1};
-  function lsKeys(){ var a=[]; try{ for(var i=0;i<localStorage.length;i++){ var k=localStorage.key(i); if(k&&k.indexOf('mu-')===0) a.push(k); } }catch(e){} return a; }
+  function lsKeys(){ var a=[]; try{ for(var i=0;i<localStorage.length;i++){ var k=localStorage.key(i); if(k&&k.indexOf('mu-')===0) a.push(k); } }catch(e){} return a.sort(); }
   function wipeUser(){ lsKeys().forEach(function(k){ if(!KEEP[k]) try{ localStorage.removeItem(k); }catch(e){} }); }
   function delMany(list){ list.forEach(function(k){ try{ localStorage.removeItem(k); }catch(e){} }); }
+  function lg(k,d){ try{ var v=localStorage.getItem(k); return v==null?d:v; }catch(e){ return d; } }
+  function ls(k,v){ try{ localStorage.setItem(k,v); }catch(e){} }
   function today(){ return new Date().toISOString().slice(0,10); }
+  function plusDays(n){ return new Date(Date.now()+n*864e5).toISOString().slice(0,10); }
+  function rerender(){ try{ window.muRenderProgreso && window.muRenderProgreso(); }catch(e){} }
 
   function seedHistorial(pro){
     var now=Date.now(), D=864e5;
@@ -36322,82 +36326,150 @@ window.__muMateriaInit = function(){
         temas:{'Integración por partes':{ok:1,n:4},'Fracciones parciales':{ok:1,n:3},'Sustitución trigonométrica':{ok:2,n:4}},
         tiempoUsado:1600, tiempoPresupuesto:1500}
     ];
-    try{ localStorage.setItem('mu-results', JSON.stringify(res)); }catch(e){}
-    try{ localStorage.setItem('mu-racha', JSON.stringify({streak:3,best:6,tot:14,lastDay:today(),hist:{}})); }catch(e){}
-    try{ localStorage.setItem('mu-sim-materia','calcint'); }catch(e){}
-    if(pro){ try{ localStorage.setItem('mu-sim-pro','1'); }catch(e){} }
-    else   { delMany(['mu-sim-pro']); }
+    ls('mu-results', JSON.stringify(res));
+    ls('mu-racha', JSON.stringify({streak:3,best:6,tot:14,lastDay:today(),hist:{}}));
+    ls('mu-sim-materia','calcint');
+    ls('mu-sim-fecha', plusDays(16));
+    if(pro) ls('mu-sim-pro','1'); else delMany(['mu-sim-pro']);
+  }
+  function setRacha(n){
+    n=Math.max(0,parseInt(n,10)||0);
+    var r={}; try{ r=JSON.parse(lg('mu-racha','{}'))||{}; }catch(e){}
+    r.streak=n; r.best=Math.max(n, r.best||0); r.tot=Math.max(n, r.tot||0); r.lastDay=today();
+    ls('mu-racha', JSON.stringify(r));
   }
 
+  function isPro(){ return lg('mu-sim-pro','')==='1' || !!lsKeys().filter(function(k){return k.indexOf('mu-sim-pro-srv-')===0;}).length; }
   function estado(){
-    var g=function(k,d){ try{ var v=localStorage.getItem(k); return v==null?d:v; }catch(e){ return d; } };
-    var res=[]; try{ res=JSON.parse(g('mu-results','[]'))||[]; }catch(e){}
+    var res=[]; try{ res=JSON.parse(lg('mu-results','[]'))||[]; }catch(e){}
     var sims=res.filter(function(r){ return r.exam; }).length;
-    var pro = g('mu-sim-pro','')==='1' || !!lsKeys().filter(function(k){return k.indexOf('mu-sim-pro-srv-')===0;}).length;
-    var auth=null; try{ auth=JSON.parse(g('mu-auth','null')); }catch(e){}
-    var mail = (auth&&auth.user&&auth.user.email) || g('mu-email','');
-    var racha=null; try{ racha=JSON.parse(g('mu-racha','null')); }catch(e){}
-    var tags=[];
-    tags.push(sims?('<b>'+sims+'</b> simulacros'):'<b>0</b> simulacros · NUEVO');
-    if(pro) tags.push('<b style="color:var(--acc)">PRO</b>');
-    if(mail) tags.push('registrado: '+mail);
-    else tags.push('sin cuenta');
-    if(racha&&racha.streak) tags.push('racha '+racha.streak+' (max '+(racha.best||racha.streak)+')');
-    return tags.join(' · ');
+    var auth=null; try{ auth=JSON.parse(lg('mu-auth','null')); }catch(e){}
+    var mail=(auth&&auth.user&&auth.user.email)||lg('mu-email','');
+    var racha=null; try{ racha=JSON.parse(lg('mu-racha','null')); }catch(e){}
+    var dias=(window.__simDiasRestantes&&window.__simDiasRestantes());
+    var t=[];
+    t.push(sims?('<b>'+sims+'</b> simulacros'):'<b>0</b> sim · NUEVO');
+    if(isPro()) t.push('<b style="color:#e8632a">PRO</b>'); else t.push('free');
+    t.push(mail?('cuenta: '+mail):'sin cuenta');
+    if(racha&&racha.streak) t.push('racha '+racha.streak+'/'+(racha.best||racha.streak));
+    if(dias!=null) t.push('parcial: '+(dias>0?('en '+dias+'d'):dias===0?'hoy':(Math.abs(dias)+'d atrás')));
+    t.push('idioma: '+(window.curLang||'es')+(/[?&]teaser=1/.test(location.href)?' · VISTA PÚBLICA':''));
+    return t.join(' · ');
   }
 
-  var box, open=false;
+  var box, open=false, dumpOpen=false;
   function render(){
     if(!box) return;
     box.querySelector('#mud-state').innerHTML = estado();
+    var pd=box.querySelector('#mud-dump');
+    if(pd){ pd.hidden=!dumpOpen;
+      if(dumpOpen) pd.textContent = lsKeys().map(function(k){ return k+' = '+(lg(k,'')||'').slice(0,180); }).join('\n') || '(vacío)';
+    }
   }
+  function B(a,txt,extra){ return '<button data-a="'+a+'" style="'+(extra||'')+'">'+txt+'</button>'; }
+  function HD(t){ return '<div style="color:#7d8aa3;font-size:10px;letter-spacing:.08em;margin:9px 0 3px">'+t+'</div>'; }
+
   function build(){
     box=document.createElement('div');
     box.id='mu-dev-panel';
-    box.style.cssText='position:fixed;left:10px;bottom:52px;z-index:2147483000;width:270px;'+
+    box.style.cssText='position:fixed;left:1.5rem;bottom:8rem;z-index:2147483000;width:296px;max-height:74vh;overflow:auto;'+
       'font:12px/1.4 ui-monospace,SFMono-Regular,Menlo,monospace;background:#0d1526;color:#cdd7e6;'+
-      'border:1px solid #2b3a55;border-radius:10px;padding:10px;box-shadow:0 12px 40px rgba(0,0,0,.5);display:none';
+      'border:1px solid #2b3a55;border-radius:10px;padding:10px;box-shadow:0 12px 40px rgba(0,0,0,.55);display:none';
     box.innerHTML =
       '<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px">'+
         '<b style="color:#e8632a;letter-spacing:.05em">DEV · Luis</b>'+
         '<button data-a="close" style="background:none;border:none;color:#7d8aa3;cursor:pointer;font-size:14px">✕</button></div>'+
-      '<div id="mud-state" style="font-size:11px;color:#93a1bd;background:#0a1120;border:1px solid #1e2b44;border-radius:6px;padding:6px;margin-bottom:8px"></div>'+
-      '<div style="color:#7d8aa3;font-size:10px;letter-spacing:.08em;margin-bottom:3px">PONERME COMO…</div>'+
-      '<div style="display:flex;gap:4px;margin-bottom:8px">'+
-        '<button data-a="nuevo"   style="flex:1">Nuevo</button>'+
-        '<button data-a="freeh"   style="flex:1">Free+hist</button>'+
-        '<button data-a="proh"    style="flex:1">Pro+hist</button></div>'+
-      '<div style="color:#7d8aa3;font-size:10px;letter-spacing:.08em;margin-bottom:3px">ACCIONES</div>'+
-      '<div style="display:grid;grid-template-columns:1fr 1fr;gap:4px;margin-bottom:8px">'+
-        '<button data-a="pro">Toggle Pro</button>'+
-        '<button data-a="sims">Borrar simulacros</button>'+
-        '<button data-a="racha">Borrar racha</button>'+
-        '<button data-a="logout">Cerrar sesión</button>'+
-        '<button data-a="wipe" style="grid-column:1/-1;color:#ff8a8a">Wipe total (mu-*)</button></div>'+
-      '<div style="display:flex;gap:4px">'+
-        '<button data-a="reload" style="flex:1">Recargar</button>'+
-        '<button data-a="exit"   style="flex:1;color:#7d8aa3">Salir de dev</button></div>';
+      '<div id="mud-state" style="font-size:11px;color:#93a1bd;background:#0a1120;border:1px solid #1e2b44;border-radius:6px;padding:6px;margin-bottom:2px"></div>'+
+
+      HD('PONERME COMO…')+
+      '<div style="display:flex;gap:4px">'+B('nuevo','Nuevo','flex:1')+B('freeh','Free+hist','flex:1')+B('proh','Pro+hist','flex:1')+'</div>'+
+
+      HD('TOGGLES')+
+      '<div style="display:grid;grid-template-columns:1fr 1fr;gap:4px">'+
+        B('pro','Pro on/off')+B('lang','Idioma ES/EN')+
+        B('teaser','Vista pública ⇄')+B('freeplay','freeplay ⇄')+'</div>'+
+
+      HD('PARCIAL (cuenta regresiva)')+
+      '<div style="display:flex;gap:4px;flex-wrap:wrap">'+
+        B('d0','hoy','flex:1')+B('d1','mañana','flex:1')+B('d3','3d','flex:1')+B('d16','16d','flex:1')+B('dpast','pasó','flex:1')+B('dnone','quitar','flex:1')+'</div>'+
+
+      HD('RACHA')+
+      '<div style="display:flex;gap:4px;align-items:center">'+
+        '<input id="mud-racha" type="number" min="0" value="7" style="width:56px;background:#0a1120;border:1px solid #2b3a55;color:#cdd7e6;border-radius:5px;padding:4px;font:inherit">'+
+        B('setracha','fijar racha','flex:1')+B('racha','borrar','flex:1')+'</div>'+
+
+      HD('IR A')+
+      '<div style="display:flex;gap:4px;flex-wrap:wrap">'+
+        B('go-home','home','flex:1')+B('go-simulacros','simulacros','flex:1')+B('go-simulacro','simulacro','flex:1')+
+        B('go-diagnostico','diag','flex:1')+B('go-materias','materias','flex:1')+'</div>'+
+
+      HD('LIMPIAR')+
+      '<div style="display:grid;grid-template-columns:1fr 1fr;gap:4px">'+
+        B('sims','Simulacros')+B('logout','Cerrar sesión')+
+        B('wipe','Wipe total mu-*','grid-column:1/-1;color:#ff8a8a')+'</div>'+
+
+      HD('ESTADO')+
+      '<div style="display:flex;gap:4px">'+B('copy','Copiar','flex:1')+B('paste','Pegar','flex:1')+B('dump','Ver localStorage','flex:1')+'</div>'+
+      '<pre id="mud-dump" hidden style="white-space:pre-wrap;word-break:break-all;font-size:10px;color:#7d8aa3;background:#0a1120;border:1px solid #1e2b44;border-radius:6px;padding:6px;margin:5px 0 0;max-height:150px;overflow:auto"></pre>'+
+
+      '<div style="display:flex;gap:4px;margin-top:9px">'+
+        B('reload','Recargar','flex:1')+B('exit','Salir de dev','flex:1;color:#7d8aa3')+'</div>';
+
     Array.prototype.forEach.call(box.querySelectorAll('button'), function(b){
       b.style.cssText += ';background:#1b2740;border:1px solid #2b3a55;color:#cdd7e6;border-radius:5px;padding:5px 4px;cursor:pointer;font:inherit;font-size:11px';
       b.addEventListener('mouseenter',function(){ b.style.borderColor='#e8632a'; });
       b.addEventListener('mouseleave',function(){ b.style.borderColor='#2b3a55'; });
     });
+
     box.addEventListener('click', function(e){
       var a=e.target && e.target.getAttribute && e.target.getAttribute('data-a'); if(!a) return;
-      if(a==='close'||a==='exit'){ if(a==='exit'){ try{ localStorage.removeItem('mu-dev'); }catch(e2){} } toggle(false); if(a==='exit') location.reload(); return; }
-      if(a==='reload'){ location.reload(); return; }
-      if(a==='nuevo'){ if(confirm('¿Borrar TODO tu progreso local y quedar como usuario nuevo?')){ wipeUser(); location.reload(); } return; }
-      if(a==='freeh'){ wipeUser(); seedHistorial(false); location.reload(); return; }
-      if(a==='proh'){ wipeUser(); seedHistorial(true); location.reload(); return; }
-      if(a==='pro'){
-        var isPro = false; try{ isPro = localStorage.getItem('mu-sim-pro')==='1'; }catch(e2){}
-        try{ isPro ? localStorage.removeItem('mu-sim-pro') : localStorage.setItem('mu-sim-pro','1'); }catch(e2){}
-        location.reload(); return;
+      var reload=function(){ location.reload(); };
+      var setTeaser=function(on){ var u=new URL(location.href); on?u.searchParams.set('teaser','1'):u.searchParams.delete('teaser'); location.href=u.toString(); };
+      var setFP=function(on){ var u=new URL(location.href); on?u.searchParams.set('freeplay','1'):u.searchParams.delete('freeplay'); location.href=u.toString(); };
+
+      if(a==='close'){ toggle(false); return; }
+      if(a==='exit'){ try{ localStorage.removeItem('mu-dev'); }catch(e2){} toggle(false); reload(); return; }
+      if(a==='reload'){ reload(); return; }
+
+      if(a==='nuevo'){ if(confirm('¿Borrar TODO tu progreso local y quedar como usuario nuevo?')){ wipeUser(); reload(); } return; }
+      if(a==='freeh'){ wipeUser(); seedHistorial(false); reload(); return; }
+      if(a==='proh'){ wipeUser(); seedHistorial(true); reload(); return; }
+
+      if(a==='pro'){ isPro() ? delMany(['mu-sim-pro']) : ls('mu-sim-pro','1'); reload(); return; }
+      if(a==='lang'){ try{ window.setLang((window.curLang==='en')?'es':'en'); }catch(e2){} render(); return; }
+      if(a==='teaser'){ setTeaser(!/[?&]teaser=1/.test(location.href)); return; }
+      if(a==='freeplay'){ setFP(!/[?&]freeplay=1/.test(location.href)); return; }
+
+      if(a==='d0'){ ls('mu-sim-fecha', plusDays(0)); rerender(); render(); return; }
+      if(a==='d1'){ ls('mu-sim-fecha', plusDays(1)); rerender(); render(); return; }
+      if(a==='d3'){ ls('mu-sim-fecha', plusDays(3)); rerender(); render(); return; }
+      if(a==='d16'){ ls('mu-sim-fecha', plusDays(16)); rerender(); render(); return; }
+      if(a==='dpast'){ ls('mu-sim-fecha', plusDays(-2)); rerender(); render(); return; }
+      if(a==='dnone'){ delMany(['mu-sim-fecha']); rerender(); render(); return; }
+
+      if(a==='setracha'){ setRacha(box.querySelector('#mud-racha').value); reload(); return; }
+      if(a==='racha'){ delMany(['mu-racha','mu-racha-mat']); reload(); return; }
+
+      if(a.indexOf('go-')===0){ location.hash='#'+a.slice(3); toggle(false); return; }
+
+      if(a==='sims'){ delMany(['mu-results','mu-sim-notas-reales','mu-sim-srs']); reload(); return; }
+      if(a==='logout'){ try{ window.__muAuth && window.__muAuth.signOut(); }catch(e2){} delMany(['mu-email','mu-premium']); reload(); return; }
+      if(a==='wipe'){ if(confirm('¿Borrar TODAS las claves mu-* (menos tema/idioma)?')){ wipeUser(); reload(); } return; }
+
+      if(a==='copy'){
+        var o={}; lsKeys().forEach(function(k){ o[k]=lg(k,null); });
+        var s=JSON.stringify(o);
+        try{ navigator.clipboard.writeText(s); alert('Estado copiado ('+lsKeys().length+' claves).'); }
+        catch(e2){ prompt('Copia esto:', s); }
+        return;
       }
-      if(a==='sims'){ delMany(['mu-results','mu-sim-notas-reales','mu-sim-srs']); location.reload(); return; }
-      if(a==='racha'){ delMany(['mu-racha','mu-racha-mat']); location.reload(); return; }
-      if(a==='logout'){ try{ window.__muAuth && window.__muAuth.signOut(); }catch(e2){} delMany(['mu-email','mu-premium']); location.reload(); return; }
-      if(a==='wipe'){ if(confirm('¿Borrar TODAS las claves mu-* (menos tema/idioma)?')){ wipeUser(); location.reload(); } return; }
+      if(a==='paste'){
+        var raw=prompt('Pega el JSON de estado:'); if(!raw) return;
+        try{ var obj=JSON.parse(raw); wipeUser(); Object.keys(obj).forEach(function(k){ if(k.indexOf('mu-')===0 && obj[k]!=null) ls(k, obj[k]); }); reload(); }
+        catch(e2){ alert('JSON inválido'); }
+        return;
+      }
+      if(a==='dump'){ dumpOpen=!dumpOpen; render(); return; }
     });
     document.body.appendChild(box);
 
@@ -36405,10 +36477,10 @@ window.__muMateriaInit = function(){
     tab.id='mu-dev-tab';
     tab.textContent='⚙ dev';
     tab.title='Panel dev (Ctrl+Shift+D)';
-    tab.style.cssText='position:fixed;left:10px;bottom:10px;z-index:2147483000;background:#0d1526;color:#e8632a;'+
-      'border:1px solid #2b3a55;border-radius:8px;padding:5px 9px;font:11px ui-monospace,monospace;cursor:pointer;opacity:.6';
+    tab.style.cssText='position:fixed;left:1.5rem;bottom:5rem;z-index:2147483000;background:#0d1526;color:#e8632a;'+
+      'border:1px solid #2b3a55;border-radius:8px;padding:5px 10px;font:11px ui-monospace,monospace;cursor:pointer;opacity:.55';
     tab.addEventListener('mouseenter',function(){ tab.style.opacity='1'; });
-    tab.addEventListener('mouseleave',function(){ tab.style.opacity='.6'; });
+    tab.addEventListener('mouseleave',function(){ tab.style.opacity='.55'; });
     tab.addEventListener('click', function(){ toggle(); });
     document.body.appendChild(tab);
   }
