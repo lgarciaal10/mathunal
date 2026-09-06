@@ -16591,7 +16591,9 @@ html[data-theme="gray"] .hero-bg .lg-blob-center{background:radial-gradient(elli
 .sim-logro{display:flex;flex-direction:column;align-items:center;text-align:center;gap:.25rem;padding:.7rem .4rem;
   border:1px solid var(--br);border-radius:10px;background:var(--lay1);opacity:.4;filter:grayscale(1);transition:opacity .2s}
 .sim-logro.on{opacity:1;filter:none;border-color:var(--bra);background:linear-gradient(180deg,var(--adim),transparent 70%)}
-.sim-logro-e{font-size:1.35rem;line-height:1}
+.sim-logro-e{line-height:0;color:var(--t2)}
+.sim-logro-e svg{width:22px;height:22px;display:block}
+.sim-logro.on .sim-logro-e{color:var(--acc)}
 .sim-logro-n{font-size:.72rem;font-weight:700;color:var(--t1);line-height:1.2}
 
 /* ── Repaso espaciado (card en el selector) ── */
@@ -16616,7 +16618,7 @@ html[data-theme="gray"] .hero-bg .lg-blob-center{background:radial-gradient(elli
 .sim-pmode-q{font-family:'IBM Plex Mono',monospace;font-size:.72rem;font-weight:700;letter-spacing:.05em;
   text-transform:uppercase;color:var(--acc);margin-bottom:.55rem}
 .sim-pmode-opts{display:flex;gap:.4rem;flex-wrap:wrap}
-.sim-pmode-b{flex:1;min-width:96px;font:inherit;font-size:.8rem;font-weight:600;padding:.42rem .5rem;
+.sim-pmode-b{flex:1 1 calc(50% - .2rem);min-width:130px;font:inherit;font-size:.8rem;font-weight:600;padding:.42rem .5rem;text-align:center;
   border-radius:8px;border:1.3px solid var(--br);background:var(--lay1);color:var(--t2);cursor:pointer;
   transition:all .15s;white-space:nowrap}
 .sim-pmode-b:hover{border-color:var(--bra);color:var(--t1)}
@@ -19905,16 +19907,6 @@ customElements.define('glass-element', GlassElement);
   <div class="nav-more-wrap">
     <button class="nav-more-btn" onclick="toggleNavMore()" id="nav-more-btn" aria-haspopup="true" aria-expanded="false" aria-controls="nav-more-dd">Más <span class="nav-more-arr">▾</span></button>
     <div class="nav-more-dd" id="nav-more-dd" role="menu">
-      <a href="#materias" onclick="closeNavMore()">
-        <span class="nmd-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
-  <polyline points="14,2 14,8 20,8"/>
-  <line x1="16" y1="13" x2="8" y2="13"/>
-  <line x1="16" y1="17" x2="8" y2="17"/>
-  <polyline points="10,9 9,9 8,9"/>
-</svg></span>
-        <div><div class="nmd-title">Materias</div><div class="nmd-sub">Todos los parciales y talleres</div></div>
-      </a>
       <a href="#promedio" onclick="closeNavMore()">
         <span class="nmd-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
   <line x1="18" y1="20" x2="18" y2="10"/>
@@ -20006,7 +19998,6 @@ customElements.define('glass-element', GlassElement);
 
 <div id="mob">
   <a href="#home" onclick="tmob()">Inicio</a>
-  <a href="#materias" onclick="tmob()">Materias</a>
   <a href="#formulas" onclick="tmob()">Fórmulas</a>
   <a href="#simulacros" onclick="tmob()">Simulacros</a>
   <a href="#diagnostico" onclick="tmob()">Diagnóstico</a>
@@ -20418,7 +20409,7 @@ customElements.define('glass-element', GlassElement);
           <span class="sim-teaser-price">Simulacro completo — los 3 cortes, ilimitado, con solución paso a paso: <b>$12.000</b> · un pago · todo el semestre · sin suscripción</span>
           <span class="sim-prem-soon">
             <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="13" r="8"/><line x1="12" y1="13" x2="12" y2="9"/><line x1="12" y1="13" x2="15" y2="15"/><line x1="9" y1="2" x2="15" y2="2"/></svg>
-            Muy pronto
+            <span class="sim-teaser-soon">Muy pronto</span>
           </span>
         </div>
       </div>
@@ -31938,23 +31929,37 @@ window.__SIMPRO_DEV = /[?&]simpro=1/.test(location.href) || !!window.__SIM_LOCAL
     var racha=(window.__muRacha&&window.__muRacha.get&&window.__muRacha.get())||{best:0};
     var nreal=0; try{ nreal=(JSON.parse(localStorage.getItem('mu-sim-notas-reales'))||[]).length; }catch(e){}
     var limpio=sims.some(function(r){ return (r.nota||0)>=4 && !/_(micro|rnd|tema)$/.test(r.exam||''); });
+    /* iconos SVG propios (lucide-style, currentColor) — sin emojis */
+    var S=function(p){ return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">'+p+'</svg>'; };
+    var IC={
+      diana:  S('<circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/>'),
+      ciclo:  S('<polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/>'),
+      bandera:S('<path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/>'),
+      check:  S('<path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/>'),
+      estrella:S('<polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>'),
+      llama:  S('<path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.07-2.14-.22-4.05 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.15.43-2.29 1-3a2.5 2.5 0 0 0 2.5 2.5z"/>'),
+      brujula:S('<circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/>'),
+      capas:  S('<polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/>'),
+      medalla:S('<circle cx="12" cy="8" r="6"/><path d="M8.21 13.89 7 23l5-3 5 3-1.21-9.12"/>'),
+      apreton:S('<path d="M8 13V4.5a1.5 1.5 0 0 1 3 0V12m0-.5v-2a1.5 1.5 0 0 1 3 0V12m0-1.5a1.5 1.5 0 0 1 3 0V16a6 6 0 0 1-6 6h-2a5 5 0 0 1-4-2l-2.5-3.5a1.5 1.5 0 0 1 2.4-1.8L8 16"/>')
+    };
     var L=[
-      {e:'🎯',done:sims.length>=1,  n:_t('Primer simulacro','First mock'),    d:_t('Rompiste el hielo.','You broke the ice.')},
-      {e:'🔁',done:sims.length>=5,  n:_t('Rodado','Warmed up'),               d:_t('5 simulacros hechos.','5 mocks done.')},
-      {e:'🏃',done:sims.length>=15, n:_t('Maratón','Marathon'),               d:_t('15 simulacros. En serio.','15 mocks. Serious.')},
-      {e:'🟢',done:notaMax>=4,      n:_t('Nota verde','Green grade'),         d:_t('Sacaste 4.0 o más.','Scored 4.0+.')},
-      {e:'💯',done:notaMax>=5,      n:_t('Perfecto','Perfect'),               d:_t('Un 5.0 completo.','A full 5.0.')},
-      {e:'🔥',done:(racha.best||0)>=7, n:_t('Constancia','Consistency'),      d:_t('Racha de 7 días.','7-day streak.')},
-      {e:'🧭',done:vuelta,          n:_t('Vuelta completa','Full loop'),      d:_t('Los 3 cortes de una materia.','All 3 cortes of one subject.')},
-      {e:'📚',done:Object.keys(mats).length>=3, n:_t('Multimateria','Multi-subject'), d:_t('Simulacros en 3 materias.','Mocks in 3 subjects.')},
-      {e:'🎓',done:limpio,          n:_t('Sin bobadas','No fumbles'),         d:_t('Simulacro completo con 4.0+.','Full mock with 4.0+.')},
-      {e:'🤝',done:nreal>=1,        n:_t('Honesto','Honest'),                 d:_t('Reportaste tu nota real.','Reported your real grade.')}
+      {i:IC.diana,   done:sims.length>=1,  n:_t('Primer simulacro','First mock'),    d:_t('Rompiste el hielo.','You broke the ice.')},
+      {i:IC.ciclo,   done:sims.length>=5,  n:_t('Rodado','Warmed up'),               d:_t('5 simulacros hechos.','5 mocks done.')},
+      {i:IC.bandera, done:sims.length>=15, n:_t('Maratón','Marathon'),               d:_t('15 simulacros. En serio.','15 mocks. Serious.')},
+      {i:IC.check,   done:notaMax>=4,      n:_t('Nota verde','Green grade'),         d:_t('Sacaste 4.0 o más.','Scored 4.0+.')},
+      {i:IC.estrella,done:notaMax>=5,      n:_t('Perfecto','Perfect'),               d:_t('Un 5.0 completo.','A full 5.0.')},
+      {i:IC.llama,   done:(racha.best||0)>=7, n:_t('Constancia','Consistency'),      d:_t('Racha de 7 días.','7-day streak.')},
+      {i:IC.brujula, done:vuelta,          n:_t('Vuelta completa','Full loop'),      d:_t('Los 3 cortes de una materia.','All 3 cortes of one subject.')},
+      {i:IC.capas,   done:Object.keys(mats).length>=3, n:_t('Multimateria','Multi-subject'), d:_t('Simulacros en 3 materias.','Mocks in 3 subjects.')},
+      {i:IC.medalla, done:limpio,          n:_t('Sin bobadas','No fumbles'),         d:_t('Simulacro completo con 4.0+.','Full mock with 4.0+.')},
+      {i:IC.apreton, done:nreal>=1,        n:_t('Honesto','Honest'),                 d:_t('Reportaste tu nota real.','Reported your real grade.')}
     ];
     var got=L.filter(function(x){return x.done;}).length;
     var h='<div class="sim-logros"><div class="sim-logros-hd">'+_t('Logros','Achievements')+' <span>'+got+' / '+L.length+'</span></div><div class="sim-logros-grid">';
     L.forEach(function(x){
       h+='<div class="sim-logro'+(x.done?' on':'')+'" title="'+String(x.d).replace(/"/g,'')+'">'+
-         '<span class="sim-logro-e">'+x.e+'</span><span class="sim-logro-n">'+x.n+'</span></div>';
+         '<span class="sim-logro-e">'+x.i+'</span><span class="sim-logro-n">'+x.n+'</span></div>';
     });
     host.insertAdjacentHTML('beforeend', h+'</div></div>');
   };
@@ -32561,7 +32566,7 @@ var LANG_ES={
   "sim-teaser-p":"Simulacro con cronómetro y formato SIDEX real → tu nivel de preparación, en qué temas fallas y exactamente qué repasar. Con solución paso a paso, el truco de cada pregunta y gráficas para comprobarlo tú mismo.",
   "sim-teaser-pill":"6 preguntas · sin registro · ya disponible",
   "sim-teaser-price":"Simulacro completo — los 3 cortes, ilimitado, con solución paso a paso: <b>$12.000</b> · un pago · todo el semestre · sin suscripción",
-  "sim-teaser-free":"Hacer el diagnóstico gratis",
+  "sim-teaser-free":"Hacer el diagnóstico gratis","sim-teaser-soon":"Muy pronto",
   "ht-tag":"La historia","ht-h":"De rebuscar parciales en la papelería a esto",
   "ht-p":"MathUNAL empezó en 2023 como la idea de un estudiante cansado de pedir parciales prestados. Sobrevivió dos pasantías, un cambio de ciudad y un grado. Hoy sigue creciendo.",
   "ht-cta":"Conoce la historia completa →",
@@ -32844,7 +32849,7 @@ var LANG_EN={
   "sim-teaser-p":"A timed mock in real SIDEX format → your preparation level, which topics you're weak on and exactly what to review. With step-by-step solutions, the trick for each question and graphs to check it yourself.",
   "sim-teaser-pill":"6 questions · no sign-up · available now",
   "sim-teaser-price":"Full mock exam — the 3 cortes, unlimited, with step-by-step solutions: <b>$12,000</b> · one payment · all semester · no subscription",
-  "sim-teaser-free":"Take the free diagnostic",
+  "sim-teaser-free":"Take the free diagnostic","sim-teaser-soon":"Coming soon",
   "ht-tag":"The story","ht-h":"From borrowing past exams at the copy shop to this",
   "ht-p":"MathUNAL started in 2023 as one student's idea, tired of asking around for past exams. It outlasted two research stays, a city move and a graduation. It's still growing.",
   "ht-cta":"Read the full story →",
@@ -33270,10 +33275,13 @@ function setLang(lang){
   /* ASÍ DE SIMPLE (3 pasos) */
   setText('.sim-teaser-tag','sim-teaser-tag'); setHTML('.sim-teaser-h','sim-teaser-h');
   setText('.sim-teaser-p','sim-teaser-p'); setText('.sim-teaser-pill','sim-teaser-pill');
-  setHTML('.sim-teaser-price','sim-teaser-price'); setHTML('.sim-teaser-free','sim-teaser-free');
+  setHTML('.sim-teaser-price','sim-teaser-price'); setText('.sim-teaser-free','sim-teaser-free');
+  setText('.sim-teaser-soon','sim-teaser-soon');
   (function(){ var loopEs=['Simulacro','Diagnóstico','Solución','Entrenar errores','Listo'],
                    loopEn=['Mock','Diagnosis','Solution','Drill mistakes','Ready'];
-    document.querySelectorAll('#sim-teaser .sim-loop span').forEach(function(s,i){ if((en?loopEn:loopEs)[i]) s.textContent=(en?loopEn:loopEs)[i]; }); })();
+    /* la sección se renombra a #simulacros cuando SIMULACROS_HABILITADOS=false;
+       la tarjeta premium siempre lleva .sim-prem-card */
+    document.querySelectorAll('.sim-prem-card .sim-loop span').forEach(function(s,i){ if((en?loopEn:loopEs)[i]) s.textContent=(en?loopEn:loopEs)[i]; }); })();
   setText('.ap-breb-lbl','ap-breb-lbl'); setText('.ap-acc-note','ap-acc-note');
   setText('.hf-s .cp-tag','hf-tag');
   setHTML('.hf-s .hf-title','hf-title');
