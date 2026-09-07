@@ -29934,6 +29934,21 @@ window.setTheme = function(t){
   de.classList.add('mu-no-tr');
   de.setAttribute('data-theme', t);
   void de.offsetWidth;                         /* fuerza recálculo con el tema nuevo */
+  /* empujón de repintado: las capas con backdrop-filter / mix-blend-mode (nav,
+     .hero-bg, .noise-overlay, .hero-stats) a veces NO re-rasterizan al cambiar
+     de tema — dejan un lavado naranja hasta el siguiente reload. Se invalida su
+     raster 1 frame: backdrop-filter a 'none' e-invisibles a display:none, y se
+     restauran en el siguiente rAF (imperceptible, sin salto de layout). */
+  try{
+    var _bfEls = [].slice.call(document.querySelectorAll('#nav, .hero-stats, .btn-o'));
+    var _blEls = [].slice.call(document.querySelectorAll('.noise-overlay, .hero-bg'));
+    _bfEls.forEach(function(el){ el.style.backdropFilter='none'; el.style.webkitBackdropFilter='none'; });
+    _blEls.forEach(function(el){ el.style.visibility='hidden'; });
+    requestAnimationFrame(function(){
+      _bfEls.forEach(function(el){ el.style.backdropFilter=''; el.style.webkitBackdropFilter=''; });
+      _blEls.forEach(function(el){ el.style.visibility=''; });
+    });
+  }catch(e){}
   clearTimeout(_muNoTrTO);
   requestAnimationFrame(function(){ requestAnimationFrame(function(){ de.classList.remove('mu-no-tr'); }); });
   _muNoTrTO=setTimeout(function(){ de.classList.remove('mu-no-tr'); }, 120);
