@@ -29567,6 +29567,10 @@ window.SIMULACROS_HABILITADOS = SIMULACROS_HABILITADOS;
    pasa nada — ahi el contenido Pro se trae del servidor con RLS. */
 if(window.__SIM_LOCAL){
   try{
+    var _devSolEn=document.createElement('script');
+    _devSolEn.src='sim-solutions-en.dev.js?t='+Date.now(); _devSolEn.async=false;
+    _devSolEn.onerror=function(){};
+    document.head.appendChild(_devSolEn);
     var _devSol=document.createElement('script');
     _devSol.src='sim-solutions.dev.js?t='+Date.now(); _devSol.async=false;
     _devSol.onerror=function(){};
@@ -32250,7 +32254,8 @@ window.__SIMPRO_DEV = /[?&]simpro=1/.test(location.href) || !!window.__SIM_LOCAL
   window.__simSolEnBySrc = window.__simSolEnBySrc || {};
   window.__simSolReady = false;
   var _SOL_FIELDS = ['pasos','solucion','rubrica','antibobo','reconocer',
-                     'concepto','quePregunta','resultado','errorComun','resumen'];
+                     'concepto','quePregunta','resultado','errorComun','resumen',
+                     'texto','opciones'];
   function __simMergeSol(){
     var map = window.__simSolBySrc, mapEn = window.__simSolEnBySrc, n=0;
     var useEn = (window.curLang==='en');
@@ -32295,8 +32300,9 @@ window.__SIMPRO_DEV = /[?&]simpro=1/.test(location.href) || !!window.__SIM_LOCAL
     if(!window.__simPro || !window.__simPro.anyPro()) return Promise.resolve(false);
     /* local: espejo gitignored, sin servidor */
     if(window.__SIM_LOCAL && window.__SIM_SOL_DEV){
+      var _en = window.__SIM_SOL_EN_DEV || {};
       __simApplySrcMap(Object.keys(window.__SIM_SOL_DEV).map(function(k){
-        return { src:k, body:window.__SIM_SOL_DEV[k] };
+        return { src:k, body:window.__SIM_SOL_DEV[k], body_en:_en[k]||null };
       }));
       return Promise.resolve(true);
     }
