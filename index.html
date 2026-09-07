@@ -14580,6 +14580,15 @@ html[data-theme="light"]{
 html.mu-no-tr *,html.mu-no-tr *::before,html.mu-no-tr *::after{
   transition:none !important;animation-duration:0s !important;
 }
+/* durante el cambio de tema, quita las capas con backdrop-filter / mix-blend-mode:
+   el navegador a veces no re-rasteriza su blur y deja un lavado naranja fantasma
+   hasta el siguiente reload. Sin esas capas durante el switch, no hay nada que
+   se congele; vuelven en cuanto se quita .mu-no-tr (2 frames después). */
+html.mu-no-tr #nav,html.mu-no-tr .hero-stats,html.mu-no-tr .btn-o,
+html.mu-no-tr .nav-more-dd,html.mu-no-tr .spanel{
+  backdrop-filter:none !important;-webkit-backdrop-filter:none !important;
+}
+html.mu-no-tr .noise-overlay,html.mu-no-tr .hero-bg{visibility:hidden !important}
 
 /* ── BARRA SCROLL ── */
 #mu-progress-bar{
@@ -29934,21 +29943,13 @@ window.setTheme = function(t){
   de.classList.add('mu-no-tr');
   de.setAttribute('data-theme', t);
   void de.offsetWidth;                         /* fuerza recálculo con el tema nuevo */
-  /* empujón de repintado: las capas con backdrop-filter / mix-blend-mode (nav,
-     .hero-bg, .noise-overlay, .hero-stats) a veces NO re-rasterizan al cambiar
-     de tema — dejan un lavado naranja hasta el siguiente reload. Se invalida su
-     raster 1 frame: backdrop-filter a 'none' e-invisibles a display:none, y se
-     restauran en el siguiente rAF (imperceptible, sin salto de layout). */
-  try{
-    var _bfEls = [].slice.call(document.querySelectorAll('#nav, .hero-stats, .btn-o'));
-    var _blEls = [].slice.call(document.querySelectorAll('.noise-overlay, .hero-bg'));
-    _bfEls.forEach(function(el){ el.style.backdropFilter='none'; el.style.webkitBackdropFilter='none'; });
-    _blEls.forEach(function(el){ el.style.visibility='hidden'; });
-    requestAnimationFrame(function(){
-      _bfEls.forEach(function(el){ el.style.backdropFilter=''; el.style.webkitBackdropFilter=''; });
-      _blEls.forEach(function(el){ el.style.visibility=''; });
-    });
-  }catch(e){}
+  /* empujón de repintado: fuerza al compositor a re-rasterizar la página
+     entera (las capas con backdrop-filter/mix-blend-mode no lo hacían solas y
+     dejaban un lavado naranja). Un toggle de opacity de 1 frame en <html>. */
+  requestAnimationFrame(function(){
+    de.style.opacity='0.9999';
+    requestAnimationFrame(function(){ de.style.opacity=''; });
+  });
   clearTimeout(_muNoTrTO);
   requestAnimationFrame(function(){ requestAnimationFrame(function(){ de.classList.remove('mu-no-tr'); }); });
   _muNoTrTO=setTimeout(function(){ de.classList.remove('mu-no-tr'); }, 120);
