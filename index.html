@@ -20489,6 +20489,10 @@ customElements.define('glass-element', GlassElement);
     <button class="mob-theme-btn" onclick="setTheme('gray');syncMobTheme('gray')"><svg width="14" height="14" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 3.5a8.5 8.5 0 0 1 0 17Z" fill="currentColor"/></svg> Gris</button>
     <button class="mob-theme-btn" onclick="setTheme('light');syncMobTheme('light')"><svg width="14" height="14" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"><circle cx="12" cy="12" r="4"/><line x1="12" y1="2" x2="12" y2="5"/><line x1="12" y1="19" x2="12" y2="22"/><line x1="4.93" y1="4.93" x2="7.05" y2="7.05"/><line x1="16.95" y1="16.95" x2="19.07" y2="19.07"/><line x1="2" y1="12" x2="5" y2="12"/><line x1="19" y1="12" x2="22" y2="12"/><line x1="4.93" y1="19.07" x2="7.05" y2="16.95"/><line x1="16.95" y1="7.05" x2="19.07" y2="4.93"/></svg> Claro</button>
   </div>
+  <div class="mob-theme-row" id="mob-desktop-row">
+    <span>Sitio</span>
+    <button class="mob-theme-btn" id="mob-desktop-btn" onclick="window.__muToggleDesktopMode()" title="Como 'Ver sitio de escritorio' en Chrome/Safari — hace zoom para leer"><svg width="14" height="14" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg> <span id="mob-desktop-lbl">Ver versión de escritorio</span></button>
+  </div>
 </div>
 
 <!-- HERO -->
@@ -30402,6 +30406,36 @@ window.setTheme = function(t){
     if(s){ window.setTheme(s); }
     else { syncThemeToggle('dark'); }
   }catch(e){ syncThemeToggle('dark'); }
+})();
+
+/* ── "Ver versión de escritorio" (prototipo) ──────────────────────────
+   Mismo truco que usan Chrome/Safari en móvil: en vez de desactivar los
+   @media(max-width:...) uno por uno, se le miente al navegador sobre el
+   ancho real de la pantalla cambiando el <meta viewport>. Con eso todas
+   las reglas @media(min-width) de escritorio se activan solas. El
+   usuario necesita hacer zoom/pan para leer (igual que en un navegador
+   real en modo escritorio) — por eso NO tocamos user-scalable, que ya
+   estaba permitido. */
+function __muApplyDesktopMode(on){
+  var mv = document.querySelector('meta[name="viewport"]');
+  if(!mv) return;
+  mv.setAttribute('content', on ? 'width=1280' : 'width=device-width, initial-scale=1.0');
+  var btn = document.getElementById('mob-desktop-btn');
+  var lbl = document.getElementById('mob-desktop-lbl');
+  if(btn) btn.classList.toggle('on', on);
+  if(lbl) lbl.textContent = on
+    ? (window.curLang==='en' ? 'Back to mobile version' : 'Volver a versión móvil')
+    : (window.curLang==='en' ? 'View desktop version' : 'Ver versión de escritorio');
+}
+window.__muToggleDesktopMode = function(){
+  var on = localStorage.getItem('mu-desktop-mode')==='1';
+  on = !on;
+  try{ localStorage.setItem('mu-desktop-mode', on?'1':'0'); }catch(e){}
+  __muApplyDesktopMode(on);
+  if(typeof tmob==='function') tmob();
+};
+(function(){
+  try{ if(localStorage.getItem('mu-desktop-mode')==='1') __muApplyDesktopMode(true); }catch(e){}
 })();
 
 /* ── MEJORA 3: Command Palette Ctrl+K ── */
