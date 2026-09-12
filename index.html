@@ -16658,6 +16658,8 @@ html[lang="en"] .sidex-meta-code::before{content:''}
   box-shadow:0 4px 16px rgba(0,0,0,.22);
 }
 #mu-scrollnav.show{opacity:1;transform:none;pointer-events:auto}
+#mu-scrollnav.show.idle{opacity:.32;transition:opacity .6s ease .1s}
+#mu-scrollnav.show:hover,#mu-scrollnav.show:active{opacity:1;transition:opacity .1s ease}
 #mu-scrollnav button{
   width:42px;height:38px;border:none;background:transparent;color:var(--t2);
   display:flex;align-items:center;justify-content:center;cursor:pointer;
@@ -16831,6 +16833,10 @@ html[data-theme="gray"] .hero-bg .lg-blob-center{background:radial-gradient(elli
 .panic-bar:hover{background:rgba(239,68,68,.18)}
 .panic-l{display:flex;align-items:center;gap:.7rem;flex:1;min-width:0}
 .panic-ico{font-size:1.2rem;flex-shrink:0}
+@media(max-width:600px){
+  .panic-bar{flex-direction:column;align-items:stretch;gap:.9rem}
+  .btn-panic{justify-content:center}
+}
 
 /* ── sfab — Floating action button de estudio/Pomodoro ── */
 .sfab{position:fixed;bottom:4.5rem;right:1rem;z-index:200;width:2.8rem;height:2.8rem;border-radius:50%;background:var(--acc);color:#fff;border:none;font-size:1.1rem;display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 2px 12px rgba(0,0,0,.3);transition:transform .18s,box-shadow .18s}
@@ -30195,6 +30201,7 @@ document.addEventListener('click', function(e){
 }, true);
 
 /* ── Nav scroll glass + pastilla de navegación (↑/↓) ── */
+var _snIdleT=null;
 window.addEventListener('scroll', function(){
   var y = window.scrollY;
   var doc = document.documentElement;
@@ -30204,6 +30211,14 @@ window.addEventListener('scroll', function(){
   if(sn){
     var maxY = doc.scrollHeight - doc.clientHeight;
     sn.classList.toggle('show', y > 300 && maxY > 700);
+    /* Queda fijo sobre lo que sea que esté scrolleando en ese momento --
+       en vez de taparlo a lo bruto todo el rato, se atenúa solo tras
+       dejar de scrollear (deja de competir visualmente con la tarjeta
+       de abajo) y vuelve a full opacidad apenas el usuario vuelve a
+       scrollear o toca el pill. */
+    sn.classList.remove('idle');
+    clearTimeout(_snIdleT);
+    _snIdleT=setTimeout(function(){ sn.classList.add('idle'); }, 900);
     var up = document.getElementById('mu-goup'), dn = document.getElementById('mu-godown');
     if(up) up.disabled = y < 40;
     if(dn) dn.disabled = y > maxY - 40;
