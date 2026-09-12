@@ -15165,6 +15165,7 @@ html[data-theme="light"] .settings-btn:hover{background:rgba(255,255,255,.8)}
   background:var(--bg);border-bottom:1.5px solid var(--br);
   padding:1.2rem 1.5rem;gap:.3rem;
   box-shadow:0 8px 32px rgba(0,0,0,.4);
+  max-height:calc(100vh - 70px);overflow-y:auto;-webkit-overflow-scrolling:touch;
 }
 #mob.open{display:flex}
 #mob a{
@@ -16620,6 +16621,11 @@ html[lang="en"] .sidex-meta-code::before{content:''}
    plan →"), así que en pantallas angostas se oculta el flotante y se deja
    solo el banner in-page. */
 @media(max-width:640px){ .sp-fab{ display:none !important; } }
+/* El badge fijo "MathUNAL v2 · © 2026" (bottom-left, siempre visible) es
+   puramente decorativo y en móvil queda flotando encima de contenido en
+   flujo (ej. la tarjeta "Semana del Parcial" del grid de stats) según el
+   scroll — mismo problema que .sp-fab arriba. Se oculta en angosto. */
+@media(max-width:640px){ #mu-version-badge{ display:none !important; } }
 
 /* Pastilla de navegación vertical (↑ arriba / ↓ al fondo) — aparece al
    scrollear, encima del FAB de WhatsApp */
