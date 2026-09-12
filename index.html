@@ -20661,7 +20661,7 @@ customElements.define('glass-element', GlassElement);
         <span class="spb-tag">MathUNAL Pro</span>
         <h3 id="spb-h">El entrenador completo, no solo el banco</h3>
         <p id="spb-p">Simulacros ilimitados por corte · solución paso a paso + el truco de cada pregunta · gráficas para comprobarlo · entrenar solo tus errores · dashboard "Mi preparación".</p>
-        <div class="spb-price" id="spb-price">$12.000 · un pago · acceso todo el semestre · sin suscripción</div>
+        <div class="spb-price" id="spb-price">$12.000 por materia · un pago · acceso todo el semestre · sin suscripción</div>
       </div>
       <a href="#simulacro" class="btn-a" id="spb-cta" style="font-size:.92rem;white-space:nowrap"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5,3 19,12 5,21" fill="currentColor" stroke="none"/></svg> Probar un simulacro</a>
     </div>
@@ -20690,7 +20690,7 @@ customElements.define('glass-element', GlassElement);
         </div>
 
         <div class="sim-prem-pro">
-          <span class="sim-teaser-price">Simulacro completo — los 3 cortes, ilimitado, con solución paso a paso: <b>$12.000</b> · un pago · todo el semestre · sin suscripción</span>
+          <span class="sim-teaser-price">Simulacro completo — los 3 cortes, ilimitado, con solución paso a paso: <b>$12.000 por materia</b> · un pago · todo el semestre · sin suscripción</span>
           <span class="sim-prem-soon">
             <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="13" r="8"/><line x1="12" y1="13" x2="12" y2="9"/><line x1="12" y1="13" x2="15" y2="15"/><line x1="9" y1="2" x2="15" y2="2"/></svg>
             <span class="sim-teaser-soon">Muy pronto</span>
@@ -23283,7 +23283,7 @@ if(!window.__muSdClickBound){window.__muSdClickBound=true;document.addEventListe
       <li>Entrenar solo tus errores · repaso espaciado</li>
       <li>Dashboard "Mi preparación" + estimación de nota</li>
     </ul>
-    <div class="sim-pw-price"><b>$12.000</b> <span>un pago · acceso todo el semestre · sin renovación automática</span></div>
+    <div class="sim-pw-price"><b>$12.000</b> <span>por esta materia · un pago · acceso todo el semestre · sin renovación automática</span></div>
     <div class="submit-actions">
       <button class="qbtn" onclick="window.__simPaywallClose&&window.__simPaywallClose()">Ahora no</button>
       <button class="qbtn primary" id="sim-pw-pay">Pagar (simulado) →</button>
@@ -23481,8 +23481,8 @@ window.muApplyLang_simulacro = function(){
   var _pwEn=['Every mock for the 3 cortes, as many as you want','Step-by-step solution + the trick for each question','Drill only your mistakes · spaced repetition','Dashboard "My preparation" + grade estimate'];
   _pwLi.forEach(function(li,i){ if(_pwEn[i]) li.textContent = en?_pwEn[i]:_pwEs[i]; });
   H('#sim-pw-overlay .sim-pw-price',
-    '<b>$12.000</b> <span>un pago · acceso todo el semestre · sin renovación automática</span>',
-    '<b>$12,000</b> <span>one payment · access all semester · no auto-renewal</span>');
+    '<b>$12.000</b> <span>por esta materia · un pago · acceso todo el semestre · sin renovación automática</span>',
+    '<b>$12,000</b> <span>for this subject · one payment · access all semester · no auto-renewal</span>');
   document.querySelectorAll('#sim-pw-overlay .qbtn').forEach(function(b){
     if(/Ahora no|Not now/.test(b.textContent)) b.textContent = en?'Not now':'Ahora no';
     if(b.id==='sim-pw-pay') b.textContent = window.__SIM_LOCAL
@@ -27466,7 +27466,7 @@ function _diagMostrarResultados(){
         + '<p class="diag-pro-p">'+(en
             ? 'MathUNAL Pro turns it into the full trainer: unlimited mock exams per corte, every step-by-step solution + the trick, practice by topic, and drilling only your mistakes.'
             : 'MathUNAL Pro lo vuelve el entrenador completo: simulacros ilimitados por corte, cada solución paso a paso + el truco, práctica por tema y entrenar solo tus errores.')+'</p>'
-        + '<div class="diag-pro-price"><b>$12.000</b>'+(en?'one payment · all semester · no auto-renewal':'un pago · todo el semestre · sin renovación automática')+'</div>'
+        + '<div class="diag-pro-price"><b>$12.000</b>'+(en?'per subject · one payment · all semester · no auto-renewal':'por materia · un pago · todo el semestre · sin renovación automática')+'</div>'
         + '<a class="diag-btn" href="#simulacro" style="text-decoration:none">'+(en?'See MathUNAL Pro →':'Ver MathUNAL Pro →')+'</a>'
         + '</div>';
     }
@@ -32933,7 +32933,7 @@ var LANG_ES={
   "sim-teaser-tag":"MathUNAL Pro","sim-teaser-h":"No un banco de preguntas.<br>Un entrenador para el parcial.",
   "sim-teaser-p":"Simulacro con cronómetro y formato SIDEX real → tu nivel de preparación, en qué temas fallas y exactamente qué repasar. Con solución paso a paso, el truco de cada pregunta y gráficas para comprobarlo tú mismo.",
   "sim-teaser-pill":"6 preguntas · sin registro · ya disponible",
-  "sim-teaser-price":"Simulacro completo — los 3 cortes, ilimitado, con solución paso a paso: <b>$12.000</b> · un pago · todo el semestre · sin suscripción",
+  "sim-teaser-price":"Simulacro completo — los 3 cortes, ilimitado, con solución paso a paso: <b>$12.000 por materia</b> · un pago · todo el semestre · sin suscripción",
   "sim-teaser-free":"Hacer el diagnóstico gratis","sim-teaser-soon":"Muy pronto",
   "ht-tag":"La historia","ht-h":"De rebuscar parciales en la papelería a esto",
   "ht-p":"MathUNAL empezó en 2023 como la idea de un estudiante cansado de pedir parciales prestados. Sobrevivió dos pasantías, un cambio de ciudad y un grado. Hoy sigue creciendo.",
@@ -33216,7 +33216,7 @@ var LANG_EN={
   "sim-teaser-tag":"MathUNAL Pro","sim-teaser-h":"Not a question bank.<br>A trainer for the exam.",
   "sim-teaser-p":"A timed mock in real SIDEX format → your preparation level, which topics you're weak on and exactly what to review. With step-by-step solutions, the trick for each question and graphs to check it yourself.",
   "sim-teaser-pill":"6 questions · no sign-up · available now",
-  "sim-teaser-price":"Full mock exam — the 3 cortes, unlimited, with step-by-step solutions: <b>$12,000</b> · one payment · all semester · no subscription",
+  "sim-teaser-price":"Full mock exam — the 3 cortes, unlimited, with step-by-step solutions: <b>$12,000 per subject</b> · one payment · all semester · no subscription",
   "sim-teaser-free":"Take the free diagnostic","sim-teaser-soon":"Coming soon",
   "ht-tag":"The story","ht-h":"From borrowing past exams at the copy shop to this",
   "ht-p":"MathUNAL started in 2023 as one student's idea, tired of asking around for past exams. It outlasted two research stays, a city move and a graduation. It's still growing.",
@@ -33658,7 +33658,7 @@ function setLang(lang){
       'sim-hd-pick-sub':[ 'Simulacro con cronómetro y formato SIDEX. Al final sabes tu nota, en qué fallas y qué estudiar.','Timed mock in SIDEX format. At the end you know your grade, what you get wrong and what to study.' ],
       'spb-h':[ 'El entrenador completo, no solo el banco','The full trainer, not just the bank' ],
       'spb-p':[ 'Simulacros ilimitados por corte · solución paso a paso + el truco de cada pregunta · gráficas para comprobarlo · entrenar solo tus errores · dashboard "Mi preparación".','Unlimited mocks per corte · step-by-step solutions + the trick to each question · graphs to check it · drill only your mistakes · "My preparation" dashboard.' ],
-      'spb-price':[ '$12.000 · un pago · acceso todo el semestre · sin suscripción','$12,000 COP · one payment · all-semester access · no subscription' ],
+      'spb-price':[ '$12.000 por materia · un pago · acceso todo el semestre · sin suscripción','$12,000 COP per subject · one payment · all-semester access · no subscription' ],
       'spb-cta':[ 'Probar un simulacro','Try a mock' ]
     };
     Object.keys(m).forEach(function(id){ var el=document.getElementById(id); if(!el) return;
