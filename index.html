@@ -19375,7 +19375,7 @@ body{animation:pageIn .6s ease}
 [onclick]:not(nav):not(.burger):not(.settings-btn){transition:all var(--transition)}
 
 /* ══════ HOY: racha + pregunta del día ══════ */
-.mu-hoy-s{padding:4rem 0;background:var(--bg2)}
+.mu-hoy-s{padding:4rem 2rem;background:var(--bg2)}
 #hoy,#calendario{scroll-margin-top:5rem}
 .mu-hoy-hd{max-width:640px;margin:0 auto 2rem;text-align:center}
 .mu-hoy-hd h2{font-size:clamp(1.6rem,4vw,2.3rem);margin:.5rem 0 .6rem;color:var(--t1)}
@@ -19384,6 +19384,7 @@ body{animation:pageIn .6s ease}
 .mu-hoy-card{background:var(--card);border:1px solid var(--br2);border-radius:16px;padding:1.4rem}
 .mu-hoy-side{display:flex;flex-direction:column;gap:1rem}
 @media(max-width:760px){.mu-hoy-grid{grid-template-columns:1fr}}
+@media(max-width:480px){.mu-hoy-s{padding:3rem 1.1rem}}
 
 .mu-rc-head{display:flex;align-items:center;gap:.7rem;margin-bottom:1rem}
 .mu-rc-streak{display:flex;align-items:center;gap:.35rem;padding:.4rem .7rem;border-radius:999px;background:var(--lay1);border:1px solid var(--br2);color:var(--t3)}
@@ -19483,7 +19484,8 @@ body{animation:pageIn .6s ease}
 @keyframes muCalSeg{from{transform:scaleX(0)}to{transform:scaleX(1)}}
 @keyframes muCalRise{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
 @keyframes muCalPulse{0%,100%{box-shadow:0 0 0 0 rgba(224,93,26,.35)}50%{box-shadow:0 0 0 5px rgba(224,93,26,0)}}
-.mu-cal-s{padding:4rem 0}
+.mu-cal-s{padding:4rem 2rem}
+@media(max-width:480px){.mu-cal-s{padding:3rem 1.1rem}}
 .mu-cal-hd{max-width:640px;margin:0 auto 2rem;text-align:center}
 .mu-cal-hd h2{font-size:clamp(1.6rem,4vw,2.3rem);margin:.5rem 0 .6rem;color:var(--t1)}
 .mu-cal-hd p{color:var(--t2);font-size:.98rem;line-height:1.6}
