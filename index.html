@@ -13745,6 +13745,29 @@ function _txCorte(slug,corte,nombreEs){
 function _txTema(t){ return (window.curLang==='en') ? (_TEMA_EN[t]||t) : t; }
 function _txTemas(arr){ return (arr||[]).map(_txTema); }
 window._txCorte=_txCorte; window._txTema=_txTema; window._txTemas=_txTemas;
+/* Nombres bonitos por slug de materia (antes vivían en tpl-simulacro, solo
+   disponibles tras visitar #simulacro — la "Pregunta del día" del home los
+   necesita desde el primer render). Mismos nombres EN que el catálogo
+   público de materias (window.SUBJECTS / MU_SUBJECTS_EN, más abajo en el
+   archivo) — antes decía cosas distintas aquí (p.ej. "Special Mathematics")
+   y allá ("Advanced Mathematics") para la misma materia; unificado. */
+var _SIM_MAT_NAMES={
+  calcdif:'Cálculo Diferencial', calcint:'Cálculo Integral', alglin:'Álgebra Lineal',
+  matbas:'Matemáticas Básicas', edo:'Ecuaciones Diferenciales',
+  calcvec:'Cálculo en Varias Variables', geovec:'Geometría Vectorial', metnum:'Métodos Numéricos',
+  fundamentos:'Fundamentos de Matemáticas', discretas:'Matemáticas Discretas', especiales:'Matemáticas Especiales'
+};
+var _SIM_MAT_NAMES_EN={
+  calcdif:'Differential Calculus', calcint:'Integral Calculus', alglin:'Linear Algebra',
+  matbas:'Pre-calculus', edo:'Differential Equations',
+  calcvec:'Multivariable Calculus', geovec:'Vector & Analytic Geometry', metnum:'Numerical Methods',
+  fundamentos:'Math Foundations', discretas:'Discrete Mathematics', especiales:'Advanced Mathematics'
+};
+function _simMatName(slug){
+  return ((window.curLang==='en')?_SIM_MAT_NAMES_EN:_SIM_MAT_NAMES)[slug]||slug;
+}
+window._SIM_MAT_NAMES=_SIM_MAT_NAMES;
+window._simMatName=_simMatName;
 })();
 
   </script>
@@ -15812,6 +15835,11 @@ html[data-theme="gray"]{
 .sidex-meta-badge::before{content:'Examen ';font-style:normal}
 .sidex-meta-code{font-family:'IBM Plex Mono',monospace;font-size:.78rem;color:var(--t3)}
 .sidex-meta-code::before{content:'Código curso ';font-style:italic}
+/* Estos ::before son texto fijo en español (no se pueden traducir por JS);
+   el texto que ya arma el JS para el badge ("Mock exam · Corte N") queda
+   redundante/mezclado con "Examen " delante. En inglés se quitan del todo. */
+html[lang="en"] .sidex-meta-badge::before,
+html[lang="en"] .sidex-meta-code::before{content:''}
 .exam-idbox{border:1.3px solid var(--pp-ink);border-top:none;border-radius:0;padding:.7rem 1.5rem;margin-bottom:1.6rem;display:grid;grid-template-columns:1fr 1fr;gap:.5rem 1.4rem;font-family:'EB Garamond',serif;font-size:.92rem;background:var(--pp-paper)}
 .exam-idbox .fld{display:flex;align-items:baseline;gap:.4rem}
 .exam-idbox .fld b{font-weight:600;white-space:nowrap;color:var(--pp-ink)}
@@ -15963,6 +15991,14 @@ html[data-theme="gray"]{
 #sidex-header .sidex-meta{display:flex;flex-direction:column;align-items:flex-end;gap:.25rem;border-top:none;padding-top:0}
 #sidex-header .sidex-meta-badge{font-family:'IBM Plex Mono',monospace;font-style:normal;font-size:.7rem;padding:.2rem .55rem;border-radius:5px;white-space:nowrap;background:var(--adim);border:1px solid var(--bra);color:var(--acc)}
 #sidex-header .sidex-meta-code{font-family:'IBM Plex Mono',monospace;font-style:normal;font-size:.7rem;color:var(--t3)}
+/* En inglés "Mock exam · Corte N" + "Cod. NNNNNNN" no caben junto al título
+   en una columna `auto` a 375px (el badge no envuelve por `white-space:
+   nowrap`) → overflow horizontal de toda la pantalla de examen. Se apila
+   la meta debajo del título en vez de al lado. */
+@media(max-width:520px){
+  #sidex-header{grid-template-columns:1fr}
+  #sidex-header .sidex-meta{align-items:flex-start;flex-direction:row;flex-wrap:wrap;gap:.5rem;margin-top:.4rem}
+}
 /* (el margin-top movil de #sidex-header se elimino: era redundante con
    .screen{padding-top:84px en movil} + el timer-bar que va justo antes) */
 /* (regla .q-opt-text duplicada de una ronda posterior: eliminada -- la version
@@ -16578,6 +16614,12 @@ html[data-theme="gray"]{
 }
 .fab-wa:hover{transform:scale(1.08);box-shadow:0 4px 20px rgba(37,211,102,.5)}
 .fab-wa:hover{transform:scale(1.08);box-shadow:0 6px 28px rgba(37,211,102,.5)}
+/* El pill flotante "Semana del Parcial" (bottom-left, siempre visible) choca
+   con botones en flujo de contenido angosto en móvil (ej. "Save my progress"
+   de la racha) — ya existe el mismo acceso como banner inline (.sp-cta "Ver
+   plan →"), así que en pantallas angostas se oculta el flotante y se deja
+   solo el banner in-page. */
+@media(max-width:640px){ .sp-fab{ display:none !important; } }
 
 /* Pastilla de navegación vertical (↑ arriba / ↓ al fondo) — aparece al
    scrollear, encima del FAB de WhatsApp */
@@ -21376,7 +21418,7 @@ if(!window.__muModalEsc){window.__muModalEsc=true;
 
 <a href="https://wa.me/573163480451?text=Hola%2C%20tengo%20una%20pregunta%20sobre%20MathUNAL" class="fab-wa" target="_blank" title="Escríbenos por WhatsApp" aria-label="Escríbenos por WhatsApp"><svg width="25" height="25" viewBox="0 0 24 24" fill="white" stroke="none" aria-hidden="true"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.075-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413z"/></svg></a>
 
-<div style="position:fixed;bottom:2rem;left:2rem;z-index:150;display:flex;flex-direction:column;gap:.6rem;align-items:flex-start">
+<div class="sp-fab" style="position:fixed;bottom:2rem;left:2rem;z-index:150;display:flex;flex-direction:column;gap:.6rem;align-items:flex-start">
   <button onclick="document.getElementById('weekModal').classList.add('open')"
     style="display:flex;align-items:center;gap:.4rem;background:var(--card2);border:1px solid var(--br);border-radius:999px;padding:.5rem .9rem;font-size:.76rem;font-weight:600;color:var(--t2);cursor:pointer;transition:all .2s;font-family:'Space Grotesk',system-ui,sans-serif;white-space:nowrap"
     onmouseover="this.style.borderColor='var(--bra)';this.style.color='var(--t1)'"
@@ -21739,7 +21781,7 @@ function renderSimPreview(){
   var EX=window.EXAMS||{}, EM=window.EXAM_META||{};
   var NAMES=window._SIM_MAT_NAMES||{calcdif:'Cálculo Diferencial',calcint:'Cálculo Integral',alglin:'Álgebra Lineal',matbas:'Matemáticas Básicas',edo:'Ecuaciones Diferenciales',calcvec:'Cálculo en Varias Variables',geovec:'Geometría Vectorial',metnum:'Métodos Numéricos',fundamentos:'Fundamentos de Matemáticas',discretas:'Matemáticas Discretas',especiales:'Matemáticas Especiales'};
   var SYM={calcdif:'∂',calcint:'∫',alglin:'[ ]',matbas:'π',edo:'λ',calcvec:'∇',geovec:'⟂',metnum:'≈',fundamentos:'∈',discretas:'∑',especiales:'∂²'};
-  var NAME_EN={calcdif:'Differential Calculus',calcint:'Integral Calculus',alglin:'Linear Algebra',matbas:'Basic Mathematics',edo:'Differential Equations',calcvec:'Multivariable Calculus',geovec:'Vector Geometry',metnum:'Numerical Methods',fundamentos:'Math Foundations',discretas:'Discrete Math',especiales:'Advanced Mathematics'};
+  var NAME_EN={calcdif:'Differential Calculus',calcint:'Integral Calculus',alglin:'Linear Algebra',matbas:'Pre-calculus',edo:'Differential Equations',calcvec:'Multivariable Calculus',geovec:'Vector & Analytic Geometry',metnum:'Numerical Methods',fundamentos:'Math Foundations',discretas:'Discrete Mathematics',especiales:'Advanced Mathematics'};
   var mats={}, order=[];
   Object.keys(EX).forEach(function(k){
     var e=EX[k]; if(e._corte||e._srs||e._reto) return;
@@ -23649,24 +23691,9 @@ function simViewToggle(btn,mode){
   _viewMode=mode;
   _renderCards();
 }
-/* nombres bonitos por slug de materia; el color sale de EXAM_META */
-var _SIM_MAT_NAMES={
-  calcdif:'Cálculo Diferencial', calcint:'Cálculo Integral', alglin:'Álgebra Lineal',
-  matbas:'Matemáticas Básicas', edo:'Ecuaciones Diferenciales',
-  calcvec:'Cálculo en Varias Variables', geovec:'Geometría Vectorial', metnum:'Métodos Numéricos',
-  fundamentos:'Fundamentos de Matemáticas', discretas:'Matemáticas Discretas', especiales:'Matemáticas Especiales'
-};
-var _SIM_MAT_NAMES_EN={
-  calcdif:'Differential Calculus', calcint:'Integral Calculus', alglin:'Linear Algebra',
-  matbas:'Basic Mathematics', edo:'Differential Equations',
-  calcvec:'Multivariable Calculus', geovec:'Vector Geometry', metnum:'Numerical Methods',
-  fundamentos:'Foundations of Mathematics', discretas:'Discrete Mathematics', especiales:'Special Mathematics'
-};
-function _simMatName(slug){
-  return ((window.curLang==='en')?_SIM_MAT_NAMES_EN:_SIM_MAT_NAMES)[slug]||slug;
-}
-window._SIM_MAT_NAMES=_SIM_MAT_NAMES;
-window._simMatName=_simMatName;
+/* nombres bonitos por slug de materia — definidos en el script persistente
+   (junto a _txCorte/_txTema, ver esa nota) para que estén listos desde el
+   primer render de home, no solo tras visitar #simulacro. */
 /* materias que tienen banco real, en orden de aparición en EXAM_META (calcdif primero) */
 function _simMatList(){
   var seen={}, out=[];
@@ -23701,7 +23728,7 @@ function _renderMatPills(){
   var opts='<option value="all">'+(_en?'All subjects':'Todas las materias')+'</option>';
   list.forEach(function(slug){
     opts+='<option value="'+slug+'"'+(_selFilter===slug?' selected':'')+'>'
-      +_simMatName(slug)+((window.SIM_TAX&&window.SIM_TAX[slug])?'  ·  PRO':'')+'</option>';
+      +window._simMatName(slug)+((window.SIM_TAX&&window.SIM_TAX[slug])?'  ·  PRO':'')+'</option>';
   });
   sel.innerHTML=opts;
   sel.value=_selFilter;
@@ -23712,7 +23739,7 @@ function _updateSimHeader(){
   var nEl=document.getElementById('sim-right-n');
   if(!tEl) return;
   var _enH=(window.curLang==='en');
-  var title=_selFilter==='all'?(_enH?'All mock exams':'Todos los simulacros'):_simMatName(_selFilter);
+  var title=_selFilter==='all'?(_enH?'All mock exams':'Todos los simulacros'):window._simMatName(_selFilter);
   var _tipoPlural=_enH?{'Parcial':'Exams','Quiz':'Quizzes','Taller':'Worksheets'}:{'Parcial':'Parciales','Quiz':'Quices','Taller':'Talleres'};
   if(_tipoFilter!=='all') title+=' · '+(_tipoPlural[_tipoFilter]||_tipoFilter+'s');
   tEl.textContent=title;
@@ -24000,7 +24027,7 @@ function _updateSidexHeader(){
   var sm=_el('sidex-materia'); if(sm) sm.textContent=_exam.titulo;
   var ss=_el('sidex-sem');     if(ss) ss.textContent=_exam.semestre;
   var sb=_el('sidex-tipo-badge'); if(sb) sb.textContent=meta.tipo||'Parcial';
-  var sc=_el('sidex-code');    if(sc) sc.textContent='Cod. '+(_exam.codigo||'—');
+  var sc=_el('sidex-code');    if(sc) sc.textContent=(window.curLang==='en'?'Code ':'Cod. ')+(_exam.codigo||'—');
 }
 
 /* ── TIMER ── */
@@ -34788,7 +34815,10 @@ window.__muRacha = (function(){
     /* si el pool cayó al banco completo (la materia tenía muy pocas), no mientas
        en el badge: muestra el examen real de donde salió la pregunta. */
     var fromSel = mSel!=='todas' && pd.key && (pd.key.indexOf(mSel+'_')===0 || pd.key===mSel);
+    var pdSlug = pd.key ? pd.key.split('_')[0] : null;
+    var pdMatEn = (en && pdSlug && window._simMatName) ? window._simMatName(pdSlug) : null;
     var badge = fromSel ? matName(mSel,en)
+              : pdMatEn ? pdMatEn
               : (pd.ex && pd.ex.titulo) ? pd.ex.titulo : (en?'Diaria':'Daily');
 
     /* selector de materia */
