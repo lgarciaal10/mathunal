@@ -15396,7 +15396,6 @@ html[data-theme="light"] .ht-bot{
 
 /* ── MATERIAS CARDS ── */
 .mat-uni-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:.9rem}
-@media(max-width:600px){.mat-uni-grid{grid-template-columns:1fr}}
 .mc{
   background:var(--card);border:2px solid var(--br2);border-radius:var(--radius);
   padding:1.6rem 1.5rem;display:flex;flex-direction:column;cursor:pointer;
@@ -15430,6 +15429,20 @@ html[data-theme="light"] .ht-bot{
 .mc-arrow{color:var(--acc);font-size:1.02rem;font-weight:600;transition:transform .2s,color .2s}
 .mc-tags{display:flex;gap:.28rem;flex-wrap:wrap;margin-bottom:.8rem}
 .mc-tag-item{font-size:.72rem;font-weight:600;padding:.13rem .48rem;border-radius:4px;border:2px solid var(--br);background:var(--lay1);color:var(--t3);letter-spacing:.02em}
+/* En móvil la descripción larga + los tags hacían que cada tarjeta ocupara
+   media pantalla -- "mucho texto" para simplemente escanear materias.
+   Se recorta a lo esencial (nombre, semestre, # PDFs, ir) en 2 columnas,
+   igual que se hizo con la grilla de Simulacros. */
+@media(max-width:600px){
+  .mat-uni-grid{grid-template-columns:1fr 1fr;gap:.6rem}
+  .mc{padding:1rem .9rem;min-height:0}
+  .mc-desc,.mc-tags{display:none}
+  .mc-title{font-size:.92rem;margin-bottom:.3rem}
+  .mc-sym{font-size:2.2rem}
+  .mc-foot{padding-top:.6rem}
+  .mc-pdfs{font-size:.66rem}
+  .mc-arrow{font-size:.9rem}
+}
 
 /* ── SIMULACROS HOME ── */
 .sim-top-bar{display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;margin-bottom:1.5rem}
@@ -15757,8 +15770,6 @@ footer{background:var(--bg2);border-top:1px solid var(--br);padding:4rem 3rem 2r
 .foot-wrap{max-width:1200px;margin:0 auto}
 .foot-g{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:3rem;margin-bottom:2.5rem}
 @media(max-width:900px){.foot-g{grid-template-columns:1fr 1fr;gap:2rem}}
-@media(max-width:480px){.foot-g{grid-template-columns:1fr};footer{padding:2.5rem 1.5rem 1.5rem}}
-
 .fbrand,.foot-brand{display:flex;flex-direction:column}
 .fbrand p,.foot-brand p{font-size:1.02rem;color:var(--t2);line-height:1.7;margin:.6rem 0 1rem}
 
@@ -15782,6 +15793,18 @@ footer{background:var(--bg2);border-top:1px solid var(--br);padding:4rem 3rem 2r
   opacity:.7;transition:opacity .18s;
 }
 .fcol ul li a:hover .fi-ico{opacity:1}
+/* Las 3 columnas de links (Comunidad/Contacto/Materias) se apilaban en una
+   sola columna larga en móvil -- se sentía como "mucho texto" para bajar.
+   .fbrand ocupa el ancho completo arriba; las 3 .fcol quedan en 2 columnas
+   compactas debajo (Materias, con más links, queda sola en su fila). */
+@media(max-width:480px){
+  .foot-g{grid-template-columns:1fr 1fr;gap:1.4rem 1.1rem}
+  .fbrand{grid-column:1/-1}
+  .fcol h4{font-size:.68rem;margin-bottom:.5rem}
+  .fcol ul{gap:.35rem}
+  .fcol ul li a{font-size:.85rem}
+  footer{padding:2.5rem 1.5rem 1.5rem}
+}
 
 .foot-b{
   display:flex;align-items:center;justify-content:space-between;
@@ -16794,6 +16817,7 @@ html[data-theme="gray"] .hero-bg .lg-blob-center{background:radial-gradient(elli
 .prom-add-btn{background:var(--adim);border:1px dashed var(--bra);border-radius:8px;padding:.45rem .9rem;font-size:1rem;font-weight:700;color:var(--acc);cursor:pointer;width:100%;text-align:left;font-family:inherit;transition:all .15s}
 .prom-add-btn:hover{background:var(--acc);color:#fff;border-style:solid}
 .prom-inp{width:100%;background:var(--bg);border:2px solid var(--br);border-radius:8px;padding:.45rem .65rem;font-size:1.02rem;color:var(--t1);font-family:inherit;transition:border-color .15s;outline:none}
+.prom-inp::placeholder{font-size:.82rem;color:var(--t3);opacity:.7}
 .prom-inp:focus{border-color:var(--bra)}
 .prom-del{background:none;border:none;color:var(--t3);cursor:pointer;font-size:1rem;padding:.6rem .7rem;border-radius:6px;transition:all .15s;min-width:40px;min-height:40px}
 .prom-del:hover{background:rgba(239,68,68,.12);color:#ef4444}
@@ -17090,7 +17114,7 @@ html[data-theme="light"] .sim-onb-date{color-scheme:light}
 .prom-row:first-child{border-top:none}
 @media(max-width:480px){
   .prom-thead,.prom-row,.prom-add-row{grid-template-columns:1fr 58px 62px 30px!important;gap:.3rem!important;padding:.4rem .5rem!important}
-  .prom-thead span:nth-child(2),.prom-thead span:nth-child(3){font-size:.56rem;white-space:normal;line-height:1.15;letter-spacing:0}
+  .prom-thead span:nth-child(2),.prom-thead span:nth-child(3){font-size:.62rem;white-space:normal;line-height:1.15;letter-spacing:0;font-weight:800;color:var(--t2)}
   .prom-inp{padding:.4rem .4rem;font-size:.92rem}
 }
 
@@ -19551,7 +19575,7 @@ body{animation:pageIn .6s ease}
 .mu-cal-seg.on{background:var(--acc);animation:muCalSeg .5s cubic-bezier(.22,1,.36,1) both}
 .mu-cal-seg.on:nth-child(1){animation-delay:.04s}.mu-cal-seg.on:nth-child(2){animation-delay:.08s}.mu-cal-seg.on:nth-child(3){animation-delay:.12s}.mu-cal-seg.on:nth-child(4){animation-delay:.16s}.mu-cal-seg.on:nth-child(5){animation-delay:.2s}.mu-cal-seg.on:nth-child(6){animation-delay:.24s}.mu-cal-seg.on:nth-child(7){animation-delay:.28s}.mu-cal-seg.on:nth-child(8){animation-delay:.32s}
 .mu-cal-nexts{display:grid;grid-template-columns:repeat(3,1fr);gap:.8rem;margin-bottom:.4rem}
-@media(max-width:620px){.mu-cal-nexts{grid-template-columns:1fr}}
+@media(max-width:620px){.mu-cal-nexts{grid-template-columns:1fr 1fr;gap:.55rem}.mu-cal-next{padding:.7rem .75rem}.mu-cal-next-cd{font-size:.95rem}.mu-cal-next-t{font-size:.8rem}}
 .mu-cal-next{background:var(--lay1);border:1px solid var(--br2);border-left:3px solid var(--dot,var(--acc));border-radius:11px;padding:.85rem .95rem;display:flex;flex-direction:column;gap:.28rem;animation:muCalRise .45s cubic-bezier(.22,1,.36,1) both;transition:transform .18s,border-color .18s}
 .mu-cal-next:nth-child(2){animation-delay:.09s}.mu-cal-next:nth-child(3){animation-delay:.18s}
 .mu-cal-next:hover{transform:translateY(-3px);border-color:var(--dot,var(--acc))}
