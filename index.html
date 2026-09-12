@@ -9349,7 +9349,8 @@ var SIM_NEW = {
     "$(6,5)$"
    ],
    "correcta": 0,
-   "resumen": "$x_v=-\\dfrac{b}{2a}$, luego evalúa."
+   "resumen": "$x_v=-\\dfrac{b}{2a}$, luego evalúa.",
+   "cx": "parabvertex"
   },
   {
    "id": "mb_c3_07",
@@ -9416,7 +9417,8 @@ var SIM_NEW = {
    "respuesta": "0.5",
    "unidad": "",
    "tolNum": 0.001,
-   "puntaje": 10
+   "puntaje": 10,
+   "cx": "trigunit"
   },
   {
    "id": "mb_c3_11",
@@ -10311,7 +10313,8 @@ var SIM_NEW = {
     "$q\\rightarrow p$"
    ],
    "correcta": 0,
-   "resumen": "El condicional se reescribe como disyunción: $p\\to q\\equiv\\neg p\\vee q$."
+   "resumen": "El condicional se reescribe como disyunción: $p\\to q\\equiv\\neg p\\vee q$.",
+   "cx": "truthtable"
   },
   {
    "id": "fu_c1_02",
@@ -10812,7 +10815,8 @@ var SIM_NEW = {
     "$\\{1\\}$"
    ],
    "correcta": 0,
-   "resumen": "Intersección = elementos que están en AMBOS."
+   "resumen": "Intersección = elementos que están en AMBOS.",
+   "cx": "vennops"
   },
   {
    "id": "fu_c2_11",
@@ -11446,7 +11450,8 @@ var SIM_NEW = {
    "respuesta": "1.5",
    "unidad": "",
    "tolNum": 0.001,
-   "puntaje": 10
+   "puntaje": 10,
+   "cx": "bisect"
   },
   {
    "id": "mn_c1_08",
@@ -11592,7 +11597,8 @@ var SIM_NEW = {
     "$x_{n+1}=x_n-f(x_n)\\,f'(x_n)$"
    ],
    "correcta": 0,
-   "resumen": "Se sigue la recta tangente en $x_n$ hasta que corta el eje $x$."
+   "resumen": "Se sigue la recta tangente en $x_n$ hasta que corta el eje $x$.",
+   "cx": "newtonstep"
   },
   {
    "id": "mn_c1_16",
@@ -12668,7 +12674,8 @@ var SIM_NEW = {
     "convergen más rápido que en los puntos de continuidad"
    ],
    "correcta": 0,
-   "resumen": "El \"overshoot\" del ~9% se estrecha pero no se reduce en amplitud."
+   "resumen": "El \"overshoot\" del ~9% se estrecha pero no se reduce en amplitud.",
+   "cx": "fourierbuild"
   },
   {
    "id": "es_c1_18",
@@ -13484,7 +13491,8 @@ var SIM_NEW = {
     "$e^{i\\pi/4}$"
    ],
    "correcta": 0,
-   "resumen": "$|z|=\\sqrt{1^2+1^2}=\\sqrt2$; $\\arg z=\\arctan(1/1)=\\pi/4$."
+   "resumen": "$|z|=\\sqrt{1^2+1^2}=\\sqrt2$; $\\arg z=\\arctan(1/1)=\\pi/4$.",
+   "cx": "complexpolar"
   },
   {
    "id": "es_c3_16",
@@ -14402,6 +14410,238 @@ window.__simLab={
   mount:function(host,id){
     if(W3[id]){ try{ W3[id](host); }catch(e){ host.innerHTML='<div class="sl-note">(no se pudo cargar el widget)</div>'; } }
     else base3.mount(host,id);
+  }
+};
+})();
+  </script>
+  <script>
+/* ═══════════════════════════════════════════════════════════════════════════
+   MathUNAL · Simulacros Pro — Laboratorio 4 (matbas / fundamentos / metnum / especiales)
+   Extiende window.__simLab con los widgets "Compruébalo tú mismo" de las 4
+   materias nivelatorias que aún no tenían ninguno.
+   ids: parabvertex trigunit · truthtable vennops · bisect newtonstep · fourierbuild complexpolar
+   ═══════════════════════════════════════════════════════════════════════════ */
+(function(){
+"use strict";
+function ns(t,a){ var n=document.createElementNS('http://www.w3.org/2000/svg',t); if(a) Object.keys(a).forEach(function(k){n.setAttribute(k,a[k]);}); return n; }
+function fmt(x,d){ d=(d==null?2:d); if(!isFinite(x)) return '0'; var v=Math.round(x*Math.pow(10,d))/Math.pow(10,d); return v.toString(); }
+function shell(host, opts){
+  host.innerHTML='';
+  var wrap=document.createElement('div'); wrap.className='sl-wrap';
+  var svg=document.createElementNS('http://www.w3.org/2000/svg','svg');
+  svg.setAttribute('viewBox','0 0 320 210'); svg.setAttribute('class','sl-svg');
+  var lbl=document.createElement('div'); lbl.className='sl-lbl'; lbl.textContent=opts.label||'';
+  var rng=document.createElement('input'); rng.type='range'; rng.className='sl-range';
+  rng.min=opts.min; rng.max=opts.max; rng.step=opts.step; rng.value=opts.def;
+  var out=document.createElement('div'); out.className='sl-out';
+  var note=document.createElement('div'); note.className='sl-note'; note.innerHTML=opts.note||'';
+  wrap.appendChild(svg); wrap.appendChild(lbl); wrap.appendChild(rng); wrap.appendChild(out); wrap.appendChild(note);
+  host.appendChild(wrap);
+  function upd(){ svg.innerHTML=''; opts.draw(svg, parseFloat(rng.value), out); }
+  rng.addEventListener('input', upd); upd();
+}
+function txt(svg,x,y,s,fill,anchor){ var t=ns('text',{x:fmt(x,1),y:fmt(y,1),fill:fill||'var(--t2)','font-size':s||10,'text-anchor':anchor||'middle'}); return t; }
+function poly(pts,stroke,w){ return ns('polyline',{points:pts.map(function(p){return fmt(p[0],1)+','+fmt(p[1],1);}).join(' '),fill:'none',stroke:stroke,'stroke-width':w||2,'stroke-linecap':'round','stroke-linejoin':'round'}); }
+
+var W4={
+
+ /* ───────────── MATEMÁTICAS BÁSICAS ───────────── */
+ parabvertex:function(host){
+  shell(host,{min:-6,max:6,step:0.2,def:-2,
+   label:'Coeficiente b  ·  y = x² + bx',
+   note:'El vértice de <b>y = x² + bx</b> está siempre en <b>x = −b/2</b> (completando el cuadrado: y = (x + b/2)² − b²/4). Ese −b/2 es la fórmula que usas para cualquier parábola.',
+   draw:function(svg,b,out){
+     var ox=160,oy=170,s=16;
+     function X(x){ return ox+x*s; } function Y(y){ return oy-y*s; }
+     svg.appendChild(ns('line',{x1:20,y1:oy,x2:300,y2:oy,stroke:'var(--t3)','stroke-width':0.6}));
+     svg.appendChild(ns('line',{x1:ox,y1:12,x2:ox,y2:195,stroke:'var(--t3)','stroke-width':0.6}));
+     var vx=-b/2, vy=vx*vx+b*vx;
+     var pts=[];
+     for(var x=-9;x<=9;x+=0.3){ var y=x*x+b*x; if(y<-2||y>10) continue; pts.push([X(x),Y(y)]); }
+     svg.appendChild(poly(pts,'var(--acc)',2.4));
+     svg.appendChild(ns('line',{x1:fmt(X(vx),1),y1:12,x2:fmt(X(vx),1),y2:195,stroke:'var(--t2)','stroke-width':1,'stroke-dasharray':'3 3'}));
+     svg.appendChild(ns('circle',{cx:fmt(X(vx),1),cy:fmt(Y(vy),1),r:4.5,fill:'var(--acc2)'}));
+     out.innerHTML='vértice en x = −b/2 = <b>'+fmt(vx,2)+'</b>  ·  y = <b>'+fmt(vy,2)+'</b>';
+   }});
+ },
+
+ trigunit:function(host){
+  shell(host,{min:0,max:6.28,step:0.03,def:0.9,
+   label:'Ángulo θ (radianes)',
+   note:'En el círculo unitario, el punto es <b>(cosθ, senθ)</b>. Por eso siempre se cumple <b>sen²θ + cos²θ = 1</b> — es el radio al cuadrado, que vale 1.',
+   draw:function(svg,th,out){
+     var cx=160,cy=105,R=75;
+     svg.appendChild(ns('circle',{cx:cx,cy:cy,r:R,fill:'none',stroke:'var(--t3)','stroke-width':1}));
+     svg.appendChild(ns('line',{x1:cx-R-15,y1:cy,x2:cx+R+15,y2:cy,stroke:'var(--t3)','stroke-width':0.6}));
+     svg.appendChild(ns('line',{x1:cx,y1:cy-R-15,x2:cx,y2:cy+R+15,stroke:'var(--t3)','stroke-width':0.6}));
+     var px=cx+Math.cos(th)*R, py=cy-Math.sin(th)*R;
+     svg.appendChild(ns('line',{x1:px,y1:py,x2:px,y2:cy,stroke:'var(--acc2)','stroke-width':2,'stroke-dasharray':'3 2'}));
+     svg.appendChild(ns('line',{x1:cx,y1:cy,x2:px,y2:cy,stroke:'var(--grn)','stroke-width':2,'stroke-dasharray':'3 2'}));
+     svg.appendChild(ns('line',{x1:cx,y1:cy,x2:fmt(px,1),y2:fmt(py,1),stroke:'var(--acc)','stroke-width':2.4}));
+     svg.appendChild(ns('circle',{cx:fmt(px,1),cy:fmt(py,1),r:4,fill:'var(--acc)'}));
+     var tc=txt(svg,(cx+px)/2,cy+14,10,'var(--grn)'); tc.textContent='cos'; svg.appendChild(tc);
+     var ts=txt(svg,px+16,(cy+py)/2,10,'var(--acc2)'); ts.textContent='sen'; svg.appendChild(ts);
+     out.innerHTML='θ = '+fmt(th,2)+' rad  ·  cosθ = <b>'+fmt(Math.cos(th),3)+'</b>  ·  senθ = <b>'+fmt(Math.sin(th),3)+'</b>  ·  suma² = '+fmt(Math.cos(th)*Math.cos(th)+Math.sin(th)*Math.sin(th),2);
+   }});
+ },
+
+ /* ───────────── FUNDAMENTOS DE MATEMÁTICAS ───────────── */
+ truthtable:function(host){
+  shell(host,{min:0,max:3,step:1,def:1,
+   label:'Fila de la tabla  ·  p → q',
+   note:'<b>p → q</b> solo es FALSA en el caso p=V, q=F (fila resaltada en rojo cuando cae ahí). En cualquier otro caso — incluido p=F — es verdadera.',
+   draw:function(svg,idx,out){
+     idx=Math.round(idx);
+     var rows=[[true,true],[true,false],[false,true],[false,false]];
+     var x0=90,y0=30,rw=140,rh=34;
+     ['p','q','p→q'].forEach(function(h,i){ var t=txt(svg,x0+i*rw/2.2+ (i===2?20:0),y0-10,11,'var(--t2)'); t.textContent=h; svg.appendChild(t); });
+     rows.forEach(function(r,i){
+       var p=r[0], q=r[1], imp=(!p)||q;
+       var y=y0+i*rh, hot=(i===idx);
+       svg.appendChild(ns('rect',{x:x0-10,y:y-20,width:rw+40,height:rh-4,fill:hot?(imp?'rgba(45,212,191,.14)':'rgba(239,68,68,.16)'):'var(--lay2)',stroke:hot?(imp?'var(--grn)':'var(--bad)'):'var(--br)','stroke-width':hot?1.6:1,rx:6}));
+       var tp=txt(svg,x0+10,y,12,'var(--t1)'); tp.textContent=p?'V':'F'; svg.appendChild(tp);
+       var tq=txt(svg,x0+65,y,12,'var(--t1)'); tq.textContent=q?'V':'F'; svg.appendChild(tq);
+       var ti=txt(svg,x0+135,y,12,hot?(imp?'var(--grn)':'var(--bad)'):'var(--t1)'); ti.textContent=imp?'V':'F'; svg.appendChild(ti);
+     });
+     var r=rows[idx];
+     out.innerHTML='p = '+(r[0]?'V':'F')+', q = '+(r[1]?'V':'F')+'  ·  p→q = <b>'+(((!r[0])||r[1])?'V':'F')+'</b>';
+   }});
+ },
+
+ vennops:function(host){
+  shell(host,{min:0,max:3,step:1,def:0,
+   label:'Operación  ·  0=A∩B 1=A∪B 2=A−B 3=B−A',
+   note:'Las cuatro operaciones básicas de conjuntos se leen directo del diagrama: la <b>intersección</b> es lo compartido, la <b>unión</b> es todo lo cubierto, y la <b>diferencia</b> es un círculo quitando lo que se solapa con el otro.',
+   draw:function(svg,op,out){
+     op=Math.round(op);
+     var caX=125,cbX=195,cy=110,r=58;
+     function clipBoth(){ return 'M'+ (caX+r*0.45)+' '+(cy-r*0.87)+' A'+r+' '+r+' 0 0 1 '+(caX+r*0.45)+' '+(cy+r*0.87)+' A'+r+' '+r+' 0 0 1 '+(caX+r*0.45)+' '+(cy-r*0.87)+' Z'; }
+     var names=['A ∩ B','A ∪ B','A − B','B − A'];
+     if(op===1){
+       svg.appendChild(ns('circle',{cx:caX,cy:cy,r:r,fill:'var(--acc)',opacity:0.3}));
+       svg.appendChild(ns('circle',{cx:cbX,cy:cy,r:r,fill:'var(--acc)',opacity:0.3}));
+     } else if(op===0){
+       svg.appendChild(ns('circle',{cx:caX,cy:cy,r:r,fill:'none',stroke:'var(--t3)','stroke-width':1.5}));
+       svg.appendChild(ns('circle',{cx:cbX,cy:cy,r:r,fill:'none',stroke:'var(--t3)','stroke-width':1.5}));
+       svg.appendChild(ns('path',{d:clipBoth(),fill:'var(--acc)',opacity:0.55}));
+     } else if(op===2){
+       var mA=document.createElementNS('http://www.w3.org/2000/svg','clipPath'); mA.setAttribute('id','sl-clipA');
+       svg.appendChild(ns('circle',{cx:cbX,cy:cy,r:r,fill:'none',stroke:'var(--t3)','stroke-width':1.5}));
+       svg.appendChild(ns('circle',{cx:caX,cy:cy,r:r,fill:'var(--acc)',opacity:0.55}));
+       svg.appendChild(ns('circle',{cx:cbX,cy:cy,r:r,fill:'var(--bg,#060B1E)',opacity:0.001}));
+       svg.appendChild(ns('path',{d:clipBoth(),fill:'var(--bg,#0E1D3C)'}));
+     } else {
+       svg.appendChild(ns('circle',{cx:caX,cy:cy,r:r,fill:'none',stroke:'var(--t3)','stroke-width':1.5}));
+       svg.appendChild(ns('circle',{cx:cbX,cy:cy,r:r,fill:'var(--acc)',opacity:0.55}));
+       svg.appendChild(ns('path',{d:clipBoth(),fill:'var(--bg,#0E1D3C)'}));
+     }
+     svg.appendChild(ns('circle',{cx:caX,cy:cy,r:r,fill:'none',stroke:'var(--t2)','stroke-width':1.3}));
+     svg.appendChild(ns('circle',{cx:cbX,cy:cy,r:r,fill:'none',stroke:'var(--t2)','stroke-width':1.3}));
+     var ta=txt(svg,caX-r+8,cy-r+14,12,'var(--t1)'); ta.textContent='A'; svg.appendChild(ta);
+     var tb=txt(svg,cbX+r-8,cy-r+14,12,'var(--t1)'); tb.textContent='B'; svg.appendChild(tb);
+     out.innerHTML='región sombreada = <b>'+names[op]+'</b>';
+   }});
+ },
+
+ /* ───────────── MÉTODOS NUMÉRICOS ───────────── */
+ bisect:function(host){
+  shell(host,{min:0,max:6,step:1,def:0,
+   label:'Iteración n  ·  f(x) = x² − 2  en [1, 2]',
+   note:'Cada paso parte el intervalo a la mitad y se queda con la mitad donde <b>f cambia de signo</b> (donde está la raíz). El intervalo se reduce a la mitad cada vez — por eso la cota de error es (b−a)/2ⁿ.',
+   draw:function(svg,n,out){
+     n=Math.round(n);
+     function f(x){ return x*x-2; }
+     var a=1,b=2,mids=[];
+     for(var i=0;i<n;i++){ var m=(a+b)/2; mids.push(m); if(f(a)*f(m)<0) b=m; else a=m; }
+     var mid=(a+b)/2;
+     var ox=30,oy=150,s=250;
+     function X(x){ return ox+(x-1)*s; }
+     svg.appendChild(ns('line',{x1:ox,y1:oy,x2:ox+s,y2:oy,stroke:'var(--t3)','stroke-width':1}));
+     svg.appendChild(ns('circle',{cx:fmt(X(Math.sqrt(2)),1),cy:oy,r:3,fill:'var(--grn)'}));
+     var traíz=txt(svg,X(Math.sqrt(2)),oy+22,9,'var(--grn)'); traíz.textContent='√2'; svg.appendChild(traíz);
+     svg.appendChild(ns('line',{x1:fmt(X(a),1),y1:oy-8,x2:fmt(X(a),1),y2:oy+8,stroke:'var(--acc)','stroke-width':2.5}));
+     svg.appendChild(ns('line',{x1:fmt(X(b),1),y1:oy-8,x2:fmt(X(b),1),y2:oy+8,stroke:'var(--acc)','stroke-width':2.5}));
+     svg.appendChild(ns('line',{x1:fmt(X(a),1),y1:oy,x2:fmt(X(b),1),y2:oy,stroke:'var(--acc)','stroke-width':3}));
+     svg.appendChild(ns('circle',{cx:fmt(X(mid),1),cy:oy,r:4.5,fill:'var(--acc2)'}));
+     for(var k=0;k<40;k++){ var xx=1+k/40, yy=oy-80-f(xx)*40; svg.appendChild(ns('circle',{cx:fmt(X(xx),1),cy:fmt(yy,1),r:0.6,fill:'var(--t3)'})); }
+     out.innerHTML='intervalo = ['+fmt(a,4)+', '+fmt(b,4)+']  ·  punto medio = <b>'+fmt(mid,4)+'</b>  ·  ancho = '+fmt(b-a,4)+' = 1/2^'+n;
+   }});
+ },
+
+ newtonstep:function(host){
+  shell(host,{min:0,max:4,step:1,def:0,
+   label:'Iteración n  ·  f(x) = x² − 2, x₀ = 1.5',
+   note:'Cada paso traza la <b>tangente</b> en xₙ y salta a donde esa tangente cruza el eje x: <b>xₙ₊₁ = xₙ − f(xₙ)/f\'(xₙ)</b>. Converge muchísimo más rápido que bisección (se duplican las cifras correctas cada paso).',
+   draw:function(svg,n,out){
+     n=Math.round(n);
+     function f(x){ return x*x-2; } function fp(x){ return 2*x; }
+     var x=1.5;
+     for(var i=0;i<n;i++){ x=x-f(x)/fp(x); }
+     var xn=x, xn1=x-f(x)/fp(x);
+     var ox=30,oy=150,s=140;
+     function X(v){ return ox+(v-0.5)*s; } function Y(v){ return oy-v*40; }
+     svg.appendChild(ns('line',{x1:ox,y1:oy,x2:ox+2.2*s,y2:oy,stroke:'var(--t3)','stroke-width':1}));
+     var pts=[]; for(var k=0;k<=60;k++){ var xx=0.5+k/60*2.2; pts.push([X(xx),Y(f(xx))]); }
+     svg.appendChild(poly(pts,'var(--t2)',1.6));
+     var slope=fp(xn), y1=f(xn)-slope*0.7, y2=f(xn)+slope*0.7;
+     svg.appendChild(ns('line',{x1:fmt(X(xn-0.7),1),y1:fmt(Y(y1),1),x2:fmt(X(xn+0.7),1),y2:fmt(Y(y2),1),stroke:'var(--acc2)','stroke-width':2}));
+     svg.appendChild(ns('circle',{cx:fmt(X(xn),1),cy:fmt(Y(f(xn)),1),r:4.5,fill:'var(--acc)'}));
+     svg.appendChild(ns('circle',{cx:fmt(X(xn1),1),cy:fmt(Y(0),1),r:4,fill:'var(--grn)'}));
+     svg.appendChild(ns('circle',{cx:fmt(X(Math.sqrt(2)),1),cy:fmt(Y(0),1),r:2.5,fill:'var(--t3)'}));
+     out.innerHTML='xₙ = <b>'+fmt(xn,6)+'</b>  ·  xₙ₊₁ = <b>'+fmt(xn1,6)+'</b>  ·  √2 = 1.414214…  ·  error = '+fmt(Math.abs(xn-Math.sqrt(2)),6);
+   }});
+ },
+
+ /* ───────────── MATEMÁTICAS ESPECIALES ───────────── */
+ fourierbuild:function(host){
+  shell(host,{min:1,max:19,step:2,def:1,
+   label:'Términos de la serie (N impares)  ·  onda cuadrada',
+   note:'A medida que se suman más términos impares (4/π)(sen x + sen3x/3 + …), la suma parcial se acerca a la onda cuadrada — pero cerca del salto siempre queda un <b>sobrepico ≈9%</b> que no desaparece: es el <b>fenómeno de Gibbs</b>.',
+   draw:function(svg,N,out){
+     N=Math.round(N);
+     var ox=20,oy=105,sx=44,sy=55;
+     svg.appendChild(ns('line',{x1:ox,y1:oy,x2:300,y2:oy,stroke:'var(--t3)','stroke-width':0.6}));
+     function sq(x){ var m=((x%(2*Math.PI))+2*Math.PI)%(2*Math.PI); return (m<Math.PI)?1:-1; }
+     svg.appendChild(ns('line',{x1:ox,y1:fmt(oy-sy,1),x2:fmt(ox+Math.PI*sx,1),y2:fmt(oy-sy,1),stroke:'var(--t3)','stroke-width':1,'stroke-dasharray':'2 3'}));
+     svg.appendChild(ns('line',{x1:fmt(ox+Math.PI*sx,1),y1:fmt(oy+sy,1),x2:fmt(ox+2*Math.PI*sx,1),y2:fmt(oy+sy,1),stroke:'var(--t3)','stroke-width':1,'stroke-dasharray':'2 3'}));
+     var pts=[];
+     for(var i=0;i<=140;i++){ var x=i/140*2*Math.PI; var sum=0; for(var k=1;k<=N;k+=2){ sum+=Math.sin(k*x)/k; } sum*=4/Math.PI;
+       pts.push([ox+x*sx, oy-sum*sy]); }
+     svg.appendChild(poly(pts,'var(--acc)',2));
+     var maxv=0; pts.forEach(function(p){ var v=(oy-p[1])/sy; if(v>maxv) maxv=v; });
+     out.innerHTML='N = '+N+' términos  ·  sobrepico máx ≈ <b>'+fmt((maxv-1)/2*100,1)+'% del salto</b>'+(N>=9?'  (Gibbs: se estanca ~9%, no baja)':'');
+   }});
+ },
+
+ complexpolar:function(host){
+  shell(host,{min:0,max:6.28,step:0.03,def:0.5,
+   label:'Argumento θ  ·  z = 1.5·e^(iθ)',
+   note:'Al elevar al cuadrado un complejo en forma polar, el <b>módulo se eleva al cuadrado</b> y el <b>argumento se duplica</b>: si z = r·e^(iθ), entonces z² = r²·e^(i2θ). Por eso multiplicar complejos gira y escala.',
+   draw:function(svg,th,out){
+     var cx=160,cy=110,s=44,r=1.5;
+     svg.appendChild(ns('circle',{cx:cx,cy:cy,r:fmt(r*s,1),fill:'none',stroke:'var(--t3)','stroke-width':0.8,'stroke-dasharray':'2 3'}));
+     svg.appendChild(ns('line',{x1:cx-140,y1:cy,x2:cx+140,y2:cy,stroke:'var(--t3)','stroke-width':0.6}));
+     svg.appendChild(ns('line',{x1:cx,y1:cy-95,x2:cx,y2:cy+95,stroke:'var(--t3)','stroke-width':0.6}));
+     var zx=cx+r*s*Math.cos(th), zy=cy-r*s*Math.sin(th);
+     var z2th=2*th, z2r=r*r;
+     var z2x=cx+Math.min(z2r*s,138)*Math.cos(z2th), z2y=cy-Math.min(z2r*s,95)*Math.sin(z2th);
+     svg.appendChild(ns('line',{x1:cx,y1:cy,x2:fmt(z2x,1),y2:fmt(z2y,1),stroke:'var(--grn)','stroke-width':2,'stroke-dasharray':'4 2'}));
+     svg.appendChild(ns('circle',{cx:fmt(z2x,1),cy:fmt(z2y,1),r:4,fill:'var(--grn)'}));
+     svg.appendChild(ns('line',{x1:cx,y1:cy,x2:fmt(zx,1),y2:fmt(zy,1),stroke:'var(--acc)','stroke-width':2.6}));
+     svg.appendChild(ns('circle',{cx:fmt(zx,1),cy:fmt(zy,1),r:4.5,fill:'var(--acc)'}));
+     var tz=txt(svg,zx+14,zy-6,11,'var(--acc)'); tz.textContent='z'; svg.appendChild(tz);
+     var tz2=txt(svg,z2x+14,z2y-6,11,'var(--grn)'); tz2.textContent='z²'; svg.appendChild(tz2);
+     out.innerHTML='z = 1.5∠'+fmt(th*180/Math.PI,0)+'°  ·  <b>z² = '+fmt(z2r,2)+'∠'+fmt((z2th*180/Math.PI)%360,0)+'°</b>';
+   }});
+ }
+};
+
+var base4=window.__simLab || {has:function(){return false;},mount:function(){}};
+window.__simLab={
+  has:function(id){ return !!W4[id] || base4.has(id); },
+  mount:function(host,id){
+    if(W4[id]){ try{ W4[id](host); }catch(e){ host.innerHTML='<div class="sl-note">(no se pudo cargar el widget)</div>'; } }
+    else base4.mount(host,id);
   }
 };
 })();
