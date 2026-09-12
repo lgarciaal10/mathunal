@@ -13684,6 +13684,67 @@ window.SIM_TAX = SIM_TAX;
 window.SIM_META = SIM_META;
 window.SIM_SOL = SIM_SOL;
 window.SIM_NEW = SIM_NEW;
+/* i18n de SIM_TAX: nombre de cada corte (por materia+corte) y de cada tema
+   (plano, el mismo tema se traduce igual sin importar en qué materia salga).
+   Vive aquí (script que corre al cargar la página) y NO en tpl-simulacro
+   (que solo se ejecuta al navegar a #simulacro) porque __simBuildCorte/
+   __simBuildCustom ya llaman a estas funciones al construir los corte-sims
+   en el merge de más abajo, mucho antes de que el usuario visite esa página. */
+var _CORTE_NOMBRE_EN={
+ 'calcdif|1':'Functions, limits and continuity','calcdif|2':'The derivative and its rules','calcdif|3':'Applications of the derivative',
+ 'calcint|1':'Definite integral and basic techniques','calcint|2':'Advanced and improper techniques','calcint|3':'Applications, polar coordinates and series',
+ 'alglin|1':'Matrices, determinants and systems','alglin|2':'Vector spaces and transformations','alglin|3':'Orthogonality and eigenvalues',
+ 'edo|1':'First-order ODEs','edo|2':'Higher order and constant coefficients','edo|3':'Laplace transforms, systems and series',
+ 'calcvec|1':'Differential calculus in several variables','calcvec|2':'Multiple integrals','calcvec|3':'Vector calculus',
+ 'geovec|1':'Vectors and lines in the plane','geovec|2':'Vectors in space','geovec|3':'Lines, planes and conics',
+ 'discretas|1':'Logic and proof','discretas|2':'Sets, counting and combinatorics','discretas|3':'Recurrences, graphs and number theory',
+ 'matbas|1':'Algebra and expressions','matbas|2':'Equations, inequalities and systems','matbas|3':'Functions, trigonometry and analytic geometry',
+ 'fundamentos|1':'Logic and argumentation','fundamentos|2':'Proof and sets','fundamentos|3':'Relations and functions',
+ 'metnum|1':'Errors and nonlinear equations','metnum|2':'Linear systems and interpolation','metnum|3':'Curve fitting, integration and differential equations',
+ 'especiales|1':'Fourier Series','especiales|2':'Fourier Transform and Evolution PDEs','especiales|3':'Laplace’s Equation and Complex Variables'
+};
+var _TEMA_EN={
+ 'Límites algebraicos':'Algebraic limits','Límites indeterminados':'Indeterminate limits','Límites notables':'Special limits','Límites al infinito':'Limits at infinity','Continuidad':'Continuity','Asíntotas':'Asymptotes',
+ 'Definición de derivada':'Definition of the derivative','Reglas de derivación':'Differentiation rules','Regla de la cadena':'Chain rule','Derivación implícita':'Implicit differentiation','Derivación logarítmica':'Logarithmic differentiation','Derivadas de orden superior':'Higher-order derivatives','Recta tangente y normal':'Tangent and normal lines','Aproximación lineal':'Linear approximation','Razón de cambio':'Rates of change','Movimiento rectilíneo':'Rectilinear motion',
+ "Regla de L'Hôpital":"L'Hôpital's rule",'Valores extremos':'Extreme values','Optimización':'Optimization','Teorema del valor medio':'Mean value theorem','Análisis de gráficas':'Curve sketching','Monotonía y concavidad':'Monotonicity and concavity','Método de Newton':"Newton's method",'Teorema fundamental del cálculo':'Fundamental theorem of calculus',
+ 'Integral definida y TFC':'Definite integral and FTC','Sustitución':'Substitution','Integración por partes':'Integration by parts','Área entre curvas':'Area between curves',
+ 'Integrales trigonométricas':'Trigonometric integrals','Sustitución trigonométrica':'Trigonometric substitution','Fracciones parciales':'Partial fractions','Integrales impropias':'Improper integrals',
+ 'Volúmenes de revolución':'Volumes of revolution','Longitud de arco y superficies':'Arc length and surfaces','Trabajo y valor promedio':'Work and average value','Coordenadas polares':'Polar coordinates','Sucesiones y series':'Sequences and series',
+ 'Matrices y operaciones':'Matrices and operations','Determinantes':'Determinants','Sistemas de ecuaciones lineales':'Systems of linear equations','Eliminación de Gauss-Jordan':'Gauss-Jordan elimination',
+ 'Independencia lineal, base y dimensión':'Linear independence, basis and dimension','Espacios fundamentales y rango':'Fundamental spaces and rank','Transformaciones lineales':'Linear transformations','Producto punto y proyección':'Dot product and projection',
+ 'Gram-Schmidt y ortogonalidad':'Gram-Schmidt and orthogonality','Valores y vectores propios':'Eigenvalues and eigenvectors','Diagonalización':'Diagonalization','Matrices simétricas y formas cuadráticas':'Symmetric matrices and quadratic forms',
+ 'Variables separables':'Separable variables','EDO lineal de primer orden':'First-order linear ODE','Exactas y factor integrante':'Exact equations and integrating factor','Bernoulli y sustituciones':'Bernoulli equations and substitutions','Autónomas y estabilidad':'Autonomous equations and stability','Existencia y unicidad':'Existence and uniqueness',
+ 'Homogénea con coeficientes constantes':'Homogeneous with constant coefficients','Coeficientes indeterminados':'Undetermined coefficients','Reducción de orden y Wronskiano':'Reduction of order and Wronskian','Cauchy-Euler':'Cauchy-Euler equation',
+ 'Transformada de Laplace':'Laplace transform','Laplace inversa y PVI':'Inverse Laplace and IVPs','Función escalón y delta de Dirac':'Step function and Dirac delta','Sistemas lineales y plano fase':'Linear systems and phase plane','Series y problemas de frontera':'Series and boundary value problems',
+ 'Dominio, límites y continuidad':'Domain, limits and continuity','Derivadas parciales':'Partial derivatives','Gradiente y derivada direccional':'Gradient and directional derivative','Plano tangente y linealización':'Tangent plane and linearization','Máximos y mínimos (Hessiano)':'Maxima and minima (Hessian)','Multiplicadores de Lagrange':'Lagrange multipliers',
+ 'Integrales dobles y cambio de orden':'Double integrals and order reversal','Integrales triples':'Triple integrals','Coordenadas cilíndricas y esféricas':'Cylindrical and spherical coordinates','Cambio de variable y jacobiano':'Change of variables and Jacobian','Aplicaciones (masa, centroide, inercia)':'Applications (mass, centroid, inertia)',
+ 'Campos vectoriales e integrales de línea':'Vector fields and line integrals','Teorema de Green':"Green's theorem",'Rotacional y divergencia':'Curl and divergence','Integrales de superficie y flujo':'Surface integrals and flux','Teoremas de Stokes y de la Divergencia':"Stokes' and Divergence theorems",
+ 'Vectores en el plano':'Vectors in the plane','Rectas en el plano':'Lines in the plane','Área y aplicaciones':'Area and applications',
+ 'Vectores en R³ y producto punto':'Vectors in R³ and dot product','Producto vectorial (cruz)':'Cross product','Triple producto escalar y volumen':'Scalar triple product and volume','Combinaciones lineales y dependencia':'Linear combinations and dependence',
+ 'Planos en el espacio':'Planes in space','Rectas en el espacio e intersecciones':'Lines in space and intersections','Distancias en R³':'Distances in R³','Cónicas y coordenadas polares':'Conics and polar coordinates',
+ 'Lógica proposicional':'Propositional logic','Cuantificadores y predicados':'Quantifiers and predicates','Métodos de demostración':'Proof methods','Inducción matemática':'Mathematical induction',
+ 'Teoría de conjuntos e inclusión-exclusión':'Set theory and inclusion-exclusion','Principios de conteo':'Counting principles','Permutaciones y combinaciones':'Permutations and combinations','Probabilidad discreta':'Discrete probability',
+ 'Relaciones de recurrencia':'Recurrence relations','Funciones generatrices':'Generating functions','Teoría de grafos':'Graph theory','Aritmética modular y Euclides':"Modular arithmetic and Euclid's algorithm",
+ 'Exponentes y radicales':'Exponents and radicals','Productos notables y factorización':'Special products and factoring','Fracciones algebraicas':'Algebraic fractions','Polinomios y división':'Polynomials and division',
+ 'Ecuaciones lineales y cuadráticas':'Linear and quadratic equations','Ecuaciones con radicales y valor absoluto':'Radical and absolute-value equations','Ecuaciones exponenciales y logarítmicas':'Exponential and logarithmic equations','Inecuaciones':'Inequalities','Sistemas de ecuaciones':'Systems of equations',
+ 'Funciones: dominio, rango e inversa':'Functions: domain, range and inverse','Función lineal y cuadrática':'Linear and quadratic functions','Trigonometría':'Trigonometry','Geometría analítica (recta y circunferencia)':'Analytic geometry (line and circle)',
+ 'Formas de argumento e inferencia':'Argument forms and inference',
+ 'Operaciones con conjuntos':'Set operations','Álgebra de conjuntos y conjunto potencia':'Set algebra and power set',
+ 'Relaciones y sus propiedades':'Relations and their properties','Relaciones de equivalencia':'Equivalence relations','Funciones: inyectiva, sobreyectiva, biyectiva':'Functions: injective, surjective, bijective','Imagen e imagen inversa':'Image and inverse image','Cardinalidad y conteo':'Cardinality and counting',
+ 'Errores y aritmética de punto flotante':'Errors and floating-point arithmetic','Bisección y regla falsa':'Bisection and false position','Iteración de punto fijo':'Fixed-point iteration','Newton-Raphson y secante':'Newton-Raphson and secant method',
+ 'Eliminación gaussiana y factorización LU':'Gaussian elimination and LU factorization','Métodos iterativos (Jacobi, Gauss-Seidel, SOR)':'Iterative methods (Jacobi, Gauss-Seidel, SOR)','Normas y número de condición':'Norms and condition number','Interpolación polinómica':'Polynomial interpolation',
+ 'Mínimos cuadrados y ajuste de curvas':'Least squares and curve fitting','Splines':'Splines','Integración numérica':'Numerical integration','Diferenciación numérica y EDO':'Numerical differentiation and ODEs',
+ 'Funciones periódicas y ortogonalidad':'Periodic functions and orthogonality','Coeficientes de Fourier y simetrías':'Fourier coefficients and symmetries','Convergencia de Dirichlet y fenómeno de Gibbs':'Dirichlet convergence and Gibbs phenomenon','Series de senos y cosenos':'Sine and cosine series','Identidad de Parseval y sumas de series':"Parseval's identity and series sums",
+ 'Integral de Fourier':'Fourier integral','Transformada de Fourier y propiedades':'Fourier transform and properties','Ecuación de onda: cuerda vibrante':'Wave equation: vibrating string','Fórmula de D’Alembert':"D'Alembert's formula",'Ecuación de calor':'Heat equation',
+ 'Ecuación de Laplace y problemas de frontera':"Laplace's equation and boundary value problems",'Sturm-Liouville y clasificación de EDP':'Sturm-Liouville and PDE classification','Números complejos y funciones analíticas':'Complex numbers and analytic functions','Ecuaciones de Cauchy-Riemann y mapeos':'Cauchy-Riemann equations and mappings','Integración compleja y residuos':'Complex integration and residues'
+};
+function _txCorte(slug,corte,nombreEs){
+  if(window.curLang!=='en') return nombreEs;
+  return _CORTE_NOMBRE_EN[slug+'|'+corte] || nombreEs;
+}
+function _txTema(t){ return (window.curLang==='en') ? (_TEMA_EN[t]||t) : t; }
+function _txTemas(arr){ return (arr||[]).map(_txTema); }
+window._txCorte=_txCorte; window._txTema=_txTema; window._txTemas=_txTemas;
 })();
 
   </script>
@@ -23828,7 +23889,7 @@ function _simPmodeInit(){
   if(sel){
     var withQ = temas.filter(function(t){ return tCount(t)>0; });
     sel.innerHTML='<option value="">'+(en?'— pick a topic —':'— elige un tema —')+'</option>'
-      + withQ.map(function(t){ return '<option value="'+String(t).replace(/"/g,'&quot;')+'">'+t+' ('+tCount(t)+')</option>'; }).join('');
+      + withQ.map(function(t){ return '<option value="'+String(t).replace(/"/g,'&quot;')+'">'+window._txTema(t)+' ('+tCount(t)+')</option>'; }).join('');
     sel.style.display='none';
     sel.onchange=function(){ window._simPmode={mode:'tema',tema:sel.value||null}; _simApplyPmode(); };
     var temaBtn=host.querySelector('.sim-pmode-b[data-m="tema"]');
@@ -27435,9 +27496,9 @@ function _diagMostrarResultados(){
       var lbl = en ? (nivel==='critico'?'Critical':(nivel==='mejorar'?'Improve':'Solid')) : (nivel==='critico'?'Crítico':(nivel==='mejorar'?'Mejorar':'Sólido'));
       var label, sub;
       if(d.corte){
-        var cn=(_cortesNom[d.corte]&&_cortesNom[d.corte].nombre)||'';
+        var cn=window._txCorte(_slugDiag, d.corte, (_cortesNom[d.corte]&&_cortesNom[d.corte].nombre)||'');
         label='Corte '+d.corte+(cn?(' · '+cn):'');
-        sub=(d.temas&&d.temas.length)?(en?'Topics: ':'Temas: ')+d.temas.join(' · '):'';
+        sub=(d.temas&&d.temas.length)?(en?'Topics: ':'Temas: ')+window._txTemas(d.temas).join(' · '):'';
       } else {
         label=d.tema || ((d.examTitulo||'')+(meta.tipo?(' — '+meta.tipo):''));
         sub='';
@@ -31811,14 +31872,15 @@ window.__SIMPRO_DEV = /[?&]simpro=1/.test(location.href) || !!window.__SIM_LOCAL
     while(pick.length<Math.min(9,all.length) && idx<all.length){ if(pick.indexOf(all[idx])<0) pick.push(all[idx]); idx++; }
     var tax=TAX[slug], cinfo=tax.cortes[corte];
     var mins=pick.reduce(function(a,q){return a+(q.tEsp?q.tEsp/60:(q.tipo==='abierta'?8:2));},0);
+    var _matN=(window._simMatName?window._simMatName(slug):tax.materia);
     EX[key]={
-      titulo:tax.materia,
-      semestre:cinfo.nombre.toUpperCase()+' · CORTE '+corte+' ('+cinfo.pct+'%)',
+      titulo:_matN,
+      semestre:window._txCorte(slug,corte,cinfo.nombre).toUpperCase()+' · CORTE '+corte+' ('+cinfo.pct+'%)',
       codigo:tax.codigo, tiempo:Math.max(20,Math.round(mins/5)*5),
-      desc:cinfo.temas.slice(0,4).join(', ')+'.',
+      desc:window._txTemas(cinfo.temas).slice(0,4).join(', ')+'.',
       preguntas:pick, _corte:corte, _slug:slug
     };
-    EM[key]={mat:slug,color:((EM[slug+'_p1']||{}).color)||'#E05D1A',badge:tax.materia,tipo:'Simulacro · Corte '+corte,nuevo:true,_corteSim:true,_ord:-10+corte};
+    EM[key]={mat:slug,color:((EM[slug+'_p1']||{}).color)||'#E05D1A',badge:_matN,tipo:(_en()?'Mock exam · Corte ':'Simulacro · Corte ')+corte,nuevo:true,_corteSim:true,_ord:-10+corte};
     return key;
   };
 
@@ -31838,7 +31900,7 @@ window.__SIMPRO_DEV = /[?&]simpro=1/.test(location.href) || !!window.__SIM_LOCAL
       pick=shuffle(pool.filter(function(q){return (q.tema||q.t)===tema;})).slice(0,12);
       if(!pick.length) return null;
       key=slug+'_c'+corte+'_tema';
-      tipo=(_en()?'Practice · ':'Práctica · ')+tema;
+      tipo=(_en()?'Practice · ':'Práctica · ')+window._txTema(tema);
     } else if(mode==='aleatorio'){
       pick=shuffle(pool).slice(0, Math.min(10, pool.length));
       key=slug+'_c'+corte+'_rnd';
@@ -31855,14 +31917,15 @@ window.__SIMPRO_DEV = /[?&]simpro=1/.test(location.href) || !!window.__SIM_LOCAL
       return window.__simBuildCorte(slug,corte);
     }
     var mins=pick.reduce(function(a,q){return a+(q.tEsp?q.tEsp/60:(q.tipo==='abierta'?8:2));},0);
+    var _matN2=(window._simMatName?window._simMatName(slug):tax.materia);
     EX[key]={
-      titulo:tax.materia,
-      semestre:(mode==='tema'? String(tema).toUpperCase() : ((cinfo.nombre||'').toUpperCase()))+' · CORTE '+corte,
+      titulo:_matN2,
+      semestre:(mode==='tema'? window._txTema(tema).toUpperCase() : (window._txCorte(slug,corte,cinfo.nombre||'').toUpperCase()))+' · CORTE '+corte,
       codigo:tax.codigo, tiempo:Math.max(10,Math.round(mins/5)*5),
-      desc:(mode==='tema'? tema : (cinfo.temas||[]).slice(0,4).join(', '))+'.',
+      desc:(mode==='tema'? window._txTema(tema) : window._txTemas(cinfo.temas||[]).slice(0,4).join(', '))+'.',
       preguntas:pick, _corte:corte, _slug:slug, _modo:mode, _tema:tema||null
     };
-    EM[key]={mat:slug,color:((EM[slug+'_p1']||{}).color)||'#E05D1A',badge:tax.materia,tipo:tipo,nuevo:false,_corteSim:true,_ord:-9+corte,_hidden:true};
+    EM[key]={mat:slug,color:((EM[slug+'_p1']||{}).color)||'#E05D1A',badge:_matN2,tipo:tipo,nuevo:false,_corteSim:true,_ord:-9+corte,_hidden:true};
     return key;
   };
 
@@ -31874,6 +31937,42 @@ window.__SIMPRO_DEV = /[?&]simpro=1/.test(location.href) || !!window.__SIM_LOCAL
       catch(e){ try{ console.error('[simpro] buildCorte '+slug+' c'+c+':', e); }catch(_){} }
     });
   });
+
+  /* Los corte-sims (y los "Un tema"/"Aleatorio"/"Repaso rápido" ya construidos)
+     se arman UNA vez y quedan cacheados en EX[key]/EM[key] — si el usuario
+     cambia de idioma después de que ya se construyeron (el caso normal, ya
+     que el prebuild de arriba corre en el idioma con el que cargó la página),
+     su título/corte/temas se quedarían pegados en el idioma viejo. setLang
+     llama a esto para re-derivarlos con el idioma actual, igual que ya hace
+     con __simMergeSol() para el contenido Pro. */
+  window.__simRetagTax=function(){
+    Object.keys(EM).forEach(function(key){
+      var meta=EM[key]; if(!meta || !meta._corteSim) return;
+      var ex=EX[key]; if(!ex) return;
+      var slug=ex._slug, corte=ex._corte, tax=TAX[slug]; if(!tax) return;
+      var cinfo=(tax.cortes||{})[corte]||{};
+      var matN=(window._simMatName?window._simMatName(slug):tax.materia);
+      ex.titulo=matN;
+      meta.badge=matN;
+      if(ex._modo==='tema' && ex._tema){
+        ex.semestre=window._txTema(ex._tema).toUpperCase()+' · CORTE '+corte;
+        ex.desc=window._txTema(ex._tema)+'.';
+        meta.tipo=(_en()?'Practice · ':'Práctica · ')+window._txTema(ex._tema);
+      } else if(ex._modo==='aleatorio'){
+        ex.semestre=window._txCorte(slug,corte,cinfo.nombre||'').toUpperCase()+' · CORTE '+corte;
+        ex.desc=window._txTemas(cinfo.temas||[]).slice(0,4).join(', ')+'.';
+        meta.tipo=(_en()?'Random · Corte ':'Aleatorio · Corte ')+corte;
+      } else if(ex._modo==='micro'){
+        ex.semestre=window._txCorte(slug,corte,cinfo.nombre||'').toUpperCase()+' · CORTE '+corte;
+        ex.desc=window._txTemas(cinfo.temas||[]).slice(0,4).join(', ')+'.';
+        meta.tipo=(_en()?'Quick review · Corte ':'Repaso rápido · Corte ')+corte;
+      } else {
+        ex.semestre=window._txCorte(slug,corte,cinfo.nombre).toUpperCase()+' · CORTE '+corte+' ('+cinfo.pct+'%)';
+        ex.desc=window._txTemas(cinfo.temas).slice(0,4).join(', ')+'.';
+        meta.tipo=(_en()?'Mock exam · Corte ':'Simulacro · Corte ')+corte;
+      }
+    });
+  };
 
   /* 5a. hook de _renderExpl: Antibobo + cómo reconocerlo + frecuencia + Compruébalo */
   window.__simExplHook=function(idx){
@@ -31981,9 +32080,9 @@ window.__SIMPRO_DEV = /[?&]simpro=1/.test(location.href) || !!window.__SIM_LOCAL
     if(qs.length<3) return null;
     var tax=(window.SIM_TAX||{})[slug]||{}, cinfo=(tax.cortes||{})[corte]||{};
     var mins=qs.reduce(function(a,q){return a+(q.tEsp?q.tEsp/60:(q.tipo==='abierta'?8:2));},0);
-    EX['reto_x']={ titulo:tax.materia||'Reto', semestre:(_en()?'A FRIEND’S CHALLENGE':'RETO DE UN AMIGO')+(corte?(' · CORTE '+corte):''),
+    EX['reto_x']={ titulo:(window._simMatName?window._simMatName(slug):tax.materia)||'Reto', semestre:(_en()?'A FRIEND’S CHALLENGE':'RETO DE UN AMIGO')+(corte?(' · CORTE '+corte):''),
       codigo:tax.codigo||'1000004', tiempo:Math.max(15,Math.round(mins/5)*5),
-      desc:(cinfo.temas||[]).slice(0,4).join(', ')||_t('Mismas preguntas que tu amigo.','The same questions as your friend.'), preguntas:qs,
+      desc:window._txTemas(cinfo.temas||[]).slice(0,4).join(', ')||_t('Mismas preguntas que tu amigo.','The same questions as your friend.'), preguntas:qs,
       _reto:true, _corte:corte, _slug:slug };
     EM['reto_x']={mat:slug,color:'#E05D1A',badge:_t('Reto','Challenge'),tipo:_t('Reto de un amigo','Friend challenge'),nuevo:false,_ord:-30};
     return 'reto_x';
@@ -32211,7 +32310,7 @@ window.__SIMPRO_DEV = /[?&]simpro=1/.test(location.href) || !!window.__SIM_LOCAL
       var banda = cal ? cal.sd : 0.45;
       var lo5 = Math.max(0, centro-banda-0.1), hi5 = Math.min(5, centro+banda*0.7);
       var realNota=(window.__simRealNotaDe&&window.__simRealNotaDe(slug,corte));
-      out.push({slug:slug, corte:corte, nombre:cinfo.nombre||('Corte '+corte), pct:cinfo.pct,
+      out.push({slug:slug, corte:corte, nombre:window._txCorte(slug,corte,cinfo.nombre)||('Corte '+corte), pct:cinfo.pct,
         score:score, conocimiento:Math.round(conocimiento*100), velocidad:Math.round(velocidad*100),
         cobertura:Math.round(cobertura*100), ciego:ciego, cieboP:Math.round(lo*100), listo:listo,
         intentos:arr.length, notas:notas, temas:tt, predLo:lo5, predHi:hi5,
@@ -32258,7 +32357,7 @@ window.__SIMPRO_DEV = /[?&]simpro=1/.test(location.href) || !!window.__SIM_LOCAL
           ? '<div class="sim-prep-realq" data-slug="'+d.slug+'" data-corte="'+d.corte+'">'+_t('¿Ya presentaste? ¿Qué nota sacaste de verdad?','Already sat it? What grade did you actually get?')+' '+
             [2.0,2.5,3.0,3.5,4.0,4.5,5.0].map(function(n){return '<button class="sim-realq-b" data-n="'+n+'">'+n.toFixed(1)+'</button>';}).join('')+'</div>'
           : '')+
-        (d.ciego?'<div class="sim-prep-ciego">'+_t('Tu punto ciego: <b>'+d.ciego+'</b> — '+d.cieboP+'% en '+d.intentos+' intentos. No es mala suerte, repásalo.','Your blind spot: <b>'+d.ciego+'</b> — '+d.cieboP+'% over '+d.intentos+' attempts. Not bad luck, review it.')+'</div>':'')+
+        (d.ciego?'<div class="sim-prep-ciego">'+_t('Tu punto ciego: <b>'+d.ciego+'</b> — '+d.cieboP+'% en '+d.intentos+' intentos. No es mala suerte, repásalo.','Your blind spot: <b>'+window._txTema(d.ciego)+'</b> — '+d.cieboP+'% over '+d.intentos+' attempts. Not bad luck, review it.')+'</div>':'')+
       '</div>';
     });
     h+='</div>';
@@ -34059,6 +34158,9 @@ function setLang(lang){
       }
     }
   }catch(e){}
+  /* Nombres de corte/tema de los corte-sims ya construidos (SIM_TAX) — se
+     re-derivan con el idioma actual; ver nota junto a __simRetagTax. */
+  try{ if(window.__simRetagTax) window.__simRetagTax(); }catch(e){}
 
   /* Guardar preferencia */
   try{ localStorage.setItem('mu-lang', lang); }catch(e){}
