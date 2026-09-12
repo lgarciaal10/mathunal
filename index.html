@@ -19399,6 +19399,15 @@ body{animation:pageIn .6s ease}
 .mu-rc-done-tx b{color:var(--t1);font-size:.95rem}
 .mu-rc-done-tx span{color:var(--t2);font-size:.82rem;line-height:1.5}
 .mu-rc-stats{margin-top:.9rem;padding-top:.8rem;border-top:1px solid var(--br2);font-size:.78rem;color:var(--t3);font-family:'IBM Plex Mono',monospace}
+.mu-rc-week{display:flex;gap:.35rem;margin-top:.7rem}
+.mu-rc-wd{flex:1;display:flex;flex-direction:column;align-items:center;gap:.25rem}
+.mu-rc-wd-l{font-size:.66rem;color:var(--t3);font-weight:700;letter-spacing:.02em}
+.mu-rc-wd-dot{width:24px;height:24px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.7rem;font-weight:800;border:1.5px solid var(--br2);color:transparent}
+.mu-rc-wd.done .mu-rc-wd-dot{background:var(--acc,#E8632A);border-color:var(--acc,#E8632A);color:#fff}
+.mu-rc-wd.miss .mu-rc-wd-dot{border-color:rgba(251,113,133,.4);background:rgba(251,113,133,.08)}
+.mu-rc-wd.today .mu-rc-wd-dot{border-color:var(--acc,#E8632A);border-style:dashed}
+.mu-rc-wd.future .mu-rc-wd-dot{opacity:.4}
+.mu-rc-why{margin-top:.6rem;font-size:.76rem;line-height:1.5;color:var(--t3)}
 .mu-rc-expl{margin-top:.8rem;border:1px solid var(--br2);border-radius:10px;background:var(--bg);overflow:hidden}
 .mu-rc-expl>summary{cursor:pointer;padding:.6rem .8rem;font-size:.82rem;font-weight:600;color:var(--acc);list-style:none}
 .mu-rc-expl>summary::-webkit-details-marker{display:none}
@@ -34736,6 +34745,26 @@ window.__muRacha = (function(){
   }
   function liveStreak(){ return derive(raw().hist).streak; }
 
+  /* Tira semanal de puntos (lun-dom) tipo Duolingo: refuerza visualmente
+     "no dejes un hueco vacío" en vez de solo mostrar un número de racha. */
+  function weekStrip(hist, en){
+    var t=today(), d=new Date(t+'T00:00:00');
+    var dow=d.getDay(); var monOffset = dow===0?-6:1-dow; /* lunes=inicio */
+    var mon=addDays(t, monOffset);
+    var labels = en?['M','T','W','T','F','S','S']:['L','M','M','J','V','S','D'];
+    var dots='';
+    for(var i=0;i<7;i++){
+      var day=addDays(mon,i);
+      var isToday = day===t;
+      var isFuture = day>t;
+      var done = hist[day]!==undefined;
+      var cls = isFuture ? 'future' : (done ? 'done' : (isToday?'today':'miss'));
+      dots += '<div class="mu-rc-wd '+cls+'"><span class="mu-rc-wd-l">'+labels[i]+'</span>'+
+        '<span class="mu-rc-wd-dot">'+(done?'✓':'')+'</span></div>';
+    }
+    return '<div class="mu-rc-week">'+dots+'</div>';
+  }
+
   function hash(str){ var h=0; for(var i=0;i<str.length;i++){ h=((h<<5)-h+str.charCodeAt(i))|0; } return Math.abs(h); }
   function optLen(o){ return String(o).length; }
   /* pool de preguntas: MCQ cortas. Si hay materia, filtra por prefijo de clave.
@@ -34845,7 +34874,11 @@ window.__muRacha = (function(){
         '<div class="mu-rc-streak'+(stk>0?' on':'')+'">'+flame+'<b>'+stk+'</b>'+
           '<span>'+(en?(stk===1?'day streak':'day streak'):(stk===1?'día de racha':'días de racha'))+'</span></div>'+
         (s.best>0?'<div class="mu-rc-best">'+(en?'best ':'récord ')+s.best+'</div>':'')+
-      '</div>';
+      '</div>'+
+      weekStrip(s.hist, en)+
+      '<div class="mu-rc-why">'+(en
+        ? 'A little every day trains your brain to actually recall it — instead of cramming everything last-minute the week of the exam.'
+        : 'Un poco cada día entrena tu cabeza para que de verdad se te quede — así no te toca el corre corre metiendo todo de último a la semana del parcial.')+'</div>';
 
     if(answered){
       var ok = s.hist[t];
