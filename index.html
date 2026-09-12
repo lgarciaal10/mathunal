@@ -15669,8 +15669,7 @@ html[data-theme="light"] .ht-bot{
 
 /* ── COMUNIDAD ── */
 .comm-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem;margin-top:2rem}
-@media(max-width:580px){.comm-grid{grid-template-columns:1fr}}
-@media(max-width:480px){.comm-grid{grid-template-columns:1fr}}
+@media(max-width:580px){.comm-grid{grid-template-columns:1fr 1fr;gap:.6rem}}
 .comm-card{background:var(--card);border:2px solid var(--br);border-radius:16px;padding:1.3rem;display:flex;flex-direction:column;gap:.75rem;text-decoration:none;transition:all .2s}
 .comm-card:hover{transform:translateY(-3px)}
 .cc-ico{width:40px;height:40px;border-radius:10px;border:2px solid;display:flex;align-items:center;justify-content:center;font-size:1.1rem;transition:all .2s;flex-shrink:0}
@@ -16606,6 +16605,17 @@ html[lang="en"] .sidex-meta-code::before{content:''}
 .cc-tg .cc-ico{background:rgba(38,161,214,.1);border-color:rgba(38,161,214,.3);color:#26a3d6}
 .cc-dc .cc-ico{background:rgba(88,101,242,.1);border-color:rgba(88,101,242,.3);color:#5865f2}
 .cc-ig .cc-ico{background:rgba(225,48,108,.1);border-color:rgba(225,48,108,.3);color:#e1306c}
+/* 2 columnas en móvil (ver .comm-grid arriba): tarjetas más chicas, ícono/
+   texto reducidos para que quepan sin verse apretadas. */
+@media(max-width:580px){
+  .cc{padding:.9rem}
+  .cc-ico-wrap{margin-bottom:.5rem}
+  .cc-ico{width:36px;height:36px;border-radius:9px}
+  .cc-ico svg{width:18px;height:18px}
+  .cc h4{font-size:.86rem}
+  .cc p{font-size:.72rem;line-height:1.45}
+  .cc-link{font-size:.68rem}
+}
 
 /* ── IG PROMO ── */
 .ig-promo{
@@ -17114,7 +17124,7 @@ html[data-theme="light"] .sim-onb-date{color-scheme:light}
 .prom-row:first-child{border-top:none}
 @media(max-width:480px){
   .prom-thead,.prom-row,.prom-add-row{grid-template-columns:1fr 58px 62px 30px!important;gap:.3rem!important;padding:.4rem .5rem!important}
-  .prom-thead span:nth-child(2),.prom-thead span:nth-child(3){font-size:.62rem;white-space:normal;line-height:1.15;letter-spacing:0;font-weight:800;color:var(--t2)}
+  .prom-thead span:nth-child(2),.prom-thead span:nth-child(3){font-size:.62rem;white-space:normal;line-height:1.15;letter-spacing:0;font-weight:800;color:var(--t2);text-align:center}
   .prom-inp{padding:.4rem .4rem;font-size:.92rem}
 }
 
