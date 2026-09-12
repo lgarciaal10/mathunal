@@ -35066,6 +35066,39 @@ window.__muAuthUI = (function(){
    Discreto, a propósito: MathUNAL no tiene muro de registro. Sin sesión = "Guardar
    progreso" (abre el mismo modal __muAuthUI que ya existe). Con sesión = la inicial
    del correo + menú (correo / cerrar sesión). Se re-renderiza en cada onChange de auth. */
+/* ── Recordatorio de parcial por correo (palanca #1 de enganche) ──────────
+   Guarda, por cuenta, "mi parcial de <materia> es el <fecha>". Por ahora
+   SOLO guarda el dato (RLS, cada quien ve el suyo) — el envío del correo
+   3 días antes es una pieza aparte (edge function + cron) que se monta
+   sobre esta misma tabla cuando esté lista. Ver [[mathunal-engagement-calendario]]. */
+window.__muReminders = (function(){
+  var _cache = null;
+  function api(path, opts){ return window.__muAuth.api(path, opts); }
+  function session(){ var a=window.__muAuth; return a && a.session && a.session(); }
+  function list(force){
+    var s=session();
+    if(!s || !s.user) return Promise.resolve([]);
+    if(_cache && !force) return Promise.resolve(_cache);
+    return api('/rest/v1/mu_reminders?select=id,course_id,course_name,exam_date&active=eq.true&order=exam_date.asc',{method:'GET'})
+      .then(function(r){ return r.ok ? r.json() : []; })
+      .then(function(rows){ _cache = rows||[]; return _cache; })
+      .catch(function(){ return []; });
+  }
+  function save(courseId, courseName, examDate){
+    var s=session();
+    if(!s || !s.user) return Promise.reject(new Error('no session'));
+    return api('/rest/v1/mu_reminders?on_conflict=user_id,course_id', {
+      method:'POST',
+      headers:{ Prefer:'resolution=merge-duplicates,return=minimal' },
+      body: JSON.stringify({ user_id:s.user.id, course_id:courseId, course_name:courseName, exam_date:examDate, active:true })
+    }).then(function(){ return list(true); });
+  }
+  function remove(id){
+    return api('/rest/v1/mu_reminders?id=eq.'+encodeURIComponent(id), { method:'DELETE' })
+      .then(function(){ return list(true); });
+  }
+  return { list:list, save:save, remove:remove };
+})();
 window.__muAcctChip = (function(){
   var _open=false;
   function en(){ return window.curLang==='en'; }
@@ -35094,7 +35127,21 @@ window.__muAcctChip = (function(){
      '.mu-acct-dd button{width:100%;font:inherit;font-size:.78rem;font-weight:600;padding:.4rem .5rem;border-radius:8px;',
        'border:1px solid var(--br,rgba(255,255,255,.14));background:var(--lay2,rgba(255,255,255,.05));',
        'color:var(--t2,#c9d3e6);cursor:pointer}',
-     '.mu-acct-dd button:hover{border-color:var(--acc,#E8632A)}'
+     '.mu-acct-dd button:hover{border-color:var(--acc,#E8632A)}',
+     '.mu-remind-box{border-top:1px solid var(--br,rgba(255,255,255,.14));margin:.6rem 0;padding-top:.6rem}',
+     '.mu-remind-h{color:var(--t2,#c9d3e6);font-size:.74rem;font-weight:700;margin-bottom:.4rem;display:flex;align-items:center;gap:.3rem}',
+     '.mu-remind-row{display:flex;align-items:center;justify-content:space-between;gap:.4rem;',
+       'padding:.3rem .4rem;border-radius:7px;background:var(--lay2,rgba(255,255,255,.04));margin-bottom:.3rem;font-size:.74rem}',
+     '.mu-remind-row span{color:var(--t2,#c9d3e6);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}',
+     '.mu-remind-row button{width:auto;padding:.1rem .4rem;font-size:.8rem;border:none;background:none;color:var(--t3,#8b97ad)}',
+     '.mu-remind-row button:hover{color:var(--red,#ef4444);border-color:transparent}',
+     '.mu-remind-add{display:flex;gap:.3rem;margin-top:.3rem}',
+     '.mu-remind-add select,.mu-remind-add input{font:inherit;font-size:.72rem;padding:.3rem;border-radius:7px;',
+       'border:1px solid var(--br,rgba(255,255,255,.14));background:var(--lay1,rgba(255,255,255,.03));color:var(--t1,#eef2fb);min-width:0}',
+     '.mu-remind-add select{flex:1.3}',
+     '.mu-remind-add input{flex:1}',
+     '.mu-remind-add-btn{width:auto !important;flex:none;padding:.3rem .55rem !important;font-size:.85rem !important}',
+     '.mu-remind-empty{color:var(--t3,#8b97ad);font-size:.72rem;margin-bottom:.4rem}'
     ].join('');
     document.head.appendChild(st);
   }
@@ -35103,7 +35150,60 @@ window.__muAcctChip = (function(){
     var E=en(), m=mail();
     return '<div class="mu-acct-mail">'+m+'</div>'+
       '<div class="mu-acct-sub">'+(E?'Progress saved ✓ — streak, formulas & Pro on any device':'Progreso guardado ✓ — racha, fórmulas y Pro en cualquier dispositivo')+'</div>'+
+      '<div class="mu-remind-box" id="mu-remind-box">'+(E?'Loading…':'Cargando…')+'</div>'+
       '<button onclick="window.__muAcctChip.signOut()">'+(E?'Sign out':'Cerrar sesión')+'</button>';
+  }
+  /* Chips "Cálculo Diferencial · 5 oct ✕" + fila para agregar una nueva
+     (materia + fecha). El fetch es async, así que pinta un placeholder en
+     ddHtml() y esta función reemplaza ese bloque cuando llegan los datos. */
+  function remindHtml(rows){
+    var E=en();
+    var months=E?['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec']
+               :['ene','feb','mar','abr','may','jun','jul','ago','sep','oct','nov','dic'];
+    function fmt(d){ var p=d.split('-'); return +p[2]+' '+months[+p[1]-1]; }
+    var list = (rows||[]).map(function(r){
+      return '<div class="mu-remind-row"><span>'+(r.course_name||r.course_id)+' · '+fmt(r.exam_date)+'</span>'+
+        '<button data-id="'+r.id+'" class="mu-remind-del" title="'+(E?'Remove':'Quitar')+'">✕</button></div>';
+    }).join('');
+    var subjOpts = (window.SUBJECTS||[]).map(function(s){
+      return '<option value="'+s.code+'">'+(E?s.nameEn:s.nameEs)+'</option>';
+    }).join('');
+    return '<div class="mu-remind-h">🔔 '+(E?'Remind me before my exam':'Avísame de mi parcial')+'</div>'+
+      (list || '<div class="mu-remind-empty">'+(E?'No exam dates saved yet.':'Aún no tienes fechas guardadas.')+'</div>')+
+      '<div class="mu-remind-add">'+
+        '<select id="mu-remind-mat">'+subjOpts+'</select>'+
+        '<input type="date" id="mu-remind-date">'+
+        '<button type="button" class="mu-remind-add-btn" id="mu-remind-save">+</button>'+
+      '</div>';
+  }
+  function loadReminders(box){
+    if(!box) return;
+    window.__muReminders.list().then(function(rows){
+      if(!document.body.contains(box)) return; /* el dropdown ya se cerró */
+      box.innerHTML = remindHtml(rows);
+      var delBtns = box.querySelectorAll('.mu-remind-del');
+      for(var i=0;i<delBtns.length;i++){
+        delBtns[i].addEventListener('click', function(ev){
+          ev.stopPropagation();
+          var id=this.dataset.id;
+          this.closest('.mu-remind-row').style.opacity='.4';
+          window.__muReminders.remove(id).then(function(){ loadReminders(box); });
+        });
+      }
+      var saveBtn = box.querySelector('#mu-remind-save');
+      if(saveBtn) saveBtn.addEventListener('click', function(ev){
+        ev.stopPropagation();
+        var sel=box.querySelector('#mu-remind-mat'), dt=box.querySelector('#mu-remind-date');
+        if(!dt.value) return;
+        var name = sel.options[sel.selectedIndex] ? sel.options[sel.selectedIndex].textContent : sel.value;
+        saveBtn.disabled=true;
+        window.__muReminders.save(sel.value, name, dt.value).then(function(){ loadReminders(box); })
+          .catch(function(){ saveBtn.disabled=false; });
+      });
+      var sel2 = box.querySelector('select'), dt2=box.querySelector('input[type=date]');
+      if(sel2) sel2.addEventListener('click', function(ev){ ev.stopPropagation(); });
+      if(dt2) dt2.addEventListener('click', function(ev){ ev.stopPropagation(); });
+    });
   }
   function wire(chip){
     var btn=chip.querySelector('.mu-acct-btn');
@@ -35120,7 +35220,11 @@ window.__muAcctChip = (function(){
       chip.querySelector('.mu-acct-btn').innerHTML='<span class="mu-acct-av">'+initial+'</span><span class="mu-acct-lbl">'+(E?'Account':'Mi cuenta')+'</span>';
       chip.querySelector('.mu-acct-btn').setAttribute('title', mail());
       var dd=chip.querySelector('.mu-acct-dd');
-      if(_open){ if(!dd){ dd=document.createElement('div'); dd.className='mu-acct-dd'; chip.appendChild(dd); } dd.innerHTML=ddHtml(); }
+      if(_open){
+        if(!dd){ dd=document.createElement('div'); dd.className='mu-acct-dd'; chip.appendChild(dd); }
+        dd.innerHTML=ddHtml();
+        loadReminders(dd.querySelector('#mu-remind-box'));
+      }
       else if(dd){ dd.remove(); }
     } else {
       _open=false;
