@@ -19072,12 +19072,29 @@ input:not([type=checkbox]):not([type=radio]):focus,select:focus,textarea:focus{
 /* ── Journey steps modern ── */
 .cp-journey{max-width:680px;margin:0 auto 3.5rem;scroll-margin-top:120px}
 .cp-journey:last-of-type{margin-bottom:1rem}
-.cp-j-steps{display:flex;flex-direction:column;gap:.5rem}
+.cp-j-steps{display:flex;flex-direction:column;gap:1.5rem}
 /* cp-j-step rules consolidated above — v22 override removed */
+/* Camino visual: cada tarjeta (menos la última) apunta a la siguiente con
+   una flecha, alineada bajo el centro del círculo numerado (círculo
+   40px, padding de tarjeta 1rem => centro a 1rem+20px=36px del borde). */
+.cp-j-step{position:relative}
+.cp-j-step:not(:last-child)::before{
+  content:'';position:absolute;left:35px;bottom:-1.5rem;width:2px;height:1rem;
+  background:var(--br2);
+}
+.cp-j-step:not(:last-child)::after{
+  content:'';position:absolute;left:30px;bottom:-1.55rem;
+  width:0;height:0;border-left:6px solid transparent;border-right:6px solid transparent;
+  border-top:8px solid var(--br2);
+}
+.cp-j-step.active:not(:last-child)::before{background:var(--bra)}
+.cp-j-step.active:not(:last-child)::after{border-top-color:var(--bra)}
+@keyframes cpStepIn{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
+.cp-j-step.active{animation:cpStepIn .45s cubic-bezier(.22,1,.36,1) both}
 .cp-j-num{
-  width:32px;height:32px;border-radius:10px;display:flex;
-  align-items:center;justify-content:center;font-family:IBM Plex Mono,monospace;
-  font-size:.82rem;font-weight:700;flex-shrink:0;
+  width:40px;height:40px;border-radius:50%;display:flex;
+  align-items:center;justify-content:center;font-family:'Literata',Georgia,serif;
+  font-size:1.05rem;font-weight:900;flex-shrink:0;
 }
 .cp-j-body{flex:1}
 .cp-j-title{font-family:'Literata',Georgia,serif;font-size:1rem;font-weight:700;color:var(--t1);margin-bottom:.25rem}
