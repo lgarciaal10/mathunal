@@ -16646,13 +16646,15 @@ html[lang="en"] .sidex-meta-code::before{content:''}
 .btn-panic:hover{background:rgba(248,113,113,.22);transform:translateY(-1px)}
 .fab-wa{
   position:fixed;bottom:1rem;right:1rem;z-index:180;
-  width:46px;height:46px;border-radius:50%;
+  width:40px;height:40px;border-radius:50%;
   background:#25D366;color:#fff;border:none;cursor:pointer;
   display:flex;align-items:center;justify-content:center;
-  box-shadow:0 2px 10px rgba(37,211,102,.25);transition:all .2s;
+  box-shadow:0 2px 10px rgba(37,211,102,.25);transition:opacity .3s ease,transform .2s,box-shadow .2s;
 }
-.fab-wa:hover{transform:scale(1.08);box-shadow:0 4px 20px rgba(37,211,102,.5)}
+.fab-wa svg{width:20px;height:20px}
 .fab-wa:hover{transform:scale(1.08);box-shadow:0 6px 28px rgba(37,211,102,.5)}
+.fab-wa.idle{opacity:.45}
+.fab-wa:hover,.fab-wa:active{opacity:1}
 /* El pill flotante "Semana del Parcial" (bottom-left, siempre visible) choca
    con botones en flujo de contenido angosto en móvil (ej. "Save my progress"
    de la racha) — ya existe el mismo acceso como banner inline (.sp-cta "Ver
@@ -16691,10 +16693,10 @@ html[lang="en"] .sidex-meta-code::before{content:''}
   box-shadow:0 4px 16px rgba(0,0,0,.22);
 }
 #mu-scrollnav.show{opacity:1;transform:none;pointer-events:auto}
-#mu-scrollnav.show.idle{opacity:.32;transition:opacity .6s ease .1s}
+#mu-scrollnav.show.idle{opacity:.32;transition:opacity .3s ease}
 #mu-scrollnav.show:hover,#mu-scrollnav.show:active{opacity:1;transition:opacity .1s ease}
 #mu-scrollnav button{
-  width:42px;height:38px;border:none;background:transparent;color:var(--t2);
+  width:28px;height:36px;border:none;background:transparent;color:var(--t2);
   display:flex;align-items:center;justify-content:center;cursor:pointer;
   transition:background .16s,color .16s;
 }
@@ -20548,8 +20550,8 @@ customElements.define('glass-element', GlassElement);
   <!-- Beam borders removed: causaban líneas blancas -->
 </div>
   <div class="hero-in fi">
-    <div class="tag-pill"><span class="tag-dot"></span>UNAL Medellín · 2026</div>
-    <div class="tag-pill" id="mu-live-pill" style="display:none;margin-top:.5rem;margin-bottom:0"><span class="tag-dot" style="background:var(--grn,#22c55e)"></span><strong id="mu-live-count">1</strong>&nbsp;<span id="mu-live-label">persona navegando ahora</span></div>
+    <div class="tag-pill" id="mu-badge-pill" style="margin-bottom:.6rem"><span class="tag-dot"></span>UNAL Medellín · 2026</div>
+    <div class="tag-pill" id="mu-live-pill" style="display:none;margin-top:0;margin-bottom:0"><span class="tag-dot" style="background:var(--grn,#22c55e)"></span><strong id="mu-live-count">1</strong>&nbsp;<span id="mu-live-label">persona navegando ahora</span></div>
     <h1 class="hero-title">
       <span class="ht-top">MATH</span>
       <span class="ht-bot">UNAL</span>
@@ -30278,21 +30280,22 @@ window.addEventListener('scroll', function(){
   var nav = document.querySelector('nav');
   if(nav) nav.classList.toggle('scrolled', y > 10);
   var sn = document.getElementById('mu-scrollnav');
+  var wa = document.querySelector('.fab-wa');
   if(sn){
     var maxY = doc.scrollHeight - doc.clientHeight;
     sn.classList.toggle('show', y > 300 && maxY > 700);
-    /* Queda fijo sobre lo que sea que esté scrolleando en ese momento --
-       en vez de taparlo a lo bruto todo el rato, se atenúa solo tras
-       dejar de scrollear (deja de competir visualmente con la tarjeta
-       de abajo) y vuelve a full opacidad apenas el usuario vuelve a
-       scrollear o toca el pill. */
-    sn.classList.remove('idle');
-    clearTimeout(_snIdleT);
-    _snIdleT=setTimeout(function(){ sn.classList.add('idle'); }, 900);
     var up = document.getElementById('mu-goup'), dn = document.getElementById('mu-godown');
     if(up) up.disabled = y < 40;
     if(dn) dn.disabled = y > maxY - 40;
   }
+  /* Ni el scrollnav ni el FAB de WhatsApp deberían quedar fijos a full
+     opacidad tapando lo que sea que esté detrás todo el rato -- se
+     atenúan solos tras dejar de scrollear y vuelven a full opacidad
+     apenas el usuario vuelve a scrollear o los toca. */
+  if(sn) sn.classList.remove('idle');
+  if(wa) wa.classList.remove('idle');
+  clearTimeout(_snIdleT);
+  _snIdleT=setTimeout(function(){ if(sn) sn.classList.add('idle'); if(wa) wa.classList.add('idle'); }, 400);
 }, {passive:true});
 
 /* (scroll con inercia probado y retirado — se sentía lento) */
