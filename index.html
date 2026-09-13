@@ -18978,7 +18978,7 @@ a{text-decoration-skip-ink:auto}
 
 /* ── Scrollbar — visible, no ese hilito que casi no se ve ── */
 html{scrollbar-width:auto;scrollbar-color:var(--t3) transparent}
-::-webkit-scrollbar{width:20px;height:15px}
+::-webkit-scrollbar{width:28px;height:20px}
 ::-webkit-scrollbar-track{background:transparent}
 ::-webkit-scrollbar-thumb{background:var(--t3);border-radius:99px;border:5px solid transparent;background-clip:content-box;min-height:40px}
 ::-webkit-scrollbar-thumb:hover{background:var(--acc);background-clip:content-box}
@@ -30512,13 +30512,22 @@ function __muApplyDesktopMode(on){
     exitBtn = document.createElement('button');
     exitBtn.id = 'mu-desktop-exit';
     exitBtn.setAttribute('aria-label','Volver a versión móvil');
-    exitBtn.style.cssText = 'position:fixed;bottom:40px;right:40px;z-index:2147483000;'
-      + 'width:170px;height:170px;border-radius:50%;border:6px solid #fff;'
-      + 'background:#E8632A;color:#fff;font-family:system-ui,sans-serif;'
-      + 'font-size:30px;font-weight:800;line-height:1.15;cursor:pointer;'
-      + 'box-shadow:0 10px 50px rgba(0,0,0,.6);';
-    exitBtn.textContent = window.curLang==='en' ? '📱 Back to mobile' : '📱 Volver a móvil';
+    exitBtn.style.cssText = 'position:fixed;left:50%;bottom:52px;transform:translateX(-50%);z-index:2147483000;'
+      + 'display:flex;align-items:center;gap:14px;'
+      + 'padding:20px 34px;border-radius:999px;border:none;'
+      + 'background:linear-gradient(135deg,#E8632A,#FF8F5C);color:#fff;'
+      + 'font-family:system-ui,sans-serif;font-size:26px;font-weight:700;'
+      + 'cursor:pointer;box-shadow:0 14px 44px rgba(0,0,0,.5),0 0 0 1px rgba(255,255,255,.15) inset;'
+      + 'animation:mu-desktop-exit-pulse 2.4s ease-in-out infinite;';
+    exitBtn.innerHTML = '<svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0"><rect x="7" y="2" width="10" height="20" rx="2"/><line x1="11" y1="18" x2="13" y2="18"/></svg>'
+      + '<span>' + (window.curLang==='en' ? 'Back to mobile' : 'Volver a móvil') + '</span>';
     exitBtn.onclick = function(){ window.__muToggleDesktopMode(); };
+    if(!document.getElementById('mu-desktop-exit-style')){
+      var st = document.createElement('style');
+      st.id = 'mu-desktop-exit-style';
+      st.textContent = '@keyframes mu-desktop-exit-pulse{0%,100%{box-shadow:0 14px 44px rgba(0,0,0,.5),0 0 0 1px rgba(255,255,255,.15) inset,0 0 0 0 rgba(232,99,42,.5)}50%{box-shadow:0 14px 44px rgba(0,0,0,.5),0 0 0 1px rgba(255,255,255,.15) inset,0 0 0 22px rgba(232,99,42,0)}}';
+      document.head.appendChild(st);
+    }
     document.body.appendChild(exitBtn);
   } else if(!on && exitBtn){
     exitBtn.remove();
