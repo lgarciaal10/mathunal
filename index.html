@@ -25653,7 +25653,7 @@ window.muApplyLang_juegos = function(){
 function showScr(id){
   document.querySelectorAll('.scr').forEach(s=>s.classList.remove('on'));
   document.getElementById('scr-'+id).classList.add('on');
-  window.scrollTo(0,0);
+  window.scrollTo({top:0, left:0, behavior:'instant'});
 }
 function showResult(ico,title,sub,btn1Action){
   document.getElementById('res-ico').innerHTML=ico;
@@ -27530,7 +27530,7 @@ function _diagStart(){
 function _diagShowScreen(id){
   document.querySelectorAll('.diag-step').forEach(function(s){ s.classList.remove('on'); });
   var el=document.getElementById(id); if(el) el.classList.add('on');
-  window.scrollTo(0,0);
+  window.scrollTo({top:0, left:0, behavior:'instant'});
 }
 
 function _diagRenderPregunta(){
@@ -30095,6 +30095,7 @@ var MU_PAGE_TITLES = {
 
 function muNav(href) {
   if (!href) return;
+  if (typeof _cancelPendingAnchorScroll==='function') _cancelPendingAnchorScroll();
   if (href.startsWith('http')||href.startsWith('mailto')||href.startsWith('tel')) {
     window.open(href,'_blank'); return;
   }
@@ -30115,20 +30116,34 @@ function muNav(href) {
   }
 }
 /* scroll a un ancla teniendo en cuenta la barra fija, y re-ajustando una vez
-   más por si el contenido de la sección terminó de renderizar y la empujó. */
+   más por si el contenido de la sección terminó de renderizar y la empujó.
+   Los timers de reajuste (260ms/650ms) quedan guardados en un array global
+   para poder cancelarlos si el usuario navega a otra página mientras tanto
+   -- si no, disparan tarde sobre la página NUEVA y la scrollean de golpe a
+   una posición vieja/calculada sobre contenido que ya no existe (se sentía
+   como que el contenido "se deslizaba de abajo para arriba" al abrir una
+   materia justo después de tocar un link con ancla). */
+window._pendingAnchorTimers = window._pendingAnchorTimers || [];
+function _cancelPendingAnchorScroll(){
+  (window._pendingAnchorTimers||[]).forEach(function(id){ clearTimeout(id); });
+  window._pendingAnchorTimers = [];
+}
+window._cancelPendingAnchorScroll = _cancelPendingAnchorScroll;
 function _scrollToAnchor(el){
   var NAV = 72;
+  _cancelPendingAnchorScroll();
   function go(){
     var y = el.getBoundingClientRect().top + window.pageYOffset - NAV;
     window.scrollTo({ top: Math.max(0,y), behavior:'smooth' });
   }
   go();
-  setTimeout(go, 260);
-  setTimeout(go, 650);
+  window._pendingAnchorTimers.push(setTimeout(go, 260));
+  window._pendingAnchorTimers.push(setTimeout(go, 650));
 }
 window._scrollToAnchor = _scrollToAnchor;
 
 function _loadPage(hash) {
+  if (typeof _cancelPendingAnchorScroll==='function') _cancelPendingAnchorScroll();
   if (!hash || hash==='#') hash='#home';
   var raw   = hash.startsWith('#') ? hash.slice(1) : hash;
   var parts = raw.split('?');
@@ -30185,7 +30200,14 @@ function _loadPage(hash) {
       }
     });
 
-    window.scrollTo(0, 0);
+    /* behavior:'instant' explícito -- el *{scroll-behavior:smooth} global
+       hace que un scrollTo(0,0) plano se anime durante ~1s en vez de saltar
+       de una vez, y esa animación (arrancando desde donde sea que estabas
+       scrolleado en la página anterior) es justo lo que se veía como que
+       el contenido "se desliza de abajo para arriba" al abrir una materia
+       u otra página nueva. Una página nueva debe empezar arriba ya, sin
+       animación -- eso se reserva para saltos dentro de la misma página. */
+    window.scrollTo({top:0, left:0, behavior:'instant'});
     app.classList.remove('fading');
 
     setTimeout(function(){
