@@ -15159,15 +15159,26 @@ html[data-theme="light"] .settings-btn:hover{background:rgba(255,255,255,.8)}
   font-size:1rem;color:var(--t1);transition:background .15s;
 }
 .burger:hover{background:var(--lay3)}
-#mob{
-  display:none;flex-direction:column;
-  position:fixed;top:60px;left:0;right:0;z-index:190;
-  background:var(--bg);border-bottom:1.5px solid var(--br);
-  padding:1.2rem 1.5rem;gap:.3rem;
-  box-shadow:0 8px 32px rgba(0,0,0,.4);
-  max-height:calc(100vh - 70px);overflow-y:auto;-webkit-overflow-scrolling:touch;
+/* Backdrop oscuro detrás del drawer -- clic afuera cierra el menú, y deja
+   ver un 30% de la página real detrás en vez de taparla toda. */
+#mob-backdrop{
+  display:none;position:fixed;inset:0;z-index:189;
+  background:rgba(0,0,0,.5);opacity:0;transition:opacity .32s ease;
 }
-#mob.open{display:flex}
+#mob-backdrop.open{display:block;opacity:1}
+html.mob-open{overflow:hidden}
+#mob{
+  display:flex;flex-direction:column;
+  position:fixed;top:0;right:0;bottom:0;z-index:190;
+  width:70%;max-width:320px;height:100vh;height:100dvh;
+  background:var(--bg);border-left:1.5px solid var(--br);
+  padding:5rem 1.3rem 1.5rem;gap:.3rem;
+  box-shadow:-10px 0 32px rgba(0,0,0,.4);
+  overflow-y:auto;-webkit-overflow-scrolling:touch;
+  transform:translateX(100%);
+  transition:transform .32s cubic-bezier(.22,1,.36,1);
+}
+#mob.open{transform:translateX(0)}
 #mob a{
   font-size:1rem;font-weight:600;color:var(--t2);padding:.65rem .9rem;
   border-radius:9px;transition:all .15s;
@@ -16689,7 +16700,7 @@ html[lang="en"] .sidex-meta-code::before{content:''}
    nunca queda pegado al lugar exacto donde aparece. */
 @media(max-width:480px){
   .section-pad,.mu-hoy-s,.mu-cal-s,.cp-s,.calc-s,.prom-s,.smap-s,.ap-s,.au-s,footer{
-    padding-left:2.75rem !important;
+    padding-left:3.25rem !important;
   }
 }
 /* #mu-scrollnav apilado sobre .fab-wa (misma esquina inferior-derecha) formaba
@@ -20523,6 +20534,7 @@ customElements.define('glass-element', GlassElement);
   <button class="sp-close" onclick="muCerrarBanner()" aria-label="Cerrar"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
 </div>
 
+<div id="mob-backdrop" onclick="tmob()"></div>
 <div id="mob">
   <a href="#home" onclick="tmob()">Inicio</a>
   <a href="#formulas" onclick="tmob()">Fórmulas</a>
@@ -21730,6 +21742,9 @@ function showAuTab(n,btn){
    muerta — .scrolled tiene !important y siempre ganaba. Eliminado en v23. */
 function tmob(){
   var open = document.getElementById('mob').classList.toggle('open');
+  var bd = document.getElementById('mob-backdrop');
+  if(bd) bd.classList.toggle('open', open);
+  document.documentElement.classList.toggle('mob-open', open);
   var btn = document.querySelector('.burger');
   if(btn){ btn.setAttribute('aria-expanded', open?'true':'false'); btn.setAttribute('aria-label', open?'Cerrar menú':'Abrir menú'); }
 }
