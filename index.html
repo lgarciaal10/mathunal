@@ -16676,6 +16676,16 @@ html[lang="en"] .sidex-meta-code::before{content:''}
    Bancolombia/Bre-B) mientras se hace scroll — mismo problema que .sp-fab y
    #mu-version-badge arriba. Se añade despeje al fondo de ambas secciones en angosto. */
 @media(max-width:640px){ #comunidad, #apoyar{ padding-bottom: 6rem; } }
+/* El pill de scroll vive fijo en la esquina inferior-izquierda (left:1rem,
+   ~22px de ancho -> hasta ~38px desde el borde). En vez de perseguirlo
+   sección por sección, se le reserva ese carril metiendo el contenido un
+   poco más adentro por la izquierda en las secciones principales, así
+   nunca queda pegado al lugar exacto donde aparece. */
+@media(max-width:480px){
+  .section-pad,.mu-hoy-s,.mu-cal-s,.cp-s,.calc-s,.prom-s,.smap-s,.ap-s,.au-s,footer{
+    padding-left:2.75rem !important;
+  }
+}
 /* #mu-scrollnav apilado sobre .fab-wa (misma esquina inferior-derecha) formaba
    una torre fija de ~150px que tapaba lo que fuera scrolleando detrás, en
    CUALQUIER sección (no solo Comunidad/Apoyar) -- ej. "Elige materia" en
