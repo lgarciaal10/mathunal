@@ -15201,6 +15201,12 @@ html[data-theme="light"] .settings-btn:hover{background:rgba(255,255,255,.8)}
   nav{padding:.75rem 1.25rem;gap:.5rem}
   .nav-links,.theme-toggle-wrap,.settings-wrap,.nav-cta,.nav-more-wrap{display:none !important}
   .burger{display:flex !important}
+  /* Este nav (home) no envuelve cuenta+hamburguesa en un .nav-r con
+     margin-left:auto -- sin eso, el flex los deja pegados al logo en
+     vez de al borde derecho. Lo que aparezca primero (chip de cuenta
+     si existe, si no la hamburguesa) se lleva el espacio libre. */
+  .mu-acct,.burger{margin-left:auto}
+  .mu-acct ~ .burger{margin-left:0}
 }
 /* Páginas internas (banco/materia/simulacro/formulario) no tienen menú hamburguesa
    propio como el home — si se les oculta el botón de ajustes en móvil, quedan sin
@@ -33804,12 +33810,21 @@ function setLang(lang){
       '#calendario':lang==='en'?'Academic calendar':'Calendario académico',
       '#aportar':lang==='en'?'Contribute material':'Aportar material',
       '#promedio':L['nav-promedio'],'#comunidad':lang==='en'?'Community':'Comunidad',
+      '#apoyar':lang==='en'?'Support the project':'Apoyar el proyecto',
       '#acerca':lang==='en'?'About':'Acerca de'
     };
     if(map[href]) a.textContent = map[href];
   });
   var mlr=document.querySelector('#mob-lang-row span'); if(mlr) mlr.textContent=lang==='en'?'Language':'Idioma';
-  var mtr=document.querySelector('.mob-theme-row:not(#mob-lang-row) span'); if(mtr) mtr.textContent=lang==='en'?'Theme':'Tema';
+  var mtr=document.querySelector('.mob-theme-row:not(#mob-lang-row):not(#mob-desktop-row) span'); if(mtr) mtr.textContent=lang==='en'?'Theme':'Tema';
+  var mdr=document.querySelector('#mob-desktop-row > span'); if(mdr) mdr.textContent=lang==='en'?'Site':'Sitio';
+  var mdl=document.getElementById('mob-desktop-lbl');
+  if(mdl){
+    var isDesktopOn=false; try{ isDesktopOn=localStorage.getItem('mu-desktop-mode')==='1'; }catch(e){}
+    mdl.textContent = isDesktopOn
+      ? (lang==='en' ? 'Back to mobile version' : 'Volver a versión móvil')
+      : (lang==='en' ? 'View desktop version' : 'Ver versión de escritorio');
+  }
 
   /* HERO */
   setText('.hero-badge', 'hero-badge');
