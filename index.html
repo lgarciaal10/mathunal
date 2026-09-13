@@ -16701,7 +16701,7 @@ html[lang="en"] .sidex-meta-code::before{content:''}
 #mu-scrollnav.show.idle{opacity:.32;transition:opacity .3s ease}
 #mu-scrollnav.show:hover,#mu-scrollnav.show:active{opacity:1;transition:opacity .1s ease}
 #mu-scrollnav button{
-  width:28px;height:36px;border:none;background:transparent;color:var(--t2);
+  width:22px;height:36px;border:none;background:transparent;color:var(--t2);
   display:flex;align-items:center;justify-content:center;cursor:pointer;
   transition:background .16s,color .16s;
 }
@@ -17131,7 +17131,8 @@ html[data-theme="light"] .sim-onb-date{color-scheme:light}
 .prom-row:first-child{border-top:none}
 @media(max-width:480px){
   .prom-thead,.prom-row,.prom-add-row{grid-template-columns:1fr 58px 62px 30px!important;gap:.3rem!important;padding:.4rem .5rem!important}
-  .prom-thead span:nth-child(2),.prom-thead span:nth-child(3){font-size:.62rem;white-space:normal;line-height:1.15;letter-spacing:0;font-weight:800;color:var(--t2);text-align:center}
+  .prom-thead span{font-size:.62rem;letter-spacing:0;font-weight:800;color:var(--t2)}
+  .prom-thead span:nth-child(2),.prom-thead span:nth-child(3){white-space:normal;line-height:1.15;text-align:center}
   .prom-inp{padding:.4rem .4rem;font-size:.82rem}
 }
 
@@ -20367,8 +20368,8 @@ customElements.define('glass-element', GlassElement);
 <!-- MEJORA 1: Scroll Progress Bar -->
 <div id="mu-progress-bar"></div>
 <div id="mu-scrollnav" aria-label="Navegación de la página">
-  <button id="mu-goup" aria-label="Ir arriba" title="Ir arriba" onclick="window.scrollTo({top:0,behavior:'smooth'})"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V6"/><path d="M6 12l6-6 6 6"/></svg></button>
-  <button id="mu-godown" aria-label="Ir al fondo" title="Ir al fondo" onclick="window.scrollTo({top:document.documentElement.scrollHeight,behavior:'smooth'})"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v13"/><path d="M6 12l6 6 6-6"/></svg></button>
+  <button id="mu-goup" aria-label="Ir arriba" title="Ir arriba" onclick="window.scrollTo({top:0,behavior:'smooth'})"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V6"/><path d="M6 12l6-6 6 6"/></svg></button>
+  <button id="mu-godown" aria-label="Ir al fondo" title="Ir al fondo" onclick="window.scrollTo({top:document.documentElement.scrollHeight,behavior:'smooth'})"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v13"/><path d="M6 12l6 6 6-6"/></svg></button>
 </div>
 
 <!-- MEJORA 8: Toast container -->
