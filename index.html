@@ -14823,11 +14823,11 @@ img{max-width:100%;display:block}
 }
 
 html[data-theme="gray"]{
-  --bg:#111114;--bg2:#1A1A1E;--card:#222226;--card2:#2A2A30;
+  --bg:#1C1C22;--bg2:#242429;--card:#2C2C34;--card2:#35353E;
   --t1:#F0F0F3;--t2:#9898A8;--t3:#8B8BA0;
-  --br:rgba(255,255,255,.08);
-  --lay1:rgba(255,255,255,.03);--lay2:rgba(255,255,255,.05);--lay3:rgba(255,255,255,.09);--lay4:rgba(255,255,255,.14);
-  --br2:rgba(255,255,255,.14);
+  --br:rgba(255,255,255,.10);
+  --lay1:rgba(255,255,255,.045);--lay2:rgba(255,255,255,.07);--lay3:rgba(255,255,255,.11);--lay4:rgba(255,255,255,.16);
+  --br2:rgba(255,255,255,.17);
   --bra:rgba(232,99,42,.38);--adim:rgba(232,99,42,.10);--aglow:rgba(232,99,42,.22);
   --grn:#2DD4BF;--red:#FB7185;--yel:#FBBF24;
   --ok:#22C55E;--bad:#F87171;--warn:#FBBF24;
@@ -15184,6 +15184,11 @@ html[data-theme="light"] .settings-btn:hover{background:rgba(255,255,255,.8)}
   cursor:pointer;transition:all .15s;
 }
 .mob-theme-btn.on{background:var(--adim);color:var(--acc);border-color:var(--bra)}
+/* El botón "Ver versión de escritorio" tiene texto largo que envuelve a 2
+   líneas -- sin flex, el ícono quedaba pegado arriba en vez de centrado
+   junto al texto envuelto. */
+#mob-desktop-btn{display:flex;align-items:center;justify-content:center;gap:.4rem;text-align:center;line-height:1.25}
+#mob-desktop-btn svg{flex-shrink:0}
 /* Breakpoint del nav: 1180px, NO 760px como el resto del CSS de espaciado.
    El nav de escritorio (logo + 7 links + CTA + settings) necesita ~1140px reales
    para caber sin desbordarse -- con 760px quedaba una "zona muerta" de ~380px
@@ -17127,7 +17132,7 @@ html[data-theme="light"] .sim-onb-date{color-scheme:light}
 @media(max-width:480px){
   .prom-thead,.prom-row,.prom-add-row{grid-template-columns:1fr 58px 62px 30px!important;gap:.3rem!important;padding:.4rem .5rem!important}
   .prom-thead span:nth-child(2),.prom-thead span:nth-child(3){font-size:.62rem;white-space:normal;line-height:1.15;letter-spacing:0;font-weight:800;color:var(--t2);text-align:center}
-  .prom-inp{padding:.4rem .4rem;font-size:.92rem}
+  .prom-inp{padding:.4rem .4rem;font-size:.82rem}
 }
 
 /* b-large — tarjeta mc grande */
@@ -30456,7 +30461,15 @@ window.setTheme = function(t){
 function __muApplyDesktopMode(on){
   var mv = document.querySelector('meta[name="viewport"]');
   if(!mv) return;
-  mv.setAttribute('content', on ? 'width=1280' : 'width=device-width, initial-scale=1.0');
+  var content = on ? 'width=1280' : 'width=device-width, initial-scale=1.0';
+  /* Safari en iOS (y algunos Android) no siempre re-parsean el viewport
+     si solo se cambia el atributo content de la misma etiqueta -- hay
+     que sacarla del DOM y meter una nueva para forzar el re-layout. */
+  mv.parentNode.removeChild(mv);
+  var fresh = document.createElement('meta');
+  fresh.setAttribute('name', 'viewport');
+  fresh.setAttribute('content', content);
+  document.head.appendChild(fresh);
   var btn = document.getElementById('mob-desktop-btn');
   var lbl = document.getElementById('mob-desktop-lbl');
   if(btn) btn.classList.toggle('on', on);
