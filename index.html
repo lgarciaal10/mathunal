@@ -16586,9 +16586,14 @@ html[lang="en"] .sidex-meta-code::before{content:''}
 .smt-leaf:hover{color:var(--acc);background:var(--lay1);padding-left:.7rem}
 .smt-leaf-badge{font-family:IBM Plex Mono,monospace;font-size:.65rem;color:var(--acc);background:var(--card2);border:1px solid var(--bra);border-radius:3px;padding:.05rem .32rem;margin-left:auto;white-space:nowrap;flex-shrink:0}
 .smt-leaf-more{color:var(--acc);font-weight:700}
+.smt-branch-wide{min-width:360px}
+.smt-leaves-2col{display:grid;grid-template-columns:1fr 1fr;gap:.1rem .6rem}
+.smt-leaves-2col .smt-leaf-more{grid-column:1/-1}
 @media(max-width:900px){.smt-branches{flex-wrap:wrap;justify-content:center;border-top:none}
   .smt-branch{padding-top:0}.smt-branch::before{display:none}
-  .smt-branches-outer{overflow-x:visible}}
+  .smt-branches-outer{overflow-x:visible}
+  .smt-branch-wide{min-width:0;width:100%;max-width:420px}
+  .smt-leaves-2col{grid-template-columns:1fr}}
 .smap-divider{height:1.5px;background:var(--br);margin:1.8rem 0}
 .smap-bottom{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.75rem}
 .smap-bottom-l{font-size:.88rem;color:var(--t3);font-family:IBM Plex Mono,monospace}
@@ -21573,9 +21578,9 @@ if(!window.__muModalEsc){window.__muModalEsc=true;
       <div class="smt-root"><span class="smt-root-ico">∫</span>MathUNAL</div>
       <div class="smt-branches-outer">
         <div class="smt-branches">
-          <div class="smt-branch">
+          <div class="smt-branch smt-branch-wide">
             <div class="smt-branch-node"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg> <span id="smt-b-materias">Materias</span></div>
-            <div class="smt-leaves" id="smt-leaves-materias"></div>
+            <div class="smt-leaves smt-leaves-2col" id="smt-leaves-materias"></div>
           </div>
           <div class="smt-branch">
             <div class="smt-branch-node"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg> <span id="smt-b-herr">Herramientas</span></div>
