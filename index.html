@@ -1795,14 +1795,30 @@ html[data-theme="gray"]{
 .smap-hd{margin-bottom:2rem}
 .smap-hd-tag{font-family:IBM Plex Mono,monospace;font-size:.72rem;font-weight:700;color:var(--acc);text-transform:uppercase;letter-spacing:.1em;margin-bottom:.35rem;display:block}
 .smap-hd h2{font-family:'Literata',Georgia,serif;font-size:1.5rem;font-weight:900;color:var(--t1);margin:0;letter-spacing:-.3px}
-.smap-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem}
-@media(max-width:900px){.smap-grid{grid-template-columns:1fr 1fr}}
-@media(max-width:480px){.smap-grid{grid-template-columns:1fr 1fr;gap:1.2rem}}
-.smap-col-title{font-family:IBM Plex Mono,monospace;font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--acc);padding-bottom:.55rem;border-bottom:2px solid var(--bra);margin-bottom:.85rem;display:flex;align-items:center;gap:.4rem}
-.smap-links{display:flex;flex-direction:column;gap:.15rem}
-.smap-link{display:flex;align-items:center;gap:.45rem;font-size:1rem;color:var(--t2);text-decoration:none;padding:.3rem .4rem;border-radius:6px;transition:all .15s;cursor:pointer;background:transparent;border:none;font-family:inherit;width:100%;text-align:left}
-.smap-link:hover{color:var(--acc);background:var(--adim);padding-left:.65rem}
-.smap-link-badge{font-family:IBM Plex Mono,monospace;font-size:.72rem;color:var(--acc);background:var(--adim);border:1px solid var(--bra);border-radius:3px;padding:.08rem .38rem;margin-left:auto;white-space:nowrap;flex-shrink:0}
+/* ── Mapa del sitio: árbol dinámico ── */
+.smt{display:flex;flex-direction:column;align-items:center;padding:.5rem 0 .5rem}
+.smt-root{display:inline-flex;align-items:center;gap:.5rem;padding:.6rem 1.2rem;background:var(--card);border:2px solid var(--bra);border-radius:10px;font-weight:800;font-family:'Literata',Georgia,serif;font-size:1.02rem;color:var(--t1)}
+.smt-root-ico{color:var(--acc);font-size:1.1rem}
+.smt-root::after{content:'';display:block;position:relative;width:2px;height:1.6rem;background:var(--br);margin:0 auto}
+.smt-branches-outer{display:flex;justify-content:center;width:100%;overflow-x:auto}
+.smt-branches{display:flex;gap:2.4rem;border-top:2px solid var(--br);margin-top:1.6rem}
+.smt-branch{position:relative;padding-top:1.6rem;display:flex;flex-direction:column;align-items:center;min-width:180px}
+.smt-branch::before{content:'';position:absolute;top:0;left:50%;width:2px;height:1.6rem;background:var(--br);transform:translateX(-50%)}
+.smt-branch-node{font-family:IBM Plex Mono,monospace;font-size:.76rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--acc);display:flex;align-items:center;gap:.4rem;padding:.4rem .8rem;background:var(--adim);border:1.5px solid var(--bra);border-radius:8px;white-space:nowrap}
+.smt-leaves{position:relative;margin-top:1rem;display:flex;flex-direction:column;gap:.15rem;background:var(--card);border:1.5px solid var(--br);border-radius:10px;padding:.5rem;width:100%}
+.smt-leaves::before{content:'';position:absolute;top:-1rem;left:50%;width:2px;height:1rem;background:var(--br);transform:translateX(-50%)}
+.smt-leaf{display:flex;align-items:center;flex-wrap:wrap;gap:.3rem .4rem;font-size:.92rem;color:var(--t2);text-decoration:none;padding:.32rem .5rem;border-radius:6px;transition:all .15s;white-space:normal;line-height:1.3}
+.smt-leaf:hover{color:var(--acc);background:var(--lay1);padding-left:.7rem}
+.smt-leaf-badge{font-family:IBM Plex Mono,monospace;font-size:.65rem;color:var(--acc);background:var(--card2);border:1px solid var(--bra);border-radius:3px;padding:.05rem .32rem;margin-left:auto;white-space:nowrap;flex-shrink:0}
+.smt-leaf-more{color:var(--acc);font-weight:700}
+.smt-branch-wide{min-width:360px}
+.smt-leaves-2col{display:grid;grid-template-columns:1fr 1fr;gap:.1rem .6rem}
+.smt-leaves-2col .smt-leaf-more{grid-column:1/-1}
+@media(max-width:900px){.smt-branches{flex-wrap:wrap;justify-content:center;border-top:none}
+  .smt-branch{padding-top:0}.smt-branch::before{display:none}
+  .smt-branches-outer{overflow-x:visible}
+  .smt-branch-wide{min-width:0;width:100%;max-width:420px}
+  .smt-leaves-2col{grid-template-columns:1fr}}
 .smap-divider{height:1.5px;background:var(--br);margin:1.8rem 0}
 .smap-bottom{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.75rem}
 .smap-bottom-l{font-size:.88rem;color:var(--t3);font-family:IBM Plex Mono,monospace}
@@ -3570,6 +3586,7 @@ body{padding-top:var(--mu-banner-h, 0px);transition:padding-top .2s ease}
 .au-s{padding:3.5rem 2rem}
 .au-hd{text-align:center;margin-bottom:1.6rem}
 .au-title{font-family:'Literata',Georgia,serif;font-size:1.7rem;font-weight:900;margin-bottom:.3rem}
+.au-subtitle{font-size:1rem;color:var(--t2);max-width:640px;margin:0 auto;line-height:1.6}
 .au-tabs{display:flex;gap:.35rem;justify-content:center;margin-bottom:1.4rem}
 .au-tab{padding:.45rem 1rem;border-radius:8px;font-size:1rem;font-weight:600;cursor:pointer;
   border:2px solid var(--br);background:var(--lay1);color:var(--t2);transition:all .18s}
@@ -6167,6 +6184,7 @@ if(!window.__muModalEsc){window.__muModalEsc=true;
     <div class="au-hd fi">
       <div class="cp-tag">Para quién es MathUNAL</div>
       <div class="au-title">Un solo proyecto, dos formas de usarlo</div>
+      <div class="au-subtitle" id="au-subtitle">MathUNAL es un banco de parciales reales, simulacros con cronómetro y material de estudio para las materias del núcleo de ingeniería — hecho por estudiantes de la Universidad Nacional, para estudiantes.</div>
     </div>
     <div class="au-tabs fi">
       <button class="au-tab on" onclick="showAuTab(0,this)"><svg width="15" height="15" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c0 1.66 2.69 3 6 3s6-1.34 6-3v-5"/></svg> Estudiante</button>
@@ -6313,33 +6331,22 @@ if(!window.__muModalEsc){window.__muModalEsc=true;
       <span class="smap-hd-tag">Mapa del sitio</span>
       <h2>Todo MathUNAL de un vistazo</h2>
     </div>
-    <div class="smap-grid">
-      <div>
-        <div class="smap-col-title"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg> Materias</div>
-        <div class="smap-links">
-          <a href="#materia?s=1000003" class="smap-link">π Matemáticas Básicas</a>
-          <a href="#materia?s=1000004" class="smap-link">∂ Cálculo Diferencial <span class="smap-link-badge">Popular</span></a>
-          <a href="#materia?s=1000005" class="smap-link">∫ Cálculo Integral</a>
-          <a href="#materia?s=1000006" class="smap-link">[ ] Álgebra Lineal</a>
-          <a href="#materia?s=1000007" class="smap-link">∇ Cálculo en Varias Variables</a>
-          <a href="#materia?s=1000008" class="smap-link">y' Ec. Diferenciales</a>
-          <a href="#materias" class="smap-link" style="color:var(--acc);font-weight:600;margin-top:.25rem">Ver todas →</a>
-        </div>
-      </div>
-      <div>
-        <div class="smap-col-title"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg> Herramientas</div>
-        <div class="smap-links">
-          <a href="#formulas" class="smap-link">∑ Formulario interactivo</a>
-          <a href="#calculadora" class="smap-link">≡ Calculadora de notas</a>
-          <a href="#promedio" class="smap-link">⊕ Promedio por créditos</a>
-        </div>
-      </div>
-      <div>
-        <div class="smap-col-title"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17,8 12,3 7,8"/><line x1="12" y1="3" x2="12" y2="15"/></svg> Recursos</div>
-        <div class="smap-links">
-          <a href="#aportar" class="smap-link">↑ Aportar material</a>
-          <a href="#faq" class="smap-link">? Preguntas frecuentes</a>
-          <a href="#acerca" class="smap-link">∮ La historia de MathUNAL</a>
+    <div class="smt" id="smap-tree">
+      <div class="smt-root"><span class="smt-root-ico">∫</span>MathUNAL</div>
+      <div class="smt-branches-outer">
+        <div class="smt-branches">
+          <div class="smt-branch smt-branch-wide">
+            <div class="smt-branch-node"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg> <span id="smt-b-materias">Materias</span></div>
+            <div class="smt-leaves smt-leaves-2col" id="smt-leaves-materias"></div>
+          </div>
+          <div class="smt-branch">
+            <div class="smt-branch-node"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg> <span id="smt-b-herr">Herramientas</span></div>
+            <div class="smt-leaves" id="smt-leaves-herr"></div>
+          </div>
+          <div class="smt-branch">
+            <div class="smt-branch-node"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="11"/><line x1="12" y1="8" x2="12" y2="8"/></svg> <span id="smt-b-info">Información</span></div>
+            <div class="smt-leaves" id="smt-leaves-info"></div>
+          </div>
         </div>
       </div>
     </div>
@@ -6378,14 +6385,11 @@ if(!window.__muModalEsc){window.__muModalEsc=true;
         </ul>
       </div>
       <div class="fcol">
-        <h4>Materias</h4>
+        <h4>Legal</h4>
         <ul>
-          <li><a href="#materia?s=1000003">Matemáticas Básicas</a></li>
-          <li><a href="#materia?s=1000004">Cálculo Diferencial</a></li>
-          <li><a href="#materia?s=1000006">Álgebra Lineal</a></li>
-          <li><a href="#materia?s=1000005">Cálculo Integral</a></li>
-          <li><a href="#materia?s=1000007">Cálculo en Varias Variables</a></li>
-          <li><a href="#materias">Ver todas →</a></li>
+          <li><a href="#privacidad">Privacidad</a></li>
+          <li><a href="#acerca">La historia</a></li>
+          <li><a href="#aportar">Aportar material</a></li>
         </ul>
       </div>
     </div>
@@ -16462,7 +16466,7 @@ var LANG_ES={
   "test-label":"Lo que dicen los estudiantes","test-h":"Estudiantes reales,","test-hi":"resultados reales",
   /* Footer */
   "foot-desc":"Un cuaderno compartido entre estudiantes de ingeniería de la UNAL Medellín. No oficial, hecho con cariño.",
-  "foot-com":"Comunidad","foot-contact":"Contacto","foot-mats":"Materias",
+  "foot-com":"Comunidad","foot-contact":"Contacto","foot-legalcol":"Legal",
   "foot-copy":"© 2026 MathUNAL · Proyecto estudiantil independiente · No afiliado a la UNAL · <a href=\"#acerca\" style=\"color:inherit;text-decoration:underline\">La historia</a> · <a href=\"#privacidad\" style=\"color:inherit;text-decoration:underline\">Privacidad</a>",
   /* Ciclo del Parcial */
   "cp-tag":"El problema que resuelve MathUNAL",
@@ -16625,6 +16629,7 @@ var LANG_ES={
   "prom-ej":"EJEMPLO RÁPIDO","prom-foot":"Nota mínima aprobatoria: 3.0 · Tope PAES: 3.5 · El SIA redondea a 1 decimal (2.95 → 3.0)",
   /* Au-s panels 0,1,2 */
   "au-title":"Un solo proyecto, dos formas de usarlo",
+  "au-subtitle":"MathUNAL es un banco de parciales reales, simulacros con cronómetro y material de estudio para las materias del núcleo de ingeniería — hecho por estudiantes de la Universidad Nacional, para estudiantes.",
   "au-tab0":"Estudiante","au-tab1":"Monitor",
   "au-p0-t":"Practica con parciales reales, gratis y sin registro",
   "au-p0-d":"MathUNAL tiene los parciales que tus compañeros de semestres anteriores ya presentaron. No necesitas crear cuenta, no necesitas pagar.",
@@ -16743,7 +16748,7 @@ var LANG_EN={
   "test-label":"What students say","test-h":"Real students,","test-hi":"real results",
   /* Footer */
   "foot-desc":"A shared notebook between UNAL Medellín engineering students. Unofficial, made with care.",
-  "foot-com":"Community","foot-contact":"Contact","foot-mats":"Subjects",
+  "foot-com":"Community","foot-contact":"Contact","foot-legalcol":"Legal",
   "foot-copy":"© 2026 MathUNAL · Independent student project · Not affiliated with UNAL · <a href=\"#acerca\" style=\"color:inherit;text-decoration:underline\">The story</a> · <a href=\"#privacidad\" style=\"color:inherit;text-decoration:underline\">Privacy</a>",
   /* Exam Cycle */
   "cp-tag":"The problem MathUNAL solves",
@@ -16906,6 +16911,7 @@ var LANG_EN={
   "prom-ej":"QUICK EXAMPLE","prom-foot":"Minimum passing grade: 3.0 · PAES cap: 3.5 · SIA rounds to 1 decimal (2.95 → 3.0)",
   /* Au-s panels 0,1,2 */
   "au-title":"One project, two ways to use it",
+  "au-subtitle":"MathUNAL is a bank of real exams, timed mock tests, and study material for core engineering courses — built by students of Universidad Nacional, for students.",
   "au-tab0":"Student","au-tab1":"Monitor",
   "au-p0-t":"Practice with real past exams, free and with no signup",
   "au-p0-d":"MathUNAL has the exams your classmates from previous semesters already took. No account needed, no payment needed.",
@@ -17406,6 +17412,7 @@ function setLang(lang){
   /* AU-S (3 tabs/panels) */
   setText('.au-s .cp-tag','au-tag');
   setText('.au-s .au-title','au-title');
+  setText('.au-s .au-subtitle','au-subtitle');
   var auTabs=document.querySelectorAll('.au-tab'); var auTabKeys=['au-tab0','au-tab1'];
   auTabs.forEach(function(el,i){ if(auTabKeys[i]&&L[auTabKeys[i]]){ var svga=el.querySelector('svg'); el.innerHTML=(svga?svga.outerHTML:'')+' '+L[auTabKeys[i]]; } });
   setText('#au-p0 .au-msg-title','au-p0-t'); setText('#au-p0 .au-msg-body','au-p0-d');
@@ -17458,46 +17465,25 @@ function setLang(lang){
   if(rutaCta&&L['ruta-cta']){ var svgr=rutaCta.querySelector('svg'); rutaCta.innerHTML=(svgr?svgr.outerHTML:'')+' '+L['ruta-cta']; }
   setText('.ruta-s .ruta-cta span','ruta-foot');
 
-  /* MAPA DEL SITIO (smap-s) */
+  /* MAPA DEL SITIO (smap-s) — árbol dinámico, generado desde SUBJECTS */
   setText('.smap-s .smap-hd-tag','smap-tag'); setText('.smap-s h2','smap-h');
-  var smapColTitles=document.querySelectorAll('.smap-s .smap-col-title'); var smapColKeys=['smap-col1','smap-col2','smap-col3','smap-col4'];
-  smapColTitles.forEach(function(el,i){ if(smapColKeys[i]&&L[smapColKeys[i]]){ var svgsm=el.querySelector('svg'); el.innerHTML=(svgsm?svgsm.outerHTML:'')+' '+L[smapColKeys[i]]; } });
-  document.querySelectorAll('.smap-s .smap-link').forEach(function(a){
-    var href=a.getAttribute('href')||''; var m=href.match(/s=(\d+)/);
-    if(m && typeof SUBJECTS!=='undefined'){
-      var subj=SUBJECTS.filter(function(s){return s.code===m[1];})[0];
-      if(subj){ var badge=a.querySelector('.smap-link-badge'); var newName=(en&&subj.nameEn?subj.nameEn:subj.nameEs);
-        a.innerHTML=subj.sym+' '+newName+(badge?(' '+badge.outerHTML):''); }
-    }
-    var t=a.textContent.trim();
-    if(t==='Ver todas →'&&L['smap-ver-todas']) a.textContent=L['smap-ver-todas'];
-    if(t.indexOf('Popular')>=0&&L['smap-popular']){ var b2=a.querySelector('.smap-link-badge'); if(b2)b2.textContent=L['smap-popular']; }
-  });
-  var smapToolLinks=document.querySelectorAll('.smap-s .smap-links')[1];
-  if(smapToolLinks){
-    var toolAs=smapToolLinks.querySelectorAll('a'); var toolKeys=['smap-form','smap-calc','smap-prom'];
-    toolAs.forEach(function(a,i){ if(!toolKeys[i]||!L[toolKeys[i]])return; var badge=a.querySelector('.smap-link-badge');
-      var prefix=a.textContent.trim().split(' ')[0];
-      a.innerHTML=prefix+' '+L[toolKeys[i]]+(badge?(' '+badge.outerHTML):''); });
-  }
-  var smapResLinks=document.querySelectorAll('.smap-s .smap-links')[2];
-  if(smapResLinks){
-    var resAs=smapResLinks.querySelectorAll('a'); var resKeys=['smap-aportar','smap-faq','smap-hist'];
-    resAs.forEach(function(a,i){ if(!resKeys[i]||!L[resKeys[i]])return; var prefix=a.textContent.trim().split(' ')[0]; a.textContent=prefix+' '+L[resKeys[i]]; });
-  }
-  document.querySelectorAll('.smap-s .smap-links a').forEach(function(a){
-    var t=a.textContent.trim();
-    if(t.indexOf('Grupo WhatsApp')>=0&&L['smap-wa']) a.innerHTML='<svg width="13" height="13" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" style="vertical-align:-2px"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg> '+L['smap-wa'];
-    if(t.indexOf('Telegram (próximo)')>=0&&L['smap-tg']) a.textContent='↗ '+L['smap-tg'];
-    if(t.indexOf('Discord (próximo)')>=0&&L['smap-dc']) a.textContent='↗ '+L['smap-dc'];
-  });
+  if(typeof _renderSitemapTree==='function') _renderSitemapTree(en);
   setText('.smap-bottom-l','smap-bottom');
-  var smapQuick=document.querySelectorAll('.smap-quick-btn'); var smapQuickKeys=['smap-top','smap-quick-sim','smap-quick-banco','smap-quick-form'];
-  smapQuick.forEach(function(el,i){ if(!smapQuickKeys[i]||!L[smapQuickKeys[i]])return; var prefix=el.textContent.trim().split(' ')[0]; el.textContent=prefix+' '+L[smapQuickKeys[i]]; });
+  var _smapMap={ '#home':en?'↑ Back to top':'↑ Volver arriba',
+                 '#materias':en?'Subjects':'Materias',
+                 '#formulas':en?'∑ Formulas':'∑ Formulario',
+                 '#simulacros':en?'Mock Exams':'Simulacros' };
+  document.querySelectorAll('.smap-quick-btn').forEach(function(el){
+    var lab=_smapMap[el.getAttribute('href')||''];
+    if(!lab) return;
+    var svg=el.querySelector('svg');
+    el.textContent = svg ? (' '+lab) : lab;
+    if(svg) el.insertBefore(svg, el.firstChild);
+  });
 
   /* FOOTER (resto) */
   setText('footer .fact','foot-activo');
-  var footCols=document.querySelectorAll('footer .fcol h4'); var footColKeys=['foot-com','foot-contact','foot-mats'];
+  var footCols=document.querySelectorAll('footer .fcol h4'); var footColKeys=['foot-com','foot-contact','foot-legalcol'];
   footCols.forEach(function(el,i){ if(footColKeys[i]&&L[footColKeys[i]]) el.textContent=L[footColKeys[i]]; });
   document.querySelectorAll('footer .fcol a').forEach(function(a){
     var t=a.textContent.trim();
@@ -17505,14 +17491,10 @@ function setLang(lang){
     if(t.indexOf('Canal Telegram')>=0&&L['foot-tg']) a.lastChild.textContent=L['foot-tg'];
     if(t==='Discord'&&L['foot-dc']) a.lastChild.textContent=L['foot-dc'];
     if(t.indexOf('Bancolombia')>=0&&L['foot-bank']) a.lastChild.textContent=L['foot-bank'];
-    if(t==='Ver todas →'&&L['foot-vertodas']) a.textContent=L['foot-vertodas'];
   });
+  var footLegalMap={ '#privacidad':en?'Privacy':'Privacidad', '#acerca':en?'The story':'La historia', '#aportar':en?'Contribute material':'Aportar material' };
   document.querySelectorAll('footer .fcol:last-of-type a').forEach(function(a){
-    var href=a.getAttribute('href')||''; var m=href.match(/s=(\d+)/);
-    if(m && typeof SUBJECTS!=='undefined'){
-      var subj=SUBJECTS.filter(function(s){return s.code===m[1];})[0];
-      if(subj) a.textContent = en&&subj.nameEn?subj.nameEn:subj.nameEs;
-    }
+    var lab=footLegalMap[a.getAttribute('href')||'']; if(lab) a.textContent=lab;
   });
   var footP=document.querySelector('footer .fbrand p'); if(footP&&L['foot-tagline']) footP.textContent=L['foot-tagline'];
 
@@ -17677,6 +17659,45 @@ var SUBJECTS = [
 window.SUBJECTS = SUBJECTS; /* expuesto a window por la misma razon que EXAMS/BANCO_EXAMENES:
   este array vive en una IIFE que no es la misma que el setLang ganador (en tpl-home), asi que
   sin esto, codigo en otros scopes (ruta-s/smap-s/footer) lo veia 'undefined'. */
+
+/* Mapa del sitio (árbol): la rama de materias se genera SIEMPRE desde SUBJECTS,
+   así que si se agrega/quita una materia el mapa se actualiza solo, sin tocar HTML. */
+function _renderSitemapTree(en){
+  var hM=_el('smt-b-materias'); if(hM) hM.textContent = en?'Subjects':'Materias';
+  var hH=_el('smt-b-herr');     if(hH) hH.textContent = en?'Tools':'Herramientas';
+  var hI=_el('smt-b-info');     if(hI) hI.textContent = en?'Information':'Información';
+
+  var lm=_el('smt-leaves-materias');
+  if(lm){
+    var html=(window.SUBJECTS||[]).map(function(s){
+      var name=(en&&s.nameEn)?s.nameEn:s.nameEs;
+      return '<a href="#materia?s='+s.code+'" class="smt-leaf">'+s.sym+' '+name+(s.hot?'<span class="smt-leaf-badge">Popular</span>':'')+'</a>';
+    }).join('');
+    html += '<a href="#materias" class="smt-leaf smt-leaf-more">'+(en?'See all →':'Ver todas →')+'</a>';
+    lm.innerHTML=html;
+  }
+  var lh=_el('smt-leaves-herr');
+  if(lh){
+    lh.innerHTML=[
+      ['#simulacros', en?'∑ SIDEX mock exams':'∑ Simulacros SIDEX'],
+      ['#diagnostico', en?'⊕ Free diagnostic':'⊕ Diagnóstico gratis'],
+      ['#formulas', en?'∫ Interactive formula sheet':'∫ Formulario interactivo'],
+      ['#calculadora', en?'≡ Grade calculator':'≡ Calculadora de notas'],
+      ['#promedio', en?'π Weighted average':'π Promedio por créditos'],
+      ['#juegos', en?'♦ Games':'♦ Juegos']
+    ].map(function(l){ return '<a href="'+l[0]+'" class="smt-leaf">'+l[1]+'</a>'; }).join('');
+  }
+  var li=_el('smt-leaves-info');
+  if(li){
+    li.innerHTML=[
+      ['#aportar', en?'↑ Contribute material':'↑ Aportar material'],
+      ['#faq', en?'? FAQ':'? Preguntas frecuentes'],
+      ['#acerca', en?'∮ The story of MathUNAL':'∮ La historia de MathUNAL'],
+      ['#privacidad', en?'⌘ Privacy':'⌘ Privacidad']
+    ].map(function(l){ return '<a href="'+l[0]+'" class="smt-leaf">'+l[1]+'</a>'; }).join('');
+  }
+}
+window._renderSitemapTree=_renderSitemapTree;
 
 /* Fuente única de verdad para el conteo de PDFs mostrado en toda la página
    (hero, ciclo del parcial, materias, timeline, autoevaluación...).
