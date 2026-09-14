@@ -14793,6 +14793,15 @@ img{max-width:100%;display:block}
   --grn:   #2DD4BF;
   --yel:   #FBBF24;
   --red:   #FB7185;
+  /* Paleta "Pro" -- dorado, deliberadamente distinta del --acc naranja de
+     marca, para que todo lo que es exclusivo de pago se lea como una cosa
+     aparte a simple vista (candados, badges PRO, el banner de upsell) en
+     vez de compartir el mismo color que cualquier botón normal del sitio. */
+  --gold:      #F0B429;
+  --gold2:     #FFDD8A;
+  --gold-dim:  rgba(240,180,41,.12);
+  --gold-glow: rgba(240,180,41,.32);
+  --gold-ink:  #3D2E00;
   /* --ok/--bad/--warn: verde/rojo/ambar "de estado" (correcto/incorrecto/
      advertencia en exámenes y badges), un tono distinto al --grn/--red de marca
      (teal) a propósito -- verde/rojo puro se lee mejor como estado. Existían
@@ -15519,7 +15528,8 @@ html[data-theme="light"] .ht-bot{
 .sim-btn{display:inline-flex;align-items:center;gap:.3rem;padding:.4rem .85rem;border-radius:8px;font-size:1rem;font-weight:700;cursor:pointer;transition:all .18s;border:none;text-decoration:none;white-space:nowrap;font-family:inherit}
 .sb-dl{background:var(--acc);color:#fff;box-shadow:0 0 14px rgba(224,93,26,.3)}
 .sb-dl:hover{filter:brightness(1.1)}
-.sb-lock{background:var(--lay2);color:var(--t3);border:2px solid var(--br)}
+.sb-lock{background:linear-gradient(115deg,var(--gold-dim),rgba(240,180,41,.18));color:var(--gold);border:2px solid var(--gold)}
+.sb-lock:hover{background:linear-gradient(115deg,var(--gold),var(--gold2));color:var(--gold-ink)}
 
 /* ══ BANCO — diseño compacto lista ══ */
 .banco-s{padding:1.5rem 2rem 2rem}
@@ -16937,7 +16947,7 @@ html[data-theme="gray"] .hero-bg .lg-blob-center{background:radial-gradient(elli
 .self-btn{border-radius:8px;padding:.38rem .85rem;font-size:1rem;font-weight:700;cursor:pointer;border:2px solid var(--br);font-family:inherit;transition:all .18s}
 .self-btn:hover{filter:brightness(1.15)}
 
-.smp-pro{font-family:'IBM Plex Mono',monospace;font-size:.54rem;font-weight:700;letter-spacing:.06em;color:var(--acc);background:var(--adim);border:1px solid var(--bra);border-radius:3px;padding:.02rem .28rem;vertical-align:1px}
+.smp-pro{font-family:'IBM Plex Mono',monospace;font-size:.54rem;font-weight:800;letter-spacing:.06em;color:var(--gold-ink);background:linear-gradient(115deg,var(--gold),var(--gold2));border:1px solid var(--gold);border-radius:3px;padding:.02rem .32rem;vertical-align:1px;box-shadow:0 1px 3px rgba(0,0,0,.25)}
 /* ── SIMULACROS PRO (rama simulacros-pro): "el truco", dominio por tema, frecuencia ── */
 .sim-extra{margin-top:.7rem;border-radius:10px;padding:.7rem .9rem;font-size:.9rem;line-height:1.5}
 .sim-mini-lbl{display:block;font-family:'IBM Plex Mono',monospace;font-size:.62rem;letter-spacing:.11em;
@@ -16968,20 +16978,38 @@ html[data-theme="gray"] .hero-bg .lg-blob-center{background:radial-gradient(elli
 /* ── gate del gratis ── */
 .sim-free-teaser{font-size:.95rem;color:var(--t2);margin:.2rem 0 .9rem}
 .sim-free-teaser b{color:var(--acc2)}
-.sim-free-lock,.sim-sol-lock{display:flex;gap:.9rem;align-items:center;flex-wrap:wrap;background:var(--adim);border:1px dashed var(--bra);border-radius:11px;padding:1rem 1.1rem}
+.sim-free-lock,.sim-sol-lock{
+  position:relative;overflow:hidden;display:flex;gap:.9rem;align-items:center;flex-wrap:wrap;
+  background:var(--gold-dim);border:1px solid var(--gold);border-radius:11px;padding:1.1rem 1.2rem;
+}
 .sim-sol-lock{margin-top:.5rem}
-.sim-free-lock-ic{flex:none;color:var(--acc);display:grid;place-items:center;width:34px;height:34px;border-radius:9px;background:var(--adim);border:1px solid var(--bra)}
+/* Sugerencia de contenido real detrás del candado -- líneas de texto
+   difuminadas, no un vacío -- para que se sienta "hay algo aquí que te
+   estás perdiendo" en vez de "esto simplemente no existe para ti". */
+.sim-free-lock::before,.sim-sol-lock::before{
+  content:'';position:absolute;inset:0;pointer-events:none;z-index:0;
+  background:repeating-linear-gradient(180deg,var(--t2) 0px,var(--t2) 2px,transparent 2px,transparent 15px);
+  opacity:.09;filter:blur(1.5px);
+  mask-image:linear-gradient(180deg,#000,transparent 80%);-webkit-mask-image:linear-gradient(180deg,#000,transparent 80%);
+}
+.sim-free-lock > *,.sim-sol-lock > *{position:relative;z-index:1}
+.sim-free-lock-ic{flex:none;color:var(--gold-ink);display:grid;place-items:center;width:38px;height:38px;border-radius:10px;background:linear-gradient(135deg,var(--gold),var(--gold2));border:1px solid var(--gold);box-shadow:0 2px 10px rgba(240,180,41,.4)}
 .sim-free-lock-ic svg{display:block}
 .sim-free-lock strong,.sim-sol-lock strong{display:block;font-size:.95rem;color:var(--t1)}
 .sim-free-lock-sub{font-size:.82rem;color:var(--t3);line-height:1.45;margin-top:.15rem}
-.sim-free-lock-btn{margin-left:auto;background:var(--acc);color:#fff;border:none;border-radius:9px;padding:.5rem 1rem;font-size:.85rem;font-weight:700;font-family:inherit;cursor:pointer;white-space:nowrap}
-.sim-free-lock-btn:hover{filter:brightness(1.08)}
+.sim-free-lock-btn{margin-left:auto;position:relative;overflow:hidden;background:linear-gradient(115deg,var(--gold),var(--gold2));color:var(--gold-ink);border:none;border-radius:9px;padding:.55rem 1.1rem;font-size:.85rem;font-weight:800;font-family:inherit;cursor:pointer;white-space:nowrap;box-shadow:0 4px 16px rgba(240,180,41,.4);transition:transform .15s,filter .15s}
+.sim-free-lock-btn:hover{filter:brightness(1.05);transform:translateY(-1px)}
+.sim-free-lock-btn::after{content:'';position:absolute;top:0;left:-60%;width:40%;height:100%;
+  background:linear-gradient(115deg,transparent,rgba(255,255,255,.6),transparent);transform:skewX(-20deg);
+  animation:sim-lock-shine 3.2s ease-in-out infinite}
+@keyframes sim-lock-shine{0%{left:-60%}42%,100%{left:130%}}
+@media(prefers-reduced-motion:reduce){.sim-free-lock-btn::after{display:none}}
 .sim-peek-note{display:flex;gap:.7rem;align-items:center;flex-wrap:wrap;margin-top:.9rem;padding:.7rem .9rem;
-  border-top:1px dashed var(--br2);font-size:.8rem;color:var(--t3);line-height:1.45}
+  background:var(--gold-dim);border:1px solid var(--gold);border-top:1px solid var(--gold);border-radius:9px;font-size:.8rem;color:var(--t2);line-height:1.45}
 .sim-peek-note span{flex:1;min-width:180px}
-.sim-peek-link{background:none;border:1px solid var(--bra);color:var(--acc);border-radius:8px;
-  padding:.32rem .7rem;font-size:.78rem;font-weight:700;font-family:inherit;cursor:pointer;white-space:nowrap}
-.sim-peek-link:hover{background:var(--adim)}
+.sim-peek-link{background:linear-gradient(115deg,var(--gold),var(--gold2));border:none;color:var(--gold-ink);border-radius:8px;
+  padding:.32rem .8rem;font-size:.78rem;font-weight:800;font-family:inherit;cursor:pointer;white-space:nowrap;box-shadow:0 2px 8px rgba(240,180,41,.35)}
+.sim-peek-link:hover{filter:brightness(1.05)}
 
 /* ── Laboratorio "Compruébalo tú mismo" ── */
 .sim-lab-box{margin-top:.9rem;border:1px solid var(--bra);background:var(--card2);border-radius:12px;padding:.9rem 1rem}
@@ -19234,13 +19262,13 @@ input:not([type=checkbox]):not([type=radio]):focus,select:focus,textarea:focus{
 
 /* ── Teaser de Simulacros: escáner animado ── */
 #sim-teaser > .wrap > .fi{position:relative;overflow:hidden;transition:transform .3s cubic-bezier(.22,1,.36,1),border-color .3s,box-shadow .3s}
-#sim-teaser > .wrap > .fi:hover{transform:translateY(-4px);border-color:var(--bra);box-shadow:0 20px 55px -22px rgba(232,99,42,.4)}
+#sim-teaser > .wrap > .fi:hover{transform:translateY(-4px);border-color:var(--gold);box-shadow:0 20px 55px -22px rgba(240,180,41,.45)}
 #sim-teaser > .wrap > .fi:hover .sim-scan-fx{animation-duration:1.6s}
 
 /* haz vertical que barre todo el card */
 #sim-teaser > .wrap > .fi::before{
   content:'';position:absolute;top:-12%;left:0;width:34%;height:124%;pointer-events:none;
-  background:linear-gradient(100deg,transparent,rgba(232,99,42,.12) 42%,rgba(255,146,86,.28) 50%,rgba(232,99,42,.12) 58%,transparent);
+  background:linear-gradient(100deg,transparent,rgba(240,180,41,.14) 42%,rgba(255,221,138,.3) 50%,rgba(240,180,41,.14) 58%,transparent);
   transform:translateX(-150%) skewX(-12deg);
   animation:simSweep 3.4s cubic-bezier(.5,0,.5,1) infinite;
 }
@@ -19249,19 +19277,19 @@ input:not([type=checkbox]):not([type=radio]):focus,select:focus,textarea:focus{
 /* línea de escaneo del borde superior */
 #sim-teaser > .wrap > .fi::after{
   content:'';position:absolute;left:0;top:0;height:4px;width:44%;border-radius:0 0 4px 4px;pointer-events:none;
-  background:linear-gradient(90deg,transparent,var(--acc) 40%,#FF925C 55%,transparent);
-  box-shadow:0 0 20px 2px rgba(232,99,42,.6);
+  background:linear-gradient(90deg,transparent,var(--gold) 40%,var(--gold2) 55%,transparent);
+  box-shadow:0 0 20px 2px rgba(240,180,41,.65);
   transform:translateX(-120%);animation:simScan 3.4s cubic-bezier(.45,0,.55,1) infinite;
 }
 @keyframes simScan{0%{transform:translateX(-120%)}62%,100%{transform:translateX(320%)}}
 
 /* overlay decorativo: rejilla que late + esquinas tipo visor de cámara */
 .sim-scan-fx{position:absolute;inset:0;pointer-events:none;border-radius:inherit;overflow:hidden;
-  background-image:repeating-linear-gradient(0deg,rgba(232,99,42,.05) 0 1px,transparent 1px 5px);
+  background-image:repeating-linear-gradient(0deg,rgba(240,180,41,.06) 0 1px,transparent 1px 5px);
   animation:simGrid 3.4s ease-in-out infinite}
 @keyframes simGrid{0%,100%{opacity:.35}50%{opacity:.7}}
 .sim-scan-fx::before,.sim-scan-fx::after{content:'';position:absolute;width:24px;height:24px;
-  border:2px solid var(--acc);animation:simCorner 3.4s ease-in-out infinite}
+  border:2px solid var(--gold);animation:simCorner 3.4s ease-in-out infinite}
 .sim-scan-fx::before{top:12px;left:12px;border-right:0;border-bottom:0;border-radius:5px 0 0 0}
 .sim-scan-fx::after{bottom:12px;right:12px;border-left:0;border-top:0;border-radius:0 0 5px 0;animation-delay:1.7s}
 @keyframes simCorner{0%,100%{opacity:.2;transform:scale(.85)}50%{opacity:.65;transform:scale(1)}}
@@ -19291,23 +19319,26 @@ input:not([type=checkbox]):not([type=radio]):focus,select:focus,textarea:focus{
   margin:0 auto 1rem;max-width:560px;font-family:'IBM Plex Mono',monospace;font-size:.72rem;font-weight:600}
 .sim-loop span{padding:.3rem .6rem;border-radius:7px;background:var(--lay2);color:var(--t2);border:1px solid var(--br);white-space:nowrap}
 .sim-loop i{color:var(--acc);font-style:normal}
-.sim-loop .sim-loop-end{background:var(--adim);color:var(--acc);border-color:var(--bra);position:relative;overflow:hidden}
+.sim-loop .sim-loop-end{background:var(--gold-dim);color:var(--gold);border-color:var(--gold);position:relative;overflow:hidden}
 .sim-loop .sim-loop-end::after{content:'';position:absolute;inset:0;
-  background:linear-gradient(90deg,transparent,rgba(255,146,86,.35),transparent);
+  background:linear-gradient(90deg,transparent,rgba(255,221,138,.4),transparent);
   transform:translateX(-100%);animation:simLoopShine 3.4s ease-in-out infinite}
 @keyframes simLoopShine{0%,70%{transform:translateX(-100%)}86%,100%{transform:translateX(100%)}}
 .sim-teaser-price{font-family:'IBM Plex Mono',monospace;font-size:.78rem;color:var(--t2);font-weight:600;line-height:1.5}
 .sim-teaser-price b{color:var(--t1);font-weight:800}
 .sim-teaser-free{font:inherit}
 
-/* ── Tarjeta premium del home (naranja sutil, sin dorado) ── */
+/* ── Tarjeta premium del home -- unificada al dorado con el resto de la
+   identidad Pro (candados, badges, banner), en vez de compartir el
+   naranja de marca con cualquier CTA normal del sitio. ── */
 .sim-prem-card{text-align:center;border-radius:18px;padding:2.6rem 2rem 2.2rem;
   background:
-    radial-gradient(120% 90% at 50% -10%, rgba(232,99,42,.14), transparent 60%),
+    radial-gradient(120% 90% at 50% -10%, rgba(240,180,41,.16), transparent 60%),
     linear-gradient(180deg, var(--card), var(--card2));
-  border:1.5px solid var(--bra)}
+  border:1.5px solid var(--gold)}
 .sim-prem-cta{display:flex;flex-direction:column;align-items:center;gap:.55rem;margin:.4rem 0 1.5rem}
 .sim-prem-btn{font-size:.95rem;padding:.8rem 1.7rem}
+.sim-teaser-tag{color:var(--gold) !important}
 .sim-prem-btn svg{animation:none;transform:none}
 .sim-prem-sub .sim-teaser-pill{font-family:'IBM Plex Mono',monospace;font-size:.72rem;font-weight:700;letter-spacing:.03em;
   color:var(--acc);background:var(--adim);border:1px solid var(--bra);border-radius:99px;padding:.32rem .9rem;display:inline-block}
@@ -19319,18 +19350,21 @@ input:not([type=checkbox]):not([type=radio]):focus,select:focus,textarea:focus{
 @media(max-width:520px){.sim-prem-card{padding:2rem 1.3rem 1.8rem}}
 
 /* Banner Pro dentro de la sección real de simulacros */
-.sim-pro-banner{position:relative;overflow:hidden;border:1.5px solid var(--bra);border-radius:14px;
-  background:linear-gradient(135deg,var(--adim),transparent 60%),var(--card);
-  padding:1.4rem 1.5rem;margin-bottom:1.6rem;display:flex;gap:1.2rem;align-items:center;flex-wrap:wrap}
+.sim-pro-banner{position:relative;overflow:hidden;border:1.5px solid var(--gold);border-radius:14px;
+  background:linear-gradient(135deg,var(--gold-dim),transparent 60%),var(--card);
+  padding:1.4rem 1.5rem;margin-bottom:1.6rem;display:flex;gap:1.2rem;align-items:center;flex-wrap:wrap;
+  box-shadow:0 0 0 1px rgba(240,180,41,.06),0 8px 30px rgba(240,180,41,.08)}
 .sim-pro-banner::before{content:'';position:absolute;top:0;left:0;width:38%;height:100%;pointer-events:none;
-  background:linear-gradient(100deg,transparent,rgba(255,146,86,.14) 50%,transparent);
+  background:linear-gradient(100deg,transparent,rgba(255,221,138,.22) 50%,transparent);
   transform:translateX(-140%) skewX(-12deg);animation:simSweep 4.2s cubic-bezier(.5,0,.5,1) infinite}
 .sim-pro-banner > div{position:relative;flex:1;min-width:230px}
-.sim-pro-banner .spb-tag{font-family:'IBM Plex Mono',monospace;font-size:.7rem;font-weight:700;
-  letter-spacing:.08em;text-transform:uppercase;color:var(--acc)}
-.sim-pro-banner h3{font-family:'Literata',Georgia,serif;font-size:1.2rem;margin:.25rem 0 .35rem;color:var(--t1)}
+.sim-pro-banner .spb-tag{font-family:'IBM Plex Mono',monospace;font-size:.7rem;font-weight:800;
+  letter-spacing:.08em;text-transform:uppercase;color:var(--gold)}
+.sim-pro-banner h3{font-family:'Literata',Georgia,serif;font-size:1.2rem;margin:.25rem 0 .5rem;color:var(--t1)}
 .sim-pro-banner p{font-size:.85rem;color:var(--t2);line-height:1.55;margin:0}
 .sim-pro-banner .spb-price{font-family:'IBM Plex Mono',monospace;font-size:.78rem;color:var(--t3);margin-top:.5rem}
+.sim-pro-banner #spb-cta{background:linear-gradient(115deg,var(--gold),var(--gold2));color:var(--gold-ink);border-color:var(--gold)}
+.sim-pro-banner #spb-cta:hover{filter:brightness(1.05)}
 @media(prefers-reduced-motion:reduce){ .sim-pro-banner::before{display:none} }
 
 /* ── Próximamente cards ── */
