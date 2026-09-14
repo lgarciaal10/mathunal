@@ -18663,6 +18663,7 @@ body{padding-top:var(--mu-banner-h, 0px);transition:padding-top .2s ease}
 .au-s{padding:3.5rem 2rem}
 .au-hd{text-align:center;margin-bottom:1.6rem}
 .au-title{font-family:'Literata',Georgia,serif;font-size:1.7rem;font-weight:900;margin-bottom:.3rem}
+.au-subtitle{font-size:1rem;color:var(--t2);max-width:640px;margin:0 auto;line-height:1.6}
 .au-tabs{display:flex;gap:.35rem;justify-content:center;margin-bottom:1.4rem}
 .au-tab{padding:.45rem 1rem;border-radius:8px;font-size:1rem;font-weight:600;cursor:pointer;
   border:2px solid var(--br);background:var(--lay1);color:var(--t2);transition:all .18s}
@@ -20666,6 +20667,7 @@ customElements.define('glass-element', GlassElement);
     <div class="au-hd fi">
       <div class="cp-tag">Para quién es MathUNAL</div>
       <div class="au-title">Un solo proyecto, dos formas de usarlo</div>
+      <div class="au-subtitle" id="au-subtitle">MathUNAL es un banco gratuito de parciales reales, simulacros con cronómetro y material de estudio para las materias del núcleo de ingeniería — hecho por estudiantes de la Universidad Nacional, para estudiantes.</div>
     </div>
     <div class="au-tabs fi">
       <button class="au-tab on" onclick="showAuTab(0,this)"><svg width="15" height="15" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c0 1.66 2.69 3 6 3s6-1.34 6-3v-5"/></svg> Estudiante</button>
@@ -33486,6 +33488,7 @@ var LANG_ES={
   "prom-ej":"EJEMPLO RÁPIDO","prom-foot":"Nota mínima aprobatoria: 3.0 · Tope PAES: 3.5 · El SIA redondea a 1 decimal (2.95 → 3.0)",
   /* Au-s panels 0,1,2 */
   "au-title":"Un solo proyecto, dos formas de usarlo",
+  "au-subtitle":"MathUNAL es un banco gratuito de parciales reales, simulacros con cronómetro y material de estudio para las materias del núcleo de ingeniería — hecho por estudiantes de la Universidad Nacional, para estudiantes.",
   "au-tab0":"Estudiante","au-tab1":"Monitor",
   "au-p0-t":"Practica con parciales reales, gratis y sin registro",
   "au-p0-d":"MathUNAL tiene los parciales que tus compañeros de semestres anteriores ya presentaron. No necesitas crear cuenta, no necesitas pagar.",
@@ -33769,6 +33772,7 @@ var LANG_EN={
   "prom-ej":"QUICK EXAMPLE","prom-foot":"Minimum passing grade: 3.0 · PAES cap: 3.5 · SIA rounds to 1 decimal (2.95 → 3.0)",
   /* Au-s panels 0,1,2 */
   "au-title":"One project, two ways to use it",
+  "au-subtitle":"MathUNAL is a free bank of real exams, timed mock tests, and study material for core engineering courses — built by students of Universidad Nacional, for students.",
   "au-tab0":"Student","au-tab1":"Monitor",
   "au-p0-t":"Practice with real past exams, free and with no signup",
   "au-p0-d":"MathUNAL has the exams your classmates from previous semesters already took. No account needed, no payment needed.",
@@ -34321,6 +34325,7 @@ function setLang(lang){
   /* AU-S (3 tabs/panels) */
   setText('.au-s .cp-tag','au-tag');
   setText('.au-s .au-title','au-title');
+  setText('.au-s .au-subtitle','au-subtitle');
   var auTabs=document.querySelectorAll('.au-tab'); var auTabKeys=['au-tab0','au-tab1'];
   auTabs.forEach(function(el,i){ if(auTabKeys[i]&&L[auTabKeys[i]]){ var svga=el.querySelector('svg'); el.innerHTML=(svga?svga.outerHTML:'')+' '+L[auTabKeys[i]]; } });
   setText('#au-p0 .au-msg-title','au-p0-t'); setText('#au-p0 .au-msg-body','au-p0-d');
