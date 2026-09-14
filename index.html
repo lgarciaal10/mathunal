@@ -21628,14 +21628,11 @@ if(!window.__muModalEsc){window.__muModalEsc=true;
         </ul>
       </div>
       <div class="fcol">
-        <h4>Materias</h4>
+        <h4>Legal</h4>
         <ul>
-          <li><a href="#materia?s=1000003">Matemáticas Básicas</a></li>
-          <li><a href="#materia?s=1000004">Cálculo Diferencial</a></li>
-          <li><a href="#materia?s=1000006">Álgebra Lineal</a></li>
-          <li><a href="#materia?s=1000005">Cálculo Integral</a></li>
-          <li><a href="#materia?s=1000007">Cálculo en Varias Variables</a></li>
-          <li><a href="#materias">Ver todas →</a></li>
+          <li><a href="#privacidad">Privacidad</a></li>
+          <li><a href="#acerca">La historia</a></li>
+          <li><a href="#aportar">Aportar material</a></li>
         </ul>
       </div>
     </div>
@@ -33411,7 +33408,7 @@ var LANG_ES={
   "test-label":"Lo que dicen los estudiantes","test-h":"Estudiantes reales,","test-hi":"resultados reales",
   /* Footer */
   "foot-desc":"Un cuaderno compartido entre estudiantes de ingeniería de la UNAL Medellín. No oficial, hecho con cariño.",
-  "foot-com":"Comunidad","foot-contact":"Contacto","foot-mats":"Materias",
+  "foot-com":"Comunidad","foot-contact":"Contacto","foot-legalcol":"Legal",
   "foot-copy":"© 2026 MathUNAL · Proyecto estudiantil independiente · No afiliado a la UNAL · <a href=\"#acerca\" style=\"color:inherit;text-decoration:underline\">La historia</a> · <a href=\"#privacidad\" style=\"color:inherit;text-decoration:underline\">Privacidad</a>",
   /* Ciclo del Parcial */
   "cp-tag":"El problema que resuelve MathUNAL",
@@ -33695,7 +33692,7 @@ var LANG_EN={
   "test-label":"What students say","test-h":"Real students,","test-hi":"real results",
   /* Footer */
   "foot-desc":"A shared notebook between UNAL Medellín engineering students. Unofficial, made with care.",
-  "foot-com":"Community","foot-contact":"Contact","foot-mats":"Subjects",
+  "foot-com":"Community","foot-contact":"Contact","foot-legalcol":"Legal",
   "foot-copy":"© 2026 MathUNAL · Independent student project · Not affiliated with UNAL · <a href=\"#acerca\" style=\"color:inherit;text-decoration:underline\">The story</a> · <a href=\"#privacidad\" style=\"color:inherit;text-decoration:underline\">Privacy</a>",
   /* Exam Cycle */
   "cp-tag":"The problem MathUNAL solves",
@@ -34484,7 +34481,7 @@ function setLang(lang){
 
   /* FOOTER (resto) */
   setText('footer .fact','foot-activo');
-  var footCols=document.querySelectorAll('footer .fcol h4'); var footColKeys=['foot-com','foot-contact','foot-mats'];
+  var footCols=document.querySelectorAll('footer .fcol h4'); var footColKeys=['foot-com','foot-contact','foot-legalcol'];
   footCols.forEach(function(el,i){ if(footColKeys[i]&&L[footColKeys[i]]) el.textContent=L[footColKeys[i]]; });
   document.querySelectorAll('footer .fcol a').forEach(function(a){
     var t=a.textContent.trim();
@@ -34492,14 +34489,10 @@ function setLang(lang){
     if(t.indexOf('Canal Telegram')>=0&&L['foot-tg']) a.lastChild.textContent=L['foot-tg'];
     if(t==='Discord'&&L['foot-dc']) a.lastChild.textContent=L['foot-dc'];
     if(t.indexOf('Bancolombia')>=0&&L['foot-bank']) a.lastChild.textContent=L['foot-bank'];
-    if(t==='Ver todas →'&&L['foot-vertodas']) a.textContent=L['foot-vertodas'];
   });
+  var footLegalMap={ '#privacidad':en?'Privacy':'Privacidad', '#acerca':en?'The story':'La historia', '#aportar':en?'Contribute material':'Aportar material' };
   document.querySelectorAll('footer .fcol:last-of-type a').forEach(function(a){
-    var href=a.getAttribute('href')||''; var m=href.match(/s=(\d+)/);
-    if(m && typeof SUBJECTS!=='undefined'){
-      var subj=SUBJECTS.filter(function(s){return s.code===m[1];})[0];
-      if(subj) a.textContent = en&&subj.nameEn?subj.nameEn:subj.nameEs;
-    }
+    var lab=footLegalMap[a.getAttribute('href')||'']; if(lab) a.textContent=lab;
   });
   var footP=document.querySelector('footer .fbrand p'); if(footP&&L['foot-tagline']) footP.textContent=L['foot-tagline'];
 
