@@ -15236,6 +15236,12 @@ html.mob-open{overflow:hidden}
 @media(max-width:1180px){
   .nav-r .settings-wrap{display:block !important}
 }
+/* "Ver versión de escritorio" solo tiene sentido en un celular real —
+   en PC no hay nada que "forzar", así que se oculta esa sección entera
+   del menú de ajustes fuera del breakpoint móvil. */
+@media(min-width:1181px){
+  #sd-site-divider,#sd-site-label,#sd-site-group{display:none !important}
+}
 
 /* ── ANIMACIONES ── */
 .fi{opacity:0;transform:translateY(24px);transition:opacity .8s cubic-bezier(.16,1,.3,1),transform .8s cubic-bezier(.16,1,.3,1);will-change:opacity,transform}
@@ -20613,7 +20619,7 @@ customElements.define('glass-element', GlassElement);
       </div>
       <div class="sd-divider" id="sd-site-divider"></div>
       <span class="sd-label" id="sd-site-label">Sitio</span>
-      <div class="sd-group">
+      <div class="sd-group" id="sd-site-group">
         <button class="sd-btn" id="sd-desktop-btn" onclick="window.__muToggleDesktopMode()" style="flex:1"><svg width="14" height="14" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg> <span id="sd-desktop-lbl">Ver versión de escritorio</span></button>
       </div>
     </div>
