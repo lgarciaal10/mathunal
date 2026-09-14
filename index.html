@@ -16283,6 +16283,33 @@ html[lang="en"] .sidex-meta-code::before{content:''}
 .shr-btn{display:flex;align-items:center;gap:.4rem;padding:.52rem .95rem;border-radius:8px;font-size:1rem;font-weight:600;cursor:pointer;border:none;font-family:inherit;transition:all .2s}
 .shr-wa{background:rgba(37,211,102,.15);color:#25D366;border:2px solid rgba(37,211,102,.25)}
 .shr-copy{background:var(--lay2);color:var(--t2);border:2px solid var(--br)}
+.shr-pdf{background:var(--gold-dim,rgba(240,180,41,.12));color:var(--gold,#F0B429);border:2px solid var(--gold-glow,rgba(240,180,41,.32))}
+.shr-pdf:hover{background:var(--gold-glow,rgba(240,180,41,.32))}
+
+.progress-chart-card{background:linear-gradient(135deg,var(--card) 0%,var(--card2) 100%);border:2px solid var(--bra);border-radius:16px;padding:1.4rem 1.5rem;margin:1.2rem 0}
+.progress-chart-h{font-weight:800;font-size:1rem;margin-bottom:.2rem}
+.progress-chart-sub{font-size:.85rem;color:var(--t3);margin-bottom:1rem}
+.progress-chart-svg{width:100%;height:auto;display:block}
+.progress-chart-pt-lbl{font-size:.62rem;fill:var(--t3);font-family:inherit}
+.progress-chart-pt-n{font-size:.72rem;font-weight:800;font-family:inherit}
+.progress-chart-delta{margin-top:.7rem;font-size:.85rem;font-weight:700}
+.progress-chart-delta.up{color:var(--grn,var(--ok))}
+.progress-chart-delta.down{color:var(--red,var(--bad))}
+.progress-chart-delta.flat{color:var(--t3)}
+
+.pdf-print-header{display:none}
+@media print{
+  #screen-results{padding-top:1rem !important}
+  nav,#mu-scrollnav,.fab-wa,#mu-desktop-exit,#mob,#mob-backdrop,.settings-wrap,
+  #sim-pw-overlay,.sim-loop,footer,.share-btns-row,.intro-actions,#toast-container{display:none !important}
+  body{background:#fff !important;color:#000 !important}
+  #screen-results *{color:#000 !important;background:transparent !important;box-shadow:none !important}
+  .pdf-print-header{display:block !important;text-align:center;border-bottom:2px solid #000;padding-bottom:.8rem;margin-bottom:1.2rem}
+  .pdf-print-header .pph-brand{font-weight:900;font-size:1.3rem;letter-spacing:-.3px}
+  .pdf-print-header .pph-sub{font-size:.85rem;color:#333 !important;margin-top:.2rem}
+  .grade-stamp-n{color:#000 !important;-webkit-text-fill-color:#000 !important}
+  .progress-chart-card,.share-card-wrap,.nextstep-card{border:1.5px solid #999 !important;break-inside:avoid}
+}
 
 /* ════ TPL-MATERIA ════ */
 .mat-nav-back{display:inline-flex;align-items:center;gap:.35rem;background:var(--lay2);border:2px solid var(--br);border-radius:8px;padding:.38rem .9rem;font-size:1rem;font-weight:600;color:var(--t2);transition:all .2s}
@@ -23604,6 +23631,10 @@ if(!window.__muSdClickBound){window.__muSdClickBound=true;document.addEventListe
 
 <!-- RESULTADOS -->
 <div class="screen" id="screen-results">
+  <div class="pdf-print-header">
+    <div class="pph-brand">MathUNAL</div>
+    <div class="pph-sub" id="pph-date"></div>
+  </div>
   <div class="sidex-header">
     <div>
       <div class="sidex-inst">Universidad Nacional de Colombia · Sede Medellín · Escuela de Matemáticas</div>
@@ -23628,6 +23659,9 @@ if(!window.__muSdClickBound){window.__muSdClickBound=true;document.addEventListe
   <!-- PANEL DE ÉXITO -->
   <div class="panel-exito" id="panel-exito"></div>
 
+  <!-- PROGRESO ENTRE INTENTOS DEL MISMO CORTE -->
+  <div id="progress-chart-wrap"></div>
+
   <!-- QUÉ REPASAR + SIGUIENTE PASO (derivado de las preguntas falladas reales) -->
   <div id="next-step"></div>
 
@@ -23651,6 +23685,7 @@ if(!window.__muSdClickBound){window.__muSdClickBound=true;document.addEventListe
     <div class="share-btns-row">
       <button class="shr-btn shr-wa" onclick="window.__simRetar?window.__simRetar():shareWA()" id="shr-reto-btn">Retar a un amigo</button>
       <button class="shr-btn shr-copy" id="copy-result-btn" onclick="copyResult()">Copiar resultado</button>
+      <button class="shr-btn shr-pdf" id="pdf-result-btn" onclick="window.__downloadResultPDF&&window.__downloadResultPDF()">📄 Descargar PDF</button>
     </div>
   </div>
   <div class="intro-actions" style="margin-top:1.6rem">
@@ -24803,9 +24838,57 @@ function _finishExam(){
   _saveResult({exam:_examKey,nota:nota,fecha:new Date().toLocaleDateString('es-CO'),tiempo:_timeUsed()});
   _renderPanelExito(nota, passed, mcq_ok, mcq_tot);
   try{ if(window.__simResultHook) window.__simResultHook({nota:nota,passed:passed}); }catch(e){}
+  try{ _renderProgressChart(en); }catch(e){}
+  var pph=_el('pph-date'); if(pph) pph.textContent=(_exam.titulo+' · '+_exam.semestre)+' — '+new Date().toLocaleDateString(en?'en-US':'es-CO');
   _clearProgress();
   _showScreen('screen-results');
 }
+
+function _renderProgressChart(en){
+  var host=_el('progress-chart-wrap'); if(!host||!_exam) return;
+  var slug=_exam._slug||'calcdif', corte=_exam._corte;
+  if(!corte){ host.innerHTML=''; return; }
+  var all=[];
+  try{ all=_getResults(); }catch(e){}
+  var mine=all.filter(function(r){ return r.corte===corte && (r.slug||'calcdif')===slug && typeof r.nota==='number'; });
+  if(mine.length<2){ host.innerHTML=''; return; }
+  mine=mine.slice(0,8).reverse(); // orden cronológico, mas reciente al final, max 8 intentos
+  var W=560,H=170,padL=34,padR=16,padT=20,padB=28;
+  var innerW=W-padL-padR, innerH=H-padT-padB;
+  var n=mine.length;
+  var pts=mine.map(function(r,i){
+    var x=padL+(n===1?innerW/2:(innerW*i/(n-1)));
+    var y=padT+innerH-(Math.max(0,Math.min(5,r.nota))/5*innerH);
+    return {x:x,y:y,nota:r.nota};
+  });
+  var path=pts.map(function(p,i){ return (i===0?'M':'L')+p.x.toFixed(1)+','+p.y.toFixed(1); }).join(' ');
+  var passY=padT+innerH-(3/5*innerH);
+  var svg='<svg class="progress-chart-svg" viewBox="0 0 '+W+' '+H+'" xmlns="http://www.w3.org/2000/svg">'
+    +'<line x1="'+padL+'" y1="'+passY.toFixed(1)+'" x2="'+(W-padR)+'" y2="'+passY.toFixed(1)+'" stroke="var(--t3)" stroke-width="1" stroke-dasharray="4,4" opacity=".5"/>'
+    +'<path d="'+path+'" fill="none" stroke="var(--gold,#F0B429)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>'
+    +pts.map(function(p,i){
+      var passed=p.nota>=3.0;
+      return '<circle cx="'+p.x.toFixed(1)+'" cy="'+p.y.toFixed(1)+'" r="5" fill="'+(passed?'var(--grn,var(--ok))':'var(--red,var(--bad))')+'" stroke="var(--card)" stroke-width="2"/>'
+        +'<text x="'+p.x.toFixed(1)+'" y="'+(p.y-11).toFixed(1)+'" text-anchor="middle" class="progress-chart-pt-n" fill="var(--t1)">'+p.nota.toFixed(1)+'</text>'
+        +'<text x="'+p.x.toFixed(1)+'" y="'+(H-8)+'" text-anchor="middle" class="progress-chart-pt-lbl">'+(en?'Try ':'Int. ')+(i+1)+'</text>';
+    }).join('')
+    +'</svg>';
+  var first=mine[0].nota, last=mine[mine.length-1].nota, d=last-first;
+  var deltaCls=d>0.05?'up':(d<-0.05?'down':'flat');
+  var deltaTxt=(d>=0?'+':'')+d.toFixed(1)+(en?' vs your first attempt this corte':' vs tu primer intento de este corte');
+  host.innerHTML='<div class="progress-chart-card">'
+    +'<div class="progress-chart-h">'+(en?'Your progress in this corte':'Tu progreso en este corte')+'</div>'
+    +'<div class="progress-chart-sub">'+(en?n+' attempts recorded':n+' intentos registrados')+'</div>'
+    +svg
+    +'<div class="progress-chart-delta '+deltaCls+'">'+deltaTxt+'</div>'
+    +'</div>';
+}
+
+function __downloadResultPDF(){
+  try{ if(window.muTrack) window.muTrack('result_pdf_download',{exam:window._examKey}); }catch(e){}
+  window.print();
+}
+window.__downloadResultPDF=__downloadResultPDF;
 
 function _renderPanelExito(nota, passed, mcq_ok, mcq_tot){
   var _ico={
