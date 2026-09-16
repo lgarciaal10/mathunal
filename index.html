@@ -33168,7 +33168,7 @@ window.__SIMPRO_DEV = /[?&]simpro=1/.test(location.href) || !!window.__SIM_LOCAL
             reference: cfg.reference, publicKey: cfg.publicKey,
             signature: { integrity: cfg.signature },
             customerData: { email: (window.__muAuth.email && window.__muAuth.email()) || '' },
-            redirectUrl: location.origin + location.pathname + '#simulacro'
+            redirectUrl: location.origin + location.pathname + location.search + '#simulacro'
           });
           checkout.open(function(result){
             var tx = result && result.transaction;
@@ -33210,6 +33210,34 @@ window.__SIMPRO_DEV = /[?&]simpro=1/.test(location.href) || !!window.__SIM_LOCAL
        el diagnóstico (#diagnostico) — 6 preguntas + nivel de preparación. */
     window.__simPaywall('corte'); return false;
   };
+
+  /* ── Retorno desde Wompi (métodos async como Nequi/PSE) ───────────────────
+     El callback inline de checkout.open() de más arriba SOLO corre si el
+     usuario nunca sale de la pestaña. Nequi/PSE aprueban en la app/banco y
+     Wompi recarga la página completa al volver (vía redirectUrl) -- ese
+     callback en memoria nunca se ejecuta, así que sin esto el pago quedaba
+     aprobado pero nadie activaba el Pro ni avisaba nada al usuario. */
+  (function _simWompiReturnCheck(){
+    try{
+      var m = location.search.match(/[?&]id=([^&]+)/);
+      if(!m) return;
+      try{ history.replaceState(null,'',location.pathname+location.search.replace(/[?&]id=[^&]+/,'').replace(/^&/,'?')+location.hash); }catch(e){}
+      if(window._muToast) window._muToast(_t('Confirmando tu pago…','Confirming your payment…'));
+      var tries=0;
+      (function poll(){
+        tries++;
+        if(!window.__simPro || !window.__simPro.syncFromServer) return;
+        window.__simPro.syncFromServer().then(function(any){
+          if(any){
+            try{ window.__simFetchSol && window.__simFetchSol(); }catch(e){}
+            try{ window._renderCards && window._renderCards(); }catch(e){}
+            if(window._muToast) window._muToast(_t('MathUNAL Pro activado ✓','MathUNAL Pro enabled ✓'));
+          } else if(tries<8){ setTimeout(poll, 2500); }
+          else if(window._muToast) window._muToast(_t('Tu pago quedó registrado pero no se activó solo — escríbeme y lo activo a mano.','Your payment went through but did not auto-activate — message me and I will enable it manually.'));
+        });
+      })();
+    }catch(e){}
+  })();
 
   /* ── 9. Onboarding "¿Qué vas a presentar?" ────────────────────────────── */
   function _lsGet(k){ try{ return localStorage.getItem(k); }catch(e){ return null; } }
