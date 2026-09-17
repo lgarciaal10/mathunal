@@ -17188,6 +17188,22 @@ html[data-theme="gray"] .hero-bg .lg-blob-center{background:radial-gradient(elli
 .sim-modoreal b{color:var(--t1)}
 
 /* ── "¿Qué quieres practicar?" — modos de práctica personalizada ── */
+.topic-bd-card{background:var(--card,var(--lay1));border:1.5px solid var(--br);border-radius:14px;padding:1.1rem 1.3rem;margin:1.2rem 0}
+.topic-bd-h{font-weight:800;font-size:1rem;margin-bottom:.9rem}
+.topic-bd-row{display:flex;align-items:center;gap:.7rem;margin-bottom:.6rem;font-size:.88rem}
+.topic-bd-row:last-child{margin-bottom:0}
+.tbd-tema{flex:0 0 auto;max-width:44%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:var(--t2)}
+.tbd-n{color:var(--t3);font-size:.78em}
+.tbd-bar-wrap{flex:1 1 auto;height:9px;border-radius:5px;background:var(--br);overflow:hidden}
+.tbd-bar{height:100%;border-radius:5px}
+.tbd-bar.tbd-good{background:var(--grn,var(--ok))}
+.tbd-bar.tbd-mid{background:#f59e0b}
+.tbd-bar.tbd-bad{background:var(--red,var(--bad))}
+.tbd-pct{flex:0 0 auto;font-family:'IBM Plex Mono',monospace;font-size:.8rem;font-weight:700;min-width:2.6em;text-align:right}
+.tbd-pct.tbd-good{color:var(--grn,var(--ok))}
+.tbd-pct.tbd-mid{color:#f59e0b}
+.tbd-pct.tbd-bad{color:var(--red,var(--bad))}
+@media print{.topic-bd-card{border:1.5px solid #999 !important;break-inside:avoid}}
 .sim-heatmap{max-width:440px;margin:0 auto 1rem;padding:.85rem .9rem;background:var(--lay1);
   border:1px solid var(--br);border-radius:11px}
 .sim-heatmap-h{font-family:'IBM Plex Mono',monospace;font-size:.68rem;font-weight:700;letter-spacing:.04em;
@@ -23684,6 +23700,9 @@ if(!window.__muSdClickBound){window.__muSdClickBound=true;document.addEventListe
     <div class="resrow-c"><div class="n" id="r-time">—</div><div class="l">tiempo usado</div></div>
   </div>
 
+  <!-- DESGLOSE DE NOTA POR TEMA -->
+  <div id="topic-breakdown"></div>
+
   <!-- PANEL DE ÉXITO -->
   <div class="panel-exito" id="panel-exito"></div>
 
@@ -24892,6 +24911,7 @@ function _finishExam(){
   var stt=_el('sc-t');   if(stt) stt.textContent=total;
 
   _renderReview(nota);
+  _renderTopicBreakdown(en);
   _renderNextStep(nota, en);
   _saveResult({exam:_examKey,nota:nota,fecha:new Date().toLocaleDateString('es-CO'),tiempo:_timeUsed()});
   _renderPanelExito(nota, passed, mcq_ok, mcq_tot);
@@ -32191,6 +32211,37 @@ function _renderReview(nota){
   }catch(e){}
 }
 
+/* Desglose de la nota por tema: "sacaste 3.2" se vuelve un diagnóstico real
+   ("Límites algebraicos 90% · Continuidad 40%"). Usa el mismo tag q.tema que
+   ya usa la práctica por tema y el mapa de calor -- nunca inventado. */
+function _renderTopicBreakdown(en){
+  var host=_el('topic-breakdown'); if(!host||!_exam) return;
+  var byTema={};
+  _exam.preguntas.forEach(function(q,i){
+    var tema=q.tema||q.t; if(!tema) return;
+    var score;
+    if(q.tipo==='mcq') score=(_answers[i]===q.correcta)?1:0;
+    else if(q.tipo==='numerica'){ var gn=_calificarNum(q,_numAns[i]); score=(gn==null?0:gn); }
+    else score=_selfGrades[i]||0;
+    var b=byTema[tema]||(byTema[tema]={sum:0,n:0});
+    b.sum+=score; b.n++;
+  });
+  var rows=Object.keys(byTema).map(function(t){
+    return {tema:t, pct:Math.round(byTema[t].sum/byTema[t].n*100), n:byTema[t].n};
+  }).sort(function(a,b){ return a.pct-b.pct; });
+  if(rows.length<2){ host.innerHTML=''; return; } // con 1 solo tema no aporta nada nuevo
+  var title=en?'Score by topic':'Nota por tema';
+  host.innerHTML='<div class="topic-bd-card"><div class="topic-bd-h">'+title+'</div>'
+    + rows.map(function(r){
+        var lvl=r.pct>=70?'good':r.pct>=40?'mid':'bad';
+        var lbl=(window._txTema?window._txTema(r.tema):r.tema);
+        return '<div class="topic-bd-row"><span class="tbd-tema">'+lbl+' <span class="tbd-n">('+r.n+')</span></span>'
+             + '<div class="tbd-bar-wrap"><div class="tbd-bar tbd-'+lvl+'" style="width:'+r.pct+'%"></div></div>'
+             + '<span class="tbd-pct tbd-'+lvl+'">'+r.pct+'%</span></div>';
+      }).join('')
+    + '</div>';
+}
+
 function _renderNextStep(nota, en){
   var host=_el('next-step'); if(!host||!_exam) return;
   var fails=[];
@@ -32373,6 +32424,7 @@ window._explicarPaso = _explicarPaso;
 window._buildTutorial = _buildTutorial;
 window._aiSections = _aiSections;
 window._renderReview = _renderReview;
+window._renderTopicBreakdown = _renderTopicBreakdown;
 window._renderNextStep = _renderNextStep;
 window._unlockAllFailed = _unlockAllFailed;
 window._unlockSol = _unlockSol;
