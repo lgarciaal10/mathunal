@@ -15988,6 +15988,8 @@ html[lang="en"] .sidex-meta-code::before{content:''}
 .review-item{padding:1rem 0;border-bottom:1px solid var(--br)}
 .review-item:last-child{border-bottom:none}
 .ri-top{display:flex;gap:.7rem;align-items:baseline;margin-bottom:.4rem}
+.ri-stat{font-size:.78rem;color:var(--t3);font-weight:600;margin:-.1rem 0 .5rem 2.2rem}
+.ri-stat:empty{display:none}
 .ri-num{width:1.5rem;height:1.5rem;border-radius:50%;border:1.5px solid var(--br2);display:flex;align-items:center;justify-content:center;font-family:'IBM Plex Mono',monospace;font-style:normal;font-size:.75rem;font-weight:700;color:var(--t2);flex-shrink:0}
 .review-item.ri-correct .ri-num{border-color:var(--pp-good);color:var(--pp-good)}
 .review-item.ri-wrong .ri-num{border-color:var(--pp-accent);color:var(--pp-accent)}
@@ -16014,6 +16016,9 @@ html[lang="en"] .sidex-meta-code::before{content:''}
 .q-num-badge{display:flex;min-width:32px;height:32px;border-radius:9px;background:var(--acc);color:#fff;align-items:center;justify-content:center;font-family:'IBM Plex Mono',monospace;font-size:.82rem;font-weight:700;flex-shrink:0}
 .q-num-label{display:block;font-family:'IBM Plex Mono',monospace;font-size:.72rem;color:var(--t3);text-transform:uppercase;letter-spacing:.08em}
 .q-pts-badge{margin-left:auto;font-family:'IBM Plex Mono',monospace;font-size:.72rem;padding:.18rem .55rem;border-radius:4px;background:var(--lay1);border:1.3px solid var(--br);color:var(--t2)}
+.q-authentic-badge{display:none;align-items:center;gap:.3rem;font-family:'IBM Plex Mono',monospace;font-size:.68rem;font-weight:700;padding:.18rem .55rem;border-radius:4px;background:var(--adim);border:1.3px solid var(--bra);color:var(--acc);white-space:nowrap}
+.q-authentic-badge.on{display:inline-flex}
+@media(max-width:560px){.q-authentic-badge{font-size:.62rem;padding:.15rem .4rem}}
 .q-card{background:none;border:2px solid var(--br2);border-radius:16px;overflow:hidden;margin-bottom:1rem;scroll-margin-top:110px}
 /* ── Figuras de las preguntas (SVG inline, theme-aware) ── */
 .q-figura{margin:1rem auto;max-width:min(100%,440px)}
@@ -23576,6 +23581,7 @@ if(!window.__muSdClickBound){window.__muSdClickBound=true;document.addEventListe
       <div id="q-counter" style="font-family:'Literata',Georgia,serif;font-size:.95rem;font-weight:700;color:var(--t1)">Pregunta 1 de 8</div>
       <div id="q-num-label" class="q-num-label">Selección múltiple con única respuesta</div>
     </div>
+    <span class="q-authentic-badge" id="q-authentic-badge"></span>
     <div class="q-pts-badge" id="q-pts-badge">1.0 pt</div>
   </div>
 
@@ -24401,6 +24407,21 @@ function _renderQ(idx){
   if(lbl) lbl.textContent = q.tipo==='mcq' ? 'Selección múltiple con única respuesta'
                           : q.tipo==='numerica' ? 'Respuesta numérica'
                           : 'Pregunta de desarrollo';
+  /* Autenticidad visible DURANTE el examen (no solo en marketing): esto es
+     justo lo que nos diferencia de que alguien le pida a una IA que le
+     invente preguntas parecidas -- esta sí cayó en un parcial real. */
+  var abadge=_el('q-authentic-badge');
+  if(abadge){
+    if(q._src){
+      var _enA=(window.curLang==='en');
+      abadge.textContent = (_exam._corte
+        ? (_enA?'✓ Real exam · Corte '+_exam._corte:'✓ Pregunta real · Corte '+_exam._corte)
+        : (_enA?'✓ Real exam question':'✓ Pregunta real de parcial'));
+      abadge.classList.add('on');
+    } else {
+      abadge.classList.remove('on');
+    }
+  }
   // El badge de puntos por pregunta se quitó: mostraba una cifra (4/nq pts)
   // que no correspondía a la fórmula real de calificación (_finishExam usa
   // pesos 60/40 o normalizados según el mix de tipos de pregunta del examen).
@@ -24797,6 +24818,10 @@ function _finishExam(){
     }
     else { var g=_selfGrades[i]||0; open_pts+=g*(q.puntaje||20); open_max+=(q.puntaje||20); }
   });
+  /* Registrar aciertos/fallos reales por pregunta (para mostrar "X% falló
+     esto" en la revisión) -- dato que una IA genérica no puede tener, así
+     que es parte del argumento de "esto es real, no un simulacro inventado". */
+  try{ _simRecordQuestionStats(); }catch(e){}
   var mcq_score=mcq_tot>0?(mcq_ok/mcq_tot)*100:100;
   var open_score=open_max>0?(open_pts/open_max)*100:100;
   var hint_pen=_hintUsed.length*0.2;
@@ -24898,6 +24923,44 @@ function __downloadResultPDF(){
   window.print();
 }
 window.__downloadResultPDF=__downloadResultPDF;
+
+/* ── Estadísticas reales por pregunta ("X% de estudiantes falló esto") ──────
+   Dato que una IA genérica no tiene forma de inventar de verdad: viene de
+   intentos reales acumulados en Supabase (tabla sim_question_stats, RPC
+   sim_record_question_result). Público de solo lectura (RLS), sin depender
+   de sesión -- así funciona igual para el diagnóstico gratis y el simulacro
+   pagado. */
+var MU_SB_URL = (window.MU_SB_URL||'https://goxhxrdchfyphkenixng.supabase.co');
+var MU_SB_ANON = (window.MU_SB_ANON||'sb_publishable_rR_f3qmPj_L-tuwrGUYxnA__MWGwobe');
+function _simRecordQuestionStats(){
+  if(!window._exam || !window._exam.preguntas) return;
+  var s=window.__muAuth&&window.__muAuth.session&&window.__muAuth.session();
+  var authTok=(s&&s.access_token)||MU_SB_ANON;
+  window._exam.preguntas.forEach(function(q,i){
+    if(!q._src) return;
+    var ok;
+    if(q.tipo==='mcq') ok=(window._answers[i]===q.correcta);
+    else if(q.tipo==='numerica') ok=(window._calificarNum? (window._calificarNum(q,window._numAns[i])>=1) : false);
+    else ok=((window._selfGrades[i]||0)>=0.6);
+    fetch(MU_SB_URL+'/rest/v1/rpc/sim_record_question_result',{
+      method:'POST',
+      headers:{apikey:MU_SB_ANON, Authorization:'Bearer '+authTok, 'Content-Type':'application/json'},
+      body:JSON.stringify({p_src:q._src, p_correct:ok})
+    }).catch(function(){});
+  });
+}
+/* devuelve Promise<{src:{attempts,fails}}> */
+function _simFetchQuestionStats(srcs){
+  srcs=(srcs||[]).filter(Boolean);
+  if(!srcs.length) return Promise.resolve({});
+  var q=encodeURIComponent('('+srcs.join(',')+')');
+  return fetch(MU_SB_URL+'/rest/v1/sim_question_stats?select=src,attempts,fails&src=in.'+q,{
+    headers:{apikey:MU_SB_ANON, Authorization:'Bearer '+MU_SB_ANON}
+  }).then(function(r){ return r.ok? r.json() : []; })
+    .then(function(rows){ var m={}; (rows||[]).forEach(function(r){ m[r.src]=r; }); return m; })
+    .catch(function(){ return {}; });
+}
+window._simFetchQuestionStats=_simFetchQuestionStats;
 
 function _renderPanelExito(nota, passed, mcq_ok, mcq_tot){
   var _ico={
@@ -31981,7 +32044,8 @@ function _renderReview(nota){
          +    '<div class="ri-q" data-katex="1">' + _mathHtml(_examEN(q.texto||""))
          +      (q.figura ? _renderFigura(q.figura) : '')
          +    '</div>'
-         +  '</div>';
+         +  '</div>'
+         +  '<div class="ri-stat" id="ri-stat-'+i+'"></div>';
 
     var _youAns=en?'You answered: ':'Respondiste: ';
     var _wasRight=en?' \u2713 correct':' \u2713 correcta';
@@ -32035,6 +32099,23 @@ function _renderReview(nota){
 
   host.innerHTML = html;
   _renderMath(host);
+
+  /* "X% de estudiantes falló esta" -- dato real de Supabase, no inventado.
+     Se llena async y solo se muestra con muestra suficiente (evita ruido
+     tipo "0% falló" con 1 solo intento). */
+  try{
+    var _srcs=_exam.preguntas.map(function(q){ return q._src; }).filter(Boolean);
+    _simFetchQuestionStats(_srcs).then(function(statsMap){
+      _exam.preguntas.forEach(function(q,i){
+        var st=q._src && statsMap[q._src]; if(!st || st.attempts<5) return;
+        var el=_el('ri-stat-'+i); if(!el) return;
+        var pct=Math.round((st.fails/st.attempts)*100);
+        el.textContent = (en
+          ? pct+'% of students got this wrong'
+          : pct+'% de estudiantes falló esta pregunta');
+      });
+    });
+  }catch(e){}
 }
 
 function _renderNextStep(nota, en){
