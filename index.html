@@ -17007,6 +17007,7 @@ html[data-theme="gray"] .hero-bg .lg-blob-center{background:radial-gradient(elli
 .sim-extra{margin-top:.7rem;border-radius:10px;padding:.7rem .9rem;font-size:.9rem;line-height:1.5}
 .sim-mini-lbl{display:block;font-family:'IBM Plex Mono',monospace;font-size:.62rem;letter-spacing:.11em;
   text-transform:uppercase;color:var(--acc);font-weight:700;margin-bottom:.25rem}
+.sim-repeat-note{margin-bottom:.6rem;padding:.55rem .8rem;border-radius:8px;background:var(--adim);border:1.5px solid var(--bra);color:var(--acc);font-size:.85rem;font-weight:700}
 .sim-rc-block{background:var(--lay1);border:1px solid var(--br)}
 .sim-ab-block{background:var(--adim);border:1px dashed var(--bra)}
 .sim-ab-block b{font-family:'Literata',Georgia,serif;font-size:1rem;font-weight:700;letter-spacing:.01em}
@@ -17204,6 +17205,8 @@ html[data-theme="gray"] .hero-bg .lg-blob-center{background:radial-gradient(elli
 .tbd-pct.tbd-good{color:var(--grn,var(--ok))}
 .tbd-pct.tbd-mid{color:#f59e0b}
 .tbd-pct.tbd-bad{color:var(--red,var(--bad))}
+.tbd-confusion{margin-top:.7rem;font-size:.8rem;color:var(--t3);font-style:italic}
+.tbd-confusion:empty{display:none}
 @media print{.topic-bd-card{border:1.5px solid #999 !important;break-inside:avoid}}
 .sim-heatmap{max-width:440px;margin:0 auto 1rem;padding:.85rem .9rem;background:var(--lay1);
   border:1px solid var(--br);border-radius:11px}
@@ -17241,6 +17244,7 @@ html[data-theme="gray"] .hero-bg .lg-blob-center{background:radial-gradient(elli
 .sim-pw-list li::after{content:'✓';position:absolute;left:2.5px;top:.28rem;font-size:.62rem;font-weight:900;color:var(--gold-ink)}
 .sim-pw-price{margin:.8rem 0;font-size:.9rem;color:var(--t3);background:var(--gold-dim);border:1px solid var(--gold);border-radius:10px;padding:.7rem .9rem}
 .sim-pw-anchor,.diag-pro-anchor{margin:-.4rem 0 .8rem;font-size:.78rem;color:var(--t3);font-style:italic;text-align:center}
+.sim-pw-guarantee{margin:-.2rem 0 .8rem;font-size:.78rem;color:var(--t2);text-align:center;padding:.5rem .7rem;background:var(--lay1);border:1px solid var(--br);border-radius:8px}
 .sim-pw-price b{font-family:'Literata',Georgia,serif;font-size:1.5rem;color:var(--gold)}
 .sim-pw-price s{margin:0 .3rem}
 .sim-pw-price span{display:block;font-size:.76rem;margin-top:.1rem}
@@ -23666,6 +23670,7 @@ if(!window.__muSdClickBound){window.__muSdClickBound=true;document.addEventListe
     </ul>
     <div class="sim-pw-price"><b>$12.000</b> <span>por esta materia · un pago · acceso todo el semestre · sin renovación automática</span></div>
     <div class="sim-pw-anchor" id="sim-pw-anchor">Menos que una hora de tutoría particular — y te queda todo el semestre.</div>
+    <div class="sim-pw-guarantee" id="sim-pw-guarantee">🛡️ Si haces el simulacro completo y sacas menos de 3.0 en el parcial real, el siguiente corte te lo regalamos.</div>
     <div class="submit-actions">
       <button class="qbtn" onclick="window.__simPaywallClose&&window.__simPaywallClose()">Ahora no</button>
       <button class="qbtn primary" id="sim-pw-pay">Pagar (simulado) →</button>
@@ -23880,6 +23885,9 @@ window.muApplyLang_simulacro = function(){
   T('#sim-pw-overlay .sim-pw-anchor',
     'Menos que una hora de tutoría particular — y te queda todo el semestre.',
     'Less than one hour of private tutoring — and it lasts you the whole semester.');
+  T('#sim-pw-overlay .sim-pw-guarantee',
+    '🛡️ Si haces el simulacro completo y sacas menos de 3.0 en el parcial real, el siguiente corte te lo regalamos.',
+    '🛡️ Take the full mock exam and score below 3.0 on the real midterm, and we give you the next corte free.');
   document.querySelectorAll('#sim-pw-overlay .qbtn').forEach(function(b){
     if(/Ahora no|Not now/.test(b.textContent)) b.textContent = en?'Not now':'Ahora no';
     if(b.id==='sim-pw-pay') b.textContent = window.__SIM_LOCAL
@@ -24218,6 +24226,35 @@ function _simTrackLocalFails(){
     else { if(pos>=0) set.splice(pos,1); }
   });
   try{ localStorage.setItem(key, JSON.stringify(set.slice(-200))); }catch(e){}
+}
+
+/* "Mapa de calor cruzado": qué temas se fallan JUNTOS en el mismo intento
+   real (correlación, no solo frecuencia individual). Se sube un registro
+   anónimo por tema fallado de este intento (agrupados bajo un attempt_id
+   aleatorio de un solo uso), y sim_tema_confusion() agrega sin exponer
+   nunca intentos individuales. */
+function _simTrackTemaConfusion(){
+  var slug=_exam&&_exam._slug; if(!slug) return;
+  var byTema={};
+  _exam.preguntas.forEach(function(q,i){
+    var tema=q.tema||q.t; if(!tema) return;
+    var score;
+    if(q.tipo==='mcq') score=(_answers[i]===q.correcta)?1:0;
+    else if(q.tipo==='numerica'){ var gn=_calificarNum(q,_numAns[i]); score=(gn==null?0:gn); }
+    else score=_selfGrades[i]||0;
+    var b=byTema[tema]||(byTema[tema]={sum:0,n:0});
+    b.sum+=score; b.n++;
+  });
+  var failedTemas=Object.keys(byTema).filter(function(t){ return (byTema[t].sum/byTema[t].n)<0.5; });
+  if(failedTemas.length<1) return;
+  var attemptId=(window.crypto&&crypto.randomUUID)?crypto.randomUUID():(Date.now()+'-'+Math.random());
+  failedTemas.forEach(function(t){
+    fetch(MU_SB_URL+'/rest/v1/sim_attempt_fail_temas',{
+      method:'POST',
+      headers:{apikey:MU_SB_ANON, Authorization:'Bearer '+MU_SB_ANON, 'Content-Type':'application/json', Prefer:'return=minimal'},
+      body:JSON.stringify({attempt_id:attemptId, slug:slug, tema:t})
+    }).catch(function(){});
+  });
 }
 
 /* ── Práctica personalizada: "¿Qué quieres practicar?" en la portada del simulacro ── */
@@ -24902,6 +24939,7 @@ function _finishExam(){
      que es parte del argumento de "esto es real, no un simulacro inventado". */
   try{ _simRecordQuestionStats(); }catch(e){}
   try{ _simTrackLocalFails(); }catch(e){}
+  try{ _simTrackTemaConfusion(); }catch(e){}
   var mcq_score=mcq_tot>0?(mcq_ok/mcq_tot)*100:100;
   var open_score=open_max>0?(open_pts/open_max)*100:100;
   var hint_pen=_hintUsed.length*0.2;
@@ -25072,6 +25110,16 @@ function _simFetchPercentile(poolKey,nota){
     .then(function(rows){ return (rows&&rows[0])||null; })
     .catch(function(){ return null; });
 }
+function _simFetchTemaConfusion(slug,tema){
+  return fetch(MU_SB_URL+'/rest/v1/rpc/sim_tema_confusion',{
+    method:'POST',
+    headers:{apikey:MU_SB_ANON, Authorization:'Bearer '+MU_SB_ANON, 'Content-Type':'application/json'},
+    body:JSON.stringify({p_slug:slug, p_tema:tema}),
+    cache:'no-store'
+  }).then(function(r){ return r.ok? r.json(): []; }).catch(function(){ return []; });
+}
+window._simFetchTemaConfusion=_simFetchTemaConfusion;
+
 function _renderSimPercentile(nota,en){
   var host=_el('sim-percentile'); if(!host) return;
   host.style.display='none'; host.innerHTML='';
@@ -28087,6 +28135,7 @@ function _diagMostrarResultados(){
             : 'MathUNAL Pro lo vuelve el entrenador completo: simulacros ilimitados por corte, cada solución paso a paso + el truco, práctica por tema y entrenar solo tus errores.')+'</p>'
         + '<div class="diag-pro-price"><b>$12.000</b>'+(en?'per subject · one payment · all semester · no auto-renewal':'por materia · un pago · todo el semestre · sin renovación automática')+'</div>'
         + '<div class="diag-pro-anchor">'+(en?'Less than one hour of private tutoring — and it lasts you the whole semester.':'Menos que una hora de tutoría particular — y te queda todo el semestre.')+'</div>'
+        + '<div class="diag-pro-anchor">'+(en?'🛡️ Take the full mock exam and score below 3.0 on the real midterm, and we give you the next corte free.':'🛡️ Si haces el simulacro completo y sacas menos de 3.0 en el parcial real, el siguiente corte te lo regalamos.')+'</div>'
         + '<a class="diag-btn" href="#simulacro" style="text-decoration:none">'+(en?'See MathUNAL Pro →':'Ver MathUNAL Pro →')+'</a>'
         + '</div>';
     }
@@ -32319,7 +32368,24 @@ function _renderTopicBreakdown(en){
              + '<div class="tbd-bar-wrap"><div class="tbd-bar tbd-'+lvl+'" style="width:'+r.pct+'%"></div></div>'
              + '<span class="tbd-pct tbd-'+lvl+'">'+r.pct+'%</span></div>';
       }).join('')
+    + '<div class="tbd-confusion" id="tbd-confusion"></div>'
     + '</div>';
+
+  /* Correlación real: de la gente que también falló tu peor tema, ¿con qué
+     OTRO tema se confunde más seguido? Dato imposible de fingir sin miles
+     de intentos reales agrupados por el mismo intento. */
+  var worst=rows[0];
+  if(worst && worst.pct<50 && _exam._slug){
+    _simFetchTemaConfusion(_exam._slug, worst.tema).then(function(res){
+      var cel=_el('tbd-confusion'); if(!cel || !res || !res.length) return;
+      var top=res[0]; if(!top || top.base<8 || top.pct<40) return;
+      var wl=(window._txTema?window._txTema(worst.tema):worst.tema);
+      var tl=(window._txTema?window._txTema(top.tema):top.tema);
+      cel.textContent = en
+        ? '↳ '+top.pct+'% of students who also struggle with "'+wl+'" also struggle with "'+tl+'"'
+        : '↳ El '+top.pct+'% de quienes también fallan "'+wl+'" fallan también "'+tl+'"';
+    });
+  }
 }
 
 function _renderNextStep(nota, en){
@@ -32745,7 +32811,22 @@ window.__SIMPRO_DEV = /[?&]simpro=1/.test(location.href) || !!window.__SIM_LOCAL
         '<div class="sim-free-lock-sub">'+_t('Si no aparece, revisa tu conexión y vuelve a abrir la explicación.','If it does not appear, check your connection and reopen the explanation.')+'</div></div></div>';
       return;
     }
+    /* Si ya habías fallado esta MISMA pregunta en un intento anterior de este
+       corte (mu-fails-*), repetir el mismo desarrollo paso a paso no ayuda --
+       así que esta vez se antepone el ángulo distinto que ya existía
+       (reconocer el patrón + el truco) en vez del procedimiento algebraico. */
     var h='';
+    var _repeatFail=false;
+    try{
+      var _slugH=window._exam&&window._exam._slug, _corteH=window._exam&&window._exam._corte;
+      if(_slugH && _corteH && q._src){
+        var _failsH=JSON.parse(localStorage.getItem('mu-fails-'+_slugH+'-c'+_corteH))||[];
+        _repeatFail = _failsH.indexOf(q._src)>=0;
+      }
+    }catch(e){}
+    if(_repeatFail && (q.reconocer||q.antibobo)){
+      h+='<div class="sim-repeat-note">'+_t('🔁 Ya habías fallado esta pregunta antes — en vez de repasar el mismo desarrollo, enfócate en esto:','🔁 You already missed this question before — instead of re-reading the same steps, focus on this:')+'</div>';
+    }
     if(q.reconocer) h+='<div class="sim-extra sim-rc-block"><span class="sim-mini-lbl">'+_t('Cómo reconocerlo en el parcial','How to spot it on the exam')+'</span><div>'+mh(q.reconocer)+'</div></div>';
     if(q.antibobo)  h+='<div class="sim-extra sim-ab-block"><span class="sim-mini-lbl">'+_t('El truco','The trick')+'</span><b>'+mh(q.antibobo)+'</b></div>';
     if(q.freq){ var fl=_en()
