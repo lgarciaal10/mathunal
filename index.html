@@ -17188,6 +17188,7 @@ html[data-theme="gray"] .hero-bg .lg-blob-center{background:radial-gradient(elli
 .sim-modoreal b{color:var(--t1)}
 
 /* ── "¿Qué quieres practicar?" — modos de práctica personalizada ── */
+.sim-percentile{max-width:420px;margin:.7rem auto 0;padding:.5rem .9rem;background:var(--adim);border:1px solid var(--bra);border-radius:20px;color:var(--acc);font-size:.82rem;font-weight:700;text-align:center}
 .topic-bd-card{background:var(--card,var(--lay1));border:1.5px solid var(--br);border-radius:14px;padding:1.1rem 1.3rem;margin:1.2rem 0}
 .topic-bd-h{font-weight:800;font-size:1rem;margin-bottom:.9rem}
 .topic-bd-row{display:flex;align-items:center;gap:.7rem;margin-bottom:.6rem;font-size:.88rem}
@@ -23693,6 +23694,7 @@ if(!window.__muSdClickBound){window.__muSdClickBound=true;document.addEventListe
     <div class="grade-stamp-verdict" id="result-title">Resultados</div>
   </div>
   <p class="intro-desc-p" id="result-sub"></p>
+  <div class="sim-percentile" id="sim-percentile" style="display:none"></div>
 
   <div class="resrow">
     <div class="resrow-c"><div class="n" id="r-correct" style="color:var(--grn,var(--ok))">0</div><div class="l">correctas (MCQ)</div></div>
@@ -24910,6 +24912,7 @@ function _finishExam(){
   var sc=_el('sc-c');    if(sc) sc.textContent=mcq_ok+'/'+mcq_tot;
   var stt=_el('sc-t');   if(stt) stt.textContent=total;
 
+  try{ _simRecordAttemptScore(nota); _renderSimPercentile(nota,en); }catch(e){}
   _renderReview(nota);
   _renderTopicBreakdown(en);
   _renderNextStep(nota, en);
@@ -25005,6 +25008,48 @@ function _simFetchQuestionStats(srcs){
     .catch(function(){ return {}; });
 }
 window._simFetchQuestionStats=_simFetchQuestionStats;
+
+/* Percentil en vivo: "mejor que el X% de quienes presentaron este examen"
+   -- dato real de sim_attempt_scores, agrupado por slug+corte (así "completo",
+   "aleatorio" y "un tema" del mismo corte comparten la misma muestra real,
+   ya que salen del mismo banco). Sin login: cada intento anota su nota, sin
+   exponer notas individuales de nadie (solo el agregado vía RPC). */
+function _simPoolKey(){
+  if(_exam && _exam._slug && _exam._corte) return _exam._slug+'_c'+_exam._corte;
+  return _examKey||'x';
+}
+function _simRecordAttemptScore(nota){
+  try{
+    fetch(MU_SB_URL+'/rest/v1/sim_attempt_scores',{
+      method:'POST',
+      headers:{apikey:MU_SB_ANON, Authorization:'Bearer '+MU_SB_ANON, 'Content-Type':'application/json', Prefer:'return=minimal'},
+      body:JSON.stringify({pool_key:_simPoolKey(), nota:nota})
+    }).catch(function(){});
+  }catch(e){}
+}
+function _simFetchPercentile(poolKey,nota){
+  return fetch(MU_SB_URL+'/rest/v1/rpc/sim_percentile',{
+    method:'POST',
+    headers:{apikey:MU_SB_ANON, Authorization:'Bearer '+MU_SB_ANON, 'Content-Type':'application/json'},
+    body:JSON.stringify({p_pool_key:poolKey, p_nota:nota}),
+    cache:'no-store'
+  }).then(function(r){ return r.ok? r.json(): null; })
+    .then(function(rows){ return (rows&&rows[0])||null; })
+    .catch(function(){ return null; });
+}
+function _renderSimPercentile(nota,en){
+  var host=_el('sim-percentile'); if(!host) return;
+  host.style.display='none'; host.innerHTML='';
+  var key=_simPoolKey();
+  _simFetchPercentile(key,nota).then(function(res){
+    if(!res || res.n<10 || res.percentile==null) return;
+    var txt=en
+      ? 'Better than '+res.percentile+'% of students who took this exam ('+res.n+' real attempts)'
+      : 'Mejor que el '+res.percentile+'% de quienes presentaron este examen ('+res.n+' intentos reales)';
+    host.textContent=txt;
+    host.style.display='';
+  });
+}
 
 /* Mapa de calor por tema, a nivel de TODA la universidad (no solo este
    estudiante): agrega sim_question_stats por tema usando el tag real de
