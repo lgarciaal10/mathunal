@@ -17188,6 +17188,16 @@ html[data-theme="gray"] .hero-bg .lg-blob-center{background:radial-gradient(elli
 .sim-modoreal b{color:var(--t1)}
 
 /* ── "¿Qué quieres practicar?" — modos de práctica personalizada ── */
+.sim-heatmap{max-width:440px;margin:0 auto 1rem;padding:.85rem .9rem;background:var(--lay1);
+  border:1px solid var(--br);border-radius:11px}
+.sim-heatmap-h{font-family:'IBM Plex Mono',monospace;font-size:.68rem;font-weight:700;letter-spacing:.04em;
+  text-transform:uppercase;color:var(--t3);margin-bottom:.6rem}
+.sim-heatmap-row{display:flex;align-items:center;gap:.6rem;margin-bottom:.45rem;font-size:.85rem}
+.sim-heatmap-row:last-child{margin-bottom:0}
+.shr-tema{flex:0 0 auto;max-width:42%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:var(--t2)}
+.shr-bar-wrap{flex:1 1 auto;height:7px;border-radius:4px;background:var(--br);overflow:hidden}
+.shr-bar{height:100%;background:var(--acc);border-radius:4px}
+.shr-pct{flex:0 0 auto;font-family:'IBM Plex Mono',monospace;font-size:.75rem;font-weight:700;color:var(--acc);min-width:2.6em;text-align:right}
 .sim-pmode{max-width:440px;margin:0 auto 1rem;padding:.85rem .9rem;background:var(--adim);
   border:1px solid var(--bra);border-radius:11px}
 .sim-pmode-q{font-family:'IBM Plex Mono',monospace;font-size:.72rem;font-weight:700;letter-spacing:.05em;
@@ -17213,6 +17223,7 @@ html[data-theme="gray"] .hero-bg .lg-blob-center{background:radial-gradient(elli
   background:linear-gradient(135deg,var(--gold),var(--gold2))}
 .sim-pw-list li::after{content:'✓';position:absolute;left:2.5px;top:.28rem;font-size:.62rem;font-weight:900;color:var(--gold-ink)}
 .sim-pw-price{margin:.8rem 0;font-size:.9rem;color:var(--t3);background:var(--gold-dim);border:1px solid var(--gold);border-radius:10px;padding:.7rem .9rem}
+.sim-pw-anchor,.diag-pro-anchor{margin:-.4rem 0 .8rem;font-size:.78rem;color:var(--t3);font-style:italic;text-align:center}
 .sim-pw-price b{font-family:'Literata',Georgia,serif;font-size:1.5rem;color:var(--gold)}
 .sim-pw-price s{margin:0 .3rem}
 .sim-pw-price span{display:block;font-size:.76rem;margin-top:.1rem}
@@ -23535,6 +23546,7 @@ if(!window.__muSdClickBound){window.__muSdClickBound=true;document.addEventListe
         <li>Teclado: <b>A–D</b> selecciona · <b>←/→</b> navega · <b>Enter</b> confirma.</li>
       </ul>
       <div id="intro-history"></div>
+      <div class="sim-heatmap" id="sim-heatmap" style="display:none"></div>
       <div class="sim-pmode" id="sim-pmode" style="display:none">
         <div class="sim-pmode-q" id="sim-pmode-q">¿Qué quieres practicar?</div>
         <div class="sim-pmode-opts">
@@ -23635,6 +23647,7 @@ if(!window.__muSdClickBound){window.__muSdClickBound=true;document.addEventListe
       <li>Dashboard "Mi preparación" + estimación de nota</li>
     </ul>
     <div class="sim-pw-price"><b>$12.000</b> <span>por esta materia · un pago · acceso todo el semestre · sin renovación automática</span></div>
+    <div class="sim-pw-anchor" id="sim-pw-anchor">Menos que una hora de tutoría particular — y te queda todo el semestre.</div>
     <div class="submit-actions">
       <button class="qbtn" onclick="window.__simPaywallClose&&window.__simPaywallClose()">Ahora no</button>
       <button class="qbtn primary" id="sim-pw-pay">Pagar (simulado) →</button>
@@ -23842,6 +23855,9 @@ window.muApplyLang_simulacro = function(){
   H('#sim-pw-overlay .sim-pw-price',
     '<b>$12.000</b> <span>por esta materia · un pago · acceso todo el semestre · sin renovación automática</span>',
     '<b>$12,000</b> <span>for this subject · one payment · access all semester · no auto-renewal</span>');
+  T('#sim-pw-overlay .sim-pw-anchor',
+    'Menos que una hora de tutoría particular — y te queda todo el semestre.',
+    'Less than one hour of private tutoring — and it lasts you the whole semester.');
   document.querySelectorAll('#sim-pw-overlay .qbtn').forEach(function(b){
     if(/Ahora no|Not now/.test(b.textContent)) b.textContent = en?'Not now':'Ahora no';
     if(b.id==='sim-pw-pay') b.textContent = window.__SIM_LOCAL
@@ -23868,7 +23884,7 @@ window.muApplyLang_simulacro = function(){
 
 /* ── ESTADO ── */
 var _currentQ=0;
-var _checked=[],_selfGrades=[],_hintUsed=[],_flagged=[];
+var _checked=[],_selfGrades=[],_hintUsed=[],_flagged=[],_answerChanges=[];
 var _qTimes=[],_qStartTime=null,_lastQ=-1;
 var _timerSec=0,_timerInt=null,_paused=false,_startTime=null;
 var _selFilter='all';
@@ -24135,6 +24151,7 @@ function _goToIntro(key){
 
   _renderIntroHistory();
   _simPmodeInit();
+  _renderSimHeatmap();
   /* aviso Pro en la portada: si es simulacro por corte y el usuario no tiene Pro */
   var _ph=_el('sim-intro-prohint');
   if(_ph){
@@ -24246,6 +24263,7 @@ function startExam(){
   _openAns=new Array(_exam.preguntas.length).fill('');
   _checked=new Array(_exam.preguntas.length).fill(false);
   _hintUsed=[]; _flagged=new Array(_exam.preguntas.length).fill(false); _currentQ=0; _toastShown=false;
+  _answerChanges=new Array(_exam.preguntas.length).fill(0);
   _qTimes=new Array(_exam.preguntas.length).fill(0); _qStartTime=null; _lastQ=-1;
   window._simConf=new Array(_exam.preguntas.length).fill(null);
   var _mrChk=document.getElementById('sim-modoreal-chk');
@@ -24521,6 +24539,12 @@ function _renderQ(idx){
 
 function _selectOpt(i){
   if(_checked[_currentQ]) return;
+  /* Cuenta cambios de opinión reales (para "pregunta trampa" en la revisión):
+     solo si ya había una selección distinta -- la primera vez que se elige
+     no cuenta como "cambio". */
+  if(_answers[_currentQ]>=0 && _answers[_currentQ]!==i){
+    _answerChanges[_currentQ]=(_answerChanges[_currentQ]||0)+1;
+  }
   _answers[_currentQ]=i;
   _qsa('.q-opt').forEach(function(btn,j){ btn.classList.toggle('selected',j===i); });
   try{ if(window.__simSelHook) window.__simSelHook(_currentQ); }catch(e){}
@@ -24945,7 +24969,7 @@ function _simRecordQuestionStats(){
     fetch(MU_SB_URL+'/rest/v1/rpc/sim_record_question_result',{
       method:'POST',
       headers:{apikey:MU_SB_ANON, Authorization:'Bearer '+authTok, 'Content-Type':'application/json'},
-      body:JSON.stringify({p_src:q._src, p_correct:ok})
+      body:JSON.stringify({p_src:q._src, p_correct:ok, p_changes:(window._answerChanges&&window._answerChanges[i])||0})
     }).catch(function(){});
   });
 }
@@ -24954,13 +24978,54 @@ function _simFetchQuestionStats(srcs){
   srcs=(srcs||[]).filter(Boolean);
   if(!srcs.length) return Promise.resolve({});
   var q=encodeURIComponent('('+srcs.join(',')+')');
-  return fetch(MU_SB_URL+'/rest/v1/sim_question_stats?select=src,attempts,fails&src=in.'+q,{
-    headers:{apikey:MU_SB_ANON, Authorization:'Bearer '+MU_SB_ANON}
+  return fetch(MU_SB_URL+'/rest/v1/sim_question_stats?select=src,attempts,fails,changes_sum&src=in.'+q,{
+    headers:{apikey:MU_SB_ANON, Authorization:'Bearer '+MU_SB_ANON}, cache:'no-store'
   }).then(function(r){ return r.ok? r.json() : []; })
     .then(function(rows){ var m={}; (rows||[]).forEach(function(r){ m[r.src]=r; }); return m; })
     .catch(function(){ return {}; });
 }
 window._simFetchQuestionStats=_simFetchQuestionStats;
+
+/* Mapa de calor por tema, a nivel de TODA la universidad (no solo este
+   estudiante): agrega sim_question_stats por tema usando el tag real de
+   cada pregunta (q.tema, ya asignado a mano para el 100% del banco -- nunca
+   inventado). Solo se muestra con volumen real acumulado (>=10 intentos por
+   tema) para no mostrar ruido con poca muestra. */
+function _renderSimHeatmap(){
+  var host=_el('sim-heatmap'); if(!host) return;
+  host.style.display='none'; host.innerHTML='';
+  var slug=_exam&&_exam._slug, corte=_exam&&_exam._corte;
+  if(!slug || !corte || !window.SIM_POOL) return;
+  var pool=(window.SIM_POOL[slug]||[]).filter(function(q){ return q.corte===corte; });
+  var temaOf={};
+  pool.forEach(function(q){ if(q._src && (q.tema||q.t)) temaOf[q._src]=q.tema||q.t; });
+  var srcs=Object.keys(temaOf);
+  if(!srcs.length) return;
+  _simFetchQuestionStats(srcs).then(function(statsMap){
+    var byTema={};
+    srcs.forEach(function(s){
+      var st=statsMap[s]; if(!st) return;
+      var t=temaOf[s]; var b=byTema[t]||(byTema[t]={attempts:0,fails:0});
+      b.attempts+=st.attempts; b.fails+=st.fails;
+    });
+    var rows=Object.keys(byTema).map(function(t){
+      return {tema:t, attempts:byTema[t].attempts, pct:Math.round(byTema[t].fails/byTema[t].attempts*100)};
+    }).filter(function(r){ return r.attempts>=10; })
+      .sort(function(a,b){ return b.pct-a.pct; })
+      .slice(0,3);
+    if(!rows.length) return;
+    var en=(window.curLang==='en');
+    var title=en?'Where students fail most (real data, this semester)':'Dónde más falla la gente (dato real, este semestre)';
+    host.innerHTML='<div class="sim-heatmap-h">'+title+'</div>'
+      + rows.map(function(r){
+          var lbl=(window._txTema?window._txTema(r.tema):r.tema);
+          return '<div class="sim-heatmap-row"><span class="shr-tema">'+lbl+'</span>'
+               + '<div class="shr-bar-wrap"><div class="shr-bar" style="width:'+r.pct+'%"></div></div>'
+               + '<span class="shr-pct">'+r.pct+'%</span></div>';
+        }).join('');
+    host.style.display='';
+  });
+}
 
 function _renderPanelExito(nota, passed, mcq_ok, mcq_tot){
   var _ico={
@@ -27921,6 +27986,7 @@ function _diagMostrarResultados(){
             ? 'MathUNAL Pro turns it into the full trainer: unlimited mock exams per corte, every step-by-step solution + the trick, practice by topic, and drilling only your mistakes.'
             : 'MathUNAL Pro lo vuelve el entrenador completo: simulacros ilimitados por corte, cada solución paso a paso + el truco, práctica por tema y entrenar solo tus errores.')+'</p>'
         + '<div class="diag-pro-price"><b>$12.000</b>'+(en?'per subject · one payment · all semester · no auto-renewal':'por materia · un pago · todo el semestre · sin renovación automática')+'</div>'
+        + '<div class="diag-pro-anchor">'+(en?'Less than one hour of private tutoring — and it lasts you the whole semester.':'Menos que una hora de tutoría particular — y te queda todo el semestre.')+'</div>'
         + '<a class="diag-btn" href="#simulacro" style="text-decoration:none">'+(en?'See MathUNAL Pro →':'Ver MathUNAL Pro →')+'</a>'
         + '</div>';
     }
@@ -32110,9 +32176,16 @@ function _renderReview(nota){
         var st=q._src && statsMap[q._src]; if(!st || st.attempts<5) return;
         var el=_el('ri-stat-'+i); if(!el) return;
         var pct=Math.round((st.fails/st.attempts)*100);
-        el.textContent = (en
-          ? pct+'% of students got this wrong'
-          : pct+'% de estudiantes falló esta pregunta');
+        var parts=[(en?pct+'% of students got this wrong':pct+'% de estudiantes falló esta pregunta')];
+        /* "Pregunta trampa": si en promedio la gente cambia de opción 1+
+           veces antes de confirmar, es una señal real de que induce a
+           dudar -- solo para mcq, con muestra algo mayor (señal más ruidosa
+           que el simple acierto/fallo). */
+        var avgCh=(st.changes_sum||0)/st.attempts;
+        if(q.tipo==='mcq' && st.attempts>=8 && avgCh>=0.5){
+          parts.push(en?'🔄 Trick question — most people change their answer at least once':'🔄 Pregunta trampa — la mayoría cambia de respuesta al menos una vez');
+        }
+        el.textContent = parts.join(' · ');
       });
     });
   }catch(e){}
