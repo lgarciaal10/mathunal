@@ -32058,7 +32058,12 @@ function _renderNextStep(nota, en){
     });
     if(fails.length>4) html+='<li style="color:var(--t3)">…'+(en?' and ':' y ')+(fails.length-4)+(en?' more':' más')+'</li>';
     html+='</ul>';
-    if(SOLUCIONES_HABILITADAS){
+    /* SOLUCIONES_HABILITADAS solo aplica al diagnóstico gratis (ver nota junto
+       a su declaración). En el simulacro real pagado, lo que manda es si esta
+       persona es Pro -- si no, este panel decía "llega pronto" incluso a
+       alguien que YA pagó y tiene la solución completa justo abajo. */
+    var _hasSolAccess = SOLUCIONES_HABILITADAS || (window.__simPro && window.__simPro.isPro && window.__simPro.isPro((window._exam&&window._exam._slug)||undefined));
+    if(_hasSolAccess){
       html+='<div class="nextstep-hook">'+(en
         ?'The full step-by-step solution is right below — click on each question to reveal it.'
         :'La solución detallada está justo abajo en cada pregunta.')
