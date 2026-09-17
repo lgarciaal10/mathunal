@@ -23571,6 +23571,7 @@ if(!window.__muSdClickBound){window.__muSdClickBound=true;document.addEventListe
           <button type="button" class="sim-pmode-b" data-m="micro">Repaso rápido</button>
           <button type="button" class="sim-pmode-b" data-m="tema">Un tema</button>
           <button type="button" class="sim-pmode-b" data-m="aleatorio">Aleatorio</button>
+          <button type="button" class="sim-pmode-b sim-pmode-errores" data-m="errores" style="display:none">Mis errores</button>
         </div>
         <select id="sim-pmode-tema" class="sim-pmode-sel" style="display:none" aria-label="Tema a practicar"></select>
       </div>
@@ -24192,6 +24193,33 @@ function _goToIntro(key){
   _showScreen('screen-intro');
 }
 
+/* "Entrenar solo tus errores": ya se prometía en el copy del paywall pero
+   nunca se había construido -- esto lo hace real. Guarda localmente (por
+   dispositivo, no hace falta cuenta) qué preguntas de cada corte fallaste
+   la ÚLTIMA vez que las viste; si luego la aciertas, sale de la lista
+   (repaso espaciado simple: solo importa tu estado más reciente). */
+function _simFailKey(slug,corte){ return 'mu-fails-'+slug+'-c'+corte; }
+function _simFailCount(slug,corte){
+  if(!slug||!corte) return 0;
+  try{ return (JSON.parse(localStorage.getItem(_simFailKey(slug,corte)))||[]).length; }catch(e){ return 0; }
+}
+function _simTrackLocalFails(){
+  var slug=_exam&&_exam._slug, corte=_exam&&_exam._corte; if(!slug||!corte) return;
+  var key=_simFailKey(slug,corte);
+  var set; try{ set=JSON.parse(localStorage.getItem(key))||[]; }catch(e){ set=[]; }
+  _exam.preguntas.forEach(function(q,i){
+    if(!q._src) return;
+    var ok;
+    if(q.tipo==='mcq') ok=(_answers[i]===q.correcta);
+    else if(q.tipo==='numerica'){ var gn=_calificarNum(q,_numAns[i]); ok=(gn===1); }
+    else ok=((_selfGrades[i]||0)>=0.6);
+    var pos=set.indexOf(q._src);
+    if(!ok){ if(pos<0) set.push(q._src); }
+    else { if(pos>=0) set.splice(pos,1); }
+  });
+  try{ localStorage.setItem(key, JSON.stringify(set.slice(-200))); }catch(e){}
+}
+
 /* ── Práctica personalizada: "¿Qué quieres practicar?" en la portada del simulacro ── */
 function _simPmodeInit(){
   var host=_el('sim-pmode'); if(!host) return;
@@ -24203,6 +24231,12 @@ function _simPmodeInit(){
   var en=(window.curLang==='en');
   _el('sim-pmode-q').textContent = en?'What do you want to practice?':'¿Qué quieres practicar?';
   var lbls = en?{completo:'Full mock',micro:'Quick review',tema:'One topic',aleatorio:'Random'}:{completo:'Simulacro completo',micro:'Repaso rápido',tema:'Un tema',aleatorio:'Aleatorio'};
+  var failN=_simFailCount(slug,corte);
+  var errBtn=host.querySelector('.sim-pmode-b[data-m="errores"]');
+  if(errBtn){
+    errBtn.textContent=(en?'My mistakes':'Mis errores')+' ('+failN+')';
+    errBtn.style.display = failN>=3 ? '' : 'none';
+  }
   var temas = ((window.SIM_TAX[slug].cortes[corte]||{}).temas)||[];
   var cPool=(window.SIM_POOL[slug]||[]).filter(function(q){return q.corte===corte;});
   function tCount(t){ return cPool.filter(function(q){return (q.tema||q.t)===t;}).length; }
@@ -24867,6 +24901,7 @@ function _finishExam(){
      esto" en la revisión) -- dato que una IA genérica no puede tener, así
      que es parte del argumento de "esto es real, no un simulacro inventado". */
   try{ _simRecordQuestionStats(); }catch(e){}
+  try{ _simTrackLocalFails(); }catch(e){}
   var mcq_score=mcq_tot>0?(mcq_ok/mcq_tot)*100:100;
   var open_score=open_max>0?(open_pts/open_max)*100:100;
   var hint_pen=_hintUsed.length*0.2;
@@ -32592,6 +32627,12 @@ window.__SIMPRO_DEV = /[?&]simpro=1/.test(location.href) || !!window.__SIM_LOCAL
       pick=shuffle(pool).slice(0, Math.min(10, pool.length));
       key=slug+'_c'+corte+'_rnd';
       tipo=(_en()?'Random · Corte ':'Aleatorio · Corte ')+corte;
+    } else if(mode==='errores'){
+      var failSet=(function(){ try{ return JSON.parse(localStorage.getItem('mu-fails-'+slug+'-c'+corte))||[]; }catch(e){ return []; } })();
+      pick=shuffle(pool.filter(function(q){ return q._src && failSet.indexOf(q._src)>=0; }));
+      if(!pick.length) return null;
+      key=slug+'_c'+corte+'_errores';
+      tipo=(_en()?'My mistakes · Corte ':'Mis errores · Corte ')+corte;
     } else if(mode==='micro'){
       /* repaso rápido: 4 preguntas, diversidad de tema (máx 2 por tema) */
       var mseen={}, mpool=shuffle(pool), mpick=[];
@@ -32653,6 +32694,10 @@ window.__SIMPRO_DEV = /[?&]simpro=1/.test(location.href) || !!window.__SIM_LOCAL
         ex.semestre=window._txCorte(slug,corte,cinfo.nombre||'').toUpperCase()+' · CORTE '+corte;
         ex.desc=window._txTemas(cinfo.temas||[]).slice(0,4).join(', ')+'.';
         meta.tipo=(_en()?'Quick review · Corte ':'Repaso rápido · Corte ')+corte;
+      } else if(ex._modo==='errores'){
+        ex.semestre=window._txCorte(slug,corte,cinfo.nombre||'').toUpperCase()+' · CORTE '+corte;
+        ex.desc=window._txTemas(cinfo.temas||[]).slice(0,4).join(', ')+'.';
+        meta.tipo=(_en()?'My mistakes · Corte ':'Mis errores · Corte ')+corte;
       } else {
         ex.semestre=window._txCorte(slug,corte,cinfo.nombre).toUpperCase()+' · CORTE '+corte+' ('+cinfo.pct+'%)';
         ex.desc=window._txTemas(cinfo.temas).slice(0,4).join(', ')+'.';
