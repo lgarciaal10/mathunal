@@ -16128,6 +16128,15 @@ html[lang="en"] .sidex-meta-code::before{content:''}
 
 /* ── Banda Continuar (selector de simulacros) ── */
 .continue-band{display:flex;align-items:center;gap:14px;background:linear-gradient(90deg,var(--adim),transparent);border:1px solid var(--bra);border-radius:12px;padding:.9rem 1.2rem;margin-bottom:1.2rem}
+.rg-band{background:var(--lay1);border:1.5px dashed var(--br2,var(--br));border-radius:12px;padding:.9rem 1.2rem;margin-bottom:1.2rem}
+.rg-msg{font-size:.9rem;color:var(--t2);margin-bottom:.6rem;line-height:1.5}
+.rg-row{display:flex;gap:.5rem;flex-wrap:wrap;align-items:center}
+.rg-row input{width:6rem;font:inherit;font-size:.9rem;padding:.4rem .6rem;border-radius:8px;border:1.5px solid var(--br);background:var(--lay2);color:var(--t1)}
+.rg-btn{font:inherit;font-size:.85rem;font-weight:700;padding:.4rem .9rem;border-radius:8px;border:1.5px solid transparent;cursor:pointer}
+.rg-btn.rg-send{background:var(--acc);color:#fff}
+.rg-btn.rg-skip{background:transparent;border-color:var(--br);color:var(--t3)}
+.rg-status{margin-top:.5rem;font-size:.82rem;color:var(--t3)}
+.rg-status:empty{display:none}
 .cb-ring{width:44px;height:44px;position:relative;flex-shrink:0}
 .cb-ring svg{transform:rotate(-90deg)}
 .cb-ring b{position:absolute;inset:0;display:grid;place-items:center;font-family:'IBM Plex Mono',monospace;font-size:.6rem;color:var(--t1)}
@@ -17190,6 +17199,7 @@ html[data-theme="gray"] .hero-bg .lg-blob-center{background:radial-gradient(elli
 
 /* ── "¿Qué quieres practicar?" — modos de práctica personalizada ── */
 .sim-percentile{max-width:420px;margin:.7rem auto 0;padding:.5rem .9rem;background:var(--adim);border:1px solid var(--bra);border-radius:20px;color:var(--acc);font-size:.82rem;font-weight:700;text-align:center}
+.sim-pass-prob{background:rgba(34,197,94,.1);border-color:rgba(34,197,94,.35);color:var(--grn,#22c55e)}
 .topic-bd-card{background:var(--card,var(--lay1));border:1.5px solid var(--br);border-radius:14px;padding:1.1rem 1.3rem;margin:1.2rem 0}
 .topic-bd-h{font-weight:800;font-size:1rem;margin-bottom:.9rem}
 .topic-bd-row{display:flex;align-items:center;gap:.7rem;margin-bottom:.6rem;font-size:.88rem}
@@ -23533,6 +23543,7 @@ if(!window.__muSdClickBound){window.__muSdClickBound=true;document.addEventListe
         </label>
       </div>
       <div id="continue-band"></div>
+      <div id="real-grade-band"></div>
       <div class="sim-cards" id="sim-cards-grid"></div>
     </div>
 
@@ -23701,6 +23712,7 @@ if(!window.__muSdClickBound){window.__muSdClickBound=true;document.addEventListe
   </div>
   <p class="intro-desc-p" id="result-sub"></p>
   <div class="sim-percentile" id="sim-percentile" style="display:none"></div>
+  <div class="sim-percentile sim-pass-prob" id="sim-pass-prob" style="display:none"></div>
 
   <div class="resrow">
     <div class="resrow-c"><div class="n" id="r-correct" style="color:var(--grn,var(--ok))">0</div><div class="l">correctas (MCQ)</div></div>
@@ -24070,6 +24082,7 @@ function _updateSimCounts(){
 
 function _renderCards(){
   _renderContinueBand();
+  _renderRealGradeBand();
   try{ _renderMatPills(); }catch(e){}
   if(window.muRenderProgreso) try{ window.muRenderProgreso(); }catch(e){}
   var grid=_el('sim-cards-grid');
@@ -24860,6 +24873,87 @@ function _renderContinueBand(){
     +'</div>';
 }
 
+/* ── Recordatorio "¿ya te devolvieron la nota real?" ────────────────────
+   sim_real_grades (para la calibración simulacro→nota real) llevaba en 0
+   filas porque nada la alimentaba: nadie tiene motivo para volver solo a
+   contar su nota. Esto lo resuelve escaneando mu-results cada vez que se
+   visita la pantalla de simulacros: si hay un intento de hace 14-60 días
+   sin responder, se pregunta aquí mismo. Pide login solo al enviar (no
+   antes), y retoma el envío automáticamente apenas la persona inicia
+   sesión (window.__muAuth.onChange). */
+function _simRealGradeEligible(){
+  var rs; try{ rs=JSON.parse(localStorage.getItem(MU_RESULTS))||[]; }catch(e){ return null; }
+  var now=Date.now();
+  for(var i=0;i<rs.length;i++){
+    var r=rs[i];
+    if(!r||!r.ts||!r.slug||!r.corte||typeof r.nota!=='number'||r.rgStatus) continue;
+    var days=(now-r.ts)/86400000;
+    if(days>=14 && days<=60) return {r:r, idx:i, days:Math.floor(days)};
+  }
+  return null;
+}
+function _simRealGradeSetStatus(idx,status){
+  try{
+    var rs=JSON.parse(localStorage.getItem(MU_RESULTS))||[];
+    if(rs[idx]){ rs[idx].rgStatus=status; localStorage.setItem(MU_RESULTS, JSON.stringify(rs)); }
+  }catch(e){}
+}
+function _simRealGradeSubmit(r,idx,realNota,en,stEl){
+  var s=window.__muAuth.session();
+  var simScorePct=Math.round((r.nota/5)*100);
+  window.__muAuth.api('/rest/v1/sim_real_grades',{
+    method:'POST',
+    headers:{'Content-Type':'application/json', Prefer:'return=minimal'},
+    body:JSON.stringify({user_id:s.user.id, course_id:r.slug, corte:r.corte, sim_score:simScorePct, real_nota:realNota})
+  }).then(function(resp){
+    if(resp && resp.ok){
+      _simRealGradeSetStatus(idx,'submitted');
+      if(stEl) stEl.textContent = en?'Thanks! This helps future students see real odds.':'¡Gracias! Esto le sirve a los que vienen después.';
+      setTimeout(function(){ var h=_el('real-grade-band'); if(h) h.innerHTML=''; }, 2200);
+    } else if(stEl) stEl.textContent = en?'Something failed, try again later.':'Algo falló, intenta más tarde.';
+  }).catch(function(){ if(stEl) stEl.textContent = en?'Something failed, try again later.':'Algo falló, intenta más tarde.'; });
+}
+function _renderRealGradeBand(){
+  var host=_el('real-grade-band'); if(!host) return;
+  var elig=_simRealGradeEligible();
+  if(!elig){ host.innerHTML=''; return; }
+  var r=elig.r, idx=elig.idx;
+  var en=(window.curLang==='en');
+  var matN=(window._simMatName?window._simMatName(r.slug):r.slug);
+  var msg = en
+    ? 'You took the '+matN+' mock exam '+elig.days+' days ago and scored '+r.nota.toFixed(1)+' — did you already get your real midterm grade back?'
+    : 'Hiciste el simulacro de '+matN+' hace '+elig.days+' días y sacaste '+r.nota.toFixed(1)+' — ¿ya te devolvieron la nota del parcial real?';
+  host.innerHTML =
+    '<div class="rg-band">'
+    + '<div class="rg-msg">'+msg+'</div>'
+    + '<div class="rg-row">'
+    +   '<input type="number" id="rg-input" min="0" max="5" step="0.1" placeholder="'+(en?'Real grade':'Nota real')+'">'
+    +   '<button class="rg-btn rg-send" id="rg-send" type="button">'+(en?'Send':'Enviar')+'</button>'
+    +   '<button class="rg-btn rg-skip" id="rg-skip" type="button">'+(en?'Not yet':'Aún no')+'</button>'
+    + '</div>'
+    + '<div class="rg-status" id="rg-status"></div>'
+    + '</div>';
+  var stEl=_el('rg-status');
+  function submit(){
+    var v=parseFloat((_el('rg-input')||{}).value);
+    if(isNaN(v)||v<0||v>5){ stEl.textContent=en?'Enter a grade between 0 and 5.':'Escribe una nota entre 0 y 5.'; return; }
+    var s=window.__muAuth&&window.__muAuth.session&&window.__muAuth.session();
+    if(!s||!s.user){
+      stEl.textContent=en?'Sign in to save this — 10 seconds.':'Inicia sesión para guardarlo — 10 segundos.';
+      if(window.__muAuthUI) window.__muAuthUI.open('real_grade');
+      var done=false;
+      window.__muAuth.onChange(function(ns){
+        if(done||!ns||!ns.user) return; done=true;
+        _simRealGradeSubmit(r,idx,v,en,stEl);
+      });
+      return;
+    }
+    _simRealGradeSubmit(r,idx,v,en,stEl);
+  }
+  var sendBtn=_el('rg-send'); if(sendBtn) sendBtn.onclick=submit;
+  var skipBtn=_el('rg-skip'); if(skipBtn) skipBtn.onclick=function(){ _simRealGradeSetStatus(idx,'dismissed'); host.innerHTML=''; };
+}
+
 // ── Qué repasar + siguiente paso: derivado de las preguntas MCQ falladas
 // reales (usa el campo resumen de cada una, que ya existe en el banco).
 // Nada inventado: si no fallaste nada, no muestra nada. ──
@@ -24985,11 +25079,11 @@ function _finishExam(){
   var sc=_el('sc-c');    if(sc) sc.textContent=mcq_ok+'/'+mcq_tot;
   var stt=_el('sc-t');   if(stt) stt.textContent=total;
 
-  try{ _simRecordAttemptScore(nota); _renderSimPercentile(nota,en); }catch(e){}
+  try{ _simRecordAttemptScore(nota); _renderSimPercentile(nota,en); _renderSimPassProb(nota,en); }catch(e){}
   _renderReview(nota);
   _renderTopicBreakdown(en);
   _renderNextStep(nota, en);
-  _saveResult({exam:_examKey,nota:nota,fecha:new Date().toLocaleDateString('es-CO'),tiempo:_timeUsed()});
+  _saveResult({exam:_examKey,nota:nota,fecha:new Date().toLocaleDateString('es-CO'),tiempo:_timeUsed(),ts:Date.now()});
   _renderPanelExito(nota, passed, mcq_ok, mcq_tot);
   try{ if(window.__simResultHook) window.__simResultHook({nota:nota,passed:passed}); }catch(e){}
   try{ _renderProgressChart(en); }catch(e){}
@@ -25130,6 +25224,37 @@ function _renderSimPercentile(nota,en){
       ? 'Better than '+res.percentile+'% of students who took this exam ('+res.n+' real attempts)'
       : 'Mejor que el '+res.percentile+'% de quienes presentaron este examen ('+res.n+' intentos reales)';
     host.textContent=txt;
+    host.style.display='';
+  });
+}
+
+/* "Probabilidad de aprobar" en vez de una nota seca -- calculada contra
+   casos reales de sim_real_grades (quiénes con un score de simulacro
+   parecido al tuyo, ya presentaron el parcial real y qué nota sacaron).
+   Esta tabla empieza vacía: solo se llena cuando la gente responde al
+   recordatorio de _renderRealGradeBand(). Hasta que haya 8+ casos reales
+   para este course_id+corte+score, esto simplemente no aparece -- nunca
+   se muestra un porcentaje inventado con poca muestra. */
+function _simFetchPassProbability(courseId,corte,simScorePct){
+  return fetch(MU_SB_URL+'/rest/v1/rpc/sim_pass_probability',{
+    method:'POST',
+    headers:{apikey:MU_SB_ANON, Authorization:'Bearer '+MU_SB_ANON, 'Content-Type':'application/json'},
+    body:JSON.stringify({p_course_id:courseId, p_corte:corte, p_sim_score:simScorePct}),
+    cache:'no-store'
+  }).then(function(r){ return r.ok? r.json(): null; })
+    .then(function(rows){ return (rows&&rows[0])||null; })
+    .catch(function(){ return null; });
+}
+function _renderSimPassProb(nota,en){
+  var host=_el('sim-pass-prob'); if(!host) return;
+  host.style.display='none'; host.innerHTML='';
+  var slug=_exam&&_exam._slug, corte=_exam&&_exam._corte; if(!slug||!corte) return;
+  var simScorePct=Math.round((nota/5)*100);
+  _simFetchPassProbability(slug,corte,simScorePct).then(function(res){
+    if(!res || res.n<8 || res.pct==null) return;
+    host.textContent = en
+      ? res.pct+'% chance of passing the real midterm (based on '+res.n+' real cases with a similar score)'
+      : res.pct+'% de probabilidad de aprobar el parcial real (con base en '+res.n+' casos reales con un score parecido)';
     host.style.display='';
   });
 }
