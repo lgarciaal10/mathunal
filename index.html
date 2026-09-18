@@ -23684,10 +23684,10 @@ if(!window.__muSdClickBound){window.__muSdClickBound=true;document.addEventListe
     <div class="sim-pw-guarantee" id="sim-pw-guarantee">🛡️ Si haces el simulacro completo y sacas menos de 3.0 en el parcial real, el siguiente corte te lo regalamos.</div>
     <div class="submit-actions">
       <button class="qbtn" onclick="window.__simPaywallClose&&window.__simPaywallClose()">Ahora no</button>
-      <button class="qbtn primary" id="sim-pw-pay">Pagar (simulado) →</button>
+      <button class="qbtn primary" id="sim-pw-pay">Pagar $12.000 →</button>
     </div>
     <button type="button" class="sim-pw-diag" id="sim-pw-diag" onclick="window.__simPaywallToDiag&&window.__simPaywallToDiag()">¿Solo quieres probar? Haz el diagnóstico gratis →</button>
-    <div class="sim-pw-note">Prototipo: el pago es simulado, solo activa el modo Pro localmente. El cobro real y el candado por servidor llegan con Supabase.</div>
+    <div class="sim-pw-note">Pago seguro con Wompi (tarjeta, Nequi, PSE, Bancolombia). El acceso se activa solo al confirmarse el pago.</div>
   </div>
 </div>
 
@@ -30591,9 +30591,14 @@ window.__SIM_LOCAL = (function(){
       || /\.local$/.test(h);
   }catch(e){ return false; }
 })();
-/* ?teaser=1 fuerza el estado de PRODUCCIÓN localmente (simulacro completo oculto,
-   sección premium visible) — solo para previsualizar cómo se ve al público. */
-var SIMULACROS_HABILITADOS = !!window.__SIM_LOCAL && !/[?&]teaser=1/.test(location.href);
+/* LANZAMIENTO 2026-09-18: Simulacros Pro pasa a estar habilitado en todas
+   partes (antes solo en local vía __SIM_LOCAL). Wompi ya está configurado
+   (secrets + webhook confirmados por Luis). Se deja:
+   - ?simoff=1  → apaga el simulacro de emergencia, sin redeploy (para
+     revertir rápido si algo sale mal con el cobro real).
+   - ?teaser=1  → sigue forzando el estado "aún no" para previsualizar cómo
+     se veía antes del lanzamiento. */
+var SIMULACROS_HABILITADOS = !/[?&]simoff=1/.test(location.href) && !/[?&]teaser=1/.test(location.href);
 window.SIMULACROS_HABILITADOS = SIMULACROS_HABILITADOS;
 
 /* SOLO local: carga el espejo de sim_solutions (gitignored) para poder ver el
@@ -33629,6 +33634,20 @@ window.__SIMPRO_DEV = /[?&]simpro=1/.test(location.href) || !!window.__SIM_LOCAL
     var _matEn={'Cálculo Diferencial':'Differential Calculus','Cálculo Integral':'Integral Calculus'}[_matName]||_matName;
     var _tg=document.querySelector('#sim-pw-overlay .sim-pw-tag');
     if(_tg) _tg.textContent='MathUNAL Pro · '+(_en()?_matEn:_matName);
+    /* Bug real (encontrado 2026-09-18): el texto "Pagar (simulado)"/"Prototipo"
+       de abajo solo se corregía vía muApplyLang_simulacro(), que SOLO corre si
+       curLang==='en' -- para el 99% de las visitas (español) el botón/aviso se
+       quedaban diciendo "simulado" para siempre, aunque el cobro real con
+       Wompi ya esté activo. Se fija aquí, en cada apertura del modal,
+       independiente del idioma. */
+    var payBtn=document.getElementById('sim-pw-pay');
+    if(payBtn) payBtn.textContent = window.__SIM_LOCAL
+      ? (_en()?'Pay (simulated) →':'Pagar (simulado) →')
+      : (_en()?'Pay $12,000 →':'Pagar $12.000 →');
+    var noteEl=document.querySelector('#sim-pw-overlay .sim-pw-note');
+    if(noteEl) noteEl.textContent = window.__SIM_LOCAL
+      ? (_en()?'Local prototype: payment is simulated, it only enables Pro in this browser.':'Prototipo local: el pago es simulado, solo activa el modo Pro en este navegador.')
+      : (_en()?'Secure payment via Wompi. Access unlocks automatically once payment is confirmed.':'Pago seguro con Wompi (tarjeta, Nequi, PSE, Bancolombia). El acceso se activa solo al confirmarse el pago.');
     var b=document.getElementById('sim-pw-body');
     if(b) b.textContent = ((_en()?{
       corte:'The full mock exam — the 3 cortes, as many as you want, with step-by-step solutions — is MathUNAL Pro. The free version is the diagnostic.',
