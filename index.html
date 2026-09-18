@@ -17254,7 +17254,6 @@ html[data-theme="gray"] .hero-bg .lg-blob-center{background:radial-gradient(elli
 .sim-pw-list li::after{content:'✓';position:absolute;left:2.5px;top:.28rem;font-size:.62rem;font-weight:900;color:var(--gold-ink)}
 .sim-pw-price{margin:.8rem 0;font-size:.9rem;color:var(--t3);background:var(--gold-dim);border:1px solid var(--gold);border-radius:10px;padding:.7rem .9rem}
 .sim-pw-anchor,.diag-pro-anchor{margin:-.4rem 0 .8rem;font-size:.78rem;color:var(--t3);font-style:italic;text-align:center}
-.sim-pw-guarantee{margin:-.2rem 0 .8rem;font-size:.78rem;color:var(--t2);text-align:center;padding:.5rem .7rem;background:var(--lay1);border:1px solid var(--br);border-radius:8px}
 .sim-pw-price b{font-family:'Literata',Georgia,serif;font-size:1.5rem;color:var(--gold)}
 .sim-pw-price s{margin:0 .3rem}
 .sim-pw-price span{display:block;font-size:.76rem;margin-top:.1rem}
@@ -23681,7 +23680,6 @@ if(!window.__muSdClickBound){window.__muSdClickBound=true;document.addEventListe
     </ul>
     <div class="sim-pw-price"><b>$12.000</b> <span>por esta materia · un pago · acceso todo el semestre · sin renovación automática</span></div>
     <div class="sim-pw-anchor" id="sim-pw-anchor">Menos que una hora de tutoría particular — y te queda todo el semestre.</div>
-    <div class="sim-pw-guarantee" id="sim-pw-guarantee">🛡️ Si haces el simulacro completo y sacas menos de 3.0 en el parcial real, el siguiente corte te lo regalamos.</div>
     <div class="submit-actions">
       <button class="qbtn" onclick="window.__simPaywallClose&&window.__simPaywallClose()">Ahora no</button>
       <button class="qbtn primary" id="sim-pw-pay">Pagar $12.000 →</button>
@@ -23897,9 +23895,6 @@ window.muApplyLang_simulacro = function(){
   T('#sim-pw-overlay .sim-pw-anchor',
     'Menos que una hora de tutoría particular — y te queda todo el semestre.',
     'Less than one hour of private tutoring — and it lasts you the whole semester.');
-  T('#sim-pw-overlay .sim-pw-guarantee',
-    '🛡️ Si haces el simulacro completo y sacas menos de 3.0 en el parcial real, el siguiente corte te lo regalamos.',
-    '🛡️ Take the full mock exam and score below 3.0 on the real midterm, and we give you the next corte free.');
   document.querySelectorAll('#sim-pw-overlay .qbtn').forEach(function(b){
     if(/Ahora no|Not now/.test(b.textContent)) b.textContent = en?'Not now':'Ahora no';
     if(b.id==='sim-pw-pay') b.textContent = window.__SIM_LOCAL
@@ -28260,7 +28255,6 @@ function _diagMostrarResultados(){
             : 'MathUNAL Pro lo vuelve el entrenador completo: simulacros ilimitados por corte, cada solución paso a paso + el truco, práctica por tema y entrenar solo tus errores.')+'</p>'
         + '<div class="diag-pro-price"><b>$12.000</b>'+(en?'per subject · one payment · all semester · no auto-renewal':'por materia · un pago · todo el semestre · sin renovación automática')+'</div>'
         + '<div class="diag-pro-anchor">'+(en?'Less than one hour of private tutoring — and it lasts you the whole semester.':'Menos que una hora de tutoría particular — y te queda todo el semestre.')+'</div>'
-        + '<div class="diag-pro-anchor">'+(en?'🛡️ Take the full mock exam and score below 3.0 on the real midterm, and we give you the next corte free.':'🛡️ Si haces el simulacro completo y sacas menos de 3.0 en el parcial real, el siguiente corte te lo regalamos.')+'</div>'
         + '<a class="diag-btn" href="#simulacro" style="text-decoration:none">'+(en?'See MathUNAL Pro →':'Ver MathUNAL Pro →')+'</a>'
         + '</div>';
     }
