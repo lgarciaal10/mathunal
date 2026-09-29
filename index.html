@@ -33636,10 +33636,53 @@ window.__SIMPRO_DEV = /[?&]simpro=1/.test(location.href) || !!window.__SIM_LOCAL
       .catch(function(){ return false; });
   };
 
+  /* ── Red de seguridad de pagos ─────────────────────────────────────────────
+     Si el webhook de Wompi falla o se atrasa, el pago queda aprobado pero el
+     acceso no se activa (pasó el 28-sep). Esta función le pide a
+     sim-wompi-verify que le pregunte a Wompi directamente y active el acceso.
+     Se frena sola: solo corre si esta persona inició un pago desde este
+     navegador (flag mu-sim-checkout, 7 días) o si se fuerza / abre el paywall,
+     y como mucho una vez cada 2 min. opts: {force, ignoreFlag, silent,
+     transactionId, reference}. Devuelve Promise<boolean> = ¿ya tiene Pro? */
+  window.__simVerifyPayments=function(opts){
+    opts=opts||{};
+    var au=window.__muAuth, s=au&&au.session&&au.session();
+    if(window.__SIM_LOCAL || !au || !s || !s.user) return Promise.resolve(false);
+    var flag=null; try{ flag=JSON.parse(localStorage.getItem('mu-sim-checkout')||'null'); }catch(e){}
+    if(flag && Date.now()-flag.ts>7*864e5){ flag=null; try{ localStorage.removeItem('mu-sim-checkout'); }catch(e){} }
+    if(!opts.force && !opts.ignoreFlag && !flag) return Promise.resolve(false);
+    var last=0; try{ last=+localStorage.getItem('mu-sim-verify-at')||0; }catch(e){}
+    if(!opts.force && Date.now()-last<120000) return Promise.resolve(false);
+    try{ localStorage.setItem('mu-sim-verify-at', String(Date.now())); }catch(e){}
+    var body={};
+    if(opts.transactionId) body.transaction_id=opts.transactionId;
+    var ref=opts.reference||(flag&&flag.ref); if(ref) body.reference=ref;
+    return au.api('/functions/v1/sim-wompi-verify',{method:'POST',body:JSON.stringify(body)})
+      .then(function(r){ return r.ok? r.json():null; })
+      .then(function(j){
+        if(!j||!j.ok) return false;
+        var approved=(j.results||[]).some(function(x){ return x.status==='APPROVED'; });
+        if(!approved) return false;
+        try{ localStorage.removeItem('mu-sim-checkout'); }catch(e){}
+        return window.__simPro.syncFromServer().then(function(any){
+          if(any){
+            try{ window.__simFetchSol(); }catch(e){}
+            try{ if(window._renderCards) window._renderCards(); }catch(e){}
+            if(j.granted && !opts.silent && window._muToast) window._muToast(_t('MathUNAL Pro activado ✓','MathUNAL Pro enabled ✓'));
+          }
+          return any;
+        });
+      })
+      .catch(function(){ return false; });
+  };
+
   function __simSyncPro(){
     try{
       var p = window.__simPro.syncFromServer();
-      if(p && p.then) p.then(function(any){ if(any) try{ window.__simFetchSol(); }catch(e){} });
+      if(p && p.then) p.then(function(any){
+        if(any){ try{ window.__simFetchSol(); }catch(e){} }
+        else { try{ window.__simVerifyPayments(); }catch(e){} }   // ¿pagó y el webhook no llegó?
+      });
     }catch(e){}
     /* si ya venía Pro por cache local, no esperes al RPC */
     if(window.__simPro && window.__simPro.anyPro()) try{ window.__simFetchSol(); }catch(e){}
@@ -33692,6 +33735,11 @@ window.__SIMPRO_DEV = /[?&]simpro=1/.test(location.href) || !!window.__SIM_LOCAL
       solucion:'Cada solución paso a paso, con el truco y la gráfica interactiva, es de MathUNAL Pro.'
     })[ctx]) || _t('Esta parte es de MathUNAL Pro.','This part is MathUNAL Pro.');
     ov.classList.add('open');
+    /* ¿ya pagó y el webhook no llegó? Se resuelve aquí en silencio (si hay Pro, cierra el paywall). */
+    try{
+      var _vp=window.__simVerifyPayments && window.__simVerifyPayments({ignoreFlag:true});
+      if(_vp && _vp.then) _vp.then(function(any){ if(any) ov.classList.remove('open'); });
+    }catch(e){}
     var pay=document.getElementById('sim-pw-pay');
     if(pay) pay.onclick=function(){
       /* cuenta primero: el Pro va ligado a la cuenta (anti-piratería). */
@@ -33723,6 +33771,8 @@ window.__SIMPRO_DEV = /[?&]simpro=1/.test(location.href) || !!window.__SIM_LOCAL
                                                    'Payment is not live yet. Message me and I will grant access.'));
             return;
           }
+          /* marca local: "esta persona inició un pago" → habilita la red de seguridad (__simVerifyPayments) */
+          try{ localStorage.setItem('mu-sim-checkout', JSON.stringify({ref:cfg.reference, ts:Date.now()})); }catch(e){}
           var checkout = new window.WidgetCheckout({
             currency: cfg.currency, amountInCents: cfg.amountInCents,
             reference: cfg.reference, publicKey: cfg.publicKey,
@@ -33736,14 +33786,20 @@ window.__SIMPRO_DEV = /[?&]simpro=1/.test(location.href) || !!window.__SIM_LOCAL
               ov.classList.remove('open');
               if(window._muToast) window._muToast(_t('¡Pago aprobado! Activando tu Pro…','Payment approved! Enabling your Pro…'));
               var tries=0;
-              (function poll(){
-                tries++;
-                window.__simPro.syncFromServer().then(function(any){
-                  if(any){ try{ window.__simFetchSol(); }catch(e){} try{ if(window._renderCards) window._renderCards(); }catch(e){}
-                    if(window._muToast) window._muToast(_t('MathUNAL Pro activado ✓','MathUNAL Pro enabled ✓')); }
-                  else if(tries<6) setTimeout(poll, 2500);
-                });
-              })();
+              function startPoll(){
+                (function poll(){
+                  tries++;
+                  window.__simPro.syncFromServer().then(function(any){
+                    if(any){ try{ window.__simFetchSol(); }catch(e){} try{ if(window._renderCards) window._renderCards(); }catch(e){}
+                      if(window._muToast) window._muToast(_t('MathUNAL Pro activado ✓','MathUNAL Pro enabled ✓')); }
+                    else if(tries<6) setTimeout(poll, 2500);
+                  });
+                })();
+              }
+              /* primero la red de seguridad (le pregunta a Wompi ya mismo, sin esperar al webhook);
+                 el sondeo de abajo sigue igual y cubre el caso en que el webhook sí llegue. */
+              Promise.resolve(window.__simVerifyPayments({force:true, silent:true, transactionId:tx.id, reference:cfg.reference}))
+                .then(startPoll, startPoll);
             } else if(tx){
               if(window._muToast) window._muToast(_t('El pago quedó en "'+tx.status+'". Si te cobraron y no se activó, escríbeme.',
                                                      'Payment ended "'+tx.status+'". If you were charged and it did not unlock, message me.'));
@@ -33781,10 +33837,20 @@ window.__SIMPRO_DEV = /[?&]simpro=1/.test(location.href) || !!window.__SIM_LOCAL
     try{
       var m = location.search.match(/[?&]id=([^&]+)/);
       if(!m) return;
+      var retId=''; try{ retId=decodeURIComponent(m[1]); }catch(e){ retId=m[1]; }
       try{ history.replaceState(null,'',location.pathname+location.search.replace(/[?&]id=[^&]+/,'').replace(/^&/,'?')+location.hash); }catch(e){}
       if(window._muToast) window._muToast(_t('Confirmando tu pago…','Confirming your payment…'));
       var tries=0;
-      (function poll(){
+      /* red de seguridad: con el id que trae Wompi en el redirect, le preguntamos directo
+         (no depende del webhook). __muAuth se define más abajo → espera a que exista. */
+      (function waitAuth(n){
+        if(window.__muAuth && window.__simVerifyPayments){
+          window.__simVerifyPayments({force:true, silent:true, transactionId:retId}).then(startPoll, startPoll);
+        } else if(n>0){ setTimeout(function(){ waitAuth(n-1); }, 200); }
+        else startPoll();
+      })(30);
+      function startPoll(){ poll(); }
+      function poll(){
         tries++;
         if(!window.__simPro || !window.__simPro.syncFromServer) return;
         window.__simPro.syncFromServer().then(function(any){
@@ -33795,7 +33861,7 @@ window.__SIMPRO_DEV = /[?&]simpro=1/.test(location.href) || !!window.__SIM_LOCAL
           } else if(tries<8){ setTimeout(poll, 2500); }
           else if(window._muToast) window._muToast(_t('Tu pago quedó registrado pero no se activó solo — escríbeme y lo activo a mano.','Your payment went through but did not auto-activate — message me and I will enable it manually.'));
         });
-      })();
+      }
     }catch(e){}
   })();
 
