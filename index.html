@@ -19196,6 +19196,23 @@ html[data-theme="light"] ::-webkit-scrollbar-thumb:hover{background:var(--acc);b
 .prom-btn:active,.nav-cta:active,.au-msg-cta:active,.cc-cta:active,.hero-btns a:active,
 button.sd-btn:active,.mc:active{transform:translateY(1px) scale(.985)}
 .btn-a,.btn-o,.ap-btn,.gc,.sp-cta,.mu-sprint-cta,.prom-btn,.nav-cta{transition:transform .12s ease,filter .2s,background .2s,box-shadow .2s,border-color .2s}
+/* Zoom suave al pasar el mouse por las tarjetas. Usa la propiedad `scale`
+   (independiente de `transform`) para SUMARSE al levantamiento que cada
+   tarjeta ya tiene, sin pisarlo. Solo con hover real (no táctil) y sin
+   "reducir movimiento". Dos niveles: 3% las tarjetas grandes de cuadrícula,
+   1.5% las anchas/densas para que no se vean brincando. */
+@media (hover:hover) and (prefers-reduced-motion:no-preference){
+  .mc:hover,.prox-card:hover,.sim-card:hover,.bkl-card:hover,.gc:hover,.comm-card:hover,
+  .aport-card:hover,.diag-mat-card:hover,.cc:not(.cc-soon):hover{scale:1.03}
+  .mat-card:hover,.ruta-mat:hover,.fcard:hover,.stat-card:hover,.pq-card:hover,
+  .sim-srs-card:hover,.mu-kpi-card:hover{scale:1.015}
+  /* Tarjetas cuya `transition` es una lista fija: se les suma `scale` para que
+     anime en vez de saltar. */
+  .gc{transition:transform .12s ease,filter .2s,background .2s,box-shadow .2s,border-color .2s,scale .2s ease}
+  .aport-card,.pq-card,.stat-card{transition:border-color .2s,transform .18s,scale .2s ease}
+  .mat-card{transition:border-color .2s,box-shadow .2s,transform .22s cubic-bezier(.22,.61,.36,1),scale .22s cubic-bezier(.22,.61,.36,1)}
+  .mu-kpi-card{transition:transform .2s cubic-bezier(.22,1,.36,1),border-color .2s,box-shadow .2s,scale .2s cubic-bezier(.22,1,.36,1)}
+}
 /* Guion del sec-label: respira suave — solo transform/opacity (compuesto en
    GPU), nunca 'width', para que no parpadee a bajo refresco. */
 /* (el guion del sec-label ya no "respira" — quedaba raro moverse solo el
