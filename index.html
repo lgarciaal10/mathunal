@@ -49,6 +49,15 @@
   <meta property="og:locale" content="es_CO">
   <meta name="theme-color" content="#e05d1a">
   <meta property="og:url" content="https://mathunal.com">
+  <!-- og:image DEBE ir aquí arriba: el <head> pesa ~820 KB y los rastreadores de
+       vista previa (WhatsApp, Telegram, Slack…) solo leen los primeros KB. El ?v=
+       fuerza a refrescar la imagen cacheada; súbelo si vuelves a cambiar og-image.png -->
+  <meta property="og:image" content="https://mathunal.com/og-image.png?v=20260929">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="MathUNAL — logo">
+  <meta name="twitter:image" content="https://mathunal.com/og-image.png?v=20260929">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="MathUNAL · Simulacros SIDEX y Parciales · UNAL Medellín">
   <meta name="twitter:description" content="Simulacros SIDEX con solución paso a paso, parciales resueltos y formularios para ingeniería. Diagnóstico gratis, MathUNAL Pro para preparación completa.">
@@ -14738,6 +14747,8 @@ window.__simLab={
     "name": "MathUNAL",
     "description": "Repositorio de matemáticas para ingeniería de la UNAL Medellín: parciales resueltos, simulacros y formularios.",
     "url": "https://mathunal.com",
+    "image": "https://mathunal.com/og-image.png?v=20260929",
+    "logo": "https://mathunal.com/icon-512.png",
     "areaServed": "Colombia",
     "knowsLanguage": ["es", "en"],
     "audience": { "@type": "EducationalAudience", "educationalRole": "student" }
@@ -20527,10 +20538,6 @@ customElements.define('glass-element', GlassElement);
   };
 })();
 </script>
-  <meta property="og:image" content="https://mathunal.com/og-image.png">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
-  <meta name="twitter:image" content="https://mathunal.com/og-image.png">
   <!-- Wompi Widget (sandbox) -->
   <script src="https://checkout.wompi.co/widget.js" data-render="false"></script>
 </head>
