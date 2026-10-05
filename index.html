@@ -19773,6 +19773,13 @@ body{animation:pageIn .6s ease}
 .mu-calmini-t{font-size:.9rem;color:var(--t1);line-height:1.45}
 .mu-calmini-a{margin-top:.5rem;font-size:.82rem;color:var(--t2);font-weight:600}
 .mu-calmini-in:hover .mu-calmini-a{color:var(--acc)}
+.mu-dato-in{background:var(--card);border:1px solid var(--br2);border-left:3px solid var(--dc,var(--acc));border-radius:14px;padding:1rem 1.1rem;animation:muDatoIn .5s ease both}
+.mu-dato-lbl{display:flex;align-items:center;gap:.4rem;font-size:.75rem;color:var(--t3);font-family:'IBM Plex Mono',monospace;text-transform:uppercase;letter-spacing:.05em}
+.mu-dato-lbl svg{color:var(--dc,var(--acc));flex:none}
+.mu-dato-kind{color:var(--dc,var(--acc));font-weight:700}
+.mu-dato-t{margin-top:.5rem;font-size:.9rem;line-height:1.5;color:var(--t1)}
+@keyframes muDatoIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){.mu-dato-in{animation:none}}
 .mu-hoy-how{background:var(--card);border:1px solid var(--br2);border-radius:14px;padding:1rem 1.1rem}
 .mu-hoy-how-t{font-size:.75rem;color:var(--t3);font-family:'IBM Plex Mono',monospace;text-transform:uppercase;letter-spacing:.05em;margin-bottom:.5rem}
 .mu-hoy-how-l{margin:0;padding-left:1.1rem;display:flex;flex-direction:column;gap:.4rem}
@@ -20872,6 +20879,7 @@ customElements.define('glass-element', GlassElement);
       <div class="mu-hoy-card" id="mu-racha-mount"></div>
       <div class="mu-hoy-side">
         <div class="mu-hoy-mini" id="mu-hoy-cal"></div>
+        <div class="mu-hoy-dato" id="mu-hoy-dato"></div>
         <div class="mu-hoy-how">
           <div class="mu-hoy-how-t" id="hoy-how-t">Cómo funciona</div>
           <ul class="mu-hoy-how-l">
@@ -21942,6 +21950,7 @@ function renderMaterias(){
   if(typeof window.__muSemanaBanner==='function') window.__muSemanaBanner('mu-home-semana', _lg);
   if(typeof window.__muRacha==='object' && window.__muRacha.render) window.__muRacha.render('mu-racha-mount', _lg);
   if(typeof window.__muCalMini==='function') window.__muCalMini('mu-hoy-cal', _lg);
+  if(typeof window.__muDatoDia==='function') window.__muDatoDia('mu-hoy-dato', _lg);
   if(typeof window.__muCalendario==='function') window.__muCalendario('mu-calendario-mount', _lg);
   (function(){ /* i18n de las cabeceras de #hoy y #calendario */
     var H={ 'hoy-tag':[en?'Come back every day':'Vuelve cada día'],
@@ -36438,6 +36447,88 @@ if ('serviceWorker' in navigator) {
     });
   });
 }
+
+/* t: 'e' = Para estudiar · 'm' = Dato matemático · 'h' = Historia / curiosidad */
+var DATOS_DIA = [
+/* ── PARA ESTUDIAR (22) ── */
+{t:'e', es:'Intenta resolver antes de mirar la solución: aunque falles, lo que ves después se te queda mucho más.', en:'Try to solve it before looking at the solution: even if you fail, what you see afterwards sticks much better.'},
+{t:'e', es:'Repasar a intervalos (al día siguiente, a los 3 días, a la semana) rinde más que estudiar todo la noche anterior.', en:'Reviewing at intervals (next day, 3 days, a week) works better than cramming the night before.'},
+{t:'e', es:'Un parcial viejo cronometrado te enseña más que releer apuntes: practica con el tiempo real del examen.', en:'A timed old exam teaches you more than rereading notes: practice with the real exam time.'},
+{t:'e', es:'Antes de calcular, escribe qué te dan y qué te piden. Muchos errores de parcial son de lectura, no de matemática.', en:'Before calculating, write down what you are given and what you are asked. Many exam mistakes are reading mistakes, not math mistakes.'},
+{t:'e', es:'Si te trabas más de 10 minutos en un punto, pasa al siguiente y vuelve después: la mente sigue trabajando en segundo plano.', en:'If you are stuck on a question for more than 10 minutes, move on and come back later: your mind keeps working in the background.'},
+{t:'e', es:'Explícale el tema a alguien (o a la pared). Si no puedes decirlo con tus palabras, todavía no lo dominas.', en:'Explain the topic to someone (or to a wall). If you cannot say it in your own words, you do not master it yet.'},
+{t:'e', es:'Anota por qué fallaste cada error: concepto, cuenta o lectura. Así sabes exactamente qué reforzar.', en:'Write down why you got each mistake: concept, calculation or reading. That tells you exactly what to reinforce.'},
+{t:'e', es:'Dormir bien la noche antes rinde más que una hora extra de estudio a las 3 a. m.', en:'A good night of sleep before the exam does more for you than one extra hour of study at 3 a.m.'},
+{t:'e', es:'Estudiar en bloques de 25 a 50 minutos con descansos cortos ayuda a mantener la atención.', en:'Studying in 25 to 50 minute blocks with short breaks helps you keep your focus.'},
+{t:'e', es:'Mezcla tipos de ejercicios en vez de hacer diez iguales seguidos: así aprendes a elegir el método, no solo a repetirlo.', en:'Mix exercise types instead of doing ten identical ones in a row: you learn to choose the method, not just repeat it.'},
+{t:'e', es:'Verifica tu respuesta: reemplaza en la ecuación, revisa signos y prueba casos sencillos.', en:'Check your answer: substitute it back, check the signs and try simple cases.'},
+{t:'e', es:'Memoriza menos fórmulas y entiende de dónde salen: se recuerdan solas y se reconstruyen en el examen.', en:'Memorize fewer formulas and understand where they come from: they stick on their own and can be rebuilt during the exam.'},
+{t:'e', es:'Hacer tu propio formulario a mano ya es estudiar: resumir te obliga a decidir qué importa.', en:'Making your own formula sheet by hand already counts as studying: summarizing forces you to decide what matters.'},
+{t:'e', es:'En el parcial, empieza por lo que mejor sabes: te da puntos y confianza para lo difícil.', en:'In the exam, start with what you know best: it gives you points and confidence for the hard ones.'},
+{t:'e', es:'Deja 5 minutos al final para revisar signos y cuentas. Ahí se pierden muchos puntos.', en:'Leave 5 minutes at the end to check signs and calculations. That is where many points are lost.'},
+{t:'e', es:'Pregunta en cuanto te trabes: una duda vieja se vuelve un hueco grande.', en:'Ask as soon as you get stuck: an old doubt turns into a big gap.'},
+{t:'e', es:'Estudiar en grupo sirve si cada uno intenta antes por su cuenta; si no, solo copias.', en:'Studying in a group works if everyone tries on their own first; otherwise you are just copying.'},
+{t:'e', es:'Ver un video de una derivada o integral ayuda, pero lo que fija el tema es repetir el ejercicio sin mirar.', en:'Watching a video on a derivative or integral helps, but what makes it stick is redoing the exercise without looking.'},
+{t:'e', es:'Planea hacia atrás desde la fecha del próximo corte: ¿cuántos días tienes y qué temas faltan?', en:'Plan backwards from the date of your next exam: how many days do you have and which topics are missing?'},
+{t:'e', es:'Si no sabes por dónde empezar, dibuja: un gráfico o esquema aclara más de lo que parece.', en:'If you do not know where to start, draw: a graph or diagram clarifies more than it seems.'},
+{t:'e', es:'Si un ejercicio de parcial sale demasiado fácil, revísalo otra vez: suele haber un caso especial escondido.', en:'If an exam exercise comes out too easy, check it again: there is often a special case hiding in it.'},
+{t:'e', es:'Después de un mal parcial, repásalo punto por punto antes de olvidarlo: es el mejor material para el siguiente.', en:'After a bad exam, go through it point by point before forgetting it: it is the best study material for the next one.'},
+
+/* ── DATO MATEMÁTICO (15) ── */
+{t:'m', es:'La identidad de Euler, e^(iπ) + 1 = 0, reúne en una sola ecuación los números e, i, π, 1 y 0.', en:'Euler\'s identity, e^(iπ) + 1 = 0, brings together the numbers e, i, π, 1 and 0 in a single equation.'},
+{t:'m', es:'Hay infinitos números primos. Euclides lo demostró hace más de 2.000 años por contradicción.', en:'There are infinitely many prime numbers. Euclid proved it more than 2,000 years ago by contradiction.'},
+{t:'m', es:'0,999… = 1 exactamente: es la serie geométrica 9/10 + 9/100 + 9/1000 + …', en:'0.999… = 1 exactly: it is the geometric series 9/10 + 9/100 + 9/1000 + …'},
+{t:'m', es:'La conjetura de Goldbach (todo par mayor que 2 es suma de dos primos) lleva casi 300 años sin demostrarse.', en:'Goldbach\'s conjecture (every even number greater than 2 is a sum of two primes) has gone almost 300 years without a proof.'},
+{t:'m', es:'El Último Teorema de Fermat tardó unos 350 años en demostrarse: lo logró Andrew Wiles en 1994-1995.', en:'Fermat\'s Last Theorem took about 350 years to prove: Andrew Wiles did it in 1994-1995.'},
+{t:'m', es:'√2 es irracional: la demostración clásica, por contradicción, se conoce desde la antigua Grecia.', en:'√2 is irrational: the classic proof, by contradiction, has been known since ancient Greece.'},
+{t:'m', es:'Hay infinitos de distinto tamaño: Cantor demostró que los reales no se pueden listar uno por uno, a diferencia de los naturales.', en:'There are infinities of different sizes: Cantor showed the real numbers cannot be listed one by one, unlike the naturals.'},
+{t:'m', es:'Los ángulos de un triángulo suman 180° en el plano, pero en una esfera suman más.', en:'The angles of a triangle add up to 180° on a plane, but on a sphere they add up to more.'},
+{t:'m', es:'La función e^x es su propia derivada: crece exactamente a la velocidad que vale.', en:'The function e^x is its own derivative: it grows at exactly the rate of its own value.'},
+{t:'m', es:'La serie armónica 1 + 1/2 + 1/3 + 1/4 + … diverge, aunque sus términos tiendan a cero.', en:'The harmonic series 1 + 1/2 + 1/3 + 1/4 + … diverges, even though its terms tend to zero.'},
+{t:'m', es:'La hipótesis de Riemann sigue abierta, y el Instituto Clay ofrece un millón de dólares por resolverla.', en:'The Riemann hypothesis is still open, and the Clay Institute offers one million dollars for solving it.'},
+{t:'m', es:'El teorema de Pitágoras tiene cientos de demostraciones distintas.', en:'The Pythagorean theorem has hundreds of different proofs.'},
+{t:'m', es:'π es irracional y además trascendente (Lindemann, 1882), por eso es imposible "cuadrar el círculo" con regla y compás.', en:'π is irrational and also transcendental (Lindemann, 1882), which is why "squaring the circle" with ruler and compass is impossible.'},
+{t:'m', es:'0! = 1 no es un capricho: hay exactamente una forma de ordenar cero objetos.', en:'0! = 1 is not arbitrary: there is exactly one way to arrange zero objects.'},
+{t:'m', es:'En todo poliedro convexo se cumple V − A + C = 2 (vértices, aristas y caras). Es la fórmula de Euler.', en:'In every convex polyhedron V − E + F = 2 (vertices, edges and faces). It is Euler\'s formula.'},
+
+/* ── HISTORIA / CURIOSIDAD (8) ── */
+{t:'h', es:'Newton y Leibniz desarrollaron el cálculo de forma independiente, y hubo una larga disputa sobre quién fue primero.', en:'Newton and Leibniz developed calculus independently, and there was a long dispute over who came first.'},
+{t:'h', es:'Según la anécdota, el pequeño Gauss sumó 1 + 2 + … + 100 en segundos viendo que son 50 parejas que suman 101.', en:'According to the anecdote, young Gauss added 1 + 2 + … + 100 in seconds by seeing 50 pairs that add up to 101.'},
+{t:'h', es:'El teorema de los cuatro colores se demostró en 1976 con ayuda de un computador, algo muy polémico en su momento.', en:'The four color theorem was proved in 1976 with the help of a computer, something very controversial at the time.'},
+{t:'h', es:'El símbolo ∫ es una "S" alargada, de "summa" (suma). Lo introdujo Leibniz.', en:'The ∫ symbol is an elongated "S", from "summa" (sum). Leibniz introduced it.'},
+{t:'h', es:'El signo "=" lo propuso Robert Recorde en 1557 porque, decía, nada es más igual que dos rectas paralelas.', en:'The "=" sign was proposed by Robert Recorde in 1557 because, he said, nothing is more equal than two parallel lines.'},
+{t:'h', es:'Srinivasa Ramanujan, matemático autodidacta de la India, dejó miles de resultados y colaboró con G. H. Hardy en Cambridge.', en:'Srinivasa Ramanujan, a self-taught mathematician from India, left thousands of results and worked with G. H. Hardy at Cambridge.'},
+{t:'h', es:'El teorema de Emmy Noether conecta simetrías con leyes de conservación en la física.', en:'Emmy Noether\'s theorem connects symmetries with conservation laws in physics.'},
+{t:'h', es:'Euler siguió produciendo matemáticas durante años después de quedar casi ciego.', en:'Euler kept producing mathematics for years after going almost blind.'}
+];
+
+try{ window.DATOS_DIA = DATOS_DIA; }catch(e){}
+
+/* Dato del día: una frase corta, distinta cada día, sin servidor. Se elige por la
+   fecha local. Mezcla tres tipos (estudiar pesa más, luego dato, luego historia)
+   intercalados de forma pareja y cicla sin repetir hasta agotar la lista. */
+window.__muDatoDia = function(elId, lang){
+  var el=document.getElementById(elId);
+  if(!el || !window.DATOS_DIA || !window.DATOS_DIA.length) return;
+  var en=(lang==='en'), now=new Date();
+  var dayN=Math.floor(Date.UTC(now.getFullYear(),now.getMonth(),now.getDate())/86400000);
+  var by={e:[],m:[],h:[]}, slots=[];
+  window.DATOS_DIA.forEach(function(x){ (by[x.t]||by.e).push(x); });
+  ['e','m','h'].forEach(function(k){ by[k].forEach(function(x,i){ slots.push({p:(i+.5)/by[k].length,x:x}); }); });
+  slots.sort(function(a,b){ return a.p-b.p; });
+  var it=slots[dayN % slots.length].x;
+  var META={ e:{c:'var(--acc)',es:'Para estudiar',en:'Study tip'},
+             m:{c:'var(--grn)',es:'Dato matemático',en:'Math fact'},
+             h:{c:'var(--warn)',es:'Historia',en:'History'} }[it.t] || {c:'var(--acc)',es:'Para estudiar',en:'Study tip'};
+  function esc(s){ return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+  el.innerHTML =
+    '<div class="mu-dato-in" style="--dc:'+META.c+'">'+
+      '<div class="mu-dato-lbl">'+
+        '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 22h4M12 2a7 7 0 0 0-4 12.7c.5.4.9 1.1.9 1.8v.5h6.2v-.5c0-.7.4-1.4.9-1.8A7 7 0 0 0 12 2z"/></svg>'+
+        (en?'Daily tip':'Dato del día')+' · <span class="mu-dato-kind">'+(en?META.en:META.es)+'</span></div>'+
+      '<div class="mu-dato-t">'+esc(en?it.en:it.es)+'</div>'+
+    '</div>';
+};
 
 /* Mini-teaser: la próxima fecha del calendario, linkea a #calendario */
 window.__muCalMini = function(elId, lang){
