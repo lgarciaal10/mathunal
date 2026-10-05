@@ -19773,6 +19773,10 @@ body{animation:pageIn .6s ease}
 .mu-calmini-t{font-size:.9rem;color:var(--t1);line-height:1.45}
 .mu-calmini-a{margin-top:.5rem;font-size:.82rem;color:var(--t2);font-weight:600}
 .mu-calmini-in:hover .mu-calmini-a{color:var(--acc)}
+.mu-hoy-date{display:flex;width:fit-content;max-width:100%;align-items:center;flex-wrap:wrap;justify-content:center;gap:.45rem;margin:0 auto 1rem;padding:.45rem .9rem;border-radius:999px;background:var(--lay1);border:1px solid var(--br2);color:var(--t2);font-size:.85rem;font-weight:600}
+.mu-hoy-date svg{color:var(--acc);flex:none}
+.mu-hoy-date-sep{color:var(--t3)}
+.mu-hoy-date-h{font-family:'IBM Plex Mono',monospace;color:var(--t1);font-variant-numeric:tabular-nums}
 .mu-dato-in{background:var(--card);border:1px solid var(--br2);border-left:3px solid var(--dc,var(--acc));border-radius:14px;padding:1rem 1.1rem;animation:muDatoIn .5s ease both}
 .mu-dato-lbl{display:flex;align-items:center;gap:.4rem;font-size:.75rem;color:var(--t3);font-family:'IBM Plex Mono',monospace;text-transform:uppercase;letter-spacing:.05em}
 .mu-dato-lbl svg{color:var(--dc,var(--acc));flex:none}
@@ -20871,6 +20875,7 @@ customElements.define('glass-element', GlassElement);
 <section id="hoy" class="mu-hoy-s">
   <div class="wrap">
     <div class="mu-hoy-hd fi">
+      <div class="mu-hoy-date" id="mu-hoy-date" aria-live="off"></div>
       <span class="cp-tag" id="hoy-tag">Vuelve cada día</span>
       <h2 id="hoy-h">La pregunta del día</h2>
       <p id="hoy-sub">Una pregunta rápida de parcial, distinta cada día. Respóndela y mantén tu racha — es la forma más simple de no llegar en blanco al parcial.</p>
@@ -21951,6 +21956,7 @@ function renderMaterias(){
   if(typeof window.__muRacha==='object' && window.__muRacha.render) window.__muRacha.render('mu-racha-mount', _lg);
   if(typeof window.__muCalMini==='function') window.__muCalMini('mu-hoy-cal', _lg);
   if(typeof window.__muDatoDia==='function') window.__muDatoDia('mu-hoy-dato', _lg);
+  if(typeof window.__muFechaHoy==='function') window.__muFechaHoy('mu-hoy-date', _lg);
   if(typeof window.__muCalendario==='function') window.__muCalendario('mu-calendario-mount', _lg);
   (function(){ /* i18n de las cabeceras de #hoy y #calendario */
     var H={ 'hoy-tag':[en?'Come back every day':'Vuelve cada día'],
@@ -36503,6 +36509,26 @@ var DATOS_DIA = [
 ];
 
 try{ window.DATOS_DIA = DATOS_DIA; }catch(e){}
+
+/* Fecha y hora de hoy (hora local del visitante), con reloj que se actualiza solo. */
+window.__muFechaHoy = function(elId, lang){
+  var el=document.getElementById(elId);
+  if(window.__muFechaInt){ clearInterval(window.__muFechaInt); window.__muFechaInt=null; }
+  if(!el) return;
+  var en=(lang==='en'), loc=en?'en-US':'es-CO';
+  function pinta(){
+    var e=document.getElementById(elId);
+    if(!e){ clearInterval(window.__muFechaInt); window.__muFechaInt=null; return; }
+    var now=new Date();
+    var f=now.toLocaleDateString(loc,{weekday:'long',day:'numeric',month:'long',year:'numeric'});
+    f=f.charAt(0).toUpperCase()+f.slice(1);
+    var h=now.toLocaleTimeString(loc,{hour:'2-digit',minute:'2-digit',hour12:en});
+    e.innerHTML='<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>'+
+      '<span class="mu-hoy-date-d">'+f+'</span><span class="mu-hoy-date-sep">·</span><span class="mu-hoy-date-h">'+h+'</span>';
+  }
+  pinta();
+  window.__muFechaInt=setInterval(pinta,15000);
+};
 
 /* Dato del día: una frase corta, distinta cada día, sin servidor. Se elige por la
    fecha local. Mezcla tres tipos (estudiar pesa más, luego dato, luego historia)
