@@ -4,7 +4,7 @@
      durante un deploy quede congelada como "versión offline").
    - Resto de assets (iconos, CDN): stale-while-revalidate.
    Subir el número de CACHE en cada release. */
-const CACHE = 'mathunal-v203';
+const CACHE = 'mathunal-v204';
 const STATIC = [
   './manifest.json',
   './icon-192.png',
@@ -48,6 +48,22 @@ self.addEventListener('fetch', function(e){
       }).catch(function(){
         return caches.match(req).then(function(hit){ return hit || caches.match('./'); });
       })
+    );
+    return;
+  }
+
+  // API de Supabase (lista de materiales, etc.): siempre red primero. Con
+  // stale-while-revalidate el usuario veia la lista vieja hasta la 2da visita
+  // (un archivo recien subido tardaba una recarga extra en aparecer).
+  if (req.url.indexOf('.supabase.co/rest/v1/') !== -1) {
+    e.respondWith(
+      fetch(req).then(function(res){
+        if (res && res.status === 200) {
+          var copy = res.clone();
+          caches.open(CACHE).then(function(c){ try{ c.put(req, copy); }catch(_){} });
+        }
+        return res;
+      }).catch(function(){ return caches.match(req); })
     );
     return;
   }
