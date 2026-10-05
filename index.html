@@ -19803,6 +19803,13 @@ body{animation:pageIn .6s ease}
 .mu-cal-next:hover{transform:translateY(-3px);border-color:var(--dot,var(--acc))}
 .mu-cal-next-cd{font-size:1.1rem;font-weight:800;color:var(--t2)}
 .mu-cal-next-cd.soon{color:var(--dot,var(--acc))}
+/* Urgencia de la cuenta regresiva (gana a .soon): verde → amarillo → naranja → rojo con pulso */
+.mu-cal-next-cd.u-ok,.mu-cal-row-cd.u-ok,.mu-calmini-cd.u-ok{color:var(--ok)}
+.mu-cal-next-cd.u-warn,.mu-cal-row-cd.u-warn,.mu-calmini-cd.u-warn{color:var(--warn)}
+.mu-cal-next-cd.u-hot,.mu-cal-row-cd.u-hot,.mu-calmini-cd.u-hot{color:var(--acc)}
+.mu-cal-next-cd.u-crit,.mu-cal-row-cd.u-crit,.mu-calmini-cd.u-crit{color:var(--bad);animation:muCalPulse 1.8s ease-in-out infinite}
+@keyframes muCalPulse{0%,100%{opacity:1}50%{opacity:.55}}
+@media (prefers-reduced-motion:reduce){.mu-cal-next-cd.u-crit,.mu-cal-row-cd.u-crit,.mu-calmini-cd.u-crit{animation:none}}
 .mu-cal-next-t{font-size:.88rem;color:var(--t1);line-height:1.45}
 .mu-cal-next-d{font-size:.78rem;color:var(--t3);font-family:'IBM Plex Mono',monospace}
 .mu-cal-next-a{margin-top:.35rem;font-size:.82rem;font-weight:600;color:var(--acc);text-decoration:none}
@@ -19828,6 +19835,10 @@ body{animation:pageIn .6s ease}
 .mu-cal-row-cd{font-family:'IBM Plex Mono',monospace;font-size:.78rem;color:var(--t3);white-space:nowrap}
 .mu-cal-row-cd.soon{color:var(--acc);font-weight:700}
 .mu-cal-row-cd.done{color:#22c55e}
+.mu-cal-row .mu-cal-row-cd.u-ok{color:var(--ok)}
+.mu-cal-row .mu-cal-row-cd.u-warn{color:var(--warn)}
+.mu-cal-row .mu-cal-row-cd.u-hot{color:var(--acc)}
+.mu-cal-row .mu-cal-row-cd.u-crit{color:var(--bad)}
 .mu-cal-src{margin-top:1rem;font-size:.78rem;color:var(--t3)}
 .mu-cal-src a{color:var(--t2)}
 .mu-cal-actions{margin-top:.9rem}
@@ -35501,6 +35512,11 @@ window.__muCalendario = function(elId, lang){
     if(n<=60) return {txt:(en?'in ':'en ')+Math.round(n/7)+(en?' weeks':' semanas')};
     return {txt:(en?'in ':'en ')+Math.round(n/30)+(en?' months':' meses')};
   }
+  /* Urgencia por días que faltan: verde (>14) → amarillo (8-14) → naranja (4-7) → rojo (≤3, con pulso suave). */
+  function urg(dt){
+    var n = Math.round((dt - today)/DAY);
+    return n<0 ? '' : n<=3 ? ' u-crit' : n<=7 ? ' u-hot' : n<=14 ? ' u-warn' : ' u-ok';
+  }
   var TIPO = {
     inicio:  {c:'var(--acc)',   lbl:en?'Milestone':'Hito'},
     corte:   {c:'#FBBF24',      lbl:en?'Cut / exams':'Corte'},
@@ -35523,7 +35539,7 @@ window.__muCalendario = function(elId, lang){
   var proxHtml = proximos.map(function(e){
     var ct=cuenta(d(e.f)), tp=TIPO[e.tipo]||TIPO.limite;
     return '<div class="mu-cal-next" style="--dot:'+tp.c+'">'+
-      '<div class="mu-cal-next-cd'+(ct.soon?' soon':'')+'">'+ct.txt+'</div>'+
+      '<div class="mu-cal-next-cd'+(ct.soon?' soon':'')+urg(d(e.f))+'">'+ct.txt+'</div>'+
       '<div class="mu-cal-next-t">'+(en?(e.tEn||e.t):e.t)+'</div>'+
       '<div class="mu-cal-next-d">'+fmt(d(e.f))+' · '+(en?'wk ':'sem ')+e.sem+'</div>'+
       (e.accion?'<a class="mu-cal-next-a" href="'+e.accion.href+'">'+(en?e.accion.txtEn:e.accion.txt)+' →</a>':'')+
@@ -35538,7 +35554,7 @@ window.__muCalendario = function(elId, lang){
       '<span class="mu-cal-row-dot"></span>'+
       '<span class="mu-cal-row-t">'+(en?(e.tEn||e.t):e.t)+
         '<span class="mu-cal-row-tag">'+tp.lbl+'</span></span>'+
-      '<span class="mu-cal-row-cd'+(ct.soon?' soon':'')+(past?' done':'')+'">'+(past?'✓':ct.txt)+'</span>'+
+      '<span class="mu-cal-row-cd'+(ct.soon?' soon':'')+(past?' done':urg(dt))+'">'+(past?'✓':ct.txt)+'</span>'+
     '</div>';
   }).join('');
 
@@ -36440,7 +36456,7 @@ window.__muCalMini = function(elId, lang){
       '<div class="mu-calmini-lbl">'+
         '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>'+
         (en?'Next academic date':'Próxima fecha académica')+'</div>'+
-      '<div class="mu-calmini-cd">'+cd+'</div>'+
+      '<div class="mu-calmini-cd'+(n<=3?' u-crit':n<=7?' u-hot':n<=14?' u-warn':' u-ok')+'">'+cd+'</div>'+
       '<div class="mu-calmini-t">'+(en?(next.tEn||next.t):next.t)+'</div>'+
       '<div class="mu-calmini-a">'+(en?'Full calendar →':'Ver calendario →')+'</div>'+
     '</a>';
