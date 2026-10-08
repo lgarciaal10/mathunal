@@ -20592,8 +20592,25 @@ customElements.define('glass-element', GlassElement);
   };
 })();
 </script>
-  <!-- Wompi Widget (sandbox) -->
-  <script src="https://checkout.wompi.co/widget.js" data-render="false"></script>
+  <!-- Wompi Widget: se carga bajo demanda (muLoadWompi) al pulsar "pagar".
+       Como <script> sincrono en el <head> frenaba el arranque de TODO el sitio
+       mientras checkout.wompi.co respondia (medido: 1 a 1 con su latencia). -->
+  <script>
+  window.muLoadWompi = function(){
+    if(window.WidgetCheckout) return Promise.resolve(true);
+    if(window.__muWompiP) return window.__muWompiP;
+    window.__muWompiP = new Promise(function(res){
+      var s = document.createElement('script');
+      s.src = 'https://checkout.wompi.co/widget.js';
+      s.async = true;
+      s.setAttribute('data-render','false');
+      s.onload  = function(){ res(!!window.WidgetCheckout); };
+      s.onerror = function(){ window.__muWompiP = null; res(false); };  /* permite reintentar */
+      document.head.appendChild(s);
+    });
+    return window.__muWompiP;
+  };
+  </script>
 </head>
 
 <body>
@@ -33806,8 +33823,10 @@ window.__SIMPRO_DEV = /[?&]simpro=1/.test(location.href) || !!window.__SIM_LOCAL
       /* REAL: pide referencia + firma a Supabase y abre el WidgetCheckout de Wompi. */
       var course = _courseOf(_slug) || '1000004';
       pay.disabled=true;
+      var _wompiP = window.muLoadWompi ? window.muLoadWompi() : Promise.resolve(!!window.WidgetCheckout);  /* descarga en paralelo con la firma */
       window.__muAuth.api('/functions/v1/sim-wompi-sign',{method:'POST',body:JSON.stringify({course_id:course})})
         .then(function(r){ return r.json(); })
+        .then(function(cfg){ return _wompiP.then(function(){ return cfg; }); })
         .then(function(cfg){
           pay.disabled=false;
           if(!cfg || !cfg.configured || !cfg.publicKey || !window.WidgetCheckout){
