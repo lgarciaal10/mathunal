@@ -66,7 +66,7 @@ Solo lectura: este archivo es lo único que cambia el PR.
 | **Descripción** | Sin CSP, cualquier XSS (p. ej. SEG-01/03) puede cargar scripts de cualquier origen y exfiltrar a cualquier host. Sin `X-Frame-Options`/`frame-ancestors`, el sitio se puede enmarcar (clickjacking del botón de pago). |
 | **Severidad** | **Media** (defensa en profundidad; no hay una vulnerabilidad explotable por sí misma). |
 | **Estado** | **Confirmado** (ausencia). |
-| **Impacto real** | Limitado por una realidad del código: hay 270 `onclick=` en línea en `index.html` más los que genera JS, scripts en línea por todos lados y un `new Function` (SEG-09), así que la CSP necesita `'unsafe-inline'` y `'unsafe-eval'`. Con eso **no frena XSS inyectado**; lo que sí aporta es limitar a dónde se puede enviar datos (`connect-src`), bloquear `<object>`, `<base>` y formularios hacia fuera. |
+| **Impacto real** | Limitado por una realidad del código: hay 270 líneas con `onclick=` en `index.html` más los que genera JS, scripts en línea por todos lados y un `new Function` (SEG-09), así que la CSP necesita `'unsafe-inline'` y `'unsafe-eval'`. Con eso **no frena XSS inyectado**; lo que sí aporta es limitar a dónde se puede enviar datos (`connect-src`), bloquear `<object>`, `<base>` y formularios hacia fuera. |
 | **Arreglo propuesto** | Meta CSP inicial (hay que probarla en una copia: la lista de dominios de GA/Clarity/Wompi es **a verificar** con la consola del navegador antes de publicar; `<meta>` no admite `report-only` ni `frame-ancestors`): ```html <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.jsdelivr.net https://cdnjs.cloudflare.com https://unpkg.com https://cdn.plot.ly https://www.googletagmanager.com https://plausible.io https://www.clarity.ms https://scripts.clarity.ms https://checkout.wompi.co; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net; font-src https://fonts.gstatic.com https://cdn.jsdelivr.net; img-src 'self' data: https:; connect-src 'self' https://goxhxrdchfyphkenixng.supabase.co https://*.google-analytics.com https://*.analytics.google.com https://www.googletagmanager.com https://plausible.io https://*.clarity.ms https://c.bing.com https://*.wompi.co; frame-src https://*.wompi.co; object-src 'none'; base-uri 'self'; form-action 'self'"> ``` Para cabeceras reales (y `frame-ancestors`) habría que poner Cloudflare (u otro proxy) delante de GitHub Pages. A largo plazo, mover los `onclick` a listeners permitiría quitar `'unsafe-inline'` de `script-src`. |
 
 ## SEG-05 · Scripts cargados dinámicamente sin SRI (three.js y Plotly)
@@ -150,7 +150,7 @@ Solo lectura: este archivo es lo único que cambia el PR.
 
 | | |
 |---|---|
-| **Archivo:línea** | `index.html:6` (GA4), `14` (Plausible), `17-25` (Microsoft Clarity), `20596` (Wompi), `75` (Google Fonts). |
+| **Archivo:línea** | `index.html:6` (GA4), `14` (Plausible), `19-26` (Microsoft Clarity), `20596` (Wompi), `75` (Google Fonts). |
 | **Descripción** | Estos scripts corren con los mismos permisos que el código propio y no admiten SRI (son dinámicos). Clarity graba la sesión (clics, scroll, DOM). |
 | **Severidad** | **Informativa / baja**. |
 | **Estado** | **Confirmado** (presencia). La política de privacidad ya los menciona (`index.html:28381-28389`). |
@@ -179,7 +179,7 @@ Solo lectura: este archivo es lo único que cambia el PR.
 | **Toasts** | `_muToast` usa `textContent` (`24007-24013`), así que los mensajes de error del servidor (`35662`, `35670`) no inyectan HTML. |
 | **SRI de KaTeX** | Recalculé los tres hashes sha384 contra los archivos reales de jsdelivr (`katex.min.css`, `katex.min.js`, `auto-render.min.js`): **coinciden**. |
 | **Sinks peligrosos** | 0 usos de `eval(`, `document.write`, `postMessage`, `<iframe>`, `srcdoc`, `document.cookie`, `importScripts`. |
-| **Cobro (Wompi)** | La referencia, el monto, la moneda y la firma de integridad vienen del servidor (`sim-wompi-sign`, `33798-33813`); la activación del Pro se confirma con `sim-wompi-verify` (`33693`) y el webhook. El cliente no decide el precio. El texto "$12.000" de `24273` es solo informativo. |
+| **Cobro (Wompi)** | La referencia, el monto, la moneda y la firma de integridad vienen del servidor (`sim-wompi-sign`, `33798-33813`); la activación del Pro se confirma con `sim-wompi-verify` (`33693`) y el webhook. El cliente no decide el precio. El precio "$12.000" que se muestra (p. ej. `21183`, `23753`) es solo informativo. |
 | **Contenido Pro** | Las soluciones salen de `sim_solutions` con RLS `sim_has_pro` (`sim-pro-schema.sql:84-86`); los `mu-premium`/`mu-sim-pro*` de `localStorage` solo cambian la UI (comentarios `22641-22648`). Los comentarios indican que las URL premium reales ya no viajan en el fetch público; **A verificar** en BD que `materiales` no devuelva filas `tier='premium'` con `url` a un bucket público. |
 | **Robots/sitemap/Search Console** | `robots.txt`, `sitemap.xml`, `google90a1…html` sin contenido sensible. |
 
@@ -187,7 +187,7 @@ Solo lectura: este archivo es lo único que cambia el PR.
 
 # PARTE 2 — RENDIMIENTO
 
-Tamaños de `index.html` (calculados sobre el archivo): total **2.271 KB**; **577 KB con gzip -9** (GitHub Pages sirve gzip); 8 bloques `<style>` = 398 KB; 30 scripts en línea = 1.697 KB; 8 `<template>` = 670 KB. Cinco imágenes PNG en la raíz suman 1,1 MB, pero solo dos se piden al cargar la home (PERF-04).
+Tamaños de `index.html` (calculados sobre el archivo): total **2.271 KB**; **577 KB con gzip -9** (GitHub Pages sirve gzip); 8 bloques `<style>` = 398 KB; 30 scripts en línea = 1.697 KB; 8 `<template>` = 670 KB. Siete PNG en la raíz suman ~0,8 MB, pero solo dos se piden al cargar la home (PERF-04).
 
 ## PERF-01 · `widget.js` de Wompi bloquea el arranque de toda la app
 
@@ -209,7 +209,7 @@ Tamaños de `index.html` (calculados sobre el archivo): total **2.271 KB**; **57
 | **Severidad** | **Media-alta** (misma clase de riesgo que PERF-01, con latencia más probable porque son más archivos). |
 | **Estado** | **Confirmado con medición** (retrasando 6 s cada recurso): Google Fonts CSS → app lista y FCP a los **6.190 / 6.140 ms**; `katex.min.css` → **6.159 / 6.096 ms**; `katex.min.js` (defer) → FCP 180 ms pero app lista a los **6.098 ms**; GA y Clarity (async) → sin efecto (222 y 283 ms). |
 | **Impacto real** | Cada recurso externo lento en la ruta crítica se convierte en pantalla vacía. GA/Clarity/Plausible están bien (async). |
-| **Arreglo propuesto** | Fuentes: ```html <link rel="stylesheet" href="…fonts.googleapis…" media="print" onload="this.media='all'"> <noscript><link rel="stylesheet" href="…"></noscript>``` (ya tiene `display=swap`). KaTeX: cargar CSS y JS solo cuando la ruta lo necesita (el código ya soporta KaTeX tardío con `__onKatexReady`, líneas 80 y 30962). Cuidado: `auto-render` necesita que `katex` exista antes, así que no basta con `async`; hay que encadenar (cargar `katex.min.js`, en `onload` cargar `auto-render`). Mantener `integrity`. |
+| **Arreglo propuesto** | Fuentes: ```html <link rel="stylesheet" href="…fonts.googleapis…" media="print" onload="this.media='all'"> <noscript><link rel="stylesheet" href="…"></noscript>``` (ya tiene `display=swap`). KaTeX: cargar CSS y JS solo cuando la ruta lo necesita (el código ya soporta KaTeX tardío con `__onKatexReady`, líneas 80 y 30983). Cuidado: `auto-render` necesita que `katex` exista antes, así que no basta con `async`; hay que encadenar (cargar `katex.min.js`, en `onload` cargar `auto-render`). Mantener `integrity`. |
 
 ## PERF-03 · Todo se descarga y parsea de entrada (monolito de 2,3 MB)
 
@@ -249,7 +249,7 @@ Tamaños de `index.html` (calculados sobre el archivo): total **2.271 KB**; **57
 | | |
 |---|---|
 | **Archivo:línea** | Pantalla `tpl-formulas` (`index.html`, template ~174 KB; la causa exacta no está identificada). |
-| **Descripción** | Navegando home → fórmulas → home 10 veces con GC forzado, el recuento de nodos de DOM sube linealmente: 10.009 → 14.245 (5 visitas) → 18.475 (10 visitas) ≈ **+850 nodos y ≈ +87 listeners por visita**, sin bajar tras GC. Las demás rutas (`#juegos`, `#diagnostico`, `#acerca`, `#materia`, `#simulacro`, `#privacidad`) se estabilizan; `acerca` sube ~330 nodos y se recupera al visitar otra (se limpia tarde, no es fuga continua). |
+| **Descripción** | Navegando home → fórmulas → home 10 veces con GC forzado, el recuento de nodos de DOM sube linealmente: 10.009 → 14.245 (5 visitas) → 18.475 (10 visitas) ≈ **+850 nodos y ≈ +87 listeners por visita**, sin bajar tras GC. Las demás rutas (`#juegos`, `#diagnostico`, `#acerca`, `#materia`, `#simulacro`, `#privacidad`) se estabilizan; `acerca` sube una sola vez (~680 nodos) y luego se estabiliza (no es fuga continua). |
 | **Severidad** | **Baja-media**. |
 | **Estado** | **Confirmado con medición** (contadores `Nodes`/`JSEventListeners` de CDP tras `HeapProfiler.collectGarbage` ×2). La causa raíz es **a verificar**. |
 | **Impacto real** | Crece el uso de memoria en sesiones largas navegando entre fórmulas y otras páginas; el JS heap medido casi no se mueve (3,3 MB), así que el efecto en memoria es moderado (decenas de MB tras cientos de visitas), no un cierre del navegador. |
@@ -303,7 +303,7 @@ Tamaños de `index.html` (calculados sobre el archivo): total **2.271 KB**; **57
 
 - `og-image.png` (194 KB), `icon-512.png` (164 KB) e `icon-maskable.png` (145 KB) solo las piden rastreadores y la instalación PWA, no la carga normal. Aceptables.
 - Fuentes: 5 familias en una sola petición (Literata ×6 pesos/estilos, Space Grotesk ×5, IBM Plex Mono ×3, Source Serif 4 ×5, EB Garamond ×2). `Source Serif 4` aparece en 4 `font-family` y `EB Garamond` en 9, frente a 331 de IBM Plex Mono y 160 de Literata. **A verificar** si esas dos familias se justifican; quitarlas acorta el CSS de fuentes y reduce descargas.
-- Código muerto en JS: casi nada. Solo 25 de 545 funciones aparecen una única vez en todo el archivo y varias son stubs (`renderMats`, `renderFormTab`, etc., líneas 37154-37160). No es donde está el peso; el peso es el volumen de datos y código eagerly cargado (PERF-03).
+- Código muerto en JS: casi nada. Solo 25 de 545 funciones aparecen una única vez en todo el archivo y varias son stubs (`renderMats`, `renderFormTab`, etc., líneas 37152-37176). No es donde está el peso; el peso es el volumen de datos y código eagerly cargado (PERF-03).
 
 ---
 
