@@ -33,6 +33,9 @@
        Esto es la unica fuente de verdad al arrancar; setTheme() sigue existiendo
        para el cambio en vivo. -->
   <script>(function(){try{var t=localStorage.getItem('mu-theme');if(t==='light'||t==='gray'||t==='dark'||t==='black'){document.documentElement.setAttribute('data-theme',t);}}catch(e){}})();</script>
+  <script>window.muT=function(es,en){return window.curLang==='en'?en:es;};
+window.muSemEN=function(t){t=String(t==null?'':t);return window.curLang==='en'?t.replace(/SEMESTRE/g,'SEMESTER').replace(/CORTE/g,'PERIOD').replace(/PARCIAL/g,'MIDTERM'):t;};
+window.muSubjEN=function(t){t=String(t==null?'':t);if(window.curLang!=='en')return t;var S=(typeof SUBJECTS!=='undefined')?SUBJECTS:(window.SUBJECTS||[]);S.slice().sort(function(a,b){return b.nameEs.length-a.nameEs.length;}).forEach(function(x){if(x.nameEn&&t.indexOf(x.nameEs)>=0)t=t.split(x.nameEs).join(x.nameEn);});return t;};window.muSmooth=function(){try{return window.matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth';}catch(e){return 'smooth';}};</script>
   <script>window.onerror=function(m,s){if(s&&s.indexOf('email-decode')>-1)return true;};window.addEventListener('error',function(e){if(e.filename&&e.filename.indexOf('email-decode')>-1){e.preventDefault();return true;}},true);</script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>MathUNAL · Simulacros SIDEX, Parciales y Solucionarios · UNAL</title>
@@ -14829,7 +14832,7 @@ img{max-width:100%;display:block}
   --warn:  #FBBF24;
   --t1:    #F0F4FF;
   --t2:    #94ADDA;
-  --t3:    #7C90B4;
+  --t3:    #8CA0C4;
   --br:    rgba(255,255,255,.06);
   /* Capas elevadas (fondos sutiles de botones/pills/hovers). En oscuro se
      ILUMINAN con blanco translucido; en claro deben OSCURECER con negro
@@ -14849,14 +14852,16 @@ img{max-width:100%;display:block}
 }
 
 html[data-theme="gray"]{
-  --bg:#3C3C46;--bg2:#454550;--card:#4E4E5A;--card2:#585864;
+  /* Superficies oscurecidas (auditoria a11y 2026-10): con las anteriores (#3C3C46..#585864) t2/t3/acentos
+     quedaban < 4.5:1 sobre --card/--card2. Con estas, t1 10.5 · t2 5.3 · t3 4.55 · acc2 4.9 · grn 5.9 · yel 6.6. */
+  --bg:#292930;--bg2:#2F2F36;--card:#35353D;--card2:#3C3C44;
   --t1:#FAFAFC;--t2:#B4B4C2;--t3:#A6A6B5;
   --br:rgba(255,255,255,.15);
   --lay1:rgba(255,255,255,.07);--lay2:rgba(255,255,255,.10);--lay3:rgba(255,255,255,.14);--lay4:rgba(255,255,255,.19);
   --br2:rgba(255,255,255,.22);
   --bra:rgba(232,99,42,.38);--adim:rgba(232,99,42,.10);--aglow:rgba(232,99,42,.22);
-  --grn:#2DD4BF;--red:#FB7185;--yel:#FBBF24;
-  --ok:#22C55E;--bad:#F87171;--warn:#FBBF24;
+  --grn:#2DD4BF;--red:#FB8192;--yel:#FBBF24;
+  --ok:#22C55E;--bad:#F98585;--warn:#FBBF24;
   --shadow-card: 0 2px 8px rgba(0,0,0,.2), 0 0 0 1px rgba(255,255,255,.05);
   --shadow-hover: 0 12px 40px rgba(0,0,0,.3), 0 0 0 1px rgba(232,99,42,.12);
 }
@@ -14873,7 +14878,7 @@ html[data-theme="black"]{
   --card2: #141414;
   --t1:    #F5F5F5;
   --t2:    #9A9A9A;
-  --t3:    #6E6E6E;
+  --t3:    #8A8A8A; /* antes #6E6E6E = 4.1:1 sobre #000; 4.9:1 sobre las capas mas claras */
   --br:    rgba(255,255,255,.07);
   --lay1:  rgba(255,255,255,.035);
   --lay2:  rgba(255,255,255,.06);
@@ -15545,13 +15550,13 @@ html[data-theme="light"] .ht-bot{
 .sb{font-family:'Space Grotesk',sans-serif;font-size:.72rem;padding:.18rem .5rem;border-radius:4px;border:2px solid var(--br)}
 .sb-time,.sb-type{background:var(--lay1);color:var(--t2)}
 .sb-free{background:rgba(34,197,94,.08);border-color:rgba(34,197,94,.25);color:var(--grn)}
-.sb-prem{background:var(--gold-dim);border-color:var(--gold);color:var(--gold)}
+.sb-prem{background:var(--gold-dim);border-color:var(--gold);color:var(--gold-text)}
 .sim-foot{display:flex;align-items:center;justify-content:space-between;gap:.5rem;border-top:1.5px solid var(--br);padding-top:.7rem}
 .sim-topics{font-size:.77rem;color:var(--t3);flex:1;line-height:1.4}
 .sim-btn{display:inline-flex;align-items:center;gap:.3rem;padding:.4rem .85rem;border-radius:8px;font-size:1rem;font-weight:700;cursor:pointer;transition:all .18s;border:none;text-decoration:none;white-space:nowrap;font-family:inherit}
 .sb-dl{background:var(--acc);color:#fff;box-shadow:0 0 14px rgba(224,93,26,.3)}
 .sb-dl:hover{filter:brightness(1.1)}
-.sb-lock{background:linear-gradient(115deg,var(--gold-dim),rgba(240,180,41,.18));color:var(--gold);border:2px solid var(--gold)}
+.sb-lock{background:linear-gradient(115deg,var(--gold-dim),rgba(240,180,41,.18));color:var(--gold-text);border:2px solid var(--gold)}
 .sb-lock:hover{background:linear-gradient(115deg,var(--gold),var(--gold2));color:var(--gold-ink)}
 
 /* ══ BANCO — diseño compacto lista ══ */
@@ -16900,9 +16905,9 @@ html[lang="en"] .sidex-meta-code::before{content:''}
 .scroll-ind{display:flex;flex-direction:column;align-items:center;gap:.25rem;color:var(--t3);animation:scrollBounce 2s ease-in-out infinite}
 
 /* ── LIGHT THEME COMPONENT FIXES ── */
-html[data-theme="light"] .cp-j-step{opacity:.5}
+html[data-theme="light"] .cp-j-step{opacity:.78}
 html[data-theme="light"] .cp-j-step.active{opacity:1}
-html[data-theme="light"] .cp-j-step.done{opacity:.6}
+html[data-theme="light"] .cp-j-step.done{opacity:.78}
 html[data-theme="light"] .mc{background:#fff;border-color:rgba(0,0,0,.08)}
 html[data-theme="light"] .mc:hover{background:#f8f9ff;border-color:rgba(224,93,26,.3)}
 html[data-theme="light"] .sim-card{background:#fff;border-color:rgba(0,0,0,.08)}
@@ -17261,7 +17266,7 @@ html[data-theme="gray"] .hero-bg .lg-blob-center{background:radial-gradient(elli
 /* ── Paywall MathUNAL Pro ── */
 .sim-pw{max-width:440px;position:relative;border:1.5px solid var(--gold) !important;
   box-shadow:0 20px 60px rgba(0,0,0,.5),0 0 0 1px rgba(240,180,41,.1),0 0 40px -10px rgba(240,180,41,.35) !important}
-.sim-pw-tag{font-family:'IBM Plex Mono',monospace;font-size:.62rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--gold)}
+.sim-pw-tag{font-family:'IBM Plex Mono',monospace;font-size:.62rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--gold-text)}
 .sim-pw-h{font-family:'Literata',Georgia,serif;font-size:1.4rem;font-weight:900;margin:.3rem 0 .5rem}
 .sim-pw-body{font-size:.9rem;color:var(--t2);line-height:1.5;margin-bottom:.8rem}
 .sim-pw-list{margin:.6rem 0;padding-left:0;list-style:none;font-size:.88rem;color:var(--t2);line-height:1.7}
@@ -17271,7 +17276,7 @@ html[data-theme="gray"] .hero-bg .lg-blob-center{background:radial-gradient(elli
 .sim-pw-list li::after{content:'✓';position:absolute;left:2.5px;top:.28rem;font-size:.62rem;font-weight:900;color:var(--gold-ink)}
 .sim-pw-price{margin:.8rem 0;font-size:.9rem;color:var(--t3);background:var(--gold-dim);border:1px solid var(--gold);border-radius:10px;padding:.7rem .9rem}
 .sim-pw-anchor,.diag-pro-anchor{margin:-.4rem 0 .8rem;font-size:.78rem;color:var(--t3);font-style:italic;text-align:center}
-.sim-pw-price b{font-family:'Literata',Georgia,serif;font-size:1.5rem;color:var(--gold)}
+.sim-pw-price b{font-family:'Literata',Georgia,serif;font-size:1.5rem;color:var(--gold-text)}
 .sim-pw-price s{margin:0 .3rem}
 .sim-pw-price span{display:block;font-size:.76rem;margin-top:.1rem}
 .sim-pw-note{font-size:.72rem;color:var(--t3);margin-top:.7rem;line-height:1.45}
@@ -18930,12 +18935,12 @@ body{padding-top:var(--mu-banner-h, 0px);transition:padding-top .2s ease}
 .cp-journey{max-width:640px;margin:0 auto;scroll-margin-top:150px}
 .cp-j-steps{display:flex;flex-direction:column;gap:.5rem}
 .cp-j-step{display:flex;gap:.75rem;padding:.9rem 1rem;background:var(--card);border:2px solid var(--br2);
-           border-radius:var(--radius);cursor:pointer;transition:all .3s;opacity:.3;
+           border-radius:var(--radius);cursor:pointer;transition:all .3s;opacity:.78;
            box-shadow:var(--shadow-card)}
 .cp-j-step.active{opacity:1;pointer-events:auto;
                     border-color:var(--br2);box-shadow:0 0 0 1px var(--br2);background:var(--card2)}
 .cp-j-step.active:hover{border-color:var(--bra);transform:translateX(3px)}
-.cp-j-step.done{opacity:.55}
+.cp-j-step.done{opacity:.78}
 .cp-j-num{width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;
            flex-shrink:0;font-size:1rem;font-weight:900;font-family:'Literata',Georgia,serif}
 .cp-j-body{flex:1;min-width:0}
@@ -19000,7 +19005,7 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{
 /* Corta todas las animaciones si el sistema pide menos movimiento O si la
    pantalla no puede refrescar rápido (e-ink, algunos modos de bajo consumo). */
 @media(prefers-reduced-motion:reduce),(update:slow){
-  *{animation-duration:0.01ms !important;animation-iteration-count:1 !important;transition-duration:0.01ms !important}
+  *,*::before,*::after{animation-duration:0.01ms !important;animation-iteration-count:1 !important;transition-duration:0.01ms !important;scroll-behavior:auto !important}
 }
 
 @media print{
@@ -19464,7 +19469,7 @@ input:not([type=checkbox]):not([type=radio]):focus,select:focus,textarea:focus{
   margin:0 auto 1rem;max-width:560px;font-family:'IBM Plex Mono',monospace;font-size:.72rem;font-weight:600}
 .sim-loop span{padding:.3rem .6rem;border-radius:7px;background:var(--lay2);color:var(--t2);border:1px solid var(--br);white-space:nowrap}
 .sim-loop i{color:var(--acc);font-style:normal}
-.sim-loop .sim-loop-end{background:var(--gold-dim);color:var(--gold);border-color:var(--gold);position:relative;overflow:hidden}
+.sim-loop .sim-loop-end{background:var(--gold-dim);color:var(--gold-text);border-color:var(--gold);position:relative;overflow:hidden}
 .sim-loop .sim-loop-end::after{content:'';position:absolute;inset:0;
   background:linear-gradient(90deg,transparent,rgba(255,221,138,.4),transparent);
   transform:translateX(-100%);animation:simLoopShine 3.4s ease-in-out infinite}
@@ -19483,7 +19488,7 @@ input:not([type=checkbox]):not([type=radio]):focus,select:focus,textarea:focus{
   border:1.5px solid var(--gold)}
 .sim-prem-cta{display:flex;flex-direction:column;align-items:center;gap:.55rem;margin:.4rem 0 1.5rem}
 .sim-prem-btn{font-size:.95rem;padding:.8rem 1.7rem}
-.sim-teaser-tag{color:var(--gold) !important}
+.sim-teaser-tag{color:var(--gold-text) !important}
 .sim-prem-btn svg{animation:none;transform:none}
 .sim-prem-sub .sim-teaser-pill{font-family:'IBM Plex Mono',monospace;font-size:.72rem;font-weight:700;letter-spacing:.03em;
   color:var(--acc);background:var(--adim);border:1px solid var(--bra);border-radius:99px;padding:.32rem .9rem;display:inline-block}
@@ -19504,7 +19509,7 @@ input:not([type=checkbox]):not([type=radio]):focus,select:focus,textarea:focus{
   transform:translateX(-140%) skewX(-12deg);animation:simSweep 4.2s cubic-bezier(.5,0,.5,1) infinite}
 .sim-pro-banner > div{position:relative;flex:1;min-width:230px}
 .sim-pro-banner .spb-tag{font-family:'IBM Plex Mono',monospace;font-size:.7rem;font-weight:800;
-  letter-spacing:.08em;text-transform:uppercase;color:var(--gold)}
+  letter-spacing:.08em;text-transform:uppercase;color:var(--gold-text)}
 .sim-pro-banner h3{font-family:'Literata',Georgia,serif;font-size:1.2rem;margin:.25rem 0 .5rem;color:var(--t1)}
 .sim-pro-banner p{font-size:.85rem;color:var(--t2);line-height:1.55;margin:0}
 .sim-pro-banner .spb-price{font-family:'IBM Plex Mono',monospace;font-size:.78rem;color:var(--t3);margin-top:.5rem}
@@ -19890,6 +19895,40 @@ body{animation:pageIn .6s ease}
 .comm-qr-tx b{color:var(--t1);font-size:.95rem}
 .comm-qr-tx span{color:var(--t2);font-size:.85rem;line-height:1.5}
 @media(max-width:520px){.comm-qr{flex-direction:column;text-align:center}}
+
+/* ══ Accesibilidad / contraste (auditoria 2026-10, ver AUDITORIA_I18N_A11Y.md) ══ */
+:root{ --acc-btn:#C2410C; --acc-text:#FF9A6B; --gold-text:var(--gold); }            /* blanco sobre #C2410C = 5.18:1 */
+html[data-theme="light"]{ --acc-btn:var(--acc); --acc-text:var(--acc); --gold-text:#8A5A00; } /* dorado oscuro 5.5:1 sobre blanco/crema */
+.btn-a,.btn-start,.qbtn.primary,.sim-pmode-b.on{background:var(--acc-btn)}
+.qbtn.primary,.sim-pmode-b.on{border-color:var(--acc-btn)}
+button[style*="background:var(--acc);color:#fff"]{background:var(--acc-btn) !important}
+html:not([data-theme="light"]) .gc-btn[style*="var(--grn)"]{color:#052E16}
+html[data-theme="gray"] .cp-tag,html[data-theme="gray"] .mc-arrow,html[data-theme="gray"] .sidex-sub,html[data-theme="gray"] .intro-badge,
+html[data-theme="gray"] .cp-j-action,html[data-theme="gray"] #sim-pmode-q,html[data-theme="gray"] #sidex-tipo-badge,
+html[data-theme="gray"] #q-authentic-badge,html[data-theme="gray"] .rl-hot,html[data-theme="gray"] .smt-leaf-badge,
+html[data-theme="gray"] .diag-mat-sym,html[data-theme="gray"] .sec-label{color:var(--acc-text)}
+html[data-theme="gray"] .mc-tag-item{color:var(--t2)}
+.diag-mat-sym,.smt-leaf-badge{color:var(--acc2)}
+html[data-theme="light"] .diag-mat-sym,html[data-theme="light"] .smt-leaf-badge{color:var(--acc)}
+html[data-theme="light"] .sim-card-tipo,html[data-theme="gray"] .sim-card-tipo{color:var(--acc-text) !important}
+html[data-theme="light"] .sim-free-teaser b,html[data-theme="light"] .sl-out b,html[data-theme="light"] .sim-prep-pred b{color:var(--acc)}
+html[data-theme="light"] .panic-l h4,html[data-theme="light"] .panic-l p,html[data-theme="light"] .btn-panic,html[data-theme="light"] .cp-col-hd{color:var(--bad)}
+/* menu movil y botones de scroll: cerrados NO deben recibir foco con Tab */
+#mob{visibility:hidden;transition:transform .32s cubic-bezier(.22,1,.36,1),visibility 0s linear .32s}
+#mob.open{visibility:visible;transition-delay:0s}
+#mu-scrollnav:not(.show){visibility:hidden}
+/* foco visible en selects del Formulario (antes outline:none + sombra al 12%) */
+.vf-shell #vf-mat:focus-visible,.vf-shell .speed-sel:focus-visible{outline:2px solid var(--acc);outline-offset:2px}
+#cmd-input-wrap:focus-within{box-shadow:inset 0 -2px 0 var(--acc)}
+.mu-sr{position:absolute;width:1px;height:1px;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0;padding:0}
+[tabindex="-1"]:focus{outline:none}
+/* objetivos tactiles >= 44px en pantallas tactiles */
+@media (pointer:coarse){
+  .mu-exp-fbtn,.mu-exp-sbtn,.sim-mat-pick-skip,.sim-onb-chip,.sim-tipo-pill,.sim-view-tog,.tb-btn,.vbtn,#anim-btn,.dbtn-s,.dbtn-learn,
+  .au-tab,.cp-path-btn,.cp-j-switch,.mu-acct-btn,.mat-nav-back,.mu-rel-chip,.gc-btn,.smt-leaf,.smap-quick-btn,.logo{min-height:44px}
+  .settings-btn,.burger,.fab-wa,.prom-del,#mu-scrollnav button,.tb-btn.tb-zoom{min-width:44px;min-height:44px}
+  .prom-inp,.calc-inp,#mu-rc-mat-sel,.vf-shell .param-num,.vf-shell .speed-sel{min-height:44px}
+}
 
 </style>
 <!-- ── Liquid Glass Web Component (github.com/simeydotme/liquid-glass) ── -->
@@ -20620,20 +20659,20 @@ customElements.define('glass-element', GlassElement);
 </head>
 
 <body>
-<div id="mu-version-badge" style="position:fixed;bottom:9px;left:1rem;z-index:99;font-family:IBM Plex Mono,monospace;font-size:.78rem;font-weight:600;color:var(--t2);pointer-events:none;letter-spacing:.06em;opacity:.7">MathUNAL v2 · © 2026</div>
+<div id="mu-version-badge" style="position:fixed;bottom:9px;left:1rem;z-index:99;font-family:IBM Plex Mono,monospace;font-size:.78rem;font-weight:600;color:var(--t2);pointer-events:none;letter-spacing:.06em">MathUNAL v2 · © 2026</div>
 
 <div class="nav-aurora"></div>
 <a href="#mu-app" class="skip-link">Saltar al contenido</a>
 
 <!-- MEJORA 1: Scroll Progress Bar -->
 <div id="mu-progress-bar"></div>
-<div id="mu-scrollnav" aria-label="Navegación de la página">
-  <button id="mu-goup" aria-label="Ir arriba" title="Ir arriba" onclick="window.scrollTo({top:0,behavior:'smooth'})"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V6"/><path d="M6 12l6-6 6 6"/></svg></button>
-  <button id="mu-godown" aria-label="Ir al fondo" title="Ir al fondo" onclick="window.scrollTo({top:document.documentElement.scrollHeight,behavior:'smooth'})"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v13"/><path d="M6 12l6 6 6-6"/></svg></button>
+<div id="mu-scrollnav" role="group" aria-label="Navegación de la página">
+  <button id="mu-goup" aria-label="Ir arriba" title="Ir arriba" onclick="window.scrollTo({top:0,behavior:window.muSmooth()})"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V6"/><path d="M6 12l6-6 6 6"/></svg></button>
+  <button id="mu-godown" aria-label="Ir al fondo" title="Ir al fondo" onclick="window.scrollTo({top:document.documentElement.scrollHeight,behavior:window.muSmooth()})"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v13"/><path d="M6 12l6 6 6-6"/></svg></button>
 </div>
 
 <!-- MEJORA 8: Toast container -->
-<div id="toast-container"></div>
+<div id="toast-container" role="status" aria-live="polite"></div>
 
 <!-- Mi semestre sidebar eliminado — fricción sin retorno -->
 
@@ -20654,7 +20693,8 @@ customElements.define('glass-element', GlassElement);
   </div>
 </div>
 
-<main id="mu-app" role="main" aria-live="polite"></main>
+<div id="mu-route-announcer" class="mu-sr" role="status" aria-live="polite"></div>
+<main id="mu-app"></main>
 
 
 
@@ -20675,8 +20715,8 @@ customElements.define('glass-element', GlassElement);
 
   <!-- Más ▾ dropdown -->
   <div class="nav-more-wrap">
-    <button class="nav-more-btn" onclick="toggleNavMore()" id="nav-more-btn" aria-haspopup="true" aria-expanded="false" aria-controls="nav-more-dd">Más <span class="nav-more-arr">▾</span></button>
-    <div class="nav-more-dd" id="nav-more-dd" role="menu">
+    <button class="nav-more-btn" onclick="toggleNavMore()" id="nav-more-btn" aria-expanded="false" aria-controls="nav-more-dd">Más <span class="nav-more-arr">▾</span></button>
+    <div class="nav-more-dd" id="nav-more-dd">
       <a href="#promedio" onclick="closeNavMore()">
         <span class="nmd-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
   <line x1="18" y1="20" x2="18" y2="10"/>
@@ -20728,7 +20768,7 @@ customElements.define('glass-element', GlassElement);
 
   <!-- Settings: tema + idioma (compacto) -->
   <div class="settings-wrap">
-    <button class="settings-btn" aria-label="Ajustes" onclick="toggleSettings(this)" title="Ajustes" aria-haspopup="true" aria-expanded="false" aria-controls="settings-dd">
+    <button class="settings-btn" aria-label="Ajustes" onclick="toggleSettings(this)" title="Ajustes" aria-expanded="false" aria-controls="settings-dd">
   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
     <circle cx="12" cy="12" r="3"/>
     <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/>
@@ -21874,7 +21914,7 @@ if(!window.__muModalEsc){window.__muModalEsc=true;
    dónde estás. Toda la narrativa se recorre bajando. */
 function cpSetPath(path){
   var target=document.getElementById('cp-'+path);
-  if(target) target.scrollIntoView({behavior:'smooth',block:'start'});
+  if(target) target.scrollIntoView({behavior:window.muSmooth(),block:'start'});
 }
 function cpReveal(path,idx){
   var steps=document.querySelectorAll('#cp-'+path+'-steps .cp-j-step');
@@ -21960,7 +22000,7 @@ function tmob(){
   if(bd) bd.classList.toggle('open', open);
   document.documentElement.classList.toggle('mob-open', open);
   var btn = document.querySelector('.burger');
-  if(btn){ btn.setAttribute('aria-expanded', open?'true':'false'); btn.setAttribute('aria-label', open?'Cerrar menú':'Abrir menú'); }
+  if(btn){ btn.setAttribute('aria-expanded', open?'true':'false'); btn.setAttribute('aria-label', open?muT('Cerrar menú','Close menu'):muT('Abrir menú','Open menu')); }
 }
 var SUBS=[
   {code:'1000003',name:'Matematicas Basicas',dispName:'Matemáticas Básicas',sym:'π',sem:'NIVELATORIO',pop:true,pdfs:24,desc:'Precálculo, funciones, trigonometría y fundamentos del cálculo. Base de toda la carrera.',tags:['Programa','Libros Guía','Notas','Talleres','Quices','Parciales','Simulacros'],dispNameEn:'Pre-calculus',descEn:'Pre-calculus, functions, trigonometry and calculus foundations. The base of every engineering career.',semEn:'PRE-CALC',tagsEn:['Syllabus','Textbooks','Notes','Worksheets','Quizzes','Exams','Mock exams']},
@@ -22010,7 +22050,7 @@ function renderMaterias(){
     var verMaterial = en ? 'See material →' : 'Ver material →';
     var popLabel = en ? '● POPULAR' : '● POPULAR';
     return '<a href="#materia?s='+s.code+'" class="mc">'
-      +'<div class="mc-sym">'+s.sym+'</div>'
+      +'<div class="mc-sym" aria-hidden="true">'+s.sym+'</div>'
       +'<div class="mc-top">'
         +'<span class="mc-sem">'+sem+'</span>'
         +(s.pop?'<span class="mc-pop">'+popLabel+'</span>':'')
@@ -22331,7 +22371,7 @@ function calc4(){
   if(suma!==100){
     var v4=document.getElementById('cv4'),m4=document.getElementById('cm4');
     v4.textContent='!';v4.className='cr-value cr-yellow';
-    m4.textContent='Los pesos deben sumar 100%. Suma actual: '+suma+'%.';
+    m4.textContent=muT('Los pesos deben sumar 100%. Suma actual: '+suma+'%.','Weights must add up to 100%. Current sum: '+suma+'%.');
     return;
   }
   calcResult((3.0-w1*n1-w2*n2-w3*n3)/w4,'cv4','cm4');
@@ -22340,15 +22380,15 @@ function calc4(){
 function calcResult(needed,vId,mId){
   var v=document.getElementById(vId),m=document.getElementById(mId);
   if(!v||!m)return;
-  if(needed===null){v.textContent='—';v.className='cr-value';m.textContent='Ingresa los datos para calcular';return;}
-  if(needed<=0){v.textContent='✓';v.className='cr-value cr-blue';m.textContent='Ya pasas sin importar lo que saques. Relájate (un poco).';}
-  else if(needed>5){v.textContent=needed.toFixed(1);v.className='cr-value cr-red';m.textContent='Necesitarías '+needed.toFixed(1)+' en una escala que llega a 5.0 — con estas notas no da matemáticamente. Piensa en cancelar la materia o hablar con tu director de carrera.';}
+  if(needed===null){v.textContent='—';v.className='cr-value';m.textContent=muT('Ingresa los datos para calcular','Enter the data to calculate');return;}
+  if(needed<=0){v.textContent='✓';v.className='cr-value cr-blue';m.textContent=muT('Ya pasas sin importar lo que saques. Relájate (un poco).','You pass no matter what you score. Relax (a little).');}
+  else if(needed>5){v.textContent=needed.toFixed(1);v.className='cr-value cr-red';m.textContent=muT('Necesitarías '+needed.toFixed(1)+' en una escala que llega a 5.0 — con estas notas no da matemáticamente. Piensa en cancelar la materia o hablar con tu director de carrera.','You\'d need '+needed.toFixed(1)+' on a scale that tops out at 5.0 — with these grades the math doesn\'t work. Consider withdrawing or talking to your program director.');}
   else{
     v.textContent=needed.toFixed(2);
-    if(needed<=2.5){v.className='cr-value cr-green';m.textContent='Fácil. Lo tienes. No seas confiado igual.';}
-    else if(needed<=3.5){v.className='cr-value cr-yellow';m.textContent='Alcanzable. Estudia bien estos días.';}
-    else if(needed<=4.5){v.className='cr-value cr-red';m.textContent='Va a ser difícil, pero no imposible. Enfócate.';}
-    else{v.className='cr-value cr-red';m.textContent='Necesitas casi perfecto. Activa el Modo Pánico.';}
+    if(needed<=2.5){v.className='cr-value cr-green';m.textContent=muT('Fácil. Lo tienes. No seas confiado igual.','Easy. You\'ve got this. Don\'t get overconfident, though.');}
+    else if(needed<=3.5){v.className='cr-value cr-yellow';m.textContent=muT('Alcanzable. Estudia bien estos días.','Doable. Study well these days.');}
+    else if(needed<=4.5){v.className='cr-value cr-red';m.textContent=muT('Va a ser difícil, pero no imposible. Enfócate.','It\'ll be tough, but not impossible. Stay focused.');}
+    else{v.className='cr-value cr-red';m.textContent=muT('Necesitas casi perfecto. Activa el Modo Pánico.','You need a near-perfect score. Switch on Panic Mode.');}
   }
 }
 
@@ -22360,7 +22400,7 @@ function calc2(){
   if(Math.round((w1+w2)*100)!==100){
     var v2=document.getElementById('cv2'),m2=document.getElementById('cm2');
     v2.textContent='!';v2.className='cr-value cr-yellow';
-    m2.textContent='Los pesos deben sumar 100%. Suma actual: '+Math.round((w1+w2)*100)+'%.';
+    m2.textContent=muT('Los pesos deben sumar 100%. Suma actual: '+Math.round((w1+w2)*100)+'%.','Weights must add up to 100%. Current sum: '+Math.round((w1+w2)*100)+'%.');
     return;
   }
   calcResult((3.0-w1*n1)/w2,'cv2','cm2');
@@ -22376,7 +22416,7 @@ function calc3(){
   if(Math.round((w1+w2+w3)*100)!==100){
     var v3=document.getElementById('cv3'),m3=document.getElementById('cm3');
     v3.textContent='!';v3.className='cr-value cr-yellow';
-    m3.textContent='Los pesos deben sumar 100%. Suma actual: '+Math.round((w1+w2+w3)*100)+'%.';
+    m3.textContent=muT('Los pesos deben sumar 100%. Suma actual: '+Math.round((w1+w2+w3)*100)+'%.','Weights must add up to 100%. Current sum: '+Math.round((w1+w2+w3)*100)+'%.');
     return;
   }
   calcResult((3.0-w1*n1-w2*n2)/w3,'cv3','cm3');
@@ -22389,16 +22429,17 @@ function runCounters(){
     var target=+el.dataset.n;
     var suf=target>=100?'+':'';
     var startTime=null;
+    if(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches){ el.textContent=(target>=1000?target.toLocaleString(window.curLang==='en'?'en-US':'es-CO'):target)+suf; el.classList.add('popped'); return; }
     var dur=target>=10000?2000:target>=1000?1600:target>=100?1200:800;
     function easeOutExpo(t){return t>=1?1:1-Math.pow(2,-10*t);}
     function tick(ts){
       if(!startTime)startTime=ts;
       var prog=Math.min((ts-startTime)/dur,1);
       var val=Math.round(easeOutExpo(prog)*target);
-      el.textContent=(target>=1000?val.toLocaleString('es-CO'):val)+suf;
+      el.textContent=(target>=1000?val.toLocaleString(window.curLang==='en'?'en-US':'es-CO'):val)+suf;
       if(prog<1){requestAnimationFrame(tick);}
       else{
-        el.textContent=(target>=1000?target.toLocaleString('es-CO'):target)+suf;
+        el.textContent=(target>=1000?target.toLocaleString(window.curLang==='en'?'en-US':'es-CO'):target)+suf;
         el.classList.add('popped');
       }
     }
@@ -22525,13 +22566,13 @@ function renderPromRows() {
   container.innerHTML = '<datalist id="mat-list-dl">'+matSugg+'</datalist>'
     + promRows.map(function(r) {
     return '<div class="prom-row" id="pr-'+r.id+'">'
-      +'<input class="prom-inp" list="mat-list-dl" placeholder="Nombre de la materia" value="'+r.nombre.replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;')+'"'
+      +'<input class="prom-inp" list="mat-list-dl" placeholder="'+muT('Nombre de la materia','Subject name')+'" aria-label="'+muT('Nombre de la materia','Subject name')+'" value="'+r.nombre.replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;')+'"'
         +' oninput="updateProw('+r.id+',\'nombre\',this.value);autoCredit('+r.id+',this.value)">'
-      +'<input class="prom-inp" type="number" min="1" max="12" placeholder="Cr" value="'+r.creditos+'"'
+      +'<input class="prom-inp" type="number" min="1" max="12" placeholder="Cr" aria-label="'+muT('Créditos','Credits')+'" value="'+r.creditos+'"'
         +' oninput="updateProw('+r.id+',\'creditos\',this.value)">'
-      +'<input class="prom-inp" type="number" min="0" max="5" step="0.1" placeholder="0.0–5.0" value="'+(r.nota||'')+'"'
+      +'<input class="prom-inp" type="number" min="0" max="5" step="0.1" placeholder="0.0–5.0" aria-label="'+muT('Nota','Grade')+'" value="'+(r.nota||'')+'"'
         +' oninput="updateProw('+r.id+',\'nota\',this.value)">'
-      +'<button class="prom-del" onclick="removePromRow('+r.id+')" title="Eliminar" aria-label="Cerrar"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>'
+      +'<button class="prom-del" onclick="removePromRow('+r.id+')" title="'+muT('Eliminar materia','Remove subject')+'" aria-label="'+muT('Eliminar materia','Remove subject')+'"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>'
       +'</div>';
   }).join('');
 }
@@ -22576,7 +22617,7 @@ function calcProm() {
     statEl.innerHTML = '';
     statsEl.innerHTML = '';
     if(barEl) barEl.style.width = '0%';
-    hintEl.textContent = 'Agrega tus materias para calcular.';
+    hintEl.textContent = muT('Agrega tus materias para calcular.','Add your subjects to calculate.');
     return;
   }
   
@@ -22584,7 +22625,7 @@ function calcProm() {
   notaEl.textContent = prom.toFixed(2);
   notaEl.style.color = prom >= 3.8 ? 'var(--grn)' : prom >= 2.95 ? 'var(--yel)' : 'var(--red)';
   
-  var statusTxt = prom >= 4.5 ? 'Excelente · Honor roll' : prom >= 3.8 ? 'Muy bien · Sobresaliente' : prom >= 2.95 ? 'Aprobado (SIA redondea a '+prom.toFixed(1)+')' : 'Riesgo académico';
+  var statusTxt = prom >= 4.5 ? muT('Excelente · Honor roll','Excellent · Honor roll') : prom >= 3.8 ? muT('Muy bien · Sobresaliente','Very good · Outstanding') : prom >= 2.95 ? muT('Aprobado (SIA redondea a '+prom.toFixed(1)+')','Passing (SIA rounds to '+prom.toFixed(1)+')') : muT('Riesgo académico','Academic risk');
   var statusCls = prom >= 2.95 ? (prom >= 3.8 ? 'ps-green' : 'ps-yellow') : 'ps-red';
   statEl.innerHTML = '<span class="prom-status '+statusCls+'">'+statusTxt+'</span>';
   
@@ -22594,21 +22635,21 @@ function calcProm() {
   }
   
   statsEl.innerHTML = 
-    '<div class="ps-row"><span>Total créditos</span><strong>'+totalCred+'</strong></div>'
-    +'<div class="ps-row"><span>Materias aprobadas</span><strong style="color:var(--grn)">'+aprobadas+'</strong></div>'
-    +(reprobadas?'<div class="ps-row"><span>Materias reprobadas</span><strong style="color:var(--red)">'+reprobadas+'</strong></div>':'')
-    +(sinNota?'<div class="ps-row"><span>Sin nota aún</span><strong style="color:var(--t3)">'+sinNota+'</strong></div>':'')
-    +'<div class="ps-row"><span>Créditos × nota prom.</span><strong>'+sumProd.toFixed(1)+'</strong></div>';
+    '<div class="ps-row"><span>'+muT('Total créditos','Total credits')+'</span><strong>'+totalCred+'</strong></div>'
+    +'<div class="ps-row"><span>'+muT('Materias aprobadas','Subjects passed')+'</span><strong style="color:var(--grn)">'+aprobadas+'</strong></div>'
+    +(reprobadas?'<div class="ps-row"><span>'+muT('Materias reprobadas','Subjects failed')+'</span><strong style="color:var(--red)">'+reprobadas+'</strong></div>':'')
+    +(sinNota?'<div class="ps-row"><span>'+muT('Sin nota aún','No grade yet')+'</span><strong style="color:var(--t3)">'+sinNota+'</strong></div>':'')
+    +'<div class="ps-row"><span>'+muT('Créditos × nota prom.','Credits × avg. grade')+'</span><strong>'+sumProd.toFixed(1)+'</strong></div>';
   
   var pendCred = promRows.filter(function(r){return r.nota===''||isNaN(parseFloat(r.nota));}).reduce(function(s,r){return s+(parseFloat(r.creditos)||0);},0);
   var totalAllCred = totalCred + pendCred;
   if(prom < 3.0 && sinNota > 0 && pendCred > 0) {
     var needed = Math.min(5, (3.0 * totalAllCred - sumProd) / pendCred);
-    hintEl.innerHTML = 'Para llegar a 3.0 necesitas <em>'+needed.toFixed(2)+'</em> prom. en las materias pendientes ('+(pendCred)+' créd.).';
+    hintEl.innerHTML = muT('Para llegar a 3.0 necesitas <em>'+needed.toFixed(2)+'</em> prom. en las materias pendientes ('+(pendCred)+' créd.).','To reach 3.0 you need an average of <em>'+needed.toFixed(2)+'</em> in the pending subjects ('+(pendCred)+' cr.).');
   } else if(prom >= 3.0) {
-    hintEl.innerHTML = 'Vas bien ✓ Para <em>4.0+</em> mantén ese promedio cada semestre.';
+    hintEl.innerHTML = muT('Vas bien ✓ Para <em>4.0+</em> mantén ese promedio cada semestre.','You\'re doing well ✓ For <em>4.0+</em> keep this average every semester.');
   } else {
-    hintEl.textContent = 'Completa todas las notas para ver el análisis.';
+    hintEl.textContent = muT('Completa todas las notas para ver el análisis.','Fill in all the grades to see the analysis.');
   }
 }
 
@@ -23008,7 +23049,7 @@ function generatePlan(){
   var diasRestantes=Math.round((fecha-hoy)/(1000*60*60*24));
   if(diasRestantes<0){
     out.innerHTML='<div style="padding:1.2rem;background:var(--adim);border:1px solid var(--bra);border-radius:12px;color:var(--t2)">'+WARN+' '+(L?'That exam date is already in the past. Pick a future date.':'La fecha del parcial ya pasó. Selecciona una fecha futura.')+'</div>';
-    out.classList.add('show');out.scrollIntoView({behavior:'smooth',block:'nearest'});return;
+    out.classList.add('show');out.scrollIntoView({behavior:window.muSmooth(),block:'nearest'});return;
   }
   var daysToShow=Math.min(10,diasRestantes+1);
 
@@ -23193,7 +23234,7 @@ function generatePlan(){
 
   out.innerHTML=html;
   out.classList.add('show');
-  out.scrollIntoView({behavior:'smooth',block:'nearest'});
+  out.scrollIntoView({behavior:window.muSmooth(),block:'nearest'});
 
   /* Checkboxes: persisten el progreso por (materia, corte, fecha) en localStorage
      y actualizan la barra en vivo. */
@@ -23464,7 +23505,7 @@ document.addEventListener('keydown',function(e){
     <a href="#diagnostico" class="nav-sec-link">Diagnóstico</a>
   </div>
   <div class="nav-r">
-    <div class="settings-wrap"><button class="settings-btn" aria-label="Ajustes" onclick="toggleSettings(this)" aria-haspopup="true" aria-expanded="false" aria-controls="sd"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></button>
+    <div class="settings-wrap"><button class="settings-btn" aria-label="Ajustes" onclick="toggleSettings(this)" aria-expanded="false" aria-controls="sd"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></button>
       <div class="settings-dropdown" id="sd"><div class="sd-section"><div class="sd-label">IDIOMA</div><div class="sd-row"><button class="sd-btn on" id="btn-es" onclick="setLang('es')">ES</button><button class="sd-btn" id="btn-en" onclick="setLang('en')">EN</button></div></div><div class="sd-section"><div class="sd-label">TEMA</div><div class="sd-row">
         <button class="sd-btn on" id="th-dark" onclick="setTheme('dark')"><svg width="13" height="13" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" style="vertical-align:-2px"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg> Azul</button>
         <button class="sd-btn" id="th-black" onclick="setTheme('black')"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" style="vertical-align:-2px"><circle cx="12" cy="12" r="9"/></svg> Negro</button>
@@ -23481,12 +23522,12 @@ document.addEventListener('keydown',function(e){
   <div class="mu-ruta-hero" style="margin-bottom:1rem">
     <div>
       <div id="mu-badges" style="display:flex;gap:.4rem;flex-wrap:wrap;margin-bottom:.4rem"></div>
-      <div class="mu-ruta-hero-title" id="mu-subj-title" style="font-size:1.2rem">Cargando…</div>
+      <h1 class="mu-ruta-hero-title" id="mu-subj-title" style="font-size:1.2rem;margin:0">Cargando…</h1>
       <div id="mu-subj-desc" class="mu-ruta-hero-sub"></div>
       <div id="mu-chips" style="margin-top:.35rem;font-size:.75rem;color:var(--t3)"></div>
     </div>
     <div style="margin-left:auto;display:flex;flex-direction:column;align-items:flex-end;gap:.3rem">
-      <span style="font-family:'IBM Plex Mono',monospace;font-size:.65rem;color:var(--t3)">CÓDIGO</span>
+      <span style="font-family:'IBM Plex Mono',monospace;font-size:.65rem;color:var(--t3)" class="mu-code-lbl">CÓDIGO</span>
       <span id="mu-codeplate-val" style="font-family:'IBM Plex Mono',monospace;font-size:.9rem;color:var(--t1);font-weight:700"></span>
     </div>
   </div>
@@ -23502,7 +23543,7 @@ document.addEventListener('keydown',function(e){
 
   <!-- Materias relacionadas -->
   <div style="margin-top:1.2rem">
-    <div style="font-family:'IBM Plex Mono',monospace;font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--t3);margin-bottom:.6rem">Materias relacionadas</div>
+    <div style="font-family:'IBM Plex Mono',monospace;font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--t3);margin-bottom:.6rem" class="mu-rel-hd">Materias relacionadas</div>
     <div id="mu-related" style="display:flex;gap:.5rem;flex-wrap:wrap"></div>
   </div>
 
@@ -23541,7 +23582,7 @@ if(!window.__muSdClickBound){window.__muSdClickBound=true;document.addEventListe
   <div class="nav-r" style="display:flex;align-items:center;gap:.9rem;margin-left:auto">
     <a href="#home" style="display:inline-flex;align-items:center;gap:.35rem;background:var(--lay2);border:1px solid var(--br);border-radius:8px;padding:.38rem .9rem;font-size:.8rem;font-weight:600;color:var(--t2);transition:all .2s" onmouseover="this.style.borderColor='var(--bra)';this.style.color='var(--t1)'" onmouseout="this.style.borderColor='var(--br)';this.style.color='var(--t2)'">← Volver</a>
     <a href="#formulas" class="nav-sec-link">Fórmulas</a>
-    <div class="settings-wrap"><button class="settings-btn" aria-label="Ajustes" onclick="toggleSettings(this)" aria-haspopup="true" aria-expanded="false" aria-controls="sd"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></button>
+    <div class="settings-wrap"><button class="settings-btn" aria-label="Ajustes" onclick="toggleSettings(this)" aria-expanded="false" aria-controls="sd"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></button>
       <div class="settings-dropdown" id="sd"><div class="sd-section"><div class="sd-label">IDIOMA</div><div class="sd-row"><button class="sd-btn on" id="btn-es" onclick="setLang('es')">ES</button><button class="sd-btn" id="btn-en" onclick="setLang('en')">EN</button></div></div><div class="sd-section"><div class="sd-label">TEMA</div><div class="sd-row">
         <button class="sd-btn on" id="th-dark" onclick="setTheme('dark')"><svg width="13" height="13" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" style="vertical-align:-2px"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg> Azul</button>
         <button class="sd-btn" id="th-black" onclick="setTheme('black')"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" style="vertical-align:-2px"><circle cx="12" cy="12" r="9"/></svg> Negro</button>
@@ -23602,7 +23643,7 @@ if(!window.__muSdClickBound){window.__muSdClickBound=true;document.addEventListe
     </div>
     <div class="sim-onb-row">
       <span class="sim-onb-lbl">Fecha del parcial</span>
-      <input type="date" id="sim-onb-fecha" class="sim-onb-date">
+      <input type="date" id="sim-onb-fecha" class="sim-onb-date" aria-label="Fecha de tu parcial">
       <span class="sim-onb-count" id="sim-onb-count"></span>
     </div>
   </div>
@@ -23714,7 +23755,7 @@ if(!window.__muSdClickBound){window.__muSdClickBound=true;document.addEventListe
   <!-- Header SIDEX -->
   <div class="sidex-header" id="sidex-header">
     <div>
-      <div class="sidex-inst">Universidad Nacional de Colombia · Sede Medellin · Escuela de Matematicas</div>
+      <div class="sidex-inst">Universidad Nacional de Colombia · Sede Medellín · Escuela de Matemáticas</div>
       <div class="sidex-materia" id="sidex-materia">Calculo Diferencial</div>
       <div class="sidex-sub" id="sidex-sem">SEMESTRE 1 · PARCIAL 1 · 2025-2</div>
     </div>
@@ -23774,7 +23815,7 @@ if(!window.__muSdClickBound){window.__muSdClickBound=true;document.addEventListe
 
 <!-- Paywall MathUNAL Pro (rama simulacros-pro) -->
 <div class="submit-overlay" id="sim-pw-overlay" onclick="if(event.target===this)window.__simPaywallClose&&window.__simPaywallClose()">
-  <div class="submit-modal sim-pw" role="dialog" aria-modal="true">
+  <div class="submit-modal sim-pw" role="dialog" aria-modal="true" aria-labelledby="sim-pw-h">
     <div class="sim-pw-tag">MathUNAL Pro · Cálculo Diferencial</div>
     <div class="sim-pw-h" id="sim-pw-h">Desbloquea la preparación completa</div>
     <div class="sim-pw-body" id="sim-pw-body"></div>
@@ -23851,7 +23892,7 @@ if(!window.__muSdClickBound){window.__muSdClickBound=true;document.addEventListe
         <div class="sc-stat"><span class="sc-stat-n" id="sc-c" style="color:var(--grn)">—</span><span class="sc-stat-l">Correctas</span></div>
         <div class="sc-stat"><span class="sc-stat-n" id="sc-t">—</span><span class="sc-stat-l">Preguntas</span></div>
       </div>
-      <div class="sc-brand">mathunal.co · <em>MathUNAL</em></div>
+      <div class="sc-brand">mathunal.com · <em>MathUNAL</em></div>
     </div>
     <div class="share-btns-row">
       <button class="shr-btn shr-wa" onclick="window.__simRetar?window.__simRetar():shareWA()" id="shr-reto-btn">Retar a un amigo</button>
@@ -24040,7 +24081,7 @@ function _progKey(){ return 'mu-prog-'+_examKey; }
 var _toastShown=false;
 function _muToast(msg){
   var t=_el('mu-toast');
-  if(!t){ t=document.createElement('div'); t.id='mu-toast'; t.className='mu-toast'; document.body.appendChild(t); }
+  if(!t){ t=document.createElement('div'); t.id='mu-toast'; t.className='mu-toast'; t.setAttribute('role','status'); t.setAttribute('aria-live','polite'); document.body.appendChild(t); }
   t.textContent=msg;
   t.classList.add('show');
   setTimeout(function(){ t.classList.remove('show'); }, 2200);
@@ -24215,7 +24256,7 @@ function _renderCards(){
       +'<div class="sim-card-top">'
         +'<div style="flex:1;min-width:0">'
           +'<div class="sim-card-tipo" style="color:'+meta.color+'">'+meta.tipo+'</div>'
-          +'<div class="sim-card-title">'+(ex.titulo.replace(/\s*[—–-]\s*\d{4}-\d+\s*$/, '').trim() || ex.titulo)+'</div>'
+          +'<div class="sim-card-title">'+muSubjEN(ex.titulo.replace(/\s*[—–-]\s*\d{4}-\d+\s*$/, '').trim() || ex.titulo)+'</div>'
           +'<div class="sim-card-sem" style="display:flex;align-items:center;gap:.3rem">'
             +'<span style="width:5px;height:5px;border-radius:50%;background:'+meta.color+';flex-shrink:0;display:inline-block"></span>'
             +ex.semestre
@@ -24259,7 +24300,7 @@ function _goToIntro(key){
   var meta=EXAM_META[key]||{};
 
   var t=_el('intro-title');     if(t)  t.textContent=_exam.titulo;
-  var sm=_el('intro-sem');      if(sm) sm.textContent=_exam.semestre||'';
+  var sm=_el('intro-sem');      if(sm) sm.textContent=muSemEN(_exam.semestre);
   var d=_el('intro-desc');      if(d)  d.textContent=_exam.desc;
   var n=_el('intro-nq');        if(n)  n.textContent=_exam.preguntas.length;
   var ti=_el('intro-time');     if(ti) ti.textContent=_exam.tiempo;
@@ -24277,7 +24318,7 @@ function _goToIntro(key){
     var nmcq=_exam.preguntas.filter(function(q){return q.tipo==='mcq';}).length;
     var nab=_exam.preguntas.filter(function(q){return q.tipo==='abierta';}).length;
     var parts=[];
-    if(nmcq) parts.push(nmcq+' opción múltiple');
+    if(nmcq) parts.push(nmcq+muT(' opción múltiple',' multiple choice'));
     if(nab) parts.push(nab+' desarrollo');
     typesHost.textContent=parts.join(' · ');
   }
@@ -24306,7 +24347,7 @@ function _goToIntro(key){
     if(_esCorte && !_tienePro && !_free){
       _ph.style.display='';
       _ph.innerHTML=(_pen
-        ? 'Full mock exam is MathUNAL Pro · <b>$12.000</b>. '
+        ? 'Full mock exam is MathUNAL Pro · <b>$12,000</b>. '
         : 'El simulacro completo es MathUNAL Pro · <b>$12.000</b>. ')
         +'<a href="#diagnostico" style="color:var(--acc);font-weight:700">'
         +(_pen?'Take the free diagnostic':'Haz el diagnóstico gratis')+' →</a>';
@@ -24424,7 +24465,7 @@ function _simApplyPmode(){
   var en=(window.curLang==='en');
   var n=_el('intro-nq'); if(n) n.textContent=_exam.preguntas.length;
   var ti=_el('intro-time'); if(ti) ti.textContent=_exam.tiempo;
-  var sm=_el('intro-sem'); if(sm) sm.textContent=_exam.semestre||'';
+  var sm=_el('intro-sem'); if(sm) sm.textContent=muSemEN(_exam.semestre);
   var d=_el('intro-desc'); if(d) d.textContent=_exam.desc;
   var th=_el('intro-topics');
   if(th){ var tp=(_exam.desc||'').replace(/\.\s*$/,'').split(',').map(function(s){return s.trim();}).filter(Boolean);
@@ -24476,7 +24517,7 @@ function startExam(){
   window._modoReal=!!(_mrChk&&_mrChk.checked&&!_exam._srs);
   if(window._modoReal){
     try{ var _de=document.documentElement; if(_de.requestFullscreen){ var _fp=_de.requestFullscreen(); if(_fp&&_fp.catch) _fp.catch(function(){}); } }catch(e){}
-    _muToast('Modo Examen Real — las soluciones salen al entregar');
+    _muToast(muT('Modo Examen Real — las soluciones salen al entregar','Real Exam Mode — solutions appear when you submit'));
   }
   _timerSec=_exam.tiempo*60; _startTime=Date.now();
   _updateSidexHeader();
@@ -24505,7 +24546,7 @@ function resumeExam(){
 function _updateSidexHeader(){
   var meta=EXAM_META[_examKey]||{};
   var sm=_el('sidex-materia'); if(sm) sm.textContent=_exam.titulo;
-  var ss=_el('sidex-sem');     if(ss) ss.textContent=_exam.semestre;
+  var ss=_el('sidex-sem');     if(ss) ss.textContent=muSemEN(_exam.semestre);
   var sb=_el('sidex-tipo-badge'); if(sb) sb.textContent=meta.tipo||'Parcial';
   var sc=_el('sidex-code');    if(sc) sc.textContent=(window.curLang==='en'?'Code ':'Cod. ')+(_exam.codigo||'—');
 }
@@ -24617,7 +24658,7 @@ function _renderQ(idx){
   }
 
   var nq=_exam.preguntas.length;
-  var ctr=_el('q-counter');     if(ctr) ctr.textContent='Pregunta '+(idx+1)+' de '+nq;
+  var ctr=_el('q-counter');     if(ctr) ctr.textContent=muT('Pregunta '+(idx+1)+' de '+nq,'Question '+(idx+1)+' of '+nq);
   var nb=_el('q-num-badge');    if(nb)  nb.textContent=(idx+1);
   var ptxt=_el('q-progress-txt'); if(ptxt) ptxt.textContent=(idx+1)+' / '+nq;
   _renderQNav();
@@ -24628,9 +24669,9 @@ function _renderQ(idx){
 
   // Tipo label y pts
   var lbl=_el('q-num-label');
-  if(lbl) lbl.textContent = q.tipo==='mcq' ? 'Selección múltiple con única respuesta'
-                          : q.tipo==='numerica' ? 'Respuesta numérica'
-                          : 'Pregunta de desarrollo';
+  if(lbl) lbl.textContent = q.tipo==='mcq' ? muT('Selección múltiple con única respuesta','Multiple choice, single answer')
+                          : q.tipo==='numerica' ? muT('Respuesta numérica','Numeric answer')
+                          : muT('Pregunta de desarrollo','Open-ended question');
   /* Autenticidad visible DURANTE el examen (no solo en marketing): esto es
      justo lo que nos diferencia de que alguien le pida a una IA que le
      invente preguntas parecidas -- esta sí cayó en un parcial real. */
@@ -24639,7 +24680,7 @@ function _renderQ(idx){
     if(q._src){
       var _enA=(window.curLang==='en');
       abadge.textContent = (_exam._corte
-        ? (_enA?'✓ Real exam · Corte '+_exam._corte:'✓ Pregunta real · Corte '+_exam._corte)
+        ? (_enA?'✓ Real exam · Period '+_exam._corte:'✓ Pregunta real · Corte '+_exam._corte)
         : (_enA?'✓ Real exam question':'✓ Pregunta real de parcial'));
       abadge.classList.add('on');
     } else {
@@ -24663,6 +24704,7 @@ function _renderQ(idx){
   // Opciones
   var qopts=_el('q-options');
   if(qopts){
+    qopts.setAttribute('role','radiogroup'); qopts.setAttribute('aria-labelledby','q-text');
     if(q.tipo==='mcq'){
       var letters=['A','B','C','D','E','F'];
       qopts.innerHTML=q.opciones.map(function(opt,i){
@@ -24670,7 +24712,7 @@ function _renderQ(idx){
         var cor=_checked[idx]&&!window._modoReal&&i===q.correcta?' correct':'';
         var wrg=_checked[idx]&&!window._modoReal&&i===_answers[idx]&&i!==q.correcta?' wrong':'';
         var dis=_checked[idx]?' style="pointer-events:none"':'';
-        return '<div class="q-opt'+sel+cor+wrg+'" data-i="'+i+'"'+dis+' role="button" tabindex="'+(_checked[idx]?'-1':'0')+'" aria-label="Opción '+letters[i].toUpperCase()+'">'
+        return '<div class="q-opt'+sel+cor+wrg+'" data-i="'+i+'"'+dis+' role="radio" aria-checked="'+(sel?'true':'false')+'" tabindex="'+(_checked[idx]?'-1':'0')+'">'
           +'<div class="q-opt-circle">'+letters[i]+'</div>'
           +'<div class="q-opt-text">'+_mathHtml(_examEN(opt))+'</div>'
           +'</div>';
@@ -24687,7 +24729,7 @@ function _renderQ(idx){
         if(q.pasos&&q.pasos.length){
           var hw2=document.createElement('div');
           hw2.id='hint-wrap';
-          hw2.innerHTML='<button class="hint-btn" id="hint-btn">Pista (-0.2 pts)</button><div class="hint-box" id="hint-box" style="display:none"></div>';
+          hw2.innerHTML='<button class="hint-btn" id="hint-btn">'+muT('Pista (-0.2 pts)','Hint (-0.2 pts)')+'</button><div class="hint-box" id="hint-box" style="display:none"></div>';
           var qcard=_el('q-card'); if(qcard) qcard.appendChild(hw2);
           var hbtn=_el('hint-btn'); if(hbtn) hbtn.addEventListener('click',_showHint);
         }
@@ -24697,15 +24739,15 @@ function _renderQ(idx){
       var tt = _numTols(q);
       qopts.innerHTML =
         '<div class="num-wrap">'
-       +  '<label class="num-lbl" for="num-ans">Tu respuesta</label>'
+       +  '<label class="num-lbl" for="num-ans">'+muT('Tu respuesta','Your answer')+'</label>'
        +  '<div class="num-row">'
        +    '<input type="text" inputmode="decimal" class="num-input" id="num-ans" '
        +      'value="'+String(vNum).replace(/"/g,'&quot;')+'" placeholder="0.00" '
        +      'autocomplete="off" aria-label="Respuesta numerica"'+(_checked[idx]?' disabled':'')+'>'
        +    (q.unidad?'<span class="num-unidad">'+q.unidad+'</span>':'')
        +  '</div>'
-       +  '<div class="num-hint">Usa punto o coma decimal. Se acepta un margen de \u00b1'
-       +    (+tt.parcial.toFixed(4))+' con puntaje parcial.</div>'
+       +  '<div class="num-hint">'+muT('Usa punto o coma decimal. Se acepta un margen de \u00b1','Use a decimal point or comma. A margin of \u00b1')
+       +    (+tt.parcial.toFixed(4))+muT(' con puntaje parcial.',' is accepted for partial credit.')+'</div>'
        +'</div>';
       var ni=_el('num-ans');
       if(ni) ni.addEventListener('input',function(){ _numAns[idx]=ni.value; _saveProgress(); });
@@ -24733,12 +24775,16 @@ function _renderQ(idx){
   // Botones nav
   var bp=_el('btn-prev');  if(bp) bp.disabled=idx===0;
   var bn=_el('btn-next');  if(bn) bn.disabled=idx===nq-1;
+  var _bp=_el('btn-prev'); if(_bp) _bp.textContent=muT('← Anterior','← Previous');
+  if(bn) bn.textContent=muT('Siguiente →','Next →');
+  var _bf=_el('btn-flag'); if(_bf){ var _fs=_bf.querySelector('svg'); _bf.innerHTML=(_fs?_fs.outerHTML:'')+' '+muT('Marcar para revisar','Flag for review'); }
+  var _kh=_el('kbd-hint'); if(_kh) _kh.innerHTML=muT('<b>A</b>–<b>D</b> elige · <b>Enter</b> confirma · <b>←</b> <b>→</b> navega','<b>A</b>–<b>D</b> choose · <b>Enter</b> confirm · <b>←</b> <b>→</b> navigate');
   var bc=_el('btn-check');
   if(bc){
     if(_checked[idx]){
-      bc.textContent=idx<nq-1?'Siguiente →':'Ver resultados';
+      bc.textContent=idx<nq-1?muT('Siguiente →','Next →'):muT('Ver resultados','See results');
       bc.className='qbtn '+(idx<nq-1?'primary':'submit');
-    } else { bc.textContent='Confirmar respuesta'; bc.className='qbtn primary'; }
+    } else { bc.textContent=muT('Confirmar respuesta','Check answer'); bc.className='qbtn primary'; }
   }
   try{ if(window.__simQHook) window.__simQHook(idx); }catch(e){}
 }
@@ -24752,7 +24798,7 @@ function _selectOpt(i){
     _answerChanges[_currentQ]=(_answerChanges[_currentQ]||0)+1;
   }
   _answers[_currentQ]=i;
-  _qsa('.q-opt').forEach(function(btn,j){ btn.classList.toggle('selected',j===i); });
+  _qsa('.q-opt').forEach(function(btn,j){ btn.classList.toggle('selected',j===i); btn.setAttribute('aria-checked',j===i?'true':'false'); });
   try{ if(window.__simSelHook) window.__simSelHook(_currentQ); }catch(e){}
 }
 
@@ -25147,7 +25193,7 @@ function _finishExam(){
   var passed=nota>=3.0;
 
   var gs=_el('grade-stamp-n'); if(gs){ gs.textContent=nota.toFixed(2); gs.style.color=passed?'var(--grn,var(--ok))':'var(--red,var(--bad))'; }
-  var rm=_el('result-materia'); if(rm) rm.textContent=_exam.titulo+' · '+_exam.semestre;
+  var rm=_el('result-materia'); if(rm) rm.textContent=muSubjEN(_exam.titulo)+' · '+muSemEN(_exam.semestre);
 
   var en=(window.curLang==='en');
   var titles = en
@@ -25175,7 +25221,7 @@ function _finishExam(){
   var rw=_el('r-wrong');   if(rw) rw.textContent=mcq_tot-mcq_ok;
   var rtt=_el('r-time');   if(rtt) rtt.textContent=_timeUsed();
 
-  var sm=_el('sc-mat');  if(sm) sm.textContent=_exam.titulo+' - '+_exam.semestre;
+  var sm=_el('sc-mat');  if(sm) sm.textContent=muSubjEN(_exam.titulo)+' - '+muSemEN(_exam.semestre);
   var sn=_el('sc-nota'); if(sn){ sn.textContent=nota.toFixed(2); sn.style.color=passed?'var(--grn)':'var(--red,#ef4444)'; }
   var sc=_el('sc-c');    if(sc) sc.textContent=mcq_ok+'/'+mcq_tot;
   var stt=_el('sc-t');   if(stt) stt.textContent=total;
@@ -25188,7 +25234,7 @@ function _finishExam(){
   _renderPanelExito(nota, passed, mcq_ok, mcq_tot);
   try{ if(window.__simResultHook) window.__simResultHook({nota:nota,passed:passed}); }catch(e){}
   try{ _renderProgressChart(en); }catch(e){}
-  var pph=_el('pph-date'); if(pph) pph.textContent=(_exam.titulo+' · '+_exam.semestre)+' — '+new Date().toLocaleDateString(en?'en-US':'es-CO');
+  var pph=_el('pph-date'); if(pph) pph.textContent=(muSubjEN(_exam.titulo)+' · '+muSemEN(_exam.semestre))+' — '+new Date().toLocaleDateString(en?'en-US':'es-CO');
   _clearProgress();
   _showScreen('screen-results');
 }
@@ -25587,7 +25633,7 @@ function _showScreen(id){
     <span class="logo-txt"><span class="logo-m">MATH</span><span class="logo-u">UNAL</span></span></a>
   <div class="nav-r" style="display:flex;align-items:center;gap:.9rem;margin-left:auto">
     <a href="#home" class="mat-nav-back" style="font-size:.82rem;padding:.36rem .7rem;border-radius:7px;background:var(--lay2);border:1px solid var(--br);color:var(--t2);text-decoration:none">← Inicio</a>
-    <div class="settings-wrap"><button class="settings-btn" aria-label="Ajustes" onclick="toggleSettings(this)" aria-haspopup="true" aria-expanded="false" aria-controls="sd"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></button>
+    <div class="settings-wrap"><button class="settings-btn" aria-label="Ajustes" onclick="toggleSettings(this)" aria-expanded="false" aria-controls="sd"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></button>
       <div class="settings-dropdown" id="sd"><div class="sd-section"><div class="sd-label">IDIOMA</div><div class="sd-row"><button class="sd-btn on" id="btn-es" onclick="setLang('es')">ES</button><button class="sd-btn" id="btn-en" onclick="setLang('en')">EN</button></div></div><div class="sd-section"><div class="sd-label">TEMA</div><div class="sd-row">
         <button class="sd-btn on" id="th-dark" onclick="setTheme('dark')"><svg width="13" height="13" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" style="vertical-align:-2px"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg> Azul</button>
         <button class="sd-btn" id="th-black" onclick="setTheme('black')"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" style="vertical-align:-2px"><circle cx="12" cy="12" r="9"/></svg> Negro</button>
@@ -25641,7 +25687,7 @@ html,body{height:100%;background:var(--bg);color:var(--t1);font-family:'Space Gr
 .gc-tags{display:flex;gap:.4rem;flex-wrap:wrap;margin-bottom:.9rem;}
 .tag{font-size:.68rem;font-weight:700;padding:.15rem .5rem;border-radius:99px;
   background:rgba(255,255,255,.07);color:var(--t3);}
-.gc-btn{width:100%;background:var(--gc,var(--acc));color:#fff;border:none;border-radius:9px;
+.gc-btn{width:100%;background:var(--gc,var(--acc-btn));color:#fff;border:none;border-radius:9px;
   padding:.6rem;font-size:.85rem;font-weight:700;cursor:pointer;font-family:inherit;transition:filter .15s;}
 .gc-btn:hover{filter:brightness(1.1);}
 .gc-btn.dis{opacity:.45;cursor:default;}
@@ -25826,7 +25872,7 @@ html,body{height:100%;background:var(--bg);color:var(--t1);font-family:'Space Gr
     <p class="lsub" id="jg-sub">Juegos de verdad — mueves cosas, piensas, resuelves. No necesitas saber nada de fórmulas para jugar.</p>
   </div>
   <div class="ggrid">
-    <div class="gc" style="--gc:#E8632A">
+    <div class="gc" style="--gc:var(--acc-btn)">
       <div class="gc-ico"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="3.5" cy="4" r="1.7"/><path d="M4.8 5.3 10 19 15.5 6.5 20.5 16.5"/><circle cx="20.5" cy="16.5" r="2.1"/></svg></div>
       <div class="gc-name" id="jg-1-name">Rebota</div>
       <div class="gc-desc" id="jg-1-desc">Ajusta el ángulo y dispara la bola. Debe rebotar en las paredes y llegar al objetivo. Intuición de trayectorias.</div>
@@ -25854,7 +25900,7 @@ html,body{height:100%;background:var(--bg);color:var(--t1);font-family:'Space Gr
       <div class="gc-tags"><span class="tag" id="jg-4-t1">Dominios</span><span class="tag" id="jg-4-t2">Reflejos</span><span class="tag" id="jg-4-t3">10 niveles</span></div>
       <button class="gc-btn" id="jg-4-btn" style="background:var(--grn)" onclick="startDomainSnake()">Jugar →</button>
     </div>
-    <div class="gc" style="--gc:#E8632A">
+    <div class="gc" style="--gc:var(--acc-btn)">
       <div class="gc-ico"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h7l-1 8 10-12h-7l1-8z"/></svg></div>
       <div class="gc-name" id="jg-5-name">Duelo de Derivadas</div>
       <div class="gc-desc" id="jg-5-desc">Aparece una expresión, corres contra el bot a marcar la respuesta correcta. Reconoce qué regla aplica sin pensarlo — el reflejo que salva parciales.</div>
@@ -25893,7 +25939,7 @@ html,body{height:100%;background:var(--bg);color:var(--t1);font-family:'Space Gr
         <button type="button" class="dd-diff on" data-diff="normal" id="dd-d2">Normal</button>
         <button type="button" class="dd-diff" data-diff="hard" id="dd-d3">Difícil</button>
       </div>
-      <button type="button" class="arc-start-btn" style="--gc:#E8632A;margin-top:1.3rem" onclick="ddBegin()" id="dd-go">Empezar →</button>
+      <button type="button" class="arc-start-btn" style="--gc:var(--acc-btn);margin-top:1.3rem" onclick="ddBegin()" id="dd-go">Empezar →</button>
     </div>
 
     <!-- DUEL -->
@@ -25917,7 +25963,7 @@ html,body{height:100%;background:var(--bg);color:var(--t1);font-family:'Space Gr
       <div class="dd-res-meta" id="dd-res-meta"></div>
       <div class="dd-res-missed" id="dd-res-missed"></div>
       <div class="dd-res-btns">
-        <button type="button" class="arc-start-btn" style="--gc:#E8632A" onclick="ddBegin()" id="dd-again">Revancha</button>
+        <button type="button" class="arc-start-btn" style="--gc:var(--acc-btn)" onclick="ddBegin()" id="dd-again">Revancha</button>
         <button type="button" class="dd-ghost" onclick="ddToSetup()" id="dd-change">Cambiar modo</button>
         <button type="button" class="dd-ghost" onclick="ddExit()" id="dd-quit">Salir al lobby</button>
       </div>
@@ -25999,12 +26045,12 @@ html,body{height:100%;background:var(--bg);color:var(--t1);font-family:'Space Gr
   </div>
   <div class="arc-canvas-wrap" id="pt-wrap">
     <canvas id="pt-canvas"></canvas>
-    <div class="mg-hint">Toca para colocar el portal naranja, toca de nuevo para el azul. La bola se teletransporta conservando su velocidad.</div>
+    <div class="mg-hint" id="pt-hint">Toca para colocar el portal naranja, toca de nuevo para el azul. La bola se teletransporta conservando su velocidad.</div>
     <button class="arc-pause-btn" onclick="resetPortalLevel()" id="pt-reset-btn">↺ Reiniciar</button>
     <div class="arc-start" id="pt-start">
       <div class="arc-start-title"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-5px"><path d="M12 3a9 9 0 1 0 9 9"/><path d="M12 7a5 5 0 1 0 5 5"/><path d="M12 11a1 1 0 1 0 1 1"/></svg> Portal</div>
-      <div class="arc-start-desc">La bola se mueve sola. Coloca dos portales tocando el escenario: al entrar por uno, sale por el otro conservando su trayectoria. Llévala hasta la meta esquivando los muros — algunos se mueven.</div>
-      <div class="arc-start-note">La velocidad se conserva al atravesar un portal — mismo módulo y misma dirección relativa, nada se acelera ni frena. Es la misma idea detrás de la suma de vectores.</div>
+      <div class="arc-start-desc" id="pt-start-desc">La bola se mueve sola. Coloca dos portales tocando el escenario: al entrar por uno, sale por el otro conservando su trayectoria. Llévala hasta la meta esquivando los muros — algunos se mueven.</div>
+      <div class="arc-start-note" id="pt-start-note">La velocidad se conserva al atravesar un portal — mismo módulo y misma dirección relativa, nada se acelera ni frena. Es la misma idea detrás de la suma de vectores.</div>
       <button class="arc-start-btn" style="--gc:#7C3AED" onclick="beginPortal()">Jugar →</button>
     </div>
     <div class="arc-goover" id="pt-goover">
@@ -26164,7 +26210,7 @@ html,body{height:100%;background:var(--bg);color:var(--t1);font-family:'Space Gr
   </div>
 </div>
 
-<div id="toast"></div>
+<div id="toast" role="status" aria-live="polite"></div>
 
 
 <script>
@@ -26286,6 +26332,18 @@ window.muApplyLang_juegos = function(){
   t('ds-start-note','Las 3 restricciones que casi siempre importan: denominador distinto de cero, raíz par mayor o igual a cero, y logaritmo estrictamente mayor que cero.',
     'The 3 restrictions that almost always matter: denominator not zero, even root greater than or equal to zero, and logarithm strictly greater than zero.');
   t('ds-start-btn','Jugar →','Play →');
+  // Portal y otras pantallas que faltaban
+  t('pt-hint','Toca para colocar el portal naranja, toca de nuevo para el azul. La bola se teletransporta conservando su velocidad.',
+    'Tap to place the orange portal, tap again for the blue one. The ball teleports and keeps its speed.');
+  t('pt-start-desc','La bola se mueve sola. Coloca dos portales tocando el escenario: al entrar por uno, sale por el otro conservando su trayectoria. Llévala hasta la meta esquivando los muros — algunos se mueven.',
+    'The ball moves on its own. Place two portals by tapping the stage: when it enters one, it comes out the other keeping its path. Guide it to the goal while dodging the walls — some of them move.');
+  t('pt-start-note','La velocidad se conserva al atravesar un portal — mismo módulo y misma dirección relativa, nada se acelera ni frena. Es la misma idea detrás de la suma de vectores.',
+    'Speed is preserved when crossing a portal — same magnitude and same relative direction, nothing speeds up or slows down. It\'s the same idea behind vector addition.');
+  t('pt-goover-title','¡Chocaste!','Crashed!'); t('pt-goover-btn1','Reintentar','Retry');
+  t('vc-goover-title','¡Llegaste!','You made it!');
+  t('qz-hint','Elige la opción correcta.','Choose the correct option.');
+  t('qz-start-btn','Jugar →','Play →'); t('qz-goover-btn1','Jugar de nuevo →','Play again →');
+  t('res-title','¡Nivel superado!','Level cleared!');
   t('ds-exit-btn','Salir al lobby','Exit to lobby');
 
   document.querySelectorAll('.jg-share-txt').forEach(function(el){ el.textContent = en?'Share result':'Compartir resultado'; });
@@ -26312,12 +26370,16 @@ function toast(msg){
 }
 var lastGame='rebota',lastScore=0;
 function compartir(){
-  var nombres={rebota:'Rebota',casillas:'Casillas',portal:'Portal',domainsnake:'Serpiente de Dominios',vectores:'Vectores',deriva:'Deriva',bajolacurva:'Bajo la Curva',matrizmaestra:'Matriz Maestra'};
-  var unidades={rebota:'movimientos',casillas:'movimientos',portal:'segundos',domainsnake:'puntos',vectores:'vectores',deriva:'aciertos',bajolacurva:'aciertos',matrizmaestra:'aciertos'};
-  var unidad=unidades[lastGame]||'movimientos';
-  var txt=`🎱 MathUNAL Juegos: ${nombres[lastGame]||lastGame} — resuelto en ${lastScore} ${unidad}. ¿Me superas? mathunal.com`;
+  var en=(window.curLang==='en');
+  var nombres=en?{rebota:'Bounce',casillas:'Squares',portal:'Portal',domainsnake:'Domain Snake',vectores:'Vectors',deriva:'Derivative Duel',bajolacurva:'Under the Curve',matrizmaestra:'Matrix Master'}
+                :{rebota:'Rebota',casillas:'Casillas',portal:'Portal',domainsnake:'Serpiente de Dominios',vectores:'Vectores',deriva:'Deriva',bajolacurva:'Bajo la Curva',matrizmaestra:'Matriz Maestra'};
+  var unidades=en?{rebota:'moves',casillas:'moves',portal:'seconds',domainsnake:'points',vectores:'vectors',deriva:'hits',bajolacurva:'hits',matrizmaestra:'hits'}
+                  :{rebota:'movimientos',casillas:'movimientos',portal:'segundos',domainsnake:'puntos',vectores:'vectores',deriva:'aciertos',bajolacurva:'aciertos',matrizmaestra:'aciertos'};
+  var unidad=unidades[lastGame]||(en?'moves':'movimientos');
+  var txt=en?`🎱 MathUNAL Games: ${nombres[lastGame]||lastGame} — solved in ${lastScore} ${unidad}. Can you beat me? mathunal.com`
+            :`🎱 MathUNAL Juegos: ${nombres[lastGame]||lastGame} — resuelto en ${lastScore} ${unidad}. ¿Me superas? mathunal.com`;
   if(navigator.share)navigator.share({text:txt});
-  else navigator.clipboard.writeText(txt).then(()=>toast('¡Copiado! Pégalo en tu grupo 📋'));
+  else navigator.clipboard.writeText(txt).then(()=>toast(muT('¡Copiado! Pégalo en tu grupo 📋','Copied! Paste it in your group 📋')));
 }
 
 // Canvas full-bleed que se ajusta al contenedor (lo usan los juegos de canvas grande, ej. Portal)
@@ -26541,7 +26603,7 @@ function updateBall(){
   if(spd<.5){
     ball.moving=false;clearInterval(timerRebota);
     draw();
-    toast('La bola se detuvo — inténtalo de nuevo');
+    toast(muT('La bola se detuvo — inténtalo de nuevo','The ball stopped — try again'));
     setTimeout(()=>resetRebota(),600);
     return;
   }
@@ -26728,7 +26790,7 @@ function clickCell(e){
     if(!canPlace(r,c)){
       cell.classList.add('error');
       setTimeout(()=>cell.classList.remove('error'),400);
-      toast('¡No puede ir ahí! Revisa filas, columnas y adyacencia.');
+      toast(muT('¡No puede ir ahí! Revisa filas, columnas y adyacencia.','Can\'t go there! Check rows, columns and adjacency.'));
       return;
     }
     casBoard[r][c]=1;
@@ -26911,7 +26973,7 @@ function ptGameOver(msg){
   ptRunning=false;
   beep(140,.3,.1,'sawtooth');
   document.getElementById('pt-goover-ico').innerHTML=JG_ICO_RETRY;
-  document.getElementById('pt-goover-title').textContent='¡Chocaste!';
+  document.getElementById('pt-goover-title').textContent=muT('¡Chocaste!','Crashed!');
   document.getElementById('pt-goover-sub').textContent=msg;
   document.getElementById('pt-goover-btn1').onclick=resetPortalLevel;
   document.getElementById('pt-goover').classList.add('on');
@@ -26925,7 +26987,7 @@ function ptWin(){
   document.getElementById('pt-goover-ico').innerHTML=JG_ICO_PORTAL;
   document.getElementById('pt-goover-title').textContent='¡Meta alcanzada!';
   document.getElementById('pt-goover-sub').textContent='Tiempo: '+t+'s'+(isLast?' · ¡Todos los niveles superados!':'');
-  document.getElementById('pt-goover-btn1').textContent=isLast?'Reiniciar juego':'Siguiente nivel →';
+  document.getElementById('pt-goover-btn1').textContent=isLast?muT('Reiniciar juego','Restart game'):muT('Siguiente nivel →','Next level →');
   document.getElementById('pt-goover-btn1').onclick=function(){ptLevelIdx=isLast?0:ptLevelIdx+1;document.getElementById('pt-goover').classList.remove('on');ptBuildLevel();};
   document.getElementById('pt-goover').classList.add('on');
 }
@@ -27539,7 +27601,7 @@ function qzFinish(){
   lastGame=qzGameKey;lastScore=qzScore;
   var pct=Math.round(qzScore/total*100);
   document.getElementById('qz-goover-ico').innerHTML=pct===100?JG_ICO_TROPHY:g.icon;
-  document.getElementById('qz-goover-title').textContent=pct===100?'¡Perfecto!':'¡Completado!';
+  document.getElementById('qz-goover-title').textContent=pct===100?muT('¡Perfecto!','Perfect!'):muT('¡Completado!','Completed!');
   document.getElementById('qz-goover-sub').textContent='Acertaste '+qzScore+' de '+total+' ('+pct+'%).';
   document.getElementById('qz-goover').classList.add('on');
   beep(750,.25,.1,'sine');
@@ -27850,7 +27912,7 @@ function _ddEnd(){
     <span class="logo-txt"><span class="logo-m">MATH</span><span class="logo-u">UNAL</span></span></a>
   <div class="nav-r" style="display:flex;align-items:center;gap:.9rem;margin-left:auto">
     <a href="#home" class="mat-nav-back" style="font-size:.82rem;padding:.36rem .7rem;border-radius:7px;background:var(--lay2);border:1px solid var(--br);color:var(--t2);text-decoration:none">← Inicio</a>
-    <div class="settings-wrap"><button class="settings-btn" aria-label="Ajustes" onclick="toggleSettings(this)" aria-haspopup="true" aria-expanded="false" aria-controls="sd"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></button>
+    <div class="settings-wrap"><button class="settings-btn" aria-label="Ajustes" onclick="toggleSettings(this)" aria-expanded="false" aria-controls="sd"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></button>
       <div class="settings-dropdown" id="sd"><div class="sd-section"><div class="sd-label">IDIOMA</div><div class="sd-row"><button class="sd-btn on" id="btn-es" onclick="setLang('es')">ES</button><button class="sd-btn" id="btn-en" onclick="setLang('en')">EN</button></div></div><div class="sd-section"><div class="sd-label">TEMA</div><div class="sd-row">
         <button class="sd-btn on" id="th-dark" onclick="setTheme('dark')"><svg width="13" height="13" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" style="vertical-align:-2px"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg> Azul</button>
         <button class="sd-btn" id="th-black" onclick="setTheme('black')"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" style="vertical-align:-2px"><circle cx="12" cy="12" r="9"/></svg> Negro</button>
@@ -28435,7 +28497,7 @@ window.muApplyLang_privacidad();
     <span class="logo-txt"><span class="logo-m">MATH</span><span class="logo-u">UNAL</span></span></a>
   <div class="nav-r" style="display:flex;align-items:center;gap:.9rem;margin-left:auto">
     <a href="#home" class="mat-nav-back" style="font-size:.82rem;padding:.36rem .7rem;border-radius:7px;background:var(--lay2);border:1px solid var(--br);color:var(--t2);text-decoration:none">← Inicio</a>
-    <div class="settings-wrap"><button class="settings-btn" aria-label="Ajustes" onclick="toggleSettings(this)" aria-haspopup="true" aria-expanded="false" aria-controls="sd"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></button>
+    <div class="settings-wrap"><button class="settings-btn" aria-label="Ajustes" onclick="toggleSettings(this)" aria-expanded="false" aria-controls="sd"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></button>
       <div class="settings-dropdown" id="sd"><div class="sd-section"><div class="sd-label">IDIOMA</div><div class="sd-row"><button class="sd-btn on" id="btn-es" onclick="setLang('es')">ES</button><button class="sd-btn" id="btn-en" onclick="setLang('en')">EN</button></div></div><div class="sd-section"><div class="sd-label">TEMA</div><div class="sd-row">
         <button class="sd-btn on" id="th-dark" onclick="setTheme('dark')"><svg width="13" height="13" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" style="vertical-align:-2px"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg> Azul</button>
         <button class="sd-btn" id="th-black" onclick="setTheme('black')"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" style="vertical-align:-2px"><circle cx="12" cy="12" r="9"/></svg> Negro</button>
@@ -28581,7 +28643,7 @@ window.muApplyLang_acerca();
     <span class="logo-txt"><span class="logo-m">MATH</span><span class="logo-u">UNAL</span></span></a>
   <div class="nav-r" style="display:flex;align-items:center;gap:.9rem;margin-left:auto">
     <a href="#home" class="mat-nav-back" style="font-size:.82rem;padding:.36rem .7rem;border-radius:7px;background:var(--lay2);border:1px solid var(--br);color:var(--t2);text-decoration:none">← Inicio</a>
-    <div class="settings-wrap"><button class="settings-btn" aria-label="Ajustes" onclick="toggleSettings(this)" aria-haspopup="true" aria-expanded="false" aria-controls="sd"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></button>
+    <div class="settings-wrap"><button class="settings-btn" aria-label="Ajustes" onclick="toggleSettings(this)" aria-expanded="false" aria-controls="sd"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></button>
       <div class="settings-dropdown" id="sd"><div class="sd-section"><div class="sd-label">IDIOMA</div><div class="sd-row"><button class="sd-btn on" id="btn-es" onclick="setLang('es')">ES</button><button class="sd-btn" id="btn-en" onclick="setLang('en')">EN</button></div></div><div class="sd-section"><div class="sd-label">TEMA</div><div class="sd-row">
         <button class="sd-btn on" id="th-dark" onclick="setTheme('dark')"><svg width="13" height="13" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" style="vertical-align:-2px"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg> Azul</button>
         <button class="sd-btn" id="th-black" onclick="setTheme('black')"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" style="vertical-align:-2px"><circle cx="12" cy="12" r="9"/></svg> Negro</button>
@@ -30203,7 +30265,7 @@ function doRender(fIdx){
   }
   try{
     if(typeof Plotly==='undefined'){
-      pd.innerHTML='<div id="viz-loading-ph" style="display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.5rem;height:240px;color:var(--t3);font-family:IBM Plex Mono,monospace;font-size:.8rem">Cargando gráfica…<button class="vbtn" id="viz-loading-retry" style="display:none" onclick="window.__retryPlotly(function(){doRender('+fIdx+');})"><svg width="12" height="12" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" style="vertical-align:-2px"><path d="M21 12a9 9 0 1 1-3-6.7"/><path d="M21 3v6h-6"/></svg> ¿Va lento? Reintentar</button></div>';
+      pd.innerHTML='<div id="viz-loading-ph" style="display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.5rem;height:240px;color:var(--t3);font-family:IBM Plex Mono,monospace;font-size:.8rem">'+muT('Cargando gráfica…','Loading chart…')+'<button class="vbtn" id="viz-loading-retry" style="display:none" onclick="window.__retryPlotly(function(){doRender('+fIdx+');})"><svg width="12" height="12" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" style="vertical-align:-2px"><path d="M21 12a9 9 0 1 1-3-6.7"/><path d="M21 3v6h-6"/></svg> ¿Va lento? Reintentar</button></div>';
       setTimeout(function(){ var b=document.getElementById('viz-loading-retry'); if(b) b.style.display='inline-flex'; }, 4000);
       if(window.__loadPlotly){
         window.__loadPlotly(function(){
@@ -30216,8 +30278,8 @@ function doRender(fIdx){
             var pd2=document.getElementById('viz-plot');
             if(!pd2) return;
             pd2.innerHTML='<div style="display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.6rem;height:240px;color:var(--t3);font-family:IBM Plex Mono,monospace;font-size:.8rem;text-align:center;padding:0 1rem">'
-              +'<div>'+'<svg width="12" height="12" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none" style="vertical-align:-1px"><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>'+' No se pudo cargar la gráfica (sin conexión o CDN bloqueado).</div>'
-              +'<button class="vbtn" onclick="window.__retryPlotly(function(){doRender('+fIdx+');})"><svg width="12" height="12" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" style="vertical-align:-2px"><path d="M21 12a9 9 0 1 1-3-6.7"/><path d="M21 3v6h-6"/></svg> Reintentar</button>'
+              +'<div>'+'<svg width="12" height="12" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none" style="vertical-align:-1px"><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>'+' '+muT('No se pudo cargar la gráfica (sin conexión o CDN bloqueado).','Couldn\'t load the chart (offline or CDN blocked).')+'</div>'
+              +'<button class="vbtn" onclick="window.__retryPlotly(function(){doRender('+fIdx+');})"><svg width="12" height="12" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" style="vertical-align:-2px"><path d="M21 12a9 9 0 1 1-3-6.7"/><path d="M21 3v6h-6"/></svg> '+muT('Reintentar','Retry')+'</button>'
               +'</div>';
             var btn=document.getElementById('anim-btn');
             if(btn && _anim){_anim=false;btn.innerHTML='<svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" style="vertical-align:-1px"><path d="M6 4l14 8-14 8V4z"/></svg> Animar';btn.classList.remove('playing');}
@@ -30522,7 +30584,7 @@ function sel(i){
       :(f.viz.type!=='3d'?'<div class="viz-actions">'
       +(f.viz.params&&f.viz.params.length&&!f.viz.noAnim?'<button class="vbtn anim-btn" id="anim-btn" onclick="toggleAnim('+i+')"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" style="vertical-align:-1px"><path d="M6 4l14 8-14 8V4z"/></svg> '+(en?'Animate':'Animar')+'</button>':'')
       +'<button class="vbtn" onclick="resetP('+i+')">↺ Reset</button>'
-      +((f.viz.params&&f.viz.params.length&&!f.viz.noAnim)?'<div class="speed-wrap"><span class="speed-lbl">'+(en?'Speed:':'Vel:')+'</span><select class="speed-sel" id="speed-sel" onchange="if(_anim){cancelAnimationFrame(_rafId);_rafId=null;_animLastTS=null;_anim=false;toggleAnim('+i+');}"><option value="200">0.25×</option><option value="100">0.5×</option><option value="50" selected>1×</option><option value="33">1.5×</option><option value="25">2×</option></select></div>':'')
+      +((f.viz.params&&f.viz.params.length&&!f.viz.noAnim)?'<div class="speed-wrap"><span class="speed-lbl">'+(en?'Speed:':'Vel:')+'</span><select class="speed-sel" id="speed-sel" aria-label="'+(en?'Animation speed':'Velocidad de animación')+'" onchange="if(_anim){cancelAnimationFrame(_rafId);_rafId=null;_animLastTS=null;_anim=false;toggleAnim('+i+');}"><option value="200">0.25×</option><option value="100">0.5×</option><option value="50" selected>1×</option><option value="33">1.5×</option><option value="25">2×</option></select></div>':'')
      +'</div>':'<div class="viz-actions"><button class="vbtn" onclick="resetP('+i+')">↺ Reset</button></div>'))
      +((fxT(f,'ann'))?'<div class="viz-ann">'+fxT(f,'ann')+'</div>':'')
      +'</div></div>';
@@ -30542,7 +30604,7 @@ function sel(i){
   if(typeof _renderMath==='function') try{ _renderMath(di); }catch(e){}
   if(f.viz)setTimeout(function(){doRender(i);},250);
   document.getElementById('vf-detail').scrollTop=0;
-  setTimeout(function(){var a=document.querySelector('.item.on');if(a)a.scrollIntoView({block:'nearest',behavior:'smooth'});},30);
+  setTimeout(function(){var a=document.querySelector('.item.on');if(a)a.scrollIntoView({block:'nearest',behavior:window.muSmooth()});},30);
 }
 /* ══ LIST ══ */
 function renderCpills(){
@@ -30782,7 +30844,7 @@ function _scrollToAnchor(el){
   _cancelPendingAnchorScroll();
   function go(){
     var y = el.getBoundingClientRect().top + window.pageYOffset - NAV;
-    window.scrollTo({ top: Math.max(0,y), behavior:'smooth' });
+    window.scrollTo({ top: Math.max(0,y), behavior:window.muSmooth() });
   }
   go();
   window._pendingAnchorTimers.push(setTimeout(go, 260));
@@ -30807,7 +30869,7 @@ function _loadPage(hash) {
   var pendingAnchor = null;
   if (!KNOWN.includes(page)) {
     var el = document.getElementById(page);
-    if (el) { (window._scrollToAnchor||function(x){x.scrollIntoView({behavior:'smooth'});})(el); return; }
+    if (el) { (window._scrollToAnchor||function(x){x.scrollIntoView({behavior:window.muSmooth()});})(el); return; }
     // El ancla (ej. #material) vive dentro de tpl-home pero esa plantilla no
     // esta insertada en el DOM ahora mismo (estamos en otra pagina) -- se
     // guarda para hacer scroll DESPUES de cargar home, en vez de perderla.
@@ -30887,6 +30949,15 @@ function _loadPage(hash) {
           if (typeof window[fnName] === 'function') window[fnName]();
         }
       } catch(e){ console.error('muApplyLang error:', e && e.message); }
+      /* Foco y anuncio al cambiar de pagina (el DOM se reemplaza y el foco caia al <body>). No en la 1a carga. */
+      try {
+        if (window.__muRouteSeen) {
+          var _fh = (_a && _a.querySelector('h1')) || _a;
+          if (_fh) { if (!_fh.hasAttribute('tabindex')) _fh.setAttribute('tabindex','-1'); _fh.focus({preventScroll:true}); }
+          var _ra = document.getElementById('mu-route-announcer'); if (_ra) _ra.textContent = document.title;
+        }
+        window.__muRouteSeen = true;
+      } catch(e){}
       // Sincroniza cualquier elemento que muestre el total de PDFs con la única
       // fuente de verdad (SUBJECTS), para que nunca quede un número desactualizado
       try {
@@ -30933,7 +31004,7 @@ function _loadPage(hash) {
       } catch(e){ console.error('sync total pdfs error:', e && e.message); }
       if (pendingAnchor) {
         var _target = document.getElementById(pendingAnchor);
-        if (_target) (window._scrollToAnchor||function(el){el.scrollIntoView({behavior:'smooth'});})(_target);
+        if (_target) (window._scrollToAnchor||function(el){el.scrollIntoView({behavior:window.muSmooth()});})(_target);
       }
       // Trigger de render garantizado por página (por si el script inline no auto-ejecutó)
       // Llamar init global si el script del template no auto-ejecutó
@@ -31406,7 +31477,7 @@ function saveSemMat(key, checked){
   else { saved = saved.filter(function(k){return k!==key;}); }
   try{ localStorage.setItem('mu-sem-mats', JSON.stringify(saved)); }catch(e){}
   renderSemSidebar();
-  muToast('Semestre actualizado');
+  muToast(muT('Semestre actualizado','Semester updated'));
 }
 
 /* ── MEJORA 8: Toast system ── */
@@ -31429,7 +31500,7 @@ window.muToast = muToast;
 // Parchear clipboard copies para mostrar toast
 document.addEventListener('click', function(e){
   var btn = e.target.closest('[onclick*="clipboard"]');
-  if(btn) setTimeout(function(){ muToast('Enlace copiado', '<svg width="14" height="14" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"><path d="M10 13a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1 1"/><path d="M14 11a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1-1"/></svg>'); }, 100);
+  if(btn) setTimeout(function(){ muToast(muT('Enlace copiado','Link copied'), '<svg width="14" height="14" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"><path d="M10 13a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1 1"/><path d="M14 11a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1-1"/></svg>'); }, 100);
 });
 
 /* ── MEJORA 11: Hero counter — disparar siempre al cargar ── */
@@ -31491,7 +31562,7 @@ var T = {
     'Ahorra 75%':'Save 75%','Desbloquear Solucionario':'Unlock Answer Key',
     'Compartir':'Share','Enviar por WhatsApp':'Send via WhatsApp',
     'Copiar enlace':'Copy link','Materias relacionadas':'Related Subjects',
-    'tab-todos':'All','tab-parcial':'Exams','tab-taller':'Workshops','tab-quice':'Quizzes',
+    'tab-todos':'All','tab-parcial':'Exams','tab-taller':'Worksheets','tab-quice':'Quizzes',
     'tab-libro':'Books','tab-notas':'Notes','tab-formulario':'Formula sheets','tab-programa':'Syllabus',
     'dl':'↓ Download','lock':'Premium','empty':'No material of this type available yet.',
     'pdfs-disp':'PDFs available','rec-prem':'premium resources','rec-grat':'free resources',
@@ -32028,9 +32099,15 @@ var _EXAM_EN = [
     p[2]=new RegExp(pre+'('+k+')'+post,'g');
   });
 })();
+/* Red de seguridad: si tras traducir queda español (la lista de reemplazos nunca cubre todo), se devuelve el
+   original completo en vez de una mezcla ilegible ("Al realizar the operación … and simplificar"). */
+var _ES_LEFT=/(^|[^A-Za-zÀ-ÿ])(el|la|los|las|de|del|que|para|con|una|un|por|se|en|y|o|cuando|valor|función|ecuación|sea|dada|entonces|solución|siguiente|determine|calcule|halle|encuentre|demuestre|usando|mediante|clases?|asesor[ií]as?|presentaciones|ecuaciones|ejercicios|resumen|funciones|números|taller(es)?|libro|guía|si|cada|hasta|mismo|matrices?|sistemas?|origen|vectores|nodo|foco|paralelos?|independientes|linealmente|evaluar|verificar|condiciones|teorema|punto|extremos|repetido|lineales?|dos|tres|cuatro|exactamente|solamente|ninguno|todos|ambas?)(?![A-Za-zÀ-ÿ])|[áéíóúñ¿¡]/i;
+function _esLeft(t){ return _ES_LEFT.test(String(t).replace(/\$\$[\s\S]*?\$\$|\$[^$]*\$|<svg[\s\S]*?<\/svg>|<[^>]+>/gi,' ')); }
+window._esLeft=_esLeft;
 function _examEN(s){
   if(window.curLang!=='en') return s;
   s = String(s==null?'':s);
+  var _orig = s;
   /* 1) claves LaTeX literales sobre todo el string (son precisas, no falsan) */
   for(var j=0;j<_EXAM_EN.length;j++){ var e=_EXAM_EN[j]; if(e[2]==='lit') s=s.split(e[0]).join(e[1]); }
   /* 2) prosa: sólo sobre texto plano — se protegen $$…$$, $…$, <svg>, <tags>, comentarios */
@@ -32045,13 +32122,28 @@ function _examEN(s){
     }
     parts[i] = t;
   }
-  return parts.join('');
+  var _out = parts.join('');
+  return _esLeft(_out) ? _orig : _out;
 }
 window._examEN = _examEN;
 
 /* Nombres de documento / semestre del banco — global, para usar desde
    expFileCard, la "ruta de estudio" y donde haga falta. Ver también _DOC_EN. */
-function _dictApply(s,d){ s=String(s==null?'':s); for(var i=0;i<d.length;i++) s=s.split(d[i][0]).join(d[i][1]); return s; }
+var _DICT_RE={};
+function _dictApply(s,d){
+  var orig=String(s==null?'':s), out=orig, LTR='A-Za-zÀ-ÖØ-öø-ÿ';
+  for(var i=0;i<d.length;i++){
+    var k=d[i][0], re=_DICT_RE[k];
+    if(!re){
+      var esc=k.replace(/[.*+?^${}()|[\]\\]/g,'\\$&');
+      var pre=new RegExp('^['+LTR+']').test(k)?'(^|[^'+LTR+'])':'()';
+      var post=new RegExp('['+LTR+']$').test(k)?'(?!['+LTR+'])':'';
+      re=_DICT_RE[k]=new RegExp(pre+esc+post,'g');
+    }
+    var rr=d[i][1]; out=out.replace(re,function(m,p){ return p+rr; });
+  }
+  return _esLeft(out) ? orig : out;   /* si queda español, mostrar el nombre original completo */
+}
 function _docEN(s){ return (window.curLang==='en') ? _dictApply(s,window._DOC_EN||[]) : s; }
 function _semEN(s){ return (window.curLang==='en') ? _dictApply(s,window._SEM_EN||[]) : s; }
 var _TYPE1_EN={parcial:'Midterm',taller:'Worksheet',quice:'Quiz',simulacro:'Mock exam',notas:'Notes',libro:'Book',formulario:'Formula sheet',programa:'Syllabus',solucionario:'Answer key',tarea:'Homework'};
@@ -32898,7 +32990,7 @@ window.__SIMPRO_DEV = /[?&]simpro=1/.test(location.href) || !!window.__SIM_LOCAL
       desc:window._txTemas(cinfo.temas).slice(0,4).join(', ')+'.',
       preguntas:pick, _corte:corte, _slug:slug
     };
-    EM[key]={mat:slug,color:((EM[slug+'_p1']||{}).color)||'#E05D1A',badge:_matN,tipo:(_en()?'Mock exam · Corte ':'Simulacro · Corte ')+corte,nuevo:true,_corteSim:true,_ord:-10+corte};
+    EM[key]={mat:slug,color:((EM[slug+'_p1']||{}).color)||'#E05D1A',badge:_matN,tipo:(_en()?'Mock exam · Period ':'Simulacro · Corte ')+corte,nuevo:true,_corteSim:true,_ord:-10+corte};
     return key;
   };
 
@@ -32997,7 +33089,7 @@ window.__SIMPRO_DEV = /[?&]simpro=1/.test(location.href) || !!window.__SIM_LOCAL
       } else {
         ex.semestre=window._txCorte(slug,corte,cinfo.nombre).toUpperCase()+' · CORTE '+corte+' ('+cinfo.pct+'%)';
         ex.desc=window._txTemas(cinfo.temas).slice(0,4).join(', ')+'.';
-        meta.tipo=(_en()?'Mock exam · Corte ':'Simulacro · Corte ')+corte;
+        meta.tipo=(_en()?'Mock exam · Period ':'Simulacro · Corte ')+corte;
       }
     });
   };
@@ -33967,7 +34059,7 @@ window.__SIMPRO_DEV = /[?&]simpro=1/.test(location.href) || !!window.__SIM_LOCAL
           if(window.simSelFilter) window.simSelFilter(null, slug);
           else { window.__simOnbInit(); try{ if(window._renderCards) window._renderCards(); }catch(e){} }
           var sec=document.querySelector('.sim-card[data-key^="'+slug+'_c"]');
-          if(sec) sec.scrollIntoView({behavior:'smooth',block:'center'});
+          if(sec) sec.scrollIntoView({behavior:window.muSmooth(),block:'center'});
           try{ window.muRenderProgreso&&window.muRenderProgreso(); }catch(e){}
         });
       });
@@ -33983,7 +34075,7 @@ window.__SIMPRO_DEV = /[?&]simpro=1/.test(location.href) || !!window.__SIM_LOCAL
         _lsSet('mu-sim-corte', b.dataset.c);
         host.querySelectorAll('.sim-onb-chip').forEach(function(x){ x.classList.toggle('on', x===b); });
         var card=document.querySelector('.sim-card[data-key="'+curMat+'_c'+b.dataset.c+'"]');
-        if(card){ card.scrollIntoView({behavior:'smooth',block:'center'});
+        if(card){ card.scrollIntoView({behavior:window.muSmooth(),block:'center'});
           card.classList.add('sim-card-hi'); setTimeout(function(){ card.classList.remove('sim-card-hi'); }, 1600); }
       });
     });
@@ -34124,13 +34216,13 @@ var LANG_ES={
   "calc-note":"¿No sabes los pesos? Están en el programa del curso de cada materia.",
   "calc-pill1":"2, 3 o 4 cortes","calc-pill2":"Escala 0–5","calc-pill3":"Pasa con 3.0 (UNAL)",
   /* Comunidad */
-  "comm-label":"Comunidad","comm-h":"No estudies solo,","comm-hi":"únete",
+  "comm-label":"Comunidad","comm-hi":"únete",
   "comm-sub":"Más de 2.400 estudiantes de ingeniería ya hacen parte de la comunidad MathUNAL.",
   /* Aportar */
   "aportar-label":"Contribuye al banco","aportar-h":"¿Tienes material?","aportar-hi":"Compártelo.",
   "aportar-sub":"Cualquier estudiante, egresado o profesor puede aportar talleres, parciales, quices o apuntes.",
   /* Promedio */
-  "prom-label":"Calculadora UNAL","prom-h":"Promedio ponderado","prom-hi":"por créditos",
+  "prom-label":"Calculadora UNAL","prom-hi":"por créditos",
   "prom-sub":"Ingresa tus materias con créditos y notas. Calcula tu promedio ponderado semestral y acumulado.",
   /* Stats / testimonios */
   "stats-s1":"Estudiantes ayudados","stats-s2":"Archivos disponibles","stats-s3":"Materias cubiertas","stats-s4":"Tipos de material",
@@ -34160,7 +34252,7 @@ var LANG_ES={
   "cp-con-2-t":"Estudias con parciales reales organizados",
   "cp-con-2-d":"Todo agrupado por materia y semestre, sin perder tiempo buscando entre grupos de WhatsApp.",
   "cp-con-3-t":"Practicas con parciales reales, a tu ritmo",
-  "cp-con-3-d":"Descargas el PDF, cierras el libro y resuelves con tu propio cronómetro. El simulacro con formato SIDEX automático llega pronto.",
+  "cp-con-3-d":"Descargas el PDF, cierras el libro y resuelves con tu propio cronómetro. El diagnóstico gratis con formato SIDEX ya está disponible.",
   "cp-con-4-t":"Llegas preparado y con confianza",
   "cp-con-4-d":"Ya viste el formato. Ya mediste tu tiempo. Ya sabes que puedes. Eso se refleja en la nota.",
   "cp-con-result-l":"Sabes tu nivel, en qué temas fallas y exactamente qué repasar antes.",
@@ -34215,7 +34307,7 @@ var LANG_ES={
   "wm-mat-l":"Materia","wm-corte-l":"Corte / Parcial","wm-fecha-l":"Fecha del parcial",
   "wm-gen-btn":"Generar mi plan →",
   /* Timeline header */
-  "tl-tag":"La historia detrás","tl-title":"De un PDF suelto a 60,000 visitas",
+  "tl-tag":"La historia detrás","tl-title":"De un PDF suelto a 60.000 visitas",
   "tl-sub":"MathUNAL no nació como proyecto. Nació como necesidad.",
   /* Proximamente */
   "prox-tag":"En desarrollo · 2026","prox-h":"Más materias llegando pronto",
@@ -34249,13 +34341,6 @@ var LANG_ES={
   "calc-p":"Ingresa las notas que ya tienes y los pesos de cada corte. La calculadora te dice exactamente qué necesitas en el corte pendiente — sin drama, sin calculadoras rotas.",
   "calc-min":"Nota mínima 3.0 UNAL",
   "calc-p2":"Los pesos deben sumar <strong style=\"color:var(--t1)\">100%</strong>. La casilla resaltada es el corte que falta — ingresa los que ya tienes.",
-  "calc-tab1":"2 cortes","calc-tab2":"3 cortes","calc-tab3":"4 cortes",
-  "calc-tabs-lbl":"¿Cuántos cortes (parciales) tiene la materia?",
-  "calc-hint":"Los pesos deben sumar 100%. La casilla resaltada es el corte que falta — llena los que ya tienes.",
-  "calc-ex-lbl":"Ejemplo",
-  "calc-ex":"Llevas 3.5 en el 1° corte (pesa 40%) y el 2° pesa 60%. Necesitas 2.67 en el 2° corte para pasar con 3.0.",
-  "calc-note":"¿No sabes los pesos? Están en el programa del curso de cada materia.",
-  "calc-pill1":"2, 3 o 4 cortes","calc-pill2":"Escala 0–5","calc-pill3":"Pasa con 3.0 (UNAL)",
   "calc-hdr-corte":"Corte","calc-hdr-peso":"Peso (%)","calc-hdr-nota":"Nota (0-5)",
   "calc-corte1":"1° corte","calc-corte2":"2° corte","calc-corte3":"3° corte","calc-corte4":"4° corte",
   "calc-need2":"Necesitas en el 2° corte","calc-need3":"Necesitas en el 3° corte","calc-need4":"Necesitas en el 4° corte",
@@ -34371,22 +34456,22 @@ var LANG_ES={
 var LANG_EN={
   /* Nav */
   "nav-cta":"Subjects",
-  "nav-materias":"Subjects","nav-simulacros":"Practice","nav-formulas":"Formula Sheet",
-  "nav-aportar":"Contribute","nav-promedio":"GPA","nav-comunidad":"Community",
+  "nav-materias":"Subjects","nav-simulacros":"Mock exams","nav-formulas":"Formula Sheet",
+  "nav-aportar":"Contribute","nav-promedio":"Average","nav-comunidad":"Community",
   /* Hero */
   "hero-badge":"Unofficial repository · UNAL Medellín · 2026",
   "hero-tag":"A shared notebook between engineering students",
-  "hero-sub":"Workshops, solved exams, textbooks and answer keys for the <strong>6 core math subjects</strong> of the School of Engineering.",
-  "hero-btn1":"<svg width='13' height='13' viewBox='0 0 24 24' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' fill='none' style='vertical-align:-2px'><path d='M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z'/><path d='M14 2v6h6'/></svg> View Subjects →","hero-btn2":"▶ Start Practice",
+  "hero-sub":"Worksheets, solved exams, textbooks and answer keys for the <strong>6 core math subjects</strong>.",
+  "hero-btn1":"<svg width='13' height='13' viewBox='0 0 24 24' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' fill='none' style='vertical-align:-2px'><path d='M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z'/><path d='M14 2v6h6'/></svg> View Subjects →","hero-btn2":"▶ Start a mock exam",
   "hero-stat1":"PDFs available","hero-stat2":"Exams with solutions","hero-stat3":"Subjects with PDF","hero-stat4":"Students",
-  "cat-tab1":"Workshops","cat-tab2":"Solved Exams","cat-tab3":"Quizzes","cat-tab4":"Textbooks","cat-tab5":"Class Notes",
+  "cat-tab1":"Worksheets","cat-tab2":"Solved Exams","cat-tab3":"Quizzes","cat-tab4":"Textbooks","cat-tab5":"Class Notes",
   /* Materias */
   "mat-label":"School of Mathematics · UNAL Medellín","mat-h":"Choose your subject",
   "mat-sub":"12 core math subjects. From pre-calculus to semester 5.",
   /* Simulacros */
   "sim-label":"Practice under real conditions",
   "sim-h":"Simulate before<br>it gets real.","sim-sub":"Past exams as downloadable PDFs. Set the timer, close the book, and practice.",
-  "sim-f-all":"All","sim-f-cd":"Differential Calc.","sim-f-ci":"Integral Calc.","sim-f-al":"Linear Algebra","sim-f-mb":"Basic Math","sim-f-edo":"ODE",
+  "sim-f-all":"All","sim-f-cd":"Differential Calc.","sim-f-ci":"Integral Calc.","sim-f-al":"Linear Algebra","sim-f-mb":"Basic Math","sim-f-edo":"Diff. Eq.",
   "panic-title":"Panic Mode activated","panic-sub":"Exam in less than 24 hours? Here's what you need to do right now.",
   "panic-btn":"<svg width='13' height='13' viewBox='0 0 24 24' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' fill='none' style='vertical-align:-2px'><path d='M7 18v-6a5 5 0 0 1 10 0v6'/><line x1='12' y1='2' x2='12' y2='4'/><rect x='4' y='18' width='16' height='4' rx='1'/></svg> Emergency plan",
   /* Banco */
@@ -34408,13 +34493,13 @@ var LANG_EN={
   "calc-note":"Don't know the weights? They're in each course's syllabus.",
   "calc-pill1":"2, 3 or 4 periods","calc-pill2":"Scale 0–5","calc-pill3":"Pass with 3.0 (UNAL)",
   /* Comunidad */
-  "comm-label":"Community","comm-h":"Don't study alone,","comm-hi":"join us",
+  "comm-label":"Community","comm-hi":"join us",
   "comm-sub":"Over 2,400 engineering students are already part of the MathUNAL community.",
   /* Aportar */
   "aportar-label":"Contribute to the bank","aportar-h":"Have study material?","aportar-hi":"Share it.",
   "aportar-sub":"Any student, graduate, or professor can contribute workshops, exams, quizzes, or notes.",
   /* Promedio */
-  "prom-label":"UNAL Calculator","prom-h":"Weighted GPA","prom-hi":"by credits",
+  "prom-label":"UNAL Calculator","prom-hi":"by credits",
   "prom-sub":"Enter your subjects with credits and grades. Calculate your semester and cumulative GPA.",
   /* Stats / testimonios */
   "stats-s1":"Students helped","stats-s2":"Files available","stats-s3":"Subjects covered","stats-s4":"Material types",
@@ -34444,7 +34529,7 @@ var LANG_EN={
   "cp-con-2-t":"You study with real, organized exams",
   "cp-con-2-d":"Everything grouped by subject and semester, no time wasted digging through WhatsApp groups.",
   "cp-con-3-t":"You practice with real exams, at your pace",
-  "cp-con-3-d":"Download the PDF, close the book, and solve it with your own timer. Automated SIDEX-format mock exams are coming soon.",
+  "cp-con-3-d":"Download the PDF, close the book, and solve it with your own timer. The free SIDEX-format diagnostic is already available.",
   "cp-con-4-t":"You walk in prepared and confident",
   "cp-con-4-d":"You've seen the format. You've timed yourself. You know you can do it. It shows in your grade.",
   "cp-con-result-l":"You know your level, which topics you fail, and exactly what to review.",
@@ -34472,17 +34557,17 @@ var LANG_EN={
   "sim-teaser-pill":"6 questions · no sign-up · available now",
   "sim-teaser-price":"Full mock exam — the 3 cortes, unlimited, with step-by-step solutions: <b>$12,000 per subject</b> · one payment · all semester · no subscription",
   "sim-teaser-free":"Take the free diagnostic","sim-teaser-soon":"Coming soon",
-  "ht-tag":"The story","ht-h":"From borrowing past exams at the copy shop to this",
-  "ht-p":"MathUNAL started in 2023 as one student's idea, tired of asking around for past exams. It outlasted two research stays, a city move and a graduation. It's still growing.",
+  "ht-tag":"The story","ht-h":"From digging up past exams at the copy shop to this",
+  "ht-p":"MathUNAL started in 2023 as one student's idea, tired of asking around for past exams. It outlasted two internships, a city move and a graduation. It's still growing.",
   "ht-cta":"Read the full story →",
   "ap-breb-lbl":"Bre-B key","ap-acc-note":"Account under Luis García's name. Any amount helps.",
   "explorar-materias":"Explore subjects →",
-  "hf-cta-note":"Free · No signup · No ads",
+  "hf-cta-note":"Free · No sign-up · No ads",
   /* Nav more dropdown */
   "nmd-1-t":"PDF Bank","nmd-1-s":"All past exams and worksheets",
   "nmd-2-t":"Calculate Average","nmd-2-s":"Simulate your final grade",
   "nmd-3-t":"Contribute","nmd-3-s":"Upload material to the repository",
-  "nmd-cal-t":"Academic calendar","nmd-cal-s":"Cuts and key dates of the term",
+  "nmd-cal-t":"Academic calendar","nmd-cal-s":"Exam periods and key dates this semester",
   "nmd-4-t":"Community","nmd-4-s":"WhatsApp group",
   "nmd-5-t":"About","nmd-5-s":"How MathUNAL started",
   "hero-ctx":"core subjects",
@@ -34493,7 +34578,7 @@ var LANG_EN={
   "pm-3-t":"Review what you missed","pm-3-d":"For every exercise you missed, check what the correct answer was on the mock exam and review that topic in the formula sheet. Understand the concept, don't memorize the answer.",
   "pm-4-t":"Take the second mock exam","pm-4-d":"No solutions this time. Timer running. If you finish in time, you can sleep.",
   "pm-5-t":"Sleep at least 5 hours","pm-5-d":"Memory consolidates while you sleep. The 4am cram session will hurt more than help.",
-  "pm-tip":"<strong>Monitor's tip:</strong> Recent Differential Calculus exams always include optimization. Review that topic first.",
+  "pm-tip":"<strong>TA's tip:</strong> Recent Differential Calculus exams always include optimization. Review that topic first.",
   /* Week Modal */
   "wm-title":"Exam Week Plan","wm-sub":"Tell us which exam you have and when. We'll build a day-by-day plan.",
   "wm-mat-l":"Subject","wm-corte-l":"Exam period","wm-fecha-l":"Exam date",
@@ -34512,19 +34597,19 @@ var LANG_EN={
   "pk-tag":"To go further","pk-h1":"Everything is already free.","pk-h2":"The solutions, not so much.",
   "pk-sub":"Practicing exams without knowing where you went wrong is studying blind. The Pack gives you the full procedure — step by step, with the same logic as the real exam.",
   "pk-badge":"Survival Pack","pk-new":"✓ Updated 2025-2","pk-title":"Step-by-step<br>solutions",
-  "pk-desc":"Every exercise solved with the full procedure. Not just the answer — the method. With monitor's notes and the tricks that aren't in the textbook.",
+  "pk-desc":"Every exercise solved with the full procedure. Not just the answer — the method. With TA notes and the tricks that aren't in the textbook.",
   "pk-i1-t":"Full solutions for every mock exam","pk-i1-s":"Step-by-step on every question, not just the answer",
-  "pk-i2-t":"Worksheets with commented solutions","pk-i2-s":"Monitor's notes included",
+  "pk-i2-t":"Worksheets with commented solutions","pk-i2-s":"TA notes included",
   "pk-i3-t":"Grows with the site","pk-i3-s":"New premium content at no extra cost",
   "pk-i4-t":"Permanent access","pk-i4-s":"One payment, no subscription",
   "pk-cmp-h":"What's included?","pk-cmp-free":"Free","pk-cmp-pack":"Pack",
   "pk-cmp-1":"Exams to practice with","pk-cmp-2":"Formula sheets and mock exams",
-  "pk-cmp-3":"Full procedure","pk-cmp-4":"Monitor's notes",
+  "pk-cmp-3":"Full procedure","pk-cmp-4":"TA notes",
   "pk-price-l":"One flat price","pk-period":"COP · Permanent access · No subscription",
   "pk-cta":"Unlock Solutions → $12,000",
   "pk-proof":"<strong>Secure payment via Wompi.</strong> Access unlocks automatically once payment is confirmed — just your email, no long forms.",
   "pk-secure":"Secure purchase · No banking data",
-  "pk-free-lbl":"Always free · No signup",
+  "pk-free-lbl":"Always free · No sign-up",
   "pk-free-1":"Exams without solutions","pk-free-2":"Formula sheets and tables","pk-free-3":"Timed mock exams",
   "pk-free-4":"Grade calculator","pk-free-5":"Textbooks and class notes",
   "pk-free-cta":"Explore free material →",
@@ -34533,16 +34618,9 @@ var LANG_EN={
   "calc-p":"Enter the grades you already have and the weight of each exam period. The calculator tells you exactly what you need on the remaining one — no drama, no broken calculators.",
   "calc-min":"UNAL passing grade 3.0",
   "calc-p2":"The weights must add up to <strong style=\"color:var(--t1)\">100%</strong>. The highlighted box is the period you're missing — enter the ones you already have.",
-  "calc-tab1":"2 periods","calc-tab2":"3 periods","calc-tab3":"4 periods",
-  "calc-tabs-lbl":"How many grading periods does the course have?",
-  "calc-hint":"Weights must add up to 100%. The highlighted box is the pending period — fill in the ones you already have.",
-  "calc-ex-lbl":"Example",
-  "calc-ex":"You have 3.5 in period 1 (worth 40%) and period 2 is worth 60%. You need 2.67 in period 2 to pass with 3.0.",
-  "calc-note":"Don't know the weights? They're in each course's syllabus.",
-  "calc-pill1":"2, 3 or 4 periods","calc-pill2":"Scale 0–5","calc-pill3":"Pass with 3.0 (UNAL)",
   "calc-hdr-corte":"Period","calc-hdr-peso":"Weight (%)","calc-hdr-nota":"Grade (0-5)",
   "calc-corte1":"1st period","calc-corte2":"2nd period","calc-corte3":"3rd period","calc-corte4":"4th period",
-  "calc-need2":"You need on the 2nd period","calc-need3":"You need on the 3rd period","calc-need4":"You need on the 4th period",
+  "calc-need2":"You need in the 2nd period","calc-need3":"You need in the 3rd period","calc-need4":"You need in the 4th period",
   "calc-msg":"Enter the data to calculate",
   /* Comunidad */
   "comm-lbl":"Community","comm-h":"Don't study alone, <i>join in</i>",
@@ -34583,12 +34661,12 @@ var LANG_EN={
   "prom-q2-h":"What if I fail one?","prom-q2-d":"A grade below 3.0 does count toward the average. Use this calculator to see how much it drags you down before withdrawing or retaking.",
   "prom-result-l":"Weighted average",
   "prom-hint":"Add your subjects with credits and grades. Your average is calculated just like UNAL's SIA.",
-  "prom-ej":"QUICK EXAMPLE","prom-foot":"Minimum passing grade: 3.0 · PAES cap: 3.5 · SIA rounds to 1 decimal (2.95 → 3.0)",
+  "prom-ej":"QUICK EXAMPLE","prom-foot":"Minimum passing grade: 3.0 · PAES (special admission) cap: 3.5 · SIA rounds to 1 decimal (2.95 → 3.0)",
   /* Au-s panels 0,1,2 */
   "au-title":"One project, two ways to use it",
   "au-subtitle":"MathUNAL is a bank of real exams, timed mock tests, and study material for core engineering courses — built by students of Universidad Nacional, for students.",
-  "au-tab0":"Student","au-tab1":"Monitor",
-  "au-p0-t":"Practice with real past exams, free and with no signup",
+  "au-tab0":"Student","au-tab1":"TA (monitor)",
+  "au-p0-t":"Practice with real past exams, free and with no sign-up",
   "au-p0-d":"MathUNAL has the exams your classmates from previous semesters already took. No account needed, no payment needed.",
   "au-p0-i1":"Exams organized by subject and semester","au-p0-i2":"Quick-reference formula sheets in LaTeX",
   "au-p0-i3":"Timed mock exams, SIDEX format, by corte",
@@ -34600,7 +34678,7 @@ var LANG_EN={
   "au-p1-cta":"See all subjects →",
   "au-p1-invite":"<strong style=\"color:var(--acc)\">Want to tutor?</strong> We're building a tutoring calendar inside MathUNAL. If you're a monitor or a graduate and want to offer tutoring through the platform, <a href=\"https://wa.me/573163480451?text=I%27m%20a%20monitor%2Fgraduate%20and%20want%20to%20offer%20tutoring%20on%20MathUNAL\" target=\"_blank\" style=\"color:var(--acc);font-weight:600;text-decoration:underline\">message us</a> and we'll set it up.",
   "au-p0-stat1":"PDFs ready","au-p0-stat3":"Cost",
-  "au-p1-card-l":"Estimated savings for the monitor","au-p1-stat1":"Weekly time saved","au-p1-stat2":"Real exams in the bank",
+  "au-p1-card-l":"Estimated savings for the TA","au-p1-stat1":"Weekly time saved","au-p1-stat2":"Real exams in the bank",
   "au-p1-quote":"\"Instead of hunting for material every week, I have it all in one place. My students practice on their own between sessions.\"",
   /* Apoyar (ap-s) */
   "ap3-tag":"Support the project",
@@ -34612,9 +34690,9 @@ var LANG_EN={
   /* FAQ */
   "faq-lbl":"Frequently asked questions","faq-h":"Everything you need to know",
   "faq-q1":"Is the material free?",
-  "faq-a1":"Yes — all the material is free: syllabi, textbooks, formula sheets, class notes, worksheets and past exams. No signup, no cost, no limits. The only paid thing is MathUNAL Pro: mock exams with step-by-step solutions, the trick for each question and an analysis of where you're failing. The diagnostic and the question of the day are free too.",
+  "faq-a1":"Yes — all the material is free: syllabi, textbooks, formula sheets, class notes, worksheets and past exams. No sign-up, no cost, no limits. The only paid thing is MathUNAL Pro: mock exams with step-by-step solutions, the trick for each question and an analysis of where you're failing. The diagnostic and the question of the day are free too.",
   "faq-q2":"How do I download the PDFs?",
-  "faq-a2":"They download directly from each subject's page. Just click \"Download\". No account or signup needed.",
+  "faq-a2":"They download directly from each subject's page. Just click \"Download\". No account or sign-up needed.",
   "faq-q3":"Is the site officially affiliated with UNAL?",
   "faq-a3":"No. MathUNAL is an independent student project, created by and for UNAL Medellín engineering students. It has no official affiliation with Universidad Nacional de Colombia.",
   "faq-q4":"Can I contribute material?",
@@ -34647,7 +34725,7 @@ var LANG_EN={
   "mu-calc-p1":"Exam 1","mu-calc-p2":"Exam 2","mu-calc-pf":"Final (optional)","mu-calc-pf-ph":"If you already know it",
   "au-tag":"Who MathUNAL is for","au-p0-stat2":"Subjects with real exams",
   "prom-ej-line":"4 cr. × 4.0 + 3 cr. × 3.5 + 4 cr. × 3.0 + 3 cr. × 4.5","prom-ej-div":"÷ 14 credits =",
-  "mu-msg-init":"Enter your grades to calculate","sp-recall-q":"Do you remember this formula?","sp-hint":"Tap when you're ready","sp-ver":"See formula","sp-vistas":"seen","sp-cta":"<svg width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' style='vertical-align:-2px'><path d='M6 4l14 8-14 8V4z' fill='currentColor' stroke='none'/></svg> Start Sprint Mode →",
+  "mu-msg-init":"Enter your grades to calculate","sp-recall-q":"Do you remember this formula?","sp-hint":"Press when you're ready","sp-ver":"See formula","sp-vistas":"seen","sp-cta":"<svg width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' style='vertical-align:-2px'><path d='M6 4l14 8-14 8V4z' fill='currentColor' stroke='none'/></svg> Start Sprint Mode →",
   "hs-l1":"PDFs","hs-ctx1":"exams · worksheets · books","hs-l2":"Solutions","hs-ctx2":"step by step","hs-l3":"Subjects","hs-ctx3":"core subjects","hs-l4":"Visits/month","hs-ctx4":"peak during exams",
   "foot-made":"Made in Medellín ♥",
   "foot-legal":"MathUNAL's code, design and original materials (summaries, formula sheets, games, transcriptions) are © MathUNAL, all rights reserved. Exams, worksheets and syllabi are academic material from the Universidad Nacional de Colombia, shared non-commercially for study purposes."
@@ -34817,10 +34895,6 @@ function setLang(lang){
   /* stats labels via stat-card .stat-l */
 
   /* COMUNIDAD section */
-  setText('#comunidad .sec-label','comm-label');
-  var commH=document.querySelector('#comunidad h2');
-  if(commH) commH.innerHTML=L['comm-h']+' <i>'+L['comm-hi']+'</i>';
-  setText('#comunidad .sec-split-r','comm-sub');
 
   /* APORTAR section */
   setText('#aportar .sec-label','aportar-label');
@@ -34829,10 +34903,6 @@ function setLang(lang){
   setText('#aportar .sec-split-r','aportar-sub');
 
   /* PROMEDIO section */
-  setText('#promedio .sec-label','prom-label');
-  var promH=document.querySelector('#promedio h2');
-  if(promH) promH.innerHTML=L['prom-h']+'<br><i>'+L['prom-hi']+'</i>';
-  setText('#promedio .sec-split-r','prom-sub');
 
   /* FOOTER */
   setText('.fbrand p','foot-desc');
@@ -35302,6 +35372,35 @@ function setLang(lang){
      re-derivan con el idioma actual; ver nota junto a __simRetagTax. */
   try{ if(window.__simRetagTax) window.__simRetagTax(); }catch(e){}
 
+  /* ── Etiquetas accesibles y textos sueltos (auditoria a11y/i18n 2026-10) ── */
+  (function(){
+    function A(sel,attr,es,enTxt){ document.querySelectorAll(sel).forEach(function(el){ el.setAttribute(attr,en?enTxt:es); }); }
+    var sk=document.querySelector('.skip-link'); if(sk) sk.textContent=en?'Skip to content':'Saltar al contenido';
+    A('#mu-scrollnav','aria-label','Navegación de la página','Page navigation');
+    A('#mu-goup','aria-label','Ir arriba','Go to top'); A('#mu-goup','title','Ir arriba','Go to top');
+    A('#mu-godown','aria-label','Ir al fondo','Go to bottom'); A('#mu-godown','title','Ir al fondo','Go to bottom');
+    A('.settings-btn','aria-label','Ajustes','Settings'); A('.settings-btn','title','Ajustes','Settings');
+    document.querySelectorAll('.burger').forEach(function(b){ var o=b.getAttribute('aria-expanded')==='true'; b.setAttribute('aria-label', o?(en?'Close menu':'Cerrar menú'):(en?'Open menu':'Abrir menú')); });
+    A('#cmd-box','aria-label','Buscador rápido','Quick search');
+    A('#wm-fecha','aria-label','Fecha del parcial','Exam date');
+    A('#qr-zoom-ov','aria-label','Código QR ampliado','Enlarged QR code');
+    A('#qr-breb-ov','aria-label','Código QR Bre-B ampliado','Enlarged Bre-B QR code');
+    A('#qr-breb-btn','aria-label','Ampliar el código QR','Enlarge the QR code'); A('#qr-breb-btn','title','Toca para ampliar','Tap to enlarge');
+    A('img[src="qr-wa-grupo.png"]','alt','Código QR del grupo de WhatsApp de MathUNAL','QR code for the MathUNAL WhatsApp group');
+    A('#qr-zoom-ov img','alt','Código QR del grupo de WhatsApp de MathUNAL, ampliado','QR code for the MathUNAL WhatsApp group, enlarged');
+    A('img[src="qr-breb-v3.png"]','alt','QR Bre-B para transferir a MathUNAL','Bre-B QR code to send money to MathUNAL');
+    A('#qr-breb-ov img','alt','QR Bre-B para transferir a MathUNAL, ampliado','Bre-B QR code to send money to MathUNAL, enlarged');
+    A('.fab-wa','aria-label','Escríbenos por WhatsApp','Message us on WhatsApp'); A('.fab-wa','title','Escríbenos por WhatsApp','Message us on WhatsApp');
+    A('.sp-close,.mu-sp-x','aria-label','Cerrar','Close');
+    A('#qtime-chip','title','Tiempo en esta pregunta','Time on this question');
+    var ch=document.getElementById('cmd-shortcut-hint'); if(ch){ var k0=ch.querySelector('kbd'); ch.innerHTML=(k0?k0.outerHTML:'<kbd>ESC</kbd>')+' '+(en?'close':'cerrar'); }
+    var cf=document.querySelectorAll('.cmd-footer span');
+    [['navegar','navigate'],['ir','go'],['abrir','open']].forEach(function(p,i){ if(!cf[i]) return; var kk=cf[i].querySelector('kbd'); cf[i].innerHTML=(kk?kk.outerHTML:'')+' '+(en?p[1]:p[0]); });
+    document.querySelectorAll('footer p').forEach(function(p){ if(/Hecho en Medell|Made in Medell/.test(p.textContent)){ var sp=p.querySelector('span'); p.innerHTML=(en?'Made in Medellín ':'Hecho en Medellín ')+(sp?sp.outerHTML:''); } });
+    document.querySelectorAll('a[href="#diagnostico"].btn-o').forEach(function(a){ if(/Diagn|diagnostic/i.test(a.textContent)) a.textContent=en?'Quick diagnostic (free)':'Diagnóstico rápido (gratis)'; });
+    if(document.getElementById('prom-rows') && typeof renderPromRows==='function'){ try{ renderPromRows(); }catch(e){} }
+  })();
+
   /* Guardar preferencia */
   try{ localStorage.setItem('mu-lang', lang); }catch(e){}
 }
@@ -35655,7 +35754,7 @@ window.__muCalICS = function(){
     lines.push('DTSTART;VALUE=DATE:'+d);
     lines.push('DTEND;VALUE=DATE:'+d);
     lines.push('SUMMARY:'+(e.t||'').replace(/[,;\\]/g,' '));
-    lines.push('DESCRIPTION:'+(C.fuente||'')+' — mathunal.co');
+    lines.push('DESCRIPTION:'+(C.fuente||'')+' — mathunal.com');
     lines.push('BEGIN:VALARM');
     lines.push('TRIGGER:-P2D');
     lines.push('ACTION:DISPLAY');
@@ -36167,13 +36266,13 @@ window.__muAuthUI = (function(){
     if(!_wrap) return;
     var E=en();
     var _pro=(_ctx==='pro');
-    var h='<div class="mu-auth-box" role="dialog" aria-modal="true">'+
+    var h='<div class="mu-auth-box" role="dialog" aria-modal="true" aria-labelledby="mu-auth-title">'+
       '<button class="mu-auth-x" aria-label="'+(E?'Close':'Cerrar')+'" onclick="window.__muAuthUI.close()">✕</button>'+
       '<div class="mu-auth-hd">'+
         '<div class="mu-auth-ic">'+(_pro
           ?'<svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 9.9-1"/></svg>'
           :'<svg viewBox="0 0 24 24" width="28" height="28" fill="currentColor"><path d="M12 2s4 4 4 8a4 4 0 0 1-8 0c0-1 .5-2 .5-2S6 10 6 14a6 6 0 0 0 12 0c0-6-6-12-6-12z"/></svg>')+'</div>'+
-        '<b>'+(_pro?(E?'Your MathUNAL Pro account':'Tu cuenta MathUNAL Pro'):(E?'Save your streak':'Guarda tu racha'))+'</b>'+
+        '<b id="mu-auth-title">'+(_pro?(E?'Your MathUNAL Pro account':'Tu cuenta MathUNAL Pro'):(E?'Save your streak':'Guarda tu racha'))+'</b>'+
         '<span>'+(_pro
           ? (E?'Pro is tied to this account, so it works on any device and can’t be shared around. No password — we email you a one-time code.'
               :'El Pro queda ligado a esta cuenta: te funciona en cualquier dispositivo y no se puede regalar por ahí. Sin contraseña: te mandamos un código al correo.')
@@ -36181,14 +36280,14 @@ window.__muAuthUI = (function(){
               :'Para que no se pierda si borras el caché o cambias de dispositivo. Sin contraseña: te enviamos un código al correo. Nada que ver con el plan premium.'))+'</span>'+
       '</div>';
     if(_step==='email'){
-      h+='<label class="mu-auth-lb">'+(E?'Your email':'Tu correo')+'</label>'+
+      h+='<label class="mu-auth-lb" for="mu-auth-em">'+(E?'Your email':'Tu correo')+'</label>'+
         '<input id="mu-auth-em" type="email" inputmode="email" autocomplete="email" placeholder="tu.correo@unal.edu.co" value="'+_email.replace(/"/g,'&quot;')+'">'+
         '<div class="mu-auth-hint">'+(E?'Use your <b>@unal.edu.co</b> if you can — easier to recover and it’s the one we recognize. Any email works too.'
                                        :'Usa tu <b>@unal.edu.co</b> si puedes — es más fácil de recuperar y es el que reconocemos. Cualquier correo también sirve.')+'</div>'+
         '<button class="mu-auth-go" onclick="window.__muAuthUI.submitEmail()"'+(_busy?' disabled':'')+'>'+
           (_busy?(E?'Sending…':'Enviando…'):(E?'Send code':'Enviar código'))+'</button>';
     } else {
-      h+='<label class="mu-auth-lb">'+(E?'Code sent to ':'Código enviado a ')+'<b>'+_email+'</b></label>'+
+      h+='<label class="mu-auth-lb" for="mu-auth-cd">'+(E?'Code sent to ':'Código enviado a ')+'<b>'+_email+'</b></label>'+
         '<input id="mu-auth-cd" type="text" inputmode="numeric" autocomplete="one-time-code" maxlength="10" placeholder="••••••">'+
         '<button class="mu-auth-go" onclick="window.__muAuthUI.submitCode()"'+(_busy?' disabled':'')+'>'+
           (_busy?(E?'Checking…':'Verificando…'):(E?'Confirm':'Confirmar'))+'</button>'+
@@ -36422,7 +36521,7 @@ window.__muAcctChip = (function(){
       var chip=sw.previousElementSibling;
       if(!chip || !chip.classList || !chip.classList.contains('mu-acct')){
         chip=document.createElement('div'); chip.className='mu-acct';
-        chip.innerHTML='<button class="mu-acct-btn" type="button" aria-label="Cuenta"></button>';
+        chip.innerHTML='<button class="mu-acct-btn" type="button"></button>';
         sw.parentNode.insertBefore(chip, sw);
         wire(chip);
       }
@@ -37302,6 +37401,8 @@ function bootMateria(tries){
   // Labels estaticos de la pagina de materia: se ponian una sola vez al
   // renderizar (solo al NAVEGAR ahi), asi que cambiar idioma sin salir de la
   // pagina los dejaba pegados en el idioma viejo. Mismos strings que el render inicial.
+  var cl0=document.querySelector('.mu-code-lbl'); if(cl0) cl0.textContent = en?'CODE':'CÓDIGO';
+  var rh0=document.querySelector('.mu-rel-hd'); if(rh0) rh0.textContent = en?'Related subjects':'Materias relacionadas';
   var flbl=document.querySelector('.mu-lp-flbl'); if(flbl) flbl.textContent = en?'Filter by type':'Filtrar por tipo';
   var slbl=document.querySelector('.mu-lp-sec'); if(slbl) slbl.textContent = en?'Semesters':'Semestres';
   var albl=document.querySelector('.mu-la-lbl'); if(albl) albl.textContent = en?'More resources':'Más recursos';
@@ -37689,7 +37790,7 @@ window.__muMateriaInit = function(){
     // tipo y el orden mueven la lista de la izquierda Y la tabla de la derecha
     // a la vez, igual que la maqueta acordada.
     var en = (lang==='en');
-    var SEM_ABBR = {'Institucional':'INST.','NIVELATORIO':'NIVEL.','Referencia':'REF.','General':'GRAL.'};
+    var SEM_ABBR = {'Institucional':'INST.','NIVELATORIO':'NIVEL.','Referencia':'REF.','General':(lang==='en'?'GEN.':'GRAL.')};
     function semAbbr(s){
       if(!s) return '—';
       if(SEM_ABBR[s]) return SEM_ABBR[s];
@@ -37814,7 +37915,7 @@ window.__muMateriaInit = function(){
       ['por semana, estimado','weekly, estimated'],['por unidades','by units'],['por tema','by topic'],['por semana','by week'],
       ['estimado','estimated'],['ejemplo','example'],['de referencia','reference'],['Referencia','Reference'],['de Referencia','Reference'],
       ['Multi-semestre','Multi-semester'],['Nivelatorio','Pre-calc'],['oficial','official'],['Oficial','Official'],
-      [' de la ',' of the '],[' del ',' of the '],[' y ',' and '],[' e ',' and '],[' de ',' of ']
+      
     ];
     window._SEM_EN=[
       ['Multi-semestre','Multi-semester'],['Semestre','Semester'],['Nivelatorio','Pre-calc'],
@@ -37969,8 +38070,9 @@ window.__muMateriaInit = function(){
     var x=p[0],y=p[1],z=p[2],c1=Math.cos(t*0.14),s1=Math.sin(t*0.14),x2=x*c1-z*s1,z2=x*s1+z*c1,c2=Math.cos(t*0.055),s2=Math.sin(t*0.055);
     return [W/2+x2,H/2+y*c2-z2*s2,z2];
   }
+  var _rmHero=!!(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches);
   function draw(){
-    requestAnimationFrame(draw);
+    if(!_rmHero) requestAnimationFrame(draw);
     var rect=c.getBoundingClientRect();
     if(rect.bottom<0||rect.top>window.innerHeight)return;
     t+=0.007;ctx.clearRect(0,0,W,H);var R=Math.min(W,H)*0.36;
@@ -38353,6 +38455,62 @@ window.__muMateriaInit = function(){
     if((e.ctrlKey||e.metaKey) && e.shiftKey && (e.key==='D'||e.key==='d')){ e.preventDefault(); toggle(); }
   });
   if(document.body) build(); else document.addEventListener('DOMContentLoaded', build);
+})();
+</script>
+<script>
+/* Accesibilidad de teclado (auditoria 2026-10): muchas tarjetas/filas son <div onclick> sin foco ni rol.
+   En vez de reescribir cada plantilla, se decoran de forma idempotente (role="button", tabindex=0,
+   Enter/Espacio => click, y aria-expanded / aria-pressed segun la clase CSS de estado). */
+(function(){
+  var SKIP_CLASS=/(overlay|backdrop|(^|[-_ ])ov($|[-_ ]))/i;
+  var STATE_CLASS=/(^|\s)(sel|on|active)(\s|$)/;
+  function decorate(root){
+    var host=root||document;
+    var els=host.querySelectorAll('[onclick]');
+    for(var i=0;i<els.length;i++){
+      var el=els[i], tag=el.tagName;
+      if(tag==='A'||tag==='BUTTON'||tag==='INPUT'||tag==='SELECT'||tag==='TEXTAREA'||tag==='SUMMARY'||tag==='LABEL') continue;
+      if(el instanceof SVGElement) continue;
+      var cls=(typeof el.className==='string')?el.className:'';
+      if(SKIP_CLASS.test(cls)||SKIP_CLASS.test(el.id||'')||el.hasAttribute('role')&&el.getAttribute('role')!=='button') continue;
+      if(el.querySelector('[role="dialog"]')) continue;
+      var oc=el.getAttribute('onclick')||'';
+      if(/target\s*===\s*this/.test(oc)) continue;
+      if(!el.hasAttribute('role')) el.setAttribute('role','button');
+      if(!el.hasAttribute('tabindex')) el.setAttribute('tabindex','0');
+      if(tag==='IMG'&&!el.getAttribute('alt')&&!el.getAttribute('aria-label')) continue;
+      if(el.classList.contains('faq-q')){
+        var item=el.closest('.faq-item'); el.setAttribute('aria-expanded', item&&item.classList.contains('open')?'true':'false');
+      } else if(el.matches('.momento-card,.diag-mat-card,.item,.cp-j-step')){
+        el.setAttribute('aria-pressed', STATE_CLASS.test(cls)?'true':'false');
+      }
+    }
+  }
+  var t=null;
+  function schedule(){ if(t) return; t=setTimeout(function(){ t=null; try{ decorate(); }catch(e){} },120); }
+  function start(){
+    decorate();
+    try{ new MutationObserver(schedule).observe(document.body,{childList:true,subtree:true,attributes:true,attributeFilter:['class']}); }catch(e){}
+  }
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',start); else start();
+
+  document.addEventListener('keydown',function(e){
+    if(e.key!=='Enter'&&e.key!==' ') return;
+    var el=e.target;
+    if(!el||el.getAttribute('role')!=='button'||el.tagName==='BUTTON'||el.tagName==='A'||!el.hasAttribute('onclick')) return;
+    e.preventDefault(); el.click();
+  });
+
+  /* Skip link: el destino (#mu-app) contiene el <nav>; se salta al primer contenido real */
+  document.addEventListener('click',function(e){
+    var a=e.target.closest&&e.target.closest('.skip-link'); if(!a) return;
+    e.preventDefault(); e.stopImmediatePropagation();
+    var app=document.getElementById('mu-app'); if(!app) return;
+    var t=app.querySelector('h1')||app.querySelector('.hero,.screen.active,.mu-subj,.diag-shell,.vf-shell,.wrap')||app;
+    if(!t.hasAttribute('tabindex')) t.setAttribute('tabindex','-1');
+    t.focus({preventScroll:true});
+    try{ t.scrollIntoView({block:'start',behavior:window.muSmooth?window.muSmooth():'auto'}); }catch(err){}
+}, true);
 })();
 </script>
 </body>
