@@ -75,11 +75,17 @@ window.muSubjEN=function(t){t=String(t==null?'':t);if(window.curLang!=='en')retu
   <meta name="apple-mobile-web-app-title" content="MathUNAL">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Literata:ital,wght@0,400;0,600;0,700;0,900;1,400;1,700&family=Space+Grotesk:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=Source+Serif+4:ital,wght@0,400;0,500;0,600;0,700;1,400&family=EB+Garamond:ital@0;1&display=swap" rel="stylesheet">
+  <!-- Fuentes y CSS de KaTeX NO bloqueantes: con rel=stylesheet normal el primer pintado
+       (y el arranque de la app) esperaba a Google Fonts / jsdelivr. media=print + onload
+       las aplica al llegar; mientras tanto se usan las fuentes de respaldo del CSS
+       (Georgia/serif, monospace) y font-display=swap evita texto invisible. -->
+  <link href="https://fonts.googleapis.com/css2?family=Literata:ital,wght@0,400;0,600;0,700;0,900;1,400;1,700&family=Space+Grotesk:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=Source+Serif+4:ital,wght@0,400;0,500;0,600;0,700;1,400&family=EB+Garamond:ital@0;1&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Literata:ital,wght@0,400;0,600;0,700;0,900;1,400;1,700&family=Space+Grotesk:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=Source+Serif+4:ital,wght@0,400;0,500;0,600;0,700;1,400&family=EB+Garamond:ital@0;1&display=swap" rel="stylesheet"></noscript>
   <!-- v12 — fixes: grid minmax, page width, toggleSettings en formulas, abrirEjemplo footer, ej-nav-btn.primary, diff-*, fcat-sep CSS, panic-bar layout, fcard box-sizing -->
     <!-- NOTA: el conteo de PDFs se deriva de MATS (catalogo real de archivos), no de SUBJECTS.pdfs. Al subir material nuevo, agregarlo a MATS y el numero se actualiza solo en toda la pagina. -->
   <!-- KaTeX (para Simulacros y Formulario) -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous"></noscript>
   <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" crossorigin="anonymous"></script>
   <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous" onload="window.__katexReady=true; if(window.__onKatexReady) window.__onKatexReady(); if(window.__muRerender) try{window.__muRerender();}catch(e){}"></script>
   <!-- Simulacros Pro (rama simulacros-pro): banco enriquecido de Cálculo Diferencial.
@@ -20631,8 +20637,25 @@ customElements.define('glass-element', GlassElement);
   };
 })();
 </script>
-  <!-- Wompi Widget (sandbox) -->
-  <script src="https://checkout.wompi.co/widget.js" data-render="false"></script>
+  <!-- Wompi Widget: se carga bajo demanda (muLoadWompi) al pulsar "pagar".
+       Como <script> sincrono en el <head> frenaba el arranque de TODO el sitio
+       mientras checkout.wompi.co respondia (medido: 1 a 1 con su latencia). -->
+  <script>
+  window.muLoadWompi = function(){
+    if(window.WidgetCheckout) return Promise.resolve(true);
+    if(window.__muWompiP) return window.__muWompiP;
+    window.__muWompiP = new Promise(function(res){
+      var s = document.createElement('script');
+      s.src = 'https://checkout.wompi.co/widget.js';
+      s.async = true;
+      s.setAttribute('data-render','false');
+      s.onload  = function(){ res(!!window.WidgetCheckout); };
+      s.onerror = function(){ window.__muWompiP = null; res(false); };  /* permite reintentar */
+      document.head.appendChild(s);
+    });
+    return window.__muWompiP;
+  };
+  </script>
 </head>
 
 <body>
@@ -21566,7 +21589,7 @@ if(!window.__muModalEsc){window.__muModalEsc=true;
       </div>
     </div>
     <div class="qr-zoom-ov" id="qr-zoom-ov" onclick="this.classList.remove('open')" role="dialog" aria-label="Código QR ampliado">
-      <img src="qr-wa-grupo.png" alt="Código QR del grupo de WhatsApp de MathUNAL, ampliado">
+      <img src="qr-wa-grupo.png" alt="Código QR del grupo de WhatsApp de MathUNAL, ampliado" loading="lazy">
     </div>
   </div>
 </section>
@@ -21666,7 +21689,7 @@ if(!window.__muModalEsc){window.__muModalEsc=true;
             <span class="qr-zoom-ico" aria-hidden="true"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="10.5" cy="10.5" r="6.5"/><line x1="15.3" y1="15.3" x2="21" y2="21"/><line x1="10.5" y1="8" x2="10.5" y2="13"/><line x1="8" y1="10.5" x2="13" y2="10.5"/></svg></span>
           </button>
           <div class="qr-zoom-ov tall" id="qr-breb-ov" onclick="this.classList.remove('open')" role="dialog" aria-label="Código QR Bre-B ampliado">
-            <img src="qr-breb-v3.png" alt="QR Bre-B para transferir a MathUNAL, ampliado">
+            <img src="qr-breb-v3.png" alt="QR Bre-B para transferir a MathUNAL, ampliado" loading="lazy">
           </div>
         </div>
       </div>
@@ -22745,6 +22768,16 @@ if(typeof window.muPresenciaInit==='function') window.muPresenciaInit();
 var MU_PARCIALES = [];
 var MU_DIAS_AVISO = 14;
 
+/* Escape HTML minimo (incluye comillas). El nombre de materia de
+   parciales_reportados lo puede escribir cualquier visitante via la Edge
+   Function reportar-parcial, asi que NUNCA debe llegar crudo a innerHTML. */
+function muEscHtml(s){
+  return String(s==null?'':s).replace(/[&<>"']/g,function(c){
+    return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];
+  });
+}
+window.muEscHtml = muEscHtml;
+
 window.__loadParciales = function(){
   var sbUrl = window.MU_SB_URL;
   var sbKey = 'sb_publishable_rR_f3qmPj_L-tuwrGUYxnA__MWGwobe'; // publishable key real, confirmada contra el proyecto
@@ -22754,7 +22787,8 @@ window.__loadParciales = function(){
   }).then(function(r){ return r.json(); }).then(function(data){
     if(!Array.isArray(data)) return;
     MU_PARCIALES = data.map(function(f){
-      return { mat:f.materia_nombre, label:'Parcial', fecha:f.fecha_parcial, confirmaciones:f.confirmaciones, validado:f.validado_admin };
+      /* mat ya sale escapado: sus unicos usos son innerHTML (banner y titular del ciclo). confirmaciones se fuerza a numero. */
+      return { mat:muEscHtml(f.materia_nombre), label:'Parcial', fecha:f.fecha_parcial, confirmaciones:Number(f.confirmaciones)||0, validado:!!f.validado_admin };
     });
     if(typeof muInitParcialBanner==='function') muInitParcialBanner();
     if(typeof muSyncCicloTitle==='function') muSyncCicloTitle();
@@ -33887,8 +33921,10 @@ window.__SIMPRO_DEV = /[?&]simpro=1/.test(location.href) || !!window.__SIM_LOCAL
       /* REAL: pide referencia + firma a Supabase y abre el WidgetCheckout de Wompi. */
       var course = _courseOf(_slug) || '1000004';
       pay.disabled=true;
+      var _wompiP = window.muLoadWompi ? window.muLoadWompi() : Promise.resolve(!!window.WidgetCheckout);  /* descarga en paralelo con la firma */
       window.__muAuth.api('/functions/v1/sim-wompi-sign',{method:'POST',body:JSON.stringify({course_id:course})})
         .then(function(r){ return r.json(); })
+        .then(function(cfg){ return _wompiP.then(function(){ return cfg; }); })
         .then(function(cfg){
           pay.disabled=false;
           if(!cfg || !cfg.configured || !cfg.publicKey || !window.WidgetCheckout){
