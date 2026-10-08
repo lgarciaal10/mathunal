@@ -1,0 +1,4985 @@
+[
+ {
+  "ruta": "home",
+  "ancho": 360,
+  "idioma": "es",
+  "overflowPagina": null,
+  "desbordes": [],
+  "cortados": [],
+  "solapes": [
+   {
+    "a": "a",
+    "ta": "",
+    "b": "a.mc",
+    "tb": "∇² SEMESTRE 5 Matemáticas Especiales □ 5 PDFs Ver ",
+    "porcentaje": 88
+   }
+  ],
+  "flotantes": [
+   {
+    "flotante": "a.fab-wa.idle",
+    "tapa": "a.btn-a",
+    "texto": "Explorar materias →"
+   }
+  ],
+  "pequenos": [
+   {
+    "el": "button#mu-goup",
+    "texto": "Ir arriba",
+    "tamano": "22x36"
+   },
+   {
+    "el": "button#mu-godown",
+    "texto": "Ir al fondo",
+    "tamano": "22x36"
+   },
+   {
+    "el": "button.mu-acct-btn",
+    "texto": "Cuenta",
+    "tamano": "36x28"
+   },
+   {
+    "el": "button",
+    "texto": "Guardar mi progreso",
+    "tamano": "165x27"
+   },
+   {
+    "el": "button",
+    "texto": "▶ Empezar ahora",
+    "tamano": "162x31"
+   },
+   {
+    "el": "button.sim-mat-pick-skip",
+    "texto": "Ver todas",
+    "tamano": "62x21"
+   },
+   {
+    "el": "a.smt-leaf",
+    "texto": "∂ Cálculo Diferencial Popular",
+    "tamano": "238x29"
+   },
+   {
+    "el": "a.smt-leaf",
+    "texto": "∫ Cálculo Integral",
+    "tamano": "238x29"
+   },
+   {
+    "el": "a.smt-leaf",
+    "texto": "[ ] Álgebra Lineal Popular",
+    "tamano": "238x29"
+   },
+   {
+    "el": "a.smt-leaf",
+    "texto": "∇ Cálculo en Varias Variables",
+    "tamano": "238x29"
+   },
+   {
+    "el": "a.smt-leaf",
+    "texto": "y' Ecuaciones Diferenciales",
+    "tamano": "238x29"
+   },
+   {
+    "el": "a.smt-leaf",
+    "texto": "f≈ Métodos Numéricos",
+    "tamano": "238x29"
+   },
+   {
+    "el": "a.smt-leaf",
+    "texto": "∇² Matemáticas Especiales",
+    "tamano": "238x29"
+   },
+   {
+    "el": "a.smt-leaf",
+    "texto": "∧∨ Matemáticas Discretas",
+    "tamano": "238x29"
+   },
+   {
+    "el": "a.smt-leaf.smt-leaf-more",
+    "texto": "Ver todas →",
+    "tamano": "238x29"
+   },
+   {
+    "el": "a.smt-leaf",
+    "texto": "∑ Simulacros SIDEX",
+    "tamano": "191x29"
+   },
+   {
+    "el": "a.smt-leaf",
+    "texto": "⊕ Diagnóstico gratis",
+    "tamano": "191x29"
+   },
+   {
+    "el": "a.smt-leaf",
+    "texto": "∫ Formulario interactivo",
+    "tamano": "191x29"
+   },
+   {
+    "el": "a.smt-leaf",
+    "texto": "≡ Calculadora de notas",
+    "tamano": "191x29"
+   },
+   {
+    "el": "a.smt-leaf",
+    "texto": "π Promedio por créditos",
+    "tamano": "191x29"
+   },
+   {
+    "el": "a.smt-leaf",
+    "texto": "♦ Juegos",
+    "tamano": "191x29"
+   },
+   {
+    "el": "a.smt-leaf",
+    "texto": "↑ Aportar material",
+    "tamano": "210x29"
+   },
+   {
+    "el": "a.smt-leaf",
+    "texto": "? Preguntas frecuentes",
+    "tamano": "210x29"
+   },
+   {
+    "el": "a.smt-leaf",
+    "texto": "∮ La historia de MathUNAL",
+    "tamano": "210x29"
+   },
+   {
+    "el": "a.smt-leaf",
+    "texto": "⌘ Privacidad",
+    "tamano": "210x29"
+   },
+   {
+    "el": "a",
+    "texto": "@math.unal",
+    "tamano": "119x29"
+   },
+   {
+    "el": "a",
+    "texto": "LinkedIn",
+    "tamano": "119x29"
+   },
+   {
+    "el": "a",
+    "texto": "Privacidad",
+    "tamano": "119x25"
+   },
+   {
+    "el": "a",
+    "texto": "La historia",
+    "tamano": "119x25"
+   },
+   {
+    "el": "a",
+    "texto": "Aportar material",
+    "tamano": "119x25"
+   }
+  ],
+  "graves": 0,
+  "medios": 2,
+  "captura": "tests/capturas/home_360_es.png"
+ },
+ {
+  "ruta": "simulacro",
+  "ancho": 360,
+  "idioma": "es",
+  "overflowPagina": null,
+  "desbordes": [],
+  "cortados": [],
+  "solapes": [],
+  "flotantes": [],
+  "pequenos": [
+   {
+    "el": "button#mu-goup",
+    "texto": "Ir arriba",
+    "tamano": "22x36"
+   },
+   {
+    "el": "button#mu-godown",
+    "texto": "Ir al fondo",
+    "tamano": "22x36"
+   },
+   {
+    "el": "button.mu-acct-btn",
+    "texto": "Cuenta",
+    "tamano": "36x28"
+   },
+   {
+    "el": "button.sim-onb-chip.on",
+    "texto": "Cálculo Diferencial PRO",
+    "tamano": "203x27"
+   },
+   {
+    "el": "button.sim-onb-chip",
+    "texto": "Cálculo Integral PRO",
+    "tamano": "181x27"
+   },
+   {
+    "el": "button.sim-onb-chip",
+    "texto": "Álgebra Lineal PRO",
+    "tamano": "171x27"
+   },
+   {
+    "el": "button.sim-onb-chip",
+    "texto": "Ecuaciones Diferenciales PRO",
+    "tamano": "248x27"
+   },
+   {
+    "el": "button.sim-onb-chip",
+    "texto": "Cálculo en Varias Variables PRO",
+    "tamano": "265x27"
+   },
+   {
+    "el": "button.sim-onb-chip",
+    "texto": "Geometría Vectorial PRO",
+    "tamano": "212x27"
+   },
+   {
+    "el": "button.sim-onb-chip",
+    "texto": "Matemáticas Discretas PRO",
+    "tamano": "233x27"
+   },
+   {
+    "el": "button.sim-onb-chip",
+    "texto": "Matemáticas Básicas PRO",
+    "tamano": "220x27"
+   },
+   {
+    "el": "button.sim-onb-chip",
+    "texto": "Fundamentos de Matemáticas PRO",
+    "tamano": "287x27"
+   },
+   {
+    "el": "button.sim-onb-chip",
+    "texto": "Métodos Numéricos PRO",
+    "tamano": "211x27"
+   },
+   {
+    "el": "button.sim-onb-chip",
+    "texto": "Matemáticas Especiales PRO",
+    "tamano": "241x27"
+   },
+   {
+    "el": "button.sim-onb-chip",
+    "texto": "Corte 1 · 30%",
+    "tamano": "127x27"
+   },
+   {
+    "el": "button.sim-onb-chip",
+    "texto": "Corte 2 · 30%",
+    "tamano": "127x27"
+   },
+   {
+    "el": "button.sim-onb-chip",
+    "texto": "Corte 3 · 40%",
+    "tamano": "127x27"
+   },
+   {
+    "el": "button.sim-tipo-pill.on",
+    "texto": "Todos",
+    "tamano": "302x29"
+   },
+   {
+    "el": "button.sim-tipo-pill",
+    "texto": "Parciales",
+    "tamano": "302x29"
+   },
+   {
+    "el": "button.sim-tipo-pill",
+    "texto": "Quices",
+    "tamano": "302x29"
+   },
+   {
+    "el": "button.sim-tipo-pill",
+    "texto": "Talleres",
+    "tamano": "302x29"
+   },
+   {
+    "el": "button#svt-mat",
+    "texto": "Por materia",
+    "tamano": "148x28"
+   },
+   {
+    "el": "button#svt-year",
+    "texto": "Por año",
+    "tamano": "148x28"
+   }
+  ],
+  "graves": 0,
+  "medios": 0,
+  "captura": null
+ },
+ {
+  "ruta": "materia-1000003",
+  "ancho": 360,
+  "idioma": "es",
+  "overflowPagina": null,
+  "desbordes": [],
+  "cortados": [
+   {
+    "el": "span",
+    "texto": "con solución",
+    "detalle": "sobresale de div.mu-fc-name"
+   }
+  ],
+  "solapes": [],
+  "flotantes": [],
+  "pequenos": [
+   {
+    "el": "button#mu-goup",
+    "texto": "Ir arriba",
+    "tamano": "22x36"
+   },
+   {
+    "el": "button#mu-godown",
+    "texto": "Ir al fondo",
+    "tamano": "22x36"
+   },
+   {
+    "el": "button.mu-acct-btn",
+    "texto": "Cuenta",
+    "tamano": "36x28"
+   },
+   {
+    "el": "button.mu-exp-fbtn.on",
+    "texto": "Todos",
+    "tamano": "59x24"
+   },
+   {
+    "el": "button.mu-exp-fbtn",
+    "texto": "Programa",
+    "tamano": "84x24"
+   },
+   {
+    "el": "button.mu-exp-fbtn",
+    "texto": "Formularios",
+    "tamano": "98x24"
+   },
+   {
+    "el": "button.mu-exp-fbtn",
+    "texto": "Libros",
+    "tamano": "62x24"
+   },
+   {
+    "el": "button.mu-exp-fbtn",
+    "texto": "Talleres",
+    "tamano": "72x24"
+   },
+   {
+    "el": "button.mu-exp-fbtn",
+    "texto": "Quices",
+    "tamano": "65x24"
+   },
+   {
+    "el": "button.mu-exp-fbtn",
+    "texto": "Parciales",
+    "tamano": "80x24"
+   },
+   {
+    "el": "button.mu-exp-fbtn",
+    "texto": "Simulacros",
+    "tamano": "92x24"
+   },
+   {
+    "el": "button.mu-exp-sbtn.on",
+    "texto": "sugerido",
+    "tamano": "73x23"
+   },
+   {
+    "el": "button.mu-exp-sbtn",
+    "texto": "por tamaño",
+    "tamano": "90x23"
+   }
+  ],
+  "graves": 0,
+  "medios": 1,
+  "captura": "tests/capturas/materia-1000003_360_es.png"
+ },
+ {
+  "ruta": "materia-1000004",
+  "ancho": 360,
+  "idioma": "es",
+  "overflowPagina": null,
+  "desbordes": [],
+  "cortados": [
+   {
+    "el": "span",
+    "texto": "con solución",
+    "detalle": "sobresale de div.mu-fc-name"
+   },
+   {
+    "el": "span",
+    "texto": "con solución",
+    "detalle": "sobresale de div.mu-fc-name"
+   },
+   {
+    "el": "span",
+    "texto": "con solución",
+    "detalle": "sobresale de div.mu-fc-name"
+   },
+   {
+    "el": "span",
+    "texto": "con solución",
+    "detalle": "sobresale de div.mu-fc-name"
+   },
+   {
+    "el": "span",
+    "texto": "con solución",
+    "detalle": "sobresale de div.mu-fc-name"
+   },
+   {
+    "el": "span",
+    "texto": "con solución",
+    "detalle": "sobresale de div.mu-fc-name"
+   },
+   {
+    "el": "span",
+    "texto": "con solución",
+    "detalle": "sobresale de div.mu-fc-name"
+   },
+   {
+    "el": "span",
+    "texto": "con solución",
+    "detalle": "sobresale de div.mu-fc-name"
+   },
+   {
+    "el": "span",
+    "texto": "con solución",
+    "detalle": "sobresale de div.mu-fc-name"
+   },
+   {
+    "el": "span",
+    "texto": "con solución",
+    "detalle": "sobresale de div.mu-fc-name"
+   },
+   {
+    "el": "span",
+    "texto": "con solución",
+    "detalle": "sobresale de div.mu-fc-name"
+   }
+  ],
+  "solapes": [],
+  "flotantes": [],
+  "pequenos": [
+   {
+    "el": "button#mu-goup",
+    "texto": "Ir arriba",
+    "tamano": "22x36"
+   },
+   {
+    "el": "button#mu-godown",
+    "texto": "Ir al fondo",
+    "tamano": "22x36"
+   },
+   {
+    "el": "button.mu-acct-btn",
+    "texto": "Cuenta",
+    "tamano": "36x28"
+   },
+   {
+    "el": "button.mu-exp-fbtn.on",
+    "texto": "Todos",
+    "tamano": "59x24"
+   },
+   {
+    "el": "button.mu-exp-fbtn",
+    "texto": "Programa",
+    "tamano": "84x24"
+   },
+   {
+    "el": "button.mu-exp-fbtn",
+    "texto": "Notas",
+    "tamano": "59x24"
+   },
+   {
+    "el": "button.mu-exp-fbtn",
+    "texto": "Formularios",
+    "tamano": "98x24"
+   },
+   {
+    "el": "button.mu-exp-fbtn",
+    "texto": "Libros",
+    "tamano": "62x24"
+   },
+   {
+    "el": "button.mu-exp-fbtn",
+    "texto": "Talleres",
+    "tamano": "72x24"
+   },
+   {
+    "el": "button.mu-exp-fbtn",
+    "texto": "Quices",
+    "tamano": "65x24"
+   },
+   {
+    "el": "button.mu-exp-fbtn",
+    "texto": "Parciales",
+    "tamano": "80x24"
+   },
+   {
+    "el": "button.mu-exp-fbtn",
+    "texto": "Simulacros",
+    "tamano": "92x24"
+   },
+   {
+    "el": "button.mu-exp-sbtn.on",
+    "texto": "sugerido",
+    "tamano": "73x23"
+   },
+   {
+    "el": "button.mu-exp-sbtn",
+    "texto": "por tamaño",
+    "tamano": "90x23"
+   }
+  ],
+  "graves": 0,
+  "medios": 11,
+  "captura": "tests/capturas/materia-1000004_360_es.png"
+ },
+ {
+  "ruta": "materia-1000013",
+  "ancho": 360,
+  "idioma": "es",
+  "overflowPagina": null,
+  "desbordes": [],
+  "cortados": [],
+  "solapes": [],
+  "flotantes": [],
+  "pequenos": [
+   {
+    "el": "button#mu-goup",
+    "texto": "Ir arriba",
+    "tamano": "22x36"
+   },
+   {
+    "el": "button#mu-godown",
+    "texto": "Ir al fondo",
+    "tamano": "22x36"
+   },
+   {
+    "el": "button.mu-acct-btn",
+    "texto": "Cuenta",
+    "tamano": "36x28"
+   },
+   {
+    "el": "button.mu-exp-fbtn.on",
+    "texto": "Todos",
+    "tamano": "59x24"
+   },
+   {
+    "el": "button.mu-exp-fbtn",
+    "texto": "Programa",
+    "tamano": "84x24"
+   },
+   {
+    "el": "button.mu-exp-fbtn",
+    "texto": "Notas",
+    "tamano": "59x24"
+   },
+   {
+    "el": "button.mu-exp-fbtn",
+    "texto": "Formularios",
+    "tamano": "98x24"
+   },
+   {
+    "el": "button.mu-exp-fbtn",
+    "texto": "Talleres",
+    "tamano": "72x24"
+   },
+   {
+    "el": "button.mu-exp-fbtn",
+    "texto": "Quices",
+    "tamano": "65x24"
+   },
+   {
+    "el": "button.mu-exp-fbtn",
+    "texto": "Simulacros",
+    "tamano": "92x24"
+   },
+   {
+    "el": "button.mu-exp-sbtn.on",
+    "texto": "sugerido",
+    "tamano": "73x23"
+   },
+   {
+    "el": "button.mu-exp-sbtn",
+    "texto": "por tamaño",
+    "tamano": "90x23"
+   }
+  ],
+  "graves": 0,
+  "medios": 0,
+  "captura": null
+ },
+ {
+  "ruta": "materia-1000005",
+  "ancho": 360,
+  "idioma": "es",
+  "overflowPagina": null,
+  "desbordes": [],
+  "cortados": [
+   {
+    "el": "span",
+    "texto": "con solución",
+    "detalle": "sobresale de div.mu-fc-name"
+   },
+   {
+    "el": "span",
+    "texto": "con solución",
+    "detalle": "sobresale de div.mu-fc-name"
+   },
+   {
+    "el": "span",
+    "texto": "con solución",
+    "detalle": "sobresale de div.mu-fc-name"
+   },
+   {
+    "el": "span",
+    "texto": "con solución",
+    "detalle": "sobresale de div.mu-fc-name"
+   },
+   {
+    "el": "span",
+    "texto": "con solución",
+    "detalle": "sobresale de div.mu-fc-name"
+   },
+   {
+    "el": "span",
+    "texto": "con solución",
+    "detalle": "sobresale de div.mu-fc-name"
+   },
+   {
+    "el": "span",
+    "texto": "con solución",
+    "detalle": "sobresale de div.mu-fc-name"
+   },
+   {
+    "el": "span",
+    "texto": "con solución",
+    "detalle": "sobresale de div.mu-fc-name"
+   },
+   {
+    "el": "span",
+    "texto": "con solución",
+    "detalle": "sobresale de div.mu-fc-name"
+   },
+   {
+    "el": "span",
+    "texto": "con solución",
+    "detalle": "sobresale de div.mu-fc-name"
+   },
+   {
+    "el": "span",
+    "texto": "con solución",
+    "detalle": "sobresale de div.mu-fc-name"
+   },
+   {
+    "el": "span",
+    "texto": "con solución",
+    "detalle": "sobresale de div.mu-fc-name"
+   },
+   {
+    "el": "span",
+    "texto": "con solución",
+    "detalle": "sobresale de div.mu-fc-name"
+   },
+   {
+    "el": "span",
+    "texto": "con solución",
+    "detalle": "sobresale de div.mu-fc-name"
+   },
+   {
+    "el": "span",
+    "texto": "con solución",
+    "detalle": "sobresale de div.mu-fc-name"
+   },
+   {
+    "el": "span",
+    "texto": "con solución",
+    "detalle": "sobresale de div.mu-fc-name"
+   },
+   {
+    "el": "span",
+    "texto": "con solución",
+    "detalle": "sobresale de div.mu-fc-name"
+   },
+   {
+    "el": "span",
+    "texto": "con solución",
+    "detalle": "sobresale de div.mu-fc-name"
+   },
+   {
+    "el": "span",
+    "texto": "con solución",
+    "detalle": "sobresale de div.mu-fc-name"
+   },
+   {
+    "el": "span",
+    "texto": "con solución",
+    "detalle": "sobresale de div.mu-fc-name"
+   },
+   {
+    "el": "span",
+    "texto": "con solución",
+    "detalle": "sobresale de div.mu-fc-name"
+   },
+   {
+    "el": "span",
+    "texto": "con solución",
+    "detalle": "sobresale de div.mu-fc-name"
+   }
+  ],
+  "solapes": [],
+  "flotantes": [],
+  "pequenos": [
+   {
+    "el": "button#mu-goup",
+    "texto": "Ir arriba",
+    "tamano": "22x36"
+   },
+   {
+    "el": "button#mu-godown",
+    "texto": "Ir al fondo",
+    "tamano": "22x36"
+   },
+   {
+    "el": "button.mu-acct-btn",
+    "texto": "Cuenta",
+    "tamano": "36x28"
+   },
+   {
+    "el": "button.mu-exp-fbtn.on",
+    "texto": "Todos",
+    "tamano": "59x24"
+   },
+   {
+    "el": "button.mu-exp-fbtn",
+    "texto": "Programa",
+    "tamano": "84x24"
+   },
+   {
+    "el": "button.mu-exp-fbtn",
+    "texto": "Notas",
+    "tamano": "59x24"
+   },
+   {
+    "el": "button.mu-exp-fbtn",
+    "texto": "Formularios",
+    "tamano": "98x24"
+   },
+   {
+    "el": "button.mu-exp-fbtn",
+    "texto": "Talleres",
+    "tamano": "72x24"
+   },
+   {
+    "el": "button.mu-exp-fbtn",
+    "texto": "Quices",
+    "tamano": "65x24"
+   },
+   {
+    "el": "button.mu-exp-fbtn",
+    "texto": "Parciales",
+    "tamano": "80x24"
+   },
+   {
+    "el": "button.mu-exp-fbtn",
+    "texto": "Simulacros",
+    "tamano": "92x24"
+   },
+   {
+    "el": "button.mu-exp-sbtn.on",
+    "texto": "sugerido",
+    "tamano": "73x23"
+   },
+   {
+    "el": "button.mu-exp-sbtn",
+    "texto": "por tamaño",
+    "tamano": "90x23"
+   }
+  ],
+  "graves": 0,
+  "medios": 22,
+  "captura": "tests/capturas/materia-1000005_360_es.png"
+ },
+ {
+  "ruta": "materia-1000006",
+  "ancho": 360,
+  "idioma": "es",
+  "overflowPagina": null,
+  "desbordes": [],
+  "cortados": [
+   {
+    "el": "span",
+    "texto": "con solución",
+    "detalle": "sobresale de div.mu-fc-name"
+   },
+   {
+    "el": "span",
+    "texto": "con solución",
+    "detalle": "sobresale de div.mu-fc-name"
+   },
+   {
+    "el": "span",
+    "texto": "con solución",
+    "detalle": "sobresale de div.mu-fc-name"
+   }
+  ],
+  "solapes": [],
+  "flotantes": [],
+  "pequenos": [
+   {
+    "el": "button#mu-goup",
+    "texto": "Ir arriba",
+    "tamano": "22x36"
+   },
+   {
+    "el": "button#mu-godown",
+    "texto": "Ir al fondo",
+    "tamano": "22x36"
+   },
+   {
+    "el": "button.mu-acct-btn",
+    "texto": "Cuenta",
+    "tamano": "36x28"
+   },
+   {
+    "el": "button.mu-exp-fbtn.on",
+    "texto": "Todos",
+    "tamano": "59x24"
+   },
+   {
+    "el": "button.mu-exp-fbtn",
+    "texto": "Programa",
+    "tamano": "84x24"
+   },
+   {
+    "el": "button.mu-exp-fbtn",
+    "texto": "Notas",
+    "tamano": "59x24"
+   },
+   {
+    "el": "button.mu-exp-fbtn",
+    "texto": "Formularios",
+    "tamano": "98x24"
+   },
+   {
+    "el": "button.mu-exp-fbtn",
+    "texto": "Libros",
+    "tamano": "62x24"
+   },
+   {
+    "el": "button.mu-exp-fbtn",
+    "texto": "Talleres",
+    "tamano": "72x24"
+   },
+   {
+    "el": "button.mu-exp-fbtn",
+    "texto": "Parciales",
+    "tamano": "80x24"
+   },
+   {
+    "el": "button.mu-exp-fbtn",
+    "texto": "Simulacros",
+    "tamano": "92x24"
+   },
+   {
+    "el": "button.mu-exp-sbtn.on",
+    "texto": "sugerido",
+    "tamano": "73x23"
+   },
+   {
+    "el": "button.mu-exp-sbtn",
+    "texto": "por tamaño",
+    "tamano": "90x23"
+   }
+  ],
+  "graves": 0,
+  "medios": 3,
+  "captura": "tests/capturas/materia-1000006_360_es.png"
+ },
+ {
+  "ruta": "materia-1000007",
+  "ancho": 360,
+  "idioma": "es",
+  "overflowPagina": null,
+  "desbordes": [],
+  "cortados": [],
+  "solapes": [
+   {
+    "a": "a.mu-prereq-link",
+    "ta": "↗ Cálculo Integral",
+    "b": "a.mu-prereq-link",
+    "tb": "↗ Geometría Vectorial y Analítica",
+    "porcentaje": 43
+   }
+  ],
+  "flotantes": [],
+  "pequenos": [
+   {
+    "el": "button#mu-goup",
+    "texto": "Ir arriba",
+    "tamano": "22x36"
+   },
+   {
+    "el": "button#mu-godown",
+    "texto": "Ir al fondo",
+    "tamano": "22x36"
+   },
+   {
+    "el": "button.mu-acct-btn",
+    "texto": "Cuenta",
+    "tamano": "36x28"
+   },
+   {
+    "el": "button.mu-exp-fbtn.on",
+    "texto": "Todos",
+    "tamano": "59x24"
+   },
+   {
+    "el": "button.mu-exp-fbtn",
+    "texto": "Programa",
+    "tamano": "84x24"
+   },
+   {
+    "el": "button.mu-exp-fbtn",
+    "texto": "Notas",
+    "tamano": "59x24"
+   },
+   {
+    "el": "button.mu-exp-fbtn",
+    "texto": "Formularios",
+    "tamano": "98x24"
+   },
+   {
+    "el": "button.mu-exp-fbtn",
+    "texto": "Talleres",
+    "tamano": "72x24"
+   },
+   {
+    "el": "button.mu-exp-fbtn",
+    "texto": "Parciales",
+    "tamano": "80x24"
+   },
+   {
+    "el": "button.mu-exp-sbtn.on",
+    "texto": "sugerido",
+    "tamano": "73x23"
+   },
+   {
+    "el": "button.mu-exp-sbtn",
+    "texto": "por tamaño",
+    "tamano": "90x23"
+   }
+  ],
+  "graves": 0,
+  "medios": 1,
+  "captura": "tests/capturas/materia-1000007_360_es.png"
+ },
+ {
+  "ruta": "materia-1000008",
+  "ancho": 360,
+  "idioma": "es",
+  "overflowPagina": null,
+  "desbordes": [],
+  "cortados": [
+   {
+    "el": "span",
+    "texto": "con solución",
+    "detalle": "sobresale de div.mu-fc-name"
+   },
+   {
+    "el": "span",
+    "texto": "con solución",
+    "detalle": "sobresale de div.mu-fc-name"
+   },
+   {
+    "el": "span",
+    "texto": "con solución",
+    "detalle": "sobresale de div.mu-fc-name"
+   },
+   {
+    "el": "span",
+    "texto": "con solución",
+    "detalle": "sobresale de div.mu-fc-name"
+   },
+   {
+    "el": "span",
+    "texto": "con solución",
+    "detalle": "sobresale de div.mu-fc-name"
+   },
+   {
+    "el": "span",
+    "texto": "con solución",
+    "detalle": "sobresale de div.mu-fc-name"
+   },
+   {
+    "el": "span",
+    "texto": "con solución",
+    "detalle": "sobresale de div.mu-fc-name"
+   },
+   {
+    "el": "span",
+    "texto": "con solución",
+    "detalle": "sobresale de div.mu-fc-name"
+   },
+   {
+    "el": "span",
+    "texto": "con solución",
+    "detalle": "sobresale de div.mu-fc-name"
+   },
+   {
+    "el": "span",
+    "texto": "con solución",
+    "detalle": "sobresale de div.mu-fc-name"
+   }
+  ],
+  "solapes": [],
+  "flotantes": [],
+  "pequenos": [
+   {
+    "el": "button#mu-goup",
+    "texto": "Ir arriba",
+    "tamano": "22x36"
+   },
+   {
+    "el": "button#mu-godown",
+    "texto": "Ir al fondo",
+    "tamano": "22x36"
+   },
+   {
+    "el": "button.mu-acct-btn",
+    "texto": "Cuenta",
+    "tamano": "36x28"
+   },
+   {
+    "el": "button.mu-exp-fbtn.on",
+    "texto": "Todos",
+    "tamano": "59x24"
+   },
+   {
+    "el": "button.mu-exp-fbtn",
+    "texto": "Programa",
+    "tamano": "84x24"
+   },
+   {
+    "el": "button.mu-exp-fbtn",
+    "texto": "Notas",
+    "tamano": "59x24"
+   },
+   {
+    "el": "button.mu-exp-fbtn",
+    "texto": "Formularios",
+    "tamano": "98x24"
+   },
+   {
+    "el": "button.mu-exp-fbtn",
+    "texto": "Talleres",
+    "tamano": "72x24"
+   },
+   {
+    "el": "button.mu-exp-fbtn",
+    "texto": "Parciales",
+    "tamano": "80x24"
+   },
+   {
+    "el": "button.mu-exp-sbtn.on",
+    "texto": "sugerido",
+    "tamano": "73x23"
+   },
+   {
+    "el": "button.mu-exp-sbtn",
+    "texto": "por tamaño",
+    "tamano": "90x23"
+   }
+  ],
+  "graves": 0,
+  "medios": 10,
+  "captura": "tests/capturas/materia-1000008_360_es.png"
+ },
+ {
+  "ruta": "materia-1000009",
+  "ancho": 360,
+  "idioma": "es",
+  "overflowPagina": null,
+  "desbordes": [],
+  "cortados": [],
+  "solapes": [
+   {
+    "a": "a.mu-prereq-link",
+    "ta": "↗ Cálculo Integral",
+    "b": "a.mu-prereq-link",
+    "tb": "↗ Álgebra Lineal",
+    "porcentaje": 43
+   }
+  ],
+  "flotantes": [],
+  "pequenos": [
+   {
+    "el": "button#mu-goup",
+    "texto": "Ir arriba",
+    "tamano": "22x36"
+   },
+   {
+    "el": "button#mu-godown",
+    "texto": "Ir al fondo",
+    "tamano": "22x36"
+   },
+   {
+    "el": "button.mu-acct-btn",
+    "texto": "Cuenta",
+    "tamano": "36x28"
+   },
+   {
+    "el": "button.mu-exp-fbtn.on",
+    "texto": "Todos",
+    "tamano": "59x24"
+   },
+   {
+    "el": "button.mu-exp-fbtn",
+    "texto": "Programa",
+    "tamano": "84x24"
+   },
+   {
+    "el": "button.mu-exp-fbtn",
+    "texto": "Notas",
+    "tamano": "59x24"
+   },
+   {
+    "el": "button.mu-exp-fbtn",
+    "texto": "Formularios",
+    "tamano": "98x24"
+   },
+   {
+    "el": "button.mu-exp-fbtn",
+    "texto": "Quices",
+    "tamano": "65x24"
+   },
+   {
+    "el": "button.mu-exp-fbtn",
+    "texto": "Parciales",
+    "tamano": "80x24"
+   },
+   {
+    "el": "button.mu-exp-sbtn.on",
+    "texto": "sugerido",
+    "tamano": "73x23"
+   },
+   {
+    "el": "button.mu-exp-sbtn",
+    "texto": "por tamaño",
+    "tamano": "90x23"
+   }
+  ],
+  "graves": 0,
+  "medios": 1,
+  "captura": "tests/capturas/materia-1000009_360_es.png"
+ },
+ {
+  "ruta": "materia-1000012",
+  "ancho": 360,
+  "idioma": "es",
+  "overflowPagina": null,
+  "desbordes": [],
+  "cortados": [
+   {
+    "el": "span",
+    "texto": "con solución",
+    "detalle": "sobresale de div.mu-fc-name"
+   },
+   {
+    "el": "span",
+    "texto": "con solución",
+    "detalle": "sobresale de div.mu-fc-name"
+   }
+  ],
+  "solapes": [],
+  "flotantes": [],
+  "pequenos": [
+   {
+    "el": "button#mu-goup",
+    "texto": "Ir arriba",
+    "tamano": "22x36"
+   },
+   {
+    "el": "button#mu-godown",
+    "texto": "Ir al fondo",
+    "tamano": "22x36"
+   },
+   {
+    "el": "button.mu-acct-btn",
+    "texto": "Cuenta",
+    "tamano": "36x28"
+   },
+   {
+    "el": "button.mu-exp-fbtn.on",
+    "texto": "Todos",
+    "tamano": "59x24"
+   },
+   {
+    "el": "button.mu-exp-fbtn",
+    "texto": "Programa",
+    "tamano": "84x24"
+   },
+   {
+    "el": "button.mu-exp-fbtn",
+    "texto": "Notas",
+    "tamano": "59x24"
+   },
+   {
+    "el": "button.mu-exp-fbtn",
+    "texto": "Formularios",
+    "tamano": "98x24"
+   },
+   {
+    "el": "button.mu-exp-fbtn",
+    "texto": "Talleres",
+    "tamano": "72x24"
+   },
+   {
+    "el": "button.mu-exp-fbtn",
+    "texto": "Parciales",
+    "tamano": "80x24"
+   },
+   {
+    "el": "button.mu-exp-fbtn",
+    "texto": "Simulacros",
+    "tamano": "92x24"
+   },
+   {
+    "el": "button.mu-exp-sbtn.on",
+    "texto": "sugerido",
+    "tamano": "73x23"
+   },
+   {
+    "el": "button.mu-exp-sbtn",
+    "texto": "por tamaño",
+    "tamano": "90x23"
+   }
+  ],
+  "graves": 0,
+  "medios": 2,
+  "captura": "tests/capturas/materia-1000012_360_es.png"
+ },
+ {
+  "ruta": "materia-1000011",
+  "ancho": 360,
+  "idioma": "es",
+  "overflowPagina": null,
+  "desbordes": [],
+  "cortados": [
+   {
+    "el": "span",
+    "texto": "con solución",
+    "detalle": "sobresale de div.mu-fc-name"
+   },
+   {
+    "el": "span",
+    "texto": "con solución",
+    "detalle": "sobresale de div.mu-fc-name"
+   },
+   {
+    "el": "span",
+    "texto": "con solución",
+    "detalle": "sobresale de div.mu-fc-name"
+   }
+  ],
+  "solapes": [],
+  "flotantes": [],
+  "pequenos": [
+   {
+    "el": "button#mu-goup",
+    "texto": "Ir arriba",
+    "tamano": "22x36"
+   },
+   {
+    "el": "button#mu-godown",
+    "texto": "Ir al fondo",
+    "tamano": "22x36"
+   },
+   {
+    "el": "button.mu-acct-btn",
+    "texto": "Cuenta",
+    "tamano": "36x28"
+   },
+   {
+    "el": "button.mu-exp-fbtn.on",
+    "texto": "Todos",
+    "tamano": "59x24"
+   },
+   {
+    "el": "button.mu-exp-fbtn",
+    "texto": "Programa",
+    "tamano": "84x24"
+   },
+   {
+    "el": "button.mu-exp-fbtn",
+    "texto": "Notas",
+    "tamano": "59x24"
+   },
+   {
+    "el": "button.mu-exp-fbtn",
+    "texto": "Formularios",
+    "tamano": "98x24"
+   },
+   {
+    "el": "button.mu-exp-fbtn",
+    "texto": "Talleres",
+    "tamano": "72x24"
+   },
+   {
+    "el": "button.mu-exp-fbtn",
+    "texto": "Parciales",
+    "tamano": "80x24"
+   },
+   {
+    "el": "button.mu-exp-fbtn",
+    "texto": "Tareas",
+    "tamano": "64x24"
+   },
+   {
+    "el": "button.mu-exp-sbtn.on",
+    "texto": "sugerido",
+    "tamano": "73x23"
+   },
+   {
+    "el": "button.mu-exp-sbtn",
+    "texto": "por tamaño",
+    "tamano": "90x23"
+   }
+  ],
+  "graves": 0,
+  "medios": 3,
+  "captura": "tests/capturas/materia-1000011_360_es.png"
+ },
+ {
+  "ruta": "materia-1000010",
+  "ancho": 360,
+  "idioma": "es",
+  "overflowPagina": null,
+  "desbordes": [],
+  "cortados": [],
+  "solapes": [],
+  "flotantes": [],
+  "pequenos": [
+   {
+    "el": "button#mu-goup",
+    "texto": "Ir arriba",
+    "tamano": "22x36"
+   },
+   {
+    "el": "button#mu-godown",
+    "texto": "Ir al fondo",
+    "tamano": "22x36"
+   },
+   {
+    "el": "button.mu-acct-btn",
+    "texto": "Cuenta",
+    "tamano": "36x28"
+   },
+   {
+    "el": "button.mu-exp-fbtn.on",
+    "texto": "Todos",
+    "tamano": "59x24"
+   },
+   {
+    "el": "button.mu-exp-fbtn",
+    "texto": "Formularios",
+    "tamano": "98x24"
+   },
+   {
+    "el": "button.mu-exp-fbtn",
+    "texto": "Talleres",
+    "tamano": "72x24"
+   },
+   {
+    "el": "button.mu-exp-fbtn",
+    "texto": "Parciales",
+    "tamano": "80x24"
+   },
+   {
+    "el": "button.mu-exp-sbtn.on",
+    "texto": "sugerido",
+    "tamano": "73x23"
+   },
+   {
+    "el": "button.mu-exp-sbtn",
+    "texto": "por tamaño",
+    "tamano": "90x23"
+   }
+  ],
+  "graves": 0,
+  "medios": 0,
+  "captura": null
+ },
+ {
+  "ruta": "materia-1000014",
+  "ancho": 360,
+  "idioma": "es",
+  "overflowPagina": null,
+  "desbordes": [],
+  "cortados": [],
+  "solapes": [],
+  "flotantes": [],
+  "pequenos": [
+   {
+    "el": "button#mu-goup",
+    "texto": "Ir arriba",
+    "tamano": "22x36"
+   },
+   {
+    "el": "button#mu-godown",
+    "texto": "Ir al fondo",
+    "tamano": "22x36"
+   },
+   {
+    "el": "button.mu-acct-btn",
+    "texto": "Cuenta",
+    "tamano": "36x28"
+   },
+   {
+    "el": "button.mu-exp-fbtn.on",
+    "texto": "Todos",
+    "tamano": "59x24"
+   },
+   {
+    "el": "button.mu-exp-fbtn",
+    "texto": "Talleres",
+    "tamano": "72x24"
+   },
+   {
+    "el": "button.mu-exp-sbtn.on",
+    "texto": "sugerido",
+    "tamano": "73x23"
+   },
+   {
+    "el": "button.mu-exp-sbtn",
+    "texto": "por tamaño",
+    "tamano": "90x23"
+   }
+  ],
+  "graves": 0,
+  "medios": 0,
+  "captura": null
+ },
+ {
+  "ruta": "formulas",
+  "ancho": 360,
+  "idioma": "es",
+  "overflowPagina": null,
+  "desbordes": [],
+  "cortados": [],
+  "solapes": [],
+  "flotantes": [],
+  "pequenos": [
+   {
+    "el": "button#mu-goup",
+    "texto": "Ir arriba",
+    "tamano": "22x36"
+   },
+   {
+    "el": "button#mu-godown",
+    "texto": "Ir al fondo",
+    "tamano": "22x36"
+   },
+   {
+    "el": "button.mu-acct-btn",
+    "texto": "Cuenta",
+    "tamano": "36x28"
+   },
+   {
+    "el": "button.tb-btn.on",
+    "texto": "Zoom",
+    "tamano": "65x25"
+   },
+   {
+    "el": "button.tb-btn",
+    "texto": "Pan",
+    "tamano": "57x25"
+   },
+   {
+    "el": "button.tb-btn.tb-zoom",
+    "texto": "Alejar",
+    "tamano": "30x23"
+   },
+   {
+    "el": "button.tb-btn.tb-zoom",
+    "texto": "Acercar",
+    "tamano": "30x23"
+   },
+   {
+    "el": "button.tb-btn",
+    "texto": "Vista",
+    "tamano": "72x25"
+   },
+   {
+    "el": "button.vbtn",
+    "texto": "Reintentar",
+    "tamano": "112x26"
+   },
+   {
+    "el": "input.param-num",
+    "texto": "1",
+    "tamano": "56x31"
+   },
+   {
+    "el": "button#anim-btn",
+    "texto": "Animar",
+    "tamano": "89x26"
+   },
+   {
+    "el": "button.vbtn",
+    "texto": "↺ Reset",
+    "tamano": "77x26"
+   },
+   {
+    "el": "select#speed-sel",
+    "texto": "0.25× 0.5× 1× 1.5× 2×",
+    "tamano": "85x31"
+   }
+  ],
+  "graves": 0,
+  "medios": 0,
+  "captura": null
+ },
+ {
+  "ruta": "juegos",
+  "ancho": 360,
+  "idioma": "es",
+  "overflowPagina": null,
+  "desbordes": [],
+  "cortados": [],
+  "solapes": [],
+  "flotantes": [],
+  "pequenos": [
+   {
+    "el": "button#mu-goup",
+    "texto": "Ir arriba",
+    "tamano": "22x36"
+   },
+   {
+    "el": "button#mu-godown",
+    "texto": "Ir al fondo",
+    "tamano": "22x36"
+   },
+   {
+    "el": "button.mu-acct-btn",
+    "texto": "Cuenta",
+    "tamano": "36x28"
+   }
+  ],
+  "graves": 0,
+  "medios": 0,
+  "captura": null
+ },
+ {
+  "ruta": "diagnostico",
+  "ancho": 360,
+  "idioma": "es",
+  "overflowPagina": null,
+  "desbordes": [],
+  "cortados": [],
+  "solapes": [],
+  "flotantes": [],
+  "pequenos": [
+   {
+    "el": "button#mu-goup",
+    "texto": "Ir arriba",
+    "tamano": "22x36"
+   },
+   {
+    "el": "button#mu-godown",
+    "texto": "Ir al fondo",
+    "tamano": "22x36"
+   },
+   {
+    "el": "button.mu-acct-btn",
+    "texto": "Cuenta",
+    "tamano": "36x28"
+   }
+  ],
+  "graves": 0,
+  "medios": 0,
+  "captura": null
+ },
+ {
+  "ruta": "privacidad",
+  "ancho": 360,
+  "idioma": "es",
+  "overflowPagina": null,
+  "desbordes": [],
+  "cortados": [],
+  "solapes": [],
+  "flotantes": [],
+  "pequenos": [
+   {
+    "el": "button#mu-goup",
+    "texto": "Ir arriba",
+    "tamano": "22x36"
+   },
+   {
+    "el": "button#mu-godown",
+    "texto": "Ir al fondo",
+    "tamano": "22x36"
+   }
+  ],
+  "graves": 0,
+  "medios": 0,
+  "captura": null
+ },
+ {
+  "ruta": "acerca",
+  "ancho": 360,
+  "idioma": "es",
+  "overflowPagina": null,
+  "desbordes": [],
+  "cortados": [],
+  "solapes": [],
+  "flotantes": [],
+  "pequenos": [
+   {
+    "el": "button#mu-goup",
+    "texto": "Ir arriba",
+    "tamano": "22x36"
+   },
+   {
+    "el": "button#mu-godown",
+    "texto": "Ir al fondo",
+    "tamano": "22x36"
+   },
+   {
+    "el": "button.mu-acct-btn",
+    "texto": "Cuenta",
+    "tamano": "36x28"
+   }
+  ],
+  "graves": 0,
+  "medios": 0,
+  "captura": null
+ },
+ {
+  "ruta": "home",
+  "ancho": 360,
+  "idioma": "en",
+  "overflowPagina": null,
+  "desbordes": [],
+  "cortados": [],
+  "solapes": [
+   {
+    "a": "a",
+    "ta": "",
+    "b": "a.mc",
+    "tb": "∧∨ SEMESTER 4 Discrete Mathematics □ 23 PDFs See m",
+    "porcentaje": 91
+   }
+  ],
+  "flotantes": [
+   {
+    "flotante": "a.fab-wa.idle",
+    "tapa": "a.btn-a",
+    "texto": "Explore subjects →"
+   }
+  ],
+  "pequenos": [
+   {
+    "el": "button#mu-goup",
+    "texto": "Ir arriba",
+    "tamano": "22x36"
+   },
+   {
+    "el": "button#mu-godown",
+    "texto": "Ir al fondo",
+    "tamano": "22x36"
+   },
+   {
+    "el": "button.mu-acct-btn",
+    "texto": "Cuenta",
+    "tamano": "36x28"
+   },
+   {
+    "el": "button",
+    "texto": "Save my progress",
+    "tamano": "145x27"
+   },
+   {
+    "el": "button",
+    "texto": "▶ Start now",
+    "tamano": "123x31"
+   },
+   {
+    "el": "button.sim-mat-pick-skip",
+    "texto": "Show all",
+    "tamano": "55x21"
+   },
+   {
+    "el": "a.smt-leaf",
+    "texto": "π Pre-calculus Popular",
+    "tamano": "238x29"
+   },
+   {
+    "el": "a.smt-leaf",
+    "texto": "∫ Integral Calculus",
+    "tamano": "238x29"
+   },
+   {
+    "el": "a.smt-leaf",
+    "texto": "[ ] Linear Algebra Popular",
+    "tamano": "238x29"
+   },
+   {
+    "el": "a.smt-leaf",
+    "texto": "∇ Multivariable Calculus",
+    "tamano": "238x29"
+   },
+   {
+    "el": "a.smt-leaf",
+    "texto": "y' Differential Equations",
+    "tamano": "238x29"
+   },
+   {
+    "el": "a.smt-leaf",
+    "texto": "f≈ Numerical Methods",
+    "tamano": "238x29"
+   },
+   {
+    "el": "a.smt-leaf",
+    "texto": "∇² Advanced Mathematics",
+    "tamano": "238x29"
+   },
+   {
+    "el": "a.smt-leaf",
+    "texto": "∀∃ Math Foundations",
+    "tamano": "238x29"
+   },
+   {
+    "el": "a.smt-leaf",
+    "texto": "∧∨ Discrete Mathematics",
+    "tamano": "238x29"
+   },
+   {
+    "el": "a.smt-leaf.smt-leaf-more",
+    "texto": "See all →",
+    "tamano": "238x29"
+   },
+   {
+    "el": "a.smt-leaf",
+    "texto": "∑ SIDEX mock exams",
+    "tamano": "215x29"
+   },
+   {
+    "el": "a.smt-leaf",
+    "texto": "⊕ Free diagnostic",
+    "tamano": "215x29"
+   },
+   {
+    "el": "a.smt-leaf",
+    "texto": "∫ Interactive formula sheet",
+    "tamano": "215x29"
+   },
+   {
+    "el": "a.smt-leaf",
+    "texto": "≡ Grade calculator",
+    "tamano": "215x29"
+   },
+   {
+    "el": "a.smt-leaf",
+    "texto": "π Weighted average",
+    "tamano": "215x29"
+   },
+   {
+    "el": "a.smt-leaf",
+    "texto": "♦ Games",
+    "tamano": "215x29"
+   },
+   {
+    "el": "a.smt-leaf",
+    "texto": "↑ Contribute material",
+    "tamano": "198x29"
+   },
+   {
+    "el": "a.smt-leaf",
+    "texto": "? FAQ",
+    "tamano": "198x29"
+   },
+   {
+    "el": "a.smt-leaf",
+    "texto": "∮ The story of MathUNAL",
+    "tamano": "198x29"
+   },
+   {
+    "el": "a.smt-leaf",
+    "texto": "⌘ Privacy",
+    "tamano": "198x29"
+   },
+   {
+    "el": "a",
+    "texto": "@math.unal",
+    "tamano": "119x29"
+   },
+   {
+    "el": "a",
+    "texto": "LinkedIn",
+    "tamano": "119x29"
+   },
+   {
+    "el": "a",
+    "texto": "Privacy",
+    "tamano": "119x25"
+   },
+   {
+    "el": "a",
+    "texto": "The story",
+    "tamano": "119x25"
+   }
+  ],
+  "graves": 0,
+  "medios": 2,
+  "captura": "tests/capturas/home_360_en.png"
+ },
+ {
+  "ruta": "simulacro",
+  "ancho": 360,
+  "idioma": "en",
+  "overflowPagina": null,
+  "desbordes": [],
+  "cortados": [],
+  "solapes": [],
+  "flotantes": [],
+  "pequenos": [
+   {
+    "el": "button#mu-goup",
+    "texto": "Ir arriba",
+    "tamano": "22x36"
+   },
+   {
+    "el": "button#mu-godown",
+    "texto": "Ir al fondo",
+    "tamano": "22x36"
+   },
+   {
+    "el": "button.mu-acct-btn",
+    "texto": "Cuenta",
+    "tamano": "36x28"
+   },
+   {
+    "el": "button.sim-onb-chip.on",
+    "texto": "Differential Calculus PRO",
+    "tamano": "215x27"
+   },
+   {
+    "el": "button.sim-onb-chip",
+    "texto": "Integral Calculus PRO",
+    "tamano": "190x27"
+   },
+   {
+    "el": "button.sim-onb-chip",
+    "texto": "Linear Algebra PRO",
+    "tamano": "173x27"
+   },
+   {
+    "el": "button.sim-onb-chip",
+    "texto": "Differential Equations PRO",
+    "tamano": "226x27"
+   },
+   {
+    "el": "button.sim-onb-chip",
+    "texto": "Multivariable Calculus PRO",
+    "tamano": "229x27"
+   },
+   {
+    "el": "button.sim-onb-chip",
+    "texto": "Vector & Analytic Geometry PRO",
+    "tamano": "270x27"
+   },
+   {
+    "el": "button.sim-onb-chip",
+    "texto": "Discrete Mathematics PRO",
+    "tamano": "226x27"
+   },
+   {
+    "el": "button.sim-onb-chip",
+    "texto": "Pre-calculus PRO",
+    "tamano": "155x27"
+   },
+   {
+    "el": "button.sim-onb-chip",
+    "texto": "Math Foundations PRO",
+    "tamano": "198x27"
+   },
+   {
+    "el": "button.sim-onb-chip",
+    "texto": "Numerical Methods PRO",
+    "tamano": "208x27"
+   },
+   {
+    "el": "button.sim-onb-chip",
+    "texto": "Advanced Mathematics PRO",
+    "tamano": "237x27"
+   },
+   {
+    "el": "button.sim-onb-chip",
+    "texto": "Corte 1 · 30%",
+    "tamano": "127x27"
+   },
+   {
+    "el": "button.sim-onb-chip",
+    "texto": "Corte 2 · 30%",
+    "tamano": "127x27"
+   },
+   {
+    "el": "button.sim-onb-chip",
+    "texto": "Corte 3 · 40%",
+    "tamano": "127x27"
+   },
+   {
+    "el": "button.sim-tipo-pill.on",
+    "texto": "All",
+    "tamano": "302x29"
+   },
+   {
+    "el": "button.sim-tipo-pill",
+    "texto": "Exams",
+    "tamano": "302x29"
+   },
+   {
+    "el": "button.sim-tipo-pill",
+    "texto": "Quizzes",
+    "tamano": "302x29"
+   },
+   {
+    "el": "button.sim-tipo-pill",
+    "texto": "Worksheets",
+    "tamano": "302x29"
+   },
+   {
+    "el": "button#svt-mat",
+    "texto": "By subject",
+    "tamano": "148x28"
+   },
+   {
+    "el": "button#svt-year",
+    "texto": "By year",
+    "tamano": "148x28"
+   }
+  ],
+  "graves": 0,
+  "medios": 0,
+  "captura": null
+ },
+ {
+  "ruta": "materia-1000003",
+  "ancho": 360,
+  "idioma": "en",
+  "overflowPagina": null,
+  "desbordes": [],
+  "cortados": [
+   {
+    "el": "span",
+    "texto": "solved",
+    "detalle": "sobresale de div.mu-fc-name"
+   }
+  ],
+  "solapes": [],
+  "flotantes": [],
+  "pequenos": [
+   {
+    "el": "button#mu-goup",
+    "texto": "Ir arriba",
+    "tamano": "22x36"
+   },
+   {
+    "el": "button#mu-godown",
+    "texto": "Ir al fondo",
+    "tamano": "22x36"
+   },
+   {
+    "el": "button.mu-acct-btn",
+    "texto": "Cuenta",
+    "tamano": "36x28"
+   },
+   {
+    "el": "button.mu-exp-fbtn.on",
+    "texto": "All",
+    "tamano": "39x24"
+   },
+   {
+    "el": "button.mu-exp-fbtn",
+    "texto": "Syllabus",
+    "tamano": "76x24"
+   },
+   {
+    "el": "button.mu-exp-fbtn",
+    "texto": "Formulas",
+    "tamano": "81x24"
+   },
+   {
+    "el": "button.mu-exp-fbtn",
+    "texto": "Books",
+    "tamano": "61x24"
+   },
+   {
+    "el": "button.mu-exp-fbtn",
+    "texto": "Worksheets",
+    "tamano": "97x24"
+   },
+   {
+    "el": "button.mu-exp-fbtn",
+    "texto": "Quizzes",
+    "tamano": "71x24"
+   },
+   {
+    "el": "button.mu-exp-fbtn",
+    "texto": "Exams",
+    "tamano": "64x24"
+   },
+   {
+    "el": "button.mu-exp-fbtn",
+    "texto": "Mock exams",
+    "tamano": "100x24"
+   },
+   {
+    "el": "button.mu-exp-sbtn.on",
+    "texto": "suggested",
+    "tamano": "84x23"
+   },
+   {
+    "el": "button.mu-exp-sbtn",
+    "texto": "by size",
+    "tamano": "62x23"
+   }
+  ],
+  "graves": 0,
+  "medios": 1,
+  "captura": "tests/capturas/materia-1000003_360_en.png"
+ },
+ {
+  "ruta": "materia-1000004",
+  "ancho": 360,
+  "idioma": "en",
+  "overflowPagina": null,
+  "desbordes": [],
+  "cortados": [
+   {
+    "el": "span",
+    "texto": "solved",
+    "detalle": "sobresale de div.mu-fc-name"
+   },
+   {
+    "el": "span",
+    "texto": "solved",
+    "detalle": "sobresale de div.mu-fc-name"
+   },
+   {
+    "el": "span",
+    "texto": "solved",
+    "detalle": "sobresale de div.mu-fc-name"
+   },
+   {
+    "el": "span",
+    "texto": "solved",
+    "detalle": "sobresale de div.mu-fc-name"
+   },
+   {
+    "el": "span",
+    "texto": "solved",
+    "detalle": "sobresale de div.mu-fc-name"
+   },
+   {
+    "el": "span",
+    "texto": "solved",
+    "detalle": "sobresale de div.mu-fc-name"
+   },
+   {
+    "el": "span",
+    "texto": "solved",
+    "detalle": "sobresale de div.mu-fc-name"
+   },
+   {
+    "el": "span",
+    "texto": "solved",
+    "detalle": "sobresale de div.mu-fc-name"
+   },
+   {
+    "el": "span",
+    "texto": "solved",
+    "detalle": "sobresale de div.mu-fc-name"
+   },
+   {
+    "el": "span",
+    "texto": "solved",
+    "detalle": "sobresale de div.mu-fc-name"
+   },
+   {
+    "el": "span",
+    "texto": "solved",
+    "detalle": "sobresale de div.mu-fc-name"
+   }
+  ],
+  "solapes": [],
+  "flotantes": [],
+  "pequenos": [
+   {
+    "el": "button#mu-goup",
+    "texto": "Ir arriba",
+    "tamano": "22x36"
+   },
+   {
+    "el": "button#mu-godown",
+    "texto": "Ir al fondo",
+    "tamano": "22x36"
+   },
+   {
+    "el": "button.mu-acct-btn",
+    "texto": "Cuenta",
+    "tamano": "36x28"
+   },
+   {
+    "el": "button.mu-exp-fbtn.on",
+    "texto": "All",
+    "tamano": "39x24"
+   },
+   {
+    "el": "button.mu-exp-fbtn",
+    "texto": "Syllabus",
+    "tamano": "76x24"
+   },
+   {
+    "el": "button.mu-exp-fbtn",
+    "texto": "Notes",
+    "tamano": "59x24"
+   },
+   {
+    "el": "button.mu-exp-fbtn",
+    "texto": "Formulas",
+    "tamano": "81x24"
+   },
+   {
+    "el": "button.mu-exp-fbtn",
+    "texto": "Books",
+    "tamano": "61x24"
+   },
+   {
+    "el": "button.mu-exp-fbtn",
+    "texto": "Worksheets",
+    "tamano": "97x24"
+   },
+   {
+    "el": "button.mu-exp-fbtn",
+    "texto": "Quizzes",
+    "tamano": "71x24"
+   },
+   {
+    "el": "button.mu-exp-fbtn",
+    "texto": "Exams",
+    "tamano": "64x24"
+   },
+   {
+    "el": "button.mu-exp-fbtn",
+    "texto": "Mock exams",
+    "tamano": "100x24"
+   },
+   {
+    "el": "button.mu-exp-sbtn.on",
+    "texto": "suggested",
+    "tamano": "84x23"
+   },
+   {
+    "el": "button.mu-exp-sbtn",
+    "texto": "by size",
+    "tamano": "62x23"
+   }
+  ],
+  "graves": 0,
+  "medios": 11,
+  "captura": "tests/capturas/materia-1000004_360_en.png"
+ },
+ {
+  "ruta": "materia-1000013",
+  "ancho": 360,
+  "idioma": "en",
+  "overflowPagina": null,
+  "desbordes": [],
+  "cortados": [],
+  "solapes": [],
+  "flotantes": [],
+  "pequenos": [
+   {
+    "el": "button#mu-goup",
+    "texto": "Ir arriba",
+    "tamano": "22x36"
+   },
+   {
+    "el": "button#mu-godown",
+    "texto": "Ir al fondo",
+    "tamano": "22x36"
+   },
+   {
+    "el": "button.mu-acct-btn",
+    "texto": "Cuenta",
+    "tamano": "36x28"
+   },
+   {
+    "el": "button.mu-exp-fbtn.on",
+    "texto": "All",
+    "tamano": "39x24"
+   },
+   {
+    "el": "button.mu-exp-fbtn",
+    "texto": "Syllabus",
+    "tamano": "76x24"
+   },
+   {
+    "el": "button.mu-exp-fbtn",
+    "texto": "Notes",
+    "tamano": "59x24"
+   },
+   {
+    "el": "button.mu-exp-fbtn",
+    "texto": "Formulas",
+    "tamano": "81x24"
+   },
+   {
+    "el": "button.mu-exp-fbtn",
+    "texto": "Worksheets",
+    "tamano": "97x24"
+   },
+   {
+    "el": "button.mu-exp-fbtn",
+    "texto": "Quizzes",
+    "tamano": "71x24"
+   },
+   {
+    "el": "button.mu-exp-fbtn",
+    "texto": "Mock exams",
+    "tamano": "100x24"
+   },
+   {
+    "el": "button.mu-exp-sbtn.on",
+    "texto": "suggested",
+    "tamano": "84x23"
+   },
+   {
+    "el": "button.mu-exp-sbtn",
+    "texto": "by size",
+    "tamano": "62x23"
+   }
+  ],
+  "graves": 0,
+  "medios": 0,
+  "captura": null
+ },
+ {
+  "ruta": "materia-1000005",
+  "ancho": 360,
+  "idioma": "en",
+  "overflowPagina": null,
+  "desbordes": [],
+  "cortados": [
+   {
+    "el": "span",
+    "texto": "solved",
+    "detalle": "sobresale de div.mu-fc-name"
+   },
+   {
+    "el": "span",
+    "texto": "solved",
+    "detalle": "sobresale de div.mu-fc-name"
+   },
+   {
+    "el": "span",
+    "texto": "solved",
+    "detalle": "sobresale de div.mu-fc-name"
+   },
+   {
+    "el": "span",
+    "texto": "solved",
+    "detalle": "sobresale de div.mu-fc-name"
+   },
+   {
+    "el": "span",
+    "texto": "solved",
+    "detalle": "sobresale de div.mu-fc-name"
+   },
+   {
+    "el": "span",
+    "texto": "solved",
+    "detalle": "sobresale de div.mu-fc-name"
+   },
+   {
+    "el": "span",
+    "texto": "solved",
+    "detalle": "sobresale de div.mu-fc-name"
+   },
+   {
+    "el": "span",
+    "texto": "solved",
+    "detalle": "sobresale de div.mu-fc-name"
+   },
+   {
+    "el": "span",
+    "texto": "solved",
+    "detalle": "sobresale de div.mu-fc-name"
+   },
+   {
+    "el": "span",
+    "texto": "solved",
+    "detalle": "sobresale de div.mu-fc-name"
+   },
+   {
+    "el": "span",
+    "texto": "solved",
+    "detalle": "sobresale de div.mu-fc-name"
+   },
+   {
+    "el": "span",
+    "texto": "solved",
+    "detalle": "sobresale de div.mu-fc-name"
+   },
+   {
+    "el": "span",
+    "texto": "solved",
+    "detalle": "sobresale de div.mu-fc-name"
+   },
+   {
+    "el": "span",
+    "texto": "solved",
+    "detalle": "sobresale de div.mu-fc-name"
+   },
+   {
+    "el": "span",
+    "texto": "solved",
+    "detalle": "sobresale de div.mu-fc-name"
+   },
+   {
+    "el": "span",
+    "texto": "solved",
+    "detalle": "sobresale de div.mu-fc-name"
+   },
+   {
+    "el": "span",
+    "texto": "solved",
+    "detalle": "sobresale de div.mu-fc-name"
+   },
+   {
+    "el": "span",
+    "texto": "solved",
+    "detalle": "sobresale de div.mu-fc-name"
+   },
+   {
+    "el": "span",
+    "texto": "solved",
+    "detalle": "sobresale de div.mu-fc-name"
+   },
+   {
+    "el": "span",
+    "texto": "solved",
+    "detalle": "sobresale de div.mu-fc-name"
+   },
+   {
+    "el": "span",
+    "texto": "solved",
+    "detalle": "sobresale de div.mu-fc-name"
+   },
+   {
+    "el": "span",
+    "texto": "solved",
+    "detalle": "sobresale de div.mu-fc-name"
+   }
+  ],
+  "solapes": [],
+  "flotantes": [],
+  "pequenos": [
+   {
+    "el": "button#mu-goup",
+    "texto": "Ir arriba",
+    "tamano": "22x36"
+   },
+   {
+    "el": "button#mu-godown",
+    "texto": "Ir al fondo",
+    "tamano": "22x36"
+   },
+   {
+    "el": "button.mu-acct-btn",
+    "texto": "Cuenta",
+    "tamano": "36x28"
+   },
+   {
+    "el": "button.mu-exp-fbtn.on",
+    "texto": "All",
+    "tamano": "39x24"
+   },
+   {
+    "el": "button.mu-exp-fbtn",
+    "texto": "Syllabus",
+    "tamano": "76x24"
+   },
+   {
+    "el": "button.mu-exp-fbtn",
+    "texto": "Notes",
+    "tamano": "59x24"
+   },
+   {
+    "el": "button.mu-exp-fbtn",
+    "texto": "Formulas",
+    "tamano": "81x24"
+   },
+   {
+    "el": "button.mu-exp-fbtn",
+    "texto": "Worksheets",
+    "tamano": "97x24"
+   },
+   {
+    "el": "button.mu-exp-fbtn",
+    "texto": "Quizzes",
+    "tamano": "71x24"
+   },
+   {
+    "el": "button.mu-exp-fbtn",
+    "texto": "Exams",
+    "tamano": "64x24"
+   },
+   {
+    "el": "button.mu-exp-fbtn",
+    "texto": "Mock exams",
+    "tamano": "100x24"
+   },
+   {
+    "el": "button.mu-exp-sbtn.on",
+    "texto": "suggested",
+    "tamano": "84x23"
+   },
+   {
+    "el": "button.mu-exp-sbtn",
+    "texto": "by size",
+    "tamano": "62x23"
+   }
+  ],
+  "graves": 0,
+  "medios": 22,
+  "captura": "tests/capturas/materia-1000005_360_en.png"
+ },
+ {
+  "ruta": "materia-1000006",
+  "ancho": 360,
+  "idioma": "en",
+  "overflowPagina": null,
+  "desbordes": [],
+  "cortados": [
+   {
+    "el": "span",
+    "texto": "solved",
+    "detalle": "sobresale de div.mu-fc-name"
+   },
+   {
+    "el": "span",
+    "texto": "solved",
+    "detalle": "sobresale de div.mu-fc-name"
+   },
+   {
+    "el": "span",
+    "texto": "solved",
+    "detalle": "sobresale de div.mu-fc-name"
+   }
+  ],
+  "solapes": [],
+  "flotantes": [],
+  "pequenos": [
+   {
+    "el": "button#mu-goup",
+    "texto": "Ir arriba",
+    "tamano": "22x36"
+   },
+   {
+    "el": "button#mu-godown",
+    "texto": "Ir al fondo",
+    "tamano": "22x36"
+   },
+   {
+    "el": "button.mu-acct-btn",
+    "texto": "Cuenta",
+    "tamano": "36x28"
+   },
+   {
+    "el": "button.mu-exp-fbtn.on",
+    "texto": "All",
+    "tamano": "39x24"
+   },
+   {
+    "el": "button.mu-exp-fbtn",
+    "texto": "Syllabus",
+    "tamano": "76x24"
+   },
+   {
+    "el": "button.mu-exp-fbtn",
+    "texto": "Notes",
+    "tamano": "59x24"
+   },
+   {
+    "el": "button.mu-exp-fbtn",
+    "texto": "Formulas",
+    "tamano": "81x24"
+   },
+   {
+    "el": "button.mu-exp-fbtn",
+    "texto": "Books",
+    "tamano": "61x24"
+   },
+   {
+    "el": "button.mu-exp-fbtn",
+    "texto": "Worksheets",
+    "tamano": "97x24"
+   },
+   {
+    "el": "button.mu-exp-fbtn",
+    "texto": "Exams",
+    "tamano": "64x24"
+   },
+   {
+    "el": "button.mu-exp-fbtn",
+    "texto": "Mock exams",
+    "tamano": "100x24"
+   },
+   {
+    "el": "button.mu-exp-sbtn.on",
+    "texto": "suggested",
+    "tamano": "84x23"
+   },
+   {
+    "el": "button.mu-exp-sbtn",
+    "texto": "by size",
+    "tamano": "62x23"
+   }
+  ],
+  "graves": 0,
+  "medios": 3,
+  "captura": "tests/capturas/materia-1000006_360_en.png"
+ },
+ {
+  "ruta": "materia-1000007",
+  "ancho": 360,
+  "idioma": "en",
+  "overflowPagina": null,
+  "desbordes": [],
+  "cortados": [],
+  "solapes": [
+   {
+    "a": "a.mu-prereq-link",
+    "ta": "↗ Integral Calculus",
+    "b": "a.mu-prereq-link",
+    "tb": "↗ Vector & Analytic Geometry",
+    "porcentaje": 43
+   }
+  ],
+  "flotantes": [],
+  "pequenos": [
+   {
+    "el": "button#mu-goup",
+    "texto": "Ir arriba",
+    "tamano": "22x36"
+   },
+   {
+    "el": "button#mu-godown",
+    "texto": "Ir al fondo",
+    "tamano": "22x36"
+   },
+   {
+    "el": "button.mu-acct-btn",
+    "texto": "Cuenta",
+    "tamano": "36x28"
+   },
+   {
+    "el": "button.mu-exp-fbtn.on",
+    "texto": "All",
+    "tamano": "39x24"
+   },
+   {
+    "el": "button.mu-exp-fbtn",
+    "texto": "Syllabus",
+    "tamano": "76x24"
+   },
+   {
+    "el": "button.mu-exp-fbtn",
+    "texto": "Notes",
+    "tamano": "59x24"
+   },
+   {
+    "el": "button.mu-exp-fbtn",
+    "texto": "Formulas",
+    "tamano": "81x24"
+   },
+   {
+    "el": "button.mu-exp-fbtn",
+    "texto": "Worksheets",
+    "tamano": "97x24"
+   },
+   {
+    "el": "button.mu-exp-fbtn",
+    "texto": "Exams",
+    "tamano": "64x24"
+   },
+   {
+    "el": "button.mu-exp-sbtn.on",
+    "texto": "suggested",
+    "tamano": "84x23"
+   },
+   {
+    "el": "button.mu-exp-sbtn",
+    "texto": "by size",
+    "tamano": "62x23"
+   }
+  ],
+  "graves": 0,
+  "medios": 1,
+  "captura": "tests/capturas/materia-1000007_360_en.png"
+ },
+ {
+  "ruta": "materia-1000008",
+  "ancho": 360,
+  "idioma": "en",
+  "overflowPagina": null,
+  "desbordes": [],
+  "cortados": [
+   {
+    "el": "span",
+    "texto": "solved",
+    "detalle": "sobresale de div.mu-fc-name"
+   },
+   {
+    "el": "span",
+    "texto": "solved",
+    "detalle": "sobresale de div.mu-fc-name"
+   },
+   {
+    "el": "span",
+    "texto": "solved",
+    "detalle": "sobresale de div.mu-fc-name"
+   },
+   {
+    "el": "span",
+    "texto": "solved",
+    "detalle": "sobresale de div.mu-fc-name"
+   },
+   {
+    "el": "span",
+    "texto": "solved",
+    "detalle": "sobresale de div.mu-fc-name"
+   },
+   {
+    "el": "span",
+    "texto": "solved",
+    "detalle": "sobresale de div.mu-fc-name"
+   },
+   {
+    "el": "span",
+    "texto": "solved",
+    "detalle": "sobresale de div.mu-fc-name"
+   },
+   {
+    "el": "span",
+    "texto": "solved",
+    "detalle": "sobresale de div.mu-fc-name"
+   },
+   {
+    "el": "span",
+    "texto": "solved",
+    "detalle": "sobresale de div.mu-fc-name"
+   },
+   {
+    "el": "span",
+    "texto": "solved",
+    "detalle": "sobresale de div.mu-fc-name"
+   }
+  ],
+  "solapes": [],
+  "flotantes": [],
+  "pequenos": [
+   {
+    "el": "button#mu-goup",
+    "texto": "Ir arriba",
+    "tamano": "22x36"
+   },
+   {
+    "el": "button#mu-godown",
+    "texto": "Ir al fondo",
+    "tamano": "22x36"
+   },
+   {
+    "el": "button.mu-acct-btn",
+    "texto": "Cuenta",
+    "tamano": "36x28"
+   },
+   {
+    "el": "button.mu-exp-fbtn.on",
+    "texto": "All",
+    "tamano": "39x24"
+   },
+   {
+    "el": "button.mu-exp-fbtn",
+    "texto": "Syllabus",
+    "tamano": "76x24"
+   },
+   {
+    "el": "button.mu-exp-fbtn",
+    "texto": "Notes",
+    "tamano": "59x24"
+   },
+   {
+    "el": "button.mu-exp-fbtn",
+    "texto": "Formulas",
+    "tamano": "81x24"
+   },
+   {
+    "el": "button.mu-exp-fbtn",
+    "texto": "Worksheets",
+    "tamano": "97x24"
+   },
+   {
+    "el": "button.mu-exp-fbtn",
+    "texto": "Exams",
+    "tamano": "64x24"
+   },
+   {
+    "el": "button.mu-exp-sbtn.on",
+    "texto": "suggested",
+    "tamano": "84x23"
+   },
+   {
+    "el": "button.mu-exp-sbtn",
+    "texto": "by size",
+    "tamano": "62x23"
+   }
+  ],
+  "graves": 0,
+  "medios": 10,
+  "captura": "tests/capturas/materia-1000008_360_en.png"
+ },
+ {
+  "ruta": "materia-1000009",
+  "ancho": 360,
+  "idioma": "en",
+  "overflowPagina": null,
+  "desbordes": [],
+  "cortados": [],
+  "solapes": [
+   {
+    "a": "a.mu-prereq-link",
+    "ta": "↗ Integral Calculus",
+    "b": "a.mu-prereq-link",
+    "tb": "↗ Linear Algebra",
+    "porcentaje": 43
+   }
+  ],
+  "flotantes": [],
+  "pequenos": [
+   {
+    "el": "button#mu-goup",
+    "texto": "Ir arriba",
+    "tamano": "22x36"
+   },
+   {
+    "el": "button#mu-godown",
+    "texto": "Ir al fondo",
+    "tamano": "22x36"
+   },
+   {
+    "el": "button.mu-acct-btn",
+    "texto": "Cuenta",
+    "tamano": "36x28"
+   },
+   {
+    "el": "button.mu-exp-fbtn.on",
+    "texto": "All",
+    "tamano": "39x24"
+   },
+   {
+    "el": "button.mu-exp-fbtn",
+    "texto": "Syllabus",
+    "tamano": "76x24"
+   },
+   {
+    "el": "button.mu-exp-fbtn",
+    "texto": "Notes",
+    "tamano": "59x24"
+   },
+   {
+    "el": "button.mu-exp-fbtn",
+    "texto": "Formulas",
+    "tamano": "81x24"
+   },
+   {
+    "el": "button.mu-exp-fbtn",
+    "texto": "Quizzes",
+    "tamano": "71x24"
+   },
+   {
+    "el": "button.mu-exp-fbtn",
+    "texto": "Exams",
+    "tamano": "64x24"
+   },
+   {
+    "el": "button.mu-exp-sbtn.on",
+    "texto": "suggested",
+    "tamano": "84x23"
+   },
+   {
+    "el": "button.mu-exp-sbtn",
+    "texto": "by size",
+    "tamano": "62x23"
+   }
+  ],
+  "graves": 0,
+  "medios": 1,
+  "captura": "tests/capturas/materia-1000009_360_en.png"
+ },
+ {
+  "ruta": "materia-1000012",
+  "ancho": 360,
+  "idioma": "en",
+  "overflowPagina": null,
+  "desbordes": [],
+  "cortados": [
+   {
+    "el": "span",
+    "texto": "solved",
+    "detalle": "sobresale de div.mu-fc-name"
+   },
+   {
+    "el": "span",
+    "texto": "solved",
+    "detalle": "sobresale de div.mu-fc-name"
+   }
+  ],
+  "solapes": [],
+  "flotantes": [],
+  "pequenos": [
+   {
+    "el": "button#mu-goup",
+    "texto": "Ir arriba",
+    "tamano": "22x36"
+   },
+   {
+    "el": "button#mu-godown",
+    "texto": "Ir al fondo",
+    "tamano": "22x36"
+   },
+   {
+    "el": "button.mu-acct-btn",
+    "texto": "Cuenta",
+    "tamano": "36x28"
+   },
+   {
+    "el": "button.mu-exp-fbtn.on",
+    "texto": "All",
+    "tamano": "39x24"
+   },
+   {
+    "el": "button.mu-exp-fbtn",
+    "texto": "Syllabus",
+    "tamano": "76x24"
+   },
+   {
+    "el": "button.mu-exp-fbtn",
+    "texto": "Notes",
+    "tamano": "59x24"
+   },
+   {
+    "el": "button.mu-exp-fbtn",
+    "texto": "Formulas",
+    "tamano": "81x24"
+   },
+   {
+    "el": "button.mu-exp-fbtn",
+    "texto": "Worksheets",
+    "tamano": "97x24"
+   },
+   {
+    "el": "button.mu-exp-fbtn",
+    "texto": "Exams",
+    "tamano": "64x24"
+   },
+   {
+    "el": "button.mu-exp-fbtn",
+    "texto": "Mock exams",
+    "tamano": "100x24"
+   },
+   {
+    "el": "button.mu-exp-sbtn.on",
+    "texto": "suggested",
+    "tamano": "84x23"
+   },
+   {
+    "el": "button.mu-exp-sbtn",
+    "texto": "by size",
+    "tamano": "62x23"
+   }
+  ],
+  "graves": 0,
+  "medios": 2,
+  "captura": "tests/capturas/materia-1000012_360_en.png"
+ },
+ {
+  "ruta": "materia-1000011",
+  "ancho": 360,
+  "idioma": "en",
+  "overflowPagina": null,
+  "desbordes": [],
+  "cortados": [
+   {
+    "el": "span",
+    "texto": "solved",
+    "detalle": "sobresale de div.mu-fc-name"
+   },
+   {
+    "el": "span",
+    "texto": "solved",
+    "detalle": "sobresale de div.mu-fc-name"
+   },
+   {
+    "el": "span",
+    "texto": "solved",
+    "detalle": "sobresale de div.mu-fc-name"
+   }
+  ],
+  "solapes": [],
+  "flotantes": [],
+  "pequenos": [
+   {
+    "el": "button#mu-goup",
+    "texto": "Ir arriba",
+    "tamano": "22x36"
+   },
+   {
+    "el": "button#mu-godown",
+    "texto": "Ir al fondo",
+    "tamano": "22x36"
+   },
+   {
+    "el": "button.mu-acct-btn",
+    "texto": "Cuenta",
+    "tamano": "36x28"
+   },
+   {
+    "el": "button.mu-exp-fbtn.on",
+    "texto": "All",
+    "tamano": "39x24"
+   },
+   {
+    "el": "button.mu-exp-fbtn",
+    "texto": "Syllabus",
+    "tamano": "76x24"
+   },
+   {
+    "el": "button.mu-exp-fbtn",
+    "texto": "Notes",
+    "tamano": "59x24"
+   },
+   {
+    "el": "button.mu-exp-fbtn",
+    "texto": "Formulas",
+    "tamano": "81x24"
+   },
+   {
+    "el": "button.mu-exp-fbtn",
+    "texto": "Worksheets",
+    "tamano": "97x24"
+   },
+   {
+    "el": "button.mu-exp-fbtn",
+    "texto": "Exams",
+    "tamano": "64x24"
+   },
+   {
+    "el": "button.mu-exp-fbtn",
+    "texto": "Homework",
+    "tamano": "90x24"
+   },
+   {
+    "el": "button.mu-exp-sbtn.on",
+    "texto": "suggested",
+    "tamano": "84x23"
+   },
+   {
+    "el": "button.mu-exp-sbtn",
+    "texto": "by size",
+    "tamano": "62x23"
+   }
+  ],
+  "graves": 0,
+  "medios": 3,
+  "captura": "tests/capturas/materia-1000011_360_en.png"
+ },
+ {
+  "ruta": "materia-1000010",
+  "ancho": 360,
+  "idioma": "en",
+  "overflowPagina": null,
+  "desbordes": [],
+  "cortados": [],
+  "solapes": [],
+  "flotantes": [],
+  "pequenos": [
+   {
+    "el": "button#mu-goup",
+    "texto": "Ir arriba",
+    "tamano": "22x36"
+   },
+   {
+    "el": "button#mu-godown",
+    "texto": "Ir al fondo",
+    "tamano": "22x36"
+   },
+   {
+    "el": "button.mu-acct-btn",
+    "texto": "Cuenta",
+    "tamano": "36x28"
+   },
+   {
+    "el": "button.mu-exp-fbtn.on",
+    "texto": "All",
+    "tamano": "39x24"
+   },
+   {
+    "el": "button.mu-exp-fbtn",
+    "texto": "Formulas",
+    "tamano": "81x24"
+   },
+   {
+    "el": "button.mu-exp-fbtn",
+    "texto": "Worksheets",
+    "tamano": "97x24"
+   },
+   {
+    "el": "button.mu-exp-fbtn",
+    "texto": "Exams",
+    "tamano": "64x24"
+   },
+   {
+    "el": "button.mu-exp-sbtn.on",
+    "texto": "suggested",
+    "tamano": "84x23"
+   },
+   {
+    "el": "button.mu-exp-sbtn",
+    "texto": "by size",
+    "tamano": "62x23"
+   }
+  ],
+  "graves": 0,
+  "medios": 0,
+  "captura": null
+ },
+ {
+  "ruta": "materia-1000014",
+  "ancho": 360,
+  "idioma": "en",
+  "overflowPagina": null,
+  "desbordes": [],
+  "cortados": [],
+  "solapes": [],
+  "flotantes": [],
+  "pequenos": [
+   {
+    "el": "button#mu-goup",
+    "texto": "Ir arriba",
+    "tamano": "22x36"
+   },
+   {
+    "el": "button#mu-godown",
+    "texto": "Ir al fondo",
+    "tamano": "22x36"
+   },
+   {
+    "el": "button.mu-acct-btn",
+    "texto": "Cuenta",
+    "tamano": "36x28"
+   },
+   {
+    "el": "button.mu-exp-fbtn.on",
+    "texto": "All",
+    "tamano": "39x24"
+   },
+   {
+    "el": "button.mu-exp-fbtn",
+    "texto": "Worksheets",
+    "tamano": "97x24"
+   },
+   {
+    "el": "button.mu-exp-sbtn.on",
+    "texto": "suggested",
+    "tamano": "84x23"
+   },
+   {
+    "el": "button.mu-exp-sbtn",
+    "texto": "by size",
+    "tamano": "62x23"
+   }
+  ],
+  "graves": 0,
+  "medios": 0,
+  "captura": null
+ },
+ {
+  "ruta": "formulas",
+  "ancho": 360,
+  "idioma": "en",
+  "overflowPagina": null,
+  "desbordes": [],
+  "cortados": [],
+  "solapes": [],
+  "flotantes": [],
+  "pequenos": [
+   {
+    "el": "button#mu-goup",
+    "texto": "Ir arriba",
+    "tamano": "22x36"
+   },
+   {
+    "el": "button#mu-godown",
+    "texto": "Ir al fondo",
+    "tamano": "22x36"
+   },
+   {
+    "el": "button.mu-acct-btn",
+    "texto": "Cuenta",
+    "tamano": "36x28"
+   },
+   {
+    "el": "button.tb-btn.on",
+    "texto": "Zoom",
+    "tamano": "65x25"
+   },
+   {
+    "el": "button.tb-btn",
+    "texto": "Pan",
+    "tamano": "57x25"
+   },
+   {
+    "el": "button.tb-btn.tb-zoom",
+    "texto": "Zoom out",
+    "tamano": "30x23"
+   },
+   {
+    "el": "button.tb-btn.tb-zoom",
+    "texto": "Zoom in",
+    "tamano": "30x23"
+   },
+   {
+    "el": "button.tb-btn",
+    "texto": "View",
+    "tamano": "65x25"
+   },
+   {
+    "el": "button.vbtn",
+    "texto": "Reintentar",
+    "tamano": "112x26"
+   },
+   {
+    "el": "input.param-num",
+    "texto": "1",
+    "tamano": "56x31"
+   },
+   {
+    "el": "button#anim-btn",
+    "texto": "Animate",
+    "tamano": "97x26"
+   },
+   {
+    "el": "button.vbtn",
+    "texto": "↺ Reset",
+    "tamano": "77x26"
+   },
+   {
+    "el": "select#speed-sel",
+    "texto": "0.25× 0.5× 1× 1.5× 2×",
+    "tamano": "85x31"
+   }
+  ],
+  "graves": 0,
+  "medios": 0,
+  "captura": null
+ },
+ {
+  "ruta": "juegos",
+  "ancho": 360,
+  "idioma": "en",
+  "overflowPagina": null,
+  "desbordes": [],
+  "cortados": [],
+  "solapes": [],
+  "flotantes": [],
+  "pequenos": [
+   {
+    "el": "button#mu-goup",
+    "texto": "Ir arriba",
+    "tamano": "22x36"
+   },
+   {
+    "el": "button#mu-godown",
+    "texto": "Ir al fondo",
+    "tamano": "22x36"
+   },
+   {
+    "el": "button.mu-acct-btn",
+    "texto": "Cuenta",
+    "tamano": "36x28"
+   }
+  ],
+  "graves": 0,
+  "medios": 0,
+  "captura": null
+ },
+ {
+  "ruta": "diagnostico",
+  "ancho": 360,
+  "idioma": "en",
+  "overflowPagina": null,
+  "desbordes": [],
+  "cortados": [],
+  "solapes": [],
+  "flotantes": [],
+  "pequenos": [
+   {
+    "el": "button#mu-goup",
+    "texto": "Ir arriba",
+    "tamano": "22x36"
+   },
+   {
+    "el": "button#mu-godown",
+    "texto": "Ir al fondo",
+    "tamano": "22x36"
+   },
+   {
+    "el": "button.mu-acct-btn",
+    "texto": "Cuenta",
+    "tamano": "36x28"
+   }
+  ],
+  "graves": 0,
+  "medios": 0,
+  "captura": null
+ },
+ {
+  "ruta": "privacidad",
+  "ancho": 360,
+  "idioma": "en",
+  "overflowPagina": null,
+  "desbordes": [],
+  "cortados": [],
+  "solapes": [],
+  "flotantes": [],
+  "pequenos": [
+   {
+    "el": "button#mu-goup",
+    "texto": "Ir arriba",
+    "tamano": "22x36"
+   },
+   {
+    "el": "button#mu-godown",
+    "texto": "Ir al fondo",
+    "tamano": "22x36"
+   }
+  ],
+  "graves": 0,
+  "medios": 0,
+  "captura": null
+ },
+ {
+  "ruta": "acerca",
+  "ancho": 360,
+  "idioma": "en",
+  "overflowPagina": null,
+  "desbordes": [],
+  "cortados": [],
+  "solapes": [],
+  "flotantes": [],
+  "pequenos": [
+   {
+    "el": "button#mu-goup",
+    "texto": "Ir arriba",
+    "tamano": "22x36"
+   },
+   {
+    "el": "button#mu-godown",
+    "texto": "Ir al fondo",
+    "tamano": "22x36"
+   },
+   {
+    "el": "button.mu-acct-btn",
+    "texto": "Cuenta",
+    "tamano": "36x28"
+   }
+  ],
+  "graves": 0,
+  "medios": 0,
+  "captura": null
+ },
+ {
+  "ruta": "home",
+  "ancho": 768,
+  "idioma": "es",
+  "overflowPagina": null,
+  "desbordes": [],
+  "cortados": [
+   {
+    "el": "div.sim-prev-name",
+    "texto": "Fundamentos de Matemáticas PRO",
+    "detalle": "scrollWidth 125 > clientWidth 122"
+   }
+  ],
+  "solapes": [
+   {
+    "a": "a",
+    "ta": "",
+    "b": "a.mc",
+    "tb": "∂ SEMESTRE 1 ● POPULAR Cálculo Diferencial Límites",
+    "porcentaje": 100
+   }
+  ],
+  "flotantes": [],
+  "pequenos": [
+   {
+    "el": "button#mu-goup",
+    "texto": "Ir arriba",
+    "tamano": "20x33"
+   },
+   {
+    "el": "button#mu-godown",
+    "texto": "Ir al fondo",
+    "tamano": "20x33"
+   },
+   {
+    "el": "button",
+    "texto": "Guardar mi progreso",
+    "tamano": "165x27"
+   },
+   {
+    "el": "button",
+    "texto": "▶ Empezar ahora",
+    "tamano": "162x31"
+   },
+   {
+    "el": "button.sim-mat-pick-skip",
+    "texto": "Ver todas",
+    "tamano": "62x21"
+   },
+   {
+    "el": "summary",
+    "texto": "Ver el calendario completo del semestre",
+    "tamano": "654x23"
+   },
+   {
+    "el": "a.smt-leaf",
+    "texto": "π Matemáticas Básicas Popular",
+    "tamano": "402x29"
+   },
+   {
+    "el": "a.smt-leaf",
+    "texto": "∂ Cálculo Diferencial Popular",
+    "tamano": "402x29"
+   },
+   {
+    "el": "a.smt-leaf",
+    "texto": "∫ Cálculo Integral",
+    "tamano": "402x29"
+   },
+   {
+    "el": "a.smt-leaf",
+    "texto": "[ ] Álgebra Lineal Popular",
+    "tamano": "402x29"
+   },
+   {
+    "el": "a.smt-leaf",
+    "texto": "∇ Cálculo en Varias Variables",
+    "tamano": "402x29"
+   },
+   {
+    "el": "a.smt-leaf",
+    "texto": "y' Ecuaciones Diferenciales",
+    "tamano": "402x29"
+   },
+   {
+    "el": "a.smt-leaf",
+    "texto": "f≈ Métodos Numéricos",
+    "tamano": "402x29"
+   },
+   {
+    "el": "a.smt-leaf",
+    "texto": "∇² Matemáticas Especiales",
+    "tamano": "402x29"
+   },
+   {
+    "el": "a.smt-leaf",
+    "texto": "∀∃ Fundamentos de Matemáticas",
+    "tamano": "402x29"
+   },
+   {
+    "el": "a.smt-leaf",
+    "texto": "∧∨ Matemáticas Discretas",
+    "tamano": "402x29"
+   },
+   {
+    "el": "a.smt-leaf",
+    "texto": "→v Geometría Vectorial y Analítica",
+    "tamano": "402x29"
+   },
+   {
+    "el": "a.smt-leaf",
+    "texto": "n! Fundamentos de Matemáticas Discretas",
+    "tamano": "402x29"
+   },
+   {
+    "el": "a.smt-leaf.smt-leaf-more",
+    "texto": "Ver todas →",
+    "tamano": "402x29"
+   },
+   {
+    "el": "a.smt-leaf",
+    "texto": "∑ Simulacros SIDEX",
+    "tamano": "191x29"
+   },
+   {
+    "el": "a.smt-leaf",
+    "texto": "⊕ Diagnóstico gratis",
+    "tamano": "191x29"
+   },
+   {
+    "el": "a.smt-leaf",
+    "texto": "∫ Formulario interactivo",
+    "tamano": "191x29"
+   },
+   {
+    "el": "a.smt-leaf",
+    "texto": "≡ Calculadora de notas",
+    "tamano": "191x29"
+   },
+   {
+    "el": "a.smt-leaf",
+    "texto": "π Promedio por créditos",
+    "tamano": "191x29"
+   },
+   {
+    "el": "a.smt-leaf",
+    "texto": "♦ Juegos",
+    "tamano": "191x29"
+   },
+   {
+    "el": "a.smt-leaf",
+    "texto": "↑ Aportar material",
+    "tamano": "210x29"
+   },
+   {
+    "el": "a.smt-leaf",
+    "texto": "? Preguntas frecuentes",
+    "tamano": "210x29"
+   },
+   {
+    "el": "a.smt-leaf",
+    "texto": "∮ La historia de MathUNAL",
+    "tamano": "210x29"
+   },
+   {
+    "el": "a.smt-leaf",
+    "texto": "⌘ Privacidad",
+    "tamano": "210x29"
+   },
+   {
+    "el": "a",
+    "texto": "Grupo WhatsApp",
+    "tamano": "320x29"
+   },
+   {
+    "el": "a",
+    "texto": "@math.unal",
+    "tamano": "320x29"
+   },
+   {
+    "el": "a",
+    "texto": "WhatsApp: 316 348 0451",
+    "tamano": "320x29"
+   },
+   {
+    "el": "a",
+    "texto": "LinkedIn",
+    "tamano": "320x29"
+   },
+   {
+    "el": "a",
+    "texto": "Privacidad",
+    "tamano": "320x29"
+   },
+   {
+    "el": "a",
+    "texto": "La historia",
+    "tamano": "320x29"
+   },
+   {
+    "el": "a",
+    "texto": "Aportar material",
+    "tamano": "320x29"
+   }
+  ],
+  "graves": 0,
+  "medios": 2,
+  "captura": "tests/capturas/home_768_es.png"
+ },
+ {
+  "ruta": "simulacro",
+  "ancho": 768,
+  "idioma": "es",
+  "overflowPagina": null,
+  "desbordes": [],
+  "cortados": [],
+  "solapes": [],
+  "flotantes": [],
+  "pequenos": [
+   {
+    "el": "button#mu-goup",
+    "texto": "Ir arriba",
+    "tamano": "20x33"
+   },
+   {
+    "el": "button#mu-godown",
+    "texto": "Ir al fondo",
+    "tamano": "20x33"
+   },
+   {
+    "el": "a.nav-sec-link",
+    "texto": "Fórmulas",
+    "tamano": "73x26"
+   },
+   {
+    "el": "button.sim-onb-chip.on",
+    "texto": "Cálculo Diferencial PRO",
+    "tamano": "203x27"
+   },
+   {
+    "el": "button.sim-onb-chip",
+    "texto": "Cálculo Integral PRO",
+    "tamano": "181x27"
+   },
+   {
+    "el": "button.sim-onb-chip",
+    "texto": "Álgebra Lineal PRO",
+    "tamano": "171x27"
+   },
+   {
+    "el": "button.sim-onb-chip",
+    "texto": "Ecuaciones Diferenciales PRO",
+    "tamano": "248x27"
+   },
+   {
+    "el": "button.sim-onb-chip",
+    "texto": "Cálculo en Varias Variables PRO",
+    "tamano": "265x27"
+   },
+   {
+    "el": "button.sim-onb-chip",
+    "texto": "Geometría Vectorial PRO",
+    "tamano": "212x27"
+   },
+   {
+    "el": "button.sim-onb-chip",
+    "texto": "Matemáticas Discretas PRO",
+    "tamano": "233x27"
+   },
+   {
+    "el": "button.sim-onb-chip",
+    "texto": "Matemáticas Básicas PRO",
+    "tamano": "220x27"
+   },
+   {
+    "el": "button.sim-onb-chip",
+    "texto": "Fundamentos de Matemáticas PRO",
+    "tamano": "287x27"
+   },
+   {
+    "el": "button.sim-onb-chip",
+    "texto": "Métodos Numéricos PRO",
+    "tamano": "211x27"
+   },
+   {
+    "el": "button.sim-onb-chip",
+    "texto": "Matemáticas Especiales PRO",
+    "tamano": "241x27"
+   },
+   {
+    "el": "button.sim-onb-chip",
+    "texto": "Corte 1 · 30%",
+    "tamano": "127x27"
+   },
+   {
+    "el": "button.sim-onb-chip",
+    "texto": "Corte 2 · 30%",
+    "tamano": "127x27"
+   },
+   {
+    "el": "button.sim-onb-chip",
+    "texto": "Corte 3 · 40%",
+    "tamano": "127x27"
+   },
+   {
+    "el": "button.sim-tipo-pill.on",
+    "texto": "Todos",
+    "tamano": "690x29"
+   },
+   {
+    "el": "button.sim-tipo-pill",
+    "texto": "Parciales",
+    "tamano": "690x29"
+   },
+   {
+    "el": "button.sim-tipo-pill",
+    "texto": "Quices",
+    "tamano": "690x29"
+   },
+   {
+    "el": "button.sim-tipo-pill",
+    "texto": "Talleres",
+    "tamano": "690x29"
+   },
+   {
+    "el": "button#svt-mat",
+    "texto": "Por materia",
+    "tamano": "342x28"
+   },
+   {
+    "el": "button#svt-year",
+    "texto": "Por año",
+    "tamano": "342x28"
+   }
+  ],
+  "graves": 0,
+  "medios": 0,
+  "captura": null
+ },
+ {
+  "ruta": "materia-1000003",
+  "ancho": 768,
+  "idioma": "es",
+  "overflowPagina": null,
+  "desbordes": [],
+  "cortados": [],
+  "solapes": [],
+  "flotantes": [],
+  "pequenos": [
+   {
+    "el": "button#mu-goup",
+    "texto": "Ir arriba",
+    "tamano": "20x33"
+   },
+   {
+    "el": "button#mu-godown",
+    "texto": "Ir al fondo",
+    "tamano": "20x33"
+   },
+   {
+    "el": "button.mu-exp-fbtn.on",
+    "texto": "Todos",
+    "tamano": "59x24"
+   },
+   {
+    "el": "button.mu-exp-fbtn",
+    "texto": "Programa",
+    "tamano": "84x24"
+   },
+   {
+    "el": "button.mu-exp-fbtn",
+    "texto": "Formularios",
+    "tamano": "98x24"
+   },
+   {
+    "el": "button.mu-exp-fbtn",
+    "texto": "Libros",
+    "tamano": "62x24"
+   },
+   {
+    "el": "button.mu-exp-fbtn",
+    "texto": "Talleres",
+    "tamano": "72x24"
+   },
+   {
+    "el": "button.mu-exp-fbtn",
+    "texto": "Quices",
+    "tamano": "65x24"
+   },
+   {
+    "el": "button.mu-exp-fbtn",
+    "texto": "Parciales",
+    "tamano": "80x24"
+   },
+   {
+    "el": "button.mu-exp-fbtn",
+    "texto": "Simulacros",
+    "tamano": "92x24"
+   },
+   {
+    "el": "button.mu-exp-sbtn.on",
+    "texto": "sugerido",
+    "tamano": "73x23"
+   },
+   {
+    "el": "button.mu-exp-sbtn",
+    "texto": "por tamaño",
+    "tamano": "90x23"
+   }
+  ],
+  "graves": 0,
+  "medios": 0,
+  "captura": null
+ },
+ {
+  "ruta": "materia-1000004",
+  "ancho": 768,
+  "idioma": "es",
+  "overflowPagina": null,
+  "desbordes": [],
+  "cortados": [],
+  "solapes": [],
+  "flotantes": [],
+  "pequenos": [
+   {
+    "el": "button#mu-goup",
+    "texto": "Ir arriba",
+    "tamano": "20x33"
+   },
+   {
+    "el": "button#mu-godown",
+    "texto": "Ir al fondo",
+    "tamano": "20x33"
+   },
+   {
+    "el": "button.mu-exp-fbtn.on",
+    "texto": "Todos",
+    "tamano": "59x24"
+   },
+   {
+    "el": "button.mu-exp-fbtn",
+    "texto": "Programa",
+    "tamano": "84x24"
+   },
+   {
+    "el": "button.mu-exp-fbtn",
+    "texto": "Notas",
+    "tamano": "59x24"
+   },
+   {
+    "el": "button.mu-exp-fbtn",
+    "texto": "Formularios",
+    "tamano": "98x24"
+   },
+   {
+    "el": "button.mu-exp-fbtn",
+    "texto": "Libros",
+    "tamano": "62x24"
+   },
+   {
+    "el": "button.mu-exp-fbtn",
+    "texto": "Talleres",
+    "tamano": "72x24"
+   },
+   {
+    "el": "button.mu-exp-fbtn",
+    "texto": "Quices",
+    "tamano": "65x24"
+   },
+   {
+    "el": "button.mu-exp-fbtn",
+    "texto": "Parciales",
+    "tamano": "80x24"
+   },
+   {
+    "el": "button.mu-exp-fbtn",
+    "texto": "Simulacros",
+    "tamano": "92x24"
+   },
+   {
+    "el": "button.mu-exp-sbtn.on",
+    "texto": "sugerido",
+    "tamano": "73x23"
+   },
+   {
+    "el": "button.mu-exp-sbtn",
+    "texto": "por tamaño",
+    "tamano": "90x23"
+   }
+  ],
+  "graves": 0,
+  "medios": 0,
+  "captura": null
+ },
+ {
+  "ruta": "materia-1000013",
+  "ancho": 768,
+  "idioma": "es",
+  "overflowPagina": null,
+  "desbordes": [],
+  "cortados": [],
+  "solapes": [],
+  "flotantes": [],
+  "pequenos": [
+   {
+    "el": "button#mu-goup",
+    "texto": "Ir arriba",
+    "tamano": "20x33"
+   },
+   {
+    "el": "button#mu-godown",
+    "texto": "Ir al fondo",
+    "tamano": "20x33"
+   },
+   {
+    "el": "button.mu-exp-fbtn.on",
+    "texto": "Todos",
+    "tamano": "59x24"
+   },
+   {
+    "el": "button.mu-exp-fbtn",
+    "texto": "Programa",
+    "tamano": "84x24"
+   },
+   {
+    "el": "button.mu-exp-fbtn",
+    "texto": "Notas",
+    "tamano": "59x24"
+   },
+   {
+    "el": "button.mu-exp-fbtn",
+    "texto": "Formularios",
+    "tamano": "98x24"
+   },
+   {
+    "el": "button.mu-exp-fbtn",
+    "texto": "Talleres",
+    "tamano": "72x24"
+   },
+   {
+    "el": "button.mu-exp-fbtn",
+    "texto": "Quices",
+    "tamano": "65x24"
+   },
+   {
+    "el": "button.mu-exp-fbtn",
+    "texto": "Simulacros",
+    "tamano": "92x24"
+   },
+   {
+    "el": "button.mu-exp-sbtn.on",
+    "texto": "sugerido",
+    "tamano": "73x23"
+   },
+   {
+    "el": "button.mu-exp-sbtn",
+    "texto": "por tamaño",
+    "tamano": "90x23"
+   }
+  ],
+  "graves": 0,
+  "medios": 0,
+  "captura": null
+ },
+ {
+  "ruta": "materia-1000005",
+  "ancho": 768,
+  "idioma": "es",
+  "overflowPagina": null,
+  "desbordes": [],
+  "cortados": [],
+  "solapes": [],
+  "flotantes": [],
+  "pequenos": [
+   {
+    "el": "button#mu-goup",
+    "texto": "Ir arriba",
+    "tamano": "20x33"
+   },
+   {
+    "el": "button#mu-godown",
+    "texto": "Ir al fondo",
+    "tamano": "20x33"
+   },
+   {
+    "el": "button.mu-exp-fbtn.on",
+    "texto": "Todos",
+    "tamano": "59x24"
+   },
+   {
+    "el": "button.mu-exp-fbtn",
+    "texto": "Programa",
+    "tamano": "84x24"
+   },
+   {
+    "el": "button.mu-exp-fbtn",
+    "texto": "Notas",
+    "tamano": "59x24"
+   },
+   {
+    "el": "button.mu-exp-fbtn",
+    "texto": "Formularios",
+    "tamano": "98x24"
+   },
+   {
+    "el": "button.mu-exp-fbtn",
+    "texto": "Talleres",
+    "tamano": "72x24"
+   },
+   {
+    "el": "button.mu-exp-fbtn",
+    "texto": "Quices",
+    "tamano": "65x24"
+   },
+   {
+    "el": "button.mu-exp-fbtn",
+    "texto": "Parciales",
+    "tamano": "80x24"
+   },
+   {
+    "el": "button.mu-exp-fbtn",
+    "texto": "Simulacros",
+    "tamano": "92x24"
+   },
+   {
+    "el": "button.mu-exp-sbtn.on",
+    "texto": "sugerido",
+    "tamano": "73x23"
+   },
+   {
+    "el": "button.mu-exp-sbtn",
+    "texto": "por tamaño",
+    "tamano": "90x23"
+   }
+  ],
+  "graves": 0,
+  "medios": 0,
+  "captura": null
+ },
+ {
+  "ruta": "materia-1000006",
+  "ancho": 768,
+  "idioma": "es",
+  "overflowPagina": null,
+  "desbordes": [],
+  "cortados": [],
+  "solapes": [],
+  "flotantes": [],
+  "pequenos": [
+   {
+    "el": "button#mu-goup",
+    "texto": "Ir arriba",
+    "tamano": "20x33"
+   },
+   {
+    "el": "button#mu-godown",
+    "texto": "Ir al fondo",
+    "tamano": "20x33"
+   },
+   {
+    "el": "button.mu-exp-fbtn.on",
+    "texto": "Todos",
+    "tamano": "59x24"
+   },
+   {
+    "el": "button.mu-exp-fbtn",
+    "texto": "Programa",
+    "tamano": "84x24"
+   },
+   {
+    "el": "button.mu-exp-fbtn",
+    "texto": "Notas",
+    "tamano": "59x24"
+   },
+   {
+    "el": "button.mu-exp-fbtn",
+    "texto": "Formularios",
+    "tamano": "98x24"
+   },
+   {
+    "el": "button.mu-exp-fbtn",
+    "texto": "Libros",
+    "tamano": "62x24"
+   },
+   {
+    "el": "button.mu-exp-fbtn",
+    "texto": "Talleres",
+    "tamano": "72x24"
+   },
+   {
+    "el": "button.mu-exp-fbtn",
+    "texto": "Parciales",
+    "tamano": "80x24"
+   },
+   {
+    "el": "button.mu-exp-fbtn",
+    "texto": "Simulacros",
+    "tamano": "92x24"
+   },
+   {
+    "el": "button.mu-exp-sbtn.on",
+    "texto": "sugerido",
+    "tamano": "73x23"
+   },
+   {
+    "el": "button.mu-exp-sbtn",
+    "texto": "por tamaño",
+    "tamano": "90x23"
+   }
+  ],
+  "graves": 0,
+  "medios": 0,
+  "captura": null
+ },
+ {
+  "ruta": "materia-1000007",
+  "ancho": 768,
+  "idioma": "es",
+  "overflowPagina": null,
+  "desbordes": [],
+  "cortados": [],
+  "solapes": [],
+  "flotantes": [],
+  "pequenos": [
+   {
+    "el": "button#mu-goup",
+    "texto": "Ir arriba",
+    "tamano": "20x33"
+   },
+   {
+    "el": "button#mu-godown",
+    "texto": "Ir al fondo",
+    "tamano": "20x33"
+   },
+   {
+    "el": "button.mu-exp-fbtn.on",
+    "texto": "Todos",
+    "tamano": "59x24"
+   },
+   {
+    "el": "button.mu-exp-fbtn",
+    "texto": "Programa",
+    "tamano": "84x24"
+   },
+   {
+    "el": "button.mu-exp-fbtn",
+    "texto": "Notas",
+    "tamano": "59x24"
+   },
+   {
+    "el": "button.mu-exp-fbtn",
+    "texto": "Formularios",
+    "tamano": "98x24"
+   },
+   {
+    "el": "button.mu-exp-fbtn",
+    "texto": "Talleres",
+    "tamano": "72x24"
+   },
+   {
+    "el": "button.mu-exp-fbtn",
+    "texto": "Parciales",
+    "tamano": "80x24"
+   },
+   {
+    "el": "button.mu-exp-sbtn.on",
+    "texto": "sugerido",
+    "tamano": "73x23"
+   },
+   {
+    "el": "button.mu-exp-sbtn",
+    "texto": "por tamaño",
+    "tamano": "90x23"
+   }
+  ],
+  "graves": 0,
+  "medios": 0,
+  "captura": null
+ },
+ {
+  "ruta": "materia-1000008",
+  "ancho": 768,
+  "idioma": "es",
+  "overflowPagina": null,
+  "desbordes": [],
+  "cortados": [],
+  "solapes": [],
+  "flotantes": [],
+  "pequenos": [
+   {
+    "el": "button#mu-goup",
+    "texto": "Ir arriba",
+    "tamano": "20x33"
+   },
+   {
+    "el": "button#mu-godown",
+    "texto": "Ir al fondo",
+    "tamano": "20x33"
+   },
+   {
+    "el": "button.mu-exp-fbtn.on",
+    "texto": "Todos",
+    "tamano": "59x24"
+   },
+   {
+    "el": "button.mu-exp-fbtn",
+    "texto": "Programa",
+    "tamano": "84x24"
+   },
+   {
+    "el": "button.mu-exp-fbtn",
+    "texto": "Notas",
+    "tamano": "59x24"
+   },
+   {
+    "el": "button.mu-exp-fbtn",
+    "texto": "Formularios",
+    "tamano": "98x24"
+   },
+   {
+    "el": "button.mu-exp-fbtn",
+    "texto": "Talleres",
+    "tamano": "72x24"
+   },
+   {
+    "el": "button.mu-exp-fbtn",
+    "texto": "Parciales",
+    "tamano": "80x24"
+   },
+   {
+    "el": "button.mu-exp-sbtn.on",
+    "texto": "sugerido",
+    "tamano": "73x23"
+   },
+   {
+    "el": "button.mu-exp-sbtn",
+    "texto": "por tamaño",
+    "tamano": "90x23"
+   }
+  ],
+  "graves": 0,
+  "medios": 0,
+  "captura": null
+ },
+ {
+  "ruta": "materia-1000009",
+  "ancho": 768,
+  "idioma": "es",
+  "overflowPagina": null,
+  "desbordes": [],
+  "cortados": [],
+  "solapes": [],
+  "flotantes": [],
+  "pequenos": [
+   {
+    "el": "button#mu-goup",
+    "texto": "Ir arriba",
+    "tamano": "20x33"
+   },
+   {
+    "el": "button#mu-godown",
+    "texto": "Ir al fondo",
+    "tamano": "20x33"
+   },
+   {
+    "el": "button.mu-exp-fbtn.on",
+    "texto": "Todos",
+    "tamano": "59x24"
+   },
+   {
+    "el": "button.mu-exp-fbtn",
+    "texto": "Programa",
+    "tamano": "84x24"
+   },
+   {
+    "el": "button.mu-exp-fbtn",
+    "texto": "Notas",
+    "tamano": "59x24"
+   },
+   {
+    "el": "button.mu-exp-fbtn",
+    "texto": "Formularios",
+    "tamano": "98x24"
+   },
+   {
+    "el": "button.mu-exp-fbtn",
+    "texto": "Quices",
+    "tamano": "65x24"
+   },
+   {
+    "el": "button.mu-exp-fbtn",
+    "texto": "Parciales",
+    "tamano": "80x24"
+   },
+   {
+    "el": "button.mu-exp-sbtn.on",
+    "texto": "sugerido",
+    "tamano": "73x23"
+   },
+   {
+    "el": "button.mu-exp-sbtn",
+    "texto": "por tamaño",
+    "tamano": "90x23"
+   }
+  ],
+  "graves": 0,
+  "medios": 0,
+  "captura": null
+ },
+ {
+  "ruta": "materia-1000012",
+  "ancho": 768,
+  "idioma": "es",
+  "overflowPagina": null,
+  "desbordes": [],
+  "cortados": [],
+  "solapes": [],
+  "flotantes": [],
+  "pequenos": [
+   {
+    "el": "button#mu-goup",
+    "texto": "Ir arriba",
+    "tamano": "20x33"
+   },
+   {
+    "el": "button#mu-godown",
+    "texto": "Ir al fondo",
+    "tamano": "20x33"
+   },
+   {
+    "el": "button.mu-exp-fbtn.on",
+    "texto": "Todos",
+    "tamano": "59x24"
+   },
+   {
+    "el": "button.mu-exp-fbtn",
+    "texto": "Programa",
+    "tamano": "84x24"
+   },
+   {
+    "el": "button.mu-exp-fbtn",
+    "texto": "Notas",
+    "tamano": "59x24"
+   },
+   {
+    "el": "button.mu-exp-fbtn",
+    "texto": "Formularios",
+    "tamano": "98x24"
+   },
+   {
+    "el": "button.mu-exp-fbtn",
+    "texto": "Talleres",
+    "tamano": "72x24"
+   },
+   {
+    "el": "button.mu-exp-fbtn",
+    "texto": "Parciales",
+    "tamano": "80x24"
+   },
+   {
+    "el": "button.mu-exp-fbtn",
+    "texto": "Simulacros",
+    "tamano": "92x24"
+   },
+   {
+    "el": "button.mu-exp-sbtn.on",
+    "texto": "sugerido",
+    "tamano": "73x23"
+   },
+   {
+    "el": "button.mu-exp-sbtn",
+    "texto": "por tamaño",
+    "tamano": "90x23"
+   }
+  ],
+  "graves": 0,
+  "medios": 0,
+  "captura": null
+ },
+ {
+  "ruta": "materia-1000011",
+  "ancho": 768,
+  "idioma": "es",
+  "overflowPagina": null,
+  "desbordes": [],
+  "cortados": [],
+  "solapes": [],
+  "flotantes": [],
+  "pequenos": [
+   {
+    "el": "button#mu-goup",
+    "texto": "Ir arriba",
+    "tamano": "20x33"
+   },
+   {
+    "el": "button#mu-godown",
+    "texto": "Ir al fondo",
+    "tamano": "20x33"
+   },
+   {
+    "el": "button.mu-exp-fbtn.on",
+    "texto": "Todos",
+    "tamano": "59x24"
+   },
+   {
+    "el": "button.mu-exp-fbtn",
+    "texto": "Programa",
+    "tamano": "84x24"
+   },
+   {
+    "el": "button.mu-exp-fbtn",
+    "texto": "Notas",
+    "tamano": "59x24"
+   },
+   {
+    "el": "button.mu-exp-fbtn",
+    "texto": "Formularios",
+    "tamano": "98x24"
+   },
+   {
+    "el": "button.mu-exp-fbtn",
+    "texto": "Talleres",
+    "tamano": "72x24"
+   },
+   {
+    "el": "button.mu-exp-fbtn",
+    "texto": "Parciales",
+    "tamano": "80x24"
+   },
+   {
+    "el": "button.mu-exp-fbtn",
+    "texto": "Tareas",
+    "tamano": "64x24"
+   },
+   {
+    "el": "button.mu-exp-sbtn.on",
+    "texto": "sugerido",
+    "tamano": "73x23"
+   },
+   {
+    "el": "button.mu-exp-sbtn",
+    "texto": "por tamaño",
+    "tamano": "90x23"
+   }
+  ],
+  "graves": 0,
+  "medios": 0,
+  "captura": null
+ },
+ {
+  "ruta": "materia-1000010",
+  "ancho": 768,
+  "idioma": "es",
+  "overflowPagina": null,
+  "desbordes": [],
+  "cortados": [],
+  "solapes": [],
+  "flotantes": [],
+  "pequenos": [
+   {
+    "el": "button#mu-goup",
+    "texto": "Ir arriba",
+    "tamano": "20x33"
+   },
+   {
+    "el": "button#mu-godown",
+    "texto": "Ir al fondo",
+    "tamano": "20x33"
+   },
+   {
+    "el": "button.mu-exp-fbtn.on",
+    "texto": "Todos",
+    "tamano": "59x24"
+   },
+   {
+    "el": "button.mu-exp-fbtn",
+    "texto": "Formularios",
+    "tamano": "98x24"
+   },
+   {
+    "el": "button.mu-exp-fbtn",
+    "texto": "Talleres",
+    "tamano": "72x24"
+   },
+   {
+    "el": "button.mu-exp-fbtn",
+    "texto": "Parciales",
+    "tamano": "80x24"
+   },
+   {
+    "el": "button.mu-exp-sbtn.on",
+    "texto": "sugerido",
+    "tamano": "73x23"
+   },
+   {
+    "el": "button.mu-exp-sbtn",
+    "texto": "por tamaño",
+    "tamano": "90x23"
+   }
+  ],
+  "graves": 0,
+  "medios": 0,
+  "captura": null
+ },
+ {
+  "ruta": "materia-1000014",
+  "ancho": 768,
+  "idioma": "es",
+  "overflowPagina": null,
+  "desbordes": [],
+  "cortados": [],
+  "solapes": [],
+  "flotantes": [],
+  "pequenos": [
+   {
+    "el": "button#mu-goup",
+    "texto": "Ir arriba",
+    "tamano": "20x33"
+   },
+   {
+    "el": "button#mu-godown",
+    "texto": "Ir al fondo",
+    "tamano": "20x33"
+   },
+   {
+    "el": "button.mu-exp-fbtn.on",
+    "texto": "Todos",
+    "tamano": "59x24"
+   },
+   {
+    "el": "button.mu-exp-fbtn",
+    "texto": "Talleres",
+    "tamano": "72x24"
+   },
+   {
+    "el": "button.mu-exp-sbtn.on",
+    "texto": "sugerido",
+    "tamano": "73x23"
+   },
+   {
+    "el": "button.mu-exp-sbtn",
+    "texto": "por tamaño",
+    "tamano": "90x23"
+   }
+  ],
+  "graves": 0,
+  "medios": 0,
+  "captura": null
+ },
+ {
+  "ruta": "formulas",
+  "ancho": 768,
+  "idioma": "es",
+  "overflowPagina": null,
+  "desbordes": [],
+  "cortados": [],
+  "solapes": [],
+  "flotantes": [],
+  "pequenos": [
+   {
+    "el": "button#mu-goup",
+    "texto": "Ir arriba",
+    "tamano": "20x33"
+   },
+   {
+    "el": "button#mu-godown",
+    "texto": "Ir al fondo",
+    "tamano": "20x33"
+   },
+   {
+    "el": "input#vf-search",
+    "texto": "",
+    "tamano": "200x19"
+   },
+   {
+    "el": "button.cpill.on",
+    "texto": "Todas",
+    "tamano": "55x23"
+   },
+   {
+    "el": "button.cpill",
+    "texto": "∞ Lím.",
+    "tamano": "57x23"
+   },
+   {
+    "el": "button.cpill",
+    "texto": "∂ Der.",
+    "tamano": "53x23"
+   },
+   {
+    "el": "button.cpill",
+    "texto": "∫ Int.",
+    "tamano": "46x23"
+   },
+   {
+    "el": "button.cpill",
+    "texto": "△ Trig.",
+    "tamano": "58x25"
+   },
+   {
+    "el": "button.cpill",
+    "texto": "∑ Series",
+    "tamano": "68x25"
+   },
+   {
+    "el": "button.cpill",
+    "texto": "⊕ Álg.",
+    "tamano": "57x25"
+   },
+   {
+    "el": "button.cpill",
+    "texto": "→ Vec.",
+    "tamano": "60x25"
+   },
+   {
+    "el": "button.cpill",
+    "texto": "f≈ Num.",
+    "tamano": "64x25"
+   },
+   {
+    "el": "button.cpill",
+    "texto": "↗ Geo.",
+    "tamano": "61x25"
+   },
+   {
+    "el": "button.cpill",
+    "texto": "λ EDO",
+    "tamano": "56x23"
+   },
+   {
+    "el": "button.cpill",
+    "texto": "{ } Disc.",
+    "tamano": "65x23"
+   },
+   {
+    "el": "button.tb-btn.on",
+    "texto": "Zoom",
+    "tamano": "76x29"
+   },
+   {
+    "el": "button.tb-btn",
+    "texto": "Pan",
+    "tamano": "66x29"
+   },
+   {
+    "el": "button.tb-btn.tb-zoom",
+    "texto": "Alejar",
+    "tamano": "30x23"
+   },
+   {
+    "el": "button.tb-btn.tb-zoom",
+    "texto": "Acercar",
+    "tamano": "30x23"
+   },
+   {
+    "el": "button.tb-btn",
+    "texto": "Vista",
+    "tamano": "85x29"
+   },
+   {
+    "el": "button.vbtn",
+    "texto": "Reintentar",
+    "tamano": "112x26"
+   },
+   {
+    "el": "input.param-num",
+    "texto": "1",
+    "tamano": "56x31"
+   },
+   {
+    "el": "button#anim-btn",
+    "texto": "Animar",
+    "tamano": "89x26"
+   },
+   {
+    "el": "button.vbtn",
+    "texto": "↺ Reset",
+    "tamano": "77x26"
+   },
+   {
+    "el": "select#speed-sel",
+    "texto": "0.25× 0.5× 1× 1.5× 2×",
+    "tamano": "85x31"
+   }
+  ],
+  "graves": 0,
+  "medios": 0,
+  "captura": null
+ },
+ {
+  "ruta": "juegos",
+  "ancho": 768,
+  "idioma": "es",
+  "overflowPagina": null,
+  "desbordes": [],
+  "cortados": [],
+  "solapes": [],
+  "flotantes": [],
+  "pequenos": [
+   {
+    "el": "button#mu-goup",
+    "texto": "Ir arriba",
+    "tamano": "20x33"
+   },
+   {
+    "el": "button#mu-godown",
+    "texto": "Ir al fondo",
+    "tamano": "20x33"
+   }
+  ],
+  "graves": 0,
+  "medios": 0,
+  "captura": null
+ },
+ {
+  "ruta": "diagnostico",
+  "ancho": 768,
+  "idioma": "es",
+  "overflowPagina": null,
+  "desbordes": [],
+  "cortados": [],
+  "solapes": [],
+  "flotantes": [],
+  "pequenos": [
+   {
+    "el": "button#mu-goup",
+    "texto": "Ir arriba",
+    "tamano": "20x33"
+   },
+   {
+    "el": "button#mu-godown",
+    "texto": "Ir al fondo",
+    "tamano": "20x33"
+   }
+  ],
+  "graves": 0,
+  "medios": 0,
+  "captura": null
+ },
+ {
+  "ruta": "privacidad",
+  "ancho": 768,
+  "idioma": "es",
+  "overflowPagina": null,
+  "desbordes": [],
+  "cortados": [],
+  "solapes": [],
+  "flotantes": [],
+  "pequenos": [
+   {
+    "el": "button#mu-goup",
+    "texto": "Ir arriba",
+    "tamano": "20x33"
+   },
+   {
+    "el": "button#mu-godown",
+    "texto": "Ir al fondo",
+    "tamano": "20x33"
+   }
+  ],
+  "graves": 0,
+  "medios": 0,
+  "captura": null
+ },
+ {
+  "ruta": "acerca",
+  "ancho": 768,
+  "idioma": "es",
+  "overflowPagina": null,
+  "desbordes": [],
+  "cortados": [],
+  "solapes": [],
+  "flotantes": [],
+  "pequenos": [
+   {
+    "el": "button#mu-goup",
+    "texto": "Ir arriba",
+    "tamano": "20x33"
+   },
+   {
+    "el": "button#mu-godown",
+    "texto": "Ir al fondo",
+    "tamano": "20x33"
+   }
+  ],
+  "graves": 0,
+  "medios": 0,
+  "captura": null
+ },
+ {
+  "ruta": "home",
+  "ancho": 1280,
+  "idioma": "es",
+  "overflowPagina": null,
+  "desbordes": [],
+  "cortados": [],
+  "solapes": [
+   {
+    "a": "a",
+    "ta": "",
+    "b": "a.mc",
+    "tb": "→ SEMESTRE 1 Geometría Vectorial y Analítica Vecto",
+    "porcentaje": 100
+   }
+  ],
+  "flotantes": [],
+  "pequenos": [],
+  "graves": 0,
+  "medios": 1,
+  "captura": "tests/capturas/home_1280_es.png"
+ },
+ {
+  "ruta": "simulacro",
+  "ancho": 1280,
+  "idioma": "es",
+  "overflowPagina": null,
+  "desbordes": [],
+  "cortados": [],
+  "solapes": [],
+  "flotantes": [],
+  "pequenos": [],
+  "graves": 0,
+  "medios": 0,
+  "captura": null
+ },
+ {
+  "ruta": "materia-1000003",
+  "ancho": 1280,
+  "idioma": "es",
+  "overflowPagina": null,
+  "desbordes": [],
+  "cortados": [
+   {
+    "el": "span",
+    "texto": "con solución",
+    "detalle": "sobresale de div.mu-fc-name"
+   }
+  ],
+  "solapes": [],
+  "flotantes": [],
+  "pequenos": [],
+  "graves": 0,
+  "medios": 1,
+  "captura": "tests/capturas/materia-1000003_1280_es.png"
+ },
+ {
+  "ruta": "materia-1000004",
+  "ancho": 1280,
+  "idioma": "es",
+  "overflowPagina": null,
+  "desbordes": [],
+  "cortados": [],
+  "solapes": [],
+  "flotantes": [],
+  "pequenos": [],
+  "graves": 0,
+  "medios": 0,
+  "captura": null
+ },
+ {
+  "ruta": "materia-1000013",
+  "ancho": 1280,
+  "idioma": "es",
+  "overflowPagina": null,
+  "desbordes": [],
+  "cortados": [],
+  "solapes": [],
+  "flotantes": [],
+  "pequenos": [],
+  "graves": 0,
+  "medios": 0,
+  "captura": null
+ },
+ {
+  "ruta": "materia-1000005",
+  "ancho": 1280,
+  "idioma": "es",
+  "overflowPagina": null,
+  "desbordes": [],
+  "cortados": [],
+  "solapes": [],
+  "flotantes": [],
+  "pequenos": [],
+  "graves": 0,
+  "medios": 0,
+  "captura": null
+ },
+ {
+  "ruta": "materia-1000006",
+  "ancho": 1280,
+  "idioma": "es",
+  "overflowPagina": null,
+  "desbordes": [],
+  "cortados": [],
+  "solapes": [],
+  "flotantes": [],
+  "pequenos": [],
+  "graves": 0,
+  "medios": 0,
+  "captura": null
+ },
+ {
+  "ruta": "materia-1000007",
+  "ancho": 1280,
+  "idioma": "es",
+  "overflowPagina": null,
+  "desbordes": [],
+  "cortados": [],
+  "solapes": [],
+  "flotantes": [],
+  "pequenos": [],
+  "graves": 0,
+  "medios": 0,
+  "captura": null
+ },
+ {
+  "ruta": "materia-1000008",
+  "ancho": 1280,
+  "idioma": "es",
+  "overflowPagina": null,
+  "desbordes": [],
+  "cortados": [],
+  "solapes": [],
+  "flotantes": [],
+  "pequenos": [],
+  "graves": 0,
+  "medios": 0,
+  "captura": null
+ },
+ {
+  "ruta": "materia-1000009",
+  "ancho": 1280,
+  "idioma": "es",
+  "overflowPagina": null,
+  "desbordes": [],
+  "cortados": [],
+  "solapes": [],
+  "flotantes": [],
+  "pequenos": [],
+  "graves": 0,
+  "medios": 0,
+  "captura": null
+ },
+ {
+  "ruta": "materia-1000012",
+  "ancho": 1280,
+  "idioma": "es",
+  "overflowPagina": null,
+  "desbordes": [],
+  "cortados": [],
+  "solapes": [],
+  "flotantes": [],
+  "pequenos": [],
+  "graves": 0,
+  "medios": 0,
+  "captura": null
+ },
+ {
+  "ruta": "materia-1000011",
+  "ancho": 1280,
+  "idioma": "es",
+  "overflowPagina": null,
+  "desbordes": [],
+  "cortados": [],
+  "solapes": [],
+  "flotantes": [],
+  "pequenos": [],
+  "graves": 0,
+  "medios": 0,
+  "captura": null
+ },
+ {
+  "ruta": "materia-1000010",
+  "ancho": 1280,
+  "idioma": "es",
+  "overflowPagina": null,
+  "desbordes": [],
+  "cortados": [],
+  "solapes": [],
+  "flotantes": [],
+  "pequenos": [],
+  "graves": 0,
+  "medios": 0,
+  "captura": null
+ },
+ {
+  "ruta": "materia-1000014",
+  "ancho": 1280,
+  "idioma": "es",
+  "overflowPagina": null,
+  "desbordes": [],
+  "cortados": [],
+  "solapes": [],
+  "flotantes": [],
+  "pequenos": [],
+  "graves": 0,
+  "medios": 0,
+  "captura": null
+ },
+ {
+  "ruta": "formulas",
+  "ancho": 1280,
+  "idioma": "es",
+  "overflowPagina": null,
+  "desbordes": [],
+  "cortados": [],
+  "solapes": [],
+  "flotantes": [],
+  "pequenos": [],
+  "graves": 0,
+  "medios": 0,
+  "captura": null
+ },
+ {
+  "ruta": "juegos",
+  "ancho": 1280,
+  "idioma": "es",
+  "overflowPagina": null,
+  "desbordes": [],
+  "cortados": [],
+  "solapes": [],
+  "flotantes": [],
+  "pequenos": [],
+  "graves": 0,
+  "medios": 0,
+  "captura": null
+ },
+ {
+  "ruta": "diagnostico",
+  "ancho": 1280,
+  "idioma": "es",
+  "overflowPagina": null,
+  "desbordes": [],
+  "cortados": [],
+  "solapes": [],
+  "flotantes": [],
+  "pequenos": [],
+  "graves": 0,
+  "medios": 0,
+  "captura": null
+ },
+ {
+  "ruta": "privacidad",
+  "ancho": 1280,
+  "idioma": "es",
+  "overflowPagina": null,
+  "desbordes": [],
+  "cortados": [],
+  "solapes": [],
+  "flotantes": [],
+  "pequenos": [],
+  "graves": 0,
+  "medios": 0,
+  "captura": null
+ },
+ {
+  "ruta": "acerca",
+  "ancho": 1280,
+  "idioma": "es",
+  "overflowPagina": null,
+  "desbordes": [],
+  "cortados": [],
+  "solapes": [],
+  "flotantes": [],
+  "pequenos": [],
+  "graves": 0,
+  "medios": 0,
+  "captura": null
+ }
+]
