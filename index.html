@@ -22704,6 +22704,16 @@ if(typeof window.muPresenciaInit==='function') window.muPresenciaInit();
 var MU_PARCIALES = [];
 var MU_DIAS_AVISO = 14;
 
+/* Escape HTML minimo (incluye comillas). El nombre de materia de
+   parciales_reportados lo puede escribir cualquier visitante via la Edge
+   Function reportar-parcial, asi que NUNCA debe llegar crudo a innerHTML. */
+function muEscHtml(s){
+  return String(s==null?'':s).replace(/[&<>"']/g,function(c){
+    return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];
+  });
+}
+window.muEscHtml = muEscHtml;
+
 window.__loadParciales = function(){
   var sbUrl = window.MU_SB_URL;
   var sbKey = 'sb_publishable_rR_f3qmPj_L-tuwrGUYxnA__MWGwobe'; // publishable key real, confirmada contra el proyecto
@@ -22713,7 +22723,8 @@ window.__loadParciales = function(){
   }).then(function(r){ return r.json(); }).then(function(data){
     if(!Array.isArray(data)) return;
     MU_PARCIALES = data.map(function(f){
-      return { mat:f.materia_nombre, label:'Parcial', fecha:f.fecha_parcial, confirmaciones:f.confirmaciones, validado:f.validado_admin };
+      /* mat ya sale escapado: sus unicos usos son innerHTML (banner y titular del ciclo). confirmaciones se fuerza a numero. */
+      return { mat:muEscHtml(f.materia_nombre), label:'Parcial', fecha:f.fecha_parcial, confirmaciones:Number(f.confirmaciones)||0, validado:!!f.validado_admin };
     });
     if(typeof muInitParcialBanner==='function') muInitParcialBanner();
     if(typeof muSyncCicloTitle==='function') muSyncCicloTitle();
