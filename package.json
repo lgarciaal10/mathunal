@@ -1,0 +1,14 @@
+{
+  "name": "mathunal-tests",
+  "private": true,
+  "description": "Pruebas automáticas de MathUNAL (solo desarrollo; el sitio en producción no usa nada de esto).",
+  "scripts": {
+    "test": "playwright test",
+    "test:rapido": "playwright test --grep \"dark\"",
+    "layout": "node tests/layout/run-layout.js",
+    "layout:estricto": "node tests/layout/run-layout.js --estricto"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.56.1"
+  }
+}
