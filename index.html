@@ -35781,7 +35781,29 @@ window.__muAuth = (function(){
   var ANON = (window.MU_SB_ANON||'sb_publishable_rR_f3qmPj_L-tuwrGUYxnA__MWGwobe');
   var SKEY='mu-auth', _s=null, _subs=[];
   function load(){ try{ _s=JSON.parse(localStorage.getItem(SKEY)||'null'); }catch(e){ _s=null; } return _s; }
-  function store(s){ _s=s; try{ s?localStorage.setItem(SKEY,JSON.stringify(s)):localStorage.removeItem(SKEY); }catch(e){} _subs.forEach(function(f){try{f(s);}catch(e){}}); }
+  /* Al cerrar sesion (o si el refresh falla) se borra de Cache Storage lo que
+     un service worker viejo haya guardado de Supabase y no sea publico: solo se
+     conserva la lista de materiales y el storage publico. */
+  function purgeUserCaches(){
+    try{
+      if(!window.caches) return;
+      caches.keys().then(function(names){
+        names.forEach(function(n){
+          caches.open(n).then(function(c){
+            return c.keys().then(function(reqs){
+              reqs.forEach(function(r){
+                var u=r.url;
+                if(u.indexOf('.supabase.co/')===-1) return;
+                if(u.indexOf('/rest/v1/materiales?')!==-1 || u.indexOf('/storage/v1/object/public/')!==-1) return;
+                c.delete(r);
+              });
+            });
+          });
+        });
+      }).catch(function(){});
+    }catch(e){}
+  }
+  function store(s){ _s=s; try{ s?localStorage.setItem(SKEY,JSON.stringify(s)):localStorage.removeItem(SKEY); }catch(e){} if(!s) purgeUserCaches(); _subs.forEach(function(f){try{f(s);}catch(e){}}); }
   function onChange(f){ _subs.push(f); }
   function session(){ return _s; }
   function email(){ return _s && _s.user && _s.user.email; }

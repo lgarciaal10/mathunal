@@ -4,7 +4,7 @@
      durante un deploy quede congelada como "versión offline").
    - Resto de assets (iconos, CDN): stale-while-revalidate.
    Subir el número de CACHE en cada release. */
-const CACHE = 'mathunal-v212';
+const CACHE = 'mathunal-v213';
 const STATIC = [
   './manifest.json',
   './icon-192.png',
@@ -52,20 +52,30 @@ self.addEventListener('fetch', function(e){
     return;
   }
 
-  // API de Supabase (lista de materiales, etc.): siempre red primero. Con
-  // stale-while-revalidate el usuario veia la lista vieja hasta la 2da visita
-  // (un archivo recien subido tardaba una recarga extra en aparecer).
-  if (req.url.indexOf('.supabase.co/rest/v1/') !== -1) {
-    e.respondWith(
-      fetch(req).then(function(res){
-        if (res && res.status === 200) {
-          var copy = res.clone();
-          caches.open(CACHE).then(function(c){ try{ c.put(req, copy); }catch(_){} });
-        }
-        return res;
-      }).catch(function(){ return caches.match(req); })
-    );
-    return;
+  // Supabase: SOLO se guarda en caché lo publico (la lista de materiales y los
+  // PDFs del storage publico). Todo lo demas (REST de usuario: progreso,
+  // recordatorios, soluciones Pro, presencia; auth; funciones) va siempre a la
+  // red y NUNCA se guarda: la clave de caché es solo la URL, asi que antes las
+  // respuestas autenticadas de un usuario podian servirse a otro en el mismo
+  // navegador, sobrevivian al cerrar sesion y la URL de presencia (que cambia
+  // cada 25 s) agregaba una entrada nueva cada vez.
+  if (req.url.indexOf('.supabase.co/') !== -1) {
+    if (req.url.indexOf('/rest/v1/materiales?') !== -1) {
+      // Lista de materiales: red primero (con stale-while-revalidate el usuario
+      // veia la lista vieja hasta la 2da visita); caché solo si no hay red.
+      e.respondWith(
+        fetch(req).then(function(res){
+          if (res && res.status === 200) {
+            var copy = res.clone();
+            caches.open(CACHE).then(function(c){ try{ c.put(req, copy); }catch(_){} });
+          }
+          return res;
+        }).catch(function(){ return caches.match(req); })
+      );
+      return;
+    }
+    if (req.url.indexOf('/storage/v1/object/public/') === -1) return; // red directa, sin caché
+    // PDFs publicos: caen al manejo de assets de abajo.
   }
 
   // Assets: responde del caché si está, y refresca en segundo plano.
