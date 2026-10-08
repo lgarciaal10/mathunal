@@ -15070,7 +15070,7 @@ html[data-theme="light"] #mu-app > nav:has(~ .vf-shell){background:linear-gradie
 .nav-r{display:flex;align-items:center;gap:.9rem;margin-left:auto;flex-shrink:0}
 @media(max-width:480px){
   .nav-sec-link{display:none !important}
-  .nav-r{max-width:62vw;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+  .nav-r{max-width:62vw;flex-shrink:1;min-width:0;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none}
   .nav-r::-webkit-scrollbar{display:none}
   .nav-r>*{flex-shrink:0}
   /* el overflow-x:auto de arriba recorta el dropdown de ajustes -> lo sacamos
