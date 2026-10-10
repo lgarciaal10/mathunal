@@ -32152,10 +32152,29 @@ var _EXAM_EN = [
 var _ES_LEFT=/(^|[^A-Za-zÀ-ÿ])(el|la|los|las|de|del|que|para|con|una|un|por|se|en|y|o|cuando|valor|función|ecuación|sea|dada|entonces|solución|siguiente|determine|calcule|halle|encuentre|demuestre|usando|mediante|clases?|asesor[ií]as?|presentaciones|ecuaciones|ejercicios|resumen|funciones|números|taller(es)?|libro|guía|si|cada|hasta|mismo|matrices?|sistemas?|origen|vectores|nodo|foco|paralelos?|independientes|linealmente|evaluar|verificar|condiciones|teorema|punto|extremos|repetido|lineales?|dos|tres|cuatro|exactamente|solamente|ninguno|todos|ambas?)(?![A-Za-zÀ-ÿ])|[áéíóúñ¿¡]/i;
 function _esLeft(t){ return _ES_LEFT.test(String(t).replace(/\$\$[\s\S]*?\$\$|\$[^$]*\$|<svg[\s\S]*?<\/svg>|<[^>]+>/gi,' ')); }
 window._esLeft=_esLeft;
+/* Enunciados/opciones/resumenes traducidos a mano (exam-en.json, ~37 KB gzip): se piden solo al pasar a ingles.
+   Clave = hash FNV-1a del texto original + su longitud (ver _exKey); si un texto cambia en el banco, su clave deja de
+   coincidir y _examEN cae al diccionario de abajo (nunca muestra una traduccion de otro enunciado). */
+function _exKey(s){ var x=0x811c9dc5; for(var i=0;i<s.length;i++){ x^=s.charCodeAt(i); x=Math.imul(x,0x01000193)>>>0; } return x.toString(36)+'.'+s.length.toString(36); }
+function _examENLoad(){
+  if(window.__examENMap || window.__examENLoading) return;
+  window.__examENLoading = true;
+  try {
+    fetch('exam-en.json').then(function(r){ if(!r.ok) throw 0; return r.json(); }).then(function(m){
+      window.__examENMap = m; window.__examENLoading = false;
+      /* repinta lo que ya estaba en pantalla (si hay un examen abierto) */
+      try { if (window.curLang==='en' && window.__muRerender) window.__muRerender(); } catch(e){}
+      try { document.dispatchEvent(new CustomEvent('mu-exam-en-ready')); } catch(e){}
+    }).catch(function(){ window.__examENLoading = false; window.__examENMap = window.__examENMap || null; });
+  } catch(e){ window.__examENLoading = false; }
+}
+window._examENLoad = _examENLoad; window._exKey = _exKey;
 function _examEN(s){
   if(window.curLang!=='en') return s;
   s = String(s==null?'':s);
   var _orig = s;
+  if (window.__examENMap) { var _hit = window.__examENMap[_exKey(s)]; if (_hit != null) return _hit; }
+  else if (window.__examENMap === undefined) _examENLoad();
   /* 1) claves LaTeX literales sobre todo el string (son precisas, no falsan) */
   for(var j=0;j<_EXAM_EN.length;j++){ var e=_EXAM_EN[j]; if(e[2]==='lit') s=s.split(e[0]).join(e[1]); }
   /* 2) prosa: sólo sobre texto plano — se protegen $$…$$, $…$, <svg>, <tags>, comentarios */
@@ -34791,6 +34810,7 @@ window.curLang = curLang;
 function setLang(lang){
   if (typeof window.muTrack==='function' && curLang!==lang) window.muTrack('language_change', {to: lang});
   curLang = lang;
+  if (lang==='en' && window._examENLoad) window._examENLoad();
   window.curLang = lang; /* ver nota arriba: sin esto, el resto del sitio
     (que lee window.curLang desde otras paginas) nunca se enteraba del cambio */
   document.documentElement.lang = lang; /* <html lang> era estatico -- un lector de
