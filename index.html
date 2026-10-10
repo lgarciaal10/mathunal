@@ -92,8 +92,25 @@ window.muSubjEN=function(t){t=String(t==null?'':t);if(window.curLang!=='en')retu
   <!-- KaTeX (para Simulacros y Formulario) -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous" media="print" onload="this.media='all'">
   <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous"></noscript>
-  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" crossorigin="anonymous"></script>
-  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous" onload="window.__katexReady=true; if(window.__onKatexReady) window.__onKatexReady(); if(window.__muRerender) try{window.__muRerender();}catch(e){}"></script>
+  <!-- KaTeX JS: ya NO bloquea el arranque. Con <script defer> un jsdelivr lento retrasaba DOMContentLoaded
+       y con el la app entera (medido: 1 a 1 con la latencia). Se piden en paralelo y se ejecutan EN ORDEN
+       (async=false: auto-render necesita `katex`); al terminar se repinta lo que se haya mostrado antes
+       (window.__onKatexReady). Mismos hashes SRI. Si falla el CDN el LaTeX queda como texto, igual que antes. -->
+  <script>
+  (function(){
+    var libs=[['https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js','sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8'],['https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js','sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05']], left=libs.length;
+    libs.forEach(function(l){
+      var s=document.createElement('script');
+      s.src=l[0]; s.integrity=l[1]; s.crossOrigin='anonymous'; s.async=false;
+      s.onload=s.onerror=function(){
+        if(--left) return;
+        window.__katexReady = (typeof katex!=='undefined');
+        if(window.__katexReady && window.__onKatexReady) try{ window.__onKatexReady(); }catch(e){}
+      };
+      document.head.appendChild(s);
+    });
+  })();
+  </script>
   <!-- Simulacros Pro (rama simulacros-pro): banco enriquecido de Cálculo Diferencial.
        Sync, sin deps, solo setea window.SIM_*. La fusion a EXAMS corre mas abajo. -->
   <!-- Simulacros Pro (rama simulacros-pro): banco + laboratorio, inline single-file -->
@@ -23430,6 +23447,10 @@ function muSprintReveal(){
   var en=(window.curLang==='en');
   document.getElementById('mu-spf').innerHTML='<div id="mu-spfk" style="width:100%;display:flex;align-items:center;justify-content:center;min-height:54px"></div>';
   try{if(typeof katex!=='undefined')katex.render(f.formula,document.getElementById('mu-spfk'),{displayMode:true,throwOnError:false});}catch(e){}
+  (window.__muKatexHooks=window.__muKatexHooks||{})['sprint-fk']=function(){
+    var b=document.getElementById('mu-spfk');
+    if(b && !b.querySelector('.katex') && typeof katex!=='undefined') try{katex.render(f.formula,b,{displayMode:true,throwOnError:false});}catch(e){}
+  };
   if(f.nemo){var nm=document.getElementById('mu-spnm');nm.textContent=f.nemo;nm.className='mu-sp-nemo show';}
   document.getElementById('mu-sph').textContent=(en?'Did you remember it?':'¿La recordabas?');
   document.getElementById('mu-spbt').innerHTML='<button class="mu-sb mu-sb-si" onclick="muSprintVote(1)">✓ '+(en?'I knew it':'La sabía')+'</button><button class="mu-sb mu-sb-no" onclick="muSprintVote(0)">✗ '+(en?'Review':'Repasar')+'</button>';
@@ -30615,6 +30636,11 @@ function sel(i){
   var fb=document.getElementById('fbox');
   var _fform=fxT(f,'formula')||f.formula;
   if(fb&&typeof katex!=='undefined')try{katex.render(_fform,fb,{displayMode:true,throwOnError:false,trust:true});}catch(e){fb.textContent=_fform;}
+  /* si KaTeX llega despues de este render, __onKatexReady vuelve a pintar la formula grande */
+  (window.__muKatexHooks=window.__muKatexHooks||{})['vf-fbox']=function(){
+    var b=document.getElementById('fbox');
+    if(b && !b.querySelector('.katex') && typeof katex!=='undefined') try{katex.render(_fform,b,{displayMode:true,throwOnError:false,trust:true});}catch(e){}
+  };
   if(typeof _renderMath==='function') try{ _renderMath(di); }catch(e){}
   if(f.viz)setTimeout(function(){doRender(i);},250);
   document.getElementById('vf-detail').scrollTop=0;
@@ -31098,12 +31124,20 @@ document.addEventListener('click', function(e){
   }
 });
 
-// When KaTeX finishes loading, re-render math on the current page (handles direct loads)
+/* KaTeX llega DESPUES del primer render (ya no bloquea el arranque): se repinta lo que ya se mostro.
+   1) texto con delimitadores $...$ que quedo como LaTeX crudo -> auto-render sobre la pagina actual
+      (es idempotente: lo ya renderizado no vuelve a tocarse);
+   2) renders directos con katex.render, que cada pagina registra en window.__muKatexHooks[clave]
+      (clave fija => se sobrescribe en vez de acumularse en cada visita). */
+window.__muKatexHooks = window.__muKatexHooks || {};
 window.__onKatexReady = function(){
+  var app = document.getElementById('mu-app');
+  if (app && typeof window._renderMath === 'function') { try { window._renderMath(app); } catch(e){} }
+  Object.keys(window.__muKatexHooks).forEach(function(k){ try { window.__muKatexHooks[k](); } catch(e){} });
   if (window.__muRerender) { try { window.__muRerender(); } catch(e){} }
 };
 
-// Boot after DOM is ready so deferred KaTeX has loaded before the first render
+// Boot after DOM is ready (KaTeX ya no se espera: se repinta al llegar, ver __onKatexReady)
 function _boot(){
   // Aplica estado Premium temprano (no depende del script de ninguna página)
   if (typeof muEsPremium==='function' && muEsPremium()) document.documentElement.classList.add('is-premium');
