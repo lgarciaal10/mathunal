@@ -20499,6 +20499,7 @@ customElements.define('glass-element', GlassElement);
     lt=true;window.__threeCbs=cb?[cb]:[];
     var s=document.createElement('script');
     s.src='https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js';
+    s.integrity='sha384-CI3ELBVUz9XQO+97x6nwMDPosPR5XvsxW2ua7N1Xeygeh1IxtgqtCkGfQY9WWdHu'; s.crossOrigin='anonymous'; /* SRI: cdnjs three r128 */
     s.onload=function(){lt=false;(window.__threeCbs||[]).forEach(function(f){try{f();}catch(e){}});};
     s.onerror=function(){lt=false;};
     document.head.appendChild(s);
@@ -20586,10 +20587,15 @@ customElements.define('glass-element', GlassElement);
 <script>
 (function(){
   // Carga LAZY de Plotly: solo cuando se necesita (página de fórmulas), nunca bloquea el inicio
+  /* Cada CDN lleva SU hash (SRI): el archivo de cdn.plot.ly NO es identico al del paquete
+     npm (jsdelivr/unpkg sirven el mismo archivo). Si un CDN devuelve otros bytes, el
+     navegador lo rechaza (onerror) y se prueba el siguiente. */
+  var SRI_NPM  = 'sha384-rbHKh6NJkNLS4VPfOqaIegL2/G63qKM7B6AHM75XvvQ7oX/ZbkDYxqHQr3Cb0ANL';
+  var SRI_PLOT = 'sha384-498vpZWJ4s46d993ZfLEhJ0nKiBSBR/nuPJY4cRVCM9BdGpfZPRFGGqM5YNqv7sD';
   var cdns=[
-    'https://cdn.jsdelivr.net/npm/plotly.js-basic-dist@2.30.0/plotly-basic.min.js',
-    'https://unpkg.com/plotly.js-basic-dist@2.30.0/plotly-basic.min.js',
-    'https://cdn.plot.ly/plotly-basic-2.30.0.min.js'
+    {u:'https://cdn.jsdelivr.net/npm/plotly.js-basic-dist@2.30.0/plotly-basic.min.js', i:SRI_NPM},
+    {u:'https://unpkg.com/plotly.js-basic-dist@2.30.0/plotly-basic.min.js',            i:SRI_NPM},
+    {u:'https://cdn.plot.ly/plotly-basic-2.30.0.min.js',                               i:SRI_PLOT}
   ];
   var idx=0, loading=false;
   window.__loadPlotly = function(cb){
@@ -20612,7 +20618,8 @@ customElements.define('glass-element', GlassElement);
         s.onerror=s.onload=null; /* evita que la respuesta tardía dispare algo */
         tryNext(); /* esta URL no respondió a tiempo: probar la siguiente */
       }, 4000);
-      s.src=cdns[idx++];
+      var cdn=cdns[idx++];
+      s.src=cdn.u; s.integrity=cdn.i; s.crossOrigin='anonymous';
       s.onerror=function(){
         if(settled) return; settled=true; clearTimeout(timeoutId);
         tryNext();
