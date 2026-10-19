@@ -1,10 +1,11 @@
 /* MathUNAL Service Worker
+   © 2022–2026 Luis García. Todos los derechos reservados (ver LICENSE).
    - HTML: SIEMPRE de la red; solo se usa el caché si no hay conexión.
    - No se precachea el HTML (evita que una respuesta parcial de GitHub Pages
      durante un deploy quede congelada como "versión offline").
    - Resto de assets (iconos, CDN): stale-while-revalidate.
    Subir el número de CACHE en cada release. */
-const CACHE = 'mathunal-v216';
+const CACHE = 'mathunal-v217';
 const STATIC = [
   './manifest.json',
   './icon-192.png',
