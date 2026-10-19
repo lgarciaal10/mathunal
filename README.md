@@ -57,3 +57,6 @@ Eventos personalizados — un solo punto de entrada, `window.muTrack(nombre, par
 `whatsapp_click`/`document_download`/`external_link_click` se capturan con **un solo listener delegado** en `document` (no hay que instrumentar cada link a mano — cualquier link nuevo que apunte a Storage o WhatsApp se trackea automático).
 
 No se implementó `comparison_click` porque las tarjetas de la comparación con/sin MathUNAL no llevan a ningún destino todavía (ver hallazgo de la auditoría) — agregarlo cuando se decida a dónde deben llevar.
+
+## Licencia y derechos
+© 2022–2026 Luis García. **Todos los derechos reservados** (ver [`LICENSE`](LICENSE)): el código, el diseño, el nombre/logo y el contenido original de MathUNAL no son de uso libre. Los parciales, talleres y programas de la UNAL (carpetas `*-parciales/`) son de sus titulares y no están cubiertos por esa licencia. Términos y aviso legal: https://mathunal.com/#terminos
