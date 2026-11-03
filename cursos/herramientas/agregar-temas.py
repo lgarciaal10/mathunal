@@ -4,9 +4,18 @@ Uso  python3 agregar-temas.py carpeta/con/bank.json"""
 import json, collections, re, sys, os
 B = sys.argv[1] if len(sys.argv) > 1 else '.'
 d = json.load(open(os.path.join(B, 'bank.json'), encoding='utf8'))
-MAT = {'calcdif': 'Cálculo Diferencial', 'calcint': 'Cálculo Integral', 'calcvec': 'Cálculo en Varias Variables'}
+MAT = {'calcdif': ('Cálculo Diferencial', 'Diferencial'), 'calcint': ('Cálculo Integral', 'Integral'), 'calcvec': ('Cálculo en Varias Variables', 'Varias variables'),
+       'alglin': ('Álgebra Lineal', 'Álgebra lineal'), 'edo': ('Ecuaciones Diferenciales', 'Ecuaciones diferenciales'), 'geovec': ('Geometría Vectorial y Analítica', 'Geometría vectorial'),
+       'matbas': ('Matemáticas Básicas', 'Básicas'), 'discretas': ('Matemáticas Discretas', 'Discretas'), 'metnum': ('Métodos Numéricos', 'Métodos numéricos'),
+       'fundamentos': ('Fundamentos de Matemáticas', 'Fundamentos'), 'especiales': ('Matemáticas Especiales', 'Especiales')}
+SIGLAS = {'edo', 'edp', 'ecuaciones'}
+def bonito(txt):
+    t = txt.strip().lower()
+    t = re.sub(r'\b(edo|edp)\b', lambda m: m.group(1).upper(), t)
+    t = re.sub(r'\b(fourier|laplace)\b', lambda m: m.group(1).capitalize(), t)
+    return t[:1].upper() + t[1:]
 out = {'fuente': 'index.html subido por Luis (banco EXAMS y SIM_NEW)', 'aviso': 'Sale del banco de MathUNAL y no del programa oficial de la materia', 'materias': {}}
-for m, nombre in MAT.items():
+for m, (nombre, corto) in MAT.items():
     ex = {}
     for r in d['rows']:
         if r['exam'].startswith(m + '_'):
@@ -38,6 +47,10 @@ for m, nombre in MAT.items():
         corte = v['cortes'].most_common(1)[0][0] if v['cortes'] else None
         lst.append({'tema': v['tema'], 'corte': corte, 'cortes': dict(sorted(v['cortes'].items())), 'parciales_n': v['parciales_n'], 'parciales_con_el_tema': len(v['parciales_examenes']), 'simulacros_n': v['simulacros_n'], 'total': v['parciales_n'] + v['simulacros_n'], 'freq': dict(v['freq']), 'error': dict(v['error'])})
     lst.sort(key=lambda a: (a['corte'] or 9, -a['total'], a['tema']))
-    out['materias'][m] = {'nombre': nombre, 'examenes_parcial': [{'clave': k, 'semestre': ex[k]['semestre'], 'preguntas': ex[k]['n']} for k in parc], 'examenes_corte': [{'clave': k, 'semestre': ex[k]['semestre'], 'preguntas': ex[k]['n']} for k in ex if tipo(k) == 'corte'], 'n_parciales': len(parc), 'temas': lst}
+    cortes_info = {}
+    for k in ex:
+        mm = re.search(r'^(.*) · CORTE (\d) \((\d+)%\)$', ex[k]['semestre'])
+        if mm and re.search(r'_c\d$', k): cortes_info[int(mm.group(2))] = {'nombre': bonito(mm.group(1)), 'peso': int(mm.group(3))}
+    out['materias'][m] = {'nombre': nombre, 'corto': corto, 'cortes_info': cortes_info, 'examenes_parcial': [{'clave': k, 'semestre': ex[k]['semestre'], 'preguntas': ex[k]['n']} for k in parc], 'examenes_corte': [{'clave': k, 'semestre': ex[k]['semestre'], 'preguntas': ex[k]['n']} for k in ex if tipo(k) == 'corte'], 'n_parciales': len(parc), 'temas': lst}
 json.dump(out, open(os.path.join(B, 'mapa-temas.json'), 'w', encoding='utf8'), ensure_ascii=False, indent=1)
 print('listo')

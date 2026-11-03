@@ -28,7 +28,19 @@ if (errores.length) { salir(); }
 
 /* ---------- fórmulas ---------- */
 const compilar = (e, donde) => { if (!/^[0-9x+\-*\/().^\s]+$/.test(e)) { err(`Fórmula no permitida en ${donde}`); return null; } try { return new Function('x', 'return ' + e.replace(/\^/g, '**')); } catch (x) { err(`Fórmula inválida en ${donde}`); return null; } };
-const G = L.grafica, A = G.hueco && G.hueco.x;
+const G = L.grafica, SEC = G.tipo === 'secante', A = SEC ? G.a : (G.hueco && G.hueco.x);
+if (G.tipo && !['hueco', 'secante'].includes(G.tipo)) err(`Tipo de gráfica desconocido ${G.tipo}`);
+if (SEC) {
+  const f = compilar(G.funcion, 'grafica.funcion'), fd = compilar(G.derivada, 'grafica.derivada');
+  if (f && fd) {
+    if (Math.abs(fd(A) - G.limite) > 1e-9) err(`La derivada en x=${A} vale ${fd(A)} y el límite dice ${G.limite}`);
+    let prev = Infinity;
+    for (const h of [1, 0.5, 0.1, 0.01, 1e-3, 1e-4]) { const e = Math.abs((f(A + h) - f(A)) / h - G.limite); if (e > prev + 1e-12) err('Las pendientes de la secante no se acercan de forma decreciente'); prev = e; }
+    if (prev > 1e-3) err('La pendiente de la secante con h=1e-4 no está cerca de la derivada');
+    if (!(A > G.x[0] && A < G.x[1])) err('El punto queda fuera del rango x'); else if (!(f(A) > G.y[0] && f(A) < G.y[1])) err('El punto queda fuera del rango y');
+    if (!(f(A + 1) >= G.y[0] && f(A + 1) <= G.y[1] && A + 1 <= G.x[1])) aviso('Con h=1 el segundo punto sale del rango de la gráfica');
+  }
+} else {
 const fc = compilar(G.curva, 'grafica.curva'), ff = compilar(G.funcion, 'grafica.funcion');
 if (fc && ff) {
   for (const x of [A - 1, A - 0.37, A + 0.37, A + 1.5]) if (Math.abs(fc(x) - ff(x)) > 1e-9) err(`La curva y la función no coinciden en x=${x}`);
@@ -44,6 +56,7 @@ if (fc && ff) {
 const rangos = G.x && G.y && G.x.length === 2 && G.y.length === 2;
 if (!rangos) err('grafica.x y grafica.y deben tener dos números');
 else if (!(A > G.x[0] && A < G.x[1] && G.hueco.y > G.y[0] && G.hueco.y < G.y[1])) err('El hueco queda fuera del rango de la gráfica');
+}
 
 /* ---------- pregunta ---------- */
 const Q = L.pregunta;

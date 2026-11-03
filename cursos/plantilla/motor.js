@@ -2,7 +2,7 @@
   var NS='http://www.w3.org/2000/svg';
   var RM=!!(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches);
   var L=JSON.parse(document.getElementById('leccion-datos').textContent);
-  var G=L.grafica, A=G.hueco.x;
+  var G=L.grafica, SEC=(G.tipo==='secante'), A=SEC?G.a:G.hueco.x, ETQ=G.etiquetas||['Por la izquierda','Por la derecha'];
 
   /* ---------- utilidades ---------- */
   function cl(v,a,b){ return Math.max(a,Math.min(b,v)); }
@@ -17,7 +17,7 @@
     if(!/^[0-9x+\-*\/().^\s]+$/.test(expr)) throw new Error('Fórmula no permitida '+expr);
     return new Function('x','return '+expr.replace(/\^/g,'**'));
   }
-  var fCurve=compile(G.curva), fFun=compile(G.funcion);
+  var fFun=compile(G.funcion), fCurve=SEC?fFun:compile(G.curva), fDer=SEC?compile(G.derivada):null;
   function gl(h){ return h.replace(/\{\{gl:([a-z0-9_]+)\|([^}]+)\}\}/g,'<button class="gl" type="button" data-g="$1">$2</button>'); }
 
   /* ---------- cabecera ---------- */
@@ -29,10 +29,38 @@
   document.getElementById('v-g').setAttribute('aria-label',G.alt||'Gráfica');
   document.getElementById('p-g').setAttribute('aria-label','Laboratorio de la gráfica');
   document.getElementById('l-left').textContent=L.minutos+' min de lectura';
+  function etiquetas(){ [].forEach.call(document.querySelectorAll('.lab-l'),function(e){ e.textContent=ETQ[0]; }); [].forEach.call(document.querySelectorAll('.lab-r'),function(e){ e.textContent=ETQ[1]; }); }
+  var sl=document.querySelector('.p-lab .ctl label'); if(G.etiquetaSlider&&sl) sl.firstChild.textContent=G.etiquetaSlider;
   document.getElementById('v-time').textContent='0 s de '+L.ver.duracion+' s';
 
   /* ---------- gráfica sin rejilla, configurada por el JSON ---------- */
+  var gid=0;
+  function GraphSecante(svg){
+    var x0=70,x1=620,y0=330,y1=30, XR=G.x, YR=G.y, n=++gid;
+    function X(x){ return x0+(x-XR[0])/(XR[1]-XR[0])*(x1-x0); } function Y(y){ return y0-(y-YR[0])/(YR[1]-YR[0])*(y0-y1); }
+    function el(t,a,par){ var e=document.createElementNS(NS,t); for(var k in a) e.setAttribute(k,a[k]); (par||svg).appendChild(e); return e; }
+    el('path',{'class':'ax',d:'M'+X(0)+' '+(y1-8)+' V'+y0+' M'+x0+' '+Y(0)+' H'+(x1+6)});
+    for(var i=Math.ceil(XR[0]);i<=Math.floor(XR[1]);i++){ if(i===0) continue; el('path',{'class':'tk',d:'M'+X(i)+' '+(Y(0)-5)+' v10'}); var t=el('text',{'class':'tt',x:X(i),y:Y(0)+26,'text-anchor':'middle'}); t.textContent=i; }
+    for(var j=Math.ceil(YR[0]);j<=Math.floor(YR[1]);j++){ if(j===0) continue; el('path',{'class':'tk',d:'M'+(X(0)-5)+' '+Y(j)+' h10'}); var u=el('text',{'class':'tt',x:X(0)-14,y:Y(j)+4,'text-anchor':'end'}); u.textContent=j; }
+    var defs=el('defs',{}), cp=el('clipPath',{id:'cp'+n},defs); el('rect',{x:x0,y:y1,width:x1-x0+6,height:y0-y1},cp);
+    var grp=el('g',{'clip-path':'url(#cp'+n+')'});
+    var pts=[]; for(var k2=0;k2<=100;k2++){ var xx=XR[0]+(XR[1]-XR[0])*k2/100; pts.push((k2?'L':'M')+X(xx).toFixed(1)+' '+Y(fCurve(xx)).toFixed(1)); }
+    var cv=el('path',{'class':'cv',pathLength:1,d:pts.join(' '),'stroke-dashoffset':1},grp);
+    var tan=el('line',{'class':'tg',opacity:0},grp), sec=el('line',{'class':'sc',opacity:0},grp), run=el('path',{'class':'dl',d:'',stroke:'var(--warn)',opacity:0},grp);
+    var halo=el('circle',{'class':'halo',cx:X(A),cy:Y(fFun(A)),r:12,opacity:0}), pP=el('circle',{'class':'pP',cx:X(A),cy:Y(fFun(A)),r:0}), pQ=el('circle',{'class':'pL',r:9,opacity:0});
+    function line(e,m,w){ var xa=XR[0],xb=XR[1], ya=fFun(A)+m*(xa-A), yb=fFun(A)+m*(xb-A); e.setAttribute('x1',X(xa)); e.setAttribute('y1',Y(ya)); e.setAttribute('x2',X(xb)); e.setAttribute('y2',Y(yb)); }
+    return { set:function(s){
+      cv.style.strokeDashoffset=1-(s.draw==null?1:s.draw);
+      var h=s.hole==null?0:s.hole; pP.setAttribute('r',9*h); halo.setAttribute('opacity',s.ok?1:0);
+      var g=s.guide==null?0:s.guide; line(tan,fDer(A)); tan.setAttribute('opacity',g); tan.style.strokeWidth=s.ok?5:3.5;
+      if(s.d==null){ sec.setAttribute('opacity',0); run.setAttribute('opacity',0); pQ.setAttribute('opacity',0); }
+      else{ var q=A+s.d, m=(fFun(q)-fFun(A))/s.d, a=s.pa==null?1:s.pa; line(sec,m); sec.setAttribute('opacity',a*(g>0.5?0.35:1));
+        run.setAttribute('d','M'+X(A)+' '+Y(fFun(A))+' H'+X(q)+' V'+Y(fFun(q))); run.setAttribute('opacity',a*(g>0.5?0:1));
+        pQ.setAttribute('cx',X(q)); pQ.setAttribute('cy',Y(fFun(q))); pQ.setAttribute('opacity',a); }
+    }};
+  }
   function Graph(svg){
+    if(SEC) return GraphSecante(svg);
     var x0=70,x1=620,y0=330,y1=30, XR=G.x, YR=G.y;
     function X(x){ return x0+(x-XR[0])/(XR[1]-XR[0])*(x1-x0); } function Y(y){ return y0-(y-YR[0])/(YR[1]-YR[0])*(y0-y1); }
     function el(t,a){ var e=document.createElementNS(NS,t); for(var k in a) e.setAttribute(k,a[k]); svg.appendChild(e); return e; }
@@ -47,7 +75,7 @@
     var dL=el('path',{'class':'dl',d:'',stroke:'var(--warn)',opacity:0}), dR=el('path',{'class':'dl',d:'',stroke:'var(--bad)',opacity:0});
     var pL=el('circle',{'class':'pL',r:9,opacity:0}), pR=el('circle',{'class':'pR',r:9,opacity:0});
     return { set:function(s){
-      cv.setAttribute('stroke-dashoffset',1-(s.draw==null?1:s.draw));
+      cv.style.strokeDashoffset=1-(s.draw==null?1:s.draw);
       var h=s.hole==null?0:s.hole; hole.setAttribute('r',8*h); hole.style.stroke=s.ok?'var(--ok)':'var(--acc)'; hole.style.fill=s.ok?'var(--ok)':'var(--surf)';
       halo.setAttribute('opacity',s.ok?1:0); zb.setAttribute('opacity',s.zero?1:0);
       guide.setAttribute('opacity',s.guide==null?0:s.guide); gl2.setAttribute('opacity',s.guide==null?0:s.guide);
@@ -58,7 +86,8 @@
         [dL,dR,pL,pR].forEach(function(e){ e.setAttribute('opacity',a); }); }
     }};
   }
-  function readouts(d,lEl,rEl){ if(d==null){ lEl.textContent='sin datos'; rEl.textContent='sin datos'; return; } lEl.textContent='f('+fmt(A-d)+') = '+fmt(fFun(A-d)); rEl.textContent='f('+fmt(A+d)+') = '+fmt(fFun(A+d)); }
+  function readouts(d,lEl,rEl){ if(SEC){ if(d==null){ lEl.textContent='sin datos'; rEl.textContent='sin datos'; return; } lEl.textContent='h = '+fmt(d); rEl.textContent='pendiente = '+fmt((fFun(A+d)-fFun(A))/d); return; }
+    if(d==null){ lEl.textContent='sin datos'; rEl.textContent='sin datos'; return; } lEl.textContent='f('+fmt(A-d)+') = '+fmt(fFun(A-d)); rEl.textContent='f('+fmt(A+d)+') = '+fmt(fFun(A+d)); }
 
   /* ---------- pregunta con ráfaga de símbolos ---------- */
   function burst(host,x,y){ if(RM) return; '∫∑π∞√'.split('').forEach(function(g,i){ var s=document.createElement('span'); s.className='burst'; s.textContent=g; s.style.left=x+'px'; s.style.top=y+'px'; s.style.setProperty('--x',((i-2)*40)+'px'); s.style.setProperty('--y',(-50-Math.random()*40)+'px'); s.style.setProperty('--r',((i-2)*22)+'deg'); host.appendChild(s); setTimeout(function(){ s.remove(); },1150); }); }
@@ -82,6 +111,7 @@
   document.addEventListener('keydown',function(e){ if(e.key==='Escape') pop.hidden=true; });
 
   /* ======================= VER ======================= */
+  etiquetas();
   var V=L.ver, DUR=V.duracion, gV=Graph(document.getElementById('v-g')), tV=0, playing=false, speed=1, last=null, raf=0;
   function chan(name,t){   /* interpolación entre cuadros clave con suavizado */
     var kf=V.canales[name]; if(!kf) return undefined;
@@ -134,7 +164,7 @@
           (function nxt(){ if(i>=ds.length){ g.set({draw:1,hole:1,d:ds[ds.length-1],guide:1,ok:true}); return; }
             var a=cur,z=ds[i]; tween(1400,function(k){ var d=a+(z-a)*eio(k); g.set({draw:1,hole:1,d:d}); readouts(d,lEl,rEl); },function(){ cur=z; i++; setTimeout(nxt,RM?0:450); }); })();
         }; (actions[secId]=actions[secId]||[]).push(function(){ var g=Graph(document.getElementById(id2)); g.set({draw:1,hole:1}); run(); });
-        return '<div class="l-fig"><svg class="g" id="'+id2+'" viewBox="0 0 640 380" role="img" aria-label="'+attr(b.alt||'Gráfica')+'"></svg></div><div class="vals"><div class="v l">Por la izquierda<b id="'+vl+'">sin datos</b></div><div class="v r">Por la derecha<b id="'+vr+'">sin datos</b></div></div>'; }
+        return '<div class="l-fig"><svg class="g" id="'+id2+'" viewBox="0 0 640 380" role="img" aria-label="'+attr(b.alt||'Gráfica')+'"></svg></div><div class="vals"><div class="v l"><span class="lab-l">Por la izquierda</span><b id="'+vl+'">sin datos</b></div><div class="v r"><span class="lab-r">Por la derecha</span><b id="'+vr+'">sin datos</b></div></div>'; }
       case 'piensa': { var pid='p'+(++uid); inits.push(function(){ var root=document.getElementById(pid), picked=false, ring=root.querySelector('.ring'), fg=root.querySelector('.fgc'), rev=root.querySelector('.rev span');
           [].forEach.call(root.querySelectorAll('.row button'),function(btn){ btn.addEventListener('click',function(){ if(picked) return; picked=true; var n=+btn.getAttribute('data-n');
             [].forEach.call(root.querySelectorAll('.row button'),function(x){ x.setAttribute('aria-pressed',x===btn?'true':'false'); x.disabled=true; });

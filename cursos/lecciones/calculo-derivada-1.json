@@ -1,0 +1,384 @@
+{
+  "esquema": 1,
+  "id": "calculo-m2-l1",
+  "ejemplo": true,
+  "curso": "Cálculo",
+  "modulo": "Módulo 2 La derivada",
+  "posicion": "Lección 1 de 5",
+  "titulo": "La derivada como pendiente",
+  "minutos": 11,
+  "ejercicios": 1,
+  "grafica": {
+    "tipo": "secante",
+    "x": [
+      -0.5,
+      2.8
+    ],
+    "y": [
+      0,
+      6
+    ],
+    "funcion": "x*x",
+    "a": 1,
+    "derivada": "2*x",
+    "limite": 2,
+    "etiquetas": [
+      "Distancia h",
+      "Pendiente de la secante"
+    ],
+    "etiquetaSlider": "Valor de h",
+    "alt": "Curva de x al cuadrado con una recta secante que se acerca a la tangente en x igual a 1"
+  },
+  "glosario": {
+    "tangente": "La recta tangente toca la curva en un punto y tiene la misma inclinación que la curva ahí.",
+    "secante": "La recta secante corta la curva en dos puntos.",
+    "pend": "La pendiente dice cuánto sube la recta por cada unidad que avanza hacia la derecha."
+  },
+  "ver": {
+    "duracion": 19,
+    "capitulos": [
+      [
+        0,
+        2.5,
+        "Esta es la curva de f(x) igual a x al cuadrado."
+      ],
+      [
+        2.5,
+        4.5,
+        "Queremos saber qué tan inclinada está justo en x igual a 1."
+      ],
+      [
+        4.5,
+        8,
+        "Se toma un segundo punto y se traza la secante. Su pendiente mide la inclinación entre los dos puntos."
+      ],
+      [
+        8,
+        12.5,
+        "Mientras el segundo punto se acerca, la pendiente de la secante cambia."
+      ],
+      [
+        12.5,
+        15.8,
+        "La secante se vuelve la tangente y su pendiente se acerca a 2."
+      ],
+      [
+        15.8,
+        19,
+        "Por eso la derivada de x al cuadrado en x igual a 1 vale 2."
+      ]
+    ],
+    "canales": {
+      "draw": [
+        [
+          0.3,
+          0
+        ],
+        [
+          2.4,
+          1
+        ]
+      ],
+      "hole": [
+        [
+          2.5,
+          0
+        ],
+        [
+          3.2,
+          1
+        ]
+      ],
+      "d": [
+        [
+          4.5,
+          1
+        ],
+        [
+          6,
+          0.5
+        ],
+        [
+          8,
+          0.5
+        ],
+        [
+          9.5,
+          0.1
+        ],
+        [
+          11,
+          0.1
+        ],
+        [
+          12.5,
+          0.01
+        ]
+      ],
+      "guide": [
+        [
+          12.5,
+          0
+        ],
+        [
+          13.5,
+          1
+        ]
+      ]
+    },
+    "intervalos": {
+      "ok": [
+        15.8,
+        19
+      ]
+    }
+  },
+  "leer": {
+    "secciones": [
+      {
+        "titulo": "La idea",
+        "bloques": [
+          {
+            "t": "p",
+            "html": "La derivada mide <b>qué tan inclinada</b> está una curva en un punto. Esa inclinación es la {{gl:pend|pendiente}} de la {{gl:tangente|recta tangente}}."
+          }
+        ]
+      },
+      {
+        "titulo": "Un ejemplo",
+        "corto": "Un ejemplo",
+        "bloques": [
+          {
+            "t": "p",
+            "html": "Mira esta función."
+          },
+          {
+            "t": "eq",
+            "tex": "f(x)=x^{2}"
+          },
+          {
+            "t": "p",
+            "html": "Se quiere la inclinación justo en x igual a 1, que es el punto naranja de la gráfica."
+          },
+          {
+            "t": "grafica",
+            "animar": "dibujar",
+            "alt": "Curva de x al cuadrado que se dibuja y marca el punto en x igual a 1"
+          }
+        ]
+      },
+      {
+        "titulo": "Piensa antes de ver",
+        "corto": "Piensa",
+        "bloques": [
+          {
+            "t": "piensa",
+            "pregunta": "Si el segundo punto se acerca al primero, ¿a qué número crees que se acerca la pendiente de la secante?",
+            "opciones": [
+              1,
+              2,
+              3,
+              4
+            ],
+            "correcta": 2,
+            "bien": "Buena intuición. Se acerca a 2 y más abajo se ve por qué.",
+            "mal": "El número es el 2 y más abajo se ve por qué."
+          }
+        ]
+      },
+      {
+        "titulo": "Acercando el segundo punto",
+        "corto": "Acercándose",
+        "bloques": [
+          {
+            "t": "p",
+            "html": "La {{gl:secante|secante}} une el punto naranja con un segundo punto a distancia h. Mira cómo cambia su pendiente al achicar h."
+          },
+          {
+            "t": "acercando",
+            "ds": [
+              1,
+              0.5,
+              0.1,
+              0.01
+            ],
+            "alt": "Una secante que gira hasta parecerse a la tangente"
+          },
+          {
+            "t": "p",
+            "html": "La pendiente se acerca a <b>2</b>."
+          }
+        ]
+      },
+      {
+        "titulo": "Por qué sale 2",
+        "bloques": [
+          {
+            "t": "p",
+            "html": "Se puede ver con álgebra. Se escribe la pendiente de la secante y se deja que h se acerque a 0."
+          },
+          {
+            "t": "pasos",
+            "items": [
+              {
+                "tex": "\\dfrac{f(1+h)-f(1)}{h}=\\dfrac{(1+h)^{2}-1}{h}",
+                "porque": "Se escribe la pendiente de la secante con el valor de f en 1 y en 1 más h."
+              },
+              {
+                "tex": "=\\dfrac{1+2h+h^{2}-1}{h}=\\dfrac{h(2+h)}{h}=2+h\\quad (h\\neq 0)",
+                "porque": "Se desarrolla el cuadrado y se cancela h, siempre que h no sea 0."
+              },
+              {
+                "tex": "f'(1)=\\lim_{h\\to 0}(2+h)=2",
+                "porque": "Cuando h se acerca a 0 la pendiente se acerca a 2."
+              }
+            ]
+          },
+          {
+            "t": "ojo",
+            "html": "La derivada es un límite. Con h igual a 0 no hay secante, pero la pendiente sí se acerca a 2."
+          }
+        ]
+      },
+      {
+        "titulo": "Revisa tu respuesta",
+        "corto": "Revisa",
+        "bloques": [
+          {
+            "t": "pregunta"
+          }
+        ]
+      },
+      {
+        "titulo": "En resumen",
+        "corto": "Resumen",
+        "bloques": [
+          {
+            "t": "resumen"
+          }
+        ]
+      }
+    ]
+  },
+  "practicar": {
+    "pasos": [
+      {
+        "titulo": "La curva",
+        "grafica": {
+          "draw": 1
+        },
+        "bloques": [
+          {
+            "t": "p",
+            "html": "Esta es la curva de f(x) igual a x al cuadrado."
+          },
+          {
+            "t": "eq",
+            "tex": "f(x)=x^{2}"
+          }
+        ]
+      },
+      {
+        "titulo": "El punto",
+        "grafica": {
+          "draw": 1,
+          "hole": 1
+        },
+        "bloques": [
+          {
+            "t": "p",
+            "html": "Se quiere la inclinación de la curva justo en x igual a 1."
+          }
+        ]
+      },
+      {
+        "titulo": "Acerca el segundo punto",
+        "grafica": {
+          "draw": 1,
+          "hole": 1
+        },
+        "laboratorio": true,
+        "bloques": [
+          {
+            "t": "p",
+            "html": "Mueve el deslizador de h. La secante gira y abajo se ve su pendiente."
+          }
+        ]
+      },
+      {
+        "titulo": "La tangente",
+        "grafica": {
+          "draw": 1,
+          "hole": 1,
+          "guide": 1
+        },
+        "laboratorio": true,
+        "d": 0.01,
+        "bloques": [
+          {
+            "t": "p",
+            "html": "Con h muy pequeño la secante casi se confunde con la tangente. Su pendiente se acerca a 2."
+          }
+        ]
+      },
+      {
+        "titulo": "Por qué sale 2",
+        "grafica": {
+          "draw": 1,
+          "hole": 1,
+          "guide": 1,
+          "ok": true
+        },
+        "bloques": [
+          {
+            "t": "eq",
+            "tex": "\\dfrac{(1+h)^{2}-1}{h}=2+h"
+          },
+          {
+            "t": "eq",
+            "tex": "f'(1)=\\lim_{h\\to 0}(2+h)=2"
+          }
+        ]
+      },
+      {
+        "titulo": "Revisa tu respuesta",
+        "grafica": {
+          "draw": 1,
+          "hole": 1,
+          "guide": 1,
+          "ok": true
+        },
+        "bloques": [
+          {
+            "t": "pregunta"
+          },
+          {
+            "t": "nota",
+            "html": "La derivada es el límite de las pendientes de las secantes."
+          }
+        ]
+      }
+    ]
+  },
+  "pregunta": {
+    "tex": "\\lim_{h\\to 0}\\dfrac{(3+h)^{2}-9}{h}",
+    "opciones": [
+      "3",
+      "6",
+      "9",
+      "2"
+    ],
+    "correcta": 1,
+    "explicacion": "Se desarrolla (3 + h) al cuadrado como 9 + 6h + h al cuadrado, se resta 9, queda 6h + h al cuadrado, se divide entre h y queda 6 + h, que con h cerca de 0 vale 6.",
+    "verificacion": {
+      "formula": "((3+x)*(3+x)-9)/x",
+      "a": 0,
+      "esperado": 6
+    }
+  },
+  "resumen": [
+    "La derivada es la pendiente de la recta tangente a la curva en un punto.",
+    "La pendiente de la secante se acerca a la de la tangente cuando h se acerca a 0.",
+    "La derivada se calcula como un límite."
+  ]
+}

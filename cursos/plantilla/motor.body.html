@@ -27,7 +27,7 @@
         <div class="v-stage" id="v-stage" tabindex="0" aria-label="Reproductor. Espacio para pausar y flechas para avanzar o retroceder">
           <div class="v-svg"><svg class="g" id="v-g" viewBox="0 0 640 380" role="img"></svg></div>
           <p class="v-cap" id="v-cap" aria-live="polite">Toca play para empezar.</p>
-          <div class="vals"><div class="v l">Por la izquierda<b id="v-vl">sin datos</b></div><div class="v r">Por la derecha<b id="v-vr">sin datos</b></div></div>
+          <div class="vals"><div class="v l"><span class="lab-l">Por la izquierda</span><b id="v-vl">sin datos</b></div><div class="v r"><span class="lab-r">Por la derecha</span><b id="v-vr">sin datos</b></div></div>
           <div class="v-ctl">
             <button class="v-play" id="v-play" type="button" aria-label="Reproducir"><svg class="ic" aria-hidden="true"><use href="#i-play"/></svg></button>
             <div class="v-seekwrap"><input type="range" id="v-seek" min="0" max="1000" value="0" aria-label="Avance de la animación"><div class="v-ticks" id="v-ticks" aria-hidden="true"></div></div>
@@ -77,7 +77,7 @@
           <label>Distancia al punto<input type="range" id="p-d" min="0" max="100" value="10" aria-label="Distancia al punto"></label>
           <span class="num mu" id="p-dv">0.5</span>
         </div>
-        <div class="vals" id="p-vals" hidden><div class="v l">Por la izquierda<b id="p-vl">sin datos</b></div><div class="v r">Por la derecha<b id="p-vr">sin datos</b></div></div>
+        <div class="vals" id="p-vals" hidden><div class="v l"><span class="lab-l">Por la izquierda</span><b id="p-vl">sin datos</b></div><div class="v r"><span class="lab-r">Por la derecha</span><b id="p-vr">sin datos</b></div></div>
       </div>
     </div>
     <div class="nav2" style="max-width:520px"><button class="btn sec" id="p-prev" type="button"><svg class="ic" aria-hidden="true"><use href="#i-left"/></svg>Paso anterior</button><button class="btn pri" id="p-next" type="button">Paso siguiente<svg class="ic" aria-hidden="true"><use href="#i-right"/></svg></button></div>
