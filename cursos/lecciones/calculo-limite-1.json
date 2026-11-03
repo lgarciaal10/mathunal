@@ -1,109 +1,434 @@
 {
-  "esquema": 1,
-  "id": "calculo-m1-l1",
-  "ejemplo": true,
-  "curso": "Cálculo",
-  "modulo": "Módulo 1 Límites y continuidad",
-  "posicion": "Lección 1 de 5",
-  "titulo": "Qué es un límite",
-  "minutos": 9,
-  "ejercicios": 1,
-  "grafica": {
-    "x": [-0.5, 4.5],
-    "y": [0, 7],
-    "curva": "x+2",
-    "funcion": "(x*x-4)/(x-2)",
-    "hueco": { "x": 2, "y": 4 },
-    "limite": 4,
-    "etiquetaHueco": "0 sobre 0",
-    "alt": "Gráfica de la función con un hueco en x igual a 2 y dos puntos que se acercan"
+ "esquema": 1,
+ "id": "calculo-m1-l1",
+ "ejemplo": true,
+ "curso": "Cálculo",
+ "modulo": "Módulo 1 Límites y continuidad",
+ "posicion": "Lección 1 de 5",
+ "titulo": "Qué es un límite",
+ "minutos": 9,
+ "ejercicios": 1,
+ "grafica": {
+  "x": [
+   -0.5,
+   4.5
+  ],
+  "y": [
+   0,
+   7
+  ],
+  "curva": "x+2",
+  "funcion": "(x*x-4)/(x-2)",
+  "hueco": {
+   "x": 2,
+   "y": 4
   },
-  "glosario": {
-    "limite": "Límite significa el valor hacia el que se acerca una función cuando x se acerca a un número.",
-    "den": "El denominador es la parte de abajo de la fracción. Si vale 0 la división no se puede hacer.",
-    "fact": "Factorizar es escribir una expresión como un producto, por ejemplo x al cuadrado menos 4 es (x − 2)(x + 2)."
-  },
-  "ver": {
-    "duracion": 19,
-    "capitulos": [
-      [0, 2.5, "Esta es la función. Se dibuja su curva."],
-      [2.5, 4.5, "En x igual a 2 no se puede evaluar porque da 0 sobre 0."],
-      [4.5, 8, "Acerquémonos a 2 por la izquierda y por la derecha."],
-      [8, 12.5, "Cada vez más cerca. Mira cómo cambian los valores."],
-      [12.5, 15.8, "Por los dos lados los valores se acercan a 4."],
-      [15.8, 19, "Por eso el límite vale 4."]
+  "limite": 4,
+  "etiquetaHueco": "0 sobre 0",
+  "alt": "Gráfica de la función con un hueco en x igual a 2 y dos puntos que se acercan",
+  "zoom": {
+   "factor": 1250
+  }
+ },
+ "glosario": {
+  "limite": "Límite significa el valor hacia el que se acerca una función cuando x se acerca a un número.",
+  "den": "El denominador es la parte de abajo de la fracción. Si vale 0 la división no se puede hacer.",
+  "fact": "Factorizar es escribir una expresión como un producto, por ejemplo x al cuadrado menos 4 es (x − 2)(x + 2)."
+ },
+ "ver": {
+  "duracion": 23.0,
+  "capitulos": [
+   [
+    0,
+    2.5,
+    "Esta es la función. Se dibuja su curva."
+   ],
+   [
+    2.5,
+    4.5,
+    "En x igual a 2 no se puede evaluar porque da 0 sobre 0."
+   ],
+   [
+    4.5,
+    8,
+    "Acerquémonos a 2 por la izquierda y por la derecha."
+   ],
+   [
+    8,
+    12.5,
+    "Cada vez más cerca. Mira cómo cambian los valores."
+   ],
+   [
+    12.5,
+    15.8,
+    "Por los dos lados los valores se acercan a 4."
+   ],
+   [
+    15.8,
+    19.8,
+    "Con mucho zoom se ve que los dos puntos casi tocan el hueco."
+   ],
+   [
+    19.8,
+    23.0,
+    "Por eso el límite vale 4."
+   ]
+  ],
+  "canales": {
+   "draw": [
+    [
+     0.3,
+     0
     ],
-    "canales": {
-      "draw": [[0.3, 0], [2.4, 1]],
-      "hole": [[2.5, 0], [3.2, 1]],
-      "d": [[4.5, 1], [6, 0.1], [8.5, 0.1], [10, 0.01], [11, 0.01], [12.5, 0.001]],
-      "guide": [[12.5, 0], [13.5, 1]]
-    },
-    "intervalos": { "zero": [3.2, 4.7], "ok": [15.8, 19] }
-  },
-  "leer": {
-    "secciones": [
-      { "titulo": "La idea", "bloques": [
-        { "t": "p", "html": "Un {{gl:limite|límite}} cuenta <b>hacia dónde va</b> una función cuando x se acerca a un número. No pregunta qué vale la función justo ahí." }
-      ] },
-      { "titulo": "Un ejemplo que se complica", "corto": "Un ejemplo", "bloques": [
-        { "t": "p", "html": "Mira esta función." },
-        { "t": "eq", "tex": "f(x)=\\dfrac{x^{2}-4}{x-2}" },
-        { "t": "p", "html": "Si se reemplaza x por 2 el {{gl:den|denominador}} vale 0 y el numerador también. Queda 0 sobre 0, así que f(2) no existe. En la gráfica se ve como un hueco." },
-        { "t": "grafica", "animar": "dibujar", "alt": "Gráfica que se dibuja y muestra un hueco en x igual a 2" }
-      ] },
-      { "titulo": "Piensa antes de ver", "corto": "Piensa", "bloques": [
-        { "t": "piensa", "pregunta": "Si x se acerca a 2 por los dos lados, ¿a qué número crees que se acerca f(x)?", "opciones": [2, 3, 4, 5], "correcta": 4,
-          "bien": "Buena intuición. Se acerca a 4 y más abajo se ve por qué.", "mal": "El número es el 4 y más abajo se ve por qué." }
-      ] },
-      { "titulo": "Acercándose por los dos lados", "corto": "Acercándose", "bloques": [
-        { "t": "p", "html": "Se prueban valores cada vez más cerca de 2. Mira cómo se mueven los dos puntos." },
-        { "t": "acercando", "ds": [1, 0.1, 0.01, 0.001], "alt": "Dos puntos que se acercan al hueco por la izquierda y por la derecha" },
-        { "t": "p", "html": "Por los dos lados los valores se acercan a <b>4</b>. Ese es el límite." }
-      ] },
-      { "titulo": "Por qué sale 4", "bloques": [
-        { "t": "p", "html": "Se puede ver con álgebra. Se {{gl:fact|factoriza}} el numerador y se cancela x − 2 mientras x no sea 2." },
-        { "t": "pasos", "items": [
-          { "tex": "\\dfrac{x^{2}-4}{x-2}=\\dfrac{(x-2)(x+2)}{x-2}", "porque": "Se factoriza el numerador como una diferencia de cuadrados." },
-          { "tex": "=\\dfrac{\\textcolor{#E8632A}{\\cancel{(x-2)}}(x+2)}{\\textcolor{#E8632A}{\\cancel{x-2}}}=x+2\\quad (x\\neq 2)", "porque": "Se cancela el factor común, siempre que x no sea 2." },
-          { "tex": "\\lim_{x\\to 2}\\dfrac{x^{2}-4}{x-2}=\\lim_{x\\to 2}(x+2)=4", "porque": "Ahora sí se evalúa en x igual a 2." }
-        ] },
-        { "t": "ojo", "html": "El límite no es el valor de la función en el punto. Aquí f(2) no existe y aun así el límite vale 4." }
-      ] },
-      { "titulo": "Revisa tu respuesta", "corto": "Revisa", "bloques": [ { "t": "pregunta" } ] },
-      { "titulo": "En resumen", "corto": "Resumen", "bloques": [ { "t": "resumen" } ] }
+    [
+     2.4,
+     1
     ]
-  },
-  "practicar": {
-    "pasos": [
-      { "titulo": "La función", "grafica": { "draw": 1 }, "bloques": [
-        { "t": "p", "html": "Esta función se ve como una recta, pero tiene un detalle." },
-        { "t": "eq", "tex": "f(x)=\\dfrac{x^{2}-4}{x-2}" } ] },
-      { "titulo": "El punto que falta", "grafica": { "draw": 1, "hole": 1, "zero": true }, "bloques": [
-        { "t": "p", "html": "En x igual a 2 el denominador vale 0 y el numerador también. Queda 0 sobre 0, así que f(2) no existe. Por eso hay un hueco." } ] },
-      { "titulo": "Acércate a 2", "grafica": { "draw": 1, "hole": 1 }, "laboratorio": true, "bloques": [
-        { "t": "p", "html": "Mueve el deslizador. Los dos puntos se acercan a 2 por la izquierda y por la derecha, y abajo se ve el valor de f en cada uno." } ] },
-      { "titulo": "Hacia dónde va", "grafica": { "draw": 1, "hole": 1, "guide": 1 }, "laboratorio": true, "d": 0.01, "bloques": [
-        { "t": "p", "html": "Mientras más cerca de 2, más cerca de 4 están los dos valores. Ese número al que se acercan es el límite." } ] },
-      { "titulo": "Por qué sale 4", "grafica": { "draw": 1, "hole": 1, "guide": 1, "ok": true }, "bloques": [
-        { "t": "p", "html": "Se factoriza y se cancela x − 2, siempre que x sea distinto de 2." },
-        { "t": "eq", "tex": "\\dfrac{x^{2}-4}{x-2}=x+2\\quad (x\\neq 2)" },
-        { "t": "eq", "tex": "\\lim_{x\\to 2}\\dfrac{x^{2}-4}{x-2}=4" } ] },
-      { "titulo": "Revisa tu respuesta", "grafica": { "draw": 1, "hole": 1, "guide": 1, "ok": true }, "bloques": [
-        { "t": "pregunta" },
-        { "t": "nota", "html": "El límite no es el valor de la función en el punto. Es hacia dónde va." } ] }
+   ],
+   "hole": [
+    [
+     2.5,
+     0
+    ],
+    [
+     3.2,
+     1
     ]
+   ],
+   "d": [
+    [
+     4.5,
+     1
+    ],
+    [
+     6,
+     0.1
+    ],
+    [
+     8.5,
+     0.1
+    ],
+    [
+     10,
+     0.01
+    ],
+    [
+     11,
+     0.01
+    ],
+    [
+     12.5,
+     0.001
+    ]
+   ],
+   "guide": [
+    [
+     12.5,
+     0
+    ],
+    [
+     13.5,
+     1
+    ]
+   ],
+   "zoom": [
+    [
+     15.8,
+     0
+    ],
+    [
+     18.3,
+     1
+    ],
+    [
+     19.0,
+     1
+    ],
+    [
+     19.8,
+     0
+    ]
+   ]
   },
-  "pregunta": {
-    "tex": "\\lim_{x\\to 3}\\dfrac{x^{2}-9}{x-3}",
-    "opciones": ["0", "6", "9", "No existe"],
-    "correcta": 1,
-    "explicacion": "Se factoriza x al cuadrado menos 9 como (x − 3)(x + 3), se cancela x − 3 y queda x + 3, que en x igual a 3 vale 6.",
-    "verificacion": { "formula": "(x*x-9)/(x-3)", "a": 3, "esperado": 6 }
-  },
-  "resumen": [
-    "El límite dice hacia dónde va la función cuando x se acerca a un número.",
-    "Se mira desde los dos lados.",
-    "Puede existir aunque la función no exista en el punto."
+  "intervalos": {
+   "zero": [
+    3.2,
+    4.7
+   ],
+   "ok": [
+    19.8,
+    23.0
+   ]
+  }
+ },
+ "leer": {
+  "secciones": [
+   {
+    "titulo": "La idea",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Un {{gl:limite|límite}} cuenta <b>hacia dónde va</b> una función cuando x se acerca a un número. No pregunta qué vale la función justo ahí."
+     }
+    ]
+   },
+   {
+    "titulo": "Un ejemplo que se complica",
+    "corto": "Un ejemplo",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mira esta función."
+     },
+     {
+      "t": "eq",
+      "tex": "f(x)=\\dfrac{x^{2}-4}{x-2}"
+     },
+     {
+      "t": "p",
+      "html": "Si se reemplaza x por 2 el {{gl:den|denominador}} vale 0 y el numerador también. Queda 0 sobre 0, así que f(2) no existe. En la gráfica se ve como un hueco."
+     },
+     {
+      "t": "grafica",
+      "animar": "dibujar",
+      "alt": "Gráfica que se dibuja y muestra un hueco en x igual a 2"
+     }
+    ]
+   },
+   {
+    "titulo": "Piensa antes de ver",
+    "corto": "Piensa",
+    "bloques": [
+     {
+      "t": "piensa",
+      "pregunta": "Si x se acerca a 2 por los dos lados, ¿a qué número crees que se acerca f(x)?",
+      "opciones": [
+       2,
+       3,
+       4,
+       5
+      ],
+      "correcta": 4,
+      "bien": "Buena intuición. Se acerca a 4 y más abajo se ve por qué.",
+      "mal": "El número es el 4 y más abajo se ve por qué."
+     }
+    ]
+   },
+   {
+    "titulo": "Acercándose por los dos lados",
+    "corto": "Acercándose",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Se prueban valores cada vez más cerca de 2. Mira cómo se mueven los dos puntos."
+     },
+     {
+      "t": "acercando",
+      "ds": [
+       1,
+       0.1,
+       0.01,
+       0.001
+      ],
+      "alt": "Dos puntos que se acercan al hueco por la izquierda y por la derecha"
+     },
+     {
+      "t": "p",
+      "html": "Por los dos lados los valores se acercan a <b>4</b>. Ese es el límite. Al terminar, la gráfica hace zoom para que veas el detalle."
+     }
+    ]
+   },
+   {
+    "titulo": "Por qué sale 4",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Se puede ver con álgebra. Se {{gl:fact|factoriza}} el numerador y se cancela x − 2 mientras x no sea 2."
+     },
+     {
+      "t": "pasos",
+      "items": [
+       {
+        "tex": "\\dfrac{x^{2}-4}{x-2}=\\dfrac{(x-2)(x+2)}{x-2}",
+        "porque": "Se factoriza el numerador como una diferencia de cuadrados."
+       },
+       {
+        "tex": "=\\dfrac{\\textcolor{#E8632A}{\\cancel{(x-2)}}(x+2)}{\\textcolor{#E8632A}{\\cancel{x-2}}}=x+2\\quad (x\\neq 2)",
+        "porque": "Se cancela el factor común, siempre que x no sea 2."
+       },
+       {
+        "tex": "\\lim_{x\\to 2}\\dfrac{x^{2}-4}{x-2}=\\lim_{x\\to 2}(x+2)=4",
+        "porque": "Ahora sí se evalúa en x igual a 2."
+       }
+      ]
+     },
+     {
+      "t": "ojo",
+      "html": "El límite no es el valor de la función en el punto. Aquí f(2) no existe y aun así el límite vale 4."
+     }
+    ]
+   },
+   {
+    "titulo": "Revisa tu respuesta",
+    "corto": "Revisa",
+    "bloques": [
+     {
+      "t": "pregunta"
+     }
+    ]
+   },
+   {
+    "titulo": "En resumen",
+    "corto": "Resumen",
+    "bloques": [
+     {
+      "t": "resumen"
+     }
+    ]
+   }
   ]
+ },
+ "practicar": {
+  "pasos": [
+   {
+    "titulo": "La función",
+    "grafica": {
+     "draw": 1
+    },
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Esta función se ve como una recta, pero tiene un detalle."
+     },
+     {
+      "t": "eq",
+      "tex": "f(x)=\\dfrac{x^{2}-4}{x-2}"
+     }
+    ]
+   },
+   {
+    "titulo": "El punto que falta",
+    "grafica": {
+     "draw": 1,
+     "hole": 1,
+     "zero": true
+    },
+    "bloques": [
+     {
+      "t": "p",
+      "html": "En x igual a 2 el denominador vale 0 y el numerador también. Queda 0 sobre 0, así que f(2) no existe. Por eso hay un hueco."
+     }
+    ]
+   },
+   {
+    "titulo": "Acércate a 2",
+    "grafica": {
+     "draw": 1,
+     "hole": 1
+    },
+    "laboratorio": true,
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mueve el deslizador. Los dos puntos se acercan a 2 por la izquierda y por la derecha, y abajo se ve el valor de f en cada uno."
+     }
+    ]
+   },
+   {
+    "titulo": "Hacia dónde va",
+    "grafica": {
+     "draw": 1,
+     "hole": 1,
+     "guide": 1
+    },
+    "laboratorio": true,
+    "d": 0.01,
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mientras más cerca de 2, más cerca de 4 están los dos valores. Ese número al que se acercan es el límite."
+     }
+    ]
+   },
+   {
+    "titulo": "Por qué sale 4",
+    "grafica": {
+     "draw": 1,
+     "hole": 1,
+     "guide": 1,
+     "ok": true
+    },
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Se factoriza y se cancela x − 2, siempre que x sea distinto de 2."
+     },
+     {
+      "t": "eq",
+      "tex": "\\dfrac{x^{2}-4}{x-2}=x+2\\quad (x\\neq 2)"
+     },
+     {
+      "t": "eq",
+      "tex": "\\lim_{x\\to 2}\\dfrac{x^{2}-4}{x-2}=4"
+     }
+    ]
+   },
+   {
+    "titulo": "Mira de cerca",
+    "grafica": {
+     "draw": 1,
+     "hole": 1,
+     "guide": 1,
+     "zoom": 1
+    },
+    "laboratorio": true,
+    "d": 0.001,
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Ahora la gráfica está con mucho zoom. Los dos puntos casi tocan el hueco. Mueve el deslizador para alejarlos."
+     }
+    ]
+   },
+   {
+    "titulo": "Revisa tu respuesta",
+    "grafica": {
+     "draw": 1,
+     "hole": 1,
+     "guide": 1,
+     "ok": true
+    },
+    "bloques": [
+     {
+      "t": "pregunta"
+     },
+     {
+      "t": "nota",
+      "html": "El límite no es el valor de la función en el punto. Es hacia dónde va."
+     }
+    ]
+   }
+  ]
+ },
+ "pregunta": {
+  "tex": "\\lim_{x\\to 3}\\dfrac{x^{2}-9}{x-3}",
+  "opciones": [
+   "0",
+   "6",
+   "9",
+   "No existe"
+  ],
+  "correcta": 1,
+  "explicacion": "Se factoriza x al cuadrado menos 9 como (x − 3)(x + 3), se cancela x − 3 y queda x + 3, que en x igual a 3 vale 6.",
+  "verificacion": {
+   "formula": "(x*x-9)/(x-3)",
+   "a": 3,
+   "esperado": 6
+  }
+ },
+ "resumen": [
+  "El límite dice hacia dónde va la función cuando x se acerca a un número.",
+  "Se mira desde los dos lados.",
+  "Puede existir aunque la función no exista en el punto."
+ ]
 }

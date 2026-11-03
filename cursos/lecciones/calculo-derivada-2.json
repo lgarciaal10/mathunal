@@ -27,7 +27,10 @@
    "Pendiente de la secante"
   ],
   "etiquetaSlider": "Valor de h",
-  "alt": "Curva de x al cubo con una recta secante que se acerca a la tangente en x igual a 1"
+  "alt": "Curva de x al cubo con una recta secante que se acerca a la tangente en x igual a 1",
+  "zoom": {
+   "factor": 35
+  }
  },
  "glosario": {
   "tangente": "La recta tangente toca la curva en un punto y tiene la misma inclinación que la curva ahí.",
@@ -36,7 +39,7 @@
   "cons": "Una constante es un número fijo, como 5, que no cambia con x."
  },
  "ver": {
-  "duracion": 19,
+  "duracion": 23.0,
   "capitulos": [
    [
     0,
@@ -65,7 +68,12 @@
    ],
    [
     15.8,
-    19,
+    19.8,
+    "De cerca, la curva casi se ve como una recta, y esa recta es la tangente."
+   ],
+   [
+    19.8,
+    23.0,
     "Es el exponente 3 por x al cuadrado, que en x igual a 1 vale 3."
    ]
   ],
@@ -125,12 +133,30 @@
      13.5,
      1
     ]
+   ],
+   "zoom": [
+    [
+     15.8,
+     0
+    ],
+    [
+     18.3,
+     1
+    ],
+    [
+     19.0,
+     1
+    ],
+    [
+     19.8,
+     0
+    ]
    ]
   },
   "intervalos": {
    "ok": [
-    15.8,
-    19
+    19.8,
+    23.0
    ]
   }
  },
@@ -203,7 +229,7 @@
      },
      {
       "t": "p",
-      "html": "La pendiente se acerca a <b>3</b>."
+      "html": "La pendiente se acerca a <b>3</b>. Al terminar, la gráfica hace zoom para que veas el detalle."
      }
     ]
    },
@@ -417,6 +443,23 @@
      {
       "t": "p",
       "html": "Con n igual a 3 queda 3x al cuadrado. En x igual a 1 vale 3, justo lo que midió la secante."
+     }
+    ]
+   },
+   {
+    "titulo": "Mira de cerca",
+    "grafica": {
+     "draw": 1,
+     "hole": 1,
+     "guide": 1,
+     "zoom": 1
+    },
+    "laboratorio": true,
+    "d": 0.01,
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Ahora la gráfica está con zoom. De cerca, la curva casi se ve como una recta y la secante se pega a la tangente. Mueve h para comprobarlo."
      }
     ]
    },

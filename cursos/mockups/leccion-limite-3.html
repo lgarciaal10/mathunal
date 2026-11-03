@@ -387,7 +387,10 @@ button{font:inherit;color:inherit;cursor:pointer;background:none;border:0;paddin
   },
   "limite": 1,
   "etiquetaHueco": "0 sobre 0",
-  "alt": "Gráfica de seno de x sobre x con un hueco en x igual a 0 y dos puntos que se acercan por los lados"
+  "alt": "Gráfica de seno de x sobre x con un hueco en x igual a 0 y dos puntos que se acercan por los lados",
+  "zoom": {
+   "factor": 3200
+  }
  },
  "glosario": {
   "notable": "Un límite notable es uno que se usa tanto que conviene aprenderlo de memoria.",
@@ -395,7 +398,7 @@ button{font:inherit;color:inherit;cursor:pointer;background:none;border:0;paddin
   "indet": "Una indeterminación como 0 sobre 0 no da una respuesta directa y hay que trabajar la expresión."
  },
  "ver": {
-  "duracion": 19,
+  "duracion": 23.0,
   "capitulos": [
    [
     0,
@@ -424,7 +427,12 @@ button{font:inherit;color:inherit;cursor:pointer;background:none;border:0;paddin
    ],
    [
     15.8,
-    19,
+    19.8,
+    "Con mucho zoom se ve que los dos puntos casi tocan el hueco."
+   ],
+   [
+    19.8,
+    23.0,
     "Este resultado es el límite notable y se usa en muchos ejercicios."
    ]
   ],
@@ -484,6 +492,24 @@ button{font:inherit;color:inherit;cursor:pointer;background:none;border:0;paddin
      13.5,
      1
     ]
+   ],
+   "zoom": [
+    [
+     15.8,
+     0
+    ],
+    [
+     18.3,
+     1
+    ],
+    [
+     19.0,
+     1
+    ],
+    [
+     19.8,
+     0
+    ]
    ]
   },
   "intervalos": {
@@ -492,8 +518,8 @@ button{font:inherit;color:inherit;cursor:pointer;background:none;border:0;paddin
     4.7
    ],
    "ok": [
-    15.8,
-    19
+    19.8,
+    23.0
    ]
   }
  },
@@ -570,7 +596,7 @@ button{font:inherit;color:inherit;cursor:pointer;background:none;border:0;paddin
      },
      {
       "t": "p",
-      "html": "Por los dos lados los valores se acercan a <b>1<\/b>."
+      "html": "Por los dos lados los valores se acercan a <b>1<\/b>. Al terminar, la gráfica hace zoom para que veas el detalle."
      }
     ]
    },
@@ -716,6 +742,23 @@ button{font:inherit;color:inherit;cursor:pointer;background:none;border:0;paddin
     ]
    },
    {
+    "titulo": "Mira de cerca",
+    "grafica": {
+     "draw": 1,
+     "hole": 1,
+     "guide": 1,
+     "zoom": 1
+    },
+    "laboratorio": true,
+    "d": 0.001,
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Ahora la gráfica está con mucho zoom. Los dos puntos casi tocan el hueco. Mueve el deslizador para alejarlos."
+     }
+    ]
+   },
+   {
     "titulo": "Revisa tu respuesta",
     "grafica": {
      "draw": 1,
@@ -839,59 +882,88 @@ button{font:inherit;color:inherit;cursor:pointer;background:none;border:0;paddin
   var sl=document.querySelector('.p-lab .ctl label'); if(G.etiquetaSlider&&sl) sl.firstChild.textContent=G.etiquetaSlider;
   document.getElementById('v-time').textContent='0 s de '+L.ver.duracion+' s';
 
-  /* ---------- gráfica sin rejilla, configurada por el JSON ---------- */
+  /* ---------- gráfica sin rejilla, configurada por el JSON. Con grafica.zoom={factor:N} acepta el estado zoom de 0 a 1 ---------- */
   var gid=0;
+  function paso125(span,libre){   /* paso de marcas 1, 2 o 5 por una potencia de 10, con 8 marcas como máximo */
+    var k=Math.floor(Math.log(span/8)/Math.LN10), c=[1,2,5,10], base=Math.pow(10,k);
+    for(var i=0;i<c.length;i++){ if(span/(c[i]*base)<=8+1e-9){ var s=c[i]*base; return libre?s:Math.max(1,s); } }
+    return libre?base*10:Math.max(1,base*10);
+  }
+  function Frame(svg,cx,cy){
+    var F={x0:70,x1:620,y0:330,y1:30,XR:G.x.slice(),YR:G.y.slice(),z:-1,zf:(G.zoom&&G.zoom.factor)||0,onWin:null};
+    F.X=function(x){ return F.x0+(x-F.XR[0])/(F.XR[1]-F.XR[0])*(F.x1-F.x0); };
+    F.Y=function(y){ return F.y0-(y-F.YR[0])/(F.YR[1]-F.YR[0])*(F.y0-F.y1); };
+    F.XA=function(){ return Math.max(F.x0,Math.min(F.x1,F.X(0))); };
+    F.YA=function(){ return Math.max(F.y1,Math.min(F.y0,F.Y(0))); };
+    F.el=function(t,a,par){ var e=document.createElementNS(NS,t); for(var k in a) e.setAttribute(k,a[k]); (par||svg).appendChild(e); return e; };
+    var ag=F.el('g',{}), zl=null;
+    function fm(v,dec){ var t=v.toFixed(dec); return t==='-0'||/^-0\.?0*$/.test(t)?t.replace('-',''):t; }
+    F.axes=function(){
+      while(ag.firstChild) ag.removeChild(ag.firstChild);
+      var xa=F.XA(), ya=F.YA(), libre=F.z>0.001;
+      F.el('path',{'class':'ax',d:'M'+xa+' '+(F.y1-8)+' V'+F.y0+' M'+F.x0+' '+ya+' H'+(F.x1+6)},ag);
+      var sx=paso125(F.XR[1]-F.XR[0],libre), dx=Math.max(0,-Math.floor(Math.log(sx)/Math.LN10+1e-9));
+      for(var i=Math.ceil(F.XR[0]/sx-1e-9);i*sx<=F.XR[1]+sx*1e-9;i++){ var v=i*sx; if(Math.abs(v)<sx*1e-6) continue; F.el('path',{'class':'tk',d:'M'+F.X(v)+' '+(ya-5)+' v10'},ag); var t=F.el('text',{'class':'tt',x:F.X(v),y:ya+26,'text-anchor':'middle'},ag); t.textContent=fm(v,dx); }
+      var sy=paso125(F.YR[1]-F.YR[0],libre), dy=Math.max(0,-Math.floor(Math.log(sy)/Math.LN10+1e-9));
+      for(var j=Math.ceil(F.YR[0]/sy-1e-9);j*sy<=F.YR[1]+sy*1e-9;j++){ var w=j*sy; if(Math.abs(w)<sy*1e-6) continue; F.el('path',{'class':'tk',d:'M'+(xa-5)+' '+F.Y(w)+' h10'},ag); var u=F.el('text',{'class':'tt',x:xa-14,y:F.Y(w)+4,'text-anchor':'end'},ag); u.textContent=fm(w,dy); }
+    };
+    F.zoomLabel=function(){ if(!F.zf) return; if(!zl){ var izq=SEC&&fDer(A)>0; zl=F.el('text',{'class':'zb',x:izq?F.x0+24:F.x1-4,y:F.y1+16,'text-anchor':izq?'start':'end',opacity:0}); } var f=(G.x[1]-G.x[0])/(F.XR[1]-F.XR[0]); zl.setAttribute('opacity',F.z>0.05?1:0); zl.textContent='Zoom ×'+(f>=10?Math.round(f):f.toFixed(1)); };
+    F.setZ=function(z){
+      if(!F.zf) return false; z=z||0; if(Math.abs(z-F.z)<1e-4) return false; F.z=z;
+      if(z<=0){ F.XR=G.x.slice(); F.YR=G.y.slice(); }
+      else{ var Wx=G.x[1]-G.x[0], Wy=G.y[1]-G.y[0], k=Math.pow(1/F.zf,z), wx=Wx*k, wy=Wy*k, rx=(cx-G.x[0])/Wx*(1-z)+0.5*z, ry=(cy-G.y[0])/Wy*(1-z)+0.5*z;
+        F.XR=[cx-rx*wx,cx-rx*wx+wx]; F.YR=[cy-ry*wy,cy-ry*wy+wy]; }
+      F.axes(); F.zoomLabel(); if(F.onWin) F.onWin(); return true;
+    };
+    F.curve=function(){ var d=[], on=false, N=160; for(var k=0;k<=N;k++){ var xx=F.XR[0]+(F.XR[1]-F.XR[0])*k/N, yv=fCurve(xx); if(!isFinite(yv)) yv=fCurve(xx+1e-9); if(!isFinite(yv)){ on=false; continue; } var py=Math.max(-5e4,Math.min(5e4,F.Y(yv))); d.push((on?'L':'M')+F.X(xx).toFixed(1)+' '+py.toFixed(1)); on=true; } return d.join(' '); };
+    F.clip=function(){ var defs=F.el('defs',{}), cp=F.el('clipPath',{id:'cp'+(++gid)},defs); F.el('rect',{x:F.x0,y:F.y1-10,width:F.x1-F.x0+8,height:F.y0-F.y1+10},cp); return F.el('g',{'clip-path':'url(#cp'+gid+')'}); };
+    F.line=function(e,m){ var xa=F.XR[0], xb=F.XR[1], ya=fFun(A)+m*(xa-A), yb=fFun(A)+m*(xb-A); e.setAttribute('x1',F.X(xa)); e.setAttribute('y1',F.Y(ya)); e.setAttribute('x2',F.X(xb)); e.setAttribute('y2',F.Y(yb)); };
+    F.axes();
+    return F;
+  }
   function GraphSecante(svg){
-    var x0=70,x1=620,y0=330,y1=30, XR=G.x, YR=G.y, n=++gid;
-    function X(x){ return x0+(x-XR[0])/(XR[1]-XR[0])*(x1-x0); } function Y(y){ return y0-(y-YR[0])/(YR[1]-YR[0])*(y0-y1); }
-    function el(t,a,par){ var e=document.createElementNS(NS,t); for(var k in a) e.setAttribute(k,a[k]); (par||svg).appendChild(e); return e; }
-    el('path',{'class':'ax',d:'M'+X(0)+' '+(y1-8)+' V'+y0+' M'+x0+' '+Y(0)+' H'+(x1+6)});
-    var sx=pasoNice(XR[0],XR[1]); for(var i=Math.ceil(XR[0]/sx)*sx;i<=XR[1];i+=sx){ if(i===0) continue; el('path',{'class':'tk',d:'M'+X(i)+' '+(Y(0)-5)+' v10'}); var t=el('text',{'class':'tt',x:X(i),y:Y(0)+26,'text-anchor':'middle'}); t.textContent=i; }
-    var sy=pasoNice(YR[0],YR[1]); for(var j=Math.ceil(YR[0]/sy)*sy;j<=YR[1];j+=sy){ if(j===0) continue; el('path',{'class':'tk',d:'M'+(X(0)-5)+' '+Y(j)+' h10'}); var u=el('text',{'class':'tt',x:X(0)-14,y:Y(j)+4,'text-anchor':'end'}); u.textContent=j; }
-    var defs=el('defs',{}), cp=el('clipPath',{id:'cp'+n},defs); el('rect',{x:x0,y:y1,width:x1-x0+6,height:y0-y1},cp);
-    var grp=el('g',{'clip-path':'url(#cp'+n+')'});
-    var pts=[]; for(var k2=0;k2<=100;k2++){ var xx=XR[0]+(XR[1]-XR[0])*k2/100; var yv=fCurve(xx); if(!isFinite(yv)) yv=fCurve(xx+1e-9); pts.push((k2?'L':'M')+X(xx).toFixed(1)+' '+Y(yv).toFixed(1)); }
-    var cv=el('path',{'class':'cv',pathLength:1,d:pts.join(' '),'stroke-dashoffset':1},grp);
+    var F=Frame(svg,A,fFun(A)), X=F.X, Y=F.Y, el=F.el, grp=F.clip();
+    var cv=el('path',{'class':'cv',pathLength:1,d:F.curve(),'stroke-dashoffset':1},grp);
     var nm=G.normal?el('line',{'class':'nm',opacity:0},grp):null; var tan=el('line',{'class':'tg',opacity:0},grp), sec=el('line',{'class':'sc',opacity:0},grp), run=el('path',{'class':'dl',d:'',stroke:'var(--warn)',opacity:0},grp);
-    var halo=el('circle',{'class':'halo',cx:X(A),cy:Y(fFun(A)),r:12,opacity:0}), pP=el('circle',{'class':'pP',cx:X(A),cy:Y(fFun(A)),r:0}), pQ=el('circle',{'class':'pL',r:9,opacity:0});
-    function line(e,m,w){ var xa=XR[0],xb=XR[1], ya=fFun(A)+m*(xa-A), yb=fFun(A)+m*(xb-A); e.setAttribute('x1',X(xa)); e.setAttribute('y1',Y(ya)); e.setAttribute('x2',X(xb)); e.setAttribute('y2',Y(yb)); }
+    var halo=el('circle',{'class':'halo',r:12,opacity:0},grp), pP=el('circle',{'class':'pP',r:0},grp), pQ=el('circle',{'class':'pL',r:9,opacity:0},grp);
+    F.onWin=function(){ cv.setAttribute('d',F.curve()); };
     return { set:function(s){
+      F.setZ(s.zoom);
       cv.style.strokeDashoffset=1-(s.draw==null?1:s.draw);
-      var h=s.hole==null?0:s.hole; pP.setAttribute('r',9*h); halo.setAttribute('opacity',s.ok?1:0);
-      if(nm){ line(nm,-1/fDer(A)); nm.setAttribute('opacity',s.nor==null?0:s.nor); } var g=s.guide==null?0:s.guide; line(tan,fDer(A)); tan.setAttribute('opacity',g); tan.style.strokeWidth=s.ok?5:3.5;
+      var h=s.hole==null?0:s.hole, ax=X(A), ay=Y(fFun(A)); pP.setAttribute('r',9*h); pP.setAttribute('cx',ax); pP.setAttribute('cy',ay); halo.setAttribute('cx',ax); halo.setAttribute('cy',ay); halo.setAttribute('opacity',s.ok?1:0);
+      if(nm){ F.line(nm,-1/fDer(A)); nm.setAttribute('opacity',s.nor==null?0:s.nor); } var g=s.guide==null?0:s.guide; F.line(tan,fDer(A)); tan.setAttribute('opacity',g); tan.style.strokeWidth=s.ok?5:3.5;
       if(s.d==null){ sec.setAttribute('opacity',0); run.setAttribute('opacity',0); pQ.setAttribute('opacity',0); }
-      else{ var q=A+s.d, m=(fFun(q)-fFun(A))/s.d, a=s.pa==null?1:s.pa; line(sec,m); sec.setAttribute('opacity',a*(g>0.5?0.35:1));
-        run.setAttribute('d','M'+X(A)+' '+Y(fFun(A))+' H'+X(q)+' V'+Y(fFun(q))); run.setAttribute('opacity',a*(g>0.5?0:1));
+      else{ var q=A+s.d, m=(fFun(q)-fFun(A))/s.d, a=s.pa==null?1:s.pa; F.line(sec,m); sec.setAttribute('opacity',a*(g>0.5?0.35:1));
+        run.setAttribute('d','M'+ax+' '+ay+' H'+X(q)+' V'+Y(fFun(q))); run.setAttribute('opacity',a*(g>0.5?0:1));
         pQ.setAttribute('cx',X(q)); pQ.setAttribute('cy',Y(fFun(q))); pQ.setAttribute('opacity',a); }
     }};
   }
   function Graph(svg){
     if(SEC) return GraphSecante(svg);
-    var x0=70,x1=620,y0=330,y1=30, XR=G.x, YR=G.y;
-    function X(x){ return x0+(x-XR[0])/(XR[1]-XR[0])*(x1-x0); } function Y(y){ return y0-(y-YR[0])/(YR[1]-YR[0])*(y0-y1); }
-    function el(t,a){ var e=document.createElementNS(NS,t); for(var k in a) e.setAttribute(k,a[k]); svg.appendChild(e); return e; }
-    el('path',{'class':'ax',d:'M'+X(0)+' '+(y1-8)+' V'+y0+' M'+x0+' '+Y(0)+' H'+(x1+6)});
-    var sx=pasoNice(XR[0],XR[1]); for(var i=Math.ceil(XR[0]/sx)*sx;i<=XR[1];i+=sx){ if(i===0) continue; el('path',{'class':'tk',d:'M'+X(i)+' '+(Y(0)-5)+' v10'}); var t=el('text',{'class':'tt',x:X(i),y:Y(0)+26,'text-anchor':'middle'}); t.textContent=i; }
-    var sy=pasoNice(YR[0],YR[1]); for(var j=Math.ceil(YR[0]/sy)*sy;j<=YR[1];j+=sy){ if(j===0) continue; el('path',{'class':'tk',d:'M'+(X(0)-5)+' '+Y(j)+' h10'}); var u=el('text',{'class':'tt',x:X(0)-14,y:Y(j)+4,'text-anchor':'end'}); u.textContent=j; }
-    var guide=el('path',{'class':'gd',d:'M'+X(XR[0]<0?0:XR[0])+' '+Y(G.limite)+' H'+(x1+4),opacity:0}); var gl2=el('text',{'class':'gl',x:x1,y:Y(G.limite)-10,'text-anchor':'end',opacity:0}); gl2.textContent='y = '+G.limite;
-    var pts=[]; for(var k2=0;k2<=120;k2++){ var xx=XR[0]+(XR[1]-XR[0])*k2/120; var yv=fCurve(xx); if(!isFinite(yv)) yv=fCurve(xx+1e-9); pts.push((k2?'L':'M')+X(xx).toFixed(1)+' '+Y(yv).toFixed(1)); }
-    var cv=el('path',{'class':'cv',pathLength:1,d:pts.join(' '),'stroke-dashoffset':1});
-    var halo=el('circle',{'class':'halo',cx:X(A),cy:Y(G.hueco.y),r:12,opacity:0});
-    var hole=el('circle',{'class':'hole',cx:X(A),cy:Y(G.hueco.y),r:0});
-    var zb=el('text',{'class':'zb',x:X(A)+18,y:Y(G.hueco.y)+34,opacity:0}); zb.textContent=G.etiquetaHueco||'';
+    var F=Frame(svg,A,G.hueco.y), X=F.X, Y=F.Y, el=F.el, grp=F.clip();
+    var guide=el('path',{'class':'gd',d:'',opacity:0},grp); var gl2=el('text',{'class':'gl',x:F.x1,'text-anchor':'end',opacity:0},grp); gl2.textContent='y = '+G.limite;
+    var cv=el('path',{'class':'cv',pathLength:1,d:F.curve(),'stroke-dashoffset':1},grp);
+    var halo=el('circle',{'class':'halo',r:12,opacity:0},grp);
+    var hole=el('circle',{'class':'hole',r:0},grp);
+    var zb=el('text',{'class':'zb',opacity:0},grp); zb.textContent=G.etiquetaHueco||'';
     var PT=G.punto||null, ptc=null, ptl=null;
-    if(PT){ ptc=el('circle',{'class':'pv',cx:X(A),cy:Y(PT.y),r:0}); ptl=el('text',{'class':'zb',x:X(A)+18,y:Y(PT.y)+5,opacity:0}); ptl.textContent=PT.etiqueta||''; }
-    var dL=el('path',{'class':'dl',d:'',stroke:'var(--warn)',opacity:0}), dR=el('path',{'class':'dl',d:'',stroke:'var(--bad)',opacity:0});
-    var pL=el('circle',{'class':'pL',r:9,opacity:0}), pR=el('circle',{'class':'pR',r:9,opacity:0});
+    if(PT){ ptc=el('circle',{'class':'pv',r:0},grp); ptl=el('text',{'class':'zb',opacity:0},grp); ptl.textContent=PT.etiqueta||''; }
+    var dL=el('path',{'class':'dl',d:'',stroke:'var(--warn)',opacity:0},grp), dR=el('path',{'class':'dl',d:'',stroke:'var(--bad)',opacity:0},grp);
+    var pL=el('circle',{'class':'pL',r:9,opacity:0},grp), pR=el('circle',{'class':'pR',r:9,opacity:0},grp);
+    F.onWin=function(){ cv.setAttribute('d',F.curve()); };
     return { set:function(s){
+      F.setZ(s.zoom);
       cv.style.strokeDashoffset=1-(s.draw==null?1:s.draw);
-      var h=s.hole==null?0:s.hole; hole.setAttribute('r',8*h); hole.style.stroke=s.ok?'var(--ok)':'var(--acc)'; hole.style.fill=s.ok?'var(--ok)':'var(--surf)';
-      halo.setAttribute('opacity',s.ok?1:0); zb.setAttribute('opacity',s.zero?1:0);
-      if(PT){ var pv=s.pt==null?0:s.pt, fx=s.fix==null?0:s.fix, py=PT.y+(G.limite-PT.y)*fx; ptc.setAttribute('r',8*pv); ptc.setAttribute('cy',Y(py)); ptl.setAttribute('y',fx>0.5?Y(py)+34:Y(py)+5); ptl.setAttribute('opacity',pv>0.5?1:0); ptl.textContent=fx>0.5?(PT.etiquetaFija||PT.etiqueta||''):(PT.etiqueta||''); }
+      var hx=X(A), hy=Y(G.hueco.y), xa=F.XA();
+      var h=s.hole==null?0:s.hole; hole.setAttribute('r',8*h); hole.setAttribute('cx',hx); hole.setAttribute('cy',hy); hole.style.stroke=s.ok?'var(--ok)':'var(--acc)'; hole.style.fill=s.ok?'var(--ok)':'var(--surf)';
+      halo.setAttribute('cx',hx); halo.setAttribute('cy',hy); halo.setAttribute('opacity',s.ok?1:0);
+      zb.setAttribute('x',hx+18); zb.setAttribute('y',hy+34); zb.setAttribute('opacity',s.zero?1:0);
+      if(PT){ var pv=s.pt==null?0:s.pt, fx=s.fix==null?0:s.fix, py=PT.y+(G.limite-PT.y)*fx; ptc.setAttribute('r',8*pv); ptc.setAttribute('cx',hx); ptc.setAttribute('cy',Y(py)); ptl.setAttribute('x',hx+18); ptl.setAttribute('y',fx>0.5?Y(py)+34:Y(py)+5); ptl.setAttribute('opacity',pv>0.5?1:0); ptl.textContent=fx>0.5?(PT.etiquetaFija||PT.etiqueta||''):(PT.etiqueta||''); }
+      var gy=Y(G.limite), gstart=Math.max(F.x0,X(0)); guide.setAttribute('d','M'+gstart+' '+gy+' H'+(F.x1+4)); gl2.setAttribute('y',gy-10);
       guide.setAttribute('opacity',s.guide==null?0:s.guide); gl2.setAttribute('opacity',s.guide==null?0:s.guide);
       if(s.d==null){ [dL,dR,pL,pR].forEach(function(e){ e.setAttribute('opacity',0); }); }
-      else{ var l=A-s.d, r=A+s.d, a=s.pa==null?1:s.pa, yl=fCurve(l), yr=fCurve(r);
-        dL.setAttribute('d','M'+X(l)+' '+Y(0)+' V'+Y(yl)+' H'+X(0)); dR.setAttribute('d','M'+X(r)+' '+Y(0)+' V'+Y(yr)+' H'+X(0));
+      else{ var l=A-s.d, r=A+s.d, a=s.pa==null?1:s.pa, yl=fCurve(l), yr=fCurve(r), ya=F.YA();
+        dL.setAttribute('d','M'+X(l)+' '+ya+' V'+Y(yl)+' H'+xa); dR.setAttribute('d','M'+X(r)+' '+ya+' V'+Y(yr)+' H'+xa);
         pL.setAttribute('cx',X(l)); pL.setAttribute('cy',Y(yl)); pR.setAttribute('cx',X(r)); pR.setAttribute('cy',Y(yr));
         [dL,dR,pL,pR].forEach(function(e){ e.setAttribute('opacity',a); }); }
     }};
@@ -930,7 +1002,7 @@ button{font:inherit;color:inherit;cursor:pointer;background:none;border:0;paddin
     return kf[kf.length-1][1];
   }
   function stateV(t){
-    var s={}; ['draw','hole','guide','pt','fix','nor'].forEach(function(n){ var v=chan(n,t); if(v!==undefined) s[n]=v; });
+    var s={}; ['draw','hole','guide','pt','fix','nor','zoom'].forEach(function(n){ var v=chan(n,t); if(v!==undefined) s[n]=v; });
     var d=chan('d',t); if(d!==undefined&&d!==null){ s.d=d; s.pa=ap(t,V.canales.d[0][0],V.canales.d[0][0]+0.5); }
     var iv=V.intervalos||{}; if(iv.zero) s.zero=(t>=iv.zero[0]&&t<iv.zero[1]); if(iv.ok) s.ok=(t>=iv.ok[0]);
     return s;
@@ -971,9 +1043,9 @@ button{font:inherit;color:inherit;cursor:pointer;background:none;border:0;paddin
       case 'acercando': { var id2='a'+(++uid), vl=id2+'l', vr=id2+'r'; var run=function(){
           var g=Graph(document.getElementById(id2)), lEl=document.getElementById(vl), rEl=document.getElementById(vr), ds=b.ds, i=1, cur=ds[0], finished=false;
           g.set({draw:1,hole:1,d:ds[0]}); readouts(ds[0],lEl,rEl);
-          (function nxt(){ if(i>=ds.length){ g.set({draw:1,hole:1,d:ds[ds.length-1],guide:1,ok:true}); return; }
+          (function nxt(){ if(i>=ds.length){ var dl=ds[ds.length-1]; g.set({draw:1,hole:1,d:dl,guide:1,ok:true}); if(G.zoom&&b.zoom!==false){ setTimeout(function(){ tween(2200,function(k){ g.set({draw:1,hole:1,d:dl,guide:1,ok:true,zoom:eio(k)}); }); },RM?0:700); } return; }
             var a=cur,z=ds[i]; tween(1400,function(k){ var d=a+(z-a)*eio(k); g.set({draw:1,hole:1,d:d}); readouts(d,lEl,rEl); },function(){ cur=z; i++; setTimeout(nxt,RM?0:450); }); })();
-        }; (actions[secId]=actions[secId]||[]).push(function(){ var g=Graph(document.getElementById(id2)); g.set({draw:1,hole:1}); run(); });
+        }; (actions[secId]=actions[secId]||[]).push(function(){ run(); });
         return '<div class="l-fig"><svg class="g" id="'+id2+'" viewBox="0 0 640 380" role="img" aria-label="'+attr(b.alt||'Gráfica')+'"></svg></div><div class="vals"><div class="v l"><span class="lab-l">Por la izquierda</span><b id="'+vl+'">sin datos</b></div><div class="v r"><span class="lab-r">Por la derecha</span><b id="'+vr+'">sin datos</b></div></div>'; }
       case 'piensa': { var pid='p'+(++uid); inits.push(function(){ var root=document.getElementById(pid), picked=false, ring=root.querySelector('.ring'), fg=root.querySelector('.fgc'), rev=root.querySelector('.rev span');
           [].forEach.call(root.querySelectorAll('.row button'),function(btn){ btn.addEventListener('click',function(){ if(picked) return; picked=true; var n=+btn.getAttribute('data-n');
@@ -1016,7 +1088,7 @@ button{font:inherit;color:inherit;cursor:pointer;background:none;border:0;paddin
   if(RM) secs.forEach(function(s){ s.classList.add('in'); });
 
   /* ======================= PRACTICAR ======================= */
-  var P=L.practicar.pasos, gP=Graph(document.getElementById('p-g')), cur=0, curD=0.1, stepsEl=document.getElementById('p-steps');
+  var zNow=0, zTok=0, P=L.practicar.pasos, gP=Graph(document.getElementById('p-g')), cur=0, curD=0.1, stepsEl=document.getElementById('p-steps');
   stepsEl.innerHTML=P.map(function(s,i){ return '<div class="p-step" data-i="'+i+'"><button class="top" type="button" aria-expanded="false"><span class="num">'+(i+1)+'</span><h2>'+s.titulo+'</h2></button><div class="p-body">'+s.bloques.map(function(b){ return blockHtml(b,'p'+i); }).join('')+'</div></div>'; }).join('');
   [].forEach.call(stepsEl.querySelectorAll('[data-quiz]'),Quiz);
   var dS=document.getElementById('p-d'); function dFrom(v){ return Math.pow(10,-3+(100-v)/100*3); }
@@ -1024,7 +1096,8 @@ button{font:inherit;color:inherit;cursor:pointer;background:none;border:0;paddin
     var s=P[cur], st={}; for(var k in s.grafica) st[k]=s.grafica[k];
     var ctl=document.getElementById('p-ctl'), vals=document.getElementById('p-vals');
     if(s.laboratorio){ ctl.hidden=false; vals.hidden=false; if(s.d!=null) curD=s.d; st.d=curD; readouts(curD,document.getElementById('p-vl'),document.getElementById('p-vr')); document.getElementById('p-dv').textContent=fmt(curD); } else { ctl.hidden=true; vals.hidden=true; }
-    gP.set(st);
+    var z1=st.zoom||0, z0=zNow; zNow=z1; zTok++; var tk=zTok;
+    if(G.zoom&&z1!==z0&&!RM){ tween(1000,function(k){ if(tk!==zTok) return; var s2={}; for(var q in st) s2[q]=st[q]; s2.zoom=z0+(z1-z0)*eio(k); gP.set(s2); }); } else gP.set(st);
     [].forEach.call(stepsEl.children,function(c,i){ c.classList.toggle('on',i===cur); c.classList.toggle('past',i<cur); c.querySelector('.top').setAttribute('aria-expanded',i===cur?'true':'false'); });
     document.getElementById('p-prev').disabled=(cur===0); document.getElementById('p-next').disabled=(cur===P.length-1);
     document.getElementById('p-prog').style.width=((cur+1)/P.length*100)+'%';
@@ -1033,7 +1106,7 @@ button{font:inherit;color:inherit;cursor:pointer;background:none;border:0;paddin
   stepsEl.addEventListener('click',function(e){ var h=e.target.closest('.top'); if(!h) return; cur=+h.closest('.p-step').getAttribute('data-i'); applyP(); });
   document.getElementById('p-prev').addEventListener('click',function(){ if(cur>0){ cur--; applyP(); } });
   document.getElementById('p-next').addEventListener('click',function(){ if(cur<P.length-1){ cur++; applyP(); } });
-  dS.addEventListener('input',function(){ curD=dFrom(+dS.value); var st={}; for(var k in P[cur].grafica) st[k]=P[cur].grafica[k]; st.d=curD; gP.set(st); readouts(curD,document.getElementById('p-vl'),document.getElementById('p-vr')); document.getElementById('p-dv').textContent=fmt(curD); });
+  dS.addEventListener('input',function(){ curD=dFrom(+dS.value); var st={}; for(var k in P[cur].grafica) st[k]=P[cur].grafica[k]; st.d=curD; zTok++; zNow=st.zoom||0; gP.set(st); readouts(curD,document.getElementById('p-vl'),document.getElementById('p-vr')); document.getElementById('p-dv').textContent=fmt(curD); });
   curD=dFrom(+dS.value); applyP();
 
   /* ======================= modos ======================= */

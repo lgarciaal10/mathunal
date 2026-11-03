@@ -55,6 +55,7 @@ if (fc && ff) {
   if (prev > 1e-3) err('f(a±1e-4) no está cerca del límite');
 }
 if (G.normal && SEC) { const fd0 = compilar(G.derivada, 'grafica.derivada'); if (fd0 && Math.abs(fd0(A)) < 1e-9) err('Con normal la derivada no puede valer 0 en el punto'); if (G.x && G.y && Math.abs((G.x[1]-G.x[0])/550 - (G.y[1]-G.y[0])/300) > 0.002) aviso('Para que la normal se vea perpendicular, los rangos x e y deben dar la misma escala (550 por 300 píxeles)'); }
+if (G.zoom && !(typeof G.zoom.factor === 'number' && G.zoom.factor > 1 && G.zoom.factor <= 100000)) err('grafica.zoom.factor debe ser un número entre 1 y 100000');
 if (G.rotulos && (!Array.isArray(G.rotulos) || G.rotulos.length !== 2 || G.rotulos.some(t => /[:;—–]/.test(t)))) err('grafica.rotulos debe tener dos textos sin signos no permitidos');
 if (G.punto) { if (G.punto.x !== A) err('grafica.punto.x debe ser igual al x del hueco'); if (!(G.y && G.punto.y > G.y[0] && G.punto.y < G.y[1])) err('grafica.punto queda fuera del rango y'); if (G.punto.y === G.limite) aviso('grafica.punto ya vale el límite, la función sería continua'); [G.punto.etiqueta, G.punto.etiquetaFija].forEach(t => { if (t && /[:;—–]/.test(t)) err('Signo no permitido en la etiqueta del punto'); }); }
 const rangos = G.x && G.y && G.x.length === 2 && G.y.length === 2;

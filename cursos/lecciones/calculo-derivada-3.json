@@ -27,7 +27,10 @@
    "Pendiente de la secante"
   ],
   "etiquetaSlider": "Valor de h",
-  "alt": "Curva de la función 2x más 1 al cuadrado con una secante que se acerca a la tangente en x igual a 1"
+  "alt": "Curva de la función 2x más 1 al cuadrado con una secante que se acerca a la tangente en x igual a 1",
+  "zoom": {
+   "factor": 40
+  }
  },
  "glosario": {
   "comp": "Una función compuesta es una función dentro de otra, como (2x + 1) al cuadrado, donde primero se calcula 2x + 1 y luego se eleva al cuadrado.",
@@ -37,7 +40,7 @@
   "externa": "La función externa es la que se aplica al resultado de la interna."
  },
  "ver": {
-  "duracion": 19,
+  "duracion": 23.0,
   "capitulos": [
    [
     0,
@@ -66,7 +69,12 @@
    ],
    [
     15.8,
-    19,
+    19.8,
+    "De cerca, la curva casi se ve como una recta, y esa recta es la tangente."
+   ],
+   [
+    19.8,
+    23.0,
     "La regla de la cadena da el mismo 12 sin necesidad del límite."
    ]
   ],
@@ -126,12 +134,30 @@
      13.5,
      1
     ]
+   ],
+   "zoom": [
+    [
+     15.8,
+     0
+    ],
+    [
+     18.3,
+     1
+    ],
+    [
+     19.0,
+     1
+    ],
+    [
+     19.8,
+     0
+    ]
    ]
   },
   "intervalos": {
    "ok": [
-    15.8,
-    19
+    19.8,
+    23.0
    ]
   }
  },
@@ -208,7 +234,7 @@
      },
      {
       "t": "p",
-      "html": "La pendiente se acerca a <b>12</b>."
+      "html": "La pendiente se acerca a <b>12</b>. Al terminar, la gráfica hace zoom para que veas el detalle."
      }
     ]
    },
@@ -402,6 +428,23 @@
      {
       "t": "p",
       "html": "En x igual a 1 vale 12, justo lo que midió la secante."
+     }
+    ]
+   },
+   {
+    "titulo": "Mira de cerca",
+    "grafica": {
+     "draw": 1,
+     "hole": 1,
+     "guide": 1,
+     "zoom": 1
+    },
+    "laboratorio": true,
+    "d": 0.01,
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Ahora la gráfica está con zoom. De cerca, la curva casi se ve como una recta y la secante se pega a la tangente. Mueve h para comprobarlo."
      }
     ]
    },

@@ -25,7 +25,10 @@
   },
   "limite": 1,
   "etiquetaHueco": "0 sobre 0",
-  "alt": "Gráfica de seno de x sobre x con un hueco en x igual a 0 y dos puntos que se acercan por los lados"
+  "alt": "Gráfica de seno de x sobre x con un hueco en x igual a 0 y dos puntos que se acercan por los lados",
+  "zoom": {
+   "factor": 3200
+  }
  },
  "glosario": {
   "notable": "Un límite notable es uno que se usa tanto que conviene aprenderlo de memoria.",
@@ -33,7 +36,7 @@
   "indet": "Una indeterminación como 0 sobre 0 no da una respuesta directa y hay que trabajar la expresión."
  },
  "ver": {
-  "duracion": 19,
+  "duracion": 23.0,
   "capitulos": [
    [
     0,
@@ -62,7 +65,12 @@
    ],
    [
     15.8,
-    19,
+    19.8,
+    "Con mucho zoom se ve que los dos puntos casi tocan el hueco."
+   ],
+   [
+    19.8,
+    23.0,
     "Este resultado es el límite notable y se usa en muchos ejercicios."
    ]
   ],
@@ -122,6 +130,24 @@
      13.5,
      1
     ]
+   ],
+   "zoom": [
+    [
+     15.8,
+     0
+    ],
+    [
+     18.3,
+     1
+    ],
+    [
+     19.0,
+     1
+    ],
+    [
+     19.8,
+     0
+    ]
    ]
   },
   "intervalos": {
@@ -130,8 +156,8 @@
     4.7
    ],
    "ok": [
-    15.8,
-    19
+    19.8,
+    23.0
    ]
   }
  },
@@ -208,7 +234,7 @@
      },
      {
       "t": "p",
-      "html": "Por los dos lados los valores se acercan a <b>1</b>."
+      "html": "Por los dos lados los valores se acercan a <b>1</b>. Al terminar, la gráfica hace zoom para que veas el detalle."
      }
     ]
    },
@@ -350,6 +376,23 @@
      {
       "t": "p",
       "html": "Recuerda que vale con x en radianes."
+     }
+    ]
+   },
+   {
+    "titulo": "Mira de cerca",
+    "grafica": {
+     "draw": 1,
+     "hole": 1,
+     "guide": 1,
+     "zoom": 1
+    },
+    "laboratorio": true,
+    "d": 0.001,
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Ahora la gráfica está con mucho zoom. Los dos puntos casi tocan el hueco. Mueve el deslizador para alejarlos."
      }
     ]
    },
