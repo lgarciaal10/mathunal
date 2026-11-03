@@ -892,8 +892,8 @@ button{font:inherit;color:inherit;cursor:pointer;background:none;border:0;paddin
     var F={x0:70,x1:620,y0:330,y1:30,XR:G.x.slice(),YR:G.y.slice(),z:-1,zf:(G.zoom&&G.zoom.factor)||0,onWin:null};
     F.X=function(x){ return F.x0+(x-F.XR[0])/(F.XR[1]-F.XR[0])*(F.x1-F.x0); };
     F.Y=function(y){ return F.y0-(y-F.YR[0])/(F.YR[1]-F.YR[0])*(F.y0-F.y1); };
-    F.XA=function(){ return Math.max(F.x0,Math.min(F.x1,F.X(0))); };
-    F.YA=function(){ return Math.max(F.y1,Math.min(F.y0,F.Y(0))); };
+    F.XA=function(){ var v=F.X(0); return (v<F.x0||v>F.x1)?F.x0:v; };
+    F.YA=function(){ var v=F.Y(0); return (v>F.y0||v<F.y1)?F.y0:v; };
     F.el=function(t,a,par){ var e=document.createElementNS(NS,t); for(var k in a) e.setAttribute(k,a[k]); (par||svg).appendChild(e); return e; };
     var ag=F.el('g',{}), zl=null;
     function fm(v,dec){ var t=v.toFixed(dec); return t==='-0'||/^-0\.?0*$/.test(t)?t.replace('-',''):t; }
