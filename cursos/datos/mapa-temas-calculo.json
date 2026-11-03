@@ -1,0 +1,1169 @@
+{
+ "fuente": "index.html subido por Luis (banco EXAMS y SIM_NEW)",
+ "aviso": "Sale del banco de MathUNAL y no del programa oficial de la materia",
+ "materias": {
+  "calcdif": {
+   "nombre": "Cálculo Diferencial",
+   "examenes_parcial": [
+    {
+     "clave": "calcdif_p1",
+     "semestre": "SEMESTRE 1 · PARCIAL 1 · 2025-2",
+     "preguntas": 9
+    },
+    {
+     "clave": "calcdif_p2",
+     "semestre": "SEMESTRE 1 · PARCIAL 2 · 2025-1",
+     "preguntas": 7
+    },
+    {
+     "clave": "calcdif_quiz3",
+     "semestre": "SEMESTRE 1 · QUIZ 3 · 2025-2",
+     "preguntas": 4
+    },
+    {
+     "clave": "calcdif_p3",
+     "semestre": "SEMESTRE 1 · PARCIAL 3 · 2025-2",
+     "preguntas": 9
+    }
+   ],
+   "examenes_corte": [
+    {
+     "clave": "calcdif_c1",
+     "semestre": "FUNCIONES, LÍMITES Y CONTINUIDAD · CORTE 1 (30%)",
+     "preguntas": 9
+    },
+    {
+     "clave": "calcdif_c2",
+     "semestre": "LA DERIVADA Y SUS REGLAS · CORTE 2 (30%)",
+     "preguntas": 9
+    },
+    {
+     "clave": "calcdif_c3",
+     "semestre": "APLICACIONES DE LA DERIVADA · CORTE 3 (40%)",
+     "preguntas": 9
+    }
+   ],
+   "n_parciales": 4,
+   "temas": [
+    {
+     "tema": "Límites notables",
+     "corte": 1,
+     "cortes": {
+      "1": 7
+     },
+     "parciales_n": 1,
+     "parciales_con_el_tema": 1,
+     "simulacros_n": 6,
+     "total": 7,
+     "freq": {
+      "media": 4,
+      "alta": 3
+     },
+     "error": {
+      "conceptual": 1,
+      "formula": 5,
+      "procedimiento": 1
+     }
+    },
+    {
+     "tema": "Límites al infinito",
+     "corte": 1,
+     "cortes": {
+      "1": 5
+     },
+     "parciales_n": 0,
+     "parciales_con_el_tema": 0,
+     "simulacros_n": 5,
+     "total": 5,
+     "freq": {
+      "alta": 5
+     },
+     "error": {
+      "procedimiento": 3,
+      "algebra": 1,
+      "conceptual": 1
+     }
+    },
+    {
+     "tema": "Límites indeterminados",
+     "corte": 1,
+     "cortes": {
+      "1": 5
+     },
+     "parciales_n": 0,
+     "parciales_con_el_tema": 0,
+     "simulacros_n": 5,
+     "total": 5,
+     "freq": {
+      "media": 2,
+      "alta": 2,
+      "baja": 1
+     },
+     "error": {
+      "procedimiento": 2,
+      "algebra": 1,
+      "interpretacion": 1,
+      "conceptual": 1
+     }
+    },
+    {
+     "tema": "Asíntotas",
+     "corte": 1,
+     "cortes": {
+      "1": 4
+     },
+     "parciales_n": 1,
+     "parciales_con_el_tema": 1,
+     "simulacros_n": 3,
+     "total": 4,
+     "freq": {
+      "alta": 2,
+      "media": 2
+     },
+     "error": {
+      "conceptual": 1,
+      "procedimiento": 3
+     }
+    },
+    {
+     "tema": "Continuidad",
+     "corte": 1,
+     "cortes": {
+      "1": 4
+     },
+     "parciales_n": 1,
+     "parciales_con_el_tema": 1,
+     "simulacros_n": 3,
+     "total": 4,
+     "freq": {
+      "alta": 2,
+      "media": 2
+     },
+     "error": {
+      "algebra": 1,
+      "procedimiento": 2,
+      "conceptual": 1
+     }
+    },
+    {
+     "tema": "Límites algebraicos",
+     "corte": 1,
+     "cortes": {
+      "1": 3
+     },
+     "parciales_n": 0,
+     "parciales_con_el_tema": 0,
+     "simulacros_n": 3,
+     "total": 3,
+     "freq": {
+      "alta": 3
+     },
+     "error": {
+      "procedimiento": 2,
+      "algebra": 1
+     }
+    },
+    {
+     "tema": "Regla de la cadena",
+     "corte": 2,
+     "cortes": {
+      "2": 6
+     },
+     "parciales_n": 3,
+     "parciales_con_el_tema": 3,
+     "simulacros_n": 3,
+     "total": 6,
+     "freq": {
+      "alta": 4,
+      "baja": 2
+     },
+     "error": {
+      "procedimiento": 4,
+      "formula": 1,
+      "conceptual": 1
+     }
+    },
+    {
+     "tema": "Derivación implícita",
+     "corte": 2,
+     "cortes": {
+      "2": 5
+     },
+     "parciales_n": 2,
+     "parciales_con_el_tema": 2,
+     "simulacros_n": 3,
+     "total": 5,
+     "freq": {
+      "alta": 4,
+      "media": 1
+     },
+     "error": {
+      "procedimiento": 2,
+      "algebra": 2,
+      "formula": 1
+     }
+    },
+    {
+     "tema": "Razón de cambio",
+     "corte": 2,
+     "cortes": {
+      "2": 5
+     },
+     "parciales_n": 2,
+     "parciales_con_el_tema": 2,
+     "simulacros_n": 3,
+     "total": 5,
+     "freq": {
+      "alta": 4,
+      "media": 1
+     },
+     "error": {
+      "procedimiento": 5
+     }
+    },
+    {
+     "tema": "Reglas de derivación",
+     "corte": 2,
+     "cortes": {
+      "2": 5
+     },
+     "parciales_n": 3,
+     "parciales_con_el_tema": 2,
+     "simulacros_n": 2,
+     "total": 5,
+     "freq": {
+      "baja": 4,
+      "alta": 1
+     },
+     "error": {
+      "procedimiento": 2,
+      "formula": 3
+     }
+    },
+    {
+     "tema": "Movimiento rectilíneo",
+     "corte": 2,
+     "cortes": {
+      "2": 4
+     },
+     "parciales_n": 2,
+     "parciales_con_el_tema": 2,
+     "simulacros_n": 2,
+     "total": 4,
+     "freq": {
+      "media": 1,
+      "alta": 3
+     },
+     "error": {
+      "signo": 3,
+      "procedimiento": 1
+     }
+    },
+    {
+     "tema": "Recta tangente y normal",
+     "corte": 2,
+     "cortes": {
+      "2": 3
+     },
+     "parciales_n": 1,
+     "parciales_con_el_tema": 1,
+     "simulacros_n": 2,
+     "total": 3,
+     "freq": {
+      "media": 2,
+      "alta": 1
+     },
+     "error": {
+      "formula": 1,
+      "algebra": 1,
+      "procedimiento": 1
+     }
+    },
+    {
+     "tema": "Aproximación lineal",
+     "corte": 2,
+     "cortes": {
+      "2": 2
+     },
+     "parciales_n": 1,
+     "parciales_con_el_tema": 1,
+     "simulacros_n": 1,
+     "total": 2,
+     "freq": {
+      "media": 1,
+      "alta": 1
+     },
+     "error": {
+      "algebra": 1,
+      "procedimiento": 1
+     }
+    },
+    {
+     "tema": "Definición de derivada",
+     "corte": 2,
+     "cortes": {
+      "2": 2
+     },
+     "parciales_n": 1,
+     "parciales_con_el_tema": 1,
+     "simulacros_n": 1,
+     "total": 2,
+     "freq": {
+      "alta": 2
+     },
+     "error": {
+      "algebra": 1,
+      "procedimiento": 1
+     }
+    },
+    {
+     "tema": "Derivación logarítmica",
+     "corte": 2,
+     "cortes": {
+      "2": 2
+     },
+     "parciales_n": 1,
+     "parciales_con_el_tema": 1,
+     "simulacros_n": 1,
+     "total": 2,
+     "freq": {
+      "alta": 2
+     },
+     "error": {
+      "procedimiento": 1,
+      "formula": 1
+     }
+    },
+    {
+     "tema": "Derivadas de orden superior",
+     "corte": 2,
+     "cortes": {
+      "2": 1
+     },
+     "parciales_n": 0,
+     "parciales_con_el_tema": 0,
+     "simulacros_n": 1,
+     "total": 1,
+     "freq": {
+      "media": 1
+     },
+     "error": {
+      "procedimiento": 1
+     }
+    },
+    {
+     "tema": "Regla de L'Hôpital",
+     "corte": 3,
+     "cortes": {
+      "3": 7
+     },
+     "parciales_n": 2,
+     "parciales_con_el_tema": 1,
+     "simulacros_n": 5,
+     "total": 7,
+     "freq": {
+      "alta": 4,
+      "media": 3
+     },
+     "error": {
+      "procedimiento": 6,
+      "conceptual": 1
+     }
+    },
+    {
+     "tema": "Análisis de gráficas",
+     "corte": 3,
+     "cortes": {
+      "3": 5
+     },
+     "parciales_n": 1,
+     "parciales_con_el_tema": 1,
+     "simulacros_n": 4,
+     "total": 5,
+     "freq": {
+      "alta": 2,
+      "media": 3
+     },
+     "error": {
+      "procedimiento": 2,
+      "conceptual": 3
+     }
+    },
+    {
+     "tema": "Optimización",
+     "corte": 3,
+     "cortes": {
+      "3": 5
+     },
+     "parciales_n": 2,
+     "parciales_con_el_tema": 2,
+     "simulacros_n": 3,
+     "total": 5,
+     "freq": {
+      "alta": 4,
+      "media": 1
+     },
+     "error": {
+      "procedimiento": 5
+     }
+    },
+    {
+     "tema": "Valores extremos",
+     "corte": 3,
+     "cortes": {
+      "3": 5
+     },
+     "parciales_n": 2,
+     "parciales_con_el_tema": 2,
+     "simulacros_n": 3,
+     "total": 5,
+     "freq": {
+      "alta": 5
+     },
+     "error": {
+      "procedimiento": 4,
+      "conceptual": 1
+     }
+    },
+    {
+     "tema": "Teorema del valor medio",
+     "corte": 3,
+     "cortes": {
+      "3": 4
+     },
+     "parciales_n": 1,
+     "parciales_con_el_tema": 1,
+     "simulacros_n": 3,
+     "total": 4,
+     "freq": {
+      "media": 3,
+      "alta": 1
+     },
+     "error": {
+      "formula": 3,
+      "procedimiento": 1
+     }
+    },
+    {
+     "tema": "Teorema fundamental del cálculo",
+     "corte": 3,
+     "cortes": {
+      "3": 4
+     },
+     "parciales_n": 1,
+     "parciales_con_el_tema": 1,
+     "simulacros_n": 3,
+     "total": 4,
+     "freq": {
+      "baja": 2,
+      "alta": 2
+     },
+     "error": {
+      "signo": 2,
+      "formula": 2
+     }
+    },
+    {
+     "tema": "Método de Newton",
+     "corte": 3,
+     "cortes": {
+      "3": 2
+     },
+     "parciales_n": 1,
+     "parciales_con_el_tema": 1,
+     "simulacros_n": 1,
+     "total": 2,
+     "freq": {
+      "baja": 1,
+      "alta": 1
+     },
+     "error": {
+      "formula": 1,
+      "procedimiento": 1
+     }
+    },
+    {
+     "tema": "Monotonía y concavidad",
+     "corte": 3,
+     "cortes": {
+      "3": 1
+     },
+     "parciales_n": 0,
+     "parciales_con_el_tema": 0,
+     "simulacros_n": 1,
+     "total": 1,
+     "freq": {
+      "alta": 1
+     },
+     "error": {
+      "procedimiento": 1
+     }
+    }
+   ]
+  },
+  "calcint": {
+   "nombre": "Cálculo Integral",
+   "examenes_parcial": [
+    {
+     "clave": "calcint_p1",
+     "semestre": "SEMESTRE 2 · PARCIAL 1 · 2025-2",
+     "preguntas": 7
+    },
+    {
+     "clave": "calcint_p2",
+     "semestre": "SEMESTRE 2 · PARCIAL 2 · 2025-2",
+     "preguntas": 7
+    },
+    {
+     "clave": "calcint_pa",
+     "semestre": "SEMESTRE 2 · PARCIAL 2B · 2025-2",
+     "preguntas": 8
+    }
+   ],
+   "examenes_corte": [
+    {
+     "clave": "calcint_c1",
+     "semestre": "INTEGRAL DEFINIDA Y TÉCNICAS BÁSICAS · CORTE 1 (30%)",
+     "preguntas": 9
+    },
+    {
+     "clave": "calcint_c2",
+     "semestre": "TÉCNICAS AVANZADAS E IMPROPIAS · CORTE 2 (35%)",
+     "preguntas": 9
+    },
+    {
+     "clave": "calcint_c3",
+     "semestre": "APLICACIONES, POLARES Y SERIES · CORTE 3 (35%)",
+     "preguntas": 9
+    }
+   ],
+   "n_parciales": 3,
+   "temas": [
+    {
+     "tema": "Integral definida y TFC",
+     "corte": 1,
+     "cortes": {
+      "1": 11
+     },
+     "parciales_n": 3,
+     "parciales_con_el_tema": 2,
+     "simulacros_n": 8,
+     "total": 11,
+     "freq": {
+      "media": 3,
+      "alta": 8
+     },
+     "error": {
+      "conceptual": 3,
+      "formula": 3,
+      "procedimiento": 5
+     }
+    },
+    {
+     "tema": "Sustitución",
+     "corte": 1,
+     "cortes": {
+      "1": 6
+     },
+     "parciales_n": 0,
+     "parciales_con_el_tema": 0,
+     "simulacros_n": 6,
+     "total": 6,
+     "freq": {
+      "media": 2,
+      "alta": 4
+     },
+     "error": {
+      "procedimiento": 5,
+      "formula": 1
+     }
+    },
+    {
+     "tema": "Integración por partes",
+     "corte": 1,
+     "cortes": {
+      "1": 5
+     },
+     "parciales_n": 0,
+     "parciales_con_el_tema": 0,
+     "simulacros_n": 5,
+     "total": 5,
+     "freq": {
+      "alta": 5
+     },
+     "error": {
+      "procedimiento": 4,
+      "formula": 1
+     }
+    },
+    {
+     "tema": "Área entre curvas",
+     "corte": 1,
+     "cortes": {
+      "1": 3
+     },
+     "parciales_n": 0,
+     "parciales_con_el_tema": 0,
+     "simulacros_n": 3,
+     "total": 3,
+     "freq": {
+      "media": 1,
+      "alta": 2
+     },
+     "error": {
+      "procedimiento": 3
+     }
+    },
+    {
+     "tema": "Fracciones parciales",
+     "corte": 2,
+     "cortes": {
+      "2": 8
+     },
+     "parciales_n": 1,
+     "parciales_con_el_tema": 1,
+     "simulacros_n": 7,
+     "total": 8,
+     "freq": {
+      "alta": 5,
+      "media": 3
+     },
+     "error": {
+      "procedimiento": 5,
+      "algebra": 1,
+      "formula": 2
+     }
+    },
+    {
+     "tema": "Integrales impropias",
+     "corte": 2,
+     "cortes": {
+      "2": 7
+     },
+     "parciales_n": 1,
+     "parciales_con_el_tema": 1,
+     "simulacros_n": 6,
+     "total": 7,
+     "freq": {
+      "alta": 6,
+      "media": 1
+     },
+     "error": {
+      "procedimiento": 3,
+      "conceptual": 4
+     }
+    },
+    {
+     "tema": "Sustitución trigonométrica",
+     "corte": 2,
+     "cortes": {
+      "2": 6
+     },
+     "parciales_n": 1,
+     "parciales_con_el_tema": 1,
+     "simulacros_n": 5,
+     "total": 6,
+     "freq": {
+      "alta": 5,
+      "media": 1
+     },
+     "error": {
+      "procedimiento": 3,
+      "conceptual": 2,
+      "formula": 1
+     }
+    },
+    {
+     "tema": "Integrales trigonométricas",
+     "corte": 2,
+     "cortes": {
+      "2": 5
+     },
+     "parciales_n": 0,
+     "parciales_con_el_tema": 0,
+     "simulacros_n": 5,
+     "total": 5,
+     "freq": {
+      "alta": 3,
+      "media": 2
+     },
+     "error": {
+      "procedimiento": 3,
+      "formula": 2
+     }
+    },
+    {
+     "tema": "Sucesiones y series",
+     "corte": 3,
+     "cortes": {
+      "3": 11
+     },
+     "parciales_n": 6,
+     "parciales_con_el_tema": 1,
+     "simulacros_n": 5,
+     "total": 11,
+     "freq": {
+      "alta": 9,
+      "media": 2
+     },
+     "error": {
+      "conceptual": 4,
+      "procedimiento": 5,
+      "formula": 2
+     }
+    },
+    {
+     "tema": "Volúmenes de revolución",
+     "corte": 3,
+     "cortes": {
+      "3": 8
+     },
+     "parciales_n": 4,
+     "parciales_con_el_tema": 2,
+     "simulacros_n": 4,
+     "total": 8,
+     "freq": {
+      "alta": 7,
+      "media": 1
+     },
+     "error": {
+      "procedimiento": 6,
+      "formula": 1,
+      "conceptual": 1
+     }
+    },
+    {
+     "tema": "Trabajo y valor promedio",
+     "corte": 3,
+     "cortes": {
+      "3": 5
+     },
+     "parciales_n": 3,
+     "parciales_con_el_tema": 1,
+     "simulacros_n": 2,
+     "total": 5,
+     "freq": {
+      "media": 3,
+      "baja": 2
+     },
+     "error": {
+      "formula": 3,
+      "procedimiento": 2
+     }
+    },
+    {
+     "tema": "Coordenadas polares",
+     "corte": 3,
+     "cortes": {
+      "3": 4
+     },
+     "parciales_n": 2,
+     "parciales_con_el_tema": 2,
+     "simulacros_n": 2,
+     "total": 4,
+     "freq": {
+      "alta": 3,
+      "media": 1
+     },
+     "error": {
+      "formula": 4
+     }
+    },
+    {
+     "tema": "Longitud de arco y superficies",
+     "corte": 3,
+     "cortes": {
+      "3": 3
+     },
+     "parciales_n": 1,
+     "parciales_con_el_tema": 1,
+     "simulacros_n": 2,
+     "total": 3,
+     "freq": {
+      "alta": 3
+     },
+     "error": {
+      "procedimiento": 3
+     }
+    }
+   ]
+  },
+  "calcvec": {
+   "nombre": "Cálculo en Varias Variables",
+   "examenes_parcial": [
+    {
+     "clave": "calcvec_p1",
+     "semestre": "SEMESTRE 3 · PARCIAL 1 · 2025-2",
+     "preguntas": 9
+    },
+    {
+     "clave": "calcvec_p2",
+     "semestre": "SEMESTRE 4 · TALLER REPASO · PARCIAL 2",
+     "preguntas": 8
+    },
+    {
+     "clave": "calcvec_p3",
+     "semestre": "SEMESTRE 3 · PARCIAL 3 · 2025-2",
+     "preguntas": 9
+    }
+   ],
+   "examenes_corte": [
+    {
+     "clave": "calcvec_c1",
+     "semestre": "CÁLCULO DIFERENCIAL EN VARIAS VARIABLES · CORTE 1 (30%)",
+     "preguntas": 9
+    },
+    {
+     "clave": "calcvec_c2",
+     "semestre": "INTEGRALES MÚLTIPLES · CORTE 2 (35%)",
+     "preguntas": 9
+    },
+    {
+     "clave": "calcvec_c3",
+     "semestre": "CÁLCULO VECTORIAL · CORTE 3 (35%)",
+     "preguntas": 9
+    }
+   ],
+   "n_parciales": 3,
+   "temas": [
+    {
+     "tema": "Derivadas parciales",
+     "corte": 1,
+     "cortes": {
+      "1": 6
+     },
+     "parciales_n": 2,
+     "parciales_con_el_tema": 1,
+     "simulacros_n": 4,
+     "total": 6,
+     "freq": {
+      "alta": 5,
+      "media": 1
+     },
+     "error": {
+      "procedimiento": 3,
+      "formula": 2,
+      "conceptual": 1
+     }
+    },
+    {
+     "tema": "Gradiente y derivada direccional",
+     "corte": 1,
+     "cortes": {
+      "1": 6
+     },
+     "parciales_n": 2,
+     "parciales_con_el_tema": 1,
+     "simulacros_n": 4,
+     "total": 6,
+     "freq": {
+      "alta": 6
+     },
+     "error": {
+      "procedimiento": 3,
+      "formula": 2,
+      "conceptual": 1
+     }
+    },
+    {
+     "tema": "Máximos y mínimos (Hessiano)",
+     "corte": 1,
+     "cortes": {
+      "1": 5
+     },
+     "parciales_n": 2,
+     "parciales_con_el_tema": 1,
+     "simulacros_n": 3,
+     "total": 5,
+     "freq": {
+      "alta": 5
+     },
+     "error": {
+      "procedimiento": 3,
+      "conceptual": 2
+     }
+    },
+    {
+     "tema": "Dominio, límites y continuidad",
+     "corte": 1,
+     "cortes": {
+      "1": 4
+     },
+     "parciales_n": 2,
+     "parciales_con_el_tema": 1,
+     "simulacros_n": 2,
+     "total": 4,
+     "freq": {
+      "alta": 4
+     },
+     "error": {
+      "procedimiento": 3,
+      "conceptual": 1
+     }
+    },
+    {
+     "tema": "Regla de la cadena",
+     "corte": 1,
+     "cortes": {
+      "1": 3
+     },
+     "parciales_n": 1,
+     "parciales_con_el_tema": 1,
+     "simulacros_n": 2,
+     "total": 3,
+     "freq": {
+      "media": 2,
+      "alta": 1
+     },
+     "error": {
+      "procedimiento": 2,
+      "formula": 1
+     }
+    },
+    {
+     "tema": "Multiplicadores de Lagrange",
+     "corte": 1,
+     "cortes": {
+      "1": 2
+     },
+     "parciales_n": 0,
+     "parciales_con_el_tema": 0,
+     "simulacros_n": 2,
+     "total": 2,
+     "freq": {
+      "alta": 2
+     },
+     "error": {
+      "formula": 1,
+      "procedimiento": 1
+     }
+    },
+    {
+     "tema": "Plano tangente y linealización",
+     "corte": 1,
+     "cortes": {
+      "1": 2
+     },
+     "parciales_n": 0,
+     "parciales_con_el_tema": 0,
+     "simulacros_n": 2,
+     "total": 2,
+     "freq": {
+      "alta": 2
+     },
+     "error": {
+      "formula": 1,
+      "procedimiento": 1
+     }
+    },
+    {
+     "tema": "Integrales dobles y cambio de orden",
+     "corte": 2,
+     "cortes": {
+      "2": 8
+     },
+     "parciales_n": 2,
+     "parciales_con_el_tema": 1,
+     "simulacros_n": 6,
+     "total": 8,
+     "freq": {
+      "alta": 7,
+      "media": 1
+     },
+     "error": {
+      "procedimiento": 6,
+      "formula": 1,
+      "conceptual": 1
+     }
+    },
+    {
+     "tema": "Coordenadas polares",
+     "corte": 2,
+     "cortes": {
+      "2": 7
+     },
+     "parciales_n": 2,
+     "parciales_con_el_tema": 1,
+     "simulacros_n": 5,
+     "total": 7,
+     "freq": {
+      "alta": 6,
+      "media": 1
+     },
+     "error": {
+      "procedimiento": 4,
+      "formula": 3
+     }
+    },
+    {
+     "tema": "Coordenadas cilíndricas y esféricas",
+     "corte": 2,
+     "cortes": {
+      "2": 5
+     },
+     "parciales_n": 3,
+     "parciales_con_el_tema": 2,
+     "simulacros_n": 2,
+     "total": 5,
+     "freq": {
+      "alta": 4,
+      "media": 1
+     },
+     "error": {
+      "procedimiento": 2,
+      "formula": 3
+     }
+    },
+    {
+     "tema": "Cambio de variable y jacobiano",
+     "corte": 2,
+     "cortes": {
+      "2": 3
+     },
+     "parciales_n": 2,
+     "parciales_con_el_tema": 1,
+     "simulacros_n": 1,
+     "total": 3,
+     "freq": {
+      "alta": 2,
+      "media": 1
+     },
+     "error": {
+      "procedimiento": 1,
+      "formula": 2
+     }
+    },
+    {
+     "tema": "Integrales triples",
+     "corte": 2,
+     "cortes": {
+      "2": 3
+     },
+     "parciales_n": 1,
+     "parciales_con_el_tema": 1,
+     "simulacros_n": 2,
+     "total": 3,
+     "freq": {
+      "alta": 3
+     },
+     "error": {
+      "formula": 3
+     }
+    },
+    {
+     "tema": "Aplicaciones (masa, centroide, inercia)",
+     "corte": 2,
+     "cortes": {
+      "2": 2
+     },
+     "parciales_n": 1,
+     "parciales_con_el_tema": 1,
+     "simulacros_n": 1,
+     "total": 2,
+     "freq": {
+      "media": 2
+     },
+     "error": {
+      "formula": 1,
+      "procedimiento": 1
+     }
+    },
+    {
+     "tema": "Rotacional y divergencia",
+     "corte": 3,
+     "cortes": {
+      "3": 9
+     },
+     "parciales_n": 3,
+     "parciales_con_el_tema": 1,
+     "simulacros_n": 6,
+     "total": 9,
+     "freq": {
+      "alta": 7,
+      "media": 2
+     },
+     "error": {
+      "formula": 6,
+      "conceptual": 1,
+      "procedimiento": 2
+     }
+    },
+    {
+     "tema": "Teorema de Green",
+     "corte": 3,
+     "cortes": {
+      "3": 6
+     },
+     "parciales_n": 1,
+     "parciales_con_el_tema": 1,
+     "simulacros_n": 5,
+     "total": 6,
+     "freq": {
+      "alta": 5,
+      "media": 1
+     },
+     "error": {
+      "procedimiento": 4,
+      "formula": 1,
+      "conceptual": 1
+     }
+    },
+    {
+     "tema": "Campos vectoriales e integrales de línea",
+     "corte": 3,
+     "cortes": {
+      "3": 5
+     },
+     "parciales_n": 0,
+     "parciales_con_el_tema": 0,
+     "simulacros_n": 5,
+     "total": 5,
+     "freq": {
+      "alta": 5
+     },
+     "error": {
+      "conceptual": 3,
+      "formula": 1,
+      "procedimiento": 1
+     }
+    },
+    {
+     "tema": "Teoremas de Stokes y de la Divergencia",
+     "corte": 3,
+     "cortes": {
+      "3": 5
+     },
+     "parciales_n": 2,
+     "parciales_con_el_tema": 1,
+     "simulacros_n": 3,
+     "total": 5,
+     "freq": {
+      "alta": 5
+     },
+     "error": {
+      "procedimiento": 3,
+      "formula": 2
+     }
+    },
+    {
+     "tema": "Integrales de superficie y flujo",
+     "corte": 3,
+     "cortes": {
+      "3": 2
+     },
+     "parciales_n": 0,
+     "parciales_con_el_tema": 0,
+     "simulacros_n": 2,
+     "total": 2,
+     "freq": {
+      "alta": 1,
+      "media": 1
+     },
+     "error": {
+      "procedimiento": 2
+     }
+    }
+   ]
+  }
+ }
+}
