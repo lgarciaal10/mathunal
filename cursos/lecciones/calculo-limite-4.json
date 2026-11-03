@@ -1,0 +1,439 @@
+{
+ "esquema": 1,
+ "id": "calculo-m1-l4",
+ "ejemplo": true,
+ "curso": "Cálculo",
+ "modulo": "Módulo 1 Límites y continuidad",
+ "posicion": "Lección 4 de 5",
+ "titulo": "Continuidad",
+ "minutos": 13,
+ "ejercicios": 1,
+ "grafica": {
+  "x": [
+   -0.5,
+   5
+  ],
+  "y": [
+   0,
+   6
+  ],
+  "curva": "x+2",
+  "funcion": "(x*x-4)/(x-2)",
+  "hueco": {
+   "x": 2,
+   "y": 4
+  },
+  "punto": {
+   "x": 2,
+   "y": 1,
+   "etiqueta": "f(2) = 1",
+   "etiquetaFija": "f(2) = 4"
+  },
+  "limite": 4,
+  "etiquetaHueco": "0 sobre 0",
+  "alt": "Gráfica con un hueco en x igual a 2 y un punto aparte en y igual a 1"
+ },
+ "glosario": {
+  "cont": "Una función es continua en un punto si su gráfica pasa por ahí sin que se levante el lápiz.",
+  "lim": "El límite es el valor al que se acercan los resultados cuando x se acerca a un punto.",
+  "trozos": "Una función por trozos usa una fórmula en unos valores de x y otra fórmula en otros."
+ },
+ "ver": {
+  "duracion": 20,
+  "capitulos": [
+   [
+    0,
+    2.5,
+    "Esta es la función. Se dibuja su curva, que tiene un hueco en x igual a 2."
+   ],
+   [
+    2.5,
+    4.5,
+    "En x igual a 2 la fórmula da 0 sobre 0, así que el valor se define aparte."
+   ],
+   [
+    4.5,
+    7,
+    "El punto blanco es el valor de la función en 2. Vale 1."
+   ],
+   [
+    7,
+    11.5,
+    "Ahora mira hacia dónde se acercan los valores cuando x se acerca a 2."
+   ],
+   [
+    11.5,
+    15,
+    "Se acercan a 4, pero la función vale 1 en 2. No coinciden y la gráfica se rompe ahí."
+   ],
+   [
+    15,
+    20,
+    "Si f(2) valiera 4, el punto llenaría el hueco y la función sería continua."
+   ]
+  ],
+  "canales": {
+   "draw": [
+    [
+     0.3,
+     0
+    ],
+    [
+     2.4,
+     1
+    ]
+   ],
+   "hole": [
+    [
+     2.5,
+     0
+    ],
+    [
+     3.2,
+     1
+    ]
+   ],
+   "pt": [
+    [
+     4.5,
+     0
+    ],
+    [
+     5.3,
+     1
+    ]
+   ],
+   "d": [
+    [
+     7,
+     1
+    ],
+    [
+     8.5,
+     0.1
+    ],
+    [
+     9.5,
+     0.1
+    ],
+    [
+     10.5,
+     0.01
+    ],
+    [
+     11.5,
+     0.001
+    ]
+   ],
+   "guide": [
+    [
+     11.5,
+     0
+    ],
+    [
+     12.5,
+     1
+    ]
+   ],
+   "fix": [
+    [
+     15,
+     0
+    ],
+    [
+     16.5,
+     1
+    ]
+   ]
+  },
+  "intervalos": {
+   "zero": [
+    3.2,
+    4.7
+   ],
+   "ok": [
+    16.5,
+    20
+   ]
+  }
+ },
+ "leer": {
+  "secciones": [
+   {
+    "titulo": "La idea",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Una función es {{gl:cont|continua}} en un punto si su gráfica pasa por ahí sin que se levante el lápiz. Cuando hay un hueco o un salto, no es continua."
+     }
+    ]
+   },
+   {
+    "titulo": "Un ejemplo",
+    "corto": "Un ejemplo",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Esta es una {{gl:trozos|función por trozos}}. Usa una fórmula en todos los x menos en 2, y ahí vale otra cosa."
+     },
+     {
+      "t": "eq",
+      "tex": "f(x)=\\begin{cases}\\dfrac{x^{2}-4}{x-2} & \\text{si } x\\neq 2\\\\[6pt] 1 & \\text{si } x=2\\end{cases}"
+     },
+     {
+      "t": "grafica",
+      "animar": "dibujar",
+      "alt": "Gráfica con un hueco en x igual a 2 y un punto aparte más abajo"
+     }
+    ]
+   },
+   {
+    "titulo": "Piensa antes de ver",
+    "corto": "Piensa",
+    "bloques": [
+     {
+      "t": "piensa",
+      "pregunta": "Si x se acerca a 2 por los dos lados, ¿a qué número se acercan los valores de f(x)?",
+      "opciones": [
+       1,
+       2,
+       4,
+       6
+      ],
+      "correcta": 4,
+      "bien": "Muy bien. Se acercan a 4, aunque la función valga 1 justo en 2.",
+      "mal": "Se acercan a 4. El 1 es el valor justo en x igual a 2, que es otra cosa."
+     }
+    ]
+   },
+   {
+    "titulo": "Acercándose por los dos lados",
+    "corto": "Acercándose",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Se prueban valores cada vez más cerca de 2."
+     },
+     {
+      "t": "acercando",
+      "ds": [
+       1,
+       0.1,
+       0.01,
+       0.001
+      ],
+      "alt": "Dos puntos que se acercan al hueco por la izquierda y por la derecha"
+     },
+     {
+      "t": "p",
+      "html": "Los valores se acercan a <b>4</b>, pero f(2) vale <b>1</b>. Por eso la gráfica se rompe."
+     }
+    ]
+   },
+   {
+    "titulo": "Las tres condiciones",
+    "corto": "Tres condiciones",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Una función es continua en x igual a a cuando se cumplen estas tres cosas a la vez."
+     },
+     {
+      "t": "pasos",
+      "items": [
+       {
+        "tex": "f(a)\\ \\text{existe}",
+        "porque": "La función tiene un valor en ese punto."
+       },
+       {
+        "tex": "\\lim_{x\\to a} f(x)\\ \\text{existe}",
+        "porque": "Los dos lados se acercan al mismo número."
+       },
+       {
+        "tex": "\\lim_{x\\to a} f(x)=f(a)",
+        "porque": "Ese número es justo el valor de la función."
+       }
+      ]
+     },
+     {
+      "t": "p",
+      "html": "En el ejemplo las dos primeras se cumplen, pero la tercera no, porque 4 no es igual a 1."
+     }
+    ]
+   },
+   {
+    "titulo": "Cómo se arregla",
+    "corto": "Cómo se arregla",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Si se cambia el valor en 2 por el del {{gl:lim|límite}}, el punto llena el hueco y la función queda continua."
+     },
+     {
+      "t": "eq",
+      "tex": "f(2)=4"
+     },
+     {
+      "t": "ojo",
+      "html": "Esto solo se puede cuando el límite existe. Si los dos lados se acercan a números distintos, hay un salto y no se arregla cambiando un valor."
+     }
+    ]
+   },
+   {
+    "titulo": "Revisa tu respuesta",
+    "corto": "Revisa",
+    "bloques": [
+     {
+      "t": "pregunta"
+     },
+     {
+      "t": "nota",
+      "html": "Factoriza el numerador y cancela lo que se repite."
+     }
+    ]
+   }
+  ]
+ },
+ "practicar": {
+  "pasos": [
+   {
+    "titulo": "La función",
+    "grafica": {
+     "draw": 1
+    },
+    "bloques": [
+     {
+      "t": "p",
+      "html": "La curva se parece a una recta, pero tiene un detalle en x igual a 2."
+     },
+     {
+      "t": "eq",
+      "tex": "f(x)=\\dfrac{x^{2}-4}{x-2}\\quad (x\\neq 2)"
+     }
+    ]
+   },
+   {
+    "titulo": "El punto que falta",
+    "grafica": {
+     "draw": 1,
+     "hole": 1,
+     "zero": true
+    },
+    "bloques": [
+     {
+      "t": "p",
+      "html": "En x igual a 2 la fórmula da 0 sobre 0. Ahí hay un hueco."
+     }
+    ]
+   },
+   {
+    "titulo": "Se define aparte",
+    "grafica": {
+     "draw": 1,
+     "hole": 1,
+     "pt": 1
+    },
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Digamos que la función vale 1 en x igual a 2. Es el punto blanco, que queda por fuera de la curva."
+     }
+    ]
+   },
+   {
+    "titulo": "Acércate a 2",
+    "grafica": {
+     "draw": 1,
+     "hole": 1,
+     "pt": 1
+    },
+    "laboratorio": true,
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mueve el deslizador y mira los valores de f por la izquierda y por la derecha."
+     }
+    ]
+   },
+   {
+    "titulo": "Hacia dónde va",
+    "grafica": {
+     "draw": 1,
+     "hole": 1,
+     "pt": 1,
+     "guide": 1
+    },
+    "laboratorio": true,
+    "d": 0.01,
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Los valores se acercan a 4, pero el punto está en 1. No coinciden, así que no es continua."
+     }
+    ]
+   },
+   {
+    "titulo": "Arréglala",
+    "grafica": {
+     "draw": 1,
+     "hole": 1,
+     "pt": 1,
+     "guide": 1,
+     "fix": 1,
+     "ok": true
+    },
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Si f(2) vale 4, el punto llena el hueco y la tercera condición se cumple."
+     },
+     {
+      "t": "eq",
+      "tex": "\\lim_{x\\to 2} f(x)=4=f(2)"
+     }
+    ]
+   },
+   {
+    "titulo": "Revisa tu respuesta",
+    "grafica": {
+     "draw": 1,
+     "hole": 1,
+     "pt": 1,
+     "guide": 1,
+     "fix": 1,
+     "ok": true
+    },
+    "bloques": [
+     {
+      "t": "pregunta"
+     },
+     {
+      "t": "nota",
+      "html": "Primero se factoriza y se cancela."
+     }
+    ]
+   }
+  ]
+ },
+ "pregunta": {
+  "tex": "\\lim_{x\\to 3}\\dfrac{x^{2}-9}{x-3}",
+  "opciones": [
+   "0",
+   "3",
+   "6",
+   "No existe"
+  ],
+  "correcta": 2,
+  "explicacion": "Se factoriza x al cuadrado menos 9 como (x − 3)(x + 3), se cancela x − 3 y queda x + 3, que en x igual a 3 vale 6. Para que la función fuera continua en 3, f(3) tendría que valer 6.",
+  "verificacion": {
+   "formula": "(x*x-9)/(x-3)",
+   "a": 3,
+   "esperado": 6
+  }
+ },
+ "resumen": [
+  "Una función es continua en a si f(a) existe, el límite existe y los dos son iguales.",
+  "Un hueco se arregla cuando el límite existe, cambiando el valor de la función en ese punto.",
+  "Un salto no se arregla cambiando un solo valor."
+ ]
+}

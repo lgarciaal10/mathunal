@@ -76,12 +76,15 @@
     var halo=el('circle',{'class':'halo',cx:X(A),cy:Y(G.hueco.y),r:12,opacity:0});
     var hole=el('circle',{'class':'hole',cx:X(A),cy:Y(G.hueco.y),r:0});
     var zb=el('text',{'class':'zb',x:X(A)+18,y:Y(G.hueco.y)+34,opacity:0}); zb.textContent=G.etiquetaHueco||'';
+    var PT=G.punto||null, ptc=null, ptl=null;
+    if(PT){ ptc=el('circle',{'class':'pv',cx:X(A),cy:Y(PT.y),r:0}); ptl=el('text',{'class':'zb',x:X(A)+18,y:Y(PT.y)+5,opacity:0}); ptl.textContent=PT.etiqueta||''; }
     var dL=el('path',{'class':'dl',d:'',stroke:'var(--warn)',opacity:0}), dR=el('path',{'class':'dl',d:'',stroke:'var(--bad)',opacity:0});
     var pL=el('circle',{'class':'pL',r:9,opacity:0}), pR=el('circle',{'class':'pR',r:9,opacity:0});
     return { set:function(s){
       cv.style.strokeDashoffset=1-(s.draw==null?1:s.draw);
       var h=s.hole==null?0:s.hole; hole.setAttribute('r',8*h); hole.style.stroke=s.ok?'var(--ok)':'var(--acc)'; hole.style.fill=s.ok?'var(--ok)':'var(--surf)';
       halo.setAttribute('opacity',s.ok?1:0); zb.setAttribute('opacity',s.zero?1:0);
+      if(PT){ var pv=s.pt==null?0:s.pt, fx=s.fix==null?0:s.fix, py=PT.y+(G.limite-PT.y)*fx; ptc.setAttribute('r',8*pv); ptc.setAttribute('cy',Y(py)); ptl.setAttribute('y',fx>0.5?Y(py)+34:Y(py)+5); ptl.setAttribute('opacity',pv>0.5?1:0); ptl.textContent=fx>0.5?(PT.etiquetaFija||PT.etiqueta||''):(PT.etiqueta||''); }
       guide.setAttribute('opacity',s.guide==null?0:s.guide); gl2.setAttribute('opacity',s.guide==null?0:s.guide);
       if(s.d==null){ [dL,dR,pL,pR].forEach(function(e){ e.setAttribute('opacity',0); }); }
       else{ var l=A-s.d, r=A+s.d, a=s.pa==null?1:s.pa, yl=fCurve(l), yr=fCurve(r);
@@ -124,7 +127,7 @@
     return kf[kf.length-1][1];
   }
   function stateV(t){
-    var s={}; ['draw','hole','guide'].forEach(function(n){ var v=chan(n,t); if(v!==undefined) s[n]=v; });
+    var s={}; ['draw','hole','guide','pt','fix'].forEach(function(n){ var v=chan(n,t); if(v!==undefined) s[n]=v; });
     var d=chan('d',t); if(d!==undefined&&d!==null){ s.d=d; s.pa=ap(t,V.canales.d[0][0],V.canales.d[0][0]+0.5); }
     var iv=V.intervalos||{}; if(iv.zero) s.zero=(t>=iv.zero[0]&&t<iv.zero[1]); if(iv.ok) s.ok=(t>=iv.ok[0]);
     return s;

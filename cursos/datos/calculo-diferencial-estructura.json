@@ -52,8 +52,8 @@
      "tema": "Continuidad",
      "preguntas_banco": 4,
      "parciales_con_el_tema": 1,
-     "estado": "pendiente",
-     "leccion": null,
+     "estado": "hecha",
+     "leccion": "calculo-limite-4",
      "grafica_necesaria": null
     }
    ]
