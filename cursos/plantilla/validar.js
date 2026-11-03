@@ -29,8 +29,8 @@ if (errores.length) { salir(); }
 /* ---------- fórmulas ---------- */
 const FN = /\b(sin|cos|tan|exp|ln|sqrt|abs|pi)\b/g;
 const compilar = (e, donde) => { if (!/^[0-9x+\-*\/().^\s]*$/.test(String(e).replace(FN, ''))) { err(`Fórmula no permitida en ${donde}`); return null; } try { const js = String(e).replace(/\^/g, '**').replace(/\bln\b/g, 'log').replace(/\bpi\b/g, 'PI').replace(/\b(sin|cos|tan|exp|log|sqrt|abs|PI)\b/g, 'Math.$1'); return new Function('x', 'return ' + js); } catch (x) { err(`Fórmula inválida en ${donde}`); return null; } };
-const G = L.grafica, SEC = G.tipo === 'secante', A = SEC ? G.a : (G.hueco && G.hueco.x);
-if (G.tipo && !['hueco', 'secante'].includes(G.tipo)) err(`Tipo de gráfica desconocido ${G.tipo}`);
+const G = L.grafica, SEC = G.tipo === 'secante', TVM = G.tipo === 'tvm', A = (SEC || TVM) ? G.a : (G.hueco && G.hueco.x);
+if (G.tipo && !['hueco', 'secante', 'tvm'].includes(G.tipo)) err(`Tipo de gráfica desconocido ${G.tipo}`);
 if (SEC) {
   const f = compilar(G.funcion, 'grafica.funcion'), fd = compilar(G.derivada, 'grafica.derivada');
   if (f && fd) {
@@ -40,6 +40,17 @@ if (SEC) {
     if (prev > 1e-3) err('La pendiente de la secante con h=1e-4 no está cerca de la derivada');
     if (!(A > G.x[0] && A < G.x[1])) err('El punto queda fuera del rango x'); else if (!(f(A) > G.y[0] && f(A) < G.y[1])) err('El punto queda fuera del rango y');
     if (!(f(A + 1) >= G.y[0] && f(A + 1) <= G.y[1] && A + 1 <= G.x[1])) aviso('Con h=1 el segundo punto sale del rango de la gráfica');
+  }
+} else if (TVM) {
+  const f = compilar(G.funcion, 'grafica.funcion'), fd = compilar(G.derivada, 'grafica.derivada');
+  if (!(G.a < G.b)) err('En el teorema del valor medio a debe ser menor que b');
+  if (f && fd && G.a < G.b) {
+    const cuerda = (f(G.b) - f(G.a)) / (G.b - G.a);
+    if (Math.abs(cuerda - G.limite) > 1e-9) err(`La pendiente de la cuerda vale ${cuerda} y limite dice ${G.limite}`);
+    if (typeof G.c !== 'number' || !(G.c > G.a && G.c < G.b)) err('grafica.c debe estar entre a y b');
+    else if (Math.abs(fd(G.c) - cuerda) > 1e-6) err(`La derivada en c=${G.c} vale ${fd(G.c)} y la cuerda ${cuerda}`);
+    for (const x of [G.a, G.b]) if (!(f(x) > G.y[0] && f(x) < G.y[1])) err('Un extremo queda fuera del rango y');
+    if (!(G.x[0] < G.a && G.b < G.x[1])) err('Los extremos deben quedar dentro del rango x');
   }
 } else {
 const fc = compilar(G.curva, 'grafica.curva'), ff = compilar(G.funcion, 'grafica.funcion');

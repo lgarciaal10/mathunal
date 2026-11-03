@@ -22,6 +22,8 @@ El validador revisa el esquema, que cada ecuación renderice con KaTeX, que las 
 - **Hueco** (por defecto). Una función con un hueco y dos puntos que se acercan por los lados. Lleva `curva`, `funcion`, `hueco` y `limite`. Con `punto` se agrega el valor f(a) como un punto aparte, y con el estado `fix` ese punto sube hasta el límite.
 - **Secante** (`"tipo": "secante"`). Una secante que se vuelve tangente. Lleva `funcion`, `a`, `derivada` y `limite`, que es la pendiente de la tangente. Con `"normal": true` dibuja también la recta normal, y con `rotulos` cambia los nombres de las lecturas, por ejemplo `["h", "velocidad media"]`. Para que la normal se vea perpendicular, los rangos x e y tienen que dar la misma escala (550 por 300 píxeles).
 
+- **Teorema del valor medio** (`"tipo": "tvm"`). Una cuerda fija entre `a` y `b` y una tangente que recorre la curva. Lleva `funcion`, `a`, `b`, `derivada`, `c` (el punto del teorema) y `limite`, que es la pendiente de la cuerda. El estado `d` es el x del punto móvil y el deslizador de Practicar recorre el intervalo.
+
 Las fórmulas aceptan números, `x`, `+ - * / ^`, paréntesis y las funciones `sin cos tan exp ln sqrt abs` y la constante `pi`.
 
 ## Zoom

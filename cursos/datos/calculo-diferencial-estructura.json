@@ -154,8 +154,8 @@
      "tema": "Teorema del valor medio",
      "preguntas_banco": 4,
      "parciales_con_el_tema": 1,
-     "estado": "pendiente",
-     "leccion": null,
+     "estado": "hecha",
+     "leccion": "calculo-valor-medio",
      "grafica_necesaria": null
     },
     {
