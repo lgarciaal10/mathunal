@@ -1,0 +1,440 @@
+{
+ "esquema": 1,
+ "id": "calculo-m2-l5",
+ "ejemplo": true,
+ "curso": "Cálculo",
+ "modulo": "Módulo 2 La derivada",
+ "posicion": "Lección 5 de 5",
+ "titulo": "Razón de cambio",
+ "minutos": 14,
+ "ejercicios": 1,
+ "grafica": {
+  "tipo": "secante",
+  "x": [
+   0,
+   4
+  ],
+  "y": [
+   0,
+   55
+  ],
+  "funcion": "pi*x*x",
+  "a": 2,
+  "derivada": "2*pi*x",
+  "limite": 12.5663706144,
+  "etiquetas": [
+   "Aumento del radio",
+   "Pendiente de la secante"
+  ],
+  "etiquetaSlider": "Aumento del radio",
+  "alt": "Curva del área de un círculo según su radio con una secante que se acerca a la tangente cuando el radio vale 2"
+ },
+ "glosario": {
+  "razon": "La razón de cambio dice qué tan rápido cambia una cantidad respecto a otra, como los centímetros cuadrados de área por cada centímetro de radio.",
+  "relac": "Las razones relacionadas aparecen cuando dos cantidades cambian al mismo tiempo porque una depende de la otra.",
+  "tangente": "La recta tangente toca la curva en un punto y tiene la misma inclinación que la curva ahí.",
+  "pend": "La pendiente dice cuánto sube la recta por cada unidad que avanza hacia la derecha."
+ },
+ "ver": {
+  "duracion": 19,
+  "capitulos": [
+   [
+    0,
+    2.5,
+    "Esta curva muestra el área de un círculo según su radio."
+   ],
+   [
+    2.5,
+    4.5,
+    "Miremos qué tan rápido crece el área cuando el radio vale 2."
+   ],
+   [
+    4.5,
+    8,
+    "Se aumenta el radio una cantidad h y se mide cuánto crece el área."
+   ],
+   [
+    8,
+    12.5,
+    "Mientras h se achica, la razón entre el aumento del área y el del radio cambia."
+   ],
+   [
+    12.5,
+    15.8,
+    "Se acerca a 12.57, que es 4 veces pi."
+   ],
+   [
+    15.8,
+    19,
+    "Esa es la derivada del área respecto al radio, 2 pi r, evaluada en r igual a 2."
+   ]
+  ],
+  "canales": {
+   "draw": [
+    [
+     0.3,
+     0
+    ],
+    [
+     2.4,
+     1
+    ]
+   ],
+   "hole": [
+    [
+     2.5,
+     0
+    ],
+    [
+     3.2,
+     1
+    ]
+   ],
+   "d": [
+    [
+     4.5,
+     1
+    ],
+    [
+     6,
+     0.5
+    ],
+    [
+     8,
+     0.5
+    ],
+    [
+     9.5,
+     0.1
+    ],
+    [
+     11,
+     0.1
+    ],
+    [
+     12.5,
+     0.01
+    ]
+   ],
+   "guide": [
+    [
+     12.5,
+     0
+    ],
+    [
+     13.5,
+     1
+    ]
+   ]
+  },
+  "intervalos": {
+   "ok": [
+    15.8,
+    19
+   ]
+  }
+ },
+ "leer": {
+  "secciones": [
+   {
+    "titulo": "La idea",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "La derivada es una {{gl:razon|razón de cambio}}. Dice cuánto cambia una cantidad por cada unidad que cambia otra. Cuando varias cantidades cambian con el tiempo y dependen unas de otras, se habla de {{gl:relac|razones relacionadas}}."
+     }
+    ]
+   },
+   {
+    "titulo": "Un ejemplo",
+    "corto": "Un ejemplo",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Piensa en una mancha circular que se va agrandando. Su área depende del radio."
+     },
+     {
+      "t": "eq",
+      "tex": "A(r)=\\pi r^{2}"
+     },
+     {
+      "t": "grafica",
+      "animar": "dibujar",
+      "alt": "Curva del área según el radio que se dibuja y marca el punto en r igual a 2"
+     }
+    ]
+   },
+   {
+    "titulo": "Piensa antes de ver",
+    "corto": "Piensa",
+    "bloques": [
+     {
+      "t": "piensa",
+      "pregunta": "Cuando el radio pasa de 2 a un valor un poquito mayor, ¿cuántos centímetros cuadrados crece el área por cada centímetro que crece el radio?",
+      "opciones": [
+       6.28,
+       12.57,
+       25.13,
+       37.7
+      ],
+      "correcta": 12.57,
+      "bien": "Muy bien. Es cerca de 12.57 y más abajo se ve por qué.",
+      "mal": "El número es 12.57, que es 4 veces pi, y más abajo se ve por qué."
+     }
+    ]
+   },
+   {
+    "titulo": "Acercando el segundo punto",
+    "corto": "Acercándose",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mira cómo cambia la pendiente de la secante al achicar el aumento del radio."
+     },
+     {
+      "t": "acercando",
+      "ds": [
+       1,
+       0.5,
+       0.1,
+       0.01
+      ],
+      "alt": "Una secante que gira hasta parecerse a la tangente"
+     },
+     {
+      "t": "p",
+      "html": "La pendiente se acerca a <b>12.57</b>."
+     }
+    ]
+   },
+   {
+    "titulo": "De dónde sale",
+    "corto": "De dónde sale",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Esa pendiente es la derivada del área respecto al radio."
+     },
+     {
+      "t": "pasos",
+      "items": [
+       {
+        "tex": "\\dfrac{dA}{dr}=2\\pi r",
+        "porque": "Se deriva A igual a pi r al cuadrado con la regla de la potencia."
+       },
+       {
+        "tex": "\\dfrac{dA}{dr}\\Big|_{r=2}=2\\pi\\cdot 2=4\\pi\\approx 12.57",
+        "porque": "Se evalúa en r igual a 2 y sale lo mismo que midió la secante."
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "Ahora con el tiempo",
+    "corto": "Con el tiempo",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Si el radio crece con el tiempo, el área también crece con el tiempo. La regla de la cadena une las dos razones."
+     },
+     {
+      "t": "eq",
+      "tex": "\\dfrac{dA}{dt}=\\dfrac{dA}{dr}\\cdot\\dfrac{dr}{dt}"
+     },
+     {
+      "t": "pasos",
+      "items": [
+       {
+        "tex": "\\dfrac{dr}{dt}=0.5\\ \\text{cm/s}\\quad (r=2\\ \\text{cm})",
+        "porque": "El radio crece medio centímetro por segundo y ahora mide 2 centímetros."
+       },
+       {
+        "tex": "\\dfrac{dA}{dt}=2\\pi r\\cdot\\dfrac{dr}{dt}=2\\pi\\cdot 2\\cdot 0.5=2\\pi",
+        "porque": "Se reemplazan r y dr sobre dt en la fórmula."
+       },
+       {
+        "tex": "\\dfrac{dA}{dt}\\approx 6.28\\ \\text{cm}^{2}/\\text{s}",
+        "porque": "El área crece unos 6.28 centímetros cuadrados cada segundo."
+       }
+      ]
+     },
+     {
+      "t": "ojo",
+      "html": "Se deriva primero con la fórmula general y solo después se reemplazan los números. Si se reemplaza r antes de derivar, el resultado sale mal."
+     }
+    ]
+   },
+   {
+    "titulo": "Un paso a paso",
+    "corto": "Paso a paso",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Con razones relacionadas conviene seguir siempre el mismo orden."
+     },
+     {
+      "t": "pasos",
+      "items": [
+       {
+        "tex": "V=\\dfrac{4}{3}\\pi r^{3}",
+        "porque": "Se escribe la fórmula que relaciona las cantidades, aquí el volumen de una esfera."
+       },
+       {
+        "tex": "\\dfrac{dV}{dt}=4\\pi r^{2}\\,\\dfrac{dr}{dt}",
+        "porque": "Se deriva respecto al tiempo y aparece dr sobre dt por la regla de la cadena."
+       },
+       {
+        "tex": "\\dfrac{dV}{dt}=4\\pi\\cdot 9\\cdot 2=72\\pi",
+        "porque": "Con r igual a 3 y dr sobre dt igual a 2, el volumen crece 72 pi unidades cúbicas por segundo."
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "Revisa tu respuesta",
+    "corto": "Revisa",
+    "bloques": [
+     {
+      "t": "pregunta"
+     },
+     {
+      "t": "nota",
+      "html": "Deriva el área respecto al tiempo y después reemplaza los valores."
+     }
+    ]
+   },
+   {
+    "titulo": "En resumen",
+    "corto": "Resumen",
+    "bloques": [
+     {
+      "t": "resumen"
+     }
+    ]
+   }
+  ]
+ },
+ "practicar": {
+  "pasos": [
+   {
+    "titulo": "La curva",
+    "grafica": {
+     "draw": 1
+    },
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Esta curva muestra el área de un círculo según su radio."
+     },
+     {
+      "t": "eq",
+      "tex": "A(r)=\\pi r^{2}"
+     }
+    ]
+   },
+   {
+    "titulo": "El punto",
+    "grafica": {
+     "draw": 1,
+     "hole": 1
+    },
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Se quiere saber qué tan rápido crece el área cuando el radio vale 2."
+     }
+    ]
+   },
+   {
+    "titulo": "Aumenta el radio",
+    "grafica": {
+     "draw": 1,
+     "hole": 1
+    },
+    "laboratorio": true,
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mueve el deslizador. La secante gira y abajo se ve cuánto crece el área por cada unidad de radio."
+     }
+    ]
+   },
+   {
+    "titulo": "La tangente",
+    "grafica": {
+     "draw": 1,
+     "hole": 1,
+     "guide": 1
+    },
+    "laboratorio": true,
+    "d": 0.01,
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Con un aumento muy pequeño la pendiente se acerca a 12.57."
+     }
+    ]
+   },
+   {
+    "titulo": "Con el tiempo",
+    "grafica": {
+     "draw": 1,
+     "hole": 1,
+     "guide": 1,
+     "ok": true
+    },
+    "bloques": [
+     {
+      "t": "eq",
+      "tex": "\\dfrac{dA}{dt}=2\\pi r\\,\\dfrac{dr}{dt}"
+     },
+     {
+      "t": "p",
+      "html": "Si el radio crece 0.5 centímetros por segundo, el área crece 2 pi, unos 6.28 centímetros cuadrados por segundo."
+     }
+    ]
+   },
+   {
+    "titulo": "Revisa tu respuesta",
+    "grafica": {
+     "draw": 1,
+     "hole": 1,
+     "guide": 1,
+     "ok": true
+    },
+    "bloques": [
+     {
+      "t": "pregunta"
+     },
+     {
+      "t": "nota",
+      "html": "Primero se deriva y después se reemplazan los valores."
+     }
+    ]
+   }
+  ]
+ },
+ "pregunta": {
+  "tex": "\\dfrac{dA}{dt}\\ \\text{cuando}\\ r=2\\ \\text{cm si}\\ A=\\pi r^{2}\\ \\text{y}\\ \\dfrac{dr}{dt}=3\\ \\text{cm/s}",
+  "opciones": [
+   "4π",
+   "6π",
+   "12π",
+   "24π"
+  ],
+  "correcta": 2,
+  "explicacion": "Se deriva A igual a pi r al cuadrado y queda dA sobre dt igual a 2 pi r por dr sobre dt. Con r igual a 2 y dr sobre dt igual a 3 sale 2 pi por 2 por 3, que es 12 pi centímetros cuadrados por segundo.",
+  "verificacion": {
+   "formula": "3*(pi*(2+x)^2-4*pi)/x",
+   "a": 0,
+   "esperado": 37.69911184
+  }
+ },
+ "resumen": [
+  "La derivada es una razón de cambio, cuánto cambia una cantidad por cada unidad que cambia otra.",
+  "Con razones relacionadas se deriva la fórmula respecto al tiempo con la regla de la cadena.",
+  "Primero se deriva con la fórmula general y después se reemplazan los valores."
+ ]
+}
