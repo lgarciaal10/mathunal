@@ -50,13 +50,13 @@
     var grp=el('g',{'clip-path':'url(#cp'+n+')'});
     var pts=[]; for(var k2=0;k2<=100;k2++){ var xx=XR[0]+(XR[1]-XR[0])*k2/100; var yv=fCurve(xx); if(!isFinite(yv)) yv=fCurve(xx+1e-9); pts.push((k2?'L':'M')+X(xx).toFixed(1)+' '+Y(yv).toFixed(1)); }
     var cv=el('path',{'class':'cv',pathLength:1,d:pts.join(' '),'stroke-dashoffset':1},grp);
-    var tan=el('line',{'class':'tg',opacity:0},grp), sec=el('line',{'class':'sc',opacity:0},grp), run=el('path',{'class':'dl',d:'',stroke:'var(--warn)',opacity:0},grp);
+    var nm=G.normal?el('line',{'class':'nm',opacity:0},grp):null; var tan=el('line',{'class':'tg',opacity:0},grp), sec=el('line',{'class':'sc',opacity:0},grp), run=el('path',{'class':'dl',d:'',stroke:'var(--warn)',opacity:0},grp);
     var halo=el('circle',{'class':'halo',cx:X(A),cy:Y(fFun(A)),r:12,opacity:0}), pP=el('circle',{'class':'pP',cx:X(A),cy:Y(fFun(A)),r:0}), pQ=el('circle',{'class':'pL',r:9,opacity:0});
     function line(e,m,w){ var xa=XR[0],xb=XR[1], ya=fFun(A)+m*(xa-A), yb=fFun(A)+m*(xb-A); e.setAttribute('x1',X(xa)); e.setAttribute('y1',Y(ya)); e.setAttribute('x2',X(xb)); e.setAttribute('y2',Y(yb)); }
     return { set:function(s){
       cv.style.strokeDashoffset=1-(s.draw==null?1:s.draw);
       var h=s.hole==null?0:s.hole; pP.setAttribute('r',9*h); halo.setAttribute('opacity',s.ok?1:0);
-      var g=s.guide==null?0:s.guide; line(tan,fDer(A)); tan.setAttribute('opacity',g); tan.style.strokeWidth=s.ok?5:3.5;
+      if(nm){ line(nm,-1/fDer(A)); nm.setAttribute('opacity',s.nor==null?0:s.nor); } var g=s.guide==null?0:s.guide; line(tan,fDer(A)); tan.setAttribute('opacity',g); tan.style.strokeWidth=s.ok?5:3.5;
       if(s.d==null){ sec.setAttribute('opacity',0); run.setAttribute('opacity',0); pQ.setAttribute('opacity',0); }
       else{ var q=A+s.d, m=(fFun(q)-fFun(A))/s.d, a=s.pa==null?1:s.pa; line(sec,m); sec.setAttribute('opacity',a*(g>0.5?0.35:1));
         run.setAttribute('d','M'+X(A)+' '+Y(fFun(A))+' H'+X(q)+' V'+Y(fFun(q))); run.setAttribute('opacity',a*(g>0.5?0:1));
@@ -128,7 +128,7 @@
     return kf[kf.length-1][1];
   }
   function stateV(t){
-    var s={}; ['draw','hole','guide','pt','fix'].forEach(function(n){ var v=chan(n,t); if(v!==undefined) s[n]=v; });
+    var s={}; ['draw','hole','guide','pt','fix','nor'].forEach(function(n){ var v=chan(n,t); if(v!==undefined) s[n]=v; });
     var d=chan('d',t); if(d!==undefined&&d!==null){ s.d=d; s.pa=ap(t,V.canales.d[0][0],V.canales.d[0][0]+0.5); }
     var iv=V.intervalos||{}; if(iv.zero) s.zero=(t>=iv.zero[0]&&t<iv.zero[1]); if(iv.ok) s.ok=(t>=iv.ok[0]);
     return s;
