@@ -13,6 +13,7 @@
   function ic(id){ return '<svg class="ic" aria-hidden="true"><use href="#'+id+'"/></svg>'; }
   function attr(s){ return String(s).replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;'); }
   function tween(dur,fn,done){ if(RM){ fn(1); if(done) done(); return; } var t0=null; (function s(now){ if(t0===null) t0=now; var k=cl((now-t0)/dur,0,1); fn(k); if(k<1) requestAnimationFrame(s); else if(done) done(); })(performance.now()); }
+  function pasoNice(a,b){ var r=b-a, L=[1,2,5,10,20,50,100,200,500]; for(var i=0;i<L.length;i++) if(r/L[i]<=8) return L[i]; return 1000; }
   var FN=/\b(sin|cos|tan|exp|ln|sqrt|abs|pi)\b/g;
   function compile(expr){   /* fórmulas del JSON. Números, x, operadores, paréntesis y sin cos tan exp ln sqrt abs pi */
     if(!/^[0-9x+\-*\/().^\s]*$/.test(String(expr).replace(FN,''))) throw new Error('Fórmula no permitida '+expr);
@@ -43,8 +44,8 @@
     function X(x){ return x0+(x-XR[0])/(XR[1]-XR[0])*(x1-x0); } function Y(y){ return y0-(y-YR[0])/(YR[1]-YR[0])*(y0-y1); }
     function el(t,a,par){ var e=document.createElementNS(NS,t); for(var k in a) e.setAttribute(k,a[k]); (par||svg).appendChild(e); return e; }
     el('path',{'class':'ax',d:'M'+X(0)+' '+(y1-8)+' V'+y0+' M'+x0+' '+Y(0)+' H'+(x1+6)});
-    for(var i=Math.ceil(XR[0]);i<=Math.floor(XR[1]);i++){ if(i===0) continue; el('path',{'class':'tk',d:'M'+X(i)+' '+(Y(0)-5)+' v10'}); var t=el('text',{'class':'tt',x:X(i),y:Y(0)+26,'text-anchor':'middle'}); t.textContent=i; }
-    for(var j=Math.ceil(YR[0]);j<=Math.floor(YR[1]);j++){ if(j===0) continue; el('path',{'class':'tk',d:'M'+(X(0)-5)+' '+Y(j)+' h10'}); var u=el('text',{'class':'tt',x:X(0)-14,y:Y(j)+4,'text-anchor':'end'}); u.textContent=j; }
+    var sx=pasoNice(XR[0],XR[1]); for(var i=Math.ceil(XR[0]/sx)*sx;i<=XR[1];i+=sx){ if(i===0) continue; el('path',{'class':'tk',d:'M'+X(i)+' '+(Y(0)-5)+' v10'}); var t=el('text',{'class':'tt',x:X(i),y:Y(0)+26,'text-anchor':'middle'}); t.textContent=i; }
+    var sy=pasoNice(YR[0],YR[1]); for(var j=Math.ceil(YR[0]/sy)*sy;j<=YR[1];j+=sy){ if(j===0) continue; el('path',{'class':'tk',d:'M'+(X(0)-5)+' '+Y(j)+' h10'}); var u=el('text',{'class':'tt',x:X(0)-14,y:Y(j)+4,'text-anchor':'end'}); u.textContent=j; }
     var defs=el('defs',{}), cp=el('clipPath',{id:'cp'+n},defs); el('rect',{x:x0,y:y1,width:x1-x0+6,height:y0-y1},cp);
     var grp=el('g',{'clip-path':'url(#cp'+n+')'});
     var pts=[]; for(var k2=0;k2<=100;k2++){ var xx=XR[0]+(XR[1]-XR[0])*k2/100; var yv=fCurve(xx); if(!isFinite(yv)) yv=fCurve(xx+1e-9); pts.push((k2?'L':'M')+X(xx).toFixed(1)+' '+Y(yv).toFixed(1)); }
@@ -68,8 +69,8 @@
     function X(x){ return x0+(x-XR[0])/(XR[1]-XR[0])*(x1-x0); } function Y(y){ return y0-(y-YR[0])/(YR[1]-YR[0])*(y0-y1); }
     function el(t,a){ var e=document.createElementNS(NS,t); for(var k in a) e.setAttribute(k,a[k]); svg.appendChild(e); return e; }
     el('path',{'class':'ax',d:'M'+X(0)+' '+(y1-8)+' V'+y0+' M'+x0+' '+Y(0)+' H'+(x1+6)});
-    for(var i=Math.ceil(XR[0]);i<=Math.floor(XR[1]);i++){ if(i===0) continue; el('path',{'class':'tk',d:'M'+X(i)+' '+(Y(0)-5)+' v10'}); var t=el('text',{'class':'tt',x:X(i),y:Y(0)+26,'text-anchor':'middle'}); t.textContent=i; }
-    for(var j=Math.ceil(YR[0]);j<=Math.floor(YR[1]);j++){ if(j===0) continue; el('path',{'class':'tk',d:'M'+(X(0)-5)+' '+Y(j)+' h10'}); var u=el('text',{'class':'tt',x:X(0)-14,y:Y(j)+4,'text-anchor':'end'}); u.textContent=j; }
+    var sx=pasoNice(XR[0],XR[1]); for(var i=Math.ceil(XR[0]/sx)*sx;i<=XR[1];i+=sx){ if(i===0) continue; el('path',{'class':'tk',d:'M'+X(i)+' '+(Y(0)-5)+' v10'}); var t=el('text',{'class':'tt',x:X(i),y:Y(0)+26,'text-anchor':'middle'}); t.textContent=i; }
+    var sy=pasoNice(YR[0],YR[1]); for(var j=Math.ceil(YR[0]/sy)*sy;j<=YR[1];j+=sy){ if(j===0) continue; el('path',{'class':'tk',d:'M'+(X(0)-5)+' '+Y(j)+' h10'}); var u=el('text',{'class':'tt',x:X(0)-14,y:Y(j)+4,'text-anchor':'end'}); u.textContent=j; }
     var guide=el('path',{'class':'gd',d:'M'+X(XR[0]<0?0:XR[0])+' '+Y(G.limite)+' H'+(x1+4),opacity:0}); var gl2=el('text',{'class':'gl',x:x1,y:Y(G.limite)-10,'text-anchor':'end',opacity:0}); gl2.textContent='y = '+G.limite;
     var pts=[]; for(var k2=0;k2<=120;k2++){ var xx=XR[0]+(XR[1]-XR[0])*k2/120; var yv=fCurve(xx); if(!isFinite(yv)) yv=fCurve(xx+1e-9); pts.push((k2?'L':'M')+X(xx).toFixed(1)+' '+Y(yv).toFixed(1)); }
     var cv=el('path',{'class':'cv',pathLength:1,d:pts.join(' '),'stroke-dashoffset':1});

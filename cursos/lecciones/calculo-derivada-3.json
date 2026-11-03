@@ -1,0 +1,449 @@
+{
+ "esquema": 1,
+ "id": "calculo-m2-l3",
+ "ejemplo": true,
+ "curso": "Cálculo",
+ "modulo": "Módulo 2 La derivada",
+ "posicion": "Lección 3 de 5",
+ "titulo": "La regla de la cadena",
+ "minutos": 14,
+ "ejercicios": 1,
+ "grafica": {
+  "tipo": "secante",
+  "x": [
+   -1.2,
+   2.2
+  ],
+  "y": [
+   0,
+   30
+  ],
+  "funcion": "(2*x+1)^2",
+  "a": 1,
+  "derivada": "4*(2*x+1)",
+  "limite": 12,
+  "etiquetas": [
+   "Distancia h",
+   "Pendiente de la secante"
+  ],
+  "etiquetaSlider": "Valor de h",
+  "alt": "Curva de la función 2x más 1 al cuadrado con una secante que se acerca a la tangente en x igual a 1"
+ },
+ "glosario": {
+  "comp": "Una función compuesta es una función dentro de otra, como (2x + 1) al cuadrado, donde primero se calcula 2x + 1 y luego se eleva al cuadrado.",
+  "tangente": "La recta tangente toca la curva en un punto y tiene la misma inclinación que la curva ahí.",
+  "pend": "La pendiente dice cuánto sube la recta por cada unidad que avanza hacia la derecha.",
+  "interna": "La función interna es la que se calcula primero, la que está dentro del paréntesis.",
+  "externa": "La función externa es la que se aplica al resultado de la interna."
+ },
+ "ver": {
+  "duracion": 19,
+  "capitulos": [
+   [
+    0,
+    2.5,
+    "Esta es la curva de f(x) igual a 2x más 1, todo al cuadrado."
+   ],
+   [
+    2.5,
+    4.5,
+    "Es una función compuesta y queremos su inclinación en x igual a 1."
+   ],
+   [
+    4.5,
+    8,
+    "Se traza la secante con un segundo punto a distancia h."
+   ],
+   [
+    8,
+    12.5,
+    "Mientras h se achica, la pendiente de la secante cambia."
+   ],
+   [
+    12.5,
+    15.8,
+    "La secante se vuelve la tangente y su pendiente se acerca a 12."
+   ],
+   [
+    15.8,
+    19,
+    "La regla de la cadena da el mismo 12 sin necesidad del límite."
+   ]
+  ],
+  "canales": {
+   "draw": [
+    [
+     0.3,
+     0
+    ],
+    [
+     2.4,
+     1
+    ]
+   ],
+   "hole": [
+    [
+     2.5,
+     0
+    ],
+    [
+     3.2,
+     1
+    ]
+   ],
+   "d": [
+    [
+     4.5,
+     1
+    ],
+    [
+     6,
+     0.5
+    ],
+    [
+     8,
+     0.5
+    ],
+    [
+     9.5,
+     0.1
+    ],
+    [
+     11,
+     0.1
+    ],
+    [
+     12.5,
+     0.01
+    ]
+   ],
+   "guide": [
+    [
+     12.5,
+     0
+    ],
+    [
+     13.5,
+     1
+    ]
+   ]
+  },
+  "intervalos": {
+   "ok": [
+    15.8,
+    19
+   ]
+  }
+ },
+ "leer": {
+  "secciones": [
+   {
+    "titulo": "La idea",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Muchas funciones son una {{gl:comp|función compuesta}}, o sea una función dentro de otra. Para derivarlas se usa la regla de la cadena, que va derivando de afuera hacia adentro."
+     }
+    ]
+   },
+   {
+    "titulo": "Un ejemplo",
+    "corto": "Un ejemplo",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mira esta función y su inclinación en x igual a 1."
+     },
+     {
+      "t": "eq",
+      "tex": "f(x)=(2x+1)^{2}"
+     },
+     {
+      "t": "p",
+      "html": "La {{gl:interna|función interna}} es 2x más 1 y la {{gl:externa|función externa}} es elevar al cuadrado."
+     },
+     {
+      "t": "grafica",
+      "animar": "dibujar",
+      "alt": "Curva que se dibuja y marca el punto en x igual a 1"
+     }
+    ]
+   },
+   {
+    "titulo": "Piensa antes de ver",
+    "corto": "Piensa",
+    "bloques": [
+     {
+      "t": "piensa",
+      "pregunta": "Cuando el segundo punto se acerca al primero, ¿a qué número crees que se acerca la pendiente de la secante?",
+      "opciones": [
+       6,
+       9,
+       12,
+       16
+      ],
+      "correcta": 12,
+      "bien": "Muy bien. Se acerca a 12 y más abajo se ve por qué.",
+      "mal": "El número es el 12 y más abajo se ve por qué."
+     }
+    ]
+   },
+   {
+    "titulo": "Acercando el segundo punto",
+    "corto": "Acercándose",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mira cómo cambia la pendiente de la secante al achicar h."
+     },
+     {
+      "t": "acercando",
+      "ds": [
+       1,
+       0.5,
+       0.1,
+       0.01
+      ],
+      "alt": "Una secante que gira hasta parecerse a la tangente"
+     },
+     {
+      "t": "p",
+      "html": "La pendiente se acerca a <b>12</b>."
+     }
+    ]
+   },
+   {
+    "titulo": "Con el límite",
+    "corto": "Con el límite",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Primero se comprueba con la definición, que es lenta pero segura."
+     },
+     {
+      "t": "pasos",
+      "items": [
+       {
+        "tex": "\\dfrac{f(1+h)-f(1)}{h}=\\dfrac{(3+2h)^{2}-9}{h}",
+        "porque": "En x igual a 1 la función vale 9, y en 1 más h el paréntesis vale 3 más 2h."
+       },
+       {
+        "tex": "=\\dfrac{9+12h+4h^{2}-9}{h}=12+4h\\quad (h\\neq 0)",
+        "porque": "Se desarrolla el cuadrado y se cancela h."
+       },
+       {
+        "tex": "f'(1)=\\lim_{h\\to 0}(12+4h)=12",
+        "porque": "Cuando h se acerca a 0 solo queda el 12."
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "El atajo de la cadena",
+    "corto": "El atajo",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "La regla de la cadena da lo mismo en dos pasos. Se deriva la externa dejando la interna igual y se multiplica por la derivada de la interna."
+     },
+     {
+      "t": "eq",
+      "tex": "\\dfrac{d}{dx}\\,g\\bigl(u(x)\\bigr)=g'\\bigl(u(x)\\bigr)\\cdot u'(x)"
+     },
+     {
+      "t": "pasos",
+      "items": [
+       {
+        "tex": "u=2x+1,\\quad g(u)=u^{2}",
+        "porque": "Se separan la función interna y la externa."
+       },
+       {
+        "tex": "f'(x)=2u\\cdot u'=2(2x+1)\\cdot 2=4(2x+1)",
+        "porque": "Se deriva la externa, se deja u igual y se multiplica por u prima, que vale 2."
+       },
+       {
+        "tex": "f'(1)=4\\cdot 3=12",
+        "porque": "Se evalúa en x igual a 1 y sale lo mismo que con el límite."
+       }
+      ]
+     },
+     {
+      "t": "ojo",
+      "html": "El error más común es olvidar multiplicar por la derivada de la función interna. Aquí sería quedarse con 2 por 3, que da 6 y no 12."
+     }
+    ]
+   },
+   {
+    "titulo": "Más ejemplos",
+    "corto": "Más ejemplos",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "La idea es siempre la misma. Se identifica lo de adentro y lo de afuera."
+     },
+     {
+      "t": "pasos",
+      "items": [
+       {
+        "tex": "\\dfrac{d}{dx}\\left(x^{2}+1\\right)^{5}=5\\left(x^{2}+1\\right)^{4}\\cdot 2x",
+        "porque": "Externa, la quinta potencia. Interna, x al cuadrado más 1."
+       },
+       {
+        "tex": "\\dfrac{d}{dx}\\operatorname{sen}(3x^{2})=\\cos(3x^{2})\\cdot 6x",
+        "porque": "Externa, el seno. Interna, 3x al cuadrado."
+       },
+       {
+        "tex": "\\dfrac{d}{dx}\\,e^{2x}=e^{2x}\\cdot 2",
+        "porque": "Externa, la exponencial. Interna, 2x."
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "Revisa tu respuesta",
+    "corto": "Revisa",
+    "bloques": [
+     {
+      "t": "pregunta"
+     },
+     {
+      "t": "nota",
+      "html": "Deriva la externa, multiplica por la derivada de la interna y evalúa en 1."
+     }
+    ]
+   },
+   {
+    "titulo": "En resumen",
+    "corto": "Resumen",
+    "bloques": [
+     {
+      "t": "resumen"
+     }
+    ]
+   }
+  ]
+ },
+ "practicar": {
+  "pasos": [
+   {
+    "titulo": "La curva",
+    "grafica": {
+     "draw": 1
+    },
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Esta es la curva de una función compuesta."
+     },
+     {
+      "t": "eq",
+      "tex": "f(x)=(2x+1)^{2}"
+     }
+    ]
+   },
+   {
+    "titulo": "El punto",
+    "grafica": {
+     "draw": 1,
+     "hole": 1
+    },
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Se quiere la inclinación de la curva en x igual a 1."
+     }
+    ]
+   },
+   {
+    "titulo": "Acerca el segundo punto",
+    "grafica": {
+     "draw": 1,
+     "hole": 1
+    },
+    "laboratorio": true,
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mueve el deslizador de h. La secante gira y abajo se ve su pendiente."
+     }
+    ]
+   },
+   {
+    "titulo": "La tangente",
+    "grafica": {
+     "draw": 1,
+     "hole": 1,
+     "guide": 1
+    },
+    "laboratorio": true,
+    "d": 0.01,
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Con h muy pequeño la pendiente se acerca a 12."
+     }
+    ]
+   },
+   {
+    "titulo": "El atajo",
+    "grafica": {
+     "draw": 1,
+     "hole": 1,
+     "guide": 1,
+     "ok": true
+    },
+    "bloques": [
+     {
+      "t": "eq",
+      "tex": "f'(x)=2(2x+1)\\cdot 2=4(2x+1)"
+     },
+     {
+      "t": "p",
+      "html": "En x igual a 1 vale 12, justo lo que midió la secante."
+     }
+    ]
+   },
+   {
+    "titulo": "Revisa tu respuesta",
+    "grafica": {
+     "draw": 1,
+     "hole": 1,
+     "guide": 1,
+     "ok": true
+    },
+    "bloques": [
+     {
+      "t": "pregunta"
+     },
+     {
+      "t": "nota",
+      "html": "No olvides multiplicar por la derivada de lo de adentro."
+     }
+    ]
+   }
+  ]
+ },
+ "pregunta": {
+  "tex": "f'(1)\\ \\text{si}\\ f(x)=(x^{2}+1)^{3}",
+  "opciones": [
+   "12",
+   "24",
+   "6",
+   "8"
+  ],
+  "correcta": 1,
+  "explicacion": "La derivada es 3 por (x al cuadrado más 1) al cuadrado, por 2x. En x igual a 1 queda 3 por 4 por 2, que da 24.",
+  "verificacion": {
+   "formula": "(((1+x)^2+1)^3-8)/x",
+   "a": 0,
+   "esperado": 24
+  }
+ },
+ "resumen": [
+  "Una función compuesta se deriva de afuera hacia adentro.",
+  "Se deriva la externa dejando la interna igual y se multiplica por la derivada de la interna.",
+  "Olvidar la derivada de la interna es el error más común."
+ ]
+}
