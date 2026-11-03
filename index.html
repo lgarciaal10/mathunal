@@ -7,7 +7,7 @@
        figuras): lo que SI aporta es limitar origenes de scripts, a donde se puede conectar (connect-src)
        y bloquear <object>, <base> y formularios hacia fuera. Si algo deja de cargar, la consola muestra
        "Content Security Policy" + el host: agregarlo aqui. Va antes de cualquier <script>. -->
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://plausible.io https://*.clarity.ms https://cdn.jsdelivr.net https://cdnjs.cloudflare.com https://unpkg.com https://cdn.plot.ly https://*.wompi.co; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net; font-src 'self' data: https://fonts.gstatic.com https://cdn.jsdelivr.net; img-src 'self' data: blob: https://goxhxrdchfyphkenixng.supabase.co https://*.google-analytics.com https://*.googletagmanager.com https://*.clarity.ms https://c.bing.com https://stats.g.doubleclick.net https://*.wompi.co; connect-src 'self' https://goxhxrdchfyphkenixng.supabase.co https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com https://stats.g.doubleclick.net https://plausible.io https://*.clarity.ms https://c.bing.com https://*.wompi.co; frame-src https://*.wompi.co; worker-src 'self'; manifest-src 'self'; media-src 'self' blob:; object-src 'none'; base-uri 'self'; form-action 'self' https://*.wompi.co">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://*.clarity.ms https://cdn.jsdelivr.net https://cdnjs.cloudflare.com https://unpkg.com https://cdn.plot.ly https://*.wompi.co; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net; font-src 'self' data: https://fonts.gstatic.com https://cdn.jsdelivr.net; img-src 'self' data: blob: https://goxhxrdchfyphkenixng.supabase.co https://*.google-analytics.com https://*.googletagmanager.com https://*.clarity.ms https://c.bing.com https://stats.g.doubleclick.net https://*.wompi.co; connect-src 'self' https://goxhxrdchfyphkenixng.supabase.co https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com https://stats.g.doubleclick.net https://*.clarity.ms https://c.bing.com https://*.wompi.co; frame-src https://*.wompi.co; worker-src 'self'; manifest-src 'self'; media-src 'self' blob:; object-src 'none'; base-uri 'self'; form-action 'self' https://*.wompi.co">
   <!-- Google Analytics (GA4) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-KPYPGY35D3"></script>
   <script>
@@ -15,12 +15,6 @@
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
     gtag('config', 'G-KPYPGY35D3');
-  </script>
-  <!-- Plausible: no requiere cookies ni banner de consentimiento. -->
-  <script async src="https://plausible.io/js/pa-ECGmYTlaD8QG2s5zHP_W_.js"></script>
-  <script>
-    window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
-    plausible.init()
   </script>
   <!-- Microsoft Clarity: mapas de calor y grabaciones de sesion. -->
   <script type="text/javascript">
@@ -28509,15 +28503,15 @@ window.muApplyLang_privacidad = function(){
   document.getElementById('pv-title').textContent = en?'Privacy':'Privacidad';
   document.getElementById('pv-updated').textContent = en?'Last updated: August 2026':'Última actualización: agosto de 2026';
   var sections = en ? [
-    ['What we collect','MathUNAL uses three analytics tools: <strong>Google Analytics 4</strong> and <strong>Microsoft Clarity</strong> (which records anonymized clicks, scrolling and mouse movement to see how people use the site — no keystrokes or form contents are captured), and <strong>Plausible</strong> (cookie-free, aggregate-only). If you unlock premium solutions, we store the email you provide so we can verify your payment — nothing else.'],
+    ['What we collect','MathUNAL uses two analytics tools: <strong>Google Analytics 4</strong> and <strong>Microsoft Clarity</strong> (which records anonymized clicks, scrolling and mouse movement to see how people use the site — no keystrokes or form contents are captured). If you unlock premium solutions, we store the email you provide so we can verify your payment — nothing else.'],
     ['Why','Exclusively to understand which parts of the site are useful, fix what\'s broken, and confirm premium payments. We don\'t sell or share this data with third parties, and we don\'t use it for advertising.'],
     ['Your rights','Under Colombian law (Ley 1581 de 2012, Habeas Data) you can ask what data we have linked to your email and request it be deleted. Write to us on WhatsApp (see the footer) and we\'ll take care of it.'],
-    ['Cookies','Google Analytics and Microsoft Clarity set cookies to recognize repeat visits. Plausible does not use cookies at all. You can block analytics cookies from your browser settings without losing any site functionality.']
+    ['Cookies','Google Analytics and Microsoft Clarity set cookies to recognize repeat visits. You can block analytics cookies from your browser settings without losing any site functionality.']
   ] : [
-    ['Qué recolectamos','MathUNAL usa tres herramientas de analítica: <strong>Google Analytics 4</strong> y <strong>Microsoft Clarity</strong> (que graban de forma anonimizada clics, scroll y movimiento del mouse para ver cómo se usa el sitio — no capturan lo que escribes en formularios ni contraseñas), y <strong>Plausible</strong> (sin cookies, solo datos agregados). Si desbloqueas soluciones premium, guardamos el correo que nos das para verificar tu pago — nada más.'],
+    ['Qué recolectamos','MathUNAL usa dos herramientas de analítica: <strong>Google Analytics 4</strong> y <strong>Microsoft Clarity</strong> (que graban de forma anonimizada clics, scroll y movimiento del mouse para ver cómo se usa el sitio — no capturan lo que escribes en formularios ni contraseñas). Si desbloqueas soluciones premium, guardamos el correo que nos das para verificar tu pago — nada más.'],
     ['Para qué','Únicamente para entender qué partes del sitio sirven, arreglar lo que falla, y confirmar pagos premium. No vendemos ni compartimos estos datos con terceros, y no los usamos para publicidad.'],
     ['Tus derechos','Bajo la Ley 1581 de 2012 (Habeas Data, Colombia) puedes pedirnos que te digamos qué datos tenemos asociados a tu correo y solicitar que los borremos. Escríbenos por WhatsApp (link en el pie de página) y lo hacemos.'],
-    ['Cookies','Google Analytics y Microsoft Clarity usan cookies para reconocer visitas repetidas. Plausible no usa cookies en absoluto. Puedes bloquear cookies de analítica desde la configuración de tu navegador sin perder funcionalidad del sitio.']
+    ['Cookies','Google Analytics y Microsoft Clarity usan cookies para reconocer visitas repetidas. Puedes bloquear cookies de analítica desde la configuración de tu navegador sin perder funcionalidad del sitio.']
   ];
   document.getElementById('pv-body').innerHTML = sections.map(function(s){
     return '<h2 style="color:var(--t1);font-size:1.1rem;margin:1.6rem 0 .5rem">'+s[0]+'</h2><p>'+s[1]+'</p>';
@@ -35502,18 +35496,12 @@ window.muAplicarPremium = muAplicarPremium;
 
 
 /* ════ Eventos de analiticas ════
-   Un solo punto de entrada para no duplicar la logica de "esta GA4/Plausible
-   listo" en cada sitio que quiere trackear algo. Nombres y parametros deben
-   mantenerse consistentes -- ver README para la lista completa de eventos.
-   window.muTrack explicito (no solo `function muTrack`): setTheme/setLang/
-   etc. viven en OTROS <script> (otras IIFEs), asi que un closure lexico no
-   basta para verla desde ahi -- mismo problema que setLang/curLang tuvieron,
-   detectado esta vez probando cada evento en vivo antes de publicar. Tambien
-   se referencia window.gtag/window.plausible explicito en vez de los
-   identificadores sueltos, por la misma razon. */
+   Un solo punto de entrada para los eventos personalizados de GA4.
+   Nombres y parametros deben mantenerse consistentes -- ver README para la
+   lista completa de eventos. Clarity registra en paralelo el comportamiento
+   anonimo de navegacion (sesiones, clics, scroll y mapas de calor). */
 window.muTrack = function(name, params){
   try{ if(typeof window.gtag==='function') window.gtag('event', name, params||{}); }catch(e){}
-  try{ if(typeof window.plausible==='function') window.plausible(name, params?{props:params}:undefined); }catch(e){}
 };
 
 var SUBJECTS = [
