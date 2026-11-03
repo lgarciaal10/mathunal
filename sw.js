@@ -1,4 +1,5 @@
 /* MathUNAL Service Worker
+   © 2022–2026 Luis García. Todos los derechos reservados (ver LICENSE).
    - HTML: SIEMPRE de la red; solo se usa el caché si no hay conexión.
    - No se precachea el HTML (evita que una respuesta parcial de GitHub Pages
      durante un deploy quede congelada como "versión offline").
