@@ -1,0 +1,421 @@
+{
+ "esquema": 1,
+ "id": "calculo-m2-l6",
+ "ejemplo": true,
+ "curso": "Cálculo",
+ "modulo": "Módulo 2 La derivada",
+ "posicion": "Lección 6 de 10",
+ "titulo": "Movimiento rectilíneo",
+ "minutos": 14,
+ "ejercicios": 1,
+ "grafica": {
+  "tipo": "secante",
+  "x": [
+   0,
+   5
+  ],
+  "y": [
+   0,
+   22
+  ],
+  "funcion": "x*x*x-6*x*x+9*x",
+  "a": 2,
+  "derivada": "3*x*x-12*x+9",
+  "limite": -3,
+  "etiquetas": [
+   "Intervalo de tiempo",
+   "Velocidad media"
+  ],
+  "etiquetaSlider": "Intervalo de tiempo",
+  "rotulos": [
+   "h",
+   "velocidad media"
+  ],
+  "alt": "Curva de la posición de una partícula según el tiempo con una secante que se acerca a la tangente en t igual a 2"
+ },
+ "glosario": {
+  "vel": "La velocidad dice qué tan rápido cambia la posición y hacia dónde. Si es negativa, la partícula va hacia atrás.",
+  "acel": "La aceleración dice qué tan rápido cambia la velocidad.",
+  "rap": "La rapidez es el valor de la velocidad sin su signo, o sea qué tan rápido va sin importar la dirección.",
+  "tangente": "La recta tangente toca la curva en un punto y tiene la misma inclinación que la curva ahí."
+ },
+ "ver": {
+  "duracion": 19,
+  "capitulos": [
+   [
+    0,
+    2.5,
+    "Esta curva es la posición de una partícula que se mueve en línea recta."
+   ],
+   [
+    2.5,
+    4.5,
+    "Miremos qué tan rápido se mueve cuando t vale 2 segundos."
+   ],
+   [
+    4.5,
+    8,
+    "Se toma un intervalo de tiempo h y se mide cuánto cambia la posición."
+   ],
+   [
+    8,
+    12.5,
+    "Mientras h se achica, la velocidad media cambia."
+   ],
+   [
+    12.5,
+    15.8,
+    "Se acerca a menos 3. La velocidad es negativa, así que la partícula va hacia atrás."
+   ],
+   [
+    15.8,
+    19,
+    "Esa es la velocidad instantánea, la derivada de la posición."
+   ]
+  ],
+  "canales": {
+   "draw": [
+    [
+     0.3,
+     0
+    ],
+    [
+     2.4,
+     1
+    ]
+   ],
+   "hole": [
+    [
+     2.5,
+     0
+    ],
+    [
+     3.2,
+     1
+    ]
+   ],
+   "d": [
+    [
+     4.5,
+     1
+    ],
+    [
+     6,
+     0.5
+    ],
+    [
+     8,
+     0.5
+    ],
+    [
+     9.5,
+     0.1
+    ],
+    [
+     11,
+     0.1
+    ],
+    [
+     12.5,
+     0.01
+    ]
+   ],
+   "guide": [
+    [
+     12.5,
+     0
+    ],
+    [
+     13.5,
+     1
+    ]
+   ]
+  },
+  "intervalos": {
+   "ok": [
+    15.8,
+    19
+   ]
+  }
+ },
+ "leer": {
+  "secciones": [
+   {
+    "titulo": "La idea",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Cuando algo se mueve en línea recta, su posición cambia con el tiempo. La derivada de la posición es la {{gl:vel|velocidad}} y la derivada de la velocidad es la {{gl:acel|aceleración}}."
+     }
+    ]
+   },
+   {
+    "titulo": "Un ejemplo",
+    "corto": "Un ejemplo",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Esta es la posición de una partícula, en metros, según el tiempo en segundos."
+     },
+     {
+      "t": "eq",
+      "tex": "s(t)=t^{3}-6t^{2}+9t"
+     },
+     {
+      "t": "grafica",
+      "animar": "dibujar",
+      "alt": "Curva de la posición que se dibuja y marca el punto en t igual a 2"
+     }
+    ]
+   },
+   {
+    "titulo": "Piensa antes de ver",
+    "corto": "Piensa",
+    "bloques": [
+     {
+      "t": "piensa",
+      "pregunta": "En t igual a 2 la curva va bajando. ¿A qué número crees que se acerca la velocidad media cuando el intervalo se achica?",
+      "opciones": [
+       -3,
+       0,
+       3,
+       9
+      ],
+      "correcta": -3,
+      "bien": "Muy bien. Se acerca a menos 3 y más abajo se ve por qué.",
+      "mal": "El número es menos 3. Como la curva baja, la velocidad es negativa."
+     }
+    ]
+   },
+   {
+    "titulo": "Acercando el segundo punto",
+    "corto": "Acercándose",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "La velocidad media es el cambio de posición dividido entre el cambio de tiempo. Mira cómo cambia al achicar el intervalo."
+     },
+     {
+      "t": "acercando",
+      "ds": [
+       1,
+       0.5,
+       0.1,
+       0.01
+      ],
+      "alt": "Una secante que gira hasta parecerse a la tangente"
+     },
+     {
+      "t": "p",
+      "html": "La velocidad media se acerca a <b>−3</b>."
+     }
+    ]
+   },
+   {
+    "titulo": "Velocidad y aceleración",
+    "corto": "Velocidad",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Con las reglas de derivación se obtiene directo."
+     },
+     {
+      "t": "pasos",
+      "items": [
+       {
+        "tex": "v(t)=s'(t)=3t^{2}-12t+9",
+        "porque": "Se deriva la posición término por término."
+       },
+       {
+        "tex": "v(2)=3\\cdot 4-12\\cdot 2+9=-3\\ \\text{m/s}",
+        "porque": "Se evalúa en t igual a 2 y sale lo mismo que midió la secante. El signo negativo indica que va hacia atrás."
+       },
+       {
+        "tex": "a(t)=v'(t)=6t-12",
+        "porque": "La aceleración es la derivada de la velocidad."
+       },
+       {
+        "tex": "a(2)=6\\cdot 2-12=0\\ \\text{m/s}^{2}",
+        "porque": "En t igual a 2 la velocidad no está aumentando ni disminuyendo en ese instante."
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "Cuándo se detiene",
+    "corto": "Cuándo se detiene",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "La partícula cambia de dirección cuando su velocidad vale 0. Se factoriza v para encontrar esos instantes."
+     },
+     {
+      "t": "pasos",
+      "items": [
+       {
+        "tex": "3t^{2}-12t+9=3(t-1)(t-3)",
+        "porque": "Se saca 3 como factor común y se factoriza el trinomio."
+       },
+       {
+        "tex": "v(t)=0\\ \\Rightarrow\\ t=1\\ \\text{o}\\ t=3",
+        "porque": "La velocidad se anula en esos dos instantes."
+       },
+       {
+        "tex": "v>0\\ \\text{si}\\ t<1,\\quad v<0\\ \\text{si}\\ 1<t<3,\\quad v>0\\ \\text{si}\\ t>3",
+        "porque": "Se mira el signo entre cada par de raíces. Va hacia adelante, luego hacia atrás y otra vez hacia adelante."
+       }
+      ]
+     },
+     {
+      "t": "ojo",
+      "html": "La velocidad tiene signo y la {{gl:rap|rapidez}} no. En t igual a 2 la velocidad es −3 metros por segundo y la rapidez es 3 metros por segundo."
+     }
+    ]
+   },
+   {
+    "titulo": "Revisa tu respuesta",
+    "corto": "Revisa",
+    "bloques": [
+     {
+      "t": "pregunta"
+     },
+     {
+      "t": "nota",
+      "html": "Deriva la posición y evalúa en el tiempo pedido."
+     }
+    ]
+   },
+   {
+    "titulo": "En resumen",
+    "corto": "Resumen",
+    "bloques": [
+     {
+      "t": "resumen"
+     }
+    ]
+   }
+  ]
+ },
+ "practicar": {
+  "pasos": [
+   {
+    "titulo": "La curva",
+    "grafica": {
+     "draw": 1
+    },
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Esta curva es la posición de una partícula según el tiempo."
+     },
+     {
+      "t": "eq",
+      "tex": "s(t)=t^{3}-6t^{2}+9t"
+     }
+    ]
+   },
+   {
+    "titulo": "El punto",
+    "grafica": {
+     "draw": 1,
+     "hole": 1
+    },
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Se quiere la velocidad en t igual a 2 segundos."
+     }
+    ]
+   },
+   {
+    "titulo": "Achica el intervalo",
+    "grafica": {
+     "draw": 1,
+     "hole": 1
+    },
+    "laboratorio": true,
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mueve el deslizador. La secante gira y abajo se ve la velocidad media."
+     }
+    ]
+   },
+   {
+    "titulo": "La tangente",
+    "grafica": {
+     "draw": 1,
+     "hole": 1,
+     "guide": 1
+    },
+    "laboratorio": true,
+    "d": 0.01,
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Con un intervalo muy pequeño la velocidad media se acerca a menos 3."
+     }
+    ]
+   },
+   {
+    "titulo": "La velocidad",
+    "grafica": {
+     "draw": 1,
+     "hole": 1,
+     "guide": 1,
+     "ok": true
+    },
+    "bloques": [
+     {
+      "t": "eq",
+      "tex": "v(t)=3t^{2}-12t+9,\\quad v(2)=-3"
+     },
+     {
+      "t": "p",
+      "html": "La velocidad es negativa, así que en t igual a 2 la partícula va hacia atrás."
+     }
+    ]
+   },
+   {
+    "titulo": "Revisa tu respuesta",
+    "grafica": {
+     "draw": 1,
+     "hole": 1,
+     "guide": 1,
+     "ok": true
+    },
+    "bloques": [
+     {
+      "t": "pregunta"
+     },
+     {
+      "t": "nota",
+      "html": "La velocidad es la derivada de la posición."
+     }
+    ]
+   }
+  ]
+ },
+ "pregunta": {
+  "tex": "v(3)\\ \\text{si}\\ s(t)=t^{3}-3t^{2}+2t",
+  "opciones": [
+   "9",
+   "11",
+   "12",
+   "18"
+  ],
+  "correcta": 1,
+  "explicacion": "La velocidad es la derivada de la posición, 3t al cuadrado menos 6t más 2. En t igual a 3 queda 27 menos 18 más 2, que da 11.",
+  "verificacion": {
+   "formula": "((3+x)^3-3*(3+x)^2+2*(3+x)-6)/x",
+   "a": 0,
+   "esperado": 11
+  }
+ },
+ "resumen": [
+  "La velocidad es la derivada de la posición y la aceleración es la derivada de la velocidad.",
+  "La velocidad media es el cambio de posición entre el cambio de tiempo, y la instantánea es su límite.",
+  "La partícula cambia de dirección cuando la velocidad vale 0 y cambia de signo."
+ ]
+}

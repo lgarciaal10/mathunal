@@ -54,6 +54,7 @@ if (fc && ff) {
   }
   if (prev > 1e-3) err('f(a±1e-4) no está cerca del límite');
 }
+if (G.rotulos && (!Array.isArray(G.rotulos) || G.rotulos.length !== 2 || G.rotulos.some(t => /[:;—–]/.test(t)))) err('grafica.rotulos debe tener dos textos sin signos no permitidos');
 if (G.punto) { if (G.punto.x !== A) err('grafica.punto.x debe ser igual al x del hueco'); if (!(G.y && G.punto.y > G.y[0] && G.punto.y < G.y[1])) err('grafica.punto queda fuera del rango y'); if (G.punto.y === G.limite) aviso('grafica.punto ya vale el límite, la función sería continua'); [G.punto.etiqueta, G.punto.etiquetaFija].forEach(t => { if (t && /[:;—–]/.test(t)) err('Signo no permitido en la etiqueta del punto'); }); }
 const rangos = G.x && G.y && G.x.length === 2 && G.y.length === 2;
 if (!rangos) err('grafica.x y grafica.y deben tener dos números');

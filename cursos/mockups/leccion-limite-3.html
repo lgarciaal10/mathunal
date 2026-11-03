@@ -895,7 +895,7 @@ button{font:inherit;color:inherit;cursor:pointer;background:none;border:0;paddin
         [dL,dR,pL,pR].forEach(function(e){ e.setAttribute('opacity',a); }); }
     }};
   }
-  function readouts(d,lEl,rEl){ if(SEC){ if(d==null){ lEl.textContent='sin datos'; rEl.textContent='sin datos'; return; } lEl.textContent='h = '+fmt(d); rEl.textContent='pendiente = '+fmt((fFun(A+d)-fFun(A))/d); return; }
+  function readouts(d,lEl,rEl){ if(SEC){ if(d==null){ lEl.textContent='sin datos'; rEl.textContent='sin datos'; return; } var R=G.rotulos||['h','pendiente']; lEl.textContent=R[0]+' = '+fmt(d); rEl.textContent=R[1]+' = '+fmt((fFun(A+d)-fFun(A))/d); return; }
     if(d==null){ lEl.textContent='sin datos'; rEl.textContent='sin datos'; return; } lEl.textContent='f('+fmt(A-d)+') = '+fmt(fFun(A-d)); rEl.textContent='f('+fmt(A+d)+') = '+fmt(fFun(A+d)); }
 
   /* ---------- pregunta con ráfaga de símbolos ---------- */
