@@ -39,9 +39,9 @@ El desbloqueo de soluciones (modal "Unlock solutions") usa el widget real de Wom
 El desbloqueo actual verifica el correo contra `premium_usuarios` en Supabase (RLS cerrado, sin políticas de acceso público — solo se consulta vía función server-side).
 
 ## Analíticas
-GA4 (`G-KPYPGY35D3`) + Plausible en paralelo, sin conflicto (miden de forma independiente). Plausible no usa cookies ni requiere banner de consentimiento.
+Google Analytics 4 (`G-KPYPGY35D3`) mide visitas, adquisición y eventos personalizados. Microsoft Clarity (`y6zg9xzqa5`) complementa con grabaciones de sesión, mapas de calor, clics y profundidad de desplazamiento.
 
-Eventos personalizados — un solo punto de entrada, `window.muTrack(nombre, params)`, definido junto a `SUBJECTS` en `index.html`. Envía a ambas herramientas a la vez:
+Eventos personalizados de GA4 — un solo punto de entrada, `window.muTrack(nombre, params)`, definido junto a `SUBJECTS` en `index.html`. Clarity registra en paralelo el comportamiento anónimo de navegación:
 
 | Evento | Cuándo dispara | Parámetros |
 |---|---|---|
