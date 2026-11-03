@@ -417,7 +417,18 @@
    "formula": "((3+x)*(3+x)-9)/x",
    "a": 0,
    "esperado": 6
-  }
+  },
+  "pistas": [
+   "Desarrolla (3 + h) al cuadrado.",
+   "Queda 9 más 6h más h al cuadrado. Resta 9 y saca h como factor común.",
+   "Cancela h y deja que h tienda a 0 en lo que queda."
+  ],
+  "errores": [
+   "Ese 3 es la mitad del resultado correcto. Revisa el término 6h al desarrollar.",
+   "",
+   "Ese 9 es el valor de la función en 3. Aquí se pide la derivada, o sea el límite del cociente.",
+   "Ese 2 es la derivada de x al cuadrado en x igual a 1. Aquí el punto es x igual a 3 y la derivada es 2 por 3."
+  ]
  },
  "resumen": [
   "La derivada es la pendiente de la recta tangente a la curva en un punto.",

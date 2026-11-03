@@ -458,7 +458,18 @@
    "formula": "((1+x)^(2*(1+x))-1)/x",
    "a": 0,
    "esperado": 2
-  }
+  },
+  "pistas": [
+   "Con la variable en el exponente se usa derivación logarítmica. Saca ln a los dos lados.",
+   "ln y es igual a 2x ln x. Deriva a los dos lados con la regla del producto.",
+   "y prima sobre y es 2 ln x más 2. En x igual a 1 el ln vale 0 y y vale 1."
+  ],
+  "errores": [
+   "Ese 0 sale de olvidar el término 2 al derivar 2x ln x. Esa derivada tiene dos términos.",
+   "Ese 1 sale de olvidar el factor 2 del exponente. Revisa la derivada de 2x ln x.",
+   "",
+   "El número e no aparece aquí. En x igual a 1 el ln vale 0 y el resultado es un entero."
+  ]
  },
  "resumen": [
   "Con la variable en el exponente, o con productos y cocientes largos, se usa derivación logarítmica.",

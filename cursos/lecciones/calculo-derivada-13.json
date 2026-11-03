@@ -465,7 +465,18 @@
    "formula": "(1+x)/((1+x)^2+1)",
    "a": 0,
    "esperado": 0.5
-  }
+  },
+  "pistas": [
+   "Deriva con la regla del cociente. El numerador de la derivada es 1 menos x al cuadrado.",
+   "Igualar a 0 da x igual a 1 y x igual a −1.",
+   "El máximo es la función evaluada en x igual a 1."
+  ],
+  "errores": [
+   "",
+   "Ese 1 es el lugar del máximo, la x. Se pide el valor de la función ahí.",
+   "Revisa la cuenta. f(1) es 1 sobre (1 más 1), o sea 0.5.",
+   "Ese 2 es el denominador al evaluar. Falta dividir el numerador entre él."
+  ]
  },
  "resumen": [
   "Un análisis completo revisa dominio, simetría, cortes, f prima, f segunda y límites.",

@@ -250,6 +250,51 @@ button{font:inherit;color:inherit;cursor:pointer;background:none;border:0;paddin
 .p-lab .ctl[hidden],.p-lab .vals[hidden]{display:none}
 @media (max-width:900px){.p-grid{grid-template-columns:minmax(0,1fr)}.p-lab{position:static;order:-1}}
 
+/* ---------- actividades guiadas, simulacro, ingeniería y repaso ---------- */
+.act{border-left:4px solid var(--acc)}
+.act-t{display:flex;align-items:center;gap:8px;font-weight:600;color:var(--acc-t);margin-bottom:10px}
+.act-t .ic{width:20px;height:20px;flex:none}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0}
+.chip-btn{min-height:44px;padding:8px 18px;border-radius:var(--r-sm);background:var(--surf2);color:var(--tx);transition:transform .2s,background .2s}
+.chip-btn:hover:not(:disabled){transform:translateY(-2px)}
+.chip-btn.ok{background:rgba(70,194,143,.18);outline:2px solid var(--ok)}
+.chip-btn.no{background:rgba(239,107,122,.14);outline:2px solid var(--bad);animation:shake .35s;opacity:.7}
+.steps-l{display:grid;gap:8px;margin:10px 0}
+.stepbtn{display:flex;align-items:center;gap:12px;width:100%;text-align:left;padding:10px 14px;border-radius:var(--r-sm);background:var(--surf2);color:var(--tx);transition:transform .2s,background .2s;overflow-x:auto}
+.stepbtn:hover:not(:disabled){transform:translateX(4px)}
+.stepbtn .n{font-family:var(--mono);color:var(--dim);font-weight:600;flex:none}
+.stepbtn .stx{min-width:0}
+.stepbtn.good{outline:2px solid var(--ok);background:rgba(70,194,143,.12)}
+.stepbtn.bad{outline:2px solid var(--bad);background:rgba(239,107,122,.14)}
+.stepbtn.ok{outline:2px solid var(--ok);background:rgba(70,194,143,.12);opacity:.75}
+.stepbtn.no{outline:2px solid var(--bad);animation:shake .35s}
+.put{margin:8px 0 12px;padding-left:1.4em;display:grid;gap:6px;min-height:1.6em}
+.put li{padding:6px 10px;border-radius:var(--r-sm);background:var(--surf2);overflow-x:auto}
+.corr{margin-top:10px}
+.hintbar{display:flex;align-items:center;gap:12px;margin-top:14px;flex-wrap:wrap}
+.hintbar .ic{width:18px;height:18px}
+.hc{color:var(--mu);font-size:.9rem}
+.hints{margin:10px 0 0;padding-left:1.4em;color:var(--mu);display:grid;gap:6px}
+.giveup{margin-top:10px}
+.sim .sim-h{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:6px;flex-wrap:wrap}
+.sim .sim-f{color:var(--mu);font-size:.9rem;margin-bottom:10px}
+.sim .sim-n{margin-top:14px}
+.sim-score{font-size:1.2rem}
+.sim-score .big{font-size:2.4rem;font-weight:600;color:var(--acc-t)}
+.numrow{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.numin{min-height:44px;width:11rem;max-width:100%;padding:8px 14px;border-radius:var(--r-sm);background:var(--surf2);color:var(--tx);border:1px solid var(--line);font-family:var(--mono);font-size:1rem}
+.eng{border-left:4px solid var(--curve)}
+.eng .act-t{color:var(--tx)}
+.eng .act-t .ic{color:var(--curve)}
+.datos{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin:12px 0}
+.datos div{background:var(--surf2);border-radius:var(--r-sm);padding:10px 14px}
+.datos dt{color:var(--mu);font-size:.85rem}
+.datos dd{margin:2px 0 0;font-weight:600}
+.rep-l{margin:6px 0 12px;padding-left:1.3em;color:var(--mu)}
+.due{display:flex;gap:10px;align-items:center;margin:14px 0;padding:12px 16px;border-radius:var(--r-md);background:var(--acc-soft);color:var(--tx)}
+.due .ic{width:20px;height:20px;color:var(--acc-t);flex:none}
+@media (max-width:520px){.chip-btn{flex:1 1 100%}.numin{width:100%}}
+
 </style>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
   <symbol id="i-int" viewBox="0 0 24 24"><path d="M16 3.5c-2.6 0-3.4 1.6-3.4 4.2v8.6c0 2.6-.8 4.2-3.4 4.2"/></symbol>
@@ -270,6 +315,7 @@ button{font:inherit;color:inherit;cursor:pointer;background:none;border:0;paddin
   <symbol id="i-redo" viewBox="0 0 24 24"><path d="M4.5 12a7.5 7.5 0 0 1 13-5.1L20 9.5"/><path d="M20 4.5v5h-5"/><path d="M19.5 12a7.5 7.5 0 0 1-13 5.1L4 14.5"/><path d="M4 19.5v-5h5"/></symbol>
   <symbol id="i-bulb" viewBox="0 0 24 24"><path d="M9 18h6M10 21h4"/><path d="M12 3a6.5 6.5 0 0 0-3.6 11.9c.7.6 1.1 1.3 1.1 2.1h5c0-.8.4-1.5 1.1-2.1A6.5 6.5 0 0 0 12 3z"/></symbol>
   <symbol id="i-list" viewBox="0 0 24 24"><path d="M8.5 6.5H20M8.5 12H20M8.5 17.5H20"/><circle cx="4.5" cy="6.5" r="1" fill="currentColor"/><circle cx="4.5" cy="12" r="1" fill="currentColor"/><circle cx="4.5" cy="17.5" r="1" fill="currentColor"/></symbol>
+  <symbol id="i-gear" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3.2"/><path d="M10.4 3h3.2l.5 2.4 1.5.7 2.1-1.3 2.3 2.3-1.3 2.1.7 1.5 2.4.5v3.2l-2.4.5-.7 1.5 1.3 2.1-2.3 2.3-2.1-1.3-1.5.7-.5 2.4h-3.2l-.5-2.4-1.5-.7-2.1 1.3-2.3-2.3 1.3-2.1-.7-1.5L3 13.6v-3.2l2.4-.5.7-1.5-1.3-2.1 2.3-2.3 2.1 1.3 1.5-.7z"/></symbol>
 </svg>
 
 <div class="wrap">
@@ -806,7 +852,18 @@ button{font:inherit;color:inherit;cursor:pointer;background:none;border:0;paddin
    "formula": "3+(sqrt(9+x)-3)/x*0.1",
    "a": 0,
    "esperado": 3.0167
-  }
+  },
+  "pistas": [
+   "La fórmula es L(x) igual a f(a) más f prima de a por (x − a).",
+   "Con a igual a 9, f(9) vale 3 y f prima de x es 1 sobre 2 raíz de x, que en 9 vale un sexto.",
+   "Reemplaza x igual a 9.1 y calcula 3 más un sexto por 0.1."
+  ],
+  "errores": [
+   "",
+   "Ese 3.1 sale de usar pendiente 1 en vez de un sexto. Falta derivar la raíz.",
+   "Ese 3.0333 sale de usar pendiente un tercio. La derivada de raíz de x en 9 es 1 sobre 2 por 3, o sea un sexto.",
+   "Ese 3.05 sale de usar pendiente un medio. Falta la raíz de 9 en el denominador de la derivada."
+  ]
  },
  "resumen": [
   "Cerca de un punto, la recta tangente sirve para estimar el valor de una función.",
@@ -1076,16 +1133,141 @@ button{font:inherit;color:inherit;cursor:pointer;background:none;border:0;paddin
 
   /* ---------- pregunta con ráfaga de símbolos ---------- */
   function burst(host,x,y){ if(RM) return; '∫∑π∞√'.split('').forEach(function(g,i){ var s=document.createElement('span'); s.className='burst'; s.textContent=g; s.style.left=x+'px'; s.style.top=y+'px'; s.style.setProperty('--x',((i-2)*40)+'px'); s.style.setProperty('--y',(-50-Math.random()*40)+'px'); s.style.setProperty('--r',((i-2)*22)+'deg'); host.appendChild(s); setTimeout(function(){ s.remove(); },1150); }); }
-  function Quiz(host){
-    var Q=L.pregunta;
-    host.innerHTML='<p class="q">Calcula <span data-tex="'+attr(Q.tex)+'"></span></p><div class="opts">'+Q.opciones.map(function(o,i){ return '<button type="button" data-i="'+i+'"><span class="k">'+'abcdefgh'[i]+'</span><span>'+o+'</span></button>'; }).join('')+'</div><p class="fb" aria-live="polite"></p>';
-    var fb=host.querySelector('.fb'), done=false;
-    [].forEach.call(host.querySelectorAll('.opts button'),function(b){ b.addEventListener('click',function(){
-      if(done) return; done=true; var i=+b.getAttribute('data-i');
-      [].forEach.call(host.querySelectorAll('.opts button'),function(x){ x.disabled=true; var xi=+x.getAttribute('data-i'); if(xi===Q.correcta) x.classList.add('ok'); else if(xi===i) x.classList.add('no'); });
-      if(i===Q.correcta){ var r=b.getBoundingClientRect(), h=host.getBoundingClientRect(); burst(host,r.left-h.left+40,r.top-h.top+8); }
-      fb.innerHTML='<b>'+(i===Q.correcta?'Eso es.':'No era esa.')+'</b> '+Q.explicacion;
+  /* ---------- texto con matemática en línea, repaso espaciado y actividades guiadas ---------- */
+  function esc(s){ return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;'); }
+  function mt(s){ return String(s).split('$').map(function(x,i){ return i%2?'<span data-tex="'+attr(x)+'"></span>':esc(x); }).join(''); }
+  function mtH(s){ return /\$/.test(s)?mt(s):s; }
+  function mathIn(el){ if(window.MU&&MU.math) MU.math(el); }
+  function fechaCorta(ms){ try{ return new Date(ms).toLocaleDateString('es-CO',{day:'numeric',month:'long'}); }catch(e){ return ''; } }
+  var SR=(function(){
+    var KEY='mu-repaso', DIAS=[1,3,7,14,30];
+    function leer(){ try{ return JSON.parse(localStorage.getItem(KEY))||{}; }catch(e){ return {}; } }
+    function guardar(o){ try{ localStorage.setItem(KEY,JSON.stringify(o)); }catch(e){} }
+    function avisar(){ try{ document.dispatchEvent(new CustomEvent('mu-repaso')); }catch(e){} }
+    return {
+      get:function(id){ return leer()[id]||null; },
+      registrar:function(id,titulo,calidad){
+        var o=leer(), r=o[id]||{titulo:titulo,caja:0,aciertos:0,fallos:0}, now=Date.now();
+        if(calidad==='ok'){ r.caja=Math.min(r.caja+1,DIAS.length-1); r.aciertos++; }
+        else if(calidad==='ayuda'){ r.aciertos++; }
+        else { r.caja=0; r.fallos++; }
+        r.titulo=titulo; r.ultimo=now; r.prox=now+DIAS[r.caja]*86400000; r.calidad=calidad; o[id]=r; guardar(o); avisar(); return r;
+      },
+      pendientes:function(){ var o=leer(), now=Date.now(); return Object.keys(o).filter(function(k){ return o[k].prox<=now; }).map(function(k){ return {id:k,titulo:o[k].titulo,prox:o[k].prox}; }); },
+      borrar:function(){ try{ localStorage.removeItem(KEY); }catch(e){} avisar(); }
+    };
+  })();
+  window.MU=window.MU||{}; window.MU.repaso=SR;
+
+  /* pregunta de opción múltiple. Con pistas o errores es guiada, deja reintentar y explica cada error. Sin ellos se comporta como siempre */
+  function QuizCore(host,cfg){
+    var pistas=cfg.pistas||[], guiado=!!(pistas.length||cfg.errores), intentos=0, ayudas=0, done=false, mostradas=0;
+    host.innerHTML='<div class="q">'+cfg.head+'</div><div class="opts" role="group" aria-label="Opciones de respuesta">'+cfg.opciones.map(function(o,i){ return '<button type="button" data-i="'+i+'"><span class="k">'+'abcdefgh'[i]+'</span><span>'+mtH(o)+'</span></button>'; }).join('')+'</div>'
+      +(pistas.length?'<div class="hintbar"><button type="button" class="btn sec sm" data-hint>'+ic('i-bulb')+'<span>Dame una pista</span></button><span class="hc num" data-hc>0 de '+pistas.length+'</span></div><ol class="hints" aria-live="polite"></ol>':'')
+      +'<p class="fb" aria-live="polite"></p><div class="giveup" hidden><button type="button" class="btn sec sm" data-show>Mostrar la respuesta</button></div>';
+    var fb=host.querySelector('.fb'), hl=host.querySelector('.hints'), hb=host.querySelector('[data-hint]'), hc=host.querySelector('[data-hc]'), gu=host.querySelector('.giveup'), btns=[].slice.call(host.querySelectorAll('.opts button'));
+    function pista(){ if(mostradas>=pistas.length) return; var li=document.createElement('li'); li.innerHTML=mtH(pistas[mostradas]); hl.appendChild(li); mostradas++; ayudas++; hc.textContent=mostradas+' de '+pistas.length; hb.querySelector('span').textContent=mostradas>=pistas.length?'Sin más pistas':'Otra pista'; if(mostradas>=pistas.length) hb.disabled=true; mathIn(li); }
+    function cerrar(rendido){
+      done=true; btns.forEach(function(x){ x.disabled=true; if(+x.getAttribute('data-i')===cfg.correcta) x.classList.add('ok'); }); if(hb) hb.disabled=true; gu.hidden=true;
+      var calidad=rendido?'fallo':(intentos===0&&ayudas===0?'ok':(intentos<=1?'ayuda':'fallo'));
+      if(!rendido){ var rb=host.querySelector('.opts .ok').getBoundingClientRect(), rh=host.getBoundingClientRect(); burst(host,rb.left-rh.left+40,rb.top-rh.top+8); }
+      fb.innerHTML='<b>'+(rendido?'Esta es la respuesta.':'Eso es.')+'</b> '+mtH(cfg.explicacion||'')+((!rendido&&ayudas)?' Usaste '+ayudas+(ayudas===1?' pista.':' pistas.'):''); mathIn(host);
+      if(cfg.onDone) cfg.onDone({calidad:calidad,intentos:intentos,ayudas:ayudas});
+    }
+    btns.forEach(function(b){ b.addEventListener('click',function(){
+      if(done) return; var i=+b.getAttribute('data-i'), ok=(i===cfg.correcta);
+      if(!guiado){ done=true; btns.forEach(function(x){ x.disabled=true; var xi=+x.getAttribute('data-i'); if(xi===cfg.correcta) x.classList.add('ok'); else if(xi===i) x.classList.add('no'); });
+        if(ok){ var r=b.getBoundingClientRect(), h=host.getBoundingClientRect(); burst(host,r.left-h.left+40,r.top-h.top+8); }
+        fb.innerHTML='<b>'+(ok?'Eso es.':'No era esa.')+'</b> '+mtH(cfg.explicacion||''); mathIn(host); if(cfg.onDone) cfg.onDone({calidad:ok?'ok':'fallo'}); return; }
+      if(ok){ cerrar(false); return; }
+      intentos++; b.classList.add('no'); b.disabled=true;
+      fb.innerHTML='<b>No era esa.</b> '+mtH((cfg.errores&&cfg.errores[i])||'Revisa el procedimiento e inténtalo de nuevo.'); mathIn(fb);
+      if(mostradas<pistas.length&&mostradas<intentos) pista();
+      if(intentos>=2) gu.hidden=false;
     }); });
+    if(hb) hb.addEventListener('click',pista);
+    gu.querySelector('button').addEventListener('click',function(){ cerrar(true); });
+  }
+  function Quiz(host){ var Q=L.pregunta; QuizCore(host,{head:'Calcula <span data-tex="'+attr(Q.tex)+'"></span>',opciones:Q.opciones,correcta:Q.correcta,explicacion:Q.explicacion,pistas:Q.pistas,errores:Q.errores,onDone:function(r){ SR.registrar(L.id,L.titulo,r.calidad); }}); mathIn(host); }
+
+  /* mini simulacro con preguntas del banco. Cada una puede ser de opción múltiple o numérica */
+  function Simulacro(root,b){
+    var P=b.preguntas, i=0, aciertos=0;
+    function numerica(host,q,listo){
+      var nid='n'+(++uid);
+      host.innerHTML='<div class="q">'+mt(q.texto)+'</div><div class="numrow"><label for="'+nid+'" class="sr">Tu respuesta</label><input id="'+nid+'" class="numin" type="text" inputmode="decimal" autocomplete="off" placeholder="Tu respuesta"><button type="button" class="btn pri sm" data-chk>Comprobar</button></div><p class="fb" aria-live="polite"></p>';
+      var inp=host.querySelector('input'), fb=host.querySelector('.fb'), bt=host.querySelector('[data-chk]'), hecho=false;
+      function chk(){ if(hecho) return; var v=parseFloat(String(inp.value).replace(',','.')); if(isNaN(v)){ fb.textContent='Escribe un número.'; return; }
+        hecho=true; var ok=Math.abs(v-parseFloat(q.respuesta))<=(q.tolNum||0.001); inp.disabled=true; bt.disabled=true;
+        fb.innerHTML='<b>'+(ok?'Eso es.':'No era.')+'</b> '+(ok?'':'La respuesta es '+esc(q.respuesta)+'. ')+mt(q.resumen||''); mathIn(host); listo(ok); }
+      bt.addEventListener('click',chk); inp.addEventListener('keydown',function(e){ if(e.key==='Enter'){ e.preventDefault(); chk(); } });
+    }
+    function fin(){
+      var calidad=aciertos>=P.length?'ok':(aciertos>=Math.ceil(P.length*2/3)?'ayuda':'fallo'), r=SR.registrar(L.id,L.titulo,calidad);
+      var msg=aciertos>=P.length?'Muy bien. Este tema ya lo estás manejando.':(aciertos>=Math.ceil(P.length*2/3)?'Vas bien. Mira la explicación de la que fallaste para no repetir el error.':'Vale la pena volver a los pasos y a las pistas de esta lección. El repaso queda programado.');
+      root.innerHTML='<div class="sim-h"><span class="chip soft">Resultado</span></div><p class="sim-score"><span class="num big">'+aciertos+'</span> de '+P.length+' correctas</p><p>'+msg+'</p><p class="mu">Próximo repaso el '+fechaCorta(r.prox)+'.</p><button class="btn sec sm" type="button" data-redo>Intentarlo otra vez</button>';
+      root.querySelector('[data-redo]').addEventListener('click',function(){ i=0; aciertos=0; pintar(); });
+    }
+    function pintar(){
+      if(i>=P.length){ fin(); return; }
+      var q=P[i];
+      root.innerHTML='<div class="sim-h"><span class="chip soft">'+esc(b.titulo||'Mini simulacro')+'</span><span class="num">Pregunta '+(i+1)+' de '+P.length+'</span></div><p class="sim-f">'+esc(q.fuente||'')+'</p><div class="sim-q"></div><div class="sim-n"></div>';
+      var host=root.querySelector('.sim-q'), nx=root.querySelector('.sim-n');
+      function listo(ok){ if(ok) aciertos++; nx.innerHTML='<button type="button" class="btn pri sm">'+(i+1<P.length?'Siguiente pregunta':'Ver mi resultado')+ic('i-right')+'</button>'; nx.querySelector('button').addEventListener('click',function(){ i++; pintar(); }); }
+      if(q.tipo==='numerica') numerica(host,q,listo);
+      else QuizCore(host,{head:mt(q.texto),opciones:q.opciones,correcta:q.correcta,explicacion:q.resumen,onDone:function(r){ listo(r.calidad==='ok'); }});
+      mathIn(root);
+    }
+    pintar();
+  }
+
+  /* completar un paso: se elige la pieza que falta en la ecuación */
+  function Completar(root,b){
+    var eq=root.querySelector('[data-eq]'), fb=root.querySelector('.fb'), chips=[].slice.call(root.querySelectorAll('.chip-btn')), fallos=0, hecho=false;
+    chips.forEach(function(c){ c.addEventListener('click',function(){
+      if(hecho) return; var i=+c.getAttribute('data-i');
+      if(i===b.correcta){ hecho=true; chips.forEach(function(x){ x.disabled=true; }); c.classList.add('ok'); eq.removeAttribute('data-done'); eq.setAttribute('data-tex',b.tex.replace('[[hueco]]','\\boxed{'+b.opciones[i].tex+'}')); fb.innerHTML='<b>Eso es.</b> '+(b.porque||''); mathIn(root); if(!RM) burst(root,c.offsetLeft+30,c.offsetTop); }
+      else { fallos++; c.classList.add('no'); c.disabled=true; fb.innerHTML='<b>Todavía no.</b> '+((b.errores&&b.errores[i])||'Mira otra vez qué se está derivando en este paso.')+((fallos>=2&&b.pista)?' <i>'+b.pista+'</i>':''); mathIn(fb); }
+    }); });
+  }
+
+  /* encontrar el error en una solución ya resuelta */
+  function Encuentra(root,b){
+    var bt=[].slice.call(root.querySelectorAll('.stepbtn')), fb=root.querySelector('.fb'), cor=root.querySelector('.corr'), fallos=0, hecho=false;
+    bt.forEach(function(s){ s.addEventListener('click',function(){
+      if(hecho) return; var i=+s.getAttribute('data-i');
+      if(i===b.mal){ hecho=true; bt.forEach(function(x){ x.disabled=true; }); s.classList.add('bad'); s.setAttribute('aria-pressed','true'); fb.innerHTML='<b>Ahí está el error.</b> '+b.explicacion; cor.hidden=false; mathIn(root); }
+      else { fallos++; s.classList.add('good'); s.disabled=true; var p=b.pasos[i].porque; fb.innerHTML='<b>Ese paso está bien.</b> '+(p||'')+((fallos>=2&&b.pista)?' <i>'+b.pista+'</i>':''); mathIn(fb); }
+    }); });
+  }
+
+  /* ordenar los pasos de un procedimiento, tocando cada paso en el orden que le toca */
+  function Ordena(root,b){
+    var pool=root.querySelector('.pool'), put=root.querySelector('.put'), fb=root.querySelector('.fb'), rst=root.querySelector('[data-reset]'), n=b.pasos.length, colocados=0;
+    function mover(btn){ var k=+btn.getAttribute('data-k');
+      if(k===colocados){ btn.disabled=true; btn.classList.add('ok'); var li=document.createElement('li'); li.innerHTML='<span data-tex="'+attr(b.pasos[k])+'"></span>'; put.appendChild(li); colocados++; mathIn(li);
+        if(colocados===n){ fb.innerHTML='<b>Quedó en orden.</b> '+(b.porque||''); } else fb.innerHTML='<b>Bien.</b> Ahora, ¿qué sigue?'; }
+      else { btn.classList.remove('no'); void btn.offsetWidth; btn.classList.add('no'); fb.innerHTML='<b>Todavía no.</b> '+(b.pista||'Piensa qué hay que hacer justo después del último paso que pusiste.'); } }
+    [].forEach.call(pool.querySelectorAll('.stepbtn'),function(x){ x.addEventListener('click',function(){ mover(x); }); });
+    rst.addEventListener('click',function(){ colocados=0; put.innerHTML=''; fb.textContent=''; [].forEach.call(pool.querySelectorAll('.stepbtn'),function(x){ x.disabled=false; x.classList.remove('ok','no'); }); });
+  }
+
+  /* tarjeta de repaso espaciado y aviso cuando toca repasar */
+  function RepasoCard(el){
+    function pintar(){
+      var r=SR.get(L.id), pend=SR.pendientes().filter(function(x){ return x.id!==L.id; }), h='<p class="act-t">'+ic('i-clock')+'Tu repaso</p>';
+      if(!r) h+='<p>Cuando respondas el quiz o el mini simulacro, aquí queda programado cuándo volver a esta lección. Repasar a intervalos, y no todo el mismo día, ayuda a que se te quede.</p>';
+      else { var due=r.prox<=Date.now(); h+='<p>'+(due?'Hoy toca repasar esta lección.':'Vuelve a repasar esta lección el <b>'+fechaCorta(r.prox)+'</b>.')+'</p><p class="mu">Registrados en este navegador, '+r.aciertos+' aciertos y '+r.fallos+' fallos.</p>'; }
+      if(pend.length) h+='<p>También te toca repasar</p><ul class="rep-l">'+pend.slice(0,4).map(function(x){ return '<li>'+esc(x.titulo)+'</li>'; }).join('')+'</ul>';
+      if(r) h+='<button class="btn sec sm" type="button" data-borrar>Borrar mi registro</button>';
+      el.innerHTML=h; var bb=el.querySelector('[data-borrar]'); if(bb) bb.addEventListener('click',function(){ SR.borrar(); });
+    }
+    pintar(); document.addEventListener('mu-repaso',pintar);
+  }
+  function avisoRepaso(){
+    var r=SR.get(L.id); if(!r||r.prox>Date.now()) return; var h=document.querySelector('.lhead'); if(!h) return;
+    var d=document.createElement('div'); d.className='due'; d.setAttribute('role','status'); d.innerHTML=ic('i-clock')+'<span>Hoy toca repasar esta lección. Te conviene empezar por el mini simulacro.</span>';
+    h.parentNode.insertBefore(d,h.nextSibling);
   }
 
   /* ---------- glosario ---------- */
@@ -1160,6 +1342,16 @@ button{font:inherit;color:inherit;cursor:pointer;background:none;border:0;paddin
             function show(){ if(n>=items.length) return; items[n].classList.add('on'); n++; if(window.MU&&MU.math) MU.math(root); if(n>=items.length){ next.disabled=true; next.firstChild.textContent='Listo'; next.querySelector('svg').style.display='none'; } else { next.firstChild.textContent='Mostrar el paso '+(n+1); } }
             next.addEventListener('click',show); all.addEventListener('click',function(){ while(n<items.length) show(); }); });
         return '<div class="l-steps" id="'+sid+'">'+b.items.map(function(s,i){ return '<div class="st"><div class="eq"><span data-tex="'+attr(s.tex)+'" data-block></span></div><div class="why"><span class="n">'+(i+1)+'</span>'+s.porque+'</div></div>'; }).join('')+'</div><div class="row" style="display:flex;gap:10px;flex-wrap:wrap"><button class="btn pri sm" data-next type="button">Mostrar el primer paso'+ic('i-right')+'</button><button class="btn sec sm" data-all type="button">Ver todo</button></div>'; }
+      case 'completar': { var cid='c'+(++uid); inits.push(function(){ Completar(document.getElementById(cid),b); });
+        return '<div class="card act" id="'+cid+'"><p class="act-t">'+ic('i-flask')+'Completa el paso</p><p>'+gl(b.enunciado)+'</p><div class="eq"><span data-tex="'+attr(b.tex.replace('[[hueco]]','\\boxed{\\ ?\\ }'))+'" data-block data-eq></span></div><div class="chips" role="group" aria-label="Opciones para el hueco">'+b.opciones.map(function(o,i){ return '<button type="button" class="chip-btn" data-i="'+i+'" aria-label="'+attr(o.txt||o.tex)+'"><span data-tex="'+attr(o.tex)+'" aria-hidden="true"></span></button>'; }).join('')+'</div><p class="fb" aria-live="polite"></p></div>'; }
+      case 'error': { var eid='e'+(++uid); inits.push(function(){ Encuentra(document.getElementById(eid),b); });
+        return '<div class="card act" id="'+eid+'"><p class="act-t">'+ic('i-bulb')+'Encuentra el error</p><p>'+gl(b.enunciado)+'</p><div class="steps-l" role="group" aria-label="Pasos de la solución">'+b.pasos.map(function(s,i){ return '<button type="button" class="stepbtn" data-i="'+i+'" aria-label="Paso '+(i+1)+(s.txt?', '+attr(s.txt):'')+'"><span class="n" aria-hidden="true">'+(i+1)+'</span><span class="stx" aria-hidden="true"><span data-tex="'+attr(s.tex)+'"></span></span></button>'; }).join('')+'</div><p class="fb" aria-live="polite"></p><div class="corr" hidden><p class="mu">La corrección</p><div class="eq"><span data-tex="'+attr(b.correccion)+'" data-block></span></div></div></div>'; }
+      case 'ordenar': { var oid='o'+(++uid); inits.push(function(){ Ordena(document.getElementById(oid),b); });
+        return '<div class="card act" id="'+oid+'"><p class="act-t">'+ic('i-redo')+'Ordena los pasos</p><p>'+gl(b.enunciado)+'</p><p class="mu">Toca los pasos en el orden correcto.</p><div class="pool steps-l" role="group" aria-label="Pasos desordenados">'+b.mezcla.map(function(k){ return '<button type="button" class="stepbtn" data-k="'+k+'" aria-label="'+attr((b.txt&&b.txt[k])||'Paso desordenado')+'"><span class="stx" aria-hidden="true"><span data-tex="'+attr(b.pasos[k])+'"></span></span></button>'; }).join('')+'</div><p class="mu">Tu orden</p><ol class="put"></ol><p class="fb" aria-live="polite"></p><button class="btn sec sm" type="button" data-reset>Empezar de nuevo</button></div>'; }
+      case 'simulacro': { var sid2='m'+(++uid); inits.push(function(){ Simulacro(document.getElementById(sid2),b); });
+        return '<div class="card sim quiz" id="'+sid2+'"></div>'; }
+      case 'ingenieria': return '<div class="card eng"><p class="act-t">'+ic('i-gear')+'¿Para qué sirve? '+esc(b.titulo||'')+'</p><p>'+gl(b.html)+'</p>'+(b.tex?'<div class="eq"><span data-tex="'+attr(b.tex)+'" data-block></span></div>':'')+(b.datos?'<dl class="datos">'+b.datos.map(function(d){ return '<div><dt>'+esc(d.k)+'</dt><dd class="num">'+esc(d.v)+'</dd></div>'; }).join('')+'</dl>':'')+(b.cierre?'<p>'+gl(b.cierre)+'</p>':'')+'</div>';
+      case 'repaso': { var rid='r'+(++uid); inits.push(function(){ RepasoCard(document.getElementById(rid)); }); return '<div class="card act repaso" id="'+rid+'"></div>'; }
       case 'ojo': (actions[secId]=actions[secId]||[]).push(function(){ var w=document.querySelector('#'+secId+' .l-warn'); if(w) w.classList.add('pulse'); });
         return '<div class="l-warn"><h2>'+ic('i-bulb')+'Ojo con esto</h2><p>'+gl(b.html)+'</p></div>';
     }
@@ -1167,7 +1359,7 @@ button{font:inherit;color:inherit;cursor:pointer;background:none;border:0;paddin
   }
   var art=document.getElementById('l-art');
   art.innerHTML=L.leer.secciones.map(function(s,i){ var id='ls-'+(i+1); return '<div class="l-sec" id="'+id+'" data-t="'+attr(s.corto||s.titulo)+'"><h2><span class="num">'+(i+1)+'</span>'+s.titulo+'</h2>'+s.bloques.map(function(b){ return blockHtml(b,id); }).join('')+'</div>'; }).join('')+'<p class="fine">'+document.getElementById('fine').textContent+'</p>';
-  [].forEach.call(document.querySelectorAll('#m-leer [data-quiz]'),Quiz); inits.forEach(function(fn){ fn(); });
+  [].forEach.call(document.querySelectorAll('#m-leer [data-quiz]'),Quiz); while(inits.length) inits.shift()();
   var secs=[].slice.call(art.querySelectorAll('.l-sec')), rail=document.getElementById('l-rail');
   rail.innerHTML=secs.map(function(s,i){ return '<a href="#'+s.id+'" data-i="'+i+'"><i></i>'+s.getAttribute('data-t')+'</a>'; }).join('');
   var links=[].slice.call(rail.querySelectorAll('a')), ran={};
@@ -1193,7 +1385,7 @@ button{font:inherit;color:inherit;cursor:pointer;background:none;border:0;paddin
   /* ======================= PRACTICAR ======================= */
   var zNow=0, zTok=0, P=L.practicar.pasos, gP=Graph(document.getElementById('p-g')), cur=0, curD=TVM?(G.a+0.3*(G.b-G.a)):(ARE?(G.a+0.3*(G.b-G.a)):(ASI?(G.deslizador.ancla+G.deslizador.dmin*Math.pow(G.deslizador.dmax/G.deslizador.dmin,0.5)):(NEW?0:0.1))), stepsEl=document.getElementById('p-steps');
   stepsEl.innerHTML=P.map(function(s,i){ return '<div class="p-step" data-i="'+i+'"><button class="top" type="button" aria-expanded="false"><span class="num">'+(i+1)+'</span><h2>'+s.titulo+'</h2></button><div class="p-body">'+s.bloques.map(function(b){ return blockHtml(b,'p'+i); }).join('')+'</div></div>'; }).join('');
-  [].forEach.call(stepsEl.querySelectorAll('[data-quiz]'),Quiz);
+  [].forEach.call(stepsEl.querySelectorAll('[data-quiz]'),Quiz); while(inits.length) inits.shift()(); avisoRepaso();
   var dS=document.getElementById('p-d'); function dFrom(v){ if(TVM) return G.a+(G.b-G.a)*(0.05+0.9*v/100); if(NEW) return Math.round(v/100*G.pasos); if(ARE) return G.a+(G.b-G.a)*(0.03+0.94*v/100); if(ASI){ var m=G.deslizador; return m.ancla+m.dmin*Math.pow(m.dmax/m.dmin,v/100); } return Math.pow(10,-3+(100-v)/100*3); }
   function vFrom(d){ if(TVM) return ((d-G.a)/(G.b-G.a)-0.05)/0.9*100; if(NEW) return d/G.pasos*100; if(ARE) return ((d-G.a)/(G.b-G.a)-0.03)/0.94*100; if(ASI){ var m=G.deslizador; return Math.log((d-m.ancla)/m.dmin)/Math.log(m.dmax/m.dmin)*100; } return 100-(Math.log(d)/Math.LN10+3)/3*100; }
   function applyP(){

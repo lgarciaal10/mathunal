@@ -450,7 +450,18 @@
    "formula": "((4*(1+x)^3-8*(1+x))-(4-8))/x",
    "a": 0,
    "esperado": 4
-  }
+  },
+  "pistas": [
+   "La primera derivada es 4x al cubo menos 8x.",
+   "La segunda derivada es 12x al cuadrado menos 8.",
+   "Evalúa en x igual a 1."
+  ],
+  "errores": [
+   "",
+   "Ese −4 es la primera derivada en x igual a 1, que da 4 menos 8. Aquí se pide la segunda.",
+   "Ese 12 es solo el primer término, 12x al cuadrado. Falta restar el 8.",
+   "Ese 8 es el segundo término sin signo. Faltó el 12x al cuadrado."
+  ]
  },
  "resumen": [
   "Si f prima es positiva la función sube, y si es negativa baja.",

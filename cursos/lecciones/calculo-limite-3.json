@@ -430,7 +430,18 @@
    "formula": "sin(3*x)/x",
    "a": 0,
    "esperado": 3
-  }
+  },
+  "pistas": [
+   "Recuerda el límite notable, sen(u) sobre u tiende a 1 cuando u tiende a 0.",
+   "Para usarlo, abajo tiene que quedar 3x, igual que el argumento del seno.",
+   "Multiplica y divide entre 3. Queda 3 por el límite de sen(3x) sobre 3x."
+  ],
+  "errores": [
+   "Ese 1 es el límite notable aplicado sin ajustar. Aquí abajo falta el 3 para que el argumento coincida.",
+   "",
+   "El cociente no se va a 0. Cuando x es pequeño, sen(3x) vale casi 3x, así que el cociente se acerca a 3.",
+   "Ese 1/3 sale de dividir en vez de multiplicar. Al ajustar el denominador a 3x, queda un factor 3 afuera y no un tercio."
+  ]
  },
  "resumen": [
   "El límite de sen(x) sobre x cuando x tiende a 0 vale 1, con x en radianes.",

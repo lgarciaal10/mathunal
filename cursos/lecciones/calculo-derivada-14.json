@@ -458,7 +458,18 @@
    "formula": "(15+x)*(30-(15+x))",
    "a": 0,
    "esperado": 225
-  }
+  },
+  "pistas": [
+   "Si el ancho es x, el largo es 30 menos x, porque el perímetro es 60.",
+   "El área es x por (30 − x). Deriva e iguala a 0.",
+   "La derivada 30 − 2x vale 0 en x igual a 15. Calcula el área con 15 por 15."
+  ],
+  "errores": [
+   "",
+   "Ese 200 sale de 10 por 20, que sí suma 30 pero no es el máximo. El máximo es un cuadrado de 15 por 15.",
+   "Revisa la cuenta. Con perímetro 60, el área máxima es un cuadrado de lado 15.",
+   "Ese 900 sale de usar 30 por 30, que daría perímetro 120. Aquí el perímetro es 60."
+  ]
  },
  "resumen": [
   "Se escribe la función objetivo en una sola variable usando la restricción.",

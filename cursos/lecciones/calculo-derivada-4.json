@@ -458,7 +458,18 @@
    "formula": "((-(1+x)+sqrt(28-3*(1+x)^2))/2-2)/x",
    "a": 0,
    "esperado": -0.8
-  }
+  },
+  "pistas": [
+   "Deriva cada término respecto a x. Cada vez que aparece y, hay que multiplicar por dy sobre dx.",
+   "El término xy usa la regla del producto. Queda 2x más y más x por dy sobre dx más 2y por dy sobre dx igual a 0.",
+   "Agrupa los dy sobre dx, despeja y evalúa en x igual a 1, y igual a 2."
+  ],
+  "errores": [
+   "",
+   "Ese −5/4 está al revés. Es menos (2x + y) sobre (x + 2y), con la suma de x e y en el denominador.",
+   "Falta el signo. Al pasar los términos al otro lado, el resultado queda negativo.",
+   "Ese −1/2 sale de olvidar el término xy por completo, que aporta y y x por dy sobre dx."
+  ]
  },
  "resumen": [
   "Se deriva cada término respecto a x sin despejar y.",

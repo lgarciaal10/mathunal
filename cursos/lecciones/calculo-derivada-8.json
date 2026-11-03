@@ -442,7 +442,18 @@
    "formula": "3+(sqrt(9+x)-3)/x*0.1",
    "a": 0,
    "esperado": 3.0167
-  }
+  },
+  "pistas": [
+   "La fórmula es L(x) igual a f(a) más f prima de a por (x − a).",
+   "Con a igual a 9, f(9) vale 3 y f prima de x es 1 sobre 2 raíz de x, que en 9 vale un sexto.",
+   "Reemplaza x igual a 9.1 y calcula 3 más un sexto por 0.1."
+  ],
+  "errores": [
+   "",
+   "Ese 3.1 sale de usar pendiente 1 en vez de un sexto. Falta derivar la raíz.",
+   "Ese 3.0333 sale de usar pendiente un tercio. La derivada de raíz de x en 9 es 1 sobre 2 por 3, o sea un sexto.",
+   "Ese 3.05 sale de usar pendiente un medio. Falta la raíz de 9 en el denominador de la derivada."
+  ]
  },
  "resumen": [
   "Cerca de un punto, la recta tangente sirve para estimar el valor de una función.",

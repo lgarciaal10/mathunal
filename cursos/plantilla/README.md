@@ -37,6 +37,28 @@ Con `"zoom": {"factor": N}` en `grafica`, el motor acepta el estado `zoom` de 0 
 
 `agregar-zoom.py` agrega un capítulo de 4 segundos en Ver, una frase en Leer y el paso Mira de cerca en Practicar. En Leer, el bloque `acercando` hace el zoom solo al terminar, y se puede apagar con `"zoom": false` en el bloque. En Ver se controla con el canal `zoom` y en Practicar con `"zoom": 1` en el estado del paso.
 
+## Aprendizaje guiado
+Estos componentes sirven para que el estudiante no reciba la respuesta de entrada.
+
+**Quiz con pistas y errores explicados.** En `pregunta` se agregan dos campos.
+- `pistas` es una lista de 1 a 4 textos. El estudiante los pide de a uno, y cada respuesta errada revela la siguiente sola.
+- `errores` trae un texto por opción, y el de la opción correcta va vacío. Cada texto explica qué error produce ese resultado. Donde no se esté seguro de la causa, conviene escribir "Revisa la cuenta" con el cálculo correcto, en vez de inventar un motivo.
+
+Con alguno de los dos campos el quiz deja reintentar, y después de dos fallos ofrece mostrar la respuesta. Sin ellos se comporta como antes.
+
+**Bloques nuevos** para `leer.secciones` y `practicar.pasos`.
+- `completar`. Una ecuación con `[[hueco]]` y opciones `{"tex": "..."}`. Lleva `correcta`, `errores` (uno por opción), `pista` y `porque`.
+- `error`. Una solución en `pasos` con un paso equivocado, indicado por `mal`. Lleva `correccion`, `explicacion` y `pista`. Cada paso puede traer `porque`, que se muestra si el estudiante lo toca por equivocación.
+- `ordenar`. Los `pasos` van en el orden correcto y `mezcla` es la permutación con que se muestran, que no puede dejarlos ya en orden. El estudiante los toca en secuencia.
+- `simulacro`. Una lista de `preguntas` del banco, cada una con `fuente`. Puede ser de opción múltiple (`opciones` y `correcta`) o numérica (`respuesta` y `tolNum`). El texto admite matemática en línea entre signos de dólar.
+- `ingenieria`. Una tarjeta "¿Para qué sirve?" con `titulo`, `html`, `tex` opcional, `datos` (pares `k` y `v`) y `cierre`.
+- `repaso`. La tarjeta que muestra cuándo volver a la lección.
+
+## Repaso espaciado
+El motor guarda en `localStorage`, con la clave `mu-repaso`, el resultado de cada quiz y simulacro. Si el resultado es bueno, el próximo repaso se aleja a 1, 3, 7, 14 y 30 días. Si falla, vuelve a 1 día. Cuando una lección vence, aparece un aviso arriba. `window.MU.repaso.pendientes()` devuelve las lecciones vencidas, para que el sitio arme una vista de repaso con todas. Como `localStorage` es por origen, ese listado completo solo funciona con todas las lecciones bajo el mismo dominio.
+
+Los validadores revisan que `errores` tenga un texto por opción, que `mezcla` sea una permutación, que cada pregunta del simulacro traiga su fuente y que todas las ecuaciones rendericen.
+
 ## Lo que todavía no cubre
 Gráficas con más de una curva, curvas cerradas completas, superficies y vectores, que se necesitarán para varias variables, álgebra lineal y ecuaciones diferenciales.
 

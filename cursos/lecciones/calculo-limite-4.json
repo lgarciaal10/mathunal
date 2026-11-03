@@ -429,7 +429,18 @@
    "formula": "(x*x-9)/(x-3)",
    "a": 3,
    "esperado": 6
-  }
+  },
+  "pistas": [
+   "Al reemplazar x por 3 sale 0 sobre 0, así que hay que trabajar la expresión.",
+   "Factoriza el numerador. x al cuadrado menos 9 es (x − 3)(x + 3).",
+   "Cancela x − 3 y evalúa lo que queda en x igual a 3."
+  ],
+  "errores": [
+   "Ese 0 sale del numerador al reemplazar. Pero 0 sobre 0 no es un resultado, hay que factorizar y cancelar.",
+   "Ese 3 es el valor al que tiende x, no el límite. El límite es lo que se acerca f(x).",
+   "",
+   "El límite sí existe. El hueco de la gráfica solo indica que la función no está definida en 3."
+  ]
  },
  "resumen": [
   "Una función es continua en a si f(a) existe, el límite existe y los dos son iguales.",

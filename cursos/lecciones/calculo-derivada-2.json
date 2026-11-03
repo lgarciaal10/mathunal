@@ -497,7 +497,18 @@
    "formula": "((2+x)^3+2*(2+x)-12)/x",
    "a": 0,
    "esperado": 14
-  }
+  },
+  "pistas": [
+   "Deriva cada término con la regla de la potencia.",
+   "La derivada es 3x al cuadrado más 2.",
+   "Evalúa en x igual a 2."
+  ],
+  "errores": [
+   "Ese 12 sale de olvidar la derivada del segundo término, 2x, que aporta un 2.",
+   "",
+   "Revisa la cuenta. La derivada de 2x es 2, y 3 por 4 más 2 da 14.",
+   "Ese 8 es x al cubo evaluado en 2. Faltó derivar."
+  ]
  },
  "resumen": [
   "La derivada de x a la n es n por x a la n menos 1.",

@@ -474,7 +474,18 @@
    "formula": "(2+x)^2-4*(2+x)+1",
    "a": 0,
    "esperado": -3
-  }
+  },
+  "pistas": [
+   "Encuentra el punto crítico igualando la derivada a 0.",
+   "La derivada es 2x menos 4 y vale 0 en x igual a 2.",
+   "El valor mínimo es la función evaluada en ese punto, f(2)."
+  ],
+  "errores": [
+   "",
+   "Ese 2 es el lugar del mínimo, o sea la x. Se pide el valor de la función.",
+   "Ese −4 es el coeficiente de x. Falta evaluar la función en el punto crítico.",
+   "Ese 1 es f(0), el término independiente. El mínimo está en x igual a 2."
+  ]
  },
  "resumen": [
   "Los extremos se buscan donde la derivada vale 0, los puntos críticos.",

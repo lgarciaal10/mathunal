@@ -424,7 +424,18 @@
    "formula": "(x*x-9)/(x-3)",
    "a": 3,
    "esperado": 6
-  }
+  },
+  "pistas": [
+   "Al reemplazar x por 3 sale 0 sobre 0, así que hay que trabajar la expresión.",
+   "Factoriza el numerador. x al cuadrado menos 9 es (x − 3)(x + 3).",
+   "Cancela x − 3 y evalúa lo que queda en x igual a 3."
+  ],
+  "errores": [
+   "Ese 0 sale del numerador al reemplazar. Pero 0 sobre 0 no es un resultado, hay que factorizar y cancelar.",
+   "",
+   "Ese 9 sale de reemplazar x por 3 solo en una parte, por ejemplo en x al cuadrado. Falta factorizar y cancelar.",
+   "El límite sí existe. El 0 sobre 0 solo dice que hay que simplificar, no que el límite falle."
+  ]
  },
  "resumen": [
   "El límite dice hacia dónde va la función cuando x se acerca a un número.",

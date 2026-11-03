@@ -10,6 +10,8 @@ Esta carpeta guarda el trabajo de los cursos. Todo es un borrador para revisar y
 - `herramientas/` trae los scripts que sacan los datos del banco de preguntas.
 
 ## Estado de Cálculo Diferencial
+La lección de la Regla de la cadena es la lección insignia del aprendizaje guiado. Trae pistas y errores explicados en el quiz, tres actividades (completar, encontrar el error y ordenar), un ejemplo de ingeniería, un mini simulacro con preguntas reales del banco y un repaso espaciado. Las otras 23 lecciones ya tienen pistas y errores explicados en su quiz.
+
 Las 24 lecciones están escritas, con los tres modos Ver, Leer y Practicar, y pasan el validador. La estructura de módulos sale del banco y es provisional hasta confirmar el temario oficial.
 
 ## Otras materias

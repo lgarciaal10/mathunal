@@ -465,7 +465,18 @@
    "formula": "((4*(2+x)^3-6*(2+x))-(4*8-12))/x",
    "a": 0,
    "esperado": 42
-  }
+  },
+  "pistas": [
+   "Deriva dos veces. La primera derivada es 4x al cubo menos 6x.",
+   "La segunda derivada es 12x al cuadrado menos 6.",
+   "Evalúa en x igual a 2."
+  ],
+  "errores": [
+   "",
+   "Ese 48 es 12x al cuadrado sin restar el 6. Falta el segundo término.",
+   "Revisa la cuenta. La segunda derivada es 12x al cuadrado menos 6, y en x igual a 2 sale 48 menos 6.",
+   "Revisa la cuenta. La derivada de −6x es −6, y en x igual a 2 sale 48 menos 6."
+  ]
  },
  "resumen": [
   "La segunda derivada es la derivada de la primera derivada y mide cómo cambia la pendiente.",

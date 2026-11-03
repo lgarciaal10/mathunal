@@ -394,7 +394,18 @@
    "formula": "((5*5+1)-(1*1+1))/(4*2)+0*x",
    "a": 0,
    "esperado": 3
-  }
+  },
+  "pistas": [
+   "Calcula la pendiente de la cuerda, f(5) menos f(1) sobre 5 menos 1.",
+   "Da 24 sobre 4, o sea 6.",
+   "Resuelve f prima de c igual a 6, o sea 2c igual a 6."
+  ],
+  "errores": [
+   "Ese 2 no cumple f prima de c igual a 6. Con c igual a 2 la derivada vale 4.",
+   "",
+   "Ese 4 es el largo del intervalo, 5 menos 1. El punto c sale de f prima de c igual a la pendiente de la cuerda.",
+   "Ese 6 es la pendiente de la cuerda, no el punto c. Falta resolver 2c igual a 6."
+  ]
  },
  "resumen": [
   "El teorema dice que hay un punto c donde la tangente es paralela a la cuerda.",

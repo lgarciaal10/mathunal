@@ -379,7 +379,18 @@
    "formula": "(5*(1/x)^2-(1/x))/((1/x)^2+7)",
    "a": 0,
    "esperado": 5
-  }
+  },
+  "pistas": [
+   "Compara los grados. Arriba y abajo son de grado 2.",
+   "Divide arriba y abajo entre x al cuadrado.",
+   "Los términos con x en el denominador se van a 0. Queda el cociente de los coeficientes de mayor grado."
+  ],
+  "errores": [
+   "",
+   "Ese 0 serviría si el grado de arriba fuera menor que el de abajo. Aquí son iguales.",
+   "Ese 1 sale de ignorar los coeficientes 5 y 1. Los grados son iguales, pero los coeficientes importan.",
+   "El límite sí existe. Cuando los grados son iguales, el cociente se acerca a un número."
+  ]
  },
  "resumen": [
   "Para x que tiende a infinito se divide entre la mayor potencia de x.",

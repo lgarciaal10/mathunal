@@ -473,7 +473,18 @@
    "formula": "3*(pi*(2+x)^2-4*pi)/x",
    "a": 0,
    "esperado": 37.69911184
-  }
+  },
+  "pistas": [
+   "Deriva el área respecto al tiempo con la regla de la cadena.",
+   "dA sobre dt es 2πr por dr sobre dt.",
+   "Reemplaza r igual a 2 y dr sobre dt igual a 3."
+  ],
+  "errores": [
+   "Ese 4π es dA sobre dr en r igual a 2. Falta multiplicar por dr sobre dt, que vale 3.",
+   "Ese 6π sale de usar r igual a 1. Con r igual a 2, 2πr vale 4π.",
+   "",
+   "Revisa la cuenta. Es 2π por 2 por 3, que da 12π."
+  ]
  },
  "resumen": [
   "La derivada es una razón de cambio, cuánto cambia una cantidad por cada unidad que cambia otra.",

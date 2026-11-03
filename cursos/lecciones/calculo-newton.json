@@ -368,7 +368,18 @@
    "formula": "3-(3*3-5)/(2*3)+0*x",
    "a": 0,
    "esperado": 2.3333
-  }
+  },
+  "pistas": [
+   "La fórmula es x1 igual a x0 menos f(x0) sobre f prima de x0.",
+   "f(3) vale 4 y f prima de x es 2x, que en 3 vale 6.",
+   "Reemplaza. Queda 3 menos 4 sobre 6."
+  ],
+  "errores": [
+   "",
+   "Revisa la cuenta. f(3) es 9 menos 5, o sea 4, y f prima de 3 es 6.",
+   "Revisa la cuenta. La derivada de x al cuadrado es 2x, que en 3 vale 6 y no 4.",
+   "Ese 2.2361 es la raíz cuadrada de 5, el valor al que se quiere llegar. Aquí se pide solo la primera aproximación."
+  ]
  },
  "resumen": [
   "El método de Newton mejora una aproximación usando la tangente en ese punto.",

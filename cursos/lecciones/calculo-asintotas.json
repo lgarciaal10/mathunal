@@ -381,7 +381,18 @@
    "formula": "(4*(1/x)-1)/(2*(1/x)+3)",
    "a": 0,
    "esperado": 2
-  }
+  },
+  "pistas": [
+   "La asíntota horizontal sale del límite cuando x tiende a infinito.",
+   "Los grados de arriba y abajo son iguales.",
+   "Divide los coeficientes de mayor grado, 4 sobre 2."
+  ],
+  "errores": [
+   "",
+   "Ese 4 es solo el coeficiente de arriba. Falta dividirlo entre el 2 de abajo.",
+   "Ese −1/3 es el valor de la función en x igual a 0, no el límite en el infinito.",
+   "Ese 3 es el término independiente de abajo. Para el infinito importan los coeficientes de mayor grado."
+  ]
  },
  "resumen": [
   "Una asíntota vertical aparece donde el denominador vale 0 y el numerador no.",

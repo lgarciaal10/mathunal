@@ -158,3 +158,48 @@
 .p-lab input[type=range]{flex:1;min-width:0;accent-color:var(--acc-t)}
 .p-lab .ctl[hidden],.p-lab .vals[hidden]{display:none}
 @media (max-width:900px){.p-grid{grid-template-columns:minmax(0,1fr)}.p-lab{position:static;order:-1}}
+
+/* ---------- actividades guiadas, simulacro, ingeniería y repaso ---------- */
+.act{border-left:4px solid var(--acc)}
+.act-t{display:flex;align-items:center;gap:8px;font-weight:600;color:var(--acc-t);margin-bottom:10px}
+.act-t .ic{width:20px;height:20px;flex:none}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0}
+.chip-btn{min-height:44px;padding:8px 18px;border-radius:var(--r-sm);background:var(--surf2);color:var(--tx);transition:transform .2s,background .2s}
+.chip-btn:hover:not(:disabled){transform:translateY(-2px)}
+.chip-btn.ok{background:rgba(70,194,143,.18);outline:2px solid var(--ok)}
+.chip-btn.no{background:rgba(239,107,122,.14);outline:2px solid var(--bad);animation:shake .35s;opacity:.7}
+.steps-l{display:grid;gap:8px;margin:10px 0}
+.stepbtn{display:flex;align-items:center;gap:12px;width:100%;text-align:left;padding:10px 14px;border-radius:var(--r-sm);background:var(--surf2);color:var(--tx);transition:transform .2s,background .2s;overflow-x:auto}
+.stepbtn:hover:not(:disabled){transform:translateX(4px)}
+.stepbtn .n{font-family:var(--mono);color:var(--dim);font-weight:600;flex:none}
+.stepbtn .stx{min-width:0}
+.stepbtn.good{outline:2px solid var(--ok);background:rgba(70,194,143,.12)}
+.stepbtn.bad{outline:2px solid var(--bad);background:rgba(239,107,122,.14)}
+.stepbtn.ok{outline:2px solid var(--ok);background:rgba(70,194,143,.12);opacity:.75}
+.stepbtn.no{outline:2px solid var(--bad);animation:shake .35s}
+.put{margin:8px 0 12px;padding-left:1.4em;display:grid;gap:6px;min-height:1.6em}
+.put li{padding:6px 10px;border-radius:var(--r-sm);background:var(--surf2);overflow-x:auto}
+.corr{margin-top:10px}
+.hintbar{display:flex;align-items:center;gap:12px;margin-top:14px;flex-wrap:wrap}
+.hintbar .ic{width:18px;height:18px}
+.hc{color:var(--mu);font-size:.9rem}
+.hints{margin:10px 0 0;padding-left:1.4em;color:var(--mu);display:grid;gap:6px}
+.giveup{margin-top:10px}
+.sim .sim-h{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:6px;flex-wrap:wrap}
+.sim .sim-f{color:var(--mu);font-size:.9rem;margin-bottom:10px}
+.sim .sim-n{margin-top:14px}
+.sim-score{font-size:1.2rem}
+.sim-score .big{font-size:2.4rem;font-weight:600;color:var(--acc-t)}
+.numrow{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.numin{min-height:44px;width:11rem;max-width:100%;padding:8px 14px;border-radius:var(--r-sm);background:var(--surf2);color:var(--tx);border:1px solid var(--line);font-family:var(--mono);font-size:1rem}
+.eng{border-left:4px solid var(--curve)}
+.eng .act-t{color:var(--tx)}
+.eng .act-t .ic{color:var(--curve)}
+.datos{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin:12px 0}
+.datos div{background:var(--surf2);border-radius:var(--r-sm);padding:10px 14px}
+.datos dt{color:var(--mu);font-size:.85rem}
+.datos dd{margin:2px 0 0;font-weight:600}
+.rep-l{margin:6px 0 12px;padding-left:1.3em;color:var(--mu)}
+.due{display:flex;gap:10px;align-items:center;margin:14px 0;padding:12px 16px;border-radius:var(--r-md);background:var(--acc-soft);color:var(--tx)}
+.due .ic{width:20px;height:20px;color:var(--acc-t);flex:none}
+@media (max-width:520px){.chip-btn{flex:1 1 100%}.numin{width:100%}}

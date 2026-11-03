@@ -123,7 +123,7 @@ else {
 for (const [n, kf] of Object.entries(V.canales || {})) for (let i = 1; i < kf.length; i++) if (!(kf[i][0] > kf[i - 1][0])) err(`El canal ${n} no está en orden de tiempo`);
 
 /* ---------- bloques ---------- */
-const TIPOS = ['p', 'nota', 'eq', 'pregunta', 'resumen', 'grafica', 'acercando', 'piensa', 'pasos', 'ojo'];
+const TIPOS = ['p', 'nota', 'eq', 'pregunta', 'resumen', 'grafica', 'acercando', 'piensa', 'pasos', 'ojo', 'completar', 'error', 'ordenar', 'simulacro', 'ingenieria', 'repaso'];
 const tex = [], textos = [];
 const glosa = new Set(Object.keys(L.glosario));
 function bloque(b, donde) {
@@ -133,10 +133,48 @@ function bloque(b, donde) {
   if (b.t === 'pasos') b.items.forEach((s, i) => { tex.push([`${donde} paso ${i + 1}`, s.tex]); textos.push([`${donde} paso ${i + 1}`, s.porque]); });
   if (b.t === 'piensa') { textos.push([donde, b.pregunta + ' ' + b.bien + ' ' + b.mal]); if (!b.opciones.includes(b.correcta)) err(`La opción correcta de piensa no está en sus opciones (${donde})`); if (b.correcta !== G.limite) aviso(`piensa.correcta (${b.correcta}) no coincide con el límite de la gráfica (${G.limite}) en ${donde}`); }
   if (b.alt) textos.push([donde + ' alt', b.alt]);
+  const perm = (m, n) => Array.isArray(m) && m.length === n && new Set(m).size === n && m.every(k => Number.isInteger(k) && k >= 0 && k < n);
+  if (b.t === 'completar') {
+    if (typeof b.tex !== 'string' || !b.tex.includes('[[hueco]]')) err(`El bloque completar de ${donde} necesita tex con [[hueco]]`);
+    else { tex.push([donde + ' completar', b.tex.replace('[[hueco]]', '\\boxed{?}')]); (b.opciones || []).forEach((o, i) => { tex.push([`${donde} completar opción ${i + 1}`, o.tex]); if (!o.txt) aviso(`Falta txt (texto para lector de pantalla) en la opción ${i + 1} de completar en ${donde}`); }); }
+    if (!Array.isArray(b.opciones) || b.opciones.length < 2) err(`completar de ${donde} necesita al menos 2 opciones`);
+    else if (!(Number.isInteger(b.correcta) && b.correcta >= 0 && b.correcta < b.opciones.length)) err(`completar de ${donde} tiene correcta fuera de rango`);
+    else if (b.errores && b.errores.length !== b.opciones.length) err(`completar de ${donde} tiene errores con otra longitud que opciones`);
+    [b.enunciado, b.porque, b.pista].concat(b.errores || []).forEach(t => { if (t) textos.push([donde + ' completar', t]); });
+  }
+  if (b.t === 'error') {
+    if (!Array.isArray(b.pasos) || b.pasos.length < 3) err(`error de ${donde} necesita al menos 3 pasos`);
+    else { b.pasos.forEach((s, i) => { tex.push([`${donde} error paso ${i + 1}`, s.tex]); if (!s.txt) aviso(`Falta txt (texto para lector de pantalla) en el paso ${i + 1} de error en ${donde}`); if (s.porque) textos.push([`${donde} error paso ${i + 1}`, s.porque]); }); if (!(Number.isInteger(b.mal) && b.mal >= 0 && b.mal < b.pasos.length)) err(`error de ${donde} tiene mal fuera de rango`); }
+    tex.push([donde + ' error corrección', b.correccion]);
+    [b.enunciado, b.explicacion, b.pista].forEach(t => { if (t) textos.push([donde + ' error', t]); });
+  }
+  if (b.t === 'ordenar') {
+    if (!Array.isArray(b.pasos) || b.pasos.length < 3) err(`ordenar de ${donde} necesita al menos 3 pasos`);
+    else { if (!Array.isArray(b.txt) || b.txt.length !== b.pasos.length) aviso(`Falta txt (un texto por paso para lector de pantalla) en ordenar de ${donde}`); b.pasos.forEach((s, i) => tex.push([`${donde} ordenar paso ${i + 1}`, s])); if (!perm(b.mezcla, b.pasos.length)) err(`mezcla de ${donde} debe ser una permutación de 0 a ${b.pasos.length - 1}`); else if (b.mezcla.every((k, i) => k === i)) err(`mezcla de ${donde} no puede dejar los pasos ya en orden`); }
+    [b.enunciado, b.porque, b.pista].forEach(t => { if (t) textos.push([donde + ' ordenar', t]); });
+  }
+  if (b.t === 'simulacro') {
+    if (!Array.isArray(b.preguntas) || b.preguntas.length < 2) err(`simulacro de ${donde} necesita al menos 2 preguntas`);
+    else b.preguntas.forEach((q, i) => {
+      const w = `${donde} simulacro ${i + 1}`;
+      if (!q.fuente) err(`${w} necesita fuente`);
+      [q.texto, q.resumen].concat(q.opciones || []).forEach(t => { if (typeof t === 'string') t.split('$').forEach((seg, k) => { if (k % 2 === 1) tex.push([w, seg]); }); });
+      if (q.tipo === 'numerica') { if (Number.isNaN(parseFloat(q.respuesta))) err(`${w} numérica sin respuesta numérica`); }
+      else if (!(Array.isArray(q.opciones) && q.opciones.length >= 2 && Number.isInteger(q.correcta) && q.correcta >= 0 && q.correcta < q.opciones.length)) err(`${w} tiene opciones o correcta inválidas`);
+    });
+  }
+  if (b.t === 'ingenieria') {
+    if (!b.html) err(`ingenieria de ${donde} necesita html`);
+    if (b.tex) tex.push([donde + ' ingenieria', b.tex]);
+    [b.titulo, b.html, b.cierre].forEach(t => { if (t) textos.push([donde + ' ingenieria', t]); });
+    (b.datos || []).forEach(d => { textos.push([donde + ' ingenieria dato', d.k]); });
+  }
 }
 (L.leer.secciones || []).forEach((s, i) => { textos.push([`leer ${i + 1} título`, s.titulo]); (s.bloques || []).forEach(b => bloque(b, `leer ${i + 1}`)); });
 (L.practicar.pasos || []).forEach((s, i) => { textos.push([`practicar ${i + 1} título`, s.titulo]); (s.bloques || []).forEach(b => bloque(b, `practicar ${i + 1}`)); if (!s.grafica) err(`practicar ${i + 1} sin estado de gráfica`); });
 tex.push(['pregunta', Q.tex]);
+if (Q.errores) { if (!Array.isArray(Q.errores) || Q.errores.length !== Q.opciones.length) err('pregunta.errores debe tener un texto por opción'); else { Q.errores.forEach((t, i) => { if (i === Q.correcta) { if (t) aviso('pregunta.errores de la opción correcta debería ir vacío'); } else if (!t) aviso(`Falta explicar el error de la opción ${i + 1}`); else textos.push([`pregunta error ${i + 1}`, t]); }); } }
+if (Q.pistas) { if (!Array.isArray(Q.pistas) || Q.pistas.length < 1 || Q.pistas.length > 4) err('pregunta.pistas debe tener entre 1 y 4 pistas'); else Q.pistas.forEach((t, i) => textos.push([`pregunta pista ${i + 1}`, t])); }
 (V.capitulos || []).forEach((c, i) => textos.push([`ver ${i + 1}`, c[2]]));
 (L.resumen || []).forEach((s, i) => textos.push([`resumen ${i + 1}`, s]));
 Object.entries(L.glosario).forEach(([k, v]) => textos.push([`glosario ${k}`, v]));

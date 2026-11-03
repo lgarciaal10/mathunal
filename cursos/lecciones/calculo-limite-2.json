@@ -425,7 +425,18 @@
    "formula": "(x*x-5*x+6)/(x-2)",
    "a": 2,
    "esperado": -1
-  }
+  },
+  "pistas": [
+   "Al reemplazar x por 2 queda 0 sobre 0.",
+   "Factoriza x al cuadrado menos 5x más 6 buscando dos números que multipliquen 6 y sumen −5.",
+   "Esos números son −2 y −3. Cancela x − 2 y evalúa x − 3 en 2."
+  ],
+  "errores": [
+   "",
+   "Ese 0 sale de dejar el numerador evaluado y olvidar que el denominador también vale 0. Hay que factorizar y cancelar.",
+   "Ese 1 sale de un error de signo al evaluar x − 3 en 2. Da 2 menos 3, o sea −1.",
+   "El límite sí existe. El 0 sobre 0 indica que hay que simplificar."
+  ]
  },
  "resumen": [
   "Un límite que da 0 sobre 0 se puede trabajar factorizando.",

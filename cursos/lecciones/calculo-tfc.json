@@ -416,7 +416,18 @@
    "formula": "(1/3)*(3*0*0+4*3*1*1+3*2*2)+0*x",
    "a": 0,
    "esperado": 8
-  }
+  },
+  "pistas": [
+   "Busca una primitiva de 3x al cuadrado.",
+   "La primitiva es x al cubo, porque su derivada es 3x al cuadrado.",
+   "Evalúa en 2 y en 0 y resta."
+  ],
+  "errores": [
+   "",
+   "Revisa la primitiva. Debe ser x al cubo, que en 2 vale 8.",
+   "Ese 12 es el valor de la función en x igual a 2, no el área. Falta integrar.",
+   "Revisa la primitiva. Debe ser x al cubo, que en 2 vale 8 y en 0 vale 0."
+  ]
  },
  "resumen": [
   "La derivada del área acumulada bajo f es la propia f.",

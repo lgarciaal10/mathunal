@@ -454,7 +454,18 @@
    "formula": "((3+x)^3-3*(3+x)^2+2*(3+x)-6)/x",
    "a": 0,
    "esperado": 11
-  }
+  },
+  "pistas": [
+   "La velocidad es la derivada de la posición.",
+   "Deriva con la regla de la potencia. Queda 3t al cuadrado menos 6t más 2.",
+   "Evalúa en t igual a 3."
+  ],
+  "errores": [
+   "Ese 9 sale de olvidar el último término, el 2, de la derivada.",
+   "",
+   "Revisa la cuenta. Con 3t al cuadrado menos 6t más 2 en t igual a 3 sale 27 menos 18 más 2.",
+   "Ese 18 es el valor de 6t en t igual a 3. Se tomó un solo término de la derivada."
+  ]
  },
  "resumen": [
   "La velocidad es la derivada de la posición y la aceleración es la derivada de la velocidad.",
