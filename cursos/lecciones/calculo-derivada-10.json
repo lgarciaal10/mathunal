@@ -1,0 +1,475 @@
+{
+ "esquema": 1,
+ "id": "calculo-m2-l10",
+ "ejemplo": true,
+ "curso": "Cálculo",
+ "modulo": "Módulo 2 La derivada",
+ "posicion": "Lección 10 de 10",
+ "titulo": "Derivadas de orden superior",
+ "minutos": 13,
+ "ejercicios": 1,
+ "grafica": {
+  "tipo": "secante",
+  "x": [
+   0,
+   4
+  ],
+  "y": [
+   -1.2,
+   1.2
+  ],
+  "funcion": "cos(x)",
+  "a": 1.5707963267948966,
+  "derivada": "-sin(x)",
+  "limite": -1,
+  "etiquetas": [
+   "Distancia h",
+   "Pendiente de la secante"
+  ],
+  "etiquetaSlider": "Valor de h",
+  "zoom": {
+   "factor": 50
+  },
+  "alt": "Curva del coseno de x con una secante que se acerca a la tangente en x igual a pi sobre 2, donde la curva cruza el eje"
+ },
+ "glosario": {
+  "segunda": "La segunda derivada es la derivada de la primera derivada. Mide qué tan rápido cambia la pendiente.",
+  "conc": "Una gráfica es cóncava hacia arriba cuando se curva como una taza y cóncava hacia abajo cuando se curva como una colina.",
+  "acel": "La aceleración es la derivada de la velocidad, o sea la segunda derivada de la posición.",
+  "tangente": "La recta tangente toca la curva en un punto y tiene la misma inclinación que la curva ahí.",
+  "pend": "La pendiente dice cuánto sube la recta por cada unidad que avanza hacia la derecha."
+ },
+ "ver": {
+  "duracion": 24.0,
+  "capitulos": [
+   [
+    0,
+    2.5,
+    "Esta es la curva del coseno de x, que es la derivada del seno."
+   ],
+   [
+    2.5,
+    4.5,
+    "Si se deriva otra vez se obtiene la segunda derivada. Miremos x igual a pi sobre 2."
+   ],
+   [
+    4.5,
+    8,
+    "Se traza la secante con un segundo punto a distancia h."
+   ],
+   [
+    8,
+    12.5,
+    "Mientras h se achica, la pendiente de la secante cambia."
+   ],
+   [
+    12.5,
+    15.8,
+    "La secante se vuelve la tangente y su pendiente se acerca a menos 1."
+   ],
+   [
+    15.8,
+    19.8,
+    "De cerca, la curva casi se ve como una recta, y esa recta es la tangente."
+   ],
+   [
+    19.8,
+    24,
+    "Esa pendiente es la derivada del coseno, o sea menos seno de x, que en pi sobre 2 vale menos 1."
+   ]
+  ],
+  "canales": {
+   "draw": [
+    [
+     0.3,
+     0
+    ],
+    [
+     2.4,
+     1
+    ]
+   ],
+   "hole": [
+    [
+     2.5,
+     0
+    ],
+    [
+     3.2,
+     1
+    ]
+   ],
+   "d": [
+    [
+     4.5,
+     1
+    ],
+    [
+     6,
+     0.5
+    ],
+    [
+     8,
+     0.5
+    ],
+    [
+     9.5,
+     0.1
+    ],
+    [
+     11,
+     0.1
+    ],
+    [
+     12.5,
+     0.01
+    ]
+   ],
+   "guide": [
+    [
+     12.5,
+     0
+    ],
+    [
+     13.5,
+     1
+    ]
+   ],
+   "zoom": [
+    [
+     15.8,
+     0
+    ],
+    [
+     18.3,
+     1
+    ],
+    [
+     19.0,
+     1
+    ],
+    [
+     19.8,
+     0
+    ]
+   ]
+  },
+  "intervalos": {
+   "ok": [
+    19.8,
+    24.0
+   ]
+  }
+ },
+ "leer": {
+  "secciones": [
+   {
+    "titulo": "La idea",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "La derivada de una función es otra función, y esa también se puede derivar. Al derivar dos veces se obtiene la {{gl:segunda|segunda derivada}}. Se escribe f con dos primas, o también d dos y sobre dx al cuadrado."
+     }
+    ]
+   },
+   {
+    "titulo": "Un ejemplo",
+    "corto": "Un ejemplo",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Se parte del seno. Su derivada es el coseno, y en la gráfica se ve la curva del coseno."
+     },
+     {
+      "t": "eq",
+      "tex": "f(x)=\\operatorname{sen}x\\ \\Rightarrow\\ f'(x)=\\cos x"
+     },
+     {
+      "t": "grafica",
+      "animar": "dibujar",
+      "alt": "Curva del coseno que se dibuja y marca el punto donde cruza el eje"
+     }
+    ]
+   },
+   {
+    "titulo": "Piensa antes de ver",
+    "corto": "Piensa",
+    "bloques": [
+     {
+      "t": "piensa",
+      "pregunta": "La segunda derivada de sen x es la pendiente de la curva del coseno. En x igual a pi sobre 2 el coseno cruza el eje hacia abajo. ¿A qué número crees que se acerca la pendiente de la secante?",
+      "opciones": [
+       -1,
+       0,
+       1,
+       2
+      ],
+      "correcta": -1,
+      "bien": "Muy bien. Se acerca a menos 1 y más abajo se ve por qué.",
+      "mal": "El número es menos 1. Como el coseno baja al cruzar el eje, la pendiente es negativa."
+     }
+    ]
+   },
+   {
+    "titulo": "Acercando el segundo punto",
+    "corto": "Acercándose",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mira cómo cambia la pendiente de la secante al achicar h."
+     },
+     {
+      "t": "acercando",
+      "ds": [
+       1,
+       0.5,
+       0.1,
+       0.01
+      ],
+      "alt": "Una secante que gira hasta parecerse a la tangente"
+     },
+     {
+      "t": "p",
+      "html": "La pendiente se acerca a <b>−1</b>. Al terminar, la gráfica hace zoom para que veas el detalle."
+     }
+    ]
+   },
+   {
+    "titulo": "Derivadas sucesivas",
+    "corto": "Sucesivas",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Se puede seguir derivando. Con el seno, los resultados se repiten cada cuatro derivadas."
+     },
+     {
+      "t": "pasos",
+      "items": [
+       {
+        "tex": "f(x)=\\operatorname{sen}x,\\quad f'(x)=\\cos x",
+        "porque": "La primera derivada del seno es el coseno."
+       },
+       {
+        "tex": "f''(x)=-\\operatorname{sen}x,\\quad f'''(x)=-\\cos x",
+        "porque": "La derivada del coseno es menos seno, y la de menos seno es menos coseno."
+       },
+       {
+        "tex": "f^{(4)}(x)=\\operatorname{sen}x",
+        "porque": "A la cuarta derivada se vuelve a la función original y el ciclo empieza otra vez."
+       },
+       {
+        "tex": "f''\\!\\left(\\dfrac{\\pi}{2}\\right)=-\\operatorname{sen}\\dfrac{\\pi}{2}=-1",
+        "porque": "Se evalúa la segunda derivada en pi sobre 2 y sale lo mismo que midió la secante."
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "Con polinomios",
+    "corto": "Polinomios",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "En un polinomio cada derivada baja el grado en uno, hasta que todo se vuelve 0."
+     },
+     {
+      "t": "pasos",
+      "items": [
+       {
+        "tex": "f(x)=x^{4}-3x^{2}",
+        "porque": "Se parte de este polinomio."
+       },
+       {
+        "tex": "f'(x)=4x^{3}-6x,\\quad f''(x)=12x^{2}-6",
+        "porque": "Se aplica la regla de la potencia dos veces."
+       },
+       {
+        "tex": "f'''(x)=24x,\\quad f^{(4)}(x)=24,\\quad f^{(5)}(x)=0",
+        "porque": "El grado baja en uno cada vez, hasta llegar a una constante y luego a 0."
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "Qué significa",
+    "corto": "Qué significa",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Si f es la posición de algo que se mueve, la primera derivada es la velocidad y la segunda es la {{gl:acel|aceleración}}."
+     },
+     {
+      "t": "p",
+      "html": "La segunda derivada también dice hacia dónde se curva la gráfica. Si es positiva, la gráfica es {{gl:conc|cóncava}} hacia arriba, como una taza. Si es negativa, es cóncava hacia abajo, como una colina."
+     },
+     {
+      "t": "ojo",
+      "html": "La segunda derivada es la derivada de f prima. No es f prima al cuadrado, que sería otra cosa."
+     }
+    ]
+   },
+   {
+    "titulo": "Revisa tu respuesta",
+    "corto": "Revisa",
+    "bloques": [
+     {
+      "t": "pregunta"
+     },
+     {
+      "t": "nota",
+      "html": "Deriva dos veces con la regla de la potencia y evalúa en 2."
+     }
+    ]
+   },
+   {
+    "titulo": "En resumen",
+    "corto": "Resumen",
+    "bloques": [
+     {
+      "t": "resumen"
+     }
+    ]
+   }
+  ]
+ },
+ "practicar": {
+  "pasos": [
+   {
+    "titulo": "La curva",
+    "grafica": {
+     "draw": 1
+    },
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Esta es la curva del coseno, la derivada del seno."
+     },
+     {
+      "t": "eq",
+      "tex": "f'(x)=\\cos x"
+     }
+    ]
+   },
+   {
+    "titulo": "El punto",
+    "grafica": {
+     "draw": 1,
+     "hole": 1
+    },
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Se quiere la pendiente de esta curva en x igual a pi sobre 2, donde cruza el eje."
+     }
+    ]
+   },
+   {
+    "titulo": "Acerca el segundo punto",
+    "grafica": {
+     "draw": 1,
+     "hole": 1
+    },
+    "laboratorio": true,
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mueve el deslizador de h. La secante gira y abajo se ve su pendiente."
+     }
+    ]
+   },
+   {
+    "titulo": "La tangente",
+    "grafica": {
+     "draw": 1,
+     "hole": 1,
+     "guide": 1
+    },
+    "laboratorio": true,
+    "d": 0.01,
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Con h muy pequeño la pendiente se acerca a menos 1."
+     }
+    ]
+   },
+   {
+    "titulo": "La segunda derivada",
+    "grafica": {
+     "draw": 1,
+     "hole": 1,
+     "guide": 1,
+     "ok": true
+    },
+    "bloques": [
+     {
+      "t": "eq",
+      "tex": "f''(x)=-\\operatorname{sen}x"
+     },
+     {
+      "t": "p",
+      "html": "En x igual a pi sobre 2 vale menos 1, justo lo que midió la secante."
+     }
+    ]
+   },
+   {
+    "titulo": "Mira de cerca",
+    "grafica": {
+     "draw": 1,
+     "hole": 1,
+     "guide": 1,
+     "zoom": 1
+    },
+    "laboratorio": true,
+    "d": 0.01,
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Ahora la gráfica está con zoom. De cerca, la curva casi se ve como una recta y la secante se pega a la tangente. Mueve h para comprobarlo."
+     }
+    ]
+   },
+   {
+    "titulo": "Revisa tu respuesta",
+    "grafica": {
+     "draw": 1,
+     "hole": 1,
+     "guide": 1,
+     "ok": true
+    },
+    "bloques": [
+     {
+      "t": "pregunta"
+     },
+     {
+      "t": "nota",
+      "html": "Deriva dos veces con la regla de la potencia y evalúa en 2."
+     }
+    ]
+   }
+  ]
+ },
+ "pregunta": {
+  "tex": "f''(2)\\ \\text{si}\\ f(x)=x^{4}-3x^{2}",
+  "opciones": [
+   "42",
+   "48",
+   "36",
+   "30"
+  ],
+  "correcta": 0,
+  "explicacion": "La primera derivada es 4x al cubo menos 6x y la segunda es 12x al cuadrado menos 6. En x igual a 2 queda 12 por 4 menos 6, que da 42.",
+  "verificacion": {
+   "formula": "((4*(2+x)^3-6*(2+x))-(4*8-12))/x",
+   "a": 0,
+   "esperado": 42
+  }
+ },
+ "resumen": [
+  "La segunda derivada es la derivada de la primera derivada y mide cómo cambia la pendiente.",
+  "En un polinomio cada derivada baja el grado en uno.",
+  "Si f es la posición, f prima es la velocidad y f segunda es la aceleración."
+ ]
+}
