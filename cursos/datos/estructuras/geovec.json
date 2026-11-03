@@ -1,0 +1,112 @@
+{
+ "esquema": 1,
+ "curso": "Geometría Vectorial y Analítica",
+ "estado": "PROVISIONAL. Los módulos y temas salen del banco de MathUNAL. El orden dentro de cada módulo es por cantidad de preguntas, NO pedagógico, y falta el temario oficial (PENDIENTE).",
+ "modulos": [
+  {
+   "n": 1,
+   "nombre": "Vectores y rectas en el plano",
+   "peso": 30,
+   "lecciones": [
+    {
+     "tema": "Producto punto y proyección",
+     "preguntas_banco": 11,
+     "parciales_con_el_tema": 2,
+     "estado": "pendiente",
+     "leccion": null
+    },
+    {
+     "tema": "Vectores en el plano",
+     "preguntas_banco": 9,
+     "parciales_con_el_tema": 1,
+     "estado": "pendiente",
+     "leccion": null
+    },
+    {
+     "tema": "Rectas en el plano",
+     "preguntas_banco": 7,
+     "parciales_con_el_tema": 2,
+     "estado": "pendiente",
+     "leccion": null
+    },
+    {
+     "tema": "Área y aplicaciones",
+     "preguntas_banco": 4,
+     "parciales_con_el_tema": 1,
+     "estado": "pendiente",
+     "leccion": null
+    }
+   ]
+  },
+  {
+   "n": 2,
+   "nombre": "Vectores en el espacio",
+   "peso": 35,
+   "lecciones": [
+    {
+     "tema": "Producto vectorial (cruz)",
+     "preguntas_banco": 7,
+     "parciales_con_el_tema": 1,
+     "estado": "pendiente",
+     "leccion": null
+    },
+    {
+     "tema": "Triple producto escalar y volumen",
+     "preguntas_banco": 7,
+     "parciales_con_el_tema": 1,
+     "estado": "pendiente",
+     "leccion": null
+    },
+    {
+     "tema": "Vectores en R³ y producto punto",
+     "preguntas_banco": 7,
+     "parciales_con_el_tema": 1,
+     "estado": "pendiente",
+     "leccion": null
+    },
+    {
+     "tema": "Combinaciones lineales y dependencia",
+     "preguntas_banco": 6,
+     "parciales_con_el_tema": 1,
+     "estado": "pendiente",
+     "leccion": null
+    }
+   ]
+  },
+  {
+   "n": 3,
+   "nombre": "Rectas, planos y cónicas",
+   "peso": 35,
+   "lecciones": [
+    {
+     "tema": "Planos en el espacio",
+     "preguntas_banco": 10,
+     "parciales_con_el_tema": 1,
+     "estado": "pendiente",
+     "leccion": null
+    },
+    {
+     "tema": "Distancias en R³",
+     "preguntas_banco": 8,
+     "parciales_con_el_tema": 1,
+     "estado": "pendiente",
+     "leccion": null
+    },
+    {
+     "tema": "Cónicas y coordenadas polares",
+     "preguntas_banco": 5,
+     "parciales_con_el_tema": 0,
+     "estado": "pendiente",
+     "leccion": null
+    },
+    {
+     "tema": "Rectas en el espacio e intersecciones",
+     "preguntas_banco": 5,
+     "parciales_con_el_tema": 1,
+     "estado": "pendiente",
+     "leccion": null
+    }
+   ]
+  }
+ ]
+}
