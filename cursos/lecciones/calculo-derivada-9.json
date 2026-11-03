@@ -1,0 +1,425 @@
+{
+ "esquema": 1,
+ "id": "calculo-m2-l9",
+ "ejemplo": true,
+ "curso": "Cálculo",
+ "modulo": "Módulo 2 La derivada",
+ "posicion": "Lección 9 de 10",
+ "titulo": "Derivación logarítmica",
+ "minutos": 14,
+ "ejercicios": 1,
+ "grafica": {
+  "tipo": "secante",
+  "x": [
+   0,
+   3
+  ],
+  "y": [
+   0,
+   28
+  ],
+  "funcion": "x^x",
+  "a": 2,
+  "derivada": "x^x*(ln(x)+1)",
+  "limite": 6.7725887222,
+  "etiquetas": [
+   "Distancia h",
+   "Pendiente de la secante"
+  ],
+  "etiquetaSlider": "Valor de h",
+  "alt": "Curva de x elevado a x con una secante que se acerca a la tangente en el punto 2, 4"
+ },
+ "glosario": {
+  "ln": "El logaritmo natural, ln, es el inverso de la exponencial de base e. Convierte productos en sumas y potencias en productos.",
+  "tangente": "La recta tangente toca la curva en un punto y tiene la misma inclinación que la curva ahí.",
+  "pend": "La pendiente dice cuánto sube la recta por cada unidad que avanza hacia la derecha.",
+  "pot": "La regla de la potencia solo sirve cuando el exponente es un número fijo, como x al cubo."
+ },
+ "ver": {
+  "duracion": 20,
+  "capitulos": [
+   [
+    0,
+    2.5,
+    "Esta es la curva de x elevado a x, con la variable en la base y en el exponente."
+   ],
+   [
+    2.5,
+    4.5,
+    "Miremos su inclinación en el punto (2, 4)."
+   ],
+   [
+    4.5,
+    8,
+    "Se traza la secante con un segundo punto a distancia h."
+   ],
+   [
+    8,
+    12.5,
+    "Mientras h se achica, la pendiente de la secante cambia."
+   ],
+   [
+    12.5,
+    15.8,
+    "La secante se vuelve la tangente y su pendiente se acerca a 6.77."
+   ],
+   [
+    15.8,
+    20,
+    "Ese valor es 4 por uno más ln 2, y sale de la derivación logarítmica."
+   ]
+  ],
+  "canales": {
+   "draw": [
+    [
+     0.3,
+     0
+    ],
+    [
+     2.4,
+     1
+    ]
+   ],
+   "hole": [
+    [
+     2.5,
+     0
+    ],
+    [
+     3.2,
+     1
+    ]
+   ],
+   "d": [
+    [
+     4.5,
+     1
+    ],
+    [
+     6,
+     0.5
+    ],
+    [
+     8,
+     0.5
+    ],
+    [
+     9.5,
+     0.1
+    ],
+    [
+     11,
+     0.1
+    ],
+    [
+     12.5,
+     0.01
+    ]
+   ],
+   "guide": [
+    [
+     12.5,
+     0
+    ],
+    [
+     13.5,
+     1
+    ]
+   ]
+  },
+  "intervalos": {
+   "ok": [
+    15.8,
+    20
+   ]
+  }
+ },
+ "leer": {
+  "secciones": [
+   {
+    "titulo": "La idea",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Hay funciones que no se derivan con las reglas de siempre, como una variable elevada a otra variable. La derivación logarítmica usa el {{gl:ln|logaritmo natural}} para volverlas fáciles. También sirve para productos y cocientes largos."
+     }
+    ]
+   },
+   {
+    "titulo": "Un ejemplo",
+    "corto": "Un ejemplo",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mira esta función. La x aparece en la base y en el exponente."
+     },
+     {
+      "t": "eq",
+      "tex": "y=x^{x}"
+     },
+     {
+      "t": "p",
+      "html": "No es una potencia con exponente fijo, así que la {{gl:pot|regla de la potencia}} no sirve."
+     },
+     {
+      "t": "grafica",
+      "animar": "dibujar",
+      "alt": "Curva de x elevado a x que se dibuja y marca el punto 2, 4"
+     }
+    ]
+   },
+   {
+    "titulo": "Piensa antes de ver",
+    "corto": "Piensa",
+    "bloques": [
+     {
+      "t": "piensa",
+      "pregunta": "En el punto (2, 4) la curva sube con fuerza. ¿A qué número crees que se acerca la pendiente de la secante?",
+      "opciones": [
+       4,
+       6.77,
+       8,
+       12
+      ],
+      "correcta": 6.77,
+      "bien": "Muy bien. Se acerca a 6.77 y más abajo se ve por qué.",
+      "mal": "El número es 6.77 y más abajo se ve por qué."
+     }
+    ]
+   },
+   {
+    "titulo": "Acercando el segundo punto",
+    "corto": "Acercándose",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mira cómo cambia la pendiente de la secante al achicar h."
+     },
+     {
+      "t": "acercando",
+      "ds": [
+       1,
+       0.5,
+       0.1,
+       0.01
+      ],
+      "alt": "Una secante que gira hasta parecerse a la tangente"
+     },
+     {
+      "t": "p",
+      "html": "La pendiente se acerca a <b>6.77</b>."
+     }
+    ]
+   },
+   {
+    "titulo": "Los cuatro pasos",
+    "corto": "Cuatro pasos",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "La derivación logarítmica siempre sigue el mismo orden."
+     },
+     {
+      "t": "pasos",
+      "items": [
+       {
+        "tex": "\\ln y=\\ln\\left(x^{x}\\right)=x\\ln x",
+        "porque": "Se saca ln a los dos lados y el exponente baja a multiplicar."
+       },
+       {
+        "tex": "\\dfrac{y'}{y}=\\ln x+x\\cdot\\dfrac{1}{x}=\\ln x+1",
+        "porque": "Se deriva a los dos lados. A la izquierda sale y prima sobre y por la regla de la cadena. A la derecha se usa la regla del producto."
+       },
+       {
+        "tex": "y'=y\\,(\\ln x+1)=x^{x}\\,(\\ln x+1)",
+        "porque": "Se despeja y prima y se reemplaza y por la función original."
+       },
+       {
+        "tex": "y'(2)=4\\,(\\ln 2+1)\\approx 6.77",
+        "porque": "Se evalúa en x igual a 2 y sale lo mismo que midió la secante."
+       }
+      ]
+     },
+     {
+      "t": "ojo",
+      "html": "No sirve usar la regla de la potencia como si el exponente fuera fijo. Daría x por x elevado a x menos 1, que en x igual a 2 vale 4 y no 6.77."
+     }
+    ]
+   },
+   {
+    "titulo": "Productos y cocientes largos",
+    "corto": "Productos largos",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "El logaritmo convierte productos en sumas y cocientes en restas, y eso evita derivar con la regla del producto varias veces."
+     },
+     {
+      "t": "eq",
+      "tex": "y=\\dfrac{x^{2}(x+1)^{3}}{(x-1)^{4}}"
+     },
+     {
+      "t": "pasos",
+      "items": [
+       {
+        "tex": "\\ln y=2\\ln x+3\\ln(x+1)-4\\ln(x-1)",
+        "porque": "El logaritmo separa el producto, el cociente y las potencias."
+       },
+       {
+        "tex": "\\dfrac{y'}{y}=\\dfrac{2}{x}+\\dfrac{3}{x+1}-\\dfrac{4}{x-1}",
+        "porque": "Cada término se deriva por separado."
+       },
+       {
+        "tex": "y'=\\dfrac{x^{2}(x+1)^{3}}{(x-1)^{4}}\\left(\\dfrac{2}{x}+\\dfrac{3}{x+1}-\\dfrac{4}{x-1}\\right)",
+        "porque": "Se multiplica por y para despejar y prima."
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "Revisa tu respuesta",
+    "corto": "Revisa",
+    "bloques": [
+     {
+      "t": "pregunta"
+     },
+     {
+      "t": "nota",
+      "html": "Saca ln, baja el exponente, deriva y despeja."
+     }
+    ]
+   },
+   {
+    "titulo": "En resumen",
+    "corto": "Resumen",
+    "bloques": [
+     {
+      "t": "resumen"
+     }
+    ]
+   }
+  ]
+ },
+ "practicar": {
+  "pasos": [
+   {
+    "titulo": "La curva",
+    "grafica": {
+     "draw": 1
+    },
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Esta es la curva de x elevado a x."
+     },
+     {
+      "t": "eq",
+      "tex": "y=x^{x}"
+     }
+    ]
+   },
+   {
+    "titulo": "El punto",
+    "grafica": {
+     "draw": 1,
+     "hole": 1
+    },
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Se quiere la pendiente de la curva en el punto (2, 4)."
+     }
+    ]
+   },
+   {
+    "titulo": "Acerca el segundo punto",
+    "grafica": {
+     "draw": 1,
+     "hole": 1
+    },
+    "laboratorio": true,
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mueve el deslizador de h. La secante gira y abajo se ve su pendiente."
+     }
+    ]
+   },
+   {
+    "titulo": "La tangente",
+    "grafica": {
+     "draw": 1,
+     "hole": 1,
+     "guide": 1
+    },
+    "laboratorio": true,
+    "d": 0.01,
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Con h muy pequeño la pendiente se acerca a 6.77."
+     }
+    ]
+   },
+   {
+    "titulo": "Con logaritmos",
+    "grafica": {
+     "draw": 1,
+     "hole": 1,
+     "guide": 1,
+     "ok": true
+    },
+    "bloques": [
+     {
+      "t": "eq",
+      "tex": "y'=x^{x}(\\ln x+1)"
+     },
+     {
+      "t": "p",
+      "html": "En x igual a 2 vale 4 por uno más ln 2, unos 6.77, justo lo que midió la secante."
+     }
+    ]
+   },
+   {
+    "titulo": "Revisa tu respuesta",
+    "grafica": {
+     "draw": 1,
+     "hole": 1,
+     "guide": 1,
+     "ok": true
+    },
+    "bloques": [
+     {
+      "t": "pregunta"
+     },
+     {
+      "t": "nota",
+      "html": "Saca ln, baja el exponente, deriva y despeja."
+     }
+    ]
+   }
+  ]
+ },
+ "pregunta": {
+  "tex": "f'(1)\\ \\text{si}\\ f(x)=x^{2x}",
+  "opciones": [
+   "0",
+   "1",
+   "2",
+   "e"
+  ],
+  "correcta": 2,
+  "explicacion": "Se saca ln y queda ln y igual a 2x ln x. Al derivar sale y prima sobre y igual a 2 ln x más 2, así que y prima es x elevado a 2x por (2 ln x + 2). En x igual a 1 queda 1 por (0 + 2), que da 2.",
+  "verificacion": {
+   "formula": "((1+x)^(2*(1+x))-1)/x",
+   "a": 0,
+   "esperado": 2
+  }
+ },
+ "resumen": [
+  "Con la variable en el exponente, o con productos y cocientes largos, se usa derivación logarítmica.",
+  "Se saca ln a los dos lados, se baja el exponente, se deriva y se despeja y prima.",
+  "No se puede aplicar la regla de la potencia cuando el exponente es variable."
+ ]
+}
