@@ -808,9 +808,12 @@ button{font:inherit;color:inherit;cursor:pointer;background:none;border:0;paddin
   function ic(id){ return '<svg class="ic" aria-hidden="true"><use href="#'+id+'"/></svg>'; }
   function attr(s){ return String(s).replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;'); }
   function tween(dur,fn,done){ if(RM){ fn(1); if(done) done(); return; } var t0=null; (function s(now){ if(t0===null) t0=now; var k=cl((now-t0)/dur,0,1); fn(k); if(k<1) requestAnimationFrame(s); else if(done) done(); })(performance.now()); }
-  function compile(expr){   /* fórmulas del JSON. Solo números, x, operadores y paréntesis */
-    if(!/^[0-9x+\-*\/().^\s]+$/.test(expr)) throw new Error('Fórmula no permitida '+expr);
-    return new Function('x','return '+expr.replace(/\^/g,'**'));
+  var FN=/\b(sin|cos|tan|exp|ln|sqrt|abs|pi)\b/g;
+  function compile(expr){   /* fórmulas del JSON. Números, x, operadores, paréntesis y sin cos tan exp ln sqrt abs pi */
+    if(!/^[0-9x+\-*\/().^\s]*$/.test(String(expr).replace(FN,''))) throw new Error('Fórmula no permitida '+expr);
+    var js=String(expr).replace(/\^/g,'**').replace(/\bln\b/g,'log').replace(/\bpi\b/g,'PI').replace(FN,function(m){ return m; });
+    js=js.replace(/\b(sin|cos|tan|exp|log|sqrt|abs|PI)\b/g,'Math.$1');
+    return new Function('x','return '+js);
   }
   var fFun=compile(G.funcion), fCurve=SEC?fFun:compile(G.curva), fDer=SEC?compile(G.derivada):null;
   function gl(h){ return h.replace(/\{\{gl:([a-z0-9_]+)\|([^}]+)\}\}/g,'<button class="gl" type="button" data-g="$1">$2</button>'); }
@@ -839,7 +842,7 @@ button{font:inherit;color:inherit;cursor:pointer;background:none;border:0;paddin
     for(var j=Math.ceil(YR[0]);j<=Math.floor(YR[1]);j++){ if(j===0) continue; el('path',{'class':'tk',d:'M'+(X(0)-5)+' '+Y(j)+' h10'}); var u=el('text',{'class':'tt',x:X(0)-14,y:Y(j)+4,'text-anchor':'end'}); u.textContent=j; }
     var defs=el('defs',{}), cp=el('clipPath',{id:'cp'+n},defs); el('rect',{x:x0,y:y1,width:x1-x0+6,height:y0-y1},cp);
     var grp=el('g',{'clip-path':'url(#cp'+n+')'});
-    var pts=[]; for(var k2=0;k2<=100;k2++){ var xx=XR[0]+(XR[1]-XR[0])*k2/100; pts.push((k2?'L':'M')+X(xx).toFixed(1)+' '+Y(fCurve(xx)).toFixed(1)); }
+    var pts=[]; for(var k2=0;k2<=100;k2++){ var xx=XR[0]+(XR[1]-XR[0])*k2/100; var yv=fCurve(xx); if(!isFinite(yv)) yv=fCurve(xx+1e-9); pts.push((k2?'L':'M')+X(xx).toFixed(1)+' '+Y(yv).toFixed(1)); }
     var cv=el('path',{'class':'cv',pathLength:1,d:pts.join(' '),'stroke-dashoffset':1},grp);
     var tan=el('line',{'class':'tg',opacity:0},grp), sec=el('line',{'class':'sc',opacity:0},grp), run=el('path',{'class':'dl',d:'',stroke:'var(--warn)',opacity:0},grp);
     var halo=el('circle',{'class':'halo',cx:X(A),cy:Y(fFun(A)),r:12,opacity:0}), pP=el('circle',{'class':'pP',cx:X(A),cy:Y(fFun(A)),r:0}), pQ=el('circle',{'class':'pL',r:9,opacity:0});
@@ -863,7 +866,8 @@ button{font:inherit;color:inherit;cursor:pointer;background:none;border:0;paddin
     for(var i=Math.ceil(XR[0]);i<=Math.floor(XR[1]);i++){ if(i===0) continue; el('path',{'class':'tk',d:'M'+X(i)+' '+(Y(0)-5)+' v10'}); var t=el('text',{'class':'tt',x:X(i),y:Y(0)+26,'text-anchor':'middle'}); t.textContent=i; }
     for(var j=Math.ceil(YR[0]);j<=Math.floor(YR[1]);j++){ if(j===0) continue; el('path',{'class':'tk',d:'M'+(X(0)-5)+' '+Y(j)+' h10'}); var u=el('text',{'class':'tt',x:X(0)-14,y:Y(j)+4,'text-anchor':'end'}); u.textContent=j; }
     var guide=el('path',{'class':'gd',d:'M'+X(XR[0]<0?0:XR[0])+' '+Y(G.limite)+' H'+(x1+4),opacity:0}); var gl2=el('text',{'class':'gl',x:x1,y:Y(G.limite)-10,'text-anchor':'end',opacity:0}); gl2.textContent='y = '+G.limite;
-    var cv=el('path',{'class':'cv',pathLength:1,d:'M'+X(XR[0])+' '+Y(fCurve(XR[0]))+' L'+X(XR[1])+' '+Y(fCurve(XR[1])),'stroke-dashoffset':1});
+    var pts=[]; for(var k2=0;k2<=120;k2++){ var xx=XR[0]+(XR[1]-XR[0])*k2/120; var yv=fCurve(xx); if(!isFinite(yv)) yv=fCurve(xx+1e-9); pts.push((k2?'L':'M')+X(xx).toFixed(1)+' '+Y(yv).toFixed(1)); }
+    var cv=el('path',{'class':'cv',pathLength:1,d:pts.join(' '),'stroke-dashoffset':1});
     var halo=el('circle',{'class':'halo',cx:X(A),cy:Y(G.hueco.y),r:12,opacity:0});
     var hole=el('circle',{'class':'hole',cx:X(A),cy:Y(G.hueco.y),r:0});
     var zb=el('text',{'class':'zb',x:X(A)+18,y:Y(G.hueco.y)+34,opacity:0}); zb.textContent=G.etiquetaHueco||'';

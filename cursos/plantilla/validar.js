@@ -27,7 +27,8 @@ if (!Array.isArray(L.resumen)) err('Falta resumen');
 if (errores.length) { salir(); }
 
 /* ---------- fórmulas ---------- */
-const compilar = (e, donde) => { if (!/^[0-9x+\-*\/().^\s]+$/.test(e)) { err(`Fórmula no permitida en ${donde}`); return null; } try { return new Function('x', 'return ' + e.replace(/\^/g, '**')); } catch (x) { err(`Fórmula inválida en ${donde}`); return null; } };
+const FN = /\b(sin|cos|tan|exp|ln|sqrt|abs|pi)\b/g;
+const compilar = (e, donde) => { if (!/^[0-9x+\-*\/().^\s]*$/.test(String(e).replace(FN, ''))) { err(`Fórmula no permitida en ${donde}`); return null; } try { const js = String(e).replace(/\^/g, '**').replace(/\bln\b/g, 'log').replace(/\bpi\b/g, 'PI').replace(/\b(sin|cos|tan|exp|log|sqrt|abs|PI)\b/g, 'Math.$1'); return new Function('x', 'return ' + js); } catch (x) { err(`Fórmula inválida en ${donde}`); return null; } };
 const G = L.grafica, SEC = G.tipo === 'secante', A = SEC ? G.a : (G.hueco && G.hueco.x);
 if (G.tipo && !['hueco', 'secante'].includes(G.tipo)) err(`Tipo de gráfica desconocido ${G.tipo}`);
 if (SEC) {
@@ -44,7 +45,7 @@ if (SEC) {
 const fc = compilar(G.curva, 'grafica.curva'), ff = compilar(G.funcion, 'grafica.funcion');
 if (fc && ff) {
   for (const x of [A - 1, A - 0.37, A + 0.37, A + 1.5]) if (Math.abs(fc(x) - ff(x)) > 1e-9) err(`La curva y la función no coinciden en x=${x}`);
-  if (Math.abs(fc(A) - G.hueco.y) > 1e-9) err(`La curva en x=${A} vale ${fc(A)} y el hueco dice ${G.hueco.y}`);
+  { let ca = fc(A); if (!isFinite(ca)) ca = fc(A + 1e-9); if (Math.abs(ca - G.hueco.y) > 1e-6) err(`La curva en x=${A} vale ${ca} y el hueco dice ${G.hueco.y}`); }
   if (G.hueco.y !== G.limite) err(`El hueco (${G.hueco.y}) y el límite (${G.limite}) deberían coincidir en este tipo de gráfica`);
   let prev = Infinity;
   for (const d of [1, 1e-1, 1e-2, 1e-3, 1e-4]) {
