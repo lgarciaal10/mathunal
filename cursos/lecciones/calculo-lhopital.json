@@ -1,0 +1,462 @@
+{
+ "esquema": 1,
+ "id": "calculo-m3-l6",
+ "ejemplo": true,
+ "curso": "Cálculo",
+ "modulo": "Módulo 3 Aplicaciones de la derivada",
+ "posicion": "Lección 6 de 8",
+ "titulo": "Regla de L'Hôpital",
+ "minutos": 14,
+ "ejercicios": 1,
+ "grafica": {
+  "x": [
+   -4,
+   4
+  ],
+  "y": [
+   0,
+   1.2
+  ],
+  "curva": "2*sin(x/2)^2/(x*x)",
+  "funcion": "2*sin(x/2)^2/(x*x)",
+  "hueco": {
+   "x": 0,
+   "y": 0.5
+  },
+  "limite": 0.5,
+  "etiquetaHueco": "0 sobre 0",
+  "zoom": {
+   "factor": 2000
+  },
+  "alt": "Curva de uno menos coseno de x sobre x al cuadrado con un hueco en x igual a 0 y dos puntos que se acercan por los lados"
+ },
+ "glosario": {
+  "indet": "Una indeterminación como 0 sobre 0 o infinito sobre infinito no da una respuesta directa y hay que trabajar la expresión.",
+  "lh": "La regla de L'Hôpital dice que, en una indeterminación, el límite del cociente es el límite del cociente de las derivadas.",
+  "deriv": "Derivar numerador y denominador por separado no es lo mismo que la regla del cociente."
+ },
+ "ver": {
+  "duracion": 23.0,
+  "capitulos": [
+   [
+    0,
+    2.5,
+    "Esta es la función uno menos coseno de x, sobre x al cuadrado. Se dibuja su curva."
+   ],
+   [
+    2.5,
+    4.5,
+    "En x igual a 0 da 0 sobre 0, así que ahí no se puede evaluar."
+   ],
+   [
+    4.5,
+    8,
+    "Acerquémonos a 0 por la izquierda y por la derecha."
+   ],
+   [
+    8,
+    12.5,
+    "Cada vez más cerca. Mira cómo cambian los valores."
+   ],
+   [
+    12.5,
+    15.8,
+    "Por los dos lados los valores se acercan a un medio."
+   ],
+   [
+    15.8,
+    19.8,
+    "Con mucho zoom se ve que los dos puntos casi tocan el hueco."
+   ],
+   [
+    19.8,
+    23.0,
+    "La regla de L'Hôpital da el mismo resultado sin tabular valores."
+   ]
+  ],
+  "canales": {
+   "draw": [
+    [
+     0.3,
+     0
+    ],
+    [
+     2.4,
+     1
+    ]
+   ],
+   "hole": [
+    [
+     2.5,
+     0
+    ],
+    [
+     3.2,
+     1
+    ]
+   ],
+   "d": [
+    [
+     4.5,
+     1
+    ],
+    [
+     6,
+     0.1
+    ],
+    [
+     8.5,
+     0.1
+    ],
+    [
+     10,
+     0.01
+    ],
+    [
+     11,
+     0.01
+    ],
+    [
+     12.5,
+     0.001
+    ]
+   ],
+   "guide": [
+    [
+     12.5,
+     0
+    ],
+    [
+     13.5,
+     1
+    ]
+   ],
+   "zoom": [
+    [
+     15.8,
+     0
+    ],
+    [
+     18.3,
+     1
+    ],
+    [
+     19.0,
+     1
+    ],
+    [
+     19.8,
+     0
+    ]
+   ]
+  },
+  "intervalos": {
+   "zero": [
+    3.2,
+    4.7
+   ],
+   "ok": [
+    19.8,
+    23.0
+   ]
+  }
+ },
+ "leer": {
+  "secciones": [
+   {
+    "titulo": "La idea",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Cuando un límite da 0 sobre 0 o infinito sobre infinito, es una {{gl:indet|indeterminación}}. La {{gl:lh|regla de L'Hôpital}} dice que se puede derivar el numerador y el denominador por separado y volver a calcular el límite."
+     }
+    ]
+   },
+   {
+    "titulo": "Un ejemplo",
+    "corto": "Un ejemplo",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mira este límite. En x igual a 0 el numerador y el denominador valen 0."
+     },
+     {
+      "t": "eq",
+      "tex": "\\lim_{x\\to 0}\\dfrac{1-\\cos x}{x^{2}}"
+     },
+     {
+      "t": "grafica",
+      "animar": "dibujar",
+      "alt": "Curva que se dibuja y muestra un hueco en x igual a 0"
+     }
+    ]
+   },
+   {
+    "titulo": "Piensa antes de ver",
+    "corto": "Piensa",
+    "bloques": [
+     {
+      "t": "piensa",
+      "pregunta": "Si x se acerca a 0 por los dos lados, ¿a qué número crees que se acerca la función?",
+      "opciones": [
+       0,
+       0.5,
+       1,
+       2
+      ],
+      "correcta": 0.5,
+      "bien": "Muy bien. Se acerca a un medio y más abajo se ve por qué.",
+      "mal": "El número es 0.5, o sea un medio, y más abajo se ve por qué."
+     }
+    ]
+   },
+   {
+    "titulo": "Acercándose por los dos lados",
+    "corto": "Acercándose",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Se prueban valores cada vez más cerca de 0."
+     },
+     {
+      "t": "acercando",
+      "ds": [
+       1,
+       0.1,
+       0.01,
+       0.001
+      ],
+      "alt": "Dos puntos que se acercan al hueco por la izquierda y por la derecha"
+     },
+     {
+      "t": "p",
+      "html": "Por los dos lados los valores se acercan a <b>0.5</b>. Al terminar, la gráfica hace zoom para que veas el detalle."
+     }
+    ]
+   },
+   {
+    "titulo": "La regla",
+    "corto": "La regla",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Si f y g valen 0, o las dos tienden a infinito, y el límite de las derivadas existe, entonces se cumple esto."
+     },
+     {
+      "t": "eq",
+      "tex": "\\lim_{x\\to a}\\dfrac{f(x)}{g(x)}=\\lim_{x\\to a}\\dfrac{f'(x)}{g'(x)}"
+     },
+     {
+      "t": "pasos",
+      "items": [
+       {
+        "tex": "\\lim_{x\\to 0}\\dfrac{1-\\cos x}{x^{2}}\\ \\ \\left(\\dfrac{0}{0}\\right)",
+        "porque": "Primero se comprueba que sea una indeterminación."
+       },
+       {
+        "tex": "=\\lim_{x\\to 0}\\dfrac{\\operatorname{sen}x}{2x}\\ \\ \\left(\\dfrac{0}{0}\\right)",
+        "porque": "Se deriva arriba y abajo. Sigue siendo 0 sobre 0."
+       },
+       {
+        "tex": "=\\lim_{x\\to 0}\\dfrac{\\cos x}{2}=\\dfrac{1}{2}",
+        "porque": "Se deriva otra vez y ya se puede evaluar. Sale un medio, igual que en la gráfica."
+       }
+      ]
+     },
+     {
+      "t": "ojo",
+      "html": "Se deriva el numerador y el denominador por separado. No es la {{gl:deriv|regla del cociente}}. Y solo se puede usar cuando hay una indeterminación."
+     }
+    ]
+   },
+   {
+    "titulo": "Infinito sobre infinito",
+    "corto": "Con infinito",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "La regla también sirve cuando las dos funciones crecen sin límite."
+     },
+     {
+      "t": "pasos",
+      "items": [
+       {
+        "tex": "\\lim_{x\\to\\infty}\\dfrac{x}{e^{x}}\\ \\ \\left(\\dfrac{\\infty}{\\infty}\\right)",
+        "porque": "Tanto x como la exponencial crecen sin límite."
+       },
+       {
+        "tex": "=\\lim_{x\\to\\infty}\\dfrac{1}{e^{x}}=0",
+        "porque": "Se deriva arriba y abajo. La exponencial gana, y por eso el límite es 0."
+       }
+      ]
+     },
+     {
+      "t": "p",
+      "html": "Otras formas, como 0 por infinito o infinito menos infinito, se convierten primero en 0 sobre 0 o infinito sobre infinito con álgebra."
+     }
+    ]
+   },
+   {
+    "titulo": "Revisa tu respuesta",
+    "corto": "Revisa",
+    "bloques": [
+     {
+      "t": "pregunta"
+     },
+     {
+      "t": "nota",
+      "html": "Comprueba que sea 0 sobre 0, deriva arriba y abajo, y evalúa."
+     }
+    ]
+   },
+   {
+    "titulo": "En resumen",
+    "corto": "Resumen",
+    "bloques": [
+     {
+      "t": "resumen"
+     }
+    ]
+   }
+  ]
+ },
+ "practicar": {
+  "pasos": [
+   {
+    "titulo": "La función",
+    "grafica": {
+     "draw": 1
+    },
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Esta función parece sencilla, pero tiene un detalle en x igual a 0."
+     },
+     {
+      "t": "eq",
+      "tex": "f(x)=\\dfrac{1-\\cos x}{x^{2}}"
+     }
+    ]
+   },
+   {
+    "titulo": "El punto que falta",
+    "grafica": {
+     "draw": 1,
+     "hole": 1,
+     "zero": true
+    },
+    "bloques": [
+     {
+      "t": "p",
+      "html": "En x igual a 0 el numerador y el denominador valen 0. Queda 0 sobre 0, así que f(0) no existe."
+     }
+    ]
+   },
+   {
+    "titulo": "Acércate a 0",
+    "grafica": {
+     "draw": 1,
+     "hole": 1
+    },
+    "laboratorio": true,
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mueve el deslizador y mira los valores de f por la izquierda y por la derecha."
+     }
+    ]
+   },
+   {
+    "titulo": "Hacia dónde va",
+    "grafica": {
+     "draw": 1,
+     "hole": 1,
+     "guide": 1
+    },
+    "laboratorio": true,
+    "d": 0.01,
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Los dos valores se acercan a 0.5. Ese es el límite."
+     }
+    ]
+   },
+   {
+    "titulo": "Con L'Hôpital",
+    "grafica": {
+     "draw": 1,
+     "hole": 1,
+     "guide": 1,
+     "ok": true
+    },
+    "bloques": [
+     {
+      "t": "eq",
+      "tex": "\\dfrac{1-\\cos x}{x^{2}}\\ \\to\\ \\dfrac{\\operatorname{sen}x}{2x}\\ \\to\\ \\dfrac{\\cos x}{2}\\ \\to\\ \\dfrac{1}{2}"
+     },
+     {
+      "t": "p",
+      "html": "Derivando dos veces arriba y abajo sale un medio, igual que midieron los dos puntos."
+     }
+    ]
+   },
+   {
+    "titulo": "Mira de cerca",
+    "grafica": {
+     "draw": 1,
+     "hole": 1,
+     "guide": 1,
+     "zoom": 1
+    },
+    "laboratorio": true,
+    "d": 0.001,
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Ahora la gráfica está con mucho zoom. Los dos puntos casi tocan el hueco. Mueve el deslizador para alejarlos."
+     }
+    ]
+   },
+   {
+    "titulo": "Revisa tu respuesta",
+    "grafica": {
+     "draw": 1,
+     "hole": 1,
+     "guide": 1,
+     "ok": true
+    },
+    "bloques": [
+     {
+      "t": "pregunta"
+     },
+     {
+      "t": "nota",
+      "html": "Comprueba que sea 0 sobre 0, deriva arriba y abajo, y evalúa."
+     }
+    ]
+   }
+  ]
+ },
+ "pregunta": {
+  "tex": "\\lim_{x\\to 0}\\dfrac{e^{2x}-1}{3x}",
+  "opciones": [
+   "2/3",
+   "1",
+   "2",
+   "3/2"
+  ],
+  "correcta": 0,
+  "explicacion": "Es 0 sobre 0. Se deriva arriba, que da 2 por e a la 2x, y abajo, que da 3. Queda 2 e a la 2x sobre 3, que en x igual a 0 vale 2 sobre 3.",
+  "verificacion": {
+   "formula": "(exp(2*x)-1)/(3*x)",
+   "a": 0,
+   "esperado": 0.66666667
+  }
+ },
+ "resumen": [
+  "En una indeterminación, el límite del cociente es el límite del cociente de las derivadas.",
+  "Se deriva numerador y denominador por separado, y se repite si sigue la indeterminación.",
+  "Solo se usa con 0 sobre 0 o infinito sobre infinito."
+ ]
+}

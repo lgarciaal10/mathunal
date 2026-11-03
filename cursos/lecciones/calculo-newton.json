@@ -1,0 +1,378 @@
+{
+ "esquema": 1,
+ "id": "calculo-m3-l7",
+ "ejemplo": true,
+ "curso": "Cálculo",
+ "modulo": "Módulo 3 Aplicaciones de la derivada",
+ "posicion": "Lección 7 de 8",
+ "titulo": "Método de Newton",
+ "minutos": 14,
+ "ejercicios": 1,
+ "grafica": {
+  "tipo": "newton",
+  "x": [
+   0,
+   2.5
+  ],
+  "y": [
+   -2.5,
+   4.5
+  ],
+  "funcion": "x*x-2",
+  "derivada": "2*x",
+  "x0": 2,
+  "pasos": 4,
+  "raiz": 1.4142135623730951,
+  "limite": 1.5,
+  "etiquetas": [
+   "Aproximación",
+   "Valor de f"
+  ],
+  "etiquetaSlider": "Iteración",
+  "alt": "Curva de x al cuadrado menos 2 con tangentes sucesivas que cortan el eje x cada vez más cerca de la raíz"
+ },
+ "glosario": {
+  "raiz": "Una raíz de una función es un valor de x donde la función vale 0, o sea donde la curva corta el eje x.",
+  "iter": "Una iteración es repetir el mismo paso usando el resultado anterior como punto de partida.",
+  "tangente": "La recta tangente toca la curva en un punto y tiene la misma inclinación que la curva ahí."
+ },
+ "ver": {
+  "duracion": 20,
+  "capitulos": [
+   [
+    0,
+    2.5,
+    "Esta es la curva de f(x) igual a x al cuadrado menos 2. Su cero es la raíz cuadrada de 2."
+   ],
+   [
+    2.5,
+    5,
+    "Se parte de una primera aproximación, x0 igual a 2."
+   ],
+   [
+    5,
+    9,
+    "Se traza la tangente en ese punto. Donde corta el eje está la siguiente aproximación, x1 igual a 1.5."
+   ],
+   [
+    9,
+    14,
+    "Se repite el proceso. x2 vale 1.4167 y x3 vale 1.41422."
+   ],
+   [
+    14,
+    17,
+    "Después de cuatro pasos ya se está casi encima de la raíz, 1.41421356."
+   ],
+   [
+    17,
+    20,
+    "Cada paso casi duplica los decimales correctos, y por eso el método es tan rápido."
+   ]
+  ],
+  "canales": {
+   "draw": [
+    [
+     0.3,
+     0
+    ],
+    [
+     2.4,
+     1
+    ]
+   ],
+   "d": [
+    [
+     2.5,
+     0
+    ],
+    [
+     5.5,
+     1
+    ],
+    [
+     8,
+     2
+    ],
+    [
+     11,
+     3
+    ],
+    [
+     14,
+     4
+    ]
+   ]
+  },
+  "intervalos": {
+   "ok": [
+    14,
+    20
+   ]
+  }
+ },
+ "leer": {
+  "secciones": [
+   {
+    "titulo": "La idea",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Hay ecuaciones que no se pueden resolver con álgebra, como x al cubo más x igual a 1. El método de Newton encuentra una {{gl:raiz|raíz}} por aproximaciones sucesivas, y usa tangentes para mejorar cada intento."
+     }
+    ]
+   },
+   {
+    "titulo": "Un ejemplo",
+    "corto": "Un ejemplo",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Se quiere la raíz cuadrada de 2, o sea el cero de esta función."
+     },
+     {
+      "t": "eq",
+      "tex": "f(x)=x^{2}-2"
+     },
+     {
+      "t": "grafica",
+      "animar": "dibujar",
+      "alt": "Curva que se dibuja y corta el eje x cerca de 1.4"
+     }
+    ]
+   },
+   {
+    "titulo": "Piensa antes de ver",
+    "corto": "Piensa",
+    "bloques": [
+     {
+      "t": "piensa",
+      "pregunta": "Se parte de x0 igual a 2 y se traza la tangente a la curva en ese punto. ¿Dónde crees que corta esa tangente al eje x?",
+      "opciones": [
+       1,
+       1.5,
+       1.75,
+       2
+      ],
+      "correcta": 1.5,
+      "bien": "Muy bien. Corta en 1.5 y más abajo se ve cómo se calcula.",
+      "mal": "Corta en 1.5 y más abajo se ve cómo se calcula."
+     }
+    ]
+   },
+   {
+    "titulo": "Tangentes sucesivas",
+    "corto": "Sucesivas",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Cada tangente corta el eje en un punto que está más cerca de la raíz. Ese punto es la siguiente aproximación."
+     },
+     {
+      "t": "acercando",
+      "ds": [
+       0,
+       1,
+       2,
+       3,
+       4
+      ],
+      "alt": "Tangentes sucesivas que cortan el eje x cada vez más cerca de la raíz"
+     },
+     {
+      "t": "p",
+      "html": "En cuatro {{gl:iter|iteraciones}} ya se llega a <b>1.41421356</b>."
+     }
+    ]
+   },
+   {
+    "titulo": "La fórmula",
+    "corto": "La fórmula",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "La tangente en x sub n corta el eje donde la altura vale 0. Despejando ese punto sale la fórmula del método."
+     },
+     {
+      "t": "eq",
+      "tex": "x_{n+1}=x_{n}-\\dfrac{f(x_{n})}{f'(x_{n})}"
+     },
+     {
+      "t": "pasos",
+      "items": [
+       {
+        "tex": "f(x)=x^{2}-2,\\quad f'(x)=2x",
+        "porque": "Se calcula la derivada una sola vez."
+       },
+       {
+        "tex": "x_{1}=2-\\dfrac{2^{2}-2}{2\\cdot 2}=1.5",
+        "porque": "Con x0 igual a 2 la tangente corta el eje en 1.5."
+       },
+       {
+        "tex": "x_{2}=1.5-\\dfrac{1.5^{2}-2}{2\\cdot 1.5}\\approx 1.416667",
+        "porque": "Se repite con 1.5 como nuevo punto de partida."
+       },
+       {
+        "tex": "x_{3}\\approx 1.414216,\\quad x_{4}\\approx 1.414214",
+        "porque": "En pocos pasos los decimales ya coinciden con la raíz cuadrada de 2."
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "Cuándo falla",
+    "corto": "Cuándo falla",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "El método no siempre funciona. Hay que cuidar dos cosas."
+     },
+     {
+      "t": "ojo",
+      "html": "Si f prima vale 0 en algún x sub n, la tangente es horizontal y nunca corta el eje. Y si el punto de partida queda muy lejos de la raíz, el método puede irse a otra raíz o no converger."
+     }
+    ]
+   },
+   {
+    "titulo": "Revisa tu respuesta",
+    "corto": "Revisa",
+    "bloques": [
+     {
+      "t": "pregunta"
+     },
+     {
+      "t": "nota",
+      "html": "Usa la fórmula con f, f prima y el punto de partida."
+     }
+    ]
+   },
+   {
+    "titulo": "En resumen",
+    "corto": "Resumen",
+    "bloques": [
+     {
+      "t": "resumen"
+     }
+    ]
+   }
+  ]
+ },
+ "practicar": {
+  "pasos": [
+   {
+    "titulo": "La curva",
+    "grafica": {
+     "draw": 1
+    },
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Se busca el punto donde esta curva corta el eje x."
+     },
+     {
+      "t": "eq",
+      "tex": "f(x)=x^{2}-2"
+     }
+    ]
+   },
+   {
+    "titulo": "El punto de partida",
+    "grafica": {
+     "draw": 1,
+     "d": 0
+    },
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Se parte de x0 igual a 2, que es un valor cercano a la raíz."
+     }
+    ]
+   },
+   {
+    "titulo": "La primera tangente",
+    "grafica": {
+     "draw": 1,
+     "d": 1
+    },
+    "bloques": [
+     {
+      "t": "p",
+      "html": "La tangente en x0 corta el eje en x1 igual a 1.5, que ya está más cerca de la raíz."
+     }
+    ]
+   },
+   {
+    "titulo": "Itera",
+    "grafica": {
+     "draw": 1
+    },
+    "laboratorio": true,
+    "d": 2,
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mueve el deslizador para ver cada iteración. Abajo se ve cómo cambian x y f(x)."
+     }
+    ]
+   },
+   {
+    "titulo": "La raíz",
+    "grafica": {
+     "draw": 1,
+     "ok": true
+    },
+    "laboratorio": true,
+    "d": 4,
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Después de cuatro pasos, f(x) vale casi 0 y x es casi la raíz cuadrada de 2."
+     },
+     {
+      "t": "eq",
+      "tex": "x_{n+1}=x_{n}-\\dfrac{f(x_{n})}{f'(x_{n})}"
+     }
+    ]
+   },
+   {
+    "titulo": "Revisa tu respuesta",
+    "grafica": {
+     "draw": 1,
+     "d": 4,
+     "ok": true
+    },
+    "bloques": [
+     {
+      "t": "pregunta"
+     },
+     {
+      "t": "nota",
+      "html": "Usa la fórmula con f, f prima y el punto de partida."
+     }
+    ]
+   }
+  ]
+ },
+ "pregunta": {
+  "tex": "x_{1}\\ \\text{si}\\ f(x)=x^{2}-5,\\ x_{0}=3",
+  "opciones": [
+   "2.3333",
+   "2.5",
+   "2",
+   "2.2361"
+  ],
+  "correcta": 0,
+  "explicacion": "Se usa x1 igual a x0 menos f(x0) sobre f prima de x0. Con f(3) igual a 4 y f prima de 3 igual a 6, queda 3 menos 4 sobre 6, que da 2.3333.",
+  "verificacion": {
+   "formula": "3-(3*3-5)/(2*3)+0*x",
+   "a": 0,
+   "esperado": 2.3333
+  }
+ },
+ "resumen": [
+  "El método de Newton mejora una aproximación usando la tangente en ese punto.",
+  "La fórmula es x sub n más 1 igual a x sub n menos f(x sub n) sobre f prima de x sub n.",
+  "Falla si f prima vale 0 o si el punto de partida está muy lejos."
+ ]
+}

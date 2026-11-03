@@ -30,7 +30,7 @@ if (errores.length) { salir(); }
 const FN = /\b(sin|cos|tan|exp|ln|sqrt|abs|pi)\b/g;
 const compilar = (e, donde) => { if (!/^[0-9x+\-*\/().^\s]*$/.test(String(e).replace(FN, ''))) { err(`Fórmula no permitida en ${donde}`); return null; } try { const js = String(e).replace(/\^/g, '**').replace(/\bln\b/g, 'log').replace(/\bpi\b/g, 'PI').replace(/\b(sin|cos|tan|exp|log|sqrt|abs|PI)\b/g, 'Math.$1'); return new Function('x', 'return ' + js); } catch (x) { err(`Fórmula inválida en ${donde}`); return null; } };
 const G = L.grafica, SEC = G.tipo === 'secante', TVM = G.tipo === 'tvm', A = (SEC || TVM) ? G.a : (G.hueco && G.hueco.x);
-if (G.tipo && !['hueco', 'secante', 'tvm'].includes(G.tipo)) err(`Tipo de gráfica desconocido ${G.tipo}`);
+if (G.tipo && !['hueco', 'secante', 'tvm', 'newton', 'area', 'asintota'].includes(G.tipo)) err(`Tipo de gráfica desconocido ${G.tipo}`);
 if (SEC) {
   const f = compilar(G.funcion, 'grafica.funcion'), fd = compilar(G.derivada, 'grafica.derivada');
   if (f && fd) {
@@ -52,6 +52,31 @@ if (SEC) {
     for (const x of [G.a, G.b]) if (!(f(x) > G.y[0] && f(x) < G.y[1])) err('Un extremo queda fuera del rango y');
     if (!(G.x[0] < G.a && G.b < G.x[1])) err('Los extremos deben quedar dentro del rango x');
   }
+} else if (G.tipo === 'newton') {
+  const f = compilar(G.funcion, 'grafica.funcion'), fd = compilar(G.derivada, 'grafica.derivada');
+  if (f && fd) {
+    let x = G.x0; const xs = [x];
+    for (let i = 0; i < G.pasos; i++) { const d = fd(x); if (Math.abs(d) < 1e-12) { err(`La derivada vale 0 en la iteración ${i}`); break; } x = x - f(x) / d; xs.push(x); }
+    if (Math.abs(xs[xs.length - 1] - G.raiz) > 1e-6) err(`Después de ${G.pasos} pasos Newton llega a ${xs[xs.length - 1]} y raiz dice ${G.raiz}`);
+    if (Math.abs(f(G.raiz)) > 1e-6) err('f(raiz) no es 0');
+    xs.forEach((q, i) => { if (!(q > G.x[0] && q < G.x[1])) aviso(`x${i}=${q} queda fuera del rango x`); if (!(f(q) > G.y[0] && f(q) < G.y[1])) aviso(`f(x${i}) queda fuera del rango y`); });
+  }
+} else if (G.tipo === 'area') {
+  const f = compilar(G.funcion, 'grafica.funcion'), F = compilar(G.primitiva, 'grafica.primitiva');
+  if (!(G.a < G.b)) err('En la gráfica de área a debe ser menor que b');
+  if (f && F && G.a < G.b) {
+    for (const x of [G.a + 0.1, (G.a + G.b) / 2, G.b - 0.1]) { const h = 1e-5, num = (F(x + h) - F(x - h)) / (2 * h); if (Math.abs(num - f(x)) > 1e-4) err(`La derivada de la primitiva en x=${x} da ${num} y f vale ${f(x)}`); }
+    if (!(f(G.b) < G.y[1] && f(G.b) > G.y[0])) err('f(b) queda fuera del rango y');
+    if (!(G.b < G.x[1])) err('b debe quedar dentro del rango x');
+  }
+} else if (G.tipo === 'asintota') {
+  const f = compilar(G.funcion, 'grafica.funcion');
+  if (!G.deslizador || !(G.deslizador.dmin > 0 && G.deslizador.dmax > G.deslizador.dmin)) err('Falta grafica.deslizador con ancla, dmin y dmax');
+  if (f) (G.asintotas || []).forEach(a => {
+    if (a.y != null) { const big = f(1e6); if (Math.abs(big - a.y) > 1e-3) err(`f(1e6) vale ${big} y la asíntota horizontal dice ${a.y}`); if (a.etiqueta && /[:;—–]/.test(a.etiqueta)) err('Signo no permitido en la etiqueta de la asíntota'); }
+    else if (a.x != null) { if (Math.abs(f(a.x + 1e-6)) < 1e3 || Math.abs(f(a.x - 1e-6)) < 1e3) err(`La función no se dispara cerca de x=${a.x}`); }
+    else err('Cada asíntota necesita x o y');
+  });
 } else {
 const fc = compilar(G.curva, 'grafica.curva'), ff = compilar(G.funcion, 'grafica.funcion');
 if (fc && ff) {

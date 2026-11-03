@@ -1,0 +1,475 @@
+{
+ "esquema": 1,
+ "id": "calculo-m3-l4",
+ "ejemplo": true,
+ "curso": "Cálculo",
+ "modulo": "Módulo 3 Aplicaciones de la derivada",
+ "posicion": "Lección 4 de 8",
+ "titulo": "Análisis de gráficas",
+ "minutos": 15,
+ "ejercicios": 1,
+ "grafica": {
+  "x": [
+   -4,
+   4
+  ],
+  "y": [
+   -1.2,
+   1.2
+  ],
+  "funcion": "x/(x*x+1)",
+  "a": 0,
+  "derivada": "(1-x*x)/((x*x+1)^2)",
+  "limite": 1,
+  "zoom": {
+   "factor": 100
+  },
+  "alt": "Curva de x sobre x al cuadrado más 1 con una secante que se acerca a la tangente en el origen",
+  "tipo": "secante",
+  "etiquetas": [
+   "Distancia h",
+   "Pendiente de la secante"
+  ],
+  "etiquetaSlider": "Valor de h"
+ },
+ "glosario": {
+  "asint": "Una asíntota es una recta a la que la curva se acerca cada vez más sin tocarla en el límite.",
+  "impar": "Una función impar cumple f(−x) igual a −f(x) y su gráfica es simétrica respecto al origen.",
+  "tangente": "La recta tangente toca la curva en un punto y tiene la misma inclinación que la curva ahí.",
+  "pend": "La pendiente dice cuánto sube la recta por cada unidad que avanza hacia la derecha."
+ },
+ "ver": {
+  "duracion": 24.0,
+  "capitulos": [
+   [
+    0,
+    2.5,
+    "Esta es la curva de f(x) igual a x sobre x al cuadrado más 1."
+   ],
+   [
+    2.5,
+    4.5,
+    "Es simétrica y pasa por el origen. Miremos su inclinación ahí."
+   ],
+   [
+    4.5,
+    8,
+    "Se traza la secante con un segundo punto a distancia h."
+   ],
+   [
+    8,
+    12.5,
+    "Mientras h se achica, la pendiente de la secante cambia."
+   ],
+   [
+    12.5,
+    15.8,
+    "La secante se vuelve la tangente y su pendiente se acerca a 1. Es donde la curva sube más rápido."
+   ],
+   [
+    15.8,
+    19.8,
+    "De cerca, la curva casi se ve como una recta, y esa recta es la tangente."
+   ],
+   [
+    19.8,
+    24,
+    "Con dominio, ceros, f prima, f segunda y límites se puede dibujar la curva completa."
+   ]
+  ],
+  "canales": {
+   "draw": [
+    [
+     0.3,
+     0
+    ],
+    [
+     2.4,
+     1
+    ]
+   ],
+   "hole": [
+    [
+     2.5,
+     0
+    ],
+    [
+     3.2,
+     1
+    ]
+   ],
+   "d": [
+    [
+     4.5,
+     1
+    ],
+    [
+     6,
+     0.5
+    ],
+    [
+     8,
+     0.5
+    ],
+    [
+     9.5,
+     0.1
+    ],
+    [
+     11,
+     0.1
+    ],
+    [
+     12.5,
+     0.01
+    ]
+   ],
+   "guide": [
+    [
+     12.5,
+     0
+    ],
+    [
+     13.5,
+     1
+    ]
+   ],
+   "zoom": [
+    [
+     15.8,
+     0
+    ],
+    [
+     18.3,
+     1
+    ],
+    [
+     19.0,
+     1
+    ],
+    [
+     19.8,
+     0
+    ]
+   ]
+  },
+  "intervalos": {
+   "ok": [
+    19.8,
+    24.0
+   ]
+  }
+ },
+ "leer": {
+  "secciones": [
+   {
+    "titulo": "La idea",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Para dibujar una curva sin calculadora se junta todo lo que dicen las derivadas. Con una lista de revisión no se olvida nada. Cada paso responde una pregunta distinta sobre la forma de la gráfica."
+     }
+    ]
+   },
+   {
+    "titulo": "Un ejemplo",
+    "corto": "Un ejemplo",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Se va a analizar esta función. En la gráfica se ve que pasa por el origen y se aplana a los lados."
+     },
+     {
+      "t": "eq",
+      "tex": "f(x)=\\dfrac{x}{x^{2}+1}"
+     },
+     {
+      "t": "grafica",
+      "animar": "dibujar",
+      "alt": "Curva simétrica que pasa por el origen, sube hasta una cima, baja y se aplana hacia el eje"
+     }
+    ]
+   },
+   {
+    "titulo": "Piensa antes de ver",
+    "corto": "Piensa",
+    "bloques": [
+     {
+      "t": "piensa",
+      "pregunta": "En el origen la curva sube con bastante fuerza. ¿A qué número crees que se acerca la pendiente de la secante cuando h es muy pequeño?",
+      "opciones": [
+       0,
+       0.5,
+       1,
+       2
+      ],
+      "correcta": 1,
+      "bien": "Muy bien. Se acerca a 1 y más abajo se ve por qué.",
+      "mal": "El número es 1 y más abajo se ve por qué."
+     }
+    ]
+   },
+   {
+    "titulo": "Acercando el segundo punto",
+    "corto": "Acercándose",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mira cómo cambia la pendiente de la secante al achicar h."
+     },
+     {
+      "t": "acercando",
+      "ds": [
+       1,
+       0.5,
+       0.1,
+       0.01
+      ],
+      "alt": "Una secante que gira hasta parecerse a la tangente"
+     },
+     {
+      "t": "p",
+      "html": "La pendiente se acerca a <b>1</b>. Al terminar, la gráfica hace zoom para que veas el detalle."
+     }
+    ]
+   },
+   {
+    "titulo": "Dominio, simetría y cortes",
+    "corto": "Dominio",
+    "bloques": [
+     {
+      "t": "pasos",
+      "items": [
+       {
+        "tex": "x^{2}+1>0\\ \\text{para todo}\\ x",
+        "porque": "El denominador nunca vale 0, así que el dominio son todos los reales."
+       },
+       {
+        "tex": "f(-x)=\\dfrac{-x}{x^{2}+1}=-f(x)",
+        "porque": "La función es impar, así que la gráfica es simétrica respecto al origen."
+       },
+       {
+        "tex": "f(0)=0",
+        "porque": "Corta los ejes solo en el origen, porque el numerador vale 0 solo en x igual a 0."
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "Primera derivada",
+    "corto": "Primera derivada",
+    "bloques": [
+     {
+      "t": "pasos",
+      "items": [
+       {
+        "tex": "f'(x)=\\dfrac{1-x^{2}}{\\left(x^{2}+1\\right)^{2}}",
+        "porque": "Se usa la regla del cociente."
+       },
+       {
+        "tex": "f'(x)=0\\ \\Rightarrow\\ x=-1\\ \\text{o}\\ x=1",
+        "porque": "Los puntos críticos salen de igualar el numerador a 0."
+       },
+       {
+        "tex": "f(-1)=-\\dfrac{1}{2},\\quad f(1)=\\dfrac{1}{2}",
+        "porque": "Se evalúa la función. Hay un mínimo en x igual a −1 y un máximo en x igual a 1."
+       },
+       {
+        "tex": "f'>0\\ \\text{en}\\ (-1,1)",
+        "porque": "La función sube entre −1 y 1 y baja fuera de ese tramo."
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "Segunda derivada y asíntotas",
+    "corto": "Inflexión",
+    "bloques": [
+     {
+      "t": "pasos",
+      "items": [
+       {
+        "tex": "f''(x)=\\dfrac{2x\\left(x^{2}-3\\right)}{\\left(x^{2}+1\\right)^{3}}",
+        "porque": "Se deriva otra vez. Los signos de esta expresión dan la concavidad."
+       },
+       {
+        "tex": "f''(x)=0\\ \\Rightarrow\\ x=-\\sqrt{3},\\ 0,\\ \\sqrt{3}",
+        "porque": "En esos tres puntos cambia la concavidad, así que hay tres puntos de inflexión."
+       },
+       {
+        "tex": "\\lim_{x\\to\\pm\\infty}\\dfrac{x}{x^{2}+1}=0",
+        "porque": "La curva se pega al eje x en los extremos, así que y igual a 0 es una asíntota horizontal."
+       }
+      ]
+     },
+     {
+      "t": "ojo",
+      "html": "Una curva puede cruzar su propia tangente en un punto de inflexión, como pasa en el origen. Por eso la tangente no siempre queda por un solo lado de la curva."
+     }
+    ]
+   },
+   {
+    "titulo": "Revisa tu respuesta",
+    "corto": "Revisa",
+    "bloques": [
+     {
+      "t": "pregunta"
+     },
+     {
+      "t": "nota",
+      "html": "Encuentra el punto crítico y evalúa la función ahí."
+     }
+    ]
+   },
+   {
+    "titulo": "En resumen",
+    "corto": "Resumen",
+    "bloques": [
+     {
+      "t": "resumen"
+     }
+    ]
+   }
+  ]
+ },
+ "practicar": {
+  "pasos": [
+   {
+    "titulo": "La curva",
+    "grafica": {
+     "draw": 1
+    },
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Esta curva pasa por el origen y se aplana hacia los lados."
+     },
+     {
+      "t": "eq",
+      "tex": "f(x)=\\dfrac{x}{x^{2}+1}"
+     }
+    ]
+   },
+   {
+    "titulo": "El punto",
+    "grafica": {
+     "draw": 1,
+     "hole": 1
+    },
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Se mira su inclinación en el origen."
+     }
+    ]
+   },
+   {
+    "titulo": "Acerca el segundo punto",
+    "grafica": {
+     "draw": 1,
+     "hole": 1
+    },
+    "laboratorio": true,
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mueve el deslizador de h. La secante gira y abajo se ve su pendiente."
+     }
+    ]
+   },
+   {
+    "titulo": "La tangente",
+    "grafica": {
+     "draw": 1,
+     "hole": 1,
+     "guide": 1
+    },
+    "laboratorio": true,
+    "d": 0.01,
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Con h muy pequeño la pendiente se acerca a 1."
+     }
+    ]
+   },
+   {
+    "titulo": "Lo que dice f prima",
+    "grafica": {
+     "draw": 1,
+     "hole": 1,
+     "guide": 1,
+     "ok": true
+    },
+    "bloques": [
+     {
+      "t": "eq",
+      "tex": "f'(x)=\\dfrac{1-x^{2}}{(x^{2}+1)^{2}}\\ \\Rightarrow\\ f'(0)=1"
+     },
+     {
+      "t": "p",
+      "html": "La derivada vale 1 en el origen, y vale 0 en x igual a −1 y x igual a 1, donde están el mínimo y el máximo."
+     }
+    ]
+   },
+   {
+    "titulo": "Mira de cerca",
+    "grafica": {
+     "draw": 1,
+     "hole": 1,
+     "guide": 1,
+     "zoom": 1
+    },
+    "laboratorio": true,
+    "d": 0.01,
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Ahora la gráfica está con zoom. De cerca, la curva casi se ve como una recta y la secante se pega a la tangente. Mueve h para comprobarlo."
+     }
+    ]
+   },
+   {
+    "titulo": "Revisa tu respuesta",
+    "grafica": {
+     "draw": 1,
+     "hole": 1,
+     "guide": 1,
+     "ok": true
+    },
+    "bloques": [
+     {
+      "t": "pregunta"
+     },
+     {
+      "t": "nota",
+      "html": "Encuentra el punto crítico y evalúa la función ahí."
+     }
+    ]
+   }
+  ]
+ },
+ "pregunta": {
+  "tex": "\\text{valor máximo de}\\ f(x)=\\dfrac{x}{x^{2}+1}",
+  "opciones": [
+   "0.5",
+   "1",
+   "0.25",
+   "2"
+  ],
+  "correcta": 0,
+  "explicacion": "La derivada vale 0 en x igual a 1. Ahí f(1) es 1 sobre 2, o sea 0.5. El 1 es el lugar del máximo y no su valor.",
+  "verificacion": {
+   "formula": "(1+x)/((1+x)^2+1)",
+   "a": 0,
+   "esperado": 0.5
+  }
+ },
+ "resumen": [
+  "Un análisis completo revisa dominio, simetría, cortes, f prima, f segunda y límites.",
+  "Los ceros de f prima dan los máximos y mínimos, y los de f segunda dan las inflexiones.",
+  "Los límites en el infinito dan las asíntotas horizontales."
+ ]
+}

@@ -24,6 +24,10 @@ El validador revisa el esquema, que cada ecuación renderice con KaTeX, que las 
 
 - **Teorema del valor medio** (`"tipo": "tvm"`). Una cuerda fija entre `a` y `b` y una tangente que recorre la curva. Lleva `funcion`, `a`, `b`, `derivada`, `c` (el punto del teorema) y `limite`, que es la pendiente de la cuerda. El estado `d` es el x del punto móvil y el deslizador de Practicar recorre el intervalo.
 
+- **Newton** (`"tipo": "newton"`). Tangentes sucesivas que cortan el eje x. Lleva `funcion`, `derivada`, `x0`, `pasos` y `raiz`. El estado `d` es el número de tangentes dibujadas y puede llevar decimales para animar. El deslizador de Practicar recorre las iteraciones.
+- **Área** (`"tipo": "area"`). El área bajo la curva desde `a` hasta un x que se mueve, con una franja delgada en el borde. Lleva `funcion`, `primitiva`, `a`, `b` y `franja`. El estado `d` es el x del límite superior y `guide` muestra la franja.
+- **Asíntota** (`"tipo": "asintota"`). Un punto que recorre la curva con las asíntotas dibujadas. Lleva `funcion`, `asintotas` (cada una con `x` o `y` y una `etiqueta`) y `deslizador` con `ancla`, `dmin` y `dmax`, que fija el recorrido del deslizador en escala logarítmica. Con `"expandir": true` la ventana se agranda para que quepan valores grandes de x.
+
 Las fórmulas aceptan números, `x`, `+ - * / ^`, paréntesis y las funciones `sin cos tan exp ln sqrt abs` y la constante `pi`.
 
 ## Zoom
@@ -34,6 +38,6 @@ Con `"zoom": {"factor": N}` en `grafica`, el motor acepta el estado `zoom` de 0 
 `agregar-zoom.py` agrega un capítulo de 4 segundos en Ver, una frase en Leer y el paso Mira de cerca en Practicar. En Leer, el bloque `acercando` hace el zoom solo al terminar, y se puede apagar con `"zoom": false` en el bloque. En Ver se controla con el canal `zoom` y en Practicar con `"zoom": 1` en el estado del paso.
 
 ## Lo que todavía no cubre
-Gráficas con más de una curva, curvas cerradas completas, superficies, vectores y áreas, que se necesitarán para integrales y varias variables.
+Gráficas con más de una curva, curvas cerradas completas, superficies y vectores, que se necesitarán para varias variables, álgebra lineal y ecuaciones diferenciales.
 
 Los cuatro temas de color del sitio (Azul, Negro, Gris y Claro) vienen en `base.css` y se guardan en `localStorage` con la misma clave del sitio, `mu-theme`.

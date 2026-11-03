@@ -1,7 +1,7 @@
 {
  "esquema": 1,
  "curso": "Cálculo Diferencial",
- "estado": "PROVISIONAL, sale del banco de MathUNAL y del orden que propongo. Falta confirmar con el temario oficial (PENDIENTE).",
+ "estado": "PROVISIONAL, sale del banco de MathUNAL y del orden que propongo. Falta confirmar con el temario oficial (PENDIENTE). Las 24 lecciones están escritas y probadas.",
  "modulos": [
   {
    "n": 1,
@@ -36,16 +36,16 @@
      "tema": "Límites al infinito",
      "preguntas_banco": 5,
      "parciales_con_el_tema": 0,
-     "estado": "pendiente",
-     "leccion": null,
+     "estado": "hecha",
+     "leccion": "calculo-infinito",
      "grafica_necesaria": null
     },
     {
      "tema": "Asíntotas",
      "preguntas_banco": 4,
      "parciales_con_el_tema": 1,
-     "estado": "pendiente",
-     "leccion": null,
+     "estado": "hecha",
+     "leccion": "calculo-asintotas",
      "grafica_necesaria": null
     },
     {
@@ -170,48 +170,48 @@
      "tema": "Monotonía y concavidad",
      "preguntas_banco": 1,
      "parciales_con_el_tema": 0,
-     "estado": "pendiente",
-     "leccion": null,
+     "estado": "hecha",
+     "leccion": "calculo-derivada-12",
      "grafica_necesaria": null
     },
     {
      "tema": "Análisis de gráficas",
      "preguntas_banco": 5,
      "parciales_con_el_tema": 1,
-     "estado": "pendiente",
-     "leccion": null,
+     "estado": "hecha",
+     "leccion": "calculo-derivada-13",
      "grafica_necesaria": null
     },
     {
      "tema": "Optimización",
      "preguntas_banco": 5,
      "parciales_con_el_tema": 2,
-     "estado": "pendiente",
-     "leccion": null,
+     "estado": "hecha",
+     "leccion": "calculo-derivada-14",
      "grafica_necesaria": null
     },
     {
      "tema": "Regla de L'Hôpital",
      "preguntas_banco": 7,
      "parciales_con_el_tema": 1,
-     "estado": "pendiente",
-     "leccion": null,
+     "estado": "hecha",
+     "leccion": "calculo-lhopital",
      "grafica_necesaria": null
     },
     {
      "tema": "Método de Newton",
      "preguntas_banco": 2,
      "parciales_con_el_tema": 1,
-     "estado": "pendiente",
-     "leccion": null,
+     "estado": "hecha",
+     "leccion": "calculo-newton",
      "grafica_necesaria": null
     },
     {
      "tema": "Teorema fundamental del cálculo",
      "preguntas_banco": 4,
      "parciales_con_el_tema": 1,
-     "estado": "pendiente",
-     "leccion": null,
+     "estado": "hecha",
+     "leccion": "calculo-tfc",
      "grafica_necesaria": null
     }
    ]

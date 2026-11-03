@@ -1,0 +1,389 @@
+{
+ "esquema": 1,
+ "id": "calculo-m1-l5",
+ "ejemplo": true,
+ "curso": "Cálculo",
+ "modulo": "Módulo 1 Límites y continuidad",
+ "posicion": "Lección 5 de 6",
+ "titulo": "Límites al infinito",
+ "minutos": 13,
+ "ejercicios": 1,
+ "grafica": {
+  "tipo": "asintota",
+  "x": [
+   0,
+   10
+  ],
+  "y": [
+   0,
+   3
+  ],
+  "expandir": true,
+  "funcion": "(2*x+1)/(x+1)",
+  "asintotas": [
+   {
+    "y": 2,
+    "etiqueta": "y = 2"
+   }
+  ],
+  "deslizador": {
+   "ancla": 0,
+   "dmin": 2,
+   "dmax": 1000
+  },
+  "limite": 2,
+  "etiquetas": [
+   "Valor de x",
+   "Valor de f(x)"
+  ],
+  "etiquetaSlider": "Valor de x",
+  "alt": "Curva de 2x más 1 sobre x más 1 que se aplana y se pega a la recta y igual a 2 mientras la ventana se agranda"
+ },
+ "glosario": {
+  "inf": "Infinito no es un número. Decir que x tiende a infinito es decir que x crece sin parar.",
+  "asint": "Una asíntota horizontal es una recta y igual a L a la que la curva se acerca cuando x crece o decrece sin límite.",
+  "grado": "El grado de un polinomio es el exponente más grande de x."
+ },
+ "ver": {
+  "duracion": 20,
+  "capitulos": [
+   [
+    0,
+    2.5,
+    "Esta es la curva de f(x) igual a 2x más 1, sobre x más 1."
+   ],
+   [
+    2.5,
+    5,
+    "Queremos saber qué pasa cuando x crece sin parar, o sea cuando x tiende a infinito."
+   ],
+   [
+    5,
+    9,
+    "Se toma un valor grande de x y se mira f(x). La ventana se agranda para que quepa x."
+   ],
+   [
+    9,
+    14,
+    "Con x igual a 100 y luego a 1000, f(x) está cada vez más cerca de 2."
+   ],
+   [
+    14,
+    17,
+    "La curva se pega a la recta y igual a 2, que se llama asíntota horizontal."
+   ],
+   [
+    17,
+    20,
+    "El límite de f(x) cuando x tiende a infinito es 2."
+   ]
+  ],
+  "canales": {
+   "draw": [
+    [
+     0.3,
+     0
+    ],
+    [
+     2.4,
+     1
+    ]
+   ],
+   "d": [
+    [
+     5,
+     3
+    ],
+    [
+     8,
+     10
+    ],
+    [
+     10.5,
+     100
+    ],
+    [
+     13.5,
+     1000
+    ]
+   ],
+   "guide": [
+    [
+     14,
+     0
+    ],
+    [
+     15,
+     1
+    ]
+   ]
+  },
+  "intervalos": {
+   "ok": [
+    17,
+    20
+   ]
+  }
+ },
+ "leer": {
+  "secciones": [
+   {
+    "titulo": "La idea",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "A veces interesa saber qué pasa con una función cuando x se hace enorme. Se escribe x tiende a {{gl:inf|infinito}} y se estudia hacia dónde se acerca f(x)."
+     }
+    ]
+   },
+   {
+    "titulo": "Un ejemplo",
+    "corto": "Un ejemplo",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mira esta función. Para x igual a 0 vale 1 y va subiendo."
+     },
+     {
+      "t": "eq",
+      "tex": "f(x)=\\dfrac{2x+1}{x+1}"
+     },
+     {
+      "t": "grafica",
+      "animar": "dibujar",
+      "alt": "Curva que sube y se va aplanando"
+     }
+    ]
+   },
+   {
+    "titulo": "Piensa antes de ver",
+    "corto": "Piensa",
+    "bloques": [
+     {
+      "t": "piensa",
+      "pregunta": "Si x crece sin parar, ¿a qué número crees que se acerca f(x)?",
+      "opciones": [
+       1,
+       2,
+       3,
+       10
+      ],
+      "correcta": 2,
+      "bien": "Muy bien. Se acerca a 2 y más abajo se ve por qué.",
+      "mal": "El número es 2 y más abajo se ve por qué."
+     }
+    ]
+   },
+   {
+    "titulo": "Valores cada vez más grandes",
+    "corto": "Valores grandes",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Se prueban valores de x cada vez más grandes, y la ventana se agranda para que quepan."
+     },
+     {
+      "t": "acercando",
+      "ds": [
+       3,
+       10,
+       100,
+       1000
+      ],
+      "alt": "Un punto que se va a la derecha mientras la curva se pega a la recta y igual a 2"
+     },
+     {
+      "t": "p",
+      "html": "Los valores de f(x) se acercan a <b>2</b>."
+     }
+    ]
+   },
+   {
+    "titulo": "Cómo se calcula",
+    "corto": "Cómo se calcula",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Se divide numerador y denominador entre la mayor potencia de x. Los términos con x en el denominador se van a 0."
+     },
+     {
+      "t": "pasos",
+      "items": [
+       {
+        "tex": "\\lim_{x\\to\\infty}\\dfrac{2x+1}{x+1}=\\lim_{x\\to\\infty}\\dfrac{2+\\frac{1}{x}}{1+\\frac{1}{x}}",
+        "porque": "Se divide arriba y abajo entre x."
+       },
+       {
+        "tex": "\\dfrac{1}{x}\\to 0\\ \\text{cuando}\\ x\\to\\infty",
+        "porque": "Un número fijo dividido entre algo enorme se acerca a 0."
+       },
+       {
+        "tex": "=\\dfrac{2+0}{1+0}=2",
+        "porque": "Queda el cociente de los coeficientes de mayor grado."
+       }
+      ]
+     },
+     {
+      "t": "ojo",
+      "html": "Infinito no es un número y no se puede operar como si lo fuera. Por eso se divide primero y después se toma el límite."
+     }
+    ]
+   },
+   {
+    "titulo": "Una regla práctica",
+    "corto": "Regla práctica",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Para un cociente de polinomios se comparan los {{gl:grado|grados}}."
+     },
+     {
+      "t": "pasos",
+      "items": [
+       {
+        "tex": "\\text{Grado del numerador}<\\text{grado del denominador}\\ \\Rightarrow\\ \\text{límite}=0",
+        "porque": "El denominador crece más rápido y el cociente se va a 0."
+       },
+       {
+        "tex": "\\text{Grados iguales}\\ \\Rightarrow\\ \\text{límite}=\\dfrac{\\text{coef. mayor del numerador}}{\\text{coef. mayor del denominador}}",
+        "porque": "Es el caso del ejemplo, 2 sobre 1."
+       },
+       {
+        "tex": "\\text{Grado del numerador}>\\text{grado del denominador}\\ \\Rightarrow\\ \\text{el límite es infinito}",
+        "porque": "El numerador crece más rápido y el cociente crece sin límite."
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "Revisa tu respuesta",
+    "corto": "Revisa",
+    "bloques": [
+     {
+      "t": "pregunta"
+     },
+     {
+      "t": "nota",
+      "html": "Compara los grados y los coeficientes mayores."
+     }
+    ]
+   },
+   {
+    "titulo": "En resumen",
+    "corto": "Resumen",
+    "bloques": [
+     {
+      "t": "resumen"
+     }
+    ]
+   }
+  ]
+ },
+ "practicar": {
+  "pasos": [
+   {
+    "titulo": "La curva",
+    "grafica": {
+     "draw": 1
+    },
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Se quiere ver qué pasa cuando x crece."
+     },
+     {
+      "t": "eq",
+      "tex": "f(x)=\\dfrac{2x+1}{x+1}"
+     }
+    ]
+   },
+   {
+    "titulo": "Valores grandes",
+    "grafica": {
+     "draw": 1
+    },
+    "laboratorio": true,
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mueve el deslizador hacia valores grandes de x. La ventana se agranda y abajo se ve el valor de f(x)."
+     }
+    ]
+   },
+   {
+    "titulo": "La asíntota",
+    "grafica": {
+     "draw": 1,
+     "guide": 1
+    },
+    "laboratorio": true,
+    "d": 1000,
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Con x igual a 1000, f(x) vale casi 2. La curva se pega a la recta y igual a 2."
+     }
+    ]
+   },
+   {
+    "titulo": "El límite",
+    "grafica": {
+     "draw": 1,
+     "guide": 1,
+     "ok": true
+    },
+    "laboratorio": true,
+    "d": 1000,
+    "bloques": [
+     {
+      "t": "eq",
+      "tex": "\\lim_{x\\to\\infty}\\dfrac{2x+1}{x+1}=2"
+     },
+     {
+      "t": "p",
+      "html": "La recta y igual a 2 es una asíntota horizontal."
+     }
+    ]
+   },
+   {
+    "titulo": "Revisa tu respuesta",
+    "grafica": {
+     "draw": 1,
+     "guide": 1,
+     "ok": true
+    },
+    "bloques": [
+     {
+      "t": "pregunta"
+     },
+     {
+      "t": "nota",
+      "html": "Compara los grados y los coeficientes mayores."
+     }
+    ]
+   }
+  ]
+ },
+ "pregunta": {
+  "tex": "\\lim_{x\\to\\infty}\\dfrac{5x^{2}-x}{x^{2}+7}",
+  "opciones": [
+   "5",
+   "0",
+   "1",
+   "No existe"
+  ],
+  "correcta": 0,
+  "explicacion": "Los dos grados son iguales. El límite es el cociente de los coeficientes de mayor grado, 5 sobre 1, o sea 5.",
+  "verificacion": {
+   "formula": "(5*(1/x)^2-(1/x))/((1/x)^2+7)",
+   "a": 0,
+   "esperado": 5
+  }
+ },
+ "resumen": [
+  "Para x que tiende a infinito se divide entre la mayor potencia de x.",
+  "Si los grados son iguales, el límite es el cociente de los coeficientes de mayor grado.",
+  "Si el grado del numerador es menor el límite es 0, y si es mayor crece sin límite."
+ ]
+}
