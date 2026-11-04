@@ -1,0 +1,112 @@
+{
+ "esquema": 1,
+ "curso": "Métodos Numéricos",
+ "estado": "PROVISIONAL. Los módulos y temas salen del banco de MathUNAL. El orden dentro de cada módulo es por cantidad de preguntas, NO pedagógico, y falta el temario oficial (PENDIENTE).",
+ "modulos": [
+  {
+   "n": 1,
+   "nombre": "Errores y ecuaciones no lineales",
+   "peso": 35,
+   "lecciones": [
+    {
+     "tema": "Bisección y regla falsa",
+     "preguntas_banco": 10,
+     "parciales_con_el_tema": 2,
+     "estado": "pendiente",
+     "leccion": null
+    },
+    {
+     "tema": "Newton-Raphson y secante",
+     "preguntas_banco": 9,
+     "parciales_con_el_tema": 2,
+     "estado": "pendiente",
+     "leccion": null
+    },
+    {
+     "tema": "Iteración de punto fijo",
+     "preguntas_banco": 7,
+     "parciales_con_el_tema": 2,
+     "estado": "pendiente",
+     "leccion": null
+    },
+    {
+     "tema": "Errores y aritmética de punto flotante",
+     "preguntas_banco": 5,
+     "parciales_con_el_tema": 0,
+     "estado": "pendiente",
+     "leccion": null
+    }
+   ]
+  },
+  {
+   "n": 2,
+   "nombre": "Sistemas lineales e interpolación",
+   "peso": 35,
+   "lecciones": [
+    {
+     "tema": "Interpolación polinómica",
+     "preguntas_banco": 9,
+     "parciales_con_el_tema": 2,
+     "estado": "pendiente",
+     "leccion": null
+    },
+    {
+     "tema": "Métodos iterativos (Jacobi, Gauss-Seidel, SOR)",
+     "preguntas_banco": 8,
+     "parciales_con_el_tema": 2,
+     "estado": "pendiente",
+     "leccion": null
+    },
+    {
+     "tema": "Normas y número de condición",
+     "preguntas_banco": 5,
+     "parciales_con_el_tema": 1,
+     "estado": "pendiente",
+     "leccion": null
+    },
+    {
+     "tema": "Eliminación gaussiana y factorización LU",
+     "preguntas_banco": 4,
+     "parciales_con_el_tema": 0,
+     "estado": "pendiente",
+     "leccion": null
+    }
+   ]
+  },
+  {
+   "n": 3,
+   "nombre": "Ajuste, integración y ecuaciones diferenciales",
+   "peso": 30,
+   "lecciones": [
+    {
+     "tema": "Integración numérica",
+     "preguntas_banco": 9,
+     "parciales_con_el_tema": 2,
+     "estado": "pendiente",
+     "leccion": null
+    },
+    {
+     "tema": "Diferenciación numérica y EDO",
+     "preguntas_banco": 7,
+     "parciales_con_el_tema": 1,
+     "estado": "pendiente",
+     "leccion": null
+    },
+    {
+     "tema": "Mínimos cuadrados y ajuste de curvas",
+     "preguntas_banco": 4,
+     "parciales_con_el_tema": 0,
+     "estado": "pendiente",
+     "leccion": null
+    },
+    {
+     "tema": "Splines",
+     "preguntas_banco": 3,
+     "parciales_con_el_tema": 0,
+     "estado": "pendiente",
+     "leccion": null
+    }
+   ]
+  }
+ ]
+}

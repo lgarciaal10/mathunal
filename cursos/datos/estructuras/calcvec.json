@@ -1,0 +1,154 @@
+{
+ "esquema": 1,
+ "curso": "Cálculo en Varias Variables",
+ "estado": "PROVISIONAL. Los módulos y temas salen del banco de MathUNAL. El orden dentro de cada módulo es por cantidad de preguntas, NO pedagógico, y falta el temario oficial (PENDIENTE).",
+ "modulos": [
+  {
+   "n": 1,
+   "nombre": "Cálculo diferencial en varias variables",
+   "peso": 30,
+   "lecciones": [
+    {
+     "tema": "Derivadas parciales",
+     "preguntas_banco": 6,
+     "parciales_con_el_tema": 1,
+     "estado": "pendiente",
+     "leccion": null
+    },
+    {
+     "tema": "Gradiente y derivada direccional",
+     "preguntas_banco": 6,
+     "parciales_con_el_tema": 1,
+     "estado": "pendiente",
+     "leccion": null
+    },
+    {
+     "tema": "Máximos y mínimos (Hessiano)",
+     "preguntas_banco": 5,
+     "parciales_con_el_tema": 1,
+     "estado": "pendiente",
+     "leccion": null
+    },
+    {
+     "tema": "Dominio, límites y continuidad",
+     "preguntas_banco": 4,
+     "parciales_con_el_tema": 1,
+     "estado": "pendiente",
+     "leccion": null
+    },
+    {
+     "tema": "Regla de la cadena",
+     "preguntas_banco": 3,
+     "parciales_con_el_tema": 1,
+     "estado": "pendiente",
+     "leccion": null
+    },
+    {
+     "tema": "Multiplicadores de Lagrange",
+     "preguntas_banco": 2,
+     "parciales_con_el_tema": 0,
+     "estado": "pendiente",
+     "leccion": null
+    },
+    {
+     "tema": "Plano tangente y linealización",
+     "preguntas_banco": 2,
+     "parciales_con_el_tema": 0,
+     "estado": "pendiente",
+     "leccion": null
+    }
+   ]
+  },
+  {
+   "n": 2,
+   "nombre": "Integrales múltiples",
+   "peso": 35,
+   "lecciones": [
+    {
+     "tema": "Integrales dobles y cambio de orden",
+     "preguntas_banco": 8,
+     "parciales_con_el_tema": 1,
+     "estado": "pendiente",
+     "leccion": null
+    },
+    {
+     "tema": "Coordenadas polares",
+     "preguntas_banco": 7,
+     "parciales_con_el_tema": 1,
+     "estado": "pendiente",
+     "leccion": null
+    },
+    {
+     "tema": "Coordenadas cilíndricas y esféricas",
+     "preguntas_banco": 5,
+     "parciales_con_el_tema": 2,
+     "estado": "pendiente",
+     "leccion": null
+    },
+    {
+     "tema": "Cambio de variable y jacobiano",
+     "preguntas_banco": 3,
+     "parciales_con_el_tema": 1,
+     "estado": "pendiente",
+     "leccion": null
+    },
+    {
+     "tema": "Integrales triples",
+     "preguntas_banco": 3,
+     "parciales_con_el_tema": 1,
+     "estado": "pendiente",
+     "leccion": null
+    },
+    {
+     "tema": "Aplicaciones (masa, centroide, inercia)",
+     "preguntas_banco": 2,
+     "parciales_con_el_tema": 1,
+     "estado": "pendiente",
+     "leccion": null
+    }
+   ]
+  },
+  {
+   "n": 3,
+   "nombre": "Cálculo vectorial",
+   "peso": 35,
+   "lecciones": [
+    {
+     "tema": "Rotacional y divergencia",
+     "preguntas_banco": 9,
+     "parciales_con_el_tema": 1,
+     "estado": "pendiente",
+     "leccion": null
+    },
+    {
+     "tema": "Teorema de Green",
+     "preguntas_banco": 6,
+     "parciales_con_el_tema": 1,
+     "estado": "pendiente",
+     "leccion": null
+    },
+    {
+     "tema": "Campos vectoriales e integrales de línea",
+     "preguntas_banco": 5,
+     "parciales_con_el_tema": 0,
+     "estado": "pendiente",
+     "leccion": null
+    },
+    {
+     "tema": "Teoremas de Stokes y de la Divergencia",
+     "preguntas_banco": 5,
+     "parciales_con_el_tema": 1,
+     "estado": "pendiente",
+     "leccion": null
+    },
+    {
+     "tema": "Integrales de superficie y flujo",
+     "preguntas_banco": 2,
+     "parciales_con_el_tema": 0,
+     "estado": "pendiente",
+     "leccion": null
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,434 @@
+{
+ "lhopital": [
+  {
+   "src": "calcdif_p3",
+   "semestre": "SEMESTRE 1 · PARCIAL 3 · 2025-2",
+   "q": {
+    "tipo": "mcq",
+    "texto": "Calcule $\\displaystyle\\lim_{x\\to0}\\frac{e^x-1-x}{x^2}$ usando la regla de L'Hôpital.",
+    "opciones": [
+     "$\\dfrac{1}{2}$",
+     "$0$",
+     "$1$",
+     "$\\infty$"
+    ],
+    "correcta": 0,
+    "resumen": "Forma $0/0$, aplicamos L'Hôpital dos veces.",
+    "pasos": [
+     "$\\lim\\frac{e^x-1}{2x}=\\frac{0}{0}$. Segunda aplicación: $\\lim\\frac{e^x}{2}=\\boxed{1/2}$"
+    ],
+    "tema": "Regla de L'Hôpital",
+    "corte": 3,
+    "freq": "alta",
+    "tipoError": "procedimiento",
+    "_src": "calcdif_p3_0"
+   }
+  },
+  {
+   "src": "calcdif_p3",
+   "semestre": "SEMESTRE 1 · PARCIAL 3 · 2025-2",
+   "q": {
+    "tipo": "mcq",
+    "texto": "$\\displaystyle\\lim_{x\\to\\infty}\\frac{x^3}{e^x}$ es:",
+    "opciones": [
+     "$0$",
+     "$\\infty$",
+     "$1$",
+     "$3$"
+    ],
+    "correcta": 0,
+    "resumen": "L'Hôpital tres veces: $x^3/e^x\\to3x^2/e^x\\to6x/e^x\\to6/e^x\\to0$.",
+    "pasos": [
+     "Aplicamos L'Hôpital sucesivamente: $3x^2/e^x\\to6x/e^x\\to6/e^x\\xrightarrow{x\\to\\infty}\\boxed{0}$"
+    ],
+    "tema": "Regla de L'Hôpital",
+    "corte": 3,
+    "freq": "media",
+    "tipoError": "conceptual",
+    "_src": "calcdif_p3_1"
+   }
+  },
+  {
+   "src": "calcdif_c3",
+   "semestre": "APLICACIONES DE LA DERIVADA · CORTE 3 (40%)",
+   "q": {
+    "id": "cd_c3_01",
+    "c": 3,
+    "t": "Regla de L'Hôpital",
+    "f": "alta",
+    "e": "procedimiento",
+    "tipo": "mcq",
+    "dif": 2,
+    "tEsp": 80,
+    "texto": "Calcule $\\displaystyle\\lim_{x\\to0^+} x\\ln x$.",
+    "opciones": [
+     "$0$",
+     "$-\\infty$",
+     "$1$",
+     "No existe"
+    ],
+    "correcta": 0,
+    "resumen": "Forma $0\\cdot(-\\infty)$: se reescribe como cociente para aplicar L'Hôpital.",
+    "tema": "Regla de L'Hôpital",
+    "corte": 3,
+    "freq": "alta",
+    "tipoError": "procedimiento",
+    "_src": "cd_c3_01"
+   }
+  }
+ ],
+ "limite-3": [
+  {
+   "src": "calcdif_c1",
+   "semestre": "FUNCIONES, LÍMITES Y CONTINUIDAD · CORTE 1 (30%)",
+   "q": {
+    "id": "cd_c1_17",
+    "c": 1,
+    "t": "Límites notables",
+    "f": "media",
+    "e": "formula",
+    "tipo": "mcq",
+    "dif": 1,
+    "tEsp": 30,
+    "texto": "$\\displaystyle\\lim_{x\\to0}\\dfrac{\\tan x}{x}$ es igual a:",
+    "opciones": [
+     "$1$",
+     "$0$",
+     "$\\infty$",
+     "no existe"
+    ],
+    "correcta": 0,
+    "resumen": "$\\dfrac{\\tan x}{x}=\\dfrac{\\operatorname{sen}x}{x}\\cdot\\dfrac{1}{\\cos x}\\to1\\cdot1$.",
+    "tema": "Límites notables",
+    "corte": 1,
+    "freq": "media",
+    "tipoError": "formula",
+    "_src": "cd_c1_17"
+   }
+  },
+  {
+   "src": "cd_c1_03",
+   "semestre": "",
+   "q": {
+    "id": "cd_c1_03",
+    "c": 1,
+    "t": "Límites notables",
+    "f": "alta",
+    "e": "formula",
+    "tipo": "mcq",
+    "dif": 1,
+    "tEsp": 60,
+    "texto": "Calcule $\\displaystyle\\lim_{x\\to0}\\dfrac{\\operatorname{sen}(3x)}{\\tan(5x)}$.",
+    "opciones": [
+     "$\\dfrac{3}{5}$",
+     "$1$",
+     "$\\dfrac{5}{3}$",
+     "$0$"
+    ],
+    "correcta": 0,
+    "resumen": "Se usan $\\dfrac{\\operatorname{sen} u}{u}\\to1$ y $\\dfrac{\\tan u}{u}\\to1$.",
+    "tema": "Límites notables",
+    "corte": 1,
+    "freq": "alta",
+    "tipoError": "formula",
+    "_src": "cd_c1_03"
+   }
+  },
+  {
+   "src": "cd_c1_09",
+   "semestre": "",
+   "q": {
+    "id": "cd_c1_09",
+    "c": 1,
+    "t": "Límites notables",
+    "f": "media",
+    "e": "procedimiento",
+    "tipo": "numerica",
+    "dif": 2,
+    "tEsp": 60,
+    "texto": "Calcule $\\displaystyle\\lim_{x\\to0}\\dfrac{\\operatorname{sen}(5x)}{x}$.",
+    "resumen": "$\\dfrac{\\operatorname{sen}(5x)}{x} = 5\\cdot\\dfrac{\\operatorname{sen}(5x)}{5x} \\to 5\\cdot1$.",
+    "respuesta": "5",
+    "unidad": "",
+    "tolNum": 0.001,
+    "puntaje": 15,
+    "tema": "Límites notables",
+    "corte": 1,
+    "freq": "media",
+    "tipoError": "procedimiento",
+    "_src": "cd_c1_09"
+   }
+  }
+ ],
+ "limite-1": [
+  {
+   "src": "calcdif_c1",
+   "semestre": "FUNCIONES, LÍMITES Y CONTINUIDAD · CORTE 1 (30%)",
+   "q": {
+    "id": "cd_c1_24",
+    "c": 1,
+    "t": "Límites indeterminados",
+    "f": "media",
+    "e": "procedimiento",
+    "tipo": "mcq",
+    "dif": 1,
+    "tEsp": 35,
+    "texto": "$\\displaystyle\\lim_{x\\to1}\\dfrac{x^{3}-1}{x-1}$ es:",
+    "opciones": [
+     "$3$",
+     "$1$",
+     "$0$",
+     "no existe"
+    ],
+    "correcta": 0,
+    "resumen": "$x^3-1=(x-1)(x^2+x+1)$.",
+    "tema": "Límites indeterminados",
+    "corte": 1,
+    "freq": "media",
+    "tipoError": "procedimiento",
+    "_src": "cd_c1_24"
+   }
+  },
+  {
+   "src": "calcdif_c1",
+   "semestre": "FUNCIONES, LÍMITES Y CONTINUIDAD · CORTE 1 (30%)",
+   "q": {
+    "id": "cd_c1_01",
+    "c": 1,
+    "t": "Límites indeterminados",
+    "f": "alta",
+    "e": "algebra",
+    "tipo": "mcq",
+    "dif": 1,
+    "tEsp": 75,
+    "texto": "Calcule $\\displaystyle\\lim_{x\\to0}\\dfrac{\\sqrt{x+4}-2}{x}$.",
+    "opciones": [
+     "$\\dfrac{1}{4}$",
+     "$0$",
+     "$\\dfrac{1}{2}$",
+     "No existe"
+    ],
+    "correcta": 0,
+    "resumen": "Forma $0/0$: se racionaliza multiplicando por el conjugado.",
+    "tema": "Límites indeterminados",
+    "corte": 1,
+    "freq": "alta",
+    "tipoError": "algebra",
+    "_src": "cd_c1_01"
+   }
+  },
+  {
+   "src": "cd_c1_05",
+   "semestre": "",
+   "q": {
+    "id": "cd_c1_05",
+    "c": 1,
+    "t": "Límites indeterminados",
+    "f": "media",
+    "e": "interpretacion",
+    "tipo": "mcq",
+    "dif": 1,
+    "tEsp": 50,
+    "texto": "El valor de $\\displaystyle\\lim_{x\\to2}\\dfrac{|x-2|}{x-2}$ es:",
+    "opciones": [
+     "No existe",
+     "$1$",
+     "$-1$",
+     "$0$"
+    ],
+    "correcta": 0,
+    "resumen": "Los límites laterales dan $+1$ y $-1$: no coinciden.",
+    "tema": "Límites indeterminados",
+    "corte": 1,
+    "freq": "media",
+    "tipoError": "interpretacion",
+    "_src": "cd_c1_05"
+   }
+  }
+ ],
+ "derivada-11": [
+  {
+   "src": "calcdif_p1",
+   "semestre": "SEMESTRE 1 · PARCIAL 1 · 2025-2",
+   "q": {
+    "tipo": "mcq",
+    "texto": "La función $f(x)=x^{4/3}(x-7)^2$ tiene puntos críticos en:",
+    "opciones": [
+     "$x=0$ y $x=7$ únicamente",
+     "$x=0$, $x=\\dfrac{14}{5}$ y $x=7$",
+     "$x=0$ y $x=3$ únicamente",
+     "$x=3$ y $x=7$ únicamente"
+    ],
+    "correcta": 1,
+    "resumen": "Igualamos $f'=0$ y encontramos donde $f'$ no existe.",
+    "pasos": [
+     "$f'(x)=\\frac{4}{3}x^{1/3}(x-7)^2+x^{4/3}\\cdot 2(x-7)$",
+     "$=x^{1/3}(x-7)\\left[\\frac{4}{3}(x-7)+2x\\right]=x^{1/3}(x-7)\\cdot\\frac{10x-28}{3}$",
+     "$f'=0$ cuando: $x^{1/3}=0\\Rightarrow x=0$; $(x-7)=0\\Rightarrow x=7$; $10x-28=0\\Rightarrow x=\\dfrac{14}{5}$",
+     "Los tres son puntos críticos ($f'$ existe y vale 0 en los tres): $\\boxed{x=0,\\ \\dfrac{14}{5},\\ 7}$"
+    ],
+    "tema": "Valores extremos",
+    "corte": 3,
+    "freq": "alta",
+    "tipoError": "procedimiento",
+    "_src": "calcdif_p1_3"
+   }
+  },
+  {
+   "src": "calcdif_p3",
+   "semestre": "SEMESTRE 1 · PARCIAL 3 · 2025-2",
+   "q": {
+    "tipo": "mcq",
+    "figura": {
+     "tipo": "funcion",
+     "fns": [
+      {
+       "expr": "x*x*x-3*x+1",
+       "label": "f(x)=x³-3x+1"
+      }
+     ],
+     "xmin": -2.4,
+     "xmax": 2.4,
+     "ymin": -3,
+     "ymax": 4,
+     "puntos": [
+      {
+       "x": -1,
+       "y": 3,
+       "label": "(-1,3)"
+      },
+      {
+       "x": 1,
+       "y": -1,
+       "label": "(1,-1)"
+      }
+     ],
+     "caption": "Puntos críticos y extremos del intervalo"
+    },
+    "texto": "El valor máximo absoluto de $f(x)=x^3-3x+1$ en $[-2,2]$ es:",
+    "opciones": [
+     "$3$",
+     "$-1$",
+     "$1$",
+     "$9$"
+    ],
+    "correcta": 0,
+    "resumen": "Evaluamos en puntos críticos y extremos del intervalo.",
+    "pasos": [
+     "$f'=3x^2-3=0\\Rightarrow x=\\pm1$",
+     "$f(-2)=-1,f(-1)=3,f(1)=-1,f(2)=3$. Máximo: $\\boxed{3}$"
+    ],
+    "tema": "Valores extremos",
+    "corte": 3,
+    "freq": "alta",
+    "tipoError": "procedimiento",
+    "_src": "calcdif_p3_4"
+   }
+  },
+  {
+   "src": "cd_c3_09",
+   "semestre": "",
+   "q": {
+    "id": "cd_c3_09",
+    "c": 3,
+    "t": "Valores extremos",
+    "f": "alta",
+    "e": "procedimiento",
+    "tipo": "numerica",
+    "dif": 2,
+    "tEsp": 45,
+    "texto": "Para $f(x)=x^{3}-3x$, el valor MÍNIMO local es:",
+    "resumen": "$f'=3x^2-3=0\\Rightarrow x=\\pm1$; $f''(1)=6>0$ → mínimo en $x=1$.",
+    "respuesta": "-2",
+    "unidad": "",
+    "tolNum": 0.001,
+    "puntaje": 10,
+    "tema": "Valores extremos",
+    "corte": 3,
+    "freq": "alta",
+    "tipoError": "procedimiento",
+    "_src": "cd_c3_09"
+   }
+  }
+ ],
+ "derivada-14": [
+  {
+   "src": "calcdif_p3",
+   "semestre": "SEMESTRE 1 · PARCIAL 3 · 2025-2",
+   "q": {
+    "tipo": "mcq",
+    "texto": "Una caja abierta de base cuadrada tiene volumen fijo $V=32$ m³. El lado $x$ que minimiza el material (base + 4 lados) es:",
+    "opciones": [
+     "$x=4$",
+     "$x=2$",
+     "$x=8$",
+     "$x=\\sqrt{32}$"
+    ],
+    "correcta": 0,
+    "resumen": "$S=x^2+4xh$ con $x^2h=32$; minimizar $S(x)=x^2+128/x$.",
+    "pasos": [
+     "$S'(x)=2x-128/x^2=0\\Rightarrow x^3=64\\Rightarrow\\boxed{x=4}$ m, $h=2$ m"
+    ],
+    "tema": "Optimización",
+    "corte": 3,
+    "freq": "alta",
+    "tipoError": "procedimiento",
+    "gemela": "calcdif_p2_2",
+    "_src": "calcdif_p3_5"
+   }
+  },
+  {
+   "src": "cd_c3_03",
+   "semestre": "",
+   "q": {
+    "id": "cd_c3_03",
+    "c": 3,
+    "t": "Optimización",
+    "f": "alta",
+    "e": "procedimiento",
+    "tipo": "mcq",
+    "dif": 3,
+    "tEsp": 110,
+    "texto": "El punto de la parábola $y=x^2$ más cercano al punto $(0,3)$ tiene abscisa:",
+    "opciones": [
+     "$\\pm\\sqrt{\\dfrac{5}{2}}$",
+     "$0$",
+     "$\\pm\\dfrac{3}{2}$",
+     "$\\pm\\sqrt{3}$"
+    ],
+    "correcta": 0,
+    "resumen": "Minimizar la distancia al cuadrado $D(x)=x^2+(x^2-3)^2$.",
+    "tema": "Optimización",
+    "corte": 3,
+    "freq": "alta",
+    "tipoError": "procedimiento",
+    "_src": "cd_c3_03"
+   }
+  },
+  {
+   "src": "cd_c3_10",
+   "semestre": "",
+   "q": {
+    "id": "cd_c3_10",
+    "c": 3,
+    "t": "Optimización",
+    "f": "alta",
+    "e": "procedimiento",
+    "tipo": "numerica",
+    "dif": 2,
+    "tEsp": 50,
+    "texto": "Entre los rectángulos de perímetro $20$, el área máxima posible es:",
+    "resumen": "$2x+2y=20\\Rightarrow y=10-x$; $A(x)=x(10-x)$.",
+    "respuesta": "25",
+    "unidad": "",
+    "tolNum": 0.001,
+    "puntaje": 10,
+    "tema": "Optimización",
+    "corte": 3,
+    "freq": "alta",
+    "tipoError": "procedimiento",
+    "_src": "cd_c3_10"
+   }
+  }
+ ]
+}

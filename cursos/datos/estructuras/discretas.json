@@ -1,0 +1,112 @@
+{
+ "esquema": 1,
+ "curso": "Matemáticas Discretas",
+ "estado": "PROVISIONAL. Los módulos y temas salen del banco de MathUNAL. El orden dentro de cada módulo es por cantidad de preguntas, NO pedagógico, y falta el temario oficial (PENDIENTE).",
+ "modulos": [
+  {
+   "n": 1,
+   "nombre": "Lógica y demostración",
+   "peso": 30,
+   "lecciones": [
+    {
+     "tema": "Lógica proposicional",
+     "preguntas_banco": 9,
+     "parciales_con_el_tema": 1,
+     "estado": "pendiente",
+     "leccion": null
+    },
+    {
+     "tema": "Inducción matemática",
+     "preguntas_banco": 7,
+     "parciales_con_el_tema": 2,
+     "estado": "pendiente",
+     "leccion": null
+    },
+    {
+     "tema": "Métodos de demostración",
+     "preguntas_banco": 6,
+     "parciales_con_el_tema": 1,
+     "estado": "pendiente",
+     "leccion": null
+    },
+    {
+     "tema": "Cuantificadores y predicados",
+     "preguntas_banco": 4,
+     "parciales_con_el_tema": 1,
+     "estado": "pendiente",
+     "leccion": null
+    }
+   ]
+  },
+  {
+   "n": 2,
+   "nombre": "Conjuntos, conteo y combinatoria",
+   "peso": 35,
+   "lecciones": [
+    {
+     "tema": "Permutaciones y combinaciones",
+     "preguntas_banco": 10,
+     "parciales_con_el_tema": 3,
+     "estado": "pendiente",
+     "leccion": null
+    },
+    {
+     "tema": "Teoría de conjuntos e inclusión-exclusión",
+     "preguntas_banco": 7,
+     "parciales_con_el_tema": 2,
+     "estado": "pendiente",
+     "leccion": null
+    },
+    {
+     "tema": "Probabilidad discreta",
+     "preguntas_banco": 5,
+     "parciales_con_el_tema": 1,
+     "estado": "pendiente",
+     "leccion": null
+    },
+    {
+     "tema": "Principios de conteo",
+     "preguntas_banco": 4,
+     "parciales_con_el_tema": 0,
+     "estado": "pendiente",
+     "leccion": null
+    }
+   ]
+  },
+  {
+   "n": 3,
+   "nombre": "Recurrencias, grafos y teoría de números",
+   "peso": 35,
+   "lecciones": [
+    {
+     "tema": "Relaciones de recurrencia",
+     "preguntas_banco": 12,
+     "parciales_con_el_tema": 2,
+     "estado": "pendiente",
+     "leccion": null
+    },
+    {
+     "tema": "Teoría de grafos",
+     "preguntas_banco": 8,
+     "parciales_con_el_tema": 2,
+     "estado": "pendiente",
+     "leccion": null
+    },
+    {
+     "tema": "Aritmética modular y Euclides",
+     "preguntas_banco": 5,
+     "parciales_con_el_tema": 1,
+     "estado": "pendiente",
+     "leccion": null
+    },
+    {
+     "tema": "Funciones generatrices",
+     "preguntas_banco": 2,
+     "parciales_con_el_tema": 1,
+     "estado": "pendiente",
+     "leccion": null
+    }
+   ]
+  }
+ ]
+}

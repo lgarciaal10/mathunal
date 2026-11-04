@@ -1,0 +1,119 @@
+{
+ "esquema": 1,
+ "curso": "Cálculo Integral",
+ "estado": "PROVISIONAL. Los módulos y temas salen del banco de MathUNAL. El orden dentro de cada módulo es por cantidad de preguntas, NO pedagógico, y falta el temario oficial (PENDIENTE).",
+ "modulos": [
+  {
+   "n": 1,
+   "nombre": "Integral definida y técnicas básicas",
+   "peso": 30,
+   "lecciones": [
+    {
+     "tema": "Integral definida y TFC",
+     "preguntas_banco": 11,
+     "parciales_con_el_tema": 2,
+     "estado": "pendiente",
+     "leccion": null
+    },
+    {
+     "tema": "Sustitución",
+     "preguntas_banco": 6,
+     "parciales_con_el_tema": 0,
+     "estado": "pendiente",
+     "leccion": null
+    },
+    {
+     "tema": "Integración por partes",
+     "preguntas_banco": 5,
+     "parciales_con_el_tema": 0,
+     "estado": "pendiente",
+     "leccion": null
+    },
+    {
+     "tema": "Área entre curvas",
+     "preguntas_banco": 3,
+     "parciales_con_el_tema": 0,
+     "estado": "pendiente",
+     "leccion": null
+    }
+   ]
+  },
+  {
+   "n": 2,
+   "nombre": "Técnicas avanzadas e impropias",
+   "peso": 35,
+   "lecciones": [
+    {
+     "tema": "Fracciones parciales",
+     "preguntas_banco": 8,
+     "parciales_con_el_tema": 1,
+     "estado": "pendiente",
+     "leccion": null
+    },
+    {
+     "tema": "Integrales impropias",
+     "preguntas_banco": 7,
+     "parciales_con_el_tema": 1,
+     "estado": "pendiente",
+     "leccion": null
+    },
+    {
+     "tema": "Sustitución trigonométrica",
+     "preguntas_banco": 6,
+     "parciales_con_el_tema": 1,
+     "estado": "pendiente",
+     "leccion": null
+    },
+    {
+     "tema": "Integrales trigonométricas",
+     "preguntas_banco": 5,
+     "parciales_con_el_tema": 0,
+     "estado": "pendiente",
+     "leccion": null
+    }
+   ]
+  },
+  {
+   "n": 3,
+   "nombre": "Aplicaciones, polares y series",
+   "peso": 35,
+   "lecciones": [
+    {
+     "tema": "Sucesiones y series",
+     "preguntas_banco": 11,
+     "parciales_con_el_tema": 1,
+     "estado": "pendiente",
+     "leccion": null
+    },
+    {
+     "tema": "Volúmenes de revolución",
+     "preguntas_banco": 8,
+     "parciales_con_el_tema": 2,
+     "estado": "pendiente",
+     "leccion": null
+    },
+    {
+     "tema": "Trabajo y valor promedio",
+     "preguntas_banco": 5,
+     "parciales_con_el_tema": 1,
+     "estado": "pendiente",
+     "leccion": null
+    },
+    {
+     "tema": "Coordenadas polares",
+     "preguntas_banco": 4,
+     "parciales_con_el_tema": 2,
+     "estado": "pendiente",
+     "leccion": null
+    },
+    {
+     "tema": "Longitud de arco y superficies",
+     "preguntas_banco": 3,
+     "parciales_con_el_tema": 1,
+     "estado": "pendiente",
+     "leccion": null
+    }
+   ]
+  }
+ ]
+}
