@@ -416,8 +416,8 @@ button{font:inherit;color:inherit;cursor:pointer;background:none;border:0;paddin
  "modulo": "Módulo 3 Aplicaciones de la derivada",
  "posicion": "Lección 6 de 8",
  "titulo": "Regla de L'Hôpital",
- "minutos": 14,
- "ejercicios": 1,
+ "minutos": 20,
+ "ejercicios": 4,
  "grafica": {
   "x": [
    -4,
@@ -716,6 +716,70 @@ button{font:inherit;color:inherit;cursor:pointer;background:none;border:0;paddin
      {
       "t": "nota",
       "html": "Comprueba que sea 0 sobre 0, deriva arriba y abajo, y evalúa."
+     }
+    ]
+   },
+   {
+    "titulo": "Mini simulacro",
+    "corto": "Simulacro",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Tres preguntas reales del banco de MathUNAL sobre este tema. Responde sin mirar los pasos."
+     },
+     {
+      "t": "simulacro",
+      "titulo": "Mini simulacro",
+      "preguntas": [
+       {
+        "texto": "Calcule $\\displaystyle\\lim_{x\\to0}\\frac{e^x-1-x}{x^2}$ usando la regla de L'Hôpital.",
+        "resumen": "Es de la forma 0 sobre 0. Se deriva dos veces. La primera da $\\frac{e^x-1}{2x}$, que sigue siendo 0 sobre 0, y la segunda da $\\frac{e^x}{2}$, que en $x=0$ vale $\\frac{1}{2}$.",
+        "fuente": "Banco MathUNAL, Parcial 3, 2025-2",
+        "tipo": "mcq",
+        "opciones": [
+         "$\\dfrac{1}{2}$",
+         "$0$",
+         "$1$",
+         "$\\infty$"
+        ],
+        "correcta": 0
+       },
+       {
+        "texto": "$\\displaystyle\\lim_{x\\to\\infty}\\frac{x^3}{e^x}$ es:",
+        "resumen": "Es infinito sobre infinito. Al derivar tres veces arriba y abajo queda $\\frac{6}{e^x}$, que tiende a 0. La exponencial crece más rápido que cualquier potencia.",
+        "fuente": "Banco MathUNAL, Parcial 3, 2025-2",
+        "tipo": "mcq",
+        "opciones": [
+         "$0$",
+         "$\\infty$",
+         "$1$",
+         "$3$"
+        ],
+        "correcta": 0
+       },
+       {
+        "texto": "Calcule $\\displaystyle\\lim_{x\\to0^+} x\\ln x$.",
+        "resumen": "Es de la forma 0 por infinito. Se escribe como $\\frac{\\ln x}{1/x}$, que es infinito sobre infinito. Al derivar queda $\\frac{1/x}{-1/x^2}=-x$, que tiende a 0.",
+        "fuente": "Banco MathUNAL, preguntas del corte 3",
+        "tipo": "mcq",
+        "opciones": [
+         "$0$",
+         "$-\\infty$",
+         "$1$",
+         "No existe"
+        ],
+        "correcta": 0
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "Tu repaso",
+    "corto": "Repaso",
+    "bloques": [
+     {
+      "t": "repaso"
      }
     ]
    },

@@ -7,10 +7,11 @@ Esta carpeta guarda el trabajo de los cursos. Todo es un borrador para revisar y
 - `lecciones/` trae cada lección como un archivo JSON.
 - `mockups/` trae cada lección ya construida como una página HTML de un solo archivo, y los mockups de la portada y de la lista de temas.
 - `datos/` trae el mapa de temas del banco y la estructura de cada curso. `calculo-diferencial-estructura.json` dice qué lección corresponde a cada tema.
+- `video/` trae el proyecto de Remotion con el video de la regla de la cadena.
 - `herramientas/` trae los scripts que sacan los datos del banco de preguntas.
 
 ## Estado de Cálculo Diferencial
-La lección de la Regla de la cadena es la lección insignia del aprendizaje guiado. Trae pistas y errores explicados en el quiz, tres actividades (completar, encontrar el error y ordenar), un ejemplo de ingeniería, un mini simulacro con preguntas reales del banco y un repaso espaciado. Las otras 23 lecciones ya tienen pistas y errores explicados en su quiz.
+La lección de la Regla de la cadena es la lección insignia del aprendizaje guiado. Trae pistas y errores explicados en el quiz, tres actividades (completar, encontrar el error y ordenar), un ejemplo de ingeniería, un mini simulacro con preguntas reales del banco y un repaso espaciado. Las otras 23 lecciones ya tienen pistas y errores explicados en su quiz. Cuatro más tienen mini simulacro con preguntas reales del banco, Regla de L'Hôpital, Límites notables, Qué es un límite y Valores extremos, además de Optimización. Las respuestas de esas 15 preguntas se verificaron con cálculo simbólico independiente.
 
 Las 24 lecciones están escritas, con los tres modos Ver, Leer y Practicar, y pasan el validador. La estructura de módulos sale del banco y es provisional hasta confirmar el temario oficial.
 

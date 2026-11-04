@@ -6,8 +6,8 @@
  "modulo": "Módulo 3 Aplicaciones de la derivada",
  "posicion": "Lección 5 de 8",
  "titulo": "Optimización",
- "minutos": 15,
- "ejercicios": 1,
+ "minutos": 21,
+ "ejercicios": 4,
  "grafica": {
   "x": [
    0,
@@ -313,6 +313,65 @@
      {
       "t": "nota",
       "html": "Despeja y de la restricción, arma la función objetivo y deriva."
+     }
+    ]
+   },
+   {
+    "titulo": "Mini simulacro",
+    "corto": "Simulacro",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Tres preguntas reales del banco de MathUNAL sobre este tema. Responde sin mirar los pasos."
+     },
+     {
+      "t": "simulacro",
+      "titulo": "Mini simulacro",
+      "preguntas": [
+       {
+        "texto": "Una caja abierta de base cuadrada tiene volumen fijo $V=32$ m³. El lado $x$ que minimiza el material (base + 4 lados) es:",
+        "resumen": "Con $x^2h=32$ el material es $A=x^2+4xh=x^2+\\frac{128}{x}$. Se deriva, $A'=2x-\\frac{128}{x^2}=0$, y sale $x^3=64$, o sea $x=4$.",
+        "fuente": "Banco MathUNAL, Parcial 3, 2025-2",
+        "tipo": "mcq",
+        "opciones": [
+         "$x=4$",
+         "$x=2$",
+         "$x=8$",
+         "$x=\\sqrt{32}$"
+        ],
+        "correcta": 0
+       },
+       {
+        "texto": "El punto de la parábola $y=x^2$ más cercano al punto $(0,3)$ tiene abscisa:",
+        "resumen": "Se minimiza la distancia al cuadrado $D=x^2+(x^2-3)^2$. Su derivada es $2x(2x^2-5)$, que vale 0 en $x=0$ y en $x=\\pm\\sqrt{5/2}$. En 0 vale 9 y en los otros dos vale $\\frac{11}{4}$, así que el mínimo está en $\\pm\\sqrt{5/2}$.",
+        "fuente": "Banco MathUNAL, simulacro de Cálculo Diferencial",
+        "tipo": "mcq",
+        "opciones": [
+         "$\\pm\\sqrt{\\dfrac{5}{2}}$",
+         "$0$",
+         "$\\pm\\dfrac{3}{2}$",
+         "$\\pm\\sqrt{3}$"
+        ],
+        "correcta": 0
+       },
+       {
+        "texto": "Entre los rectángulos de perímetro $20$, el área máxima posible es:",
+        "resumen": "Si un lado mide $x$, el otro mide $10-x$ y el área es $x(10-x)$. Su derivada $10-2x$ vale 0 en $x=5$, y el área máxima es 25.",
+        "fuente": "Banco MathUNAL, simulacro de Cálculo Diferencial",
+        "tipo": "numerica",
+        "respuesta": "25",
+        "tolNum": 0.001
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "Tu repaso",
+    "corto": "Repaso",
+    "bloques": [
+     {
+      "t": "repaso"
      }
     ]
    },

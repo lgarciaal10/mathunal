@@ -416,8 +416,8 @@ button{font:inherit;color:inherit;cursor:pointer;background:none;border:0;paddin
  "modulo": "Módulo 1 Límites y continuidad",
  "posicion": "Lección 1 de 6",
  "titulo": "Qué es un límite",
- "minutos": 9,
- "ejercicios": 1,
+ "minutos": 15,
+ "ejercicios": 4,
  "grafica": {
   "x": [
    -0.5,
@@ -684,6 +684,70 @@ button{font:inherit;color:inherit;cursor:pointer;background:none;border:0;paddin
     "bloques": [
      {
       "t": "pregunta"
+     }
+    ]
+   },
+   {
+    "titulo": "Mini simulacro",
+    "corto": "Simulacro",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Tres preguntas reales del banco de MathUNAL sobre este tema. Responde sin mirar los pasos."
+     },
+     {
+      "t": "simulacro",
+      "titulo": "Mini simulacro",
+      "preguntas": [
+       {
+        "texto": "$\\displaystyle\\lim_{x\\to1}\\dfrac{x^{3}-1}{x-1}$ es:",
+        "resumen": "Se factoriza $x^3-1=(x-1)(x^2+x+1)$, se cancela $x-1$ y queda $x^2+x+1$, que en $x=1$ vale 3.",
+        "fuente": "Banco MathUNAL, preguntas del corte 1",
+        "tipo": "mcq",
+        "opciones": [
+         "$3$",
+         "$1$",
+         "$0$",
+         "no existe"
+        ],
+        "correcta": 0
+       },
+       {
+        "texto": "Calcule $\\displaystyle\\lim_{x\\to0}\\dfrac{\\sqrt{x+4}-2}{x}$.",
+        "resumen": "Se multiplica y se divide por el conjugado $\\sqrt{x+4}+2$. El numerador queda $x$, se cancela y queda $\\frac{1}{\\sqrt{x+4}+2}$, que en $x=0$ vale $\\frac{1}{4}$.",
+        "fuente": "Banco MathUNAL, preguntas del corte 1",
+        "tipo": "mcq",
+        "opciones": [
+         "$\\dfrac{1}{4}$",
+         "$0$",
+         "$\\dfrac{1}{2}$",
+         "No existe"
+        ],
+        "correcta": 0
+       },
+       {
+        "texto": "El valor de $\\displaystyle\\lim_{x\\to2}\\dfrac{|x-2|}{x-2}$ es:",
+        "resumen": "Por la derecha el cociente vale 1 y por la izquierda vale $-1$. Los dos lados no coinciden, así que el límite no existe.",
+        "fuente": "Banco MathUNAL, simulacro de Cálculo Diferencial",
+        "tipo": "mcq",
+        "opciones": [
+         "No existe",
+         "$1$",
+         "$-1$",
+         "$0$"
+        ],
+        "correcta": 0
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "Tu repaso",
+    "corto": "Repaso",
+    "bloques": [
+     {
+      "t": "repaso"
      }
     ]
    },

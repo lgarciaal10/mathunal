@@ -416,8 +416,8 @@ button{font:inherit;color:inherit;cursor:pointer;background:none;border:0;paddin
  "modulo": "Módulo 1 Límites y continuidad",
  "posicion": "Lección 3 de 6",
  "titulo": "Límites notables",
- "minutos": 12,
- "ejercicios": 1,
+ "minutos": 18,
+ "ejercicios": 4,
  "grafica": {
   "x": [
    -6.5,
@@ -703,6 +703,65 @@ button{font:inherit;color:inherit;cursor:pointer;background:none;border:0;paddin
      {
       "t": "nota",
       "html": "Mira si el argumento del seno coincide con lo de abajo."
+     }
+    ]
+   },
+   {
+    "titulo": "Mini simulacro",
+    "corto": "Simulacro",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Tres preguntas reales del banco de MathUNAL sobre este tema. Responde sin mirar los pasos."
+     },
+     {
+      "t": "simulacro",
+      "titulo": "Mini simulacro",
+      "preguntas": [
+       {
+        "texto": "$\\displaystyle\\lim_{x\\to0}\\dfrac{\\tan x}{x}$ es igual a:",
+        "resumen": "Se escribe $\\frac{\\tan x}{x}=\\frac{\\operatorname{sen}x}{x}\\cdot\\frac{1}{\\cos x}$. El primer factor tiende a 1 y el segundo también, así que el límite es 1.",
+        "fuente": "Banco MathUNAL, preguntas del corte 1",
+        "tipo": "mcq",
+        "opciones": [
+         "$1$",
+         "$0$",
+         "$\\infty$",
+         "no existe"
+        ],
+        "correcta": 0
+       },
+       {
+        "texto": "Calcule $\\displaystyle\\lim_{x\\to0}\\dfrac{\\operatorname{sen}(3x)}{\\tan(5x)}$.",
+        "resumen": "Se ajusta cada argumento. Queda $\\frac{3\\cdot\\frac{\\operatorname{sen}3x}{3x}}{5\\cdot\\frac{\\tan 5x}{5x}}$, y los dos cocientes notables tienden a 1. El resultado es $\\frac{3}{5}$.",
+        "fuente": "Banco MathUNAL, simulacro de Cálculo Diferencial",
+        "tipo": "mcq",
+        "opciones": [
+         "$\\dfrac{3}{5}$",
+         "$1$",
+         "$\\dfrac{5}{3}$",
+         "$0$"
+        ],
+        "correcta": 0
+       },
+       {
+        "texto": "Calcule $\\displaystyle\\lim_{x\\to0}\\dfrac{\\operatorname{sen}(5x)}{x}$.",
+        "resumen": "Se multiplica y se divide por 5 para que el argumento coincida con el denominador. Queda $5\\cdot\\frac{\\operatorname{sen}5x}{5x}$, que tiende a 5.",
+        "fuente": "Banco MathUNAL, simulacro de Cálculo Diferencial",
+        "tipo": "numerica",
+        "respuesta": "5",
+        "tolNum": 0.001
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "Tu repaso",
+    "corto": "Repaso",
+    "bloques": [
+     {
+      "t": "repaso"
      }
     ]
    }
