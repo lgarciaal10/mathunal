@@ -6,7 +6,7 @@
  "modulo": "Módulo 2 La derivada",
  "posicion": "Lección 8 de 10",
  "titulo": "Aproximación lineal",
- "minutos": 13,
+ "minutos": 15,
  "ejercicios": 1,
  "grafica": {
   "tipo": "secante",
@@ -284,6 +284,45 @@
      {
       "t": "ojo",
       "html": "La aproximación funciona bien cerca del punto y empeora al alejarse. Para la raíz de 5, L da 2.25 y el valor real es 2.236. Para la raíz de 8, L da 3 y el valor real es 2.83."
+     }
+    ]
+   },
+   {
+    "titulo": "¿Para qué sirve?",
+    "corto": "En ingeniería",
+    "bloques": [
+     {
+      "t": "ingenieria",
+      "titulo": "La dilatación de una placa",
+      "html": "Una placa cuadrada de acero se calienta. Cada lado crece un poco y el área cambia. En vez de calcular el área exacta, se usa la aproximación lineal con la derivada.",
+      "tex": "A=L^{2}\\ \\Rightarrow\\ \\Delta A\\approx 2L\\,\\Delta L",
+      "datos": [
+       {
+        "k": "Lado inicial",
+        "v": "1 m"
+       },
+       {
+        "k": "Aumento de temperatura",
+        "v": "100 °C"
+       },
+       {
+        "k": "Coeficiente del acero",
+        "v": "12·10⁻⁶ por °C"
+       },
+       {
+        "k": "Cada lado crece",
+        "v": "1.2 mm"
+       },
+       {
+        "k": "Aumento del área, lineal",
+        "v": "2.4·10⁻³ m²"
+       },
+       {
+        "k": "Aumento del área, exacto",
+        "v": "2.40144·10⁻³ m²"
+       }
+      ],
+      "cierre": "El error de la aproximación es de 0.06 %, porque el cambio es muy pequeño frente al lado. Por eso la aproximación lineal se usa tanto en ingeniería."
      }
     ]
    },

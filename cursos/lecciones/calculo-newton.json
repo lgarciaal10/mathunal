@@ -6,7 +6,7 @@
  "modulo": "Módulo 3 Aplicaciones de la derivada",
  "posicion": "Lección 7 de 8",
  "titulo": "Método de Newton",
- "minutos": 14,
+ "minutos": 16,
  "ejercicios": 1,
  "grafica": {
   "tipo": "newton",
@@ -231,6 +231,37 @@
      {
       "t": "ojo",
       "html": "Si f prima vale 0 en algún x sub n, la tangente es horizontal y nunca corta el eje. Y si el punto de partida queda muy lejos de la raíz, el método puede irse a otra raíz o no converger."
+     }
+    ]
+   },
+   {
+    "titulo": "¿Para qué sirve?",
+    "corto": "En ingeniería",
+    "bloques": [
+     {
+      "t": "ingenieria",
+      "titulo": "El factor de fricción en una tubería",
+      "html": "Para calcular la pérdida de presión en una tubería hace falta el factor de fricción f, que sale de la ecuación de Colebrook. Esa ecuación no se puede despejar, y por eso se resuelve con el método de Newton.",
+      "tex": "\\dfrac{1}{\\sqrt{f}}=-2\\log_{10}\\!\\left(\\dfrac{\\varepsilon/D}{3.7}+\\dfrac{2.51}{Re\\sqrt{f}}\\right)",
+      "datos": [
+       {
+        "k": "Número de Reynolds",
+        "v": "100 000"
+       },
+       {
+        "k": "Rugosidad relativa",
+        "v": "0.0005"
+       },
+       {
+        "k": "Valor inicial",
+        "v": "0.03"
+       },
+       {
+        "k": "Resultado tras 4 pasos",
+        "v": "0.02033"
+       }
+      ],
+      "cierre": "Con el valor inicial 0.03, las aproximaciones son 0.0172, 0.0200, 0.0203 y 0.02033. Converge en pocos pasos porque la función es suave."
      }
     ]
    },

@@ -6,7 +6,7 @@
  "modulo": "Módulo 3 Aplicaciones de la derivada",
  "posicion": "Lección 2 de 8",
  "titulo": "Valores extremos",
- "minutos": 20,
+ "minutos": 22,
  "ejercicios": 4,
  "grafica": {
   "tipo": "secante",
@@ -316,6 +316,37 @@
         "porque": "Se toma el valor más grande y el más pequeño de la lista."
        }
       ]
+     }
+    ]
+   },
+   {
+    "titulo": "¿Para qué sirve?",
+    "corto": "En ingeniería",
+    "bloques": [
+     {
+      "t": "ingenieria",
+      "titulo": "El momento máximo en una viga",
+      "html": "En una viga apoyada en sus dos extremos con una carga repartida, el momento flector cambia a lo largo de la viga. El punto donde ese momento es máximo es el más exigido, y se encuentra igualando la derivada a 0.",
+      "tex": "M(x)=\\dfrac{wL}{2}\\,x-\\dfrac{w}{2}\\,x^{2}\\ \\Rightarrow\\ M'(x)=\\dfrac{wL}{2}-w\\,x=0\\ \\Rightarrow\\ x=\\dfrac{L}{2}",
+      "datos": [
+       {
+        "k": "Carga repartida",
+        "v": "5 kN/m"
+       },
+       {
+        "k": "Luz",
+        "v": "4 m"
+       },
+       {
+        "k": "Máximo en x",
+        "v": "2 m, el centro"
+       },
+       {
+        "k": "Momento máximo",
+        "v": "10 kN·m"
+       }
+      ],
+      "cierre": "El valor máximo es w·L² sobre 8. La segunda derivada, −w, es negativa, así que es un máximo. Con ese valor se dimensiona la sección de la viga."
      }
     ]
    },

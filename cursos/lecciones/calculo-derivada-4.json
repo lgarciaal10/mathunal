@@ -6,7 +6,7 @@
  "modulo": "Módulo 2 La derivada",
  "posicion": "Lección 4 de 10",
  "titulo": "Derivación implícita",
- "minutos": 20,
+ "minutos": 22,
  "ejercicios": 4,
  "grafica": {
   "tipo": "secante",
@@ -300,6 +300,33 @@
         "porque": "El punto (1, 2) está en la curva porque 1 más 2 más 4 es 7."
        }
       ]
+     }
+    ]
+   },
+   {
+    "titulo": "¿Para qué sirve?",
+    "corto": "En ingeniería",
+    "bloques": [
+     {
+      "t": "ingenieria",
+      "titulo": "El proceso adiabático del aire",
+      "html": "En una compresión rápida de un gas, sin intercambio de calor, la presión y el volumen cumplen P por V elevado a 1.4. Como P no está despejada, se deriva de forma implícita para saber cuánto cambia la presión cuando cambia el volumen.",
+      "tex": "P\\,V^{1.4}=\\text{constante}\\ \\Rightarrow\\ \\dfrac{dP}{dV}=-1.4\\,\\dfrac{P}{V}",
+      "datos": [
+       {
+        "k": "Presión",
+        "v": "100 kPa"
+       },
+       {
+        "k": "Volumen",
+        "v": "0.02 m³"
+       },
+       {
+        "k": "dP/dV",
+        "v": "−7·10⁶ Pa por m³"
+       }
+      ],
+      "cierre": "El signo negativo dice que al comprimir el gas la presión sube. El 1.4 es el exponente del aire, y el modelo supone un gas ideal."
      }
     ]
    },

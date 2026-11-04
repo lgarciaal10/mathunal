@@ -6,7 +6,7 @@
  "modulo": "Módulo 2 La derivada",
  "posicion": "Lección 2 de 10",
  "titulo": "Reglas de derivación",
- "minutos": 14,
+ "minutos": 16,
  "ejercicios": 1,
  "grafica": {
   "tipo": "secante",
@@ -339,6 +339,45 @@
      {
       "t": "nota",
       "html": "Se puede comprobar. Como x al cuadrado por x al cubo es x a la quinta, su derivada es 5x a la cuarta."
+     }
+    ]
+   },
+   {
+    "titulo": "¿Para qué sirve?",
+    "corto": "En ingeniería",
+    "bloques": [
+     {
+      "t": "ingenieria",
+      "titulo": "La pendiente de una viga empotrada",
+      "html": "Una viga empotrada con una carga puntual en el extremo libre se dobla. La flecha en cada punto es un polinomio, y su derivada es la pendiente de la viga. Con la regla de la potencia se obtiene directo.",
+      "tex": "y(x)=\\dfrac{P\\,x^{2}(3L-x)}{6EI}\\ \\Rightarrow\\ y'(x)=\\dfrac{P\\,x\\,(2L-x)}{2EI}",
+      "datos": [
+       {
+        "k": "Carga P",
+        "v": "1000 N"
+       },
+       {
+        "k": "Longitud L",
+        "v": "2 m"
+       },
+       {
+        "k": "E del acero",
+        "v": "200 GPa"
+       },
+       {
+        "k": "I de la sección",
+        "v": "8·10⁻⁶ m⁴"
+       },
+       {
+        "k": "Pendiente en el extremo",
+        "v": "0.00125 rad"
+       },
+       {
+        "k": "Flecha máxima",
+        "v": "1.67 mm"
+       }
+      ],
+      "cierre": "La pendiente máxima ocurre en el extremo libre y vale P·L² sobre 2EI. Es el modelo clásico de viga en voladizo, y supone material elástico y deformaciones pequeñas."
      }
     ]
    },

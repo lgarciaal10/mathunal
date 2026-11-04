@@ -6,7 +6,7 @@
  "modulo": "Módulo 1 Límites y continuidad",
  "posicion": "Lección 3 de 6",
  "titulo": "Límites notables",
- "minutos": 18,
+ "minutos": 20,
  "ejercicios": 4,
  "grafica": {
   "x": [
@@ -280,6 +280,33 @@
         "porque": "Ahora el argumento coincide, así que ese límite vale 1."
        }
       ]
+     }
+    ]
+   },
+   {
+    "titulo": "¿Para qué sirve?",
+    "corto": "En ingeniería",
+    "bloques": [
+     {
+      "t": "ingenieria",
+      "titulo": "El péndulo y los ángulos pequeños",
+      "html": "Para calcular el período de un péndulo se usa la aproximación de ángulos pequeños, que reemplaza sen θ por θ. Esa aproximación sale del límite notable de sen θ sobre θ, que vale 1 cuando θ tiende a 0.",
+      "tex": "T\\approx 2\\pi\\sqrt{\\dfrac{L}{g}}",
+      "datos": [
+       {
+        "k": "Ángulo",
+        "v": "10° (0.1745 rad)"
+       },
+       {
+        "k": "sen θ vale",
+        "v": "0.17365"
+       },
+       {
+        "k": "Error de usar θ",
+        "v": "0.51 %"
+       }
+      ],
+      "cierre": "Con 30° el error sube a 4.7 %. Por eso la aproximación sirve para oscilaciones pequeñas y deja de servir cuando el péndulo se abre mucho."
      }
     ]
    },

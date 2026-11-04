@@ -6,7 +6,7 @@
  "modulo": "Módulo 1 Límites y continuidad",
  "posicion": "Lección 6 de 6",
  "titulo": "Asíntotas",
- "minutos": 20,
+ "minutos": 22,
  "ejercicios": 4,
  "grafica": {
   "tipo": "asintota",
@@ -262,6 +262,33 @@
      {
       "t": "ojo",
       "html": "Si un cero del denominador también es cero del numerador, y se cancela, no hay asíntota vertical. Lo que hay es un hueco en la gráfica."
+     }
+    ]
+   },
+   {
+    "titulo": "¿Para qué sirve?",
+    "corto": "En ingeniería",
+    "bloques": [
+     {
+      "t": "ingenieria",
+      "titulo": "La velocidad terminal",
+      "html": "Un objeto que cae con resistencia del aire acelera cada vez menos y se acerca a una velocidad máxima. Esa velocidad es una asíntota horizontal de la gráfica de velocidad contra tiempo.",
+      "tex": "v(t)=40\\,\\tanh\\!\\left(\\dfrac{9.81\\,t}{40}\\right)\\ \\text{m/s}",
+      "datos": [
+       {
+        "k": "Velocidad terminal",
+        "v": "40 m/s"
+       },
+       {
+        "k": "A los 5 s",
+        "v": "33.7 m/s"
+       },
+       {
+        "k": "A los 10 s",
+        "v": "39.4 m/s"
+       }
+      ],
+      "cierre": "La recta v igual a 40 es la asíntota horizontal. Los 40 m/s son un valor de ejemplo, y en un caso real dependen de la masa, el área y el coeficiente de arrastre."
      }
     ]
    },

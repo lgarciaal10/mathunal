@@ -6,7 +6,7 @@
  "modulo": "Módulo 2 La derivada",
  "posicion": "Lección 10 de 10",
  "titulo": "Derivadas de orden superior",
- "minutos": 13,
+ "minutos": 15,
  "ejercicios": 1,
  "grafica": {
   "tipo": "secante",
@@ -307,6 +307,37 @@
      {
       "t": "ojo",
       "html": "La segunda derivada es la derivada de f prima. No es f prima al cuadrado, que sería otra cosa."
+     }
+    ]
+   },
+   {
+    "titulo": "¿Para qué sirve?",
+    "corto": "En ingeniería",
+    "bloques": [
+     {
+      "t": "ingenieria",
+      "titulo": "El momento flector de una viga",
+      "html": "En una viga, la segunda derivada de la curva de deflexión es proporcional al momento flector. O sea que derivar dos veces la flecha da la magnitud del momento. Se usa la misma viga empotrada del ejemplo de las reglas de derivación.",
+      "tex": "|M(x)|=E\\,I\\,|y''(x)|=P\\,(L-x)",
+      "datos": [
+       {
+        "k": "Carga",
+        "v": "1000 N"
+       },
+       {
+        "k": "Longitud",
+        "v": "2 m"
+       },
+       {
+        "k": "Momento en el empotramiento",
+        "v": "2000 N·m"
+       },
+       {
+        "k": "Momento en el extremo libre",
+        "v": "0"
+       }
+      ],
+      "cierre": "El momento es máximo en el empotramiento, donde vale P·L, y baja hasta 0 en el extremo libre. Eso explica por qué una viga en voladizo falla casi siempre junto al empotramiento."
      }
     ]
    },

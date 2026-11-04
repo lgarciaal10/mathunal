@@ -6,7 +6,7 @@
  "modulo": "Módulo 2 La derivada",
  "posicion": "Lección 6 de 10",
  "titulo": "Movimiento rectilíneo",
- "minutos": 14,
+ "minutos": 16,
  "ejercicios": 1,
  "grafica": {
   "tipo": "secante",
@@ -296,6 +296,37 @@
      {
       "t": "ojo",
       "html": "La velocidad tiene signo y la {{gl:rap|rapidez}} no. En t igual a 2 la velocidad es −3 metros por segundo y la rapidez es 3 metros por segundo."
+     }
+    ]
+   },
+   {
+    "titulo": "¿Para qué sirve?",
+    "corto": "En ingeniería",
+    "bloques": [
+     {
+      "t": "ingenieria",
+      "titulo": "El frenado de un carro",
+      "html": "Un carro frena con desaceleración constante. La posición es una función del tiempo, la velocidad es su derivada y la desaceleración es la derivada de la velocidad. Con eso se calcula en cuánto tiempo y en qué distancia se detiene.",
+      "tex": "s(t)=20\\,t-2.5\\,t^{2}\\ \\Rightarrow\\ v(t)=20-5\\,t",
+      "datos": [
+       {
+        "k": "Velocidad inicial",
+        "v": "20 m/s (72 km/h)"
+       },
+       {
+        "k": "Desaceleración",
+        "v": "5 m/s²"
+       },
+       {
+        "k": "Tiempo de frenado",
+        "v": "4 s"
+       },
+       {
+        "k": "Distancia",
+        "v": "40 m"
+       }
+      ],
+      "cierre": "La velocidad llega a 0 cuando 20 − 5t vale 0, o sea en t igual a 4 s, y ahí s vale 40 m. Es un modelo con desaceleración constante, que no incluye el tiempo de reacción del conductor."
      }
     ]
    },

@@ -6,7 +6,7 @@
  "modulo": "Módulo 2 La derivada",
  "posicion": "Lección 9 de 10",
  "titulo": "Derivación logarítmica",
- "minutos": 14,
+ "minutos": 16,
  "ejercicios": 1,
  "grafica": {
   "tipo": "secante",
@@ -300,6 +300,33 @@
         "porque": "Se multiplica por y para despejar y prima."
        }
       ]
+     }
+    ]
+   },
+   {
+    "titulo": "¿Para qué sirve?",
+    "corto": "En ingeniería",
+    "bloques": [
+     {
+      "t": "ingenieria",
+      "titulo": "La sensibilidad de una viga",
+      "html": "La flecha de una viga rectangular es proporcional a uno sobre h al cubo, donde h es su espesor. Para saber cuánto afecta un error de fabricación en h, se saca logaritmo y se deriva.",
+      "tex": "\\delta\\propto h^{-3}\\ \\Rightarrow\\ \\dfrac{d\\delta}{\\delta}=-3\\,\\dfrac{dh}{h}",
+      "datos": [
+       {
+        "k": "Error en el espesor",
+        "v": "+2 %"
+       },
+       {
+        "k": "Cambio estimado en la flecha",
+        "v": "−6 %"
+       },
+       {
+        "k": "Cambio exacto",
+        "v": "−5.77 %"
+       }
+      ],
+      "cierre": "Un error pequeño en el espesor se multiplica por 3 en la flecha. Por eso el espesor es una dimensión crítica en el diseño de vigas."
      }
     ]
    },

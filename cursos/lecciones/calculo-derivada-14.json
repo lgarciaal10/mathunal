@@ -6,7 +6,7 @@
  "modulo": "Módulo 3 Aplicaciones de la derivada",
  "posicion": "Lección 5 de 8",
  "titulo": "Optimización",
- "minutos": 21,
+ "minutos": 23,
  "ejercicios": 4,
  "grafica": {
   "x": [
@@ -300,6 +300,37 @@
      {
       "t": "ojo",
       "html": "Revisa siempre que la respuesta tenga sentido, con unidades y dentro del intervalo permitido. Si la variable tiene límites, evalúa también los extremos."
+     }
+    ]
+   },
+   {
+    "titulo": "¿Para qué sirve?",
+    "corto": "En ingeniería",
+    "bloques": [
+     {
+      "t": "ingenieria",
+      "titulo": "La lata de un litro con el menor material",
+      "html": "Una lata cilíndrica debe guardar 1 litro y se quiere gastar el menor material posible. El área de metal depende del radio, y se minimiza derivando.",
+      "tex": "A(r)=2\\pi r^{2}+\\dfrac{2000}{r}\\ \\text{cm}^{2}\\ \\Rightarrow\\ r=\\sqrt[3]{\\dfrac{500}{\\pi}}",
+      "datos": [
+       {
+        "k": "Volumen",
+        "v": "1000 cm³"
+       },
+       {
+        "k": "Radio óptimo",
+        "v": "5.42 cm"
+       },
+       {
+        "k": "Altura",
+        "v": "10.84 cm"
+       },
+       {
+        "k": "Área de metal",
+        "v": "553.6 cm²"
+       }
+      ],
+      "cierre": "La altura óptima es el doble del radio, o sea que la lata es tan alta como ancha. Las latas reales suelen ser más altas, porque pesan otros factores como el costo de fabricación y el agarre."
      }
     ]
    },

@@ -6,7 +6,7 @@
  "modulo": "Módulo 3 Aplicaciones de la derivada",
  "posicion": "Lección 8 de 8",
  "titulo": "Teorema fundamental del cálculo",
- "minutos": 15,
+ "minutos": 17,
  "ejercicios": 1,
  "grafica": {
   "tipo": "area",
@@ -272,6 +272,37 @@
      {
       "t": "ojo",
       "html": "La integral definida es un área con signo. Lo que queda debajo del eje x cuenta como negativo."
+     }
+    ]
+   },
+   {
+    "titulo": "¿Para qué sirve?",
+    "corto": "En ingeniería",
+    "bloques": [
+     {
+      "t": "ingenieria",
+      "titulo": "El trabajo de un resorte",
+      "html": "Para estirar un resorte hace falta una fuerza que crece con el estiramiento. El trabajo es el área bajo la curva de la fuerza contra el desplazamiento, o sea una integral, y el teorema fundamental permite calcularla con una primitiva.",
+      "tex": "W=\\int_{0}^{0.1} 2000\\,x\\,dx=\\Big[\\,1000\\,x^{2}\\,\\Big]_{0}^{0.1}",
+      "datos": [
+       {
+        "k": "Rigidez k",
+        "v": "2000 N/m"
+       },
+       {
+        "k": "Estiramiento",
+        "v": "0.1 m"
+       },
+       {
+        "k": "Fuerza final",
+        "v": "200 N"
+       },
+       {
+        "k": "Trabajo",
+        "v": "10 J"
+       }
+      ],
+      "cierre": "La primitiva de k·x es un medio de k por x al cuadrado, y evaluada da 10 J. Es la energía que queda almacenada en el resorte."
      }
     ]
    },

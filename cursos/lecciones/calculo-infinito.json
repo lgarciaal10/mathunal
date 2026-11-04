@@ -6,7 +6,7 @@
  "modulo": "Módulo 1 Límites y continuidad",
  "posicion": "Lección 5 de 6",
  "titulo": "Límites al infinito",
- "minutos": 19,
+ "minutos": 21,
  "ejercicios": 4,
  "grafica": {
   "tipo": "asintota",
@@ -253,6 +253,33 @@
         "porque": "El numerador crece más rápido y el cociente crece sin límite."
        }
       ]
+     }
+    ]
+   },
+   {
+    "titulo": "¿Para qué sirve?",
+    "corto": "En ingeniería",
+    "bloques": [
+     {
+      "t": "ingenieria",
+      "titulo": "El enfriamiento de una pieza",
+      "html": "Una pieza caliente se enfría en el aire. Su temperatura en grados Celsius sigue una curva exponencial y, cuando pasa mucho tiempo, tiende a la temperatura del ambiente. Ese es un límite cuando t tiende a infinito.",
+      "tex": "T(t)=25+175\\,e^{-t/120}",
+      "datos": [
+       {
+        "k": "Temperatura del ambiente",
+        "v": "25 °C"
+       },
+       {
+        "k": "Pieza al inicio",
+        "v": "200 °C"
+       },
+       {
+        "k": "A los 600 s",
+        "v": "26.18 °C"
+       }
+      ],
+      "cierre": "El límite cuando t tiende a infinito es 25 °C. Es un modelo simplificado, que supone una constante de tiempo de 120 segundos."
      }
     ]
    },

@@ -6,7 +6,7 @@
  "modulo": "Módulo 3 Aplicaciones de la derivada",
  "posicion": "Lección 1 de 8",
  "titulo": "Teorema del valor medio",
- "minutos": 13,
+ "minutos": 15,
  "ejercicios": 1,
  "grafica": {
   "tipo": "tvm",
@@ -252,6 +252,33 @@
      {
       "t": "p",
       "html": "Cuando f(a) y f(b) son iguales, la cuerda es horizontal y el teorema dice que hay un punto con tangente horizontal. Ese caso se llama teorema de Rolle."
+     }
+    ]
+   },
+   {
+    "titulo": "¿Para qué sirve?",
+    "corto": "En ingeniería",
+    "bloques": [
+     {
+      "t": "ingenieria",
+      "titulo": "El control de velocidad por tramo",
+      "html": "En algunos tramos de carretera la velocidad se controla midiendo cuánto tarda un vehículo entre dos puntos, y no la velocidad en un punto. Esa es la velocidad promedio, que es la pendiente de la cuerda en la gráfica de posición.",
+      "tex": "\\bar v=\\dfrac{s(b)-s(a)}{b-a}=s'(c)",
+      "datos": [
+       {
+        "k": "Distancia",
+        "v": "3 km"
+       },
+       {
+        "k": "Tiempo",
+        "v": "2 minutos"
+       },
+       {
+        "k": "Velocidad promedio",
+        "v": "90 km/h"
+       }
+      ],
+      "cierre": "Por el teorema del valor medio, si la posición es continua y derivable, en algún instante el vehículo iba exactamente a 90 km/h. Por eso, si el promedio supera un límite, en algún momento se superó ese límite."
      }
     ]
    },
