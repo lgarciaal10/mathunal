@@ -295,6 +295,18 @@ button{font:inherit;color:inherit;cursor:pointer;background:none;border:0;paddin
 .due .ic{width:20px;height:20px;color:var(--acc-t);flex:none}
 @media (max-width:520px){.chip-btn{flex:1 1 100%}.numin{width:100%}}
 
+.avance{list-style:none;margin:6px 0 12px;padding:0;display:flex;flex-wrap:wrap;gap:8px}
+.avance li{display:inline-flex;align-items:center;gap:6px;padding:6px 14px;border-radius:999px;background:var(--surf2);color:var(--mu);font-size:.92rem}
+.avance li.on{background:var(--acc-soft);color:var(--tx)}
+.avance li .ic{width:16px;height:16px;color:var(--ok)}
+.ins-l{list-style:none;margin:6px 0 12px;padding:0;display:grid;gap:10px}
+.ins-l li{display:flex;gap:12px;align-items:flex-start;padding:10px 14px;border-radius:var(--r-sm);background:var(--surf2);color:var(--mu)}
+.ins-l li.on{color:var(--tx);outline:2px solid var(--ok)}
+.ins-l .b{flex:none;width:28px;height:28px;border-radius:999px;border:2px dashed var(--dim);display:inline-flex;align-items:center;justify-content:center}
+.ins-l li.on .b{border:2px solid var(--ok);background:rgba(70,194,143,.18)}
+.ins-l .b .ic{width:16px;height:16px;color:var(--ok)}
+.fine2{font-size:.88rem}
+
 </style>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
   <symbol id="i-int" viewBox="0 0 24 24"><path d="M16 3.5c-2.6 0-3.4 1.6-3.4 4.2v8.6c0 2.6-.8 4.2-3.4 4.2"/></symbol>
@@ -416,8 +428,8 @@ button{font:inherit;color:inherit;cursor:pointer;background:none;border:0;paddin
  "modulo": "Módulo 1 Límites y continuidad",
  "posicion": "Lección 6 de 6",
  "titulo": "Asíntotas",
- "minutos": 14,
- "ejercicios": 1,
+ "minutos": 20,
+ "ejercicios": 4,
  "grafica": {
   "tipo": "asintota",
   "x": [
@@ -685,6 +697,70 @@ button{font:inherit;color:inherit;cursor:pointer;background:none;border:0;paddin
      {
       "t": "nota",
       "html": "Divide arriba y abajo entre x y toma el límite."
+     }
+    ]
+   },
+   {
+    "titulo": "Mini simulacro",
+    "corto": "Simulacro",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Tres preguntas reales del banco de MathUNAL sobre este tema. Responde sin mirar los pasos."
+     },
+     {
+      "t": "simulacro",
+      "titulo": "Mini simulacro",
+      "preguntas": [
+       {
+        "texto": "Para la función $f(x)=\\dfrac{x^2}{x^2-1}$, la cantidad de asíntotas (horizontales + verticales) es:",
+        "resumen": "El denominador se anula en $x=1$ y $x=-1$, que son dos asíntotas verticales. El límite en el infinito es 1 y da una asíntota horizontal. En total son 3.",
+        "fuente": "Banco MathUNAL, Parcial 1, 2025-2",
+        "tipo": "mcq",
+        "opciones": [
+         "$1$",
+         "$2$",
+         "$3$",
+         "$4$"
+        ],
+        "correcta": 2
+       },
+       {
+        "texto": "Las asíntotas verticales de $f(x)=\\dfrac{x+1}{x^{2}-4}$ son:",
+        "resumen": "El denominador $x^2-4$ se anula en $x=2$ y $x=-2$, y el numerador no se anula en ninguno. Son dos asíntotas verticales. El cero del numerador, $x=-1$, no cuenta.",
+        "fuente": "Banco MathUNAL, preguntas del corte 1",
+        "tipo": "mcq",
+        "opciones": [
+         "$x=2$ y $x=-2$",
+         "solo $x=2$",
+         "$x=-1$",
+         "no tiene"
+        ],
+        "correcta": 0
+       },
+       {
+        "texto": "La asíntota horizontal de $f(x)=\\dfrac{5x-2}{x+3}$ es:",
+        "resumen": "Los grados son iguales, así que el límite en el infinito es el cociente de los coeficientes de mayor grado, $\\frac{5}{1}=5$. La asíntota horizontal es $y=5$.",
+        "fuente": "Banco MathUNAL, simulacro de Cálculo Diferencial",
+        "tipo": "mcq",
+        "opciones": [
+         "$y=5$",
+         "$y=0$",
+         "$x=-3$",
+         "no tiene"
+        ],
+        "correcta": 0
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "Tu repaso",
+    "corto": "Repaso",
+    "bloques": [
+     {
+      "t": "repaso"
      }
     ]
    },
@@ -1078,6 +1154,20 @@ button{font:inherit;color:inherit;cursor:pointer;background:none;border:0;paddin
   function mtH(s){ return /\$/.test(s)?mt(s):s; }
   function mathIn(el){ if(window.MU&&MU.math) MU.math(el); }
   function fechaCorta(ms){ try{ return new Date(ms).toLocaleDateString('es-CO',{day:'numeric',month:'long'}); }catch(e){ return ''; } }
+  var PG=(function(){
+    var KEY='mu-progreso';
+    function leer(){ try{ return JSON.parse(localStorage.getItem(KEY))||{}; }catch(e){ return {}; } }
+    function guardar(o){ try{ localStorage.setItem(KEY,JSON.stringify(o)); }catch(e){} }
+    function avisar(){ try{ document.dispatchEvent(new CustomEvent('mu-repaso')); }catch(e){} }
+    function reg(o,id){ o[id]=o[id]||{modos:{},ins:{}}; o[id].modos=o[id].modos||{}; o[id].ins=o[id].ins||{}; return o[id]; }
+    return {
+      get:function(id){ var r=leer()[id]; return r?{modos:r.modos||{},ins:r.ins||{}}:{modos:{},ins:{}}; },
+      modo:function(id,m){ var o=leer(), r=reg(o,id); if(r.modos[m]) return; r.modos[m]=Date.now(); if(r.modos.ver&&r.modos.leer&&r.modos.practicar&&!r.ins.completo) r.ins.completo=Date.now(); guardar(o); avisar(); },
+      insignia:function(id,k){ var o=leer(), r=reg(o,id); if(r.ins[k]) return false; r.ins[k]=Date.now(); guardar(o); avisar(); return true; },
+      borrar:function(id){ var o=leer(); delete o[id]; guardar(o); avisar(); }
+    };
+  })();
+  window.MU=window.MU||{}; window.MU.progreso=PG;
   var SR=(function(){
     var KEY='mu-repaso', DIAS=[1,3,7,14,30];
     function leer(){ try{ return JSON.parse(localStorage.getItem(KEY))||{}; }catch(e){ return {}; } }
@@ -1086,11 +1176,11 @@ button{font:inherit;color:inherit;cursor:pointer;background:none;border:0;paddin
     return {
       get:function(id){ return leer()[id]||null; },
       registrar:function(id,titulo,calidad){
-        var o=leer(), r=o[id]||{titulo:titulo,caja:0,aciertos:0,fallos:0}, now=Date.now();
+        var o=leer(), r=o[id]||{titulo:titulo,caja:0,aciertos:0,fallos:0}, now=Date.now(), vencida=!!(o[id]&&o[id].prox<=now);
         if(calidad==='ok'){ r.caja=Math.min(r.caja+1,DIAS.length-1); r.aciertos++; }
         else if(calidad==='ayuda'){ r.aciertos++; }
         else { r.caja=0; r.fallos++; }
-        r.titulo=titulo; r.ultimo=now; r.prox=now+DIAS[r.caja]*86400000; r.calidad=calidad; o[id]=r; guardar(o); avisar(); return r;
+        r.titulo=titulo; r.ultimo=now; r.prox=now+DIAS[r.caja]*86400000; r.calidad=calidad; o[id]=r; guardar(o); if(vencida&&calidad!=='fallo') PG.insignia(id,'puntual'); avisar(); return r;
       },
       pendientes:function(){ var o=leer(), now=Date.now(); return Object.keys(o).filter(function(k){ return o[k].prox<=now; }).map(function(k){ return {id:k,titulo:o[k].titulo,prox:o[k].prox}; }); },
       borrar:function(){ try{ localStorage.removeItem(KEY); }catch(e){} avisar(); }
@@ -1127,7 +1217,7 @@ button{font:inherit;color:inherit;cursor:pointer;background:none;border:0;paddin
     if(hb) hb.addEventListener('click',pista);
     gu.querySelector('button').addEventListener('click',function(){ cerrar(true); });
   }
-  function Quiz(host){ var Q=L.pregunta; QuizCore(host,{head:'Calcula <span data-tex="'+attr(Q.tex)+'"></span>',opciones:Q.opciones,correcta:Q.correcta,explicacion:Q.explicacion,pistas:Q.pistas,errores:Q.errores,onDone:function(r){ SR.registrar(L.id,L.titulo,r.calidad); }}); mathIn(host); }
+  function Quiz(host){ var Q=L.pregunta; QuizCore(host,{head:'Calcula <span data-tex="'+attr(Q.tex)+'"></span>',opciones:Q.opciones,correcta:Q.correcta,explicacion:Q.explicacion,pistas:Q.pistas,errores:Q.errores,onDone:function(r){ SR.registrar(L.id,L.titulo,r.calidad); if(r.calidad==='ok') PG.insignia(L.id,'sinpistas'); }}); mathIn(host); }
 
   /* mini simulacro con preguntas del banco. Cada una puede ser de opción múltiple o numérica */
   function Simulacro(root,b){
@@ -1142,7 +1232,7 @@ button{font:inherit;color:inherit;cursor:pointer;background:none;border:0;paddin
       bt.addEventListener('click',chk); inp.addEventListener('keydown',function(e){ if(e.key==='Enter'){ e.preventDefault(); chk(); } });
     }
     function fin(){
-      var calidad=aciertos>=P.length?'ok':(aciertos>=Math.ceil(P.length*2/3)?'ayuda':'fallo'), r=SR.registrar(L.id,L.titulo,calidad);
+      if(aciertos>=P.length) PG.insignia(L.id,'simulacro'); var calidad=aciertos>=P.length?'ok':(aciertos>=Math.ceil(P.length*2/3)?'ayuda':'fallo'), r=SR.registrar(L.id,L.titulo,calidad);
       var msg=aciertos>=P.length?'Muy bien. Este tema ya lo estás manejando.':(aciertos>=Math.ceil(P.length*2/3)?'Vas bien. Mira la explicación de la que fallaste para no repetir el error.':'Vale la pena volver a los pasos y a las pistas de esta lección. El repaso queda programado.');
       root.innerHTML='<div class="sim-h"><span class="chip soft">Resultado</span></div><p class="sim-score"><span class="num big">'+aciertos+'</span> de '+P.length+' correctas</p><p>'+msg+'</p><p class="mu">Próximo repaso el '+fechaCorta(r.prox)+'.</p><button class="btn sec sm" type="button" data-redo>Intentarlo otra vez</button>';
       root.querySelector('[data-redo]').addEventListener('click',function(){ i=0; aciertos=0; pintar(); });
@@ -1194,12 +1284,15 @@ button{font:inherit;color:inherit;cursor:pointer;background:none;border:0;paddin
   /* tarjeta de repaso espaciado y aviso cuando toca repasar */
   function RepasoCard(el){
     function pintar(){
-      var r=SR.get(L.id), pend=SR.pendientes().filter(function(x){ return x.id!==L.id; }), h='<p class="act-t">'+ic('i-clock')+'Tu repaso</p>';
+      var r=SR.get(L.id), pend=SR.pendientes().filter(function(x){ return x.id!==L.id; }), pg=PG.get(L.id), h='<p class="act-t">'+ic('i-clock')+'Tu avance y tu repaso</p>';
+      h+='<ul class="avance" aria-label="Modos de estudio que has usado">'+[['ver','Ver'],['leer','Leer'],['practicar','Practicar']].map(function(m){ var on=!!pg.modos[m[0]]; return '<li class="'+(on?'on':'')+'">'+(on?ic('i-check'):'')+m[1]+'<span class="sr">'+(on?', ya lo usaste':', todavía no')+'</span></li>'; }).join('')+'</ul>';
+      h+='<ul class="ins-l" aria-label="Insignias de esta lección">'+[['completo','Lo viste todo','Usaste Ver, Leer y Practicar.'],['sinpistas','Sin pistas','Acertaste el quiz al primer intento y sin pistas.'],['simulacro','Simulacro perfecto','Respondiste bien las 3 preguntas del mini simulacro.'],['puntual','Repasaste a tiempo','Volviste a la lección el día que te tocaba.']].filter(function(i){ return i[0]!=='simulacro'||document.querySelector('.card.sim'); }).map(function(i){ var on=!!pg.ins[i[0]]; return '<li class="'+(on?'on':'')+'"><span class="b" aria-hidden="true">'+(on?ic('i-check'):'')+'</span><span><b>'+i[1]+'</b><span class="sr">'+(on?', conseguida':', por conseguir')+'</span><br><span class="mu">'+i[2]+'</span></span></li>'; }).join('')+'</ul>';
       if(!r) h+='<p>Cuando respondas el quiz o el mini simulacro, aquí queda programado cuándo volver a esta lección. Repasar a intervalos, y no todo el mismo día, ayuda a que se te quede.</p>';
       else { var due=r.prox<=Date.now(); h+='<p>'+(due?'Hoy toca repasar esta lección.':'Vuelve a repasar esta lección el <b>'+fechaCorta(r.prox)+'</b>.')+'</p><p class="mu">Registrados en este navegador, '+r.aciertos+' aciertos y '+r.fallos+' fallos.</p>'; }
       if(pend.length) h+='<p>También te toca repasar</p><ul class="rep-l">'+pend.slice(0,4).map(function(x){ return '<li>'+esc(x.titulo)+'</li>'; }).join('')+'</ul>';
-      if(r) h+='<button class="btn sec sm" type="button" data-borrar>Borrar mi registro</button>';
-      el.innerHTML=h; var bb=el.querySelector('[data-borrar]'); if(bb) bb.addEventListener('click',function(){ SR.borrar(); });
+      h+='<p class="mu fine2">Aquí no hay rachas ni puntos. Las insignias solo cuentan cómo estudiaste, y todo queda guardado en este navegador.</p>';
+      if(r||Object.keys(pg.ins).length) h+='<button class="btn sec sm" type="button" data-borrar>Borrar mi registro</button>';
+      el.innerHTML=h; var bb=el.querySelector('[data-borrar]'); if(bb) bb.addEventListener('click',function(){ SR.borrar(); PG.borrar(L.id); });
     }
     pintar(); document.addEventListener('mu-repaso',pintar);
   }
@@ -1348,6 +1441,7 @@ button{font:inherit;color:inherit;cursor:pointer;background:none;border:0;paddin
   var MODES=['ver','leer','practicar'];
   function setMode(m,fromUser){
     if(MODES.indexOf(m)<0) m='ver';
+    PG.modo(L.id,m);
     MODES.forEach(function(k){ document.getElementById('m-'+k).classList.toggle('on',k===m); document.getElementById('mt-'+k).setAttribute('aria-selected',k===m?'true':'false'); });
     if(fromUser){ try{ localStorage.setItem('mu-modo',m); }catch(e){} document.getElementById('modehint').textContent='Quedó guardado como tu modo.'; }
     if(window.MU&&MU.math) MU.math(document.getElementById('m-'+m));

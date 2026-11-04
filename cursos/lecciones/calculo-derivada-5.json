@@ -6,8 +6,8 @@
  "modulo": "Módulo 2 La derivada",
  "posicion": "Lección 5 de 10",
  "titulo": "Razón de cambio",
- "minutos": 14,
- "ejercicios": 1,
+ "minutos": 20,
+ "ejercicios": 4,
  "grafica": {
   "tipo": "secante",
   "x": [
@@ -328,6 +328,60 @@
      {
       "t": "nota",
       "html": "Deriva el área respecto al tiempo y después reemplaza los valores."
+     }
+    ]
+   },
+   {
+    "titulo": "Mini simulacro",
+    "corto": "Simulacro",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Tres preguntas reales del banco de MathUNAL sobre este tema. Responde sin mirar los pasos."
+     },
+     {
+      "t": "simulacro",
+      "titulo": "Mini simulacro",
+      "preguntas": [
+       {
+        "texto": "El radio de una esfera aumenta a razón de $2$ cm/s. Cuando $r=3$ cm, la tasa de cambio del volumen es:",
+        "resumen": "Con $V=\\frac{4}{3}\\pi r^3$ se deriva respecto al tiempo, $\\frac{dV}{dt}=4\\pi r^2\\frac{dr}{dt}$. Con $r=3$ y $\\frac{dr}{dt}=2$ queda $4\\pi\\cdot 9\\cdot 2=72\\pi$.",
+        "fuente": "Banco MathUNAL, Parcial 3, 2025-2",
+        "tipo": "mcq",
+        "opciones": [
+         "$72\\pi$ cm³/s",
+         "$36\\pi$ cm³/s",
+         "$12\\pi$ cm³/s",
+         "$18\\pi$ cm³/s"
+        ],
+        "correcta": 0
+       },
+       {
+        "texto": "Un tanque cónico (vértice abajo, radio 3 m, altura 6 m) se llena a $2\\ \\text{m}^3/\\text{min}$. ¿A qué rapidez (m/min) sube el nivel cuando $h=4$ m? Responde en la forma $\\tfrac{1}{a\\pi}$ escribiendo solo $a$.",
+        "resumen": "Por semejanza $r=\\frac{h}{2}$, así que $V=\\frac{\\pi h^3}{12}$. Se deriva, $\\frac{dV}{dt}=\\frac{\\pi h^2}{4}\\frac{dh}{dt}$, y con $h=4$ y $\\frac{dV}{dt}=2$ sale $\\frac{dh}{dt}=\\frac{1}{2\\pi}$, o sea $a=2$.",
+        "fuente": "Banco MathUNAL, simulacro de Cálculo Diferencial",
+        "tipo": "numerica",
+        "respuesta": "2",
+        "tolNum": 0.001
+       },
+       {
+        "texto": "Para una esfera $V=\\tfrac{4}{3}\\pi r^{3}$, el valor de $\\dfrac{dV}{dr}$ en $r=3$ es (decimal, 1 cifra):",
+        "resumen": "Se deriva $V=\\frac{4}{3}\\pi r^3$ y queda $\\frac{dV}{dr}=4\\pi r^2$. En $r=3$ vale $36\\pi\\approx 113.1$.",
+        "fuente": "Banco MathUNAL, simulacro de Cálculo Diferencial",
+        "tipo": "numerica",
+        "respuesta": "113.1",
+        "tolNum": 0.1
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "Tu repaso",
+    "corto": "Repaso",
+    "bloques": [
+     {
+      "t": "repaso"
      }
     ]
    },

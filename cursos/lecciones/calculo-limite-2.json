@@ -6,8 +6,8 @@
  "modulo": "Módulo 1 Límites y continuidad",
  "posicion": "Lección 2 de 6",
  "titulo": "Límites por factorización",
- "minutos": 12,
- "ejercicios": 1,
+ "minutos": 18,
+ "ejercicios": 4,
  "grafica": {
   "x": [
    -0.5,
@@ -275,6 +275,60 @@
     "bloques": [
      {
       "t": "pregunta"
+     }
+    ]
+   },
+   {
+    "titulo": "Mini simulacro",
+    "corto": "Simulacro",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Tres preguntas reales del banco de MathUNAL sobre este tema. Responde sin mirar los pasos."
+     },
+     {
+      "t": "simulacro",
+      "titulo": "Mini simulacro",
+      "preguntas": [
+       {
+        "texto": "$\\displaystyle\\lim_{x\\to2}\\dfrac{x^{2}-4}{x^{2}-x-2}$ (decimal, 4 cifras)",
+        "resumen": "Se factoriza $x^2-4=(x-2)(x+2)$ y $x^2-x-2=(x-2)(x+1)$. Al cancelar queda $\\frac{x+2}{x+1}$, que en $x=2$ vale $\\frac{4}{3}\\approx 1.3333$.",
+        "fuente": "Banco MathUNAL, preguntas del corte 1",
+        "tipo": "numerica",
+        "respuesta": "1.3333",
+        "tolNum": 0.01
+       },
+       {
+        "texto": "Calcule $\\displaystyle\\lim_{x\\to3}\\dfrac{x^2-9}{x^2-x-6}$.",
+        "resumen": "Se factoriza $x^2-9=(x-3)(x+3)$ y $x^2-x-6=(x-3)(x+2)$. Al cancelar queda $\\frac{x+3}{x+2}$, que en $x=3$ vale $\\frac{6}{5}$.",
+        "fuente": "Banco MathUNAL, preguntas del corte 1",
+        "tipo": "mcq",
+        "opciones": [
+         "$\\dfrac{6}{5}$",
+         "$1$",
+         "$0$",
+         "No existe"
+        ],
+        "correcta": 0
+       },
+       {
+        "texto": "$\\displaystyle\\lim_{x\\to3}\\dfrac{x^{2}-9}{x-3}$",
+        "resumen": "Se factoriza $x^2-9=(x-3)(x+3)$, se cancela $x-3$ y queda $x+3$, que en $x=3$ vale 6.",
+        "fuente": "Banco MathUNAL, simulacro de Cálculo Diferencial",
+        "tipo": "numerica",
+        "respuesta": "6",
+        "tolNum": 0.001
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "Tu repaso",
+    "corto": "Repaso",
+    "bloques": [
+     {
+      "t": "repaso"
      }
     ]
    },

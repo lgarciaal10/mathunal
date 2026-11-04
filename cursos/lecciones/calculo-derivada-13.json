@@ -6,8 +6,8 @@
  "modulo": "Módulo 3 Aplicaciones de la derivada",
  "posicion": "Lección 4 de 8",
  "titulo": "Análisis de gráficas",
- "minutos": 15,
- "ejercicios": 1,
+ "minutos": 21,
+ "ejercicios": 4,
  "grafica": {
   "x": [
    -4,
@@ -320,6 +320,70 @@
      {
       "t": "nota",
       "html": "Encuentra el punto crítico y evalúa la función ahí."
+     }
+    ]
+   },
+   {
+    "titulo": "Mini simulacro",
+    "corto": "Simulacro",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Tres preguntas reales del banco de MathUNAL sobre este tema. Responde sin mirar los pasos."
+     },
+     {
+      "t": "simulacro",
+      "titulo": "Mini simulacro",
+      "preguntas": [
+       {
+        "texto": "¿Cuántos puntos de inflexión tiene $f(x)=x^4-6x^2+5$?",
+        "resumen": "La segunda derivada es $f''(x)=12x^2-12$, que vale 0 en $x=\\pm1$ y cambia de signo en cada uno. Hay 2 puntos de inflexión.",
+        "fuente": "Banco MathUNAL, preguntas del corte 3",
+        "tipo": "mcq",
+        "opciones": [
+         "$2$",
+         "$1$",
+         "$0$",
+         "$3$"
+        ],
+        "correcta": 0
+       },
+       {
+        "texto": "Para $f(x)=x^{3}$, en $x=0$ se tiene:",
+        "resumen": "En $x=0$ la derivada $3x^2$ vale 0 pero no cambia de signo, mientras que la segunda derivada $6x$ sí cambia de signo. Es un punto de inflexión con tangente horizontal y no un extremo.",
+        "fuente": "Banco MathUNAL, preguntas del corte 3",
+        "tipo": "mcq",
+        "opciones": [
+         "un punto de inflexión (con tangente horizontal), no un extremo",
+         "un máximo local",
+         "un mínimo local",
+         "una discontinuidad"
+        ],
+        "correcta": 0
+       },
+       {
+        "texto": "Si en un intervalo $f'(x)>0$ y $f''(x)<0$, entonces $f$:",
+        "resumen": "Si $f'>0$ la función crece, y si $f''<0$ la pendiente va disminuyendo, o sea que la curva se abre hacia abajo.",
+        "fuente": "Banco MathUNAL, simulacro de Cálculo Diferencial",
+        "tipo": "mcq",
+        "opciones": [
+         "crece y es cóncava hacia abajo",
+         "decrece y es cóncava hacia arriba",
+         "crece y es cóncava hacia arriba",
+         "tiene un máximo"
+        ],
+        "correcta": 0
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "Tu repaso",
+    "corto": "Repaso",
+    "bloques": [
+     {
+      "t": "repaso"
      }
     ]
    },

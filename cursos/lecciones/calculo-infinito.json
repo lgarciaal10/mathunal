@@ -6,8 +6,8 @@
  "modulo": "Módulo 1 Límites y continuidad",
  "posicion": "Lección 5 de 6",
  "titulo": "Límites al infinito",
- "minutos": 13,
- "ejercicios": 1,
+ "minutos": 19,
+ "ejercicios": 4,
  "grafica": {
   "tipo": "asintota",
   "x": [
@@ -266,6 +266,70 @@
      {
       "t": "nota",
       "html": "Compara los grados y los coeficientes mayores."
+     }
+    ]
+   },
+   {
+    "titulo": "Mini simulacro",
+    "corto": "Simulacro",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Tres preguntas reales del banco de MathUNAL sobre este tema. Responde sin mirar los pasos."
+     },
+     {
+      "t": "simulacro",
+      "titulo": "Mini simulacro",
+      "preguntas": [
+       {
+        "texto": "Calcule $\\displaystyle\\lim_{x\\to\\infty}\\left(\\sqrt{x^2+3x}-x\\right)$.",
+        "resumen": "Se multiplica y se divide por el conjugado $\\sqrt{x^2+3x}+x$. El numerador queda $3x$ y, al dividir arriba y abajo entre $x$, el límite es $\\frac{3}{1+1}=\\frac{3}{2}$.",
+        "fuente": "Banco MathUNAL, simulacro de Cálculo Diferencial",
+        "tipo": "mcq",
+        "opciones": [
+         "$\\dfrac{3}{2}$",
+         "$0$",
+         "$3$",
+         "$\\infty$"
+        ],
+        "correcta": 0
+       },
+       {
+        "texto": "Calcule $\\displaystyle\\lim_{x\\to\\infty}\\dfrac{3x^2-x+5}{2x^2+7}$.",
+        "resumen": "Los dos grados son iguales, así que el límite es el cociente de los coeficientes de mayor grado, $\\frac{3}{2}$.",
+        "fuente": "Banco MathUNAL, simulacro de Cálculo Diferencial",
+        "tipo": "mcq",
+        "opciones": [
+         "$\\dfrac{3}{2}$",
+         "$0$",
+         "$\\infty$",
+         "$1$"
+        ],
+        "correcta": 0
+       },
+       {
+        "texto": "$\\displaystyle\\lim_{x\\to\\infty}\\dfrac{2x+1}{\\sqrt{x^{2}+3}}$ es:",
+        "resumen": "Al dividir arriba y abajo entre $x$, el numerador queda $2+\\frac{1}{x}$ y el denominador $\\sqrt{1+\\frac{3}{x^2}}$. Tienden a 2 y a 1, así que el límite es 2.",
+        "fuente": "Banco MathUNAL, simulacro de Cálculo Diferencial",
+        "tipo": "mcq",
+        "opciones": [
+         "$2$",
+         "$0$",
+         "$1$",
+         "$\\infty$"
+        ],
+        "correcta": 0
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "Tu repaso",
+    "corto": "Repaso",
+    "bloques": [
+     {
+      "t": "repaso"
      }
     ]
    },

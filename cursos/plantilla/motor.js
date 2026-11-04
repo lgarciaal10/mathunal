@@ -223,6 +223,20 @@
   function mtH(s){ return /\$/.test(s)?mt(s):s; }
   function mathIn(el){ if(window.MU&&MU.math) MU.math(el); }
   function fechaCorta(ms){ try{ return new Date(ms).toLocaleDateString('es-CO',{day:'numeric',month:'long'}); }catch(e){ return ''; } }
+  var PG=(function(){
+    var KEY='mu-progreso';
+    function leer(){ try{ return JSON.parse(localStorage.getItem(KEY))||{}; }catch(e){ return {}; } }
+    function guardar(o){ try{ localStorage.setItem(KEY,JSON.stringify(o)); }catch(e){} }
+    function avisar(){ try{ document.dispatchEvent(new CustomEvent('mu-repaso')); }catch(e){} }
+    function reg(o,id){ o[id]=o[id]||{modos:{},ins:{}}; o[id].modos=o[id].modos||{}; o[id].ins=o[id].ins||{}; return o[id]; }
+    return {
+      get:function(id){ var r=leer()[id]; return r?{modos:r.modos||{},ins:r.ins||{}}:{modos:{},ins:{}}; },
+      modo:function(id,m){ var o=leer(), r=reg(o,id); if(r.modos[m]) return; r.modos[m]=Date.now(); if(r.modos.ver&&r.modos.leer&&r.modos.practicar&&!r.ins.completo) r.ins.completo=Date.now(); guardar(o); avisar(); },
+      insignia:function(id,k){ var o=leer(), r=reg(o,id); if(r.ins[k]) return false; r.ins[k]=Date.now(); guardar(o); avisar(); return true; },
+      borrar:function(id){ var o=leer(); delete o[id]; guardar(o); avisar(); }
+    };
+  })();
+  window.MU=window.MU||{}; window.MU.progreso=PG;
   var SR=(function(){
     var KEY='mu-repaso', DIAS=[1,3,7,14,30];
     function leer(){ try{ return JSON.parse(localStorage.getItem(KEY))||{}; }catch(e){ return {}; } }
@@ -231,11 +245,11 @@
     return {
       get:function(id){ return leer()[id]||null; },
       registrar:function(id,titulo,calidad){
-        var o=leer(), r=o[id]||{titulo:titulo,caja:0,aciertos:0,fallos:0}, now=Date.now();
+        var o=leer(), r=o[id]||{titulo:titulo,caja:0,aciertos:0,fallos:0}, now=Date.now(), vencida=!!(o[id]&&o[id].prox<=now);
         if(calidad==='ok'){ r.caja=Math.min(r.caja+1,DIAS.length-1); r.aciertos++; }
         else if(calidad==='ayuda'){ r.aciertos++; }
         else { r.caja=0; r.fallos++; }
-        r.titulo=titulo; r.ultimo=now; r.prox=now+DIAS[r.caja]*86400000; r.calidad=calidad; o[id]=r; guardar(o); avisar(); return r;
+        r.titulo=titulo; r.ultimo=now; r.prox=now+DIAS[r.caja]*86400000; r.calidad=calidad; o[id]=r; guardar(o); if(vencida&&calidad!=='fallo') PG.insignia(id,'puntual'); avisar(); return r;
       },
       pendientes:function(){ var o=leer(), now=Date.now(); return Object.keys(o).filter(function(k){ return o[k].prox<=now; }).map(function(k){ return {id:k,titulo:o[k].titulo,prox:o[k].prox}; }); },
       borrar:function(){ try{ localStorage.removeItem(KEY); }catch(e){} avisar(); }
@@ -272,7 +286,7 @@
     if(hb) hb.addEventListener('click',pista);
     gu.querySelector('button').addEventListener('click',function(){ cerrar(true); });
   }
-  function Quiz(host){ var Q=L.pregunta; QuizCore(host,{head:'Calcula <span data-tex="'+attr(Q.tex)+'"></span>',opciones:Q.opciones,correcta:Q.correcta,explicacion:Q.explicacion,pistas:Q.pistas,errores:Q.errores,onDone:function(r){ SR.registrar(L.id,L.titulo,r.calidad); }}); mathIn(host); }
+  function Quiz(host){ var Q=L.pregunta; QuizCore(host,{head:'Calcula <span data-tex="'+attr(Q.tex)+'"></span>',opciones:Q.opciones,correcta:Q.correcta,explicacion:Q.explicacion,pistas:Q.pistas,errores:Q.errores,onDone:function(r){ SR.registrar(L.id,L.titulo,r.calidad); if(r.calidad==='ok') PG.insignia(L.id,'sinpistas'); }}); mathIn(host); }
 
   /* mini simulacro con preguntas del banco. Cada una puede ser de opción múltiple o numérica */
   function Simulacro(root,b){
@@ -287,7 +301,7 @@
       bt.addEventListener('click',chk); inp.addEventListener('keydown',function(e){ if(e.key==='Enter'){ e.preventDefault(); chk(); } });
     }
     function fin(){
-      var calidad=aciertos>=P.length?'ok':(aciertos>=Math.ceil(P.length*2/3)?'ayuda':'fallo'), r=SR.registrar(L.id,L.titulo,calidad);
+      if(aciertos>=P.length) PG.insignia(L.id,'simulacro'); var calidad=aciertos>=P.length?'ok':(aciertos>=Math.ceil(P.length*2/3)?'ayuda':'fallo'), r=SR.registrar(L.id,L.titulo,calidad);
       var msg=aciertos>=P.length?'Muy bien. Este tema ya lo estás manejando.':(aciertos>=Math.ceil(P.length*2/3)?'Vas bien. Mira la explicación de la que fallaste para no repetir el error.':'Vale la pena volver a los pasos y a las pistas de esta lección. El repaso queda programado.');
       root.innerHTML='<div class="sim-h"><span class="chip soft">Resultado</span></div><p class="sim-score"><span class="num big">'+aciertos+'</span> de '+P.length+' correctas</p><p>'+msg+'</p><p class="mu">Próximo repaso el '+fechaCorta(r.prox)+'.</p><button class="btn sec sm" type="button" data-redo>Intentarlo otra vez</button>';
       root.querySelector('[data-redo]').addEventListener('click',function(){ i=0; aciertos=0; pintar(); });
@@ -339,12 +353,15 @@
   /* tarjeta de repaso espaciado y aviso cuando toca repasar */
   function RepasoCard(el){
     function pintar(){
-      var r=SR.get(L.id), pend=SR.pendientes().filter(function(x){ return x.id!==L.id; }), h='<p class="act-t">'+ic('i-clock')+'Tu repaso</p>';
+      var r=SR.get(L.id), pend=SR.pendientes().filter(function(x){ return x.id!==L.id; }), pg=PG.get(L.id), h='<p class="act-t">'+ic('i-clock')+'Tu avance y tu repaso</p>';
+      h+='<ul class="avance" aria-label="Modos de estudio que has usado">'+[['ver','Ver'],['leer','Leer'],['practicar','Practicar']].map(function(m){ var on=!!pg.modos[m[0]]; return '<li class="'+(on?'on':'')+'">'+(on?ic('i-check'):'')+m[1]+'<span class="sr">'+(on?', ya lo usaste':', todavía no')+'</span></li>'; }).join('')+'</ul>';
+      h+='<ul class="ins-l" aria-label="Insignias de esta lección">'+[['completo','Lo viste todo','Usaste Ver, Leer y Practicar.'],['sinpistas','Sin pistas','Acertaste el quiz al primer intento y sin pistas.'],['simulacro','Simulacro perfecto','Respondiste bien las 3 preguntas del mini simulacro.'],['puntual','Repasaste a tiempo','Volviste a la lección el día que te tocaba.']].filter(function(i){ return i[0]!=='simulacro'||document.querySelector('.card.sim'); }).map(function(i){ var on=!!pg.ins[i[0]]; return '<li class="'+(on?'on':'')+'"><span class="b" aria-hidden="true">'+(on?ic('i-check'):'')+'</span><span><b>'+i[1]+'</b><span class="sr">'+(on?', conseguida':', por conseguir')+'</span><br><span class="mu">'+i[2]+'</span></span></li>'; }).join('')+'</ul>';
       if(!r) h+='<p>Cuando respondas el quiz o el mini simulacro, aquí queda programado cuándo volver a esta lección. Repasar a intervalos, y no todo el mismo día, ayuda a que se te quede.</p>';
       else { var due=r.prox<=Date.now(); h+='<p>'+(due?'Hoy toca repasar esta lección.':'Vuelve a repasar esta lección el <b>'+fechaCorta(r.prox)+'</b>.')+'</p><p class="mu">Registrados en este navegador, '+r.aciertos+' aciertos y '+r.fallos+' fallos.</p>'; }
       if(pend.length) h+='<p>También te toca repasar</p><ul class="rep-l">'+pend.slice(0,4).map(function(x){ return '<li>'+esc(x.titulo)+'</li>'; }).join('')+'</ul>';
-      if(r) h+='<button class="btn sec sm" type="button" data-borrar>Borrar mi registro</button>';
-      el.innerHTML=h; var bb=el.querySelector('[data-borrar]'); if(bb) bb.addEventListener('click',function(){ SR.borrar(); });
+      h+='<p class="mu fine2">Aquí no hay rachas ni puntos. Las insignias solo cuentan cómo estudiaste, y todo queda guardado en este navegador.</p>';
+      if(r||Object.keys(pg.ins).length) h+='<button class="btn sec sm" type="button" data-borrar>Borrar mi registro</button>';
+      el.innerHTML=h; var bb=el.querySelector('[data-borrar]'); if(bb) bb.addEventListener('click',function(){ SR.borrar(); PG.borrar(L.id); });
     }
     pintar(); document.addEventListener('mu-repaso',pintar);
   }
@@ -493,6 +510,7 @@
   var MODES=['ver','leer','practicar'];
   function setMode(m,fromUser){
     if(MODES.indexOf(m)<0) m='ver';
+    PG.modo(L.id,m);
     MODES.forEach(function(k){ document.getElementById('m-'+k).classList.toggle('on',k===m); document.getElementById('mt-'+k).setAttribute('aria-selected',k===m?'true':'false'); });
     if(fromUser){ try{ localStorage.setItem('mu-modo',m); }catch(e){} document.getElementById('modehint').textContent='Quedó guardado como tu modo.'; }
     if(window.MU&&MU.math) MU.math(document.getElementById('m-'+m));

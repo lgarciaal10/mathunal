@@ -203,3 +203,15 @@
 .due{display:flex;gap:10px;align-items:center;margin:14px 0;padding:12px 16px;border-radius:var(--r-md);background:var(--acc-soft);color:var(--tx)}
 .due .ic{width:20px;height:20px;color:var(--acc-t);flex:none}
 @media (max-width:520px){.chip-btn{flex:1 1 100%}.numin{width:100%}}
+
+.avance{list-style:none;margin:6px 0 12px;padding:0;display:flex;flex-wrap:wrap;gap:8px}
+.avance li{display:inline-flex;align-items:center;gap:6px;padding:6px 14px;border-radius:999px;background:var(--surf2);color:var(--mu);font-size:.92rem}
+.avance li.on{background:var(--acc-soft);color:var(--tx)}
+.avance li .ic{width:16px;height:16px;color:var(--ok)}
+.ins-l{list-style:none;margin:6px 0 12px;padding:0;display:grid;gap:10px}
+.ins-l li{display:flex;gap:12px;align-items:flex-start;padding:10px 14px;border-radius:var(--r-sm);background:var(--surf2);color:var(--mu)}
+.ins-l li.on{color:var(--tx);outline:2px solid var(--ok)}
+.ins-l .b{flex:none;width:28px;height:28px;border-radius:999px;border:2px dashed var(--dim);display:inline-flex;align-items:center;justify-content:center}
+.ins-l li.on .b{border:2px solid var(--ok);background:rgba(70,194,143,.18)}
+.ins-l .b .ic{width:16px;height:16px;color:var(--ok)}
+.fine2{font-size:.88rem}

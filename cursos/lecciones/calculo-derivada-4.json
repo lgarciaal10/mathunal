@@ -6,8 +6,8 @@
  "modulo": "Módulo 2 La derivada",
  "posicion": "Lección 4 de 10",
  "titulo": "Derivación implícita",
- "minutos": 14,
- "ejercicios": 1,
+ "minutos": 20,
+ "ejercicios": 4,
  "grafica": {
   "tipo": "secante",
   "x": [
@@ -313,6 +313,70 @@
      {
       "t": "nota",
       "html": "Deriva cada término, agrupa los dy sobre dx y despeja."
+     }
+    ]
+   },
+   {
+    "titulo": "Mini simulacro",
+    "corto": "Simulacro",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Tres preguntas reales del banco de MathUNAL sobre este tema. Responde sin mirar los pasos."
+     },
+     {
+      "t": "simulacro",
+      "titulo": "Mini simulacro",
+      "preguntas": [
+       {
+        "texto": "Sea $y=f(x)$ definida implícitamente por $e^y+xy=e$. Entonces $y'(0)=$",
+        "resumen": "Si $x=0$ queda $e^y=e$, o sea $y=1$. Al derivar sale $e^y y'+y+xy'=0$. En $x=0$ y $y=1$ queda $e\\,y'+1=0$, y entonces $y'=-\\frac{1}{e}$.",
+        "fuente": "Banco MathUNAL, Parcial 2, 2025-1",
+        "tipo": "mcq",
+        "opciones": [
+         "$-\\dfrac{1}{e}$",
+         "$0$",
+         "$\\dfrac{1}{e}$",
+         "$-e$"
+        ],
+        "correcta": 0
+       },
+       {
+        "texto": "Si $x^2y+y^3=10$, entonces $\\dfrac{dy}{dx}$ en el punto $(1,2)$ es:",
+        "resumen": "Se deriva con la regla del producto y la cadena, $2xy+x^2y'+3y^2y'=0$. En $(1,2)$ queda $4+13y'=0$, y entonces $y'=-\\frac{4}{13}$.",
+        "fuente": "Banco MathUNAL, Quiz 3, 2025-2",
+        "tipo": "mcq",
+        "opciones": [
+         "$-\\dfrac{4}{13}$",
+         "$\\dfrac{4}{13}$",
+         "$-\\dfrac{4}{5}$",
+         "$-\\dfrac{13}{4}$"
+        ],
+        "correcta": 0
+       },
+       {
+        "texto": "Si $x^2+y^2=25$, entonces $\\dfrac{d^2y}{dx^2}$ en el punto $(3,4)$ es:",
+        "resumen": "Primero $y'=-\\frac{x}{y}$. Al derivar otra vez con el cociente y la cadena sale $y''=-\\frac{y^2+x^2}{y^3}=-\\frac{25}{y^3}$. En $(3,4)$ vale $-\\frac{25}{64}$.",
+        "fuente": "Banco MathUNAL, simulacro de Cálculo Diferencial",
+        "tipo": "mcq",
+        "opciones": [
+         "$-\\dfrac{25}{64}$",
+         "$-\\dfrac{3}{4}$",
+         "$\\dfrac{25}{64}$",
+         "$-\\dfrac{7}{16}$"
+        ],
+        "correcta": 0
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "Tu repaso",
+    "corto": "Repaso",
+    "bloques": [
+     {
+      "t": "repaso"
      }
     ]
    },

@@ -54,6 +54,15 @@ Con alguno de los dos campos el quiz deja reintentar, y después de dos fallos o
 - `ingenieria`. Una tarjeta "¿Para qué sirve?" con `titulo`, `html`, `tex` opcional, `datos` (pares `k` y `v`) y `cierre`.
 - `repaso`. La tarjeta que muestra cuándo volver a la lección.
 
+## Insignias y avance
+La tarjeta `repaso` también muestra qué modos de estudio usó la persona y cuatro insignias, que se guardan en `localStorage` con la clave `mu-progreso`.
+- Lo viste todo, por haber usado Ver, Leer y Practicar.
+- Sin pistas, por acertar el quiz al primer intento y sin pistas.
+- Simulacro perfecto, por acertar las 3 preguntas. Solo aparece en lecciones que tienen simulacro.
+- Repasaste a tiempo, por responder el quiz o el simulacro el día que la lección estaba vencida.
+
+No hay rachas, puntos ni tablas de posiciones. Las insignias describen cómo se estudió y no empujan a entrar todos los días.
+
 ## Repaso espaciado
 El motor guarda en `localStorage`, con la clave `mu-repaso`, el resultado de cada quiz y simulacro. Si el resultado es bueno, el próximo repaso se aleja a 1, 3, 7, 14 y 30 días. Si falla, vuelve a 1 día. Cuando una lección vence, aparece un aviso arriba. `window.MU.repaso.pendientes()` devuelve las lecciones vencidas, para que el sitio arme una vista de repaso con todas. Como `localStorage` es por origen, ese listado completo solo funciona con todas las lecciones bajo el mismo dominio.
 

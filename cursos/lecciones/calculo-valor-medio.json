@@ -269,6 +269,15 @@
     ]
    },
    {
+    "titulo": "Tu repaso",
+    "corto": "Repaso",
+    "bloques": [
+     {
+      "t": "repaso"
+     }
+    ]
+   },
+   {
     "titulo": "En resumen",
     "corto": "Resumen",
     "bloques": [

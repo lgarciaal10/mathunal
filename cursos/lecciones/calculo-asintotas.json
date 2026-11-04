@@ -6,8 +6,8 @@
  "modulo": "Módulo 1 Límites y continuidad",
  "posicion": "Lección 6 de 6",
  "titulo": "Asíntotas",
- "minutos": 14,
- "ejercicios": 1,
+ "minutos": 20,
+ "ejercicios": 4,
  "grafica": {
   "tipo": "asintota",
   "x": [
@@ -275,6 +275,70 @@
      {
       "t": "nota",
       "html": "Divide arriba y abajo entre x y toma el límite."
+     }
+    ]
+   },
+   {
+    "titulo": "Mini simulacro",
+    "corto": "Simulacro",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Tres preguntas reales del banco de MathUNAL sobre este tema. Responde sin mirar los pasos."
+     },
+     {
+      "t": "simulacro",
+      "titulo": "Mini simulacro",
+      "preguntas": [
+       {
+        "texto": "Para la función $f(x)=\\dfrac{x^2}{x^2-1}$, la cantidad de asíntotas (horizontales + verticales) es:",
+        "resumen": "El denominador se anula en $x=1$ y $x=-1$, que son dos asíntotas verticales. El límite en el infinito es 1 y da una asíntota horizontal. En total son 3.",
+        "fuente": "Banco MathUNAL, Parcial 1, 2025-2",
+        "tipo": "mcq",
+        "opciones": [
+         "$1$",
+         "$2$",
+         "$3$",
+         "$4$"
+        ],
+        "correcta": 2
+       },
+       {
+        "texto": "Las asíntotas verticales de $f(x)=\\dfrac{x+1}{x^{2}-4}$ son:",
+        "resumen": "El denominador $x^2-4$ se anula en $x=2$ y $x=-2$, y el numerador no se anula en ninguno. Son dos asíntotas verticales. El cero del numerador, $x=-1$, no cuenta.",
+        "fuente": "Banco MathUNAL, preguntas del corte 1",
+        "tipo": "mcq",
+        "opciones": [
+         "$x=2$ y $x=-2$",
+         "solo $x=2$",
+         "$x=-1$",
+         "no tiene"
+        ],
+        "correcta": 0
+       },
+       {
+        "texto": "La asíntota horizontal de $f(x)=\\dfrac{5x-2}{x+3}$ es:",
+        "resumen": "Los grados son iguales, así que el límite en el infinito es el cociente de los coeficientes de mayor grado, $\\frac{5}{1}=5$. La asíntota horizontal es $y=5$.",
+        "fuente": "Banco MathUNAL, simulacro de Cálculo Diferencial",
+        "tipo": "mcq",
+        "opciones": [
+         "$y=5$",
+         "$y=0$",
+         "$x=-3$",
+         "no tiene"
+        ],
+        "correcta": 0
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "Tu repaso",
+    "corto": "Repaso",
+    "bloques": [
+     {
+      "t": "repaso"
      }
     ]
    },
