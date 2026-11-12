@@ -103,6 +103,7 @@ else if (!(A > G.x[0] && A < G.x[1] && G.hueco.y > G.y[0] && G.hueco.y < G.y[1])
 const Q = L.pregunta;
 if (!Array.isArray(Q.opciones) || Q.opciones.length < 2) err('pregunta.opciones necesita al menos 2');
 else if (!(Number.isInteger(Q.correcta) && Q.correcta >= 0 && Q.correcta < Q.opciones.length)) err('pregunta.correcta fuera de rango');
+if (Array.isArray(Q.opciones)) Q.opciones.forEach((o, i) => { if (/\\[a-zA-Z]/.test(String(o)) && !String(o).includes('$')) err(`pregunta.opciones[${i}] lleva TeX sin signos de dólar y se vería como código`); });
 if (Q.verificacion) {
   const f = compilar(Q.verificacion.formula, 'pregunta.verificacion.formula');
   if (f) { const a = Q.verificacion.a, v1 = f(a - 1e-6), v2 = f(a + 1e-6);
