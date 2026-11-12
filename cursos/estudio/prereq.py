@@ -1,5 +1,6 @@
 PREREQ={
-'calculo-limite-1':[],'calculo-limite-2':['calculo-limite-1'],'calculo-limite-3':['calculo-limite-2'],'calculo-limite-4':['calculo-limite-3'],
+'matbas-exponentes':[],'matbas-notables':['matbas-exponentes'],'matbas-polinomios':['matbas-notables'],'matbas-fracciones':['matbas-notables','matbas-polinomios'],'matbas-explog':['matbas-exponentes'],'matbas-cuadraticas':['matbas-notables'],'matbas-inecuaciones':['matbas-cuadraticas'],'matbas-sistemas':['matbas-cuadraticas'],'matbas-radicales':['matbas-cuadraticas','matbas-exponentes'],'matbas-trigonometria':['matbas-cuadraticas'],'matbas-funciones':['matbas-cuadraticas'],'matbas-linealcuad':['matbas-cuadraticas'],'matbas-geoanalitica':['matbas-linealcuad'],
+'calculo-limite-1':['matbas-funciones'],'calculo-limite-2':['calculo-limite-1'],'calculo-limite-3':['calculo-limite-2'],'calculo-limite-4':['calculo-limite-3'],
 'calculo-infinito':['calculo-limite-3'],'calculo-asintotas':['calculo-infinito'],
 'calculo-derivada-1':['calculo-limite-1','calculo-limite-4'],'calculo-derivada-2':['calculo-derivada-1'],'calculo-derivada-3':['calculo-derivada-2'],
 'calculo-derivada-4':['calculo-derivada-3'],'calculo-derivada-5':['calculo-derivada-3'],'calculo-derivada-6':['calculo-derivada-5'],
@@ -8,7 +9,7 @@ PREREQ={
 'calculo-derivada-13':['calculo-derivada-12'],'calculo-derivada-14':['calculo-derivada-11'],'calculo-lhopital':['calculo-derivada-3','calculo-limite-3'],
 'calculo-newton':['calculo-derivada-7'],'calculo-tfc':['calculo-valor-medio'],
 'calcint-tfc':['calculo-tfc','calculo-derivada-2'],'calcint-sustitucion':['calcint-tfc','calculo-derivada-3'],'calcint-partes':['calcint-sustitucion','calculo-derivada-2'],
-'calcint-entre':['calcint-tfc'],'calcint-trig':['calcint-sustitucion'],'calcint-sentri':['calcint-trig'],'calcint-fparc':['calcint-sustitucion'],
+'calcint-entre':['calcint-tfc'],'calcint-trig':['calcint-sustitucion','matbas-trigonometria'],'calcint-sentri':['calcint-trig'],'calcint-fparc':['calcint-sustitucion'],
 'calcint-impropias':['calcint-tfc','calculo-infinito'],'calcint-volumenes':['calcint-entre'],'calcint-trabajo':['calcint-tfc'],
 'calcint-arco':['calcint-sentri','calcint-volumenes'],'calcint-polares':['calcint-trig','calcint-entre'],'calcint-series':['calculo-infinito','calcint-impropias'],
 'alglin-matrices':[],'alglin-sistemas':['alglin-matrices'],'alglin-gauss':['alglin-sistemas'],'alglin-det':['alglin-matrices','alglin-gauss'],

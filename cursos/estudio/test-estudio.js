@@ -26,7 +26,7 @@ R.cuaderno_pend_despues=await p.$$eval('#cu-l article',e=>e.length);
 await p.click('[data-e="res"]');await p.waitForTimeout(200);R.cuaderno_res=await p.$$eval('#cu-l article.res',e=>e.length);
 // 2. diagnóstico
 await p.goto('file://'+S+'estudio/estudio.test.html#diagnostico');await p.waitForTimeout(500);
-await p.click('#dg-c button >> nth=1');await p.waitForTimeout(300);
+await p.click('#dg-c button:has-text("Cálculo Integral")');await p.waitForTimeout(300);
 let n=0;
 for(let i=0;i<14;i++){ const has=await p.$('#dg-q .q'); if(!has) break; n++;
   const id=await p.evaluate(()=>0);
