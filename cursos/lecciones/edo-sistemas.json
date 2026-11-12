@@ -1,0 +1,1321 @@
+{
+ "esquema": 1,
+ "id": "edo-m3-l4",
+ "ejemplo": true,
+ "curso": "Ecuaciones Diferenciales",
+ "modulo": "Módulo 3 Laplace, sistemas y series",
+ "posicion": "Lección 4 de 5",
+ "titulo": "Sistemas lineales y plano fase",
+ "minutos": 30,
+ "ejercicios": 6,
+ "grafica": {
+  "tipo": "plano",
+  "x": [
+   -4.03,
+   4.03
+  ],
+  "y": [
+   -2.2,
+   2.2
+  ],
+  "a": -0.5,
+  "b": 0.3,
+  "inicio": 0,
+  "elementos": [
+   {
+    "t": "trazo",
+    "puntos": [
+     [
+      "cos(0.0000)",
+      "sin(0.0000)"
+     ],
+     [
+      "cos(0.1047)",
+      "sin(0.1047)"
+     ],
+     [
+      "cos(0.2094)",
+      "sin(0.2094)"
+     ],
+     [
+      "cos(0.3142)",
+      "sin(0.3142)"
+     ],
+     [
+      "cos(0.4189)",
+      "sin(0.4189)"
+     ],
+     [
+      "cos(0.5236)",
+      "sin(0.5236)"
+     ],
+     [
+      "cos(0.6283)",
+      "sin(0.6283)"
+     ],
+     [
+      "cos(0.7330)",
+      "sin(0.7330)"
+     ],
+     [
+      "cos(0.8378)",
+      "sin(0.8378)"
+     ],
+     [
+      "cos(0.9425)",
+      "sin(0.9425)"
+     ],
+     [
+      "cos(1.0472)",
+      "sin(1.0472)"
+     ],
+     [
+      "cos(1.1519)",
+      "sin(1.1519)"
+     ],
+     [
+      "cos(1.2566)",
+      "sin(1.2566)"
+     ],
+     [
+      "cos(1.3614)",
+      "sin(1.3614)"
+     ],
+     [
+      "cos(1.4661)",
+      "sin(1.4661)"
+     ],
+     [
+      "cos(1.5708)",
+      "sin(1.5708)"
+     ],
+     [
+      "cos(1.6755)",
+      "sin(1.6755)"
+     ],
+     [
+      "cos(1.7802)",
+      "sin(1.7802)"
+     ],
+     [
+      "cos(1.8850)",
+      "sin(1.8850)"
+     ],
+     [
+      "cos(1.9897)",
+      "sin(1.9897)"
+     ],
+     [
+      "cos(2.0944)",
+      "sin(2.0944)"
+     ],
+     [
+      "cos(2.1991)",
+      "sin(2.1991)"
+     ],
+     [
+      "cos(2.3038)",
+      "sin(2.3038)"
+     ],
+     [
+      "cos(2.4086)",
+      "sin(2.4086)"
+     ],
+     [
+      "cos(2.5133)",
+      "sin(2.5133)"
+     ],
+     [
+      "cos(2.6180)",
+      "sin(2.6180)"
+     ],
+     [
+      "cos(2.7227)",
+      "sin(2.7227)"
+     ],
+     [
+      "cos(2.8274)",
+      "sin(2.8274)"
+     ],
+     [
+      "cos(2.9322)",
+      "sin(2.9322)"
+     ],
+     [
+      "cos(3.0369)",
+      "sin(3.0369)"
+     ],
+     [
+      "cos(3.1416)",
+      "sin(3.1416)"
+     ],
+     [
+      "cos(3.2463)",
+      "sin(3.2463)"
+     ],
+     [
+      "cos(3.3510)",
+      "sin(3.3510)"
+     ],
+     [
+      "cos(3.4558)",
+      "sin(3.4558)"
+     ],
+     [
+      "cos(3.5605)",
+      "sin(3.5605)"
+     ],
+     [
+      "cos(3.6652)",
+      "sin(3.6652)"
+     ],
+     [
+      "cos(3.7699)",
+      "sin(3.7699)"
+     ],
+     [
+      "cos(3.8746)",
+      "sin(3.8746)"
+     ],
+     [
+      "cos(3.9794)",
+      "sin(3.9794)"
+     ],
+     [
+      "cos(4.0841)",
+      "sin(4.0841)"
+     ],
+     [
+      "cos(4.1888)",
+      "sin(4.1888)"
+     ],
+     [
+      "cos(4.2935)",
+      "sin(4.2935)"
+     ],
+     [
+      "cos(4.3982)",
+      "sin(4.3982)"
+     ],
+     [
+      "cos(4.5029)",
+      "sin(4.5029)"
+     ],
+     [
+      "cos(4.6077)",
+      "sin(4.6077)"
+     ],
+     [
+      "cos(4.7124)",
+      "sin(4.7124)"
+     ],
+     [
+      "cos(4.8171)",
+      "sin(4.8171)"
+     ],
+     [
+      "cos(4.9218)",
+      "sin(4.9218)"
+     ],
+     [
+      "cos(5.0265)",
+      "sin(5.0265)"
+     ],
+     [
+      "cos(5.1313)",
+      "sin(5.1313)"
+     ],
+     [
+      "cos(5.2360)",
+      "sin(5.2360)"
+     ],
+     [
+      "cos(5.3407)",
+      "sin(5.3407)"
+     ],
+     [
+      "cos(5.4454)",
+      "sin(5.4454)"
+     ],
+     [
+      "cos(5.5501)",
+      "sin(5.5501)"
+     ],
+     [
+      "cos(5.6549)",
+      "sin(5.6549)"
+     ],
+     [
+      "cos(5.7596)",
+      "sin(5.7596)"
+     ],
+     [
+      "cos(5.8643)",
+      "sin(5.8643)"
+     ],
+     [
+      "cos(5.9690)",
+      "sin(5.9690)"
+     ],
+     [
+      "cos(6.0737)",
+      "sin(6.0737)"
+     ],
+     [
+      "cos(6.1785)",
+      "sin(6.1785)"
+     ],
+     [
+      "cos(6.2832)",
+      "sin(6.2832)"
+     ]
+    ],
+    "c": 3,
+    "guia": true
+   },
+   {
+    "t": "trazo",
+    "puntos": [
+     [
+      "exp(x*0.0000)*cos(0.0000)",
+      "exp(x*0.0000)*sin(0.0000)"
+     ],
+     [
+      "exp(x*0.0833)*cos(0.0833)",
+      "exp(x*0.0833)*sin(0.0833)"
+     ],
+     [
+      "exp(x*0.1667)*cos(0.1667)",
+      "exp(x*0.1667)*sin(0.1667)"
+     ],
+     [
+      "exp(x*0.2500)*cos(0.2500)",
+      "exp(x*0.2500)*sin(0.2500)"
+     ],
+     [
+      "exp(x*0.3333)*cos(0.3333)",
+      "exp(x*0.3333)*sin(0.3333)"
+     ],
+     [
+      "exp(x*0.4167)*cos(0.4167)",
+      "exp(x*0.4167)*sin(0.4167)"
+     ],
+     [
+      "exp(x*0.5000)*cos(0.5000)",
+      "exp(x*0.5000)*sin(0.5000)"
+     ],
+     [
+      "exp(x*0.5833)*cos(0.5833)",
+      "exp(x*0.5833)*sin(0.5833)"
+     ],
+     [
+      "exp(x*0.6667)*cos(0.6667)",
+      "exp(x*0.6667)*sin(0.6667)"
+     ],
+     [
+      "exp(x*0.7500)*cos(0.7500)",
+      "exp(x*0.7500)*sin(0.7500)"
+     ],
+     [
+      "exp(x*0.8333)*cos(0.8333)",
+      "exp(x*0.8333)*sin(0.8333)"
+     ],
+     [
+      "exp(x*0.9167)*cos(0.9167)",
+      "exp(x*0.9167)*sin(0.9167)"
+     ],
+     [
+      "exp(x*1.0000)*cos(1.0000)",
+      "exp(x*1.0000)*sin(1.0000)"
+     ],
+     [
+      "exp(x*1.0833)*cos(1.0833)",
+      "exp(x*1.0833)*sin(1.0833)"
+     ],
+     [
+      "exp(x*1.1667)*cos(1.1667)",
+      "exp(x*1.1667)*sin(1.1667)"
+     ],
+     [
+      "exp(x*1.2500)*cos(1.2500)",
+      "exp(x*1.2500)*sin(1.2500)"
+     ],
+     [
+      "exp(x*1.3333)*cos(1.3333)",
+      "exp(x*1.3333)*sin(1.3333)"
+     ],
+     [
+      "exp(x*1.4167)*cos(1.4167)",
+      "exp(x*1.4167)*sin(1.4167)"
+     ],
+     [
+      "exp(x*1.5000)*cos(1.5000)",
+      "exp(x*1.5000)*sin(1.5000)"
+     ],
+     [
+      "exp(x*1.5833)*cos(1.5833)",
+      "exp(x*1.5833)*sin(1.5833)"
+     ],
+     [
+      "exp(x*1.6667)*cos(1.6667)",
+      "exp(x*1.6667)*sin(1.6667)"
+     ],
+     [
+      "exp(x*1.7500)*cos(1.7500)",
+      "exp(x*1.7500)*sin(1.7500)"
+     ],
+     [
+      "exp(x*1.8333)*cos(1.8333)",
+      "exp(x*1.8333)*sin(1.8333)"
+     ],
+     [
+      "exp(x*1.9167)*cos(1.9167)",
+      "exp(x*1.9167)*sin(1.9167)"
+     ],
+     [
+      "exp(x*2.0000)*cos(2.0000)",
+      "exp(x*2.0000)*sin(2.0000)"
+     ],
+     [
+      "exp(x*2.0833)*cos(2.0833)",
+      "exp(x*2.0833)*sin(2.0833)"
+     ],
+     [
+      "exp(x*2.1667)*cos(2.1667)",
+      "exp(x*2.1667)*sin(2.1667)"
+     ],
+     [
+      "exp(x*2.2500)*cos(2.2500)",
+      "exp(x*2.2500)*sin(2.2500)"
+     ],
+     [
+      "exp(x*2.3333)*cos(2.3333)",
+      "exp(x*2.3333)*sin(2.3333)"
+     ],
+     [
+      "exp(x*2.4167)*cos(2.4167)",
+      "exp(x*2.4167)*sin(2.4167)"
+     ],
+     [
+      "exp(x*2.5000)*cos(2.5000)",
+      "exp(x*2.5000)*sin(2.5000)"
+     ],
+     [
+      "exp(x*2.5833)*cos(2.5833)",
+      "exp(x*2.5833)*sin(2.5833)"
+     ],
+     [
+      "exp(x*2.6667)*cos(2.6667)",
+      "exp(x*2.6667)*sin(2.6667)"
+     ],
+     [
+      "exp(x*2.7500)*cos(2.7500)",
+      "exp(x*2.7500)*sin(2.7500)"
+     ],
+     [
+      "exp(x*2.8333)*cos(2.8333)",
+      "exp(x*2.8333)*sin(2.8333)"
+     ],
+     [
+      "exp(x*2.9167)*cos(2.9167)",
+      "exp(x*2.9167)*sin(2.9167)"
+     ],
+     [
+      "exp(x*3.0000)*cos(3.0000)",
+      "exp(x*3.0000)*sin(3.0000)"
+     ],
+     [
+      "exp(x*3.0833)*cos(3.0833)",
+      "exp(x*3.0833)*sin(3.0833)"
+     ],
+     [
+      "exp(x*3.1667)*cos(3.1667)",
+      "exp(x*3.1667)*sin(3.1667)"
+     ],
+     [
+      "exp(x*3.2500)*cos(3.2500)",
+      "exp(x*3.2500)*sin(3.2500)"
+     ],
+     [
+      "exp(x*3.3333)*cos(3.3333)",
+      "exp(x*3.3333)*sin(3.3333)"
+     ],
+     [
+      "exp(x*3.4167)*cos(3.4167)",
+      "exp(x*3.4167)*sin(3.4167)"
+     ],
+     [
+      "exp(x*3.5000)*cos(3.5000)",
+      "exp(x*3.5000)*sin(3.5000)"
+     ],
+     [
+      "exp(x*3.5833)*cos(3.5833)",
+      "exp(x*3.5833)*sin(3.5833)"
+     ],
+     [
+      "exp(x*3.6667)*cos(3.6667)",
+      "exp(x*3.6667)*sin(3.6667)"
+     ],
+     [
+      "exp(x*3.7500)*cos(3.7500)",
+      "exp(x*3.7500)*sin(3.7500)"
+     ],
+     [
+      "exp(x*3.8333)*cos(3.8333)",
+      "exp(x*3.8333)*sin(3.8333)"
+     ],
+     [
+      "exp(x*3.9167)*cos(3.9167)",
+      "exp(x*3.9167)*sin(3.9167)"
+     ],
+     [
+      "exp(x*4.0000)*cos(4.0000)",
+      "exp(x*4.0000)*sin(4.0000)"
+     ],
+     [
+      "exp(x*4.0833)*cos(4.0833)",
+      "exp(x*4.0833)*sin(4.0833)"
+     ],
+     [
+      "exp(x*4.1667)*cos(4.1667)",
+      "exp(x*4.1667)*sin(4.1667)"
+     ],
+     [
+      "exp(x*4.2500)*cos(4.2500)",
+      "exp(x*4.2500)*sin(4.2500)"
+     ],
+     [
+      "exp(x*4.3333)*cos(4.3333)",
+      "exp(x*4.3333)*sin(4.3333)"
+     ],
+     [
+      "exp(x*4.4167)*cos(4.4167)",
+      "exp(x*4.4167)*sin(4.4167)"
+     ],
+     [
+      "exp(x*4.5000)*cos(4.5000)",
+      "exp(x*4.5000)*sin(4.5000)"
+     ],
+     [
+      "exp(x*4.5833)*cos(4.5833)",
+      "exp(x*4.5833)*sin(4.5833)"
+     ],
+     [
+      "exp(x*4.6667)*cos(4.6667)",
+      "exp(x*4.6667)*sin(4.6667)"
+     ],
+     [
+      "exp(x*4.7500)*cos(4.7500)",
+      "exp(x*4.7500)*sin(4.7500)"
+     ],
+     [
+      "exp(x*4.8333)*cos(4.8333)",
+      "exp(x*4.8333)*sin(4.8333)"
+     ],
+     [
+      "exp(x*4.9167)*cos(4.9167)",
+      "exp(x*4.9167)*sin(4.9167)"
+     ],
+     [
+      "exp(x*5.0000)*cos(5.0000)",
+      "exp(x*5.0000)*sin(5.0000)"
+     ],
+     [
+      "exp(x*5.0833)*cos(5.0833)",
+      "exp(x*5.0833)*sin(5.0833)"
+     ],
+     [
+      "exp(x*5.1667)*cos(5.1667)",
+      "exp(x*5.1667)*sin(5.1667)"
+     ],
+     [
+      "exp(x*5.2500)*cos(5.2500)",
+      "exp(x*5.2500)*sin(5.2500)"
+     ],
+     [
+      "exp(x*5.3333)*cos(5.3333)",
+      "exp(x*5.3333)*sin(5.3333)"
+     ],
+     [
+      "exp(x*5.4167)*cos(5.4167)",
+      "exp(x*5.4167)*sin(5.4167)"
+     ],
+     [
+      "exp(x*5.5000)*cos(5.5000)",
+      "exp(x*5.5000)*sin(5.5000)"
+     ],
+     [
+      "exp(x*5.5833)*cos(5.5833)",
+      "exp(x*5.5833)*sin(5.5833)"
+     ],
+     [
+      "exp(x*5.6667)*cos(5.6667)",
+      "exp(x*5.6667)*sin(5.6667)"
+     ],
+     [
+      "exp(x*5.7500)*cos(5.7500)",
+      "exp(x*5.7500)*sin(5.7500)"
+     ],
+     [
+      "exp(x*5.8333)*cos(5.8333)",
+      "exp(x*5.8333)*sin(5.8333)"
+     ],
+     [
+      "exp(x*5.9167)*cos(5.9167)",
+      "exp(x*5.9167)*sin(5.9167)"
+     ],
+     [
+      "exp(x*6.0000)*cos(6.0000)",
+      "exp(x*6.0000)*sin(6.0000)"
+     ],
+     [
+      "exp(x*6.0833)*cos(6.0833)",
+      "exp(x*6.0833)*sin(6.0833)"
+     ],
+     [
+      "exp(x*6.1667)*cos(6.1667)",
+      "exp(x*6.1667)*sin(6.1667)"
+     ],
+     [
+      "exp(x*6.2500)*cos(6.2500)",
+      "exp(x*6.2500)*sin(6.2500)"
+     ],
+     [
+      "exp(x*6.3333)*cos(6.3333)",
+      "exp(x*6.3333)*sin(6.3333)"
+     ],
+     [
+      "exp(x*6.4167)*cos(6.4167)",
+      "exp(x*6.4167)*sin(6.4167)"
+     ],
+     [
+      "exp(x*6.5000)*cos(6.5000)",
+      "exp(x*6.5000)*sin(6.5000)"
+     ],
+     [
+      "exp(x*6.5833)*cos(6.5833)",
+      "exp(x*6.5833)*sin(6.5833)"
+     ],
+     [
+      "exp(x*6.6667)*cos(6.6667)",
+      "exp(x*6.6667)*sin(6.6667)"
+     ],
+     [
+      "exp(x*6.7500)*cos(6.7500)",
+      "exp(x*6.7500)*sin(6.7500)"
+     ],
+     [
+      "exp(x*6.8333)*cos(6.8333)",
+      "exp(x*6.8333)*sin(6.8333)"
+     ],
+     [
+      "exp(x*6.9167)*cos(6.9167)",
+      "exp(x*6.9167)*sin(6.9167)"
+     ],
+     [
+      "exp(x*7.0000)*cos(7.0000)",
+      "exp(x*7.0000)*sin(7.0000)"
+     ],
+     [
+      "exp(x*7.0833)*cos(7.0833)",
+      "exp(x*7.0833)*sin(7.0833)"
+     ],
+     [
+      "exp(x*7.1667)*cos(7.1667)",
+      "exp(x*7.1667)*sin(7.1667)"
+     ],
+     [
+      "exp(x*7.2500)*cos(7.2500)",
+      "exp(x*7.2500)*sin(7.2500)"
+     ],
+     [
+      "exp(x*7.3333)*cos(7.3333)",
+      "exp(x*7.3333)*sin(7.3333)"
+     ],
+     [
+      "exp(x*7.4167)*cos(7.4167)",
+      "exp(x*7.4167)*sin(7.4167)"
+     ],
+     [
+      "exp(x*7.5000)*cos(7.5000)",
+      "exp(x*7.5000)*sin(7.5000)"
+     ],
+     [
+      "exp(x*7.5833)*cos(7.5833)",
+      "exp(x*7.5833)*sin(7.5833)"
+     ],
+     [
+      "exp(x*7.6667)*cos(7.6667)",
+      "exp(x*7.6667)*sin(7.6667)"
+     ],
+     [
+      "exp(x*7.7500)*cos(7.7500)",
+      "exp(x*7.7500)*sin(7.7500)"
+     ],
+     [
+      "exp(x*7.8333)*cos(7.8333)",
+      "exp(x*7.8333)*sin(7.8333)"
+     ],
+     [
+      "exp(x*7.9167)*cos(7.9167)",
+      "exp(x*7.9167)*sin(7.9167)"
+     ],
+     [
+      "exp(x*8.0000)*cos(8.0000)",
+      "exp(x*8.0000)*sin(8.0000)"
+     ],
+     [
+      "exp(x*8.0833)*cos(8.0833)",
+      "exp(x*8.0833)*sin(8.0833)"
+     ],
+     [
+      "exp(x*8.1667)*cos(8.1667)",
+      "exp(x*8.1667)*sin(8.1667)"
+     ],
+     [
+      "exp(x*8.2500)*cos(8.2500)",
+      "exp(x*8.2500)*sin(8.2500)"
+     ],
+     [
+      "exp(x*8.3333)*cos(8.3333)",
+      "exp(x*8.3333)*sin(8.3333)"
+     ],
+     [
+      "exp(x*8.4167)*cos(8.4167)",
+      "exp(x*8.4167)*sin(8.4167)"
+     ],
+     [
+      "exp(x*8.5000)*cos(8.5000)",
+      "exp(x*8.5000)*sin(8.5000)"
+     ],
+     [
+      "exp(x*8.5833)*cos(8.5833)",
+      "exp(x*8.5833)*sin(8.5833)"
+     ],
+     [
+      "exp(x*8.6667)*cos(8.6667)",
+      "exp(x*8.6667)*sin(8.6667)"
+     ],
+     [
+      "exp(x*8.7500)*cos(8.7500)",
+      "exp(x*8.7500)*sin(8.7500)"
+     ],
+     [
+      "exp(x*8.8333)*cos(8.8333)",
+      "exp(x*8.8333)*sin(8.8333)"
+     ],
+     [
+      "exp(x*8.9167)*cos(8.9167)",
+      "exp(x*8.9167)*sin(8.9167)"
+     ],
+     [
+      "exp(x*9.0000)*cos(9.0000)",
+      "exp(x*9.0000)*sin(9.0000)"
+     ],
+     [
+      "exp(x*9.0833)*cos(9.0833)",
+      "exp(x*9.0833)*sin(9.0833)"
+     ],
+     [
+      "exp(x*9.1667)*cos(9.1667)",
+      "exp(x*9.1667)*sin(9.1667)"
+     ],
+     [
+      "exp(x*9.2500)*cos(9.2500)",
+      "exp(x*9.2500)*sin(9.2500)"
+     ],
+     [
+      "exp(x*9.3333)*cos(9.3333)",
+      "exp(x*9.3333)*sin(9.3333)"
+     ],
+     [
+      "exp(x*9.4167)*cos(9.4167)",
+      "exp(x*9.4167)*sin(9.4167)"
+     ],
+     [
+      "exp(x*9.5000)*cos(9.5000)",
+      "exp(x*9.5000)*sin(9.5000)"
+     ],
+     [
+      "exp(x*9.5833)*cos(9.5833)",
+      "exp(x*9.5833)*sin(9.5833)"
+     ],
+     [
+      "exp(x*9.6667)*cos(9.6667)",
+      "exp(x*9.6667)*sin(9.6667)"
+     ],
+     [
+      "exp(x*9.7500)*cos(9.7500)",
+      "exp(x*9.7500)*sin(9.7500)"
+     ],
+     [
+      "exp(x*9.8333)*cos(9.8333)",
+      "exp(x*9.8333)*sin(9.8333)"
+     ],
+     [
+      "exp(x*9.9167)*cos(9.9167)",
+      "exp(x*9.9167)*sin(9.9167)"
+     ],
+     [
+      "exp(x*10.0000)*cos(10.0000)",
+      "exp(x*10.0000)*sin(10.0000)"
+     ]
+    ],
+    "c": 2
+   },
+   {
+    "t": "punto",
+    "p": [
+     "1",
+     "0"
+    ],
+    "c": 1
+   }
+  ],
+  "lecturas": [
+   {
+    "rotulo": "parte real a",
+    "formula": "x"
+   },
+   {
+    "rotulo": "radio tras una vuelta",
+    "formula": "exp(2*pi*x)"
+   }
+  ],
+  "etiquetas": [
+   "Parte real a",
+   "Radio después de una vuelta"
+  ],
+  "etiquetaSlider": "Parte real a",
+  "alt": "La trayectoria del sistema x prima igual a a por x menos y, y prima igual a x más a por y, que parte de uno cero. Con a negativa se enrolla hacia el origen, con a cero es un círculo y con a positiva se aleja"
+ },
+ "glosario": {
+  "sistema": "Un sistema lineal x prima igual a A x describe varias cantidades que cambian y se influyen entre sí. A es una matriz de números.",
+  "planofase": "El plano de fase dibuja las trayectorias del sistema, con una cantidad en cada eje. No muestra el tiempo, muestra por dónde pasa la solución.",
+  "propios": "Los valores propios de A, las raíces de su ecuación característica, deciden la forma de las trayectorias."
+ },
+ "ver": {
+  "duracion": 22.0,
+  "capitulos": [
+   [
+    0,
+    4,
+    "El sistema x prima igual a A x, con A igual a la matriz con a, menos 1, 1, a, describe dos cantidades que se influyen. Esta es la trayectoria que parte de 1, 0 cuando a vale 0."
+   ],
+   [
+    4,
+    8,
+    "Los valores propios de A son a más i y a menos i. La parte imaginaria da el giro y la parte real decide si la trayectoria se encoge o se aleja."
+   ],
+   [
+    8,
+    14,
+    "Con a negativa la trayectoria se enrolla hacia el origen, una espiral estable. Con a positiva se aleja, una espiral inestable."
+   ],
+   [
+    14,
+    18,
+    "Con a igual a 0 los valores propios son imaginarios puros y la trayectoria es un círculo. Es un centro."
+   ],
+   [
+    18,
+    22,
+    "Con a igual a menos 0.2, después de una vuelta el radio queda en 0.28, y el origen es un sumidero."
+   ]
+  ],
+  "canales": {
+   "draw": [
+    [
+     0.3,
+     0
+    ],
+    [
+     3.5,
+     1
+    ]
+   ],
+   "d": [
+    [
+     4,
+     0
+    ],
+    [
+     8,
+     0
+    ],
+    [
+     10,
+     -0.4
+    ],
+    [
+     12,
+     0.25
+    ],
+    [
+     14,
+     0
+    ],
+    [
+     16,
+     0
+    ],
+    [
+     17,
+     -0.2
+    ],
+    [
+     22,
+     -0.2
+    ]
+   ],
+   "guide": [
+    [
+     4,
+     0
+    ],
+    [
+     5,
+     1
+    ]
+   ]
+  },
+  "intervalos": {
+   "ok": [
+    18,
+    22
+   ]
+  }
+ },
+ "leer": {
+  "secciones": [
+   {
+    "titulo": "La idea",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Un {{gl:sistema|sistema lineal}} x prima igual a A x tiene varias incógnitas que dependen unas de otras. Su solución se dibuja en el {{gl:planofase|plano de fase}}. Los {{gl:propios|valores propios}} de la matriz A dicen si las trayectorias se acercan al origen, se alejan, giran o hacen una mezcla de esas cosas."
+     }
+    ]
+   },
+   {
+    "titulo": "Un ejemplo",
+    "corto": "Un ejemplo",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mira un sistema con giro. La solución que parte de 1, 0 se dibuja como una curva en el plano."
+     },
+     {
+      "t": "eq",
+      "tex": "\\mathbf{x}'=\\begin{pmatrix}a&-1\\\\1&a\\end{pmatrix}\\mathbf{x},\\qquad \\mathbf{x}(0)=\\begin{pmatrix}1\\\\0\\end{pmatrix}"
+     },
+     {
+      "t": "grafica",
+      "animar": "dibujar",
+      "alt": "La trayectoria en el plano de fase"
+     }
+    ]
+   },
+   {
+    "titulo": "Piensa antes de ver",
+    "corto": "Piensa",
+    "bloques": [
+     {
+      "t": "piensa",
+      "pregunta": "Una matriz diagonal con 1 y menos 1 tiene como valores propios 1 y menos 1. ¿Cuánto vale su producto, que es el determinante?",
+      "opciones": [
+       -1,
+       0,
+       1,
+       2
+      ],
+      "correcta": -1,
+      "bien": "Muy bien. Vale menos 1. Cuando es negativo, los valores propios tienen signos opuestos.",
+      "mal": "Vale menos 1, porque 1 por menos 1 es menos 1. Cuando es negativo, los valores propios tienen signos opuestos."
+     }
+    ]
+   },
+   {
+    "titulo": "Cambia la parte real",
+    "corto": "Parte real",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mira cómo cambia la trayectoria al variar a."
+     },
+     {
+      "t": "acercando",
+      "ds": [
+       0,
+       -0.4,
+       0.25,
+       -0.2
+      ],
+      "alt": "La trayectoria para varios valores de a"
+     },
+     {
+      "t": "p",
+      "html": "La parte real de los valores propios es a. Si es negativa, el origen atrae. Si es positiva, repele. Si es 0, las trayectorias dan vueltas sin acercarse ni alejarse."
+     }
+    ]
+   },
+   {
+    "titulo": "Valores propios",
+    "corto": "Valores propios",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Se buscan las raíces de la ecuación característica de A."
+     },
+     {
+      "t": "pasos",
+      "items": [
+       {
+        "tex": "\\det(A-\\lambda I)=(a-\\lambda)^{2}+1=0",
+        "porque": "Se desarrolla el determinante de la matriz A menos lambda por la identidad."
+       },
+       {
+        "tex": "\\lambda=a\\pm i",
+        "porque": "Dos valores propios complejos."
+       },
+       {
+        "tex": "\\mathbf{x}(t)=e^{at}\\begin{pmatrix}\\cos t\\\\ \\operatorname{sen}t\\end{pmatrix}",
+        "porque": "La solución que parte de 1, 0. El factor exponencial viene de la parte real y el giro de la imaginaria."
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "Clasificación",
+    "corto": "Clasificación",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "La forma del origen se lee de los valores propios."
+     },
+     {
+      "t": "pasos",
+      "items": [
+       {
+        "tex": "\\lambda_{1},\\lambda_{2}\\ \\text{reales}<0\\ \\Rightarrow\\ \\text{nodo estable}",
+        "porque": "Todas las trayectorias entran al origen."
+       },
+       {
+        "tex": "\\lambda_{1}>0>\\lambda_{2}\\ \\Rightarrow\\ \\text{punto silla}",
+        "porque": "Unas trayectorias entran y otras salen. Es inestable."
+       },
+       {
+        "tex": "\\lambda=\\alpha\\pm\\beta i\\ \\Rightarrow\\ \\alpha<0\\ \\text{espiral estable},\\ \\alpha>0\\ \\text{inestable},\\ \\alpha=0\\ \\text{centro}",
+        "porque": "Con parte imaginaria hay giro."
+       }
+      ]
+     },
+     {
+      "t": "ojo",
+      "html": "Un origen es estable si todos los valores propios tienen parte real negativa. Con parte real 0 las trayectorias no se acercan al origen, aunque tampoco se alejan."
+     }
+    ]
+   },
+   {
+    "titulo": "¿Para qué sirve?",
+    "corto": "En ingeniería",
+    "bloques": [
+     {
+      "t": "ingenieria",
+      "titulo": "Dos tanques conectados",
+      "html": "Dos tanques de agua con sal están conectados entre sí y reciben agua limpia. Las concentraciones x1 y x2 cumplen un sistema lineal, y los valores propios dicen qué tan rápido se limpian los tanques.",
+      "tex": "\\mathbf{x}'=\\begin{pmatrix}-0.3&0.1\\\\0.1&-0.3\\end{pmatrix}\\mathbf{x}",
+      "datos": [
+       {
+        "k": "Valores propios",
+        "v": "menos 0.2 y menos 0.4"
+       },
+       {
+        "k": "Tipo de origen",
+        "v": "nodo estable"
+       },
+       {
+        "k": "Modo lento",
+        "v": "mitad en unas 3.5 horas"
+       }
+      ],
+      "cierre": "Los valores propios son menos 0.3 más y menos 0.1, o sea menos 0.2 y menos 0.4 por hora. Los dos son negativos, así que ambos tanques se limpian. A largo plazo domina el modo lento, e a la menos 0.2 t, y la concentración baja a la mitad en ln 2 sobre 0.2, unas 3.5 horas. Es un modelo simplificado, porque supone mezcla perfecta en cada tanque y caudales constantes."
+     }
+    ]
+   },
+   {
+    "titulo": "Completa el paso",
+    "corto": "Completa",
+    "bloques": [
+     {
+      "t": "completar",
+      "enunciado": "Se hallan los valores propios de la matriz con filas 0, menos 1 y 1, 0. La ecuación característica es lambda al cuadrado más 1 igual a 0.",
+      "tex": "\\lambda=[[hueco]]",
+      "opciones": [
+       {
+        "tex": "\\pm i",
+        "txt": "imaginarios"
+       },
+       {
+        "tex": "\\pm 1",
+        "txt": "reales"
+       },
+       {
+        "tex": "0",
+        "txt": "cero"
+       }
+      ],
+      "correcta": 0,
+      "errores": [
+       "",
+       "Con lambda al cuadrado igual a menos 1, no hay raíces reales.",
+       "Con lambda igual a 0 no se cumple, porque sale 1 y no 0."
+      ],
+      "pista": "Se despeja lambda al cuadrado igual a menos 1.",
+      "porque": "Las raíces cuadradas de menos 1 son más y menos i."
+     }
+    ]
+   },
+   {
+    "titulo": "Encuentra el error",
+    "corto": "Error",
+    "bloques": [
+     {
+      "t": "error",
+      "enunciado": "Alguien clasificó el origen de x prima igual a A x, con A diagonal con menos 1 y 2, y se equivocó en un paso. Toca el paso que está mal.",
+      "pasos": [
+       {
+        "tex": "A=\\begin{pmatrix}-1&0\\\\0&2\\end{pmatrix}\\ \\Rightarrow\\ \\lambda=-1,\\ 2",
+        "porque": "Una matriz diagonal tiene como valores propios sus entradas.",
+        "txt": "los valores propios son menos 1 y 2"
+       },
+       {
+        "tex": "\\lambda_{1}<0<\\lambda_{2}",
+        "porque": "Tienen signos opuestos.",
+        "txt": "los valores propios tienen signos opuestos"
+       },
+       {
+        "tex": "\\text{es un nodo estable}",
+        "porque": "Este paso es el que falla.",
+        "txt": "es un nodo estable"
+       }
+      ],
+      "mal": 2,
+      "explicacion": "Con signos opuestos el origen es un punto silla, que es inestable. Un nodo estable pide que los dos valores propios sean negativos.",
+      "correccion": "\\text{es un punto silla}",
+      "pista": "Fíjate en los signos de los valores propios."
+     }
+    ]
+   },
+   {
+    "titulo": "Ordena los pasos",
+    "corto": "Ordena",
+    "bloques": [
+     {
+      "t": "ordenar",
+      "enunciado": "Estos son los pasos para clasificar el origen del sistema con matriz de filas menos 2, 1 y 1, menos 2, pero están desordenados.",
+      "pasos": [
+       "(-2-\\lambda)^{2}-1=0",
+       "\\lambda^{2}+4\\lambda+3=0",
+       "\\lambda=-1,\\ \\lambda=-3",
+       "\\text{ambos negativos}\\ \\Rightarrow\\ \\text{nodo estable}"
+      ],
+      "mezcla": [
+       2,
+       0,
+       3,
+       1
+      ],
+      "porque": "Se plantea el determinante, se desarrolla, se hallan las raíces y se clasifica con sus signos.",
+      "pista": "Se empieza con el determinante.",
+      "txt": [
+       "El determinante de A menos lambda I",
+       "Se desarrolla",
+       "Las raíces",
+       "La clasificación"
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "Revisa tu respuesta",
+    "corto": "Revisa",
+    "bloques": [
+     {
+      "t": "pregunta"
+     },
+     {
+      "t": "nota",
+      "html": "Puedes pedir pistas de a una. Si fallas, el mensaje te dice qué error se cometió."
+     }
+    ]
+   },
+   {
+    "titulo": "Mini simulacro",
+    "corto": "Simulacro",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Dos preguntas reales del banco de MathUNAL sobre este tema. Responde sin mirar los pasos."
+     },
+     {
+      "t": "simulacro",
+      "titulo": "Mini simulacro de sistemas lineales",
+      "preguntas": [
+       {
+        "tipo": "mcq",
+        "texto": "El origen del sistema $\\mathbf{x}'=\\begin{pmatrix}1&0\\\\0&-1\\end{pmatrix}\\mathbf{x}$ es:",
+        "opciones": [
+         "un punto silla (inestable)",
+         "un nodo estable",
+         "un centro",
+         "una espiral estable"
+        ],
+        "correcta": 0,
+        "resumen": "Los valores propios son $1$ y $-1$, de signos opuestos, así que el origen es un punto silla.",
+        "fuente": "Banco MathUNAL, simulacro de Ecuaciones Diferenciales"
+       },
+       {
+        "tipo": "mcq",
+        "texto": "Para el sistema lineal $\\mathbf{x}' = A\\mathbf{x}$, el origen es un nodo/foco ESTABLE (sumidero) si y solo si:",
+        "opciones": [
+         "todos los valores propios de $A$ tienen parte real negativa",
+         "$\\det A > 0$",
+         "$A$ es simétrica",
+         "todos los valores propios son reales"
+        ],
+        "correcta": 0,
+        "resumen": "El origen es un sumidero cuando todos los valores propios tienen parte real negativa.",
+        "fuente": "Banco MathUNAL, simulacro de Ecuaciones Diferenciales"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "Tu repaso",
+    "corto": "Repaso",
+    "bloques": [
+     {
+      "t": "repaso"
+     }
+    ]
+   },
+   {
+    "titulo": "En resumen",
+    "corto": "Resumen",
+    "bloques": [
+     {
+      "t": "resumen"
+     }
+    ]
+   }
+  ]
+ },
+ "practicar": {
+  "pasos": [
+   {
+    "titulo": "La trayectoria",
+    "grafica": {
+     "draw": 1,
+     "guide": 1
+    },
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Un sistema con giro, que parte de 1, 0."
+     },
+     {
+      "t": "eq",
+      "tex": "\\mathbf{x}'=\\begin{pmatrix}a&-1\\\\1&a\\end{pmatrix}\\mathbf{x}"
+     }
+    ]
+   },
+   {
+    "titulo": "Cambia a",
+    "grafica": {
+     "draw": 1,
+     "guide": 1
+    },
+    "laboratorio": true,
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mueve el deslizador. Con a negativa la trayectoria se enrolla hacia el origen. Abajo se lee el radio después de una vuelta."
+     }
+    ]
+   },
+   {
+    "titulo": "Un sumidero",
+    "grafica": {
+     "draw": 1,
+     "guide": 1,
+     "ok": true
+    },
+    "laboratorio": true,
+    "d": -0.2,
+    "bloques": [
+     {
+      "t": "eq",
+      "tex": "a=-0.2\\ \\Rightarrow\\ \\text{espiral estable}"
+     },
+     {
+      "t": "p",
+      "html": "Con a igual a menos 0.2 el radio se reduce a 0.28 en cada vuelta."
+     }
+    ]
+   },
+   {
+    "titulo": "Revisa tu respuesta",
+    "grafica": {
+     "draw": 1,
+     "guide": 1,
+     "ok": true,
+     "d": -0.2
+    },
+    "bloques": [
+     {
+      "t": "pregunta"
+     },
+     {
+      "t": "nota",
+      "html": "Halla los valores propios y mira su parte real."
+     }
+    ]
+   }
+  ]
+ },
+ "pregunta": {
+  "tex": "\\mathbf{x}'=\\begin{pmatrix}0&2\\\\-2&0\\end{pmatrix}\\mathbf{x}\\ \\text{tiene en el origen}",
+  "opciones": [
+   "un centro",
+   "una espiral estable",
+   "un punto silla",
+   "un nodo inestable"
+  ],
+  "correcta": 0,
+  "explicacion": "La ecuación característica es lambda al cuadrado más 4 igual a 0, con valores propios más y menos 2i. Son imaginarios puros, así que las trayectorias son cerradas y el origen es un centro.",
+  "verificacion": {
+   "formula": "0*0-4*(0*0-2*(0-2))",
+   "a": 0,
+   "esperado": -16
+  },
+  "pistas": [
+   "Halla los valores propios con el determinante de A menos lambda I.",
+   "Sale lambda al cuadrado más 4 igual a 0.",
+   "Los valores propios son más y menos 2i, sin parte real."
+  ],
+  "errores": [
+   "",
+   "Para una espiral estable la parte real debe ser negativa. Aquí es 0.",
+   "Un punto silla pide valores propios reales de signos opuestos. Aquí son imaginarios.",
+   "Un nodo pide valores propios reales. Aquí son imaginarios y hay giro."
+  ]
+ },
+ "resumen": [
+  "Un sistema lineal x prima igual a A x se estudia con los valores propios de A.",
+  "Valores propios reales negativos dan un nodo estable, reales de signos opuestos dan una silla, y complejos dan una espiral o un centro.",
+  "El origen es estable cuando todos los valores propios tienen parte real negativa."
+ ]
+}
