@@ -1,0 +1,676 @@
+{
+ "esquema": 1,
+ "id": "calcint-m1-l3",
+ "ejemplo": true,
+ "curso": "Cálculo Integral",
+ "modulo": "Módulo 1 Integral definida y técnicas básicas",
+ "posicion": "Lección 3 de 4",
+ "titulo": "Integración por partes",
+ "minutos": 26,
+ "ejercicios": 7,
+ "grafica": {
+  "tipo": "area",
+  "x": [
+   0,
+   3.5
+  ],
+  "y": [
+   0,
+   2.2
+  ],
+  "funcion": "x*sin(x)",
+  "primitiva": "sin(x)-x*cos(x)",
+  "a": 0,
+  "b": 3.0,
+  "franja": 0.1,
+  "limite": 1.8,
+  "etiquetas": [
+   "Área acumulada",
+   "Altura de la curva"
+  ],
+  "rotulos": [
+   "área",
+   "altura"
+  ],
+  "etiquetaSlider": "Posición de x",
+  "alt": "Curva de x por seno de x con el área bajo ella sombreada desde 0 hasta un x que avanza hasta pi"
+ },
+ "glosario": {
+  "partes": "La integración por partes es una técnica que reparte la integral de un producto en dos factores, uno que se deriva y otro que se integra.",
+  "prod": "La regla del producto dice que la derivada de u por v es u prima por v más u por v prima.",
+  "liate": "LIATE es una regla para escoger u. Va en este orden, logaritmo, inversa trigonométrica, algebraica, trigonométrica y exponencial.",
+  "prim": "Una primitiva de f es una función F cuya derivada es f. Por ejemplo, x al cubo sobre 3 es una primitiva de x al cuadrado."
+ },
+ "ver": {
+  "duracion": 21.0,
+  "capitulos": [
+   [
+    0,
+    2.5,
+    "Esta es la curva de f(x) igual a x por seno de x."
+   ],
+   [
+    2.5,
+    5,
+    "Se mide el área bajo ella a partir de x igual a 0."
+   ],
+   [
+    5,
+    9,
+    "Al avanzar x, el área se va llenando y su valor aparece abajo."
+   ],
+   [
+    9,
+    12,
+    "Cerca de x igual a 2 la curva llega a su punto más alto, unos 1.8, y después baja hasta tocar el eje en pi."
+   ],
+   [
+    12,
+    16,
+    "Con x casi igual a pi, la altura es casi 0 y el área acumulada es 3.1416."
+   ],
+   [
+    16,
+    21,
+    "La integración por partes llega al mismo número, pi, con u igual a x y dv igual a seno de x por dx."
+   ]
+  ],
+  "canales": {
+   "draw": [
+    [
+     0.3,
+     0
+    ],
+    [
+     2.4,
+     1
+    ]
+   ],
+   "hole": [
+    [
+     2.5,
+     0
+    ],
+    [
+     3.3,
+     1
+    ]
+   ],
+   "d": [
+    [
+     5,
+     0.3
+    ],
+    [
+     12,
+     3.14
+    ],
+    [
+     21,
+     3.14
+    ]
+   ],
+   "guide": [
+    [
+     9,
+     0
+    ],
+    [
+     10,
+     1
+    ]
+   ]
+  },
+  "intervalos": {
+   "ok": [
+    16,
+    21
+   ]
+  }
+ },
+ "leer": {
+  "secciones": [
+   {
+    "titulo": "La idea",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Cuando una integral es un producto de dos funciones distintas, como x por seno de x, la sustitución no alcanza. Para eso está la {{gl:partes|integración por partes}}. Sale de la {{gl:prod|regla del producto}} escrita al revés y cambia una integral difícil por otra más fácil."
+     },
+     {
+      "t": "eq",
+      "tex": "\\int u\\,dv=u\\,v-\\int v\\,du"
+     }
+    ]
+   },
+   {
+    "titulo": "Un ejemplo",
+    "corto": "Un ejemplo",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mira esta integral, que mide el área bajo la curva entre x igual a 0 y x igual a pi."
+     },
+     {
+      "t": "eq",
+      "tex": "\\int_{0}^{\\pi} x\\,\\operatorname{sen}x\\,dx"
+     },
+     {
+      "t": "p",
+      "html": "Hay un factor que se simplifica al derivarlo, la x, y otro que se puede integrar sin problema, el seno."
+     },
+     {
+      "t": "grafica",
+      "animar": "dibujar",
+      "alt": "Curva que se dibuja y marca el punto de partida en x igual a 0"
+     }
+    ]
+   },
+   {
+    "titulo": "Piensa antes de ver",
+    "corto": "Piensa",
+    "bloques": [
+     {
+      "t": "piensa",
+      "pregunta": "Cerca de x igual a 2 la curva llega a su punto más alto. ¿Cuánto crees que mide ahí, más o menos?",
+      "opciones": [
+       1,
+       1.8,
+       3,
+       3.14
+      ],
+      "correcta": 1.8,
+      "bien": "Muy bien. Ronda 1.8 y más abajo se ve cómo eso se junta con el área acumulada.",
+      "mal": "Ronda 1.8, o sea 2 por el seno de 2. Más abajo se ve cómo eso se junta con el área acumulada."
+     }
+    ]
+   },
+   {
+    "titulo": "El área que se acumula",
+    "corto": "El área",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mira cómo se llena el área y qué valen el área y la altura en cada x."
+     },
+     {
+      "t": "acercando",
+      "ds": [
+       1,
+       2,
+       2.5,
+       3.14
+      ],
+      "alt": "El área bajo la curva que va creciendo mientras x avanza hasta pi"
+     },
+     {
+      "t": "p",
+      "html": "Con x igual a pi la curva toca el eje y el área acumulada es <b>3.1416</b>. Ese es el número que debe salir al integrar."
+     }
+    ]
+   },
+   {
+    "titulo": "Aplicar la fórmula",
+    "corto": "La fórmula",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Se elige u como el factor que se simplifica al derivarlo y dv como el que se sabe integrar."
+     },
+     {
+      "t": "pasos",
+      "items": [
+       {
+        "tex": "u=x,\\quad dv=\\operatorname{sen}x\\,dx",
+        "porque": "La x se simplifica al derivarla y el seno se integra sin problema."
+       },
+       {
+        "tex": "du=dx,\\quad v=-\\cos x",
+        "porque": "Se deriva u y se integra dv. Cuidado con el signo menos al integrar el seno."
+       },
+       {
+        "tex": "\\int x\\,\\operatorname{sen}x\\,dx=-x\\cos x+\\int \\cos x\\,dx",
+        "porque": "Se arma uv menos la integral de v du. Los dos menos se vuelven un más."
+       },
+       {
+        "tex": "=-x\\cos x+\\operatorname{sen}x+C",
+        "porque": "La integral que quedó es sencilla."
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "Con límites",
+    "corto": "Con límites",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "En una integral definida el término uv también se evalúa entre los límites."
+     },
+     {
+      "t": "pasos",
+      "items": [
+       {
+        "tex": "\\int_{0}^{\\pi} x\\,\\operatorname{sen}x\\,dx=\\Bigl[-x\\cos x+\\operatorname{sen}x\\Bigr]_{0}^{\\pi}",
+        "porque": "Se usa la {{gl:prim|primitiva}} que acabamos de encontrar."
+       },
+       {
+        "tex": "=(-\\pi\\cos\\pi+\\operatorname{sen}\\pi)-(0+0)",
+        "porque": "Se evalúa arriba en pi y abajo en 0."
+       },
+       {
+        "tex": "=\\pi",
+        "porque": "Como el coseno de pi vale menos 1, queda pi. Es el mismo valor que mostraba el área de la gráfica."
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "Cómo elegir u",
+    "corto": "Elegir u",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Elegir mal no da un resultado falso, pero sí una integral más difícil que la de partida. Una regla práctica es {{gl:liate|LIATE}}. Se toma como u el factor que aparezca primero en esta lista."
+     },
+     {
+      "t": "p",
+      "html": "<b>L</b> logaritmo, <b>I</b> inversa trigonométrica, <b>A</b> algebraica, <b>T</b> trigonométrica, <b>E</b> exponencial. Lo que queda es dv."
+     },
+     {
+      "t": "pasos",
+      "items": [
+       {
+        "tex": "\\int x\\ln x\\,dx,\\quad u=\\ln x,\\quad dv=x\\,dx",
+        "porque": "El logaritmo va antes que la algebraica en la lista. Además, al derivar el logaritmo queda 1 sobre x, que simplifica."
+       },
+       {
+        "tex": "du=\\dfrac{dx}{x},\\quad v=\\dfrac{x^{2}}{2}",
+        "porque": "Se deriva u y se integra dv."
+       },
+       {
+        "tex": "\\int x\\ln x\\,dx=\\dfrac{x^{2}}{2}\\ln x-\\int \\dfrac{x}{2}\\,dx=\\dfrac{x^{2}}{2}\\ln x-\\dfrac{x^{2}}{4}+C",
+        "porque": "Al multiplicar v por du, la x se cancela con el denominador."
+       }
+      ]
+     },
+     {
+      "t": "ojo",
+      "html": "LIATE es una guía y no una ley. Si al probar la integral que queda es más difícil, se prueba con la otra elección."
+     }
+    ]
+   },
+   {
+    "titulo": "Aplicarla dos veces",
+    "corto": "Dos veces",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "A veces la integral que queda todavía es un producto. Entonces se aplica partes otra vez."
+     },
+     {
+      "t": "pasos",
+      "items": [
+       {
+        "tex": "\\int x^{2}e^{x}\\,dx=x^{2}e^{x}-\\int 2x\\,e^{x}\\,dx",
+        "porque": "Con u igual a x al cuadrado y dv igual a e a la x dx. Al derivar, el grado de x baja."
+       },
+       {
+        "tex": "\\int x\\,e^{x}\\,dx=x\\,e^{x}-e^{x}",
+        "porque": "Se repite con u igual a x."
+       },
+       {
+        "tex": "\\int x^{2}e^{x}\\,dx=x^{2}e^{x}-2\\left(x\\,e^{x}-e^{x}\\right)=(x^{2}-2x+2)\\,e^{x}+C",
+        "porque": "Se reemplaza y se saca factor común."
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "¿Para qué sirve?",
+    "corto": "En ingeniería",
+    "bloques": [
+     {
+      "t": "ingenieria",
+      "titulo": "El llenado de un tanque con una bomba",
+      "html": "Una bomba se enciende y su caudal sube al principio y luego decae mientras la línea se estabiliza. Un modelo simple es el producto de t por una exponencial. El volumen que entra al tanque es la integral del caudal en el tiempo, y para integrar ese producto hace falta partes.",
+      "tex": "Q(t)=0.2\\,t\\,e^{-t/2}\\ \\text{L/s}",
+      "datos": [
+       {
+        "k": "Factor del caudal",
+        "v": "0.2 L/s²"
+       },
+       {
+        "k": "Constante de tiempo",
+        "v": "2 s"
+       },
+       {
+        "k": "Intervalo",
+        "v": "0 a 10 s"
+       }
+      ],
+      "cierre": "Con u igual a t y dv igual a e a la −t sobre 2 por dt, el volumen en 10 segundos es 0.2 por (4 − 24 e a la −5), o sea unos 0.77 litros. Si la bomba siguiera para siempre, el volumen sería de 0.8 litros. Es un modelo simplificado, porque una bomba real depende de la línea y del tanque."
+     }
+    ]
+   },
+   {
+    "titulo": "Completa el paso",
+    "corto": "Completa",
+    "bloques": [
+     {
+      "t": "completar",
+      "enunciado": "Se integra x por logaritmo de x. Según LIATE, falta escoger u.",
+      "tex": "\\int x\\ln x\\,dx,\\quad u=[[hueco]]",
+      "opciones": [
+       {
+        "tex": "\\ln x",
+        "txt": "logaritmo de x"
+       },
+       {
+        "tex": "x",
+        "txt": "x"
+       },
+       {
+        "tex": "x\\ln x",
+        "txt": "x por logaritmo de x"
+       }
+      ],
+      "correcta": 0,
+      "errores": [
+       "",
+       "La x es algebraica y el logaritmo va antes en LIATE. Además, al derivar la x no se simplifica nada y al integrar el logaritmo se complica.",
+       "Eso es toda la función, y u debe ser solo uno de los dos factores. El otro, con dx, es dv."
+      ],
+      "pista": "En LIATE la L va primero.",
+      "porque": "El logaritmo se simplifica al derivarlo, porque su derivada es 1 sobre x, y la x se integra fácil. Por eso u es el logaritmo y dv es x dx."
+     }
+    ]
+   },
+   {
+    "titulo": "Encuentra el error",
+    "corto": "Error",
+    "bloques": [
+     {
+      "t": "error",
+      "enunciado": "Alguien resolvió esta integral y se equivocó en un paso. Toca el paso que está mal.",
+      "pasos": [
+       {
+        "tex": "\\int x\\,e^{-x}\\,dx",
+        "porque": "Es la integral original.",
+        "txt": "Integral de x por e a la menos x"
+       },
+       {
+        "tex": "u=x,\\quad dv=e^{-x}\\,dx",
+        "porque": "La x se simplifica al derivarla y la exponencial se integra, así que la elección sirve.",
+        "txt": "u es x y dv es e a la menos x dx"
+       },
+       {
+        "tex": "du=dx,\\quad v=e^{-x}",
+        "porque": "Este paso es el que falla.",
+        "txt": "du es dx y v es e a la menos x"
+       },
+       {
+        "tex": "\\int x\\,e^{-x}\\,dx=x\\,e^{-x}-\\int e^{-x}\\,dx=x\\,e^{-x}+e^{-x}+C",
+        "porque": "La cuenta sigue bien con lo que viene del paso anterior, pero parte de una v equivocada.",
+        "txt": "queda x por e a la menos x, menos la integral de e a la menos x"
+       }
+      ],
+      "mal": 2,
+      "explicacion": "La integral de e a la menos x no es e a la menos x. Por la regla de la cadena, su derivada trae un signo menos, así que v es menos e a la menos x.",
+      "correccion": "v=-e^{-x}\\ \\Rightarrow\\ \\int x\\,e^{-x}\\,dx=-x\\,e^{-x}-e^{-x}+C",
+      "pista": "Deriva la v que escribieron. ¿Les da e a la menos x?"
+     }
+    ]
+   },
+   {
+    "titulo": "Ordena los pasos",
+    "corto": "Ordena",
+    "bloques": [
+     {
+      "t": "ordenar",
+      "enunciado": "Estos son los pasos para integrar x al cuadrado por e a la x, pero están desordenados.",
+      "pasos": [
+       "\\int x^{2}e^{x}\\,dx=x^{2}e^{x}-\\int 2x\\,e^{x}\\,dx",
+       "\\int x\\,e^{x}\\,dx=x\\,e^{x}-e^{x}",
+       "\\int x^{2}e^{x}\\,dx=x^{2}e^{x}-2\\left(x\\,e^{x}-e^{x}\\right)",
+       "=(x^{2}-2x+2)\\,e^{x}+C"
+      ],
+      "mezcla": [
+       1,
+       3,
+       0,
+       2
+      ],
+      "porque": "Se aplica partes una vez, se resuelve la integral que quedó con otra vez partes, se reemplaza y se simplifica.",
+      "pista": "Primero se aplica partes a la integral original.",
+      "txt": [
+       "Integral de x por e a la x es x por e a la x menos e a la x",
+       "Es (x al cuadrado menos 2x más 2) por e a la x más C",
+       "Integral de x al cuadrado por e a la x es x al cuadrado por e a la x menos la integral de 2x por e a la x",
+       "Integral de x al cuadrado por e a la x es x al cuadrado por e a la x menos 2 por (x por e a la x menos e a la x)"
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "Revisa tu respuesta",
+    "corto": "Revisa",
+    "bloques": [
+     {
+      "t": "pregunta"
+     },
+     {
+      "t": "nota",
+      "html": "Puedes pedir pistas de a una. Si fallas, el mensaje te dice qué error se cometió."
+     }
+    ]
+   },
+   {
+    "titulo": "Mini simulacro",
+    "corto": "Simulacro",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Tres preguntas reales del banco de MathUNAL sobre este tema. Responde sin mirar los pasos."
+     },
+     {
+      "t": "simulacro",
+      "titulo": "Mini simulacro de integración por partes",
+      "preguntas": [
+       {
+        "tipo": "mcq",
+        "texto": "$\\displaystyle\\int x\\,e^{x}\\,dx=$",
+        "opciones": [
+         "$(x-1)e^x+C$",
+         "$(x+1)e^x+C$",
+         "$xe^x+C$",
+         "$\\dfrac{x^2}{2}e^x+C$"
+        ],
+        "correcta": 0,
+        "resumen": "Por partes con $u=x$ y $dv=e^x\\,dx$ queda $xe^x-e^x$.",
+        "fuente": "Banco MathUNAL, simulacro de Cálculo Integral"
+       },
+       {
+        "tipo": "mcq",
+        "texto": "$\\displaystyle\\int_0^{\\pi/2} x\\cos x\\,dx=$",
+        "opciones": [
+         "$\\dfrac{\\pi}{2}-1$",
+         "$\\dfrac{\\pi}{2}+1$",
+         "$1-\\dfrac{\\pi}{2}$",
+         "$\\dfrac{\\pi}{2}$"
+        ],
+        "correcta": 0,
+        "resumen": "Por partes con $u=x$ y $dv=\\cos x\\,dx$ queda $[x\\operatorname{sen}x+\\cos x]$ entre $0$ y $\\pi/2$.",
+        "fuente": "Banco MathUNAL, simulacro de Cálculo Integral"
+       },
+       {
+        "tipo": "numerica",
+        "texto": "$\\displaystyle\\int_{1}^{e} \\ln x\\,dx$",
+        "respuesta": "1",
+        "tolNum": 0.001,
+        "resumen": "Partes con $u=\\ln x$ y $dv=dx$ da $x\\ln x-x$, que entre $1$ y $e$ vale $1$.",
+        "fuente": "Banco MathUNAL, simulacro de Cálculo Integral"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "Tu repaso",
+    "corto": "Repaso",
+    "bloques": [
+     {
+      "t": "repaso"
+     }
+    ]
+   },
+   {
+    "titulo": "En resumen",
+    "corto": "Resumen",
+    "bloques": [
+     {
+      "t": "resumen"
+     }
+    ]
+   }
+  ]
+ },
+ "practicar": {
+  "pasos": [
+   {
+    "titulo": "La curva",
+    "grafica": {
+     "draw": 1
+    },
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Se mide el área bajo esta curva."
+     },
+     {
+      "t": "eq",
+      "tex": "f(x)=x\\,\\operatorname{sen}x"
+     }
+    ]
+   },
+   {
+    "titulo": "El punto de partida",
+    "grafica": {
+     "draw": 1,
+     "hole": 1
+    },
+    "bloques": [
+     {
+      "t": "p",
+      "html": "El área se empieza a medir desde x igual a 0."
+     }
+    ]
+   },
+   {
+    "titulo": "Mueve x",
+    "grafica": {
+     "draw": 1,
+     "hole": 1
+    },
+    "laboratorio": true,
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mueve el deslizador. La zona sombreada crece y abajo se ve el área y la altura de la curva en x."
+     }
+    ]
+   },
+   {
+    "titulo": "Casi hasta pi",
+    "grafica": {
+     "draw": 1,
+     "hole": 1,
+     "guide": 1
+    },
+    "laboratorio": true,
+    "d": 2.9,
+    "bloques": [
+     {
+      "t": "p",
+      "html": "La línea punteada marca la altura máxima de la curva, unos 1.8. Cerca de x igual a pi la altura ya es casi 0 y el área está cerca de 3.1. Eso es lo que debe dar la integral."
+     }
+    ]
+   },
+   {
+    "titulo": "Por partes",
+    "grafica": {
+     "draw": 1,
+     "hole": 1,
+     "guide": 1,
+     "ok": true
+    },
+    "laboratorio": true,
+    "d": 2.9,
+    "bloques": [
+     {
+      "t": "eq",
+      "tex": "\\int_{0}^{\\pi} x\\,\\operatorname{sen}x\\,dx=\\Bigl[-x\\cos x+\\operatorname{sen}x\\Bigr]_{0}^{\\pi}=\\pi"
+     },
+     {
+      "t": "p",
+      "html": "Con u igual a x y dv igual a seno de x dx, el resultado es pi, justo lo que acumula el área de la gráfica."
+     }
+    ]
+   },
+   {
+    "titulo": "Revisa tu respuesta",
+    "grafica": {
+     "draw": 1,
+     "hole": 1,
+     "guide": 1,
+     "ok": true,
+     "d": 2.9
+    },
+    "bloques": [
+     {
+      "t": "pregunta"
+     },
+     {
+      "t": "nota",
+      "html": "Elige u con LIATE y no olvides evaluar el término uv en los dos límites."
+     }
+    ]
+   }
+  ]
+ },
+ "pregunta": {
+  "tex": "\\int_{1}^{2} x\\ln x\\,dx",
+  "opciones": [
+   "2\\ln 2-\\tfrac{3}{4}",
+   "2\\ln 2-1",
+   "2\\ln 2-\\tfrac{5}{4}",
+   "2\\ln 2-\\tfrac{1}{4}"
+  ],
+  "correcta": 0,
+  "explicacion": "Con u igual a ln x y dv igual a x dx, la primitiva es x al cuadrado sobre 2 por ln x menos x al cuadrado sobre 4. En x igual a 2 vale 2 ln 2 menos 1, y en x igual a 1 vale menos un cuarto. La resta da 2 ln 2 menos tres cuartos.",
+  "verificacion": {
+   "formula": "(2*2/2*ln(2)-2*2/4)-(1*1/2*ln(1)-1/4)+0*x",
+   "a": 0,
+   "esperado": 0.6362943611
+  },
+  "pistas": [
+   "Según LIATE, u es el logaritmo y dv es x dx.",
+   "Con u igual a ln x, du es dx sobre x y v es x al cuadrado sobre 2. La primitiva es x al cuadrado sobre 2 por ln x menos x al cuadrado sobre 4.",
+   "Evalúa en 2 y en 1 y resta. Recuerda que ln 1 vale 0."
+  ],
+  "errores": [
+   "",
+   "Falta restar el valor en el límite inferior. En x igual a 1 la primitiva vale menos un cuarto y no cero.",
+   "Se sumó el valor en el límite inferior en vez de restarlo. Hay que restar menos un cuarto, o sea sumar un cuarto.",
+   "Revisa la cuenta. El valor en x igual a 2 es 2 ln 2 menos 1, y al restar el de x igual a 1, que es menos un cuarto, queda 2 ln 2 menos tres cuartos."
+  ]
+ },
+ "resumen": [
+  "La integración por partes sale de la regla del producto y dice que la integral de u dv es uv menos la integral de v du.",
+  "Se escoge u como el factor que se simplifica al derivarlo, con ayuda de LIATE, y dv como el que se integra fácil.",
+  "En una definida se evalúa el término uv entre los límites, y a veces hay que aplicar partes más de una vez."
+ ]
+}
