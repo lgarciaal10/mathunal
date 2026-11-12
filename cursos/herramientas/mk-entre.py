@@ -77,7 +77,7 @@ L["practicar"]={"pasos":[
  {"titulo":"La separación","grafica":{"draw":1,"hole":1,"guide":1},"laboratorio":True,"d":1,"bloques":[P("La franja amarilla tiene como alto la separación entre las curvas. Con x igual a 1 mide 2, que es 3 menos 1.")]},
  {"titulo":"La integral","grafica":{"draw":1,"hole":1,"guide":1,"ok":True},"laboratorio":True,"d":1.9,"bloques":[EQ("A=\\int_{-1}^{2}\\bigl(x+2-x^{2}\\bigr)\\,dx=\\dfrac{9}{2}"),P("Cerca de x igual a 2 el área ya está cerca de 4.5, que es lo que da la integral de la de arriba menos la de abajo.")]},
  {"titulo":"Revisa tu respuesta","grafica":{"draw":1,"hole":1,"guide":1,"ok":True,"d":1.9},"bloques":[{"t":"pregunta"},{"t":"nota","html":"Busca los cortes, decide cuál va arriba y restas."}]}]}
-L["pregunta"]={"tex":"\\text{Área entre}\\ y=x^{2}\\ \\text{y}\\ y=8-x^{2}","opciones":["$\\dfrac{64}{3}$","$\\dfrac{32}{3}$","$\\dfrac{80}{3}$","$16$"],"correcta":0,
+L["pregunta"]={"tex":"\\text{el área entre}\\ y=x^{2}\\ \\text{y}\\ y=8-x^{2}","opciones":["$\\dfrac{64}{3}$","$\\dfrac{32}{3}$","$\\dfrac{80}{3}$","$16$"],"correcta":0,
  "explicacion":"Los cortes salen de x al cuadrado igual a 8 menos x al cuadrado, o sea x igual a menos 2 y 2. Arriba va 8 menos x al cuadrado. El área es la integral de 8 menos 2x al cuadrado entre menos 2 y 2, que vale 64 sobre 3.",
  "verificacion":{"formula":"(8*2-2*2*2*2/3)-(8*(0-2)-2*(0-2)*(0-2)*(0-2)/3)+0*x","a":0,"esperado":21.3333333333},
  "pistas":["Iguala las dos funciones para encontrar los cortes.","Los cortes son x igual a menos 2 y 2. Arriba va 8 menos x al cuadrado y abajo x al cuadrado, así que se integra su resta.","La integral de 8 menos 2x al cuadrado tiene primitiva 8x menos 2x al cubo sobre 3. Evalúala entre menos 2 y 2."],

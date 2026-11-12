@@ -588,7 +588,7 @@
   ]
  },
  "pregunta": {
-  "tex": "\\text{Área entre}\\ y=x^{2}\\ \\text{y}\\ y=8-x^{2}",
+  "tex": "\\text{el área entre}\\ y=x^{2}\\ \\text{y}\\ y=8-x^{2}",
   "opciones": [
    "$\\dfrac{64}{3}$",
    "$\\dfrac{32}{3}$",
