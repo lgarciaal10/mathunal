@@ -1,0 +1,627 @@
+{
+ "esquema": 1,
+ "id": "alglin-m3-l2",
+ "ejemplo": true,
+ "curso": "Álgebra Lineal",
+ "modulo": "Módulo 3 Ortogonalidad y valores propios",
+ "posicion": "Lección 2 de 4",
+ "titulo": "Diagonalización",
+ "minutos": 26,
+ "ejercicios": 4,
+ "grafica": {
+  "tipo": "plano",
+  "x": [
+   -3.5,
+   9.33
+  ],
+  "y": [
+   -2,
+   5
+  ],
+  "a": 0,
+  "b": 2,
+  "inicio": 1,
+  "entero": true,
+  "elementos": [
+   {
+    "t": "recta",
+    "p": [
+     "0",
+     "0"
+    ],
+    "dir": [
+     "1",
+     "1"
+    ],
+    "guion": true,
+    "nombre": "valor propio 3",
+    "c": 1
+   },
+   {
+    "t": "recta",
+    "p": [
+     "0",
+     "0"
+    ],
+    "dir": [
+     "1",
+     "-1"
+    ],
+    "guion": true,
+    "nombre": "valor propio 1",
+    "c": 3
+   },
+   {
+    "t": "vector",
+    "b": [
+     "(exp(x*ln(3))+1)/2",
+     "(exp(x*ln(3))-1)/2"
+    ],
+    "nombre": "A^n v",
+    "c": 2
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "0",
+     "0"
+    ],
+    "b": [
+     "exp(x*ln(3))/2",
+     "exp(x*ln(3))/2"
+    ],
+    "nombre": "crece",
+    "c": 1,
+    "guia": true
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "exp(x*ln(3))/2",
+     "exp(x*ln(3))/2"
+    ],
+    "b": [
+     "(exp(x*ln(3))+1)/2",
+     "(exp(x*ln(3))-1)/2"
+    ],
+    "nombre": "queda igual",
+    "c": 3,
+    "guia": true
+   }
+  ],
+  "lecturas": [
+   {
+    "rotulo": "n",
+    "formula": "x"
+   },
+   {
+    "rotulo": "peso en la dirección (1, 1)",
+    "formula": "exp(x*ln(3))/2"
+   }
+  ],
+  "etiquetas": [
+   "Número de aplicaciones",
+   "Peso en la dirección (1, 1)"
+  ],
+  "etiquetaSlider": "Número n de aplicaciones de A",
+  "alt": "El vector (1, 0) después de aplicarle n veces la matriz de filas (2, 1) y (1, 2). Su parte sobre la dirección (1, 1) se triplica en cada paso y su parte sobre (1, menos 1) no cambia"
+ },
+ "glosario": {
+  "diagonalizable": "Una matriz es diagonalizable si se puede escribir como P por D por P inversa, con D diagonal. Es lo mismo que tener tantos vectores propios independientes como su tamaño.",
+  "diagonal": "Una matriz diagonal tiene ceros fuera de su diagonal principal. Sus potencias se calculan elevando cada número de la diagonal.",
+  "propio": "Un vector propio de A es uno que A solo estira. El factor de estiramiento es su valor propio."
+ },
+ "ver": {
+  "duracion": 22.0,
+  "capitulos": [
+   [
+    0,
+    3,
+    "La matriz A, de filas (2, 1) y (1, 2), tiene dos direcciones propias, con valores propios 3 y 1."
+   ],
+   [
+    3,
+    6,
+    "Se parte del vector (1, 0) y se le aplica A varias veces."
+   ],
+   [
+    6,
+    12,
+    "El vector se separa en dos partes, una sobre cada dirección propia. La parte de valor propio 3 se triplica en cada paso."
+   ],
+   [
+    12,
+    17,
+    "La parte de valor propio 1 no cambia. Por eso es fácil saber qué pasa después de n pasos."
+   ],
+   [
+    17,
+    22,
+    "Con n igual a 2 se obtiene (5, 4). La diagonalización da ese resultado sin multiplicar matrices."
+   ]
+  ],
+  "canales": {
+   "draw": [
+    [
+     0.3,
+     0
+    ],
+    [
+     5.5,
+     1
+    ]
+   ],
+   "d": [
+    [
+     6,
+     0
+    ],
+    [
+     8,
+     1
+    ],
+    [
+     10,
+     2
+    ],
+    [
+     12,
+     0
+    ],
+    [
+     14,
+     1
+    ],
+    [
+     16,
+     2
+    ],
+    [
+     22,
+     2
+    ]
+   ],
+   "guide": [
+    [
+     6,
+     0
+    ],
+    [
+     7,
+     1
+    ]
+   ]
+  },
+  "intervalos": {
+   "ok": [
+    17,
+    22
+   ]
+  }
+ },
+ "leer": {
+  "secciones": [
+   {
+    "titulo": "La idea",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Elevar una matriz a una potencia grande es muy laborioso, pero se vuelve fácil si la matriz es {{gl:diagonalizable|diagonalizable}}. Entonces se cambia de base a la de sus vectores propios, donde la matriz es {{gl:diagonal|diagonal}} y las potencias son triviales, y se regresa. Sirve para estudiar procesos que se repiten en el tiempo."
+     }
+    ]
+   },
+   {
+    "titulo": "Un ejemplo",
+    "corto": "Un ejemplo",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mira lo que pasa al aplicarle a un vector la matriz A varias veces."
+     },
+     {
+      "t": "eq",
+      "tex": "A=\\begin{pmatrix}2&1\\\\1&2\\end{pmatrix},\\qquad A^{n}\\begin{pmatrix}1\\\\0\\end{pmatrix}=?"
+     },
+     {
+      "t": "grafica",
+      "animar": "dibujar",
+      "alt": "El vector y sus imágenes sucesivas"
+     }
+    ]
+   },
+   {
+    "titulo": "Piensa antes de ver",
+    "corto": "Piensa",
+    "bloques": [
+     {
+      "t": "piensa",
+      "pregunta": "Con n igual a 1, A por (1, 0) es la primera columna de A, o sea (2, 1). ¿Cuánto vale su primera componente?",
+      "opciones": [
+       1,
+       2,
+       3,
+       4
+      ],
+      "correcta": 2,
+      "bien": "Muy bien. Vale 2. Más abajo se ve cómo sigue creciendo.",
+      "mal": "Vale 2, que es la primera entrada de la primera columna. Más abajo se ve cómo sigue creciendo."
+     }
+    ]
+   },
+   {
+    "titulo": "Aplicar A varias veces",
+    "corto": "Varias veces",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mira cómo cambia el vector cuando se aplica A una, dos y más veces. Solo tienen sentido los valores enteros de n."
+     },
+     {
+      "t": "acercando",
+      "ds": [
+       0,
+       1,
+       2
+      ],
+      "alt": "El vector después de cero, una y dos aplicaciones de A"
+     },
+     {
+      "t": "p",
+      "html": "La parte sobre la dirección (1, 1) se triplica en cada paso. La parte sobre la dirección (1, menos 1) no cambia."
+     }
+    ]
+   },
+   {
+    "titulo": "Diagonalizar",
+    "corto": "Diagonalizar",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Se escribe A como P por D por P inversa, con las columnas de P siendo los vectores propios y D teniendo los valores propios en la diagonal."
+     },
+     {
+      "t": "pasos",
+      "items": [
+       {
+        "tex": "\\lambda=3,\\ \\mathbf{v}=(1,1);\\qquad \\lambda=1,\\ \\mathbf{v}=(1,-1)",
+        "porque": "Son los valores y vectores propios de A."
+       },
+       {
+        "tex": "P=\\begin{pmatrix}1&1\\\\1&-1\\end{pmatrix},\\quad D=\\begin{pmatrix}3&0\\\\0&1\\end{pmatrix}",
+        "porque": "Las columnas de P son los vectores propios y D lleva los valores propios en el mismo orden."
+       },
+       {
+        "tex": "A=PDP^{-1}=\\dfrac{1}{2}\\begin{pmatrix}3&1\\\\3&-1\\end{pmatrix}\\begin{pmatrix}1&1\\\\1&-1\\end{pmatrix}=\\begin{pmatrix}2&1\\\\1&2\\end{pmatrix}",
+        "porque": "Se comprueba multiplicando."
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "Potencias",
+    "corto": "Potencias",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Lo bueno de la forma diagonal es que sus potencias son fáciles."
+     },
+     {
+      "t": "eq",
+      "tex": "A^{n}=PD^{n}P^{-1},\\qquad D^{n}=\\begin{pmatrix}3^{n}&0\\\\0&1^{n}\\end{pmatrix}"
+     },
+     {
+      "t": "pasos",
+      "items": [
+       {
+        "tex": "A^{n}=\\dfrac{1}{2}\\begin{pmatrix}3^{n}+1&3^{n}-1\\\\3^{n}-1&3^{n}+1\\end{pmatrix}",
+        "porque": "Se multiplica P por D a la n por P inversa."
+       },
+       {
+        "tex": "A^{2}=\\dfrac{1}{2}\\begin{pmatrix}10&8\\\\8&10\\end{pmatrix}=\\begin{pmatrix}5&4\\\\4&5\\end{pmatrix}",
+        "porque": "Con n igual a 2."
+       },
+       {
+        "tex": "A^{2}\\begin{pmatrix}1\\\\0\\end{pmatrix}=\\begin{pmatrix}5\\\\4\\end{pmatrix}",
+        "porque": "Es el vector que mostraba la gráfica."
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "Cuándo se puede",
+    "corto": "Condiciones",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "No todas las matrices son diagonalizables."
+     },
+     {
+      "t": "pasos",
+      "items": [
+       {
+        "tex": "A\\ (n\\times n)\\ \\text{diagonalizable}\\iff A\\ \\text{tiene}\\ n\\ \\text{vectores propios independientes}",
+        "porque": "Esa es la condición exacta."
+       },
+       {
+        "tex": "n\\ \\text{valores propios distintos}\\ \\Rightarrow\\ \\text{diagonalizable}",
+        "porque": "Es una condición suficiente."
+       },
+       {
+        "tex": "B=\\begin{pmatrix}2&1\\\\0&2\\end{pmatrix}\\ \\text{no es diagonalizable}",
+        "porque": "Solo tiene el valor propio 2, repetido, y un solo vector propio independiente, el (1, 0)."
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "¿Para qué sirve?",
+    "corto": "En ingeniería",
+    "bloques": [
+     {
+      "t": "ingenieria",
+      "titulo": "El intercambio de calor entre dos placas",
+      "html": "Dos placas se enfrían y calientan entre sí en intervalos de tiempo. En cada paso, cada placa conserva el 80 por ciento de su temperatura y recibe el 20 por ciento de la otra. La temperatura después de muchos pasos sale de las potencias de la matriz.",
+      "tex": "T_{n+1}=A\\,T_{n},\\quad A=\\begin{pmatrix}0.8&0.2\\\\0.2&0.8\\end{pmatrix}",
+      "datos": [
+       {
+        "k": "Temperaturas iniciales",
+        "v": "100 y 20 °C"
+       },
+       {
+        "k": "Valores propios",
+        "v": "1 y 0.6"
+       },
+       {
+        "k": "Después de 5 pasos",
+        "v": "63.1 y 56.9 °C"
+       }
+      ],
+      "cierre": "Los valores propios son 1, con vector propio (1, 1), y 0.6, con vector propio (1, menos 1). La temperatura inicial se escribe como 60 por (1, 1) más 40 por (1, menos 1). Después de n pasos queda 60 por (1, 1) más 40 por 0.6 a la n por (1, menos 1). Con n igual a 5 salen 63.1 y 56.9 grados, y al final ambas placas llegan a 60. Es un modelo simplificado, porque no incluye pérdidas al ambiente."
+     }
+    ]
+   },
+   {
+    "titulo": "Completa el paso",
+    "corto": "Completa",
+    "bloques": [
+     {
+      "t": "completar",
+      "enunciado": "Se calcula D a la n para D igual a la matriz diagonal con 3 y 1. Falta el segundo elemento de la diagonal.",
+      "tex": "D^{n}=\\begin{pmatrix}3^{n}&0\\\\0&[[hueco]]\\end{pmatrix}",
+      "opciones": [
+       {
+        "tex": "1",
+        "txt": "uno"
+       },
+       {
+        "tex": "n",
+        "txt": "n"
+       },
+       {
+        "tex": "3",
+        "txt": "tres"
+       }
+      ],
+      "correcta": 0,
+      "errores": [
+       "",
+       "1 elevado a cualquier potencia es 1, no n. Cada número de la diagonal se eleva a la n.",
+       "Ese es el otro valor propio. El segundo elemento es 1, y 1 a la n es 1."
+      ],
+      "pista": "Eleva el 1 a la n.",
+      "porque": "Cada elemento de la diagonal se eleva a la n, y 1 a la n es 1."
+     }
+    ]
+   },
+   {
+    "titulo": "Encuentra el error",
+    "corto": "Error",
+    "bloques": [
+     {
+      "t": "error",
+      "enunciado": "Alguien analizó si una matriz es diagonalizable y se equivocó en un paso. Toca el paso que está mal.",
+      "pasos": [
+       {
+        "tex": "B=\\begin{pmatrix}2&1\\\\0&2\\end{pmatrix}",
+        "porque": "Es la matriz.",
+        "txt": "B tiene filas 2, 1 y 0, 2"
+       },
+       {
+        "tex": "\\text{Sus valores propios son 2 y 2, así que }B=PDP^{-1}\\text{ con }D=2I",
+        "porque": "Este paso es el que falla.",
+        "txt": "Sus valores propios son 2 y 2, así que B es P por D por P inversa con D igual a 2 veces la identidad"
+       },
+       {
+        "tex": "\\text{Por tanto B es diagonalizable}",
+        "porque": "Depende del paso anterior.",
+        "txt": "Por tanto B es diagonalizable"
+       }
+      ],
+      "mal": 1,
+      "explicacion": "Si D fuera 2I, entonces P D P inversa sería 2I, y B no lo es. Solo hay un vector propio independiente, el (1, 0), porque la nulidad de B menos 2I es 1. Faltan vectores propios, así que B no es diagonalizable.",
+      "correccion": "\\operatorname{rango}(B-2I)=1\\ \\Rightarrow\\ \\text{un solo vector propio independiente}",
+      "pista": "Si D fuera 2I, ¿a qué sería igual P D P inversa?"
+     }
+    ]
+   },
+   {
+    "titulo": "Ordena los pasos",
+    "corto": "Ordena",
+    "bloques": [
+     {
+      "t": "ordenar",
+      "enunciado": "Estos son los pasos para calcular las potencias de A igual a la matriz de filas (2, 1) y (1, 2), pero están desordenados.",
+      "pasos": [
+       "A=PDP^{-1}",
+       "A^{n}=PD^{n}P^{-1}",
+       "D^{n}=\\operatorname{diag}(3^{n},1)",
+       "A^{n}=\\dfrac{1}{2}\\begin{pmatrix}3^{n}+1&3^{n}-1\\\\3^{n}-1&3^{n}+1\\end{pmatrix}"
+      ],
+      "mezcla": [
+       2,
+       0,
+       3,
+       1
+      ],
+      "porque": "Se diagonaliza, se eleva D a la n, se multiplica por P a la izquierda y por P inversa a la derecha.",
+      "pista": "Se empieza diagonalizando.",
+      "txt": [
+       "Se diagonaliza A",
+       "Las potencias de A son las de D, entre P y P inversa",
+       "Se elevan los elementos de la diagonal",
+       "Se multiplica y queda la fórmula"
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "Revisa tu respuesta",
+    "corto": "Revisa",
+    "bloques": [
+     {
+      "t": "pregunta"
+     },
+     {
+      "t": "nota",
+      "html": "Puedes pedir pistas de a una. Si fallas, el mensaje te dice qué error se cometió."
+     }
+    ]
+   },
+   {
+    "titulo": "Tu repaso",
+    "corto": "Repaso",
+    "bloques": [
+     {
+      "t": "repaso"
+     }
+    ]
+   },
+   {
+    "titulo": "En resumen",
+    "corto": "Resumen",
+    "bloques": [
+     {
+      "t": "resumen"
+     }
+    ]
+   }
+  ]
+ },
+ "practicar": {
+  "pasos": [
+   {
+    "titulo": "Aplica A varias veces",
+    "grafica": {
+     "draw": 1
+    },
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Se parte del vector (1, 0) y se le aplica la matriz n veces."
+     },
+     {
+      "t": "eq",
+      "tex": "A=\\begin{pmatrix}2&1\\\\1&2\\end{pmatrix}"
+     }
+    ]
+   },
+   {
+    "titulo": "Cambia n",
+    "grafica": {
+     "draw": 1
+    },
+    "laboratorio": true,
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mueve el deslizador. Solo importan los valores enteros de n, 0, 1 y 2. Abajo se ven n y el peso del vector en la dirección (1, 1)."
+     }
+    ]
+   },
+   {
+    "titulo": "Las dos partes",
+    "grafica": {
+     "draw": 1,
+     "guide": 1
+    },
+    "laboratorio": true,
+    "d": 2,
+    "bloques": [
+     {
+      "t": "p",
+      "html": "El vector se separa en una parte sobre (1, 1), que crece, y otra sobre (1, menos 1), que queda igual. Con n igual a 2 el peso en (1, 1) es 4.5."
+     }
+    ]
+   },
+   {
+    "titulo": "La fórmula",
+    "grafica": {
+     "draw": 1,
+     "guide": 1,
+     "ok": true
+    },
+    "laboratorio": true,
+    "d": 2,
+    "bloques": [
+     {
+      "t": "eq",
+      "tex": "A^{2}\\begin{pmatrix}1\\\\0\\end{pmatrix}=\\begin{pmatrix}5\\\\4\\end{pmatrix}"
+     },
+     {
+      "t": "p",
+      "html": "La diagonalización lo da sin multiplicar la matriz por sí misma."
+     }
+    ]
+   },
+   {
+    "titulo": "Revisa tu respuesta",
+    "grafica": {
+     "draw": 1,
+     "guide": 1,
+     "ok": true,
+     "d": 2
+    },
+    "bloques": [
+     {
+      "t": "pregunta"
+     },
+     {
+      "t": "nota",
+      "html": "Una matriz es diagonalizable si tiene tantos vectores propios independientes como su tamaño."
+     }
+    ]
+   }
+  ]
+ },
+ "pregunta": {
+  "tex": "\\text{matriz no diagonalizable}",
+  "encabezado": "¿Cuál de estas matrices NO es diagonalizable?",
+  "opciones": [
+   "$\\begin{pmatrix}1&1\\\\0&1\\end{pmatrix}$",
+   "$\\begin{pmatrix}2&0\\\\0&3\\end{pmatrix}$",
+   "$\\begin{pmatrix}1&2\\\\2&1\\end{pmatrix}$",
+   "$\\begin{pmatrix}0&1\\\\1&0\\end{pmatrix}$"
+  ],
+  "correcta": 0,
+  "explicacion": "La primera tiene el valor propio 1 repetido y solo un vector propio independiente, el (1, 0), así que no se puede diagonalizar. La segunda ya es diagonal. La tercera y la cuarta son simétricas, con dos valores propios distintos, así que se diagonalizan.",
+  "pistas": [
+   "Busca una matriz con un valor propio repetido.",
+   "La primera matriz tiene el valor propio 1 dos veces.",
+   "Mira cuántos vectores propios independientes tiene. Necesita 2."
+  ],
+  "errores": [
+   "",
+   "Ya es diagonal. Una matriz diagonal es diagonalizable, con P igual a la identidad.",
+   "Es simétrica, con valores propios 3 y menos 1, distintos, así que se diagonaliza.",
+   "Es simétrica, con valores propios 1 y menos 1, distintos, así que se diagonaliza."
+  ]
+ },
+ "resumen": [
+  "Una matriz es diagonalizable si es P D P inversa, con las columnas de P siendo vectores propios.",
+  "Sus potencias son A a la n igual a P D a la n P inversa, y D a la n se calcula elevando su diagonal.",
+  "Si hay n valores propios distintos, es diagonalizable. Si faltan vectores propios independientes, no."
+ ]
+}

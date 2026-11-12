@@ -214,7 +214,7 @@
       items.push(o);
     });
     return { set:function(s){
-      var t=s.d==null?(G.inicio!=null?G.inicio:G.a):s.d, dr=s.draw==null?1:s.draw, n=Math.max(1,items.length), gd=s.guide==null?0:Math.min(1,s.guide);
+      var t=s.d==null?(G.inicio!=null?G.inicio:G.a):s.d; if(G.entero) t=Math.round(t); var dr=s.draw==null?1:s.draw, n=Math.max(1,items.length), gd=s.guide==null?0:Math.min(1,s.guide);
       items.forEach(function(o,i){
         var e=o.e, al=Math.max(0,Math.min(1,dr*n-i)); if(e.guia) al*=gd; if(e.fin) al*=(s.ok?1:0);
         var main=o.ln||o.pt; main.setAttribute('opacity',al); if(o.hd) o.hd.setAttribute('opacity',al); if(o.tx) o.tx.setAttribute('opacity',al);
@@ -277,7 +277,7 @@
     }};
   }
   function readouts(d,lEl,rEl){
-    if(PLA){ var tt=d==null?(G.inicio!=null?G.inicio:G.a):d; lEl.textContent=LEC[0].r+' = '+nf(LEC[0].f(tt)); rEl.textContent=LEC[1].r+' = '+nf(LEC[1].f(tt)); return; }
+    if(PLA){ var tt=d==null?(G.inicio!=null?G.inicio:G.a):d; if(G.entero) tt=Math.round(tt); var sp=function(v){ return Math.abs(v)<1e-6?0:v; }; lEl.textContent=LEC[0].r+' = '+nf(sp(LEC[0].f(tt))); rEl.textContent=LEC[1].r+' = '+nf(sp(LEC[1].f(tt))); return; }
     if(NEW){ if(d==null){ lEl.textContent='sin datos'; rEl.textContent='sin datos'; return; } var kk=Math.max(0,Math.min(G.pasos,Math.round(d))); lEl.textContent='x'+kk+' = '+nf(NX[kk]); rEl.textContent='f(x'+kk+') = '+nf(fFun(NX[kk])); return; }
     if(ARE){ var RA=G.rotulos||(ENT?['área','separación']:(POL?['área','r']:['área','altura'])); if(d==null){ lEl.textContent='sin datos'; rEl.textContent='sin datos'; return; } var sn=function(v){ return Math.abs(v)<1e-7?0:v; }; lEl.textContent=RA[0]+' = '+nf(sn(fPri(d)-fPri(G.a))); rEl.textContent=RA[1]+' = '+nf(sn(ENT?fFun(d)-fInf(d):fFun(d))); return; }
     if(ASI){ if(d==null){ lEl.textContent='sin datos'; rEl.textContent='sin datos'; return; } var dd=G.entero?Math.max(0,Math.round(d)):d, RS=G.rotulos||['x','f(x)']; lEl.textContent=RS[0]+' = '+nf(dd); rEl.textContent=RS[1]+' = '+nf(fFun(dd)); return; }
@@ -356,7 +356,7 @@
     if(hb) hb.addEventListener('click',pista);
     gu.querySelector('button').addEventListener('click',function(){ cerrar(true); });
   }
-  function Quiz(host){ var Q=L.pregunta; QuizCore(host,{head:'Calcula <span data-tex="'+attr(Q.tex)+'"></span>',opciones:Q.opciones,correcta:Q.correcta,explicacion:Q.explicacion,pistas:Q.pistas,errores:Q.errores,onDone:function(r){ SR.registrar(L.id,L.titulo,r.calidad); if(r.calidad==='ok') PG.insignia(L.id,'sinpistas'); }}); mathIn(host); }
+  function Quiz(host){ var Q=L.pregunta; QuizCore(host,{head:(Q.encabezado?mt(Q.encabezado):'Calcula <span data-tex="'+attr(Q.tex)+'"></span>'),opciones:Q.opciones,correcta:Q.correcta,explicacion:Q.explicacion,pistas:Q.pistas,errores:Q.errores,onDone:function(r){ SR.registrar(L.id,L.titulo,r.calidad); if(r.calidad==='ok') PG.insignia(L.id,'sinpistas'); }}); mathIn(host); }
 
   /* mini simulacro con preguntas del banco. Cada una puede ser de opción múltiple o numérica */
   function Simulacro(root,b){

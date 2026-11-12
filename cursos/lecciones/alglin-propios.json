@@ -1,0 +1,654 @@
+{
+ "esquema": 1,
+ "id": "alglin-m3-l1",
+ "ejemplo": true,
+ "curso": "Álgebra Lineal",
+ "modulo": "Módulo 3 Ortogonalidad y valores propios",
+ "posicion": "Lección 1 de 4",
+ "titulo": "Valores y vectores propios",
+ "minutos": 28,
+ "ejercicios": 7,
+ "grafica": {
+  "tipo": "plano",
+  "x": [
+   -5.5,
+   7.33
+  ],
+  "y": [
+   -3,
+   4
+  ],
+  "a": 0,
+  "b": 3.14,
+  "inicio": 0.7853981634,
+  "elementos": [
+   {
+    "t": "recta",
+    "p": [
+     "0",
+     "0"
+    ],
+    "dir": [
+     "1",
+     "1"
+    ],
+    "guion": true,
+    "nombre": "dirección propia",
+    "c": 1,
+    "guia": true
+   },
+   {
+    "t": "recta",
+    "p": [
+     "0",
+     "0"
+    ],
+    "dir": [
+     "1",
+     "-1"
+    ],
+    "guion": true,
+    "c": 3,
+    "guia": true
+   },
+   {
+    "t": "vector",
+    "b": [
+     "cos(x)",
+     "sin(x)"
+    ],
+    "nombre": "v",
+    "c": 0
+   },
+   {
+    "t": "vector",
+    "b": [
+     "cos(x)+2*sin(x)",
+     "2*cos(x)+sin(x)"
+    ],
+    "nombre": "Av",
+    "c": 2
+   }
+  ],
+  "lecturas": [
+   {
+    "rotulo": "producto cruzado de v y Av",
+    "formula": "2*cos(2*x)"
+   },
+   {
+    "rotulo": "longitud de Av",
+    "formula": "sqrt((cos(x)+2*sin(x))^2+(2*cos(x)+sin(x))^2)"
+   }
+  ],
+  "etiquetas": [
+   "Producto cruzado de v y Av",
+   "Longitud de Av"
+  ],
+  "etiquetaSlider": "Ángulo de v en radianes",
+  "alt": "Un vector unitario v que gira y su imagen Av bajo la matriz de filas (1, 2) y (2, 1). Av apunta en la misma dirección que v solo cuando v cae sobre una de las dos rectas punteadas"
+ },
+ "glosario": {
+  "propio": "Un valor propio de una matriz A es un número lambda para el que A por v es igual a lambda por v con v distinto de cero. Ese vector v es un vector propio.",
+  "caracteristica": "La ecuación característica de A es el determinante de A menos lambda por la identidad igual a cero. Sus soluciones son los valores propios.",
+  "traza": "La traza de una matriz cuadrada es la suma de los números de su diagonal principal."
+ },
+ "ver": {
+  "duracion": 22.0,
+  "capitulos": [
+   [
+    0,
+    3,
+    "La matriz A, de filas (1, 2) y (2, 1), transforma cada vector. Aquí gira un vector unitario v."
+   ],
+   [
+    3,
+    6,
+    "Casi siempre Av apunta en una dirección distinta de la de v, y además cambia de longitud."
+   ],
+   [
+    6,
+    12,
+    "Pero hay dos direcciones especiales, las rectas punteadas, donde Av queda sobre la misma recta que v."
+   ],
+   [
+    12,
+    17,
+    "Con v a 45 grados, Av apunta igual que v y es 3 veces más largo. Entonces 3 es un valor propio."
+   ],
+   [
+    17,
+    22,
+    "Con v a 135 grados, Av apunta al lado contrario y mide lo mismo. Entonces menos 1 es otro valor propio."
+   ]
+  ],
+  "canales": {
+   "draw": [
+    [
+     0.3,
+     0
+    ],
+    [
+     5.5,
+     1
+    ]
+   ],
+   "d": [
+    [
+     6,
+     0.2
+    ],
+    [
+     9,
+     1.2
+    ],
+    [
+     12,
+     0.7853981634
+    ],
+    [
+     16,
+     0.7853981634
+    ],
+    [
+     17,
+     2.3561944902
+    ],
+    [
+     22,
+     2.3561944902
+    ]
+   ],
+   "guide": [
+    [
+     6,
+     0
+    ],
+    [
+     7,
+     1
+    ]
+   ]
+  },
+  "intervalos": {
+   "ok": [
+    17,
+    22
+   ]
+  }
+ },
+ "leer": {
+  "secciones": [
+   {
+    "titulo": "La idea",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Una matriz casi siempre cambia la dirección de los vectores. Pero hay direcciones especiales que la matriz solo estira o encoge. Los vectores en esas direcciones se llaman {{gl:propio|vectores propios}}, y el factor por el que se estiran es su valor propio. Son la clave para entender vibraciones, estabilidad y muchos más procesos."
+     }
+    ]
+   },
+   {
+    "titulo": "Un ejemplo",
+    "corto": "Un ejemplo",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mira cómo actúa la matriz A sobre un vector unitario v que gira alrededor del origen."
+     },
+     {
+      "t": "eq",
+      "tex": "A=\\begin{pmatrix}1&2\\\\2&1\\end{pmatrix},\\qquad A\\mathbf{v}=\\lambda\\mathbf{v}"
+     },
+     {
+      "t": "grafica",
+      "animar": "dibujar",
+      "alt": "Un vector que gira y su imagen"
+     }
+    ]
+   },
+   {
+    "titulo": "Piensa antes de ver",
+    "corto": "Piensa",
+    "bloques": [
+     {
+      "t": "piensa",
+      "pregunta": "Con v a 45 grados, v es casi (0.71, 0.71) y Av es casi (2.12, 2.12). ¿Cuántas veces es más largo Av que v?",
+      "opciones": [
+       1,
+       2,
+       3,
+       4
+      ],
+      "correcta": 3,
+      "bien": "Muy bien. Es 3 veces más largo, y apunta igual. Más abajo se ve.",
+      "mal": "Es 3 veces más largo, porque 2.12 entre 0.71 es 3. Más abajo se ve."
+     }
+    ]
+   },
+   {
+    "titulo": "Las direcciones especiales",
+    "corto": "Direcciones",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mira cómo se mueven v y Av al girar v."
+     },
+     {
+      "t": "acercando",
+      "ds": [
+       0.2,
+       0.7853981634,
+       1.5,
+       2.3561944902
+      ],
+      "alt": "El vector v y su imagen para varios ángulos"
+     },
+     {
+      "t": "p",
+      "html": "Con 45 grados y con 135 grados el producto cruzado de v y Av vale 0, o sea que los dos vectores quedan sobre la misma recta. Esas son las direcciones propias."
+     }
+    ]
+   },
+   {
+    "titulo": "Hallar los valores propios",
+    "corto": "Valores propios",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Se busca lambda para el que A menos lambda por la identidad no sea invertible, o sea con determinante cero. Esa es la {{gl:caracteristica|ecuación característica}}."
+     },
+     {
+      "t": "pasos",
+      "items": [
+       {
+        "tex": "\\det(A-\\lambda I)=\\det\\begin{pmatrix}1-\\lambda&2\\\\2&1-\\lambda\\end{pmatrix}=(1-\\lambda)^{2}-4",
+        "porque": "Se resta lambda de la diagonal y se calcula el determinante."
+       },
+       {
+        "tex": "\\lambda^{2}-2\\lambda-3=0\\ \\Rightarrow\\ (\\lambda-3)(\\lambda+1)=0",
+        "porque": "Se desarrolla y se factoriza."
+       },
+       {
+        "tex": "\\lambda=3\\quad\\text{o}\\quad\\lambda=-1",
+        "porque": "Son los dos valores propios."
+       }
+      ]
+     },
+     {
+      "t": "ojo",
+      "html": "Los valores propios de una matriz que no es triangular no se leen en la diagonal. Hay que resolver la ecuación característica."
+     }
+    ]
+   },
+   {
+    "titulo": "Hallar los vectores propios",
+    "corto": "Vectores propios",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Para cada valor propio se resuelve el sistema homogéneo A menos lambda por la identidad por v igual a cero."
+     },
+     {
+      "t": "pasos",
+      "items": [
+       {
+        "tex": "\\lambda=3:\\quad \\begin{pmatrix}-2&2\\\\2&-2\\end{pmatrix}\\mathbf{v}=0\\ \\Rightarrow\\ \\mathbf{v}=(1,1)",
+        "porque": "Las dos filas dicen lo mismo, v1 igual a v2."
+       },
+       {
+        "tex": "\\lambda=-1:\\quad \\begin{pmatrix}2&2\\\\2&2\\end{pmatrix}\\mathbf{v}=0\\ \\Rightarrow\\ \\mathbf{v}=(1,-1)",
+        "porque": "Las dos filas dicen v1 más v2 igual a 0."
+       },
+       {
+        "tex": "A(1,1)=(3,3)=3\\,(1,1)",
+        "porque": "Se comprueba con el primero."
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "Traza y determinante",
+    "corto": "Traza y determinante",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Hay dos atajos para revisar los resultados. La suma de los valores propios es la {{gl:traza|traza}} y su producto es el determinante."
+     },
+     {
+      "t": "pasos",
+      "items": [
+       {
+        "tex": "\\lambda_{1}+\\lambda_{2}=3+(-1)=2=\\operatorname{tr}A",
+        "porque": "La traza de A es 1 más 1."
+       },
+       {
+        "tex": "\\lambda_{1}\\lambda_{2}=3\\cdot(-1)=-3=\\det A",
+        "porque": "El determinante de A es 1 por 1 menos 2 por 2."
+       },
+       {
+        "tex": "\\lambda=0\\ \\text{es valor propio}\\iff\\det A=0",
+        "porque": "Si hay un valor propio 0, la matriz no es invertible."
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "¿Para qué sirve?",
+    "corto": "En ingeniería",
+    "bloques": [
+     {
+      "t": "ingenieria",
+      "titulo": "Las vibraciones de dos masas",
+      "html": "Dos masas iguales unidas con resortes vibran de maneras especiales llamadas modos. Los valores propios de la matriz de rigidez dividida entre la masa dan los cuadrados de las frecuencias naturales, y los vectores propios dan la forma de cada modo.",
+      "tex": "\\dfrac{k}{m}\\begin{pmatrix}2&-1\\\\-1&2\\end{pmatrix}\\mathbf{v}=\\omega^{2}\\mathbf{v}",
+      "datos": [
+       {
+        "k": "Rigidez entre masa",
+        "v": "100 por segundo al cuadrado"
+       },
+       {
+        "k": "Modo 1",
+        "v": "masas juntas, 10 rad/s"
+       },
+       {
+        "k": "Modo 2",
+        "v": "masas opuestas, 17.3 rad/s"
+       }
+      ],
+      "cierre": "Los valores propios de la matriz son 100 y 300, con vectores propios (1, 1) y (1, menos 1). Las frecuencias son 10 y unos 17.3 radianes por segundo, o sea 1.59 y 2.76 hercios. En el primer modo las masas se mueven juntas y en el segundo se mueven opuestas. Es un modelo simplificado, porque no incluye amortiguamiento."
+     }
+    ]
+   },
+   {
+    "titulo": "Completa el paso",
+    "corto": "Completa",
+    "bloques": [
+     {
+      "t": "completar",
+      "enunciado": "Se halla la ecuación característica de la matriz de filas (1, 2) y (2, 1). Falta el desarrollo.",
+      "tex": "(1-\\lambda)^{2}-4=[[hueco]]",
+      "opciones": [
+       {
+        "tex": "\\lambda^{2}-2\\lambda-3",
+        "txt": "lambda al cuadrado menos dos lambda menos tres"
+       },
+       {
+        "tex": "\\lambda^{2}-2\\lambda+5",
+        "txt": "lambda al cuadrado menos dos lambda más cinco"
+       },
+       {
+        "tex": "\\lambda^{2}-5",
+        "txt": "lambda al cuadrado menos cinco"
+       }
+      ],
+      "correcta": 0,
+      "errores": [
+       "",
+       "El término constante es 1 menos 4, o sea menos 3, y no 5.",
+       "Falta el término del medio. (1 menos lambda) al cuadrado es 1 menos 2 lambda más lambda al cuadrado."
+      ],
+      "pista": "Desarrolla el cuadrado y resta 4.",
+      "porque": "(1 menos lambda) al cuadrado es 1 menos 2 lambda más lambda al cuadrado. Al restar 4 queda lambda al cuadrado menos 2 lambda menos 3."
+     }
+    ]
+   },
+   {
+    "titulo": "Encuentra el error",
+    "corto": "Error",
+    "bloques": [
+     {
+      "t": "error",
+      "enunciado": "Alguien halló los valores propios de una matriz y se equivocó en un paso. Toca el paso que está mal.",
+      "pasos": [
+       {
+        "tex": "A=\\begin{pmatrix}1&2\\\\2&1\\end{pmatrix}",
+        "porque": "Es la matriz.",
+        "txt": "La matriz tiene filas 1, 2 y 2, 1"
+       },
+       {
+        "tex": "\\text{Los valores propios son los de la diagonal, o sea 1 y 1}",
+        "porque": "Este paso es el que falla.",
+        "txt": "Los valores propios son los de la diagonal, o sea 1 y 1"
+       },
+       {
+        "tex": "\\text{La matriz tiene un solo valor propio, 1}",
+        "porque": "Depende del paso anterior.",
+        "txt": "La matriz tiene un solo valor propio, 1"
+       }
+      ],
+      "mal": 1,
+      "explicacion": "Los valores propios solo se leen en la diagonal cuando la matriz es triangular. Aquí hay que resolver la ecuación característica, y salen 3 y menos 1. Se comprueba con la traza, 3 más menos 1 es 2.",
+      "correccion": "\\lambda^{2}-2\\lambda-3=0\\ \\Rightarrow\\ \\lambda=3,\\ -1",
+      "pista": "Comprueba con la traza. ¿La suma de 1 y 1 da la traza de la matriz?"
+     }
+    ]
+   },
+   {
+    "titulo": "Ordena los pasos",
+    "corto": "Ordena",
+    "bloques": [
+     {
+      "t": "ordenar",
+      "enunciado": "Estos son los pasos para hallar los valores propios de la matriz de filas (1, 2) y (2, 1), pero están desordenados.",
+      "pasos": [
+       "\\det(A-\\lambda I)=0",
+       "(1-\\lambda)^{2}-4=0",
+       "\\lambda^{2}-2\\lambda-3=0\\ \\Rightarrow\\ (\\lambda-3)(\\lambda+1)=0",
+       "\\lambda=3,\\ \\lambda=-1"
+      ],
+      "mezcla": [
+       2,
+       0,
+       3,
+       1
+      ],
+      "porque": "Se plantea la ecuación, se calcula el determinante, se factoriza y se leen las soluciones.",
+      "pista": "Se empieza con la ecuación característica.",
+      "txt": [
+       "Se plantea la ecuación característica",
+       "Se calcula el determinante",
+       "Se desarrolla y se factoriza",
+       "Son los valores propios"
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "Revisa tu respuesta",
+    "corto": "Revisa",
+    "bloques": [
+     {
+      "t": "pregunta"
+     },
+     {
+      "t": "nota",
+      "html": "Puedes pedir pistas de a una. Si fallas, el mensaje te dice qué error se cometió."
+     }
+    ]
+   },
+   {
+    "titulo": "Mini simulacro",
+    "corto": "Simulacro",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Tres preguntas reales del banco de MathUNAL sobre este tema. Responde sin mirar los pasos."
+     },
+     {
+      "t": "simulacro",
+      "titulo": "Mini simulacro de valores propios",
+      "preguntas": [
+       {
+        "tipo": "mcq",
+        "texto": "$\\lambda$ es valor propio de $A$ si y solo si:",
+        "opciones": [
+         "$\\det(A - \\lambda I) = 0$",
+         "$\\det(A) = \\lambda$",
+         "$A\\lambda = 0$",
+         "$\\operatorname{tr}(A) = \\lambda$"
+        ],
+        "correcta": 0,
+        "resumen": "Es la ecuación característica, porque $A-\\lambda I$ no es invertible.",
+        "fuente": "Banco MathUNAL, simulacro de Álgebra Lineal"
+       },
+       {
+        "tipo": "numerica",
+        "texto": "La suma de los valores propios de $\\begin{pmatrix}1&2\\\\3&4\\end{pmatrix}$ es:",
+        "respuesta": "5",
+        "tolNum": 0.001,
+        "resumen": "La suma de los valores propios es la traza, $1+4=5$.",
+        "fuente": "Banco MathUNAL, simulacro de Álgebra Lineal"
+       },
+       {
+        "tipo": "numerica",
+        "texto": "El producto de los valores propios de $\\begin{pmatrix}1&2\\\\3&4\\end{pmatrix}$ es:",
+        "respuesta": "-2",
+        "tolNum": 0.001,
+        "resumen": "El producto de los valores propios es el determinante, $1\\cdot4-2\\cdot3=-2$.",
+        "fuente": "Banco MathUNAL, simulacro de Álgebra Lineal"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "Tu repaso",
+    "corto": "Repaso",
+    "bloques": [
+     {
+      "t": "repaso"
+     }
+    ]
+   },
+   {
+    "titulo": "En resumen",
+    "corto": "Resumen",
+    "bloques": [
+     {
+      "t": "resumen"
+     }
+    ]
+   }
+  ]
+ },
+ "practicar": {
+  "pasos": [
+   {
+    "titulo": "Un vector que gira",
+    "grafica": {
+     "draw": 1
+    },
+    "bloques": [
+     {
+      "t": "p",
+      "html": "El vector unitario v gira y la matriz lo transforma en Av."
+     },
+     {
+      "t": "eq",
+      "tex": "A=\\begin{pmatrix}1&2\\\\2&1\\end{pmatrix}"
+     }
+    ]
+   },
+   {
+    "titulo": "Gira v",
+    "grafica": {
+     "draw": 1
+    },
+    "laboratorio": true,
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mueve el deslizador para girar v. Abajo se ven el producto cruzado de v y Av, que mide qué tan lejos está Av de la dirección de v, y la longitud de Av."
+     }
+    ]
+   },
+   {
+    "titulo": "Direcciones propias",
+    "grafica": {
+     "draw": 1,
+     "guide": 1
+    },
+    "laboratorio": true,
+    "d": 0.7853981634,
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Con v a 45 grados, el producto cruzado es 0 y Av mide 3. Av apunta igual que v y es 3 veces más largo."
+     }
+    ]
+   },
+   {
+    "titulo": "El otro valor propio",
+    "grafica": {
+     "draw": 1,
+     "guide": 1,
+     "ok": true
+    },
+    "laboratorio": true,
+    "d": 2.3561944902,
+    "bloques": [
+     {
+      "t": "eq",
+      "tex": "\\lambda_{1}=3,\\quad \\lambda_{2}=-1"
+     },
+     {
+      "t": "p",
+      "html": "Con 135 grados, Av mide 1 y apunta al lado contrario. Es el valor propio menos 1."
+     }
+    ]
+   },
+   {
+    "titulo": "Revisa tu respuesta",
+    "grafica": {
+     "draw": 1,
+     "guide": 1,
+     "ok": true,
+     "d": 2.3561944902
+    },
+    "bloques": [
+     {
+      "t": "pregunta"
+     },
+     {
+      "t": "nota",
+      "html": "Resuelve la ecuación característica y comprueba con la traza."
+     }
+    ]
+   }
+  ]
+ },
+ "pregunta": {
+  "tex": "\\text{Valor propio más pequeño de}\\ \\begin{pmatrix}4&1\\\\2&3\\end{pmatrix}",
+  "opciones": [
+   "$2$",
+   "$5$",
+   "$1$",
+   "$3$"
+  ],
+  "correcta": 0,
+  "explicacion": "La ecuación característica es (4 menos lambda) por (3 menos lambda) menos 2, que queda lambda al cuadrado menos 7 lambda más 10. Se factoriza como (lambda menos 2) por (lambda menos 5). Los valores propios son 2 y 5, y el más pequeño es 2.",
+  "verificacion": {
+   "formula": "(7-sqrt(49-4*10))/2+0*x",
+   "a": 0,
+   "esperado": 2
+  },
+  "pistas": [
+   "Plantea el determinante de A menos lambda por la identidad.",
+   "Queda lambda al cuadrado menos 7 lambda más 10. La traza es 7 y el determinante es 10.",
+   "Busca dos números que sumen 7 y multipliquen 10."
+  ],
+  "errores": [
+   "",
+   "Ese es el valor propio más grande. Se pide el más pequeño.",
+   "Los valores propios deben sumar 7, la traza, y multiplicar 10, el determinante. 1 y 7 no los cumplen.",
+   "Los valores propios deben sumar 7 y multiplicar 10. Si uno fuera 3, el otro sería 4, y eso da 12."
+  ]
+ },
+ "resumen": [
+  "Un vector propio es uno que la matriz solo estira, A v igual a lambda v. Lambda es su valor propio.",
+  "Los valores propios salen de det(A menos lambda I) igual a cero, y los vectores propios, del sistema homogéneo.",
+  "La suma de los valores propios es la traza, y su producto es el determinante."
+ ]
+}
