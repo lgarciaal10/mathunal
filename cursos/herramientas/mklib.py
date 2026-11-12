@@ -34,3 +34,16 @@ def lesson(id_,posicion,titulo,minutos,graf,glos,ver,secciones,prac,preg,resumen
     return {"esquema":1,"id":id_,"ejemplo":True,"curso":curso,"modulo":modulo,"posicion":posicion,"titulo":titulo,"minutos":minutos,"ejercicios":ejercicios,"grafica":graf,"glosario":glos,"ver":ver,"leer":{"secciones":secciones},"practicar":{"pasos":prac},"pregunta":preg,"resumen":resumen}
 def write(L,name):
     json.dump(L,open(name,'w'),ensure_ascii=False,indent=1)
+
+def M(*c):
+    n=int(len(c)**0.5+0.5); rows=[c[i*n:(i+1)*n] for i in range(n)]
+    return "\\begin{pmatrix}"+"\\\\".join("&".join(str(v) for v in r) for r in rows)+"\\end{pmatrix}"
+_BANCO=None
+def banco(i,resumen=None):
+    """arma una pregunta del simulacro con el registro del banco, sacado de bank/alglin-todo.json"""
+    global _BANCO
+    if _BANCO is None:
+        _BANCO={q['id']:q for v in json.load(open(os.path.join(os.path.dirname(os.path.abspath(__file__)),'..','bank','alglin-todo.json'))).values() for q in v}
+    q=_BANCO[i]
+    if q['tipo']=='mcq': return mcq(q['texto'],q['opciones'],q['correcta'],resumen or q.get('resumen') or '')
+    return num(q['texto'],str(q['respuesta']),q.get('tolNum') or 0.001,resumen or q.get('resumen') or '')

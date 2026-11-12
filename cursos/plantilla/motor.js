@@ -222,7 +222,7 @@
         var lx=0, ly=0;
         if(e.t==='vector'){
           var a=ev(o.a,t), b=ev(o.b,t), pa0=X(a[0]), pa1=Y(a[1]), pb0=X(b[0]), pb1=Y(b[1]), dx=pb0-pa0, dy=pb1-pa1, len=Math.sqrt(dx*dx+dy*dy), ang=Math.atan2(dy,dx), c=Math.cos(ang), sn=Math.sin(ang);
-          if(len<14){ o.ln.setAttribute('d',''); o.hd.setAttribute('d',''); }
+          if(len<14){ o.ln.setAttribute('d',''); o.hd.setAttribute('d',''); if(o.tx) o.tx.setAttribute('opacity',0); }
           else { o.ln.setAttribute('d','M'+pa0+' '+pa1+' L'+(pb0-9*c)+' '+(pb1-9*sn)); o.hd.setAttribute('d','M'+pb0+' '+pb1+' L'+(pb0-15*Math.cos(ang-0.42))+' '+(pb1-15*Math.sin(ang-0.42))+' L'+(pb0-15*Math.cos(ang+0.42))+' '+(pb1-15*Math.sin(ang+0.42))+' Z'); }
           lx=pb0+20*c; ly=pb1+20*sn+4;
         } else if(e.t==='poligono'){
