@@ -14,7 +14,7 @@ def cierre(simtitle,preguntas):
         return [sec("Revisa tu respuesta","Revisa",{"t":"pregunta"},{"t":"nota","html":"Puedes pedir pistas de a una. Si fallas, el mensaje te dice qué error se cometió."}),sec("Tu repaso","Repaso",{"t":"repaso"}),sec("En resumen","Resumen",{"t":"resumen"})]
     return [
      sec("Revisa tu respuesta","Revisa",{"t":"pregunta"},{"t":"nota","html":"Puedes pedir pistas de a una. Si fallas, el mensaje te dice qué error se cometió."}),
-     sec("Mini simulacro","Simulacro",P("Tres preguntas reales del banco de MathUNAL sobre este tema. Responde sin mirar los pasos."),{"t":"simulacro","titulo":simtitle,"preguntas":preguntas}),
+     sec("Mini simulacro","Simulacro",P({1:"Una pregunta real",2:"Dos preguntas reales",3:"Tres preguntas reales"}.get(len(preguntas),"Preguntas reales")+" del banco de MathUNAL sobre este tema. Responde sin mirar los pasos."),{"t":"simulacro","titulo":simtitle,"preguntas":preguntas}),
      sec("Tu repaso","Repaso",{"t":"repaso"}),
      sec("En resumen","Resumen",{"t":"resumen"})]
 def mcq(texto,ops,c,res): return {"tipo":"mcq","texto":texto,"opciones":ops,"correcta":c,"resumen":res,"fuente":FU}
