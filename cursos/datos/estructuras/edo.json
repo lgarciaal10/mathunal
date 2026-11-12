@@ -103,8 +103,8 @@
      "tema": "Transformada de Laplace",
      "preguntas_banco": 9,
      "parciales_con_el_tema": 1,
-     "estado": "pendiente",
-     "leccion": null
+     "estado": "borrador para revisión",
+     "leccion": "lecciones/edo-laplace.json"
     },
     {
      "tema": "Sistemas lineales y plano fase",
