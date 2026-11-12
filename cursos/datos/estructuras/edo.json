@@ -47,8 +47,8 @@
      "tema": "Bernoulli y sustituciones",
      "preguntas_banco": 3,
      "parciales_con_el_tema": 1,
-     "estado": "pendiente",
-     "leccion": null
+     "estado": "borrador para revisión",
+     "leccion": "lecciones/edo-bernoulli.json"
     }
    ]
   },
