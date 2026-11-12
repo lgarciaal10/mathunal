@@ -57,6 +57,7 @@
     function fm(v,dec){ var t=v.toFixed(dec); return t==='-0'||/^-0\.?0*$/.test(t)?t.replace('-',''):t; }
     F.axes=function(){
       while(ag.firstChild) ag.removeChild(ag.firstChild);
+      if(G.sinejes) return;
       var xa=F.XA(), ya=F.YA(), libre=F.z>0.001;
       F.el('path',{'class':'ax',d:'M'+xa+' '+(F.y1-8)+' V'+F.y0+' M'+F.x0+' '+ya+' H'+(F.x1+6)},ag);
       var sx=paso125(F.XR[1]-F.XR[0],libre), dx=Math.max(0,-Math.floor(Math.log(sx)/Math.LN10+1e-9));
