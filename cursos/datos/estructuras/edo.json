@@ -40,8 +40,8 @@
      "tema": "Autónomas y estabilidad",
      "preguntas_banco": 3,
      "parciales_con_el_tema": 1,
-     "estado": "pendiente",
-     "leccion": null
+     "estado": "borrador para revisión",
+     "leccion": "lecciones/edo-autonomas.json"
     },
     {
      "tema": "Bernoulli y sustituciones",
