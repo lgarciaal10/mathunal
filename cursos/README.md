@@ -29,3 +29,6 @@ Las 13 lecciones de la estructura provisional `datos/estructuras/calcint.json` e
 
 ## Álgebra Lineal
 Las 12 lecciones de `datos/estructuras/alglin.json` están escritas como borradores para revisión, en `lecciones/alglin-*.json`, con el mismo método de scripts `herramientas/mk-alglin-<nombre>.py`. Usan el tipo de gráfica `plano`, que dibuja vectores, polígonos, rectas y puntos cuyas coordenadas son fórmulas de un parámetro. Diez traen simulacro con 3 preguntas reales del banco y dos no, porque el banco no tiene 3 preguntas distintas de ese tema. `herramientas/mklib.py` trae `banco(id)`, que arma una pregunta del simulacro con el registro del banco en `datos/alglin-banco.json`, y que sale de la extracción del banco con `herramientas/extraer-banco.js`.
+
+## Ecuaciones Diferenciales
+Van 4 de las 15 lecciones de `datos/estructuras/edo.json`, como borradores. Usan la gráfica `plano` con los elementos `segmento` para el campo de pendientes y `trazo` para las curvas solución. Faltan las demás lecciones de los tres módulos.
