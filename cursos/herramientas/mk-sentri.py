@@ -1,0 +1,76 @@
+from mklib import *
+graf={"tipo":"area","x":[0,1.2],"y":[0,1.2],"funcion":"sqrt(1-x*x)","primitiva":"(x*sqrt(1-x*x)+asin(x))/2","a":0,"b":0.95,"franja":0.04,"limite":0.8,
+ "etiquetas":["Área acumulada","Altura de la curva"],"rotulos":["área","altura"],"etiquetaSlider":"Posición de x",
+ "alt":"Cuarto de círculo de radio 1 con el área bajo la curva sombreada desde 0 hasta un x que avanza hasta 1"}
+glos={"ident":"Una identidad trigonométrica es una igualdad que se cumple para todos los valores del ángulo, como seno al cuadrado más coseno al cuadrado igual a 1.",
+ "triangulo":"El triángulo de referencia es un triángulo rectángulo que se dibuja con el ángulo theta para volver de theta a x al final de la integral.",
+ "prim":"Una primitiva de f es una función F cuya derivada es f. Por ejemplo, x al cubo sobre 3 es una primitiva de x al cuadrado."}
+ver={"duracion":22.0,"capitulos":[
+ [0,2.5,"Esta es la curva de f(x) igual a la raíz de 1 menos x al cuadrado. Es un cuarto de círculo de radio 1."],
+ [2.5,5,"Se mide el área bajo ella a partir de x igual a 0."],
+ [5,11,"Al avanzar x, el área se va llenando. La curva baja desde 1 hasta tocar el eje en x igual a 1."],
+ [11,16,"Con x igual a 0.6 la curva mide 0.8 de alto."],
+ [16,22,"Al llegar a x igual a 1 el área acumulada es 0.7854, que es pi sobre 4, un cuarto del área del círculo."]],
+ "canales":{"draw":[[0.3,0],[2.4,1]],"hole":[[2.5,0],[3.3,1]],"d":[[5,0.2],[11,0.6],[15,0.6],[16,1],[22,1]],"guide":[[11,0],[12,1]]},
+ "intervalos":{"ok":[19,22]}}
+S=[
+ sec("La idea",None,P("Algunas integrales traen una raíz que no se puede quitar con una sustitución común, como la raíz de 1 menos x al cuadrado. La sustitución trigonométrica la elimina. Se cambia x por un seno, una tangente o una secante, y con una {{gl:ident|identidad}} la raíz desaparece.")),
+ sec("Un ejemplo","Un ejemplo",P("Mira esta integral, que mide el área de un cuarto de círculo de radio 1."),EQ("\\int_{0}^{1}\\sqrt{1-x^{2}}\\,dx"),{"t":"grafica","animar":"dibujar","alt":"Curva que se dibuja y marca el punto de partida en x igual a 0"}),
+ sec("Piensa antes de ver","Piensa",{"t":"piensa","pregunta":"Cuando x vale 0.6, ¿cuánto vale la raíz de 1 menos x al cuadrado?","opciones":[0.4,0.6,0.8,1],"correcta":0.8,"bien":"Muy bien. Vale 0.8, porque 1 menos 0.36 es 0.64 y su raíz es 0.8. Más abajo se ve el área acumulada.","mal":"Vale 0.8, porque 1 menos 0.36 es 0.64 y su raíz es 0.8. Más abajo se ve el área acumulada."}),
+ sec("El área que se acumula","El área",P("Mira cómo se llena el área y qué valen el área y la altura en cada x."),{"t":"acercando","ds":[0.3,0.6,0.9,1],"alt":"El área bajo el cuarto de círculo que va creciendo hasta x igual a 1"},P("Con x igual a 1 la curva toca el eje y el área acumulada es <b>0.7854</b>. Ese es el número que debe salir al integrar.")),
+ sec("La sustitución","La sustitución",P("Se elige x igual a seno de theta. Así 1 menos x al cuadrado se vuelve 1 menos seno al cuadrado, que es coseno al cuadrado."),
+   PASOS([("x=\\operatorname{sen}\\theta,\\quad dx=\\cos\\theta\\,d\\theta","Se cambia x y también dx, que es la derivada por d theta."),
+          ("\\sqrt{1-x^{2}}=\\sqrt{1-\\operatorname{sen}^{2}\\theta}=\\cos\\theta","La raíz desaparece por la identidad. Sirve cuando theta está entre menos pi sobre 2 y pi sobre 2, donde el coseno no es negativo."),
+          ("\\int\\sqrt{1-x^{2}}\\,dx=\\int\\cos\\theta\\cdot\\cos\\theta\\,d\\theta=\\int\\cos^{2}\\theta\\,d\\theta","Hay dos cosenos, uno de la raíz y otro de dx."),
+          ("=\\dfrac{\\theta}{2}+\\dfrac{\\operatorname{sen}2\\theta}{4}+C","Se integra con la identidad del ángulo doble.")]),
+   OJO("El dx también se cambia. Olvidar el coseno que viene de dx es el error más común.")),
+ sec("Volver a x","Volver a x",P("El resultado queda en theta y hay que devolverlo a x. Se usa un {{gl:triangulo|triángulo de referencia}}. Como el seno de theta es x sobre 1, el cateto opuesto es x, la hipotenusa es 1 y el otro cateto es la raíz de 1 menos x al cuadrado."),
+   PASOS([("\\theta=\\arcsin x,\\qquad \\operatorname{sen}2\\theta=2\\operatorname{sen}\\theta\\cos\\theta=2x\\sqrt{1-x^{2}}","Con el triángulo, el coseno de theta es la raíz de 1 menos x al cuadrado."),
+          ("\\int\\sqrt{1-x^{2}}\\,dx=\\dfrac{\\arcsin x}{2}+\\dfrac{x\\sqrt{1-x^{2}}}{2}+C","Ya está en x."),
+          ("\\int_{0}^{1}\\sqrt{1-x^{2}}\\,dx=\\left(\\dfrac{\\pi}{4}+0\\right)-(0+0)=\\dfrac{\\pi}{4}\\approx 0.7854","Es el mismo valor que mostraba el área de la gráfica.")])),
+ sec("Los tres casos","Los tres casos",P("Según la raíz que aparezca, se usa una sustitución distinta."),
+   PASOS([("\\sqrt{a^{2}-x^{2}}\\ \\Rightarrow\\ x=a\\operatorname{sen}\\theta,\\quad \\sqrt{\\ }=a\\cos\\theta","Resta, con la x al cuadrado restando. Se usa seno."),
+          ("\\sqrt{a^{2}+x^{2}}\\ \\Rightarrow\\ x=a\\tan\\theta,\\quad \\sqrt{\\ }=a\\sec\\theta","Suma. Se usa tangente, porque 1 más tangente al cuadrado es secante al cuadrado."),
+          ("\\sqrt{x^{2}-a^{2}}\\ \\Rightarrow\\ x=a\\sec\\theta,\\quad \\sqrt{\\ }=a\\tan\\theta","La x al cuadrado va primero y resta. Se usa secante.")])),
+ sec("Un caso con tangente","Con tangente",P("Mira cómo cambia la integral con la raíz de x al cuadrado más 4."),
+   PASOS([("x=2\\tan\\theta,\\quad dx=2\\sec^{2}\\theta\\,d\\theta,\\quad \\sqrt{x^{2}+4}=2\\sec\\theta","Se cambian x, dx y la raíz."),
+          ("\\int\\dfrac{dx}{\\sqrt{x^{2}+4}}=\\int\\dfrac{2\\sec^{2}\\theta}{2\\sec\\theta}\\,d\\theta=\\int\\sec\\theta\\,d\\theta","Se simplifica."),
+          ("=\\ln\\left|\\sec\\theta+\\tan\\theta\\right|+C=\\ln\\left|\\dfrac{\\sqrt{x^{2}+4}}{2}+\\dfrac{x}{2}\\right|+C","Con el triángulo, la secante es la raíz sobre 2 y la tangente es x sobre 2."),
+          ("=\\ln\\left|x+\\sqrt{x^{2}+4}\\right|+C","El 2 de abajo pasa a la constante.")])),
+ eng("El nivel en un tanque horizontal","Un tanque cilíndrico acostado se llena hasta cierta altura. Para saber cuánto líquido hay, se necesita el área de la sección ocupada, que es una parte de un círculo. Esa área sale de integrar la raíz de R cuadrado menos y cuadrado, y se resuelve con sustitución trigonométrica.","y^{2}+z^{2}=R^{2}",
+   [("Radio del tanque","0.5 m"),("Altura del líquido","0.25 m desde el fondo"),("Largo del tanque","2 m")],"El área de la sección es unos 0.1536 metros cuadrados. Por el largo de 2 metros, el volumen es de unos 0.307 metros cúbicos, o sea 307 litros. Es un modelo simplificado, porque no toma en cuenta las tapas del tanque ni su inclinación."),
+ completar("Se sustituye x igual a 3 por seno de theta en la raíz de 9 menos x al cuadrado. Falta simplificar la raíz.","\\sqrt{9-x^{2}}=\\sqrt{9-9\\operatorname{sen}^{2}\\theta}=[[hueco]]",
+   [("3\\cos\\theta","tres coseno de theta"),("3\\operatorname{sen}\\theta","tres seno de theta"),("9\\cos\\theta","nueve coseno de theta")],0,
+   ["","El seno no queda. Al sacar 9 de la raíz y usar la identidad, 1 menos seno al cuadrado es coseno al cuadrado.","La raíz de 9 es 3 y no 9. Sale 3 por coseno de theta."],"Saca el 9 como factor común y usa la identidad.","Se saca 9 de la raíz, queda 3 por la raíz de 1 menos seno al cuadrado, y eso es 3 por coseno de theta."),
+ error("Alguien resolvió esta integral y se equivocó en un paso. Toca el paso que está mal.",
+   [("x=\\operatorname{sen}\\theta,\\quad dx=\\cos\\theta\\,d\\theta","Es el cambio de variable correcto.","x es seno de theta y dx es coseno de theta d theta"),
+    ("\\sqrt{1-x^{2}}=\\sqrt{1-\\operatorname{sen}^{2}\\theta}=\\cos\\theta","La raíz se simplifica bien.","La raíz de 1 menos x al cuadrado es coseno de theta"),
+    ("\\int\\sqrt{1-x^{2}}\\,dx=\\int\\cos\\theta\\,d\\theta","Este paso es el que falla."  ,"La integral queda como la integral de coseno de theta d theta"),
+    ("=\\operatorname{sen}\\theta+C=x+C","La cuenta sigue bien con lo que viene del paso anterior, pero el resultado no puede ser x.","Queda seno de theta, o sea x más C")],2,
+   "Falta el coseno que viene de dx. Hay dos cosenos, el de la raíz y el de dx, y la integral es la de coseno al cuadrado. El resultado x más C no tiene sentido, porque la derivada de x es 1 y no la raíz.",
+   "\\int\\sqrt{1-x^{2}}\\,dx=\\int\\cos\\theta\\cdot\\cos\\theta\\,d\\theta=\\int\\cos^{2}\\theta\\,d\\theta","Cuenta cuántos factores trae la integral original después del cambio de variable."),
+ ordenar("Estos son los pasos para integrar 1 sobre 1 más x al cuadrado con tangente, pero están desordenados.",
+   [("x=\\tan\\theta,\\quad dx=\\sec^{2}\\theta\\,d\\theta","x es tangente de theta y dx es secante al cuadrado de theta d theta"),
+    ("1+x^{2}=1+\\tan^{2}\\theta=\\sec^{2}\\theta","Uno más x al cuadrado es secante al cuadrado de theta"),
+    ("\\int\\dfrac{dx}{1+x^{2}}=\\int\\dfrac{\\sec^{2}\\theta}{\\sec^{2}\\theta}\\,d\\theta=\\int d\\theta","La integral queda como la integral de d theta"),
+    ("=\\theta+C=\\arctan x+C","Es theta más C, o sea arco tangente de x más C")],[2,0,3,1],
+   "Se cambian x y dx, se simplifica el denominador con la identidad, se integra y se vuelve a x.","Primero se hace el cambio de variable."),
+]
+S+=cierre("Mini simulacro de sustitución trigonométrica",[
+ mcq("$\\displaystyle\\int \\frac{dx}{\\sqrt{9-x^2}}=$",["$\\arcsin\\dfrac{x}{3}+C$","$\\dfrac13\\arcsin\\dfrac{x}{3}+C$","$\\ln\\!\\big|x+\\sqrt{9-x^2}\\big|+C$","$3\\arcsin\\dfrac{x}{3}+C$"],0,"Con $x=3\\sin\\theta$ la integral queda $\\int d\\theta=\\theta=\\arcsin(x/3)$."),
+ mcq("Para $\\displaystyle\\int \\sqrt{x^{2}+1}\\,dx$ se usa la sustitución:",["$x = \\tan\\theta$","$x = \\operatorname{sen}\\theta$","$x = \\sec\\theta$","$x = e^{\\theta}$"],0,"La forma $x^2+a^2$ pide tangente, porque $1+\\tan^2\\theta=\\sec^2\\theta$."),
+ num("$\\displaystyle\\int_{0}^{1} \\dfrac{dx}{\\sqrt{1-x^{2}}}$ (decimal, 4 cifras)","1.5708",0.005,"Con $x=\\sin\\theta$ queda $\\int_0^{\\pi/2}d\\theta=\\pi/2\\approx 1.5708$.")])
+prac=[
+ {"titulo":"La curva","grafica":{"draw":1},"bloques":[P("Se mide el área bajo esta curva, un cuarto de círculo."),EQ("f(x)=\\sqrt{1-x^{2}}")]},
+ {"titulo":"El punto de partida","grafica":{"draw":1,"hole":1},"bloques":[P("El área se empieza a medir desde x igual a 0.")]},
+ {"titulo":"Mueve x","grafica":{"draw":1,"hole":1},"laboratorio":True,"bloques":[P("Mueve el deslizador. La zona sombreada crece y abajo se ve el área y la altura de la curva en x.")]},
+ {"titulo":"La altura","grafica":{"draw":1,"hole":1,"guide":1},"laboratorio":True,"d":0.6,"bloques":[P("La franja amarilla tiene la altura de la curva. Con x igual a 0.6 mide 0.8, que es la raíz de 1 menos 0.36.")]},
+ {"titulo":"El resultado","grafica":{"draw":1,"hole":1,"guide":1,"ok":True},"laboratorio":True,"d":0.9,"bloques":[EQ("\\int_{0}^{1}\\sqrt{1-x^{2}}\\,dx=\\dfrac{\\pi}{4}"),P("Cerca de x igual a 0.9 el área ya está cerca de 0.7. En x igual a 1 llega a 0.7854, que es pi sobre 4.")]},
+ {"titulo":"Revisa tu respuesta","grafica":{"draw":1,"hole":1,"guide":1,"ok":True,"d":0.9},"bloques":[{"t":"pregunta"},{"t":"nota","html":"Elige la sustitución según la forma de la raíz y no olvides el dx."}]}]
+preg={"tex":"\\int_{-2}^{2}\\sqrt{4-x^{2}}\\,dx","opciones":["$2\\pi$","$\\pi$","$4\\pi$","$4$"],"correcta":0,
+ "explicacion":"Con x igual a 2 seno de theta, la raíz es 2 coseno de theta y dx es 2 coseno de theta d theta. La integral es 4 veces la de coseno al cuadrado de theta entre menos pi sobre 2 y pi sobre 2, que vale 4 por pi sobre 2, o sea 2 pi. Es el área de medio círculo de radio 2.",
+ "verificacion":{"formula":"(2*sqrt(4-2*2)/2+2*asin(2/2))-((0-2)*sqrt(4-(0-2)*(0-2))/2+2*asin((0-2)/2))+0*x","a":0,"esperado":6.2831853072},
+ "pistas":["La raíz de 4 menos x al cuadrado pide x igual a 2 por seno de theta.","Con esa sustitución la raíz es 2 coseno de theta y dx es 2 coseno de theta d theta. Los límites de theta son menos pi sobre 2 y pi sobre 2.","Queda 4 veces la integral de coseno al cuadrado, que da theta sobre 2 más seno de 2 theta sobre 4."],
+ "errores":["","Falta un factor 2. Tanto la raíz como dx traen un 2, y juntos dan 4 coseno al cuadrado.","Ese es el área del círculo completo de radio 2. La integral solo cubre la mitad de arriba.","Falta el coseno que viene de dx. La integral correcta es la de 4 coseno al cuadrado y no la de 2 coseno."]}
+res=["Cuando hay una raíz con x al cuadrado, se cambia x por seno, tangente o secante para quitarla con una identidad.","Se cambia también dx, y si la integral es definida, los límites. Al final se vuelve a x con un triángulo.","Resta con a al cuadrado primero usa seno. Suma usa tangente. Resta con x al cuadrado primero usa secante."]
+write(lesson("calcint-m2-l2","Lección 2 de 4","Sustitución trigonométrica",28,graf,glos,ver,S,prac,preg,res,modulo="Módulo 2 Técnicas avanzadas e impropias"),"calcint-sentri.json")
