@@ -32,3 +32,6 @@ Las 12 lecciones de `datos/estructuras/alglin.json` están escritas como borrado
 
 ## Ecuaciones Diferenciales
 Van 4 de las 15 lecciones de `datos/estructuras/edo.json`, como borradores. Usan la gráfica `plano` con los elementos `segmento` para el campo de pendientes y `trazo` para las curvas solución. Faltan las demás lecciones de los tres módulos.
+
+## Herramientas de estudio
+`estudio/` trae una página que reúne cinco herramientas y se arma con `estudio/build-estudio.py`, que lee todas las lecciones. Son el diagnóstico por materia, el repaso mezclado, el cuaderno de errores, la lectura de la seguridad al responder y el mapa de prerrequisitos, que se edita en `estudio/prereq.py`. El motor de las lecciones ahora guarda cada error en `mu-errores` y la seguridad en `mu-confianza`, y la página los lee, así que el cuaderno junta lo que falles en cualquier lección solo cuando todo vive bajo el mismo dominio. `estudio/test-estudio.js` prueba las vistas y el cruce con una lección.

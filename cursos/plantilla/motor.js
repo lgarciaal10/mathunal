@@ -329,29 +329,43 @@
     };
   })();
   window.MU=window.MU||{}; window.MU.repaso=SR;
+  /* cuaderno de errores y confianza. Se guardan en localStorage con las claves mu-errores y mu-confianza, para que la página de estudio del sitio los lea */
+  var ME=(function(){ var K='mu-errores', KC='mu-confianza';
+    function leer(k){ try{ return JSON.parse(localStorage.getItem(k)||'null'); }catch(e){ return null; } }
+    function guardar(k,v){ try{ localStorage.setItem(k,JSON.stringify(v)); }catch(e){} }
+    function clave(s){ var h=0; s=String(s); for(var i=0;i<s.length;i++){ h=(h*31+s.charCodeAt(i))|0; } return (h>>>0).toString(36); }
+    function reg(r){ var d=leer(K)||{}, id=L.id+'|'+clave(r.q), e=d[id]||{lid:L.id,lt:L.titulo,curso:L.curso,q:r.q,opts:r.opts||null,correcta:(r.correcta==null?null:r.correcta),respuesta:r.respuesta==null?null:r.respuesta,expl:r.expl||'',fallos:[],n:0,ok:false};
+      e.n++; e.ok=false; e.ts=Date.now(); e.fallos.push({i:r.elegida==null?null:r.elegida,resp:r.resp==null?null:r.resp,err:r.err||'',conf:r.conf==null?null:r.conf}); if(e.fallos.length>6) e.fallos=e.fallos.slice(-6); d[id]=e; guardar(K,d); }
+    function acierto(q){ var d=leer(K)||{}, id=L.id+'|'+clave(q); if(d[id]){ d[id].ok=true; d[id].tsok=Date.now(); guardar(K,d); } }
+    function conf(c,ok){ var d=leer(KC)||{}, k=['a','m','s'][c]+(ok?'_ok':'_no'); d[k]=(d[k]||0)+1; guardar(KC,d); }
+    return {registrar:reg,acierto:acierto,confianza:conf,todos:function(){ return leer(K)||{}; }};
+  })();
+  window.MU.errores=ME;
 
   /* pregunta de opción múltiple. Con pistas o errores es guiada, deja reintentar y explica cada error. Sin ellos se comporta como siempre */
   function QuizCore(host,cfg){
-    var pistas=cfg.pistas||[], guiado=!!(pistas.length||cfg.errores), intentos=0, ayudas=0, done=false, mostradas=0;
-    host.innerHTML='<div class="q">'+cfg.head+'</div><div class="opts" role="group" aria-label="Opciones de respuesta">'+cfg.opciones.map(function(o,i){ return '<button type="button" data-i="'+i+'"><span class="k">'+'abcdefgh'[i]+'</span><span>'+mtH(o)+'</span></button>'; }).join('')+'</div>'
+    var pistas=cfg.pistas||[], guiado=!!(pistas.length||cfg.errores), intentos=0, ayudas=0, done=false, mostradas=0, conf=null;
+    host.innerHTML='<div class="q">'+cfg.head+'</div><div class="conf" role="group" aria-label="Qué tan seguro estás"><span>¿Qué tan seguro estás?</span><button type="button" data-c="2" aria-pressed="false">Seguro</button><button type="button" data-c="1" aria-pressed="false">Más o menos</button><button type="button" data-c="0" aria-pressed="false">Adivino</button></div><div class="opts" role="group" aria-label="Opciones de respuesta">'+cfg.opciones.map(function(o,i){ return '<button type="button" data-i="'+i+'"><span class="k">'+'abcdefgh'[i]+'</span><span>'+mtH(o)+'</span></button>'; }).join('')+'</div>'
       +(pistas.length?'<div class="hintbar"><button type="button" class="btn sec sm" data-hint>'+ic('i-bulb')+'<span>Dame una pista</span></button><span class="hc num" data-hc>0 de '+pistas.length+'</span></div><ol class="hints" aria-live="polite"></ol>':'')
       +'<p class="fb" aria-live="polite"></p><div class="giveup" hidden><button type="button" class="btn sec sm" data-show>Mostrar la respuesta</button></div>';
     var fb=host.querySelector('.fb'), hl=host.querySelector('.hints'), hb=host.querySelector('[data-hint]'), hc=host.querySelector('[data-hc]'), gu=host.querySelector('.giveup'), btns=[].slice.call(host.querySelectorAll('.opts button'));
+    [].forEach.call(host.querySelectorAll('.conf button'),function(cb){ cb.addEventListener('click',function(){ if(done) return; conf=+cb.getAttribute('data-c'); [].forEach.call(host.querySelectorAll('.conf button'),function(o){ o.setAttribute('aria-pressed',o===cb?'true':'false'); }); }); });
+    function calib(ok,aj){ if(conf==null) return ''; ME.confianza(conf,ok); if(conf===2&&!ok) return ' Estabas seguro y fallaste, así que conviene repasar este punto.'; if(conf===0&&ok) return ' Acertaste adivinando. Vale la pena repasarlo para estar seguro.'; return ''; }
     function pista(){ if(mostradas>=pistas.length) return; var li=document.createElement('li'); li.innerHTML=mtH(pistas[mostradas]); hl.appendChild(li); mostradas++; ayudas++; hc.textContent=mostradas+' de '+pistas.length; hb.querySelector('span').textContent=mostradas>=pistas.length?'Sin más pistas':'Otra pista'; if(mostradas>=pistas.length) hb.disabled=true; mathIn(li); }
     function cerrar(rendido){
       done=true; btns.forEach(function(x){ x.disabled=true; if(+x.getAttribute('data-i')===cfg.correcta) x.classList.add('ok'); }); if(hb) hb.disabled=true; gu.hidden=true;
       var calidad=rendido?'fallo':(intentos===0&&ayudas===0?'ok':(intentos<=1?'ayuda':'fallo'));
       if(!rendido){ var rb=host.querySelector('.opts .ok').getBoundingClientRect(), rh=host.getBoundingClientRect(); burst(host,rb.left-rh.left+40,rb.top-rh.top+8); }
-      fb.innerHTML='<b>'+(rendido?'Esta es la respuesta.':'Eso es.')+'</b> '+mtH(cfg.explicacion||'')+((!rendido&&ayudas)?' Usaste '+ayudas+(ayudas===1?' pista.':' pistas.'):''); mathIn(host);
+      ME.acierto(cfg.head); fb.innerHTML='<b>'+(rendido?'Esta es la respuesta.':'Eso es.')+'</b> '+mtH(cfg.explicacion||'')+((!rendido&&ayudas)?' Usaste '+ayudas+(ayudas===1?' pista.':' pistas.'):'')+calib(!rendido&&intentos===0&&ayudas===0); mathIn(host);
       if(cfg.onDone) cfg.onDone({calidad:calidad,intentos:intentos,ayudas:ayudas});
     }
     btns.forEach(function(b){ b.addEventListener('click',function(){
       if(done) return; var i=+b.getAttribute('data-i'), ok=(i===cfg.correcta);
       if(!guiado){ done=true; btns.forEach(function(x){ x.disabled=true; var xi=+x.getAttribute('data-i'); if(xi===cfg.correcta) x.classList.add('ok'); else if(xi===i) x.classList.add('no'); });
         if(ok){ var r=b.getBoundingClientRect(), h=host.getBoundingClientRect(); burst(host,r.left-h.left+40,r.top-h.top+8); }
-        fb.innerHTML='<b>'+(ok?'Eso es.':'No era esa.')+'</b> '+mtH(cfg.explicacion||''); mathIn(host); if(cfg.onDone) cfg.onDone({calidad:ok?'ok':'fallo'}); return; }
+        if(ok) ME.acierto(cfg.head); else ME.registrar({q:cfg.head,opts:cfg.opciones,correcta:cfg.correcta,elegida:i,err:'',expl:cfg.explicacion,conf:conf}); fb.innerHTML='<b>'+(ok?'Eso es.':'No era esa.')+'</b> '+mtH(cfg.explicacion||'')+calib(ok); mathIn(host); if(cfg.onDone) cfg.onDone({calidad:ok?'ok':'fallo'}); return; }
       if(ok){ cerrar(false); return; }
-      intentos++; b.classList.add('no'); b.disabled=true;
+      intentos++; b.classList.add('no'); b.disabled=true; ME.registrar({q:cfg.head,opts:cfg.opciones,correcta:cfg.correcta,elegida:i,err:(cfg.errores&&cfg.errores[i])||'',expl:cfg.explicacion,conf:conf});
       fb.innerHTML='<b>No era esa.</b> '+mtH((cfg.errores&&cfg.errores[i])||'Revisa el procedimiento e inténtalo de nuevo.'); mathIn(fb);
       if(mostradas<pistas.length&&mostradas<intentos) pista();
       if(intentos>=2) gu.hidden=false;
@@ -370,7 +384,7 @@
       var inp=host.querySelector('input'), fb=host.querySelector('.fb'), bt=host.querySelector('[data-chk]'), hecho=false;
       function chk(){ if(hecho) return; var v=parseFloat(String(inp.value).replace(',','.')); if(isNaN(v)){ fb.textContent='Escribe un número.'; return; }
         hecho=true; var ok=Math.abs(v-parseFloat(q.respuesta))<=(q.tolNum||0.001); inp.disabled=true; bt.disabled=true;
-        fb.innerHTML='<b>'+(ok?'Eso es.':'No era.')+'</b> '+(ok?'':'La respuesta es '+esc(q.respuesta)+'. ')+mt(q.resumen||''); mathIn(host); listo(ok); }
+        if(ok) ME.acierto(mt(q.texto)); else ME.registrar({q:mt(q.texto),opts:null,correcta:null,respuesta:q.respuesta,resp:v,err:'',expl:q.resumen}); fb.innerHTML='<b>'+(ok?'Eso es.':'No era.')+'</b> '+(ok?'':'La respuesta es '+esc(q.respuesta)+'. ')+mt(q.resumen||''); mathIn(host); listo(ok); }
       bt.addEventListener('click',chk); inp.addEventListener('keydown',function(e){ if(e.key==='Enter'){ e.preventDefault(); chk(); } });
     }
     function fin(){

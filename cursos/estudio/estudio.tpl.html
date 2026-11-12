@@ -1,0 +1,252 @@
+<title>Estudio MathUNAL</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Literata:wght@600;900&family=Space+Grotesk:wght@400;500;600&family=IBM+Plex+Mono:wght@400;600&display=swap">
+<style>/*KATEXCSS*/</style>
+<style>
+:root{--bg:#F5F7FC;--surf:#FFFFFF;--surf2:#EAEFFA;--line:#D3DBEF;--tx:#0B1230;--mu:#46557A;--acc:#A63A08;--acc-soft:rgba(166,58,8,.10);--ok:#117A3D;--bad:#B3261E;--warn:#8A5A00;--on-acc:#FFFFFF;--n-new:#C9D2EA;--n-vis:#8FA3D6;--n-rev:#E8632A;--n-dom:#2FA35B;--serif:'Literata',Georgia,serif;--sans:'Space Grotesk',system-ui,sans-serif;--mono:'IBM Plex Mono',ui-monospace,monospace;color-scheme:light}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#060B1E;--surf:#0E1A3F;--surf2:#14224F;--line:#233468;--tx:#EAF0FF;--mu:#A5B4DB;--acc:#E8632A;--acc-soft:rgba(232,99,42,.16);--ok:#4ADE80;--bad:#FF8A80;--warn:#F5C542;--on-acc:#060B1E;--n-new:#2A3A70;--n-vis:#4C6BB8;--n-rev:#E8632A;--n-dom:#3DBE6E;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#060B1E;--surf:#0E1A3F;--surf2:#14224F;--line:#233468;--tx:#EAF0FF;--mu:#A5B4DB;--acc:#E8632A;--acc-soft:rgba(232,99,42,.16);--ok:#4ADE80;--bad:#FF8A80;--warn:#F5C542;--on-acc:#060B1E;--n-new:#2A3A70;--n-vis:#4C6BB8;--n-rev:#E8632A;--n-dom:#3DBE6E;color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--tx);font-family:var(--sans);font-size:16px;line-height:1.55;margin:0;padding-inline:max(16px,env(safe-area-inset-left,0px)) max(16px,env(safe-area-inset-right,0px));padding-block:20px 56px}
+.wrap{max-width:1040px;margin:0 auto;display:flex;flex-direction:column;gap:28px}
+h1,h2,h3{font-family:var(--serif);font-weight:900;line-height:1.12;margin:0;text-wrap:balance}
+h1{font-size:clamp(1.9rem,4vw,2.8rem)} h2{font-size:1.6rem} h3{font-size:1.15rem}
+p{margin:0}.mu{color:var(--mu)}.num{font-family:var(--mono)}
+.top{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.brand{font-family:var(--serif);font-weight:900;font-size:1.2rem}.brand b{color:var(--acc)}
+nav{display:flex;gap:6px;flex-wrap:wrap}
+nav a{color:var(--tx);text-decoration:none;background:var(--surf);border:1px solid var(--line);border-radius:999px;padding:8px 14px;font-weight:500;min-height:40px;display:inline-flex;align-items:center}
+nav a[aria-current="page"]{background:var(--acc);color:var(--on-acc);border-color:var(--acc)}
+a:focus-visible,button:focus-visible,select:focus-visible,input:focus-visible{outline:2px solid var(--acc);outline-offset:2px}
+.card{background:var(--surf);border:1px solid var(--line);border-radius:20px;padding:22px;display:flex;flex-direction:column;gap:14px;min-width:0}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
+.btn{font:inherit;font-weight:600;color:var(--on-acc);background:var(--acc);border:0;border-radius:999px;padding:10px 18px;cursor:pointer;min-height:44px;text-decoration:none;display:inline-flex;align-items:center;justify-content:center}
+.btn.sec{background:var(--surf2);color:var(--tx);border:1px solid var(--line)}
+.btn[disabled]{opacity:.5;cursor:default}
+.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.chip{display:inline-flex;align-items:center;border-radius:999px;background:var(--surf2);border:1px solid var(--line);padding:3px 12px;font-size:.85rem}
+.chip.on{background:var(--acc);color:var(--on-acc);border-color:var(--acc)}
+button.chip{font:inherit;font-size:.9rem;color:var(--tx);cursor:pointer;min-height:36px}
+button.chip[aria-pressed="true"]{background:var(--acc);color:var(--on-acc);border-color:var(--acc)}
+.q{font-size:1.08rem}
+.opts{display:grid;gap:8px}
+.opts button{font:inherit;text-align:left;color:var(--tx);background:var(--surf2);border:1px solid var(--line);border-radius:14px;padding:12px 14px;cursor:pointer;display:flex;gap:12px;align-items:center;min-height:48px}
+.opts button .k{font-family:var(--mono);color:var(--mu)}
+.opts button.ok{border-color:var(--ok);background:color-mix(in srgb,var(--ok) 16%,var(--surf2))}
+.opts button.no{border-color:var(--bad);background:color-mix(in srgb,var(--bad) 14%,var(--surf2))}
+.conf{display:flex;gap:8px;flex-wrap:wrap;align-items:center;color:var(--mu);font-size:.9rem}
+.fb{color:var(--tx)}.fb b{font-weight:600}
+input.numin{font:inherit;color:var(--tx);background:var(--surf2);border:1px solid var(--line);border-radius:12px;padding:10px 12px;min-height:44px;width:12em}
+select{font:inherit;color:var(--tx);background:var(--surf2);border:1px solid var(--line);border-radius:12px;padding:8px 10px;min-height:44px}
+.bar{height:8px;border-radius:99px;background:var(--surf2);overflow:hidden}.bar i{display:block;height:100%;background:var(--acc)}
+.est{display:inline-block;width:12px;height:12px;border-radius:4px;margin-right:6px;vertical-align:-1px}
+.e-new{background:var(--n-new)}.e-vis{background:var(--n-vis)}.e-rev{background:var(--n-rev)}.e-dom{background:var(--n-dom)}
+.leyenda{display:flex;gap:14px;flex-wrap:wrap;color:var(--mu);font-size:.88rem}
+.mapa{overflow-x:auto;border:1px solid var(--line);border-radius:16px;background:var(--surf);padding:8px}
+.mapa svg{display:block}
+.nodo{cursor:pointer}.nodo rect{stroke:var(--line);stroke-width:1.5}
+.nodo text{font-family:var(--sans);font-size:12px;fill:var(--tx);pointer-events:none}
+.nodo.sel rect{stroke:var(--acc);stroke-width:3}
+.arista{fill:none;stroke:var(--mu);stroke-opacity:.55;stroke-width:1.4}
+.colt{font-family:var(--sans);font-size:12px;fill:var(--mu);font-weight:600}
+.err{border-left:4px solid var(--n-rev);padding-left:14px;display:flex;flex-direction:column;gap:8px}
+.err.res{border-left-color:var(--n-dom)}
+.tabla{width:100%;border-collapse:collapse;font-size:.92rem}.tabla th,.tabla td{padding:8px 10px;border-bottom:1px solid var(--line);text-align:left}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+footer{color:var(--mu);font-size:.88rem}
+@media (max-width:640px){.card{padding:16px}.top{align-items:flex-start}}
+</style>
+<div class="wrap">
+<header class="top"><div class="brand">Math<b>UNAL</b> Estudio</div>
+<nav aria-label="Secciones"><a href="#inicio">Inicio</a><a href="#diagnostico">Diagnóstico</a><a href="#repaso">Repaso mezclado</a><a href="#cuaderno">Cuaderno de errores</a><a href="#mapa">Mapa</a></nav></header>
+<main id="vista" tabindex="-1"></main>
+<footer><p>Tus resultados se guardan solo en este navegador. Esta herramienta apoya tu estudio y no garantiza una nota.</p></footer>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js" defer></script>
+<script>
+var D=/*DATA*/;
+(function(){
+'use strict';
+var K={err:'mu-errores',conf:'mu-confianza',rep:'mu-repaso',prog:'mu-progreso',diag:'mu-diag',mez:'mu-mezcla'};
+function lee(k,def){ try{ var v=JSON.parse(localStorage.getItem(k)); return v==null?def:v; }catch(e){ return def; } }
+function guarda(k,v){ try{ localStorage.setItem(k,JSON.stringify(v)); }catch(e){} }
+function clave(s){ var h=0; s=String(s); for(var i=0;i<s.length;i++){ h=(h*31+s.charCodeAt(i))|0; } return (h>>>0).toString(36); }
+function esc(s){ return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+function attr(s){ return String(s).replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;'); }
+function mt(s){ return String(s).split('$').map(function(x,i){ return i%2?'<span data-tex="'+attr(x)+'"></span>':esc(x); }).join(''); }
+function mates(raiz,intento){ intento=intento||0; if(!window.katex){ if(intento<80) setTimeout(function(){ mates(raiz,intento+1); },100); return; }
+  [].forEach.call(raiz.querySelectorAll('[data-tex]'),function(el){ if(el.getAttribute('data-ok')) return; try{ window.katex.render(el.getAttribute('data-tex'),el,{throwOnError:false,displayMode:el.hasAttribute('data-block')}); el.setAttribute('data-ok','1'); }catch(e){ el.textContent=el.getAttribute('data-tex'); } }); }
+var LEC={}, PQ={}; D.lecciones.forEach(function(l){ LEC[l.id]=l; l.q.forEach(function(q){ PQ[l.id+'|'+q.hk]=q; }); });
+var CURSOS=D.cursos;
+function lecDe(curso){ return D.lecciones.filter(function(l){ return l.curso===curso; }); }
+function barajar(a){ a=a.slice(); for(var i=a.length-1;i>0;i--){ var j=Math.floor(Math.random()*(i+1)); var t=a[i]; a[i]=a[j]; a[j]=t; } return a; }
+/* estado de cada lección, mezclando lo que dejan las lecciones y esta página */
+function estado(id){
+  var er=lee(K.err,{}), pend=Object.keys(er).some(function(k){ return er[k].lid===id&&!er[k].ok; });
+  var rep=(lee(K.rep,{}))[id], prog=(lee(K.prog,{}))[id], dg=lee(K.diag,{}), mez=(lee(K.mez,{}))[id], c=LEC[id]?LEC[id].curso:'';
+  var dgi=dg[c]&&dg[c].items&&dg[c].items[id];
+  if(pend||(dgi&&!dgi.ok)||(rep&&rep.calidad==='fallo')||(mez&&mez.ult===0)) return 'rev';
+  if((rep&&rep.caja>=2)||(dgi&&dgi.ok)||(mez&&mez.ok>=2)) return 'dom';
+  if((prog&&Object.keys(prog.modos||{}).length)||rep||mez) return 'vis';
+  return 'new';
+}
+var NOM={new:'sin datos',vis:'visto',rev:'por revisar',dom:'dominado'};
+/* una pregunta, con confianza, retroalimentación y registro en el cuaderno */
+function preguntar(q,cont,fin,opc){
+  opc=opc||{}; var conf=null, hecho=false;
+  var l=LEC[q.lid];
+  var h='<div class="row"><span class="chip">'+esc(l.curso)+'</span><span class="chip">'+esc(l.titulo)+'</span></div><div class="q">'+mt(q.h)+'</div>'
+   +'<div class="conf" role="group" aria-label="Qué tan seguro estás"><span>¿Qué tan seguro estás?</span><button class="chip" type="button" data-c="2" aria-pressed="false">Seguro</button><button class="chip" type="button" data-c="1" aria-pressed="false">Más o menos</button><button class="chip" type="button" data-c="0" aria-pressed="false">Adivino</button></div>';
+  if(q.t==='mcq'){ h+='<div class="opts" role="group" aria-label="Opciones">'+q.o.map(function(o,i){ return '<button type="button" data-i="'+i+'"><span class="k">'+'abcdefgh'[i]+'</span><span>'+mt(o)+'</span></button>'; }).join('')+'</div>'; }
+  else { h+='<div class="row"><label class="sr" for="nin">Tu respuesta</label><input id="nin" class="numin" inputmode="decimal" autocomplete="off" placeholder="Tu respuesta"><button class="btn" type="button" data-chk>Comprobar</button></div>'; }
+  h+='<p class="fb" aria-live="polite"></p><div class="row" data-sig></div>';
+  cont.innerHTML=h; mates(cont);
+  [].forEach.call(cont.querySelectorAll('.conf button'),function(b){ b.addEventListener('click',function(){ if(hecho) return; conf=+b.getAttribute('data-c'); [].forEach.call(cont.querySelectorAll('.conf button'),function(o){ o.setAttribute('aria-pressed',o===b?'true':'false'); }); }); });
+  var fb=cont.querySelector('.fb');
+  function cierra(ok,elegida,resp,err){
+    hecho=true; var er=lee(K.err,{}), id=q.lid+'|'+q.hk;
+    if(ok){ if(er[id]){ er[id].ok=true; er[id].tsok=Date.now(); guarda(K.err,er); } }
+    else { var e=er[id]||{lid:q.lid,lt:l.titulo,curso:l.curso,q:q.hq,opts:q.t==='mcq'?q.o:null,correcta:q.t==='mcq'?q.c:null,respuesta:q.t==='num'?q.r:null,expl:q.e||'',fallos:[],n:0,ok:false};
+      e.n++; e.ok=false; e.ts=Date.now(); e.fallos.push({i:elegida==null?null:elegida,resp:resp==null?null:resp,err:err||'',conf:conf}); if(e.fallos.length>6) e.fallos=e.fallos.slice(-6); er[id]=e; guarda(K.err,er); }
+    if(conf!=null){ var c=lee(K.conf,{}), k=['a','m','s'][conf]+(ok?'_ok':'_no'); c[k]=(c[k]||0)+1; guarda(K.conf,c); }
+    var msg=''; if(conf===2&&!ok) msg=' Estabas seguro y fallaste, así que conviene repasar este punto.'; if(conf===0&&ok) msg=' Acertaste adivinando. Vale la pena repasarlo.';
+    var txt=ok?'<b>Eso es.</b> ':'<b>No era.</b> '; if(!ok&&err) txt+=mt(err)+' '; if(!ok&&q.t==='num') txt+='La respuesta es '+esc(q.r)+'. '; txt+=mt(q.e||'')+esc(msg);
+    fb.innerHTML=txt; mates(fb);
+    var sig=cont.querySelector('[data-sig]'); sig.innerHTML='<button class="btn" type="button" data-next>'+(opc.etiqueta||'Siguiente')+'</button><a class="btn sec" href="'+esc(l.url)+'" target="_blank" rel="noopener">Abrir la lección</a>';
+    sig.querySelector('[data-next]').addEventListener('click',function(){ fin({ok:ok,conf:conf,q:q}); }); sig.querySelector('[data-next]').focus();
+  }
+  if(q.t==='mcq'){ [].forEach.call(cont.querySelectorAll('.opts button'),function(b){ b.addEventListener('click',function(){ if(hecho) return; var i=+b.getAttribute('data-i'), ok=(i===q.c); [].forEach.call(cont.querySelectorAll('.opts button'),function(x){ x.disabled=true; var xi=+x.getAttribute('data-i'); if(xi===q.c) x.classList.add('ok'); else if(xi===i) x.classList.add('no'); }); cierra(ok,i,null,(q.er&&q.er[i])||''); }); }); }
+  else { var inp=cont.querySelector('input'), bt=cont.querySelector('[data-chk]'); function chk(){ if(hecho) return; var v=parseFloat(String(inp.value).replace(',','.')); if(isNaN(v)){ fb.textContent='Escribe un número.'; return; } var ok=Math.abs(v-parseFloat(q.r))<=(q.tol||0.001); inp.disabled=true; bt.disabled=true; cierra(ok,null,v,''); } bt.addEventListener('click',chk); inp.addEventListener('keydown',function(e){ if(e.key==='Enter'){ e.preventDefault(); chk(); } }); }
+}
+var V=document.getElementById('vista');
+function tarjetaSerie(titulo,cuerpo){ return '<section class="card"><h3>'+titulo+'</h3>'+cuerpo+'</section>'; }
+/* ---------- inicio ---------- */
+function vInicio(){
+  var er=lee(K.err,{}), pend=Object.keys(er).filter(function(k){ return !er[k].ok; }).length, rep=lee(K.rep,{}), now=Date.now(), venc=Object.keys(rep).filter(function(k){ return rep[k].prox<=now; }).length, dg=lee(K.diag,{}), cf=lee(K.conf,{});
+  var sd=(cf.s_ok||0), sn=(cf.s_no||0), tot=sd+sn;
+  var cal=tot>=3?('Cuando dices seguro aciertas '+Math.round(100*sd/tot)+' de cada 100 veces.'):'Cuando respondas con la opción de seguridad, aquí verás qué tan bien te calibras.';
+  V.innerHTML='<section class="card"><p class="mu num" style="letter-spacing:.08em;text-transform:uppercase;font-size:.8rem">Herramientas de estudio</p><h1>Estudia con lo que ya sabes y con lo que te falla</h1><p class="mu">Cinco herramientas que trabajan juntas con las lecciones. Todas usan las preguntas reales del banco de MathUNAL.</p></section>'
+  +'<div class="grid">'
+  +'<a class="card" href="#diagnostico" style="text-decoration:none;color:inherit"><h3>Diagnóstico</h3><p class="mu">Unas pocas preguntas por materia dicen por dónde empezar, sin leer todo.</p><p class="num">'+(Object.keys(dg).length?Object.keys(dg).length+' materia(s) diagnosticada(s)':'Todavía sin diagnóstico')+'</p></a>'
+  +'<a class="card" href="#repaso" style="text-decoration:none;color:inherit"><h3>Repaso mezclado</h3><p class="mu">Preguntas de varios temas revueltas, empezando por lo que te falla y lo que toca repasar. Cuesta un poco más y se recuerda mejor.</p><p class="num">'+venc+' lección(es) por repasar</p></a>'
+  +'<a class="card" href="#cuaderno" style="text-decoration:none;color:inherit"><h3>Cuaderno de errores</h3><p class="mu">Cada error que cometes queda guardado con la razón, para volver a él hasta entenderlo.</p><p class="num">'+pend+' por entender</p></a>'
+  +'<a class="card" href="#mapa" style="text-decoration:none;color:inherit"><h3>Mapa de prerrequisitos</h3><p class="mu">Qué lección sigue de cuál, y en qué punto está cada una según tus resultados.</p></a>'
+  +'</div>'
+  +'<section class="card"><h3>Tu seguridad al responder</h3><p>'+esc(cal)+'</p><p class="mu">Acertar sin estar seguro o fallar estando seguro son las dos señales que más conviene repasar.</p></section>';
+}
+/* ---------- diagnóstico ---------- */
+function vDiag(){
+  V.innerHTML='<section class="card"><h2>Diagnóstico por materia</h2><p class="mu">Escoge una materia. Son unas 10 preguntas, una por tema repartido a lo largo del curso. Al final ves qué temas dominas y por dónde conviene empezar.</p><div class="row" id="dg-c">'+CURSOS.map(function(c){ var n=lecDe(c).length; return '<button class="btn sec" type="button" data-c="'+esc(c)+'">'+esc(c)+' <span class="num" style="margin-left:8px">'+n+'</span></button>'; }).join('')+'</div></section><div id="dg-b"></div>';
+  [].forEach.call(V.querySelectorAll('#dg-c button'),function(b){ b.addEventListener('click',function(){ diagCurso(b.getAttribute('data-c')); }); });
+}
+function eligeUna(l){ var s=l.q.filter(function(q){ return q.sim; }); var p=s.length?s:l.q; return p[Math.floor(Math.random()*p.length)]; }
+function diagCurso(c){
+  var ls=lecDe(c).filter(function(l){ return l.q.length; }), n=Math.min(12,ls.length), esc2=[];
+  if(ls.length<=n) esc2=ls.slice(); else for(var i=0;i<n;i++){ esc2.push(ls[Math.floor(i*ls.length/n)]); }
+  var qs=esc2.map(eligeUna), i=0, res=[], b=document.getElementById('dg-b');
+  function paso(){
+    if(i>=qs.length){ return cierre(); }
+    b.innerHTML='<section class="card"><div class="row"><span class="chip">Pregunta '+(i+1)+' de '+qs.length+'</span></div><div class="bar" role="img" aria-label="Avance"><i style="width:'+Math.round(100*i/qs.length)+'%"></i></div><div id="dg-q"></div></section>';
+    preguntar(qs[i],document.getElementById('dg-q'),function(r){ res.push(r); i++; paso(); },{etiqueta:i+1>=qs.length?'Ver resultado':'Siguiente'});
+  }
+  function cierre(){
+    var dg=lee(K.diag,{}), items={}; res.forEach(function(r){ items[r.q.lid]={ok:r.ok,conf:r.conf}; }); dg[c]={ts:Date.now(),items:items}; guarda(K.diag,dg);
+    var orden=lecDe(c), primero=null;
+    orden.forEach(function(l){ if(primero) return; var it=items[l.id]; if(it&&!it.ok) primero=l; });
+    if(!primero){ orden.forEach(function(l){ if(primero) return; if(!items[l.id]){ var pr=(D.prereq[l.id]||[]).some(function(p){ return items[p]&&!items[p].ok; }); if(pr) primero=l; } }); }
+    var ok=res.filter(function(r){ return r.ok; }).length;
+    var filas=orden.map(function(l){ var it=items[l.id]; var e=it?(it.ok?'dom':'rev'):'new'; var t=it?(it.ok?'Lo manejas':'Conviene repasar'):'Sin preguntas en este diagnóstico'; return '<tr><td><span class="est e-'+e+'"></span><a href="'+esc(l.url)+'" target="_blank" rel="noopener">'+esc(l.titulo)+'</a></td><td>'+t+'</td></tr>'; }).join('');
+    b.innerHTML='<section class="card"><h2>Resultado</h2><p class="num" style="font-size:1.6rem">'+ok+' de '+res.length+' correctas</p><p>'+(primero?'Te recomiendo empezar por <b>'+esc(primero.titulo)+'</b>. Los temas que siguen dependen de él.':'No encontré un punto débil en las preguntas que hiciste. Un repaso mezclado te ayuda a mantenerlo.')+'</p>'+(primero?'<div class="row"><a class="btn" href="'+esc(primero.url)+'" target="_blank" rel="noopener">Abrir '+esc(primero.titulo)+'</a></div>':'')+'<table class="tabla"><caption class="sr">Resultado por tema</caption><thead><tr><th>Tema</th><th>Resultado</th></tr></thead><tbody>'+filas+'</tbody></table><p class="mu">Un diagnóstico corto no mide todo. Si un tema no tuvo pregunta, no sabemos nada de él todavía.</p><div class="row"><button class="btn sec" type="button" id="dg-otra">Hacer otro diagnóstico</button></div></section>';
+    document.getElementById('dg-otra').addEventListener('click',vDiag);
+  }
+  paso();
+}
+/* ---------- repaso mezclado ---------- */
+function vRepaso(pre){
+  var er=lee(K.err,{}), tieneErr=Object.keys(er).some(function(k){ return !er[k].ok; });
+  V.innerHTML='<section class="card"><h2>Repaso mezclado</h2><p class="mu">Se arman preguntas de varios temas, sin dos seguidas del mismo. Primero salen los puntos que fallaste, los que tocan por repaso y los que el diagnóstico marcó. Mezclar cuesta más, y por eso se aprende para más tiempo.</p>'
+  +'<div class="row"><label for="rp-c">Materia</label><select id="rp-c"><option value="">Todas</option>'+CURSOS.map(function(c){ return '<option>'+esc(c)+'</option>'; }).join('')+'</select><label for="rp-n">Preguntas</label><select id="rp-n"><option>8</option><option selected>12</option><option>20</option></select><button class="btn" type="button" id="rp-go">Empezar</button></div>'+(tieneErr?'':'<p class="mu">Todavía no tienes errores guardados. El repaso tomará preguntas al azar de las lecciones.</p>')+'</section><div id="rp-b"></div>';
+  if(pre&&pre.curso) document.getElementById('rp-c').value=pre.curso;
+  document.getElementById('rp-go').addEventListener('click',function(){ repaso(document.getElementById('rp-c').value,+document.getElementById('rp-n').value,pre&&pre.lid); });
+  if(pre&&pre.auto) repaso(pre.curso||'',pre.n||8,pre.lid);
+}
+function repaso(curso,N,soloLid){
+  var er=lee(K.err,{}), rep=lee(K.rep,{}), dg=lee(K.diag,{}), now=Date.now(), pool=[];
+  D.lecciones.forEach(function(l){ if(curso&&l.curso!==curso) return; if(soloLid&&l.id!==soloLid) return; l.q.forEach(function(q){ var w=0.5+Math.random();
+    var e=er[q.lid+'|'+q.hk]; if(e&&!e.ok) w+=5; var r=rep[l.id]; if(r&&r.prox<=now) w+=3; var d=dg[l.curso]&&dg[l.curso].items&&dg[l.curso].items[l.id]; if(d&&!d.ok) w+=3; if(estado(l.id)==='rev') w+=1.5; pool.push({q:q,w:w}); }); });
+  pool.sort(function(a,b){ return b.w-a.w; });
+  var elegidas=[], usadas={}; pool.forEach(function(p){ if(elegidas.length>=N) return; var cnt=usadas[p.q.lid]||0; if(cnt>=(soloLid?N:2)) return; usadas[p.q.lid]=cnt+1; elegidas.push(p.q); });
+  /* intercalar, sin dos seguidas de la misma lección */
+  var res=[], rest=barajar(elegidas);
+  while(rest.length){ var k=rest.findIndex(function(q){ return !res.length||res[res.length-1].lid!==q.lid; }); if(k<0) k=0; res.push(rest.splice(k,1)[0]); }
+  var i=0, resultados=[], b=document.getElementById('rp-b');
+  if(!res.length){ b.innerHTML='<section class="card"><p>No hay preguntas para esta selección.</p></section>'; return; }
+  function paso(){
+    if(i>=res.length) return fin();
+    b.innerHTML='<section class="card"><div class="row"><span class="chip">Pregunta '+(i+1)+' de '+res.length+'</span></div><div class="bar" role="img" aria-label="Avance"><i style="width:'+Math.round(100*i/res.length)+'%"></i></div><div id="rp-q"></div></section>';
+    preguntar(res[i],document.getElementById('rp-q'),function(r){ resultados.push(r); var mz=lee(K.mez,{}), m=mz[r.q.lid]||{ok:0,no:0}; if(r.ok) m.ok++; else m.no++; m.ult=r.ok?1:0; m.ts=Date.now(); mz[r.q.lid]=m; guarda(K.mez,mz); i++; paso(); },{etiqueta:i+1>=res.length?'Ver resultado':'Siguiente'});
+  }
+  function fin(){
+    var ok=resultados.filter(function(r){ return r.ok; }).length, fall=resultados.filter(function(r){ return !r.ok; });
+    var cal=[['s','Seguro'],['m','Más o menos'],['a','Adivino']].map(function(c,ix){ var k=[2,1,0][ix]; var t=resultados.filter(function(r){ return r.conf===k; }); var a=t.filter(function(r){ return r.ok; }).length; return '<tr><td>'+c[1]+'</td><td class="num">'+t.length+'</td><td class="num">'+(t.length?Math.round(100*a/t.length)+' %':'sin datos')+'</td></tr>'; }).join('');
+    b.innerHTML='<section class="card"><h2>Resultado</h2><p class="num" style="font-size:1.6rem">'+ok+' de '+resultados.length+' correctas</p>'+(fall.length?'<p>Para repasar</p><ul>'+fall.map(function(r){ return '<li><a href="'+esc(LEC[r.q.lid].url)+'" target="_blank" rel="noopener">'+esc(LEC[r.q.lid].titulo)+'</a></li>'; }).join('')+'</ul><p class="mu">Quedaron en tu cuaderno de errores.</p>':'<p>Sin errores en esta tanda.</p>')+'<table class="tabla"><caption class="sr">Seguridad contra aciertos</caption><thead><tr><th>Dijiste</th><th>Veces</th><th>Acertaste</th></tr></thead><tbody>'+cal+'</tbody></table><div class="row"><button class="btn" type="button" id="rp-otra">Otra tanda</button><a class="btn sec" href="#cuaderno">Ver el cuaderno</a></div></section>';
+    document.getElementById('rp-otra').addEventListener('click',function(){ vRepaso(); });
+  }
+  paso();
+}
+/* ---------- cuaderno ---------- */
+function vCuaderno(){
+  var er=lee(K.err,{}), claves=Object.keys(er), f={cur:'',est:'pend'};
+  function pinta(){
+    var lista=claves.filter(function(k){ var e=er[k]; return (!f.cur||e.curso===f.cur)&&(f.est==='todos'||(f.est==='pend'?!e.ok:e.ok)); }).sort(function(a,b){ return (er[b].ts||0)-(er[a].ts||0); });
+    var cont=document.getElementById('cu-l');
+    if(!lista.length){ cont.innerHTML='<section class="card"><p>'+(claves.length?'No hay errores con este filtro.':'Todavía no hay errores guardados. Cuando falles una pregunta en una lección o aquí, quedará anotada con la razón.')+'</p></section>'; return; }
+    cont.innerHTML=lista.map(function(k){ var e=er[k], q=PQ[k], ult=e.fallos&&e.fallos[e.fallos.length-1]||{};
+      var cuerpo; if(q){ cuerpo='<div class="q">'+mt(q.h)+'</div>'; var eleg=''; if(q.t==='mcq'&&ult.i!=null){ eleg='<p><b>Elegiste</b> '+mt(q.o[ult.i])+'</p>'; if(q.er&&q.er[ult.i]) eleg+='<p class="mu">'+mt(q.er[ult.i])+'</p>'; } else if(q.t==='num'&&ult.resp!=null){ eleg='<p><b>Escribiste</b> '+esc(ult.resp)+'</p>'; }
+        cuerpo+=eleg+'<p><b>Respuesta correcta</b> '+(q.t==='mcq'?mt(q.o[q.c]):esc(q.r))+'</p><p class="mu">'+mt(q.e||'')+'</p>'; }
+      else cuerpo='<p class="mu">Esta pregunta viene de una actividad de la lección. Ábrela para verla de nuevo.</p>'+(ult.err?'<p>'+esc(ult.err)+'</p>':'');
+      var l=LEC[e.lid]; return '<article class="card err'+(e.ok?' res':'')+'" data-k="'+esc(k)+'"><div class="row"><span class="chip">'+esc(e.curso||'')+'</span><span class="chip">'+esc(e.lt||'')+'</span><span class="chip num">'+e.n+(e.n===1?' fallo':' fallos')+'</span>'+(e.ok?'<span class="chip">Entendido</span>':'')+'</div>'+cuerpo+'<div class="row">'+(q?'<button class="btn sec" type="button" data-pr>Practicar de nuevo</button>':'')+(l?'<a class="btn sec" href="'+esc(l.url)+'" target="_blank" rel="noopener">Abrir la lección</a>':'')+(!e.ok?'<button class="btn sec" type="button" data-ent>Ya lo entendí</button>':'')+'<button class="btn sec" type="button" data-del aria-label="Quitar del cuaderno">Quitar</button></div><div data-pb></div></article>'; }).join('');
+    mates(cont);
+    [].forEach.call(cont.querySelectorAll('article'),function(a){ var k=a.getAttribute('data-k'); var pr=a.querySelector('[data-pr]'), en=a.querySelector('[data-ent]'), de=a.querySelector('[data-del]');
+      if(pr) pr.addEventListener('click',function(){ var pb=a.querySelector('[data-pb]'); preguntar(PQ[k],pb,function(){ er=lee(K.err,{}); pinta(); },{etiqueta:'Listo'}); });
+      if(en) en.addEventListener('click',function(){ er[k].ok=true; er[k].tsok=Date.now(); guarda(K.err,er); pinta(); });
+      if(de) de.addEventListener('click',function(){ delete er[k]; claves=Object.keys(er); guarda(K.err,er); pinta(); }); });
+  }
+  var cursos=CURSOS.filter(function(c){ return claves.some(function(k){ return er[k].curso===c; }); });
+  V.innerHTML='<section class="card"><h2>Cuaderno de errores</h2><p class="mu">Aquí queda cada pregunta que fallaste, con lo que elegiste, por qué estaba mal y cuál era la respuesta. Practícalas de nuevo hasta que las entiendas.</p><div class="row" role="group" aria-label="Filtros"><button type="button" class="chip" data-e="pend" aria-pressed="true">Por entender</button><button type="button" class="chip" data-e="res" aria-pressed="false">Entendidos</button><button type="button" class="chip" data-e="todos" aria-pressed="false">Todos</button>'+cursos.map(function(c){ return '<button type="button" class="chip" data-cu="'+esc(c)+'" aria-pressed="false">'+esc(c)+'</button>'; }).join('')+'</div>'+(claves.length?'<div class="row"><a class="btn" href="#repaso">Hacer un repaso con mis errores</a></div>':'')+'</section><div id="cu-l" style="display:flex;flex-direction:column;gap:16px"></div>';
+  [].forEach.call(V.querySelectorAll('[data-e]'),function(b){ b.addEventListener('click',function(){ f.est=b.getAttribute('data-e'); [].forEach.call(V.querySelectorAll('[data-e]'),function(o){ o.setAttribute('aria-pressed',o===b?'true':'false'); }); pinta(); }); });
+  [].forEach.call(V.querySelectorAll('[data-cu]'),function(b){ b.addEventListener('click',function(){ var v=b.getAttribute('data-cu'); f.cur=(f.cur===v?'':v); [].forEach.call(V.querySelectorAll('[data-cu]'),function(o){ o.setAttribute('aria-pressed',o.getAttribute('data-cu')===f.cur?'true':'false'); }); pinta(); }); });
+  pinta();
+}
+/* ---------- mapa ---------- */
+function vMapa(){
+  var cur=CURSOS[0];
+  V.innerHTML='<section class="card"><h2>Mapa de prerrequisitos</h2><p class="mu">Cada cuadro es una lección y cada flecha va de lo que conviene saber antes hacia lo que sigue. El color sale de tus respuestas en las lecciones, el diagnóstico y el repaso mezclado.</p><div class="row" id="mp-c" role="group" aria-label="Materia">'+CURSOS.map(function(c){ return '<button type="button" class="chip" data-c="'+esc(c)+'" aria-pressed="false">'+esc(c)+'</button>'; }).join('')+'</div><div class="leyenda"><span><i class="est e-new"></i>sin datos</span><span><i class="est e-vis"></i>visto</span><span><i class="est e-rev"></i>por revisar</span><span><i class="est e-dom"></i>dominado</span></div></section><div class="mapa" id="mp-m"></div><section class="card" id="mp-p" aria-live="polite"><p class="mu">Toca una lección para ver de qué depende y qué puedes hacer con ella.</p></section>';
+  function dibuja(c){
+    [].forEach.call(V.querySelectorAll('#mp-c button'),function(b){ b.setAttribute('aria-pressed',b.getAttribute('data-c')===c?'true':'false'); });
+    var ls=lecDe(c), mods={}, mn=[]; ls.forEach(function(l){ if(!mods[l.modulo]){ mods[l.modulo]=[]; mn.push(l.modulo); } mods[l.modulo].push(l); });
+    var W=178,H=46,GX=72,GY=16,pos={}, maxf=0;
+    mn.forEach(function(m,ci){ mods[m].forEach(function(l,ri){ pos[l.id]={x:64+ci*(W+GX),y:44+ri*(H+GY)}; maxf=Math.max(maxf,ri+1); }); });
+    var wsvg=64+mn.length*(W+GX), hsvg=44+maxf*(H+GY)+10, s='<svg width="'+wsvg+'" height="'+hsvg+'" viewBox="0 0 '+wsvg+' '+hsvg+'" role="group" aria-label="Mapa de prerrequisitos de '+esc(c)+'" role="group">';
+    mn.forEach(function(m,ci){ s+='<text class="colt" x="'+(64+ci*(W+GX))+'" y="26">'+esc(m.replace(/^Módulo \d+\s*/,'Módulo '+(ci+1)+' ').slice(0,30))+'</text>'; });
+    ls.forEach(function(l){ (D.prereq[l.id]||[]).forEach(function(p){ if(!pos[p]) return; var a=pos[p], b=pos[l.id]; var x1=a.x+W, y1=a.y+H/2, x2=b.x, y2=b.y+H/2; if(a.x===b.x){ var yy1=a.y+H/2, yy2=b.y+H/2; s+='<path class="arista" d="M'+a.x+' '+yy1+' C'+(a.x-Math.min(54,18+Math.abs(yy2-yy1)/6))+' '+yy1+' '+(b.x-Math.min(54,18+Math.abs(yy2-yy1)/6))+' '+yy2+' '+b.x+' '+yy2+'"/>'; } else { var mx=(x1+x2)/2; s+='<path class="arista" d="M'+x1+' '+y1+' C'+mx+' '+y1+' '+mx+' '+y2+' '+x2+' '+y2+'"/>'; } }); });
+    var col={new:'var(--n-new)',vis:'var(--n-vis)',rev:'var(--n-rev)',dom:'var(--n-dom)'};
+    ls.forEach(function(l){ var p=pos[l.id], e=estado(l.id); s+='<g class="nodo" tabindex="0" role="button" data-id="'+esc(l.id)+'" aria-label="'+esc(l.titulo)+', '+NOM[e]+'"><rect x="'+p.x+'" y="'+p.y+'" width="'+W+'" height="'+H+'" rx="12" fill="var(--surf)" stroke="none"/><rect x="'+p.x+'" y="'+p.y+'" width="'+W+'" height="'+H+'" rx="12" fill="'+col[e]+'" fill-opacity="'+(e==='new'?0.55:0.9)+'"/><text x="'+(p.x+10)+'" y="'+(p.y+19)+'">'+esc(l.titulo.length>24?l.titulo.slice(0,23)+'…':l.titulo)+'</text><text x="'+(p.x+10)+'" y="'+(p.y+36)+'" style="font-size:10.5px;fill:var(--mu)">'+NOM[e]+'</text></g>'; });
+    s+='</svg>'; var mm=document.getElementById('mp-m'); mm.innerHTML=s;
+    function sel(id){ var l=LEC[id], e=estado(id); [].forEach.call(mm.querySelectorAll('.nodo'),function(n){ n.classList.toggle('sel',n.getAttribute('data-id')===id); });
+      var pre=(D.prereq[id]||[]).map(function(p){ var q=LEC[p]; if(!q) return ''; var pe=estado(p); return '<li><span class="est e-'+pe+'"></span><a href="'+esc(q.url)+'" target="_blank" rel="noopener">'+esc(q.titulo)+'</a> <span class="mu">'+esc(q.curso)+', '+NOM[pe]+'</span></li>'; }).join('');
+      var sig=Object.keys(D.prereq).filter(function(k){ return (D.prereq[k]||[]).indexOf(id)>=0&&LEC[k]; }).map(function(k){ return '<li><span class="est e-'+estado(k)+'"></span><a href="'+esc(LEC[k].url)+'" target="_blank" rel="noopener">'+esc(LEC[k].titulo)+'</a> <span class="mu">'+esc(LEC[k].curso)+'</span></li>'; }).join('');
+      var faltan=(D.prereq[id]||[]).filter(function(p){ return LEC[p]&&estado(p)==='rev'; });
+      document.getElementById('mp-p').innerHTML='<h3>'+esc(l.titulo)+'</h3><p class="mu">'+esc(l.curso)+', '+esc(l.modulo)+'</p><p><i class="est e-'+e+'"></i>'+NOM[e]+'</p>'+(faltan.length?'<p><b>Ojo.</b> Antes conviene repasar '+faltan.map(function(p){ return esc(LEC[p].titulo); }).join(' y ')+'.</p>':'')+'<div class="grid"><div><h3 style="font-size:1rem">Conviene saber antes</h3>'+(pre?'<ul>'+pre+'</ul>':'<p class="mu">Es un punto de partida.</p>')+'</div><div><h3 style="font-size:1rem">Lo que viene después</h3>'+(sig?'<ul>'+sig+'</ul>':'<p class="mu">Todavía no hay lecciones que dependan de esta.</p>')+'</div></div><div class="row"><a class="btn" href="'+esc(l.url)+'" target="_blank" rel="noopener">Abrir la lección</a><button class="btn sec" type="button" id="mp-pr">Practicar este tema</button></div>';
+      document.getElementById('mp-pr').addEventListener('click',function(){ vRepaso({curso:l.curso,lid:l.id,auto:true,n:Math.min(6,l.q.length)}); window.scrollTo(0,0); }); }
+    [].forEach.call(mm.querySelectorAll('.nodo'),function(n){ n.addEventListener('click',function(){ sel(n.getAttribute('data-id')); }); n.addEventListener('keydown',function(e){ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); sel(n.getAttribute('data-id')); } }); });
+  }
+  [].forEach.call(V.querySelectorAll('#mp-c button'),function(b){ b.addEventListener('click',function(){ dibuja(b.getAttribute('data-c')); }); });
+  dibuja(cur);
+}
+var RUTAS={'#inicio':vInicio,'#diagnostico':vDiag,'#repaso':function(){ vRepaso(); },'#cuaderno':vCuaderno,'#mapa':vMapa};
+function ruta(){ var h=location.hash||'#inicio'; if(!RUTAS[h]) h='#inicio'; [].forEach.call(document.querySelectorAll('nav a'),function(a){ if(a.getAttribute('href')===h) a.setAttribute('aria-current','page'); else a.removeAttribute('aria-current'); }); RUTAS[h](); mates(V); }
+window.addEventListener('hashchange',ruta); ruta();
+})();
+</script>

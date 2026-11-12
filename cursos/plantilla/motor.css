@@ -216,3 +216,8 @@
 .ins-l li.on .b{border:2px solid var(--ok);background:rgba(70,194,143,.18)}
 .ins-l .b .ic{width:16px;height:16px;color:var(--ok)}
 .fine2{font-size:.88rem}
+
+.conf{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin:10px 0 4px;font-size:.88rem;color:var(--mu)}
+.conf button{font:inherit;color:var(--tx);background:var(--surf2);border:1px solid var(--line);border-radius:999px;padding:4px 12px;cursor:pointer;min-height:32px}
+.conf button[aria-pressed="true"]{background:var(--acc);color:var(--on-acc);border-color:var(--acc)}
+.conf button:focus-visible{outline:2px solid var(--acc);outline-offset:2px}
