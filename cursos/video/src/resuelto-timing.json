@@ -1,41 +1,61 @@
 {
- "audio": null,
- "fin": 36.05,
+ "audio": "audio/fracciones.mp3",
+ "fin": 56.0,
  "sent": [
   {
-   "t": "Simplifica esta fracción algebraica.",
-   "a": 0.5,
-   "b": 2.98
+   "t": "¿Alguna vez cancelaste una x así y te dio mal?",
+   "a": 0.0,
+   "b": 3.08
   },
   {
-   "t": "Primero factoriza el numerador. Es una diferencia de cuadrados, x menos 2 por x más 2.",
-   "a": 3.48,
-   "b": 9.41
+   "t": "Ese es el error más común al simplificar. Solo se pueden cancelar factores, nunca términos que se suman.",
+   "a": 3.53,
+   "b": 10.38
   },
   {
-   "t": "Ahora el denominador. Busca dos números que sumen menos 1 y multipliquen menos 2. Son menos 2 y 1.",
-   "a": 9.91,
-   "b": 16.67
+   "t": "Veamos el truco con esta fracción.",
+   "a": 10.81,
+   "b": 14.6
   },
   {
-   "t": "El factor x menos 2 aparece arriba y abajo, así que se cancela.",
-   "a": 17.17,
-   "b": 21.52
+   "t": "Primero, factoriza arriba. Es una diferencia de cuadrados, y se abre en x menos 2 por x más 2.",
+   "a": 15.0,
+   "b": 21.25
   },
   {
-   "t": "Queda x más 2 sobre x más 1.",
-   "a": 22.02,
-   "b": 23.95
+   "t": "Ahora abajo. Buscamos dos números que sumen menos 1 y multipliquen menos 2. Son menos 2 y 1.",
+   "a": 21.62,
+   "b": 27.56
   },
   {
-   "t": "Pero ojo. En x igual a 2 la fracción original no existe, y en la gráfica queda un hueco.",
-   "a": 24.45,
-   "b": 30.52
+   "t": "Mira qué pasó. El factor x menos 2 aparece arriba y abajo.",
+   "a": 27.99,
+   "b": 32.41
   },
   {
-   "t": "Revisa siempre el dominio antes de cancelar.",
-   "a": 31.02,
-   "b": 34.05
+   "t": "Es como dividir arriba y abajo entre lo mismo. Se cancela.",
+   "a": 32.78,
+   "b": 36.32
+  },
+  {
+   "t": "Y queda x más 2 sobre x más 1. Mucho más sencillo, ¿no?",
+   "a": 36.74,
+   "b": 41.22
+  },
+  {
+   "t": "Pero ojo. En x igual a 2 la fracción original no existe. Mira la gráfica, ahí queda un hueco.",
+   "a": 41.64,
+   "b": 48.15
+  },
+  {
+   "t": "Por eso, antes de cancelar, siempre revisa el dominio.",
+   "a": 48.5,
+   "b": 51.95
+  },
+  {
+   "t": "Practica con preguntas reales en MathUNAL.",
+   "a": 52.32,
+   "b": 55.07
   }
  ]
 }
