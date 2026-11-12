@@ -1,0 +1,701 @@
+{
+ "esquema": 1,
+ "id": "alglin-m1-l4",
+ "ejemplo": true,
+ "curso": "Álgebra Lineal",
+ "modulo": "Módulo 1 Matrices, determinantes y sistemas",
+ "posicion": "Lección 4 de 4",
+ "titulo": "Determinantes",
+ "minutos": 28,
+ "ejercicios": 7,
+ "grafica": {
+  "tipo": "plano",
+  "x": [
+   -2.8,
+   6.73
+  ],
+  "y": [
+   -1.5,
+   3.7
+  ],
+  "a": -1,
+  "b": 2.5,
+  "inicio": 2,
+  "elementos": [
+   {
+    "t": "vector",
+    "b": [
+     "2",
+     "1"
+    ],
+    "nombre": "u",
+    "c": 0
+   },
+   {
+    "t": "vector",
+    "b": [
+     "1",
+     "x"
+    ],
+    "nombre": "v",
+    "c": 1
+   },
+   {
+    "t": "poligono",
+    "puntos": [
+     [
+      "0",
+      "0"
+     ],
+     [
+      "2",
+      "1"
+     ],
+     [
+      "3",
+      "1+x"
+     ],
+     [
+      "1",
+      "x"
+     ]
+    ],
+    "c": 2
+   },
+   {
+    "t": "recta",
+    "p": [
+     "0",
+     "0"
+    ],
+    "dir": [
+     "2",
+     "1"
+    ],
+    "guion": true,
+    "guia": true,
+    "c": 3
+   }
+  ],
+  "lecturas": [
+   {
+    "rotulo": "determinante",
+    "formula": "2*x-1"
+   },
+   {
+    "rotulo": "área",
+    "formula": "abs(2*x-1)"
+   }
+  ],
+  "etiquetas": [
+   "Determinante",
+   "Área del paralelogramo"
+  ],
+  "etiquetaSlider": "Valor de x en el vector v",
+  "alt": "Dos vectores u igual a (2, 1) y v igual a (1, x) que forman un paralelogramo cuya área cambia al mover v, con una recta punteada sobre la que los vectores quedan alineados"
+ },
+ "glosario": {
+  "det": "El determinante es un número que se calcula de una matriz cuadrada. En dimensión 2 es el área con signo del paralelogramo que forman sus columnas.",
+  "invertible": "Una matriz es invertible si existe otra matriz que la deshace. Eso pasa si y solo si su determinante no es cero.",
+  "cofactores": "El desarrollo por cofactores calcula un determinante eligiendo una fila, multiplicando cada elemento por su subdeterminante y alternando los signos.",
+  "triangular": "Una matriz triangular tiene ceros debajo de la diagonal principal, o encima de ella."
+ },
+ "ver": {
+  "duracion": 22.0,
+  "capitulos": [
+   [
+    0,
+    3,
+    "Estos son dos vectores del plano, u igual a (2, 1) y v igual a (1, x)."
+   ],
+   [
+    3,
+    6,
+    "Los dos vectores forman un paralelogramo."
+   ],
+   [
+    6,
+    12,
+    "Al mover v, el área del paralelogramo cambia. El determinante da esa área con signo."
+   ],
+   [
+    12,
+    17,
+    "Cuando v cae sobre la recta de u, el paralelogramo se aplasta y el determinante vale 0."
+   ],
+   [
+    17,
+    22,
+    "Con x igual a 2 el determinante vale 3. Es 2 por 2 menos 1 por 1."
+   ]
+  ],
+  "canales": {
+   "draw": [
+    [
+     0.3,
+     0
+    ],
+    [
+     5.5,
+     1
+    ]
+   ],
+   "d": [
+    [
+     6,
+     2
+    ],
+    [
+     9,
+     0.8
+    ],
+    [
+     14,
+     0.5
+    ],
+    [
+     16.5,
+     -0.5
+    ],
+    [
+     18,
+     2
+    ],
+    [
+     22,
+     2
+    ]
+   ],
+   "guide": [
+    [
+     12,
+     0
+    ],
+    [
+     13,
+     1
+    ]
+   ]
+  },
+  "intervalos": {
+   "ok": [
+    17,
+    22
+   ]
+  }
+ },
+ "leer": {
+  "secciones": [
+   {
+    "titulo": "La idea",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "El {{gl:det|determinante}} es un número que resume una matriz cuadrada. En dimensión 2 es el área con signo del paralelogramo que forman sus columnas. Si el determinante es 0, el paralelogramo se aplasta en una recta, y eso dice que la matriz no se puede invertir."
+     }
+    ]
+   },
+   {
+    "titulo": "Un ejemplo",
+    "corto": "Un ejemplo",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mira la matriz cuya primera columna es el vector u igual a (2, 1) y cuya segunda columna es el vector v igual a (1, x)."
+     },
+     {
+      "t": "eq",
+      "tex": "A=\\begin{pmatrix}2&1\\\\1&x\\end{pmatrix}\\ \\Rightarrow\\ \\det A=2x-1"
+     },
+     {
+      "t": "p",
+      "html": "Las dos columnas forman un paralelogramo, y la gráfica muestra cómo cambia al mover v."
+     },
+     {
+      "t": "grafica",
+      "animar": "dibujar",
+      "alt": "Los vectores u y v y el paralelogramo que forman"
+     }
+    ]
+   },
+   {
+    "titulo": "Piensa antes de ver",
+    "corto": "Piensa",
+    "bloques": [
+     {
+      "t": "piensa",
+      "pregunta": "Cuando x vale 2 el determinante es 2 por 2 menos 1 por 1. ¿Cuánto vale?",
+      "opciones": [
+       1,
+       2,
+       3,
+       4
+      ],
+      "correcta": 3,
+      "bien": "Muy bien. Vale 3. Más abajo se ve el paralelogramo con esa área.",
+      "mal": "Vale 3, porque 2 por 2 es 4 y 4 menos 1 es 3. Más abajo se ve el paralelogramo con esa área."
+     }
+    ]
+   },
+   {
+    "titulo": "El paralelogramo",
+    "corto": "El paralelogramo",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mira cómo cambia el determinante, que es el área con signo, a medida que se mueve v."
+     },
+     {
+      "t": "acercando",
+      "ds": [
+       -0.5,
+       0.5,
+       1,
+       2
+      ],
+      "alt": "El paralelogramo de los vectores u y v para varios valores de x"
+     },
+     {
+      "t": "p",
+      "html": "Con x igual a 0.5 el vector v queda sobre la recta de u y el determinante es 0. Con x menor que 0.5 el determinante es negativo, porque el orden de los vectores se invierte."
+     }
+    ]
+   },
+   {
+    "titulo": "Determinante de 2 por 2",
+    "corto": "De 2 por 2",
+    "bloques": [
+     {
+      "t": "eq",
+      "tex": "\\det\\begin{pmatrix}a&b\\\\c&d\\end{pmatrix}=ad-bc"
+     },
+     {
+      "t": "pasos",
+      "items": [
+       {
+        "tex": "\\det\\begin{pmatrix}2&1\\\\1&x\\end{pmatrix}=2\\cdot x-1\\cdot 1=2x-1",
+        "porque": "Se multiplican los elementos de la diagonal principal y se resta el producto de la otra diagonal."
+       },
+       {
+        "tex": "x=2:\\quad \\det A=4-1=3",
+        "porque": "Es el área del paralelogramo de la gráfica."
+       },
+       {
+        "tex": "x=\\dfrac{1}{2}:\\quad \\det A=0",
+        "porque": "Las columnas quedan alineadas y la matriz no tiene inversa."
+       }
+      ]
+     },
+     {
+      "t": "ojo",
+      "html": "El signo importa. Un determinante negativo no significa un área negativa, sino que el orden de las columnas invierte la orientación."
+     }
+    ]
+   },
+   {
+    "titulo": "Determinante de 3 por 3",
+    "corto": "De 3 por 3",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Se puede desarrollar por una fila, multiplicando cada elemento por el determinante que queda al quitar su fila y su columna, con signos que alternan más, menos, más. A esto se le llama desarrollo por {{gl:cofactores|cofactores}}."
+     },
+     {
+      "t": "pasos",
+      "items": [
+       {
+        "tex": "\\det\\begin{pmatrix}1&2&0\\\\0&1&3\\\\2&0&1\\end{pmatrix}=1\\cdot\\det\\begin{pmatrix}1&3\\\\0&1\\end{pmatrix}-2\\cdot\\det\\begin{pmatrix}0&3\\\\2&1\\end{pmatrix}+0",
+        "porque": "Se desarrolla por la primera fila. El cero hace desaparecer el tercer término."
+       },
+       {
+        "tex": "=1\\cdot(1-0)-2\\cdot(0-6)=1+12",
+        "porque": "Se calculan los determinantes de 2 por 2."
+       },
+       {
+        "tex": "=13",
+        "porque": "Es el valor del determinante."
+       }
+      ]
+     },
+     {
+      "t": "ojo",
+      "html": "Conviene desarrollar por la fila o la columna que tenga más ceros, para hacer menos cuentas."
+     }
+    ]
+   },
+   {
+    "titulo": "Con eliminación",
+    "corto": "Con eliminación",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Otra forma es llevar la matriz a una forma {{gl:triangular|triangular}}, donde el determinante es el producto de la diagonal. Sumar un múltiplo de una fila a otra no cambia el determinante."
+     },
+     {
+      "t": "pasos",
+      "items": [
+       {
+        "tex": "R_{3}\\leftarrow R_{3}-2R_{1}:\\quad \\begin{pmatrix}1&2&0\\\\0&1&3\\\\0&-4&1\\end{pmatrix}",
+        "porque": "Se hace cero el 2 de la tercera fila."
+       },
+       {
+        "tex": "R_{3}\\leftarrow R_{3}+4R_{2}:\\quad \\begin{pmatrix}1&2&0\\\\0&1&3\\\\0&0&13\\end{pmatrix}",
+        "porque": "Se hace cero el menos 4."
+       },
+       {
+        "tex": "\\det=1\\cdot 1\\cdot 13=13",
+        "porque": "En una matriz triangular, el determinante es el producto de la diagonal. Sale el mismo 13."
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "Propiedades",
+    "corto": "Propiedades",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Estas reglas ahorran cuentas y se usan mucho."
+     },
+     {
+      "t": "pasos",
+      "items": [
+       {
+        "tex": "\\det(AB)=\\det A\\cdot\\det B",
+        "porque": "El determinante de un producto es el producto de los determinantes."
+       },
+       {
+        "tex": "\\text{Intercambiar dos filas cambia el signo del determinante}",
+        "porque": "Se invierte la orientación."
+       },
+       {
+        "tex": "\\det(kA)=k^{n}\\det A\\quad (A\\ \\text{de}\\ n\\times n)",
+        "porque": "Cada una de las n filas se multiplica por k. Para una matriz 2 por 2 con determinante 5, el de 3A es 9 por 5."
+       },
+       {
+        "tex": "A\\ \\text{invertible}\\iff\\det A\\ne 0",
+        "porque": "Es la {{gl:invertible|condición de invertibilidad}}."
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "¿Para qué sirve?",
+    "corto": "En ingeniería",
+    "bloques": [
+     {
+      "t": "ingenieria",
+      "titulo": "La singularidad de un brazo robótico",
+      "html": "Un brazo con dos eslabones mueve su punta según el ángulo de sus dos articulaciones. La matriz que relaciona las velocidades de las articulaciones con la de la punta se llama jacobiana, y su determinante dice si el brazo puede moverse en cualquier dirección.",
+      "tex": "\\det J=l_{1}\\,l_{2}\\operatorname{sen}\\theta_{2}",
+      "datos": [
+       {
+        "k": "Eslabón 1",
+        "v": "0.5 m"
+       },
+       {
+        "k": "Eslabón 2",
+        "v": "0.4 m"
+       },
+       {
+        "k": "Con codo a 90 grados",
+        "v": "det igual a 0.2 m²"
+       }
+      ],
+      "cierre": "Con el codo a 90 grados el determinante vale 0.5 por 0.4 por 1, o sea 0.2 metros cuadrados, y el brazo se mueve bien en todas las direcciones. Cuando el codo está estirado, theta 2 es 0, el determinante se anula y el brazo pierde una dirección de movimiento. Eso se llama una singularidad. Es un modelo simplificado, porque no incluye los límites de las articulaciones."
+     }
+    ]
+   },
+   {
+    "titulo": "Completa el paso",
+    "corto": "Completa",
+    "bloques": [
+     {
+      "t": "completar",
+      "enunciado": "Se calcula el determinante de una matriz de 2 por 2. Falta el producto de la diagonal secundaria.",
+      "tex": "\\det\\begin{pmatrix}3&1\\\\2&4\\end{pmatrix}=3\\cdot 4-[[hueco]]",
+      "opciones": [
+       {
+        "tex": "1\\cdot 2",
+        "txt": "uno por dos"
+       },
+       {
+        "tex": "3\\cdot 2",
+        "txt": "tres por dos"
+       },
+       {
+        "tex": "1\\cdot 4",
+        "txt": "uno por cuatro"
+       }
+      ],
+      "correcta": 0,
+      "errores": [
+       "",
+       "Ese producto mezcla un elemento de la diagonal principal con otro de la secundaria. La diagonal secundaria tiene el 1 y el 2.",
+       "Ese producto usa el 4, que ya está en la diagonal principal. La diagonal secundaria es 1 y 2."
+      ],
+      "pista": "La diagonal secundaria va de arriba a la derecha hasta abajo a la izquierda.",
+      "porque": "La diagonal secundaria tiene el 1 y el 2, y su producto es 2. El determinante es 12 menos 2, o sea 10."
+     }
+    ]
+   },
+   {
+    "titulo": "Encuentra el error",
+    "corto": "Error",
+    "bloques": [
+     {
+      "t": "error",
+      "enunciado": "Alguien calculó este determinante intercambiando filas y se equivocó en un paso. Toca el paso que está mal.",
+      "pasos": [
+       {
+        "tex": "A=\\begin{pmatrix}0&1\\\\2&3\\end{pmatrix}",
+        "porque": "Es la matriz de partida.",
+        "txt": "La matriz es 0 1, 2 3"
+       },
+       {
+        "tex": "\\text{Se intercambian las filas y queda}\\ \\begin{pmatrix}2&3\\\\0&1\\end{pmatrix}\\ \\text{con determinante}\\ 2\\cdot 1=2",
+        "porque": "Este paso es el que falla.",
+        "txt": "Se intercambian las filas y el determinante es 2 por 1, o sea 2"
+       },
+       {
+        "tex": "\\text{Por tanto}\\ \\det A=2",
+        "porque": "Esta conclusión depende del paso anterior.",
+        "txt": "Por tanto el determinante de A es 2"
+       }
+      ],
+      "mal": 1,
+      "explicacion": "Intercambiar dos filas cambia el signo del determinante, así que el de A es el opuesto del de la matriz con las filas intercambiadas. Con la fórmula directa, 0 por 3 menos 1 por 2 da menos 2.",
+      "correccion": "\\det A=0\\cdot 3-1\\cdot 2=-2",
+      "pista": "Calcula el determinante de A con la fórmula directa y compáralo."
+     }
+    ]
+   },
+   {
+    "titulo": "Ordena los pasos",
+    "corto": "Ordena",
+    "bloques": [
+     {
+      "t": "ordenar",
+      "enunciado": "Estos son los pasos para el determinante de una matriz de 3 por 3 con eliminación, pero están desordenados.",
+      "pasos": [
+       "A=\\begin{pmatrix}1&2&0\\\\0&1&3\\\\2&0&1\\end{pmatrix}",
+       "R_{3}\\leftarrow R_{3}-2R_{1}",
+       "R_{3}\\leftarrow R_{3}+4R_{2}",
+       "\\det A=1\\cdot 1\\cdot 13=13"
+      ],
+      "mezcla": [
+       2,
+       0,
+       3,
+       1
+      ],
+      "porque": "Se parte de la matriz, se hacen ceros bajo la diagonal con dos operaciones de fila y se multiplica la diagonal.",
+      "pista": "Primero se escribe la matriz.",
+      "txt": [
+       "La matriz de partida",
+       "A la tercera fila se le resta dos veces la primera",
+       "A la tercera fila se le suma cuatro veces la segunda",
+       "El determinante es el producto de la diagonal, 13"
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "Revisa tu respuesta",
+    "corto": "Revisa",
+    "bloques": [
+     {
+      "t": "pregunta"
+     },
+     {
+      "t": "nota",
+      "html": "Puedes pedir pistas de a una. Si fallas, el mensaje te dice qué error se cometió."
+     }
+    ]
+   },
+   {
+    "titulo": "Mini simulacro",
+    "corto": "Simulacro",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Tres preguntas reales del banco de MathUNAL sobre este tema. Responde sin mirar los pasos."
+     },
+     {
+      "t": "simulacro",
+      "titulo": "Mini simulacro de determinantes",
+      "preguntas": [
+       {
+        "tipo": "numerica",
+        "texto": "$\\det\\begin{pmatrix}2&1\\\\3&4\\end{pmatrix}$",
+        "respuesta": "5",
+        "tolNum": 0.001,
+        "resumen": "Se aplica $ad-bc=2\\cdot 4-1\\cdot 3=5$.",
+        "fuente": "Banco MathUNAL, simulacro de Álgebra Lineal"
+       },
+       {
+        "tipo": "mcq",
+        "texto": "Si se intercambian dos filas de una matriz, su determinante:",
+        "opciones": [
+         "cambia de signo",
+         "no cambia",
+         "se multiplica por $2$",
+         "se hace $0$"
+        ],
+        "correcta": 0,
+        "resumen": "Intercambiar dos filas invierte la orientación y cambia el signo del determinante.",
+        "fuente": "Banco MathUNAL, simulacro de Álgebra Lineal"
+       },
+       {
+        "tipo": "numerica",
+        "texto": "Si $A$ es $3\\times3$ con $\\det A = 5$, entonces $\\det(2A)$ es:",
+        "respuesta": "40",
+        "tolNum": 0.001,
+        "resumen": "Se usa $\\det(kA)=k^{n}\\det A$ con $k=2$ y $n=3$, o sea $8\\cdot 5=40$.",
+        "fuente": "Banco MathUNAL, simulacro de Álgebra Lineal"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "Tu repaso",
+    "corto": "Repaso",
+    "bloques": [
+     {
+      "t": "repaso"
+     }
+    ]
+   },
+   {
+    "titulo": "En resumen",
+    "corto": "Resumen",
+    "bloques": [
+     {
+      "t": "resumen"
+     }
+    ]
+   }
+  ]
+ },
+ "practicar": {
+  "pasos": [
+   {
+    "titulo": "Los vectores",
+    "grafica": {
+     "draw": 1
+    },
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Estos son dos vectores del plano."
+     },
+     {
+      "t": "eq",
+      "tex": "u=(2,1),\\qquad v=(1,x)"
+     }
+    ]
+   },
+   {
+    "titulo": "Mueve v",
+    "grafica": {
+     "draw": 1
+    },
+    "laboratorio": true,
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mueve el deslizador. El vector v cambia, el paralelogramo se deforma y abajo se ven el determinante y el área."
+     }
+    ]
+   },
+   {
+    "titulo": "Se aplasta",
+    "grafica": {
+     "draw": 1,
+     "guide": 1
+    },
+    "laboratorio": true,
+    "d": 0.5,
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Con x igual a 0.5 el vector v queda sobre la recta punteada de u. El paralelogramo no tiene área y el determinante es 0."
+     }
+    ]
+   },
+   {
+    "titulo": "El resultado",
+    "grafica": {
+     "draw": 1,
+     "guide": 1,
+     "ok": true
+    },
+    "laboratorio": true,
+    "d": 2,
+    "bloques": [
+     {
+      "t": "eq",
+      "tex": "\\det\\begin{pmatrix}2&1\\\\1&2\\end{pmatrix}=2\\cdot 2-1\\cdot 1=3"
+     },
+     {
+      "t": "p",
+      "html": "Con x igual a 2 el determinante vale 3, justo el área del paralelogramo."
+     }
+    ]
+   },
+   {
+    "titulo": "Revisa tu respuesta",
+    "grafica": {
+     "draw": 1,
+     "guide": 1,
+     "ok": true,
+     "d": 2
+    },
+    "bloques": [
+     {
+      "t": "pregunta"
+     },
+     {
+      "t": "nota",
+      "html": "Cuida los signos al desarrollar por cofactores."
+     }
+    ]
+   }
+  ]
+ },
+ "pregunta": {
+  "tex": "\\det\\begin{pmatrix}1&0&2\\\\0&3&1\\\\1&1&0\\end{pmatrix}",
+  "opciones": [
+   "$-7$",
+   "$7$",
+   "$-5$",
+   "$5$"
+  ],
+  "correcta": 0,
+  "explicacion": "Se desarrolla por la primera fila. El primer elemento 1 multiplica el determinante de 3, 1, 1, 0, que vale menos 1. El segundo elemento es 0. El tercer elemento 2 multiplica el determinante de 0, 3, 1, 1, que vale menos 3, con signo más. La suma es menos 1 menos 6, o sea menos 7.",
+  "verificacion": {
+   "formula": "1*(3*0-1*1)-0*(0*0-1*1)+2*(0*1-3*1)+0*x",
+   "a": 0,
+   "esperado": -7
+  },
+  "pistas": [
+   "Desarrolla por la primera fila, que tiene un cero.",
+   "El primer cofactor es el determinante de 3, 1, 1, 0. El tercero es el de 0, 3, 1, 1.",
+   "Suma 1 por el primero, menos 0 por el segundo, más 2 por el tercero."
+  ],
+  "errores": [
+   "",
+   "El signo está al revés. Revisa los dos determinantes de 2 por 2, que valen menos 1 y menos 3.",
+   "Revisa la cuenta. El primer término es 1 por menos 1 y el tercero es 2 por menos 3.",
+   "Revisa la cuenta y el signo. Suma menos 1 y menos 6."
+  ]
+ },
+ "resumen": [
+  "En dimensión 2, el determinante es el área con signo del paralelogramo de las columnas, y vale ad menos bc.",
+  "Se calcula por cofactores o llevando la matriz a forma triangular. Intercambiar filas cambia el signo.",
+  "Una matriz es invertible si y solo si su determinante no es cero."
+ ]
+}

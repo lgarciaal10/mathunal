@@ -2,7 +2,7 @@
   var NS='http://www.w3.org/2000/svg';
   var RM=!!(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches);
   var L=JSON.parse(document.getElementById('leccion-datos').textContent);
-  var G=L.grafica, SEC=(G.tipo==='secante'), TVM=(G.tipo==='tvm'), NEW=(G.tipo==='newton'), ARE=(G.tipo==='area'||G.tipo==='entre'||G.tipo==='polar'), ENT=(G.tipo==='entre'), POL=(G.tipo==='polar'), ASI=(G.tipo==='asintota'), A=(SEC||TVM||ARE)?G.a:(G.hueco?G.hueco.x:0), ETQ=G.etiquetas||['Por la izquierda','Por la derecha'];
+  var G=L.grafica, SEC=(G.tipo==='secante'), TVM=(G.tipo==='tvm'), NEW=(G.tipo==='newton'), ARE=(G.tipo==='area'||G.tipo==='entre'||G.tipo==='polar'), ENT=(G.tipo==='entre'), POL=(G.tipo==='polar'), PLA=(G.tipo==='plano'), ASI=(G.tipo==='asintota'), A=(SEC||TVM||ARE)?G.a:(G.hueco?G.hueco.x:0), ETQ=G.etiquetas||['Por la izquierda','Por la derecha'];
 
   /* ---------- utilidades ---------- */
   function cl(v,a,b){ return Math.max(a,Math.min(b,v)); }
@@ -21,7 +21,7 @@
     js=js.replace(/\b(sin|cos|tan|asin|acos|atan|exp|log|sqrt|abs|PI)\b/g,'Math.$1');
     return new Function('x','return '+js);
   }
-  var fFun=compile(G.funcion), fCurve=(SEC||TVM||NEW||ARE||ASI)?fFun:compile(G.curva), fDer=(SEC||TVM||NEW)?compile(G.derivada):null, fPri=ARE?compile(G.primitiva):null, fInf=ENT?compile(G.inferior):null, NX=null;
+  var fFun=PLA?null:compile(G.funcion), fCurve=PLA?null:((SEC||TVM||NEW||ARE||ASI)?fFun:compile(G.curva)), fDer=(SEC||TVM||NEW)?compile(G.derivada):null, fPri=ARE?compile(G.primitiva):null, fInf=ENT?compile(G.inferior):null, NX=null;
   if(NEW){ NX=[G.x0]; for(var ni=0;ni<G.pasos;ni++) NX.push(NX[ni]-fFun(NX[ni])/fDer(NX[ni])); }
   function nf(v){ if(!isFinite(v)) return v>0?'∞':(v<0?'-∞':'sin valor'); var a=Math.abs(v); if(a!==0&&(a<1e-6||a>=1e6)) return v.toExponential(2); return (+v.toFixed(a>=100?2:(a>=1?6:8))).toString(); }
   function gl(h){ return h.replace(/\{\{gl:([a-z0-9_]+)\|([^}]+)\}\}/g,'<button class="gl" type="button" data-g="$1">$2</button>'); }
@@ -196,10 +196,55 @@
       lM.setAttribute('x',p[0]); lM.setAttribute('y',p[1]-18); lM.textContent='\u03b8 = '+fmt(t); lM.setAttribute('opacity',al);
     }};
   }
+  /* plano. Escena con vectores, polígonos, rectas, segmentos y puntos cuyas coordenadas son fórmulas del parámetro x. Estado d = parámetro, draw va mostrando los elementos en orden, guide muestra los que traen guia y ok los que traen fin */
+  var COL=['var(--curve)','var(--warn)','var(--acc)','var(--ok)'];
+  var LEC=PLA?(G.lecturas||[]).map(function(l){ return {r:l.rotulo,f:compile(String(l.formula))}; }):[];
+  function GraphPlano(svg){
+    var F=Frame(svg,0,0), X=F.X, Y=F.Y, el=F.el, grp=F.clip(), items=[], E=G.elementos||[];
+    function cp(a){ return (a||['0','0']).map(function(s){ return compile(String(s)); }); }
+    function ev(c,t){ return [c[0](t),c[1](t)]; }
+    E.forEach(function(e){
+      var o={e:e,col:COL[(e.c||0)%4]};
+      if(e.t==='vector'){ o.a=cp(e.a); o.b=cp(e.b); o.ln=el('path',{fill:'none',stroke:o.col,'stroke-width':4,'stroke-linecap':'round',opacity:0},grp); o.hd=el('path',{fill:o.col,stroke:'none',opacity:0},grp); }
+      else if(e.t==='poligono'){ o.p=(e.puntos||[]).map(cp); o.ln=el('path',{fill:o.col,'fill-opacity':0.26,stroke:o.col,'stroke-width':2,opacity:0},grp); }
+      else if(e.t==='recta'){ o.p=cp(e.p); o.d=cp(e.dir); o.ln=el('path',{fill:'none',stroke:o.col,'stroke-width':3,'stroke-dasharray':e.guion?'7 6':'none',opacity:0},grp); }
+      else if(e.t==='segmento'){ o.a=cp(e.a); o.b=cp(e.b); o.ln=el('path',{fill:'none',stroke:o.col,'stroke-width':3,'stroke-dasharray':e.guion?'7 6':'none',opacity:0},grp); }
+      else if(e.t==='punto'){ o.p=cp(e.p); o.pt=el('circle',{r:7,fill:o.col,opacity:0},grp); }
+      if(e.nombre){ o.tx=el('text',{'class':'zb',opacity:0,'text-anchor':'middle'},grp); o.tx.textContent=e.nombre; o.tx.style.fill=o.col; }
+      items.push(o);
+    });
+    return { set:function(s){
+      var t=s.d==null?(G.inicio!=null?G.inicio:G.a):s.d, dr=s.draw==null?1:s.draw, n=Math.max(1,items.length), gd=s.guide==null?0:Math.min(1,s.guide);
+      items.forEach(function(o,i){
+        var e=o.e, al=Math.max(0,Math.min(1,dr*n-i)); if(e.guia) al*=gd; if(e.fin) al*=(s.ok?1:0);
+        var main=o.ln||o.pt; main.setAttribute('opacity',al); if(o.hd) o.hd.setAttribute('opacity',al); if(o.tx) o.tx.setAttribute('opacity',al);
+        if(al<=0) return;
+        var lx=0, ly=0;
+        if(e.t==='vector'){
+          var a=ev(o.a,t), b=ev(o.b,t), pa0=X(a[0]), pa1=Y(a[1]), pb0=X(b[0]), pb1=Y(b[1]), dx=pb0-pa0, dy=pb1-pa1, len=Math.sqrt(dx*dx+dy*dy), ang=Math.atan2(dy,dx), c=Math.cos(ang), sn=Math.sin(ang);
+          if(len<14){ o.ln.setAttribute('d',''); o.hd.setAttribute('d',''); }
+          else { o.ln.setAttribute('d','M'+pa0+' '+pa1+' L'+(pb0-9*c)+' '+(pb1-9*sn)); o.hd.setAttribute('d','M'+pb0+' '+pb1+' L'+(pb0-15*Math.cos(ang-0.42))+' '+(pb1-15*Math.sin(ang-0.42))+' L'+(pb0-15*Math.cos(ang+0.42))+' '+(pb1-15*Math.sin(ang+0.42))+' Z'); }
+          lx=pb0+20*c; ly=pb1+20*sn+4;
+        } else if(e.t==='poligono'){
+          var ps=o.p.map(function(q){ var v=ev(q,t); return [X(v[0]),Y(v[1])]; }); o.ln.setAttribute('d','M'+ps.map(function(q){ return q[0].toFixed(1)+' '+q[1].toFixed(1); }).join(' L')+' Z');
+          lx=ps.reduce(function(m,q){ return m+q[0]; },0)/ps.length; ly=ps.reduce(function(m,q){ return m+q[1]; },0)/ps.length+4;
+        } else if(e.t==='recta'){
+          var p=ev(o.p,t), d=ev(o.d,t), q0=X(p[0]), q1=Y(p[1]), ex=X(p[0]+d[0])-q0, ey=Y(p[1]+d[1])-q1, ee=Math.sqrt(ex*ex+ey*ey)||1; ex=ex/ee*2000; ey=ey/ee*2000;
+          o.ln.setAttribute('d','M'+(q0-ex)+' '+(q1-ey)+' L'+(q0+ex)+' '+(q1+ey)); lx=q0+14; ly=q1-12;
+        } else if(e.t==='segmento'){
+          var a2=ev(o.a,t), b2=ev(o.b,t); o.ln.setAttribute('d','M'+X(a2[0])+' '+Y(a2[1])+' L'+X(b2[0])+' '+Y(b2[1])); lx=(X(a2[0])+X(b2[0]))/2+12; ly=(Y(a2[1])+Y(b2[1]))/2-8;
+        } else if(e.t==='punto'){
+          var pp=ev(o.p,t); o.pt.setAttribute('cx',X(pp[0])); o.pt.setAttribute('cy',Y(pp[1])); lx=X(pp[0]); ly=Y(pp[1])-14;
+        }
+        if(o.tx){ o.tx.setAttribute('x',lx); o.tx.setAttribute('y',ly); }
+      });
+    }};
+  }
   function Graph(svg){
     if(SEC) return GraphSecante(svg);
     if(TVM) return GraphTVM(svg);
     if(NEW) return GraphNewton(svg);
+    if(PLA) return GraphPlano(svg);
     if(POL) return GraphPolar(svg);
     if(ARE) return GraphArea(svg);
     if(ASI) return GraphAsint(svg);
@@ -232,6 +277,7 @@
     }};
   }
   function readouts(d,lEl,rEl){
+    if(PLA){ var tt=d==null?(G.inicio!=null?G.inicio:G.a):d; lEl.textContent=LEC[0].r+' = '+nf(LEC[0].f(tt)); rEl.textContent=LEC[1].r+' = '+nf(LEC[1].f(tt)); return; }
     if(NEW){ if(d==null){ lEl.textContent='sin datos'; rEl.textContent='sin datos'; return; } var kk=Math.max(0,Math.min(G.pasos,Math.round(d))); lEl.textContent='x'+kk+' = '+nf(NX[kk]); rEl.textContent='f(x'+kk+') = '+nf(fFun(NX[kk])); return; }
     if(ARE){ var RA=G.rotulos||(ENT?['área','separación']:(POL?['área','r']:['área','altura'])); if(d==null){ lEl.textContent='sin datos'; rEl.textContent='sin datos'; return; } var sn=function(v){ return Math.abs(v)<1e-7?0:v; }; lEl.textContent=RA[0]+' = '+nf(sn(fPri(d)-fPri(G.a))); rEl.textContent=RA[1]+' = '+nf(sn(ENT?fFun(d)-fInf(d):fFun(d))); return; }
     if(ASI){ if(d==null){ lEl.textContent='sin datos'; rEl.textContent='sin datos'; return; } var dd=G.entero?Math.max(0,Math.round(d)):d, RS=G.rotulos||['x','f(x)']; lEl.textContent=RS[0]+' = '+nf(dd); rEl.textContent=RS[1]+' = '+nf(fFun(dd)); return; }
@@ -508,11 +554,11 @@
   if(RM) secs.forEach(function(s){ s.classList.add('in'); });
 
   /* ======================= PRACTICAR ======================= */
-  var zNow=0, zTok=0, P=L.practicar.pasos, gP=Graph(document.getElementById('p-g')), cur=0, curD=TVM?(G.a+0.3*(G.b-G.a)):(ARE?(G.a+0.3*(G.b-G.a)):(ASI?(G.deslizador.ancla+G.deslizador.dmin*Math.pow(G.deslizador.dmax/G.deslizador.dmin,0.5)):(NEW?0:0.1))), stepsEl=document.getElementById('p-steps');
+  var zNow=0, zTok=0, P=L.practicar.pasos, gP=Graph(document.getElementById('p-g')), cur=0, curD=TVM?(G.a+0.3*(G.b-G.a)):((ARE||PLA)?(G.a+0.3*(G.b-G.a)):(ASI?(G.deslizador.ancla+G.deslizador.dmin*Math.pow(G.deslizador.dmax/G.deslizador.dmin,0.5)):(NEW?0:0.1))), stepsEl=document.getElementById('p-steps');
   stepsEl.innerHTML=P.map(function(s,i){ return '<div class="p-step" data-i="'+i+'"><button class="top" type="button" aria-expanded="false"><span class="num">'+(i+1)+'</span><h2>'+s.titulo+'</h2></button><div class="p-body">'+s.bloques.map(function(b){ return blockHtml(b,'p'+i); }).join('')+'</div></div>'; }).join('');
   [].forEach.call(stepsEl.querySelectorAll('[data-quiz]'),Quiz); while(inits.length) inits.shift()(); avisoRepaso();
-  var dS=document.getElementById('p-d'); function dFrom(v){ if(TVM) return G.a+(G.b-G.a)*(0.05+0.9*v/100); if(NEW) return Math.round(v/100*G.pasos); if(ARE) return G.a+(G.b-G.a)*(0.03+0.94*v/100); if(ASI){ var m=G.deslizador; return m.ancla+m.dmin*Math.pow(m.dmax/m.dmin,v/100); } return Math.pow(10,-3+(100-v)/100*3); }
-  function vFrom(d){ if(TVM) return ((d-G.a)/(G.b-G.a)-0.05)/0.9*100; if(NEW) return d/G.pasos*100; if(ARE) return ((d-G.a)/(G.b-G.a)-0.03)/0.94*100; if(ASI){ var m=G.deslizador; return Math.log((d-m.ancla)/m.dmin)/Math.log(m.dmax/m.dmin)*100; } return 100-(Math.log(d)/Math.LN10+3)/3*100; }
+  var dS=document.getElementById('p-d'); function dFrom(v){ if(TVM) return G.a+(G.b-G.a)*(0.05+0.9*v/100); if(NEW) return Math.round(v/100*G.pasos); if(ARE||PLA) return G.a+(G.b-G.a)*(0.03+0.94*v/100); if(ASI){ var m=G.deslizador; return m.ancla+m.dmin*Math.pow(m.dmax/m.dmin,v/100); } return Math.pow(10,-3+(100-v)/100*3); }
+  function vFrom(d){ if(TVM) return ((d-G.a)/(G.b-G.a)-0.05)/0.9*100; if(NEW) return d/G.pasos*100; if(ARE||PLA) return ((d-G.a)/(G.b-G.a)-0.03)/0.94*100; if(ASI){ var m=G.deslizador; return Math.log((d-m.ancla)/m.dmin)/Math.log(m.dmax/m.dmin)*100; } return 100-(Math.log(d)/Math.LN10+3)/3*100; }
   function applyP(){
     var s=P[cur], st={}; for(var k in s.grafica) st[k]=s.grafica[k];
     var ctl=document.getElementById('p-ctl'), vals=document.getElementById('p-vals');

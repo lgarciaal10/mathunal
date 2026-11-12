@@ -30,7 +30,7 @@ if (errores.length) { salir(); }
 const FN = /\b(sin|cos|tan|asin|acos|atan|exp|ln|sqrt|abs|pi)\b/g;
 const compilar = (e, donde) => { if (!/^[0-9x+\-*\/().^\s]*$/.test(String(e).replace(FN, ''))) { err(`Fórmula no permitida en ${donde}`); return null; } try { const js = String(e).replace(/\^/g, '**').replace(/\bln\b/g, 'log').replace(/\bpi\b/g, 'PI').replace(/\b(sin|cos|tan|asin|acos|atan|exp|log|sqrt|abs|PI)\b/g, 'Math.$1'); return new Function('x', 'return ' + js); } catch (x) { err(`Fórmula inválida en ${donde}`); return null; } };
 const G = L.grafica, SEC = G.tipo === 'secante', TVM = G.tipo === 'tvm', A = (SEC || TVM) ? G.a : (G.hueco && G.hueco.x);
-if (G.tipo && !['hueco', 'secante', 'tvm', 'newton', 'area', 'entre', 'polar', 'asintota'].includes(G.tipo)) err(`Tipo de gráfica desconocido ${G.tipo}`);
+if (G.tipo && !['hueco', 'secante', 'tvm', 'newton', 'area', 'entre', 'polar', 'plano', 'asintota'].includes(G.tipo)) err(`Tipo de gráfica desconocido ${G.tipo}`);
 if (SEC) {
   const f = compilar(G.funcion, 'grafica.funcion'), fd = compilar(G.derivada, 'grafica.derivada');
   if (f && fd) {
@@ -88,6 +88,24 @@ if (SEC) {
     for (let i = 0; i <= 60; i++) { const t = rg[0] + (rg[1] - rg[0]) * i / 60, x = r(t) * Math.cos(t), y = r(t) * Math.sin(t); if (!(x > G.x[0] && x < G.x[1] && y > G.y[0] && y < G.y[1])) { err(`La curva sale de la ventana en theta=${t.toFixed(2)} con punto (${x.toFixed(2)}, ${y.toFixed(2)})`); break; } }
     const asp = ((G.x[1] - G.x[0]) / (G.y[1] - G.y[0])) / (550 / 300); if (Math.abs(asp - 1) > 0.08) aviso(`Los rangos x e y no dan la misma escala (relación ${asp.toFixed(2)} de 1) y la curva se verá deformada`);
   }
+} else if (G.tipo === 'plano') {
+  if (!Array.isArray(G.elementos) || !G.elementos.length) err('La gráfica plano necesita elementos');
+  if (!Array.isArray(G.lecturas) || G.lecturas.length !== 2) err('La gráfica plano necesita exactamente 2 lecturas');
+  if (!(G.a < G.b)) err('En la gráfica plano a debe ser menor que b');
+  const asp = ((G.x[1] - G.x[0]) / (G.y[1] - G.y[0])) / (550 / 300); if (Math.abs(asp - 1) > 0.08) aviso(`Los rangos x e y no dan la misma escala (relación ${asp.toFixed(2)} de 1)`);
+  const cx = (l) => compilar(l, 'grafica.elementos');
+  const pts = [];
+  (G.elementos || []).forEach((e, i) => {
+    const cc = (a) => (a || ['0', '0']).map(cx);
+    if (e.t === 'vector') { const b = cc(e.b), a = cc(e.a); pts.push([a, `elemento ${i} vector a`], [b, `elemento ${i} vector b`]); }
+    else if (e.t === 'poligono') (e.puntos || []).forEach((q, j) => pts.push([cc(q), `elemento ${i} punto ${j}`]));
+    else if (e.t === 'punto') pts.push([cc(e.p), `elemento ${i} punto`]);
+    else if (e.t === 'segmento') pts.push([cc(e.a), `elemento ${i} segmento a`], [cc(e.b), `elemento ${i} segmento b`]);
+    else if (e.t === 'recta') { cc(e.p); cc(e.dir); }
+    else err(`Elemento ${i} de tipo desconocido ${e.t}`);
+  });
+  for (const t of [G.a, (G.a + G.b) / 2, G.b]) for (const [c, nombre] of pts) { if (c.some(f => !f)) continue; const x = c[0](t), y = c[1](t); if (!(isFinite(x) && isFinite(y))) err(`${nombre} no es finito con x=${t}`); else if (!(x > G.x[0] && x < G.x[1] && y > G.y[0] && y < G.y[1])) { err(`${nombre} sale de la ventana con x=${t}, punto (${x.toFixed(2)}, ${y.toFixed(2)})`); break; } }
+  (G.lecturas || []).forEach((l, i) => { const f = compilar(l.formula, 'grafica.lecturas'); if (f) for (const t of [G.a, (G.a + G.b) / 2, G.b]) if (!isFinite(f(t))) err(`La lectura ${i} no es finita con x=${t}`); });
 } else if (G.tipo === 'asintota') {
   const f = compilar(G.funcion, 'grafica.funcion');
   if (!G.deslizador || !(G.deslizador.dmin > 0 && G.deslizador.dmax > G.deslizador.dmin)) err('Falta grafica.deslizador con ancla, dmin y dmax');
@@ -151,7 +169,7 @@ function bloque(b, donde) {
   if (b.html) { textos.push([donde, b.html]); for (const m of b.html.matchAll(/\{\{gl:([a-z0-9_]+)\|/g)) if (!glosa.has(m[1])) err(`Término ${m[1]} no está en el glosario (${donde})`); }
   if (b.t === 'eq') tex.push([donde, b.tex]);
   if (b.t === 'pasos') b.items.forEach((s, i) => { tex.push([`${donde} paso ${i + 1}`, s.tex]); textos.push([`${donde} paso ${i + 1}`, s.porque]); });
-  if (b.t === 'piensa') { textos.push([donde, b.pregunta + ' ' + b.bien + ' ' + b.mal]); if (!b.opciones.includes(b.correcta)) err(`La opción correcta de piensa no está en sus opciones (${donde})`); if (b.correcta !== G.limite) aviso(`piensa.correcta (${b.correcta}) no coincide con el límite de la gráfica (${G.limite}) en ${donde}`); }
+  if (b.t === 'piensa') { textos.push([donde, b.pregunta + ' ' + b.bien + ' ' + b.mal]); if (!b.opciones.includes(b.correcta)) err(`La opción correcta de piensa no está en sus opciones (${donde})`); if (G.limite != null && b.correcta !== G.limite) aviso(`piensa.correcta (${b.correcta}) no coincide con el límite de la gráfica (${G.limite}) en ${donde}`); }
   if (b.alt) textos.push([donde + ' alt', b.alt]);
   const perm = (m, n) => Array.isArray(m) && m.length === n && new Set(m).size === n && m.every(k => Number.isInteger(k) && k >= 0 && k < n);
   if (b.t === 'completar') {
