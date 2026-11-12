@@ -206,6 +206,7 @@
     E.forEach(function(e){
       var o={e:e,col:COL[(e.c||0)%4]};
       if(e.t==='vector'){ o.a=cp(e.a); o.b=cp(e.b); o.ln=el('path',{fill:'none',stroke:o.col,'stroke-width':4,'stroke-linecap':'round',opacity:0},grp); o.hd=el('path',{fill:o.col,stroke:'none',opacity:0},grp); }
+      else if(e.t==='trazo'){ o.p=(e.puntos||[]).map(cp); o.ln=el('path',{fill:'none',stroke:o.col,'stroke-width':4,'stroke-linejoin':'round','stroke-linecap':'round',opacity:0},grp); }
       else if(e.t==='poligono'){ o.p=(e.puntos||[]).map(cp); o.ln=el('path',{fill:o.col,'fill-opacity':0.26,stroke:o.col,'stroke-width':2,opacity:0},grp); }
       else if(e.t==='recta'){ o.p=cp(e.p); o.d=cp(e.dir); o.ln=el('path',{fill:'none',stroke:o.col,'stroke-width':3,'stroke-dasharray':e.guion?'7 6':'none',opacity:0},grp); }
       else if(e.t==='segmento'){ o.a=cp(e.a); o.b=cp(e.b); o.ln=el('path',{fill:'none',stroke:o.col,'stroke-width':3,'stroke-dasharray':e.guion?'7 6':'none',opacity:0},grp); }
@@ -225,6 +226,8 @@
           if(len<14){ o.ln.setAttribute('d',''); o.hd.setAttribute('d',''); if(o.tx) o.tx.setAttribute('opacity',0); }
           else { o.ln.setAttribute('d','M'+pa0+' '+pa1+' L'+(pb0-9*c)+' '+(pb1-9*sn)); o.hd.setAttribute('d','M'+pb0+' '+pb1+' L'+(pb0-15*Math.cos(ang-0.42))+' '+(pb1-15*Math.sin(ang-0.42))+' L'+(pb0-15*Math.cos(ang+0.42))+' '+(pb1-15*Math.sin(ang+0.42))+' Z'); }
           lx=pb0+20*c; ly=pb1+20*sn+4;
+        } else if(e.t==='trazo'){
+          var tq=o.p.map(function(q){ var v=ev(q,t); return [X(v[0]),Y(Math.max(-9,Math.min(9,v[1])))]; }); o.ln.setAttribute('d','M'+tq.map(function(q){ return q[0].toFixed(1)+' '+q[1].toFixed(1); }).join(' L')); lx=tq[tq.length-1][0]; ly=tq[tq.length-1][1]-12;
         } else if(e.t==='poligono'){
           var ps=o.p.map(function(q){ var v=ev(q,t); return [X(v[0]),Y(v[1])]; }); o.ln.setAttribute('d','M'+ps.map(function(q){ return q[0].toFixed(1)+' '+q[1].toFixed(1); }).join(' L')+' Z');
           lx=ps.reduce(function(m,q){ return m+q[0]; },0)/ps.length; ly=ps.reduce(function(m,q){ return m+q[1]; },0)/ps.length+4;
