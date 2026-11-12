@@ -89,29 +89,29 @@
      "tema": "Trigonometría",
      "preguntas_banco": 16,
      "parciales_con_el_tema": 1,
-     "estado": "pendiente",
-     "leccion": null
+     "estado": "borrador para revisión",
+     "leccion": "lecciones/matbas-trigonometria.json"
     },
     {
      "tema": "Funciones: dominio, rango e inversa",
      "preguntas_banco": 15,
      "parciales_con_el_tema": 1,
-     "estado": "pendiente",
-     "leccion": null
+     "estado": "borrador para revisión",
+     "leccion": "lecciones/matbas-funciones.json"
     },
     {
      "tema": "Función lineal y cuadrática",
      "preguntas_banco": 11,
      "parciales_con_el_tema": 1,
-     "estado": "pendiente",
-     "leccion": null
+     "estado": "borrador para revisión",
+     "leccion": "lecciones/matbas-linealcuad.json"
     },
     {
      "tema": "Geometría analítica (recta y circunferencia)",
      "preguntas_banco": 9,
      "parciales_con_el_tema": 1,
-     "estado": "pendiente",
-     "leccion": null
+     "estado": "borrador para revisión",
+     "leccion": "lecciones/matbas-geoanalitica.json"
     }
    ]
   }
