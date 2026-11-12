@@ -1,0 +1,651 @@
+{
+ "esquema": 1,
+ "id": "alglin-m3-l3",
+ "ejemplo": true,
+ "curso": "Álgebra Lineal",
+ "modulo": "Módulo 3 Ortogonalidad y valores propios",
+ "posicion": "Lección 3 de 4",
+ "titulo": "Gram-Schmidt y ortogonalidad",
+ "minutos": 26,
+ "ejercicios": 7,
+ "grafica": {
+  "tipo": "plano",
+  "x": [
+   -3.5,
+   9.33
+  ],
+  "y": [
+   -2,
+   5
+  ],
+  "a": -2,
+  "b": 4,
+  "inicio": 1,
+  "elementos": [
+   {
+    "t": "vector",
+    "b": [
+     "2",
+     "1"
+    ],
+    "nombre": "a1",
+    "c": 0
+   },
+   {
+    "t": "vector",
+    "b": [
+     "x",
+     "3"
+    ],
+    "nombre": "a2",
+    "c": 1
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "(2*x+3)/5*2",
+     "(2*x+3)/5"
+    ],
+    "b": [
+     "x",
+     "3"
+    ],
+    "guion": true,
+    "c": 3,
+    "guia": true
+   },
+   {
+    "t": "vector",
+    "b": [
+     "(x-6)/5",
+     "(12-2*x)/5"
+    ],
+    "nombre": "q2",
+    "c": 2
+   }
+  ],
+  "lecturas": [
+   {
+    "rotulo": "producto punto de a1 con q2",
+    "formula": "2*(x-6)/5+(12-2*x)/5"
+   },
+   {
+    "rotulo": "longitud de q2",
+    "formula": "sqrt(((x-6)/5)^2+((12-2*x)/5)^2)"
+   }
+  ],
+  "etiquetas": [
+   "Producto punto de a1 con q2",
+   "Longitud de q2"
+  ],
+  "etiquetaSlider": "Primera componente del vector a2",
+  "alt": "Los vectores a1 igual a (2, 1) y a2 igual a (x, 3), la parte de a2 que va en la dirección de a1 y el vector q2, que es lo que sobra de a2 y siempre es perpendicular a a1"
+ },
+ "glosario": {
+  "ortogonal": "Un conjunto de vectores es ortogonal si cada par de ellos tiene producto punto cero. Si además todos miden 1, es ortonormal.",
+  "ortonormal": "Un conjunto ortonormal es un conjunto ortogonal cuyos vectores miden 1.",
+  "proyeccion": "La proyección de a2 sobre a1 es la parte de a2 que va en la dirección de a1.",
+  "qr": "La factorización QR escribe una matriz como Q por R, con Q de columnas ortonormales y R triangular."
+ },
+ "ver": {
+  "duracion": 22.0,
+  "capitulos": [
+   [
+    0,
+    3,
+    "Se tienen dos vectores, a1 igual a (2, 1) y a2 igual a (x, 3), que no son perpendiculares."
+   ],
+   [
+    3,
+    6,
+    "Gram-Schmidt quiere dos vectores perpendiculares que generen lo mismo. El primero se deja igual."
+   ],
+   [
+    6,
+    12,
+    "Del segundo se quita su proyección sobre a1. Lo que queda, q2, es perpendicular a a1."
+   ],
+   [
+    12,
+    17,
+    "Se puede mover a2 y q2 siempre queda perpendicular. El producto punto de a1 con q2 vale 0 siempre."
+   ],
+   [
+    17,
+    22,
+    "Con x igual a 1, a2 es (1, 3) y q2 es (menos 1, 2). Los dos vectores nuevos, a1 y q2, forman un ángulo recto."
+   ]
+  ],
+  "canales": {
+   "draw": [
+    [
+     0.3,
+     0
+    ],
+    [
+     5.5,
+     1
+    ]
+   ],
+   "d": [
+    [
+     6,
+     1
+    ],
+    [
+     9,
+     3
+    ],
+    [
+     11,
+     -1
+    ],
+    [
+     12,
+     1
+    ],
+    [
+     22,
+     1
+    ]
+   ],
+   "guide": [
+    [
+     6,
+     0
+    ],
+    [
+     7,
+     1
+    ]
+   ]
+  },
+  "intervalos": {
+   "ok": [
+    17,
+    22
+   ]
+  }
+ },
+ "leer": {
+  "secciones": [
+   {
+    "titulo": "La idea",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Trabajar con vectores {{gl:ortogonal|ortogonales}} es mucho más fácil, porque no se estorban entre sí. El proceso de Gram-Schmidt convierte cualquier lista de vectores independientes en otra ortogonal que genera lo mismo, quitando de cada vector lo que ya está en los anteriores."
+     }
+    ]
+   },
+   {
+    "titulo": "Un ejemplo",
+    "corto": "Un ejemplo",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Se parte de a1 igual a (2, 1) y a2 igual a (x, 3). Se deja a1 igual y a a2 se le quita su {{gl:proyeccion|proyección}} sobre a1."
+     },
+     {
+      "t": "eq",
+      "tex": "q_{1}=a_{1},\\qquad q_{2}=a_{2}-\\dfrac{a_{2}\\cdot q_{1}}{q_{1}\\cdot q_{1}}\\,q_{1}"
+     },
+     {
+      "t": "grafica",
+      "animar": "dibujar",
+      "alt": "Los vectores a1 y a2"
+     }
+    ]
+   },
+   {
+    "titulo": "Piensa antes de ver",
+    "corto": "Piensa",
+    "bloques": [
+     {
+      "t": "piensa",
+      "pregunta": "Con x igual a 1, a2 es (1, 3) y a1 es (2, 1). ¿Cuánto vale el producto punto de a2 con a1?",
+      "opciones": [
+       3,
+       4,
+       5,
+       6
+      ],
+      "correcta": 5,
+      "bien": "Muy bien. Vale 5, y es el número que mide cuánto de a2 va en la dirección de a1. Más abajo se ve.",
+      "mal": "Vale 5, porque 1 por 2 más 3 por 1 es 5. Más abajo se ve cómo se usa."
+     }
+    ]
+   },
+   {
+    "titulo": "Quitar la proyección",
+    "corto": "Quitar",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mira cómo se construye q2 a partir de a2."
+     },
+     {
+      "t": "acercando",
+      "ds": [
+       -1,
+       1,
+       2,
+       3
+      ],
+      "alt": "El vector q2 para varios valores de x"
+     },
+     {
+      "t": "p",
+      "html": "Sin importar a2, el vector q2 que queda es perpendicular a a1. Su producto punto con a1 vale <b>0</b>."
+     }
+    ]
+   },
+   {
+    "titulo": "Gram-Schmidt paso a paso",
+    "corto": "Paso a paso",
+    "bloques": [
+     {
+      "t": "pasos",
+      "items": [
+       {
+        "tex": "a_{1}=(1,1),\\quad a_{2}=(3,1)",
+        "porque": "Son dos vectores independientes que no son perpendiculares."
+       },
+       {
+        "tex": "q_{1}=a_{1}=(1,1)",
+        "porque": "El primero se queda igual."
+       },
+       {
+        "tex": "\\dfrac{a_{2}\\cdot q_{1}}{q_{1}\\cdot q_{1}}=\\dfrac{4}{2}=2",
+        "porque": "Es el coeficiente de la proyección."
+       },
+       {
+        "tex": "q_{2}=a_{2}-2q_{1}=(1,-1)",
+        "porque": "Se resta la proyección."
+       },
+       {
+        "tex": "q_{1}\\cdot q_{2}=1-1=0",
+        "porque": "Ahora son perpendiculares."
+       }
+      ]
+     },
+     {
+      "t": "ojo",
+      "html": "Con más de dos vectores, a cada uno se le restan las proyecciones sobre todos los anteriores, no solo sobre uno."
+     }
+    ]
+   },
+   {
+    "titulo": "Normalizar",
+    "corto": "Normalizar",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Para que los vectores sean {{gl:ortonormal|ortonormales}}, se divide cada uno entre su longitud."
+     },
+     {
+      "t": "pasos",
+      "items": [
+       {
+        "tex": "e_{1}=\\dfrac{(1,1)}{\\sqrt{2}},\\quad e_{2}=\\dfrac{(1,-1)}{\\sqrt{2}}",
+        "porque": "Ahora miden 1."
+       },
+       {
+        "tex": "Q=\\dfrac{1}{\\sqrt{2}}\\begin{pmatrix}1&1\\\\1&-1\\end{pmatrix}",
+        "porque": "Las columnas de Q son ortonormales."
+       },
+       {
+        "tex": "Q^{T}Q=I\\ \\Rightarrow\\ Q^{-1}=Q^{T}",
+        "porque": "Una matriz con columnas ortonormales se invierte trasponiéndola."
+       }
+      ]
+     },
+     {
+      "t": "p",
+      "html": "La factorización {{gl:qr|QR}} que sale de este proceso se usa mucho en cálculo numérico."
+     }
+    ]
+   },
+   {
+    "titulo": "Matrices ortogonales",
+    "corto": "Ortogonales",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Una matriz Q es ortogonal si sus columnas son ortonormales, y eso equivale a Q traspuesta por Q igual a la identidad."
+     },
+     {
+      "t": "pasos",
+      "items": [
+       {
+        "tex": "R=\\begin{pmatrix}0&-1\\\\1&0\\end{pmatrix},\\quad R^{T}R=\\begin{pmatrix}1&0\\\\0&1\\end{pmatrix}",
+        "porque": "El giro de 90 grados es ortogonal."
+       },
+       {
+        "tex": "\\|Q\\mathbf{x}\\|=\\|\\mathbf{x}\\|",
+        "porque": "Las matrices ortogonales conservan las longitudes y los ángulos."
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "¿Para qué sirve?",
+    "corto": "En ingeniería",
+    "bloques": [
+     {
+      "t": "ingenieria",
+      "titulo": "Ajustar una recta a unos datos",
+      "html": "Cuando se miden datos con ruido, como una fuerza contra un alargamiento, no hay una recta que pase por todos los puntos. El mejor ajuste es la proyección del vector de las mediciones sobre el de los alargamientos, y el error que queda es perpendicular a ese vector.",
+      "tex": "\\hat{a}=\\dfrac{\\mathbf{x}\\cdot\\mathbf{y}}{\\mathbf{x}\\cdot\\mathbf{x}}",
+      "datos": [
+       {
+        "k": "Alargamientos",
+        "v": "1, 2 y 3 mm"
+       },
+       {
+        "k": "Fuerzas",
+        "v": "2, 3 y 5 N"
+       },
+       {
+        "k": "Pendiente ajustada",
+        "v": "1.64 N/mm"
+       }
+      ],
+      "cierre": "El producto punto de x con y es 1 por 2 más 2 por 3 más 3 por 5, o sea 23, y el de x consigo mismo es 14. La pendiente es 23 sobre 14, o sea unos 1.64 newtons por milímetro. El vector de errores queda perpendicular al de alargamientos. Es un modelo simplificado, porque supone una relación lineal que pasa por el origen."
+     }
+    ]
+   },
+   {
+    "titulo": "Completa el paso",
+    "corto": "Completa",
+    "bloques": [
+     {
+      "t": "completar",
+      "enunciado": "Se calcula q2 para a1 igual a (2, 1) y a2 igual a (1, 3). La proyección de a2 sobre a1 es 5 sobre 5 por (2, 1), o sea (2, 1). Falta la primera componente de q2.",
+      "tex": "q_{2}=(1,3)-(2,1)=([[hueco]],\\ 2)",
+      "opciones": [
+       {
+        "tex": "-1",
+        "txt": "menos uno"
+       },
+       {
+        "tex": "3",
+        "txt": "tres"
+       },
+       {
+        "tex": "1",
+        "txt": "uno"
+       }
+      ],
+      "correcta": 0,
+      "errores": [
+       "",
+       "Se sumó en vez de restar. 1 menos 2 es menos 1.",
+       "Esa es la primera componente de a2, sin quitar nada. Hay que restar 2."
+      ],
+      "pista": "Resta 2 de la primera componente de a2.",
+      "porque": "1 menos 2 es menos 1. Y 3 menos 1 es 2, así que q2 es (menos 1, 2)."
+     }
+    ]
+   },
+   {
+    "titulo": "Encuentra el error",
+    "corto": "Error",
+    "bloques": [
+     {
+      "t": "error",
+      "enunciado": "Alguien aplicó Gram-Schmidt y se equivocó en un paso. Toca el paso que está mal.",
+      "pasos": [
+       {
+        "tex": "a_{1}=(1,1),\\quad a_{2}=(3,1)",
+        "porque": "Son los vectores de partida.",
+        "txt": "a1 es 1, 1 y a2 es 3, 1"
+       },
+       {
+        "tex": "q_{2}=a_{2}-a_{1}=(2,0)",
+        "porque": "Este paso es el que falla.",
+        "txt": "q2 es a2 menos a1, o sea 2, 0"
+       },
+       {
+        "tex": "\\text{Entonces}\\ q_{2}\\ \\text{es perpendicular a}\\ a_{1}",
+        "porque": "Depende del paso anterior.",
+        "txt": "Entonces q2 es perpendicular a a1"
+       }
+      ],
+      "mal": 1,
+      "explicacion": "Falta el coeficiente de la proyección. Hay que restar a2 punto a1 sobre a1 punto a1 veces a1, o sea 2 veces a1. Con la resta directa el producto punto de q2 con a1 es 2, no 0.",
+      "correccion": "q_{2}=a_{2}-2a_{1}=(1,-1),\\quad q_{2}\\cdot a_{1}=0",
+      "pista": "Calcula el producto punto del vector q2 con a1."
+     }
+    ]
+   },
+   {
+    "titulo": "Ordena los pasos",
+    "corto": "Ordena",
+    "bloques": [
+     {
+      "t": "ordenar",
+      "enunciado": "Estos son los pasos de Gram-Schmidt para a1 igual a (1, 1) y a2 igual a (3, 1), pero están desordenados.",
+      "pasos": [
+       "q_{1}=a_{1}=(1,1)",
+       "\\dfrac{a_{2}\\cdot q_{1}}{q_{1}\\cdot q_{1}}=\\dfrac{4}{2}=2",
+       "q_{2}=a_{2}-2q_{1}=(1,-1)",
+       "q_{1}\\cdot q_{2}=0"
+      ],
+      "mezcla": [
+       2,
+       0,
+       3,
+       1
+      ],
+      "porque": "Se deja el primero, se calcula el coeficiente, se resta la proyección y se comprueba.",
+      "pista": "Se empieza dejando el primer vector igual.",
+      "txt": [
+       "El primer vector se deja igual",
+       "Se calcula el coeficiente de la proyección",
+       "Se resta la proyección",
+       "Se comprueba que son perpendiculares"
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "Revisa tu respuesta",
+    "corto": "Revisa",
+    "bloques": [
+     {
+      "t": "pregunta"
+     },
+     {
+      "t": "nota",
+      "html": "Puedes pedir pistas de a una. Si fallas, el mensaje te dice qué error se cometió."
+     }
+    ]
+   },
+   {
+    "titulo": "Mini simulacro",
+    "corto": "Simulacro",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Tres preguntas reales del banco de MathUNAL sobre este tema. Responde sin mirar los pasos."
+     },
+     {
+      "t": "simulacro",
+      "titulo": "Mini simulacro de ortogonalidad",
+      "preguntas": [
+       {
+        "tipo": "numerica",
+        "texto": "Calcule $(1,1,1)\\cdot(1,-1,0)$. (Si da $0$, los vectores son ortogonales.)",
+        "respuesta": "0",
+        "tolNum": 0.001,
+        "resumen": "El producto punto es $1-1+0=0$, así que son ortogonales.",
+        "fuente": "Banco MathUNAL, simulacro de Álgebra Lineal"
+       },
+       {
+        "tipo": "numerica",
+        "texto": "La primera componente de la proyección de $(3,0)$ sobre $(1,1)$ es (decimal):",
+        "respuesta": "1.5",
+        "tolNum": 0.001,
+        "resumen": "La proyección es $\\frac{(3,0)\\cdot(1,1)}{(1,1)\\cdot(1,1)}(1,1)=\\frac{3}{2}(1,1)$.",
+        "fuente": "Banco MathUNAL, simulacro de Álgebra Lineal"
+       },
+       {
+        "tipo": "mcq",
+        "texto": "Una matriz $Q$ es ortogonal cuando:",
+        "opciones": [
+         "sus columnas son ortonormales, equivalentemente $Q^{T}Q = I$ (y $Q^{-1} = Q^{T}$)",
+         "$\\det Q = 0$",
+         "$Q$ es simétrica",
+         "$Q = Q^{T}$"
+        ],
+        "correcta": 0,
+        "resumen": "Es la definición de matriz ortogonal.",
+        "fuente": "Banco MathUNAL, simulacro de Álgebra Lineal"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "Tu repaso",
+    "corto": "Repaso",
+    "bloques": [
+     {
+      "t": "repaso"
+     }
+    ]
+   },
+   {
+    "titulo": "En resumen",
+    "corto": "Resumen",
+    "bloques": [
+     {
+      "t": "resumen"
+     }
+    ]
+   }
+  ]
+ },
+ "practicar": {
+  "pasos": [
+   {
+    "titulo": "Dos vectores",
+    "grafica": {
+     "draw": 1
+    },
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Se parte de dos vectores que no son perpendiculares."
+     },
+     {
+      "t": "eq",
+      "tex": "a_{1}=(2,1),\\qquad a_{2}=(x,3)"
+     }
+    ]
+   },
+   {
+    "titulo": "Mueve a2",
+    "grafica": {
+     "draw": 1
+    },
+    "laboratorio": true,
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mueve el deslizador. El vector a2 cambia. Abajo se ven el producto punto de a1 con q2 y la longitud de q2."
+     }
+    ]
+   },
+   {
+    "titulo": "Quitar la proyección",
+    "grafica": {
+     "draw": 1,
+     "guide": 1,
+     "ok": true
+    },
+    "laboratorio": true,
+    "d": 1,
+    "bloques": [
+     {
+      "t": "p",
+      "html": "El segmento punteado es la proyección de a2 sobre a1. Lo que queda, q2, es perpendicular a a1 sin importar dónde esté a2, y su producto punto con a1 siempre es 0."
+     }
+    ]
+   },
+   {
+    "titulo": "El resultado",
+    "grafica": {
+     "draw": 1,
+     "guide": 1,
+     "ok": true
+    },
+    "laboratorio": true,
+    "d": 1,
+    "bloques": [
+     {
+      "t": "eq",
+      "tex": "q_{2}=(1,3)-(2,1)=(-1,2)"
+     },
+     {
+      "t": "p",
+      "html": "Con x igual a 1, q2 es (menos 1, 2). Los vectores a1 y q2 forman un ángulo recto."
+     }
+    ]
+   },
+   {
+    "titulo": "Revisa tu respuesta",
+    "grafica": {
+     "draw": 1,
+     "guide": 1,
+     "ok": true,
+     "d": 1
+    },
+    "bloques": [
+     {
+      "t": "pregunta"
+     },
+     {
+      "t": "nota",
+      "html": "Calcula el coeficiente de la proyección y réstala."
+     }
+    ]
+   }
+  ]
+ },
+ "pregunta": {
+  "tex": "q_{2}\\ \\text{con}\\ a_{1}=(1,2),\\ a_{2}=(4,1)",
+  "encabezado": "Con a1 igual a (1, 2) y a2 igual a (4, 1), ¿cuánto vale la segunda componente de q2?",
+  "opciones": [
+   "$-1.4$",
+   "$1.4$",
+   "$-2.4$",
+   "$2.8$"
+  ],
+  "correcta": 0,
+  "explicacion": "El producto punto de a2 con a1 es 6 y el de a1 consigo mismo es 5. El coeficiente es 6 sobre 5. Entonces q2 es (4, 1) menos 6 sobre 5 por (1, 2), o sea (2.8, menos 1.4). Su segunda componente es menos 1.4.",
+  "verificacion": {
+   "formula": "1-6/5*2+0*x",
+   "a": 0,
+   "esperado": -1.4
+  },
+  "pistas": [
+   "Calcula el producto punto de a2 con a1 y el de a1 consigo mismo.",
+   "Son 6 y 5. El coeficiente de la proyección es 6 sobre 5.",
+   "Resta 6 sobre 5 por la segunda componente de a1 a la segunda de a2."
+  ],
+  "errores": [
+   "",
+   "Es el valor absoluto. Falta el signo, porque 1 menos 12 sobre 5 es negativo.",
+   "Revisa la cuenta. 6 sobre 5 por 2 es 2.4, y 1 menos 2.4 es menos 1.4.",
+   "Esa es la primera componente de q2, 2.8. Se pide la segunda."
+  ]
+ },
+ "resumen": [
+  "Gram-Schmidt convierte vectores independientes en ortogonales, restando a cada uno su proyección sobre los anteriores.",
+  "Dividiendo entre la longitud se obtienen vectores ortonormales, con los que se arma una matriz ortogonal.",
+  "Una matriz ortogonal cumple Q traspuesta por Q igual a la identidad, y conserva longitudes y ángulos."
+ ]
+}
