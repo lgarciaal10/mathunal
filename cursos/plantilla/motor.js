@@ -2,7 +2,7 @@
   var NS='http://www.w3.org/2000/svg';
   var RM=!!(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches);
   var L=JSON.parse(document.getElementById('leccion-datos').textContent);
-  var G=L.grafica, SEC=(G.tipo==='secante'), TVM=(G.tipo==='tvm'), NEW=(G.tipo==='newton'), ARE=(G.tipo==='area'||G.tipo==='entre'), ENT=(G.tipo==='entre'), ASI=(G.tipo==='asintota'), A=(SEC||TVM||ARE)?G.a:(G.hueco?G.hueco.x:0), ETQ=G.etiquetas||['Por la izquierda','Por la derecha'];
+  var G=L.grafica, SEC=(G.tipo==='secante'), TVM=(G.tipo==='tvm'), NEW=(G.tipo==='newton'), ARE=(G.tipo==='area'||G.tipo==='entre'||G.tipo==='polar'), ENT=(G.tipo==='entre'), POL=(G.tipo==='polar'), ASI=(G.tipo==='asintota'), A=(SEC||TVM||ARE)?G.a:(G.hueco?G.hueco.x:0), ETQ=G.etiquetas||['Por la izquierda','Por la derecha'];
 
   /* ---------- utilidades ---------- */
   function cl(v,a,b){ return Math.max(a,Math.min(b,v)); }
@@ -174,10 +174,33 @@
       lM.setAttribute('x',X(x)); lM.setAttribute('y',Y(y)-18); lM.textContent='x = '+nf(x); lM.setAttribute('opacity',al);
     }};
   }
+  /* polares. La función es r de theta. Estado d = theta del radio móvil. primitiva es el área del sector, la mitad de la integral de r cuadrado */
+  function GraphPolar(svg){
+    var a=G.a, w=G.franja||0.15, F=Frame(svg,0,0), X=F.X, Y=F.Y, el=F.el, grp=F.clip(), r0=G.rango||[G.a,G.b];
+    function P(t){ var r=fFun(t); return [X(r*Math.cos(t)),Y(r*Math.sin(t))]; }
+    function tr(t0,t1,n,mv){ var d=[]; for(var k=0;k<=n;k++){ var t=t0+(t1-t0)*k/n, p=P(t); d.push((k===0&&mv?'M':'L')+p[0].toFixed(1)+' '+p[1].toFixed(1)); } return d.join(' '); }
+    var O='M'+X(0)+' '+Y(0);
+    var ar=el('path',{'class':'ar',opacity:0,d:''},grp), cv=el('path',{'class':'cv',pathLength:1,d:tr(r0[0],r0[1],240,true),'stroke-dashoffset':1},grp);
+    var sl=el('path',{'class':'ar2',opacity:0,d:''},grp), vl=el('path',{'class':'dl',stroke:'var(--warn)',opacity:0},grp);
+    var pa=P(a), pA=el('circle',{'class':'pP',r:0,cx:pa[0],cy:pa[1]},grp), lA=el('text',{'class':'zb',opacity:0,x:pa[0]+4,y:pa[1]-16,'text-anchor':'middle'},grp); lA.textContent='\u03b8 = '+fmt(a);
+    var pM=el('circle',{'class':'pL',r:9,opacity:0},grp), lM=el('text',{'class':'zb','text-anchor':'middle',opacity:0},grp), halo=el('circle',{'class':'halo',r:12,opacity:0},grp);
+    return { set:function(s){
+      cv.style.strokeDashoffset=1-(s.draw==null?1:s.draw);
+      var h=s.hole==null?0:s.hole; pA.setAttribute('r',8*h); lA.setAttribute('opacity',h>0.5?1:0);
+      if(s.d==null){ [ar,sl,vl,pM,lM,halo].forEach(function(e){ e.setAttribute('opacity',0); }); return; }
+      var t=s.d, al=s.pa==null?1:s.pa, p=P(t), g=s.guide==null?0:s.guide;
+      ar.setAttribute('d',O+' '+tr(a,t,Math.max(2,Math.ceil(120*Math.abs(t-a)/(2*Math.PI)+2)),false)+' Z'); ar.setAttribute('opacity',al);
+      sl.setAttribute('d',O+' '+tr(t,t+w,6,false)+' Z'); sl.setAttribute('opacity',g);
+      vl.setAttribute('d',O+' L'+p[0]+' '+p[1]); vl.setAttribute('opacity',al);
+      pM.setAttribute('cx',p[0]); pM.setAttribute('cy',p[1]); pM.setAttribute('opacity',al); halo.setAttribute('cx',p[0]); halo.setAttribute('cy',p[1]); halo.setAttribute('opacity',s.ok?1:0);
+      lM.setAttribute('x',p[0]); lM.setAttribute('y',p[1]-18); lM.textContent='\u03b8 = '+fmt(t); lM.setAttribute('opacity',al);
+    }};
+  }
   function Graph(svg){
     if(SEC) return GraphSecante(svg);
     if(TVM) return GraphTVM(svg);
     if(NEW) return GraphNewton(svg);
+    if(POL) return GraphPolar(svg);
     if(ARE) return GraphArea(svg);
     if(ASI) return GraphAsint(svg);
     var F=Frame(svg,A,G.hueco.y), X=F.X, Y=F.Y, el=F.el, grp=F.clip();
@@ -210,7 +233,7 @@
   }
   function readouts(d,lEl,rEl){
     if(NEW){ if(d==null){ lEl.textContent='sin datos'; rEl.textContent='sin datos'; return; } var kk=Math.max(0,Math.min(G.pasos,Math.round(d))); lEl.textContent='x'+kk+' = '+nf(NX[kk]); rEl.textContent='f(x'+kk+') = '+nf(fFun(NX[kk])); return; }
-    if(ARE){ var RA=G.rotulos||(ENT?['área','separación']:['área','altura']); if(d==null){ lEl.textContent='sin datos'; rEl.textContent='sin datos'; return; } lEl.textContent=RA[0]+' = '+nf(fPri(d)-fPri(G.a)); rEl.textContent=RA[1]+' = '+nf(ENT?fFun(d)-fInf(d):fFun(d)); return; }
+    if(ARE){ var RA=G.rotulos||(ENT?['área','separación']:(POL?['área','r']:['área','altura'])); if(d==null){ lEl.textContent='sin datos'; rEl.textContent='sin datos'; return; } var sn=function(v){ return Math.abs(v)<1e-7?0:v; }; lEl.textContent=RA[0]+' = '+nf(sn(fPri(d)-fPri(G.a))); rEl.textContent=RA[1]+' = '+nf(sn(ENT?fFun(d)-fInf(d):fFun(d))); return; }
     if(ASI){ if(d==null){ lEl.textContent='sin datos'; rEl.textContent='sin datos'; return; } lEl.textContent='x = '+nf(d); rEl.textContent='f(x) = '+nf(fFun(d)); return; }
     if(TVM){ var RT=G.rotulos||['tangente','cuerda']; if(d==null){ lEl.textContent='sin datos'; rEl.textContent=RT[1]+' = '+fmt((fFun(G.b)-fFun(G.a))/(G.b-G.a)); return; } lEl.textContent=RT[0]+' = '+fmt(fDer(d)); rEl.textContent=RT[1]+' = '+fmt((fFun(G.b)-fFun(G.a))/(G.b-G.a)); return; }
     if(SEC){ if(d==null){ lEl.textContent='sin datos'; rEl.textContent='sin datos'; return; } var R=G.rotulos||['h','pendiente']; lEl.textContent=R[0]+' = '+fmt(d); rEl.textContent=R[1]+' = '+fmt((fFun(A+d)-fFun(A))/d); return; }

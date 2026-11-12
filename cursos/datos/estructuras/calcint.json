@@ -103,8 +103,8 @@
      "tema": "Coordenadas polares",
      "preguntas_banco": 4,
      "parciales_con_el_tema": 2,
-     "estado": "pendiente",
-     "leccion": null
+     "estado": "borrador para revisión",
+     "leccion": "lecciones/calcint-polares.json"
     },
     {
      "tema": "Longitud de arco y superficies",

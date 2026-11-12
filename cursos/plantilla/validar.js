@@ -30,7 +30,7 @@ if (errores.length) { salir(); }
 const FN = /\b(sin|cos|tan|asin|acos|atan|exp|ln|sqrt|abs|pi)\b/g;
 const compilar = (e, donde) => { if (!/^[0-9x+\-*\/().^\s]*$/.test(String(e).replace(FN, ''))) { err(`Fórmula no permitida en ${donde}`); return null; } try { const js = String(e).replace(/\^/g, '**').replace(/\bln\b/g, 'log').replace(/\bpi\b/g, 'PI').replace(/\b(sin|cos|tan|asin|acos|atan|exp|log|sqrt|abs|PI)\b/g, 'Math.$1'); return new Function('x', 'return ' + js); } catch (x) { err(`Fórmula inválida en ${donde}`); return null; } };
 const G = L.grafica, SEC = G.tipo === 'secante', TVM = G.tipo === 'tvm', A = (SEC || TVM) ? G.a : (G.hueco && G.hueco.x);
-if (G.tipo && !['hueco', 'secante', 'tvm', 'newton', 'area', 'entre', 'asintota'].includes(G.tipo)) err(`Tipo de gráfica desconocido ${G.tipo}`);
+if (G.tipo && !['hueco', 'secante', 'tvm', 'newton', 'area', 'entre', 'polar', 'asintota'].includes(G.tipo)) err(`Tipo de gráfica desconocido ${G.tipo}`);
 if (SEC) {
   const f = compilar(G.funcion, 'grafica.funcion'), fd = compilar(G.derivada, 'grafica.derivada');
   if (f && fd) {
@@ -78,6 +78,15 @@ if (SEC) {
     for (const x of [G.a + 0.1 * (G.b - G.a), (G.a + G.b) / 2, G.b - 0.1 * (G.b - G.a)]) { const h = 1e-5, num = (F(x + h) - F(x - h)) / (2 * h); if (Math.abs(num - (f(x) - g(x))) > 1e-4) err(`La derivada de la primitiva en x=${x} da ${num} y f menos la inferior vale ${f(x) - g(x)}`); }
     for (const x of [G.a, (G.a + G.b) / 2, G.b]) for (const v of [f(x), g(x)]) if (!(v > G.y[0] && v < G.y[1])) err(`La curva en x=${x} sale del rango y (${v})`);
     if (!(G.b < G.x[1])) err('b debe quedar dentro del rango x');
+  }
+} else if (G.tipo === 'polar') {
+  const r = compilar(G.funcion, 'grafica.funcion'), F = compilar(G.primitiva, 'grafica.primitiva');
+  if (!(G.a < G.b)) err('En la gráfica polar a debe ser menor que b');
+  if (r && F && G.a < G.b) {
+    for (const t of [G.a + 0.1 * (G.b - G.a), (G.a + G.b) / 2, G.b - 0.1 * (G.b - G.a)]) { const h = 1e-5, num = (F(t + h) - F(t - h)) / (2 * h); if (Math.abs(num - r(t) * r(t) / 2) > 1e-4) err(`La derivada de la primitiva en theta=${t} da ${num} y r al cuadrado sobre 2 vale ${r(t) * r(t) / 2}`); }
+    const rg = G.rango || [G.a, G.b];
+    for (let i = 0; i <= 60; i++) { const t = rg[0] + (rg[1] - rg[0]) * i / 60, x = r(t) * Math.cos(t), y = r(t) * Math.sin(t); if (!(x > G.x[0] && x < G.x[1] && y > G.y[0] && y < G.y[1])) { err(`La curva sale de la ventana en theta=${t.toFixed(2)} con punto (${x.toFixed(2)}, ${y.toFixed(2)})`); break; } }
+    const asp = ((G.x[1] - G.x[0]) / (G.y[1] - G.y[0])) / (550 / 300); if (Math.abs(asp - 1) > 0.08) aviso(`Los rangos x e y no dan la misma escala (relación ${asp.toFixed(2)} de 1) y la curva se verá deformada`);
   }
 } else if (G.tipo === 'asintota') {
   const f = compilar(G.funcion, 'grafica.funcion');
