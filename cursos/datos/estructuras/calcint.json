@@ -54,8 +54,8 @@
      "tema": "Integrales impropias",
      "preguntas_banco": 7,
      "parciales_con_el_tema": 1,
-     "estado": "pendiente",
-     "leccion": null
+     "estado": "borrador para revisión",
+     "leccion": "lecciones/calcint-impropias.json"
     },
     {
      "tema": "Sustitución trigonométrica",
