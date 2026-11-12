@@ -1,0 +1,1029 @@
+{
+ "esquema": 1,
+ "id": "mb-m2-l5",
+ "ejemplo": true,
+ "curso": "Matemáticas Básicas",
+ "modulo": "Módulo 2 Ecuaciones, inecuaciones y sistemas",
+ "posicion": "Lección 5 de 5",
+ "titulo": "Ecuaciones con radicales y valor absoluto",
+ "minutos": 24,
+ "ejercicios": 2,
+ "grafica": {
+  "tipo": "plano",
+  "x": [
+   -4.5,
+   8.5
+  ],
+  "y": [
+   -5.5,
+   7
+  ],
+  "a": -3,
+  "b": 7,
+  "inicio": 1,
+  "elementos": [
+   {
+    "t": "trazo",
+    "puntos": [
+     [
+      "-4.0000",
+      "sqrt(-4.0000+4)"
+     ],
+     [
+      "-3.8800",
+      "sqrt(-3.8800+4)"
+     ],
+     [
+      "-3.7600",
+      "sqrt(-3.7600+4)"
+     ],
+     [
+      "-3.6400",
+      "sqrt(-3.6400+4)"
+     ],
+     [
+      "-3.5200",
+      "sqrt(-3.5200+4)"
+     ],
+     [
+      "-3.4000",
+      "sqrt(-3.4000+4)"
+     ],
+     [
+      "-3.2800",
+      "sqrt(-3.2800+4)"
+     ],
+     [
+      "-3.1600",
+      "sqrt(-3.1600+4)"
+     ],
+     [
+      "-3.0400",
+      "sqrt(-3.0400+4)"
+     ],
+     [
+      "-2.9200",
+      "sqrt(-2.9200+4)"
+     ],
+     [
+      "-2.8000",
+      "sqrt(-2.8000+4)"
+     ],
+     [
+      "-2.6800",
+      "sqrt(-2.6800+4)"
+     ],
+     [
+      "-2.5600",
+      "sqrt(-2.5600+4)"
+     ],
+     [
+      "-2.4400",
+      "sqrt(-2.4400+4)"
+     ],
+     [
+      "-2.3200",
+      "sqrt(-2.3200+4)"
+     ],
+     [
+      "-2.2000",
+      "sqrt(-2.2000+4)"
+     ],
+     [
+      "-2.0800",
+      "sqrt(-2.0800+4)"
+     ],
+     [
+      "-1.9600",
+      "sqrt(-1.9600+4)"
+     ],
+     [
+      "-1.8400",
+      "sqrt(-1.8400+4)"
+     ],
+     [
+      "-1.7200",
+      "sqrt(-1.7200+4)"
+     ],
+     [
+      "-1.6000",
+      "sqrt(-1.6000+4)"
+     ],
+     [
+      "-1.4800",
+      "sqrt(-1.4800+4)"
+     ],
+     [
+      "-1.3600",
+      "sqrt(-1.3600+4)"
+     ],
+     [
+      "-1.2400",
+      "sqrt(-1.2400+4)"
+     ],
+     [
+      "-1.1200",
+      "sqrt(-1.1200+4)"
+     ],
+     [
+      "-1.0000",
+      "sqrt(-1.0000+4)"
+     ],
+     [
+      "-0.8800",
+      "sqrt(-0.8800+4)"
+     ],
+     [
+      "-0.7600",
+      "sqrt(-0.7600+4)"
+     ],
+     [
+      "-0.6400",
+      "sqrt(-0.6400+4)"
+     ],
+     [
+      "-0.5200",
+      "sqrt(-0.5200+4)"
+     ],
+     [
+      "-0.4000",
+      "sqrt(-0.4000+4)"
+     ],
+     [
+      "-0.2800",
+      "sqrt(-0.2800+4)"
+     ],
+     [
+      "-0.1600",
+      "sqrt(-0.1600+4)"
+     ],
+     [
+      "-0.0400",
+      "sqrt(-0.0400+4)"
+     ],
+     [
+      "0.0800",
+      "sqrt(0.0800+4)"
+     ],
+     [
+      "0.2000",
+      "sqrt(0.2000+4)"
+     ],
+     [
+      "0.3200",
+      "sqrt(0.3200+4)"
+     ],
+     [
+      "0.4400",
+      "sqrt(0.4400+4)"
+     ],
+     [
+      "0.5600",
+      "sqrt(0.5600+4)"
+     ],
+     [
+      "0.6800",
+      "sqrt(0.6800+4)"
+     ],
+     [
+      "0.8000",
+      "sqrt(0.8000+4)"
+     ],
+     [
+      "0.9200",
+      "sqrt(0.9200+4)"
+     ],
+     [
+      "1.0400",
+      "sqrt(1.0400+4)"
+     ],
+     [
+      "1.1600",
+      "sqrt(1.1600+4)"
+     ],
+     [
+      "1.2800",
+      "sqrt(1.2800+4)"
+     ],
+     [
+      "1.4000",
+      "sqrt(1.4000+4)"
+     ],
+     [
+      "1.5200",
+      "sqrt(1.5200+4)"
+     ],
+     [
+      "1.6400",
+      "sqrt(1.6400+4)"
+     ],
+     [
+      "1.7600",
+      "sqrt(1.7600+4)"
+     ],
+     [
+      "1.8800",
+      "sqrt(1.8800+4)"
+     ],
+     [
+      "2.0000",
+      "sqrt(2.0000+4)"
+     ],
+     [
+      "2.1200",
+      "sqrt(2.1200+4)"
+     ],
+     [
+      "2.2400",
+      "sqrt(2.2400+4)"
+     ],
+     [
+      "2.3600",
+      "sqrt(2.3600+4)"
+     ],
+     [
+      "2.4800",
+      "sqrt(2.4800+4)"
+     ],
+     [
+      "2.6000",
+      "sqrt(2.6000+4)"
+     ],
+     [
+      "2.7200",
+      "sqrt(2.7200+4)"
+     ],
+     [
+      "2.8400",
+      "sqrt(2.8400+4)"
+     ],
+     [
+      "2.9600",
+      "sqrt(2.9600+4)"
+     ],
+     [
+      "3.0800",
+      "sqrt(3.0800+4)"
+     ],
+     [
+      "3.2000",
+      "sqrt(3.2000+4)"
+     ],
+     [
+      "3.3200",
+      "sqrt(3.3200+4)"
+     ],
+     [
+      "3.4400",
+      "sqrt(3.4400+4)"
+     ],
+     [
+      "3.5600",
+      "sqrt(3.5600+4)"
+     ],
+     [
+      "3.6800",
+      "sqrt(3.6800+4)"
+     ],
+     [
+      "3.8000",
+      "sqrt(3.8000+4)"
+     ],
+     [
+      "3.9200",
+      "sqrt(3.9200+4)"
+     ],
+     [
+      "4.0400",
+      "sqrt(4.0400+4)"
+     ],
+     [
+      "4.1600",
+      "sqrt(4.1600+4)"
+     ],
+     [
+      "4.2800",
+      "sqrt(4.2800+4)"
+     ],
+     [
+      "4.4000",
+      "sqrt(4.4000+4)"
+     ],
+     [
+      "4.5200",
+      "sqrt(4.5200+4)"
+     ],
+     [
+      "4.6400",
+      "sqrt(4.6400+4)"
+     ],
+     [
+      "4.7600",
+      "sqrt(4.7600+4)"
+     ],
+     [
+      "4.8800",
+      "sqrt(4.8800+4)"
+     ],
+     [
+      "5.0000",
+      "sqrt(5.0000+4)"
+     ],
+     [
+      "5.1200",
+      "sqrt(5.1200+4)"
+     ],
+     [
+      "5.2400",
+      "sqrt(5.2400+4)"
+     ],
+     [
+      "5.3600",
+      "sqrt(5.3600+4)"
+     ],
+     [
+      "5.4800",
+      "sqrt(5.4800+4)"
+     ],
+     [
+      "5.6000",
+      "sqrt(5.6000+4)"
+     ],
+     [
+      "5.7200",
+      "sqrt(5.7200+4)"
+     ],
+     [
+      "5.8400",
+      "sqrt(5.8400+4)"
+     ],
+     [
+      "5.9600",
+      "sqrt(5.9600+4)"
+     ],
+     [
+      "6.0800",
+      "sqrt(6.0800+4)"
+     ],
+     [
+      "6.2000",
+      "sqrt(6.2000+4)"
+     ],
+     [
+      "6.3200",
+      "sqrt(6.3200+4)"
+     ],
+     [
+      "6.4400",
+      "sqrt(6.4400+4)"
+     ],
+     [
+      "6.5600",
+      "sqrt(6.5600+4)"
+     ],
+     [
+      "6.6800",
+      "sqrt(6.6800+4)"
+     ],
+     [
+      "6.8000",
+      "sqrt(6.8000+4)"
+     ],
+     [
+      "6.9200",
+      "sqrt(6.9200+4)"
+     ],
+     [
+      "7.0400",
+      "sqrt(7.0400+4)"
+     ],
+     [
+      "7.1600",
+      "sqrt(7.1600+4)"
+     ],
+     [
+      "7.2800",
+      "sqrt(7.2800+4)"
+     ],
+     [
+      "7.4000",
+      "sqrt(7.4000+4)"
+     ],
+     [
+      "7.5200",
+      "sqrt(7.5200+4)"
+     ],
+     [
+      "7.6400",
+      "sqrt(7.6400+4)"
+     ],
+     [
+      "7.7600",
+      "sqrt(7.7600+4)"
+     ],
+     [
+      "7.8800",
+      "sqrt(7.8800+4)"
+     ],
+     [
+      "8.0000",
+      "sqrt(8.0000+4)"
+     ]
+    ],
+    "c": 2
+   },
+   {
+    "t": "recta",
+    "p": [
+     "0",
+     "-2"
+    ],
+    "dir": [
+     "1",
+     "1"
+    ],
+    "c": 3,
+    "guia": true
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "x",
+     "sqrt(x+4)"
+    ],
+    "b": [
+     "x",
+     "x-2"
+    ],
+    "c": 1,
+    "guia": true
+   },
+   {
+    "t": "punto",
+    "p": [
+     "x",
+     "sqrt(x+4)"
+    ],
+    "c": 2
+   },
+   {
+    "t": "punto",
+    "p": [
+     "x",
+     "x-2"
+    ],
+    "c": 3,
+    "guia": true
+   }
+  ],
+  "lecturas": [
+   {
+    "rotulo": "valor de x",
+    "formula": "x"
+   },
+   {
+    "rotulo": "raíz menos recta",
+    "formula": "sqrt(x+4)-(x-2)"
+   }
+  ],
+  "etiquetas": [
+   "Valor de x",
+   "Distancia vertical entre la raíz y la recta"
+  ],
+  "etiquetaSlider": "Valor de x",
+  "alt": "La curva raíz de x más 4 y la recta x menos 2. La distancia vertical entre ellas vale cero solo en x igual a 5, la única solución real de la ecuación. En x igual a 0 la distancia vale 4, y esa es una solución falsa"
+ },
+ "glosario": {
+  "radical": "Una ecuación con radicales tiene la incógnita dentro de una raíz. Se aísla la raíz y se eleva al cuadrado, y después hay que comprobar las soluciones.",
+  "extrana": "Una solución extraña es la que aparece al resolver, pero no cumple la ecuación original. Pasa porque elevar al cuadrado también deja pasar los signos contrarios.",
+  "valorabsoluto": "El valor absoluto de un número es su distancia al cero. La ecuación valor absoluto de A igual a B se divide en dos casos, A igual a B y A igual a menos B."
+ },
+ "ver": {
+  "duracion": 22.0,
+  "capitulos": [
+   [
+    0,
+    4,
+    "La curva es la raíz de x más 4 y la recta es x menos 2. Las soluciones de la ecuación son los puntos donde se cruzan."
+   ],
+   [
+    4,
+    8,
+    "El segmento vertical mide la distancia entre las dos. Cuando vale 0, la curva y la recta se tocan."
+   ],
+   [
+    8,
+    14,
+    "Mueve x. A la izquierda la raíz está por encima de la recta, y a la derecha queda por debajo."
+   ],
+   [
+    14,
+    18,
+    "Se cruzan en x igual a 5, donde las dos valen 3. Esa es la solución de la ecuación."
+   ],
+   [
+    18,
+    22,
+    "Al elevar al cuadrado también aparece x igual a 0. Ahí la raíz vale 2 y la recta vale menos 2, y no se cruzan. Es una solución falsa."
+   ]
+  ],
+  "canales": {
+   "draw": [
+    [
+     0.3,
+     0
+    ],
+    [
+     3.5,
+     1
+    ]
+   ],
+   "d": [
+    [
+     4,
+     1
+    ],
+    [
+     8,
+     1
+    ],
+    [
+     10,
+     -3
+    ],
+    [
+     12,
+     7
+    ],
+    [
+     14,
+     5
+    ],
+    [
+     17,
+     5
+    ],
+    [
+     18,
+     0
+    ],
+    [
+     22,
+     0
+    ]
+   ],
+   "guide": [
+    [
+     4,
+     0
+    ],
+    [
+     5,
+     1
+    ]
+   ]
+  },
+  "intervalos": {
+   "ok": [
+    18,
+    22
+   ]
+  }
+ },
+ "leer": {
+  "secciones": [
+   {
+    "titulo": "La idea",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "En una ecuación con {{gl:radical|radicales}} se aísla la raíz y se eleva al cuadrado en los dos lados. Eso elimina la raíz, pero puede crear {{gl:extrana|soluciones extrañas}}, que no cumplen la ecuación original. Por eso siempre se comprueba. Con {{gl:valorabsoluto|valor absoluto}}, la ecuación se divide en dos casos."
+     }
+    ]
+   },
+   {
+    "titulo": "Un ejemplo",
+    "corto": "Un ejemplo",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mira la raíz y la recta. Las soluciones están donde se cruzan."
+     },
+     {
+      "t": "eq",
+      "tex": "\\sqrt{x+4}=x-2"
+     },
+     {
+      "t": "grafica",
+      "animar": "dibujar",
+      "alt": "La raíz y la recta"
+     }
+    ]
+   },
+   {
+    "titulo": "Piensa antes de ver",
+    "corto": "Piensa",
+    "bloques": [
+     {
+      "t": "piensa",
+      "pregunta": "Al elevar al cuadrado x menos 2 se obtiene x al cuadrado, menos 4x, más 4. Con x igual a 0, ¿cuánto vale x menos 2?",
+      "opciones": [
+       2,
+       -2,
+       0,
+       4
+      ],
+      "correcta": -2,
+      "bien": "Muy bien. Vale menos 2. Una raíz nunca da un valor negativo, así que x igual a 0 no sirve.",
+      "mal": "Vale menos 2, porque 0 menos 2 es menos 2. Una raíz nunca da un valor negativo, así que x igual a 0 no sirve."
+     }
+    ]
+   },
+   {
+    "titulo": "Moviendo x",
+    "corto": "Moviendo x",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mira dónde se cruzan la raíz y la recta."
+     },
+     {
+      "t": "acercando",
+      "ds": [
+       5,
+       0,
+       -3,
+       7
+      ],
+      "alt": "La distancia entre la raíz y la recta en varios x"
+     },
+     {
+      "t": "p",
+      "html": "Solo en x igual a 5 la distancia es 0. En x igual a 0 vale 4, así que esa solución es falsa."
+     }
+    ]
+   },
+   {
+    "titulo": "Ecuaciones con radicales",
+    "corto": "Radicales",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Se aísla la raíz, se eleva al cuadrado y se comprueba."
+     },
+     {
+      "t": "pasos",
+      "items": [
+       {
+        "tex": "\\sqrt{x+4}=x-2\\ \\Rightarrow\\ x+4=(x-2)^{2}",
+        "porque": "Se eleva al cuadrado los dos lados."
+       },
+       {
+        "tex": "x+4=x^{2}-4x+4\\ \\Rightarrow\\ x^{2}-5x=0\\ \\Rightarrow\\ x=0\\ \\text{o}\\ x=5",
+        "porque": "Se resuelve la ecuación cuadrática."
+       },
+       {
+        "tex": "x=0:\\ \\sqrt{4}=2\\ne -2\\qquad x=5:\\ \\sqrt{9}=3=3",
+        "porque": "Se comprueba en la ecuación original. Solo sirve x igual a 5."
+       }
+      ]
+     },
+     {
+      "t": "ojo",
+      "html": "La comprobación no es opcional. Al elevar al cuadrado, menos 2 y 2 dan el mismo 4, y por eso aparece una solución que no sirve."
+     }
+    ]
+   },
+   {
+    "titulo": "Valor absoluto",
+    "corto": "Valor absoluto",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "El valor absoluto de A igual a B, con B positivo, se divide en dos casos."
+     },
+     {
+      "t": "pasos",
+      "items": [
+       {
+        "tex": "|2x-1|=5",
+        "porque": "La ecuación."
+       },
+       {
+        "tex": "2x-1=5\\quad\\text{o}\\quad 2x-1=-5",
+        "porque": "Se separan los dos casos."
+       },
+       {
+        "tex": "x=3\\quad\\text{o}\\quad x=-2",
+        "porque": "Se resuelve cada uno."
+       }
+      ]
+     },
+     {
+      "t": "ojo",
+      "html": "Si B es negativo, no hay solución, porque un valor absoluto nunca es negativo."
+     }
+    ]
+   },
+   {
+    "titulo": "¿Para qué sirve?",
+    "corto": "En ingeniería",
+    "bloques": [
+     {
+      "t": "ingenieria",
+      "titulo": "La profundidad de un pozo",
+      "html": "Se deja caer una piedra en un pozo y se mide el tiempo hasta oír el golpe. Sin tener en cuenta el sonido, el tiempo de caída es una raíz, y la profundidad sale de una ecuación con radicales.",
+      "tex": "t=\\sqrt{\\dfrac{2h}{g}}",
+      "datos": [
+       {
+        "k": "Tiempo",
+        "v": "2.0 s"
+       },
+       {
+        "k": "Gravedad",
+        "v": "9.8 m/s²"
+       },
+       {
+        "k": "Profundidad",
+        "v": "19.6 m"
+       }
+      ],
+      "cierre": "Se aísla la raíz y se eleva al cuadrado, y queda 4 igual a 2h sobre 9.8. Entonces h vale 4 por 9.8 sobre 2, o sea 19.6 metros. Como la raíz no puede ser negativa, el tiempo debe ser positivo. En un pozo real, el sonido tarda en volver, y con 19.6 metros eso agrega casi 0.06 segundos."
+     }
+    ]
+   },
+   {
+    "titulo": "Completa el paso",
+    "corto": "Completa",
+    "bloques": [
+     {
+      "t": "completar",
+      "enunciado": "Se desarrolla el cuadrado al elevar los dos lados.",
+      "tex": "x+4=x^{2}-[[hueco]]x+4",
+      "opciones": [
+       {
+        "tex": "4",
+        "txt": "cuatro"
+       },
+       {
+        "tex": "2",
+        "txt": "dos"
+       },
+       {
+        "tex": "5",
+        "txt": "cinco"
+       }
+      ],
+      "correcta": 0,
+      "errores": [
+       "",
+       "El doble producto de x por 2 es 4x, no 2x.",
+       "Con 5 se estaría usando el término ya despejado, y no el doble producto."
+      ],
+      "pista": "El cuadrado de x menos 2 es x al cuadrado menos 2 por x por 2, más 4.",
+      "porque": "2 por 2 es 4."
+     }
+    ]
+   },
+   {
+    "titulo": "Encuentra el error",
+    "corto": "Error",
+    "bloques": [
+     {
+      "t": "error",
+      "enunciado": "Alguien resolvió una ecuación con radicales y se equivocó en un paso. Toca el paso que está mal.",
+      "pasos": [
+       {
+        "tex": "\\sqrt{x+4}=x-2\\ \\Rightarrow\\ x+4=(x-2)^{2}",
+        "porque": "Se eleva al cuadrado.",
+        "txt": "se eleva al cuadrado y queda x más 4 igual a x menos 2 al cuadrado"
+       },
+       {
+        "tex": "x^{2}-5x=0\\ \\Rightarrow\\ x=0\\ \\text{o}\\ x=5",
+        "porque": "Se resuelve.",
+        "txt": "queda x al cuadrado menos 5x, con raíces 0 y 5"
+       },
+       {
+        "tex": "\\text{Las soluciones son}\\ x=0\\ \\text{y}\\ x=5",
+        "porque": "Este paso es el que falla.",
+        "txt": "las soluciones son 0 y 5"
+       }
+      ],
+      "mal": 2,
+      "explicacion": "Falta comprobar. Con x igual a 0, la raíz de 4 es 2 y el lado derecho es menos 2, así que no se cumple. Solo sirve x igual a 5.",
+      "correccion": "x=5",
+      "pista": "Reemplaza cada valor en la ecuación original."
+     }
+    ]
+   },
+   {
+    "titulo": "Ordena los pasos",
+    "corto": "Ordena",
+    "bloques": [
+     {
+      "t": "ordenar",
+      "enunciado": "Estos son los pasos para resolver el valor absoluto de 2x menos 1 igual a 5, pero están desordenados.",
+      "pasos": [
+       "|2x-1|=5",
+       "2x-1=5\\ \\text{o}\\ 2x-1=-5",
+       "2x=6\\ \\text{o}\\ 2x=-4",
+       "x=3\\ \\text{o}\\ x=-2"
+      ],
+      "mezcla": [
+       2,
+       0,
+       3,
+       1
+      ],
+      "porque": "Se separan los dos casos, se suma 1 en cada uno y se despeja.",
+      "pista": "Se empieza con la ecuación original.",
+      "txt": [
+       "La ecuación",
+       "Se separan los dos casos",
+       "Se suma 1 en cada caso",
+       "Se despeja x"
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "Revisa tu respuesta",
+    "corto": "Revisa",
+    "bloques": [
+     {
+      "t": "pregunta"
+     },
+     {
+      "t": "nota",
+      "html": "Puedes pedir pistas de a una. Si fallas, el mensaje te dice qué error se cometió."
+     }
+    ]
+   },
+   {
+    "titulo": "Mini simulacro",
+    "corto": "Simulacro",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Dos preguntas reales del banco de MathUNAL sobre este tema. Responde sin mirar los pasos."
+     },
+     {
+      "t": "simulacro",
+      "titulo": "Mini simulacro de ecuaciones con radicales y valor absoluto",
+      "preguntas": [
+       {
+        "tipo": "mcq",
+        "texto": "El conjunto solución de $\\sqrt{x+4}=x-2$ es:",
+        "opciones": [
+         "$\\{5\\}$",
+         "$\\{0,5\\}$",
+         "$\\{0\\}$",
+         "$\\varnothing$"
+        ],
+        "correcta": 0,
+        "resumen": "Se eleva al cuadrado y salen $x=0$ y $x=5$, pero al comprobar solo sirve $x=5$.",
+        "fuente": "Banco MathUNAL, simulacro de Matemáticas Básicas"
+       },
+       {
+        "tipo": "mcq",
+        "texto": "Las soluciones de $|2x-1|=5$ son:",
+        "opciones": [
+         "$x=3$ y $x=-2$",
+         "$x=3$ y $x=2$",
+         "$x=2$ y $x=-3$",
+         "solo $x=3$"
+        ],
+        "correcta": 0,
+        "resumen": "Se separa en $2x-1=5$ y $2x-1=-5$, con soluciones $3$ y $-2$.",
+        "fuente": "Banco MathUNAL, simulacro de Matemáticas Básicas"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "Tu repaso",
+    "corto": "Repaso",
+    "bloques": [
+     {
+      "t": "repaso"
+     }
+    ]
+   },
+   {
+    "titulo": "En resumen",
+    "corto": "Resumen",
+    "bloques": [
+     {
+      "t": "resumen"
+     }
+    ]
+   }
+  ]
+ },
+ "practicar": {
+  "pasos": [
+   {
+    "titulo": "Raíz y recta",
+    "grafica": {
+     "draw": 1,
+     "guide": 1
+    },
+    "bloques": [
+     {
+      "t": "p",
+      "html": "La raíz de x más 4 y la recta x menos 2."
+     },
+     {
+      "t": "eq",
+      "tex": "\\sqrt{x+4}=x-2"
+     }
+    ]
+   },
+   {
+    "titulo": "Cambia x",
+    "grafica": {
+     "draw": 1,
+     "guide": 1
+    },
+    "laboratorio": true,
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mueve el deslizador. Abajo se lee cuánto separa la raíz de la recta. La solución es donde vale 0."
+     }
+    ]
+   },
+   {
+    "titulo": "Una solución falsa",
+    "grafica": {
+     "draw": 1,
+     "guide": 1,
+     "ok": true
+    },
+    "laboratorio": true,
+    "d": 0,
+    "bloques": [
+     {
+      "t": "eq",
+      "tex": "x=0:\\ \\sqrt{4}=2\\ne-2"
+     },
+     {
+      "t": "p",
+      "html": "Con x igual a 0 la distancia vale 4, así que esa solución es falsa."
+     }
+    ]
+   },
+   {
+    "titulo": "Revisa tu respuesta",
+    "grafica": {
+     "draw": 1,
+     "guide": 1,
+     "ok": true,
+     "d": 0
+    },
+    "bloques": [
+     {
+      "t": "pregunta"
+     },
+     {
+      "t": "nota",
+      "html": "Separa los dos casos del valor absoluto."
+     }
+    ]
+   }
+  ]
+ },
+ "pregunta": {
+  "tex": "|x+1|=4\\ \\text{tiene como soluciones}",
+  "opciones": [
+   "$x=3$ y $x=-5$",
+   "$x=4$ y $x=-4$",
+   "$x=3$ y $x=5$",
+   "solo $x=3$"
+  ],
+  "correcta": 0,
+  "explicacion": "Se separan los casos, x más 1 igual a 4, que da x igual a 3, y x más 1 igual a menos 4, que da x igual a menos 5.",
+  "verificacion": {
+   "formula": "abs(x+1)",
+   "a": 3,
+   "esperado": 4
+  },
+  "pistas": [
+   "Separa en dos casos, positivo y negativo.",
+   "El primero es x más 1 igual a 4.",
+   "El segundo es x más 1 igual a menos 4."
+  ],
+  "errores": [
+   "",
+   "Esas serían las soluciones de |x|=4. Aquí hay que restar 1 en cada caso.",
+   "Con x igual a 5 el valor absoluto de 6 es 6, no 4.",
+   "Falta el segundo caso, x más 1 igual a menos 4."
+  ]
+ },
+ "resumen": [
+  "En una ecuación con radicales se aísla la raíz, se eleva al cuadrado y se comprueba cada solución.",
+  "Elevar al cuadrado puede crear soluciones que no sirven.",
+  "El valor absoluto de A igual a B se divide en A igual a B y A igual a menos B."
+ ]
+}

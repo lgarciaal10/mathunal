@@ -1,0 +1,1011 @@
+{
+ "esquema": 1,
+ "id": "mb-m2-l2",
+ "ejemplo": true,
+ "curso": "Matemáticas Básicas",
+ "modulo": "Módulo 2 Ecuaciones, inecuaciones y sistemas",
+ "posicion": "Lección 2 de 5",
+ "titulo": "Ecuaciones lineales y cuadráticas",
+ "minutos": 28,
+ "ejercicios": 8,
+ "grafica": {
+  "tipo": "plano",
+  "x": [
+   -1,
+   6.5
+  ],
+  "y": [
+   -7,
+   8.5
+  ],
+  "a": 0,
+  "b": 8,
+  "inicio": 6,
+  "elementos": [
+   {
+    "t": "trazo",
+    "puntos": [
+     [
+      "-1.0000",
+      "-1.0000*-1.0000-5*-1.0000+x"
+     ],
+     [
+      "-0.9250",
+      "-0.9250*-0.9250-5*-0.9250+x"
+     ],
+     [
+      "-0.8500",
+      "-0.8500*-0.8500-5*-0.8500+x"
+     ],
+     [
+      "-0.7750",
+      "-0.7750*-0.7750-5*-0.7750+x"
+     ],
+     [
+      "-0.7000",
+      "-0.7000*-0.7000-5*-0.7000+x"
+     ],
+     [
+      "-0.6250",
+      "-0.6250*-0.6250-5*-0.6250+x"
+     ],
+     [
+      "-0.5500",
+      "-0.5500*-0.5500-5*-0.5500+x"
+     ],
+     [
+      "-0.4750",
+      "-0.4750*-0.4750-5*-0.4750+x"
+     ],
+     [
+      "-0.4000",
+      "-0.4000*-0.4000-5*-0.4000+x"
+     ],
+     [
+      "-0.3250",
+      "-0.3250*-0.3250-5*-0.3250+x"
+     ],
+     [
+      "-0.2500",
+      "-0.2500*-0.2500-5*-0.2500+x"
+     ],
+     [
+      "-0.1750",
+      "-0.1750*-0.1750-5*-0.1750+x"
+     ],
+     [
+      "-0.1000",
+      "-0.1000*-0.1000-5*-0.1000+x"
+     ],
+     [
+      "-0.0250",
+      "-0.0250*-0.0250-5*-0.0250+x"
+     ],
+     [
+      "0.0500",
+      "0.0500*0.0500-5*0.0500+x"
+     ],
+     [
+      "0.1250",
+      "0.1250*0.1250-5*0.1250+x"
+     ],
+     [
+      "0.2000",
+      "0.2000*0.2000-5*0.2000+x"
+     ],
+     [
+      "0.2750",
+      "0.2750*0.2750-5*0.2750+x"
+     ],
+     [
+      "0.3500",
+      "0.3500*0.3500-5*0.3500+x"
+     ],
+     [
+      "0.4250",
+      "0.4250*0.4250-5*0.4250+x"
+     ],
+     [
+      "0.5000",
+      "0.5000*0.5000-5*0.5000+x"
+     ],
+     [
+      "0.5750",
+      "0.5750*0.5750-5*0.5750+x"
+     ],
+     [
+      "0.6500",
+      "0.6500*0.6500-5*0.6500+x"
+     ],
+     [
+      "0.7250",
+      "0.7250*0.7250-5*0.7250+x"
+     ],
+     [
+      "0.8000",
+      "0.8000*0.8000-5*0.8000+x"
+     ],
+     [
+      "0.8750",
+      "0.8750*0.8750-5*0.8750+x"
+     ],
+     [
+      "0.9500",
+      "0.9500*0.9500-5*0.9500+x"
+     ],
+     [
+      "1.0250",
+      "1.0250*1.0250-5*1.0250+x"
+     ],
+     [
+      "1.1000",
+      "1.1000*1.1000-5*1.1000+x"
+     ],
+     [
+      "1.1750",
+      "1.1750*1.1750-5*1.1750+x"
+     ],
+     [
+      "1.2500",
+      "1.2500*1.2500-5*1.2500+x"
+     ],
+     [
+      "1.3250",
+      "1.3250*1.3250-5*1.3250+x"
+     ],
+     [
+      "1.4000",
+      "1.4000*1.4000-5*1.4000+x"
+     ],
+     [
+      "1.4750",
+      "1.4750*1.4750-5*1.4750+x"
+     ],
+     [
+      "1.5500",
+      "1.5500*1.5500-5*1.5500+x"
+     ],
+     [
+      "1.6250",
+      "1.6250*1.6250-5*1.6250+x"
+     ],
+     [
+      "1.7000",
+      "1.7000*1.7000-5*1.7000+x"
+     ],
+     [
+      "1.7750",
+      "1.7750*1.7750-5*1.7750+x"
+     ],
+     [
+      "1.8500",
+      "1.8500*1.8500-5*1.8500+x"
+     ],
+     [
+      "1.9250",
+      "1.9250*1.9250-5*1.9250+x"
+     ],
+     [
+      "2.0000",
+      "2.0000*2.0000-5*2.0000+x"
+     ],
+     [
+      "2.0750",
+      "2.0750*2.0750-5*2.0750+x"
+     ],
+     [
+      "2.1500",
+      "2.1500*2.1500-5*2.1500+x"
+     ],
+     [
+      "2.2250",
+      "2.2250*2.2250-5*2.2250+x"
+     ],
+     [
+      "2.3000",
+      "2.3000*2.3000-5*2.3000+x"
+     ],
+     [
+      "2.3750",
+      "2.3750*2.3750-5*2.3750+x"
+     ],
+     [
+      "2.4500",
+      "2.4500*2.4500-5*2.4500+x"
+     ],
+     [
+      "2.5250",
+      "2.5250*2.5250-5*2.5250+x"
+     ],
+     [
+      "2.6000",
+      "2.6000*2.6000-5*2.6000+x"
+     ],
+     [
+      "2.6750",
+      "2.6750*2.6750-5*2.6750+x"
+     ],
+     [
+      "2.7500",
+      "2.7500*2.7500-5*2.7500+x"
+     ],
+     [
+      "2.8250",
+      "2.8250*2.8250-5*2.8250+x"
+     ],
+     [
+      "2.9000",
+      "2.9000*2.9000-5*2.9000+x"
+     ],
+     [
+      "2.9750",
+      "2.9750*2.9750-5*2.9750+x"
+     ],
+     [
+      "3.0500",
+      "3.0500*3.0500-5*3.0500+x"
+     ],
+     [
+      "3.1250",
+      "3.1250*3.1250-5*3.1250+x"
+     ],
+     [
+      "3.2000",
+      "3.2000*3.2000-5*3.2000+x"
+     ],
+     [
+      "3.2750",
+      "3.2750*3.2750-5*3.2750+x"
+     ],
+     [
+      "3.3500",
+      "3.3500*3.3500-5*3.3500+x"
+     ],
+     [
+      "3.4250",
+      "3.4250*3.4250-5*3.4250+x"
+     ],
+     [
+      "3.5000",
+      "3.5000*3.5000-5*3.5000+x"
+     ],
+     [
+      "3.5750",
+      "3.5750*3.5750-5*3.5750+x"
+     ],
+     [
+      "3.6500",
+      "3.6500*3.6500-5*3.6500+x"
+     ],
+     [
+      "3.7250",
+      "3.7250*3.7250-5*3.7250+x"
+     ],
+     [
+      "3.8000",
+      "3.8000*3.8000-5*3.8000+x"
+     ],
+     [
+      "3.8750",
+      "3.8750*3.8750-5*3.8750+x"
+     ],
+     [
+      "3.9500",
+      "3.9500*3.9500-5*3.9500+x"
+     ],
+     [
+      "4.0250",
+      "4.0250*4.0250-5*4.0250+x"
+     ],
+     [
+      "4.1000",
+      "4.1000*4.1000-5*4.1000+x"
+     ],
+     [
+      "4.1750",
+      "4.1750*4.1750-5*4.1750+x"
+     ],
+     [
+      "4.2500",
+      "4.2500*4.2500-5*4.2500+x"
+     ],
+     [
+      "4.3250",
+      "4.3250*4.3250-5*4.3250+x"
+     ],
+     [
+      "4.4000",
+      "4.4000*4.4000-5*4.4000+x"
+     ],
+     [
+      "4.4750",
+      "4.4750*4.4750-5*4.4750+x"
+     ],
+     [
+      "4.5500",
+      "4.5500*4.5500-5*4.5500+x"
+     ],
+     [
+      "4.6250",
+      "4.6250*4.6250-5*4.6250+x"
+     ],
+     [
+      "4.7000",
+      "4.7000*4.7000-5*4.7000+x"
+     ],
+     [
+      "4.7750",
+      "4.7750*4.7750-5*4.7750+x"
+     ],
+     [
+      "4.8500",
+      "4.8500*4.8500-5*4.8500+x"
+     ],
+     [
+      "4.9250",
+      "4.9250*4.9250-5*4.9250+x"
+     ],
+     [
+      "5.0000",
+      "5.0000*5.0000-5*5.0000+x"
+     ],
+     [
+      "5.0750",
+      "5.0750*5.0750-5*5.0750+x"
+     ],
+     [
+      "5.1500",
+      "5.1500*5.1500-5*5.1500+x"
+     ],
+     [
+      "5.2250",
+      "5.2250*5.2250-5*5.2250+x"
+     ],
+     [
+      "5.3000",
+      "5.3000*5.3000-5*5.3000+x"
+     ],
+     [
+      "5.3750",
+      "5.3750*5.3750-5*5.3750+x"
+     ],
+     [
+      "5.4500",
+      "5.4500*5.4500-5*5.4500+x"
+     ],
+     [
+      "5.5250",
+      "5.5250*5.5250-5*5.5250+x"
+     ],
+     [
+      "5.6000",
+      "5.6000*5.6000-5*5.6000+x"
+     ],
+     [
+      "5.6750",
+      "5.6750*5.6750-5*5.6750+x"
+     ],
+     [
+      "5.7500",
+      "5.7500*5.7500-5*5.7500+x"
+     ],
+     [
+      "5.8250",
+      "5.8250*5.8250-5*5.8250+x"
+     ],
+     [
+      "5.9000",
+      "5.9000*5.9000-5*5.9000+x"
+     ],
+     [
+      "5.9750",
+      "5.9750*5.9750-5*5.9750+x"
+     ],
+     [
+      "6.0500",
+      "6.0500*6.0500-5*6.0500+x"
+     ],
+     [
+      "6.1250",
+      "6.1250*6.1250-5*6.1250+x"
+     ],
+     [
+      "6.2000",
+      "6.2000*6.2000-5*6.2000+x"
+     ],
+     [
+      "6.2750",
+      "6.2750*6.2750-5*6.2750+x"
+     ],
+     [
+      "6.3500",
+      "6.3500*6.3500-5*6.3500+x"
+     ],
+     [
+      "6.4250",
+      "6.4250*6.4250-5*6.4250+x"
+     ],
+     [
+      "6.5000",
+      "6.5000*6.5000-5*6.5000+x"
+     ]
+    ],
+    "c": 2
+   },
+   {
+    "t": "recta",
+    "p": [
+     "0",
+     "0"
+    ],
+    "dir": [
+     "1",
+     "0"
+    ],
+    "guion": true,
+    "c": 3,
+    "guia": true
+   },
+   {
+    "t": "punto",
+    "p": [
+     "0",
+     "x"
+    ],
+    "c": 1
+   }
+  ],
+  "lecturas": [
+   {
+    "rotulo": "término q",
+    "formula": "x"
+   },
+   {
+    "rotulo": "discriminante 25-4q",
+    "formula": "25-4*x"
+   }
+  ],
+  "etiquetas": [
+   "Valor de q",
+   "Discriminante de x al cuadrado menos 5x más q"
+  ],
+  "etiquetaSlider": "Valor de q",
+  "alt": "La parábola x al cuadrado menos 5x más q. Con q igual a 6 corta el eje en 2 y 3. Con q igual a 6.25 solo lo toca, y con q mayor no lo corta, porque el discriminante es negativo"
+ },
+ "glosario": {
+  "discriminante": "El discriminante de a x al cuadrado más b x más c es b al cuadrado menos 4 a c. Si es positivo hay dos soluciones reales, si es cero hay una doble y si es negativo no hay reales.",
+  "formulageneral": "La fórmula general da las soluciones de a x al cuadrado más b x más c igual a 0 como menos b más o menos la raíz del discriminante, todo sobre 2a.",
+  "raices": "Las raíces de una ecuación son los valores de x que la hacen cierta. En la gráfica de la función son los cortes con el eje x."
+ },
+ "ver": {
+  "duracion": 22.0,
+  "capitulos": [
+   [
+    0,
+    4,
+    "Esta es la parábola x al cuadrado, menos 5x, más q. Las soluciones de la ecuación igual a 0 son los puntos donde corta el eje horizontal."
+   ],
+   [
+    4,
+    8,
+    "Con q igual a 6 corta en 2 y en 3. La ecuación se factoriza como x menos 2 por x menos 3."
+   ],
+   [
+    8,
+    14,
+    "Al bajar q la parábola baja y los cortes se separan. Al subir q se acercan."
+   ],
+   [
+    14,
+    18,
+    "Con q igual a 6.25 el discriminante vale 0. La parábola solo toca el eje, en 2.5, y hay una solución doble."
+   ],
+   [
+    18,
+    22,
+    "Con q igual a 8 el discriminante es negativo. La parábola no toca el eje y no hay soluciones reales."
+   ]
+  ],
+  "canales": {
+   "draw": [
+    [
+     0.3,
+     0
+    ],
+    [
+     3.5,
+     1
+    ]
+   ],
+   "d": [
+    [
+     4,
+     6
+    ],
+    [
+     8,
+     6
+    ],
+    [
+     11,
+     3
+    ],
+    [
+     14,
+     6.25
+    ],
+    [
+     17,
+     6.25
+    ],
+    [
+     18,
+     8
+    ],
+    [
+     22,
+     8
+    ]
+   ],
+   "guide": [
+    [
+     4,
+     0
+    ],
+    [
+     5,
+     1
+    ]
+   ]
+  },
+  "intervalos": {
+   "ok": [
+    18,
+    22
+   ]
+  }
+ },
+ "leer": {
+  "secciones": [
+   {
+    "titulo": "La idea",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Una ecuación lineal se resuelve despejando x. Una ecuación cuadrática puede tener dos soluciones, una o ninguna, y se resuelve factorizando o con la {{gl:formulageneral|fórmula general}}. El {{gl:discriminante|discriminante}} dice cuántas soluciones reales hay antes de calcularlas."
+     }
+    ]
+   },
+   {
+    "titulo": "Un ejemplo",
+    "corto": "Un ejemplo",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mira cómo cambia la parábola, y con ella las soluciones, al cambiar el término q."
+     },
+     {
+      "t": "eq",
+      "tex": "x^{2}-5x+q=0"
+     },
+     {
+      "t": "grafica",
+      "animar": "dibujar",
+      "alt": "La parábola"
+     }
+    ]
+   },
+   {
+    "titulo": "Piensa antes de ver",
+    "corto": "Piensa",
+    "bloques": [
+     {
+      "t": "piensa",
+      "pregunta": "Para x al cuadrado menos 5x más 6, el discriminante es b al cuadrado menos 4ac. Con b igual a menos 5, a igual a 1 y c igual a 6, ¿cuánto vale?",
+      "opciones": [
+       1,
+       25,
+       -1,
+       49
+      ],
+      "correcta": 1,
+      "bien": "Muy bien. Vale 1, porque 25 menos 24 es 1. Es positivo, así que hay dos soluciones.",
+      "mal": "Vale 1, porque 25 menos 24 es 1. Es positivo, así que hay dos soluciones."
+     }
+    ]
+   },
+   {
+    "titulo": "Cambiando q",
+    "corto": "Cambiando q",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mira cuántas veces corta la parábola al eje según el valor de q."
+     },
+     {
+      "t": "acercando",
+      "ds": [
+       6,
+       3,
+       6.25,
+       8
+      ],
+      "alt": "La parábola para varios valores de q"
+     },
+     {
+      "t": "p",
+      "html": "Con q menor que 6.25 hay dos cortes, con q igual a 6.25 hay uno, y con q mayor no hay ninguno. Justo cuando el discriminante cambia de signo."
+     }
+    ]
+   },
+   {
+    "titulo": "Ecuaciones lineales",
+    "corto": "Lineales",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "En una ecuación lineal se despeja x. Si hay fracciones, se multiplica por el denominador común."
+     },
+     {
+      "t": "pasos",
+      "items": [
+       {
+        "tex": "\\dfrac{x}{2}-\\dfrac{x-1}{3}=1",
+        "porque": "La ecuación."
+       },
+       {
+        "tex": "3x-2(x-1)=6",
+        "porque": "Se multiplica todo por 6."
+       },
+       {
+        "tex": "x+2=6\\ \\Rightarrow\\ x=4",
+        "porque": "Se reducen términos y se despeja."
+       }
+      ]
+     },
+     {
+      "t": "ojo",
+      "html": "Al multiplicar por un denominador hay que multiplicar cada término, incluido el que está del otro lado del igual."
+     }
+    ]
+   },
+   {
+    "titulo": "Ecuaciones cuadráticas",
+    "corto": "Cuadráticas",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Se factoriza, si se puede. Si no, se usa la fórmula general."
+     },
+     {
+      "t": "pasos",
+      "items": [
+       {
+        "tex": "x^{2}-5x+6=0\\ \\Rightarrow\\ (x-2)(x-3)=0\\ \\Rightarrow\\ x=2,\\ 3",
+        "porque": "Si un producto es 0, algún factor es 0."
+       },
+       {
+        "tex": "x=\\dfrac{-b\\pm\\sqrt{b^{2}-4ac}}{2a}",
+        "porque": "La fórmula general."
+       },
+       {
+        "tex": "2x^{2}-3x-2=0\\ \\Rightarrow\\ x=\\dfrac{3\\pm\\sqrt{9+16}}{4}=\\dfrac{3\\pm 5}{4}",
+        "porque": "Con a igual a 2, b igual a menos 3 y c igual a menos 2."
+       },
+       {
+        "tex": "x=2\\ \\text{o}\\ x=-\\tfrac{1}{2}",
+        "porque": "Las dos soluciones."
+       }
+      ]
+     },
+     {
+      "t": "ojo",
+      "html": "La suma de las raíces es menos b sobre a, y el producto es c sobre a. En x al cuadrado menos 7x más 10, la suma es 7 y el producto es 10."
+     }
+    ]
+   },
+   {
+    "titulo": "¿Para qué sirve?",
+    "corto": "En ingeniería",
+    "bloques": [
+     {
+      "t": "ingenieria",
+      "titulo": "El lanzamiento de una pelota",
+      "html": "La altura de una pelota lanzada hacia arriba es una función cuadrática del tiempo. El momento en que llega al suelo es la solución positiva de una ecuación cuadrática.",
+      "tex": "h(t)=1.5+12t-4.9t^{2}=0",
+      "datos": [
+       {
+        "k": "Altura inicial",
+        "v": "1.5 m"
+       },
+       {
+        "k": "Velocidad inicial",
+        "v": "12 m/s"
+       },
+       {
+        "k": "Llega al suelo",
+        "v": "a los 2.57 s"
+       }
+      ],
+      "cierre": "El discriminante es 144 más 29.4, o sea 173.4, y su raíz es 13.17. Las soluciones son 12 más o menos 13.17, sobre 9.8, o sea 2.57 y menos 0.12. La negativa no sirve, porque es antes del lanzamiento. La pelota llega al suelo a los 2.57 segundos. Es un modelo sin resistencia del aire."
+     }
+    ]
+   },
+   {
+    "titulo": "Completa el paso",
+    "corto": "Completa",
+    "bloques": [
+     {
+      "t": "completar",
+      "enunciado": "Se factoriza la ecuación x al cuadrado menos 5x más 6 igual a 0.",
+      "tex": "(x-2)(x-[[hueco]])=0",
+      "opciones": [
+       {
+        "tex": "3",
+        "txt": "tres"
+       },
+       {
+        "tex": "-3",
+        "txt": "menos tres"
+       },
+       {
+        "tex": "6",
+        "txt": "seis"
+       }
+      ],
+      "correcta": 0,
+      "errores": [
+       "",
+       "Con x más 3 el producto no daría menos 5x. Los dos números deben sumar 5 y multiplicar 6.",
+       "Con 6 el producto de los números daría 12 y no 6."
+      ],
+      "pista": "Los dos números suman 5 y multiplican 6.",
+      "porque": "2 y 3 suman 5 y multiplican 6."
+     }
+    ]
+   },
+   {
+    "titulo": "Encuentra el error",
+    "corto": "Error",
+    "bloques": [
+     {
+      "t": "error",
+      "enunciado": "Alguien resolvió una ecuación con la fórmula general y se equivocó en un paso. Toca el paso que está mal.",
+      "pasos": [
+       {
+        "tex": "2x^{2}-3x-2=0\\ \\Rightarrow\\ a=2,\\ b=-3,\\ c=-2",
+        "porque": "Se identifican los coeficientes.",
+        "txt": "a es 2, b es menos 3 y c es menos 2"
+       },
+       {
+        "tex": "b^{2}-4ac=9-4(2)(-2)=9-16=-7",
+        "porque": "Este paso es el que falla.",
+        "txt": "el discriminante es 9 menos 16, igual a menos 7"
+       },
+       {
+        "tex": "\\text{No hay soluciones reales}",
+        "porque": "La conclusión.",
+        "txt": "no hay soluciones reales"
+       }
+      ],
+      "mal": 1,
+      "explicacion": "Menos 4 por 2 por menos 2 es más 16, porque dos negativos se multiplican y dan positivo. El discriminante es 9 más 16, o sea 25, y hay dos soluciones reales.",
+      "correccion": "b^{2}-4ac=9+16=25",
+      "pista": "Cuidado con el signo de menos 4ac cuando c es negativo."
+     }
+    ]
+   },
+   {
+    "titulo": "Ordena los pasos",
+    "corto": "Ordena",
+    "bloques": [
+     {
+      "t": "ordenar",
+      "enunciado": "Estos son los pasos para resolver x sobre 3, más x más 1 sobre 2, igual a 2, pero están desordenados.",
+      "pasos": [
+       "\\dfrac{x}{3}+\\dfrac{x+1}{2}=2",
+       "2x+3(x+1)=12",
+       "5x+3=12",
+       "x=\\dfrac{9}{5}"
+      ],
+      "mezcla": [
+       2,
+       0,
+       3,
+       1
+      ],
+      "porque": "Se multiplica por el denominador común, se reducen los términos y se despeja.",
+      "pista": "Se empieza con la ecuación original.",
+      "txt": [
+       "La ecuación",
+       "Se multiplica por 6",
+       "Se reducen términos",
+       "Se despeja x"
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "Revisa tu respuesta",
+    "corto": "Revisa",
+    "bloques": [
+     {
+      "t": "pregunta"
+     },
+     {
+      "t": "nota",
+      "html": "Puedes pedir pistas de a una. Si fallas, el mensaje te dice qué error se cometió."
+     }
+    ]
+   },
+   {
+    "titulo": "Mini simulacro",
+    "corto": "Simulacro",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Tres preguntas reales del banco de MathUNAL sobre este tema. Responde sin mirar los pasos."
+     },
+     {
+      "t": "simulacro",
+      "titulo": "Mini simulacro de ecuaciones lineales y cuadráticas",
+      "preguntas": [
+       {
+        "tipo": "mcq",
+        "texto": "Las soluciones de $2x^{2}-3x-2=0$ son:",
+        "opciones": [
+         "$x=2$ y $x=-\\tfrac12$",
+         "$x=1$ y $x=-2$",
+         "$x=-2$ y $x=\\tfrac12$",
+         "$x=2$ y $x=\\tfrac12$"
+        ],
+        "correcta": 0,
+        "resumen": "El discriminante es $9+16=25$, y las soluciones son $\\dfrac{3\\pm5}{4}$.",
+        "fuente": "Banco MathUNAL, simulacro de Matemáticas Básicas"
+       },
+       {
+        "tipo": "numerica",
+        "texto": "La suma de las raíces de $x^{2}-7x+10=0$ es:",
+        "respuesta": "7",
+        "tolNum": 0.001,
+        "resumen": "La suma de las raíces de $x^2-7x+10=0$ es $-b/a=7$.",
+        "fuente": "Banco MathUNAL, simulacro de Matemáticas Básicas"
+       },
+       {
+        "tipo": "numerica",
+        "texto": "El discriminante de la ecuación $3z^{2}+12z=-7$ es:",
+        "respuesta": "60",
+        "tolNum": 0.001,
+        "resumen": "Se pasa a la forma $3z^2+12z+7=0$, y el discriminante es $144-84=60$.",
+        "fuente": "Banco MathUNAL, simulacro de Matemáticas Básicas"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "Tu repaso",
+    "corto": "Repaso",
+    "bloques": [
+     {
+      "t": "repaso"
+     }
+    ]
+   },
+   {
+    "titulo": "En resumen",
+    "corto": "Resumen",
+    "bloques": [
+     {
+      "t": "resumen"
+     }
+    ]
+   }
+  ]
+ },
+ "practicar": {
+  "pasos": [
+   {
+    "titulo": "La parábola",
+    "grafica": {
+     "draw": 1,
+     "guide": 1
+    },
+    "bloques": [
+     {
+      "t": "p",
+      "html": "La parábola de x al cuadrado menos 5x más q."
+     },
+     {
+      "t": "eq",
+      "tex": "y=x^{2}-5x+q"
+     }
+    ]
+   },
+   {
+    "titulo": "Cambia q",
+    "grafica": {
+     "draw": 1,
+     "guide": 1
+    },
+    "laboratorio": true,
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mueve el deslizador. Abajo se lee el discriminante. Cuando es negativo, la parábola no toca el eje."
+     }
+    ]
+   },
+   {
+    "titulo": "Sin soluciones",
+    "grafica": {
+     "draw": 1,
+     "guide": 1,
+     "ok": true
+    },
+    "laboratorio": true,
+    "d": 8,
+    "bloques": [
+     {
+      "t": "eq",
+      "tex": "q=8\\ \\Rightarrow\\ 25-32=-7<0"
+     },
+     {
+      "t": "p",
+      "html": "Con q igual a 8 no hay soluciones reales."
+     }
+    ]
+   },
+   {
+    "titulo": "Revisa tu respuesta",
+    "grafica": {
+     "draw": 1,
+     "guide": 1,
+     "ok": true,
+     "d": 8
+    },
+    "bloques": [
+     {
+      "t": "pregunta"
+     },
+     {
+      "t": "nota",
+      "html": "Busca dos números que sumen y multipliquen lo que pide la ecuación."
+     }
+    ]
+   }
+  ]
+ },
+ "pregunta": {
+  "tex": "x^{2}-x-12=0\\ \\text{tiene como soluciones}",
+  "opciones": [
+   "$x=4$ y $x=-3$",
+   "$x=-4$ y $x=3$",
+   "$x=6$ y $x=-2$",
+   "$x=12$ y $x=-1$"
+  ],
+  "correcta": 0,
+  "explicacion": "Se factoriza buscando dos números que multipliquen menos 12 y sumen menos 1, que son menos 4 y 3. Los factores son x menos 4 y x más 3, y las soluciones son 4 y menos 3.",
+  "verificacion": {
+   "formula": "x*x-x-12",
+   "a": 4,
+   "esperado": 0
+  },
+  "pistas": [
+   "Factoriza buscando dos números que multipliquen menos 12.",
+   "Esos números deben sumar menos 1.",
+   "Son 3 y menos 4, y las soluciones tienen el signo contrario."
+  ],
+  "errores": [
+   "",
+   "Esos tienen los signos al revés. Los factores serían x más 4 y x menos 3, y el término del medio saldría más x.",
+   "Esas soluciones suman 4, pero la suma de las soluciones debe ser 1, que es menos el coeficiente de x.",
+   "Esas soluciones suman 11, pero la suma de las soluciones debe ser 1."
+  ]
+ },
+ "resumen": [
+  "Una ecuación lineal se resuelve despejando x, y con fracciones se multiplica por el denominador común.",
+  "Una cuadrática se resuelve factorizando o con la fórmula general.",
+  "El discriminante dice si hay dos soluciones reales, una doble, o ninguna."
+ ]
+}

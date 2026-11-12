@@ -47,36 +47,36 @@
      "tema": "Ecuaciones exponenciales y logarítmicas",
      "preguntas_banco": 9,
      "parciales_con_el_tema": 1,
-     "estado": "pendiente",
-     "leccion": null
+     "estado": "borrador para revisión",
+     "leccion": "lecciones/matbas-explog.json"
     },
     {
      "tema": "Ecuaciones lineales y cuadráticas",
      "preguntas_banco": 9,
      "parciales_con_el_tema": 1,
-     "estado": "pendiente",
-     "leccion": null
+     "estado": "borrador para revisión",
+     "leccion": "lecciones/matbas-cuadraticas.json"
     },
     {
      "tema": "Inecuaciones",
      "preguntas_banco": 8,
      "parciales_con_el_tema": 1,
-     "estado": "pendiente",
-     "leccion": null
+     "estado": "borrador para revisión",
+     "leccion": "lecciones/matbas-inecuaciones.json"
     },
     {
      "tema": "Sistemas de ecuaciones",
      "preguntas_banco": 6,
      "parciales_con_el_tema": 2,
-     "estado": "pendiente",
-     "leccion": null
+     "estado": "borrador para revisión",
+     "leccion": "lecciones/matbas-sistemas.json"
     },
     {
      "tema": "Ecuaciones con radicales y valor absoluto",
      "preguntas_banco": 4,
      "parciales_con_el_tema": 1,
-     "estado": "pendiente",
-     "leccion": null
+     "estado": "borrador para revisión",
+     "leccion": "lecciones/matbas-radicales.json"
     }
    ]
   },
