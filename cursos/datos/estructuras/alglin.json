@@ -96,8 +96,8 @@
      "tema": "Matrices simétricas y formas cuadráticas",
      "preguntas_banco": 7,
      "parciales_con_el_tema": 1,
-     "estado": "pendiente",
-     "leccion": null
+     "estado": "borrador para revisión",
+     "leccion": "lecciones/alglin-simetricas.json"
     },
     {
      "tema": "Diagonalización",
