@@ -47,3 +47,7 @@ def banco(i,resumen=None):
     q=_BANCO[i]
     if q['tipo']=='mcq': return mcq(q['texto'],q['opciones'],q['correcta'],resumen or q.get('resumen') or '')
     return num(q['texto'],str(q['respuesta']),q.get('tolNum') or 0.001,resumen or q.get('resumen') or '')
+
+def MC(n,*c):
+    rows=[c[i:i+n] for i in range(0,len(c),n)]
+    return "\\begin{pmatrix}"+"\\\\".join("&".join(str(v) for v in r) for r in rows)+"\\end{pmatrix}"

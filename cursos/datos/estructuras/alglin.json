@@ -68,8 +68,8 @@
      "tema": "Espacios fundamentales y rango",
      "preguntas_banco": 4,
      "parciales_con_el_tema": 0,
-     "estado": "pendiente",
-     "leccion": null
+     "estado": "borrador para revisión",
+     "leccion": "lecciones/alglin-fundamentales.json"
     }
    ]
   },
