@@ -227,7 +227,7 @@
           else { o.ln.setAttribute('d','M'+pa0+' '+pa1+' L'+(pb0-9*c)+' '+(pb1-9*sn)); o.hd.setAttribute('d','M'+pb0+' '+pb1+' L'+(pb0-15*Math.cos(ang-0.42))+' '+(pb1-15*Math.sin(ang-0.42))+' L'+(pb0-15*Math.cos(ang+0.42))+' '+(pb1-15*Math.sin(ang+0.42))+' Z'); }
           lx=pb0+20*c; ly=pb1+20*sn+4;
         } else if(e.t==='trazo'){
-          var tq=o.p.map(function(q){ var v=ev(q,t); return [X(v[0]),Y(Math.max(-9,Math.min(9,v[1])))]; }); o.ln.setAttribute('d','M'+tq.map(function(q){ return q[0].toFixed(1)+' '+q[1].toFixed(1); }).join(' L')); lx=tq[tq.length-1][0]; ly=tq[tq.length-1][1]-12;
+          var tq=o.p.map(function(q){ var v=ev(q,t); return isFinite(v[0])&&isFinite(v[1])?[X(v[0]),Y(Math.max(-1e5,Math.min(1e5,v[1])))]:null; }), dd='', pen=false; tq.forEach(function(q){ if(!q){ pen=false; return; } dd+=(pen?' L':' M')+q[0].toFixed(1)+' '+q[1].toFixed(1); pen=true; }); o.ln.setAttribute('d',dd.trim()); var ql=tq.filter(function(q){ return q; }); if(ql.length){ lx=ql[ql.length-1][0]; ly=ql[ql.length-1][1]-1; }2;
         } else if(e.t==='poligono'){
           var ps=o.p.map(function(q){ var v=ev(q,t); return [X(v[0]),Y(v[1])]; }); o.ln.setAttribute('d','M'+ps.map(function(q){ return q[0].toFixed(1)+' '+q[1].toFixed(1); }).join(' L')+' Z');
           lx=ps.reduce(function(m,q){ return m+q[0]; },0)/ps.length; ly=ps.reduce(function(m,q){ return m+q[1]; },0)/ps.length+4;

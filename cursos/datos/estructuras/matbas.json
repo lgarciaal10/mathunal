@@ -12,29 +12,29 @@
      "tema": "Exponentes y radicales",
      "preguntas_banco": 10,
      "parciales_con_el_tema": 1,
-     "estado": "pendiente",
-     "leccion": null
+     "estado": "borrador para revisión",
+     "leccion": "lecciones/matbas-exponentes.json"
     },
     {
      "tema": "Polinomios y división",
      "preguntas_banco": 8,
      "parciales_con_el_tema": 1,
-     "estado": "pendiente",
-     "leccion": null
+     "estado": "borrador para revisión",
+     "leccion": "lecciones/matbas-polinomios.json"
     },
     {
      "tema": "Productos notables y factorización",
      "preguntas_banco": 8,
      "parciales_con_el_tema": 1,
-     "estado": "pendiente",
-     "leccion": null
+     "estado": "borrador para revisión",
+     "leccion": "lecciones/matbas-notables.json"
     },
     {
      "tema": "Fracciones algebraicas",
      "preguntas_banco": 7,
      "parciales_con_el_tema": 1,
-     "estado": "pendiente",
-     "leccion": null
+     "estado": "borrador para revisión",
+     "leccion": "lecciones/matbas-fracciones.json"
     }
    ]
   },

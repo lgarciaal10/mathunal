@@ -1,0 +1,1436 @@
+{
+ "esquema": 1,
+ "id": "mb-m1-l3",
+ "ejemplo": true,
+ "curso": "Matemáticas Básicas",
+ "modulo": "Módulo 1 Álgebra y expresiones",
+ "posicion": "Lección 3 de 4",
+ "titulo": "Productos notables y factorización",
+ "minutos": 26,
+ "ejercicios": 6,
+ "grafica": {
+  "tipo": "plano",
+  "x": [
+   -3.5,
+   3.5
+  ],
+  "y": [
+   -2.5,
+   19
+  ],
+  "a": 0.5,
+  "b": 2.5,
+  "inicio": 1,
+  "elementos": [
+   {
+    "t": "trazo",
+    "puntos": [
+     [
+      "-3.5000",
+      "-3.5000*-3.5000+2*x*-3.5000"
+     ],
+     [
+      "-3.4300",
+      "-3.4300*-3.4300+2*x*-3.4300"
+     ],
+     [
+      "-3.3600",
+      "-3.3600*-3.3600+2*x*-3.3600"
+     ],
+     [
+      "-3.2900",
+      "-3.2900*-3.2900+2*x*-3.2900"
+     ],
+     [
+      "-3.2200",
+      "-3.2200*-3.2200+2*x*-3.2200"
+     ],
+     [
+      "-3.1500",
+      "-3.1500*-3.1500+2*x*-3.1500"
+     ],
+     [
+      "-3.0800",
+      "-3.0800*-3.0800+2*x*-3.0800"
+     ],
+     [
+      "-3.0100",
+      "-3.0100*-3.0100+2*x*-3.0100"
+     ],
+     [
+      "-2.9400",
+      "-2.9400*-2.9400+2*x*-2.9400"
+     ],
+     [
+      "-2.8700",
+      "-2.8700*-2.8700+2*x*-2.8700"
+     ],
+     [
+      "-2.8000",
+      "-2.8000*-2.8000+2*x*-2.8000"
+     ],
+     [
+      "-2.7300",
+      "-2.7300*-2.7300+2*x*-2.7300"
+     ],
+     [
+      "-2.6600",
+      "-2.6600*-2.6600+2*x*-2.6600"
+     ],
+     [
+      "-2.5900",
+      "-2.5900*-2.5900+2*x*-2.5900"
+     ],
+     [
+      "-2.5200",
+      "-2.5200*-2.5200+2*x*-2.5200"
+     ],
+     [
+      "-2.4500",
+      "-2.4500*-2.4500+2*x*-2.4500"
+     ],
+     [
+      "-2.3800",
+      "-2.3800*-2.3800+2*x*-2.3800"
+     ],
+     [
+      "-2.3100",
+      "-2.3100*-2.3100+2*x*-2.3100"
+     ],
+     [
+      "-2.2400",
+      "-2.2400*-2.2400+2*x*-2.2400"
+     ],
+     [
+      "-2.1700",
+      "-2.1700*-2.1700+2*x*-2.1700"
+     ],
+     [
+      "-2.1000",
+      "-2.1000*-2.1000+2*x*-2.1000"
+     ],
+     [
+      "-2.0300",
+      "-2.0300*-2.0300+2*x*-2.0300"
+     ],
+     [
+      "-1.9600",
+      "-1.9600*-1.9600+2*x*-1.9600"
+     ],
+     [
+      "-1.8900",
+      "-1.8900*-1.8900+2*x*-1.8900"
+     ],
+     [
+      "-1.8200",
+      "-1.8200*-1.8200+2*x*-1.8200"
+     ],
+     [
+      "-1.7500",
+      "-1.7500*-1.7500+2*x*-1.7500"
+     ],
+     [
+      "-1.6800",
+      "-1.6800*-1.6800+2*x*-1.6800"
+     ],
+     [
+      "-1.6100",
+      "-1.6100*-1.6100+2*x*-1.6100"
+     ],
+     [
+      "-1.5400",
+      "-1.5400*-1.5400+2*x*-1.5400"
+     ],
+     [
+      "-1.4700",
+      "-1.4700*-1.4700+2*x*-1.4700"
+     ],
+     [
+      "-1.4000",
+      "-1.4000*-1.4000+2*x*-1.4000"
+     ],
+     [
+      "-1.3300",
+      "-1.3300*-1.3300+2*x*-1.3300"
+     ],
+     [
+      "-1.2600",
+      "-1.2600*-1.2600+2*x*-1.2600"
+     ],
+     [
+      "-1.1900",
+      "-1.1900*-1.1900+2*x*-1.1900"
+     ],
+     [
+      "-1.1200",
+      "-1.1200*-1.1200+2*x*-1.1200"
+     ],
+     [
+      "-1.0500",
+      "-1.0500*-1.0500+2*x*-1.0500"
+     ],
+     [
+      "-0.9800",
+      "-0.9800*-0.9800+2*x*-0.9800"
+     ],
+     [
+      "-0.9100",
+      "-0.9100*-0.9100+2*x*-0.9100"
+     ],
+     [
+      "-0.8400",
+      "-0.8400*-0.8400+2*x*-0.8400"
+     ],
+     [
+      "-0.7700",
+      "-0.7700*-0.7700+2*x*-0.7700"
+     ],
+     [
+      "-0.7000",
+      "-0.7000*-0.7000+2*x*-0.7000"
+     ],
+     [
+      "-0.6300",
+      "-0.6300*-0.6300+2*x*-0.6300"
+     ],
+     [
+      "-0.5600",
+      "-0.5600*-0.5600+2*x*-0.5600"
+     ],
+     [
+      "-0.4900",
+      "-0.4900*-0.4900+2*x*-0.4900"
+     ],
+     [
+      "-0.4200",
+      "-0.4200*-0.4200+2*x*-0.4200"
+     ],
+     [
+      "-0.3500",
+      "-0.3500*-0.3500+2*x*-0.3500"
+     ],
+     [
+      "-0.2800",
+      "-0.2800*-0.2800+2*x*-0.2800"
+     ],
+     [
+      "-0.2100",
+      "-0.2100*-0.2100+2*x*-0.2100"
+     ],
+     [
+      "-0.1400",
+      "-0.1400*-0.1400+2*x*-0.1400"
+     ],
+     [
+      "-0.0700",
+      "-0.0700*-0.0700+2*x*-0.0700"
+     ],
+     [
+      "0.0000",
+      "0.0000*0.0000+2*x*0.0000"
+     ],
+     [
+      "0.0700",
+      "0.0700*0.0700+2*x*0.0700"
+     ],
+     [
+      "0.1400",
+      "0.1400*0.1400+2*x*0.1400"
+     ],
+     [
+      "0.2100",
+      "0.2100*0.2100+2*x*0.2100"
+     ],
+     [
+      "0.2800",
+      "0.2800*0.2800+2*x*0.2800"
+     ],
+     [
+      "0.3500",
+      "0.3500*0.3500+2*x*0.3500"
+     ],
+     [
+      "0.4200",
+      "0.4200*0.4200+2*x*0.4200"
+     ],
+     [
+      "0.4900",
+      "0.4900*0.4900+2*x*0.4900"
+     ],
+     [
+      "0.5600",
+      "0.5600*0.5600+2*x*0.5600"
+     ],
+     [
+      "0.6300",
+      "0.6300*0.6300+2*x*0.6300"
+     ],
+     [
+      "0.7000",
+      "0.7000*0.7000+2*x*0.7000"
+     ],
+     [
+      "0.7700",
+      "0.7700*0.7700+2*x*0.7700"
+     ],
+     [
+      "0.8400",
+      "0.8400*0.8400+2*x*0.8400"
+     ],
+     [
+      "0.9100",
+      "0.9100*0.9100+2*x*0.9100"
+     ],
+     [
+      "0.9800",
+      "0.9800*0.9800+2*x*0.9800"
+     ],
+     [
+      "1.0500",
+      "1.0500*1.0500+2*x*1.0500"
+     ],
+     [
+      "1.1200",
+      "1.1200*1.1200+2*x*1.1200"
+     ],
+     [
+      "1.1900",
+      "1.1900*1.1900+2*x*1.1900"
+     ],
+     [
+      "1.2600",
+      "1.2600*1.2600+2*x*1.2600"
+     ],
+     [
+      "1.3300",
+      "1.3300*1.3300+2*x*1.3300"
+     ],
+     [
+      "1.4000",
+      "1.4000*1.4000+2*x*1.4000"
+     ],
+     [
+      "1.4700",
+      "1.4700*1.4700+2*x*1.4700"
+     ],
+     [
+      "1.5400",
+      "1.5400*1.5400+2*x*1.5400"
+     ],
+     [
+      "1.6100",
+      "1.6100*1.6100+2*x*1.6100"
+     ],
+     [
+      "1.6800",
+      "1.6800*1.6800+2*x*1.6800"
+     ],
+     [
+      "1.7500",
+      "1.7500*1.7500+2*x*1.7500"
+     ],
+     [
+      "1.8200",
+      "1.8200*1.8200+2*x*1.8200"
+     ],
+     [
+      "1.8900",
+      "1.8900*1.8900+2*x*1.8900"
+     ],
+     [
+      "1.9600",
+      "1.9600*1.9600+2*x*1.9600"
+     ],
+     [
+      "2.0300",
+      "2.0300*2.0300+2*x*2.0300"
+     ],
+     [
+      "2.1000",
+      "2.1000*2.1000+2*x*2.1000"
+     ],
+     [
+      "2.1700",
+      "2.1700*2.1700+2*x*2.1700"
+     ],
+     [
+      "2.2400",
+      "2.2400*2.2400+2*x*2.2400"
+     ],
+     [
+      "2.3100",
+      "2.3100*2.3100+2*x*2.3100"
+     ],
+     [
+      "2.3800",
+      "2.3800*2.3800+2*x*2.3800"
+     ],
+     [
+      "2.4500",
+      "2.4500*2.4500+2*x*2.4500"
+     ],
+     [
+      "2.5200",
+      "2.5200*2.5200+2*x*2.5200"
+     ],
+     [
+      "2.5900",
+      "2.5900*2.5900+2*x*2.5900"
+     ],
+     [
+      "2.6600",
+      "2.6600*2.6600+2*x*2.6600"
+     ],
+     [
+      "2.7300",
+      "2.7300*2.7300+2*x*2.7300"
+     ],
+     [
+      "2.8000",
+      "2.8000*2.8000+2*x*2.8000"
+     ],
+     [
+      "2.8700",
+      "2.8700*2.8700+2*x*2.8700"
+     ],
+     [
+      "2.9400",
+      "2.9400*2.9400+2*x*2.9400"
+     ],
+     [
+      "3.0100",
+      "3.0100*3.0100+2*x*3.0100"
+     ],
+     [
+      "3.0800",
+      "3.0800*3.0800+2*x*3.0800"
+     ],
+     [
+      "3.1500",
+      "3.1500*3.1500+2*x*3.1500"
+     ],
+     [
+      "3.2200",
+      "3.2200*3.2200+2*x*3.2200"
+     ],
+     [
+      "3.2900",
+      "3.2900*3.2900+2*x*3.2900"
+     ],
+     [
+      "3.3600",
+      "3.3600*3.3600+2*x*3.3600"
+     ],
+     [
+      "3.4300",
+      "3.4300*3.4300+2*x*3.4300"
+     ],
+     [
+      "3.5000",
+      "3.5000*3.5000+2*x*3.5000"
+     ]
+    ],
+    "c": 3,
+    "guia": true
+   },
+   {
+    "t": "trazo",
+    "puntos": [
+     [
+      "-3.5000",
+      "(-3.5000+x)*(-3.5000+x)"
+     ],
+     [
+      "-3.4300",
+      "(-3.4300+x)*(-3.4300+x)"
+     ],
+     [
+      "-3.3600",
+      "(-3.3600+x)*(-3.3600+x)"
+     ],
+     [
+      "-3.2900",
+      "(-3.2900+x)*(-3.2900+x)"
+     ],
+     [
+      "-3.2200",
+      "(-3.2200+x)*(-3.2200+x)"
+     ],
+     [
+      "-3.1500",
+      "(-3.1500+x)*(-3.1500+x)"
+     ],
+     [
+      "-3.0800",
+      "(-3.0800+x)*(-3.0800+x)"
+     ],
+     [
+      "-3.0100",
+      "(-3.0100+x)*(-3.0100+x)"
+     ],
+     [
+      "-2.9400",
+      "(-2.9400+x)*(-2.9400+x)"
+     ],
+     [
+      "-2.8700",
+      "(-2.8700+x)*(-2.8700+x)"
+     ],
+     [
+      "-2.8000",
+      "(-2.8000+x)*(-2.8000+x)"
+     ],
+     [
+      "-2.7300",
+      "(-2.7300+x)*(-2.7300+x)"
+     ],
+     [
+      "-2.6600",
+      "(-2.6600+x)*(-2.6600+x)"
+     ],
+     [
+      "-2.5900",
+      "(-2.5900+x)*(-2.5900+x)"
+     ],
+     [
+      "-2.5200",
+      "(-2.5200+x)*(-2.5200+x)"
+     ],
+     [
+      "-2.4500",
+      "(-2.4500+x)*(-2.4500+x)"
+     ],
+     [
+      "-2.3800",
+      "(-2.3800+x)*(-2.3800+x)"
+     ],
+     [
+      "-2.3100",
+      "(-2.3100+x)*(-2.3100+x)"
+     ],
+     [
+      "-2.2400",
+      "(-2.2400+x)*(-2.2400+x)"
+     ],
+     [
+      "-2.1700",
+      "(-2.1700+x)*(-2.1700+x)"
+     ],
+     [
+      "-2.1000",
+      "(-2.1000+x)*(-2.1000+x)"
+     ],
+     [
+      "-2.0300",
+      "(-2.0300+x)*(-2.0300+x)"
+     ],
+     [
+      "-1.9600",
+      "(-1.9600+x)*(-1.9600+x)"
+     ],
+     [
+      "-1.8900",
+      "(-1.8900+x)*(-1.8900+x)"
+     ],
+     [
+      "-1.8200",
+      "(-1.8200+x)*(-1.8200+x)"
+     ],
+     [
+      "-1.7500",
+      "(-1.7500+x)*(-1.7500+x)"
+     ],
+     [
+      "-1.6800",
+      "(-1.6800+x)*(-1.6800+x)"
+     ],
+     [
+      "-1.6100",
+      "(-1.6100+x)*(-1.6100+x)"
+     ],
+     [
+      "-1.5400",
+      "(-1.5400+x)*(-1.5400+x)"
+     ],
+     [
+      "-1.4700",
+      "(-1.4700+x)*(-1.4700+x)"
+     ],
+     [
+      "-1.4000",
+      "(-1.4000+x)*(-1.4000+x)"
+     ],
+     [
+      "-1.3300",
+      "(-1.3300+x)*(-1.3300+x)"
+     ],
+     [
+      "-1.2600",
+      "(-1.2600+x)*(-1.2600+x)"
+     ],
+     [
+      "-1.1900",
+      "(-1.1900+x)*(-1.1900+x)"
+     ],
+     [
+      "-1.1200",
+      "(-1.1200+x)*(-1.1200+x)"
+     ],
+     [
+      "-1.0500",
+      "(-1.0500+x)*(-1.0500+x)"
+     ],
+     [
+      "-0.9800",
+      "(-0.9800+x)*(-0.9800+x)"
+     ],
+     [
+      "-0.9100",
+      "(-0.9100+x)*(-0.9100+x)"
+     ],
+     [
+      "-0.8400",
+      "(-0.8400+x)*(-0.8400+x)"
+     ],
+     [
+      "-0.7700",
+      "(-0.7700+x)*(-0.7700+x)"
+     ],
+     [
+      "-0.7000",
+      "(-0.7000+x)*(-0.7000+x)"
+     ],
+     [
+      "-0.6300",
+      "(-0.6300+x)*(-0.6300+x)"
+     ],
+     [
+      "-0.5600",
+      "(-0.5600+x)*(-0.5600+x)"
+     ],
+     [
+      "-0.4900",
+      "(-0.4900+x)*(-0.4900+x)"
+     ],
+     [
+      "-0.4200",
+      "(-0.4200+x)*(-0.4200+x)"
+     ],
+     [
+      "-0.3500",
+      "(-0.3500+x)*(-0.3500+x)"
+     ],
+     [
+      "-0.2800",
+      "(-0.2800+x)*(-0.2800+x)"
+     ],
+     [
+      "-0.2100",
+      "(-0.2100+x)*(-0.2100+x)"
+     ],
+     [
+      "-0.1400",
+      "(-0.1400+x)*(-0.1400+x)"
+     ],
+     [
+      "-0.0700",
+      "(-0.0700+x)*(-0.0700+x)"
+     ],
+     [
+      "0.0000",
+      "(0.0000+x)*(0.0000+x)"
+     ],
+     [
+      "0.0700",
+      "(0.0700+x)*(0.0700+x)"
+     ],
+     [
+      "0.1400",
+      "(0.1400+x)*(0.1400+x)"
+     ],
+     [
+      "0.2100",
+      "(0.2100+x)*(0.2100+x)"
+     ],
+     [
+      "0.2800",
+      "(0.2800+x)*(0.2800+x)"
+     ],
+     [
+      "0.3500",
+      "(0.3500+x)*(0.3500+x)"
+     ],
+     [
+      "0.4200",
+      "(0.4200+x)*(0.4200+x)"
+     ],
+     [
+      "0.4900",
+      "(0.4900+x)*(0.4900+x)"
+     ],
+     [
+      "0.5600",
+      "(0.5600+x)*(0.5600+x)"
+     ],
+     [
+      "0.6300",
+      "(0.6300+x)*(0.6300+x)"
+     ],
+     [
+      "0.7000",
+      "(0.7000+x)*(0.7000+x)"
+     ],
+     [
+      "0.7700",
+      "(0.7700+x)*(0.7700+x)"
+     ],
+     [
+      "0.8400",
+      "(0.8400+x)*(0.8400+x)"
+     ],
+     [
+      "0.9100",
+      "(0.9100+x)*(0.9100+x)"
+     ],
+     [
+      "0.9800",
+      "(0.9800+x)*(0.9800+x)"
+     ],
+     [
+      "1.0500",
+      "(1.0500+x)*(1.0500+x)"
+     ],
+     [
+      "1.1200",
+      "(1.1200+x)*(1.1200+x)"
+     ],
+     [
+      "1.1900",
+      "(1.1900+x)*(1.1900+x)"
+     ],
+     [
+      "1.2600",
+      "(1.2600+x)*(1.2600+x)"
+     ],
+     [
+      "1.3300",
+      "(1.3300+x)*(1.3300+x)"
+     ],
+     [
+      "1.4000",
+      "(1.4000+x)*(1.4000+x)"
+     ],
+     [
+      "1.4700",
+      "(1.4700+x)*(1.4700+x)"
+     ],
+     [
+      "1.5400",
+      "(1.5400+x)*(1.5400+x)"
+     ],
+     [
+      "1.6100",
+      "(1.6100+x)*(1.6100+x)"
+     ],
+     [
+      "1.6800",
+      "(1.6800+x)*(1.6800+x)"
+     ],
+     [
+      "1.7500",
+      "(1.7500+x)*(1.7500+x)"
+     ],
+     [
+      "1.8200",
+      "(1.8200+x)*(1.8200+x)"
+     ],
+     [
+      "1.8900",
+      "(1.8900+x)*(1.8900+x)"
+     ],
+     [
+      "1.9600",
+      "(1.9600+x)*(1.9600+x)"
+     ],
+     [
+      "2.0300",
+      "(2.0300+x)*(2.0300+x)"
+     ],
+     [
+      "2.1000",
+      "(2.1000+x)*(2.1000+x)"
+     ],
+     [
+      "2.1700",
+      "(2.1700+x)*(2.1700+x)"
+     ],
+     [
+      "2.2400",
+      "(2.2400+x)*(2.2400+x)"
+     ],
+     [
+      "2.3100",
+      "(2.3100+x)*(2.3100+x)"
+     ],
+     [
+      "2.3800",
+      "(2.3800+x)*(2.3800+x)"
+     ],
+     [
+      "2.4500",
+      "(2.4500+x)*(2.4500+x)"
+     ],
+     [
+      "2.5200",
+      "(2.5200+x)*(2.5200+x)"
+     ],
+     [
+      "2.5900",
+      "(2.5900+x)*(2.5900+x)"
+     ],
+     [
+      "2.6600",
+      "(2.6600+x)*(2.6600+x)"
+     ],
+     [
+      "2.7300",
+      "(2.7300+x)*(2.7300+x)"
+     ],
+     [
+      "2.8000",
+      "(2.8000+x)*(2.8000+x)"
+     ],
+     [
+      "2.8700",
+      "(2.8700+x)*(2.8700+x)"
+     ],
+     [
+      "2.9400",
+      "(2.9400+x)*(2.9400+x)"
+     ],
+     [
+      "3.0100",
+      "(3.0100+x)*(3.0100+x)"
+     ],
+     [
+      "3.0800",
+      "(3.0800+x)*(3.0800+x)"
+     ],
+     [
+      "3.1500",
+      "(3.1500+x)*(3.1500+x)"
+     ],
+     [
+      "3.2200",
+      "(3.2200+x)*(3.2200+x)"
+     ],
+     [
+      "3.2900",
+      "(3.2900+x)*(3.2900+x)"
+     ],
+     [
+      "3.3600",
+      "(3.3600+x)*(3.3600+x)"
+     ],
+     [
+      "3.4300",
+      "(3.4300+x)*(3.4300+x)"
+     ],
+     [
+      "3.5000",
+      "(3.5000+x)*(3.5000+x)"
+     ]
+    ],
+    "c": 2
+   },
+   {
+    "t": "recta",
+    "p": [
+     "1",
+     "0"
+    ],
+    "dir": [
+     "0",
+     "1"
+    ],
+    "guion": true,
+    "c": 3
+   },
+   {
+    "t": "punto",
+    "p": [
+     "1",
+     "(1+x)*(1+x)"
+    ],
+    "c": 1
+   },
+   {
+    "t": "punto",
+    "p": [
+     "1",
+     "1+2*x"
+    ],
+    "c": 3,
+    "guia": true
+   }
+  ],
+  "lecturas": [
+   {
+    "rotulo": "valor de h",
+    "formula": "x"
+   },
+   {
+    "rotulo": "lo que falta, h al cuadrado",
+    "formula": "x*x"
+   }
+  ],
+  "etiquetas": [
+   "Valor de h",
+   "Distancia entre las curvas, h al cuadrado"
+  ],
+  "etiquetaSlider": "Valor de h",
+  "alt": "Las curvas x más h, al cuadrado, y x al cuadrado más 2h x. La distancia vertical entre las dos es siempre h al cuadrado, el término que falta"
+ },
+ "glosario": {
+  "notable": "Un producto notable es un producto de polinomios que se puede escribir directo, sin multiplicar término a término, como el cuadrado de una suma.",
+  "factorizar": "Factorizar es escribir una expresión como un producto de expresiones más simples. Es el camino contrario a los productos notables.",
+  "trinomio": "Un trinomio cuadrado perfecto es una expresión de tres términos que es el cuadrado de un binomio, como x al cuadrado más 6x más 9."
+ },
+ "ver": {
+  "duracion": 22.0,
+  "capitulos": [
+   [
+    0,
+    4,
+    "La curva grande es x más h, al cuadrado. La curva de apoyo es solo x al cuadrado más 2h por x."
+   ],
+   [
+    4,
+    8,
+    "Entre las dos hay una distancia fija. Se ve en x igual a 1, entre los dos puntos."
+   ],
+   [
+    8,
+    14,
+    "Al subir h, esa distancia crece. Es h al cuadrado, el término que falta. Por eso x más h, al cuadrado, no es x al cuadrado más h al cuadrado."
+   ],
+   [
+    14,
+    18,
+    "Con h igual a 2, la distancia es 4. Mira la lectura de abajo."
+   ],
+   [
+    18,
+    22,
+    "Con h igual a 1.5 la distancia es 2.25. El error más común es olvidar el término del medio, el doble producto."
+   ]
+  ],
+  "canales": {
+   "draw": [
+    [
+     0.3,
+     0
+    ],
+    [
+     3.5,
+     1
+    ]
+   ],
+   "d": [
+    [
+     4,
+     1
+    ],
+    [
+     8,
+     1
+    ],
+    [
+     11,
+     2.5
+    ],
+    [
+     13,
+     2
+    ],
+    [
+     17,
+     2
+    ],
+    [
+     18,
+     1.5
+    ],
+    [
+     22,
+     1.5
+    ]
+   ],
+   "guide": [
+    [
+     4,
+     0
+    ],
+    [
+     5,
+     1
+    ]
+   ]
+  },
+  "intervalos": {
+   "ok": [
+    18,
+    22
+   ]
+  }
+ },
+ "leer": {
+  "secciones": [
+   {
+    "titulo": "La idea",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Los {{gl:notable|productos notables}} son atajos para multiplicar, y la {{gl:factorizar|factorización}} es usarlos al revés. Saber factorizar sirve para simplificar fracciones, resolver ecuaciones y hallar ceros. Casi todo se reduce a reconocer unos pocos patrones."
+     }
+    ]
+   },
+   {
+    "titulo": "Un ejemplo",
+    "corto": "Un ejemplo",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mira el cuadrado de una suma. Falta algo si solo se elevan los términos al cuadrado."
+     },
+     {
+      "t": "eq",
+      "tex": "(x+h)^{2}=x^{2}+2hx+h^{2}"
+     },
+     {
+      "t": "grafica",
+      "animar": "dibujar",
+      "alt": "Las dos curvas"
+     }
+    ]
+   },
+   {
+    "titulo": "Piensa antes de ver",
+    "corto": "Piensa",
+    "bloques": [
+     {
+      "t": "piensa",
+      "pregunta": "En x más 3, al cuadrado, el término del medio es 2 por x por 3. ¿Cuánto vale ese coeficiente de x?",
+      "opciones": [
+       3,
+       6,
+       9,
+       12
+      ],
+      "correcta": 6,
+      "bien": "Muy bien. Es 6x. Más abajo se ve qué pasa si se olvida ese término.",
+      "mal": "Es 6, porque 2 por 3 es 6. Más abajo se ve qué pasa si se olvida ese término."
+     }
+    ]
+   },
+   {
+    "titulo": "Lo que falta",
+    "corto": "Lo que falta",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mira cómo cambia la distancia entre las curvas al cambiar h."
+     },
+     {
+      "t": "acercando",
+      "ds": [
+       1,
+       2,
+       2.5,
+       1.5
+      ],
+      "alt": "La distancia para varios h"
+     },
+     {
+      "t": "p",
+      "html": "La distancia entre las curvas es h al cuadrado. Es justo el término que se pierde si se olvida el doble producto, o si se dice que el cuadrado de una suma es la suma de los cuadrados."
+     }
+    ]
+   },
+   {
+    "titulo": "Los productos notables",
+    "corto": "Productos",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Estos son los patrones que más se usan."
+     },
+     {
+      "t": "pasos",
+      "items": [
+       {
+        "tex": "(a+b)^{2}=a^{2}+2ab+b^{2},\\qquad (a-b)^{2}=a^{2}-2ab+b^{2}",
+        "porque": "El cuadrado de una suma o de una resta."
+       },
+       {
+        "tex": "(a+b)(a-b)=a^{2}-b^{2}",
+        "porque": "La diferencia de cuadrados."
+       },
+       {
+        "tex": "a^{3}-b^{3}=(a-b)\\left(a^{2}+ab+b^{2}\\right)",
+        "porque": "La diferencia de cubos."
+       },
+       {
+        "tex": "(2x-3)^{2}=4x^{2}-12x+9",
+        "porque": "Un ejemplo, con a igual a 2x y b igual a 3."
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "Factorizar",
+    "corto": "Factorizar",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Para factorizar se prueban estos pasos, en este orden."
+     },
+     {
+      "t": "pasos",
+      "items": [
+       {
+        "tex": "3x^{2}-12=3\\left(x^{2}-4\\right)=3(x-2)(x+2)",
+        "porque": "Primero el factor común, y después la diferencia de cuadrados."
+       },
+       {
+        "tex": "x^{2}-9x+20=(x-4)(x-5)",
+        "porque": "Se buscan dos números que sumen menos 9 y multipliquen 20."
+       },
+       {
+        "tex": "6x^{2}+x-2=(2x-1)(3x+2)",
+        "porque": "Con coeficiente distinto de 1 se prueban los factores de 6 y de menos 2."
+       }
+      ]
+     },
+     {
+      "t": "ojo",
+      "html": "Siempre se puede comprobar multiplicando. Si al multiplicar los factores no sale la expresión original, la factorización está mal."
+     }
+    ]
+   },
+   {
+    "titulo": "¿Para qué sirve?",
+    "corto": "En ingeniería",
+    "bloques": [
+     {
+      "t": "ingenieria",
+      "titulo": "Una placa que se dilata",
+      "html": "Una placa cuadrada de acero se calienta y su lado crece un poco. El área nueva es el cuadrado de una suma, y el término h al cuadrado resulta tan pequeño que en la práctica se desprecia.",
+      "tex": "A=(L+\\Delta L)^{2}=L^{2}+2L\\,\\Delta L+\\Delta L^{2}",
+      "datos": [
+       {
+        "k": "Lado",
+        "v": "1 m"
+       },
+       {
+        "k": "Aumento de lado",
+        "v": "0.6 mm"
+       },
+       {
+        "k": "Aumento de área",
+        "v": "unos 12 cm²"
+       }
+      ],
+      "cierre": "Con 50 grados de aumento y un coeficiente de 12 millonésimas por grado, el lado crece 0.6 milímetros. El aumento de área es 2 por L por el aumento, o sea 12 centímetros cuadrados, más el término del cuadrado, que es 0.0036 centímetros cuadrados y pesa menos del 0.03 por ciento. Por eso en ingeniería se usa 2 L por el aumento. Es una aproximación válida para cambios pequeños."
+     }
+    ]
+   },
+   {
+    "titulo": "Completa el paso",
+    "corto": "Completa",
+    "bloques": [
+     {
+      "t": "completar",
+      "enunciado": "Se desarrolla el cuadrado de una resta.",
+      "tex": "(2x-3)^{2}=4x^{2}-12x+[[hueco]]",
+      "opciones": [
+       {
+        "tex": "9",
+        "txt": "nueve"
+       },
+       {
+        "tex": "-9",
+        "txt": "menos nueve"
+       },
+       {
+        "tex": "6",
+        "txt": "seis"
+       }
+      ],
+      "correcta": 0,
+      "errores": [
+       "",
+       "Al elevar menos 3 al cuadrado el signo se pierde, y queda positivo.",
+       "El 6 sería 2 por 3, que ya aparece en el término del medio, y no el cuadrado de 3."
+      ],
+      "pista": "El último término es el cuadrado de 3.",
+      "porque": "Tres al cuadrado es 9, y es positivo."
+     }
+    ]
+   },
+   {
+    "titulo": "Encuentra el error",
+    "corto": "Error",
+    "bloques": [
+     {
+      "t": "error",
+      "enunciado": "Alguien factorizó x al cuadrado, menos 7x, más 12, y se equivocó en un paso. Toca el paso que está mal.",
+      "pasos": [
+       {
+        "tex": "\\text{Dos números que suman}\\ -7\\ \\text{y multiplican}\\ 12",
+        "porque": "Lo que se busca.",
+        "txt": "se buscan dos números que sumen menos 7 y multipliquen 12"
+       },
+       {
+        "tex": "\\text{Son}\\ -3\\ \\text{y}\\ -4",
+        "porque": "Los dos números.",
+        "txt": "son menos 3 y menos 4"
+       },
+       {
+        "tex": "x^{2}-7x+12=(x-3)(x+4)",
+        "porque": "Este paso es el que falla.",
+        "txt": "queda x menos 3 por x más 4"
+       }
+      ],
+      "mal": 2,
+      "explicacion": "Los números son menos 3 y menos 4, así que los factores son x menos 3 y x menos 4. Con x más 4 el término del medio sería x, no menos 7x.",
+      "correccion": "x^{2}-7x+12=(x-3)(x-4)",
+      "pista": "Compara los signos de los factores con los de los números."
+     }
+    ]
+   },
+   {
+    "titulo": "Ordena los pasos",
+    "corto": "Ordena",
+    "bloques": [
+     {
+      "t": "ordenar",
+      "enunciado": "Estos son los pasos para factorizar 3x al cuadrado menos 12, pero están desordenados.",
+      "pasos": [
+       "3x^{2}-12",
+       "3\\left(x^{2}-4\\right)",
+       "3\\left(x^{2}-2^{2}\\right)",
+       "3(x-2)(x+2)"
+      ],
+      "mezcla": [
+       2,
+       0,
+       3,
+       1
+      ],
+      "porque": "Se saca el factor común, se reconoce la diferencia de cuadrados y se factoriza.",
+      "pista": "Se empieza con la expresión original.",
+      "txt": [
+       "La expresión original",
+       "Se saca factor común 3",
+       "Se reconoce una diferencia de cuadrados",
+       "Se factoriza"
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "Revisa tu respuesta",
+    "corto": "Revisa",
+    "bloques": [
+     {
+      "t": "pregunta"
+     },
+     {
+      "t": "nota",
+      "html": "Puedes pedir pistas de a una. Si fallas, el mensaje te dice qué error se cometió."
+     }
+    ]
+   },
+   {
+    "titulo": "Mini simulacro",
+    "corto": "Simulacro",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Tres preguntas reales del banco de MathUNAL sobre este tema. Responde sin mirar los pasos."
+     },
+     {
+      "t": "simulacro",
+      "titulo": "Mini simulacro de productos notables y factorización",
+      "preguntas": [
+       {
+        "tipo": "mcq",
+        "texto": "El desarrollo de $(2x-3)^{2}$ es:",
+        "opciones": [
+         "$4x^2-12x+9$",
+         "$4x^2+9$",
+         "$4x^2-6x+9$",
+         "$2x^2-12x+9$"
+        ],
+        "correcta": 0,
+        "resumen": "El cuadrado de una resta da $a^2-2ab+b^2$, con $a=2x$ y $b=3$.",
+        "fuente": "Banco MathUNAL, simulacro de Matemáticas Básicas"
+       },
+       {
+        "tipo": "mcq",
+        "texto": "Factorice $x^{2}-9x+20$:",
+        "opciones": [
+         "$(x-4)(x-5)$",
+         "$(x-2)(x-10)$",
+         "$(x+4)(x+5)$",
+         "$(x-1)(x-20)$"
+        ],
+        "correcta": 0,
+        "resumen": "Se buscan dos números que sumen $-9$ y multipliquen $20$, que son $-4$ y $-5$.",
+        "fuente": "Banco MathUNAL, simulacro de Matemáticas Básicas"
+       },
+       {
+        "tipo": "mcq",
+        "texto": "Factorice $6x^{2}+x-2$:",
+        "opciones": [
+         "$(2x-1)(3x+2)$",
+         "$(6x-1)(x+2)$",
+         "$(3x-1)(2x+2)$",
+         "$(2x+1)(3x-2)$"
+        ],
+        "correcta": 0,
+        "resumen": "Se prueban los factores de $6$ y de $-2$ hasta que el término del medio sea $x$.",
+        "fuente": "Banco MathUNAL, simulacro de Matemáticas Básicas"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "Tu repaso",
+    "corto": "Repaso",
+    "bloques": [
+     {
+      "t": "repaso"
+     }
+    ]
+   },
+   {
+    "titulo": "En resumen",
+    "corto": "Resumen",
+    "bloques": [
+     {
+      "t": "resumen"
+     }
+    ]
+   }
+  ]
+ },
+ "practicar": {
+  "pasos": [
+   {
+    "titulo": "Las curvas",
+    "grafica": {
+     "draw": 1,
+     "guide": 1
+    },
+    "bloques": [
+     {
+      "t": "p",
+      "html": "El cuadrado de una suma y su aproximación sin el último término."
+     },
+     {
+      "t": "eq",
+      "tex": "(x+h)^{2}\\ \\text{y}\\ x^{2}+2hx"
+     }
+    ]
+   },
+   {
+    "titulo": "Cambia h",
+    "grafica": {
+     "draw": 1,
+     "guide": 1
+    },
+    "laboratorio": true,
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mueve el deslizador. La distancia entre las curvas es h al cuadrado."
+     }
+    ]
+   },
+   {
+    "titulo": "Un valor",
+    "grafica": {
+     "draw": 1,
+     "guide": 1,
+     "ok": true
+    },
+    "laboratorio": true,
+    "d": 1.5,
+    "bloques": [
+     {
+      "t": "eq",
+      "tex": "h=1.5\\ \\Rightarrow\\ h^{2}=2.25"
+     },
+     {
+      "t": "p",
+      "html": "Esa es la distancia entre las dos curvas."
+     }
+    ]
+   },
+   {
+    "titulo": "Revisa tu respuesta",
+    "grafica": {
+     "draw": 1,
+     "guide": 1,
+     "ok": true,
+     "d": 1.5
+    },
+    "bloques": [
+     {
+      "t": "pregunta"
+     },
+     {
+      "t": "nota",
+      "html": "Usa la fórmula de la diferencia de cubos."
+     }
+    ]
+   }
+  ]
+ },
+ "pregunta": {
+  "tex": "x^{3}-27\\ \\text{se factoriza como}",
+  "opciones": [
+   "$(x-3)\\left(x^{2}+3x+9\\right)$",
+   "$(x-3)^{3}$",
+   "$(x-3)\\left(x^{2}-3x+9\\right)$",
+   "$(x-3)\\left(x^{2}+9\\right)$"
+  ],
+  "correcta": 0,
+  "explicacion": "Es una diferencia de cubos, con a igual a x y b igual a 3. La fórmula es a menos b por a cuadrado, más ab, más b cuadrado. Queda x menos 3 por x cuadrado, más 3x, más 9.",
+  "verificacion": {
+   "formula": "(x-3)*(x*x+3*x+9)-(x*x*x-27)",
+   "a": 2,
+   "esperado": 0
+  },
+  "pistas": [
+   "Es una diferencia de cubos, porque 27 es 3 al cubo.",
+   "La fórmula es a menos b por a cuadrado más ab más b cuadrado.",
+   "Todos los signos del segundo factor son positivos."
+  ],
+  "errores": [
+   "",
+   "Al desarrollar x menos 3 al cubo salen cuatro términos con signos alternados, no x al cubo menos 27.",
+   "En la diferencia de cubos el término del medio del segundo factor es positivo. Con menos 3x sería una suma de cubos.",
+   "Al multiplicar eso no aparece el término de x al cuadrado que se cancela. Falta el término del medio."
+  ]
+ },
+ "resumen": [
+  "Los productos notables dan el desarrollo directo, como el cuadrado de una suma, la diferencia de cuadrados y la diferencia de cubos.",
+  "El cuadrado de una suma tiene el doble producto, y no es la suma de los cuadrados.",
+  "Para factorizar se saca factor común, se busca un producto notable y se prueba con dos números que sumen y multipliquen lo debido."
+ ]
+}
