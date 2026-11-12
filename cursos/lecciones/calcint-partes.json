@@ -644,10 +644,10 @@
  "pregunta": {
   "tex": "\\int_{1}^{2} x\\ln x\\,dx",
   "opciones": [
-   "2\\ln 2-\\tfrac{3}{4}",
-   "2\\ln 2-1",
-   "2\\ln 2-\\tfrac{5}{4}",
-   "2\\ln 2-\\tfrac{1}{4}"
+   "$2\\ln 2-\\tfrac{3}{4}$",
+   "$2\\ln 2-1$",
+   "$2\\ln 2-\\tfrac{5}{4}$",
+   "$2\\ln 2-\\tfrac{1}{4}$"
   ],
   "correcta": 0,
   "explicacion": "Con u igual a ln x y dv igual a x dx, la primitiva es x al cuadrado sobre 2 por ln x menos x al cuadrado sobre 4. En x igual a 2 vale 2 ln 2 menos 1, y en x igual a 1 vale menos un cuarto. La resta da 2 ln 2 menos tres cuartos.",
