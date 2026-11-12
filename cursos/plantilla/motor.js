@@ -30,7 +30,7 @@
   document.title='Lección '+L.titulo;
   document.getElementById('crumb').innerHTML='<span>'+L.curso+'</span><span class="sep">/</span><span>'+L.modulo+'</span><span class="sep">/</span><span class="num">'+L.posicion+'</span>';
   document.getElementById('titulo').textContent=L.titulo;
-  document.getElementById('lmeta').innerHTML='<span>'+ic('i-clock')+'<span class="num">'+L.minutos+'</span> min</span><span>'+ic('i-target')+'<span class="num">'+L.ejercicios+'</span> ejercicio</span><span>El mismo contenido en tres modos</span>';
+  document.getElementById('lmeta').innerHTML='<span>'+ic('i-clock')+'<span class="num">'+L.minutos+'</span> min</span><span>'+ic('i-target')+'<span class="num">'+L.ejercicios+'</span> '+(L.ejercicios==1?'ejercicio':'ejercicios')+'</span><span>El mismo contenido en tres modos</span>';
   if(L.ejemplo) document.getElementById('chip-ej').hidden=false;
   document.getElementById('v-g').setAttribute('aria-label',G.alt||'Gráfica');
   document.getElementById('p-g').setAttribute('aria-label','Laboratorio de la gráfica');

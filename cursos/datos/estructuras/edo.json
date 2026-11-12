@@ -68,8 +68,8 @@
      "tema": "Coeficientes indeterminados",
      "preguntas_banco": 6,
      "parciales_con_el_tema": 1,
-     "estado": "pendiente",
-     "leccion": null
+     "estado": "borrador para revisión",
+     "leccion": "lecciones/edo-indeterminados.json"
     },
     {
      "tema": "Reducción de orden y Wronskiano",
