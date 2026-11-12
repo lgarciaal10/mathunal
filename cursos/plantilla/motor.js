@@ -168,10 +168,10 @@
         else { o.p.setAttribute('d','M'+X(o.a.x)+' '+(F.y1-4)+' V'+F.y0); o.t.setAttribute('x',X(o.a.x)+10); o.t.setAttribute('y',F.y1+16); }
         o.p.setAttribute('opacity',g); o.t.setAttribute('opacity',g); });
       if(s.d==null){ [dv,pM,lM].forEach(function(e){ e.setAttribute('opacity',0); }); return; }
-      var x=s.d, y=fFun(x), al=s.pa==null?1:s.pa;
+      var x=G.entero?Math.max(0,Math.round(s.d)):s.d, y=fFun(x), al=s.pa==null?1:s.pa;
       pM.setAttribute('cx',X(x)); pM.setAttribute('cy',Y(y)); pM.setAttribute('opacity',al);
       dv.setAttribute('d','M'+X(x)+' '+F.YA()+' V'+Y(y)); dv.setAttribute('opacity',al);
-      lM.setAttribute('x',X(x)); lM.setAttribute('y',Y(y)-18); lM.textContent='x = '+nf(x); lM.setAttribute('opacity',al);
+      lM.setAttribute('x',X(x)); lM.setAttribute('y',Y(y)-18); lM.textContent=(G.rotulos?G.rotulos[0]:'x')+' = '+nf(x); lM.setAttribute('opacity',al);
     }};
   }
   /* polares. La función es r de theta. Estado d = theta del radio móvil. primitiva es el área del sector, la mitad de la integral de r cuadrado */
@@ -234,7 +234,7 @@
   function readouts(d,lEl,rEl){
     if(NEW){ if(d==null){ lEl.textContent='sin datos'; rEl.textContent='sin datos'; return; } var kk=Math.max(0,Math.min(G.pasos,Math.round(d))); lEl.textContent='x'+kk+' = '+nf(NX[kk]); rEl.textContent='f(x'+kk+') = '+nf(fFun(NX[kk])); return; }
     if(ARE){ var RA=G.rotulos||(ENT?['área','separación']:(POL?['área','r']:['área','altura'])); if(d==null){ lEl.textContent='sin datos'; rEl.textContent='sin datos'; return; } var sn=function(v){ return Math.abs(v)<1e-7?0:v; }; lEl.textContent=RA[0]+' = '+nf(sn(fPri(d)-fPri(G.a))); rEl.textContent=RA[1]+' = '+nf(sn(ENT?fFun(d)-fInf(d):fFun(d))); return; }
-    if(ASI){ if(d==null){ lEl.textContent='sin datos'; rEl.textContent='sin datos'; return; } lEl.textContent='x = '+nf(d); rEl.textContent='f(x) = '+nf(fFun(d)); return; }
+    if(ASI){ if(d==null){ lEl.textContent='sin datos'; rEl.textContent='sin datos'; return; } var dd=G.entero?Math.max(0,Math.round(d)):d, RS=G.rotulos||['x','f(x)']; lEl.textContent=RS[0]+' = '+nf(dd); rEl.textContent=RS[1]+' = '+nf(fFun(dd)); return; }
     if(TVM){ var RT=G.rotulos||['tangente','cuerda']; if(d==null){ lEl.textContent='sin datos'; rEl.textContent=RT[1]+' = '+fmt((fFun(G.b)-fFun(G.a))/(G.b-G.a)); return; } lEl.textContent=RT[0]+' = '+fmt(fDer(d)); rEl.textContent=RT[1]+' = '+fmt((fFun(G.b)-fFun(G.a))/(G.b-G.a)); return; }
     if(SEC){ if(d==null){ lEl.textContent='sin datos'; rEl.textContent='sin datos'; return; } var R=G.rotulos||['h','pendiente']; lEl.textContent=R[0]+' = '+fmt(d); rEl.textContent=R[1]+' = '+fmt((fFun(A+d)-fFun(A))/d); return; }
     if(d==null){ lEl.textContent='sin datos'; rEl.textContent='sin datos'; return; } lEl.textContent='f('+fmt(A-d)+') = '+fmt(fFun(A-d)); rEl.textContent='f('+fmt(A+d)+') = '+fmt(fFun(A+d)); }
