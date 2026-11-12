@@ -22,3 +22,7 @@ Las 10 materias restantes tienen su estructura en `datos/estructuras/`, con los 
 1. Elegir un tema pendiente en el archivo de estructura.
 2. Copiar una lección parecida de `lecciones/`, cambiar su contenido y validar con `node plantilla/validar.js`.
 3. Construir la página con `python3 plantilla/construir.py` y probarla en el navegador, en escritorio y en celular.
+
+
+## Cálculo Integral
+Las 13 lecciones de la estructura provisional `datos/estructuras/calcint.json` están escritas como borradores para revisión, en `lecciones/calcint-*.json`. Cada una se genera con un script `herramientas/mk-<nombre>.py` que usa `herramientas/mklib.py`. Diez traen simulacro con 3 preguntas reales del banco y las otras tres no, porque el banco no tiene 3 preguntas distintas de ese tema. Todas traen un ejemplo de ingeniería con cifras verificadas con cálculo. `herramientas/probar.sh nombre` valida, construye y prueba una lección, y `herramientas/sync.sh` la copia al repositorio. La página de avance sale de `hub/build-hub.py`.
