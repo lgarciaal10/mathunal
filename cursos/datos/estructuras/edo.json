@@ -96,8 +96,8 @@
      "tema": "Laplace inversa y PVI",
      "preguntas_banco": 9,
      "parciales_con_el_tema": 2,
-     "estado": "pendiente",
-     "leccion": null
+     "estado": "borrador para revisión",
+     "leccion": "lecciones/edo-inversa.json"
     },
     {
      "tema": "Transformada de Laplace",
