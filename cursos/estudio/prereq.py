@@ -15,5 +15,5 @@ PREREQ={
 'alglin-indep':['alglin-gauss'],'alglin-fundamentales':['alglin-indep'],'alglin-proyeccion':['alglin-indep'],'alglin-transformaciones':['alglin-matrices','alglin-det'],
 'alglin-propios':['alglin-det','alglin-transformaciones'],'alglin-diagonalizacion':['alglin-propios','alglin-indep'],'alglin-gramschmidt':['alglin-proyeccion'],
 'alglin-simetricas':['alglin-diagonalizacion','alglin-gramschmidt'],
-'edo-separables':['calcint-sustitucion'],'edo-lineal':['edo-separables','calcint-sustitucion'],'edo-homogenea':['edo-lineal','calculo-derivada-3'],'edo-laplace':['calcint-impropias','edo-lineal'],
+'edo-separables':['calcint-sustitucion'],'edo-lineal':['edo-separables','calcint-sustitucion'],'edo-homogenea':['edo-lineal','calculo-derivada-3'],'edo-existencia':['edo-separables'],'edo-exactas':['edo-separables','calculo-derivada-3'],'edo-autonomas':['edo-separables'],'edo-bernoulli':['edo-lineal','edo-separables'],'edo-laplace':['calcint-impropias','edo-lineal'],
 }
