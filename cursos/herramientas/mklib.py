@@ -52,3 +52,21 @@ def banco(i,resumen=None):
 def MC(n,*c):
     rows=[c[i:i+n] for i in range(0,len(c),n)]
     return "\\begin{pmatrix}"+"\\\\".join("&".join(str(v) for v in r) for r in rows)+"\\end{pmatrix}"
+
+import math as _m
+def campo(fm,xr,yr,nx,ny,d,margen=0.05):
+    """segmentos del campo de pendientes. fm(x,y) da la pendiente. xr e yr son las ventanas"""
+    el=[]
+    for i in range(nx):
+        for j in range(ny):
+            x0=xr[0]+(xr[1]-xr[0])*(i+0.5)/nx; y0=yr[0]+(yr[1]-yr[0])*(j+0.5)/ny
+            try: m=fm(x0,y0)
+            except Exception: continue
+            if m is None or _m.isnan(m): continue
+            n=_m.hypot(1,m); ax,ay,bx,by=x0-d/n,y0-d*m/n,x0+d/n,y0+d*m/n
+            if all(xr[0]+margen<v<xr[1]-margen for v in (ax,bx)) and all(yr[0]+margen<v<yr[1]-margen for v in (ay,by)):
+                el.append({"t":"segmento","a":[f"{ax:.4f}",f"{ay:.4f}"],"b":[f"{bx:.4f}",f"{by:.4f}"],"c":0})
+    return el
+def trazo(f,x0,x1,n,c=2):
+    """curva dada por una función de xk (cadena con {x} para el valor y x del parámetro)"""
+    return {"t":"trazo","puntos":[[f"{x0+(x1-x0)*k/n:.4f}",f.replace("{x}",f"({x0+(x1-x0)*k/n:.4f})")] for k in range(n+1)],"c":c}
