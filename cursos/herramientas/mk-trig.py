@@ -1,0 +1,75 @@
+from mklib import *
+graf={"tipo":"area","x":[0,1.7],"y":[0,1.2],"funcion":"cos(x)^3","primitiva":"sin(x)-sin(x)^3/3","a":0,"b":1.4,"franja":0.06,"limite":1,
+ "etiquetas":["Área acumulada","Altura de la curva"],"rotulos":["área","altura"],"etiquetaSlider":"Posición de x",
+ "alt":"Curva de coseno al cubo de x con el área bajo ella sombreada desde 0 hasta un x que avanza cerca de pi sobre 2"}
+glos={"ident":"Una identidad trigonométrica es una igualdad que se cumple para todos los valores del ángulo, como seno al cuadrado más coseno al cuadrado igual a 1.",
+ "doble":"Las identidades del ángulo doble escriben el cuadrado de un seno o un coseno en términos del coseno de 2x.",
+ "prim":"Una primitiva de f es una función F cuya derivada es f. Por ejemplo, x al cubo sobre 3 es una primitiva de x al cuadrado."}
+ver={"duracion":22.0,"capitulos":[
+ [0,2.5,"Esta es la curva de f(x) igual a coseno de x al cubo."],
+ [2.5,5,"Se mide el área bajo ella a partir de x igual a 0."],
+ [5,11,"Al avanzar x, el área se va llenando. La curva empieza en 1 y baja hacia el eje."],
+ [11,16,"Cerca de x igual a pi sobre 2, que vale 1.57, la curva casi toca el eje."],
+ [16,22,"El área acumulada se acerca a 2 sobre 3, o sea 0.6667, y esa es la integral de 0 a pi sobre 2."]],
+ "canales":{"draw":[[0.3,0],[2.4,1]],"hole":[[2.5,0],[3.3,1]],"d":[[5,0.3],[11,1.2],[16,1.5],[22,1.5]],"guide":[[11,0],[12,1]]},
+ "intervalos":{"ok":[16,22]}}
+S=[
+ sec("La idea",None,P("Las integrales de potencias de seno y coseno aparecen en muchos problemas de ingeniería. Se resuelven con dos trucos según la potencia. Si hay una potencia impar, se separa un factor y se sustituye. Si todas las potencias son pares, se usan {{gl:doble|identidades del ángulo doble}}.")),
+ sec("Un ejemplo","Un ejemplo",P("Mira la integral del coseno al cubo entre 0 y pi sobre 2, que mide un área."),EQ("\\int_{0}^{\\pi/2}\\cos^{3}x\\,dx"),{"t":"grafica","animar":"dibujar","alt":"Curva que se dibuja y marca el punto de partida en x igual a 0"}),
+ sec("Piensa antes de ver","Piensa",{"t":"piensa","pregunta":"Cuando x vale 0, ¿cuánto vale el coseno al cubo de x?","opciones":[0,0.5,1,2],"correcta":1,"bien":"Muy bien. El coseno de 0 es 1 y su cubo también. Más abajo se ve cómo baja la curva.","mal":"Vale 1, porque el coseno de 0 es 1 y 1 al cubo es 1. Más abajo se ve cómo baja la curva."}),
+ sec("El área que se acumula","El área",P("Mira cómo se llena el área y qué valen el área y la altura en cada x."),{"t":"acercando","ds":[0.5,1,1.3,1.5],"alt":"El área bajo el coseno al cubo que va creciendo hasta cerca de pi sobre 2"},P("Cerca de x igual a pi sobre 2 la curva casi toca el eje y el área acumulada es <b>0.6666</b>. Eso es casi 2 sobre 3, y es lo que debe salir al integrar.")),
+ sec("Potencia impar","Impar",P("Cuando una de las potencias es impar, se separa un factor de esa función y el resto se escribe con la otra, usando que seno al cuadrado más coseno al cuadrado es 1."),
+   PASOS([("\\cos^{3}x=\\cos^{2}x\\cdot\\cos x=\\left(1-\\operatorname{sen}^{2}x\\right)\\cos x","Se separa un coseno y los otros dos se cambian por 1 menos seno al cuadrado."),
+          ("u=\\operatorname{sen}x,\\quad du=\\cos x\\,dx","El factor que quedó suelto es justo la derivada de u."),
+          ("\\int\\left(1-u^{2}\\right)du=u-\\dfrac{u^{3}}{3}+C","Ahora la integral es un polinomio."),
+          ("=\\operatorname{sen}x-\\dfrac{\\operatorname{sen}^{3}x}{3}+C","Se vuelve a x.")]),
+   P("Con los límites, el seno de 0 vale 0 y el de pi sobre 2 vale 1."),
+   PASOS([("\\int_{0}^{\\pi/2}\\cos^{3}x\\,dx=\\Bigl[\\operatorname{sen}x-\\dfrac{\\operatorname{sen}^{3}x}{3}\\Bigr]_{0}^{\\pi/2}=1-\\dfrac{1}{3}=\\dfrac{2}{3}","Sale 2 sobre 3, igual que el área de la gráfica.")]),
+   OJO("Se separa un factor de la potencia impar. Si la potencia impar es del seno, se sustituye u igual al coseno, y aparece un signo menos.")),
+ sec("Potencia par","Par",P("Cuando las potencias son pares no hay un factor suelto. Entonces se baja la potencia con estas identidades."),
+   EQ("\\operatorname{sen}^{2}x=\\dfrac{1-\\cos 2x}{2}\\qquad \\cos^{2}x=\\dfrac{1+\\cos 2x}{2}"),
+   PASOS([("\\int\\cos^{2}x\\,dx=\\dfrac{1}{2}\\int\\left(1+\\cos 2x\\right)dx","Se reemplaza el coseno al cuadrado por la {{gl:ident|identidad}}."),
+          ("=\\dfrac{1}{2}\\left(x+\\dfrac{\\operatorname{sen}2x}{2}\\right)+C","La integral de coseno de 2x es seno de 2x sobre 2, porque hay que compensar el 2 de adentro."),
+          ("=\\dfrac{x}{2}+\\dfrac{\\operatorname{sen}2x}{4}+C","Se distribuye el un medio.")]),
+   OJO("Al integrar coseno de 2x se divide entre 2. Olvidarlo es el error más frecuente en esta técnica.")),
+ sec("Más casos","Más casos",P("Estas integrales se resuelven con las mismas ideas."),
+   PASOS([("\\int\\operatorname{sen}^{3}x\\cos^{2}x\\,dx=-\\dfrac{\\cos^{3}x}{3}+\\dfrac{\\cos^{5}x}{5}+C","El seno tiene potencia impar. Se separa un seno y se sustituye u igual al coseno."),
+          ("\\int\\cot x\\,dx=\\int\\dfrac{\\cos x}{\\operatorname{sen}x}\\,dx=\\ln\\left|\\operatorname{sen}x\\right|+C","La cotangente se escribe como coseno sobre seno y se sustituye u igual al seno."),
+          ("\\int\\operatorname{sen}^{2}x\\cos^{2}x\\,dx=\\dfrac{1}{4}\\int\\operatorname{sen}^{2}2x\\,dx","Si las dos potencias son pares, se usa el seno del ángulo doble y luego otra vez la identidad.")])),
+ eng("La vibración de una máquina","Una máquina rotativa vibra y su aceleración se mide con un acelerómetro. Como la señal sube y baja, su promedio es casi cero y no sirve. Se usa el valor eficaz, que sale de promediar el cuadrado de la señal. Para eso hace falta integrar seno al cuadrado.","a(t)=3\\,\\operatorname{sen}(\\omega t)\\ \\text{m/s}^{2}",
+   [("Amplitud","3 m/s²"),("Promedio de seno al cuadrado","1 sobre 2"),("Valor eficaz","unos 2.12 m/s²")],"Sobre un periodo completo, seno al cuadrado tiene promedio un medio, por la identidad del ángulo doble. El valor eficaz es 3 por la raíz de un medio, o sea unos 2.12 metros por segundo al cuadrado. Es un modelo simplificado, porque la vibración real de una máquina trae varias frecuencias a la vez."),
+ completar("Se quiere integrar el seno al cuadrado de x. Falta la identidad.","\\operatorname{sen}^{2}x=[[hueco]]",
+   [("\\dfrac{1-\\cos 2x}{2}","uno menos coseno de dos x, sobre dos"),("\\dfrac{1+\\cos 2x}{2}","uno más coseno de dos x, sobre dos"),("1-\\cos 2x","uno menos coseno de dos x")],0,
+   ["","Esa es la identidad del coseno al cuadrado. En la del seno el coseno de 2x lleva signo menos.","Falta dividir entre 2. Con x igual a pi sobre 2 esa opción da 2, y el seno al cuadrado ahí vale 1."],"Prueba con x igual a pi sobre 2, donde el seno al cuadrado vale 1, y mira qué opción da 1.","El seno al cuadrado se escribe como uno menos coseno de 2x, todo sobre 2. Con x igual a 0 da 0 y con x igual a pi sobre 2 da 1, como debe ser."),
+ error("Alguien integró el coseno al cuadrado y se equivocó en un paso. Toca el paso que está mal.",
+   [("\\cos^{2}x=\\dfrac{1+\\cos 2x}{2}","Es la identidad correcta.","Coseno al cuadrado de x es uno más coseno de 2x, sobre 2"),
+    ("\\int\\cos^{2}x\\,dx=\\dfrac{1}{2}\\int\\left(1+\\cos 2x\\right)dx","El un medio sale de la integral.","La integral es un medio de la integral de uno más coseno de 2x"),
+    ("=\\dfrac{1}{2}\\left(x+\\operatorname{sen}2x\\right)+C","Este paso es el que falla.","Es un medio por x más seno de 2x"),
+    ("=\\dfrac{x}{2}+\\dfrac{\\operatorname{sen}2x}{2}+C","El resto se hizo bien con lo que viene del paso anterior.","Es x sobre 2 más seno de 2x sobre 2")],2,
+   "La integral de coseno de 2x no es seno de 2x. Por la regla de la cadena, hay que dividir entre 2 porque la derivada del seno de 2x es 2 por coseno de 2x.",
+   "\\dfrac{1}{2}\\left(x+\\dfrac{\\operatorname{sen}2x}{2}\\right)+C=\\dfrac{x}{2}+\\dfrac{\\operatorname{sen}2x}{4}+C","Deriva el resultado de ese paso y mira si recuperas el coseno de 2x."),
+ ordenar("Estos son los pasos para integrar seno al cubo por coseno al cuadrado, pero están desordenados.",
+   [("\\int\\operatorname{sen}^{3}x\\cos^{2}x\\,dx=\\int\\operatorname{sen}^{2}x\\cos^{2}x\\operatorname{sen}x\\,dx","Seno al cubo por coseno al cuadrado es igual a la integral de seno al cuadrado por coseno al cuadrado por seno"),
+    ("=\\int\\left(1-\\cos^{2}x\\right)\\cos^{2}x\\operatorname{sen}x\\,dx","Es la integral de uno menos coseno al cuadrado, por coseno al cuadrado, por seno"),
+    ("u=\\cos x,\\ du=-\\operatorname{sen}x\\,dx:\\ -\\int\\left(u^{2}-u^{4}\\right)du","u es coseno de x y la integral es menos la integral de u al cuadrado menos u a la cuarta"),
+    ("=-\\dfrac{\\cos^{3}x}{3}+\\dfrac{\\cos^{5}x}{5}+C","Es menos coseno al cubo sobre 3 más coseno a la quinta sobre 5 más C")],[2,0,3,1],
+   "Se separa un seno, se cambia el resto por coseno, se sustituye u igual al coseno y se integra el polinomio.","Se empieza separando un factor de la potencia impar."),
+]
+S+=cierre("Mini simulacro de integrales trigonométricas",[
+ mcq("$\\displaystyle\\int \\sin^2 x\\,dx=$",["$\\dfrac{x}{2}-\\dfrac{\\sin 2x}{4}+C$","$\\dfrac{x}{2}+\\dfrac{\\sin 2x}{4}+C$","$\\dfrac{\\sin^3 x}{3}+C$","$-\\dfrac{\\cos^3 x}{3}+C$"],0,"Se usa $\\sin^2x=\\frac{1-\\cos 2x}{2}$ y se integra."),
+ num("$\\displaystyle\\int_{0}^{\\pi/2} \\cos^{2} x\\,dx$ (decimal, 4 cifras)","0.7854",0.005,"Con $\\cos^2x=\\frac{1+\\cos 2x}{2}$ queda $\\pi/4\\approx 0.7854$."),
+ mcq("$\\displaystyle\\int \\tan x\\,dx$ es:",["$-\\ln|\\cos x| + C$","$\\sec^{2} x + C$","$\\ln|\\operatorname{sen} x| + C$","$\\dfrac{\\tan^{2}x}{2} + C$"],0,"Se escribe $\\tan x=\\sin x/\\cos x$ y se sustituye $u=\\cos x$.")])
+prac=[
+ {"titulo":"La curva","grafica":{"draw":1},"bloques":[P("Se mide el área bajo esta curva."),EQ("f(x)=\\cos^{3}x")]},
+ {"titulo":"El punto de partida","grafica":{"draw":1,"hole":1},"bloques":[P("El área se empieza a medir desde x igual a 0.")]},
+ {"titulo":"Mueve x","grafica":{"draw":1,"hole":1},"laboratorio":True,"bloques":[P("Mueve el deslizador. La zona sombreada crece y abajo se ve el área y la altura de la curva en x.")]},
+ {"titulo":"La altura","grafica":{"draw":1,"hole":1,"guide":1},"laboratorio":True,"d":1,"bloques":[P("La franja amarilla tiene la altura de la curva. Con x igual a 1 mide 0.158 y el área acumulada es 0.643.")]},
+ {"titulo":"La integral","grafica":{"draw":1,"hole":1,"guide":1,"ok":True},"laboratorio":True,"d":1.35,"bloques":[EQ("\\int_{0}^{\\pi/2}\\cos^{3}x\\,dx=\\dfrac{2}{3}"),P("Cerca de x igual a 1.35 el área ya está cerca de 0.66. El valor exacto de la integral, hasta pi sobre 2, es 2 sobre 3.")]},
+ {"titulo":"Revisa tu respuesta","grafica":{"draw":1,"hole":1,"guide":1,"ok":True,"d":1.35},"bloques":[{"t":"pregunta"},{"t":"nota","html":"Si una potencia es impar, separa un factor y sustituye."}]}]
+preg={"tex":"\\int_{0}^{\\pi/2}\\operatorname{sen}^{3}x\\,dx","opciones":["$\\dfrac{2}{3}$","$\\dfrac{4}{3}$","$\\dfrac{1}{3}$","$1$"],"correcta":0,
+ "explicacion":"Se separa un seno y se escribe el resto como 1 menos coseno al cuadrado. Con u igual al coseno queda menos la integral de 1 menos u al cuadrado. La primitiva es menos coseno de x más coseno al cubo sobre 3. Entre 0 y pi sobre 2 vale 0 menos menos 2 tercios, o sea 2 sobre 3.",
+ "verificacion":{"formula":"(-cos(pi/2)+cos(pi/2)^3/3)-(-cos(0)+cos(0)^3/3)+0*x","a":0,"esperado":0.6666666667},
+ "pistas":["La potencia del seno es impar, así que se separa un seno.","Escribe seno al cuadrado como 1 menos coseno al cuadrado y sustituye u igual al coseno.","La primitiva es menos coseno de x más coseno al cubo de x sobre 3. Evalúala entre 0 y pi sobre 2."],
+ "errores":["","Ese es el valor entre 0 y pi, el doble del que se pide. Aquí el intervalo llega solo hasta pi sobre 2.","Revisa la cuenta con la primitiva menos coseno de x más coseno al cubo sobre 3. En pi sobre 2 vale 0 y en 0 vale menos 2 sobre 3.","Revisa la cuenta con la primitiva menos coseno de x más coseno al cubo sobre 3. La resta da 2 sobre 3."]}
+res=["Con una potencia impar de seno o coseno, se separa un factor y se sustituye por la otra función.","Con potencias pares se usan las identidades del ángulo doble.","Al integrar coseno de 2x o seno de 2x hay que dividir entre 2."]
+write(lesson("calcint-m2-l1","Lección 1 de 4","Integrales trigonométricas",26,graf,glos,ver,S,prac,preg,res,modulo="Módulo 2 Técnicas avanzadas e impropias"),"calcint-trig.json")

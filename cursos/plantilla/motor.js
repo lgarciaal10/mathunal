@@ -14,11 +14,11 @@
   function attr(s){ return String(s).replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;'); }
   function tween(dur,fn,done){ if(RM){ fn(1); if(done) done(); return; } var t0=null; (function s(now){ if(t0===null) t0=now; var k=cl((now-t0)/dur,0,1); fn(k); if(k<1) requestAnimationFrame(s); else if(done) done(); })(performance.now()); }
   function pasoNice(a,b){ var r=b-a, L=[1,2,5,10,20,50,100,200,500]; for(var i=0;i<L.length;i++) if(r/L[i]<=8) return L[i]; return 1000; }
-  var FN=/\b(sin|cos|tan|exp|ln|sqrt|abs|pi)\b/g;
+  var FN=/\b(sin|cos|tan|asin|acos|atan|exp|ln|sqrt|abs|pi)\b/g;
   function compile(expr){   /* fórmulas del JSON. Números, x, operadores, paréntesis y sin cos tan exp ln sqrt abs pi */
     if(!/^[0-9x+\-*\/().^\s]*$/.test(String(expr).replace(FN,''))) throw new Error('Fórmula no permitida '+expr);
     var js=String(expr).replace(/\^/g,'**').replace(/\bln\b/g,'log').replace(/\bpi\b/g,'PI').replace(FN,function(m){ return m; });
-    js=js.replace(/\b(sin|cos|tan|exp|log|sqrt|abs|PI)\b/g,'Math.$1');
+    js=js.replace(/\b(sin|cos|tan|asin|acos|atan|exp|log|sqrt|abs|PI)\b/g,'Math.$1');
     return new Function('x','return '+js);
   }
   var fFun=compile(G.funcion), fCurve=(SEC||TVM||NEW||ARE||ASI)?fFun:compile(G.curva), fDer=(SEC||TVM||NEW)?compile(G.derivada):null, fPri=ARE?compile(G.primitiva):null, fInf=ENT?compile(G.inferior):null, NX=null;

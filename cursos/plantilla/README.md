@@ -29,7 +29,7 @@ El validador revisa el esquema, que cada ecuación renderice con KaTeX, que las 
 - **Área entre curvas** (`"tipo": "entre"`). Como el área, pero con dos curvas. Lleva `funcion` (la de arriba), `inferior` (la de abajo), `primitiva` de la resta, y `a` y `b`, que son los cortes. El estado `d` es el x del límite superior y las lecturas son el área acumulada y la separación entre curvas. El validador revisa que las curvas se corten en `a` y `b`, que la de arriba quede arriba y que la primitiva derive en la resta.
 - **Asíntota** (`"tipo": "asintota"`). Un punto que recorre la curva con las asíntotas dibujadas. Lleva `funcion`, `asintotas` (cada una con `x` o `y` y una `etiqueta`) y `deslizador` con `ancla`, `dmin` y `dmax`, que fija el recorrido del deslizador en escala logarítmica. Con `"expandir": true` la ventana se agranda para que quepan valores grandes de x.
 
-Las fórmulas aceptan números, `x`, `+ - * / ^`, paréntesis y las funciones `sin cos tan exp ln sqrt abs` y la constante `pi`.
+Las fórmulas aceptan números, `x`, `+ - * / ^`, paréntesis y las funciones `sin cos tan asin acos atan exp ln sqrt abs` y la constante `pi`.
 
 ## Zoom
 Con `"zoom": {"factor": N}` en `grafica`, el motor acepta el estado `zoom` de 0 a 1. La ventana se acerca N veces al punto de interés, las marcas pasan a decimales y aparece el rótulo Zoom. Reglas prácticas para elegir N.

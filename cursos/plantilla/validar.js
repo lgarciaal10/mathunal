@@ -27,8 +27,8 @@ if (!Array.isArray(L.resumen)) err('Falta resumen');
 if (errores.length) { salir(); }
 
 /* ---------- fórmulas ---------- */
-const FN = /\b(sin|cos|tan|exp|ln|sqrt|abs|pi)\b/g;
-const compilar = (e, donde) => { if (!/^[0-9x+\-*\/().^\s]*$/.test(String(e).replace(FN, ''))) { err(`Fórmula no permitida en ${donde}`); return null; } try { const js = String(e).replace(/\^/g, '**').replace(/\bln\b/g, 'log').replace(/\bpi\b/g, 'PI').replace(/\b(sin|cos|tan|exp|log|sqrt|abs|PI)\b/g, 'Math.$1'); return new Function('x', 'return ' + js); } catch (x) { err(`Fórmula inválida en ${donde}`); return null; } };
+const FN = /\b(sin|cos|tan|asin|acos|atan|exp|ln|sqrt|abs|pi)\b/g;
+const compilar = (e, donde) => { if (!/^[0-9x+\-*\/().^\s]*$/.test(String(e).replace(FN, ''))) { err(`Fórmula no permitida en ${donde}`); return null; } try { const js = String(e).replace(/\^/g, '**').replace(/\bln\b/g, 'log').replace(/\bpi\b/g, 'PI').replace(/\b(sin|cos|tan|asin|acos|atan|exp|log|sqrt|abs|PI)\b/g, 'Math.$1'); return new Function('x', 'return ' + js); } catch (x) { err(`Fórmula inválida en ${donde}`); return null; } };
 const G = L.grafica, SEC = G.tipo === 'secante', TVM = G.tipo === 'tvm', A = (SEC || TVM) ? G.a : (G.hueco && G.hueco.x);
 if (G.tipo && !['hueco', 'secante', 'tvm', 'newton', 'area', 'entre', 'asintota'].includes(G.tipo)) err(`Tipo de gráfica desconocido ${G.tipo}`);
 if (SEC) {
