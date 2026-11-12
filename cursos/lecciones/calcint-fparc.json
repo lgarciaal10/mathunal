@@ -1,0 +1,643 @@
+{
+ "esquema": 1,
+ "id": "calcint-m2-l3",
+ "ejemplo": true,
+ "curso": "Cálculo Integral",
+ "modulo": "Módulo 2 Técnicas avanzadas e impropias",
+ "posicion": "Lección 3 de 4",
+ "titulo": "Fracciones parciales",
+ "minutos": 28,
+ "ejercicios": 7,
+ "grafica": {
+  "tipo": "area",
+  "x": [
+   0,
+   3
+  ],
+  "y": [
+   0,
+   0.6
+  ],
+  "funcion": "1/((x+1)*(x+2))",
+  "primitiva": "ln((x+1)/(x+2))",
+  "a": 0,
+  "b": 2.8,
+  "franja": 0.08,
+  "limite": 0.5,
+  "etiquetas": [
+   "Área acumulada",
+   "Altura de la curva"
+  ],
+  "rotulos": [
+   "área",
+   "altura"
+  ],
+  "etiquetaSlider": "Posición de x",
+  "alt": "Curva de uno sobre x más 1 por x más 2 con el área bajo ella sombreada desde 0 hasta un x que avanza"
+ },
+ "glosario": {
+  "racional": "Una función racional es un cociente de dos polinomios, como x más 1 sobre x al cuadrado menos 4.",
+  "simples": "Las fracciones simples son fracciones con un solo factor en el denominador, como 3 sobre x más 1, que se integran con un logaritmo.",
+  "prim": "Una primitiva de f es una función F cuya derivada es f. Por ejemplo, x al cubo sobre 3 es una primitiva de x al cuadrado."
+ },
+ "ver": {
+  "duracion": 22.0,
+  "capitulos": [
+   [
+    0,
+    2.5,
+    "Esta es la curva de f(x) igual a 1 sobre (x más 1) por (x más 2)."
+   ],
+   [
+    2.5,
+    5,
+    "Se mide el área bajo ella a partir de x igual a 0, donde la curva vale 0.5."
+   ],
+   [
+    5,
+    11,
+    "Al avanzar x, el área se va llenando, pero cada vez más despacio, porque la curva baja."
+   ],
+   [
+    11,
+    16,
+    "La franja amarilla es cada vez más baja y el área crece menos."
+   ],
+   [
+    16,
+    22,
+    "Con x igual a 2 el área acumulada es 0.4055, que es el logaritmo natural de 3 sobre 2."
+   ]
+  ],
+  "canales": {
+   "draw": [
+    [
+     0.3,
+     0
+    ],
+    [
+     2.4,
+     1
+    ]
+   ],
+   "hole": [
+    [
+     2.5,
+     0
+    ],
+    [
+     3.3,
+     1
+    ]
+   ],
+   "d": [
+    [
+     5,
+     0.2
+    ],
+    [
+     11,
+     1
+    ],
+    [
+     15,
+     1.5
+    ],
+    [
+     16,
+     2
+    ],
+    [
+     22,
+     2
+    ]
+   ],
+   "guide": [
+    [
+     11,
+     0
+    ],
+    [
+     12,
+     1
+    ]
+   ]
+  },
+  "intervalos": {
+   "ok": [
+    16,
+    22
+   ]
+  }
+ },
+ "leer": {
+  "secciones": [
+   {
+    "titulo": "La idea",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Una {{gl:racional|función racional}} con un denominador factorizado no se integra de una sola vez. Pero se puede partir en una suma de {{gl:simples|fracciones simples}}, y cada una se integra con un logaritmo. Esa partición se llama descomposición en fracciones parciales."
+     }
+    ]
+   },
+   {
+    "titulo": "Un ejemplo",
+    "corto": "Un ejemplo",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mira esta integral, que mide un área bajo una curva que baja hacia el eje."
+     },
+     {
+      "t": "eq",
+      "tex": "\\int_{0}^{2}\\dfrac{dx}{(x+1)(x+2)}"
+     },
+     {
+      "t": "grafica",
+      "animar": "dibujar",
+      "alt": "Curva que se dibuja y marca el punto de partida en x igual a 0"
+     }
+    ]
+   },
+   {
+    "titulo": "Piensa antes de ver",
+    "corto": "Piensa",
+    "bloques": [
+     {
+      "t": "piensa",
+      "pregunta": "Cuando x vale 0, ¿cuánto vale 1 sobre (x más 1) por (x más 2)?",
+      "opciones": [
+       0.25,
+       0.5,
+       1,
+       2
+      ],
+      "correcta": 0.5,
+      "bien": "Muy bien. Vale 1 sobre 1 por 2, o sea 0.5. Más abajo se ve cómo se acumula el área.",
+      "mal": "Vale 1 sobre 1 por 2, o sea 0.5. Más abajo se ve cómo se acumula el área."
+     }
+    ]
+   },
+   {
+    "titulo": "El área que se acumula",
+    "corto": "El área",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mira cómo se llena el área y qué valen el área y la altura en cada x."
+     },
+     {
+      "t": "acercando",
+      "ds": [
+       0.5,
+       1,
+       1.5,
+       2
+      ],
+      "alt": "El área bajo la curva que va creciendo mientras x avanza hasta 2"
+     },
+     {
+      "t": "p",
+      "html": "Con x igual a 2 el área acumulada es <b>0.4055</b>. Ese es el número que debe salir al integrar."
+     }
+    ]
+   },
+   {
+    "titulo": "La descomposición",
+    "corto": "La descomposición",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Se escribe la fracción como suma de dos fracciones, una por cada factor del denominador, con números A y B por encontrar."
+     },
+     {
+      "t": "pasos",
+      "items": [
+       {
+        "tex": "\\dfrac{1}{(x+1)(x+2)}=\\dfrac{A}{x+1}+\\dfrac{B}{x+2}",
+        "porque": "Se plantea una fracción por cada factor."
+       },
+       {
+        "tex": "1=A(x+2)+B(x+1)",
+        "porque": "Se multiplica todo por el denominador y se cancelan los factores."
+       },
+       {
+        "tex": "x=-1:\\ 1=A(1)\\ \\Rightarrow\\ A=1",
+        "porque": "Se escoge x igual a menos 1 para que desaparezca el término de B."
+       },
+       {
+        "tex": "x=-2:\\ 1=B(-1)\\ \\Rightarrow\\ B=-1",
+        "porque": "Se escoge x igual a menos 2 para que desaparezca el término de A."
+       },
+       {
+        "tex": "\\dfrac{1}{(x+1)(x+2)}=\\dfrac{1}{x+1}-\\dfrac{1}{x+2}",
+        "porque": "Esa es la descomposición."
+       }
+      ]
+     },
+     {
+      "t": "ojo",
+      "html": "Se puede comprobar sumando las dos fracciones de nuevo. Si no vuelve a salir la original, hay un error en A o en B."
+     }
+    ]
+   },
+   {
+    "titulo": "Integrar",
+    "corto": "Integrar",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Cada fracción simple da un logaritmo."
+     },
+     {
+      "t": "pasos",
+      "items": [
+       {
+        "tex": "\\int\\dfrac{dx}{(x+1)(x+2)}=\\ln|x+1|-\\ln|x+2|+C=\\ln\\left|\\dfrac{x+1}{x+2}\\right|+C",
+        "porque": "Se integra cada término con la {{gl:prim|primitiva}} del logaritmo."
+       },
+       {
+        "tex": "\\int_{0}^{2}=\\ln\\dfrac{3}{4}-\\ln\\dfrac{1}{2}=\\ln\\dfrac{3}{2}\\approx 0.4055",
+        "porque": "Se evalúa entre 0 y 2. Es el mismo valor que mostraba el área de la gráfica."
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "Otros casos",
+    "corto": "Otros casos",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Según el denominador, la descomposición cambia."
+     },
+     {
+      "t": "pasos",
+      "items": [
+       {
+        "tex": "\\dfrac{2x+3}{(x+1)^{2}}=\\dfrac{2}{x+1}+\\dfrac{1}{(x+1)^{2}}",
+        "porque": "Si un factor se repite, se pone una fracción por cada potencia, hasta la mayor. Aquí aparecen 1 y 2."
+       },
+       {
+        "tex": "\\int\\dfrac{2x+3}{(x+1)^{2}}\\,dx=2\\ln|x+1|-\\dfrac{1}{x+1}+C",
+        "porque": "La primera da un logaritmo. La segunda es una potencia que se integra directamente."
+       },
+       {
+        "tex": "\\dfrac{x^{2}}{x+1}=x-1+\\dfrac{1}{x+1}",
+        "porque": "Si el grado del numerador es mayor o igual que el del denominador, primero se divide."
+       },
+       {
+        "tex": "\\dfrac{x}{(x^{2}+1)(x+2)}=\\dfrac{Ax+B}{x^{2}+1}+\\dfrac{C}{x+2}",
+        "porque": "Si hay un factor cuadrático que no se puede factorizar, su numerador lleva una Ax más B."
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "¿Para qué sirve?",
+    "corto": "En ingeniería",
+    "bloques": [
+     {
+      "t": "ingenieria",
+      "titulo": "Un cuerpo que cae con resistencia del aire",
+      "html": "Cuando un cuerpo cae, la resistencia del aire crece con el cuadrado de la velocidad. La ecuación de su velocidad es separable y hace aparecer una fracción que se parte con fracciones parciales. Con ella se calcula cuánto tarda en alcanzar cierta velocidad.",
+      "tex": "\\dfrac{dv}{dt}=10-0.1\\,v^{2}\\ \\text{m/s}^{2}",
+      "datos": [
+       {
+        "k": "Velocidad terminal",
+        "v": "10 m/s"
+       },
+       {
+        "k": "Velocidad inicial",
+        "v": "0"
+       },
+       {
+        "k": "Velocidad final",
+        "v": "5 m/s"
+       }
+      ],
+      "cierre": "Se despeja el tiempo como la integral de dv sobre 10 menos 0.1 v cuadrado. Se parte en fracciones y el resultado es 0.5 por el logaritmo natural de 3, o sea unos 0.55 segundos. Es un modelo simplificado, porque la resistencia real depende de la forma del cuerpo y de la densidad del aire."
+     }
+    ]
+   },
+   {
+    "titulo": "Completa el paso",
+    "corto": "Completa",
+    "bloques": [
+     {
+      "t": "completar",
+      "enunciado": "Se quiere hallar B en la descomposición de 1 sobre (x más 1) por (x más 2). Se evalúa en x igual a menos 2 la ecuación 1 igual a A por (x más 2) más B por (x más 1).",
+      "tex": "B=[[hueco]]",
+      "opciones": [
+       {
+        "tex": "-1",
+        "txt": "menos uno"
+       },
+       {
+        "tex": "1",
+        "txt": "uno"
+       },
+       {
+        "tex": "2",
+        "txt": "dos"
+       }
+      ],
+      "correcta": 0,
+      "errores": [
+       "",
+       "Con x igual a menos 2, el factor (x más 1) vale menos 1. Entonces 1 igual a B por menos 1, y B es menos 1.",
+       "Con x igual a menos 2, el factor (x más 1) vale menos 1 y no 1. Entonces B es menos 1."
+      ],
+      "pista": "Evalúa x más 1 en x igual a menos 2.",
+      "porque": "Con x igual a menos 2 queda 1 igual a B por menos 1, así que B vale menos 1."
+     }
+    ]
+   },
+   {
+    "titulo": "Encuentra el error",
+    "corto": "Error",
+    "bloques": [
+     {
+      "t": "error",
+      "enunciado": "Alguien descompuso 1 sobre x por (x más 3) y se equivocó en un paso. Toca el paso que está mal.",
+      "pasos": [
+       {
+        "tex": "\\dfrac{1}{x(x+3)}=\\dfrac{A}{x}+\\dfrac{B}{x+3}\\ \\Rightarrow\\ 1=A(x+3)+Bx",
+        "porque": "Es el planteamiento correcto.",
+        "txt": "Uno sobre x por x más 3 es A sobre x más B sobre x más 3, y queda 1 igual a A por (x más 3) más B por x"
+       },
+       {
+        "tex": "x=0:\\ 1=3A\\ \\Rightarrow\\ A=\\dfrac{1}{3}",
+        "porque": "Con x igual a 0 queda 3A, y A vale un tercio.",
+        "txt": "Con x igual a 0, A es un tercio"
+       },
+       {
+        "tex": "x=-3:\\ 1=-3B\\ \\Rightarrow\\ B=3",
+        "porque": "Este paso es el que falla.",
+        "txt": "Con x igual a menos 3, B es 3"
+       },
+       {
+        "tex": "\\int=\\dfrac{1}{3}\\ln|x|+3\\ln|x+3|+C",
+        "porque": "La integral sigue bien con lo que viene del paso anterior, pero parte de una B equivocada.",
+        "txt": "La integral es un tercio de ln de x más 3 por ln de x más 3"
+       }
+      ],
+      "mal": 2,
+      "explicacion": "Al despejar B de 1 igual a menos 3B, hay que dividir entre menos 3, y sale B igual a menos un tercio y no 3.",
+      "correccion": "B=-\\dfrac{1}{3}\\ \\Rightarrow\\ \\int=\\dfrac{1}{3}\\ln|x|-\\dfrac{1}{3}\\ln|x+3|+C=\\dfrac{1}{3}\\ln\\left|\\dfrac{x}{x+3}\\right|+C",
+      "pista": "Despeja B de uno igual a menos 3 por B con calma."
+     }
+    ]
+   },
+   {
+    "titulo": "Ordena los pasos",
+    "corto": "Ordena",
+    "bloques": [
+     {
+      "t": "ordenar",
+      "enunciado": "Estos son los pasos para integrar 1 sobre x por (x menos 2), pero están desordenados.",
+      "pasos": [
+       "\\dfrac{1}{x(x-2)}=\\dfrac{A}{x}+\\dfrac{B}{x-2}",
+       "1=A(x-2)+Bx\\ \\Rightarrow\\ A=-\\dfrac{1}{2},\\ B=\\dfrac{1}{2}",
+       "\\int=-\\dfrac{1}{2}\\ln|x|+\\dfrac{1}{2}\\ln|x-2|+C",
+       "=\\dfrac{1}{2}\\ln\\left|\\dfrac{x-2}{x}\\right|+C"
+      ],
+      "mezcla": [
+       2,
+       0,
+       3,
+       1
+      ],
+      "porque": "Se plantea la descomposición, se hallan A y B, se integra cada fracción y se agrupan los logaritmos.",
+      "pista": "Se empieza planteando la descomposición.",
+      "txt": [
+       "Uno sobre x por (x menos 2) es A sobre x más B sobre x menos 2",
+       "Con x igual a 0 sale A igual a menos un medio y con x igual a 2 sale B igual a un medio",
+       "La integral es menos un medio de ln de x más un medio de ln de x menos 2",
+       "Es un medio de ln de la fracción x menos 2 sobre x"
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "Revisa tu respuesta",
+    "corto": "Revisa",
+    "bloques": [
+     {
+      "t": "pregunta"
+     },
+     {
+      "t": "nota",
+      "html": "Puedes pedir pistas de a una. Si fallas, el mensaje te dice qué error se cometió."
+     }
+    ]
+   },
+   {
+    "titulo": "Mini simulacro",
+    "corto": "Simulacro",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Tres preguntas reales del banco de MathUNAL sobre este tema. Responde sin mirar los pasos."
+     },
+     {
+      "t": "simulacro",
+      "titulo": "Mini simulacro de fracciones parciales",
+      "preguntas": [
+       {
+        "tipo": "mcq",
+        "texto": "En $\\displaystyle\\int\\frac{3x+1}{(x+1)(x-2)}\\,dx$, la descomposición $\\dfrac{A}{x+1}+\\dfrac{B}{x-2}$ tiene:",
+        "opciones": [
+         "$A=\\tfrac23,\\ B=\\tfrac73$",
+         "$A=\\tfrac73,\\ B=\\tfrac23$",
+         "$A=1,\\ B=2$",
+         "$A=-\\tfrac23,\\ B=\\tfrac73$"
+        ],
+        "correcta": 0,
+        "resumen": "Con $x=-1$ sale $A=\\frac{-2}{-3}=\\frac23$ y con $x=2$ sale $B=\\frac{7}{3}$.",
+        "fuente": "Banco MathUNAL, simulacro de Cálculo Integral"
+       },
+       {
+        "tipo": "mcq",
+        "texto": "La descomposición de $\\dfrac{x}{(x-1)^{2}}$ es:",
+        "opciones": [
+         "$\\dfrac{1}{x-1} + \\dfrac{1}{(x-1)^{2}}$",
+         "$\\dfrac{1}{(x-1)^{2}}$",
+         "$\\dfrac{x}{x-1}$",
+         "$\\dfrac{1}{x-1} - \\dfrac{1}{(x-1)^{2}}$"
+        ],
+        "correcta": 0,
+        "resumen": "Como $x=(x-1)+1$, queda $\\frac{1}{x-1}+\\frac{1}{(x-1)^2}$.",
+        "fuente": "Banco MathUNAL, simulacro de Cálculo Integral"
+       },
+       {
+        "tipo": "numerica",
+        "texto": "$\\displaystyle\\int_{2}^{3} \\dfrac{dx}{x^{2}-1}$ (decimal, 4 cifras)",
+        "respuesta": "0.2027",
+        "tolNum": 0.005,
+        "resumen": "Se parte en $\\frac12\\left(\\frac{1}{x-1}-\\frac{1}{x+1}\\right)$ y queda $\\frac12\\ln\\frac32\\approx 0.2027$.",
+        "fuente": "Banco MathUNAL, simulacro de Cálculo Integral"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "Tu repaso",
+    "corto": "Repaso",
+    "bloques": [
+     {
+      "t": "repaso"
+     }
+    ]
+   },
+   {
+    "titulo": "En resumen",
+    "corto": "Resumen",
+    "bloques": [
+     {
+      "t": "resumen"
+     }
+    ]
+   }
+  ]
+ },
+ "practicar": {
+  "pasos": [
+   {
+    "titulo": "La curva",
+    "grafica": {
+     "draw": 1
+    },
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Se mide el área bajo esta curva."
+     },
+     {
+      "t": "eq",
+      "tex": "f(x)=\\dfrac{1}{(x+1)(x+2)}"
+     }
+    ]
+   },
+   {
+    "titulo": "El punto de partida",
+    "grafica": {
+     "draw": 1,
+     "hole": 1
+    },
+    "bloques": [
+     {
+      "t": "p",
+      "html": "El área se empieza a medir desde x igual a 0."
+     }
+    ]
+   },
+   {
+    "titulo": "Mueve x",
+    "grafica": {
+     "draw": 1,
+     "hole": 1
+    },
+    "laboratorio": true,
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mueve el deslizador. La zona sombreada crece y abajo se ve el área y la altura de la curva en x."
+     }
+    ]
+   },
+   {
+    "titulo": "La altura",
+    "grafica": {
+     "draw": 1,
+     "hole": 1,
+     "guide": 1
+    },
+    "laboratorio": true,
+    "d": 1,
+    "bloques": [
+     {
+      "t": "p",
+      "html": "La franja amarilla tiene la altura de la curva. Con x igual a 1 mide 0.1667 y el área acumulada es 0.2877."
+     }
+    ]
+   },
+   {
+    "titulo": "El resultado",
+    "grafica": {
+     "draw": 1,
+     "hole": 1,
+     "guide": 1,
+     "ok": true
+    },
+    "laboratorio": true,
+    "d": 2,
+    "bloques": [
+     {
+      "t": "eq",
+      "tex": "\\int_{0}^{2}\\dfrac{dx}{(x+1)(x+2)}=\\ln\\dfrac{3}{2}\\approx 0.4055"
+     },
+     {
+      "t": "p",
+      "html": "Con x igual a 2 el área acumulada es 0.4055, justo lo que da la integral con fracciones parciales."
+     }
+    ]
+   },
+   {
+    "titulo": "Revisa tu respuesta",
+    "grafica": {
+     "draw": 1,
+     "hole": 1,
+     "guide": 1,
+     "ok": true,
+     "d": 2
+    },
+    "bloques": [
+     {
+      "t": "pregunta"
+     },
+     {
+      "t": "nota",
+      "html": "Descompón primero, integra cada fracción y evalúa los logaritmos."
+     }
+    ]
+   }
+  ]
+ },
+ "pregunta": {
+  "tex": "\\int_{1}^{2}\\dfrac{dx}{x(x+1)}",
+  "opciones": [
+   "$\\ln\\dfrac{4}{3}$",
+   "$\\ln\\dfrac{3}{4}$",
+   "$\\ln\\dfrac{3}{2}$",
+   "$\\ln 2$"
+  ],
+  "correcta": 0,
+  "explicacion": "La descomposición es 1 sobre x menos 1 sobre x más 1. La primitiva es ln de x sobre x más 1. En 2 vale ln de 2 sobre 3 y en 1 vale ln de 1 sobre 2. La resta da ln de 4 sobre 3.",
+  "verificacion": {
+   "formula": "(ln(2/3)-ln(1/2))+0*x",
+   "a": 0,
+   "esperado": 0.2876820724
+  },
+  "pistas": [
+   "Descompón en A sobre x más B sobre x más 1.",
+   "Con x igual a 0 sale A igual a 1 y con x igual a menos 1 sale B igual a menos 1. La primitiva es ln de x sobre x más 1.",
+   "Evalúa en 2 y en 1 y resta los logaritmos."
+  ],
+  "errores": [
+   "",
+   "El resultado es negativo, y la integral de una función positiva no puede serlo. Se invirtió el cociente dentro del logaritmo.",
+   "Falta restar el valor en el límite de abajo. En x igual a 1 la primitiva vale ln de 1 sobre 2.",
+   "Revisa la cuenta con la primitiva ln de x sobre x más 1. Sale ln de 2 sobre 3 menos ln de 1 sobre 2."
+  ]
+ },
+ "resumen": [
+  "Una función racional se parte en fracciones simples según los factores del denominador.",
+  "Los números A y B se hallan evaluando en las raíces del denominador.",
+  "Si el numerador tiene grado igual o mayor, primero se divide. Cada fracción simple se integra con un logaritmo o con una potencia."
+ ]
+}
