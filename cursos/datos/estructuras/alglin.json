@@ -19,8 +19,8 @@
      "tema": "Sistemas de ecuaciones lineales",
      "preguntas_banco": 7,
      "parciales_con_el_tema": 2,
-     "estado": "pendiente",
-     "leccion": null
+     "estado": "borrador para revisión",
+     "leccion": "lecciones/alglin-sistemas.json"
     },
     {
      "tema": "Matrices y operaciones",
@@ -33,8 +33,8 @@
      "tema": "Eliminación de Gauss-Jordan",
      "preguntas_banco": 3,
      "parciales_con_el_tema": 1,
-     "estado": "pendiente",
-     "leccion": null
+     "estado": "borrador para revisión",
+     "leccion": "lecciones/alglin-gauss.json"
     }
    ]
   },

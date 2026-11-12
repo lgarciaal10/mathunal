@@ -1,0 +1,590 @@
+{
+ "esquema": 1,
+ "id": "alglin-m1-l3",
+ "ejemplo": true,
+ "curso": "Álgebra Lineal",
+ "modulo": "Módulo 1 Matrices, determinantes y sistemas",
+ "posicion": "Lección 3 de 4",
+ "titulo": "Eliminación de Gauss-Jordan",
+ "minutos": 26,
+ "ejercicios": 4,
+ "grafica": {
+  "tipo": "plano",
+  "x": [
+   -5.5,
+   7.33
+  ],
+  "y": [
+   -2,
+   5
+  ],
+  "a": -0.5,
+  "b": 1.5,
+  "inicio": 0,
+  "elementos": [
+   {
+    "t": "recta",
+    "p": [
+     "0",
+     "4"
+    ],
+    "dir": [
+     "1",
+     "-2"
+    ],
+    "nombre": "fila 1",
+    "c": 0
+   },
+   {
+    "t": "recta",
+    "p": [
+     "1",
+     "2"
+    ],
+    "dir": [
+     "1+x",
+     "1-2*x"
+    ],
+    "nombre": "fila 2 nueva",
+    "c": 1
+   },
+   {
+    "t": "punto",
+    "p": [
+     "1",
+     "2"
+    ],
+    "nombre": "solución",
+    "c": 2
+   }
+  ],
+  "lecturas": [
+   {
+    "rotulo": "coeficiente de x",
+    "formula": "1-2*x"
+   },
+   {
+    "rotulo": "coeficiente de y",
+    "formula": "-1-x"
+   }
+  ],
+  "etiquetas": [
+   "Coeficiente de x en la fila 2",
+   "Coeficiente de y en la fila 2"
+  ],
+  "etiquetaSlider": "Múltiplo m que se resta de la fila 1",
+  "alt": "Una recta fija, la primera ecuación, y la segunda ecuación que gira alrededor de la solución al restarle m veces la primera, hasta quedar horizontal cuando m vale un medio"
+ },
+ "glosario": {
+  "pivote": "El pivote es el primer número distinto de cero de una fila, de izquierda a derecha, en una matriz escalonada.",
+  "escalonada": "Una matriz escalonada tiene los pivotes bajando hacia la derecha, con ceros debajo de cada uno.",
+  "rref": "La forma escalonada reducida tiene pivotes iguales a 1 y ceros también arriba de cada pivote. Es única para cada matriz.",
+  "aumentada": "La matriz aumentada es la matriz del sistema con una columna más al final, que lleva los términos de la derecha."
+ },
+ "ver": {
+  "duracion": 22.0,
+  "capitulos": [
+   [
+    0,
+    3,
+    "Este es el sistema 2x más y igual a 4 y x menos y igual a menos 1. Sus rectas se cortan en (1, 2)."
+   ],
+   [
+    3,
+    6,
+    "Una operación de fila reemplaza la ecuación 2 por ella menos m veces la ecuación 1. La solución no cambia."
+   ],
+   [
+    6,
+    12,
+    "Al variar m, la nueva recta gira alrededor de la solución, siempre pasando por (1, 2)."
+   ],
+   [
+    12,
+    17,
+    "Con m igual a un medio, el coeficiente de x se vuelve 0. La recta queda horizontal, y igual a 2."
+   ],
+   [
+    17,
+    22,
+    "Ese es el objetivo de la eliminación, ceros bajo los pivotes. Ahora se lee y y luego x."
+   ]
+  ],
+  "canales": {
+   "draw": [
+    [
+     0.3,
+     0
+    ],
+    [
+     5.5,
+     1
+    ]
+   ],
+   "d": [
+    [
+     6,
+     0
+    ],
+    [
+     9,
+     1.2
+    ],
+    [
+     11,
+     -0.4
+    ],
+    [
+     12,
+     0.5
+    ],
+    [
+     22,
+     0.5
+    ]
+   ]
+  },
+  "intervalos": {
+   "ok": [
+    17,
+    22
+   ]
+  }
+ },
+ "leer": {
+  "secciones": [
+   {
+    "titulo": "La idea",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "La eliminación de Gauss-Jordan resuelve sistemas de cualquier tamaño con tres operaciones sobre las filas. No cambian la solución, y sirven para ir haciendo ceros hasta que la solución se lee sola. Se escribe en una {{gl:aumentada|matriz aumentada}} para no repetir las incógnitas."
+     }
+    ]
+   },
+   {
+    "titulo": "Un ejemplo",
+    "corto": "Un ejemplo",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mira las dos rectas del sistema, y cómo cambia la segunda al restarle un múltiplo de la primera."
+     },
+     {
+      "t": "eq",
+      "tex": "\\begin{cases}2x+y=4\\\\x-y=-1\\end{cases}"
+     },
+     {
+      "t": "grafica",
+      "animar": "dibujar",
+      "alt": "La primera recta y la segunda recta que se puede girar alrededor de la solución"
+     }
+    ]
+   },
+   {
+    "titulo": "Piensa antes de ver",
+    "corto": "Piensa",
+    "bloques": [
+     {
+      "t": "piensa",
+      "pregunta": "La fila 2 nueva es la ecuación 2 menos m veces la 1, y su coeficiente de x es 1 menos 2m. ¿Cuánto vale con m igual a un medio?",
+      "opciones": [
+       0,
+       0.5,
+       1,
+       2
+      ],
+      "correcta": 0,
+      "bien": "Muy bien. Vale 0, y ahí la recta queda horizontal. Más abajo se ve.",
+      "mal": "Vale 0, porque 1 menos 2 por un medio es 0. Ahí la recta queda horizontal, y más abajo se ve."
+     }
+    ]
+   },
+   {
+    "titulo": "Girar la recta",
+    "corto": "Girar",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mira cómo gira la segunda recta al cambiar m."
+     },
+     {
+      "t": "acercando",
+      "ds": [
+       -0.4,
+       0,
+       0.5,
+       1
+      ],
+      "alt": "La segunda recta girando alrededor de la solución"
+     },
+     {
+      "t": "p",
+      "html": "La solución, el punto (1, 2), nunca se mueve. Con m igual a <b>un medio</b>, la recta queda horizontal."
+     }
+    ]
+   },
+   {
+    "titulo": "Las tres operaciones",
+    "corto": "Operaciones",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Estas son las únicas operaciones permitidas sobre las filas, y ninguna cambia las soluciones."
+     },
+     {
+      "t": "pasos",
+      "items": [
+       {
+        "tex": "R_{i}\\leftrightarrow R_{j}",
+        "porque": "Intercambiar dos filas."
+       },
+       {
+        "tex": "R_{i}\\leftarrow cR_{i}\\quad (c\\ne 0)",
+        "porque": "Multiplicar una fila por un número que no sea cero."
+       },
+       {
+        "tex": "R_{i}\\leftarrow R_{i}+cR_{j}",
+        "porque": "Sumarle a una fila un múltiplo de otra. Es la que hace los ceros."
+       }
+      ]
+     },
+     {
+      "t": "ojo",
+      "html": "Multiplicar una fila por 0 no está permitido, porque borra una ecuación y cambia el sistema."
+     }
+    ]
+   },
+   {
+    "titulo": "Un sistema de 3 por 3",
+    "corto": "De 3 por 3",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mira cómo se llega a una forma {{gl:escalonada|escalonada}} con {{gl:pivote|pivotes}}, para el sistema x más y más z igual a 6, 2x menos y más z igual a 3 y x más 2y menos z igual a 2."
+     },
+     {
+      "t": "pasos",
+      "items": [
+       {
+        "tex": "\\left(\\begin{array}{ccc|c}1&1&1&6\\\\2&-1&1&3\\\\1&2&-1&2\\end{array}\\right)",
+        "porque": "Es la matriz aumentada del sistema."
+       },
+       {
+        "tex": "R_{2}\\leftarrow R_{2}-2R_{1},\\ R_{3}\\leftarrow R_{3}-R_{1}:\\quad \\left(\\begin{array}{ccc|c}1&1&1&6\\\\0&-3&-1&-9\\\\0&1&-2&-4\\end{array}\\right)",
+        "porque": "Se hacen ceros bajo el primer pivote."
+       },
+       {
+        "tex": "R_{2}\\leftrightarrow R_{3},\\ R_{3}\\leftarrow R_{3}+3R_{2}:\\quad \\left(\\begin{array}{ccc|c}1&1&1&6\\\\0&1&-2&-4\\\\0&0&-7&-21\\end{array}\\right)",
+        "porque": "Se cambian las filas para tener un pivote de 1 y se hacen ceros bajo el segundo."
+       },
+       {
+        "tex": "z=3,\\quad y=-4+2z=2,\\quad x=6-y-z=1",
+        "porque": "Se despeja hacia atrás, de abajo hacia arriba."
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "Forma reducida",
+    "corto": "Reducida",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Si se sigue eliminando hacia arriba y se divide cada fila entre su pivote, se llega a la {{gl:rref|forma escalonada reducida}}, donde la solución se lee directamente."
+     },
+     {
+      "t": "pasos",
+      "items": [
+       {
+        "tex": "\\left(\\begin{array}{ccc|c}1&0&0&1\\\\0&1&0&2\\\\0&0&1&3\\end{array}\\right)",
+        "porque": "La solución se lee en la última columna, x igual a 1, y igual a 2 y z igual a 3."
+       }
+      ]
+     },
+     {
+      "t": "ojo",
+      "html": "La forma escalonada reducida es única. No depende del orden en que se hagan las operaciones, aunque la escalonada simple sí puede variar."
+     }
+    ]
+   },
+   {
+    "titulo": "El rango con pivotes",
+    "corto": "Rango",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "El número de pivotes es el rango de la matriz. Las columnas sin pivote son las variables libres."
+     },
+     {
+      "t": "pasos",
+      "items": [
+       {
+        "tex": "\\begin{pmatrix}1&2&1\\\\2&4&2\\\\3&6&4\\end{pmatrix}\\xrightarrow{R_{2}-2R_{1},\\ R_{3}-3R_{1}}\\begin{pmatrix}1&2&1\\\\0&0&0\\\\0&0&1\\end{pmatrix}",
+        "porque": "Se hacen ceros bajo el primer pivote."
+       },
+       {
+        "tex": "\\operatorname{rango}=2",
+        "porque": "Hay dos filas con pivote, la primera y la tercera. La fila de ceros no aporta."
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "¿Para qué sirve?",
+    "corto": "En ingeniería",
+    "bloques": [
+     {
+      "t": "ingenieria",
+      "titulo": "Las corrientes de tres mallas",
+      "html": "En un circuito con tres mallas, la ley de Kirchhoff de voltajes da una ecuación por malla con las corrientes como incógnitas. Es un sistema de 3 por 3 que se resuelve con eliminación.",
+      "tex": "\\begin{cases}6i_{1}-2i_{2}=10\\\\-2i_{1}+7i_{2}-3i_{3}=0\\\\-3i_{2}+8i_{3}=5\\end{cases}",
+      "datos": [
+       {
+        "k": "Fuentes",
+        "v": "10 V y 5 V"
+       },
+       {
+        "k": "Resistencias",
+        "v": "de 1 a 6 ohmios"
+       },
+       {
+        "k": "Corrientes",
+        "v": "2 A, 1 A y 1 A"
+       }
+      ],
+      "cierre": "Con eliminación se llega a las corrientes i1 igual a 2 amperios, i2 igual a 1 amperio e i3 igual a 1 amperio. Se comprueba en cada ecuación. Es un modelo simplificado, porque supone resistencias ideales y fuentes constantes."
+     }
+    ]
+   },
+   {
+    "titulo": "Completa el paso",
+    "corto": "Completa",
+    "bloques": [
+     {
+      "t": "completar",
+      "enunciado": "Se resta 2 veces la fila 1 a la fila 2 en la matriz aumentada, con fila 1 igual a (1, 1, 1 | 6) y fila 2 igual a (2, menos 1, 1 | 3). Falta el segundo elemento de la nueva fila 2.",
+      "tex": "R_{2}-2R_{1}=\\left(0,\\ [[hueco]],\\ -1\\ \\middle|\\ -9\\right)",
+      "opciones": [
+       {
+        "tex": "-3",
+        "txt": "menos tres"
+       },
+       {
+        "tex": "-1",
+        "txt": "menos uno"
+       },
+       {
+        "tex": "1",
+        "txt": "uno"
+       }
+      ],
+      "correcta": 0,
+      "errores": [
+       "",
+       "Ese es el elemento original sin restar nada. Hay que restar 2 veces el segundo elemento de la fila 1, que es 1.",
+       "Revisa el signo. Menos 1 menos 2 por 1 es menos 3."
+      ],
+      "pista": "El segundo elemento es menos 1 menos 2 por 1.",
+      "porque": "Menos 1 menos 2 por 1 da menos 3."
+     }
+    ]
+   },
+   {
+    "titulo": "Encuentra el error",
+    "corto": "Error",
+    "bloques": [
+     {
+      "t": "error",
+      "enunciado": "Alguien hizo una operación de fila y se equivocó en un paso. Toca el paso que está mal.",
+      "pasos": [
+       {
+        "tex": "R_{1}=(1,\\ 1,\\ 1\\ |\\ 6),\\quad R_{2}=(2,\\ -1,\\ 1\\ |\\ 3)",
+        "porque": "Son las dos filas de partida.",
+        "txt": "La fila 1 es 1, 1, 1, 6 y la fila 2 es 2, menos 1, 1, 3"
+       },
+       {
+        "tex": "R_{2}-2R_{1}=(0,\\ -3,\\ -1\\ |\\ 3-6)=(0,\\ -3,\\ -1\\ |\\ -3)",
+        "porque": "Este paso es el que falla.",
+        "txt": "La fila 2 menos 2 veces la fila 1 es 0, menos 3, menos 1, menos 3"
+       },
+       {
+        "tex": "\\text{La nueva fila 2 es}\\ (0,\\ -3,\\ -1\\ |\\ -3)",
+        "porque": "Depende del paso anterior.",
+        "txt": "La nueva fila 2 es 0, menos 3, menos 1, menos 3"
+       }
+      ],
+      "mal": 1,
+      "explicacion": "La operación se hace en todos los elementos de la fila, incluido el de la derecha. Hay que restar 2 veces el 6, y no una vez, así que sale 3 menos 12, o sea menos 9.",
+      "correccion": "R_{2}-2R_{1}=(0,\\ -3,\\ -1\\ |\\ 3-12)=(0,\\ -3,\\ -1\\ |\\ -9)",
+      "pista": "Revisa si en el último elemento se restó 2 veces el 6."
+     }
+    ]
+   },
+   {
+    "titulo": "Ordena los pasos",
+    "corto": "Ordena",
+    "bloques": [
+     {
+      "t": "ordenar",
+      "enunciado": "Estos son los pasos para resolver el sistema de 3 por 3 de la lección, pero están desordenados.",
+      "pasos": [
+       "R_{2}\\leftarrow R_{2}-2R_{1},\\ R_{3}\\leftarrow R_{3}-R_{1}",
+       "R_{2}\\leftrightarrow R_{3}",
+       "R_{3}\\leftarrow R_{3}+3R_{2}\\ \\Rightarrow\\ -7z=-21",
+       "z=3,\\ y=2,\\ x=1"
+      ],
+      "mezcla": [
+       2,
+       0,
+       3,
+       1
+      ],
+      "porque": "Primero ceros bajo el primer pivote, luego un intercambio, otra eliminación y al final la sustitución hacia atrás.",
+      "pista": "Se empieza con las eliminaciones del primer pivote.",
+      "txt": [
+       "Se hacen ceros bajo el primer pivote",
+       "Se intercambian las filas 2 y 3 para tener un pivote de 1",
+       "Se hace cero bajo el segundo pivote y sale menos 7z igual a menos 21",
+       "Se sustituye hacia atrás"
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "Revisa tu respuesta",
+    "corto": "Revisa",
+    "bloques": [
+     {
+      "t": "pregunta"
+     },
+     {
+      "t": "nota",
+      "html": "Puedes pedir pistas de a una. Si fallas, el mensaje te dice qué error se cometió."
+     }
+    ]
+   },
+   {
+    "titulo": "Tu repaso",
+    "corto": "Repaso",
+    "bloques": [
+     {
+      "t": "repaso"
+     }
+    ]
+   },
+   {
+    "titulo": "En resumen",
+    "corto": "Resumen",
+    "bloques": [
+     {
+      "t": "resumen"
+     }
+    ]
+   }
+  ]
+ },
+ "practicar": {
+  "pasos": [
+   {
+    "titulo": "Las dos ecuaciones",
+    "grafica": {
+     "draw": 1
+    },
+    "bloques": [
+     {
+      "t": "p",
+      "html": "La primera ecuación es fija. La segunda se va a modificar."
+     },
+     {
+      "t": "eq",
+      "tex": "\\begin{cases}2x+y=4\\\\x-y=-1\\end{cases}"
+     }
+    ]
+   },
+   {
+    "titulo": "Resta un múltiplo",
+    "grafica": {
+     "draw": 1
+    },
+    "laboratorio": true,
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mueve el deslizador. La segunda ecuación cambia a ella menos m veces la primera. Gira alrededor de la solución, que no se mueve."
+     }
+    ]
+   },
+   {
+    "titulo": "Un cero",
+    "grafica": {
+     "draw": 1,
+     "ok": true
+    },
+    "laboratorio": true,
+    "d": 0.5,
+    "bloques": [
+     {
+      "t": "eq",
+      "tex": "R_{2}-\\tfrac{1}{2}R_{1}:\\quad 0\\cdot x-\\tfrac{3}{2}\\,y=-3"
+     },
+     {
+      "t": "p",
+      "html": "Con m igual a un medio el coeficiente de x es 0 y la recta es horizontal. De ahí se lee y igual a 2."
+     }
+    ]
+   },
+   {
+    "titulo": "Revisa tu respuesta",
+    "grafica": {
+     "draw": 1,
+     "ok": true,
+     "d": 0.5
+    },
+    "bloques": [
+     {
+      "t": "pregunta"
+     },
+     {
+      "t": "nota",
+      "html": "Cuenta los pivotes de la forma escalonada."
+     }
+    ]
+   }
+  ]
+ },
+ "pregunta": {
+  "tex": "\\operatorname{rango}\\begin{pmatrix}1&2&1\\\\2&4&2\\\\3&6&5\\end{pmatrix}",
+  "opciones": [
+   "$2$",
+   "$3$",
+   "$1$",
+   "$0$"
+  ],
+  "correcta": 0,
+  "explicacion": "Se resta 2 veces la fila 1 a la fila 2 y 3 veces la fila 1 a la fila 3. La fila 2 queda de ceros y la fila 3 queda (0, 0, 2). Hay dos filas con pivote, así que el rango es 2.",
+  "verificacion": {
+   "formula": "2+0*x",
+   "a": 0,
+   "esperado": 2
+  },
+  "pistas": [
+   "Haz ceros bajo el primer pivote.",
+   "La fila 2 es el doble de la fila 1, así que se anula.",
+   "Cuenta las filas que quedan con algún número distinto de cero."
+  ],
+  "errores": [
+   "",
+   "Contar las filas no basta. La fila 2 es el doble de la 1 y no aporta nada nuevo.",
+   "Hay una fila de ceros, pero la tercera fila sigue teniendo un pivote, así que el rango es más que 1.",
+   "La matriz no es nula, así que su rango es al menos 1."
+  ]
+ },
+ "resumen": [
+  "Las tres operaciones de fila no cambian las soluciones, y se usan para hacer ceros bajo los pivotes.",
+  "Con la matriz aumentada se resuelve un sistema de cualquier tamaño, hasta llegar a la forma escalonada reducida, que es única.",
+  "El número de pivotes es el rango, y las columnas sin pivote son variables libres."
+ ]
+}
