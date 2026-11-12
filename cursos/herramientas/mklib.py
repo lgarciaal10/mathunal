@@ -43,7 +43,8 @@ def banco(i,resumen=None):
     """arma una pregunta del simulacro con el registro del banco, sacado de bank/alglin-todo.json"""
     global _BANCO
     if _BANCO is None:
-        _BANCO={q['id']:q for v in json.load(open(os.path.join(os.path.dirname(os.path.abspath(__file__)),'..','bank','alglin-todo.json'))).values() for q in v}
+        _d=os.path.dirname(os.path.abspath(__file__)); _p=[os.path.join(_d,'..','bank','alglin-todo.json'),os.path.join(_d,'..','datos','alglin-banco.json')]
+        _BANCO={q['id']:q for v in json.load(open(next(p for p in _p if os.path.exists(p)))).values() for q in v}
     q=_BANCO[i]
     if q['tipo']=='mcq': return mcq(q['texto'],q['opciones'],q['correcta'],resumen or q.get('resumen') or '')
     return num(q['texto'],str(q['respuesta']),q.get('tolNum') or 0.001,resumen or q.get('resumen') or '')
