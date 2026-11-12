@@ -2,7 +2,7 @@
   var NS='http://www.w3.org/2000/svg';
   var RM=!!(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches);
   var L=JSON.parse(document.getElementById('leccion-datos').textContent);
-  var G=L.grafica, SEC=(G.tipo==='secante'), TVM=(G.tipo==='tvm'), NEW=(G.tipo==='newton'), ARE=(G.tipo==='area'), ASI=(G.tipo==='asintota'), A=(SEC||TVM||ARE)?G.a:(G.hueco?G.hueco.x:0), ETQ=G.etiquetas||['Por la izquierda','Por la derecha'];
+  var G=L.grafica, SEC=(G.tipo==='secante'), TVM=(G.tipo==='tvm'), NEW=(G.tipo==='newton'), ARE=(G.tipo==='area'||G.tipo==='entre'), ENT=(G.tipo==='entre'), ASI=(G.tipo==='asintota'), A=(SEC||TVM||ARE)?G.a:(G.hueco?G.hueco.x:0), ETQ=G.etiquetas||['Por la izquierda','Por la derecha'];
 
   /* ---------- utilidades ---------- */
   function cl(v,a,b){ return Math.max(a,Math.min(b,v)); }
@@ -21,7 +21,7 @@
     js=js.replace(/\b(sin|cos|tan|exp|log|sqrt|abs|PI)\b/g,'Math.$1');
     return new Function('x','return '+js);
   }
-  var fFun=compile(G.funcion), fCurve=(SEC||TVM||NEW||ARE||ASI)?fFun:compile(G.curva), fDer=(SEC||TVM||NEW)?compile(G.derivada):null, fPri=ARE?compile(G.primitiva):null, NX=null;
+  var fFun=compile(G.funcion), fCurve=(SEC||TVM||NEW||ARE||ASI)?fFun:compile(G.curva), fDer=(SEC||TVM||NEW)?compile(G.derivada):null, fPri=ARE?compile(G.primitiva):null, fInf=ENT?compile(G.inferior):null, NX=null;
   if(NEW){ NX=[G.x0]; for(var ni=0;ni<G.pasos;ni++) NX.push(NX[ni]-fFun(NX[ni])/fDer(NX[ni])); }
   function nf(v){ if(!isFinite(v)) return v>0?'∞':(v<0?'-∞':'sin valor'); var a=Math.abs(v); if(a!==0&&(a<1e-6||a>=1e6)) return v.toExponential(2); return (+v.toFixed(a>=100?2:(a>=1?6:8))).toString(); }
   function gl(h){ return h.replace(/\{\{gl:([a-z0-9_]+)\|([^}]+)\}\}/g,'<button class="gl" type="button" data-g="$1">$2</button>'); }
@@ -72,7 +72,7 @@
         F.XR=[cx-rx*wx,cx-rx*wx+wx]; F.YR=[cy-ry*wy,cy-ry*wy+wy]; }
       F.axes(); F.zoomLabel(); if(F.onWin) F.onWin(); return true;
     };
-    F.curve=function(){ var d=[], on=false, N=160, prev=0, salto=(F.YR[1]-F.YR[0])*20; for(var k=0;k<=N;k++){ var xx=F.XR[0]+(F.XR[1]-F.XR[0])*k/N, yv=fCurve(xx); if(!isFinite(yv)) yv=fCurve(xx+1e-9); if(!isFinite(yv)){ on=false; continue; } if(on&&Math.abs(yv-prev)>salto) on=false; prev=yv; var py=Math.max(-5e4,Math.min(5e4,F.Y(yv))); d.push((on?'L':'M')+F.X(xx).toFixed(1)+' '+py.toFixed(1)); on=true; } return d.join(' '); };
+    F.curve=function(fn){ var fc=fn||fCurve, d=[], on=false, N=160, prev=0, salto=(F.YR[1]-F.YR[0])*20; for(var k=0;k<=N;k++){ var xx=F.XR[0]+(F.XR[1]-F.XR[0])*k/N, yv=fc(xx); if(!isFinite(yv)) yv=fc(xx+1e-9); if(!isFinite(yv)){ on=false; continue; } if(on&&Math.abs(yv-prev)>salto) on=false; prev=yv; var py=Math.max(-5e4,Math.min(5e4,F.Y(yv))); d.push((on?'L':'M')+F.X(xx).toFixed(1)+' '+py.toFixed(1)); on=true; } return d.join(' '); };
     F.clip=function(){ var defs=F.el('defs',{}), cp=F.el('clipPath',{id:'cp'+(++gid)},defs); F.el('rect',{x:F.x0,y:F.y1-10,width:F.x1-F.x0+8,height:F.y0-F.y1+10},cp); return F.el('g',{'clip-path':'url(#cp'+gid+')'}); };
     F.line=function(e,m){ var xa=F.XR[0], xb=F.XR[1], ya=fFun(A)+m*(xa-A), yb=fFun(A)+m*(xb-A); e.setAttribute('x1',F.X(xa)); e.setAttribute('y1',F.Y(ya)); e.setAttribute('x2',F.X(xb)); e.setAttribute('y2',F.Y(yb)); };
     F.axes();
@@ -135,19 +135,20 @@
   }
   /* área bajo la curva. Estado d = límite superior x, guide muestra la franja delgada, hole marca el límite inferior */
   function GraphArea(svg){
-    var a=G.a, b=G.b, F=Frame(svg,(a+b)/2,fFun(b)/2), X=F.X, Y=F.Y, el=F.el, grp=F.clip(), w=G.franja||0.15;
+    var a=G.a, b=G.b, lo=function(x){ return ENT?fInf(x):0; }, F=Frame(svg,(a+b)/2,ENT?(fFun(b)+fInf(b))/2:fFun(b)/2), X=F.X, Y=F.Y, el=F.el, grp=F.clip(), w=G.franja||0.15;
     var ar=el('path',{'class':'ar',opacity:0,d:''},grp), cv=el('path',{'class':'cv',pathLength:1,d:F.curve(),'stroke-dashoffset':1},grp);
+    var cv2=ENT?el('path',{'class':'cv cv2',pathLength:1,d:F.curve(fInf),'stroke-dashoffset':1},grp):null, pB=ENT?el('circle',{'class':'pL',r:7,opacity:0},grp):null;
     var sl=el('rect',{'class':'ar2',opacity:0},grp), vl=el('path',{'class':'dl',stroke:'var(--warn)',opacity:0},grp);
-    var pA=el('circle',{'class':'pP',r:0,cx:X(a),cy:Y(0)},grp), lA=el('text',{'class':'zb',opacity:0,x:X(a),y:Y(0)+34,'text-anchor':'middle'},grp); lA.textContent='a = '+fmt(a);
+    var pA=el('circle',{'class':'pP',r:0,cx:X(a),cy:Y(lo(a))},grp), lA=el('text',{'class':'zb',opacity:0,x:X(a),y:Y(lo(a))+34,'text-anchor':'middle'},grp); lA.textContent='a = '+fmt(a);
     var pM=el('circle',{'class':'pL',r:9,opacity:0},grp), lM=el('text',{'class':'zb','text-anchor':'middle',opacity:0},grp), halo=el('circle',{'class':'halo',r:12,opacity:0},grp);
     return { set:function(s){
       cv.style.strokeDashoffset=1-(s.draw==null?1:s.draw);
-      var h=s.hole==null?0:s.hole; pA.setAttribute('r',8*h); lA.setAttribute('opacity',h>0.5?1:0);
-      if(s.d==null){ [ar,sl,vl,pM,lM,halo].forEach(function(e){ e.setAttribute('opacity',0); }); return; }
-      var x=s.d, y=fFun(x), al=s.pa==null?1:s.pa, d=['M'+X(a)+' '+Y(0)]; for(var k=0;k<=60;k++){ var xx=a+(x-a)*k/60; d.push('L'+X(xx).toFixed(1)+' '+Y(fFun(xx)).toFixed(1)); } d.push('L'+X(x)+' '+Y(0)+' Z');
+      var h=s.hole==null?0:s.hole; pA.setAttribute('r',8*h); lA.setAttribute('opacity',h>0.5?1:0); if(cv2) cv2.style.strokeDashoffset=1-(s.draw==null?1:s.draw);
+      if(s.d==null){ [ar,sl,vl,pM,lM,halo].concat(pB?[pB]:[]).forEach(function(e){ e.setAttribute('opacity',0); }); return; }
+      var x=s.d, y=fFun(x), yb=lo(x), al=s.pa==null?1:s.pa, d=['M'+X(a)+' '+Y(lo(a))]; for(var k=0;k<=60;k++){ var xx=a+(x-a)*k/60; d.push('L'+X(xx).toFixed(1)+' '+Y(fFun(xx)).toFixed(1)); } if(ENT){ for(var k2=60;k2>=0;k2--){ var xb=a+(x-a)*k2/60; d.push('L'+X(xb).toFixed(1)+' '+Y(fInf(xb)).toFixed(1)); } d.push('Z'); } else d.push('L'+X(x)+' '+Y(0)+' Z');
       ar.setAttribute('d',d.join(' ')); ar.setAttribute('opacity',al);
-      var g=s.guide==null?0:s.guide; sl.setAttribute('x',X(x)); sl.setAttribute('y',Y(y)); sl.setAttribute('width',Math.max(1,X(x+w)-X(x))); sl.setAttribute('height',Math.max(0,Y(0)-Y(y))); sl.setAttribute('opacity',g);
-      vl.setAttribute('d','M'+X(x)+' '+Y(0)+' V'+Y(y)); vl.setAttribute('opacity',al);
+      var g=s.guide==null?0:s.guide; sl.setAttribute('x',X(x)); sl.setAttribute('y',Y(y)); sl.setAttribute('width',Math.max(1,X(x+w)-X(x))); sl.setAttribute('height',Math.max(0,Y(yb)-Y(y))); sl.setAttribute('opacity',g);
+      vl.setAttribute('d','M'+X(x)+' '+Y(yb)+' V'+Y(y)); vl.setAttribute('opacity',al); if(pB){ pB.setAttribute('cx',X(x)); pB.setAttribute('cy',Y(yb)); pB.setAttribute('opacity',al); }
       pM.setAttribute('cx',X(x)); pM.setAttribute('cy',Y(y)); pM.setAttribute('opacity',al); halo.setAttribute('cx',X(x)); halo.setAttribute('cy',Y(y)); halo.setAttribute('opacity',s.ok?1:0);
       lM.setAttribute('x',X(x)); lM.setAttribute('y',Y(y)-18); lM.textContent='x = '+fmt(x); lM.setAttribute('opacity',al);
     }};
@@ -209,7 +210,7 @@
   }
   function readouts(d,lEl,rEl){
     if(NEW){ if(d==null){ lEl.textContent='sin datos'; rEl.textContent='sin datos'; return; } var kk=Math.max(0,Math.min(G.pasos,Math.round(d))); lEl.textContent='x'+kk+' = '+nf(NX[kk]); rEl.textContent='f(x'+kk+') = '+nf(fFun(NX[kk])); return; }
-    if(ARE){ var RA=G.rotulos||['área','altura']; if(d==null){ lEl.textContent='sin datos'; rEl.textContent='sin datos'; return; } lEl.textContent=RA[0]+' = '+nf(fPri(d)-fPri(G.a)); rEl.textContent=RA[1]+' = '+nf(fFun(d)); return; }
+    if(ARE){ var RA=G.rotulos||(ENT?['área','separación']:['área','altura']); if(d==null){ lEl.textContent='sin datos'; rEl.textContent='sin datos'; return; } lEl.textContent=RA[0]+' = '+nf(fPri(d)-fPri(G.a)); rEl.textContent=RA[1]+' = '+nf(ENT?fFun(d)-fInf(d):fFun(d)); return; }
     if(ASI){ if(d==null){ lEl.textContent='sin datos'; rEl.textContent='sin datos'; return; } lEl.textContent='x = '+nf(d); rEl.textContent='f(x) = '+nf(fFun(d)); return; }
     if(TVM){ var RT=G.rotulos||['tangente','cuerda']; if(d==null){ lEl.textContent='sin datos'; rEl.textContent=RT[1]+' = '+fmt((fFun(G.b)-fFun(G.a))/(G.b-G.a)); return; } lEl.textContent=RT[0]+' = '+fmt(fDer(d)); rEl.textContent=RT[1]+' = '+fmt((fFun(G.b)-fFun(G.a))/(G.b-G.a)); return; }
     if(SEC){ if(d==null){ lEl.textContent='sin datos'; rEl.textContent='sin datos'; return; } var R=G.rotulos||['h','pendiente']; lEl.textContent=R[0]+' = '+fmt(d); rEl.textContent=R[1]+' = '+fmt((fFun(A+d)-fFun(A))/d); return; }

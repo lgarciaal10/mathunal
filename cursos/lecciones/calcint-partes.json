@@ -447,10 +447,10 @@
       "porque": "Se aplica partes una vez, se resuelve la integral que quedó con otra vez partes, se reemplaza y se simplifica.",
       "pista": "Primero se aplica partes a la integral original.",
       "txt": [
-       "Integral de x por e a la x es x por e a la x menos e a la x",
-       "Es (x al cuadrado menos 2x más 2) por e a la x más C",
        "Integral de x al cuadrado por e a la x es x al cuadrado por e a la x menos la integral de 2x por e a la x",
-       "Integral de x al cuadrado por e a la x es x al cuadrado por e a la x menos 2 por (x por e a la x menos e a la x)"
+       "Integral de x por e a la x es x por e a la x menos e a la x",
+       "Integral de x al cuadrado por e a la x es x al cuadrado por e a la x menos 2 por (x por e a la x menos e a la x)",
+       "Es (x al cuadrado menos 2x más 2) por e a la x más C"
       ]
      }
     ]
@@ -595,7 +595,7 @@
     "bloques": [
      {
       "t": "p",
-      "html": "La línea punteada marca la altura máxima de la curva, unos 1.8. Cerca de x igual a pi la altura ya es casi 0 y el área está cerca de 3.1. Eso es lo que debe dar la integral."
+      "html": "La franja amarilla muestra la altura de la curva en x. Cerca de x igual a pi la altura ya es casi 0 y el área está cerca de 3.1. Eso es lo que debe dar la integral."
      }
     ]
    },

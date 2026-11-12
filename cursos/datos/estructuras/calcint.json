@@ -33,8 +33,8 @@
      "tema": "Área entre curvas",
      "preguntas_banco": 3,
      "parciales_con_el_tema": 0,
-     "estado": "pendiente",
-     "leccion": null
+     "estado": "borrador para revisión",
+     "leccion": "lecciones/calcint-entre.json"
     }
    ]
   },

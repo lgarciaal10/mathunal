@@ -1,0 +1,86 @@
+import json
+P=lambda h:{"t":"p","html":h}
+EQ=lambda t:{"t":"eq","tex":t}
+FU="Banco MathUNAL, simulacro de Cálculo Integral"
+L={
+"esquema":1,"id":"calcint-m1-l4","ejemplo":True,"curso":"Cálculo Integral",
+"modulo":"Módulo 1 Integral definida y técnicas básicas","posicion":"Lección 4 de 4",
+"titulo":"Área entre curvas","minutos":24,"ejercicios":7,
+"grafica":{"tipo":"entre","x":[-1.7,2.7],"y":[-0.4,5],"funcion":"x+2","inferior":"x*x","primitiva":"x*x/2+2*x-x*x*x/3","a":-1,"b":2,"franja":0.12,"limite":2,
+ "etiquetas":["Área acumulada","Separación entre curvas"],"rotulos":["área","separación"],"etiquetaSlider":"Posición de x",
+ "alt":"La recta y igual a x más 2 y la parábola y igual a x al cuadrado, con la región entre ellas sombreada desde x igual a menos 1 hasta un x que avanza"},
+"glosario":{
+ "corte":"Los puntos de corte son donde las dos curvas se encuentran, o sea donde tienen el mismo valor de y.",
+ "sep":"La separación es la distancia vertical entre las curvas en un x, o sea la de arriba menos la de abajo.",
+ "prim":"Una primitiva de f es una función F cuya derivada es f. Por ejemplo, x al cubo sobre 3 es una primitiva de x al cuadrado."},
+"ver":{"duracion":24.0,"capitulos":[
+ [0,3,"Estas son dos curvas, la recta y igual a x más 2 y la parábola y igual a x al cuadrado."],
+ [3,6,"Se cortan en x igual a menos 1 y en x igual a 2, y entre esos dos puntos encierran una región."],
+ [6,11,"Al avanzar x, el área entre las dos curvas se va llenando."],
+ [11,16,"La franja amarilla tiene como alto la separación entre las curvas, la de arriba menos la de abajo. Con x igual a 1 mide 2."],
+ [16,20,"Cuando x llega a 2 las curvas se vuelven a cortar y el área acumulada es 4.5."],
+ [20,24,"La integral de la curva de arriba menos la de abajo entre menos 1 y 2 da el mismo 4.5."]],
+ "canales":{"draw":[[0.3,0],[2.8,1]],"hole":[[3,0],[3.8,1]],"d":[[6,-0.9],[11,1],[15,1],[16,2],[24,2]],"guide":[[11,0],[12,1]]},
+ "intervalos":{"ok":[20,24]}},
+}
+S=[]
+S.append({"titulo":"La idea","bloques":[P("Cuando dos curvas encierran una región, su área se calcula restando. En cada x se toma la separación entre la curva de arriba y la de abajo, y se suma esa separación a lo largo de todo el intervalo."),EQ("A=\\int_{a}^{b}\\bigl(f(x)-g(x)\\bigr)\\,dx\\qquad f\\ge g")]})
+S.append({"titulo":"Un ejemplo","corto":"Un ejemplo","bloques":[P("Mira la recta y igual a x más 2 y la parábola y igual a x al cuadrado."),P("Se cortan en dos puntos y entre ellos encierran una región. Esa región es la que se quiere medir."),{"t":"grafica","animar":"dibujar","alt":"Dos curvas que se dibujan y se cortan en x igual a menos 1 y en x igual a 2"}]})
+S.append({"titulo":"Piensa antes de ver","corto":"Piensa","bloques":[{"t":"piensa","pregunta":"Cuando x vale 1, la recta está en y igual a 3 y la parábola en y igual a 1. ¿Cuánto las separa?","opciones":[1,2,3,4],"correcta":2,"bien":"Muy bien. Las separan 2 unidades, y más abajo se ve cómo eso se suma a lo largo de todo el intervalo.","mal":"Las separan 2 unidades, que es 3 menos 1. Más abajo se ve cómo eso se suma a lo largo de todo el intervalo."}]})
+S.append({"titulo":"El área que se acumula","corto":"El área","bloques":[P("Mira cómo se llena la región y qué valen el área y la {{gl:sep|separación}} en cada x."),{"t":"acercando","ds":[-0.5,0.5,1,1.5,2],"alt":"La región entre las dos curvas que va creciendo mientras x avanza"},P("Con x igual a 2 las curvas se vuelven a cortar y el área acumulada es <b>4.5</b>. Ese es el número que debe salir al integrar.")]})
+S.append({"titulo":"Paso a paso","corto":"Paso a paso","bloques":[P("Siempre se siguen los mismos tres pasos. Se buscan los cortes, se decide cuál curva va arriba y se integra la resta."),{"t":"pasos","items":[
+ {"tex":"x+2=x^{2}\\ \\Rightarrow\\ x^{2}-x-2=0\\ \\Rightarrow\\ x=-1\\ \\text{o}\\ x=2","porque":"Los {{gl:corte|puntos de corte}} se encuentran igualando las dos funciones. Son los límites de la integral."},
+ {"tex":"x=0:\\quad x+2=2\\ >\\ x^{2}=0","porque":"Se prueba un x entre los cortes. La recta queda arriba y la parábola abajo."},
+ {"tex":"A=\\int_{-1}^{2}\\bigl(x+2-x^{2}\\bigr)\\,dx","porque":"Se integra la de arriba menos la de abajo."},
+ {"tex":"=\\Bigl[\\dfrac{x^{2}}{2}+2x-\\dfrac{x^{3}}{3}\\Bigr]_{-1}^{2}=\\dfrac{10}{3}-\\left(-\\dfrac{7}{6}\\right)=\\dfrac{9}{2}","porque":"Se evalúa la {{gl:prim|primitiva}} arriba y abajo. Sale 4.5, igual que el área acumulada de la gráfica."}]},
+ {"t":"ojo","html":"Un área nunca es negativa. Si el resultado sale negativo, casi seguro se restó al revés."}]})
+S.append({"titulo":"Cuando las curvas se cruzan","corto":"Si se cruzan","bloques":[P("Si las curvas se cruzan dentro del intervalo, quién va arriba cambia. Entonces se parte la integral en cada cruce."),{"t":"pasos","items":[
+ {"tex":"y=x\\ \\text{y}\\ y=x^{3}\\ \\text{en}\\ [-1,1],\\quad x=x^{3}\\ \\Rightarrow\\ x=-1,\\ 0,\\ 1","porque":"Hay tres cortes, así que hay dos regiones."},
+ {"tex":"x\\in(-1,0)\\ \\text{arriba}\\ x^{3},\\qquad x\\in(0,1)\\ \\text{arriba}\\ x","porque":"Se prueba un valor en cada tramo. En menos un medio, x al cubo vale menos un octavo y x vale menos un medio, así que x al cubo queda arriba."},
+ {"tex":"A=\\int_{-1}^{0}(x^{3}-x)\\,dx+\\int_{0}^{1}(x-x^{3})\\,dx=\\dfrac{1}{4}+\\dfrac{1}{4}=\\dfrac{1}{2}","porque":"Cada tramo se integra con su resta. Las dos regiones miden lo mismo por simetría."}]},
+ {"t":"ojo","html":"Integrar la resta de un solo golpe entre menos 1 y 1 daría 0, porque las partes de arriba y de abajo se cancelan, y 0 no es el área."}]})
+S.append({"titulo":"¿Para qué sirve?","corto":"En ingeniería","bloques":[{"t":"ingenieria","titulo":"El agua en un canal",
+ "html":"En un canal de riego con el fondo curvo, el agua ocupa la región entre el fondo y la superficie. Para saber cuánta agua pasa por segundo hay que conocer el área de esa sección, y el caudal es esa área por la velocidad media.",
+ "tex":"y_{\\text{fondo}}=0.5\\,x^{2}\\ \\text{m},\\qquad y_{\\text{agua}}=0.5\\ \\text{m}",
+ "datos":[{"k":"Nivel del agua","v":"0.5 m"},{"k":"Ancho en la superficie","v":"2 m"},{"k":"Velocidad media","v":"1.2 m/s"}],
+ "cierre":"Las curvas se cortan en x igual a menos 1 y a 1. El área es la integral de (0.5 − 0.5x²) entre esos dos valores, o sea 2/3 de metro cuadrado. Con 1.2 metros por segundo de velocidad media, el caudal es de 0.8 metros cúbicos por segundo. Es un modelo simplificado, porque un canal real no es exactamente parabólico y el agua no va igual de rápido en toda la sección."}]})
+S.append({"titulo":"Completa el paso","corto":"Completa","bloques":[{"t":"completar","enunciado":"Se quiere el área entre y igual a x al cuadrado y y igual a x al cubo, de x igual a 0 a x igual a 1. Entre 0 y 1, x al cuadrado es mayor que x al cubo. Falta la resta.","tex":"A=\\int_{0}^{1}\\bigl([[hueco]]\\bigr)\\,dx",
+ "opciones":[{"tex":"x^{2}-x^{3}","txt":"x al cuadrado menos x al cubo"},{"tex":"x^{3}-x^{2}","txt":"x al cubo menos x al cuadrado"},{"tex":"x^{2}+x^{3}","txt":"x al cuadrado más x al cubo"}],"correcta":0,
+ "errores":["","Está al revés y daría un área negativa. Va primero la curva de arriba, que es x al cuadrado.","Las curvas se restan y no se suman. Sumarlas mediría otra cosa, no la región entre ellas."],
+ "pista":"Arriba menos abajo.","porque":"En el intervalo la de arriba es x al cuadrado, así que se integra x al cuadrado menos x al cubo. El resultado es un tercio menos un cuarto, o sea 1 sobre 12."}]})
+S.append({"titulo":"Encuentra el error","corto":"Error","bloques":[{"t":"error","enunciado":"Alguien calculó el área entre la raíz de x y x al cuadrado, de 0 a 1, y se equivocó en un paso. Toca el paso que está mal.","pasos":[
+ {"tex":"\\sqrt{x}=x^{2}\\ \\Rightarrow\\ x=0\\ \\text{o}\\ x=1","porque":"Igualando las funciones se encuentran los cortes, y están bien.","txt":"Raíz de x igual a x al cuadrado, entonces x es 0 o x es 1"},
+ {"tex":"x=\\tfrac{1}{4}:\\quad \\sqrt{x}=\\tfrac{1}{2}\\ >\\ x^{2}=\\tfrac{1}{16}","porque":"Probar un valor intermedio es lo correcto, y muestra que la raíz queda arriba.","txt":"En x igual a un cuarto, la raíz de x es un medio y x al cuadrado es un dieciseisavo"},
+ {"tex":"A=\\int_{0}^{1}\\bigl(x^{2}-\\sqrt{x}\\bigr)\\,dx","porque":"Este paso es el que falla.","txt":"A es la integral de 0 a 1 de x al cuadrado menos raíz de x"},
+ {"tex":"=\\Bigl[\\dfrac{x^{3}}{3}-\\dfrac{2}{3}x^{3/2}\\Bigr]_{0}^{1}=-\\dfrac{1}{3}","porque":"La cuenta está bien con lo que viene del paso anterior, pero sale negativa por la resta al revés.","txt":"Queda x al cubo sobre tres menos dos tercios de x a la tres medios, y da menos un tercio"}],
+ "mal":2,"explicacion":"Se restó al revés. Va primero la curva de arriba, que es la raíz de x. El resultado negativo es la pista, porque un área nunca es negativa.",
+ "correccion":"A=\\int_{0}^{1}\\bigl(\\sqrt{x}-x^{2}\\bigr)\\,dx=\\dfrac{2}{3}-\\dfrac{1}{3}=\\dfrac{1}{3}","pista":"Mira el paso anterior. ¿Qué curva quedó arriba?"}]})
+S.append({"titulo":"Ordena los pasos","corto":"Ordena","bloques":[{"t":"ordenar","enunciado":"Estos son los pasos para el área entre seno y coseno de 0 a pi sobre 2, pero están desordenados.","pasos":[
+ "\\cos x=\\operatorname{sen}x\\ \\Rightarrow\\ x=\\dfrac{\\pi}{4}",
+ "A=\\int_{0}^{\\pi/4}(\\cos x-\\operatorname{sen}x)\\,dx+\\int_{\\pi/4}^{\\pi/2}(\\operatorname{sen}x-\\cos x)\\,dx",
+ "=(\\sqrt{2}-1)+(\\sqrt{2}-1)",
+ "=2(\\sqrt{2}-1)\\approx 0.8284"],
+ "mezcla":[2,0,3,1],"porque":"Primero se halla el cruce, luego se parte la integral en dos tramos, después se evalúa cada una y al final se suman.","pista":"Primero hay que saber dónde se cruzan las curvas.",
+ "txt":["Coseno de x igual a seno de x, entonces x es pi sobre 4","A es la integral de 0 a pi sobre 4 de coseno menos seno, más la integral de pi sobre 4 a pi sobre 2 de seno menos coseno","Queda raíz de 2 menos 1, más raíz de 2 menos 1","Es 2 por (raíz de 2 menos 1), unos 0.8284"]}]})
+S.append({"titulo":"Revisa tu respuesta","corto":"Revisa","bloques":[{"t":"pregunta"},{"t":"nota","html":"Puedes pedir pistas de a una. Si fallas, el mensaje te dice qué error se cometió."}]})
+S.append({"titulo":"Mini simulacro","corto":"Simulacro","bloques":[P("Tres preguntas reales del banco de MathUNAL sobre este tema. Responde sin mirar los pasos."),{"t":"simulacro","titulo":"Mini simulacro de área entre curvas","preguntas":[
+ {"tipo":"mcq","texto":"El área de la región encerrada entre $y=x^2$ y $y=2x$ es:","opciones":["$\\dfrac{4}{3}$","$\\dfrac{8}{3}$","$\\dfrac{2}{3}$","$4$"],"correcta":0,"resumen":"Los cortes son $x=0$ y $x=2$. Arriba va $2x$, así que $\\displaystyle\\int_0^2(2x-x^2)\\,dx=\\dfrac{4}{3}$.","fuente":FU},
+ {"tipo":"numerica","texto":"El área de la región entre $y=x$ y $y=x^{2}$ en $[0,1]$ es (decimal, 4 cifras):","respuesta":"0.1667","tolNum":0.005,"resumen":"$\\displaystyle\\int_0^1 (x-x^2)\\,dx=\\dfrac{1}{2}-\\dfrac{1}{3}=\\dfrac{1}{6}$.","fuente":FU},
+ {"tipo":"numerica","texto":"El área encerrada entre $y=4-x^{2}$ y el eje $x$ es (decimal, 4 cifras):","respuesta":"10.6667","tolNum":0.01,"resumen":"La parábola corta el eje en $x=\\pm2$ y el área es $\\displaystyle\\int_{-2}^{2}(4-x^2)\\,dx=\\dfrac{32}{3}$.","fuente":FU}]}]})
+S.append({"titulo":"Tu repaso","corto":"Repaso","bloques":[{"t":"repaso"}]})
+S.append({"titulo":"En resumen","corto":"Resumen","bloques":[{"t":"resumen"}]})
+L["leer"]={"secciones":S}
+L["practicar"]={"pasos":[
+ {"titulo":"Las dos curvas","grafica":{"draw":1},"bloques":[P("Estas son dos curvas que se cortan."),EQ("y=x+2\\qquad y=x^{2}")]},
+ {"titulo":"El primer corte","grafica":{"draw":1,"hole":1},"bloques":[P("Se empieza a medir desde el primer corte, en x igual a menos 1.")]},
+ {"titulo":"Mueve x","grafica":{"draw":1,"hole":1},"laboratorio":True,"bloques":[P("Mueve el deslizador. La región entre las curvas se va llenando y abajo se ven el área y la separación en x.")]},
+ {"titulo":"La separación","grafica":{"draw":1,"hole":1,"guide":1},"laboratorio":True,"d":1,"bloques":[P("La franja amarilla tiene como alto la separación entre las curvas. Con x igual a 1 mide 2, que es 3 menos 1.")]},
+ {"titulo":"La integral","grafica":{"draw":1,"hole":1,"guide":1,"ok":True},"laboratorio":True,"d":1.9,"bloques":[EQ("A=\\int_{-1}^{2}\\bigl(x+2-x^{2}\\bigr)\\,dx=\\dfrac{9}{2}"),P("Cerca de x igual a 2 el área ya está cerca de 4.5, que es lo que da la integral de la de arriba menos la de abajo.")]},
+ {"titulo":"Revisa tu respuesta","grafica":{"draw":1,"hole":1,"guide":1,"ok":True,"d":1.9},"bloques":[{"t":"pregunta"},{"t":"nota","html":"Busca los cortes, decide cuál va arriba y restas."}]}]}
+L["pregunta"]={"tex":"\\text{Área entre}\\ y=x^{2}\\ \\text{y}\\ y=8-x^{2}","opciones":["$\\dfrac{64}{3}$","$\\dfrac{32}{3}$","$\\dfrac{80}{3}$","$16$"],"correcta":0,
+ "explicacion":"Los cortes salen de x al cuadrado igual a 8 menos x al cuadrado, o sea x igual a menos 2 y 2. Arriba va 8 menos x al cuadrado. El área es la integral de 8 menos 2x al cuadrado entre menos 2 y 2, que vale 64 sobre 3.",
+ "verificacion":{"formula":"(8*2-2*2*2*2/3)-(8*(0-2)-2*(0-2)*(0-2)*(0-2)/3)+0*x","a":0,"esperado":21.3333333333},
+ "pistas":["Iguala las dos funciones para encontrar los cortes.","Los cortes son x igual a menos 2 y 2. Arriba va 8 menos x al cuadrado y abajo x al cuadrado, así que se integra su resta.","La integral de 8 menos 2x al cuadrado tiene primitiva 8x menos 2x al cubo sobre 3. Evalúala entre menos 2 y 2."],
+ "errores":["","Es solo la mitad. Es el valor de integrar de 0 a 2. Como la región es simétrica, hay que multiplicar por 2.","Se tomó la curva de arriba contra el eje x. Falta restar la de abajo, x al cuadrado, y no el eje.","Revisa la cuenta con la primitiva 8x menos 2x al cubo sobre 3 entre menos 2 y 2. Sale 64 sobre 3."]}
+L["resumen"]=["El área entre dos curvas es la integral de la de arriba menos la de abajo.","Los cortes son los límites. Se prueba un valor entre ellos para saber cuál va arriba.","Si las curvas se cruzan dentro del intervalo, se parte la integral en cada cruce."]
+json.dump(L,open('calcint-entre.json','w'),ensure_ascii=False,indent=1)

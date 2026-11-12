@@ -26,6 +26,7 @@ El validador revisa el esquema, que cada ecuación renderice con KaTeX, que las 
 
 - **Newton** (`"tipo": "newton"`). Tangentes sucesivas que cortan el eje x. Lleva `funcion`, `derivada`, `x0`, `pasos` y `raiz`. El estado `d` es el número de tangentes dibujadas y puede llevar decimales para animar. El deslizador de Practicar recorre las iteraciones.
 - **Área** (`"tipo": "area"`). El área bajo la curva desde `a` hasta un x que se mueve, con una franja delgada en el borde. Lleva `funcion`, `primitiva`, `a`, `b` y `franja`. El estado `d` es el x del límite superior y `guide` muestra la franja.
+- **Área entre curvas** (`"tipo": "entre"`). Como el área, pero con dos curvas. Lleva `funcion` (la de arriba), `inferior` (la de abajo), `primitiva` de la resta, y `a` y `b`, que son los cortes. El estado `d` es el x del límite superior y las lecturas son el área acumulada y la separación entre curvas. El validador revisa que las curvas se corten en `a` y `b`, que la de arriba quede arriba y que la primitiva derive en la resta.
 - **Asíntota** (`"tipo": "asintota"`). Un punto que recorre la curva con las asíntotas dibujadas. Lleva `funcion`, `asintotas` (cada una con `x` o `y` y una `etiqueta`) y `deslizador` con `ancla`, `dmin` y `dmax`, que fija el recorrido del deslizador en escala logarítmica. Con `"expandir": true` la ventana se agranda para que quepan valores grandes de x.
 
 Las fórmulas aceptan números, `x`, `+ - * / ^`, paréntesis y las funciones `sin cos tan exp ln sqrt abs` y la constante `pi`.
@@ -69,6 +70,6 @@ El motor guarda en `localStorage`, con la clave `mu-repaso`, el resultado de cad
 Los validadores revisan que `errores` tenga un texto por opción, que `mezcla` sea una permutación, que cada pregunta del simulacro traiga su fuente y que todas las ecuaciones rendericen.
 
 ## Lo que todavía no cubre
-Gráficas con más de una curva, curvas cerradas completas, superficies y vectores, que se necesitarán para varias variables, álgebra lineal y ecuaciones diferenciales.
+Más de dos curvas, curvas cerradas completas, superficies y vectores, que se necesitarán para varias variables, álgebra lineal y ecuaciones diferenciales.
 
 Los cuatro temas de color del sitio (Azul, Negro, Gris y Claro) vienen en `base.css` y se guardan en `localStorage` con la misma clave del sitio, `mu-theme`.

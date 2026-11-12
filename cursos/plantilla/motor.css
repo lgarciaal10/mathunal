@@ -22,6 +22,7 @@
 .g .ax{stroke:var(--mu);stroke-width:2;fill:none;stroke-linecap:round}
 .g .tk{stroke:var(--mu);stroke-width:2;stroke-linecap:round}
 .g .tt{font-family:var(--mono);font-size:13px;fill:var(--dim)}
+.g .cv.cv2{stroke:var(--warn)}
 .g .cv{stroke:var(--curve);stroke-width:5;fill:none;stroke-linecap:round;stroke-dasharray:1;stroke-dashoffset:1}
 .g .nm{stroke:var(--acc);stroke-width:3;stroke-dasharray:9 7;stroke-linecap:round}
 .g .ar{fill:var(--acc);fill-opacity:.28;stroke:none}

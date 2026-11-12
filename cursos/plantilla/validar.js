@@ -30,7 +30,7 @@ if (errores.length) { salir(); }
 const FN = /\b(sin|cos|tan|exp|ln|sqrt|abs|pi)\b/g;
 const compilar = (e, donde) => { if (!/^[0-9x+\-*\/().^\s]*$/.test(String(e).replace(FN, ''))) { err(`Fórmula no permitida en ${donde}`); return null; } try { const js = String(e).replace(/\^/g, '**').replace(/\bln\b/g, 'log').replace(/\bpi\b/g, 'PI').replace(/\b(sin|cos|tan|exp|log|sqrt|abs|PI)\b/g, 'Math.$1'); return new Function('x', 'return ' + js); } catch (x) { err(`Fórmula inválida en ${donde}`); return null; } };
 const G = L.grafica, SEC = G.tipo === 'secante', TVM = G.tipo === 'tvm', A = (SEC || TVM) ? G.a : (G.hueco && G.hueco.x);
-if (G.tipo && !['hueco', 'secante', 'tvm', 'newton', 'area', 'asintota'].includes(G.tipo)) err(`Tipo de gráfica desconocido ${G.tipo}`);
+if (G.tipo && !['hueco', 'secante', 'tvm', 'newton', 'area', 'entre', 'asintota'].includes(G.tipo)) err(`Tipo de gráfica desconocido ${G.tipo}`);
 if (SEC) {
   const f = compilar(G.funcion, 'grafica.funcion'), fd = compilar(G.derivada, 'grafica.derivada');
   if (f && fd) {
@@ -67,6 +67,16 @@ if (SEC) {
   if (f && F && G.a < G.b) {
     for (const x of [G.a + 0.1, (G.a + G.b) / 2, G.b - 0.1]) { const h = 1e-5, num = (F(x + h) - F(x - h)) / (2 * h); if (Math.abs(num - f(x)) > 1e-4) err(`La derivada de la primitiva en x=${x} da ${num} y f vale ${f(x)}`); }
     if (!(f(G.b) < G.y[1] && f(G.b) > G.y[0])) err('f(b) queda fuera del rango y');
+    if (!(G.b < G.x[1])) err('b debe quedar dentro del rango x');
+  }
+} else if (G.tipo === 'entre') {
+  const f = compilar(G.funcion, 'grafica.funcion'), g = compilar(G.inferior, 'grafica.inferior'), F = compilar(G.primitiva, 'grafica.primitiva');
+  if (!(G.a < G.b)) err('En la gráfica entre curvas a debe ser menor que b');
+  if (f && g && F && G.a < G.b) {
+    if (Math.abs(f(G.a) - g(G.a)) > 1e-6) err(`Las curvas no se cortan en a=${G.a}, f vale ${f(G.a)} y la inferior vale ${g(G.a)}`);
+    for (let i = 1; i < 20; i++) { const x = G.a + (G.b - G.a) * i / 20; if (!(f(x) >= g(x) - 1e-9)) err(`La función de arriba queda por debajo de la inferior en x=${x}`); }
+    for (const x of [G.a + 0.1 * (G.b - G.a), (G.a + G.b) / 2, G.b - 0.1 * (G.b - G.a)]) { const h = 1e-5, num = (F(x + h) - F(x - h)) / (2 * h); if (Math.abs(num - (f(x) - g(x))) > 1e-4) err(`La derivada de la primitiva en x=${x} da ${num} y f menos la inferior vale ${f(x) - g(x)}`); }
+    for (const x of [G.a, (G.a + G.b) / 2, G.b]) for (const v of [f(x), g(x)]) if (!(v > G.y[0] && v < G.y[1])) err(`La curva en x=${x} sale del rango y (${v})`);
     if (!(G.b < G.x[1])) err('b debe quedar dentro del rango x');
   }
 } else if (G.tipo === 'asintota') {
