@@ -61,8 +61,8 @@
      "tema": "Homogénea con coeficientes constantes",
      "preguntas_banco": 12,
      "parciales_con_el_tema": 1,
-     "estado": "pendiente",
-     "leccion": null
+     "estado": "borrador para revisión",
+     "leccion": "lecciones/edo-homogenea.json"
     },
     {
      "tema": "Coeficientes indeterminados",
