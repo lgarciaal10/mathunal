@@ -17,3 +17,8 @@ Copiar `Cadena.tsx`, cambiar los textos de `CAPS`, la función de la gráfica y 
 
 ## Lo que falta
 Los videos salen sin voz. La voz depende de resolver la cuota de ElevenLabs y de decidir si se clona la voz de Lucho. Tampoco llevan música, porque no hay una pista con licencia clara.
+
+## Reel de ejercicio resuelto
+`src/Resuelto.tsx` es la plantilla de un reel vertical de ejercicio resuelto, hecha a partir de cuatro videos de referencia que mandó Lucho. Tiene líneas de solución que aparecen una a una con una etiqueta de color por tipo de paso, factor tachado en rojo, resultado en cuadro amarillo, gráfica que se dibuja con el hueco marcado y subtítulos palabra por palabra.
+Los tiempos salen de `src/resuelto-timing.json`. Con voz, se cambia `audio` por la ruta del mp3 dentro de `public/` y se reemplazan `a` y `b` de cada frase por los tiempos reales. Hoy son estimados a 14.5 caracteres por segundo.
+Render, `npx remotion render resuelto-fracciones salida.mp4 --codec=h264 --crf=20 --concurrency=4`. Tarda unos 4 minutos en 4 núcleos.

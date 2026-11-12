@@ -1,0 +1,41 @@
+{
+ "audio": null,
+ "fin": 36.05,
+ "sent": [
+  {
+   "t": "Simplifica esta fracción algebraica.",
+   "a": 0.5,
+   "b": 2.98
+  },
+  {
+   "t": "Primero factoriza el numerador. Es una diferencia de cuadrados, x menos 2 por x más 2.",
+   "a": 3.48,
+   "b": 9.41
+  },
+  {
+   "t": "Ahora el denominador. Busca dos números que sumen menos 1 y multipliquen menos 2. Son menos 2 y 1.",
+   "a": 9.91,
+   "b": 16.67
+  },
+  {
+   "t": "El factor x menos 2 aparece arriba y abajo, así que se cancela.",
+   "a": 17.17,
+   "b": 21.52
+  },
+  {
+   "t": "Queda x más 2 sobre x más 1.",
+   "a": 22.02,
+   "b": 23.95
+  },
+  {
+   "t": "Pero ojo. En x igual a 2 la fracción original no existe, y en la gráfica queda un hueco.",
+   "a": 24.45,
+   "b": 30.52
+  },
+  {
+   "t": "Revisa siempre el dominio antes de cancelar.",
+   "a": 31.02,
+   "b": 34.05
+  }
+ ]
+}
