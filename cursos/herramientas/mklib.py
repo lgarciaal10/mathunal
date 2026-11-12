@@ -9,6 +9,8 @@ def sec(titulo,corto,*bl):
     if corto: d["corto"]=corto
     d["bloques"]=list(bl); return d
 def cierre(simtitle,preguntas):
+    if not preguntas:
+        return [sec("Revisa tu respuesta","Revisa",{"t":"pregunta"},{"t":"nota","html":"Puedes pedir pistas de a una. Si fallas, el mensaje te dice qué error se cometió."}),sec("Tu repaso","Repaso",{"t":"repaso"}),sec("En resumen","Resumen",{"t":"resumen"})]
     return [
      sec("Revisa tu respuesta","Revisa",{"t":"pregunta"},{"t":"nota","html":"Puedes pedir pistas de a una. Si fallas, el mensaje te dice qué error se cometió."}),
      sec("Mini simulacro","Simulacro",P("Tres preguntas reales del banco de MathUNAL sobre este tema. Responde sin mirar los pasos."),{"t":"simulacro","titulo":simtitle,"preguntas":preguntas}),
@@ -27,7 +29,7 @@ def error(enun,pasos,mal,expl,corr,pista):
 def ordenar(enun,pasos,mezcla,porque,pista):
     # pasos: lista de (tex, txt) en el orden correcto
     return sec("Ordena los pasos","Ordena",{"t":"ordenar","enunciado":enun,"pasos":[a for a,b in pasos],"mezcla":mezcla,"porque":porque,"pista":pista,"txt":[b for a,b in pasos]})
-def lesson(id_,posicion,titulo,minutos,graf,glos,ver,secciones,prac,preg,resumen,modulo="Módulo 1 Integral definida y técnicas básicas"):
-    return {"esquema":1,"id":id_,"ejemplo":True,"curso":"Cálculo Integral","modulo":modulo,"posicion":posicion,"titulo":titulo,"minutos":minutos,"ejercicios":7,"grafica":graf,"glosario":glos,"ver":ver,"leer":{"secciones":secciones},"practicar":{"pasos":prac},"pregunta":preg,"resumen":resumen}
+def lesson(id_,posicion,titulo,minutos,graf,glos,ver,secciones,prac,preg,resumen,modulo="Módulo 1 Integral definida y técnicas básicas",ejercicios=7):
+    return {"esquema":1,"id":id_,"ejemplo":True,"curso":"Cálculo Integral","modulo":modulo,"posicion":posicion,"titulo":titulo,"minutos":minutos,"ejercicios":ejercicios,"grafica":graf,"glosario":glos,"ver":ver,"leer":{"secciones":secciones},"practicar":{"pasos":prac},"pregunta":preg,"resumen":resumen}
 def write(L,name):
     json.dump(L,open(name,'w'),ensure_ascii=False,indent=1)
