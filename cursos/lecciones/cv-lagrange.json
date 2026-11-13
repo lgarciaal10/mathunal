@@ -1,0 +1,777 @@
+{
+ "esquema": 1,
+ "id": "cv-m1-l7",
+ "ejemplo": true,
+ "curso": "Cálculo en Varias Variables",
+ "modulo": "Módulo 1 Cálculo diferencial en varias variables",
+ "posicion": "Lección 7 de 7",
+ "titulo": "Multiplicadores de Lagrange",
+ "minutos": 26,
+ "ejercicios": 8,
+ "grafica": {
+  "tipo": "plano",
+  "x": [
+   -1,
+   11
+  ],
+  "y": [
+   -3,
+   28
+  ],
+  "a": 0.5,
+  "b": 9.5,
+  "inicio": 2,
+  "elementos": [
+   {
+    "t": "trazo",
+    "puntos": [
+     [
+      "0.0",
+      "0.0000"
+     ],
+     [
+      "0.25",
+      "2.4375"
+     ],
+     [
+      "0.5",
+      "4.7500"
+     ],
+     [
+      "0.75",
+      "6.9375"
+     ],
+     [
+      "1.0",
+      "9.0000"
+     ],
+     [
+      "1.25",
+      "10.9375"
+     ],
+     [
+      "1.5",
+      "12.7500"
+     ],
+     [
+      "1.75",
+      "14.4375"
+     ],
+     [
+      "2.0",
+      "16.0000"
+     ],
+     [
+      "2.25",
+      "17.4375"
+     ],
+     [
+      "2.5",
+      "18.7500"
+     ],
+     [
+      "2.75",
+      "19.9375"
+     ],
+     [
+      "3.0",
+      "21.0000"
+     ],
+     [
+      "3.25",
+      "21.9375"
+     ],
+     [
+      "3.5",
+      "22.7500"
+     ],
+     [
+      "3.75",
+      "23.4375"
+     ],
+     [
+      "4.0",
+      "24.0000"
+     ],
+     [
+      "4.25",
+      "24.4375"
+     ],
+     [
+      "4.5",
+      "24.7500"
+     ],
+     [
+      "4.75",
+      "24.9375"
+     ],
+     [
+      "5.0",
+      "25.0000"
+     ],
+     [
+      "5.25",
+      "24.9375"
+     ],
+     [
+      "5.5",
+      "24.7500"
+     ],
+     [
+      "5.75",
+      "24.4375"
+     ],
+     [
+      "6.0",
+      "24.0000"
+     ],
+     [
+      "6.25",
+      "23.4375"
+     ],
+     [
+      "6.5",
+      "22.7500"
+     ],
+     [
+      "6.75",
+      "21.9375"
+     ],
+     [
+      "7.0",
+      "21.0000"
+     ],
+     [
+      "7.25",
+      "19.9375"
+     ],
+     [
+      "7.5",
+      "18.7500"
+     ],
+     [
+      "7.75",
+      "17.4375"
+     ],
+     [
+      "8.0",
+      "16.0000"
+     ],
+     [
+      "8.25",
+      "14.4375"
+     ],
+     [
+      "8.5",
+      "12.7500"
+     ],
+     [
+      "8.75",
+      "10.9375"
+     ],
+     [
+      "9.0",
+      "9.0000"
+     ],
+     [
+      "9.25",
+      "6.9375"
+     ],
+     [
+      "9.5",
+      "4.7500"
+     ],
+     [
+      "9.75",
+      "2.4375"
+     ],
+     [
+      "10.0",
+      "0.0000"
+     ]
+    ],
+    "c": 3
+   },
+   {
+    "t": "punto",
+    "p": [
+     "x",
+     "x*(10-x)"
+    ],
+    "c": 0
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "x",
+     "0"
+    ],
+    "b": [
+     "x",
+     "x*(10-x)"
+    ],
+    "c": 1
+   }
+  ],
+  "lecturas": [
+   {
+    "rotulo": "posición x sobre la restricción x más y igual a 10",
+    "formula": "x"
+   },
+   {
+    "rotulo": "valor de f igual a x por y sobre la restricción",
+    "formula": "x*(10-x)"
+   }
+  ],
+  "etiquetas": [
+   "Se recorre la recta x más y igual a 10, y y vale 10 menos x",
+   "El producto xy sobre la restricción, con su máximo en el centro"
+  ],
+  "etiquetaSlider": "Posición x, de 0.5 a 9.5",
+  "alt": "Se recorre la restricción x más y igual a 10 y se mide f igual a x por y. Sobre la restricción, f vale x por 10 menos x, una parábola que abre hacia abajo. Su máximo, 25, ocurre en x igual a 5, donde los gradientes de f y de la restricción son paralelos"
+ },
+ "glosario": {
+  "lagrange": "El método de los multiplicadores de Lagrange halla extremos de f sujetos a una restricción g igual a c, resolviendo gradiente de f igual a lambda por gradiente de g.",
+  "restriccion": "Una restricción es una condición que deben cumplir las variables, como x más y igual a 10.",
+  "multiplicador": "El multiplicador lambda es el factor que relaciona los dos gradientes, y mide cuánto cambia el óptimo al mover la restricción.",
+  "paralelos": "En el óptimo restringido, el gradiente de f es paralelo al gradiente de la restricción, porque la curva de nivel de f es tangente a la restricción."
+ },
+ "ver": {
+  "duracion": 24.0,
+  "capitulos": [
+   [
+    0,
+    4,
+    "Se quiere el mayor valor de x por y, con la restricción de que x más y vale 10."
+   ],
+   [
+    4,
+    10,
+    "Sobre la restricción, y vale 10 menos x, y el producto queda x por 10 menos x."
+   ],
+   [
+    10,
+    16,
+    "Con x igual a 2, el producto vale 16. Con x igual a 8 también vale 16, así que el máximo está en medio."
+   ],
+   [
+    16,
+    20,
+    "Con x igual a 5 el producto vale 25, y es el máximo. Aquí los gradientes son paralelos."
+   ],
+   [
+    20,
+    24,
+    "El método de Lagrange halla ese punto sin despejar, con gradiente de f igual a lambda por gradiente de g."
+   ]
+  ],
+  "canales": {
+   "draw": [
+    [
+     0.3,
+     0
+    ],
+    [
+     3.5,
+     1
+    ]
+   ],
+   "d": [
+    [
+     4,
+     2
+    ],
+    [
+     8,
+     2
+    ],
+    [
+     10,
+     2
+    ],
+    [
+     13,
+     2
+    ],
+    [
+     16,
+     5
+    ],
+    [
+     18,
+     5
+    ],
+    [
+     24,
+     5
+    ]
+   ],
+   "guide": [
+    [
+     4,
+     0
+    ],
+    [
+     5,
+     1
+    ]
+   ]
+  },
+  "intervalos": {
+   "ok": [
+    16,
+    24
+   ]
+  }
+ },
+ "leer": {
+  "secciones": [
+   {
+    "titulo": "La idea",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Cuando se optimiza una función con una {{gl:restriccion|restricción}}, no basta con que el gradiente sea cero. El método de {{gl:lagrange|Lagrange}} pide que el gradiente de f sea {{gl:paralelos|paralelo}} al de la restricción, con un {{gl:multiplicador|multiplicador}} lambda. Se resuelve junto con la restricción."
+     }
+    ]
+   },
+   {
+    "titulo": "Un ejemplo",
+    "corto": "Un ejemplo",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Se quiere el máximo de x por y con x más y igual a 10. Mueve x sobre la restricción y mira el valor."
+     },
+     {
+      "t": "eq",
+      "tex": "f=xy,\\quad g=x+y=10,\\qquad \\nabla f=\\lambda\\nabla g"
+     },
+     {
+      "t": "grafica",
+      "animar": "dibujar",
+      "alt": "El producto xy sobre la restricción"
+     }
+    ]
+   },
+   {
+    "titulo": "Piensa antes de ver",
+    "corto": "Piensa",
+    "bloques": [
+     {
+      "t": "piensa",
+      "pregunta": "Con x más y igual a 10 y x igual a 2, ¿cuánto vale y?",
+      "opciones": [
+       8,
+       2,
+       10,
+       12
+      ],
+      "correcta": 8,
+      "bien": "Muy bien. y es 10 menos 2, o sea 8, y el producto es 16.",
+      "mal": "y es 10 menos x, o sea 8. El producto es 2 por 8, que da 16."
+     }
+    ]
+   },
+   {
+    "titulo": "Recorrer la restricción",
+    "corto": "Recorrido",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mira el producto con x igual a 2, 3.5, 5 y 8."
+     },
+     {
+      "t": "acercando",
+      "ds": [
+       2,
+       3.5,
+       5,
+       8
+      ],
+      "alt": "El producto en cuatro puntos de la restricción"
+     },
+     {
+      "t": "p",
+      "html": "El valor sube hasta x igual a 5 y luego baja, así que el máximo es 25."
+     }
+    ]
+   },
+   {
+    "titulo": "El método",
+    "corto": "Método",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Se igualan los gradientes y se agrega la restricción."
+     },
+     {
+      "t": "pasos",
+      "items": [
+       {
+        "tex": "\\nabla f=(y,\\,x),\\quad \\nabla g=(1,\\,1)",
+        "porque": "Los gradientes."
+       },
+       {
+        "tex": "y=\\lambda,\\quad x=\\lambda",
+        "porque": "Se igualan componente por componente."
+       },
+       {
+        "tex": "x=y,\\quad x+y=10\\ \\Rightarrow\\ x=y=5",
+        "porque": "Se usa la restricción."
+       },
+       {
+        "tex": "f(5,5)=25,\\quad \\lambda=5",
+        "porque": "El valor máximo y el multiplicador."
+       }
+      ]
+     },
+     {
+      "t": "ojo",
+      "html": "El método da los puntos candidatos, pero no dice si son máximos o mínimos. Se compara el valor de f en los candidatos, o se analiza con otro criterio."
+     }
+    ]
+   },
+   {
+    "titulo": "Otro ejemplo",
+    "corto": "Mínimo",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Se minimiza la distancia al cuadrado al origen sobre una recta."
+     },
+     {
+      "t": "pasos",
+      "items": [
+       {
+        "tex": "f=x^{2}+y^{2},\\quad g=x+y=4",
+        "porque": "Se minimiza sobre la recta."
+       },
+       {
+        "tex": "\\nabla f=(2x,2y)=\\lambda(1,1)\\ \\Rightarrow\\ x=y",
+        "porque": "Los gradientes paralelos."
+       },
+       {
+        "tex": "x+y=4\\ \\Rightarrow\\ x=y=2",
+        "porque": "Con la restricción."
+       },
+       {
+        "tex": "f(2,2)=8",
+        "porque": "El valor mínimo."
+       }
+      ]
+     },
+     {
+      "t": "ojo",
+      "html": "En este caso hay un mínimo y no hay máximo, porque lejos del origen la función crece sin límite. Revisa siempre qué tipo de extremo es."
+     }
+    ]
+   },
+   {
+    "titulo": "¿Para qué sirve?",
+    "corto": "En ingeniería",
+    "bloques": [
+     {
+      "t": "ingenieria",
+      "titulo": "El cercado de área máxima",
+      "html": "Un ganadero tiene 20 metros de malla para encerrar un corral rectangular. Quiere el área mayor, y el perímetro es la restricción.",
+      "tex": "A=xy,\\quad 2x+2y=20",
+      "datos": [
+       {
+        "k": "Perímetro",
+        "v": "20 m"
+       },
+       {
+        "k": "Lados óptimos",
+        "v": "5 m por 5 m"
+       },
+       {
+        "k": "Área máxima",
+        "v": "25 m²"
+       }
+      ],
+      "cierre": "El óptimo es un cuadrado, como sale del método de Lagrange. Con una pared ya construida se plantea otra restricción, y cambia la forma óptima."
+     }
+    ]
+   },
+   {
+    "titulo": "Completa el paso",
+    "corto": "Completa",
+    "bloques": [
+     {
+      "t": "completar",
+      "enunciado": "Para optimizar f con la restricción g igual a c, se resuelve el gradiente de f igual a lambda por [[hueco]].",
+      "tex": "\\nabla f=\\lambda\\,[[hueco]]",
+      "opciones": [
+       {
+        "tex": "\\nabla g",
+        "txt": "el gradiente de g"
+       },
+       {
+        "tex": "g",
+        "txt": "la función g"
+       },
+       {
+        "tex": "c",
+        "txt": "la constante c"
+       }
+      ],
+      "correcta": 0,
+      "errores": [
+       "",
+       "Un gradiente es un vector, y g es un número.",
+       "La constante c no es un vector."
+      ],
+      "pista": "Los dos lados deben ser vectores.",
+      "porque": "Es el gradiente de g."
+     }
+    ]
+   },
+   {
+    "titulo": "Encuentra el error",
+    "corto": "Error",
+    "bloques": [
+     {
+      "t": "error",
+      "enunciado": "Alguien resolvió el máximo de x por y con x más y igual a 10 y se equivocó. Toca el paso que está mal.",
+      "pasos": [
+       {
+        "tex": "\\nabla f=(y,x)=\\lambda(1,1)",
+        "porque": "Condición de Lagrange.",
+        "txt": "condición"
+       },
+       {
+        "tex": "x=\\lambda,\\ y=\\lambda\\ \\Rightarrow\\ x=y=\\lambda=10",
+        "porque": "Este paso es el que falla.",
+        "txt": "usa lambda igual a 10"
+       },
+       {
+        "tex": "f=100",
+        "porque": "Resultado.",
+        "txt": "100"
+       }
+      ],
+      "mal": 1,
+      "explicacion": "Falta usar la restricción x más y igual a 10. Con x igual a y, x más y es 2x, así que x es 5. Entonces el máximo es 25.",
+      "correccion": "x=y,\\ x+y=10\\ \\Rightarrow\\ x=y=5",
+      "pista": "Usa la restricción para hallar x."
+     }
+    ]
+   },
+   {
+    "titulo": "Ordena los pasos",
+    "corto": "Ordena",
+    "bloques": [
+     {
+      "t": "ordenar",
+      "enunciado": "Estos son los pasos del método de Lagrange, pero están desordenados.",
+      "pasos": [
+       "\\nabla f=\\lambda\\nabla g",
+       "g=c",
+       "(x,y,\\lambda)",
+       "f\\ \\text{en cada candidato}"
+      ],
+      "mezcla": [
+       2,
+       0,
+       3,
+       1
+      ],
+      "porque": "Se plantea la condición, se agrega la restricción, se resuelve y se comparan los valores.",
+      "pista": "Se empieza con la condición de los gradientes.",
+      "txt": [
+       "Se plantea la condición",
+       "Se agrega la restricción",
+       "Se resuelve el sistema",
+       "Se comparan los valores"
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "Revisa tu respuesta",
+    "corto": "Revisa",
+    "bloques": [
+     {
+      "t": "pregunta"
+     },
+     {
+      "t": "nota",
+      "html": "Puedes pedir pistas de a una. Si fallas, el mensaje te dice qué error se cometió."
+     }
+    ]
+   },
+   {
+    "titulo": "Mini simulacro",
+    "corto": "Simulacro",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Tres preguntas reales del banco de MathUNAL sobre este tema. Responde sin mirar los pasos."
+     },
+     {
+      "t": "simulacro",
+      "titulo": "Mini simulacro de multiplicadores de Lagrange",
+      "preguntas": [
+       {
+        "tipo": "mcq",
+        "texto": "El valor máximo de $f(x,y)=xy$ sujeto a $x+y=10$ (con $x,y>0$) es:",
+        "opciones": [
+         "$25$",
+         "$10$",
+         "$50$",
+         "$100$"
+        ],
+        "correcta": 0,
+        "resumen": "El máximo de x por y con x más y igual a 10.",
+        "fuente": "Banco MathUNAL, simulacro de Cálculo en Varias Variables"
+       },
+       {
+        "tipo": "mcq",
+        "texto": "Para optimizar $f(x,y)$ sujeto a la restricción $g(x,y) = c$, se resuelve:",
+        "opciones": [
+         "$\\nabla f = \\lambda\\,\\nabla g$ junto con $g = c$",
+         "$\\nabla f = 0$",
+         "$f = g$",
+         "$\\nabla f \\cdot \\nabla g = 0$"
+        ],
+        "correcta": 0,
+        "resumen": "La condición de Lagrange.",
+        "fuente": "Banco MathUNAL, simulacro de Cálculo en Varias Variables"
+       },
+       {
+        "tipo": "numerica",
+        "texto": "El valor mínimo de $x^{2}+y^{2}$ sujeto a $x+y=4$ es:",
+        "respuesta": "8",
+        "tolNum": 0.01,
+        "resumen": "El mínimo ocurre en x igual a y igual a 2, y vale 4 más 4, o sea 8.",
+        "fuente": "Pregunta propia de MathUNAL, escrita para esta lección"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "Tu repaso",
+    "corto": "Repaso",
+    "bloques": [
+     {
+      "t": "repaso"
+     }
+    ]
+   },
+   {
+    "titulo": "En resumen",
+    "corto": "Resumen",
+    "bloques": [
+     {
+      "t": "resumen"
+     }
+    ]
+   }
+  ]
+ },
+ "practicar": {
+  "pasos": [
+   {
+    "titulo": "La restricción",
+    "grafica": {
+     "draw": 1
+    },
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Se optimiza f sobre la restricción."
+     },
+     {
+      "t": "eq",
+      "tex": "f=xy,\\quad x+y=10"
+     }
+    ]
+   },
+   {
+    "titulo": "Recorre la recta",
+    "grafica": {
+     "draw": 1
+    },
+    "laboratorio": true,
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mueve el deslizador. Abajo se leen la posición x y el valor de f."
+     }
+    ]
+   },
+   {
+    "titulo": "El máximo",
+    "grafica": {
+     "draw": 1,
+     "guide": 1,
+     "ok": true
+    },
+    "laboratorio": true,
+    "d": 5,
+    "bloques": [
+     {
+      "t": "eq",
+      "tex": "f(5,5)=25"
+     },
+     {
+      "t": "p",
+      "html": "En x igual a 5, el producto es máximo, y vale 25."
+     }
+    ]
+   },
+   {
+    "titulo": "Revisa tu respuesta",
+    "grafica": {
+     "draw": 1,
+     "guide": 1,
+     "ok": true,
+     "d": 5
+    },
+    "bloques": [
+     {
+      "t": "pregunta"
+     },
+     {
+      "t": "nota",
+      "html": "Los gradientes son paralelos en el óptimo."
+     }
+    ]
+   }
+  ]
+ },
+ "pregunta": {
+  "tex": "\\max\\ xy\\ \\text{con}\\ x+y=10\\ \\text{vale}",
+  "opciones": [
+   "$25$",
+   "$10$",
+   "$50$",
+   "$100$"
+  ],
+  "correcta": 0,
+  "explicacion": "Con Lagrange, x es igual a y, y la restricción da x igual a y igual a 5. El producto es 25.",
+  "verificacion": {
+   "formula": "5*5+0*x",
+   "a": 0,
+   "esperado": 25
+  },
+  "pistas": [
+   "Iguala los gradientes de f y de g.",
+   "Eso da x igual a y.",
+   "Usa la restricción para hallar x."
+  ],
+  "errores": [
+   "",
+   "El 10 es la suma, y no el producto.",
+   "El 50 duplica el producto correcto.",
+   "El 100 es el cuadrado de la suma."
+  ]
+ },
+ "resumen": [
+  "El método de Lagrange resuelve gradiente de f igual a lambda por gradiente de g, junto con la restricción.",
+  "En el óptimo restringido, los gradientes son paralelos.",
+  "Se comparan los valores de f en los candidatos."
+ ]
+}
