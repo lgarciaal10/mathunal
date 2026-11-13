@@ -33,8 +33,8 @@
      "tema": "Identidad de Parseval y sumas de series",
      "preguntas_banco": 6,
      "parciales_con_el_tema": 1,
-     "estado": "pendiente",
-     "leccion": null
+     "estado": "borrador para revisión",
+     "leccion": "lecciones/esp-parseval.json"
     },
     {
      "tema": "Series de senos y cosenos",
