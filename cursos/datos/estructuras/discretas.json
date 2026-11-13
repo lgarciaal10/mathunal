@@ -12,29 +12,29 @@
      "tema": "Lógica proposicional",
      "preguntas_banco": 9,
      "parciales_con_el_tema": 1,
-     "estado": "pendiente",
-     "leccion": null
+     "estado": "borrador para revisión",
+     "leccion": "lecciones/disc-logica.json"
     },
     {
      "tema": "Inducción matemática",
      "preguntas_banco": 7,
      "parciales_con_el_tema": 2,
-     "estado": "pendiente",
-     "leccion": null
+     "estado": "borrador para revisión",
+     "leccion": "lecciones/disc-induccion.json"
     },
     {
      "tema": "Métodos de demostración",
      "preguntas_banco": 6,
      "parciales_con_el_tema": 1,
-     "estado": "pendiente",
-     "leccion": null
+     "estado": "borrador para revisión",
+     "leccion": "lecciones/disc-demostracion.json"
     },
     {
      "tema": "Cuantificadores y predicados",
      "preguntas_banco": 4,
      "parciales_con_el_tema": 1,
-     "estado": "pendiente",
-     "leccion": null
+     "estado": "borrador para revisión",
+     "leccion": "lecciones/disc-cuantificadores.json"
     }
    ]
   },
