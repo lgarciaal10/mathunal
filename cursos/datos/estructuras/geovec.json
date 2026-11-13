@@ -19,8 +19,8 @@
      "tema": "Vectores en el plano",
      "preguntas_banco": 9,
      "parciales_con_el_tema": 1,
-     "estado": "pendiente",
-     "leccion": null
+     "estado": "borrador para revisión",
+     "leccion": "lecciones/geovec-vectores.json"
     },
     {
      "tema": "Rectas en el plano",

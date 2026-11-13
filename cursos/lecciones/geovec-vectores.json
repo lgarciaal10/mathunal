@@ -1,0 +1,601 @@
+{
+ "esquema": 1,
+ "id": "gv-m1-l2",
+ "ejemplo": true,
+ "curso": "Geometría Vectorial y Analítica",
+ "modulo": "Módulo 1 Vectores y rectas en el plano",
+ "posicion": "Lección 2 de 4",
+ "titulo": "Vectores en el plano",
+ "minutos": 26,
+ "ejercicios": 8,
+ "grafica": {
+  "tipo": "plano",
+  "x": [
+   -3.4,
+   9.7
+  ],
+  "y": [
+   -2.2,
+   4.95
+  ],
+  "a": -2,
+  "b": 8,
+  "inicio": 3,
+  "elementos": [
+   {
+    "t": "vector",
+    "b": [
+     "2",
+     "1"
+    ],
+    "nombre": "u",
+    "c": 0
+   },
+   {
+    "t": "vector",
+    "b": [
+     "x",
+     "3"
+    ],
+    "nombre": "v",
+    "c": 1
+   }
+  ],
+  "lecturas": [
+   {
+    "rotulo": "determinante de u y v",
+    "formula": "2*3-1*x"
+   },
+   {
+    "rotulo": "longitud de v",
+    "formula": "sqrt(x*x+9)"
+   }
+  ],
+  "etiquetas": [
+   "Determinante u1 por v2 menos u2 por v1, es cero si son paralelos",
+   "Longitud del vector v"
+  ],
+  "etiquetaSlider": "Primera componente de v",
+  "alt": "El vector u igual a (2, 1) y el vector v igual a (x, 3). Al mover el deslizador cambia v. Con x igual a 6, v es el triple de u y los dos vectores son paralelos"
+ },
+ "glosario": {
+  "componentes": "Las componentes de un vector son sus coordenadas. El vector (3, 4) avanza 3 en horizontal y 4 en vertical.",
+  "norma": "La norma de un vector es su longitud, la raíz de la suma de los cuadrados de sus componentes.",
+  "unitario": "Un vector unitario mide 1. Se obtiene dividiendo un vector entre su norma.",
+  "paralelos": "Dos vectores son paralelos si uno es múltiplo del otro. En el plano, eso ocurre cuando u1 por v2 menos u2 por v1 vale cero."
+ },
+ "ver": {
+  "duracion": 22.0,
+  "capitulos": [
+   [
+    0,
+    3,
+    "El vector u es (2, 1) y el vector v es (x, 3), con x variable."
+   ],
+   [
+    3,
+    8,
+    "La longitud de v es la raíz de x al cuadrado más 9. Crece cuando x se aleja de cero."
+   ],
+   [
+    8,
+    14,
+    "Dos vectores son paralelos si uno es múltiplo del otro. El determinante u1 por v2 menos u2 por v1 mide cuánto se alejan de serlo."
+   ],
+   [
+    14,
+    19,
+    "Con x igual a 6, v es (6, 3), que es el triple de u. El determinante vale 0 y los vectores son paralelos."
+   ],
+   [
+    19,
+    22,
+    "Con cualquier otro valor de x el determinante no es cero y los vectores no son paralelos."
+   ]
+  ],
+  "canales": {
+   "draw": [
+    [
+     0.3,
+     0
+    ],
+    [
+     2.8,
+     1
+    ]
+   ],
+   "d": [
+    [
+     3,
+     0
+    ],
+    [
+     8,
+     0
+    ],
+    [
+     10,
+     2
+    ],
+    [
+     13,
+     4
+    ],
+    [
+     14,
+     5
+    ],
+    [
+     17,
+     6
+    ],
+    [
+     19,
+     6
+    ],
+    [
+     22,
+     6
+    ]
+   ],
+   "guide": [
+    [
+     3,
+     0
+    ],
+    [
+     4,
+     1
+    ]
+   ]
+  },
+  "intervalos": {
+   "ok": [
+    14,
+    22
+   ]
+  }
+ },
+ "leer": {
+  "secciones": [
+   {
+    "titulo": "La idea",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Un vector del plano se describe con dos {{gl:componentes|componentes}}, y se representa con una flecha desde el origen. De él interesan su longitud, que es la {{gl:norma|norma}}, y su dirección. Los vectores se suman componente a componente, se multiplican por números, y se comparan para saber si son {{gl:paralelos|paralelos}} o perpendiculares."
+     }
+    ]
+   },
+   {
+    "titulo": "Un ejemplo",
+    "corto": "Un ejemplo",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mira el vector u igual a (2, 1) y el vector v igual a (x, 3). Al mover x, cambian la longitud de v y su dirección respecto de u."
+     },
+     {
+      "t": "eq",
+      "tex": "\\|v\\|=\\sqrt{x^{2}+9},\\qquad u_{1}v_{2}-u_{2}v_{1}=6-x"
+     },
+     {
+      "t": "grafica",
+      "animar": "dibujar",
+      "alt": "Los vectores u y v"
+     }
+    ]
+   },
+   {
+    "titulo": "Piensa antes de ver",
+    "corto": "Piensa",
+    "bloques": [
+     {
+      "t": "piensa",
+      "pregunta": "El vector v es (6, 3) y el vector u es (2, 1). ¿Por cuánto hay que multiplicar a u para obtener v?",
+      "opciones": [
+       2,
+       3,
+       4,
+       6
+      ],
+      "correcta": 3,
+      "bien": "Muy bien. Por 3, porque 3 por 2 es 6 y 3 por 1 es 3. Por eso son paralelos. Más abajo se ve.",
+      "mal": "Por 3, porque 3 por 2 es 6 y 3 por 1 es 3. Como uno es múltiplo del otro, son paralelos. Más abajo se ve."
+     }
+    ]
+   },
+   {
+    "titulo": "Moviendo v",
+    "corto": "Moviendo v",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mira el vector v para x igual a 0, 3, 6 y 8."
+     },
+     {
+      "t": "acercando",
+      "ds": [
+       0,
+       3,
+       6,
+       8
+      ],
+      "alt": "El vector v para cuatro valores de x"
+     },
+     {
+      "t": "p",
+      "html": "Solo con x igual a <b>6</b> los vectores son paralelos. En ese caso el determinante vale cero."
+     }
+    ]
+   },
+   {
+    "titulo": "Norma y vector unitario",
+    "corto": "Norma",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "La norma sale del teorema de Pitágoras con las dos componentes."
+     },
+     {
+      "t": "pasos",
+      "items": [
+       {
+        "tex": "\\|(3,4)\\|=\\sqrt{9+16}=5",
+        "porque": "Se suman los cuadrados y se saca la raíz."
+       },
+       {
+        "tex": "\\|(3,-4)\\|=\\sqrt{9+16}=5",
+        "porque": "El signo de una componente no cambia la longitud."
+       },
+       {
+        "tex": "\\hat{u}=\\dfrac{1}{5}(3,4)=(0.6,\\ 0.8)",
+        "porque": "Dividir entre la norma da un vector unitario."
+       },
+       {
+        "tex": "\\|\\hat{u}\\|=\\sqrt{0.36+0.64}=1",
+        "porque": "Se comprueba que mide 1."
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "Paralelos y perpendiculares",
+    "corto": "Paralelos",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Para decidir cómo se relacionan dos vectores se usan dos cuentas distintas."
+     },
+     {
+      "t": "pasos",
+      "items": [
+       {
+        "tex": "u=(2,4),\\ v=(-1,-2):\\quad 2(-2)-4(-1)=0",
+        "porque": "El determinante es cero, así que son paralelos. De hecho, v es menos un medio de u."
+       },
+       {
+        "tex": "u=(1,2),\\ v=(4,-2):\\quad 1\\cdot4+2(-2)=0",
+        "porque": "El producto punto es cero, así que son perpendiculares."
+       },
+       {
+        "tex": "u=(1,2),\\ v=(2,1):\\quad \\text{ni uno ni otro}",
+        "porque": "Ninguna de las dos cuentas da cero."
+       }
+      ]
+     },
+     {
+      "t": "ojo",
+      "html": "Paralelos y perpendiculares se detectan con cuentas distintas. El determinante cero indica paralelos, y el producto punto cero indica perpendiculares."
+     }
+    ]
+   },
+   {
+    "titulo": "¿Para qué sirve?",
+    "corto": "En ingeniería",
+    "bloques": [
+     {
+      "t": "ingenieria",
+      "titulo": "La velocidad resultante de un avión",
+      "html": "Un avión vuela a 200 kilómetros por hora hacia el este mientras el viento sopla a 50 kilómetros por hora hacia el norte. La velocidad respecto del suelo es la suma de los dos vectores, y su norma da la rapidez.",
+      "tex": "\\mathbf{v}=\\mathbf{a}+\\mathbf{w}=(200,50)",
+      "datos": [
+       {
+        "k": "Velocidad del avión",
+        "v": "(200, 0) km/h"
+       },
+       {
+        "k": "Viento",
+        "v": "(0, 50) km/h"
+       },
+       {
+        "k": "Rapidez respecto del suelo",
+        "v": "206.2 km/h"
+       }
+      ],
+      "cierre": "La norma de (200, 50) es la raíz de 40 000 más 2500, o sea 206.2 kilómetros por hora, y la dirección se desvía unos 14 grados hacia el norte. El piloto corrige el rumbo apuntando un poco hacia el sur del este. Es un modelo simplificado, porque supone un viento constante."
+     }
+    ]
+   },
+   {
+    "titulo": "Completa el paso",
+    "corto": "Completa",
+    "bloques": [
+     {
+      "t": "completar",
+      "enunciado": "Se calcula la norma del vector (6, 8). Falta lo que va dentro de la raíz.",
+      "tex": "\\|(6,8)\\|=\\sqrt{[[hueco]]}",
+      "opciones": [
+       {
+        "tex": "36+64",
+        "txt": "treinta y seis más sesenta y cuatro"
+       },
+       {
+        "tex": "6+8",
+        "txt": "seis más ocho"
+       },
+       {
+        "tex": "36\\cdot64",
+        "txt": "treinta y seis por sesenta y cuatro"
+       }
+      ],
+      "correcta": 0,
+      "errores": [
+       "",
+       "Hay que elevar al cuadrado cada componente antes de sumar.",
+       "Los cuadrados se suman, y no se multiplican."
+      ],
+      "pista": "Se suman los cuadrados de las componentes.",
+      "porque": "6 al cuadrado más 8 al cuadrado es 100, y la raíz da 10."
+     }
+    ]
+   },
+   {
+    "titulo": "Encuentra el error",
+    "corto": "Error",
+    "bloques": [
+     {
+      "t": "error",
+      "enunciado": "Alguien analizó dos vectores y se equivocó en un paso. Toca el paso que está mal.",
+      "pasos": [
+       {
+        "tex": "u=(2,4),\\quad v=(-1,-2)",
+        "porque": "Son los dos vectores.",
+        "txt": "u es 2, 4 y v es menos 1, menos 2"
+       },
+       {
+        "tex": "u_{1}v_{2}-u_{2}v_{1}=-4+4=0",
+        "porque": "El determinante.",
+        "txt": "el determinante vale cero"
+       },
+       {
+        "tex": "\\text{Entonces}\\ u\\ \\text{y}\\ v\\ \\text{son perpendiculares}",
+        "porque": "Este paso es el que falla.",
+        "txt": "por tanto son perpendiculares"
+       }
+      ],
+      "mal": 2,
+      "explicacion": "Un determinante igual a cero indica vectores paralelos, y no perpendiculares. Aquí v es menos un medio de u, así que apuntan en la misma recta.",
+      "correccion": "u_{1}v_{2}-u_{2}v_{1}=0\\ \\Rightarrow\\ u\\parallel v",
+      "pista": "Recuerda qué indica un determinante cero."
+     }
+    ]
+   },
+   {
+    "titulo": "Ordena los pasos",
+    "corto": "Ordena",
+    "bloques": [
+     {
+      "t": "ordenar",
+      "enunciado": "Estos son los pasos para convertir (3, 4) en un vector unitario, pero están desordenados.",
+      "pasos": [
+       "\\|(3,4)\\|=5",
+       "\\hat{u}=\\dfrac{1}{5}(3,4)",
+       "\\hat{u}=(0.6,\\ 0.8)",
+       "\\|\\hat{u}\\|=1"
+      ],
+      "mezcla": [
+       2,
+       0,
+       3,
+       1
+      ],
+      "porque": "Se calcula la norma, se divide el vector entre ella y se comprueba que el resultado mide 1.",
+      "pista": "Se empieza calculando la norma.",
+      "txt": [
+       "Se calcula la norma",
+       "Se divide el vector entre su norma",
+       "Se calculan las componentes",
+       "Se comprueba que mide 1"
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "Revisa tu respuesta",
+    "corto": "Revisa",
+    "bloques": [
+     {
+      "t": "pregunta"
+     },
+     {
+      "t": "nota",
+      "html": "Puedes pedir pistas de a una. Si fallas, el mensaje te dice qué error se cometió."
+     }
+    ]
+   },
+   {
+    "titulo": "Mini simulacro",
+    "corto": "Simulacro",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Tres preguntas reales del banco de MathUNAL sobre este tema. Responde sin mirar los pasos."
+     },
+     {
+      "t": "simulacro",
+      "titulo": "Mini simulacro de vectores en el plano",
+      "preguntas": [
+       {
+        "tipo": "mcq",
+        "texto": "Los vectores $\\mathbf{u}=(2,4)$ y $\\mathbf{v}=(-1,-2)$ son:",
+        "opciones": [
+         "paralelos ($\\mathbf{v}=-\\tfrac12\\mathbf{u}$)",
+         "perpendiculares",
+         "iguales",
+         "ninguna de las anteriores"
+        ],
+        "correcta": 0,
+        "resumen": "$v=-\\tfrac12 u$, así que son paralelos.",
+        "fuente": "Banco MathUNAL, simulacro de Geometría Vectorial y Analítica"
+       },
+       {
+        "tipo": "numerica",
+        "texto": "$\\|(3,-4)\\|$",
+        "respuesta": "5",
+        "tolNum": 0.001,
+        "resumen": "$\\sqrt{9+16}=5$.",
+        "fuente": "Banco MathUNAL, simulacro de Geometría Vectorial y Analítica"
+       },
+       {
+        "tipo": "mcq",
+        "texto": "Dos vectores del plano $u = (u_1,u_2)$, $v = (v_1,v_2)$ son PARALELOS si y solo si:",
+        "opciones": [
+         "$u_1 v_2 - u_2 v_1 = 0$ (uno es múltiplo del otro)",
+         "$u\\cdot v = 0$",
+         "$\\|u\\| = \\|v\\|$",
+         "$u_1 = v_1$"
+        ],
+        "correcta": 0,
+        "resumen": "Paralelos equivale a determinante cero, es decir, uno es múltiplo del otro.",
+        "fuente": "Banco MathUNAL, simulacro de Geometría Vectorial y Analítica"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "Tu repaso",
+    "corto": "Repaso",
+    "bloques": [
+     {
+      "t": "repaso"
+     }
+    ]
+   },
+   {
+    "titulo": "En resumen",
+    "corto": "Resumen",
+    "bloques": [
+     {
+      "t": "resumen"
+     }
+    ]
+   }
+  ]
+ },
+ "practicar": {
+  "pasos": [
+   {
+    "titulo": "Dos vectores",
+    "grafica": {
+     "draw": 1
+    },
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Un vector u fijo y un vector v que se mueve."
+     },
+     {
+      "t": "eq",
+      "tex": "u=(2,1),\\qquad v=(x,3)"
+     }
+    ]
+   },
+   {
+    "titulo": "Mueve v",
+    "grafica": {
+     "draw": 1
+    },
+    "laboratorio": true,
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mueve el deslizador. Abajo se leen el determinante y la longitud de v."
+     }
+    ]
+   },
+   {
+    "titulo": "Paralelos",
+    "grafica": {
+     "draw": 1,
+     "guide": 1,
+     "ok": true
+    },
+    "laboratorio": true,
+    "d": 6,
+    "bloques": [
+     {
+      "t": "eq",
+      "tex": "6-x=0\\ \\Rightarrow\\ x=6"
+     },
+     {
+      "t": "p",
+      "html": "Con x igual a 6, v es el triple de u y el determinante es cero."
+     }
+    ]
+   },
+   {
+    "titulo": "Revisa tu respuesta",
+    "grafica": {
+     "draw": 1,
+     "guide": 1,
+     "ok": true,
+     "d": 6
+    },
+    "bloques": [
+     {
+      "t": "pregunta"
+     },
+     {
+      "t": "nota",
+      "html": "Calcula el determinante de los dos vectores."
+     }
+    ]
+   }
+  ]
+ },
+ "pregunta": {
+  "tex": "\\text{Los vectores}\\ (4,6)\\ \\text{y}\\ (6,9)\\ \\text{son}",
+  "opciones": [
+   "paralelos",
+   "perpendiculares",
+   "iguales",
+   "ninguna de las anteriores"
+  ],
+  "correcta": 0,
+  "explicacion": "El determinante es 4 por 9 menos 6 por 6, o sea 36 menos 36, que da 0. Además (6, 9) es 1.5 veces (4, 6). Son paralelos.",
+  "verificacion": {
+   "formula": "4*9-6*6+0*x",
+   "a": 0,
+   "esperado": 0
+  },
+  "pistas": [
+   "Calcula 4 por 9 menos 6 por 6.",
+   "Da 0.",
+   "Un determinante cero indica vectores paralelos."
+  ],
+  "errores": [
+   "",
+   "Para perpendiculares el producto punto debería ser cero, y aquí es 24 más 54, o sea 78.",
+   "Los vectores no son iguales, pero uno es múltiplo del otro.",
+   "Sí cumplen una de las dos relaciones. El determinante es cero."
+  ]
+ },
+ "resumen": [
+  "La norma de un vector es la raíz de la suma de los cuadrados de sus componentes, y un vector unitario mide 1.",
+  "Dos vectores son paralelos si el determinante u1 por v2 menos u2 por v1 es cero.",
+  "Dos vectores son perpendiculares si su producto punto es cero."
+ ]
+}
