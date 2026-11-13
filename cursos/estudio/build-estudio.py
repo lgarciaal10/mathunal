@@ -14,12 +14,12 @@ def clave(s):
     return o or '0'
 hub=open(S+'hub/build-hub.py').read()
 URLS={}
-for n,pre in [('URL','calculo'),('URL2','calcint'),('URL3','alglin'),('URL4','edo'),('URL5','otras'),('URL6','matbas'),('URL7','fund'),('URL8','geovec'),('URL9','disc'),('URL10','mn'),('URL11','esp')]:
+for n,pre in [('URL','calculo'),('URL2','calcint'),('URL3','alglin'),('URL4','edo'),('URL5','otras'),('URL6','matbas'),('URL7','fund'),('URL8','geovec'),('URL9','disc'),('URL10','mn'),('URL11','esp'),('URL12','cv')]:
     m=re.search(r'^'+n+r"=(\{.*?\})\s*$",hub,re.M|re.S)
     if m:
         for k,v in ast.literal_eval(m.group(1)).items(): URLS[(pre if n!='URL5' else k.split(':')[0])+'-'+k]=v
-CURSOS=['Matemáticas Básicas','Cálculo Diferencial','Cálculo Integral','Álgebra Lineal','Ecuaciones Diferenciales','Fundamentos de Matemáticas','Geometría Vectorial y Analítica','Matemáticas Discretas','Métodos Numéricos','Matemáticas Especiales']
-CPRE={'matbas':'Matemáticas Básicas','calculo':'Cálculo Diferencial','calcint':'Cálculo Integral','alglin':'Álgebra Lineal','edo':'Ecuaciones Diferenciales','fund':'Fundamentos de Matemáticas','geovec':'Geometría Vectorial y Analítica','disc':'Matemáticas Discretas','mn':'Métodos Numéricos','esp':'Matemáticas Especiales'}
+CURSOS=['Matemáticas Básicas','Cálculo Diferencial','Cálculo Integral','Álgebra Lineal','Ecuaciones Diferenciales','Fundamentos de Matemáticas','Geometría Vectorial y Analítica','Matemáticas Discretas','Métodos Numéricos','Matemáticas Especiales','Cálculo en Varias Variables']
+CPRE={'matbas':'Matemáticas Básicas','calculo':'Cálculo Diferencial','calcint':'Cálculo Integral','alglin':'Álgebra Lineal','edo':'Ecuaciones Diferenciales','fund':'Fundamentos de Matemáticas','geovec':'Geometría Vectorial y Analítica','disc':'Matemáticas Discretas','mn':'Métodos Numéricos','esp':'Matemáticas Especiales','cv':'Cálculo en Varias Variables'}
 exec(open(S+'estudio/prereq.py').read())
 lec=[]; stem2id={}
 for pre in CPRE:
