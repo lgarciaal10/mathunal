@@ -131,8 +131,8 @@
      "tema": "Campos vectoriales e integrales de línea",
      "preguntas_banco": 5,
      "parciales_con_el_tema": 0,
-     "estado": "pendiente",
-     "leccion": null
+     "estado": "borrador para revisión",
+     "leccion": "lecciones/cv-lineas.json"
     },
     {
      "tema": "Teoremas de Stokes y de la Divergencia",

@@ -1,0 +1,964 @@
+{
+ "esquema": 1,
+ "id": "cv-m3-l1",
+ "ejemplo": true,
+ "curso": "Cálculo en Varias Variables",
+ "modulo": "Módulo 3 Cálculo vectorial",
+ "posicion": "Lección 1 de 5",
+ "titulo": "Campos vectoriales e integrales de línea",
+ "minutos": 28,
+ "ejercicios": 8,
+ "grafica": {
+  "tipo": "plano",
+  "x": [
+   -0.12,
+   1.2
+  ],
+  "y": [
+   -0.5,
+   5.7
+  ],
+  "a": 0,
+  "b": 1,
+  "inicio": 0.6,
+  "elementos": [
+   {
+    "t": "trazo",
+    "puntos": [
+     [
+      "0.0",
+      "0.00000"
+     ],
+     [
+      "0.025",
+      "0.00313"
+     ],
+     [
+      "0.05",
+      "0.01250"
+     ],
+     [
+      "0.075",
+      "0.02812"
+     ],
+     [
+      "0.1",
+      "0.05000"
+     ],
+     [
+      "0.125",
+      "0.07812"
+     ],
+     [
+      "0.15",
+      "0.11250"
+     ],
+     [
+      "0.175",
+      "0.15312"
+     ],
+     [
+      "0.2",
+      "0.20000"
+     ],
+     [
+      "0.225",
+      "0.25312"
+     ],
+     [
+      "0.25",
+      "0.31250"
+     ],
+     [
+      "0.275",
+      "0.37813"
+     ],
+     [
+      "0.3",
+      "0.45000"
+     ],
+     [
+      "0.325",
+      "0.52813"
+     ],
+     [
+      "0.35",
+      "0.61250"
+     ],
+     [
+      "0.375",
+      "0.70312"
+     ],
+     [
+      "0.4",
+      "0.80000"
+     ],
+     [
+      "0.425",
+      "0.90312"
+     ],
+     [
+      "0.45",
+      "1.01250"
+     ],
+     [
+      "0.475",
+      "1.12813"
+     ],
+     [
+      "0.5",
+      "1.25000"
+     ],
+     [
+      "0.525",
+      "1.37813"
+     ],
+     [
+      "0.55",
+      "1.51250"
+     ],
+     [
+      "0.575",
+      "1.65312"
+     ],
+     [
+      "0.6",
+      "1.80000"
+     ],
+     [
+      "0.625",
+      "1.95312"
+     ],
+     [
+      "0.65",
+      "2.11250"
+     ],
+     [
+      "0.675",
+      "2.27813"
+     ],
+     [
+      "0.7",
+      "2.45000"
+     ],
+     [
+      "0.725",
+      "2.62812"
+     ],
+     [
+      "0.75",
+      "2.81250"
+     ],
+     [
+      "0.775",
+      "3.00313"
+     ],
+     [
+      "0.8",
+      "3.20000"
+     ],
+     [
+      "0.825",
+      "3.40312"
+     ],
+     [
+      "0.85",
+      "3.61250"
+     ],
+     [
+      "0.875",
+      "3.82812"
+     ],
+     [
+      "0.9",
+      "4.05000"
+     ],
+     [
+      "0.925",
+      "4.27813"
+     ],
+     [
+      "0.95",
+      "4.51250"
+     ],
+     [
+      "0.975",
+      "4.75312"
+     ],
+     [
+      "1.0",
+      "5.00000"
+     ]
+    ],
+    "c": 0
+   },
+   {
+    "t": "trazo",
+    "puntos": [
+     [
+      "0.0",
+      "0.00000"
+     ],
+     [
+      "0.025",
+      "0.00063"
+     ],
+     [
+      "0.05",
+      "0.00253"
+     ],
+     [
+      "0.075",
+      "0.00575"
+     ],
+     [
+      "0.1",
+      "0.01040"
+     ],
+     [
+      "0.125",
+      "0.01660"
+     ],
+     [
+      "0.15",
+      "0.02452"
+     ],
+     [
+      "0.175",
+      "0.03438"
+     ],
+     [
+      "0.2",
+      "0.04640"
+     ],
+     [
+      "0.225",
+      "0.06088"
+     ],
+     [
+      "0.25",
+      "0.07812"
+     ],
+     [
+      "0.275",
+      "0.09850"
+     ],
+     [
+      "0.3",
+      "0.12240"
+     ],
+     [
+      "0.325",
+      "0.15025"
+     ],
+     [
+      "0.35",
+      "0.18252"
+     ],
+     [
+      "0.375",
+      "0.21973"
+     ],
+     [
+      "0.4",
+      "0.26240"
+     ],
+     [
+      "0.425",
+      "0.31113"
+     ],
+     [
+      "0.45",
+      "0.36652"
+     ],
+     [
+      "0.475",
+      "0.42925"
+     ],
+     [
+      "0.5",
+      "0.50000"
+     ],
+     [
+      "0.525",
+      "0.57950"
+     ],
+     [
+      "0.55",
+      "0.66853"
+     ],
+     [
+      "0.575",
+      "0.76788"
+     ],
+     [
+      "0.6",
+      "0.87840"
+     ],
+     [
+      "0.625",
+      "1.00098"
+     ],
+     [
+      "0.65",
+      "1.13653"
+     ],
+     [
+      "0.675",
+      "1.28600"
+     ],
+     [
+      "0.7",
+      "1.45040"
+     ],
+     [
+      "0.725",
+      "1.63075"
+     ],
+     [
+      "0.75",
+      "1.82812"
+     ],
+     [
+      "0.775",
+      "2.04363"
+     ],
+     [
+      "0.8",
+      "2.27840"
+     ],
+     [
+      "0.825",
+      "2.53363"
+     ],
+     [
+      "0.85",
+      "2.81052"
+     ],
+     [
+      "0.875",
+      "3.11035"
+     ],
+     [
+      "0.9",
+      "3.43440"
+     ],
+     [
+      "0.925",
+      "3.78400"
+     ],
+     [
+      "0.95",
+      "4.16052"
+     ],
+     [
+      "0.975",
+      "4.56538"
+     ],
+     [
+      "1.0",
+      "5.00000"
+     ]
+    ],
+    "c": 3
+   },
+   {
+    "t": "punto",
+    "p": [
+     "x",
+     "5*x*x"
+    ],
+    "c": 0
+   },
+   {
+    "t": "punto",
+    "p": [
+     "x",
+     "x*x+4*x*x*x*x"
+    ],
+    "c": 3
+   }
+  ],
+  "lecturas": [
+   {
+    "rotulo": "trabajo acumulado por la recta, 5 s al cuadrado",
+    "formula": "5*x*x"
+   },
+   {
+    "rotulo": "trabajo acumulado por la parábola, t al cuadrado más 4 t a la cuarta",
+    "formula": "x*x+4*x*x*x*x"
+   }
+  ],
+  "etiquetas": [
+   "Trabajo por el camino recto de 0, 0 a 1, 2",
+   "Trabajo por el camino curvo, la parábola y igual a 2 x al cuadrado"
+  ],
+  "etiquetaSlider": "Parámetro, de 0 a 1",
+  "alt": "El trabajo acumulado del campo F igual a 2x, 2y a lo largo de dos caminos distintos del punto 0, 0 al punto 1, 2. Por el camino recto crece como 5 s al cuadrado, y por la parábola como t al cuadrado más 4 t a la cuarta. Las curvas son distintas en el trayecto, pero las dos terminan en 5, porque el campo es conservativo"
+ },
+ "glosario": {
+  "campo": "Un campo vectorial asigna un vector a cada punto del plano o del espacio, como la velocidad de un fluido o una fuerza.",
+  "linea": "La integral de línea de un campo a lo largo de una curva es el trabajo del campo, y suma F punto dr a lo largo del camino.",
+  "conservativo": "Un campo es conservativo si es el gradiente de una función potencial. Su trabajo no depende del camino, solo de los extremos.",
+  "potencial": "La función potencial phi cumple que el gradiente de phi es el campo, y el trabajo entre A y B es phi de B menos phi de A."
+ },
+ "ver": {
+  "duracion": 24.0,
+  "capitulos": [
+   [
+    0,
+    4,
+    "El campo F igual a 2x, 2y es el gradiente de la función x al cuadrado más y al cuadrado, así que es conservativo."
+   ],
+   [
+    4,
+    10,
+    "Se calcula el trabajo del origen al punto 1, 2 por dos caminos, uno recto y otro curvo."
+   ],
+   [
+    10,
+    16,
+    "Con el parámetro en 0.6, los trabajos acumulados son distintos, porque los caminos recorren distintos tramos."
+   ],
+   [
+    16,
+    20,
+    "Al llegar al final del camino, los dos trabajos valen 5, que es phi de 1, 2 menos phi de 0, 0."
+   ],
+   [
+    20,
+    24,
+    "Por eso, si el campo es conservativo, el trabajo solo depende de los extremos, y en una curva cerrada vale cero."
+   ]
+  ],
+  "canales": {
+   "draw": [
+    [
+     0.3,
+     0
+    ],
+    [
+     3.5,
+     1
+    ]
+   ],
+   "d": [
+    [
+     4,
+     0.2
+    ],
+    [
+     8,
+     0.2
+    ],
+    [
+     10,
+     0.6
+    ],
+    [
+     13,
+     0.6
+    ],
+    [
+     16,
+     1
+    ],
+    [
+     18,
+     1
+    ],
+    [
+     24,
+     1
+    ]
+   ],
+   "guide": [
+    [
+     4,
+     0
+    ],
+    [
+     5,
+     1
+    ]
+   ]
+  },
+  "intervalos": {
+   "ok": [
+    16,
+    24
+   ]
+  }
+ },
+ "leer": {
+  "secciones": [
+   {
+    "titulo": "La idea",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Un {{gl:campo|campo vectorial}} da un vector en cada punto. Su {{gl:linea|integral de línea}} mide el trabajo a lo largo de un camino. Si el campo es {{gl:conservativo|conservativo}}, tiene una función {{gl:potencial|potencial}} y el trabajo solo depende de los extremos, de modo que en una curva cerrada vale cero."
+     }
+    ]
+   },
+   {
+    "titulo": "Un ejemplo",
+    "corto": "Un ejemplo",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "El campo es 2x, 2y y el potencial es x al cuadrado más y al cuadrado. Se recorren dos caminos del origen al punto 1, 2."
+     },
+     {
+      "t": "eq",
+      "tex": "\\mathbf{F}=(2x,2y)=\\nabla\\varphi,\\quad \\varphi=x^{2}+y^{2},\\quad W=\\varphi(1,2)-\\varphi(0,0)=5"
+     },
+     {
+      "t": "grafica",
+      "animar": "dibujar",
+      "alt": "El trabajo acumulado por dos caminos"
+     }
+    ]
+   },
+   {
+    "titulo": "Piensa antes de ver",
+    "corto": "Piensa",
+    "bloques": [
+     {
+      "t": "piensa",
+      "pregunta": "Si el campo es conservativo y la curva es cerrada, ¿cuánto vale el trabajo?",
+      "opciones": [
+       0,
+       1,
+       "2 pi",
+       "depende del camino"
+      ],
+      "correcta": 0,
+      "bien": "Muy bien. Vuelve al mismo punto, y la diferencia de potencial es cero.",
+      "mal": "Vale cero, porque el punto inicial y el final son el mismo y la diferencia de potencial es cero."
+     }
+    ]
+   },
+   {
+    "titulo": "Dos caminos",
+    "corto": "Caminos",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mira el trabajo acumulado con el parámetro en 0.3, 0.6, 0.8 y 1."
+     },
+     {
+      "t": "acercando",
+      "ds": [
+       0.3,
+       0.6,
+       0.8,
+       1
+      ],
+      "alt": "Los dos trabajos con cuatro valores del parámetro"
+     },
+     {
+      "t": "p",
+      "html": "Las curvas se separan en el trayecto, pero se encuentran en 5 al final."
+     }
+    ]
+   },
+   {
+    "titulo": "Trabajo por un camino",
+    "corto": "Cálculo",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Se parametriza el camino y se calcula F punto r prima."
+     },
+     {
+      "t": "pasos",
+      "items": [
+       {
+        "tex": "\\mathbf{r}(t)=(t,2t),\\ 0\\le t\\le1",
+        "porque": "El camino recto."
+       },
+       {
+        "tex": "\\mathbf{F}\\cdot\\mathbf{r}'=(2t,4t)\\cdot(1,2)=10t",
+        "porque": "F evaluado en el camino, por la velocidad."
+       },
+       {
+        "tex": "W=\\displaystyle\\int_{0}^{1}10t\\,dt=5",
+        "porque": "El trabajo."
+       },
+       {
+        "tex": "\\mathbf{r}(t)=(t,2t^{2})\\ \\Rightarrow\\ W=\\displaystyle\\int_{0}^{1}(2t+16t^{3})\\,dt=1+4=5",
+        "porque": "Por la parábola también da 5."
+       }
+      ]
+     },
+     {
+      "t": "ojo",
+      "html": "Se reemplaza x y y por sus expresiones en t antes de integrar, para que la integral sea de una variable. No se puede integrar con x y y mezcladas con t."
+     }
+    ]
+   },
+   {
+    "titulo": "Cuándo es conservativo",
+    "corto": "Criterio",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Hay un criterio sencillo con las derivadas parciales."
+     },
+     {
+      "t": "pasos",
+      "items": [
+       {
+        "tex": "\\mathbf{F}=(P,Q)\\ \\text{es conservativo}\\ \\Leftrightarrow\\ \\dfrac{\\partial P}{\\partial y}=\\dfrac{\\partial Q}{\\partial x}",
+        "porque": "En un dominio simplemente conexo."
+       },
+       {
+        "tex": "\\mathbf{F}=(2x,2y):\\ P_{y}=0=Q_{x}",
+        "porque": "Se cumple."
+       },
+       {
+        "tex": "f(A)=2,\\ f(B)=7\\ \\Rightarrow\\ \\displaystyle\\int_{C}\\nabla f\\cdot d\\mathbf{r}=5",
+        "porque": "El teorema fundamental para integrales de línea."
+       },
+       {
+        "tex": "\\displaystyle\\oint_{C}\\mathbf{F}\\cdot d\\mathbf{r}=0",
+        "porque": "En una curva cerrada."
+       }
+      ]
+     },
+     {
+      "t": "ojo",
+      "html": "El criterio de las derivadas pide un dominio simplemente conexo, sin agujeros. En un dominio con agujero, como el plano sin el origen, puede fallar."
+     }
+    ]
+   },
+   {
+    "titulo": "¿Para qué sirve?",
+    "corto": "En ingeniería",
+    "bloques": [
+     {
+      "t": "ingenieria",
+      "titulo": "El trabajo de un campo de fuerza",
+      "html": "Un campo de fuerza conservativo, como la gravedad, hace un trabajo que solo depende de la altura inicial y la final. No importa si la rampa es recta o curva.",
+      "tex": "W=\\varphi(B)-\\varphi(A)",
+      "datos": [
+       {
+        "k": "Camino recto",
+        "v": "5 J"
+       },
+       {
+        "k": "Camino curvo",
+        "v": "5 J"
+       },
+       {
+        "k": "Curva cerrada",
+        "v": "0 J"
+       }
+      ],
+      "cierre": "Por eso la energía potencial está bien definida. Con fuerzas de fricción, el campo no es conservativo, y el trabajo sí depende del camino."
+     }
+    ]
+   },
+   {
+    "titulo": "Completa el paso",
+    "corto": "Completa",
+    "bloques": [
+     {
+      "t": "completar",
+      "enunciado": "Si F es el gradiente de phi, el trabajo de A a B es phi de [[hueco]] menos phi de A.",
+      "tex": "W=\\varphi([[hueco]])-\\varphi(A)",
+      "opciones": [
+       {
+        "tex": "B",
+        "txt": "el punto final"
+       },
+       {
+        "tex": "A",
+        "txt": "el punto inicial"
+       },
+       {
+        "tex": "C",
+        "txt": "la curva"
+       }
+      ],
+      "correcta": 0,
+      "errores": [
+       "",
+       "El punto inicial ya está restando.",
+       "La curva no es un punto donde se evalúe phi."
+      ],
+      "pista": "El trabajo es el potencial final menos el inicial.",
+      "porque": "Es B."
+     }
+    ]
+   },
+   {
+    "titulo": "Encuentra el error",
+    "corto": "Error",
+    "bloques": [
+     {
+      "t": "error",
+      "enunciado": "Alguien intentó calcular el trabajo de un campo conservativo y se equivocó. Toca el paso que está mal.",
+      "pasos": [
+       {
+        "tex": "\\mathbf{F}=\\nabla\\varphi,\\ \\varphi=x^{2}+y^{2}",
+        "porque": "Hay potencial.",
+        "txt": "potencial"
+       },
+       {
+        "tex": "W=\\varphi(1,2)+\\varphi(0,0)=5",
+        "porque": "Este paso es el que falla.",
+        "txt": "suma los potenciales"
+       },
+       {
+        "tex": "W=5",
+        "porque": "Resultado.",
+        "txt": "5"
+       }
+      ],
+      "mal": 1,
+      "explicacion": "El trabajo es la diferencia de potencial, y no la suma. Se resta el valor inicial, aunque aquí phi de 0, 0 vale cero.",
+      "correccion": "W=\\varphi(1,2)-\\varphi(0,0)=5-0",
+      "pista": "Final menos inicial."
+     }
+    ]
+   },
+   {
+    "titulo": "Ordena los pasos",
+    "corto": "Ordena",
+    "bloques": [
+     {
+      "t": "ordenar",
+      "enunciado": "Estos son los pasos para el trabajo de un campo conservativo, pero están desordenados.",
+      "pasos": [
+       "P_{y}=Q_{x}",
+       "\\varphi\\ \\text{con}\\ \\nabla\\varphi=\\mathbf{F}",
+       "\\varphi(B)",
+       "W=\\varphi(B)-\\varphi(A)"
+      ],
+      "mezcla": [
+       2,
+       0,
+       3,
+       1
+      ],
+      "porque": "Primero se verifica, luego se halla el potencial, después se evalúa y por último se resta.",
+      "pista": "Se empieza verificando que sea conservativo.",
+      "txt": [
+       "Se verifica que es conservativo",
+       "Se halla el potencial",
+       "Se evalúa en el punto final",
+       "Se resta el valor inicial"
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "Revisa tu respuesta",
+    "corto": "Revisa",
+    "bloques": [
+     {
+      "t": "pregunta"
+     },
+     {
+      "t": "nota",
+      "html": "Puedes pedir pistas de a una. Si fallas, el mensaje te dice qué error se cometió."
+     }
+    ]
+   },
+   {
+    "titulo": "Mini simulacro",
+    "corto": "Simulacro",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Preguntas reales del banco de MathUNAL sobre este tema. Responde sin mirar los pasos."
+     },
+     {
+      "t": "simulacro",
+      "titulo": "Mini simulacro de integrales de línea",
+      "preguntas": [
+       {
+        "tipo": "mcq",
+        "texto": "El campo $\\mathbf{F}=(2x,\\,2y,\\,2z)$ es conservativo, con función potencial:",
+        "opciones": [
+         "$\\varphi=x^2+y^2+z^2$",
+         "$\\varphi=2xyz$",
+         "$\\varphi=x^2+y^2+z^2+xyz$",
+         "no es conservativo"
+        ],
+        "correcta": 0,
+        "resumen": "El potencial del campo 2x, 2y, 2z.",
+        "fuente": "Banco MathUNAL, simulacro de Cálculo en Varias Variables"
+       },
+       {
+        "tipo": "mcq",
+        "texto": "Si $\\mathbf{F}$ es un campo conservativo, la integral de línea $\\displaystyle\\int_C \\mathbf{F}\\cdot d\\mathbf{r}$:",
+        "opciones": [
+         "depende solo de los puntos inicial y final de $C$ (independiente del camino)",
+         "depende de la longitud de $C$",
+         "siempre es $0$",
+         "no está definida"
+        ],
+        "correcta": 0,
+        "resumen": "La integral de línea de un campo conservativo.",
+        "fuente": "Banco MathUNAL, simulacro de Cálculo en Varias Variables"
+       },
+       {
+        "tipo": "mcq",
+        "texto": "En un dominio simplemente conexo, $\\mathbf{F} = (P, Q)$ es conservativo si y solo si:",
+        "opciones": [
+         "$\\dfrac{\\partial P}{\\partial y} = \\dfrac{\\partial Q}{\\partial x}$",
+         "$P = Q$",
+         "$\\dfrac{\\partial P}{\\partial x} = \\dfrac{\\partial Q}{\\partial y}$",
+         "$\\nabla\\cdot\\mathbf{F} = 0$"
+        ],
+        "correcta": 0,
+        "resumen": "El criterio con las derivadas parciales.",
+        "fuente": "Banco MathUNAL, simulacro de Cálculo en Varias Variables"
+       },
+       {
+        "tipo": "numerica",
+        "texto": "Si $f(A) = 2$ y $f(B) = 7$, el valor de $\\displaystyle\\int_C \\nabla f\\cdot d\\mathbf{r}$ a lo largo de cualquier curva de $A$ a $B$ es:",
+        "respuesta": "5",
+        "tolNum": 0.001,
+        "resumen": "El trabajo con f de A igual a 2 y f de B igual a 7.",
+        "fuente": "Banco MathUNAL, simulacro de Cálculo en Varias Variables"
+       },
+       {
+        "tipo": "numerica",
+        "texto": "Para un campo conservativo, $\\displaystyle\\oint_C \\mathbf{F}\\cdot d\\mathbf{r}$ sobre una curva CERRADA vale:",
+        "respuesta": "0",
+        "tolNum": 0.001,
+        "resumen": "La integral sobre una curva cerrada.",
+        "fuente": "Banco MathUNAL, simulacro de Cálculo en Varias Variables"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "Tu repaso",
+    "corto": "Repaso",
+    "bloques": [
+     {
+      "t": "repaso"
+     }
+    ]
+   },
+   {
+    "titulo": "En resumen",
+    "corto": "Resumen",
+    "bloques": [
+     {
+      "t": "resumen"
+     }
+    ]
+   }
+  ]
+ },
+ "practicar": {
+  "pasos": [
+   {
+    "titulo": "El campo",
+    "grafica": {
+     "draw": 1
+    },
+    "bloques": [
+     {
+      "t": "p",
+      "html": "El campo es el gradiente de un potencial."
+     },
+     {
+      "t": "eq",
+      "tex": "\\mathbf{F}=(2x,2y)"
+     }
+    ]
+   },
+   {
+    "titulo": "Recorre los caminos",
+    "grafica": {
+     "draw": 1
+    },
+    "laboratorio": true,
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mueve el deslizador. Abajo se leen los trabajos acumulados por la recta y por la parábola."
+     }
+    ]
+   },
+   {
+    "titulo": "Al final",
+    "grafica": {
+     "draw": 1,
+     "guide": 1,
+     "ok": true
+    },
+    "laboratorio": true,
+    "d": 1,
+    "bloques": [
+     {
+      "t": "eq",
+      "tex": "1+4=5=5\\cdot1"
+     },
+     {
+      "t": "p",
+      "html": "Al final del camino los dos trabajos valen 5."
+     }
+    ]
+   },
+   {
+    "titulo": "Revisa tu respuesta",
+    "grafica": {
+     "draw": 1,
+     "guide": 1,
+     "ok": true,
+     "d": 1
+    },
+    "bloques": [
+     {
+      "t": "pregunta"
+     },
+     {
+      "t": "nota",
+      "html": "El trabajo es la diferencia de potencial."
+     }
+    ]
+   }
+  ]
+ },
+ "pregunta": {
+  "tex": "f(A)=2,\\ f(B)=7.\\ \\displaystyle\\int_{C}\\nabla f\\cdot d\\mathbf{r}\\ \\text{vale}",
+  "opciones": [
+   "$5$",
+   "$9$",
+   "$14$",
+   "$2$"
+  ],
+  "correcta": 0,
+  "explicacion": "El trabajo es f de B menos f de A, o sea 7 menos 2, que da 5.",
+  "verificacion": {
+   "formula": "7-2+0*x",
+   "a": 0,
+   "esperado": 5
+  },
+  "pistas": [
+   "El campo es un gradiente.",
+   "El trabajo es una diferencia de potencial.",
+   "Final menos inicial."
+  ],
+  "errores": [
+   "",
+   "El 9 es la suma, y no la diferencia.",
+   "El 14 es el producto.",
+   "El 2 es solo el valor inicial."
+  ]
+ },
+ "resumen": [
+  "La integral de línea mide el trabajo de un campo a lo largo de un camino.",
+  "Si el campo es conservativo, el trabajo solo depende de los extremos y vale phi de B menos phi de A.",
+  "En una curva cerrada, el trabajo conservativo es cero."
+ ]
+}
