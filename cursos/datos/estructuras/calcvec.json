@@ -68,8 +68,8 @@
      "tema": "Integrales dobles y cambio de orden",
      "preguntas_banco": 8,
      "parciales_con_el_tema": 1,
-     "estado": "pendiente",
-     "leccion": null
+     "estado": "borrador para revisión",
+     "leccion": "lecciones/cv-dobles.json"
     },
     {
      "tema": "Coordenadas polares",
