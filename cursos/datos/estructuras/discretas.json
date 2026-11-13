@@ -61,8 +61,8 @@
      "tema": "Probabilidad discreta",
      "preguntas_banco": 5,
      "parciales_con_el_tema": 1,
-     "estado": "pendiente",
-     "leccion": null
+     "estado": "borrador para revisión",
+     "leccion": "lecciones/disc-probabilidad.json"
     },
     {
      "tema": "Principios de conteo",
