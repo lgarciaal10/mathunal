@@ -1,0 +1,777 @@
+{
+ "esquema": 1,
+ "id": "cv-m1-l6",
+ "ejemplo": true,
+ "curso": "Cálculo en Varias Variables",
+ "modulo": "Módulo 1 Cálculo diferencial en varias variables",
+ "posicion": "Lección 6 de 7",
+ "titulo": "Máximos y mínimos con el hessiano",
+ "minutos": 28,
+ "ejercicios": 8,
+ "grafica": {
+  "tipo": "plano",
+  "x": [
+   -2.4,
+   2.4
+  ],
+  "y": [
+   -5.2,
+   5.2
+  ],
+  "a": 0,
+  "b": 3.14,
+  "inicio": 0,
+  "elementos": [
+   {
+    "t": "trazo",
+    "puntos": [
+     [
+      "-2.2",
+      "4.840000000000001*cos(2*x)"
+     ],
+     [
+      "-2.09",
+      "4.368099999999999*cos(2*x)"
+     ],
+     [
+      "-1.98",
+      "3.9204*cos(2*x)"
+     ],
+     [
+      "-1.87",
+      "3.4969000000000006*cos(2*x)"
+     ],
+     [
+      "-1.76",
+      "3.0976*cos(2*x)"
+     ],
+     [
+      "-1.65",
+      "2.7224999999999997*cos(2*x)"
+     ],
+     [
+      "-1.54",
+      "2.3716*cos(2*x)"
+     ],
+     [
+      "-1.43",
+      "2.0448999999999997*cos(2*x)"
+     ],
+     [
+      "-1.32",
+      "1.7424000000000002*cos(2*x)"
+     ],
+     [
+      "-1.21",
+      "1.4641*cos(2*x)"
+     ],
+     [
+      "-1.1",
+      "1.2100000000000002*cos(2*x)"
+     ],
+     [
+      "-0.99",
+      "0.9801*cos(2*x)"
+     ],
+     [
+      "-0.88",
+      "0.7744*cos(2*x)"
+     ],
+     [
+      "-0.77",
+      "0.5929*cos(2*x)"
+     ],
+     [
+      "-0.66",
+      "0.43560000000000004*cos(2*x)"
+     ],
+     [
+      "-0.55",
+      "0.30250000000000005*cos(2*x)"
+     ],
+     [
+      "-0.44",
+      "0.1936*cos(2*x)"
+     ],
+     [
+      "-0.33",
+      "0.10890000000000001*cos(2*x)"
+     ],
+     [
+      "-0.22",
+      "0.0484*cos(2*x)"
+     ],
+     [
+      "-0.11",
+      "0.0121*cos(2*x)"
+     ],
+     [
+      "0.0",
+      "0.0*cos(2*x)"
+     ],
+     [
+      "0.11",
+      "0.0121*cos(2*x)"
+     ],
+     [
+      "0.22",
+      "0.0484*cos(2*x)"
+     ],
+     [
+      "0.33",
+      "0.10890000000000001*cos(2*x)"
+     ],
+     [
+      "0.44",
+      "0.1936*cos(2*x)"
+     ],
+     [
+      "0.55",
+      "0.30250000000000005*cos(2*x)"
+     ],
+     [
+      "0.66",
+      "0.43560000000000004*cos(2*x)"
+     ],
+     [
+      "0.77",
+      "0.5929*cos(2*x)"
+     ],
+     [
+      "0.88",
+      "0.7744*cos(2*x)"
+     ],
+     [
+      "0.99",
+      "0.9801*cos(2*x)"
+     ],
+     [
+      "1.1",
+      "1.2100000000000002*cos(2*x)"
+     ],
+     [
+      "1.21",
+      "1.4641*cos(2*x)"
+     ],
+     [
+      "1.32",
+      "1.7424000000000002*cos(2*x)"
+     ],
+     [
+      "1.43",
+      "2.0448999999999997*cos(2*x)"
+     ],
+     [
+      "1.54",
+      "2.3716*cos(2*x)"
+     ],
+     [
+      "1.65",
+      "2.7224999999999997*cos(2*x)"
+     ],
+     [
+      "1.76",
+      "3.0976*cos(2*x)"
+     ],
+     [
+      "1.87",
+      "3.4969000000000006*cos(2*x)"
+     ],
+     [
+      "1.98",
+      "3.9204*cos(2*x)"
+     ],
+     [
+      "2.09",
+      "4.368099999999999*cos(2*x)"
+     ],
+     [
+      "2.2",
+      "4.840000000000001*cos(2*x)"
+     ]
+    ],
+    "c": 0
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "-2.2",
+     "0"
+    ],
+    "b": [
+     "2.2",
+     "0"
+    ],
+    "c": 3
+   }
+  ],
+  "lecturas": [
+   {
+    "rotulo": "curvatura del corte, coseno de 2 theta",
+    "formula": "cos(2*x)"
+   },
+   {
+    "rotulo": "ángulo theta del plano de corte, en grados",
+    "formula": "57.2958*x"
+   }
+  ],
+  "etiquetas": [
+   "Si es positiva el corte abre hacia arriba, y si es negativa hacia abajo",
+   "El corte se hace con un plano vertical que gira alrededor del origen"
+  ],
+  "etiquetaSlider": "Ángulo theta, de 0 a 3.14",
+  "alt": "Se corta la superficie z igual a x al cuadrado menos y al cuadrado con un plano vertical que pasa por el origen y gira con el ángulo theta. El corte es una parábola de ecuación t al cuadrado por coseno de 2 theta. Con theta igual a 0 abre hacia arriba, con theta igual a pi medios hacia abajo, y con theta igual a pi cuartos es plano. Eso es un punto silla"
+ },
+ "glosario": {
+  "critico": "Un punto crítico es un punto donde las dos derivadas parciales valen cero, o donde no existen.",
+  "hessiano": "El hessiano es la matriz de segundas derivadas. Su determinante D igual a f sub x x por f sub y y menos f sub x y al cuadrado clasifica los puntos críticos.",
+  "silla": "Un punto silla es un punto crítico que es mínimo en una dirección y máximo en otra.",
+  "absoluto": "Un extremo absoluto es el mayor o el menor valor de la función en toda la región, y puede estar en la frontera."
+ },
+ "ver": {
+  "duracion": 24.0,
+  "capitulos": [
+   [
+    0,
+    4,
+    "La función es x al cuadrado menos y al cuadrado. Se corta con un plano vertical que gira alrededor del origen."
+   ],
+   [
+    4,
+    10,
+    "Con el ángulo en 0 el corte es la parábola x al cuadrado, que abre hacia arriba, como un mínimo."
+   ],
+   [
+    10,
+    16,
+    "Con el ángulo en pi cuartos el corte es plano, la curvatura es cero."
+   ],
+   [
+    16,
+    20,
+    "Con el ángulo en pi medios el corte es menos y al cuadrado, y abre hacia abajo, como un máximo."
+   ],
+   [
+    20,
+    24,
+    "Mínimo en una dirección y máximo en otra es lo que define un punto silla, y su hessiano es negativo."
+   ]
+  ],
+  "canales": {
+   "draw": [
+    [
+     0.3,
+     0
+    ],
+    [
+     3.5,
+     1
+    ]
+   ],
+   "d": [
+    [
+     4,
+     0
+    ],
+    [
+     8,
+     0
+    ],
+    [
+     10,
+     0.785
+    ],
+    [
+     13,
+     0.785
+    ],
+    [
+     16,
+     1.5708
+    ],
+    [
+     18,
+     1.5708
+    ],
+    [
+     24,
+     1.5708
+    ]
+   ],
+   "guide": [
+    [
+     4,
+     0
+    ],
+    [
+     5,
+     1
+    ]
+   ]
+  },
+  "intervalos": {
+   "ok": [
+    16,
+    24
+   ]
+  }
+ },
+ "leer": {
+  "secciones": [
+   {
+    "titulo": "La idea",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Un {{gl:critico|punto crítico}} es donde el gradiente se anula. Para saber si es mínimo, máximo o {{gl:silla|silla}}, se usa el {{gl:hessiano|hessiano}}. Si D es positivo y f sub x x es positivo, es mínimo, y si D es negativo es silla. Los extremos {{gl:absoluto|absolutos}} en una región cerrada también pueden estar en la frontera."
+     }
+    ]
+   },
+   {
+    "titulo": "Un ejemplo",
+    "corto": "Un ejemplo",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "La superficie x al cuadrado menos y al cuadrado es una silla. Gira el plano de corte y mira cómo cambia la curvatura."
+     },
+     {
+      "t": "eq",
+      "tex": "f=x^{2}-y^{2},\\qquad D=f_{xx}f_{yy}-f_{xy}^{2}=(2)(-2)-0=-4"
+     },
+     {
+      "t": "grafica",
+      "animar": "dibujar",
+      "alt": "El corte de la silla con un plano que gira"
+     }
+    ]
+   },
+   {
+    "titulo": "Piensa antes de ver",
+    "corto": "Piensa",
+    "bloques": [
+     {
+      "t": "piensa",
+      "pregunta": "Si en un punto crítico D es negativo, ¿qué hay allí?",
+      "opciones": [
+       "Un punto silla",
+       "Un mínimo",
+       "Un máximo",
+       "Nada se puede concluir"
+      ],
+      "correcta": "Un punto silla",
+      "bien": "Muy bien. Con D negativo siempre es un punto silla.",
+      "mal": "Con D negativo es un punto silla. Hay un mínimo en una dirección y un máximo en otra."
+     }
+    ]
+   },
+   {
+    "titulo": "Girar el plano",
+    "corto": "Cortes",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mira el corte con theta igual a 0, 0.785, 1.2 y 1.57."
+     },
+     {
+      "t": "acercando",
+      "ds": [
+       0,
+       0.785,
+       1.2,
+       1.5708
+      ],
+      "alt": "El corte con cuatro ángulos"
+     },
+     {
+      "t": "p",
+      "html": "En 0.785 el corte es una recta, y a partir de allí cambia de concavidad."
+     }
+    ]
+   },
+   {
+    "titulo": "Hallar y clasificar",
+    "corto": "Clasificar",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Primero se halla el punto crítico, y luego se clasifica con el hessiano."
+     },
+     {
+      "t": "pasos",
+      "items": [
+       {
+        "tex": "f=x^{2}+y^{2}-4x",
+        "porque": "La función."
+       },
+       {
+        "tex": "f_{x}=2x-4=0,\\quad f_{y}=2y=0",
+        "porque": "El gradiente igual a cero."
+       },
+       {
+        "tex": "(x,y)=(2,0)",
+        "porque": "El punto crítico."
+       },
+       {
+        "tex": "D=f_{xx}f_{yy}-f_{xy}^{2}=(2)(2)-0=4>0,\\ f_{xx}=2>0\\ \\Rightarrow\\ \\text{minimo}",
+        "porque": "Es un mínimo local."
+       }
+      ]
+     },
+     {
+      "t": "ojo",
+      "html": "Si D es cero el criterio no decide, y hay que estudiar la función de otra forma. Hay mínimos, máximos y sillas con D igual a cero."
+     }
+    ]
+   },
+   {
+    "titulo": "La tabla de decisión",
+    "corto": "Tabla",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "El criterio del hessiano en un resumen."
+     },
+     {
+      "t": "pasos",
+      "items": [
+       {
+        "tex": "D>0,\\ f_{xx}>0\\ \\Rightarrow\\ \\text{minimo local}",
+        "porque": "Abre hacia arriba en todas las direcciones."
+       },
+       {
+        "tex": "D>0,\\ f_{xx}<0\\ \\Rightarrow\\ \\text{maximo local}",
+        "porque": "Abre hacia abajo en todas las direcciones."
+       },
+       {
+        "tex": "D<0\\ \\Rightarrow\\ \\text{punto silla}",
+        "porque": "Cambia de concavidad según la dirección."
+       },
+       {
+        "tex": "D=0\\ \\Rightarrow\\ \\text{no concluyente}",
+        "porque": "Se necesita otro método."
+       }
+      ]
+     },
+     {
+      "t": "ojo",
+      "html": "El signo de f sub x x decide entre mínimo y máximo, pero solo cuando D es positivo. Con D negativo el signo de f sub x x no importa."
+     }
+    ]
+   },
+   {
+    "titulo": "¿Para qué sirve?",
+    "corto": "En ingeniería",
+    "bloques": [
+     {
+      "t": "ingenieria",
+      "titulo": "El diseño de un depósito",
+      "html": "El costo de material de un depósito abierto depende de su largo y su ancho para un volumen fijo. Se busca el diseño de menor costo, y el punto crítico de la función de costo lo da.",
+      "tex": "C(x,y)=2xy+\\dfrac{2V}{x}+\\dfrac{2V}{y}",
+      "datos": [
+       {
+        "k": "Variables",
+        "v": "largo y ancho"
+       },
+       {
+        "k": "Punto crítico",
+        "v": "dos derivadas parciales iguales a cero"
+       },
+       {
+        "k": "Clasificación",
+        "v": "D positivo y f sub x x positivo, mínimo"
+       }
+      ],
+      "cierre": "Con el hessiano se confirma que el punto crítico es un mínimo y no una silla. Luego se compara con el costo en los bordes, porque el dominio es x e y positivos."
+     }
+    ]
+   },
+   {
+    "titulo": "Completa el paso",
+    "corto": "Completa",
+    "bloques": [
+     {
+      "t": "completar",
+      "enunciado": "En un punto crítico con D positivo y f sub x x positivo, hay un [[hueco]] local.",
+      "tex": "D>0,\\ f_{xx}>0\\ \\Rightarrow\\ [[hueco]]",
+      "opciones": [
+       {
+        "tex": "\\text{minimo}",
+        "txt": "mínimo"
+       },
+       {
+        "tex": "\\text{maximo}",
+        "txt": "máximo"
+       },
+       {
+        "tex": "\\text{silla}",
+        "txt": "silla"
+       }
+      ],
+      "correcta": 0,
+      "errores": [
+       "",
+       "El máximo es con f sub x x negativo.",
+       "La silla es con D negativo."
+      ],
+      "pista": "Con f sub x x positivo la función abre hacia arriba.",
+      "porque": "Es un mínimo local."
+     }
+    ]
+   },
+   {
+    "titulo": "Encuentra el error",
+    "corto": "Error",
+    "bloques": [
+     {
+      "t": "error",
+      "enunciado": "Alguien clasificó el punto crítico de f igual a x al cuadrado menos y al cuadrado, y se equivocó. Toca el paso que está mal.",
+      "pasos": [
+       {
+        "tex": "f_{xx}=2,\\ f_{yy}=-2,\\ f_{xy}=0",
+        "porque": "Segundas derivadas.",
+        "txt": "derivadas"
+       },
+       {
+        "tex": "D=2+(-2)-0=0",
+        "porque": "Este paso es el que falla.",
+        "txt": "suma en lugar de multiplicar"
+       },
+       {
+        "tex": "\\text{no concluyente}",
+        "porque": "Conclusión.",
+        "txt": "no concluyente"
+       }
+      ],
+      "mal": 1,
+      "explicacion": "D es f sub x x por f sub y y menos f sub x y al cuadrado, o sea 2 por menos 2, que da menos 4. Como D es negativo, es un punto silla.",
+      "correccion": "D=(2)(-2)-0=-4<0",
+      "pista": "D usa un producto, y no una suma."
+     }
+    ]
+   },
+   {
+    "titulo": "Ordena los pasos",
+    "corto": "Ordena",
+    "bloques": [
+     {
+      "t": "ordenar",
+      "enunciado": "Estos son los pasos para clasificar un punto crítico, pero están desordenados.",
+      "pasos": [
+       "\\nabla f=0",
+       "(a,b)",
+       "f_{xx},\\ f_{yy},\\ f_{xy}",
+       "D=f_{xx}f_{yy}-f_{xy}^{2}"
+      ],
+      "mezcla": [
+       2,
+       0,
+       3,
+       1
+      ],
+      "porque": "Primero el gradiente, luego los puntos, después las segundas derivadas y al final D.",
+      "pista": "Se empieza igualando el gradiente a cero.",
+      "txt": [
+       "Se iguala el gradiente a cero",
+       "Se hallan los puntos críticos",
+       "Se calculan las segundas derivadas",
+       "Se evalúa D"
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "Revisa tu respuesta",
+    "corto": "Revisa",
+    "bloques": [
+     {
+      "t": "pregunta"
+     },
+     {
+      "t": "nota",
+      "html": "Puedes pedir pistas de a una. Si fallas, el mensaje te dice qué error se cometió."
+     }
+    ]
+   },
+   {
+    "titulo": "Mini simulacro",
+    "corto": "Simulacro",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Preguntas reales del banco de MathUNAL sobre este tema. Responde sin mirar los pasos."
+     },
+     {
+      "t": "simulacro",
+      "titulo": "Mini simulacro de máximos y mínimos",
+      "preguntas": [
+       {
+        "tipo": "mcq",
+        "texto": "En un punto crítico, si $D = f_{xx}f_{yy} - (f_{xy})^{2} > 0$ y $f_{xx} > 0$, entonces hay:",
+        "opciones": [
+         "un mínimo local",
+         "un máximo local",
+         "un punto silla",
+         "nada concluyente"
+        ],
+        "correcta": 0,
+        "resumen": "D positivo y f sub x x positivo es un mínimo local.",
+        "fuente": "Banco MathUNAL, simulacro de Cálculo en Varias Variables"
+       },
+       {
+        "tipo": "mcq",
+        "texto": "En un punto crítico, si $D = f_{xx}f_{yy} - (f_{xy})^{2} < 0$, entonces hay:",
+        "opciones": [
+         "un punto silla",
+         "un mínimo local",
+         "un máximo local",
+         "un extremo, pero no se sabe cuál"
+        ],
+        "correcta": 0,
+        "resumen": "D negativo es un punto silla.",
+        "fuente": "Banco MathUNAL, simulacro de Cálculo en Varias Variables"
+       },
+       {
+        "tipo": "numerica",
+        "texto": "La coordenada $x$ del punto crítico de $f(x,y) = x^{2} + y^{2} - 4x$ es:",
+        "respuesta": "2",
+        "tolNum": 0.001,
+        "resumen": "El punto crítico de x al cuadrado más y al cuadrado menos 4x.",
+        "fuente": "Banco MathUNAL, simulacro de Cálculo en Varias Variables"
+       },
+       {
+        "tipo": "numerica",
+        "texto": "Para $f=x^{2}+3y^{2}$ en el origen, el valor de $D=f_{xx}f_{yy}-f_{xy}^{2}$ es:",
+        "respuesta": "12",
+        "tolNum": 0.01,
+        "resumen": "Con f sub x x igual a 2, f sub y y igual a 6 y f sub x y igual a 0, D es 12.",
+        "fuente": "Pregunta propia de MathUNAL, escrita para esta lección"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "Tu repaso",
+    "corto": "Repaso",
+    "bloques": [
+     {
+      "t": "repaso"
+     }
+    ]
+   },
+   {
+    "titulo": "En resumen",
+    "corto": "Resumen",
+    "bloques": [
+     {
+      "t": "resumen"
+     }
+    ]
+   }
+  ]
+ },
+ "practicar": {
+  "pasos": [
+   {
+    "titulo": "La silla",
+    "grafica": {
+     "draw": 1
+    },
+    "bloques": [
+     {
+      "t": "p",
+      "html": "La función tiene un punto crítico en el origen."
+     },
+     {
+      "t": "eq",
+      "tex": "f=x^{2}-y^{2}"
+     }
+    ]
+   },
+   {
+    "titulo": "Gira el corte",
+    "grafica": {
+     "draw": 1
+    },
+    "laboratorio": true,
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mueve el deslizador. Abajo se leen la curvatura del corte y el ángulo."
+     }
+    ]
+   },
+   {
+    "titulo": "Hacia abajo",
+    "grafica": {
+     "draw": 1,
+     "guide": 1,
+     "ok": true
+    },
+    "laboratorio": true,
+    "d": 1.5708,
+    "bloques": [
+     {
+      "t": "eq",
+      "tex": "\\cos2\\left(\\tfrac{\\pi}{2}\\right)=-1"
+     },
+     {
+      "t": "p",
+      "html": "Con theta igual a pi medios el corte abre hacia abajo, y con theta igual a 0, hacia arriba."
+     }
+    ]
+   },
+   {
+    "titulo": "Revisa tu respuesta",
+    "grafica": {
+     "draw": 1,
+     "guide": 1,
+     "ok": true,
+     "d": 1.5708
+    },
+    "bloques": [
+     {
+      "t": "pregunta"
+     },
+     {
+      "t": "nota",
+      "html": "Mínimo en una dirección y máximo en otra es una silla."
+     }
+    ]
+   }
+  ]
+ },
+ "pregunta": {
+  "tex": "f=x^{2}-y^{2}\\ \\text{en el origen hay}",
+  "opciones": [
+   "un punto silla",
+   "un mínimo local",
+   "un máximo local",
+   "un punto sin gradiente cero"
+  ],
+  "correcta": 0,
+  "explicacion": "El gradiente es 2x, menos 2y, que vale cero en el origen. D es 2 por menos 2, o sea menos 4, que es negativo, así que es un punto silla.",
+  "verificacion": {
+   "formula": "2*(-2)-0+0*x",
+   "a": 0,
+   "esperado": -4
+  },
+  "pistas": [
+   "Halla el gradiente.",
+   "Calcula D con las segundas derivadas.",
+   "D es negativo."
+  ],
+  "errores": [
+   "",
+   "Un mínimo pediría D y f sub x x positivos.",
+   "Un máximo pediría D positivo y f sub x x negativo.",
+   "El gradiente sí vale cero en el origen."
+  ]
+ },
+ "resumen": [
+  "Un punto crítico es donde el gradiente es cero, y el hessiano D lo clasifica.",
+  "D positivo con f sub x x positivo es mínimo, y D negativo es silla.",
+  "Con D igual a cero el criterio no decide."
+ ]
+}
