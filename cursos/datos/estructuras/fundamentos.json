@@ -75,8 +75,8 @@
      "tema": "Funciones: inyectiva, sobreyectiva, biyectiva",
      "preguntas_banco": 8,
      "parciales_con_el_tema": 2,
-     "estado": "pendiente",
-     "leccion": null
+     "estado": "borrador para revisión",
+     "leccion": "lecciones/fund-funciones.json"
     },
     {
      "tema": "Relaciones de equivalencia",
