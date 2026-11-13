@@ -1,0 +1,634 @@
+{
+ "esquema": 1,
+ "id": "gv-m2-l3",
+ "ejemplo": true,
+ "curso": "Geometría Vectorial y Analítica",
+ "modulo": "Módulo 2 Vectores en el espacio",
+ "posicion": "Lección 3 de 4",
+ "titulo": "Vectores en R³ y producto punto",
+ "minutos": 26,
+ "ejercicios": 8,
+ "grafica": {
+  "tipo": "plano",
+  "x": [
+   -1.5,
+   8.0
+  ],
+  "y": [
+   -1.5,
+   8.5
+  ],
+  "a": 0,
+  "b": 8,
+  "inicio": 6,
+  "elementos": [
+   {
+    "t": "poligono",
+    "puntos": [
+     [
+      "0",
+      "0"
+     ],
+     [
+      "3.605551275",
+      "0"
+     ],
+     [
+      "3.605551275",
+      "x"
+     ]
+    ],
+    "c": 3
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "0",
+     "0"
+    ],
+    "b": [
+     "3.605551275",
+     "0"
+    ],
+    "c": 0,
+    "nombre": "base",
+    "guia": true
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "3.605551275",
+     "0"
+    ],
+    "b": [
+     "3.605551275",
+     "x"
+    ],
+    "c": 2,
+    "guia": true,
+    "guion": true
+   },
+   {
+    "t": "vector",
+    "b": [
+     "3.605551275",
+     "x"
+    ],
+    "nombre": "u",
+    "c": 1
+   }
+  ],
+  "lecturas": [
+   {
+    "rotulo": "norma de u, con u igual a (2, 3, z)",
+    "formula": "sqrt(13+x*x)"
+   },
+   {
+    "rotulo": "cuadrado de la norma",
+    "formula": "13+x*x"
+   }
+  ],
+  "etiquetas": [
+   "Longitud del vector u en el espacio",
+   "Suma de los cuadrados de las tres componentes"
+  ],
+  "etiquetaSlider": "Tercera componente z",
+  "alt": "Un triángulo rectángulo con la diagonal de la base, que mide raíz de 13, y la altura z. La hipotenusa es el vector u igual a (2, 3, z), y su longitud es la raíz de 13 más z al cuadrado"
+ },
+ "glosario": {
+  "componentes3": "Un vector de R³ tiene tres componentes, que miden cuánto avanza en cada eje.",
+  "norma3": "La norma de un vector de R³ es la raíz de la suma de los cuadrados de sus tres componentes.",
+  "punto3": "El producto punto en R³ es la suma de los tres productos de componentes. También vale la norma de u por la de v por el coseno del ángulo.",
+  "ortogonales3": "Dos vectores de R³ son ortogonales si su producto punto es cero."
+ },
+ "ver": {
+  "duracion": 22.0,
+  "capitulos": [
+   [
+    0,
+    4,
+    "El vector u tiene componentes 2, 3 y z. Primero se mide la diagonal de su base, que es la raíz de 13."
+   ],
+   [
+    4,
+    10,
+    "Después, la altura z y esa diagonal forman un triángulo rectángulo. Su hipotenusa es la norma de u."
+   ],
+   [
+    10,
+    15,
+    "Con z igual a 6, la norma es la raíz de 49, que es 7."
+   ],
+   [
+    15,
+    19,
+    "Con z igual a 0, el vector queda en el plano de la base y la norma es la raíz de 13."
+   ],
+   [
+    19,
+    22,
+    "La fórmula es la raíz de la suma de los tres cuadrados."
+   ]
+  ],
+  "canales": {
+   "draw": [
+    [
+     0.3,
+     0
+    ],
+    [
+     3.5,
+     1
+    ]
+   ],
+   "d": [
+    [
+     4,
+     2
+    ],
+    [
+     8,
+     4
+    ],
+    [
+     10,
+     6
+    ],
+    [
+     15,
+     6
+    ],
+    [
+     17,
+     0
+    ],
+    [
+     19,
+     0
+    ],
+    [
+     22,
+     0
+    ]
+   ],
+   "guide": [
+    [
+     4,
+     0
+    ],
+    [
+     5,
+     1
+    ]
+   ]
+  },
+  "intervalos": {
+   "ok": [
+    19,
+    22
+   ]
+  }
+ },
+ "leer": {
+  "secciones": [
+   {
+    "titulo": "La idea",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Un vector del espacio tiene tres {{gl:componentes3|componentes}}. Todo lo del plano se extiende con una componente más. La {{gl:norma3|norma}} es la raíz de la suma de tres cuadrados, el {{gl:punto3|producto punto}} suma tres productos, y dos vectores son {{gl:ortogonales3|ortogonales}} si ese producto es cero."
+     }
+    ]
+   },
+   {
+    "titulo": "Un ejemplo",
+    "corto": "Un ejemplo",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mira el vector u de componentes 2, 3 y z. Su norma se arma con dos triángulos rectángulos, uno en la base y otro vertical."
+     },
+     {
+      "t": "eq",
+      "tex": "\\|\\mathbf{u}\\|=\\sqrt{2^{2}+3^{2}+z^{2}}=\\sqrt{13+z^{2}}"
+     },
+     {
+      "t": "grafica",
+      "animar": "dibujar",
+      "alt": "El triángulo de la norma de u"
+     }
+    ]
+   },
+   {
+    "titulo": "Piensa antes de ver",
+    "corto": "Piensa",
+    "bloques": [
+     {
+      "t": "piensa",
+      "pregunta": "La diagonal de la base mide la raíz de 13 y la altura es 6. ¿Cuánto vale 13 más 6 al cuadrado?",
+      "opciones": [
+       19,
+       36,
+       49,
+       169
+      ],
+      "correcta": 49,
+      "bien": "Muy bien. Es 13 más 36, o sea 49, y su raíz es 7. Más abajo se ve.",
+      "mal": "Es 13 más 36, o sea 49, y su raíz es 7. Más abajo se ve."
+     }
+    ]
+   },
+   {
+    "titulo": "Cambiando z",
+    "corto": "Cambiando z",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mira la norma de u para z igual a 0, 2, 4 y 6."
+     },
+     {
+      "t": "acercando",
+      "ds": [
+       0,
+       2,
+       4,
+       6
+      ],
+      "alt": "El vector u para cuatro valores de z"
+     },
+     {
+      "t": "p",
+      "html": "Con z igual a 6 el vector es (2, 3, 6) y su norma es exactamente 7."
+     }
+    ]
+   },
+   {
+    "titulo": "Producto punto y norma",
+    "corto": "Producto punto",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Se hacen las mismas cuentas del plano, con una componente más."
+     },
+     {
+      "t": "pasos",
+      "items": [
+       {
+        "tex": "(1,2,3)\\cdot(4,5,6)=4+10+18=32",
+        "porque": "Se multiplica componente por componente y se suma."
+       },
+       {
+        "tex": "\\|(2,3,6)\\|=\\sqrt{4+9+36}=7",
+        "porque": "La norma, con tres cuadrados."
+       },
+       {
+        "tex": "(1,0,0)\\cdot(0,1,0)=0",
+        "porque": "Los vectores de la base son ortogonales entre sí."
+       },
+       {
+        "tex": "\\cos\\theta=\\dfrac{\\mathbf{u}\\cdot\\mathbf{v}}{\\|\\mathbf{u}\\|\\,\\|\\mathbf{v}\\|}",
+        "porque": "El ángulo entre dos vectores del espacio."
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "Ortogonalidad y ángulos",
+    "corto": "Ángulos",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "El producto punto detecta los ángulos rectos y mide los demás."
+     },
+     {
+      "t": "pasos",
+      "items": [
+       {
+        "tex": "(1,2,3)\\cdot(2,-1,0)=2-2+0=0",
+        "porque": "Son ortogonales."
+       },
+       {
+        "tex": "(1,1,0)\\cdot(0,1,1)=1",
+        "porque": "El producto punto es 1."
+       },
+       {
+        "tex": "\\cos\\theta=\\dfrac{1}{\\sqrt{2}\\,\\sqrt{2}}=\\dfrac12\\ \\Rightarrow\\ \\theta=60^{\\circ}",
+        "porque": "El ángulo entre las dos diagonales de caras vecinas de un cubo."
+       }
+      ]
+     },
+     {
+      "t": "ojo",
+      "html": "En el espacio, dos vectores perpendiculares a un tercero no son paralelos entre sí. Hay infinitos vectores perpendiculares a uno dado, y forman un plano."
+     }
+    ]
+   },
+   {
+    "titulo": "¿Para qué sirve?",
+    "corto": "En ingeniería",
+    "bloques": [
+     {
+      "t": "ingenieria",
+      "titulo": "El ángulo entre dos barras",
+      "html": "Dos barras salen de un mismo nodo de una armadura espacial, con vectores (2, 3, 6) y (6, 2, 3) metros. Para diseñar la unión se necesita el ángulo entre ellas, que se obtiene con el producto punto.",
+      "tex": "\\cos\\theta=\\dfrac{36}{7\\cdot7}=\\dfrac{36}{49}",
+      "datos": [
+       {
+        "k": "Barra 1",
+        "v": "(2, 3, 6) m"
+       },
+       {
+        "k": "Barra 2",
+        "v": "(6, 2, 3) m"
+       },
+       {
+        "k": "Ángulo entre ellas",
+        "v": "42.7 grados"
+       }
+      ],
+      "cierre": "Las dos barras miden 7 metros, el producto punto es 36 y el coseno es 36 sobre 49, o sea 0.735. El ángulo es 42.7 grados. Con ese valor se diseña la placa de unión. Es un cálculo geométrico y no incluye las cargas, que dependen del material y de la estructura."
+     }
+    ]
+   },
+   {
+    "titulo": "Completa el paso",
+    "corto": "Completa",
+    "bloques": [
+     {
+      "t": "completar",
+      "enunciado": "Se calcula el producto punto de (1, 2, 2) y (3, 0, 4). Falta el resultado.",
+      "tex": "1\\cdot3+2\\cdot0+2\\cdot4=[[hueco]]",
+      "opciones": [
+       {
+        "tex": "11",
+        "txt": "once"
+       },
+       {
+        "tex": "9",
+        "txt": "nueve"
+       },
+       {
+        "tex": "24",
+        "txt": "veinticuatro"
+       }
+      ],
+      "correcta": 0,
+      "errores": [
+       "",
+       "Nueve sale de olvidar el último producto, 2 por 4.",
+       "Veinticuatro es el producto de todas las componentes, y no la suma de los productos."
+      ],
+      "pista": "Se suman los tres productos.",
+      "porque": "3 más 0 más 8 es 11."
+     }
+    ]
+   },
+   {
+    "titulo": "Encuentra el error",
+    "corto": "Error",
+    "bloques": [
+     {
+      "t": "error",
+      "enunciado": "Alguien calculó la norma de un vector y se equivocó en un paso. Toca el paso que está mal.",
+      "pasos": [
+       {
+        "tex": "\\mathbf{u}=(2,3,6)",
+        "porque": "El vector.",
+        "txt": "el vector es 2, 3, 6"
+       },
+       {
+        "tex": "\\|\\mathbf{u}\\|=\\sqrt{2+3+6}=\\sqrt{11}",
+        "porque": "Este paso es el que falla.",
+        "txt": "la norma es raíz de 11"
+       },
+       {
+        "tex": "\\text{La norma vale}\\ 3.32",
+        "porque": "Depende del paso anterior.",
+        "txt": "la norma vale 3.32"
+       }
+      ],
+      "mal": 1,
+      "explicacion": "En la norma se elevan al cuadrado las componentes antes de sumar. La suma correcta es 4 más 9 más 36, o sea 49, y la norma es 7.",
+      "correccion": "\\|\\mathbf{u}\\|=\\sqrt{4+9+36}=7",
+      "pista": "Recuerda elevar cada componente al cuadrado."
+     }
+    ]
+   },
+   {
+    "titulo": "Ordena los pasos",
+    "corto": "Ordena",
+    "bloques": [
+     {
+      "t": "ordenar",
+      "enunciado": "Estos son los pasos para hallar el ángulo entre (1, 1, 0) y (0, 1, 1), pero están desordenados.",
+      "pasos": [
+       "\\mathbf{u}\\cdot\\mathbf{v}=0+1+0=1",
+       "\\|\\mathbf{u}\\|=\\|\\mathbf{v}\\|=\\sqrt{2}",
+       "\\cos\\theta=\\dfrac{1}{2}",
+       "\\theta=60^{\\circ}"
+      ],
+      "mezcla": [
+       2,
+       0,
+       3,
+       1
+      ],
+      "porque": "Se calcula el producto punto, las normas, el coseno y finalmente el ángulo.",
+      "pista": "Se empieza con el producto punto.",
+      "txt": [
+       "Se calcula el producto punto",
+       "Se calculan las normas",
+       "Se arma el coseno",
+       "Se despeja el ángulo"
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "Revisa tu respuesta",
+    "corto": "Revisa",
+    "bloques": [
+     {
+      "t": "pregunta"
+     },
+     {
+      "t": "nota",
+      "html": "Puedes pedir pistas de a una. Si fallas, el mensaje te dice qué error se cometió."
+     }
+    ]
+   },
+   {
+    "titulo": "Mini simulacro",
+    "corto": "Simulacro",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Tres preguntas reales del banco de MathUNAL sobre este tema. Responde sin mirar los pasos."
+     },
+     {
+      "t": "simulacro",
+      "titulo": "Mini simulacro de vectores en R³ y producto punto",
+      "preguntas": [
+       {
+        "tipo": "mcq",
+        "texto": "Los vectores $\\mathbf{u}=(1,2,3)$ y $\\mathbf{v}=(2,-1,0)$ son:",
+        "opciones": [
+         "ortogonales",
+         "paralelos",
+         "iguales",
+         "unitarios"
+        ],
+        "correcta": 0,
+        "resumen": "El producto punto es $2-2+0=0$, así que son ortogonales.",
+        "fuente": "Banco MathUNAL, simulacro de Geometría Vectorial y Analítica"
+       },
+       {
+        "tipo": "numerica",
+        "texto": "$\\|(2,3,6)\\|$",
+        "respuesta": "7",
+        "tolNum": 0.001,
+        "resumen": "$\\sqrt{4+9+36}=7$.",
+        "fuente": "Banco MathUNAL, simulacro de Geometría Vectorial y Analítica"
+       },
+       {
+        "tipo": "mcq",
+        "texto": "El ángulo $\\theta$ entre dos vectores $u$ y $v$ cumple:",
+        "opciones": [
+         "$\\cos\\theta = \\dfrac{u\\cdot v}{\\|u\\|\\,\\|v\\|}$",
+         "$\\operatorname{sen}\\theta = \\dfrac{u\\cdot v}{\\|u\\|\\,\\|v\\|}$",
+         "$\\theta = u\\cdot v$",
+         "$\\cos\\theta = \\dfrac{\\|u\\times v\\|}{\\|u\\|\\,\\|v\\|}$"
+        ],
+        "correcta": 0,
+        "resumen": "El coseno del ángulo es el producto punto entre el producto de las normas.",
+        "fuente": "Banco MathUNAL, simulacro de Geometría Vectorial y Analítica"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "Tu repaso",
+    "corto": "Repaso",
+    "bloques": [
+     {
+      "t": "repaso"
+     }
+    ]
+   },
+   {
+    "titulo": "En resumen",
+    "corto": "Resumen",
+    "bloques": [
+     {
+      "t": "resumen"
+     }
+    ]
+   }
+  ]
+ },
+ "practicar": {
+  "pasos": [
+   {
+    "titulo": "El vector",
+    "grafica": {
+     "draw": 1
+    },
+    "bloques": [
+     {
+      "t": "p",
+      "html": "El vector u de componentes 2, 3 y z."
+     },
+     {
+      "t": "eq",
+      "tex": "\\|\\mathbf{u}\\|=\\sqrt{13+z^{2}}"
+     }
+    ]
+   },
+   {
+    "titulo": "Cambia z",
+    "grafica": {
+     "draw": 1
+    },
+    "laboratorio": true,
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mueve el deslizador. Abajo se leen la norma de u y el cuadrado de la norma."
+     }
+    ]
+   },
+   {
+    "titulo": "Norma 7",
+    "grafica": {
+     "draw": 1,
+     "guide": 1,
+     "ok": true
+    },
+    "laboratorio": true,
+    "d": 6,
+    "bloques": [
+     {
+      "t": "eq",
+      "tex": "\\|(2,3,6)\\|=\\sqrt{49}=7"
+     },
+     {
+      "t": "p",
+      "html": "Con z igual a 6 la norma vale exactamente 7."
+     }
+    ]
+   },
+   {
+    "titulo": "Revisa tu respuesta",
+    "grafica": {
+     "draw": 1,
+     "guide": 1,
+     "ok": true,
+     "d": 6
+    },
+    "bloques": [
+     {
+      "t": "pregunta"
+     },
+     {
+      "t": "nota",
+      "html": "El coseno es el producto punto entre el producto de las normas."
+     }
+    ]
+   }
+  ]
+ },
+ "pregunta": {
+  "tex": "\\text{El ángulo entre}\\ (1,1,0)\\ \\text{y}\\ (0,1,1)\\ \\text{es}",
+  "opciones": [
+   "$60^{\\circ}$",
+   "$45^{\\circ}$",
+   "$90^{\\circ}$",
+   "$30^{\\circ}$"
+  ],
+  "correcta": 0,
+  "explicacion": "El producto punto es 1 y las dos normas son raíz de 2, así que el coseno es 1 entre 2. El ángulo cuyo coseno es un medio mide 60 grados.",
+  "verificacion": {
+   "formula": "(0+1+0)/(sqrt(2)*sqrt(2))+0*x",
+   "a": 0,
+   "esperado": 0.5
+  },
+  "pistas": [
+   "Calcula el producto punto y las normas.",
+   "El coseno sale 1 entre 2.",
+   "El ángulo es 60 grados."
+  ],
+  "errores": [
+   "",
+   "El coseno de 45 grados es raíz de 2 entre 2, y aquí el coseno es 1 entre 2.",
+   "Noventa grados sería un producto punto igual a cero, y aquí vale 1.",
+   "El coseno de 30 grados es raíz de 3 entre 2, y aquí el coseno es 1 entre 2."
+  ]
+ },
+ "resumen": [
+  "En el espacio, la norma es la raíz de la suma de tres cuadrados y el producto punto suma tres productos.",
+  "Dos vectores son ortogonales si su producto punto es cero.",
+  "El ángulo entre dos vectores sale del coseno, que es el producto punto entre el producto de las normas."
+ ]
+}
