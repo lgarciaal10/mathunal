@@ -89,8 +89,8 @@
      "tema": "Distancias en R³",
      "preguntas_banco": 8,
      "parciales_con_el_tema": 1,
-     "estado": "pendiente",
-     "leccion": null
+     "estado": "borrador para revisión",
+     "leccion": "lecciones/geovec-distancias.json"
     },
     {
      "tema": "Cónicas y coordenadas polares",

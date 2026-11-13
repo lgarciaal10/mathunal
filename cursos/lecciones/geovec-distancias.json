@@ -1,0 +1,621 @@
+{
+ "esquema": 1,
+ "id": "gv-m3-l2",
+ "ejemplo": true,
+ "curso": "Geometría Vectorial y Analítica",
+ "modulo": "Módulo 3 Rectas, planos y cónicas",
+ "posicion": "Lección 2 de 4",
+ "titulo": "Distancias en R³",
+ "minutos": 28,
+ "ejercicios": 8,
+ "grafica": {
+  "tipo": "plano",
+  "x": [
+   -8.6,
+   8.6
+  ],
+  "y": [
+   -3.2,
+   6.2
+  ],
+  "a": -2,
+  "b": 6,
+  "inicio": 0,
+  "elementos": [
+   {
+    "t": "recta",
+    "p": [
+     "0",
+     "2"
+    ],
+    "dir": [
+     "1",
+     "0"
+    ],
+    "c": 0
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "1.5",
+     "x"
+    ],
+    "b": [
+     "1.5",
+     "2"
+    ],
+    "guion": true,
+    "c": 3,
+    "guia": true
+   },
+   {
+    "t": "punto",
+    "p": [
+     "1.5",
+     "2"
+    ],
+    "c": 1
+   },
+   {
+    "t": "punto",
+    "p": [
+     "1.5",
+     "x"
+    ],
+    "c": 2
+   }
+  ],
+  "lecturas": [
+   {
+    "rotulo": "numerador, valor absoluto de 2x más 2y más z menos 6",
+    "formula": "3*abs(x-2)"
+   },
+   {
+    "rotulo": "distancia del punto al plano",
+    "formula": "abs(x-2)"
+   }
+  ],
+  "etiquetas": [
+   "Es la distancia multiplicada por la longitud de la normal, que vale 3",
+   "Longitud del segmento perpendicular al plano"
+  ],
+  "etiquetaSlider": "Altura del punto a lo largo de la normal",
+  "alt": "Un corte que contiene la normal del plano 2x más 2y más z igual a 6. La normal apunta hacia arriba y el plano es la recta horizontal a altura 2. Un punto se mueve a lo largo de la normal y el segmento vertical punteado marca su distancia al plano"
+ },
+ "glosario": {
+  "distpunto": "La distancia de un punto a un plano es la longitud del segmento perpendicular. Es el valor absoluto de la ecuación evaluada en el punto, dividido entre la longitud de la normal.",
+  "normal": "El vector normal del plano ax más by más cz igual a d es (a, b, c), y su longitud es la raíz de a al cuadrado más b al cuadrado más c al cuadrado.",
+  "paralelas": "La distancia entre dos rectas paralelas es la distancia de un punto de una de ellas a la otra.",
+  "pie": "El pie de la perpendicular es el punto del plano más cercano al punto dado."
+ },
+ "ver": {
+  "duracion": 22.0,
+  "capitulos": [
+   [
+    0,
+    4,
+    "El plano 2x más 2y más z igual a 6 tiene normal (2, 2, 1), de longitud 3. En este corte la normal apunta hacia arriba y el plano es la recta a altura 2."
+   ],
+   [
+    4,
+    9,
+    "El punto se mueve a lo largo de la normal. La distancia es el segmento vertical, perpendicular al plano."
+   ],
+   [
+    9,
+    14,
+    "Con el punto en el origen, a altura 0, la distancia al plano es 2."
+   ],
+   [
+    14,
+    19,
+    "Con el punto a altura 5, la distancia es 3."
+   ],
+   [
+    19,
+    22,
+    "La fórmula divide el valor de la ecuación entre la longitud de la normal."
+   ]
+  ],
+  "canales": {
+   "draw": [
+    [
+     0.3,
+     0
+    ],
+    [
+     3.5,
+     1
+    ]
+   ],
+   "d": [
+    [
+     4,
+     0
+    ],
+    [
+     8,
+     3
+    ],
+    [
+     10,
+     0
+    ],
+    [
+     14,
+     0
+    ],
+    [
+     15,
+     5
+    ],
+    [
+     19,
+     5
+    ],
+    [
+     22,
+     5
+    ]
+   ],
+   "guide": [
+    [
+     4,
+     0
+    ],
+    [
+     5,
+     1
+    ]
+   ]
+  },
+  "intervalos": {
+   "ok": [
+    14,
+    22
+   ]
+  }
+ },
+ "leer": {
+  "secciones": [
+   {
+    "titulo": "La idea",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "La {{gl:distpunto|distancia de un punto a un plano}} es la longitud del segmento perpendicular que los une, y el punto donde cae es el {{gl:pie|pie}} de la perpendicular. Se calcula evaluando la ecuación del plano en el punto y dividiendo entre la longitud de la {{gl:normal|normal}}. Con la misma idea se halla la distancia entre planos paralelos y entre {{gl:paralelas|rectas paralelas}}."
+     }
+    ]
+   },
+   {
+    "titulo": "Un ejemplo",
+    "corto": "Un ejemplo",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Para ver la idea en una hoja, se toma un corte que contiene la normal del plano. El plano aparece como una recta horizontal, y el punto se mueve hacia arriba y hacia abajo."
+     },
+     {
+      "t": "eq",
+      "tex": "d=\\dfrac{|ax_{0}+by_{0}+cz_{0}+d_{0}|}{\\sqrt{a^{2}+b^{2}+c^{2}}}"
+     },
+     {
+      "t": "grafica",
+      "animar": "dibujar",
+      "alt": "El plano de canto con un punto y su distancia"
+     }
+    ]
+   },
+   {
+    "titulo": "Piensa antes de ver",
+    "corto": "Piensa",
+    "bloques": [
+     {
+      "t": "piensa",
+      "pregunta": "La normal del plano 2x más 2y más z igual a 6 es (2, 2, 1). ¿Cuánto vale la raíz de 4 más 4 más 1?",
+      "opciones": [
+       2,
+       3,
+       5,
+       9
+      ],
+      "correcta": 3,
+      "bien": "Muy bien. Vale 3, la longitud de la normal. Más abajo se ve cómo se usa.",
+      "mal": "Vale 3, porque 4 más 4 más 1 es 9 y la raíz de 9 es 3. Es la longitud de la normal. Más abajo se ve cómo se usa."
+     }
+    ]
+   },
+   {
+    "titulo": "Moviendo el punto",
+    "corto": "El punto",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mira la distancia con el punto a alturas de 0, 3, 5 y menos 2."
+     },
+     {
+      "t": "acercando",
+      "ds": [
+       0,
+       3,
+       5,
+       -2
+      ],
+      "alt": "El punto a cuatro alturas"
+     },
+     {
+      "t": "p",
+      "html": "La distancia es siempre positiva. Con el punto en altura 2, está sobre el plano y la distancia es cero."
+     }
+    ]
+   },
+   {
+    "titulo": "La fórmula",
+    "corto": "La fórmula",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Se evalúa la ecuación del plano en el punto y se divide entre la longitud de la normal."
+     },
+     {
+      "t": "pasos",
+      "items": [
+       {
+        "tex": "d=\\dfrac{|ax_{0}+by_{0}+cz_{0}+d_{0}|}{\\sqrt{a^{2}+b^{2}+c^{2}}}",
+        "porque": "La fórmula, con el plano escrito como ax más by más cz más d0 igual a cero."
+       },
+       {
+        "tex": "(1,1,1),\\ x+y+z=0:\\quad \\dfrac{3}{\\sqrt{3}}=1.732",
+        "porque": "Distancia de un punto a un plano que pasa por el origen."
+       },
+       {
+        "tex": "(3,0,0),\\ x=0:\\quad \\dfrac{|3|}{1}=3",
+        "porque": "Con el plano coordenado la cuenta es inmediata."
+       },
+       {
+        "tex": "(0,0,0),\\ 2x+2y+z-6=0:\\quad \\dfrac{6}{3}=2",
+        "porque": "La distancia del origen al plano."
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "Rectas y planos paralelos",
+    "corto": "Paralelos",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "La distancia entre objetos paralelos se reduce a la de un punto a un objeto."
+     },
+     {
+      "t": "pasos",
+      "items": [
+       {
+        "tex": "x+y+z=0\\ \\text{y}\\ x+y+z=3",
+        "porque": "Dos planos paralelos."
+       },
+       {
+        "tex": "(0,0,0)\\in\\text{primero}:\\quad d=\\dfrac{3}{\\sqrt{3}}=\\sqrt{3}",
+        "porque": "Se toma un punto del primero y se mide al segundo."
+       },
+       {
+        "tex": "\\text{rectas paralelas}\\ \\Rightarrow\\ \\text{punto de una, distancia a la otra}",
+        "porque": "El mismo método sirve para dos rectas paralelas."
+       }
+      ]
+     },
+     {
+      "t": "ojo",
+      "html": "El numerador se toma con valor absoluto, porque la distancia no tiene signo. Y el denominador usa los coeficientes de la ecuación, nunca el término independiente."
+     }
+    ]
+   },
+   {
+    "titulo": "¿Para qué sirve?",
+    "corto": "En ingeniería",
+    "bloques": [
+     {
+      "t": "ingenieria",
+      "titulo": "La altura de un dron sobre una ladera",
+      "html": "Un terreno inclinado se describe con el plano 2x más 2y más z igual a 6, con medidas en metros. Un dron está en el punto (3, 2, 5). Su distancia perpendicular al terreno es la que importa para no chocar.",
+      "tex": "d=\\dfrac{|2\\cdot3+2\\cdot2+5-6|}{\\sqrt{4+4+1}}=\\dfrac{9}{3}=3",
+      "datos": [
+       {
+        "k": "Plano del terreno",
+        "v": "2x + 2y + z = 6"
+       },
+       {
+        "k": "Posición del dron",
+        "v": "(3, 2, 5) m"
+       },
+       {
+        "k": "Distancia al terreno",
+        "v": "3 m"
+       }
+      ],
+      "cierre": "El numerador vale 9 y la normal mide 3, así que el dron está a 3 metros del terreno. Esa distancia es perpendicular a la ladera, y es menor que la altura vertical sobre ella. Por eso un dron que sigue una ladera no debe medir su altura solo con el eje vertical."
+     }
+    ]
+   },
+   {
+    "titulo": "Completa el paso",
+    "corto": "Completa",
+    "bloques": [
+     {
+      "t": "completar",
+      "enunciado": "Se calcula la distancia del punto (0, 0, 5) al plano 2x más 2y más z igual a 0. Falta el radicando.",
+      "tex": "d=\\dfrac{|0+0+5|}{\\sqrt{[[hueco]]}}",
+      "opciones": [
+       {
+        "tex": "9",
+        "txt": "nueve"
+       },
+       {
+        "tex": "5",
+        "txt": "cinco"
+       },
+       {
+        "tex": "3",
+        "txt": "tres"
+       }
+      ],
+      "correcta": 0,
+      "errores": [
+       "",
+       "Cinco sale de sumar los coeficientes 2, 2 y 1 sin elevarlos al cuadrado.",
+       "Tres es la raíz que ya se saca, y dentro de la raíz va la suma de cuadrados."
+      ],
+      "pista": "Se suman los cuadrados de los coeficientes.",
+      "porque": "4 más 4 más 1 es 9, y la raíz es 3."
+     }
+    ]
+   },
+   {
+    "titulo": "Encuentra el error",
+    "corto": "Error",
+    "bloques": [
+     {
+      "t": "error",
+      "enunciado": "Alguien calculó la distancia del punto (0, 0, 5) al plano 2x más 2y más z igual a 0 y se equivocó en un paso. Toca el paso que está mal.",
+      "pasos": [
+       {
+        "tex": "P=(0,0,5),\\quad 2x+2y+z=0",
+        "porque": "Los datos.",
+        "txt": "el punto y el plano"
+       },
+       {
+        "tex": "|2\\cdot0+2\\cdot0+5|=5",
+        "porque": "El numerador.",
+        "txt": "el numerador vale 5"
+       },
+       {
+        "tex": "d=\\dfrac{5}{\\sqrt{2+2+1}}=\\dfrac{5}{\\sqrt{5}}",
+        "porque": "Este paso es el que falla.",
+        "txt": "la distancia es 5 entre raíz de 5"
+       }
+      ],
+      "mal": 2,
+      "explicacion": "En la raíz van los cuadrados de los coeficientes, o sea 4 más 4 más 1, que da 9. La norma de la normal es 3 y la distancia es 5 sobre 3.",
+      "correccion": "d=\\dfrac{5}{\\sqrt{4+4+1}}=\\dfrac{5}{3}",
+      "pista": "Eleva al cuadrado cada coeficiente."
+     }
+    ]
+   },
+   {
+    "titulo": "Ordena los pasos",
+    "corto": "Ordena",
+    "bloques": [
+     {
+      "t": "ordenar",
+      "enunciado": "Estos son los pasos para hallar la distancia del origen al plano 2x más 2y más z igual a 6, pero están desordenados.",
+      "pasos": [
+       "2x+2y+z-6=0",
+       "|2\\cdot0+2\\cdot0+0-6|=6",
+       "\\sqrt{4+4+1}=3",
+       "d=\\dfrac{6}{3}=2"
+      ],
+      "mezcla": [
+       2,
+       0,
+       3,
+       1
+      ],
+      "porque": "Se escribe el plano igualado a cero, se evalúa en el punto, se calcula la normal y se divide.",
+      "pista": "Se empieza llevando todo a un lado.",
+      "txt": [
+       "Se lleva todo a un lado",
+       "Se evalúa en el origen",
+       "Se calcula la longitud de la normal",
+       "Se divide"
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "Revisa tu respuesta",
+    "corto": "Revisa",
+    "bloques": [
+     {
+      "t": "pregunta"
+     },
+     {
+      "t": "nota",
+      "html": "Puedes pedir pistas de a una. Si fallas, el mensaje te dice qué error se cometió."
+     }
+    ]
+   },
+   {
+    "titulo": "Mini simulacro",
+    "corto": "Simulacro",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Tres preguntas reales del banco de MathUNAL sobre este tema. Responde sin mirar los pasos."
+     },
+     {
+      "t": "simulacro",
+      "titulo": "Mini simulacro de distancias en R³",
+      "preguntas": [
+       {
+        "tipo": "mcq",
+        "texto": "La distancia del punto $P = (x_0,y_0,z_0)$ al plano $ax + by + cz + d = 0$ es:",
+        "opciones": [
+         "$\\dfrac{|a x_0 + b y_0 + c z_0 + d|}{\\sqrt{a^2 + b^2 + c^2}}$",
+         "$|a x_0 + b y_0 + c z_0 + d|$",
+         "$\\dfrac{a x_0 + b y_0 + c z_0 + d}{a + b + c}$",
+         "$\\sqrt{a^2 + b^2 + c^2}$"
+        ],
+        "correcta": 0,
+        "resumen": "El numerador es el valor absoluto de la ecuación evaluada en el punto, y el denominador es la longitud de la normal.",
+        "fuente": "Banco MathUNAL, simulacro de Geometría Vectorial y Analítica"
+       },
+       {
+        "tipo": "numerica",
+        "texto": "La distancia del origen al plano $2x + 2y + z = 6$ es:",
+        "respuesta": "2",
+        "tolNum": 0.001,
+        "resumen": "$\\dfrac{|{-6}|}{\\sqrt{4+4+1}}=\\dfrac{6}{3}=2$.",
+        "fuente": "Banco MathUNAL, simulacro de Geometría Vectorial y Analítica"
+       },
+       {
+        "tipo": "mcq",
+        "texto": "Para hallar la distancia entre dos rectas PARALELAS en $\\mathbb{R}^3$:",
+        "opciones": [
+         "toma un punto de una recta y calcula su distancia a la otra recta",
+         "resta sus vectores directores",
+         "calcula el producto punto de sus directores",
+         "no está definida"
+        ],
+        "correcta": 0,
+        "resumen": "Un punto de una recta se mide a la otra.",
+        "fuente": "Banco MathUNAL, simulacro de Geometría Vectorial y Analítica"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "Tu repaso",
+    "corto": "Repaso",
+    "bloques": [
+     {
+      "t": "repaso"
+     }
+    ]
+   },
+   {
+    "titulo": "En resumen",
+    "corto": "Resumen",
+    "bloques": [
+     {
+      "t": "resumen"
+     }
+    ]
+   }
+  ]
+ },
+ "practicar": {
+  "pasos": [
+   {
+    "titulo": "El corte",
+    "grafica": {
+     "draw": 1
+    },
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Un corte con la normal hacia arriba, y el plano como una recta horizontal."
+     },
+     {
+      "t": "eq",
+      "tex": "2x+2y+z=6"
+     }
+    ]
+   },
+   {
+    "titulo": "Mueve el punto",
+    "grafica": {
+     "draw": 1
+    },
+    "laboratorio": true,
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mueve el deslizador. Abajo se leen el numerador y la distancia al plano."
+     }
+    ]
+   },
+   {
+    "titulo": "A altura 5",
+    "grafica": {
+     "draw": 1,
+     "guide": 1,
+     "ok": true
+    },
+    "laboratorio": true,
+    "d": 5,
+    "bloques": [
+     {
+      "t": "eq",
+      "tex": "d=|5-2|=3"
+     },
+     {
+      "t": "p",
+      "html": "Con el punto a altura 5, la distancia al plano es 3."
+     }
+    ]
+   },
+   {
+    "titulo": "Revisa tu respuesta",
+    "grafica": {
+     "draw": 1,
+     "guide": 1,
+     "ok": true,
+     "d": 5
+    },
+    "bloques": [
+     {
+      "t": "pregunta"
+     },
+     {
+      "t": "nota",
+      "html": "Evalúa la ecuación en el punto y divide entre la longitud de la normal."
+     }
+    ]
+   }
+  ]
+ },
+ "pregunta": {
+  "tex": "\\text{Distancia de}\\ (1,2,2)\\ \\text{al plano}\\ x+2y+2z=0",
+  "opciones": [
+   "$3$",
+   "$9$",
+   "$1$",
+   "$\\tfrac13$"
+  ],
+  "correcta": 0,
+  "explicacion": "La ecuación evaluada en el punto da 1 más 4 más 4, o sea 9. La longitud de la normal es la raíz de 1 más 4 más 4, que es 3. La distancia es 9 entre 3, o sea 3.",
+  "verificacion": {
+   "formula": "abs(1+4+4)/sqrt(1+4+4)+0*x",
+   "a": 0,
+   "esperado": 3
+  },
+  "pistas": [
+   "Evalúa x más 2y más 2z en el punto.",
+   "Da 9. Calcula la longitud de la normal.",
+   "Es 3. Divide 9 entre 3."
+  ],
+  "errores": [
+   "",
+   "Nueve es solo el numerador. Falta dividir entre la longitud de la normal.",
+   "Uno sale de dividir entre la suma de cuadrados y no entre su raíz.",
+   "Un tercio invierte el cociente, con la normal arriba."
+  ]
+ },
+ "resumen": [
+  "La distancia de un punto a un plano es el valor absoluto de la ecuación evaluada en el punto, entre la longitud de la normal.",
+  "La distancia entre planos paralelos se halla con un punto de uno de ellos.",
+  "Para dos rectas paralelas se toma un punto de una y se mide su distancia a la otra."
+ ]
+}
