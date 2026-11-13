@@ -1,0 +1,798 @@
+{
+ "esquema": 1,
+ "id": "cv-m2-l2",
+ "ejemplo": true,
+ "curso": "Cálculo en Varias Variables",
+ "modulo": "Módulo 2 Integrales múltiples",
+ "posicion": "Lección 2 de 6",
+ "titulo": "Coordenadas polares",
+ "minutos": 26,
+ "ejercicios": 8,
+ "grafica": {
+  "tipo": "plano",
+  "x": [
+   -0.3,
+   2.6
+  ],
+  "y": [
+   -0.6,
+   4.7
+  ],
+  "a": 0,
+  "b": 2,
+  "inicio": 1,
+  "elementos": [
+   {
+    "t": "trazo",
+    "puntos": [
+     [
+      "0.0",
+      "4.0000"
+     ],
+     [
+      "0.05",
+      "3.9975"
+     ],
+     [
+      "0.1",
+      "3.9900"
+     ],
+     [
+      "0.15",
+      "3.9775"
+     ],
+     [
+      "0.2",
+      "3.9600"
+     ],
+     [
+      "0.25",
+      "3.9375"
+     ],
+     [
+      "0.3",
+      "3.9100"
+     ],
+     [
+      "0.35",
+      "3.8775"
+     ],
+     [
+      "0.4",
+      "3.8400"
+     ],
+     [
+      "0.45",
+      "3.7975"
+     ],
+     [
+      "0.5",
+      "3.7500"
+     ],
+     [
+      "0.55",
+      "3.6975"
+     ],
+     [
+      "0.6",
+      "3.6400"
+     ],
+     [
+      "0.65",
+      "3.5775"
+     ],
+     [
+      "0.7",
+      "3.5100"
+     ],
+     [
+      "0.75",
+      "3.4375"
+     ],
+     [
+      "0.8",
+      "3.3600"
+     ],
+     [
+      "0.85",
+      "3.2775"
+     ],
+     [
+      "0.9",
+      "3.1900"
+     ],
+     [
+      "0.95",
+      "3.0975"
+     ],
+     [
+      "1.0",
+      "3.0000"
+     ],
+     [
+      "1.05",
+      "2.8975"
+     ],
+     [
+      "1.1",
+      "2.7900"
+     ],
+     [
+      "1.15",
+      "2.6775"
+     ],
+     [
+      "1.2",
+      "2.5600"
+     ],
+     [
+      "1.25",
+      "2.4375"
+     ],
+     [
+      "1.3",
+      "2.3100"
+     ],
+     [
+      "1.35",
+      "2.1775"
+     ],
+     [
+      "1.4",
+      "2.0400"
+     ],
+     [
+      "1.45",
+      "1.8975"
+     ],
+     [
+      "1.5",
+      "1.7500"
+     ],
+     [
+      "1.55",
+      "1.5975"
+     ],
+     [
+      "1.6",
+      "1.4400"
+     ],
+     [
+      "1.65",
+      "1.2775"
+     ],
+     [
+      "1.7",
+      "1.1100"
+     ],
+     [
+      "1.75",
+      "0.9375"
+     ],
+     [
+      "1.8",
+      "0.7600"
+     ],
+     [
+      "1.85",
+      "0.5775"
+     ],
+     [
+      "1.9",
+      "0.3900"
+     ],
+     [
+      "1.95",
+      "0.1975"
+     ],
+     [
+      "2.0",
+      "0.0000"
+     ]
+    ],
+    "c": 3
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "x",
+     "0"
+    ],
+    "b": [
+     "x",
+     "4-x*x"
+    ],
+    "c": 1
+   },
+   {
+    "t": "punto",
+    "p": [
+     "x",
+     "4-x*x"
+    ],
+    "c": 0
+   }
+  ],
+  "lecturas": [
+   {
+    "rotulo": "altura del paraboloide en r, z igual a 4 menos r al cuadrado",
+    "formula": "4-x*x"
+   },
+   {
+    "rotulo": "volumen bajo el paraboloide dentro del radio r",
+    "formula": "2*pi*(2*x*x-x*x*x*x/4)"
+   }
+  ],
+  "etiquetas": [
+   "La altura solo depende de r, y por eso el perfil basta para describir toda la superficie",
+   "El volumen crece con el radio R, y con R igual a 2 llega a 8 pi"
+  ],
+  "etiquetaSlider": "Radio R, de 0 a 2",
+  "alt": "El perfil de la superficie z igual a 4 menos r al cuadrado, que depende solo de la distancia r al eje. Al girar el perfil alrededor del eje se obtiene el paraboloide. El volumen dentro del radio R se calcula con una integral en coordenadas polares, y para R igual a 2 vale 8 pi"
+ },
+ "glosario": {
+  "polares": "En coordenadas polares un punto se da por su distancia r al origen y su ángulo theta, con x igual a r coseno de theta y y igual a r seno de theta.",
+  "elemento": "El elemento de área en polares es r dr d theta. El factor r aparece porque los pedazos lejos del origen son más grandes.",
+  "disco": "Para un disco centrado en el origen, r va de 0 al radio y theta va de 0 a 2 pi.",
+  "simetria": "Cuando la región o la función tienen simetría circular, las polares simplifican mucho la integral."
+ },
+ "ver": {
+  "duracion": 24.0,
+  "capitulos": [
+   [
+    0,
+    4,
+    "El paraboloide z igual a 4 menos x al cuadrado menos y al cuadrado solo depende de la distancia r al eje."
+   ],
+   [
+    4,
+    10,
+    "En polares, el área de un pedazo es r dr d theta, y la integral de volumen queda con ese factor r."
+   ],
+   [
+    10,
+    16,
+    "Con radio 1 el volumen es 3.5 pi, que es 11. Con radio 1.5 es cerca de 20.3."
+   ],
+   [
+    16,
+    20,
+    "Con radio 2 se llega al borde del paraboloide, y el volumen total es 8 pi, cerca de 25.1."
+   ],
+   [
+    20,
+    24,
+    "El factor r es lo que hace que la integral sea sencilla. Sin el factor, el resultado sería incorrecto."
+   ]
+  ],
+  "canales": {
+   "draw": [
+    [
+     0.3,
+     0
+    ],
+    [
+     3.5,
+     1
+    ]
+   ],
+   "d": [
+    [
+     4,
+     0.3
+    ],
+    [
+     8,
+     0.3
+    ],
+    [
+     10,
+     1
+    ],
+    [
+     13,
+     1
+    ],
+    [
+     16,
+     2
+    ],
+    [
+     18,
+     2
+    ],
+    [
+     24,
+     2
+    ]
+   ],
+   "guide": [
+    [
+     4,
+     0
+    ],
+    [
+     5,
+     1
+    ]
+   ]
+  },
+  "intervalos": {
+   "ok": [
+    16,
+    24
+   ]
+  }
+ },
+ "leer": {
+  "secciones": [
+   {
+    "titulo": "La idea",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "En {{gl:polares|coordenadas polares}} se describe un punto por su distancia r y su ángulo theta. Cuando la región o la función tienen {{gl:simetria|simetría circular}}, la integral se simplifica. Se usa el {{gl:elemento|elemento de área}} r dr d theta, y un {{gl:disco|disco}} tiene límites constantes."
+     }
+    ]
+   },
+   {
+    "titulo": "Un ejemplo",
+    "corto": "Un ejemplo",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "El paraboloide z igual a 4 menos r al cuadrado se integra sobre un disco. Mueve el radio y mira cómo crece el volumen."
+     },
+     {
+      "t": "eq",
+      "tex": "V=\\displaystyle\\int_{0}^{2\\pi}\\!\\int_{0}^{R}(4-r^{2})\\,r\\,dr\\,d\\theta=2\\pi\\left(2R^{2}-\\dfrac{R^{4}}{4}\\right)"
+     },
+     {
+      "t": "grafica",
+      "animar": "dibujar",
+      "alt": "El perfil del paraboloide y el volumen hasta el radio R"
+     }
+    ]
+   },
+   {
+    "titulo": "Piensa antes de ver",
+    "corto": "Piensa",
+    "bloques": [
+     {
+      "t": "piensa",
+      "pregunta": "En polares, ¿cuál es el elemento de área?",
+      "opciones": [
+       "r dr d theta",
+       "dr d theta",
+       "r al cuadrado dr d theta",
+       "uno entre r dr d theta"
+      ],
+      "correcta": "r dr d theta",
+      "bien": "Muy bien. El factor r es el jacobiano de las polares.",
+      "mal": "Es r dr d theta. El factor r aparece porque los pedazos crecen al alejarse del origen."
+     }
+    ]
+   },
+   {
+    "titulo": "Hasta distintos radios",
+    "corto": "Radios",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mira el volumen con R igual a 0.5, 1, 1.5 y 2."
+     },
+     {
+      "t": "acercando",
+      "ds": [
+       0.5,
+       1,
+       1.5,
+       2
+      ],
+      "alt": "El volumen con cuatro radios"
+     },
+     {
+      "t": "p",
+      "html": "A R igual a 2 se llega a 8 pi, cerca de 25.1."
+     }
+    ]
+   },
+   {
+    "titulo": "Pasar a polares",
+    "corto": "Pasos",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Se reemplazan las variables y se agrega el factor r."
+     },
+     {
+      "t": "pasos",
+      "items": [
+       {
+        "tex": "x=r\\cos\\theta,\\quad y=r\\operatorname{sen}\\theta",
+        "porque": "El cambio."
+       },
+       {
+        "tex": "x^{2}+y^{2}=r^{2},\\quad dA=r\\,dr\\,d\\theta",
+        "porque": "Se reemplaza el área y la suma de cuadrados."
+       },
+       {
+        "tex": "x^{2}+y^{2}\\le1\\ \\Rightarrow\\ 0\\le r\\le1,\\ 0\\le\\theta\\le2\\pi",
+        "porque": "Los límites de un disco."
+       },
+       {
+        "tex": "\\displaystyle\\iint_{D}dA=\\int_{0}^{2\\pi}\\!\\int_{0}^{1}r\\,dr\\,d\\theta=\\pi",
+        "porque": "El área del disco unidad."
+       }
+      ]
+     },
+     {
+      "t": "ojo",
+      "html": "El factor r no se puede olvidar. Sin él se calcularía otra cosa, y el área del disco no daría pi."
+     }
+    ]
+   },
+   {
+    "titulo": "El volumen del paraboloide",
+    "corto": "Volumen",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Se calcula el volumen bajo la superficie sobre el disco de radio 2."
+     },
+     {
+      "t": "pasos",
+      "items": [
+       {
+        "tex": "V=\\displaystyle\\int_{0}^{2\\pi}\\!\\int_{0}^{2}(4-r^{2})\\,r\\,dr\\,d\\theta",
+        "porque": "La integral en polares."
+       },
+       {
+        "tex": "\\displaystyle\\int_{0}^{2}(4r-r^{3})\\,dr=\\left[2r^{2}-\\dfrac{r^{4}}{4}\\right]_{0}^{2}=8-4=4",
+        "porque": "La parte en r."
+       },
+       {
+        "tex": "V=2\\pi\\cdot4=8\\pi",
+        "porque": "Se multiplica por la vuelta completa."
+       },
+       {
+        "tex": "\\displaystyle\\int_{0}^{2\\pi}\\!\\int_{0}^{2}r\\,dr\\,d\\theta=4\\pi\\approx12.5664",
+        "porque": "Un ejemplo sencillo, que es el área de un disco de radio 2."
+       }
+      ]
+     },
+     {
+      "t": "ojo",
+      "html": "Si la función solo depende de r, la integral en theta da 2 pi y se separa. Es la forma más corta de calcular volúmenes de revolución."
+     }
+    ]
+   },
+   {
+    "titulo": "¿Para qué sirve?",
+    "corto": "En ingeniería",
+    "bloques": [
+     {
+      "t": "ingenieria",
+      "titulo": "El tanque de forma paraboloide",
+      "html": "Un depósito tiene un fondo con forma de paraboloide, de altura 4 metros en el centro y radio 2 metros. El volumen se calcula con una integral doble en polares.",
+      "tex": "V=\\displaystyle\\int_{0}^{2\\pi}\\!\\int_{0}^{2}(4-r^{2})\\,r\\,dr\\,d\\theta=8\\pi\\approx25.1\\ \\text{m}^{3}",
+      "datos": [
+       {
+        "k": "Altura",
+        "v": "4 m"
+       },
+       {
+        "k": "Radio",
+        "v": "2 m"
+       },
+       {
+        "k": "Volumen",
+        "v": "cerca de 25.1 m³"
+       }
+      ],
+      "cierre": "En polares el cálculo es corto, mientras que en rectangulares aparecen raíces cuadradas en los límites. Esto vale para cualquier recipiente con simetría de giro."
+     }
+    ]
+   },
+   {
+    "titulo": "Completa el paso",
+    "corto": "Completa",
+    "bloques": [
+     {
+      "t": "completar",
+      "enunciado": "En coordenadas polares, el elemento de área es [[hueco]] dr d theta.",
+      "tex": "dA=[[hueco]]\\,dr\\,d\\theta",
+      "opciones": [
+       {
+        "tex": "r",
+        "txt": "r"
+       },
+       {
+        "tex": "1",
+        "txt": "uno"
+       },
+       {
+        "tex": "r^{2}",
+        "txt": "r al cuadrado"
+       }
+      ],
+      "correcta": 0,
+      "errores": [
+       "",
+       "Sin el factor r se calcularía mal el área.",
+       "Con r al cuadrado se calcularía un volumen de otra forma."
+      ],
+      "pista": "Es el jacobiano de las polares.",
+      "porque": "Es r."
+     }
+    ]
+   },
+   {
+    "titulo": "Encuentra el error",
+    "corto": "Error",
+    "bloques": [
+     {
+      "t": "error",
+      "enunciado": "Alguien calculó el área del disco unidad en polares y se equivocó. Toca el paso que está mal.",
+      "pasos": [
+       {
+        "tex": "0\\le r\\le1,\\quad 0\\le\\theta\\le2\\pi",
+        "porque": "Límites.",
+        "txt": "límites"
+       },
+       {
+        "tex": "\\displaystyle\\int_{0}^{2\\pi}\\!\\int_{0}^{1}dr\\,d\\theta",
+        "porque": "Este paso es el que falla.",
+        "txt": "falta el factor r"
+       },
+       {
+        "tex": "=2\\pi",
+        "porque": "Resultado.",
+        "txt": "da 2 pi"
+       }
+      ],
+      "mal": 1,
+      "explicacion": "Falta el factor r del elemento de área. La integral es 2 pi por la integral de r dr, o sea 2 pi por un medio, que da pi.",
+      "correccion": "\\displaystyle\\int_{0}^{2\\pi}\\!\\int_{0}^{1}r\\,dr\\,d\\theta=\\pi",
+      "pista": "El elemento de área es r dr d theta."
+     }
+    ]
+   },
+   {
+    "titulo": "Ordena los pasos",
+    "corto": "Ordena",
+    "bloques": [
+     {
+      "t": "ordenar",
+      "enunciado": "Estos son los pasos para integrar en polares, pero están desordenados.",
+      "pasos": [
+       "x=r\\cos\\theta,\\ y=r\\operatorname{sen}\\theta",
+       "dA=r\\,dr\\,d\\theta",
+       "0\\le r\\le R,\\ 0\\le\\theta\\le2\\pi",
+       "\\displaystyle\\int\\!\\int\\cdots\\,dr\\,d\\theta"
+      ],
+      "mezcla": [
+       2,
+       0,
+       3,
+       1
+      ],
+      "porque": "Se hace el cambio, se agrega el factor r, se escriben los límites y se integra.",
+      "pista": "Se empieza con el cambio de variables.",
+      "txt": [
+       "Se hace el cambio",
+       "Se agrega el factor r",
+       "Se escriben los límites",
+       "Se integra"
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "Revisa tu respuesta",
+    "corto": "Revisa",
+    "bloques": [
+     {
+      "t": "pregunta"
+     },
+     {
+      "t": "nota",
+      "html": "Puedes pedir pistas de a una. Si fallas, el mensaje te dice qué error se cometió."
+     }
+    ]
+   },
+   {
+    "titulo": "Mini simulacro",
+    "corto": "Simulacro",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Preguntas reales del banco de MathUNAL sobre este tema. Responde sin mirar los pasos."
+     },
+     {
+      "t": "simulacro",
+      "titulo": "Mini simulacro de coordenadas polares",
+      "preguntas": [
+       {
+        "tipo": "mcq",
+        "texto": "$\\displaystyle\\iint_D dA$ sobre el disco $x^2+y^2\\le 1$, en polares, es:",
+        "opciones": [
+         "$\\displaystyle\\int_0^{2\\pi}\\!\\int_0^1 r\\,dr\\,d\\theta = \\pi$",
+         "$\\displaystyle\\int_0^{2\\pi}\\!\\int_0^1 dr\\,d\\theta = 2\\pi$",
+         "$\\displaystyle\\int_0^{\\pi}\\!\\int_0^1 r\\,dr\\,d\\theta$",
+         "$\\displaystyle\\int_0^{2\\pi}\\!\\int_0^1 r^2\\,dr\\,d\\theta$"
+        ],
+        "correcta": 0,
+        "resumen": "El área del disco unidad en polares.",
+        "fuente": "Banco MathUNAL, simulacro de Cálculo en Varias Variables"
+       },
+       {
+        "tipo": "mcq",
+        "texto": "El volumen bajo $z=4-x^2-y^2$ sobre el disco $x^2+y^2\\le 4$ es:",
+        "opciones": [
+         "$8\\pi$",
+         "$4\\pi$",
+         "$16\\pi$",
+         "$\\dfrac{32\\pi}{3}$"
+        ],
+        "correcta": 0,
+        "resumen": "El volumen bajo el paraboloide.",
+        "fuente": "Banco MathUNAL, simulacro de Cálculo en Varias Variables"
+       },
+       {
+        "tipo": "mcq",
+        "texto": "El elemento de área en coordenadas polares es:",
+        "opciones": [
+         "$dA = r\\,dr\\,d\\theta$",
+         "$dA = dr\\,d\\theta$",
+         "$dA = r^{2}\\,dr\\,d\\theta$",
+         "$dA = \\dfrac{1}{r}\\,dr\\,d\\theta$"
+        ],
+        "correcta": 0,
+        "resumen": "El elemento de área en polares.",
+        "fuente": "Banco MathUNAL, simulacro de Cálculo en Varias Variables"
+       },
+       {
+        "tipo": "numerica",
+        "texto": "$\\displaystyle\\int_{0}^{2\\pi}\\int_{0}^{2} r\\,dr\\,d\\theta$ (decimal, 4 cifras)",
+        "respuesta": "12.5664",
+        "tolNum": 0.01,
+        "resumen": "La integral de r de 0 a 2 sobre la vuelta completa.",
+        "fuente": "Banco MathUNAL, simulacro de Cálculo en Varias Variables"
+       },
+       {
+        "tipo": "numerica",
+        "texto": "$\\displaystyle\\int_{0}^{2\\pi}\\int_{0}^{1} r\\cdot r\\,dr\\,d\\theta$ (decimal, 4 cifras)",
+        "respuesta": "2.0944",
+        "tolNum": 0.005,
+        "resumen": "La integral de r al cuadrado de 0 a 1.",
+        "fuente": "Banco MathUNAL, simulacro de Cálculo en Varias Variables"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "Tu repaso",
+    "corto": "Repaso",
+    "bloques": [
+     {
+      "t": "repaso"
+     }
+    ]
+   },
+   {
+    "titulo": "En resumen",
+    "corto": "Resumen",
+    "bloques": [
+     {
+      "t": "resumen"
+     }
+    ]
+   }
+  ]
+ },
+ "practicar": {
+  "pasos": [
+   {
+    "titulo": "El paraboloide",
+    "grafica": {
+     "draw": 1
+    },
+    "bloques": [
+     {
+      "t": "p",
+      "html": "La altura depende solo de la distancia r al eje."
+     },
+     {
+      "t": "eq",
+      "tex": "z=4-r^{2}"
+     }
+    ]
+   },
+   {
+    "titulo": "Cambia el radio",
+    "grafica": {
+     "draw": 1
+    },
+    "laboratorio": true,
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mueve el deslizador. Abajo se leen la altura en el borde del disco y el volumen hasta ese radio."
+     }
+    ]
+   },
+   {
+    "titulo": "El disco completo",
+    "grafica": {
+     "draw": 1,
+     "guide": 1,
+     "ok": true
+    },
+    "laboratorio": true,
+    "d": 2,
+    "bloques": [
+     {
+      "t": "eq",
+      "tex": "V=8\\pi\\approx25.13"
+     },
+     {
+      "t": "p",
+      "html": "Con R igual a 2 se llega al borde del paraboloide."
+     }
+    ]
+   },
+   {
+    "titulo": "Revisa tu respuesta",
+    "grafica": {
+     "draw": 1,
+     "guide": 1,
+     "ok": true,
+     "d": 2
+    },
+    "bloques": [
+     {
+      "t": "pregunta"
+     },
+     {
+      "t": "nota",
+      "html": "No olvides el factor r."
+     }
+    ]
+   }
+  ]
+ },
+ "pregunta": {
+  "tex": "\\displaystyle\\int_{0}^{2\\pi}\\!\\int_{0}^{1}r\\cdot r\\,dr\\,d\\theta\\ \\text{vale}",
+  "opciones": [
+   "$\\dfrac{2\\pi}{3}$",
+   "$\\dfrac{\\pi}{3}$",
+   "$\\pi$",
+   "$2\\pi$"
+  ],
+  "correcta": 0,
+  "explicacion": "La integral de r al cuadrado de 0 a 1 es un tercio, y se multiplica por 2 pi, o sea 2 pi tercios.",
+  "verificacion": {
+   "formula": "2*pi/3+0*x",
+   "a": 0,
+   "esperado": 2.0944
+  },
+  "pistas": [
+   "La integral en r es r al cubo entre 3.",
+   "Evalúa de 0 a 1 y da un tercio.",
+   "Multiplica por 2 pi."
+  ],
+  "errores": [
+   "",
+   "Un pi tercio olvidó la vuelta completa, que es 2 pi.",
+   "Pi sería la integral de r, y no de r al cuadrado.",
+   "2 pi olvidó integrar en r."
+  ]
+ },
+ "resumen": [
+  "En polares, dA es r dr d theta, y el factor r no se puede olvidar.",
+  "Un disco tiene r de 0 al radio y theta de 0 a 2 pi.",
+  "Con simetría circular, la integral se separa en r y en theta."
+ ]
+}
