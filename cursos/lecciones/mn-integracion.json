@@ -1,0 +1,926 @@
+{
+ "esquema": 1,
+ "id": "mn-m3-l1",
+ "ejemplo": true,
+ "curso": "Métodos Numéricos",
+ "modulo": "Módulo 3 Ajuste, integración y ecuaciones diferenciales",
+ "posicion": "Lección 1 de 4",
+ "titulo": "Integración numérica",
+ "minutos": 28,
+ "ejercicios": 8,
+ "grafica": {
+  "tipo": "plano",
+  "x": [
+   -0.9,
+   3.0
+  ],
+  "y": [
+   -0.7,
+   4.7
+  ],
+  "a": 1,
+  "b": 8,
+  "inicio": 2,
+  "entero": true,
+  "elementos": [
+   {
+    "t": "trazo",
+    "puntos": [
+     [
+      "0.0",
+      "0.0"
+     ],
+     [
+      "0.05",
+      "0.0025"
+     ],
+     [
+      "0.1",
+      "0.01"
+     ],
+     [
+      "0.15",
+      "0.0225"
+     ],
+     [
+      "0.2",
+      "0.04"
+     ],
+     [
+      "0.25",
+      "0.0625"
+     ],
+     [
+      "0.3",
+      "0.09"
+     ],
+     [
+      "0.35",
+      "0.1225"
+     ],
+     [
+      "0.4",
+      "0.16"
+     ],
+     [
+      "0.45",
+      "0.2025"
+     ],
+     [
+      "0.5",
+      "0.25"
+     ],
+     [
+      "0.55",
+      "0.3025"
+     ],
+     [
+      "0.6",
+      "0.36"
+     ],
+     [
+      "0.65",
+      "0.4225"
+     ],
+     [
+      "0.7",
+      "0.49"
+     ],
+     [
+      "0.75",
+      "0.5625"
+     ],
+     [
+      "0.8",
+      "0.64"
+     ],
+     [
+      "0.85",
+      "0.7225"
+     ],
+     [
+      "0.9",
+      "0.81"
+     ],
+     [
+      "0.95",
+      "0.9025"
+     ],
+     [
+      "1.0",
+      "1.0"
+     ],
+     [
+      "1.05",
+      "1.1025"
+     ],
+     [
+      "1.1",
+      "1.21"
+     ],
+     [
+      "1.15",
+      "1.3225"
+     ],
+     [
+      "1.2",
+      "1.44"
+     ],
+     [
+      "1.25",
+      "1.5625"
+     ],
+     [
+      "1.3",
+      "1.69"
+     ],
+     [
+      "1.35",
+      "1.8225"
+     ],
+     [
+      "1.4",
+      "1.96"
+     ],
+     [
+      "1.45",
+      "2.1025"
+     ],
+     [
+      "1.5",
+      "2.25"
+     ],
+     [
+      "1.55",
+      "2.4025"
+     ],
+     [
+      "1.6",
+      "2.56"
+     ],
+     [
+      "1.65",
+      "2.7225"
+     ],
+     [
+      "1.7",
+      "2.89"
+     ],
+     [
+      "1.75",
+      "3.0625"
+     ],
+     [
+      "1.8",
+      "3.24"
+     ],
+     [
+      "1.85",
+      "3.4225"
+     ],
+     [
+      "1.9",
+      "3.61"
+     ],
+     [
+      "1.95",
+      "3.8025"
+     ],
+     [
+      "2.0",
+      "4.0"
+     ]
+    ],
+    "c": 0
+   },
+   {
+    "t": "poligono",
+    "puntos": [
+     [
+      "((1+(x-0-0.37)/abs(x-0-0.37))/2)*((0/x)+2-abs((0/x)-2))/2",
+      "0"
+     ],
+     [
+      "((1+(x-0-0.37)/abs(x-0-0.37))/2)*((2/x)+2-abs((2/x)-2))/2",
+      "0"
+     ],
+     [
+      "((1+(x-0-0.37)/abs(x-0-0.37))/2)*((2/x)+2-abs((2/x)-2))/2",
+      "(((1+(x-0-0.37)/abs(x-0-0.37))/2)*((2/x)+2-abs((2/x)-2))/2)*(((1+(x-0-0.37)/abs(x-0-0.37))/2)*((2/x)+2-abs((2/x)-2))/2)"
+     ],
+     [
+      "((1+(x-0-0.37)/abs(x-0-0.37))/2)*((0/x)+2-abs((0/x)-2))/2",
+      "(((1+(x-0-0.37)/abs(x-0-0.37))/2)*((0/x)+2-abs((0/x)-2))/2)*(((1+(x-0-0.37)/abs(x-0-0.37))/2)*((0/x)+2-abs((0/x)-2))/2)"
+     ]
+    ],
+    "c": 3
+   },
+   {
+    "t": "poligono",
+    "puntos": [
+     [
+      "((1+(x-1-0.37)/abs(x-1-0.37))/2)*((2/x)+2-abs((2/x)-2))/2",
+      "0"
+     ],
+     [
+      "((1+(x-1-0.37)/abs(x-1-0.37))/2)*((4/x)+2-abs((4/x)-2))/2",
+      "0"
+     ],
+     [
+      "((1+(x-1-0.37)/abs(x-1-0.37))/2)*((4/x)+2-abs((4/x)-2))/2",
+      "(((1+(x-1-0.37)/abs(x-1-0.37))/2)*((4/x)+2-abs((4/x)-2))/2)*(((1+(x-1-0.37)/abs(x-1-0.37))/2)*((4/x)+2-abs((4/x)-2))/2)"
+     ],
+     [
+      "((1+(x-1-0.37)/abs(x-1-0.37))/2)*((2/x)+2-abs((2/x)-2))/2",
+      "(((1+(x-1-0.37)/abs(x-1-0.37))/2)*((2/x)+2-abs((2/x)-2))/2)*(((1+(x-1-0.37)/abs(x-1-0.37))/2)*((2/x)+2-abs((2/x)-2))/2)"
+     ]
+    ],
+    "c": 3
+   },
+   {
+    "t": "poligono",
+    "puntos": [
+     [
+      "((1+(x-2-0.37)/abs(x-2-0.37))/2)*((4/x)+2-abs((4/x)-2))/2",
+      "0"
+     ],
+     [
+      "((1+(x-2-0.37)/abs(x-2-0.37))/2)*((6/x)+2-abs((6/x)-2))/2",
+      "0"
+     ],
+     [
+      "((1+(x-2-0.37)/abs(x-2-0.37))/2)*((6/x)+2-abs((6/x)-2))/2",
+      "(((1+(x-2-0.37)/abs(x-2-0.37))/2)*((6/x)+2-abs((6/x)-2))/2)*(((1+(x-2-0.37)/abs(x-2-0.37))/2)*((6/x)+2-abs((6/x)-2))/2)"
+     ],
+     [
+      "((1+(x-2-0.37)/abs(x-2-0.37))/2)*((4/x)+2-abs((4/x)-2))/2",
+      "(((1+(x-2-0.37)/abs(x-2-0.37))/2)*((4/x)+2-abs((4/x)-2))/2)*(((1+(x-2-0.37)/abs(x-2-0.37))/2)*((4/x)+2-abs((4/x)-2))/2)"
+     ]
+    ],
+    "c": 3
+   },
+   {
+    "t": "poligono",
+    "puntos": [
+     [
+      "((1+(x-3-0.37)/abs(x-3-0.37))/2)*((6/x)+2-abs((6/x)-2))/2",
+      "0"
+     ],
+     [
+      "((1+(x-3-0.37)/abs(x-3-0.37))/2)*((8/x)+2-abs((8/x)-2))/2",
+      "0"
+     ],
+     [
+      "((1+(x-3-0.37)/abs(x-3-0.37))/2)*((8/x)+2-abs((8/x)-2))/2",
+      "(((1+(x-3-0.37)/abs(x-3-0.37))/2)*((8/x)+2-abs((8/x)-2))/2)*(((1+(x-3-0.37)/abs(x-3-0.37))/2)*((8/x)+2-abs((8/x)-2))/2)"
+     ],
+     [
+      "((1+(x-3-0.37)/abs(x-3-0.37))/2)*((6/x)+2-abs((6/x)-2))/2",
+      "(((1+(x-3-0.37)/abs(x-3-0.37))/2)*((6/x)+2-abs((6/x)-2))/2)*(((1+(x-3-0.37)/abs(x-3-0.37))/2)*((6/x)+2-abs((6/x)-2))/2)"
+     ]
+    ],
+    "c": 3
+   },
+   {
+    "t": "poligono",
+    "puntos": [
+     [
+      "((1+(x-4-0.37)/abs(x-4-0.37))/2)*((8/x)+2-abs((8/x)-2))/2",
+      "0"
+     ],
+     [
+      "((1+(x-4-0.37)/abs(x-4-0.37))/2)*((10/x)+2-abs((10/x)-2))/2",
+      "0"
+     ],
+     [
+      "((1+(x-4-0.37)/abs(x-4-0.37))/2)*((10/x)+2-abs((10/x)-2))/2",
+      "(((1+(x-4-0.37)/abs(x-4-0.37))/2)*((10/x)+2-abs((10/x)-2))/2)*(((1+(x-4-0.37)/abs(x-4-0.37))/2)*((10/x)+2-abs((10/x)-2))/2)"
+     ],
+     [
+      "((1+(x-4-0.37)/abs(x-4-0.37))/2)*((8/x)+2-abs((8/x)-2))/2",
+      "(((1+(x-4-0.37)/abs(x-4-0.37))/2)*((8/x)+2-abs((8/x)-2))/2)*(((1+(x-4-0.37)/abs(x-4-0.37))/2)*((8/x)+2-abs((8/x)-2))/2)"
+     ]
+    ],
+    "c": 3
+   },
+   {
+    "t": "poligono",
+    "puntos": [
+     [
+      "((1+(x-5-0.37)/abs(x-5-0.37))/2)*((10/x)+2-abs((10/x)-2))/2",
+      "0"
+     ],
+     [
+      "((1+(x-5-0.37)/abs(x-5-0.37))/2)*((12/x)+2-abs((12/x)-2))/2",
+      "0"
+     ],
+     [
+      "((1+(x-5-0.37)/abs(x-5-0.37))/2)*((12/x)+2-abs((12/x)-2))/2",
+      "(((1+(x-5-0.37)/abs(x-5-0.37))/2)*((12/x)+2-abs((12/x)-2))/2)*(((1+(x-5-0.37)/abs(x-5-0.37))/2)*((12/x)+2-abs((12/x)-2))/2)"
+     ],
+     [
+      "((1+(x-5-0.37)/abs(x-5-0.37))/2)*((10/x)+2-abs((10/x)-2))/2",
+      "(((1+(x-5-0.37)/abs(x-5-0.37))/2)*((10/x)+2-abs((10/x)-2))/2)*(((1+(x-5-0.37)/abs(x-5-0.37))/2)*((10/x)+2-abs((10/x)-2))/2)"
+     ]
+    ],
+    "c": 3
+   },
+   {
+    "t": "poligono",
+    "puntos": [
+     [
+      "((1+(x-6-0.37)/abs(x-6-0.37))/2)*((12/x)+2-abs((12/x)-2))/2",
+      "0"
+     ],
+     [
+      "((1+(x-6-0.37)/abs(x-6-0.37))/2)*((14/x)+2-abs((14/x)-2))/2",
+      "0"
+     ],
+     [
+      "((1+(x-6-0.37)/abs(x-6-0.37))/2)*((14/x)+2-abs((14/x)-2))/2",
+      "(((1+(x-6-0.37)/abs(x-6-0.37))/2)*((14/x)+2-abs((14/x)-2))/2)*(((1+(x-6-0.37)/abs(x-6-0.37))/2)*((14/x)+2-abs((14/x)-2))/2)"
+     ],
+     [
+      "((1+(x-6-0.37)/abs(x-6-0.37))/2)*((12/x)+2-abs((12/x)-2))/2",
+      "(((1+(x-6-0.37)/abs(x-6-0.37))/2)*((12/x)+2-abs((12/x)-2))/2)*(((1+(x-6-0.37)/abs(x-6-0.37))/2)*((12/x)+2-abs((12/x)-2))/2)"
+     ]
+    ],
+    "c": 3
+   },
+   {
+    "t": "poligono",
+    "puntos": [
+     [
+      "((1+(x-7-0.37)/abs(x-7-0.37))/2)*((14/x)+2-abs((14/x)-2))/2",
+      "0"
+     ],
+     [
+      "((1+(x-7-0.37)/abs(x-7-0.37))/2)*((16/x)+2-abs((16/x)-2))/2",
+      "0"
+     ],
+     [
+      "((1+(x-7-0.37)/abs(x-7-0.37))/2)*((16/x)+2-abs((16/x)-2))/2",
+      "(((1+(x-7-0.37)/abs(x-7-0.37))/2)*((16/x)+2-abs((16/x)-2))/2)*(((1+(x-7-0.37)/abs(x-7-0.37))/2)*((16/x)+2-abs((16/x)-2))/2)"
+     ],
+     [
+      "((1+(x-7-0.37)/abs(x-7-0.37))/2)*((14/x)+2-abs((14/x)-2))/2",
+      "(((1+(x-7-0.37)/abs(x-7-0.37))/2)*((14/x)+2-abs((14/x)-2))/2)*(((1+(x-7-0.37)/abs(x-7-0.37))/2)*((14/x)+2-abs((14/x)-2))/2)"
+     ]
+    ],
+    "c": 3
+   }
+  ],
+  "lecturas": [
+   {
+    "rotulo": "aproximación por n trapecios de la integral de x al cuadrado entre 0 y 2",
+    "formula": "8/3+4/(3*x*x)"
+   },
+   {
+    "rotulo": "error, la aproximación menos 8 sobre 3",
+    "formula": "4/(3*x*x)"
+   }
+  ],
+  "etiquetas": [
+   "Regla del trapecio compuesta. El valor exacto es 8 entre 3, o sea 2.6667",
+   "El error es 4 entre 3 por n al cuadrado, y baja cuando n crece"
+  ],
+  "etiquetaSlider": "Número de trapecios n, de 1 a 8",
+  "alt": "La curva y igual a x al cuadrado entre 0 y 2 y n trapecios que aproximan el área bajo ella. Con un trapecio el área es 4, con dos es 3 y con cuatro es 2.75. Al aumentar n el área se acerca al valor exacto, 2.6667"
+ },
+ "glosario": {
+  "trapecio": "La regla del trapecio aproxima el área bajo la curva con trapecios. Su error en la versión compuesta es de orden h al cuadrado.",
+  "simpson": "La regla de Simpson aproxima la curva por parábolas. Su error compuesto es de orden h a la cuarta, e integra exactamente los polinomios hasta grado 3.",
+  "gauss": "La cuadratura de Gauss-Legendre con n nodos integra exactamente los polinomios de grado hasta 2n menos 1. Elige los nodos y los pesos de la mejor forma posible.",
+  "orden": "El orden de un método dice cómo baja el error al achicar el paso h. Con orden 2, al reducir h a la mitad el error baja a la cuarta parte."
+ },
+ "ver": {
+  "duracion": 24.0,
+  "capitulos": [
+   [
+    0,
+    4,
+    "Se quiere el área bajo x al cuadrado entre 0 y 2, que es 8 entre 3, o 2.6667. Se aproxima con trapecios."
+   ],
+   [
+    4,
+    9,
+    "Con un solo trapecio el resultado es 4, mucho más que el valor exacto."
+   ],
+   [
+    9,
+    14,
+    "Con 2 trapecios da 3, y con 4 trapecios da 2.75."
+   ],
+   [
+    14,
+    19,
+    "El error es 4 entre 3 por n al cuadrado. Al duplicar n, el error baja a la cuarta parte."
+   ],
+   [
+    19,
+    24,
+    "La regla de Simpson usa parábolas en vez de rectas, y para x al cuadrado da el valor exacto."
+   ]
+  ],
+  "canales": {
+   "draw": [
+    [
+     0.3,
+     0
+    ],
+    [
+     3.5,
+     1
+    ]
+   ],
+   "d": [
+    [
+     4,
+     1
+    ],
+    [
+     8,
+     1
+    ],
+    [
+     10,
+     2
+    ],
+    [
+     12,
+     4
+    ],
+    [
+     15,
+     4
+    ],
+    [
+     16,
+     8
+    ],
+    [
+     24,
+     8
+    ]
+   ],
+   "guide": [
+    [
+     4,
+     0
+    ],
+    [
+     5,
+     1
+    ]
+   ]
+  },
+  "intervalos": {
+   "ok": [
+    14,
+    24
+   ]
+  }
+ },
+ "leer": {
+  "secciones": [
+   {
+    "titulo": "La idea",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Cuando una integral no se puede calcular a mano, o solo se tienen datos, se aproxima con sumas. La regla del {{gl:trapecio|trapecio}} usa trapecios, la de {{gl:simpson|Simpson}} usa parábolas y la cuadratura de {{gl:gauss|Gauss}} escoge los puntos de la mejor manera. Cada método tiene un {{gl:orden|orden}}, que dice qué tan rápido baja el error al achicar el paso."
+     }
+    ]
+   },
+   {
+    "titulo": "Un ejemplo",
+    "corto": "Un ejemplo",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Se aproxima el área bajo x al cuadrado entre 0 y 2 con n trapecios. Mueve n y mira cómo se acerca al valor exacto."
+     },
+     {
+      "t": "eq",
+      "tex": "T_{n}=\\dfrac{h}{2}\\left(f_{0}+2f_{1}+\\cdots+2f_{n-1}+f_{n}\\right),\\quad h=\\dfrac{b-a}{n}"
+     },
+     {
+      "t": "grafica",
+      "animar": "dibujar",
+      "alt": "Los trapecios bajo la curva"
+     }
+    ]
+   },
+   {
+    "titulo": "Piensa antes de ver",
+    "corto": "Piensa",
+    "bloques": [
+     {
+      "t": "piensa",
+      "pregunta": "Con un trapecio entre 0 y 2, el área es la base 2 por el promedio de las alturas 0 y 4. ¿Cuánto vale?",
+      "opciones": [
+       2,
+       3,
+       4,
+       8
+      ],
+      "correcta": 4,
+      "bien": "Muy bien. Es 2 por 2, o sea 4. Más abajo se ve que mejora con más trapecios.",
+      "mal": "Es 4, porque el promedio de 0 y 4 es 2, y 2 por 2 es 4. Más abajo se ve que mejora con más trapecios."
+     }
+    ]
+   },
+   {
+    "titulo": "Más trapecios",
+    "corto": "Más trapecios",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mira la aproximación con 1, 2, 4 y 8 trapecios."
+     },
+     {
+      "t": "acercando",
+      "ds": [
+       1,
+       2,
+       4,
+       8
+      ],
+      "alt": "Los trapecios para cuatro valores de n"
+     },
+     {
+      "t": "p",
+      "html": "Los valores son 4, 3, 2.75 y 2.6875. Se acercan al valor exacto, 2.6667."
+     }
+    ]
+   },
+   {
+    "titulo": "Trapecio y Simpson",
+    "corto": "Las reglas",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Cada regla tiene su fórmula y su orden de error."
+     },
+     {
+      "t": "pasos",
+      "items": [
+       {
+        "tex": "\\displaystyle\\int_{0}^{2}x\\,dx\\approx\\dfrac{2}{2}(0+2)=2",
+        "porque": "El trapecio simple es exacto con funciones lineales."
+       },
+       {
+        "tex": "S=\\dfrac{h}{3}\\left(f_{0}+4f_{1}+f_{2}\\right),\\ h=1:\\ \\dfrac{1}{3}(0+4+4)=\\dfrac{8}{3}",
+        "porque": "Simpson simple, con la parábola por tres puntos. Da el valor exacto de x al cuadrado."
+       },
+       {
+        "tex": "\\text{trapecio compuesto: error}\\ O(h^{2})",
+        "porque": "Al reducir h a la mitad, el error baja a la cuarta parte."
+       },
+       {
+        "tex": "\\text{Simpson compuesto: error}\\ O(h^{4})",
+        "porque": "Baja a la dieciseisava parte, y es exacto hasta grado 3."
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "Gauss-Legendre",
+    "corto": "Gauss",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Si se escogen bien los nodos, se obtiene más con menos evaluaciones."
+     },
+     {
+      "t": "pasos",
+      "items": [
+       {
+        "tex": "\\displaystyle\\int_{-1}^{1}f(x)\\,dx\\approx f\\left(-\\dfrac{1}{\\sqrt{3}}\\right)+f\\left(\\dfrac{1}{\\sqrt{3}}\\right)",
+        "porque": "Dos nodos y pesos iguales a 1."
+       },
+       {
+        "tex": "f(x)=x^{2}:\\ \\dfrac13+\\dfrac13=\\dfrac23=0.6667",
+        "porque": "El resultado exacto de la integral de x al cuadrado entre menos 1 y 1."
+       },
+       {
+        "tex": "n\\ \\text{nodos}\\ \\Rightarrow\\ \\text{exacto hasta grado}\\ 2n-1",
+        "porque": "Con 2 nodos, hasta grado 3."
+       }
+      ]
+     },
+     {
+      "t": "ojo",
+      "html": "Las reglas compuestas dividen el intervalo en partes y aplican la regla en cada una. Una regla de orden alto no ayuda si la función tiene saltos o puntas, y ahí conviene dividir en esas partes."
+     }
+    ]
+   },
+   {
+    "titulo": "¿Para qué sirve?",
+    "corto": "En ingeniería",
+    "bloques": [
+     {
+      "t": "ingenieria",
+      "titulo": "El trabajo de una fuerza medida",
+      "html": "Se mide la fuerza que ejerce un resorte no lineal en tres posiciones, 0, 1 y 2 metros, y se obtienen 0, 100 y 400 newtons. El trabajo es la integral de la fuerza sobre la posición, y se estima con la regla del trapecio.",
+      "tex": "W=\\displaystyle\\int_{0}^{2}F\\,dx\\approx\\dfrac{1}{2}(0+2\\cdot100+400)=300\\ \\text{J}",
+      "datos": [
+       {
+        "k": "Fuerza medida en 0, 1 y 2 m",
+        "v": "0, 100 y 400 N"
+       },
+       {
+        "k": "Trabajo con trapecios",
+        "v": "300 J"
+       },
+       {
+        "k": "Valor exacto si F igual a 100 x²",
+        "v": "266.7 J"
+       }
+      ],
+      "cierre": "El trapecio sobreestima el trabajo, porque la fuerza es convexa y los trapecios quedan por encima. Con más mediciones se acercaría al valor real. Si se tuviera un punto en 0.5, 1 y 1.5 metros también, la regla de Simpson daría el valor exacto, porque la fuerza es un polinomio de grado 2."
+     }
+    ]
+   },
+   {
+    "titulo": "Completa el paso",
+    "corto": "Completa",
+    "bloques": [
+     {
+      "t": "completar",
+      "enunciado": "Se calcula la regla del trapecio con 2 subintervalos para x al cuadrado entre 0 y 2. Falta el resultado.",
+      "tex": "T_{2}=\\dfrac{1}{2}(0+2\\cdot1+4)=[[hueco]]",
+      "opciones": [
+       {
+        "tex": "3",
+        "txt": "tres"
+       },
+       {
+        "tex": "6",
+        "txt": "seis"
+       },
+       {
+        "tex": "2",
+        "txt": "dos"
+       }
+      ],
+      "correcta": 0,
+      "errores": [
+       "",
+       "Seis es la suma sin el factor un medio de h entre 2.",
+       "Dos sale de olvidar el término del extremo derecho, el 4."
+      ],
+      "pista": "Se suman los términos y se multiplica por h entre 2.",
+      "porque": "0 más 2 más 4 es 6, y la mitad es 3."
+     }
+    ]
+   },
+   {
+    "titulo": "Encuentra el error",
+    "corto": "Error",
+    "bloques": [
+     {
+      "t": "error",
+      "enunciado": "Alguien calculó Simpson simple para x al cuadrado entre 0 y 2 y se equivocó en un paso. Toca el paso que está mal.",
+      "pasos": [
+       {
+        "tex": "h=1,\\quad f_{0}=0,\\ f_{1}=1,\\ f_{2}=4",
+        "porque": "Los datos.",
+        "txt": "los valores de la función"
+       },
+       {
+        "tex": "S=\\dfrac{h}{3}\\left(f_{0}+f_{1}+f_{2}\\right)=\\dfrac{5}{3}",
+        "porque": "Este paso es el que falla.",
+        "txt": "se suman los tres valores"
+       },
+       {
+        "tex": "\\text{El resultado es}\\ 1.6667",
+        "porque": "Depende del paso anterior.",
+        "txt": "queda 1.6667"
+       }
+      ],
+      "mal": 1,
+      "explicacion": "En la regla de Simpson el valor del centro se multiplica por 4. Queda un tercio de 0 más 4 por 1 más 4, o sea 8 sobre 3, que es el valor exacto.",
+      "correccion": "S=\\dfrac{1}{3}(0+4\\cdot1+4)=\\dfrac{8}{3}",
+      "pista": "Recuerda el factor del punto medio."
+     }
+    ]
+   },
+   {
+    "titulo": "Ordena los pasos",
+    "corto": "Ordena",
+    "bloques": [
+     {
+      "t": "ordenar",
+      "enunciado": "Estos son los pasos para calcular el trapecio compuesto con n igual a 2 para x al cuadrado entre 0 y 2, pero están desordenados.",
+      "pasos": [
+       "h=\\dfrac{b-a}{n}=1",
+       "f_{0}=0,\\ f_{1}=1,\\ f_{2}=4",
+       "T=\\dfrac{h}{2}(f_{0}+2f_{1}+f_{2})",
+       "T=3"
+      ],
+      "mezcla": [
+       2,
+       0,
+       3,
+       1
+      ],
+      "porque": "Se calcula el paso, se evalúa f en los nodos, se aplica la fórmula y se calcula.",
+      "pista": "Se empieza calculando el paso.",
+      "txt": [
+       "Se calcula el paso",
+       "Se evalúa la función en los nodos",
+       "Se arma la fórmula",
+       "Se calcula"
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "Revisa tu respuesta",
+    "corto": "Revisa",
+    "bloques": [
+     {
+      "t": "pregunta"
+     },
+     {
+      "t": "nota",
+      "html": "Puedes pedir pistas de a una. Si fallas, el mensaje te dice qué error se cometió."
+     }
+    ]
+   },
+   {
+    "titulo": "Mini simulacro",
+    "corto": "Simulacro",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Tres preguntas reales del banco de MathUNAL sobre este tema. Responde sin mirar los pasos."
+     },
+     {
+      "t": "simulacro",
+      "titulo": "Mini simulacro de integración numérica",
+      "preguntas": [
+       {
+        "tipo": "numerica",
+        "texto": "La regla de Simpson SIMPLE (con $h=1$) aplicada a $\\displaystyle\\int_{0}^{2}x^{2}\\,dx$ da (decimal, 4 cifras):",
+        "respuesta": "2.6667",
+        "tolNum": 0.01,
+        "resumen": "$\\dfrac{1}{3}(0+4\\cdot1+4)=2.6667$.",
+        "fuente": "Banco MathUNAL, simulacro de Métodos Numéricos"
+       },
+       {
+        "tipo": "mcq",
+        "texto": "El error de la regla del trapecio COMPUESTA es de orden:",
+        "opciones": [
+         "$O(h^{2})$",
+         "$O(h)$",
+         "$O(h^{3})$",
+         "$O(h^{4})$"
+        ],
+        "correcta": 0,
+        "resumen": "El error del trapecio compuesto es de orden $h^2$.",
+        "fuente": "Banco MathUNAL, simulacro de Métodos Numéricos"
+       },
+       {
+        "tipo": "mcq",
+        "texto": "El error de la regla de Simpson COMPUESTA es de orden:",
+        "opciones": [
+         "$O(h^{4})$",
+         "$O(h^{2})$",
+         "$O(h^{3})$",
+         "$O(h)$"
+        ],
+        "correcta": 0,
+        "resumen": "El error de Simpson compuesto es de orden $h^4$.",
+        "fuente": "Banco MathUNAL, simulacro de Métodos Numéricos"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "Tu repaso",
+    "corto": "Repaso",
+    "bloques": [
+     {
+      "t": "repaso"
+     }
+    ]
+   },
+   {
+    "titulo": "En resumen",
+    "corto": "Resumen",
+    "bloques": [
+     {
+      "t": "resumen"
+     }
+    ]
+   }
+  ]
+ },
+ "practicar": {
+  "pasos": [
+   {
+    "titulo": "Los trapecios",
+    "grafica": {
+     "draw": 1
+    },
+    "bloques": [
+     {
+      "t": "p",
+      "html": "n trapecios bajo la curva x al cuadrado."
+     },
+     {
+      "t": "eq",
+      "tex": "\\displaystyle\\int_{0}^{2}x^{2}dx=\\dfrac{8}{3}"
+     }
+    ]
+   },
+   {
+    "titulo": "Cambia n",
+    "grafica": {
+     "draw": 1
+    },
+    "laboratorio": true,
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mueve el deslizador de 1 a 8. Abajo se leen la aproximación y su error."
+     }
+    ]
+   },
+   {
+    "titulo": "Cuatro trapecios",
+    "grafica": {
+     "draw": 1,
+     "guide": 1,
+     "ok": true
+    },
+    "laboratorio": true,
+    "d": 4,
+    "bloques": [
+     {
+      "t": "eq",
+      "tex": "T_{4}=2.75,\\quad \\text{error}=0.0833"
+     },
+     {
+      "t": "p",
+      "html": "Con 4 trapecios el error baja a 0.0833."
+     }
+    ]
+   },
+   {
+    "titulo": "Revisa tu respuesta",
+    "grafica": {
+     "draw": 1,
+     "guide": 1,
+     "ok": true,
+     "d": 4
+    },
+    "bloques": [
+     {
+      "t": "pregunta"
+     },
+     {
+      "t": "nota",
+      "html": "El error es proporcional a uno entre n al cuadrado."
+     }
+    ]
+   }
+  ]
+ },
+ "pregunta": {
+  "tex": "\\text{Con 4 trapecios, la aproximación de}\\ \\displaystyle\\int_{0}^{2}x^{2}dx\\ \\text{es}",
+  "opciones": [
+   "$2.75$",
+   "$3$",
+   "$2.6667$",
+   "$2.5$"
+  ],
+  "correcta": 0,
+  "explicacion": "Con h igual a 0.5 y los valores 0, 0.25, 1, 2.25 y 4, la fórmula da 0.25 por (0 más 2 por 0.25 más 2 por 1 más 2 por 2.25 más 4), o sea 0.25 por 11, que es 2.75.",
+  "verificacion": {
+   "formula": "8/3+4/(3*16)+0*x",
+   "a": 0,
+   "esperado": 2.75
+  },
+  "pistas": [
+   "h es 0.5.",
+   "Los valores de f son 0, 0.25, 1, 2.25 y 4.",
+   "Suma el primero, el último y el doble de los del medio, y multiplica por h entre 2."
+  ],
+  "errores": [
+   "",
+   "Tres es el valor con 2 trapecios.",
+   "Ese es el valor exacto, y el trapecio con 4 trapecios no lo alcanza.",
+   "Es menor que el valor exacto, y el trapecio sobreestima en una función convexa."
+  ]
+ },
+ "resumen": [
+  "Las reglas de integración numérica aproximan el área con trapecios, parábolas o nodos de Gauss.",
+  "El trapecio compuesto tiene error de orden h al cuadrado, y Simpson compuesto de orden h a la cuarta.",
+  "Simpson integra exactamente los polinomios hasta grado 3, y Gauss con n nodos hasta grado 2n menos 1."
+ ]
+}
