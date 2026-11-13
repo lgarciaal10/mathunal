@@ -1,0 +1,803 @@
+{
+ "esquema": 1,
+ "id": "cv-m1-l5",
+ "ejemplo": true,
+ "curso": "Cálculo en Varias Variables",
+ "modulo": "Módulo 1 Cálculo diferencial en varias variables",
+ "posicion": "Lección 5 de 7",
+ "titulo": "Gradiente y derivada direccional",
+ "minutos": 28,
+ "ejercicios": 8,
+ "grafica": {
+  "tipo": "plano",
+  "x": [
+   -4.2,
+   4.2
+  ],
+  "y": [
+   -2.5,
+   2.5
+  ],
+  "a": 0,
+  "b": 6.28,
+  "inicio": 0,
+  "elementos": [
+   {
+    "t": "trazo",
+    "puntos": [
+     [
+      "2.2361",
+      "0.0000"
+     ],
+     [
+      "2.2085",
+      "0.3498"
+     ],
+     [
+      "2.1266",
+      "0.6910"
+     ],
+     [
+      "1.9924",
+      "1.0152"
+     ],
+     [
+      "1.8090",
+      "1.3143"
+     ],
+     [
+      "1.5811",
+      "1.5811"
+     ],
+     [
+      "1.3143",
+      "1.8090"
+     ],
+     [
+      "1.0152",
+      "1.9924"
+     ],
+     [
+      "0.6910",
+      "2.1266"
+     ],
+     [
+      "0.3498",
+      "2.2085"
+     ],
+     [
+      "0.0000",
+      "2.2361"
+     ],
+     [
+      "-0.3498",
+      "2.2085"
+     ],
+     [
+      "-0.6910",
+      "2.1266"
+     ],
+     [
+      "-1.0152",
+      "1.9924"
+     ],
+     [
+      "-1.3143",
+      "1.8090"
+     ],
+     [
+      "-1.5811",
+      "1.5811"
+     ],
+     [
+      "-1.8090",
+      "1.3143"
+     ],
+     [
+      "-1.9924",
+      "1.0152"
+     ],
+     [
+      "-2.1266",
+      "0.6910"
+     ],
+     [
+      "-2.2085",
+      "0.3498"
+     ],
+     [
+      "-2.2361",
+      "0.0000"
+     ],
+     [
+      "-2.2085",
+      "-0.3498"
+     ],
+     [
+      "-2.1266",
+      "-0.6910"
+     ],
+     [
+      "-1.9924",
+      "-1.0152"
+     ],
+     [
+      "-1.8090",
+      "-1.3143"
+     ],
+     [
+      "-1.5811",
+      "-1.5811"
+     ],
+     [
+      "-1.3143",
+      "-1.8090"
+     ],
+     [
+      "-1.0152",
+      "-1.9924"
+     ],
+     [
+      "-0.6910",
+      "-2.1266"
+     ],
+     [
+      "-0.3498",
+      "-2.2085"
+     ],
+     [
+      "-0.0000",
+      "-2.2361"
+     ],
+     [
+      "0.3498",
+      "-2.2085"
+     ],
+     [
+      "0.6910",
+      "-2.1266"
+     ],
+     [
+      "1.0152",
+      "-1.9924"
+     ],
+     [
+      "1.3143",
+      "-1.8090"
+     ],
+     [
+      "1.5811",
+      "-1.5811"
+     ],
+     [
+      "1.8090",
+      "-1.3143"
+     ],
+     [
+      "1.9924",
+      "-1.0152"
+     ],
+     [
+      "2.1266",
+      "-0.6910"
+     ],
+     [
+      "2.2085",
+      "-0.3498"
+     ],
+     [
+      "2.2361",
+      "-0.0000"
+     ]
+    ],
+    "c": 3
+   },
+   {
+    "t": "vector",
+    "a": [
+     "2",
+     "1"
+    ],
+    "b": [
+     "3.6",
+     "1.8"
+    ],
+    "nombre": "∇f",
+    "c": 1
+   },
+   {
+    "t": "vector",
+    "a": [
+     "2",
+     "1"
+    ],
+    "b": [
+     "2+cos(x)",
+     "1+sin(x)"
+    ],
+    "nombre": "u",
+    "c": 0
+   },
+   {
+    "t": "punto",
+    "p": [
+     "2",
+     "1"
+    ],
+    "c": 0
+   }
+  ],
+  "lecturas": [
+   {
+    "rotulo": "derivada direccional, 4 coseno de theta más 2 seno de theta",
+    "formula": "4*cos(x)+2*sin(x)"
+   },
+   {
+    "rotulo": "ángulo theta de la dirección u, en grados",
+    "formula": "57.2958*x"
+   }
+  ],
+  "etiquetas": [
+   "La derivada direccional es el producto punto del gradiente con u",
+   "La dirección u se gira con el deslizador"
+  ],
+  "etiquetaSlider": "Ángulo theta, de 0 a 6.28",
+  "alt": "Las curvas de nivel de f igual a x al cuadrado más y al cuadrado son circunferencias. En el punto 2, 1 el gradiente, que vale 4, 2 y aquí se dibuja a escala 0.4, apunta hacia afuera, perpendicular a la circunferencia. La flecha u gira alrededor del punto, y la derivada direccional es máxima cuando u apunta como el gradiente"
+ },
+ "glosario": {
+  "gradiente": "El gradiente de f es el vector de las derivadas parciales. Apunta hacia donde f crece más rápido y es perpendicular a las curvas de nivel.",
+  "direccional": "La derivada direccional de f en la dirección u es la razón de cambio de f al moverse en esa dirección, y vale el gradiente por u.",
+  "nivel": "Una curva de nivel es el conjunto de puntos donde f toma un valor constante.",
+  "unitario": "Un vector unitario es un vector de longitud 1, y la derivada direccional se calcula con una dirección unitaria."
+ },
+ "ver": {
+  "duracion": 24.0,
+  "capitulos": [
+   [
+    0,
+    4,
+    "La función es x al cuadrado más y al cuadrado. Sus curvas de nivel son circunferencias, y se mira el punto 2, 1."
+   ],
+   [
+    4,
+    10,
+    "El gradiente en ese punto es 4, 2. Apunta hacia afuera, perpendicular a la circunferencia."
+   ],
+   [
+    10,
+    16,
+    "Con la dirección u en el ángulo 0, la derivada direccional vale 4, el producto punto del gradiente con u."
+   ],
+   [
+    16,
+    20,
+    "Cuando u apunta como el gradiente, la derivada direccional es máxima, y vale 4.47, la magnitud del gradiente."
+   ],
+   [
+    20,
+    24,
+    "Cuando u va sobre la curva de nivel, la derivada direccional es cero, porque f no cambia."
+   ]
+  ],
+  "canales": {
+   "draw": [
+    [
+     0.3,
+     0
+    ],
+    [
+     3.5,
+     1
+    ]
+   ],
+   "d": [
+    [
+     4,
+     0
+    ],
+    [
+     8,
+     0
+    ],
+    [
+     10,
+     0
+    ],
+    [
+     13,
+     0
+    ],
+    [
+     16,
+     0.4636
+    ],
+    [
+     18,
+     0.4636
+    ],
+    [
+     20,
+     2.034
+    ],
+    [
+     24,
+     2.034
+    ]
+   ],
+   "guide": [
+    [
+     4,
+     0
+    ],
+    [
+     5,
+     1
+    ]
+   ]
+  },
+  "intervalos": {
+   "ok": [
+    16,
+    24
+   ]
+  }
+ },
+ "leer": {
+  "secciones": [
+   {
+    "titulo": "La idea",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "El {{gl:gradiente|gradiente}} reúne las derivadas parciales en un vector. Apunta hacia donde f crece más rápido, y es perpendicular a las {{gl:nivel|curvas de nivel}}. La {{gl:direccional|derivada direccional}} mide el cambio de f al avanzar en una dirección dada por un vector {{gl:unitario|unitario}}, y se calcula con un producto punto."
+     }
+    ]
+   },
+   {
+    "titulo": "Un ejemplo",
+    "corto": "Un ejemplo",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "La función es x al cuadrado más y al cuadrado, y el punto es 2, 1. Gira la dirección u y mira la derivada direccional."
+     },
+     {
+      "t": "eq",
+      "tex": "\\nabla f(2,1)=(4,2),\\qquad D_{u}f=\\nabla f\\cdot u=4\\cos\\theta+2\\operatorname{sen}\\theta"
+     },
+     {
+      "t": "grafica",
+      "animar": "dibujar",
+      "alt": "El gradiente y la dirección u en el punto 2, 1"
+     }
+    ]
+   },
+   {
+    "titulo": "Piensa antes de ver",
+    "corto": "Piensa",
+    "bloques": [
+     {
+      "t": "piensa",
+      "pregunta": "Para f igual a x al cuadrado más y al cuadrado, ¿cuál es el gradiente en el punto 1, 2?",
+      "opciones": [
+       "(2, 4)",
+       "(1, 2)",
+       "(2, 2)",
+       "(4, 2)"
+      ],
+      "correcta": "(2, 4)",
+      "bien": "Muy bien. Las parciales son 2x y 2y, y en 1, 2 valen 2 y 4.",
+      "mal": "El gradiente es 2x, 2y, y en el punto 1, 2 vale 2, 4."
+     }
+    ]
+   },
+   {
+    "titulo": "Girar la dirección",
+    "corto": "Direcciones",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mira la derivada direccional con theta igual a 0, 0.46, 1.57 y 2.03."
+     },
+     {
+      "t": "acercando",
+      "ds": [
+       0,
+       0.4636,
+       1.57,
+       2.034
+      ],
+      "alt": "Cuatro direcciones desde el punto"
+     },
+     {
+      "t": "p",
+      "html": "En 0.46 la derivada es máxima, y en 2.03 es cero."
+     }
+    ]
+   },
+   {
+    "titulo": "Calcular el gradiente",
+    "corto": "Cálculo",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "El gradiente son las parciales, y su magnitud da la máxima razón de cambio."
+     },
+     {
+      "t": "pasos",
+      "items": [
+       {
+        "tex": "f=x^{2}+y^{2}\\ \\Rightarrow\\ \\nabla f=(2x,\\,2y)",
+        "porque": "El gradiente."
+       },
+       {
+        "tex": "\\nabla f(1,2)=(2,4)",
+        "porque": "Evaluado en 1, 2."
+       },
+       {
+        "tex": "\\|\\nabla f(3,4)\\|=\\sqrt{6^{2}+8^{2}}=10",
+        "porque": "Su magnitud en 3, 4."
+       },
+       {
+        "tex": "D_{u}f=\\nabla f\\cdot u,\\quad u=(1,0)\\ \\Rightarrow\\ D_{u}f=f_{x}",
+        "porque": "En la dirección del eje x es la parcial respecto a x."
+       }
+      ]
+     },
+     {
+      "t": "ojo",
+      "html": "La dirección u debe ser unitaria. Si el vector dado no lo es, se divide entre su longitud antes de calcular el producto punto."
+     }
+    ]
+   },
+   {
+    "titulo": "Máximo, mínimo y nivel",
+    "corto": "Extremos",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "El producto punto con u depende del ángulo entre u y el gradiente."
+     },
+     {
+      "t": "pasos",
+      "items": [
+       {
+        "tex": "D_{u}f=\\|\\nabla f\\|\\cos\\alpha",
+        "porque": "Donde alfa es el ángulo entre u y el gradiente."
+       },
+       {
+        "tex": "\\alpha=0\\ \\Rightarrow\\ D_{u}f=\\|\\nabla f\\|",
+        "porque": "Máximo, hacia el gradiente."
+       },
+       {
+        "tex": "\\alpha=\\pi\\ \\Rightarrow\\ D_{u}f=-\\|\\nabla f\\|",
+        "porque": "Mínimo, en sentido contrario."
+       },
+       {
+        "tex": "\\alpha=\\tfrac{\\pi}{2}\\ \\Rightarrow\\ D_{u}f=0",
+        "porque": "Sobre la curva de nivel."
+       }
+      ]
+     },
+     {
+      "t": "ojo",
+      "html": "El gradiente da la dirección del máximo crecimiento, pero no el valor de f. Para saber el valor de f en esa dirección, se reemplaza."
+     }
+    ]
+   },
+   {
+    "titulo": "¿Para qué sirve?",
+    "corto": "En ingeniería",
+    "bloques": [
+     {
+      "t": "ingenieria",
+      "titulo": "El camino de máximo ascenso",
+      "html": "Un robot de exploración sube una colina de altura h de x, y. Para ganar altura lo más rápido posible, avanza en la dirección del gradiente de h.",
+      "tex": "\\text{dirección}=\\dfrac{\\nabla h}{\\|\\nabla h\\|},\\qquad \\text{pendiente máxima}=\\|\\nabla h\\|",
+      "datos": [
+       {
+        "k": "Gradiente",
+        "v": "dirección de máximo ascenso"
+       },
+       {
+        "k": "Sobre una curva de nivel",
+        "v": "altura constante"
+       },
+       {
+        "k": "Magnitud",
+        "v": "pendiente más fuerte"
+       }
+      ],
+      "cierre": "Este es el mismo principio del descenso por gradiente, que se usa para entrenar modelos de aprendizaje automático. Se avanza en sentido opuesto al gradiente para minimizar una función de error."
+     }
+    ]
+   },
+   {
+    "titulo": "Completa el paso",
+    "corto": "Completa",
+    "bloques": [
+     {
+      "t": "completar",
+      "enunciado": "La derivada direccional de f en la dirección unitaria u es el gradiente [[hueco]] u.",
+      "tex": "D_{u}f=\\nabla f\\ [[hueco]]\\ u",
+      "opciones": [
+       {
+        "tex": "\\cdot",
+        "txt": "el producto punto"
+       },
+       {
+        "tex": "\\times",
+        "txt": "el producto cruz"
+       },
+       {
+        "tex": "+",
+        "txt": "la suma"
+       }
+      ],
+      "correcta": 0,
+      "errores": [
+       "",
+       "El producto cruz da un vector, y la derivada direccional es un número.",
+       "La suma de un vector con otro da un vector, y no un número."
+      ],
+      "pista": "Es un número que sale del producto punto.",
+      "porque": "Es el producto punto."
+     }
+    ]
+   },
+   {
+    "titulo": "Encuentra el error",
+    "corto": "Error",
+    "bloques": [
+     {
+      "t": "error",
+      "enunciado": "Alguien calculó la derivada direccional de f igual a x al cuadrado más y al cuadrado en 1, 2 con u igual a 3, 4 sobre 5, y se equivocó. Toca el paso que está mal.",
+      "pasos": [
+       {
+        "tex": "\\nabla f(1,2)=(2,4)",
+        "porque": "Gradiente.",
+        "txt": "gradiente"
+       },
+       {
+        "tex": "D_{u}f=(2,4)\\cdot(3,4)=22",
+        "porque": "Este paso es el que falla.",
+        "txt": "usa u sin dividir entre 5"
+       },
+       {
+        "tex": "D_{u}f=22",
+        "porque": "Resultado.",
+        "txt": "22"
+       }
+      ],
+      "mal": 1,
+      "explicacion": "El vector 3, 4 no es unitario, porque su longitud es 5. Se debe usar 3 quintos, 4 quintos, y el resultado es 22 entre 5, o sea 4.4.",
+      "correccion": "D_{u}f=(2,4)\\cdot\\left(\\tfrac{3}{5},\\tfrac{4}{5}\\right)=\\tfrac{22}{5}",
+      "pista": "Divide el vector entre su longitud."
+     }
+    ]
+   },
+   {
+    "titulo": "Ordena los pasos",
+    "corto": "Ordena",
+    "bloques": [
+     {
+      "t": "ordenar",
+      "enunciado": "Estos son los pasos para calcular una derivada direccional, pero están desordenados.",
+      "pasos": [
+       "\\nabla f=(f_{x},f_{y})",
+       "\\nabla f(P)",
+       "u=\\dfrac{v}{\\|v\\|}",
+       "D_{u}f=\\nabla f(P)\\cdot u"
+      ],
+      "mezcla": [
+       2,
+       0,
+       3,
+       1
+      ],
+      "porque": "Primero el gradiente, luego el punto, después la dirección unitaria y al final el producto punto.",
+      "pista": "Se empieza con el gradiente.",
+      "txt": [
+       "Se calcula el gradiente",
+       "Se evalúa en el punto",
+       "Se hace unitaria la dirección",
+       "Se hace el producto punto"
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "Revisa tu respuesta",
+    "corto": "Revisa",
+    "bloques": [
+     {
+      "t": "pregunta"
+     },
+     {
+      "t": "nota",
+      "html": "Puedes pedir pistas de a una. Si fallas, el mensaje te dice qué error se cometió."
+     }
+    ]
+   },
+   {
+    "titulo": "Mini simulacro",
+    "corto": "Simulacro",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Preguntas reales del banco de MathUNAL sobre este tema. Responde sin mirar los pasos."
+     },
+     {
+      "t": "simulacro",
+      "titulo": "Mini simulacro de gradiente y derivada direccional",
+      "preguntas": [
+       {
+        "tipo": "mcq",
+        "texto": "El gradiente de $f(x,y)=x^2+y^2$ en $(1,2)$ es:",
+        "opciones": [
+         "$(2,4)$",
+         "$(1,2)$",
+         "$(2,2)$",
+         "$(4,2)$"
+        ],
+        "correcta": 0,
+        "resumen": "El gradiente de x al cuadrado más y al cuadrado en 1, 2.",
+        "fuente": "Banco MathUNAL, simulacro de Cálculo en Varias Variables"
+       },
+       {
+        "tipo": "numerica",
+        "texto": "Para $f(x,y) = x^{2} + y^{2}$, la magnitud de $\\nabla f$ en el punto $(3,4)$ es:",
+        "respuesta": "10",
+        "tolNum": 0.001,
+        "resumen": "La magnitud del gradiente en 3, 4.",
+        "fuente": "Banco MathUNAL, simulacro de Cálculo en Varias Variables"
+       },
+       {
+        "tipo": "mcq",
+        "texto": "La derivada direccional de $f$ es MÁXIMA en la dirección de:",
+        "opciones": [
+         "$\\nabla f$, y ese máximo vale $\\|\\nabla f\\|$",
+         "$-\\nabla f$",
+         "cualquier vector unitario",
+         "la tangente a la curva de nivel"
+        ],
+        "correcta": 0,
+        "resumen": "La dirección del máximo crecimiento.",
+        "fuente": "Banco MathUNAL, simulacro de Cálculo en Varias Variables"
+       },
+       {
+        "tipo": "numerica",
+        "texto": "Si $\\nabla f(P) = (3,4)$, la derivada direccional $D_{u}f(P)$ en la dirección $u = (1,0)$ es:",
+        "respuesta": "3",
+        "tolNum": 0.001,
+        "resumen": "La derivada direccional con gradiente 3, 4 y u igual a 1, 0.",
+        "fuente": "Banco MathUNAL, simulacro de Cálculo en Varias Variables"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "Tu repaso",
+    "corto": "Repaso",
+    "bloques": [
+     {
+      "t": "repaso"
+     }
+    ]
+   },
+   {
+    "titulo": "En resumen",
+    "corto": "Resumen",
+    "bloques": [
+     {
+      "t": "resumen"
+     }
+    ]
+   }
+  ]
+ },
+ "practicar": {
+  "pasos": [
+   {
+    "titulo": "El punto",
+    "grafica": {
+     "draw": 1
+    },
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Se estudia la función en el punto 2, 1."
+     },
+     {
+      "t": "eq",
+      "tex": "f=x^{2}+y^{2},\\quad P=(2,1)"
+     }
+    ]
+   },
+   {
+    "titulo": "Gira u",
+    "grafica": {
+     "draw": 1
+    },
+    "laboratorio": true,
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mueve el deslizador. Abajo se leen la derivada direccional y el ángulo de u."
+     }
+    ]
+   },
+   {
+    "titulo": "Hacia el gradiente",
+    "grafica": {
+     "draw": 1,
+     "guide": 1,
+     "ok": true
+    },
+    "laboratorio": true,
+    "d": 0.4636,
+    "bloques": [
+     {
+      "t": "eq",
+      "tex": "D_{u}f=\\|\\nabla f\\|=\\sqrt{20}\\approx4.47"
+     },
+     {
+      "t": "p",
+      "html": "Con u hacia el gradiente, la derivada direccional es máxima."
+     }
+    ]
+   },
+   {
+    "titulo": "Revisa tu respuesta",
+    "grafica": {
+     "draw": 1,
+     "guide": 1,
+     "ok": true,
+     "d": 0.4636
+    },
+    "bloques": [
+     {
+      "t": "pregunta"
+     },
+     {
+      "t": "nota",
+      "html": "El máximo es la magnitud del gradiente."
+     }
+    ]
+   }
+  ]
+ },
+ "pregunta": {
+  "tex": "\\nabla f(P)=(3,4),\\ u=\\left(\\tfrac{3}{5},\\tfrac{4}{5}\\right).\\ D_{u}f\\ \\text{vale}",
+  "opciones": [
+   "$5$",
+   "$7$",
+   "$1$",
+   "$\\tfrac{7}{5}$"
+  ],
+  "correcta": 0,
+  "explicacion": "El producto punto es 3 por 3 quintos más 4 por 4 quintos, o sea 25 quintos, que es 5. Es la magnitud del gradiente porque u apunta como el gradiente.",
+  "verificacion": {
+   "formula": "3*3/5+4*4/5+0*x",
+   "a": 0,
+   "esperado": 5
+  },
+  "pistas": [
+   "Haz el producto punto.",
+   "Multiplica componente por componente.",
+   "Suma los dos productos."
+  ],
+  "errores": [
+   "",
+   "El 7 es la suma 3 más 4, y no el producto punto.",
+   "El 1 sería con u perpendicular al gradiente.",
+   "El 7 quintos mezcla mal los términos."
+  ]
+ },
+ "resumen": [
+  "El gradiente es el vector de derivadas parciales, apunta hacia el máximo crecimiento y es perpendicular a las curvas de nivel.",
+  "La derivada direccional es el gradiente por u, con u unitario.",
+  "El máximo de la derivada direccional es la magnitud del gradiente."
+ ]
+}
