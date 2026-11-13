@@ -47,8 +47,8 @@
      "tema": "Interpolación polinómica",
      "preguntas_banco": 9,
      "parciales_con_el_tema": 2,
-     "estado": "pendiente",
-     "leccion": null
+     "estado": "borrador para revisión",
+     "leccion": "lecciones/mn-interpolacion.json"
     },
     {
      "tema": "Métodos iterativos (Jacobi, Gauss-Seidel, SOR)",

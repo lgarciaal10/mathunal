@@ -1,0 +1,747 @@
+{
+ "esquema": 1,
+ "id": "mn-m2-l1",
+ "ejemplo": true,
+ "curso": "Métodos Numéricos",
+ "modulo": "Módulo 2 Sistemas lineales e interpolación",
+ "posicion": "Lección 1 de 4",
+ "titulo": "Interpolación polinómica",
+ "minutos": 28,
+ "ejercicios": 8,
+ "grafica": {
+  "tipo": "plano",
+  "x": [
+   -0.8,
+   2.8
+  ],
+  "y": [
+   -4.0,
+   11.5
+  ],
+  "a": 0,
+  "b": 3,
+  "inicio": 3,
+  "entero": true,
+  "elementos": [
+   {
+    "t": "trazo",
+    "puntos": [
+     [
+      "-0.5",
+      "((1.875*(x-1)*(x-2)*(x-3)/(-6))+(-1.25*(x-0)*(x-2)*(x-3)/(2))+(0.375*(x-0)*(x-1)*(x-3)/(-2))+(1.5*(x-0)*(x-1)*(x-2)/(6)))"
+     ],
+     [
+      "-0.4",
+      "((1.68*(x-1)*(x-2)*(x-3)/(-6))+(-0.96*(x-0)*(x-2)*(x-3)/(2))+(0.28*(x-0)*(x-1)*(x-3)/(-2))+(1.32*(x-0)*(x-1)*(x-2)/(6)))"
+     ],
+     [
+      "-0.3",
+      "((1.495*(x-1)*(x-2)*(x-3)/(-6))+(-0.69*(x-0)*(x-2)*(x-3)/(2))+(0.195*(x-0)*(x-1)*(x-3)/(-2))+(1.18*(x-0)*(x-1)*(x-2)/(6)))"
+     ],
+     [
+      "-0.2",
+      "((1.32*(x-1)*(x-2)*(x-3)/(-6))+(-0.44*(x-0)*(x-2)*(x-3)/(2))+(0.12*(x-0)*(x-1)*(x-3)/(-2))+(1.08*(x-0)*(x-1)*(x-2)/(6)))"
+     ],
+     [
+      "-0.1",
+      "((1.155*(x-1)*(x-2)*(x-3)/(-6))+(-0.21*(x-0)*(x-2)*(x-3)/(2))+(0.055*(x-0)*(x-1)*(x-3)/(-2))+(1.02*(x-0)*(x-1)*(x-2)/(6)))"
+     ],
+     [
+      "0.0",
+      "((1*(x-1)*(x-2)*(x-3)/(-6))+(1*(x-0)*(x-1)*(x-2)/(6)))"
+     ],
+     [
+      "0.1",
+      "((0.855*(x-1)*(x-2)*(x-3)/(-6))+(0.19*(x-0)*(x-2)*(x-3)/(2))+(-0.045*(x-0)*(x-1)*(x-3)/(-2))+(1.02*(x-0)*(x-1)*(x-2)/(6)))"
+     ],
+     [
+      "0.2",
+      "((0.72*(x-1)*(x-2)*(x-3)/(-6))+(0.36*(x-0)*(x-2)*(x-3)/(2))+(-0.08*(x-0)*(x-1)*(x-3)/(-2))+(1.08*(x-0)*(x-1)*(x-2)/(6)))"
+     ],
+     [
+      "0.3",
+      "((0.595*(x-1)*(x-2)*(x-3)/(-6))+(0.51*(x-0)*(x-2)*(x-3)/(2))+(-0.105*(x-0)*(x-1)*(x-3)/(-2))+(1.18*(x-0)*(x-1)*(x-2)/(6)))"
+     ],
+     [
+      "0.4",
+      "((0.48*(x-1)*(x-2)*(x-3)/(-6))+(0.64*(x-0)*(x-2)*(x-3)/(2))+(-0.12*(x-0)*(x-1)*(x-3)/(-2))+(1.32*(x-0)*(x-1)*(x-2)/(6)))"
+     ],
+     [
+      "0.5",
+      "((0.375*(x-1)*(x-2)*(x-3)/(-6))+(0.75*(x-0)*(x-2)*(x-3)/(2))+(-0.125*(x-0)*(x-1)*(x-3)/(-2))+(1.5*(x-0)*(x-1)*(x-2)/(6)))"
+     ],
+     [
+      "0.6",
+      "((0.28*(x-1)*(x-2)*(x-3)/(-6))+(0.84*(x-0)*(x-2)*(x-3)/(2))+(-0.12*(x-0)*(x-1)*(x-3)/(-2))+(1.72*(x-0)*(x-1)*(x-2)/(6)))"
+     ],
+     [
+      "0.7",
+      "((0.195*(x-1)*(x-2)*(x-3)/(-6))+(0.91*(x-0)*(x-2)*(x-3)/(2))+(-0.105*(x-0)*(x-1)*(x-3)/(-2))+(1.98*(x-0)*(x-1)*(x-2)/(6)))"
+     ],
+     [
+      "0.8",
+      "((0.12*(x-1)*(x-2)*(x-3)/(-6))+(0.96*(x-0)*(x-2)*(x-3)/(2))+(-0.08*(x-0)*(x-1)*(x-3)/(-2))+(2.28*(x-0)*(x-1)*(x-2)/(6)))"
+     ],
+     [
+      "0.9",
+      "((0.055*(x-1)*(x-2)*(x-3)/(-6))+(0.99*(x-0)*(x-2)*(x-3)/(2))+(-0.045*(x-0)*(x-1)*(x-3)/(-2))+(2.62*(x-0)*(x-1)*(x-2)/(6)))"
+     ],
+     [
+      "1.0",
+      "((1*(x-0)*(x-2)*(x-3)/(2))+(3*(x-0)*(x-1)*(x-2)/(6)))"
+     ],
+     [
+      "1.1",
+      "((-0.045*(x-1)*(x-2)*(x-3)/(-6))+(0.99*(x-0)*(x-2)*(x-3)/(2))+(0.055*(x-0)*(x-1)*(x-3)/(-2))+(3.42*(x-0)*(x-1)*(x-2)/(6)))"
+     ],
+     [
+      "1.2",
+      "((-0.08*(x-1)*(x-2)*(x-3)/(-6))+(0.96*(x-0)*(x-2)*(x-3)/(2))+(0.12*(x-0)*(x-1)*(x-3)/(-2))+(3.88*(x-0)*(x-1)*(x-2)/(6)))"
+     ],
+     [
+      "1.3",
+      "((-0.105*(x-1)*(x-2)*(x-3)/(-6))+(0.91*(x-0)*(x-2)*(x-3)/(2))+(0.195*(x-0)*(x-1)*(x-3)/(-2))+(4.38*(x-0)*(x-1)*(x-2)/(6)))"
+     ],
+     [
+      "1.4",
+      "((-0.12*(x-1)*(x-2)*(x-3)/(-6))+(0.84*(x-0)*(x-2)*(x-3)/(2))+(0.28*(x-0)*(x-1)*(x-3)/(-2))+(4.92*(x-0)*(x-1)*(x-2)/(6)))"
+     ],
+     [
+      "1.5",
+      "((-0.125*(x-1)*(x-2)*(x-3)/(-6))+(0.75*(x-0)*(x-2)*(x-3)/(2))+(0.375*(x-0)*(x-1)*(x-3)/(-2))+(5.5*(x-0)*(x-1)*(x-2)/(6)))"
+     ],
+     [
+      "1.6",
+      "((-0.12*(x-1)*(x-2)*(x-3)/(-6))+(0.64*(x-0)*(x-2)*(x-3)/(2))+(0.48*(x-0)*(x-1)*(x-3)/(-2))+(6.12*(x-0)*(x-1)*(x-2)/(6)))"
+     ],
+     [
+      "1.7",
+      "((-0.105*(x-1)*(x-2)*(x-3)/(-6))+(0.51*(x-0)*(x-2)*(x-3)/(2))+(0.595*(x-0)*(x-1)*(x-3)/(-2))+(6.78*(x-0)*(x-1)*(x-2)/(6)))"
+     ],
+     [
+      "1.8",
+      "((-0.08*(x-1)*(x-2)*(x-3)/(-6))+(0.36*(x-0)*(x-2)*(x-3)/(2))+(0.72*(x-0)*(x-1)*(x-3)/(-2))+(7.48*(x-0)*(x-1)*(x-2)/(6)))"
+     ],
+     [
+      "1.9",
+      "((-0.045*(x-1)*(x-2)*(x-3)/(-6))+(0.19*(x-0)*(x-2)*(x-3)/(2))+(0.855*(x-0)*(x-1)*(x-3)/(-2))+(8.22*(x-0)*(x-1)*(x-2)/(6)))"
+     ],
+     [
+      "2.0",
+      "((1*(x-0)*(x-1)*(x-3)/(-2))+(9*(x-0)*(x-1)*(x-2)/(6)))"
+     ],
+     [
+      "2.1",
+      "((0.055*(x-1)*(x-2)*(x-3)/(-6))+(-0.21*(x-0)*(x-2)*(x-3)/(2))+(1.155*(x-0)*(x-1)*(x-3)/(-2))+(9.82*(x-0)*(x-1)*(x-2)/(6)))"
+     ]
+    ],
+    "c": 0
+   },
+   {
+    "t": "punto",
+    "p": [
+     "0",
+     "((1*(x-1)*(x-2)*(x-3)/(-6))+(1*(x-0)*(x-1)*(x-2)/(6)))"
+    ],
+    "c": 2
+   },
+   {
+    "t": "punto",
+    "p": [
+     "1",
+     "((1*(x-0)*(x-2)*(x-3)/(2))+(3*(x-0)*(x-1)*(x-2)/(6)))"
+    ],
+    "c": 2
+   },
+   {
+    "t": "punto",
+    "p": [
+     "2",
+     "((1*(x-0)*(x-1)*(x-3)/(-2))+(9*(x-0)*(x-1)*(x-2)/(6)))"
+    ],
+    "c": 2
+   },
+   {
+    "t": "punto",
+    "p": [
+     "0",
+     "1"
+    ],
+    "c": 3
+   },
+   {
+    "t": "punto",
+    "p": [
+     "1",
+     "3"
+    ],
+    "c": 3
+   },
+   {
+    "t": "punto",
+    "p": [
+     "2",
+     "9"
+    ],
+    "c": 3
+   }
+  ],
+  "lecturas": [
+   {
+    "rotulo": "valor de la curva elegida en x igual a 1",
+    "formula": "((1*(x-0)*(x-2)*(x-3)/(2))+(3*(x-0)*(x-1)*(x-2)/(6)))"
+   },
+   {
+    "rotulo": "valor de la curva elegida en x igual a 2",
+    "formula": "((1*(x-0)*(x-1)*(x-3)/(-2))+(9*(x-0)*(x-1)*(x-2)/(6)))"
+   }
+  ],
+  "etiquetas": [
+   "Es 1 solo para la base L1, y 3 para el polinomio",
+   "Es 1 solo para la base L2, y 9 para el polinomio"
+  ],
+  "etiquetaSlider": "Curva, 0 a 2 las bases de Lagrange y 3 el polinomio",
+  "alt": "Las bases de Lagrange L0, L1 y L2 de los nodos 0, 1 y 2, y el polinomio interpolante. Cada base vale 1 en su nodo y 0 en los otros. El polinomio 2x al cuadrado más 1 pasa por los puntos (0, 1), (1, 3) y (2, 9), marcados en verde"
+ },
+ "glosario": {
+  "interpolacion": "Interpolar es hallar una función, normalmente un polinomio, que pase exactamente por unos puntos dados.",
+  "lagrange": "Las bases de Lagrange L sub i valen 1 en el nodo i y 0 en los demás nodos. El polinomio interpolante es la suma de cada valor por su base.",
+  "diferencias": "Las diferencias divididas de Newton calculan los coeficientes del polinomio con cocientes sucesivos. La de primer orden es f de x1 menos f de x0, entre x1 menos x0.",
+  "runge": "El fenómeno de Runge es la oscilación grande que aparece en los extremos al interpolar con un polinomio de grado alto en nodos igualmente espaciados."
+ },
+ "ver": {
+  "duracion": 24.0,
+  "capitulos": [
+   [
+    0,
+    4,
+    "Hay tres puntos, (0, 1), (1, 3) y (2, 9). Se arma un polinomio con las bases de Lagrange."
+   ],
+   [
+    4,
+    9,
+    "La base L0 vale 1 en x igual a 0 y vale 0 en los otros dos nodos."
+   ],
+   [
+    9,
+    14,
+    "La base L1 vale 1 en x igual a 1, y la L2 vale 1 en x igual a 2. Cada una vale cero en los otros nodos."
+   ],
+   [
+    14,
+    20,
+    "El polinomio es 1 por L0 más 3 por L1 más 9 por L2. Pasa por los tres puntos, y es 2x al cuadrado más 1."
+   ],
+   [
+    20,
+    24,
+    "Por n más 1 puntos con abscisas distintas pasa un único polinomio de grado a lo sumo n."
+   ]
+  ],
+  "canales": {
+   "draw": [
+    [
+     0.3,
+     0
+    ],
+    [
+     3.5,
+     1
+    ]
+   ],
+   "d": [
+    [
+     4,
+     0
+    ],
+    [
+     6,
+     0
+    ],
+    [
+     9,
+     1
+    ],
+    [
+     11,
+     1
+    ],
+    [
+     12,
+     2
+    ],
+    [
+     15,
+     3
+    ],
+    [
+     24,
+     3
+    ]
+   ],
+   "guide": [
+    [
+     4,
+     0
+    ],
+    [
+     5,
+     1
+    ]
+   ]
+  },
+  "intervalos": {
+   "ok": [
+    14,
+    24
+   ]
+  }
+ },
+ "leer": {
+  "secciones": [
+   {
+    "titulo": "La idea",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Dados unos puntos, {{gl:interpolacion|interpolar}} es encontrar un polinomio que pase exactamente por ellos. Con las bases de {{gl:lagrange|Lagrange}} se arma de forma directa, y con las {{gl:diferencias|diferencias divididas}} de Newton se arma por etapas. Si hay muchos puntos y un grado alto, aparece el {{gl:runge|fenómeno de Runge}}."
+     }
+    ]
+   },
+   {
+    "titulo": "Un ejemplo",
+    "corto": "Un ejemplo",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Se tienen los puntos (0, 1), (1, 3) y (2, 9). Mira las tres bases de Lagrange y el polinomio que forman."
+     },
+     {
+      "t": "eq",
+      "tex": "P(x)=\\sum_{i}f_{i}\\,L_{i}(x),\\qquad L_{i}(x_{j})=\\begin{cases}1&i=j\\\\0&i\\neq j\\end{cases}"
+     },
+     {
+      "t": "grafica",
+      "animar": "dibujar",
+      "alt": "Las bases de Lagrange y el polinomio"
+     }
+    ]
+   },
+   {
+    "titulo": "Piensa antes de ver",
+    "corto": "Piensa",
+    "bloques": [
+     {
+      "t": "piensa",
+      "pregunta": "El polinomio P es 1 por L0 más 3 por L1 más 9 por L2. En el nodo x igual a 1 solo L1 vale 1 y las demás valen 0. ¿Cuánto vale P de 1?",
+      "opciones": [
+       1,
+       3,
+       9,
+       13
+      ],
+      "correcta": 3,
+      "bien": "Muy bien. Vale 3, que es el valor dado en ese nodo. Más abajo se ve.",
+      "mal": "Vale 3, porque solo sobrevive 3 por L1, y L1 vale 1 en ese nodo. Más abajo se ve."
+     }
+    ]
+   },
+   {
+    "titulo": "Las bases y el polinomio",
+    "corto": "Las curvas",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mira las bases L0, L1, L2 y el polinomio."
+     },
+     {
+      "t": "acercando",
+      "ds": [
+       0,
+       1,
+       2,
+       3
+      ],
+      "alt": "Las bases de Lagrange y el polinomio"
+     },
+     {
+      "t": "p",
+      "html": "Cada base vale 1 en un nodo y 0 en los otros. El polinomio combina las tres con los valores de los datos."
+     }
+    ]
+   },
+   {
+    "titulo": "Lagrange",
+    "corto": "Lagrange",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Cada base se arma con productos de factores que se anulan en los otros nodos."
+     },
+     {
+      "t": "pasos",
+      "items": [
+       {
+        "tex": "L_{0}(x)=\\dfrac{(x-1)(x-2)}{(0-1)(0-2)}=\\dfrac{(x-1)(x-2)}{2}",
+        "porque": "Se anula en x igual a 1 y a 2, y vale 1 en x igual a 0."
+       },
+       {
+        "tex": "L_{1}(x)=-x(x-2),\\qquad L_{2}(x)=\\dfrac{x(x-1)}{2}",
+        "porque": "Las otras dos bases."
+       },
+       {
+        "tex": "P(x)=1\\,L_{0}+3\\,L_{1}+9\\,L_{2}=2x^{2}+1",
+        "porque": "El polinomio que interpola."
+       },
+       {
+        "tex": "P(0)=1,\\ P(1)=3,\\ P(2)=9",
+        "porque": "Se comprueba en los tres nodos."
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "Diferencias divididas",
+    "corto": "Newton",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "El mismo polinomio se obtiene por etapas con las diferencias divididas."
+     },
+     {
+      "t": "pasos",
+      "items": [
+       {
+        "tex": "f[x_{0},x_{1}]=\\dfrac{3-1}{1-0}=2,\\quad f[x_{1},x_{2}]=\\dfrac{9-3}{2-1}=6",
+        "porque": "Las diferencias de primer orden."
+       },
+       {
+        "tex": "f[x_{0},x_{1},x_{2}]=\\dfrac{6-2}{2-0}=2",
+        "porque": "La de segundo orden."
+       },
+       {
+        "tex": "P(x)=1+2x+2x(x-1)=2x^{2}+1",
+        "porque": "El polinomio de Newton, igual al de Lagrange."
+       }
+      ]
+     },
+     {
+      "t": "ojo",
+      "html": "El polinomio interpolante es único, y Lagrange y Newton son dos formas de escribirlo. Con nodos muy numerosos e igualmente espaciados, el polinomio puede oscilar mucho entre ellos, y en esos casos se prefieren splines."
+     }
+    ]
+   },
+   {
+    "titulo": "¿Para qué sirve?",
+    "corto": "En ingeniería",
+    "bloques": [
+     {
+      "t": "ingenieria",
+      "titulo": "Calibrar una célula de carga",
+      "html": "Una célula de carga entrega 1, 3 y 9 milivoltios al aplicarle 0, 1 y 2 kilonewtons. Se interpola un polinomio de segundo grado para estimar la lectura en cargas intermedias, como 1.5 kilonewtons.",
+      "tex": "P(F)=2F^{2}+1,\\qquad P(1.5)=5.5\\ \\text{mV}",
+      "datos": [
+       {
+        "k": "Cargas de calibración",
+        "v": "0, 1 y 2 kN"
+       },
+       {
+        "k": "Lecturas",
+        "v": "1, 3 y 9 mV"
+       },
+       {
+        "k": "Estimación a 1.5 kN",
+        "v": "5.5 mV"
+       }
+      ],
+      "cierre": "El valor interpolado es 2 por 2.25 más 1, o sea 5.5 milivoltios. Interpolar es confiable entre los puntos de calibración, pero no fuera de ellos. Extrapolar a 4 kilonewtons con este polinomio daría 33 milivoltios, un valor que no se puede asegurar, porque el sensor real puede saturarse."
+     }
+    ]
+   },
+   {
+    "titulo": "Completa el paso",
+    "corto": "Completa",
+    "bloques": [
+     {
+      "t": "completar",
+      "enunciado": "Se calcula una diferencia dividida con los puntos (1, 3) y (2, 9). Falta el resultado.",
+      "tex": "f[x_{1},x_{2}]=\\dfrac{9-3}{2-1}=[[hueco]]",
+      "opciones": [
+       {
+        "tex": "6",
+        "txt": "seis"
+       },
+       {
+        "tex": "3",
+        "txt": "tres"
+       },
+       {
+        "tex": "12",
+        "txt": "doce"
+       }
+      ],
+      "correcta": 0,
+      "errores": [
+       "",
+       "Tres es el valor de f en x1, y no el cociente.",
+       "Doce es 9 más 3, pero la diferencia dividida resta los valores."
+      ],
+      "pista": "Se resta y se divide entre la diferencia de abscisas.",
+      "porque": "9 menos 3 es 6, entre 2 menos 1 que es 1."
+     }
+    ]
+   },
+   {
+    "titulo": "Encuentra el error",
+    "corto": "Error",
+    "bloques": [
+     {
+      "t": "error",
+      "enunciado": "Alguien trabajó con la base de Lagrange L0 y se equivocó en un paso. Toca el paso que está mal.",
+      "pasos": [
+       {
+        "tex": "L_{0}(x)=\\dfrac{(x-1)(x-2)}{2}",
+        "porque": "La base L0 para los nodos 0, 1 y 2.",
+        "txt": "la base es un producto sobre 2"
+       },
+       {
+        "tex": "L_{0}(0)=\\dfrac{(-1)(-2)}{2}=1",
+        "porque": "Vale 1 en su nodo.",
+        "txt": "en x igual a 0 vale 1"
+       },
+       {
+        "tex": "\\text{Entonces}\\ L_{0}(1)=1",
+        "porque": "Este paso es el que falla.",
+        "txt": "en x igual a 1 también vale 1"
+       }
+      ],
+      "mal": 2,
+      "explicacion": "En x igual a 1 el factor x menos 1 se anula, así que L0 de 1 vale 0. Cada base vale 1 solo en su propio nodo y 0 en los demás.",
+      "correccion": "L_{0}(1)=\\dfrac{(0)(-1)}{2}=0",
+      "pista": "Evalúa el factor x menos 1 en x igual a 1."
+     }
+    ]
+   },
+   {
+    "titulo": "Ordena los pasos",
+    "corto": "Ordena",
+    "bloques": [
+     {
+      "t": "ordenar",
+      "enunciado": "Estos son los pasos para armar el polinomio de Newton por los puntos (0, 1), (1, 3) y (2, 9), pero están desordenados.",
+      "pasos": [
+       "f[x_{0},x_{1}]=2",
+       "f[x_{1},x_{2}]=6",
+       "f[x_{0},x_{1},x_{2}]=\\dfrac{6-2}{2}=2",
+       "P(x)=1+2x+2x(x-1)"
+      ],
+      "mezcla": [
+       2,
+       0,
+       3,
+       1
+      ],
+      "porque": "Se calculan las diferencias de primer orden, luego la de segundo y se arma el polinomio.",
+      "pista": "Se empieza con las diferencias de primer orden.",
+      "txt": [
+       "Se calcula la primera diferencia entre x0 y x1",
+       "Se calcula la primera diferencia entre x1 y x2",
+       "Se calcula la segunda diferencia",
+       "Se escribe el polinomio"
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "Revisa tu respuesta",
+    "corto": "Revisa",
+    "bloques": [
+     {
+      "t": "pregunta"
+     },
+     {
+      "t": "nota",
+      "html": "Puedes pedir pistas de a una. Si fallas, el mensaje te dice qué error se cometió."
+     }
+    ]
+   },
+   {
+    "titulo": "Mini simulacro",
+    "corto": "Simulacro",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Tres preguntas reales del banco de MathUNAL sobre este tema. Responde sin mirar los pasos."
+     },
+     {
+      "t": "simulacro",
+      "titulo": "Mini simulacro de interpolación polinómica",
+      "preguntas": [
+       {
+        "tipo": "mcq",
+        "texto": "Por $n+1$ puntos con abscisas distintas pasa un único polinomio de grado:",
+        "opciones": [
+         "$\\le n$",
+         "$\\le n+1$",
+         "exactamente $n$",
+         "$\\le 2n$"
+        ],
+        "correcta": 0,
+        "resumen": "Por $n+1$ puntos distintos pasa un único polinomio de grado a lo sumo $n$.",
+        "fuente": "Banco MathUNAL, simulacro de Métodos Numéricos"
+       },
+       {
+        "tipo": "mcq",
+        "texto": "El polinomio base de Lagrange $L_i(x)$ cumple $L_i(x_j)=$",
+        "opciones": [
+         "$1$ si $i=j$, y $0$ si $i\\ne j$",
+         "$0$ siempre",
+         "$x_j$",
+         "$1$ siempre"
+        ],
+        "correcta": 0,
+        "resumen": "Cada base de Lagrange vale 1 en su nodo y 0 en los demás.",
+        "fuente": "Banco MathUNAL, simulacro de Métodos Numéricos"
+       },
+       {
+        "tipo": "mcq",
+        "texto": "El polinomio interpolante por $(0,1)$, $(1,3)$, $(2,9)$ es:",
+        "opciones": [
+         "$2x^{2}+1$",
+         "$2x^{2}+x+1$",
+         "$x^{2}+x+1$",
+         "$3x^{2}-x+1$"
+        ],
+        "correcta": 0,
+        "resumen": "$P(0)=1$, $P(1)=3$ y $P(2)=9$ se cumplen con $2x^2+1$.",
+        "fuente": "Banco MathUNAL, simulacro de Métodos Numéricos"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "Tu repaso",
+    "corto": "Repaso",
+    "bloques": [
+     {
+      "t": "repaso"
+     }
+    ]
+   },
+   {
+    "titulo": "En resumen",
+    "corto": "Resumen",
+    "bloques": [
+     {
+      "t": "resumen"
+     }
+    ]
+   }
+  ]
+ },
+ "practicar": {
+  "pasos": [
+   {
+    "titulo": "Tres puntos",
+    "grafica": {
+     "draw": 1
+    },
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Los puntos (0, 1), (1, 3) y (2, 9) y las curvas de Lagrange."
+     },
+     {
+      "t": "eq",
+      "tex": "P(x)=\\sum f_{i}L_{i}(x)"
+     }
+    ]
+   },
+   {
+    "titulo": "Cambia la curva",
+    "grafica": {
+     "draw": 1
+    },
+    "laboratorio": true,
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mueve el deslizador de 0 a 3. Abajo se leen los valores de la curva elegida en x igual a 1 y a 2."
+     }
+    ]
+   },
+   {
+    "titulo": "El polinomio",
+    "grafica": {
+     "draw": 1,
+     "guide": 1,
+     "ok": true
+    },
+    "laboratorio": true,
+    "d": 3,
+    "bloques": [
+     {
+      "t": "eq",
+      "tex": "P(x)=2x^{2}+1"
+     },
+     {
+      "t": "p",
+      "html": "El polinomio pasa por los tres puntos, y vale 3 en x igual a 1 y 9 en x igual a 2."
+     }
+    ]
+   },
+   {
+    "titulo": "Revisa tu respuesta",
+    "grafica": {
+     "draw": 1,
+     "guide": 1,
+     "ok": true,
+     "d": 3
+    },
+    "bloques": [
+     {
+      "t": "pregunta"
+     },
+     {
+      "t": "nota",
+      "html": "Comprueba que el polinomio pasa por los tres puntos."
+     }
+    ]
+   }
+  ]
+ },
+ "pregunta": {
+  "tex": "\\text{El polinomio de grado}\\ \\le2\\ \\text{que pasa por}\\ (0,0),\\ (1,1),\\ (2,4)\\ \\text{es}",
+  "opciones": [
+   "$x^{2}$",
+   "$x$",
+   "$2x$",
+   "$x^{2}+x$"
+  ],
+  "correcta": 0,
+  "explicacion": "Con x al cuadrado se cumple que en 0 vale 0, en 1 vale 1 y en 2 vale 4. Como el polinomio de grado a lo sumo 2 que pasa por tres puntos es único, es x al cuadrado.",
+  "verificacion": {
+   "formula": "2*2+0*x",
+   "a": 0,
+   "esperado": 4
+  },
+  "pistas": [
+   "Prueba cada opción en x igual a 2.",
+   "El valor tiene que ser 4.",
+   "Solo x al cuadrado da 4 en x igual a 2 y 1 en x igual a 1."
+  ],
+  "errores": [
+   "",
+   "La recta x vale 2 en x igual a 2, y no 4.",
+   "La recta 2x vale 2 en x igual a 1, y no 1.",
+   "Vale 2 en x igual a 1, y no 1."
+  ]
+ },
+ "resumen": [
+  "Por n más 1 puntos con abscisas distintas pasa un único polinomio de grado a lo sumo n.",
+  "Cada base de Lagrange vale 1 en su nodo y 0 en los demás, y el polinomio suma valor por base.",
+  "Las diferencias divididas dan el mismo polinomio por etapas. Con muchos nodos es mejor usar splines."
+ ]
+}
