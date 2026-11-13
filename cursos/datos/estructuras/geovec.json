@@ -12,8 +12,8 @@
      "tema": "Producto punto y proyección",
      "preguntas_banco": 11,
      "parciales_con_el_tema": 2,
-     "estado": "pendiente",
-     "leccion": null
+     "estado": "borrador para revisión",
+     "leccion": "lecciones/geovec-punto.json"
     },
     {
      "tema": "Vectores en el plano",
