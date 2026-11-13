@@ -1,0 +1,1092 @@
+{
+ "esquema": 1,
+ "id": "es-m2-l2",
+ "ejemplo": true,
+ "curso": "Matemáticas Especiales",
+ "modulo": "Módulo 2 Transformada de Fourier y EDP de evolución",
+ "posicion": "Lección 2 de 5",
+ "titulo": "Ecuación de calor",
+ "minutos": 28,
+ "ejercicios": 8,
+ "grafica": {
+  "tipo": "plano",
+  "x": [
+   -1.2,
+   4.4
+  ],
+  "y": [
+   -2.0,
+   2.0
+  ],
+  "a": 0,
+  "b": 1,
+  "inicio": 0,
+  "elementos": [
+   {
+    "t": "trazo",
+    "puntos": [
+     [
+      "0.0",
+      "exp(-x)*0.000000+exp(-9*x)*0.000000"
+     ],
+     [
+      "0.05236",
+      "exp(-x)*0.052336+exp(-9*x)*0.156435"
+     ],
+     [
+      "0.10472",
+      "exp(-x)*0.104529+exp(-9*x)*0.309018"
+     ],
+     [
+      "0.15708",
+      "exp(-x)*0.156435+exp(-9*x)*0.453991"
+     ],
+     [
+      "0.20944",
+      "exp(-x)*0.207912+exp(-9*x)*0.587786"
+     ],
+     [
+      "0.2618",
+      "exp(-x)*0.258820+exp(-9*x)*0.707108"
+     ],
+     [
+      "0.31416",
+      "exp(-x)*0.309018+exp(-9*x)*0.809018"
+     ],
+     [
+      "0.36652",
+      "exp(-x)*0.358369+exp(-9*x)*0.891008"
+     ],
+     [
+      "0.41888",
+      "exp(-x)*0.406738+exp(-9*x)*0.951057"
+     ],
+     [
+      "0.47124",
+      "exp(-x)*0.453991+exp(-9*x)*0.987689"
+     ],
+     [
+      "0.5236",
+      "exp(-x)*0.500001+exp(-9*x)*1.000000"
+     ],
+     [
+      "0.57596",
+      "exp(-x)*0.544640+exp(-9*x)*0.987688"
+     ],
+     [
+      "0.62832",
+      "exp(-x)*0.587786+exp(-9*x)*0.951055"
+     ],
+     [
+      "0.68068",
+      "exp(-x)*0.629322+exp(-9*x)*0.891004"
+     ],
+     [
+      "0.73304",
+      "exp(-x)*0.669132+exp(-9*x)*0.809014"
+     ],
+     [
+      "0.7854",
+      "exp(-x)*0.707108+exp(-9*x)*0.707103"
+     ],
+     [
+      "0.83776",
+      "exp(-x)*0.743146+exp(-9*x)*0.587780"
+     ],
+     [
+      "0.89012",
+      "exp(-x)*0.777147+exp(-9*x)*0.453985"
+     ],
+     [
+      "0.94248",
+      "exp(-x)*0.809018+exp(-9*x)*0.309011"
+     ],
+     [
+      "0.99484",
+      "exp(-x)*0.838672+exp(-9*x)*0.156428"
+     ],
+     [
+      "1.0472",
+      "exp(-x)*0.866027+exp(-9*x)*-0.000007"
+     ],
+     [
+      "1.09956",
+      "exp(-x)*0.891008+exp(-9*x)*-0.156442"
+     ],
+     [
+      "1.15192",
+      "exp(-x)*0.913547+exp(-9*x)*-0.309025"
+     ],
+     [
+      "1.20428",
+      "exp(-x)*0.933581+exp(-9*x)*-0.453998"
+     ],
+     [
+      "1.25664",
+      "exp(-x)*0.951057+exp(-9*x)*-0.587792"
+     ],
+     [
+      "1.309",
+      "exp(-x)*0.965927+exp(-9*x)*-0.707113"
+     ],
+     [
+      "1.36136",
+      "exp(-x)*0.978148+exp(-9*x)*-0.809023"
+     ],
+     [
+      "1.41372",
+      "exp(-x)*0.987689+exp(-9*x)*-0.891011"
+     ],
+     [
+      "1.46608",
+      "exp(-x)*0.994522+exp(-9*x)*-0.951060"
+     ],
+     [
+      "1.51844",
+      "exp(-x)*0.998630+exp(-9*x)*-0.987690"
+     ],
+     [
+      "1.5708",
+      "exp(-x)*1.000000+exp(-9*x)*-1.000000"
+     ],
+     [
+      "1.62316",
+      "exp(-x)*0.998629+exp(-9*x)*-0.987687"
+     ],
+     [
+      "1.67552",
+      "exp(-x)*0.994521+exp(-9*x)*-0.951053"
+     ],
+     [
+      "1.72788",
+      "exp(-x)*0.987688+exp(-9*x)*-0.891001"
+     ],
+     [
+      "1.78024",
+      "exp(-x)*0.978147+exp(-9*x)*-0.809010"
+     ],
+     [
+      "1.8326",
+      "exp(-x)*0.965925+exp(-9*x)*-0.707098"
+     ],
+     [
+      "1.88496",
+      "exp(-x)*0.951055+exp(-9*x)*-0.587775"
+     ],
+     [
+      "1.93732",
+      "exp(-x)*0.933579+exp(-9*x)*-0.453978"
+     ],
+     [
+      "1.98968",
+      "exp(-x)*0.913544+exp(-9*x)*-0.309004"
+     ],
+     [
+      "2.04204",
+      "exp(-x)*0.891004+exp(-9*x)*-0.156420"
+     ],
+     [
+      "2.0944",
+      "exp(-x)*0.866023+exp(-9*x)*0.000015"
+     ],
+     [
+      "2.14675",
+      "exp(-x)*0.838673+exp(-9*x)*0.156420"
+     ],
+     [
+      "2.19911",
+      "exp(-x)*0.809020+exp(-9*x)*0.309003"
+     ],
+     [
+      "2.25147",
+      "exp(-x)*0.777149+exp(-9*x)*0.453978"
+     ],
+     [
+      "2.30383",
+      "exp(-x)*0.743148+exp(-9*x)*0.587774"
+     ],
+     [
+      "2.35619",
+      "exp(-x)*0.707110+exp(-9*x)*0.707097"
+     ],
+     [
+      "2.40855",
+      "exp(-x)*0.669134+exp(-9*x)*0.809009"
+     ],
+     [
+      "2.46091",
+      "exp(-x)*0.629324+exp(-9*x)*0.891001"
+     ],
+     [
+      "2.51327",
+      "exp(-x)*0.587789+exp(-9*x)*0.951053"
+     ],
+     [
+      "2.56563",
+      "exp(-x)*0.544642+exp(-9*x)*0.987686"
+     ],
+     [
+      "2.61799",
+      "exp(-x)*0.500003+exp(-9*x)*1.000000"
+     ],
+     [
+      "2.67035",
+      "exp(-x)*0.453994+exp(-9*x)*0.987690"
+     ],
+     [
+      "2.72271",
+      "exp(-x)*0.406740+exp(-9*x)*0.951060"
+     ],
+     [
+      "2.77507",
+      "exp(-x)*0.358371+exp(-9*x)*0.891011"
+     ],
+     [
+      "2.82743",
+      "exp(-x)*0.309020+exp(-9*x)*0.809023"
+     ],
+     [
+      "2.87979",
+      "exp(-x)*0.258822+exp(-9*x)*0.707114"
+     ],
+     [
+      "2.93215",
+      "exp(-x)*0.207915+exp(-9*x)*0.587793"
+     ],
+     [
+      "2.98451",
+      "exp(-x)*0.156437+exp(-9*x)*0.453999"
+     ],
+     [
+      "3.03687",
+      "exp(-x)*0.104531+exp(-9*x)*0.309025"
+     ],
+     [
+      "3.08923",
+      "exp(-x)*0.052339+exp(-9*x)*0.156443"
+     ],
+     [
+      "3.14159",
+      "exp(-x)*0.000003+exp(-9*x)*0.000008"
+     ]
+    ],
+    "c": 0
+   },
+   {
+    "t": "trazo",
+    "puntos": [
+     [
+      "0.0",
+      "exp(-x)*0.000000"
+     ],
+     [
+      "0.05236",
+      "exp(-x)*0.052336"
+     ],
+     [
+      "0.10472",
+      "exp(-x)*0.104529"
+     ],
+     [
+      "0.15708",
+      "exp(-x)*0.156435"
+     ],
+     [
+      "0.20944",
+      "exp(-x)*0.207912"
+     ],
+     [
+      "0.2618",
+      "exp(-x)*0.258820"
+     ],
+     [
+      "0.31416",
+      "exp(-x)*0.309018"
+     ],
+     [
+      "0.36652",
+      "exp(-x)*0.358369"
+     ],
+     [
+      "0.41888",
+      "exp(-x)*0.406738"
+     ],
+     [
+      "0.47124",
+      "exp(-x)*0.453991"
+     ],
+     [
+      "0.5236",
+      "exp(-x)*0.500001"
+     ],
+     [
+      "0.57596",
+      "exp(-x)*0.544640"
+     ],
+     [
+      "0.62832",
+      "exp(-x)*0.587786"
+     ],
+     [
+      "0.68068",
+      "exp(-x)*0.629322"
+     ],
+     [
+      "0.73304",
+      "exp(-x)*0.669132"
+     ],
+     [
+      "0.7854",
+      "exp(-x)*0.707108"
+     ],
+     [
+      "0.83776",
+      "exp(-x)*0.743146"
+     ],
+     [
+      "0.89012",
+      "exp(-x)*0.777147"
+     ],
+     [
+      "0.94248",
+      "exp(-x)*0.809018"
+     ],
+     [
+      "0.99484",
+      "exp(-x)*0.838672"
+     ],
+     [
+      "1.0472",
+      "exp(-x)*0.866027"
+     ],
+     [
+      "1.09956",
+      "exp(-x)*0.891008"
+     ],
+     [
+      "1.15192",
+      "exp(-x)*0.913547"
+     ],
+     [
+      "1.20428",
+      "exp(-x)*0.933581"
+     ],
+     [
+      "1.25664",
+      "exp(-x)*0.951057"
+     ],
+     [
+      "1.309",
+      "exp(-x)*0.965927"
+     ],
+     [
+      "1.36136",
+      "exp(-x)*0.978148"
+     ],
+     [
+      "1.41372",
+      "exp(-x)*0.987689"
+     ],
+     [
+      "1.46608",
+      "exp(-x)*0.994522"
+     ],
+     [
+      "1.51844",
+      "exp(-x)*0.998630"
+     ],
+     [
+      "1.5708",
+      "exp(-x)*1.000000"
+     ],
+     [
+      "1.62316",
+      "exp(-x)*0.998629"
+     ],
+     [
+      "1.67552",
+      "exp(-x)*0.994521"
+     ],
+     [
+      "1.72788",
+      "exp(-x)*0.987688"
+     ],
+     [
+      "1.78024",
+      "exp(-x)*0.978147"
+     ],
+     [
+      "1.8326",
+      "exp(-x)*0.965925"
+     ],
+     [
+      "1.88496",
+      "exp(-x)*0.951055"
+     ],
+     [
+      "1.93732",
+      "exp(-x)*0.933579"
+     ],
+     [
+      "1.98968",
+      "exp(-x)*0.913544"
+     ],
+     [
+      "2.04204",
+      "exp(-x)*0.891004"
+     ],
+     [
+      "2.0944",
+      "exp(-x)*0.866023"
+     ],
+     [
+      "2.14675",
+      "exp(-x)*0.838673"
+     ],
+     [
+      "2.19911",
+      "exp(-x)*0.809020"
+     ],
+     [
+      "2.25147",
+      "exp(-x)*0.777149"
+     ],
+     [
+      "2.30383",
+      "exp(-x)*0.743148"
+     ],
+     [
+      "2.35619",
+      "exp(-x)*0.707110"
+     ],
+     [
+      "2.40855",
+      "exp(-x)*0.669134"
+     ],
+     [
+      "2.46091",
+      "exp(-x)*0.629324"
+     ],
+     [
+      "2.51327",
+      "exp(-x)*0.587789"
+     ],
+     [
+      "2.56563",
+      "exp(-x)*0.544642"
+     ],
+     [
+      "2.61799",
+      "exp(-x)*0.500003"
+     ],
+     [
+      "2.67035",
+      "exp(-x)*0.453994"
+     ],
+     [
+      "2.72271",
+      "exp(-x)*0.406740"
+     ],
+     [
+      "2.77507",
+      "exp(-x)*0.358371"
+     ],
+     [
+      "2.82743",
+      "exp(-x)*0.309020"
+     ],
+     [
+      "2.87979",
+      "exp(-x)*0.258822"
+     ],
+     [
+      "2.93215",
+      "exp(-x)*0.207915"
+     ],
+     [
+      "2.98451",
+      "exp(-x)*0.156437"
+     ],
+     [
+      "3.03687",
+      "exp(-x)*0.104531"
+     ],
+     [
+      "3.08923",
+      "exp(-x)*0.052339"
+     ],
+     [
+      "3.14159",
+      "exp(-x)*0.000003"
+     ]
+    ],
+    "c": 3
+   }
+  ],
+  "lecturas": [
+   {
+    "rotulo": "amplitud del modo uno, e elevado a menos t",
+    "formula": "exp(-x)"
+   },
+   {
+    "rotulo": "amplitud del modo tres, e elevado a menos 9 t",
+    "formula": "exp(-9*x)"
+   }
+  ],
+  "etiquetas": [
+   "El modo lento, que domina al final",
+   "El modo rápido, que se apaga mucho antes"
+  ],
+  "etiquetaSlider": "Tiempo t, de 0 a 1",
+  "alt": "El perfil de temperatura de una barra con los extremos a 0, formado al inicio por dos ondas, seno de x y seno de 3x. Al avanzar el tiempo la onda de 3x, que decae como e a la menos 9t, desaparece enseguida, y queda la onda de seno de x, que decae despacio. La curva verde es solo el modo uno"
+ },
+ "glosario": {
+  "calor": "La ecuación de calor, u sub t igual a k u sub x x, describe cómo se difunde la temperatura. Los picos y los detalles se suavizan con el tiempo.",
+  "separacion": "En la separación de variables se busca la solución como un producto de una función de x y una de t.",
+  "modo": "Un modo es una solución sencilla, como e elevado a menos n al cuadrado t por seno de n x. Cada modo decae con su propia rapidez.",
+  "equilibrio": "El estado de equilibrio es hacia donde tiende la solución cuando el tiempo crece. Con los extremos a cero, es cero en todo el intervalo."
+ },
+ "ver": {
+  "duracion": 24.0,
+  "capitulos": [
+   [
+    0,
+    4,
+    "La temperatura inicial es la suma de dos ondas, seno de x y seno de 3x, con los extremos de la barra a cero."
+   ],
+   [
+    4,
+    10,
+    "Cada onda se amortigua con su propia rapidez. La de seno de 3x decae como e a la menos 9t, mucho más rápido que la de seno de x."
+   ],
+   [
+    10,
+    16,
+    "Con t igual a 0.3, la onda rápida casi desapareció, y queda seno de x con amplitud 0.74."
+   ],
+   [
+    16,
+    20,
+    "Con el tiempo todo tiende a cero, que es el estado de equilibrio, porque los extremos están a cero."
+   ],
+   [
+    20,
+    24,
+    "Los modos de alta frecuencia se disipan primero, y por eso el calor suaviza los detalles."
+   ]
+  ],
+  "canales": {
+   "draw": [
+    [
+     0.3,
+     0
+    ],
+    [
+     3.5,
+     1
+    ]
+   ],
+   "d": [
+    [
+     4,
+     0
+    ],
+    [
+     8,
+     0
+    ],
+    [
+     10,
+     0.05
+    ],
+    [
+     13,
+     0.3
+    ],
+    [
+     16,
+     0.3
+    ],
+    [
+     18,
+     1
+    ],
+    [
+     24,
+     1
+    ]
+   ],
+   "guide": [
+    [
+     4,
+     0
+    ],
+    [
+     5,
+     1
+    ]
+   ]
+  },
+  "intervalos": {
+   "ok": [
+    16,
+    24
+   ]
+  }
+ },
+ "leer": {
+  "secciones": [
+   {
+    "titulo": "La idea",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "La ecuación de {{gl:calor|calor}} describe cómo se reparte la temperatura con el tiempo. Se resuelve por {{gl:separacion|separación de variables}}. Cada {{gl:modo|modo}} es un seno de n x que decae como e elevado a menos n al cuadrado t. Con los extremos a temperatura cero, la solución tiende al {{gl:equilibrio|equilibrio}}, que es cero en toda la barra."
+     }
+    ]
+   },
+   {
+    "titulo": "Un ejemplo",
+    "corto": "Un ejemplo",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "La temperatura inicial es la suma de seno de x y seno de 3x. Mueve el tiempo y mira cuál onda sobrevive."
+     },
+     {
+      "t": "eq",
+      "tex": "u_{t}=u_{xx},\\qquad u(x,t)=e^{-t}\\operatorname{sen}x+e^{-9t}\\operatorname{sen}3x"
+     },
+     {
+      "t": "grafica",
+      "animar": "dibujar",
+      "alt": "El perfil de temperatura que se suaviza"
+     }
+    ]
+   },
+   {
+    "titulo": "Piensa antes de ver",
+    "corto": "Piensa",
+    "bloques": [
+     {
+      "t": "piensa",
+      "pregunta": "El modo de seno de 3x decae como e elevado a menos 9t. Con t igual a 0, ¿cuánto vale e elevado a 0?",
+      "opciones": [
+       0,
+       1,
+       9,
+       3
+      ],
+      "correcta": 1,
+      "bien": "Muy bien. Vale 1, así que al inicio el modo conserva su amplitud. Más abajo se ve cómo se apaga.",
+      "mal": "Vale 1, porque cualquier número elevado a 0 es 1. Al inicio el modo conserva toda su amplitud. Más abajo se ve cómo se apaga."
+     }
+    ]
+   },
+   {
+    "titulo": "El paso del tiempo",
+    "corto": "El tiempo",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mira el perfil con t igual a 0, 0.05, 0.3 y 1."
+     },
+     {
+      "t": "acercando",
+      "ds": [
+       0,
+       0.05,
+       0.3,
+       1
+      ],
+      "alt": "El perfil de temperatura en cuatro instantes"
+     },
+     {
+      "t": "p",
+      "html": "A t igual a 0.05 el modo de seno de 3x ya perdió casi dos tercios, y a t igual a 0.3 casi desapareció."
+     }
+    ]
+   },
+   {
+    "titulo": "Separación de variables",
+    "corto": "Separación",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Se busca la solución como un producto, y se obtienen dos ecuaciones sencillas."
+     },
+     {
+      "t": "pasos",
+      "items": [
+       {
+        "tex": "u(x,t)=X(x)\\,T(t)",
+        "porque": "Se propone una solución separada."
+       },
+       {
+        "tex": "\\dfrac{T'}{T}=\\dfrac{X''}{X}=-\\lambda",
+        "porque": "Cada lado depende de una sola variable, así que son iguales a una constante."
+       },
+       {
+        "tex": "X(0)=X(\\pi)=0\\ \\Rightarrow\\ X=\\operatorname{sen}nx,\\ \\lambda=n^{2}",
+        "porque": "Las condiciones en los extremos fijan X y la constante."
+       },
+       {
+        "tex": "u_{n}=e^{-n^{2}t}\\operatorname{sen}nx",
+        "porque": "El modo n."
+       }
+      ]
+     },
+     {
+      "t": "ojo",
+      "html": "La constante de separación es negativa, porque con los extremos fijos hay oscilación en x. Si fuera positiva o cero, la única solución con los extremos en cero es la nula."
+     }
+    ]
+   },
+   {
+    "titulo": "La solución general",
+    "corto": "La solución",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Se combinan los modos para ajustar el dato inicial."
+     },
+     {
+      "t": "pasos",
+      "items": [
+       {
+        "tex": "u(x,t)=\\displaystyle\\sum_{n\\ge1}b_{n}\\,e^{-n^{2}t}\\operatorname{sen}nx",
+        "porque": "La solución, con los b de n del desarrollo de seno del dato inicial."
+       },
+       {
+        "tex": "u(x,0)=\\operatorname{sen}3x\\ \\Rightarrow\\ u=e^{-9t}\\operatorname{sen}3x",
+        "porque": "Con un solo modo en el dato inicial."
+       },
+       {
+        "tex": "n=3,\\ t=1:\\ e^{-9}\\approx0.00012",
+        "porque": "A t igual a 1 el modo 3 casi no queda."
+       },
+       {
+        "tex": "t\\to\\infty:\\ u\\to0",
+        "porque": "Con los extremos a cero, la barra se enfría hasta cero."
+       }
+      ]
+     },
+     {
+      "t": "ojo",
+      "html": "Si la ecuación es u sub t igual a k u sub x x, el exponente es menos k n al cuadrado t. La constante k, la difusividad, solo cambia la rapidez del proceso."
+     }
+    ]
+   },
+   {
+    "titulo": "¿Para qué sirve?",
+    "corto": "En ingeniería",
+    "bloques": [
+     {
+      "t": "ingenieria",
+      "titulo": "El enfriamiento de una barra de acero",
+      "html": "Una barra de acero de 10 centímetros tiene los extremos mantenidos a cero grados de diferencia con su entorno. Su temperatura interior se reparte según la ecuación de calor, y el modo más lento decae con una constante de tiempo de L al cuadrado entre pi al cuadrado por la difusividad.",
+      "tex": "\\tau=\\dfrac{L^{2}}{\\pi^{2}\\alpha}\\approx84\\ \\text{s}",
+      "datos": [
+       {
+        "k": "Longitud",
+        "v": "0.1 m"
+       },
+       {
+        "k": "Difusividad del acero",
+        "v": "cerca de 1.2×10⁻⁵ m²/s"
+       },
+       {
+        "k": "Constante de tiempo del modo uno",
+        "v": "cerca de 84 s"
+       }
+      ],
+      "cierre": "Esa constante de tiempo dice que, después de unos 84 segundos, la parte lenta de la temperatura se redujo a 37 por ciento. Los detalles finos, de modos más altos, desaparecen mucho antes. Con esta fórmula se estima cuánto tarda un molde o una pieza en enfriarse, y en la práctica se ajusta con las condiciones reales de contorno."
+     }
+    ]
+   },
+   {
+    "titulo": "Completa el paso",
+    "corto": "Completa",
+    "bloques": [
+     {
+      "t": "completar",
+      "enunciado": "Se halla el exponente del modo n de la ecuación de calor con k igual a 1.",
+      "tex": "u_{n}(x,t)=e^{-[[hueco]]\\,t}\\operatorname{sen}(nx)",
+      "opciones": [
+       {
+        "tex": "n^{2}",
+        "txt": "n al cuadrado"
+       },
+       {
+        "tex": "n",
+        "txt": "n"
+       },
+       {
+        "tex": "1",
+        "txt": "uno"
+       }
+      ],
+      "correcta": 0,
+      "errores": [
+       "",
+       "Con exponente n, el modo no cumple la ecuación. La segunda derivada en x da menos n al cuadrado.",
+       "Con exponente 1, todos los modos decaerían igual, y no es así."
+      ],
+      "pista": "La segunda derivada de seno de n x es menos n al cuadrado por seno de n x.",
+      "porque": "Por eso el exponente es n al cuadrado por k por t."
+     }
+    ]
+   },
+   {
+    "titulo": "Encuentra el error",
+    "corto": "Error",
+    "bloques": [
+     {
+      "t": "error",
+      "enunciado": "Alguien halló el exponente del modo seno de 3x en la ecuación de calor y se equivocó en un paso. Toca el paso que está mal.",
+      "pasos": [
+       {
+        "tex": "u=e^{-\\lambda t}\\operatorname{sen}3x",
+        "porque": "Se propone un modo.",
+        "txt": "el modo con una constante"
+       },
+       {
+        "tex": "u_{t}=u_{xx}\\ \\Rightarrow\\ -\\lambda=-3",
+        "porque": "Este paso es el que falla.",
+        "txt": "queda lambda igual a 3"
+       },
+       {
+        "tex": "u=e^{-3t}\\operatorname{sen}3x",
+        "porque": "Resultado.",
+        "txt": "el modo es e a la menos 3t"
+       }
+      ],
+      "mal": 1,
+      "explicacion": "La segunda derivada de seno de 3x es menos 9 por seno de 3x, y no menos 3. Entonces lambda vale 9 y el modo es e elevado a menos 9t por seno de 3x.",
+      "correccion": "u_{xx}=-9\\operatorname{sen}3x\\ \\Rightarrow\\ \\lambda=9",
+      "pista": "Deriva dos veces seno de 3x."
+     }
+    ]
+   },
+   {
+    "titulo": "Ordena los pasos",
+    "corto": "Ordena",
+    "bloques": [
+     {
+      "t": "ordenar",
+      "enunciado": "Estos son los pasos de la separación de variables para la ecuación de calor, pero están desordenados.",
+      "pasos": [
+       "u=X(x)\\,T(t)",
+       "\\dfrac{T'}{T}=\\dfrac{X''}{X}=-\\lambda",
+       "X=\\operatorname{sen}nx,\\quad \\lambda=n^{2}",
+       "u=e^{-n^{2}t}\\operatorname{sen}nx"
+      ],
+      "mezcla": [
+       2,
+       0,
+       3,
+       1
+      ],
+      "porque": "Se propone un producto, se separa en dos ecuaciones, se fija X y se arma el modo.",
+      "pista": "Se empieza proponiendo una solución separada.",
+      "txt": [
+       "Se propone una solución separada",
+       "Se separan las variables",
+       "Los extremos fijos determinan X y lambda",
+       "Se arma el modo"
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "Revisa tu respuesta",
+    "corto": "Revisa",
+    "bloques": [
+     {
+      "t": "pregunta"
+     },
+     {
+      "t": "nota",
+      "html": "Puedes pedir pistas de a una. Si fallas, el mensaje te dice qué error se cometió."
+     }
+    ]
+   },
+   {
+    "titulo": "Mini simulacro",
+    "corto": "Simulacro",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Tres preguntas reales del banco de MathUNAL sobre este tema. Responde sin mirar los pasos."
+     },
+     {
+      "t": "simulacro",
+      "titulo": "Mini simulacro de la ecuación de calor",
+      "preguntas": [
+       {
+        "tipo": "mcq",
+        "texto": "La ecuación de calor (difusión) unidimensional es:",
+        "opciones": [
+         "$u_t=k\\,u_{xx}$",
+         "$u_{tt}=k\\,u_{xx}$",
+         "$u_{xx}+u_{tt}=0$",
+         "$u_t=k\\,u_x$"
+        ],
+        "correcta": 0,
+        "resumen": "La ecuación de calor es de primer orden en t y de segundo en x.",
+        "fuente": "Banco MathUNAL, simulacro de Matemáticas Especiales"
+       },
+       {
+        "tipo": "mcq",
+        "texto": "La solución de $u_t=u_{xx}$ en $[0,\\pi]$ con $u(0,t)=u(\\pi,t)=0$ y $u(x,0)=\\sin(3x)$ es:",
+        "opciones": [
+         "$u(x,t)=e^{-9t}\\sin(3x)$",
+         "$u(x,t)=e^{-3t}\\sin(3x)$",
+         "$u(x,t)=\\sin(3x)\\cos(3t)$",
+         "$u(x,t)=e^{-9t}\\sin(x)$"
+        ],
+        "correcta": 0,
+        "resumen": "El modo de seno de 3x decae como $e^{-9t}$.",
+        "fuente": "Banco MathUNAL, simulacro de Matemáticas Especiales"
+       },
+       {
+        "tipo": "mcq",
+        "texto": "Para la ecuación de calor en $[0,L]$ con extremos mantenidos a temperatura $0$, cuando $t\\to\\infty$ la solución:",
+        "opciones": [
+         "tiende a $0$ en todo el intervalo (estado de equilibrio)",
+         "oscila indefinidamente",
+         "crece sin cota",
+         "tiende al promedio del dato inicial"
+        ],
+        "correcta": 0,
+        "resumen": "Con los extremos a 0, la temperatura tiende a 0.",
+        "fuente": "Banco MathUNAL, simulacro de Matemáticas Especiales"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "Tu repaso",
+    "corto": "Repaso",
+    "bloques": [
+     {
+      "t": "repaso"
+     }
+    ]
+   },
+   {
+    "titulo": "En resumen",
+    "corto": "Resumen",
+    "bloques": [
+     {
+      "t": "resumen"
+     }
+    ]
+   }
+  ]
+ },
+ "practicar": {
+  "pasos": [
+   {
+    "titulo": "Dos ondas",
+    "grafica": {
+     "draw": 1
+    },
+    "bloques": [
+     {
+      "t": "p",
+      "html": "La temperatura inicial es la suma de dos modos."
+     },
+     {
+      "t": "eq",
+      "tex": "u(x,0)=\\operatorname{sen}x+\\operatorname{sen}3x"
+     }
+    ]
+   },
+   {
+    "titulo": "Avanza el tiempo",
+    "grafica": {
+     "draw": 1
+    },
+    "laboratorio": true,
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mueve el deslizador. Abajo se leen la amplitud del modo uno y la del modo tres."
+     }
+    ]
+   },
+   {
+    "titulo": "Sobrevive el modo uno",
+    "grafica": {
+     "draw": 1,
+     "guide": 1,
+     "ok": true
+    },
+    "laboratorio": true,
+    "d": 0.3,
+    "bloques": [
+     {
+      "t": "eq",
+      "tex": "e^{-0.3}=0.74,\\quad e^{-2.7}=0.07"
+     },
+     {
+      "t": "p",
+      "html": "Con t igual a 0.3, el modo de seno de x conserva 74 por ciento y el de 3x solo 7 por ciento."
+     }
+    ]
+   },
+   {
+    "titulo": "Revisa tu respuesta",
+    "grafica": {
+     "draw": 1,
+     "guide": 1,
+     "ok": true,
+     "d": 0.3
+    },
+    "bloques": [
+     {
+      "t": "pregunta"
+     },
+     {
+      "t": "nota",
+      "html": "El exponente es n al cuadrado por t."
+     }
+    ]
+   }
+  ]
+ },
+ "pregunta": {
+  "tex": "u_{t}=u_{xx},\\ u(x,0)=\\operatorname{sen}2x,\\ u(0,t)=u(\\pi,t)=0.\\ \\text{La solución es}",
+  "opciones": [
+   "$e^{-4t}\\operatorname{sen}2x$",
+   "$e^{-2t}\\operatorname{sen}2x$",
+   "$\\operatorname{sen}2x\\cos2t$",
+   "$e^{-t}\\operatorname{sen}2x$"
+  ],
+  "correcta": 0,
+  "explicacion": "El modo n igual a 2 decae como e elevado a menos n al cuadrado t, o sea e elevado a menos 4t. La solución es e a la menos 4t por seno de 2x.",
+  "verificacion": {
+   "formula": "exp(-4*0.5)+0*x",
+   "a": 0,
+   "esperado": 0.1353
+  },
+  "pistas": [
+   "El modo n decae con n al cuadrado.",
+   "Aquí n es 2.",
+   "El exponente es menos 4t."
+  ],
+  "errores": [
+   "",
+   "Menos 2t sería con exponente n, y falta elevar al cuadrado.",
+   "Con coseno de 2t sería una ecuación de onda, y no de calor.",
+   "Menos t sería para el modo n igual a 1."
+  ]
+ },
+ "resumen": [
+  "La ecuación de calor suaviza la temperatura, y cada modo seno de n x decae como e elevado a menos n al cuadrado t.",
+  "Se resuelve por separación de variables, y con los extremos a cero el equilibrio es cero.",
+  "Los modos de frecuencia alta se apagan primero."
+ ]
+}
