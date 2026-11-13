@@ -1,0 +1,1381 @@
+{
+ "esquema": 1,
+ "id": "fu-m3-l2",
+ "ejemplo": true,
+ "curso": "Fundamentos de Matemáticas",
+ "modulo": "Módulo 3 Relaciones y funciones",
+ "posicion": "Lección 2 de 5",
+ "titulo": "Relaciones de equivalencia",
+ "minutos": 28,
+ "ejercicios": 8,
+ "grafica": {
+  "tipo": "plano",
+  "x": [
+   -0.6,
+   7.6
+  ],
+  "y": [
+   -0.15,
+   4.5
+  ],
+  "a": 0,
+  "b": 4,
+  "inicio": 0,
+  "entero": true,
+  "sinejes": true,
+  "elementos": [
+   {
+    "t": "poligono",
+    "puntos": [
+     [
+      "0.0",
+      "4.4"
+     ],
+     [
+      "1.4",
+      "4.4"
+     ],
+     [
+      "1.4",
+      "3.3"
+     ],
+     [
+      "0.0",
+      "3.3"
+     ]
+    ],
+    "c": 0,
+    "nombre": "r0"
+   },
+   {
+    "t": "poligono",
+    "puntos": [
+     [
+      "1.4",
+      "4.4"
+     ],
+     [
+      "2.8",
+      "4.4"
+     ],
+     [
+      "2.8",
+      "3.3"
+     ],
+     [
+      "1.4",
+      "3.3"
+     ]
+    ],
+    "c": 0,
+    "nombre": "r1"
+   },
+   {
+    "t": "poligono",
+    "puntos": [
+     [
+      "2.8",
+      "4.4"
+     ],
+     [
+      "4.2",
+      "4.4"
+     ],
+     [
+      "4.2",
+      "3.3"
+     ],
+     [
+      "2.8",
+      "3.3"
+     ]
+    ],
+    "c": 0,
+    "nombre": "r2"
+   },
+   {
+    "t": "poligono",
+    "puntos": [
+     [
+      "4.2",
+      "4.4"
+     ],
+     [
+      "5.6",
+      "4.4"
+     ],
+     [
+      "5.6",
+      "3.3"
+     ],
+     [
+      "4.2",
+      "3.3"
+     ]
+    ],
+    "c": 0,
+    "nombre": "r3"
+   },
+   {
+    "t": "poligono",
+    "puntos": [
+     [
+      "5.6",
+      "4.4"
+     ],
+     [
+      "7.0",
+      "4.4"
+     ],
+     [
+      "7.0",
+      "3.3"
+     ],
+     [
+      "5.6",
+      "3.3"
+     ]
+    ],
+    "c": 0,
+    "nombre": "r4"
+   },
+   {
+    "t": "poligono",
+    "puntos": [
+     [
+      "0.0",
+      "3.3"
+     ],
+     [
+      "1.4",
+      "3.3"
+     ],
+     [
+      "1.4",
+      "2.2"
+     ],
+     [
+      "0.0",
+      "2.2"
+     ]
+    ],
+    "c": 0,
+    "nombre": "0"
+   },
+   {
+    "t": "poligono",
+    "puntos": [
+     [
+      "1.4",
+      "3.3"
+     ],
+     [
+      "2.8",
+      "3.3"
+     ],
+     [
+      "2.8",
+      "2.2"
+     ],
+     [
+      "1.4",
+      "2.2"
+     ]
+    ],
+    "c": 0,
+    "nombre": "1"
+   },
+   {
+    "t": "poligono",
+    "puntos": [
+     [
+      "2.8",
+      "3.3"
+     ],
+     [
+      "4.2",
+      "3.3"
+     ],
+     [
+      "4.2",
+      "2.2"
+     ],
+     [
+      "2.8",
+      "2.2"
+     ]
+    ],
+    "c": 0,
+    "nombre": "2"
+   },
+   {
+    "t": "poligono",
+    "puntos": [
+     [
+      "4.2",
+      "3.3"
+     ],
+     [
+      "5.6",
+      "3.3"
+     ],
+     [
+      "5.6",
+      "2.2"
+     ],
+     [
+      "4.2",
+      "2.2"
+     ]
+    ],
+    "c": 0,
+    "nombre": "3"
+   },
+   {
+    "t": "poligono",
+    "puntos": [
+     [
+      "5.6",
+      "3.3"
+     ],
+     [
+      "7.0",
+      "3.3"
+     ],
+     [
+      "7.0",
+      "2.2"
+     ],
+     [
+      "5.6",
+      "2.2"
+     ]
+    ],
+    "c": 0,
+    "nombre": "4"
+   },
+   {
+    "t": "poligono",
+    "puntos": [
+     [
+      "0.0",
+      "2.2"
+     ],
+     [
+      "1.4",
+      "2.2"
+     ],
+     [
+      "1.4",
+      "1.1"
+     ],
+     [
+      "0.0",
+      "1.1"
+     ]
+    ],
+    "c": 0,
+    "nombre": "5"
+   },
+   {
+    "t": "poligono",
+    "puntos": [
+     [
+      "1.4",
+      "2.2"
+     ],
+     [
+      "2.8",
+      "2.2"
+     ],
+     [
+      "2.8",
+      "1.1"
+     ],
+     [
+      "1.4",
+      "1.1"
+     ]
+    ],
+    "c": 0,
+    "nombre": "6"
+   },
+   {
+    "t": "poligono",
+    "puntos": [
+     [
+      "2.8",
+      "2.2"
+     ],
+     [
+      "4.2",
+      "2.2"
+     ],
+     [
+      "4.2",
+      "1.1"
+     ],
+     [
+      "2.8",
+      "1.1"
+     ]
+    ],
+    "c": 0,
+    "nombre": "7"
+   },
+   {
+    "t": "poligono",
+    "puntos": [
+     [
+      "4.2",
+      "2.2"
+     ],
+     [
+      "5.6",
+      "2.2"
+     ],
+     [
+      "5.6",
+      "1.1"
+     ],
+     [
+      "4.2",
+      "1.1"
+     ]
+    ],
+    "c": 0,
+    "nombre": "8"
+   },
+   {
+    "t": "poligono",
+    "puntos": [
+     [
+      "5.6",
+      "2.2"
+     ],
+     [
+      "7.0",
+      "2.2"
+     ],
+     [
+      "7.0",
+      "1.1"
+     ],
+     [
+      "5.6",
+      "1.1"
+     ]
+    ],
+    "c": 0,
+    "nombre": "9"
+   },
+   {
+    "t": "poligono",
+    "puntos": [
+     [
+      "0.0",
+      "1.1"
+     ],
+     [
+      "1.4",
+      "1.1"
+     ],
+     [
+      "1.4",
+      "0.0"
+     ],
+     [
+      "0.0",
+      "0.0"
+     ]
+    ],
+    "c": 0,
+    "nombre": "10"
+   },
+   {
+    "t": "poligono",
+    "puntos": [
+     [
+      "1.4",
+      "1.1"
+     ],
+     [
+      "2.8",
+      "1.1"
+     ],
+     [
+      "2.8",
+      "0.0"
+     ],
+     [
+      "1.4",
+      "0.0"
+     ]
+    ],
+    "c": 0,
+    "nombre": "11"
+   },
+   {
+    "t": "poligono",
+    "puntos": [
+     [
+      "2.8",
+      "1.1"
+     ],
+     [
+      "4.2",
+      "1.1"
+     ],
+     [
+      "4.2",
+      "0.0"
+     ],
+     [
+      "2.8",
+      "0.0"
+     ]
+    ],
+    "c": 0,
+    "nombre": "12"
+   },
+   {
+    "t": "poligono",
+    "puntos": [
+     [
+      "4.2",
+      "1.1"
+     ],
+     [
+      "5.6",
+      "1.1"
+     ],
+     [
+      "5.6",
+      "0.0"
+     ],
+     [
+      "4.2",
+      "0.0"
+     ]
+    ],
+    "c": 0,
+    "nombre": "13"
+   },
+   {
+    "t": "poligono",
+    "puntos": [
+     [
+      "5.6",
+      "1.1"
+     ],
+     [
+      "7.0",
+      "1.1"
+     ],
+     [
+      "7.0",
+      "0.0"
+     ],
+     [
+      "5.6",
+      "0.0"
+     ]
+    ],
+    "c": 0,
+    "nombre": "14"
+   },
+   {
+    "t": "poligono",
+    "puntos": [
+     [
+      "0.0",
+      "3.3"
+     ],
+     [
+      "1.4",
+      "3.3"
+     ],
+     [
+      "1.4",
+      "3.3-1.1*((1*(x-1)*(x-2)*(x-3)*(x-4)/(24)))"
+     ],
+     [
+      "0.0",
+      "3.3-1.1*((1*(x-1)*(x-2)*(x-3)*(x-4)/(24)))"
+     ]
+    ],
+    "c": 3
+   },
+   {
+    "t": "poligono",
+    "puntos": [
+     [
+      "1.4",
+      "3.3"
+     ],
+     [
+      "2.8",
+      "3.3"
+     ],
+     [
+      "2.8",
+      "3.3-1.1*((1*(x-0)*(x-2)*(x-3)*(x-4)/(-6)))"
+     ],
+     [
+      "1.4",
+      "3.3-1.1*((1*(x-0)*(x-2)*(x-3)*(x-4)/(-6)))"
+     ]
+    ],
+    "c": 3
+   },
+   {
+    "t": "poligono",
+    "puntos": [
+     [
+      "2.8",
+      "3.3"
+     ],
+     [
+      "4.2",
+      "3.3"
+     ],
+     [
+      "4.2",
+      "3.3-1.1*((1*(x-0)*(x-1)*(x-3)*(x-4)/(4)))"
+     ],
+     [
+      "2.8",
+      "3.3-1.1*((1*(x-0)*(x-1)*(x-3)*(x-4)/(4)))"
+     ]
+    ],
+    "c": 3
+   },
+   {
+    "t": "poligono",
+    "puntos": [
+     [
+      "4.2",
+      "3.3"
+     ],
+     [
+      "5.6",
+      "3.3"
+     ],
+     [
+      "5.6",
+      "3.3-1.1*((1*(x-0)*(x-1)*(x-2)*(x-4)/(-6)))"
+     ],
+     [
+      "4.2",
+      "3.3-1.1*((1*(x-0)*(x-1)*(x-2)*(x-4)/(-6)))"
+     ]
+    ],
+    "c": 3
+   },
+   {
+    "t": "poligono",
+    "puntos": [
+     [
+      "5.6",
+      "3.3"
+     ],
+     [
+      "7.0",
+      "3.3"
+     ],
+     [
+      "7.0",
+      "3.3-1.1*((1*(x-0)*(x-1)*(x-2)*(x-3)/(24)))"
+     ],
+     [
+      "5.6",
+      "3.3-1.1*((1*(x-0)*(x-1)*(x-2)*(x-3)/(24)))"
+     ]
+    ],
+    "c": 3
+   },
+   {
+    "t": "poligono",
+    "puntos": [
+     [
+      "0.0",
+      "2.2"
+     ],
+     [
+      "1.4",
+      "2.2"
+     ],
+     [
+      "1.4",
+      "2.2-1.1*((1*(x-1)*(x-2)*(x-3)*(x-4)/(24)))"
+     ],
+     [
+      "0.0",
+      "2.2-1.1*((1*(x-1)*(x-2)*(x-3)*(x-4)/(24)))"
+     ]
+    ],
+    "c": 3
+   },
+   {
+    "t": "poligono",
+    "puntos": [
+     [
+      "1.4",
+      "2.2"
+     ],
+     [
+      "2.8",
+      "2.2"
+     ],
+     [
+      "2.8",
+      "2.2-1.1*((1*(x-0)*(x-2)*(x-3)*(x-4)/(-6)))"
+     ],
+     [
+      "1.4",
+      "2.2-1.1*((1*(x-0)*(x-2)*(x-3)*(x-4)/(-6)))"
+     ]
+    ],
+    "c": 3
+   },
+   {
+    "t": "poligono",
+    "puntos": [
+     [
+      "2.8",
+      "2.2"
+     ],
+     [
+      "4.2",
+      "2.2"
+     ],
+     [
+      "4.2",
+      "2.2-1.1*((1*(x-0)*(x-1)*(x-3)*(x-4)/(4)))"
+     ],
+     [
+      "2.8",
+      "2.2-1.1*((1*(x-0)*(x-1)*(x-3)*(x-4)/(4)))"
+     ]
+    ],
+    "c": 3
+   },
+   {
+    "t": "poligono",
+    "puntos": [
+     [
+      "4.2",
+      "2.2"
+     ],
+     [
+      "5.6",
+      "2.2"
+     ],
+     [
+      "5.6",
+      "2.2-1.1*((1*(x-0)*(x-1)*(x-2)*(x-4)/(-6)))"
+     ],
+     [
+      "4.2",
+      "2.2-1.1*((1*(x-0)*(x-1)*(x-2)*(x-4)/(-6)))"
+     ]
+    ],
+    "c": 3
+   },
+   {
+    "t": "poligono",
+    "puntos": [
+     [
+      "5.6",
+      "2.2"
+     ],
+     [
+      "7.0",
+      "2.2"
+     ],
+     [
+      "7.0",
+      "2.2-1.1*((1*(x-0)*(x-1)*(x-2)*(x-3)/(24)))"
+     ],
+     [
+      "5.6",
+      "2.2-1.1*((1*(x-0)*(x-1)*(x-2)*(x-3)/(24)))"
+     ]
+    ],
+    "c": 3
+   },
+   {
+    "t": "poligono",
+    "puntos": [
+     [
+      "0.0",
+      "1.1"
+     ],
+     [
+      "1.4",
+      "1.1"
+     ],
+     [
+      "1.4",
+      "1.1-1.1*((1*(x-1)*(x-2)*(x-3)*(x-4)/(24)))"
+     ],
+     [
+      "0.0",
+      "1.1-1.1*((1*(x-1)*(x-2)*(x-3)*(x-4)/(24)))"
+     ]
+    ],
+    "c": 3
+   },
+   {
+    "t": "poligono",
+    "puntos": [
+     [
+      "1.4",
+      "1.1"
+     ],
+     [
+      "2.8",
+      "1.1"
+     ],
+     [
+      "2.8",
+      "1.1-1.1*((1*(x-0)*(x-2)*(x-3)*(x-4)/(-6)))"
+     ],
+     [
+      "1.4",
+      "1.1-1.1*((1*(x-0)*(x-2)*(x-3)*(x-4)/(-6)))"
+     ]
+    ],
+    "c": 3
+   },
+   {
+    "t": "poligono",
+    "puntos": [
+     [
+      "2.8",
+      "1.1"
+     ],
+     [
+      "4.2",
+      "1.1"
+     ],
+     [
+      "4.2",
+      "1.1-1.1*((1*(x-0)*(x-1)*(x-3)*(x-4)/(4)))"
+     ],
+     [
+      "2.8",
+      "1.1-1.1*((1*(x-0)*(x-1)*(x-3)*(x-4)/(4)))"
+     ]
+    ],
+    "c": 3
+   },
+   {
+    "t": "poligono",
+    "puntos": [
+     [
+      "4.2",
+      "1.1"
+     ],
+     [
+      "5.6",
+      "1.1"
+     ],
+     [
+      "5.6",
+      "1.1-1.1*((1*(x-0)*(x-1)*(x-2)*(x-4)/(-6)))"
+     ],
+     [
+      "4.2",
+      "1.1-1.1*((1*(x-0)*(x-1)*(x-2)*(x-4)/(-6)))"
+     ]
+    ],
+    "c": 3
+   },
+   {
+    "t": "poligono",
+    "puntos": [
+     [
+      "5.6",
+      "1.1"
+     ],
+     [
+      "7.0",
+      "1.1"
+     ],
+     [
+      "7.0",
+      "1.1-1.1*((1*(x-0)*(x-1)*(x-2)*(x-3)/(24)))"
+     ],
+     [
+      "5.6",
+      "1.1-1.1*((1*(x-0)*(x-1)*(x-2)*(x-3)/(24)))"
+     ]
+    ],
+    "c": 3
+   }
+  ],
+  "lecturas": [
+   {
+    "rotulo": "residuo r de la clase elegida",
+    "formula": "x"
+   },
+   {
+    "rotulo": "suma de los elementos de la clase entre 0 y 14",
+    "formula": "3*x+15"
+   }
+  ],
+  "etiquetas": [
+   "Residuo al dividir entre 5 de todos los elementos de la clase",
+   "Suma de los tres números de la columna elegida"
+  ],
+  "etiquetaSlider": "Clase r, de 0 a 4",
+  "alt": "Los enteros del 0 al 14 en tres filas de cinco. Cada columna reúne los números con el mismo residuo al dividir entre 5. El deslizador resalta una columna, que es una clase de equivalencia"
+ },
+ "glosario": {
+  "equivalencia": "Una relación de equivalencia es reflexiva, simétrica y transitiva. Agrupa los elementos que se consideran iguales para un propósito.",
+  "clase": "La clase de equivalencia de a reúne todos los elementos relacionados con a. Se escribe entre corchetes.",
+  "particion": "Una partición de A es una familia de subconjuntos no vacíos, disjuntos, que cubren A.",
+  "congruencia": "Dos enteros son congruentes módulo n si su diferencia es múltiplo de n. Es una relación de equivalencia."
+ },
+ "ver": {
+  "duracion": 24.0,
+  "capitulos": [
+   [
+    0,
+    4,
+    "Los enteros del 0 al 14 están en filas de 5. Cada columna reúne los números con el mismo residuo al dividir entre 5."
+   ],
+   [
+    4,
+    9,
+    "La columna 0 tiene el 0, el 5 y el 10. Están relacionados porque su diferencia es un múltiplo de 5."
+   ],
+   [
+    9,
+    14,
+    "Cambia de columna. Cada una es una clase de equivalencia. Los números de una columna se relacionan entre sí y con ninguno de otra columna."
+   ],
+   [
+    14,
+    19,
+    "Hay cinco columnas, o sea, cinco clases. Y cada entero está en una sola."
+   ],
+   [
+    19,
+    24,
+    "Eso es una partición del conjunto. Toda relación de equivalencia parte el conjunto en clases, y toda partición define una relación de equivalencia."
+   ]
+  ],
+  "canales": {
+   "draw": [
+    [
+     0.3,
+     0
+    ],
+    [
+     3.5,
+     1
+    ]
+   ],
+   "d": [
+    [
+     4,
+     0
+    ],
+    [
+     5,
+     0
+    ],
+    [
+     6,
+     0
+    ],
+    [
+     9,
+     1
+    ],
+    [
+     11,
+     2
+    ],
+    [
+     13,
+     3
+    ],
+    [
+     15,
+     4
+    ],
+    [
+     19,
+     4
+    ],
+    [
+     24,
+     4
+    ]
+   ],
+   "guide": [
+    [
+     4,
+     0
+    ],
+    [
+     5,
+     1
+    ]
+   ]
+  },
+  "intervalos": {
+   "ok": [
+    19,
+    24
+   ]
+  }
+ },
+ "leer": {
+  "secciones": [
+   {
+    "titulo": "La idea",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Una {{gl:equivalencia|relación de equivalencia}} es una forma de decir que dos elementos son lo mismo para cierto propósito. Debe ser reflexiva, simétrica y transitiva. Cada elemento queda en su {{gl:clase|clase de equivalencia}}, que reúne a todos los que se relacionan con él, y las clases forman una {{gl:particion|partición}} del conjunto. Un ejemplo es la {{gl:congruencia|congruencia}} módulo n."
+     }
+    ]
+   },
+   {
+    "titulo": "Un ejemplo",
+    "corto": "Un ejemplo",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Dos enteros se relacionan si su diferencia es múltiplo de 5. Mira cómo se agrupan los números del 0 al 14."
+     },
+     {
+      "t": "eq",
+      "tex": "x\\,R\\,y\\ \\iff\\ 5\\mid x-y"
+     },
+     {
+      "t": "grafica",
+      "animar": "dibujar",
+      "alt": "Los enteros del 0 al 14 agrupados por residuo"
+     }
+    ]
+   },
+   {
+    "titulo": "Piensa antes de ver",
+    "corto": "Piensa",
+    "bloques": [
+     {
+      "t": "piensa",
+      "pregunta": "Al dividir un entero entre 5 queda un residuo. ¿Cuántos residuos distintos son posibles?",
+      "opciones": [
+       3,
+       4,
+       5,
+       6
+      ],
+      "correcta": 5,
+      "bien": "Muy bien. Son 5, del 0 al 4. Más abajo se ve cada residuo como una columna.",
+      "mal": "Son 5, los residuos 0, 1, 2, 3 y 4. Más abajo se ve cada residuo como una columna."
+     }
+    ]
+   },
+   {
+    "titulo": "Recorriendo las clases",
+    "corto": "Las clases",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mira la columna resaltada para las clases 0, 1, 2 y 4."
+     },
+     {
+      "t": "acercando",
+      "ds": [
+       0,
+       1,
+       2,
+       4
+      ],
+      "alt": "Cuatro clases resaltadas"
+     },
+     {
+      "t": "p",
+      "html": "Cada columna es una clase. Los números de la misma columna tienen el mismo residuo."
+     }
+    ]
+   },
+   {
+    "titulo": "Las tres propiedades",
+    "corto": "Propiedades",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Para comprobar que una relación es de equivalencia se verifican tres propiedades. Se muestran con la relación x menos y es par."
+     },
+     {
+      "t": "pasos",
+      "items": [
+       {
+        "tex": "x-x=0\\ \\text{es par}",
+        "porque": "Reflexiva. Todo elemento se relaciona consigo mismo."
+       },
+       {
+        "tex": "x-y\\ \\text{par}\\Rightarrow y-x=-(x-y)\\ \\text{par}",
+        "porque": "Simétrica. Si a se relaciona con b, entonces b se relaciona con a."
+       },
+       {
+        "tex": "x-y\\ \\text{y}\\ y-z\\ \\text{pares}\\Rightarrow x-z=(x-y)+(y-z)\\ \\text{par}",
+        "porque": "Transitiva. Si a se relaciona con b y b con c, entonces a con c."
+       }
+      ]
+     },
+     {
+      "t": "ojo",
+      "html": "Las tres propiedades son independientes. La relación menor o igual es reflexiva y transitiva, pero no es simétrica, así que no es de equivalencia."
+     }
+    ]
+   },
+   {
+    "titulo": "Clases y particiones",
+    "corto": "Particiones",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Las clases de una relación de equivalencia nunca se mezclan ni se cruzan."
+     },
+     {
+      "t": "pasos",
+      "items": [
+       {
+        "tex": "[a]=\\{x:\\ x\\,R\\,a\\}",
+        "porque": "La clase de a reúne a todos sus relacionados."
+       },
+       {
+        "tex": "[a]=[b]\\ \\text{o}\\ [a]\\cap[b]=\\emptyset",
+        "porque": "Dos clases son iguales o no tienen nada en común."
+       },
+       {
+        "tex": "\\mathbb{Z}/5\\mathbb{Z}=\\{[0],[1],[2],[3],[4]\\}",
+        "porque": "Hay cinco clases de enteros módulo 5."
+       }
+      ]
+     },
+     {
+      "t": "ojo",
+      "html": "Cada elemento de una clase puede representarla. La clase de 2 módulo 5 es la misma que la clase de 7 o la de menos 3."
+     }
+    ]
+   },
+   {
+    "titulo": "¿Para qué sirve?",
+    "corto": "En ingeniería",
+    "bloques": [
+     {
+      "t": "ingenieria",
+      "titulo": "Las casillas de una tabla hash",
+      "html": "Una tabla hash con 5 casillas guarda cada clave k en la casilla que resulta de k módulo 5. Las claves 7, 12 y 17 caen todas en la casilla 2, porque tienen el mismo residuo. Las claves que comparten casilla forman una clase de equivalencia.",
+      "tex": "k\\equiv j\\pmod{5}",
+      "datos": [
+       {
+        "k": "Casillas",
+        "v": "5"
+       },
+       {
+        "k": "Claves 7, 12 y 17",
+        "v": "casilla 2"
+       },
+       {
+        "k": "Claves por casilla si hay 15",
+        "v": "3"
+       }
+      ],
+      "cierre": "Si las claves se reparten bien, cada clase tiene más o menos el mismo número de elementos, y buscar una clave es rápido. Cuando muchas claves caen en la misma clase hay colisiones. Entender las clases de equivalencia permite diseñar funciones hash que repartan mejor los datos."
+     }
+    ]
+   },
+   {
+    "titulo": "Completa el paso",
+    "corto": "Completa",
+    "bloques": [
+     {
+      "t": "completar",
+      "enunciado": "Se prueba que x R y si x menos y es par es simétrica. Falta el paso.",
+      "tex": "x-y\\ \\text{par}\\ \\Rightarrow\\ y-x=[[hueco]]\\ \\text{es par}",
+      "opciones": [
+       {
+        "tex": "-(x-y)",
+        "txt": "el opuesto de x menos y"
+       },
+       {
+        "tex": "x-y",
+        "txt": "la misma diferencia"
+       },
+       {
+        "tex": "2(x-y)",
+        "txt": "el doble"
+       }
+      ],
+      "correcta": 0,
+      "errores": [
+       "",
+       "La diferencia y menos x no es igual a x menos y, sino a su opuesto.",
+       "El doble no es lo que se obtiene al invertir el orden."
+      ],
+      "pista": "Invertir el orden cambia el signo.",
+      "porque": "y menos x es el opuesto de x menos y, y el opuesto de un número par también es par."
+     }
+    ]
+   },
+   {
+    "titulo": "Encuentra el error",
+    "corto": "Error",
+    "bloques": [
+     {
+      "t": "error",
+      "enunciado": "Alguien dijo que la relación x menor o igual que y es de equivalencia y se equivocó en un paso. Toca el paso que está mal.",
+      "pasos": [
+       {
+        "tex": "x\\le x",
+        "porque": "Reflexiva. Se cumple.",
+        "txt": "es reflexiva"
+       },
+       {
+        "tex": "x\\le y\\Rightarrow y\\le x",
+        "porque": "Simétrica. Este paso es el que falla.",
+        "txt": "es simétrica"
+       },
+       {
+        "tex": "\\text{Entonces es de equivalencia}",
+        "porque": "Conclusión.",
+        "txt": "es de equivalencia"
+       }
+      ],
+      "mal": 1,
+      "explicacion": "Si x menor o igual que y, no siempre y es menor o igual que x. Con 1 y 2 se cumple uno menor o igual que 2, pero no 2 menor o igual que 1. Falla la simetría.",
+      "correccion": "1\\le2\\ \\text{pero}\\ 2\\not\\le1",
+      "pista": "Prueba con dos números distintos."
+     }
+    ]
+   },
+   {
+    "titulo": "Ordena los pasos",
+    "corto": "Ordena",
+    "bloques": [
+     {
+      "t": "ordenar",
+      "enunciado": "Estos son los pasos para probar la transitividad de la congruencia módulo 5, pero están desordenados.",
+      "pasos": [
+       "5\\mid x-y\\ \\text{y}\\ 5\\mid y-z",
+       "x-y=5a,\\ \\ y-z=5b",
+       "x-z=5(a+b)",
+       "5\\mid x-z"
+      ],
+      "mezcla": [
+       2,
+       0,
+       3,
+       1
+      ],
+      "porque": "Se escriben las dos diferencias como múltiplos de 5 y se suman.",
+      "pista": "Se empieza con lo que se sabe.",
+      "txt": [
+       "Se parte de dos diferencias múltiplos de 5",
+       "Se escriben como múltiplos",
+       "Se suman las dos igualdades",
+       "Por tanto x y z se relacionan"
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "Revisa tu respuesta",
+    "corto": "Revisa",
+    "bloques": [
+     {
+      "t": "pregunta"
+     },
+     {
+      "t": "nota",
+      "html": "Puedes pedir pistas de a una. Si fallas, el mensaje te dice qué error se cometió."
+     }
+    ]
+   },
+   {
+    "titulo": "Mini simulacro",
+    "corto": "Simulacro",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Tres preguntas reales del banco de MathUNAL sobre este tema. Responde sin mirar los pasos."
+     },
+     {
+      "t": "simulacro",
+      "titulo": "Mini simulacro de relaciones de equivalencia",
+      "preguntas": [
+       {
+        "tipo": "mcq",
+        "texto": "En $\\mathbb{Z}$, la relación \"$x\\,R\\,y \\iff x-y$ es par\" es:",
+        "opciones": [
+         "una relación de equivalencia",
+         "un orden parcial",
+         "solo reflexiva",
+         "ni reflexiva ni simétrica"
+        ],
+        "correcta": 0,
+        "resumen": "Es reflexiva, simétrica y transitiva.",
+        "fuente": "Banco MathUNAL, simulacro de Fundamentos de Matemáticas"
+       },
+       {
+        "tipo": "numerica",
+        "texto": "¿Cuántas clases de equivalencia tiene $\\mathbb{Z}/5\\mathbb{Z}$ (enteros módulo $5$)?",
+        "respuesta": "5",
+        "tolNum": 0.001,
+        "resumen": "Hay un residuo por cada clase, y los residuos módulo 5 son 5.",
+        "fuente": "Banco MathUNAL, simulacro de Fundamentos de Matemáticas"
+       },
+       {
+        "tipo": "mcq",
+        "texto": "La clase de equivalencia $[2]$ módulo $4$ en $\\mathbb{Z}$ es:",
+        "opciones": [
+         "$\\{\\ldots,-6,-2,2,6,10,\\ldots\\}$",
+         "$\\{2\\}$",
+         "$\\{0,1,2,3\\}$",
+         "$\\{2,4,6,8,\\ldots\\}$"
+        ],
+        "correcta": 0,
+        "resumen": "La clase de 2 módulo 4 reúne los números de la forma 4k más 2.",
+        "fuente": "Banco MathUNAL, simulacro de Fundamentos de Matemáticas"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "Tu repaso",
+    "corto": "Repaso",
+    "bloques": [
+     {
+      "t": "repaso"
+     }
+    ]
+   },
+   {
+    "titulo": "En resumen",
+    "corto": "Resumen",
+    "bloques": [
+     {
+      "t": "resumen"
+     }
+    ]
+   }
+  ]
+ },
+ "practicar": {
+  "pasos": [
+   {
+    "titulo": "Los números",
+    "grafica": {
+     "draw": 1,
+     "guide": 1
+    },
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Los enteros del 0 al 14 en filas de 5."
+     },
+     {
+      "t": "eq",
+      "tex": "x\\,R\\,y\\iff 5\\mid x-y"
+     }
+    ]
+   },
+   {
+    "titulo": "Recorre las clases",
+    "grafica": {
+     "draw": 1,
+     "guide": 1
+    },
+    "laboratorio": true,
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mueve el deslizador de 0 a 4. Se resalta la columna de cada clase."
+     }
+    ]
+   },
+   {
+    "titulo": "La clase del 2",
+    "grafica": {
+     "draw": 1,
+     "guide": 1,
+     "ok": true
+    },
+    "laboratorio": true,
+    "d": 2,
+    "bloques": [
+     {
+      "t": "eq",
+      "tex": "[2]=\\{\\ldots,-3,2,7,12,\\ldots\\}"
+     },
+     {
+      "t": "p",
+      "html": "La columna 2 tiene el 2, el 7 y el 12."
+     }
+    ]
+   },
+   {
+    "titulo": "Revisa tu respuesta",
+    "grafica": {
+     "draw": 1,
+     "guide": 1,
+     "ok": true,
+     "d": 2
+    },
+    "bloques": [
+     {
+      "t": "pregunta"
+     },
+     {
+      "t": "nota",
+      "html": "Los elementos de una clase se obtienen sumando múltiplos del módulo."
+     }
+    ]
+   }
+  ]
+ },
+ "pregunta": {
+  "tex": "\\text{Una clase de equivalencia módulo}\\ 3\\ \\text{es}",
+  "opciones": [
+   "$\\{\\ldots,-4,-1,2,5,8,\\ldots\\}$",
+   "$\\{0,1,2\\}$",
+   "$\\{2,3,4,5\\}$",
+   "$\\{1,3,5,7,\\ldots\\}$"
+  ],
+  "correcta": 0,
+  "explicacion": "Una clase módulo 3 reúne a todos los enteros con el mismo residuo, que se obtienen sumando o restando múltiplos de 3. El conjunto de 2, 5, 8 y demás es la clase del 2, y los otros no son clases.",
+  "verificacion": {
+   "formula": "1-(1-0)*1+0*x",
+   "a": 0,
+   "esperado": 0
+  },
+  "pistas": [
+   "Los elementos de una clase se obtienen sumando 3.",
+   "Busca un conjunto infinito en los dos sentidos.",
+   "Es el primero."
+  ],
+  "errores": [
+   "",
+   "Ese conjunto tiene los tres residuos distintos, o sea, una clase de cada una.",
+   "Ese conjunto no cumple que la diferencia entre elementos sea múltiplo de 3.",
+   "Ese conjunto es el de los impares, que es una clase del módulo 2."
+  ]
+ },
+ "resumen": [
+  "Una relación de equivalencia es reflexiva, simétrica y transitiva.",
+  "Sus clases son disjuntas y cubren el conjunto, o sea, forman una partición.",
+  "La congruencia módulo n tiene n clases, una por cada residuo posible."
+ ]
+}
