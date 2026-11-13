@@ -1,0 +1,666 @@
+{
+ "esquema": 1,
+ "id": "gv-m3-l4",
+ "ejemplo": true,
+ "curso": "Geometría Vectorial y Analítica",
+ "modulo": "Módulo 3 Rectas, planos y cónicas",
+ "posicion": "Lección 4 de 4",
+ "titulo": "Rectas en el espacio e intersecciones",
+ "minutos": 28,
+ "ejercicios": 8,
+ "grafica": {
+  "tipo": "plano",
+  "x": [
+   -10.3,
+   10.3
+  ],
+  "y": [
+   -3.6,
+   7.6
+  ],
+  "a": -3,
+  "b": 2,
+  "inicio": 0,
+  "elementos": [
+   {
+    "t": "recta",
+    "p": [
+     "0",
+     "1"
+    ],
+    "dir": [
+     "1",
+     "0"
+    ],
+    "c": 3,
+    "guion": true
+   },
+   {
+    "t": "recta",
+    "p": [
+     "1",
+     "3"
+    ],
+    "dir": [
+     "1",
+     "2"
+    ],
+    "c": 0
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "1+x",
+     "1"
+    ],
+    "b": [
+     "1+x",
+     "3+2*x"
+    ],
+    "guion": true,
+    "c": 2,
+    "guia": true
+   },
+   {
+    "t": "punto",
+    "p": [
+     "1+x",
+     "3+2*x"
+    ],
+    "c": 1
+   }
+  ],
+  "lecturas": [
+   {
+    "rotulo": "coordenada z del punto de la recta",
+    "formula": "3+2*x"
+   },
+   {
+    "rotulo": "coordenada y del punto de la recta",
+    "formula": "2-x"
+   }
+  ],
+  "etiquetas": [
+   "Altura del punto, el plano está a altura 1",
+   "Segunda coordenada del punto"
+  ],
+  "etiquetaSlider": "Parámetro t",
+  "alt": "La recta que pasa por (1, 2, 3) con dirección (1, menos 1, 2), vista en el plano x z. El plano z igual a 1 aparece como una recta horizontal. Un punto se mueve sobre la recta con el parámetro t y cruza el plano cuando t vale menos 1"
+ },
+ "glosario": {
+  "vectorial": "La ecuación vectorial de una recta es r igual a r0 más t v, donde r0 es un punto y v es el vector director.",
+  "parametrica": "Las ecuaciones paramétricas dan cada coordenada en función de t. Es la ecuación vectorial escrita componente a componente.",
+  "alabeadas": "Dos rectas del espacio que no se cortan y no son paralelas se llaman alabeadas. No están en un mismo plano.",
+  "interseccion": "Para hallar la intersección de una recta con un plano se sustituye la recta en la ecuación del plano y se despeja t."
+ },
+ "ver": {
+  "duracion": 22.0,
+  "capitulos": [
+   [
+    0,
+    4,
+    "La recta pasa por (1, 2, 3) con dirección (1, menos 1, 2). En esta vista se ven x y z, y el plano z igual a 1 aparece como una recta horizontal."
+   ],
+   [
+    4,
+    10,
+    "El punto se mueve con el parámetro t. Cada valor de t da un punto de la recta."
+   ],
+   [
+    10,
+    15,
+    "Con t igual a menos 1, z vale 1 y la recta cruza el plano. El punto de corte es (0, 3, 1)."
+   ],
+   [
+    15,
+    19,
+    "En ese punto y vale 3, que se lee en la segunda lectura."
+   ],
+   [
+    19,
+    22,
+    "Para cortar una recta con un plano se sustituye la recta en la ecuación del plano y se despeja t."
+   ]
+  ],
+  "canales": {
+   "draw": [
+    [
+     0.3,
+     0
+    ],
+    [
+     3.5,
+     1
+    ]
+   ],
+   "d": [
+    [
+     4,
+     0
+    ],
+    [
+     7,
+     2
+    ],
+    [
+     9,
+     -3
+    ],
+    [
+     10,
+     -1
+    ],
+    [
+     15,
+     -1
+    ],
+    [
+     19,
+     -1
+    ],
+    [
+     22,
+     -1
+    ]
+   ],
+   "guide": [
+    [
+     4,
+     0
+    ],
+    [
+     5,
+     1
+    ]
+   ]
+  },
+  "intervalos": {
+   "ok": [
+    10,
+    22
+   ]
+  }
+ },
+ "leer": {
+  "secciones": [
+   {
+    "titulo": "La idea",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Una recta del espacio se describe con un punto y un vector director, en forma {{gl:vectorial|vectorial}} o {{gl:parametrica|paramétrica}}. Dos rectas pueden cortarse, ser paralelas o ser {{gl:alabeadas|alabeadas}}. Una recta puede cortar a un plano en un punto, ser paralela a él o estar contenida en él. Para hallar el corte se usa la {{gl:interseccion|intersección}}."
+     }
+    ]
+   },
+   {
+    "titulo": "Un ejemplo",
+    "corto": "Un ejemplo",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mira la recta que pasa por (1, 2, 3) con dirección (1, menos 1, 2) y el plano z igual a 1. Mueve el parámetro t hasta que el punto toque el plano."
+     },
+     {
+      "t": "eq",
+      "tex": "(x,y,z)=(1,2,3)+t\\,(1,-1,2)"
+     },
+     {
+      "t": "grafica",
+      "animar": "dibujar",
+      "alt": "La recta y el plano z igual a 1"
+     }
+    ]
+   },
+   {
+    "titulo": "Piensa antes de ver",
+    "corto": "Piensa",
+    "bloques": [
+     {
+      "t": "piensa",
+      "pregunta": "La recta tiene z igual a 3 más 2t. Para que z valga 1 hace falta que 2t valga menos 2. ¿Cuánto vale t?",
+      "opciones": [
+       -2,
+       -1,
+       1,
+       2
+      ],
+      "correcta": -1,
+      "bien": "Muy bien. Vale menos 1. Más abajo se ve el punto de corte.",
+      "mal": "Vale menos 1, porque menos 2 entre 2 es menos 1. Más abajo se ve el punto de corte."
+     }
+    ]
+   },
+   {
+    "titulo": "Moviendo el punto",
+    "corto": "El parámetro",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mira el punto con t igual a menos 3, menos 1, 0 y 2."
+     },
+     {
+      "t": "acercando",
+      "ds": [
+       -3,
+       -1,
+       0,
+       2
+      ],
+      "alt": "El punto sobre la recta para cuatro valores de t"
+     },
+     {
+      "t": "p",
+      "html": "Con t igual a <b>menos 1</b> el punto está en el plano. Allí (x, y, z) vale (0, 3, 1)."
+     }
+    ]
+   },
+   {
+    "titulo": "Formas de la recta",
+    "corto": "Formas",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Una recta se escribe con un punto y una dirección."
+     },
+     {
+      "t": "pasos",
+      "items": [
+       {
+        "tex": "\\mathbf{r}=\\mathbf{r}_{0}+t\\,\\mathbf{v}",
+        "porque": "Forma vectorial."
+       },
+       {
+        "tex": "(x,y,z)=(1+t,\\ 2-t,\\ 3+2t)",
+        "porque": "Forma paramétrica, coordenada por coordenada."
+       },
+       {
+        "tex": "(x,y)=(1+3t,\\ 2+4t)",
+        "porque": "En el plano es lo mismo con dos componentes, como en el banco."
+       },
+       {
+        "tex": "\\mathbf{v}=(1,-1,2)",
+        "porque": "El vector director marca la dirección de la recta."
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "Intersecciones",
+    "corto": "Intersecciones",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Para hallar dónde una recta corta a un plano se reemplaza la recta en la ecuación del plano."
+     },
+     {
+      "t": "pasos",
+      "items": [
+       {
+        "tex": "z=3+2t,\\quad \\text{plano}\\ z=1",
+        "porque": "Se sustituye en la ecuación del plano."
+       },
+       {
+        "tex": "3+2t=1\\ \\Rightarrow\\ t=-1",
+        "porque": "Se despeja t."
+       },
+       {
+        "tex": "(1-1,\\ 2+1,\\ 3-2)=(0,3,1)",
+        "porque": "Se evalúa la recta en ese t."
+       },
+       {
+        "tex": "\\mathbf{v}\\cdot\\mathbf{n}=0\\ \\Leftrightarrow\\ \\text{recta paralela al plano}",
+        "porque": "Si la dirección es perpendicular a la normal, no hay un único corte."
+       }
+      ]
+     },
+     {
+      "t": "ojo",
+      "html": "Una recta paralela a un plano puede estar contenida en él o no cortarlo nunca. Para saber cuál es el caso, se prueba si un punto de la recta está en el plano."
+     }
+    ]
+   },
+   {
+    "titulo": "Dos rectas en el espacio",
+    "corto": "Dos rectas",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "En el espacio, dos rectas tienen tres posibilidades, y la tercera no existe en el plano."
+     },
+     {
+      "t": "pasos",
+      "items": [
+       {
+        "tex": "\\mathbf{v}_{1}\\parallel\\mathbf{v}_{2}",
+        "porque": "Paralelas, o la misma recta."
+       },
+       {
+        "tex": "\\text{existe}\\ t,s:\\ \\mathbf{r}_{1}(t)=\\mathbf{r}_{2}(s)",
+        "porque": "Se cortan en un punto."
+       },
+       {
+        "tex": "\\text{ni paralelas ni con punto común}",
+        "porque": "Se cruzan, y se llaman alabeadas u oblicuas."
+       }
+      ]
+     },
+     {
+      "t": "ojo",
+      "html": "En el plano, dos rectas no paralelas siempre se cortan. En el espacio no, porque pueden cruzarse sin tocarse."
+     }
+    ]
+   },
+   {
+    "titulo": "¿Para qué sirve?",
+    "corto": "En ingeniería",
+    "bloques": [
+     {
+      "t": "ingenieria",
+      "titulo": "El rayo láser sobre una placa",
+      "html": "Un láser sale del punto (1, 2, 3) metros con dirección (1, menos 1, 2) y apunta hacia una placa plana en z igual a 1. El punto donde la toca se obtiene al sustituir la recta del rayo en la ecuación del plano.",
+      "tex": "3+2t=1\\ \\Rightarrow\\ t=-1\\ \\Rightarrow\\ (0,3,1)",
+      "datos": [
+       {
+        "k": "Origen del rayo",
+        "v": "(1, 2, 3) m"
+       },
+       {
+        "k": "Dirección",
+        "v": "(1, menos 1, 2)"
+       },
+       {
+        "k": "Punto en la placa",
+        "v": "(0, 3, 1) m"
+       }
+      ],
+      "cierre": "El rayo llega a la placa en el punto (0, 3, 1) metros, después de un parámetro t igual a menos 1, es decir, hacia atrás en la dirección dada. Si la dirección fuera paralela a la placa, el rayo nunca la tocaría. Este cálculo se usa en visión por computador y en trazado de rayos."
+     }
+    ]
+   },
+   {
+    "titulo": "Completa el paso",
+    "corto": "Completa",
+    "bloques": [
+     {
+      "t": "completar",
+      "enunciado": "Se sustituye la recta en el plano z igual a 1. Falta el valor de la derecha.",
+      "tex": "3+2t=[[hueco]]",
+      "opciones": [
+       {
+        "tex": "1",
+        "txt": "uno"
+       },
+       {
+        "tex": "0",
+        "txt": "cero"
+       },
+       {
+        "tex": "3",
+        "txt": "tres"
+       }
+      ],
+      "correcta": 0,
+      "errores": [
+       "",
+       "Cero sería el plano z igual a 0. El plano de este ejemplo es z igual a 1.",
+       "Tres es el valor de z en el punto de partida, y no el valor del plano."
+      ],
+      "pista": "La derecha es el valor de z en el plano.",
+      "porque": "El plano z igual a 1 pide que 3 más 2t valga 1."
+     }
+    ]
+   },
+   {
+    "titulo": "Encuentra el error",
+    "corto": "Error",
+    "bloques": [
+     {
+      "t": "error",
+      "enunciado": "Alguien halló dónde la recta corta al plano z igual a 1 y se equivocó en un paso. Toca el paso que está mal.",
+      "pasos": [
+       {
+        "tex": "z=3+2t",
+        "porque": "La coordenada z de la recta.",
+        "txt": "z es 3 más 2t"
+       },
+       {
+        "tex": "3+2t=1",
+        "porque": "Se iguala al plano.",
+        "txt": "se iguala a 1"
+       },
+       {
+        "tex": "\\text{Entonces}\\ t=1",
+        "porque": "Este paso es el que falla.",
+        "txt": "queda t igual a 1"
+       }
+      ],
+      "mal": 2,
+      "explicacion": "De 3 más 2t igual a 1 se despeja 2t igual a menos 2, y t vale menos 1. Con t igual a 1 se obtendría z igual a 5.",
+      "correccion": "t=-1,\\quad (x,y,z)=(0,3,1)",
+      "pista": "Despeja t con cuidado del signo."
+     }
+    ]
+   },
+   {
+    "titulo": "Ordena los pasos",
+    "corto": "Ordena",
+    "bloques": [
+     {
+      "t": "ordenar",
+      "enunciado": "Estos son los pasos para hallar el punto donde la recta corta al plano z igual a 1, pero están desordenados.",
+      "pasos": [
+       "(x,y,z)=(1+t,\\ 2-t,\\ 3+2t)",
+       "3+2t=1",
+       "t=-1",
+       "(0,3,1)"
+      ],
+      "mezcla": [
+       2,
+       0,
+       3,
+       1
+      ],
+      "porque": "Se escribe la recta, se sustituye en el plano, se despeja t y se evalúa.",
+      "pista": "Se empieza escribiendo la recta.",
+      "txt": [
+       "Se escribe la recta en paramétricas",
+       "Se sustituye en la ecuación del plano",
+       "Se despeja t",
+       "Se evalúa la recta en ese t"
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "Revisa tu respuesta",
+    "corto": "Revisa",
+    "bloques": [
+     {
+      "t": "pregunta"
+     },
+     {
+      "t": "nota",
+      "html": "Puedes pedir pistas de a una. Si fallas, el mensaje te dice qué error se cometió."
+     }
+    ]
+   },
+   {
+    "titulo": "Mini simulacro",
+    "corto": "Simulacro",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Tres preguntas reales del banco de MathUNAL sobre este tema. Responde sin mirar los pasos."
+     },
+     {
+      "t": "simulacro",
+      "titulo": "Mini simulacro de rectas en el espacio e intersecciones",
+      "preguntas": [
+       {
+        "tipo": "mcq",
+        "texto": "La recta que pasa por $\\mathbf{r}_0$ con vector director $\\mathbf{v}$ tiene ecuación vectorial:",
+        "opciones": [
+         "$\\mathbf{r} = \\mathbf{r}_0 + t\\,\\mathbf{v}$",
+         "$\\mathbf{r}\\cdot\\mathbf{v} = \\mathbf{r}_0$",
+         "$\\mathbf{r} = t\\,\\mathbf{r}_0$",
+         "$\\mathbf{v}\\cdot(\\mathbf{r} - \\mathbf{r}_0) = 0$"
+        ],
+        "correcta": 0,
+        "resumen": "La ecuación vectorial de una recta es un punto más un múltiplo del director.",
+        "fuente": "Banco MathUNAL, simulacro de Geometría Vectorial y Analítica"
+       },
+       {
+        "tipo": "mcq",
+        "texto": "Dos rectas en $\\mathbb{R}^3$ que NO se cortan y NO son paralelas se llaman:",
+        "opciones": [
+         "rectas que se cruzan (alabeadas u oblicuas)",
+         "rectas coincidentes",
+         "rectas perpendiculares",
+         "rectas coplanares"
+        ],
+        "correcta": 0,
+        "resumen": "Dos rectas que ni se cortan ni son paralelas se cruzan, y se llaman alabeadas.",
+        "fuente": "Banco MathUNAL, simulacro de Geometría Vectorial y Analítica"
+       },
+       {
+        "tipo": "mcq",
+        "texto": "Una recta es PARALELA a un plano si y solo si:",
+        "opciones": [
+         "su vector director es perpendicular a la normal del plano",
+         "su vector director es paralelo a la normal del plano",
+         "la recta pasa por el origen",
+         "el plano pasa por el origen"
+        ],
+        "correcta": 0,
+        "resumen": "Una recta es paralela a un plano si su director es perpendicular a la normal.",
+        "fuente": "Banco MathUNAL, simulacro de Geometría Vectorial y Analítica"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "Tu repaso",
+    "corto": "Repaso",
+    "bloques": [
+     {
+      "t": "repaso"
+     }
+    ]
+   },
+   {
+    "titulo": "En resumen",
+    "corto": "Resumen",
+    "bloques": [
+     {
+      "t": "resumen"
+     }
+    ]
+   }
+  ]
+ },
+ "practicar": {
+  "pasos": [
+   {
+    "titulo": "La recta y el plano",
+    "grafica": {
+     "draw": 1
+    },
+    "bloques": [
+     {
+      "t": "p",
+      "html": "La recta vista en el plano x z, y el plano z igual a 1 como una recta horizontal."
+     },
+     {
+      "t": "eq",
+      "tex": "(x,y,z)=(1,2,3)+t\\,(1,-1,2)"
+     }
+    ]
+   },
+   {
+    "titulo": "Mueve el parámetro",
+    "grafica": {
+     "draw": 1
+    },
+    "laboratorio": true,
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mueve el deslizador. Abajo se leen las coordenadas z y y del punto de la recta."
+     }
+    ]
+   },
+   {
+    "titulo": "El corte",
+    "grafica": {
+     "draw": 1,
+     "guide": 1,
+     "ok": true
+    },
+    "laboratorio": true,
+    "d": -1,
+    "bloques": [
+     {
+      "t": "eq",
+      "tex": "t=-1\\ \\Rightarrow\\ (0,3,1)"
+     },
+     {
+      "t": "p",
+      "html": "Con t igual a menos 1, z vale 1 y la recta toca el plano."
+     }
+    ]
+   },
+   {
+    "titulo": "Revisa tu respuesta",
+    "grafica": {
+     "draw": 1,
+     "guide": 1,
+     "ok": true,
+     "d": -1
+    },
+    "bloques": [
+     {
+      "t": "pregunta"
+     },
+     {
+      "t": "nota",
+      "html": "Calcula el producto punto del director con la normal."
+     }
+    ]
+   }
+  ]
+ },
+ "pregunta": {
+  "tex": "\\text{La recta}\\ (1,0,0)+t(0,1,1)\\ \\text{y el plano}\\ x+y-z=5",
+  "opciones": [
+   "es paralela al plano",
+   "es perpendicular al plano",
+   "está contenida en el plano",
+   "corta al plano en un punto"
+  ],
+  "correcta": 0,
+  "explicacion": "El director es (0, 1, 1) y la normal es (1, 1, menos 1). Su producto punto es 0 más 1 menos 1, o sea 0, así que la recta es paralela al plano. El punto (1, 0, 0) da 1 en la ecuación, y no 5, entonces no está contenida.",
+  "verificacion": {
+   "formula": "0*1+1*1+1*(-1)+0*x",
+   "a": 0,
+   "esperado": 0
+  },
+  "pistas": [
+   "Calcula el producto punto del director con la normal.",
+   "Da 0.",
+   "Un producto cero indica que la recta es paralela al plano."
+  ],
+  "errores": [
+   "",
+   "Perpendicular exigiría que el director fuera paralelo a la normal, y aquí el producto punto es cero.",
+   "Para estar contenida, el punto (1, 0, 0) debería cumplir la ecuación, y da 1.",
+   "Un corte en un punto exige que el producto punto sea distinto de cero."
+  ]
+ },
+ "resumen": [
+  "Una recta del espacio es un punto más un múltiplo del vector director, en forma vectorial o paramétrica.",
+  "Para cortar una recta con un plano se sustituye la recta en la ecuación del plano y se despeja t.",
+  "Una recta es paralela a un plano si su director es perpendicular a la normal, y dos rectas que no se cortan ni son paralelas son alabeadas."
+ ]
+}

@@ -103,8 +103,8 @@
      "tema": "Rectas en el espacio e intersecciones",
      "preguntas_banco": 5,
      "parciales_con_el_tema": 1,
-     "estado": "pendiente",
-     "leccion": null
+     "estado": "borrador para revisión",
+     "leccion": "lecciones/geovec-espacio.json"
     }
    ]
   }
