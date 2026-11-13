@@ -75,8 +75,8 @@
      "tema": "Integral de Fourier",
      "preguntas_banco": 4,
      "parciales_con_el_tema": 0,
-     "estado": "pendiente",
-     "leccion": null
+     "estado": "borrador para revisión",
+     "leccion": "lecciones/esp-integral.json"
     },
     {
      "tema": "Fórmula de D'Alembert",
