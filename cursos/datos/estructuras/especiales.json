@@ -12,8 +12,8 @@
      "tema": "Coeficientes de Fourier y simetrías",
      "preguntas_banco": 10,
      "parciales_con_el_tema": 1,
-     "estado": "pendiente",
-     "leccion": null
+     "estado": "borrador para revisión",
+     "leccion": "lecciones/esp-coeficientes.json"
     },
     {
      "tema": "Convergencia de Dirichlet y fenómeno de Gibbs",
