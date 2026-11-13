@@ -1,0 +1,628 @@
+{
+ "esquema": 1,
+ "id": "cv-m2-l3",
+ "ejemplo": true,
+ "curso": "Cálculo en Varias Variables",
+ "modulo": "Módulo 2 Integrales múltiples",
+ "posicion": "Lección 3 de 6",
+ "titulo": "Cambio de variable y jacobiano",
+ "minutos": 26,
+ "ejercicios": 8,
+ "grafica": {
+  "tipo": "plano",
+  "x": [
+   -2.5,
+   9.6
+  ],
+  "y": [
+   -0.6,
+   6.6
+  ],
+  "a": 0.3,
+  "b": 2,
+  "inicio": 1,
+  "elementos": [
+   {
+    "t": "poligono",
+    "puntos": [
+     [
+      "0",
+      "0"
+     ],
+     [
+      "x",
+      "0"
+     ],
+     [
+      "x",
+      "x"
+     ],
+     [
+      "0",
+      "x"
+     ]
+    ],
+    "c": 0,
+    "nombre": "R"
+   },
+   {
+    "t": "poligono",
+    "puntos": [
+     [
+      "0",
+      "0"
+     ],
+     [
+      "2*x",
+      "x"
+     ],
+     [
+      "3*x",
+      "3*x"
+     ],
+     [
+      "x",
+      "2*x"
+     ]
+    ],
+    "c": 1,
+    "nombre": "S"
+   }
+  ],
+  "lecturas": [
+   {
+    "rotulo": "área del cuadrado en u y v, de lado s",
+    "formula": "x*x"
+   },
+   {
+    "rotulo": "área de su imagen en x y y, igual a 3 por el área anterior",
+    "formula": "3*x*x"
+   }
+  ],
+  "etiquetas": [
+   "El cuadrado de lado s en el plano u v",
+   "Su imagen en el plano x y, que es un paralelogramo con tres veces el área"
+  ],
+  "etiquetaSlider": "Lado s, de 0.3 a 2",
+  "alt": "Un cuadrado de lado s en el plano u v, y su imagen bajo la transformación x igual a 2u más v, y igual a u más 2v. La imagen es un paralelogramo con vértices 0, 0, 2s, s, 3s, 3s y s, 2s. El área de la imagen es el área del cuadrado por el jacobiano, que vale 3"
+ },
+ "glosario": {
+  "jacobiano": "El jacobiano de una transformación es el determinante de sus derivadas parciales, y mide cuánto se estira el área.",
+  "cambio": "Un cambio de variable reemplaza x y y por funciones de u y v, para convertir una región o una función complicada en una sencilla.",
+  "absoluto": "En la integral se usa el valor absoluto del jacobiano, porque el área no puede ser negativa.",
+  "polar": "El jacobiano de las polares es r, y por eso el elemento de área es r dr d theta."
+ },
+ "ver": {
+  "duracion": 24.0,
+  "capitulos": [
+   [
+    0,
+    4,
+    "Un cuadrado de lado s en el plano u v se transforma con x igual a 2u más v y y igual a u más 2v."
+   ],
+   [
+    4,
+    10,
+    "La imagen es un paralelogramo. Su área no es la del cuadrado, sino tres veces más."
+   ],
+   [
+    10,
+    16,
+    "Con s igual a 1 el cuadrado tiene área 1 y el paralelogramo tiene área 3."
+   ],
+   [
+    16,
+    20,
+    "Con s igual a 2 el cuadrado tiene área 4 y la imagen tiene área 12. La razón siempre es 3."
+   ],
+   [
+    20,
+    24,
+    "Ese 3 es el valor absoluto del jacobiano, el determinante de la matriz de derivadas."
+   ]
+  ],
+  "canales": {
+   "draw": [
+    [
+     0.3,
+     0
+    ],
+    [
+     3.5,
+     1
+    ]
+   ],
+   "d": [
+    [
+     4,
+     0.5
+    ],
+    [
+     8,
+     0.5
+    ],
+    [
+     10,
+     1
+    ],
+    [
+     13,
+     1
+    ],
+    [
+     16,
+     2
+    ],
+    [
+     18,
+     2
+    ],
+    [
+     24,
+     2
+    ]
+   ],
+   "guide": [
+    [
+     4,
+     0
+    ],
+    [
+     5,
+     1
+    ]
+   ]
+  },
+  "intervalos": {
+   "ok": [
+    16,
+    24
+   ]
+  }
+ },
+ "leer": {
+  "secciones": [
+   {
+    "titulo": "La idea",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Un {{gl:cambio|cambio de variable}} transforma una región difícil en una sencilla. El área se estira o se encoge, y el {{gl:jacobiano|jacobiano}} dice por cuánto. En la integral se usa su {{gl:absoluto|valor absoluto}}. Las polares son un caso especial, con jacobiano igual a r, que explica el {{gl:polar|factor r}}."
+     }
+    ]
+   },
+   {
+    "titulo": "Un ejemplo",
+    "corto": "Un ejemplo",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "La transformación es x igual a 2u más v y y igual a u más 2v. Cambia el lado y mira cómo cambia el área."
+     },
+     {
+      "t": "eq",
+      "tex": "J=\\begin{vmatrix}x_{u}&x_{v}\\\\y_{u}&y_{v}\\end{vmatrix}=\\begin{vmatrix}2&1\\\\1&2\\end{vmatrix}=3"
+     },
+     {
+      "t": "grafica",
+      "animar": "dibujar",
+      "alt": "El cuadrado y su imagen, con tres veces el área"
+     }
+    ]
+   },
+   {
+    "titulo": "Piensa antes de ver",
+    "corto": "Piensa",
+    "bloques": [
+     {
+      "t": "piensa",
+      "pregunta": "Un cuadrado de lado 1 se transforma con jacobiano 3. ¿Cuál es el área de la imagen?",
+      "opciones": [
+       3,
+       1,
+       9,
+       1.5
+      ],
+      "correcta": 3,
+      "bien": "Muy bien. El área se multiplica por el valor absoluto del jacobiano.",
+      "mal": "El área se multiplica por 3, y da 3."
+     }
+    ]
+   },
+   {
+    "titulo": "Distintos tamaños",
+    "corto": "Tamaños",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mira el área con s igual a 0.5, 1, 1.5 y 2."
+     },
+     {
+      "t": "acercando",
+      "ds": [
+       0.5,
+       1,
+       1.5,
+       2
+      ],
+      "alt": "El cuadrado y su imagen con cuatro lados"
+     },
+     {
+      "t": "p",
+      "html": "La imagen siempre mide 3 veces el área del cuadrado."
+     }
+    ]
+   },
+   {
+    "titulo": "Calcular el jacobiano",
+    "corto": "Jacobiano",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Es el determinante de las derivadas de x y de y respecto a u y a v."
+     },
+     {
+      "t": "pasos",
+      "items": [
+       {
+        "tex": "x=2u+v,\\quad y=u+2v",
+        "porque": "La transformación."
+       },
+       {
+        "tex": "J=\\dfrac{\\partial(x,y)}{\\partial(u,v)}=x_{u}y_{v}-x_{v}y_{u}",
+        "porque": "La definición."
+       },
+       {
+        "tex": "J=2\\cdot2-1\\cdot1=3",
+        "porque": "El valor."
+       },
+       {
+        "tex": "\\displaystyle\\iint_{R}f\\,dx\\,dy=\\iint_{S}f\\,|J|\\,du\\,dv",
+        "porque": "La fórmula de cambio de variable."
+       }
+      ]
+     },
+     {
+      "t": "ojo",
+      "html": "El jacobiano que se usa es el de x y y respecto a u y v, el de la transformación que va de u v a x y. Si se calcula el inverso, queda uno entre J."
+     }
+    ]
+   },
+   {
+    "titulo": "Las polares",
+    "corto": "Polares",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "El jacobiano de las polares explica el factor r."
+     },
+     {
+      "t": "pasos",
+      "items": [
+       {
+        "tex": "x=r\\cos\\theta,\\quad y=r\\operatorname{sen}\\theta",
+        "porque": "Las polares."
+       },
+       {
+        "tex": "J=\\begin{vmatrix}\\cos\\theta&-r\\operatorname{sen}\\theta\\\\\\operatorname{sen}\\theta&r\\cos\\theta\\end{vmatrix}",
+        "porque": "El determinante."
+       },
+       {
+        "tex": "J=r\\cos^{2}\\theta+r\\operatorname{sen}^{2}\\theta=r",
+        "porque": "Con la identidad pitagórica."
+       },
+       {
+        "tex": "dA=r\\,dr\\,d\\theta",
+        "porque": "El elemento de área."
+       }
+      ]
+     },
+     {
+      "t": "ojo",
+      "html": "Para x igual a u más v y y igual a u menos v el jacobiano es menos 2, y se usa su valor absoluto, 2."
+     }
+    ]
+   },
+   {
+    "titulo": "¿Para qué sirve?",
+    "corto": "En ingeniería",
+    "bloques": [
+     {
+      "t": "ingenieria",
+      "titulo": "El cambio de variable en un mapa",
+      "html": "Una zona rectangular de un mapa se transforma a otro sistema de coordenadas lineal. El área real de la zona se calcula con el jacobiano de la transformación.",
+      "tex": "A_{real}=|J|\\,A_{mapa}",
+      "datos": [
+       {
+        "k": "Jacobiano",
+        "v": "3"
+       },
+       {
+        "k": "Área en el mapa",
+        "v": "10 unidades"
+       },
+       {
+        "k": "Área real",
+        "v": "30 unidades"
+       }
+      ],
+      "cierre": "Con transformaciones no lineales el jacobiano cambia de un punto a otro. Entonces se integra su valor, en lugar de multiplicar por una constante."
+     }
+    ]
+   },
+   {
+    "titulo": "Completa el paso",
+    "corto": "Completa",
+    "bloques": [
+     {
+      "t": "completar",
+      "enunciado": "En un cambio de variable, el área se multiplica por el valor absoluto del [[hueco]].",
+      "tex": "dx\\,dy=[[hueco]]\\,du\\,dv",
+      "opciones": [
+       {
+        "tex": "|J|",
+        "txt": "el valor absoluto del jacobiano"
+       },
+       {
+        "tex": "J^{-1}",
+        "txt": "el inverso del jacobiano"
+       },
+       {
+        "tex": "1",
+        "txt": "uno"
+       }
+      ],
+      "correcta": 0,
+      "errores": [
+       "",
+       "El inverso del jacobiano sirve para ir en sentido contrario.",
+       "Con uno el área no cambiaría, y el cambio sería una isometría."
+      ],
+      "pista": "Es el determinante de las derivadas.",
+      "porque": "Es el jacobiano."
+     }
+    ]
+   },
+   {
+    "titulo": "Encuentra el error",
+    "corto": "Error",
+    "bloques": [
+     {
+      "t": "error",
+      "enunciado": "Alguien calculó el jacobiano de x igual a 2u más v y y igual a u más 2v, y se equivocó. Toca el paso que está mal.",
+      "pasos": [
+       {
+        "tex": "x_{u}=2,\\ x_{v}=1,\\ y_{u}=1,\\ y_{v}=2",
+        "porque": "Derivadas.",
+        "txt": "derivadas"
+       },
+       {
+        "tex": "J=2\\cdot1-1\\cdot2=0",
+        "porque": "Este paso es el que falla.",
+        "txt": "usa los productos cruzados"
+       },
+       {
+        "tex": "J=0",
+        "porque": "Resultado.",
+        "txt": "cero"
+       }
+      ],
+      "mal": 1,
+      "explicacion": "El determinante es x sub u por y sub v menos x sub v por y sub u, o sea 2 por 2 menos 1 por 1, que da 3.",
+      "correccion": "J=2\\cdot2-1\\cdot1=3",
+      "pista": "Multiplica la diagonal principal y resta el producto de la otra."
+     }
+    ]
+   },
+   {
+    "titulo": "Ordena los pasos",
+    "corto": "Ordena",
+    "bloques": [
+     {
+      "t": "ordenar",
+      "enunciado": "Estos son los pasos para hacer un cambio de variable, pero están desordenados.",
+      "pasos": [
+       "x=x(u,v),\\ y=y(u,v)",
+       "J=x_{u}y_{v}-x_{v}y_{u}",
+       "S",
+       "\\displaystyle\\iint_{S}f\\,|J|\\,du\\,dv"
+      ],
+      "mezcla": [
+       2,
+       0,
+       3,
+       1
+      ],
+      "porque": "Primero el cambio, luego el jacobiano, después la región y por último la integral.",
+      "pista": "Se empieza definiendo el cambio.",
+      "txt": [
+       "Se define el cambio",
+       "Se calcula el jacobiano",
+       "Se transforma la región",
+       "Se escribe la integral"
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "Revisa tu respuesta",
+    "corto": "Revisa",
+    "bloques": [
+     {
+      "t": "pregunta"
+     },
+     {
+      "t": "nota",
+      "html": "Puedes pedir pistas de a una. Si fallas, el mensaje te dice qué error se cometió."
+     }
+    ]
+   },
+   {
+    "titulo": "Mini simulacro",
+    "corto": "Simulacro",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Tres preguntas reales del banco de MathUNAL sobre este tema. Responde sin mirar los pasos."
+     },
+     {
+      "t": "simulacro",
+      "titulo": "Mini simulacro de cambio de variable",
+      "preguntas": [
+       {
+        "tipo": "mcq",
+        "texto": "En un cambio de variable $\\iint_R f\\,dx\\,dy = \\iint_S f\\,|J|\\,du\\,dv$, el factor $|J|$ es:",
+        "opciones": [
+         "$\\left|\\dfrac{\\partial(x,y)}{\\partial(u,v)}\\right|$ (valor absoluto del jacobiano)",
+         "$\\dfrac{\\partial(u,v)}{\\partial(x,y)}$",
+         "siempre $1$",
+         "$\\det(\\nabla f)$"
+        ],
+        "correcta": 0,
+        "resumen": "El factor del cambio de variable.",
+        "fuente": "Banco MathUNAL, simulacro de Cálculo en Varias Variables"
+       },
+       {
+        "tipo": "numerica",
+        "texto": "El jacobiano de $x=2u+v,\\ y=u+2v$ es:",
+        "respuesta": "3",
+        "tolNum": 0.01,
+        "resumen": "Es 2 por 2 menos 1 por 1, o sea 3.",
+        "fuente": "Pregunta propia de MathUNAL, escrita para esta lección"
+       },
+       {
+        "tipo": "numerica",
+        "texto": "El valor absoluto del jacobiano de $x=u+v,\\ y=u-v$ es:",
+        "respuesta": "2",
+        "tolNum": 0.01,
+        "resumen": "El determinante es 1 por menos 1 menos 1 por 1, que da menos 2, y su valor absoluto es 2.",
+        "fuente": "Pregunta propia de MathUNAL, escrita para esta lección"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "Tu repaso",
+    "corto": "Repaso",
+    "bloques": [
+     {
+      "t": "repaso"
+     }
+    ]
+   },
+   {
+    "titulo": "En resumen",
+    "corto": "Resumen",
+    "bloques": [
+     {
+      "t": "resumen"
+     }
+    ]
+   }
+  ]
+ },
+ "practicar": {
+  "pasos": [
+   {
+    "titulo": "El cuadrado",
+    "grafica": {
+     "draw": 1
+    },
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Se transforma un cuadrado de lado s."
+     },
+     {
+      "t": "eq",
+      "tex": "x=2u+v,\\quad y=u+2v"
+     }
+    ]
+   },
+   {
+    "titulo": "Cambia el lado",
+    "grafica": {
+     "draw": 1
+    },
+    "laboratorio": true,
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mueve el deslizador. Abajo se leen el área del cuadrado y la de su imagen."
+     }
+    ]
+   },
+   {
+    "titulo": "Con lado 2",
+    "grafica": {
+     "draw": 1,
+     "guide": 1,
+     "ok": true
+    },
+    "laboratorio": true,
+    "d": 2,
+    "bloques": [
+     {
+      "t": "eq",
+      "tex": "4\\cdot3=12"
+     },
+     {
+      "t": "p",
+      "html": "Con s igual a 2 el área de la imagen es 12."
+     }
+    ]
+   },
+   {
+    "titulo": "Revisa tu respuesta",
+    "grafica": {
+     "draw": 1,
+     "guide": 1,
+     "ok": true,
+     "d": 2
+    },
+    "bloques": [
+     {
+      "t": "pregunta"
+     },
+     {
+      "t": "nota",
+      "html": "El área se multiplica por el valor absoluto del jacobiano."
+     }
+    ]
+   }
+  ]
+ },
+ "pregunta": {
+  "tex": "x=2u+v,\\ y=u+2v.\\ \\text{El jacobiano vale}",
+  "opciones": [
+   "$3$",
+   "$5$",
+   "$1$",
+   "$4$"
+  ],
+  "correcta": 0,
+  "explicacion": "El determinante es 2 por 2 menos 1 por 1, o sea 3.",
+  "verificacion": {
+   "formula": "2*2-1*1+0*x",
+   "a": 0,
+   "esperado": 3
+  },
+  "pistas": [
+   "Es un determinante de 2 por 2.",
+   "Las entradas son las derivadas parciales.",
+   "Diagonal principal menos la otra."
+  ],
+  "errores": [
+   "",
+   "El 5 es la suma de los números de la diagonal, 2 más 2, más 1.",
+   "El 1 es el valor de la diagonal secundaria.",
+   "El 4 es el producto de la diagonal sin restar."
+  ]
+ },
+ "resumen": [
+  "El jacobiano es el determinante de las derivadas parciales, y mide el factor de estiramiento del área.",
+  "En la integral se usa su valor absoluto.",
+  "Las polares tienen jacobiano r."
+ ]
+}
