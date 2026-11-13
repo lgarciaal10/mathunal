@@ -1,0 +1,1030 @@
+{
+ "esquema": 1,
+ "id": "mn-m1-l4",
+ "ejemplo": true,
+ "curso": "Métodos Numéricos",
+ "modulo": "Módulo 1 Errores y ecuaciones no lineales",
+ "posicion": "Lección 4 de 4",
+ "titulo": "Errores y aritmética de punto flotante",
+ "minutos": 28,
+ "ejercicios": 8,
+ "grafica": {
+  "tipo": "plano",
+  "x": [
+   -1.0,
+   17.0
+  ],
+  "y": [
+   -18.5,
+   1.5
+  ],
+  "a": 1,
+  "b": 15,
+  "inicio": 4,
+  "entero": true,
+  "elementos": [
+   {
+    "t": "trazo",
+    "puntos": [
+     [
+      "0.0",
+      "-0.3"
+     ],
+     [
+      "0.5",
+      "-0.8"
+     ],
+     [
+      "1.0",
+      "-1.3"
+     ],
+     [
+      "1.5",
+      "-1.8"
+     ],
+     [
+      "2.0",
+      "-2.3"
+     ],
+     [
+      "2.5",
+      "-2.8"
+     ],
+     [
+      "3.0",
+      "-3.3"
+     ],
+     [
+      "3.5",
+      "-3.8"
+     ],
+     [
+      "4.0",
+      "-4.3"
+     ],
+     [
+      "4.5",
+      "-4.8"
+     ],
+     [
+      "5.0",
+      "-5.3"
+     ],
+     [
+      "5.5",
+      "-5.8"
+     ],
+     [
+      "6.0",
+      "-6.3"
+     ],
+     [
+      "6.5",
+      "-6.8"
+     ],
+     [
+      "7.0",
+      "-7.3"
+     ],
+     [
+      "7.5",
+      "-7.8"
+     ],
+     [
+      "8.0",
+      "-8.3"
+     ],
+     [
+      "8.5",
+      "-8.8"
+     ],
+     [
+      "9.0",
+      "-9.3"
+     ],
+     [
+      "9.5",
+      "-9.8"
+     ],
+     [
+      "10.0",
+      "-10.3"
+     ],
+     [
+      "10.5",
+      "-10.8"
+     ],
+     [
+      "11.0",
+      "-11.3"
+     ],
+     [
+      "11.5",
+      "-11.8"
+     ],
+     [
+      "12.0",
+      "-12.3"
+     ],
+     [
+      "12.5",
+      "-12.8"
+     ],
+     [
+      "13.0",
+      "-13.3"
+     ],
+     [
+      "13.5",
+      "-13.8"
+     ],
+     [
+      "14.0",
+      "-14.3"
+     ],
+     [
+      "14.5",
+      "-14.8"
+     ],
+     [
+      "15.0",
+      "-15.3"
+     ],
+     [
+      "15.5",
+      "-15.8"
+     ],
+     [
+      "16.0",
+      "-16.3"
+     ]
+    ],
+    "c": 0
+   },
+   {
+    "t": "trazo",
+    "puntos": [
+     [
+      "0.0",
+      "-16.0"
+     ],
+     [
+      "0.5",
+      "-15.5"
+     ],
+     [
+      "1.0",
+      "-15.0"
+     ],
+     [
+      "1.5",
+      "-14.5"
+     ],
+     [
+      "2.0",
+      "-14.0"
+     ],
+     [
+      "2.5",
+      "-13.5"
+     ],
+     [
+      "3.0",
+      "-13.0"
+     ],
+     [
+      "3.5",
+      "-12.5"
+     ],
+     [
+      "4.0",
+      "-12.0"
+     ],
+     [
+      "4.5",
+      "-11.5"
+     ],
+     [
+      "5.0",
+      "-11.0"
+     ],
+     [
+      "5.5",
+      "-10.5"
+     ],
+     [
+      "6.0",
+      "-10.0"
+     ],
+     [
+      "6.5",
+      "-9.5"
+     ],
+     [
+      "7.0",
+      "-9.0"
+     ],
+     [
+      "7.5",
+      "-8.5"
+     ],
+     [
+      "8.0",
+      "-8.0"
+     ],
+     [
+      "8.5",
+      "-7.5"
+     ],
+     [
+      "9.0",
+      "-7.0"
+     ],
+     [
+      "9.5",
+      "-6.5"
+     ],
+     [
+      "10.0",
+      "-6.0"
+     ],
+     [
+      "10.5",
+      "-5.5"
+     ],
+     [
+      "11.0",
+      "-5.0"
+     ],
+     [
+      "11.5",
+      "-4.5"
+     ],
+     [
+      "12.0",
+      "-4.0"
+     ],
+     [
+      "12.5",
+      "-3.5"
+     ],
+     [
+      "13.0",
+      "-3.0"
+     ],
+     [
+      "13.5",
+      "-2.5"
+     ],
+     [
+      "14.0",
+      "-2.0"
+     ],
+     [
+      "14.5",
+      "-1.5"
+     ],
+     [
+      "15.0",
+      "-1.0"
+     ],
+     [
+      "15.5",
+      "-0.5"
+     ],
+     [
+      "16.0",
+      "0.0"
+     ]
+    ],
+    "c": 1
+   },
+   {
+    "t": "trazo",
+    "puntos": [
+     [
+      "0.0",
+      "-0.30000"
+     ],
+     [
+      "0.5",
+      "-0.80000"
+     ],
+     [
+      "1.0",
+      "-1.30000"
+     ],
+     [
+      "1.5",
+      "-1.80000"
+     ],
+     [
+      "2.0",
+      "-2.30000"
+     ],
+     [
+      "2.5",
+      "-2.80000"
+     ],
+     [
+      "3.0",
+      "-3.30000"
+     ],
+     [
+      "3.5",
+      "-3.80000"
+     ],
+     [
+      "4.0",
+      "-4.30000"
+     ],
+     [
+      "4.5",
+      "-4.80000"
+     ],
+     [
+      "5.0",
+      "-5.30000"
+     ],
+     [
+      "5.5",
+      "-5.79999"
+     ],
+     [
+      "6.0",
+      "-6.29991"
+     ],
+     [
+      "6.5",
+      "-6.79913"
+     ],
+     [
+      "7.0",
+      "-7.29142"
+     ],
+     [
+      "7.5",
+      "-7.72099"
+     ],
+     [
+      "8.0",
+      "-7.82357"
+     ],
+     [
+      "8.5",
+      "-7.47876"
+     ],
+     [
+      "9.0",
+      "-6.99783"
+     ],
+     [
+      "9.5",
+      "-6.49978"
+     ],
+     [
+      "10.0",
+      "-5.99998"
+     ],
+     [
+      "10.5",
+      "-5.50000"
+     ],
+     [
+      "11.0",
+      "-5.00000"
+     ],
+     [
+      "11.5",
+      "-4.50000"
+     ],
+     [
+      "12.0",
+      "-4.00000"
+     ],
+     [
+      "12.5",
+      "-3.50000"
+     ],
+     [
+      "13.0",
+      "-3.00000"
+     ],
+     [
+      "13.5",
+      "-2.50000"
+     ],
+     [
+      "14.0",
+      "-2.00000"
+     ],
+     [
+      "14.5",
+      "-1.50000"
+     ],
+     [
+      "15.0",
+      "-1.00000"
+     ],
+     [
+      "15.5",
+      "-0.50000"
+     ],
+     [
+      "16.0",
+      "0.00000"
+     ]
+    ],
+    "c": 3
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "x",
+     "-17"
+    ],
+    "b": [
+     "x",
+     "ln(exp(-(x+0.3)*ln(10))+exp((x-16)*ln(10)))/ln(10)"
+    ],
+    "guia": true,
+    "guion": true,
+    "c": 3
+   },
+   {
+    "t": "punto",
+    "p": [
+     "x",
+     "ln(exp(-(x+0.3)*ln(10))+exp((x-16)*ln(10)))/ln(10)"
+    ],
+    "c": 3
+   }
+  ],
+  "lecturas": [
+   {
+    "rotulo": "tamaño del paso h, en potencias de diez, h igual a 10 a la menos k",
+    "formula": "x"
+   },
+   {
+    "rotulo": "logaritmo del error total",
+    "formula": "ln(exp(-(x+0.3)*ln(10))+exp((x-16)*ln(10)))/ln(10)"
+   }
+  ],
+  "etiquetas": [
+   "Valor de k, donde h es diez elevado a menos k",
+   "Logaritmo en base 10 del error total de la derivada numérica"
+  ],
+  "etiquetaSlider": "Valor de k, de 1 a 15",
+  "alt": "Tres curvas del logaritmo del error de una derivada numérica en función de k, con h igual a diez elevado a menos k. El error de truncamiento baja al achicar h. El error de redondeo sube. La suma tiene forma de V, con su mínimo cerca de k igual a 8"
+ },
+ "glosario": {
+  "absoluto": "El error absoluto es la diferencia entre el valor exacto y el aproximado.",
+  "relativo": "El error relativo es el error absoluto dividido entre el valor exacto. Mide el error en proporción.",
+  "cifras": "Las cifras significativas son los dígitos con que un número se conoce con confianza. Los ceros a la izquierda no cuentan.",
+  "epsilon": "El épsilon de máquina es el menor número tal que uno más épsilon es mayor que uno en la aritmética de la máquina.",
+  "cancelacion": "La cancelación catastrófica es la pérdida de cifras significativas al restar dos números casi iguales."
+ },
+ "ver": {
+  "duracion": 24.0,
+  "capitulos": [
+   [
+    0,
+    5,
+    "Al calcular una derivada con una diferencia hay dos errores. El de truncamiento baja cuando se achica el paso h."
+   ],
+   [
+    5,
+    10,
+    "El de redondeo sube cuando se achica h, porque se restan números cada vez más parecidos."
+   ],
+   [
+    10,
+    16,
+    "La suma tiene forma de V. Con k igual a 4, el error es de truncamiento y vale cerca de 10 a la menos 4."
+   ],
+   [
+    16,
+    21,
+    "Con k igual a 8 se llega al mínimo, y el error total ronda 10 a la menos 8."
+   ],
+   [
+    21,
+    24,
+    "Con k mayor que 8, el redondeo domina. Achicar h más allá de ese punto empeora el resultado."
+   ]
+  ],
+  "canales": {
+   "draw": [
+    [
+     0.3,
+     0
+    ],
+    [
+     4.5,
+     1
+    ]
+   ],
+   "d": [
+    [
+     5,
+     4
+    ],
+    [
+     10,
+     4
+    ],
+    [
+     12,
+     8
+    ],
+    [
+     16,
+     8
+    ],
+    [
+     17,
+     12
+    ],
+    [
+     21,
+     12
+    ],
+    [
+     22,
+     15
+    ],
+    [
+     24,
+     15
+    ]
+   ],
+   "guide": [
+    [
+     5,
+     0
+    ],
+    [
+     6,
+     1
+    ]
+   ]
+  },
+  "intervalos": {
+   "ok": [
+    16,
+    24
+   ]
+  }
+ },
+ "leer": {
+  "secciones": [
+   {
+    "titulo": "La idea",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "En el cálculo numérico siempre hay errores. El error {{gl:absoluto|absoluto}} es la diferencia con el valor exacto, y el {{gl:relativo|relativo}} la divide entre el valor. Los números se escriben con cierta cantidad de {{gl:cifras|cifras significativas}}, y la máquina guarda una cantidad finita, que se mide con el {{gl:epsilon|épsilon de máquina}}. Restar números casi iguales produce {{gl:cancelacion|cancelación}}."
+     }
+    ]
+   },
+   {
+    "titulo": "Un ejemplo",
+    "corto": "Un ejemplo",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Al derivar numéricamente aparecen dos errores. Mira el logaritmo del error total, en función de k, donde el paso es h igual a diez elevado a menos k."
+     },
+     {
+      "t": "eq",
+      "tex": "E(h)\\approx\\dfrac{h}{2}\\,|f''|+\\dfrac{\\varepsilon}{h}"
+     },
+     {
+      "t": "grafica",
+      "animar": "dibujar",
+      "alt": "Las curvas de los errores de truncamiento y de redondeo"
+     }
+    ]
+   },
+   {
+    "titulo": "Piensa antes de ver",
+    "corto": "Piensa",
+    "bloques": [
+     {
+      "t": "piensa",
+      "pregunta": "Si el valor exacto es 2 y se aproxima por 2.1, el error absoluto es 0.1. ¿Cuánto vale el error relativo, que es el absoluto entre el exacto?",
+      "opciones": [
+       0.05,
+       0.1,
+       0.2,
+       2
+      ],
+      "correcta": 0.05,
+      "bien": "Muy bien. Es 0.1 entre 2, o sea 0.05, un 5 por ciento. Más abajo se ve la gráfica de errores.",
+      "mal": "Es 0.05, porque 0.1 entre 2 es 0.05. Más abajo se ve la gráfica de errores."
+     }
+    ]
+   },
+   {
+    "titulo": "Variando el paso",
+    "corto": "El paso",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mira los errores con k igual a 3, 6, 8 y 12."
+     },
+     {
+      "t": "acercando",
+      "ds": [
+       3,
+       6,
+       8,
+       12
+      ],
+      "alt": "Los errores con cuatro valores de k"
+     },
+     {
+      "t": "p",
+      "html": "El error total baja hasta k igual a 8 y vuelve a subir después. No siempre achicar el paso mejora el resultado."
+     }
+    ]
+   },
+   {
+    "titulo": "Tipos de error",
+    "corto": "Tipos",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Se miden de varias formas."
+     },
+     {
+      "t": "pasos",
+      "items": [
+       {
+        "tex": "E_{abs}=|x-x^{*}|,\\quad E_{rel}=\\dfrac{|x-x^{*}|}{|x|}",
+        "porque": "Absoluto y relativo."
+       },
+       {
+        "tex": "x=2,\\ x^{*}=2.1:\\quad E_{rel}=\\dfrac{0.1}{2}=0.05",
+        "porque": "El error relativo del ejemplo."
+       },
+       {
+        "tex": "0.004530\\ \\text{tiene 4 cifras significativas}",
+        "porque": "Los ceros a la izquierda no cuentan, pero el cero final sí."
+       },
+       {
+        "tex": "0.0034567\\ \\to\\ 0.00346\\ \\text{con 3 cifras}",
+        "porque": "Se redondea al número de cifras pedido."
+       }
+      ]
+     },
+     {
+      "t": "ojo",
+      "html": "El error relativo sirve para comparar. Un error de 1 metro es enorme al medir una mesa y despreciable al medir una carretera."
+     }
+    ]
+   },
+   {
+    "titulo": "Punto flotante",
+    "corto": "Punto flotante",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "La máquina guarda los números con una cantidad finita de dígitos, y eso tiene consecuencias."
+     },
+     {
+      "t": "pasos",
+      "items": [
+       {
+        "tex": "1+\\varepsilon_{maq}>1",
+        "porque": "El épsilon de máquina es el menor número que cambia a uno. En doble precisión es cerca de 2.2 por 10 a la menos 16."
+       },
+       {
+        "tex": "\\sqrt{x^{2}+1}-x\\ \\text{para}\\ x\\ \\text{grande}",
+        "porque": "Se restan números casi iguales y se pierden cifras."
+       },
+       {
+        "tex": "\\dfrac{1}{\\sqrt{x^{2}+1}+x}",
+        "porque": "La misma expresión reescrita no pierde cifras."
+       }
+      ]
+     },
+     {
+      "t": "ojo",
+      "html": "La cancelación no es un error de la máquina, sino de la fórmula. Se evita reescribiendo la expresión para no restar números casi iguales."
+     }
+    ]
+   },
+   {
+    "titulo": "¿Para qué sirve?",
+    "corto": "En ingeniería",
+    "bloques": [
+     {
+      "t": "ingenieria",
+      "titulo": "Cuánto achicar el paso de una derivada",
+      "html": "Un sensor entrega una posición cada cierto tiempo, y la velocidad se estima con la diferencia de dos posiciones consecutivas dividida entre el paso. Achicar el paso reduce el error del método, pero amplifica el ruido y el redondeo de las mediciones.",
+      "tex": "E_{total}=\\text{truncamiento}+\\text{redondeo}",
+      "datos": [
+       {
+        "k": "Paso muy grande",
+        "v": "domina el truncamiento"
+       },
+       {
+        "k": "Paso muy pequeño",
+        "v": "domina el redondeo"
+       },
+       {
+        "k": "Paso óptimo",
+        "v": "cerca de la raíz del épsilon"
+       }
+      ],
+      "cierre": "Con aritmética de doble precisión el paso óptimo de una diferencia progresiva está cerca de 10 a la menos 8. Con mediciones reales, que tienen mucho más ruido que el épsilon de máquina, el paso óptimo es mucho mayor. Por eso se filtra la señal antes de derivarla, o se usa una diferencia centrada con paso moderado."
+     }
+    ]
+   },
+   {
+    "titulo": "Completa el paso",
+    "corto": "Completa",
+    "bloques": [
+     {
+      "t": "completar",
+      "enunciado": "Se calcula el error relativo de aproximar 2 por 2.1.",
+      "tex": "E_{rel}=\\dfrac{|2-2.1|}{[[hueco]]}",
+      "opciones": [
+       {
+        "tex": "2",
+        "txt": "el valor exacto"
+       },
+       {
+        "tex": "2.1",
+        "txt": "el valor aproximado"
+       },
+       {
+        "tex": "0.1",
+        "txt": "el error absoluto"
+       }
+      ],
+      "correcta": 0,
+      "errores": [
+       "",
+       "El error relativo se divide entre el valor exacto, y no entre el aproximado.",
+       "Dividir entre el error absoluto daría siempre 1."
+      ],
+      "pista": "El denominador es el valor exacto.",
+      "porque": "0.1 entre 2 es 0.05."
+     }
+    ]
+   },
+   {
+    "titulo": "Encuentra el error",
+    "corto": "Error",
+    "bloques": [
+     {
+      "t": "error",
+      "enunciado": "Alguien contó las cifras significativas del número 0.004530 y se equivocó en un paso. Toca el paso que está mal.",
+      "pasos": [
+       {
+        "tex": "0.004530",
+        "porque": "El número.",
+        "txt": "el número es 0.004530"
+       },
+       {
+        "tex": "\\text{Los ceros a la izquierda}\\ (0.00)\\ \\text{no cuentan}",
+        "porque": "Se descartan los ceros iniciales.",
+        "txt": "los ceros de la izquierda no cuentan"
+       },
+       {
+        "tex": "\\text{Quedan 4,5,3 y el 0 final: son 3 cifras}",
+        "porque": "Este paso es el que falla.",
+        "txt": "son 3 cifras"
+       }
+      ],
+      "mal": 2,
+      "explicacion": "El cero final también cuenta, porque indica que la medida llega hasta esa cifra. Quedan cuatro cifras, 4, 5, 3 y 0.",
+      "correccion": "4,\\ 5,\\ 3,\\ 0\\ \\Rightarrow\\ 4\\ \\text{cifras}",
+      "pista": "Cuenta también el cero del final."
+     }
+    ]
+   },
+   {
+    "titulo": "Ordena los pasos",
+    "corto": "Ordena",
+    "bloques": [
+     {
+      "t": "ordenar",
+      "enunciado": "Estos son los pasos para calcular el error relativo de aproximar 2 por 2.1, pero están desordenados.",
+      "pasos": [
+       "x=2,\\quad x^{*}=2.1",
+       "E_{abs}=|2-2.1|=0.1",
+       "E_{rel}=\\dfrac{0.1}{2}",
+       "E_{rel}=0.05"
+      ],
+      "mezcla": [
+       2,
+       0,
+       3,
+       1
+      ],
+      "porque": "Se calcula el error absoluto y se divide entre el valor exacto.",
+      "pista": "Se empieza identificando los dos valores.",
+      "txt": [
+       "Se identifican el valor exacto y el aproximado",
+       "Se calcula el error absoluto",
+       "Se divide entre el valor exacto",
+       "Se calcula"
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "Revisa tu respuesta",
+    "corto": "Revisa",
+    "bloques": [
+     {
+      "t": "pregunta"
+     },
+     {
+      "t": "nota",
+      "html": "Puedes pedir pistas de a una. Si fallas, el mensaje te dice qué error se cometió."
+     }
+    ]
+   },
+   {
+    "titulo": "Mini simulacro",
+    "corto": "Simulacro",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Tres preguntas reales del banco de MathUNAL sobre este tema. Responde sin mirar los pasos."
+     },
+     {
+      "t": "simulacro",
+      "titulo": "Mini simulacro de errores y punto flotante",
+      "preguntas": [
+       {
+        "tipo": "mcq",
+        "texto": "¿Cuántas cifras significativas tiene el número $0.004530$?",
+        "opciones": [
+         "$4$",
+         "$6$",
+         "$3$",
+         "$7$"
+        ],
+        "correcta": 0,
+        "resumen": "Los ceros iniciales no cuentan, pero el cero final sí. Son $4,5,3,0$.",
+        "fuente": "Banco MathUNAL, simulacro de Métodos Numéricos"
+       },
+       {
+        "tipo": "mcq",
+        "texto": "El \"épsilon de máquina\" $\\varepsilon_{\\text{maq}}$ es:",
+        "opciones": [
+         "el menor número tal que $1+\\varepsilon>1$ en la aritmética de la máquina",
+         "el mayor número representable",
+         "el menor número positivo representable",
+         "siempre $10^{-16}$"
+        ],
+        "correcta": 0,
+        "resumen": "El épsilon de máquina es el menor número que hace que $1+\\varepsilon>1$.",
+        "fuente": "Banco MathUNAL, simulacro de Métodos Numéricos"
+       },
+       {
+        "tipo": "mcq",
+        "texto": "Restar dos números casi iguales en punto flotante produce:",
+        "opciones": [
+         "cancelación catastrófica (pérdida de cifras significativas)",
+         "desbordamiento (overflow)",
+         "un error de redondeo despreciable",
+         "siempre el resultado exacto"
+        ],
+        "correcta": 0,
+        "resumen": "Restar números casi iguales produce cancelación y pérdida de cifras.",
+        "fuente": "Banco MathUNAL, simulacro de Métodos Numéricos"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "Tu repaso",
+    "corto": "Repaso",
+    "bloques": [
+     {
+      "t": "repaso"
+     }
+    ]
+   },
+   {
+    "titulo": "En resumen",
+    "corto": "Resumen",
+    "bloques": [
+     {
+      "t": "resumen"
+     }
+    ]
+   }
+  ]
+ },
+ "practicar": {
+  "pasos": [
+   {
+    "titulo": "Dos errores",
+    "grafica": {
+     "draw": 1
+    },
+    "bloques": [
+     {
+      "t": "p",
+      "html": "El error de truncamiento y el de redondeo, en escala logarítmica."
+     },
+     {
+      "t": "eq",
+      "tex": "E(h)\\approx\\dfrac{h}{2}|f''|+\\dfrac{\\varepsilon}{h}"
+     }
+    ]
+   },
+   {
+    "titulo": "Cambia k",
+    "grafica": {
+     "draw": 1
+    },
+    "laboratorio": true,
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mueve el deslizador. Abajo se leen k y el logaritmo del error total."
+     }
+    ]
+   },
+   {
+    "titulo": "El mínimo",
+    "grafica": {
+     "draw": 1,
+     "guide": 1,
+     "ok": true
+    },
+    "laboratorio": true,
+    "d": 8,
+    "bloques": [
+     {
+      "t": "eq",
+      "tex": "k=8\\ \\Rightarrow\\ \\log_{10}E\\approx-8"
+     },
+     {
+      "t": "p",
+      "html": "Con k igual a 8 el error es el menor posible."
+     }
+    ]
+   },
+   {
+    "titulo": "Revisa tu respuesta",
+    "grafica": {
+     "draw": 1,
+     "guide": 1,
+     "ok": true,
+     "d": 8
+    },
+    "bloques": [
+     {
+      "t": "pregunta"
+     },
+     {
+      "t": "nota",
+      "html": "El error relativo se divide entre el valor exacto."
+     }
+    ]
+   }
+  ]
+ },
+ "pregunta": {
+  "tex": "\\text{El redondeo a 3 cifras significativas de}\\ 0.0034567\\ \\text{es}",
+  "opciones": [
+   "$0.00346$",
+   "$0.0035$",
+   "$0.003$",
+   "$0.00345$"
+  ],
+  "correcta": 0,
+  "explicacion": "Los ceros de la izquierda no cuentan. Las tres primeras cifras significativas son 3, 4 y 5, y la siguiente es 6, que sube la última a 6. El resultado es 0.00346.",
+  "verificacion": {
+   "formula": "0.00346+0*x",
+   "a": 0,
+   "esperado": 0.00346
+  },
+  "pistas": [
+   "Los ceros de la izquierda no cuentan.",
+   "Las cifras son 3, 4, 5 y se mira el 6 que sigue.",
+   "El 6 hace que el 5 suba a 6."
+  ],
+  "errores": [
+   "",
+   "Ese tiene dos cifras significativas, 3 y 5, y se piden tres.",
+   "Ese tiene una cifra significativa, y se piden tres.",
+   "Ese redondea hacia abajo, pero la cifra que sigue es 6 y obliga a subir."
+  ]
+ },
+ "resumen": [
+  "El error relativo es el absoluto entre el valor exacto, y sirve para comparar.",
+  "Los ceros a la izquierda no son cifras significativas, y restar números casi iguales pierde cifras.",
+  "Al derivar numéricamente hay un paso óptimo, porque achicarlo reduce el truncamiento pero aumenta el redondeo."
+ ]
+}
