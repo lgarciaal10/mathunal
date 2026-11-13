@@ -1,0 +1,778 @@
+{
+ "esquema": 1,
+ "id": "mn-m1-l1",
+ "ejemplo": true,
+ "curso": "Métodos Numéricos",
+ "modulo": "Módulo 1 Errores y ecuaciones no lineales",
+ "posicion": "Lección 1 de 4",
+ "titulo": "Bisección y regla falsa",
+ "minutos": 28,
+ "ejercicios": 8,
+ "grafica": {
+  "tipo": "plano",
+  "x": [
+   0.5,
+   2.5
+  ],
+  "y": [
+   -1.9,
+   3.0
+  ],
+  "a": 0,
+  "b": 5,
+  "inicio": 0,
+  "entero": true,
+  "elementos": [
+   {
+    "t": "trazo",
+    "puntos": [
+     [
+      "0.8",
+      "-1.36"
+     ],
+     [
+      "0.85",
+      "-1.2775"
+     ],
+     [
+      "0.9",
+      "-1.19"
+     ],
+     [
+      "0.95",
+      "-1.0975"
+     ],
+     [
+      "1.0",
+      "-1.0"
+     ],
+     [
+      "1.05",
+      "-0.8975"
+     ],
+     [
+      "1.1",
+      "-0.79"
+     ],
+     [
+      "1.15",
+      "-0.6775"
+     ],
+     [
+      "1.2",
+      "-0.56"
+     ],
+     [
+      "1.25",
+      "-0.4375"
+     ],
+     [
+      "1.3",
+      "-0.31"
+     ],
+     [
+      "1.35",
+      "-0.1775"
+     ],
+     [
+      "1.4",
+      "-0.04"
+     ],
+     [
+      "1.45",
+      "0.1025"
+     ],
+     [
+      "1.5",
+      "0.25"
+     ],
+     [
+      "1.55",
+      "0.4025"
+     ],
+     [
+      "1.6",
+      "0.56"
+     ],
+     [
+      "1.65",
+      "0.7225"
+     ],
+     [
+      "1.7",
+      "0.89"
+     ],
+     [
+      "1.75",
+      "1.0625"
+     ],
+     [
+      "1.8",
+      "1.24"
+     ],
+     [
+      "1.85",
+      "1.4225"
+     ],
+     [
+      "1.9",
+      "1.61"
+     ],
+     [
+      "1.95",
+      "1.8025"
+     ],
+     [
+      "2.0",
+      "2.0"
+     ],
+     [
+      "2.05",
+      "2.2025"
+     ],
+     [
+      "2.1",
+      "2.41"
+     ],
+     [
+      "2.15",
+      "2.6225"
+     ],
+     [
+      "2.2",
+      "2.84"
+     ],
+     [
+      "2.25",
+      "3.0625"
+     ],
+     [
+      "2.3",
+      "3.29"
+     ]
+    ],
+    "c": 0
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "(1*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)/(-120))+(1*(x-0)*(x-2)*(x-3)*(x-4)*(x-5)/(24))+(1.25*(x-0)*(x-1)*(x-3)*(x-4)*(x-5)/(-12))+(1.375*(x-0)*(x-1)*(x-2)*(x-4)*(x-5)/(12))+(1.375*(x-0)*(x-1)*(x-2)*(x-3)*(x-5)/(-24))+(1.40625*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)/(120))",
+     "0"
+    ],
+    "b": [
+     "(1*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)/(-120))+(1*(x-0)*(x-2)*(x-3)*(x-4)*(x-5)/(24))+(1.25*(x-0)*(x-1)*(x-3)*(x-4)*(x-5)/(-12))+(1.375*(x-0)*(x-1)*(x-2)*(x-4)*(x-5)/(12))+(1.375*(x-0)*(x-1)*(x-2)*(x-3)*(x-5)/(-24))+(1.40625*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)/(120))",
+     "((1*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)/(-120))+(1*(x-0)*(x-2)*(x-3)*(x-4)*(x-5)/(24))+(1.25*(x-0)*(x-1)*(x-3)*(x-4)*(x-5)/(-12))+(1.375*(x-0)*(x-1)*(x-2)*(x-4)*(x-5)/(12))+(1.375*(x-0)*(x-1)*(x-2)*(x-3)*(x-5)/(-24))+(1.40625*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)/(120)))*((1*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)/(-120))+(1*(x-0)*(x-2)*(x-3)*(x-4)*(x-5)/(24))+(1.25*(x-0)*(x-1)*(x-3)*(x-4)*(x-5)/(-12))+(1.375*(x-0)*(x-1)*(x-2)*(x-4)*(x-5)/(12))+(1.375*(x-0)*(x-1)*(x-2)*(x-3)*(x-5)/(-24))+(1.40625*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)/(120)))-2"
+    ],
+    "c": 1,
+    "guia": true,
+    "guion": true
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "(2*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)/(-120))+(1.5*(x-0)*(x-2)*(x-3)*(x-4)*(x-5)/(24))+(1.5*(x-0)*(x-1)*(x-3)*(x-4)*(x-5)/(-12))+(1.5*(x-0)*(x-1)*(x-2)*(x-4)*(x-5)/(12))+(1.4375*(x-0)*(x-1)*(x-2)*(x-3)*(x-5)/(-24))+(1.4375*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)/(120))",
+     "0"
+    ],
+    "b": [
+     "(2*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)/(-120))+(1.5*(x-0)*(x-2)*(x-3)*(x-4)*(x-5)/(24))+(1.5*(x-0)*(x-1)*(x-3)*(x-4)*(x-5)/(-12))+(1.5*(x-0)*(x-1)*(x-2)*(x-4)*(x-5)/(12))+(1.4375*(x-0)*(x-1)*(x-2)*(x-3)*(x-5)/(-24))+(1.4375*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)/(120))",
+     "((2*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)/(-120))+(1.5*(x-0)*(x-2)*(x-3)*(x-4)*(x-5)/(24))+(1.5*(x-0)*(x-1)*(x-3)*(x-4)*(x-5)/(-12))+(1.5*(x-0)*(x-1)*(x-2)*(x-4)*(x-5)/(12))+(1.4375*(x-0)*(x-1)*(x-2)*(x-3)*(x-5)/(-24))+(1.4375*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)/(120)))*((2*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)/(-120))+(1.5*(x-0)*(x-2)*(x-3)*(x-4)*(x-5)/(24))+(1.5*(x-0)*(x-1)*(x-3)*(x-4)*(x-5)/(-12))+(1.5*(x-0)*(x-1)*(x-2)*(x-4)*(x-5)/(12))+(1.4375*(x-0)*(x-1)*(x-2)*(x-3)*(x-5)/(-24))+(1.4375*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)/(120)))-2"
+    ],
+    "c": 1,
+    "guia": true,
+    "guion": true
+   },
+   {
+    "t": "punto",
+    "p": [
+     "(1.5*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)/(-120))+(1.25*(x-0)*(x-2)*(x-3)*(x-4)*(x-5)/(24))+(1.375*(x-0)*(x-1)*(x-3)*(x-4)*(x-5)/(-12))+(1.4375*(x-0)*(x-1)*(x-2)*(x-4)*(x-5)/(12))+(1.40625*(x-0)*(x-1)*(x-2)*(x-3)*(x-5)/(-24))+(1.421875*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)/(120))",
+     "0"
+    ],
+    "c": 2
+   },
+   {
+    "t": "punto",
+    "p": [
+     "(1*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)/(-120))+(1*(x-0)*(x-2)*(x-3)*(x-4)*(x-5)/(24))+(1.25*(x-0)*(x-1)*(x-3)*(x-4)*(x-5)/(-12))+(1.375*(x-0)*(x-1)*(x-2)*(x-4)*(x-5)/(12))+(1.375*(x-0)*(x-1)*(x-2)*(x-3)*(x-5)/(-24))+(1.40625*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)/(120))",
+     "0"
+    ],
+    "c": 3
+   },
+   {
+    "t": "punto",
+    "p": [
+     "(2*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)/(-120))+(1.5*(x-0)*(x-2)*(x-3)*(x-4)*(x-5)/(24))+(1.5*(x-0)*(x-1)*(x-3)*(x-4)*(x-5)/(-12))+(1.5*(x-0)*(x-1)*(x-2)*(x-4)*(x-5)/(12))+(1.4375*(x-0)*(x-1)*(x-2)*(x-3)*(x-5)/(-24))+(1.4375*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)/(120))",
+     "0"
+    ],
+    "c": 3
+   }
+  ],
+  "lecturas": [
+   {
+    "rotulo": "punto medio p del intervalo",
+    "formula": "((1.5*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)/(-120))+(1.25*(x-0)*(x-2)*(x-3)*(x-4)*(x-5)/(24))+(1.375*(x-0)*(x-1)*(x-3)*(x-4)*(x-5)/(-12))+(1.4375*(x-0)*(x-1)*(x-2)*(x-4)*(x-5)/(12))+(1.40625*(x-0)*(x-1)*(x-2)*(x-3)*(x-5)/(-24))+(1.421875*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)/(120)))"
+   },
+   {
+    "rotulo": "ancho b menos a del intervalo",
+    "formula": "((2*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)/(-120))+(1.5*(x-0)*(x-2)*(x-3)*(x-4)*(x-5)/(24))+(1.5*(x-0)*(x-1)*(x-3)*(x-4)*(x-5)/(-12))+(1.5*(x-0)*(x-1)*(x-2)*(x-4)*(x-5)/(12))+(1.4375*(x-0)*(x-1)*(x-2)*(x-3)*(x-5)/(-24))+(1.4375*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)/(120)))-((1*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)/(-120))+(1*(x-0)*(x-2)*(x-3)*(x-4)*(x-5)/(24))+(1.25*(x-0)*(x-1)*(x-3)*(x-4)*(x-5)/(-12))+(1.375*(x-0)*(x-1)*(x-2)*(x-4)*(x-5)/(12))+(1.375*(x-0)*(x-1)*(x-2)*(x-3)*(x-5)/(-24))+(1.40625*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)/(120)))"
+   }
+  ],
+  "etiquetas": [
+   "Punto medio de a y b, la nueva aproximación de la raíz",
+   "El ancho se reduce a la mitad en cada iteración"
+  ],
+  "etiquetaSlider": "Iteración, de 0 a 5",
+  "alt": "La curva y igual a x al cuadrado menos 2 entre 0.8 y 2.3. Dos segmentos verticales marcan los extremos a y b del intervalo, y un punto en el eje marca el punto medio. En cada iteración el intervalo se queda con la mitad donde la función cambia de signo, y se acerca a la raíz de 2, que vale 1.4142"
+ },
+ "glosario": {
+  "biseccion": "El método de bisección parte de un intervalo donde la función cambia de signo, calcula el punto medio y se queda con la mitad donde sigue el cambio de signo.",
+  "bolzano": "El teorema del valor intermedio dice que si f es continua en a, b y f de a y f de b tienen signos opuestos, hay una raíz en el intervalo.",
+  "tolerancia": "La tolerancia es el error máximo que se acepta. La iteración se detiene cuando la cota de error es menor que ella.",
+  "cota": "La cota de error de la bisección después de n pasos es b menos a, dividido entre 2 elevado a n."
+ },
+ "ver": {
+  "duracion": 24.0,
+  "capitulos": [
+   [
+    0,
+    4,
+    "La función es x al cuadrado menos 2, y su raíz es raíz de 2, cerca de 1.4142. Se parte del intervalo de 1 a 2, donde cambia de signo."
+   ],
+   [
+    4,
+    9,
+    "El punto medio es 1.5. Como f de 1.5 es positiva, la raíz queda entre 1 y 1.5."
+   ],
+   [
+    9,
+    14,
+    "En la siguiente iteración el intervalo mide 0.5, y el punto medio es 1.25. Ahora f es negativa, y la raíz queda entre 1.25 y 1.5."
+   ],
+   [
+    14,
+    20,
+    "Cada iteración reduce el ancho a la mitad. Después de 5 iteraciones el intervalo mide 0.03125."
+   ],
+   [
+    20,
+    24,
+    "Así se acota el error sin conocer la raíz, porque el error es menor que el ancho del intervalo."
+   ]
+  ],
+  "canales": {
+   "draw": [
+    [
+     0.3,
+     0
+    ],
+    [
+     3.5,
+     1
+    ]
+   ],
+   "d": [
+    [
+     4,
+     0
+    ],
+    [
+     5,
+     0
+    ],
+    [
+     6,
+     1
+    ],
+    [
+     9,
+     1
+    ],
+    [
+     10,
+     2
+    ],
+    [
+     14,
+     2
+    ],
+    [
+     15,
+     3
+    ],
+    [
+     17,
+     4
+    ],
+    [
+     19,
+     5
+    ],
+    [
+     24,
+     5
+    ]
+   ],
+   "guide": [
+    [
+     4,
+     0
+    ],
+    [
+     5,
+     1
+    ]
+   ]
+  },
+  "intervalos": {
+   "ok": [
+    14,
+    24
+   ]
+  }
+ },
+ "leer": {
+  "secciones": [
+   {
+    "titulo": "La idea",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Resolver f de x igual a 0 sin fórmula es lo que hace un método numérico. El método de {{gl:biseccion|bisección}} usa el teorema del {{gl:bolzano|valor intermedio}}. Si f cambia de signo en un intervalo, hay una raíz adentro. Se parte el intervalo por la mitad y se conserva la mitad donde el signo cambia, y así se acorrala la raíz. Su {{gl:cota|cota de error}} se conoce de antemano, y se compara con la {{gl:tolerancia|tolerancia}}."
+     }
+    ]
+   },
+   {
+    "titulo": "Un ejemplo",
+    "corto": "Un ejemplo",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Se busca la raíz de x al cuadrado menos 2 entre 1 y 2. Avanza las iteraciones y mira cómo se estrecha el intervalo."
+     },
+     {
+      "t": "eq",
+      "tex": "p=\\dfrac{a+b}{2},\\qquad f(a)\\,f(b)<0"
+     },
+     {
+      "t": "grafica",
+      "animar": "dibujar",
+      "alt": "La curva y los extremos del intervalo"
+     }
+    ]
+   },
+   {
+    "titulo": "Piensa antes de ver",
+    "corto": "Piensa",
+    "bloques": [
+     {
+      "t": "piensa",
+      "pregunta": "En el intervalo de 1 a 2, f de 1 vale menos 1 y f de 2 vale 2. ¿Cuánto vale el producto de f de 1 por f de 2?",
+      "opciones": [
+       -2,
+       -1,
+       1,
+       2
+      ],
+      "correcta": -2,
+      "bien": "Muy bien. Es menos 2, un producto negativo, que indica un cambio de signo. Más abajo se ve el método.",
+      "mal": "Es menos 2, porque menos 1 por 2 da menos 2. Un producto negativo indica cambio de signo, y hay una raíz adentro. Más abajo se ve el método."
+     }
+    ]
+   },
+   {
+    "titulo": "Las iteraciones",
+    "corto": "Las iteraciones",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mira el intervalo en las iteraciones 0, 1, 2 y 5."
+     },
+     {
+      "t": "acercando",
+      "ds": [
+       0,
+       1,
+       2,
+       5
+      ],
+      "alt": "El intervalo en cuatro iteraciones"
+     },
+     {
+      "t": "p",
+      "html": "El ancho es 1, 0.5, 0.25 y 0.03125. Se reduce a la mitad en cada paso."
+     }
+    ]
+   },
+   {
+    "titulo": "El algoritmo",
+    "corto": "El algoritmo",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Cada iteración repite los mismos pasos."
+     },
+     {
+      "t": "pasos",
+      "items": [
+       {
+        "tex": "f(a)\\,f(b)<0",
+        "porque": "Se comprueba que hay cambio de signo en el intervalo."
+       },
+       {
+        "tex": "p=\\dfrac{a+b}{2}",
+        "porque": "Se calcula el punto medio."
+       },
+       {
+        "tex": "f(1)=-1,\\ f(2)=2,\\ p_{1}=1.5,\\ f(1.5)=0.25>0\\ \\Rightarrow\\ [1,\\,1.5]",
+        "porque": "Con el ejemplo, la raíz queda en la primera mitad."
+       },
+       {
+        "tex": "\\left|p_{n}-p\\right|\\le\\dfrac{b-a}{2^{n}}",
+        "porque": "La cota de error después de n iteraciones."
+       }
+      ]
+     },
+     {
+      "t": "ojo",
+      "html": "Si f no cambia de signo, bisección no se puede aplicar, aunque haya raíz. Pasa con las raíces dobles, como la de x al cuadrado, donde la función toca el eje sin cruzarlo."
+     }
+    ]
+   },
+   {
+    "titulo": "Cuántas iteraciones",
+    "corto": "Cuántas",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "La cota permite saber de antemano cuántas iteraciones hacen falta."
+     },
+     {
+      "t": "pasos",
+      "items": [
+       {
+        "tex": "\\dfrac{1-0}{2^{n}}<0.01",
+        "porque": "Se parte de un intervalo de ancho 1 y se pide un error menor que 0.01."
+       },
+       {
+        "tex": "2^{n}>100\\ \\Rightarrow\\ n>\\log_{2}100\\approx6.64",
+        "porque": "Se despeja n."
+       },
+       {
+        "tex": "n=7",
+        "porque": "Siempre se redondea hacia arriba, porque n es un entero."
+       }
+      ]
+     },
+     {
+      "t": "ojo",
+      "html": "La bisección es lenta pero segura. Gana una cifra binaria en cada paso, que son unas 3.3 iteraciones por cada cifra decimal."
+     }
+    ]
+   },
+   {
+    "titulo": "¿Para qué sirve?",
+    "corto": "En ingeniería",
+    "bloques": [
+     {
+      "t": "ingenieria",
+      "titulo": "Una raíz que viene de una medición",
+      "html": "Hay casos en que f no tiene fórmula y se obtiene midiendo, como la fuerza de un actuador a distintas posiciones. Se busca la posición donde la fuerza se anula. Bisección solo necesita evaluar f, sin derivadas.",
+      "tex": "n=7\\ \\Rightarrow\\ \\text{error}<\\dfrac{1}{2^{7}}\\approx0.008",
+      "datos": [
+       {
+        "k": "Intervalo inicial",
+        "v": "[1, 2]"
+       },
+       {
+        "k": "Evaluaciones de f tras 7 pasos",
+        "v": "9"
+       },
+       {
+        "k": "Error máximo",
+        "v": "menor que 0.01"
+       }
+      ],
+      "cierre": "Con 2 evaluaciones iniciales y una por cada iteración, hacen falta 9 mediciones para tener un error menor que 0.01. Es poco, y además se sabe de antemano. Por eso bisección es la primera opción cuando la función es costosa de evaluar y no hay derivada. Si f tiene ruido de medición, hay que revisar que el cambio de signo no sea ruido."
+     }
+    ]
+   },
+   {
+    "titulo": "Completa el paso",
+    "corto": "Completa",
+    "bloques": [
+     {
+      "t": "completar",
+      "enunciado": "Se calcula cuántas iteraciones de bisección hacen falta para un error menor que 0.01 desde un intervalo de ancho 1.",
+      "tex": "2^{n}>100\\ \\Rightarrow\\ n=[[hueco]]",
+      "opciones": [
+       {
+        "tex": "7",
+        "txt": "siete"
+       },
+       {
+        "tex": "6",
+        "txt": "seis"
+       },
+       {
+        "tex": "10",
+        "txt": "diez"
+       }
+      ],
+      "correcta": 0,
+      "errores": [
+       "",
+       "Con 6 iteraciones, 2 elevado a 6 es 64, que no supera 100. Hay que redondear hacia arriba.",
+       "Diez cumple, pero no es el menor n que sirve."
+      ],
+      "pista": "Busca el menor n con 2 elevado a n mayor que 100.",
+      "porque": "2 elevado a 7 es 128, que supera 100. Con 6 se queda en 64."
+     }
+    ]
+   },
+   {
+    "titulo": "Encuentra el error",
+    "corto": "Error",
+    "bloques": [
+     {
+      "t": "error",
+      "enunciado": "Alguien hizo una iteración de bisección y se equivocó en un paso. Toca el paso que está mal.",
+      "pasos": [
+       {
+        "tex": "f(1)=-1<0,\\quad f(2)=2>0",
+        "porque": "Hay cambio de signo.",
+        "txt": "el cambio de signo se cumple"
+       },
+       {
+        "tex": "p_{1}=1.5,\\quad f(1.5)=0.25>0",
+        "porque": "El punto medio.",
+        "txt": "el punto medio es 1.5"
+       },
+       {
+        "tex": "\\text{La raíz queda en}\\ [1.5,\\ 2]",
+        "porque": "Este paso es el que falla.",
+        "txt": "la raíz queda en la mitad derecha"
+       }
+      ],
+      "mal": 2,
+      "explicacion": "f de 1 es negativa y f de 1.5 es positiva, así que el cambio de signo está en el intervalo de 1 a 1.5. En la mitad de 1.5 a 2 los dos extremos son positivos.",
+      "correccion": "[1,\\ 1.5]",
+      "pista": "Compara los signos de los dos extremos de cada mitad."
+     }
+    ]
+   },
+   {
+    "titulo": "Ordena los pasos",
+    "corto": "Ordena",
+    "bloques": [
+     {
+      "t": "ordenar",
+      "enunciado": "Estos son los pasos de una iteración de bisección, pero están desordenados.",
+      "pasos": [
+       "f(a)\\,f(b)<0",
+       "p=\\dfrac{a+b}{2}",
+       "\\text{se evalúa}\\ f(p)",
+       "\\text{se conserva la mitad con cambio de signo}"
+      ],
+      "mezcla": [
+       2,
+       0,
+       3,
+       1
+      ],
+      "porque": "Se comprueba el cambio de signo, se parte por la mitad, se evalúa y se conserva la mitad donde cambia el signo.",
+      "pista": "Se empieza comprobando el cambio de signo.",
+      "txt": [
+       "Se comprueba el cambio de signo",
+       "Se calcula el punto medio",
+       "Se evalúa la función en el punto medio",
+       "Se escoge la nueva mitad"
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "Revisa tu respuesta",
+    "corto": "Revisa",
+    "bloques": [
+     {
+      "t": "pregunta"
+     },
+     {
+      "t": "nota",
+      "html": "Puedes pedir pistas de a una. Si fallas, el mensaje te dice qué error se cometió."
+     }
+    ]
+   },
+   {
+    "titulo": "Mini simulacro",
+    "corto": "Simulacro",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Tres preguntas reales del banco de MathUNAL sobre este tema. Responde sin mirar los pasos."
+     },
+     {
+      "t": "simulacro",
+      "titulo": "Mini simulacro de bisección y regla falsa",
+      "preguntas": [
+       {
+        "tipo": "mcq",
+        "texto": "Para aplicar el método de bisección en $[a,b]$ se requiere que $f$ sea continua y que:",
+        "opciones": [
+         "$f(a)\\cdot f(b)<0$",
+         "$f(a)\\cdot f(b)>0$",
+         "$f'(a)\\cdot f'(b)<0$",
+         "$f(a)=f(b)$"
+        ],
+        "correcta": 0,
+        "resumen": "La bisección necesita que $f$ cambie de signo, o sea, $f(a)\\,f(b)<0$.",
+        "fuente": "Banco MathUNAL, simulacro de Métodos Numéricos"
+       },
+       {
+        "tipo": "mcq",
+        "texto": "Para $f(x)=x^{2}-2$ en $[1,2]$ con $p_1=1.5$: como $f(1.5)=0.25>0$, la raíz queda en:",
+        "opciones": [
+         "$[1,\\,1.5]$",
+         "$[1.5,\\,2]$",
+         "$[1.25,\\,1.5]$",
+         "no se puede saber"
+        ],
+        "correcta": 0,
+        "resumen": "Como $f(1)<0$ y $f(1.5)>0$, el cambio de signo está en la primera mitad.",
+        "fuente": "Banco MathUNAL, simulacro de Métodos Numéricos"
+       },
+       {
+        "tipo": "numerica",
+        "texto": "¿Cuántas iteraciones de bisección se necesitan para garantizar un error $<0.01$ partiendo de $[0,1]$?",
+        "respuesta": "7",
+        "tolNum": 0.001,
+        "resumen": "$\\dfrac{1}{2^{n}}<0.01\\Rightarrow n=7$.",
+        "fuente": "Banco MathUNAL, simulacro de Métodos Numéricos"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "Tu repaso",
+    "corto": "Repaso",
+    "bloques": [
+     {
+      "t": "repaso"
+     }
+    ]
+   },
+   {
+    "titulo": "En resumen",
+    "corto": "Resumen",
+    "bloques": [
+     {
+      "t": "resumen"
+     }
+    ]
+   }
+  ]
+ },
+ "practicar": {
+  "pasos": [
+   {
+    "titulo": "El intervalo",
+    "grafica": {
+     "draw": 1
+    },
+    "bloques": [
+     {
+      "t": "p",
+      "html": "La curva de x al cuadrado menos 2 y el intervalo inicial de 1 a 2."
+     },
+     {
+      "t": "eq",
+      "tex": "f(x)=x^{2}-2"
+     }
+    ]
+   },
+   {
+    "titulo": "Itera",
+    "grafica": {
+     "draw": 1
+    },
+    "laboratorio": true,
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mueve el deslizador de 0 a 5. Abajo se leen el punto medio y el ancho del intervalo."
+     }
+    ]
+   },
+   {
+    "titulo": "Iteración 5",
+    "grafica": {
+     "draw": 1,
+     "guide": 1,
+     "ok": true
+    },
+    "laboratorio": true,
+    "d": 5,
+    "bloques": [
+     {
+      "t": "eq",
+      "tex": "[1.40625,\\ 1.4375]\\ \\ni\\ \\sqrt{2}"
+     },
+     {
+      "t": "p",
+      "html": "Con la iteración 5, el intervalo mide 0.03125 y contiene a la raíz de 2."
+     }
+    ]
+   },
+   {
+    "titulo": "Revisa tu respuesta",
+    "grafica": {
+     "draw": 1,
+     "guide": 1,
+     "ok": true,
+     "d": 5
+    },
+    "bloques": [
+     {
+      "t": "pregunta"
+     },
+     {
+      "t": "nota",
+      "html": "Usa la cota de error y busca el menor n que sirve."
+     }
+    ]
+   }
+  ]
+ },
+ "pregunta": {
+  "tex": "\\text{Iteraciones de bisección en}\\ [0,2]\\ \\text{para un error menor que}\\ 0.01",
+  "opciones": [
+   "$8$",
+   "$7$",
+   "$6$",
+   "$10$"
+  ],
+  "correcta": 0,
+  "explicacion": "La cota es 2 entre 2 elevado a n, y debe ser menor que 0.01. Eso da 2 elevado a n mayor que 200. Como 2 elevado a 7 es 128 y 2 elevado a 8 es 256, el menor n es 8.",
+  "verificacion": {
+   "formula": "8+0*x",
+   "a": 0,
+   "esperado": 8
+  },
+  "pistas": [
+   "La cota es el ancho entre 2 elevado a n.",
+   "Hay que resolver 2 entre 2 elevado a n menor que 0.01.",
+   "2 elevado a n debe superar 200, y el primero que lo hace es 2 elevado a 8."
+  ],
+  "errores": [
+   "",
+   "Con 7 iteraciones, 2 elevado a 7 es 128, que no supera 200.",
+   "Con 6 iteraciones, 2 elevado a 6 es 64, mucho menos de 200.",
+   "Con 10 se cumple, pero 8 ya alcanza."
+  ]
+ },
+ "resumen": [
+  "La bisección parte un intervalo con cambio de signo por la mitad y conserva la mitad donde el signo cambia.",
+  "La cota de error es b menos a entre 2 elevado a n, y se conoce de antemano.",
+  "Es lenta pero segura, y solo necesita evaluar f."
+ ]
+}
