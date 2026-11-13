@@ -1,0 +1,215 @@
+{
+ "audio": "audio/notables.mp3",
+ "fin": 46.61,
+ "sent": [
+  {
+   "t": "¿Cuánto es x más 3, al cuadrado? Casi todos dicen x al cuadrado más 9.",
+   "a": 0.0,
+   "b": 6.25
+  },
+  {
+   "t": "Ese es el error clásico. Se pierde el término del medio.",
+   "a": 6.76,
+   "b": 10.62
+  },
+  {
+   "t": "El cuadrado de una suma es el primero al cuadrado, más el doble del primero por el segundo, más el segundo al cuadrado.",
+   "a": 11.11,
+   "b": 18.36
+  },
+  {
+   "t": "Con x más 3, queda x al cuadrado, más 6x, más 9.",
+   "a": 18.87,
+   "b": 23.84
+  },
+  {
+   "t": "Mira la gráfica. La curva de x más h, al cuadrado, y la de x al cuadrado más 2hx, están separadas por h al cuadrado.",
+   "a": 24.33,
+   "b": 33.49
+  },
+  {
+   "t": "Si olvidas el término del medio, te falta justo esa distancia.",
+   "a": 33.92,
+   "b": 37.7
+  },
+  {
+   "t": "Recuerda, el cuadrado de una suma no es la suma de los cuadrados.",
+   "a": 38.15,
+   "b": 42.45
+  },
+  {
+   "t": "Practica con preguntas reales en MathUNAL.",
+   "a": 42.88,
+   "b": 45.71
+  }
+ ],
+ "escenas": [
+  {
+   "tipo": "gancho",
+   "s": [
+    0
+   ],
+   "titulo": "¿Cuánto es *(x + 3)²*?",
+   "tex": "(x+3)^{2}=x^{2}+9",
+   "mal": true,
+   "size": 90
+  },
+  {
+   "tipo": "tarjetas",
+   "s": [
+    1
+   ],
+   "titulo": "Se pierde el *término del medio*",
+   "top": 420,
+   "cards": [
+    {
+     "tipo": "mal",
+     "label": "Error clásico",
+     "tex": "(x+3)^{2}\\ne x^{2}+9",
+     "s": 1,
+     "dt": 0.6,
+     "size": 90
+    }
+   ]
+  },
+  {
+   "tipo": "pasos",
+   "s": [
+    2,
+    3
+   ],
+   "titulo": "El cuadrado de una suma",
+   "top": 340,
+   "pasos": [
+    {
+     "label": "La regla",
+     "tex": "(a+b)^{2}=a^{2}+\\textcolor{#FFA65C}{2ab}+b^{2}",
+     "s": 2,
+     "dt": 0.5,
+     "size": 64,
+     "centro": true
+    },
+    {
+     "label": "Con x y 3",
+     "tex": "(x+3)^{2}=x^{2}+\\textcolor{#FFA65C}{6x}+9",
+     "s": 3,
+     "dt": 0.4,
+     "size": 64,
+     "centro": true
+    }
+   ],
+   "caja": {
+    "tex": "x^{2}+6x+9",
+    "s": 3,
+    "dt": 2.6,
+    "chispasY": 940
+   }
+  },
+  {
+   "tipo": "grafica",
+   "s": [
+    4,
+    5
+   ],
+   "titulo": "La distancia que falta",
+   "xr": [
+    -4,
+    4
+   ],
+   "yr": [
+    -2,
+    16
+   ],
+   "curvas": [
+    {
+     "f": "(x+p)*(x+p)",
+     "col": "azul"
+    },
+    {
+     "f": "x*x+2*p*x",
+     "col": "nar",
+     "retraso": 0.5
+    }
+   ],
+   "param": {
+    "kf": [
+     [
+      4,
+      0.6,
+      0.5
+     ],
+     [
+      4,
+      6.5,
+      2.5
+     ]
+    ]
+   },
+   "puntos": [
+    {
+     "x": "1",
+     "y": "(1+p)*(1+p)",
+     "s": 4,
+     "dt": 0.8,
+     "col": "azul",
+     "guia": false
+    },
+    {
+     "x": "1",
+     "y": "1+2*p",
+     "s": 4,
+     "dt": 0.8,
+     "col": "nar"
+    }
+   ],
+   "vlineas": [
+    {
+     "x": 1,
+     "col": "ver",
+     "txt": "x = 1"
+    }
+   ],
+   "textos": [
+    {
+     "txt": "h = ${p.toFixed(2)}",
+     "x": 80,
+     "y": 130,
+     "col": "tx",
+     "s": 4,
+     "dt": 0.8
+    },
+    {
+     "txt": "h² = ${(p*p).toFixed(2)}",
+     "x": 80,
+     "y": 190,
+     "col": "amar",
+     "s": 4,
+     "dt": 0.8
+    }
+   ]
+  },
+  {
+   "tipo": "lista",
+   "s": [
+    6
+   ],
+   "titulo": "No es la suma de los *cuadrados*",
+   "top": 420,
+   "items": [
+    {
+     "big": "(x+3)²",
+     "small": "no es x² + 9",
+     "s": 6,
+     "dt": 1.0
+    }
+   ]
+  },
+  {
+   "tipo": "cierre",
+   "s": [
+    7
+   ],
+   "titulo": "Practica con preguntas *reales*"
+  }
+ ]
+}
