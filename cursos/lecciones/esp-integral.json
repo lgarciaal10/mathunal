@@ -554,10 +554,10 @@
       "t": "ordenar",
       "enunciado": "Estos son los pasos para representar un pulso con la integral de Fourier, pero están desordenados.",
       "pasos": [
-       "Se calcula A(ω) con un coseno entre menos 1 y 1",
-       "Se escribe la integral de A(ω) por coseno de ωx",
-       "En x igual a 0 sale pi medios por 2 sobre pi",
-       "En x igual a 1 se toma el promedio"
+       "A(\\omega)=\\dfrac{2\\operatorname{sen}\\omega}{\\pi\\omega}",
+       "f(x)=\\displaystyle\\int_{0}^{\\infty}A(\\omega)\\cos(\\omega x)\\,d\\omega",
+       "f(0)=\\dfrac{2}{\\pi}\\cdot\\dfrac{\\pi}{2}=1",
+       "f(1)=\\dfrac{1}{2}"
       ],
       "mezcla": [
        2,

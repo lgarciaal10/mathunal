@@ -1,0 +1,627 @@
+{
+ "esquema": 1,
+ "id": "es-m3-l1",
+ "ejemplo": true,
+ "curso": "Matemáticas Especiales",
+ "modulo": "Módulo 3 Ecuación de Laplace y variable compleja",
+ "posicion": "Lección 1 de 5",
+ "titulo": "Números complejos y funciones analíticas",
+ "minutos": 28,
+ "ejercicios": 8,
+ "grafica": {
+  "tipo": "plano",
+  "x": [
+   -5.5,
+   2.5
+  ],
+  "y": [
+   -1.4,
+   3.2
+  ],
+  "a": 0,
+  "b": 4,
+  "inicio": 1,
+  "entero": true,
+  "elementos": [
+   {
+    "t": "vector",
+    "b": [
+     "1",
+     "1"
+    ],
+    "nombre": "z",
+    "c": 3
+   },
+   {
+    "t": "vector",
+    "b": [
+     "exp(0.34657359*x)*cos(0.78539816*x)",
+     "exp(0.34657359*x)*sin(0.78539816*x)"
+    ],
+    "nombre": "w",
+    "c": 0
+   },
+   {
+    "t": "punto",
+    "p": [
+     "1",
+     "0"
+    ],
+    "c": 1
+   }
+  ],
+  "lecturas": [
+   {
+    "rotulo": "módulo de z a la n, igual a 2 elevado a n sobre 2",
+    "formula": "exp(0.34657359*x)"
+   },
+   {
+    "rotulo": "ángulo de z a la n en grados, 45 por n",
+    "formula": "45*x"
+   }
+  ],
+  "etiquetas": [
+   "z igual a 1 más i, con módulo raíz de 2 y ángulo 45 grados",
+   "z a la n, cuyo módulo crece y cuyo ángulo se suma"
+  ],
+  "etiquetaSlider": "Potencia n, de 0 a 4",
+  "alt": "En el plano complejo, el número z igual a 1 más i, con módulo raíz de 2 y ángulo de 45 grados. Al elevarlo a la potencia n el módulo se multiplica por raíz de 2 y el ángulo gira otros 45 grados, de modo que z a la 4 es menos 4"
+ },
+ "glosario": {
+  "polar": "La forma polar escribe un número complejo como r por e elevado a i theta, con r el módulo y theta el ángulo.",
+  "euler": "La fórmula de Euler dice que e elevado a i theta es coseno de theta más i seno de theta.",
+  "analitica": "Una función es analítica en un punto si es derivable en el sentido complejo en todo un entorno del punto.",
+  "modulo": "El módulo de un número complejo es su distancia al origen."
+ },
+ "ver": {
+  "duracion": 24.0,
+  "capitulos": [
+   [
+    0,
+    4,
+    "El número 1 más i está a raíz de 2 del origen, con un ángulo de 45 grados."
+   ],
+   [
+    4,
+    10,
+    "Al elevarlo a la n, el módulo se eleva a la n y el ángulo se multiplica por n."
+   ],
+   [
+    10,
+    16,
+    "Con n igual a 2, el módulo es 2 y el ángulo es 90 grados, o sea z al cuadrado vale 2i."
+   ],
+   [
+    16,
+    20,
+    "Con n igual a 4, el ángulo es 180 grados y z a la 4 vale menos 4."
+   ],
+   [
+    20,
+    24,
+    "Por eso 1 más i elevado a la 8 vale 16, porque el módulo es 2 a la 4 y el ángulo da una vuelta completa."
+   ]
+  ],
+  "canales": {
+   "draw": [
+    [
+     0.3,
+     0
+    ],
+    [
+     3.5,
+     1
+    ]
+   ],
+   "d": [
+    [
+     4,
+     1
+    ],
+    [
+     8,
+     1
+    ],
+    [
+     10,
+     2
+    ],
+    [
+     13,
+     3
+    ],
+    [
+     16,
+     4
+    ],
+    [
+     18,
+     4
+    ],
+    [
+     24,
+     4
+    ]
+   ],
+   "guide": [
+    [
+     4,
+     0
+    ],
+    [
+     5,
+     1
+    ]
+   ]
+  },
+  "intervalos": {
+   "ok": [
+    16,
+    24
+   ]
+  }
+ },
+ "leer": {
+  "secciones": [
+   {
+    "titulo": "La idea",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Un número complejo se escribe en {{gl:polar|forma polar}} como r por e elevado a i theta, con la {{gl:euler|fórmula de Euler}}. Con esa forma, multiplicar es sumar ángulos y multiplicar {{gl:modulo|módulos}}, y elevar a una potencia es sencillo. Una función de variable compleja es {{gl:analitica|analítica}} cuando es derivable en todo un entorno."
+     }
+    ]
+   },
+   {
+    "titulo": "Un ejemplo",
+    "corto": "Un ejemplo",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "El número 1 más i tiene módulo raíz de 2 y ángulo 45 grados. Cambia la potencia n y mira cómo gira y crece."
+     },
+     {
+      "t": "eq",
+      "tex": "z=1+i=\\sqrt{2}\\,e^{i\\pi/4},\\qquad z^{n}=2^{n/2}\\,e^{i\\,n\\pi/4}"
+     },
+     {
+      "t": "grafica",
+      "animar": "dibujar",
+      "alt": "Las potencias de 1 más i en el plano complejo"
+     }
+    ]
+   },
+   {
+    "titulo": "Piensa antes de ver",
+    "corto": "Piensa",
+    "bloques": [
+     {
+      "t": "piensa",
+      "pregunta": "El número 1 más i tiene módulo raíz de 2. ¿Cuánto vale el módulo de su cuadrado?",
+      "opciones": [
+       2,
+       1,
+       4,
+       "raíz de 2"
+      ],
+      "correcta": 2,
+      "bien": "Muy bien. El módulo se eleva al cuadrado, y raíz de 2 al cuadrado es 2.",
+      "mal": "El módulo del cuadrado es el cuadrado del módulo. Raíz de 2 al cuadrado vale 2."
+     }
+    ]
+   },
+   {
+    "titulo": "Las potencias",
+    "corto": "Potencias",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mira z a la n con n igual a 0, 1, 2 y 4."
+     },
+     {
+      "t": "acercando",
+      "ds": [
+       0,
+       1,
+       2,
+       4
+      ],
+      "alt": "Potencias de 1 más i"
+     },
+     {
+      "t": "p",
+      "html": "Con n igual a 2 sale 2i, y con n igual a 4 sale menos 4."
+     }
+    ]
+   },
+   {
+    "titulo": "Forma polar y Euler",
+    "corto": "Polar",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Se pasa de la forma rectangular a la polar con el módulo y el ángulo."
+     },
+     {
+      "t": "pasos",
+      "items": [
+       {
+        "tex": "|z|=\\sqrt{1^{2}+1^{2}}=\\sqrt{2}",
+        "porque": "El módulo."
+       },
+       {
+        "tex": "\\theta=\\arctan\\dfrac{1}{1}=\\dfrac{\\pi}{4}",
+        "porque": "El ángulo, porque está en el primer cuadrante."
+       },
+       {
+        "tex": "z=\\sqrt{2}\\,e^{i\\pi/4}",
+        "porque": "La forma polar."
+       },
+       {
+        "tex": "z^{8}=(\\sqrt{2})^{8}e^{i\\,8\\pi/4}=16\\,e^{i\\,2\\pi}=16",
+        "porque": "La potencia 8, con módulo 16 y ángulo de una vuelta."
+       }
+      ]
+     },
+     {
+      "t": "ojo",
+      "html": "El ángulo depende del cuadrante. Con la arcotangente sola se puede confundir el segundo cuadrante con el cuarto, así que mira los signos de las partes real e imaginaria."
+     }
+    ]
+   },
+   {
+    "titulo": "Euler y analiticidad",
+    "corto": "Euler",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "De la fórmula de Euler salen valores famosos, y la analiticidad usa la derivada compleja."
+     },
+     {
+      "t": "pasos",
+      "items": [
+       {
+        "tex": "e^{i\\theta}=\\cos\\theta+i\\operatorname{sen}\\theta",
+        "porque": "Fórmula de Euler."
+       },
+       {
+        "tex": "e^{i\\pi}=\\cos\\pi+i\\operatorname{sen}\\pi=-1",
+        "porque": "El valor en theta igual a pi."
+       },
+       {
+        "tex": "f'(z_0)=\\displaystyle\\lim_{h\\to0}\\dfrac{f(z_0+h)-f(z_0)}{h}",
+        "porque": "La derivada compleja, con h complejo."
+       },
+       {
+        "tex": "f\\ \\text{es derivable en un entorno de}\\ z_0",
+        "porque": "Analítica es derivable en un entorno, y no solo en un punto."
+       }
+      ]
+     },
+     {
+      "t": "ojo",
+      "html": "Derivable solo en un punto no alcanza para ser analítica. La función módulo al cuadrado, por ejemplo, es derivable solo en cero, y no es analítica en ninguna parte."
+     }
+    ]
+   },
+   {
+    "titulo": "¿Para qué sirve?",
+    "corto": "En ingeniería",
+    "bloques": [
+     {
+      "t": "ingenieria",
+      "titulo": "La corriente alterna con fasores",
+      "html": "Una corriente alterna de 50 amperios de amplitud y fase 45 grados se representa con un número complejo. Con la forma polar es fácil sumar corrientes y aplicar la impedancia.",
+      "tex": "I=50\\,e^{i\\pi/4}=25\\sqrt{2}\\,(1+i)",
+      "datos": [
+       {
+        "k": "Amplitud",
+        "v": "50 A"
+       },
+       {
+        "k": "Fase",
+        "v": "45 grados"
+       },
+       {
+        "k": "Parte real",
+        "v": "cerca de 35.4 A"
+       }
+      ],
+      "cierre": "Los ingenieros eléctricos usan fasores para sumar señales de la misma frecuencia. Con la forma polar, multiplicar por una impedancia es multiplicar módulos y sumar fases, y el cálculo se vuelve muy corto."
+     }
+    ]
+   },
+   {
+    "titulo": "Completa el paso",
+    "corto": "Completa",
+    "bloques": [
+     {
+      "t": "completar",
+      "enunciado": "Con la fórmula de Euler, e elevado a i pi vale [[hueco]].",
+      "tex": "e^{i\\pi}=[[hueco]]",
+      "opciones": [
+       {
+        "tex": "-1",
+        "txt": "menos uno"
+       },
+       {
+        "tex": "1",
+        "txt": "uno"
+       },
+       {
+        "tex": "i",
+        "txt": "i"
+       }
+      ],
+      "correcta": 0,
+      "errores": [
+       "",
+       "Con 1 se confunde con e elevado a 0.",
+       "Con i se confunde con e elevado a i pi medios."
+      ],
+      "pista": "Coseno de pi es menos 1 y seno de pi es 0.",
+      "porque": "Vale menos uno."
+     }
+    ]
+   },
+   {
+    "titulo": "Encuentra el error",
+    "corto": "Error",
+    "bloques": [
+     {
+      "t": "error",
+      "enunciado": "Alguien escribió 1 más i en forma polar y se equivocó. Toca el paso que está mal.",
+      "pasos": [
+       {
+        "tex": "|z|=\\sqrt{1+1}=\\sqrt{2}",
+        "porque": "Módulo.",
+        "txt": "el módulo"
+       },
+       {
+        "tex": "\\theta=\\dfrac{\\pi}{2}",
+        "porque": "Este paso es el que falla.",
+        "txt": "ángulo pi medios"
+       },
+       {
+        "tex": "z=\\sqrt{2}\\,e^{i\\pi/2}",
+        "porque": "Resultado.",
+        "txt": "la polar"
+       }
+      ],
+      "mal": 1,
+      "explicacion": "El ángulo de 1 más i es arctan de 1 sobre 1, o sea pi cuartos. Pi medios sería el de la i sola.",
+      "correccion": "\\theta=\\arctan(1)=\\dfrac{\\pi}{4}",
+      "pista": "Divide la parte imaginaria entre la real."
+     }
+    ]
+   },
+   {
+    "titulo": "Ordena los pasos",
+    "corto": "Ordena",
+    "bloques": [
+     {
+      "t": "ordenar",
+      "enunciado": "Estos son los pasos para calcular 1 más i elevado a la 8, pero están desordenados.",
+      "pasos": [
+       "|z|=\\sqrt{2}",
+       "\\theta=\\dfrac{\\pi}{4}",
+       "z^{8}=(\\sqrt{2})^{8}e^{i\\,8\\pi/4}",
+       "z^{8}=16"
+      ],
+      "mezcla": [
+       2,
+       0,
+       3,
+       1
+      ],
+      "porque": "Primero el módulo, luego el ángulo, después la potencia y por último se simplifica.",
+      "pista": "Se empieza con el módulo.",
+      "txt": [
+       "Módulo",
+       "Ángulo",
+       "Se aplica la potencia",
+       "Se simplifica"
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "Revisa tu respuesta",
+    "corto": "Revisa",
+    "bloques": [
+     {
+      "t": "pregunta"
+     },
+     {
+      "t": "nota",
+      "html": "Puedes pedir pistas de a una. Si fallas, el mensaje te dice qué error se cometió."
+     }
+    ]
+   },
+   {
+    "titulo": "Mini simulacro",
+    "corto": "Simulacro",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Preguntas reales del banco de MathUNAL sobre este tema. Responde sin mirar los pasos."
+     },
+     {
+      "t": "simulacro",
+      "titulo": "Mini simulacro de números complejos",
+      "preguntas": [
+       {
+        "tipo": "numerica",
+        "texto": "El valor de $(1+i)^{8}$ es:",
+        "respuesta": "16",
+        "tolNum": 0.001,
+        "resumen": "El valor de (1+i) a la 8.",
+        "fuente": "Banco MathUNAL, simulacro de Matemáticas Especiales"
+       },
+       {
+        "tipo": "mcq",
+        "texto": "De la fórmula de Euler $e^{i\\theta}=\\cos\\theta+i\\operatorname{sen}\\theta$ se sigue que $e^{i\\pi}$ es igual a:",
+        "opciones": [
+         "$-1$",
+         "$1$",
+         "$i$",
+         "$0$"
+        ],
+        "correcta": 0,
+        "resumen": "La fórmula de Euler en theta igual a pi.",
+        "fuente": "Banco MathUNAL, simulacro de Matemáticas Especiales"
+       },
+       {
+        "tipo": "mcq",
+        "texto": "La forma polar del número complejo $z=1+i$ es:",
+        "opciones": [
+         "$\\sqrt{2}\\,e^{i\\pi/4}$",
+         "$2\\,e^{i\\pi/4}$",
+         "$\\sqrt{2}\\,e^{i\\pi/2}$",
+         "$e^{i\\pi/4}$"
+        ],
+        "correcta": 0,
+        "resumen": "La forma polar de 1 más i.",
+        "fuente": "Banco MathUNAL, simulacro de Matemáticas Especiales"
+       },
+       {
+        "tipo": "mcq",
+        "texto": "Se dice que $f(z)$ es ANALÍTICA (holomorfa) en un punto $z_0$ si:",
+        "opciones": [
+         "es derivable (en el sentido complejo) en todo un entorno de $z_0$",
+         "es continua en $z_0$",
+         "es derivable solo en $z_0$",
+         "es real"
+        ],
+        "correcta": 0,
+        "resumen": "Qué significa ser analítica.",
+        "fuente": "Banco MathUNAL, simulacro de Matemáticas Especiales"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "Tu repaso",
+    "corto": "Repaso",
+    "bloques": [
+     {
+      "t": "repaso"
+     }
+    ]
+   },
+   {
+    "titulo": "En resumen",
+    "corto": "Resumen",
+    "bloques": [
+     {
+      "t": "resumen"
+     }
+    ]
+   }
+  ]
+ },
+ "practicar": {
+  "pasos": [
+   {
+    "titulo": "El número z",
+    "grafica": {
+     "draw": 1
+    },
+    "bloques": [
+     {
+      "t": "p",
+      "html": "El número es 1 más i."
+     },
+     {
+      "t": "eq",
+      "tex": "z=1+i"
+     }
+    ]
+   },
+   {
+    "titulo": "Eleva a la n",
+    "grafica": {
+     "draw": 1
+    },
+    "laboratorio": true,
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mueve el deslizador. Solo importan los valores enteros de n. Abajo se leen el módulo y el ángulo."
+     }
+    ]
+   },
+   {
+    "titulo": "La cuarta potencia",
+    "grafica": {
+     "draw": 1,
+     "guide": 1,
+     "ok": true
+    },
+    "laboratorio": true,
+    "d": 4,
+    "bloques": [
+     {
+      "t": "eq",
+      "tex": "z^{4}=4\\,e^{i\\pi}=-4"
+     },
+     {
+      "t": "p",
+      "html": "Con n igual a 4 el ángulo es 180 grados y el módulo es 4."
+     }
+    ]
+   },
+   {
+    "titulo": "Revisa tu respuesta",
+    "grafica": {
+     "draw": 1,
+     "guide": 1,
+     "ok": true,
+     "d": 4
+    },
+    "bloques": [
+     {
+      "t": "pregunta"
+     },
+     {
+      "t": "nota",
+      "html": "Se elevan los módulos y se suman los ángulos."
+     }
+    ]
+   }
+  ]
+ },
+ "pregunta": {
+  "tex": "\\text{El valor de }(1+i)^{4}\\text{ es}",
+  "opciones": [
+   "$-4$",
+   "$4$",
+   "$4i$",
+   "$-4i$"
+  ],
+  "correcta": 0,
+  "explicacion": "El módulo es raíz de 2 elevado a 4, o sea 4, y el ángulo es 4 por pi cuartos, o sea pi. Da 4 por e a la i pi, que es menos 4.",
+  "verificacion": {
+   "formula": "4*cos(pi)+0*x",
+   "a": 0,
+   "esperado": -4
+  },
+  "pistas": [
+   "Pasa 1 más i a forma polar.",
+   "El módulo se eleva a la 4, y el ángulo se multiplica por 4.",
+   "El ángulo queda en pi."
+  ],
+  "errores": [
+   "",
+   "Con signo positivo se olvidó que el ángulo es pi y no una vuelta completa.",
+   "Con 4i se tomó un ángulo de pi medios.",
+   "Con menos 4i se tomó un ángulo de 3 pi medios."
+  ]
+ },
+ "resumen": [
+  "Un número complejo se escribe como r por e elevado a i theta, con r el módulo y theta el ángulo.",
+  "Al elevar a la n, el módulo se eleva a la n y el ángulo se multiplica por n.",
+  "Una función es analítica si es derivable en un entorno del punto."
+ ]
+}

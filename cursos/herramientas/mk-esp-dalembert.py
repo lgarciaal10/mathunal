@@ -53,7 +53,7 @@ S=[
    [("u=F(x-ct)+G(x+ct)","Se escribe la forma general"),
     ("F=G=f/2","Con reposo, se ajustan los datos"),
     ("u=\\tfrac{1}{2}[f(x-ct)+f(x+ct)]","Se obtiene la fórmula"),
-    ("Se evalúa en el punto pedido","Se calcula")],[2,0,3,1],
+    ("u(x_{0},t_{0})","Se calcula")],[2,0,3,1],
    "Primero la forma general, luego se ajustan los datos, después la fórmula y por último se evalúa.","Se empieza con la forma general."),
 ]
 S+=cierre("Mini simulacro de la fórmula de D'Alembert",[

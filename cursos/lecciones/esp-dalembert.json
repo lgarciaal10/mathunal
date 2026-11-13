@@ -783,7 +783,7 @@
        "u=F(x-ct)+G(x+ct)",
        "F=G=f/2",
        "u=\\tfrac{1}{2}[f(x-ct)+f(x+ct)]",
-       "Se evalúa en el punto pedido"
+       "u(x_{0},t_{0})"
       ],
       "mezcla": [
        2,

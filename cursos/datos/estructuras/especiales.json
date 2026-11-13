@@ -124,8 +124,8 @@
      "tema": "Números complejos y funciones analíticas",
      "preguntas_banco": 5,
      "parciales_con_el_tema": 1,
-     "estado": "pendiente",
-     "leccion": null
+     "estado": "borrador para revisión",
+     "leccion": "lecciones/esp-complejos.json"
     }
    ]
   }

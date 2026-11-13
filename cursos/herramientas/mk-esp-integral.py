@@ -53,10 +53,10 @@ S=[
    "En un salto la integral converge al promedio de los límites a cada lado, y por eso da un medio y no 1.",
    "\\dfrac{1+0}{2}=\\dfrac{1}{2}","Promedia los dos límites."),
  ordenar("Estos son los pasos para representar un pulso con la integral de Fourier, pero están desordenados.",
-   [("Se calcula A(ω) con un coseno entre menos 1 y 1","Se obtiene el coeficiente"),
-    ("Se escribe la integral de A(ω) por coseno de ωx","Se arma la integral"),
-    ("En x igual a 0 sale pi medios por 2 sobre pi","Se verifica con Dirichlet"),
-    ("En x igual a 1 se toma el promedio","Se revisa el salto")],[2,0,3,1],
+   [("A(\\omega)=\\dfrac{2\\operatorname{sen}\\omega}{\\pi\\omega}","Se obtiene el coeficiente"),
+    ("f(x)=\\displaystyle\\int_{0}^{\\infty}A(\\omega)\\cos(\\omega x)\\,d\\omega","Se arma la integral"),
+    ("f(0)=\\dfrac{2}{\\pi}\\cdot\\dfrac{\\pi}{2}=1","Se verifica con Dirichlet"),
+    ("f(1)=\\dfrac{1}{2}","Se revisa el salto")],[2,0,3,1],
    "Primero el coeficiente, luego la integral, después el centro y por último el salto.","Se empieza calculando el coeficiente A de omega."),
 ]
 S+=cierre("Mini simulacro de la integral de Fourier",[
