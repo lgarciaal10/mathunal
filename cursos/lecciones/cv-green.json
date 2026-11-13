@@ -1,0 +1,787 @@
+{
+ "esquema": 1,
+ "id": "cv-m3-l3",
+ "ejemplo": true,
+ "curso": "Cálculo en Varias Variables",
+ "modulo": "Módulo 3 Cálculo vectorial",
+ "posicion": "Lección 3 de 5",
+ "titulo": "Teorema de Green",
+ "minutos": 26,
+ "ejercicios": 8,
+ "grafica": {
+  "tipo": "plano",
+  "x": [
+   -4.2,
+   4.2
+  ],
+  "y": [
+   -2.5,
+   2.5
+  ],
+  "a": 0.5,
+  "b": 2.4,
+  "inicio": 1,
+  "elementos": [
+   {
+    "t": "trazo",
+    "puntos": [
+     [
+      "x*cos(0.00000)",
+      "x*sin(0.00000)"
+     ],
+     [
+      "x*cos(0.15708)",
+      "x*sin(0.15708)"
+     ],
+     [
+      "x*cos(0.31416)",
+      "x*sin(0.31416)"
+     ],
+     [
+      "x*cos(0.47124)",
+      "x*sin(0.47124)"
+     ],
+     [
+      "x*cos(0.62832)",
+      "x*sin(0.62832)"
+     ],
+     [
+      "x*cos(0.78540)",
+      "x*sin(0.78540)"
+     ],
+     [
+      "x*cos(0.94248)",
+      "x*sin(0.94248)"
+     ],
+     [
+      "x*cos(1.09956)",
+      "x*sin(1.09956)"
+     ],
+     [
+      "x*cos(1.25664)",
+      "x*sin(1.25664)"
+     ],
+     [
+      "x*cos(1.41372)",
+      "x*sin(1.41372)"
+     ],
+     [
+      "x*cos(1.57080)",
+      "x*sin(1.57080)"
+     ],
+     [
+      "x*cos(1.72788)",
+      "x*sin(1.72788)"
+     ],
+     [
+      "x*cos(1.88496)",
+      "x*sin(1.88496)"
+     ],
+     [
+      "x*cos(2.04204)",
+      "x*sin(2.04204)"
+     ],
+     [
+      "x*cos(2.19911)",
+      "x*sin(2.19911)"
+     ],
+     [
+      "x*cos(2.35619)",
+      "x*sin(2.35619)"
+     ],
+     [
+      "x*cos(2.51327)",
+      "x*sin(2.51327)"
+     ],
+     [
+      "x*cos(2.67035)",
+      "x*sin(2.67035)"
+     ],
+     [
+      "x*cos(2.82743)",
+      "x*sin(2.82743)"
+     ],
+     [
+      "x*cos(2.98451)",
+      "x*sin(2.98451)"
+     ],
+     [
+      "x*cos(3.14159)",
+      "x*sin(3.14159)"
+     ],
+     [
+      "x*cos(3.29867)",
+      "x*sin(3.29867)"
+     ],
+     [
+      "x*cos(3.45575)",
+      "x*sin(3.45575)"
+     ],
+     [
+      "x*cos(3.61283)",
+      "x*sin(3.61283)"
+     ],
+     [
+      "x*cos(3.76991)",
+      "x*sin(3.76991)"
+     ],
+     [
+      "x*cos(3.92699)",
+      "x*sin(3.92699)"
+     ],
+     [
+      "x*cos(4.08407)",
+      "x*sin(4.08407)"
+     ],
+     [
+      "x*cos(4.24115)",
+      "x*sin(4.24115)"
+     ],
+     [
+      "x*cos(4.39823)",
+      "x*sin(4.39823)"
+     ],
+     [
+      "x*cos(4.55531)",
+      "x*sin(4.55531)"
+     ],
+     [
+      "x*cos(4.71239)",
+      "x*sin(4.71239)"
+     ],
+     [
+      "x*cos(4.86947)",
+      "x*sin(4.86947)"
+     ],
+     [
+      "x*cos(5.02655)",
+      "x*sin(5.02655)"
+     ],
+     [
+      "x*cos(5.18363)",
+      "x*sin(5.18363)"
+     ],
+     [
+      "x*cos(5.34071)",
+      "x*sin(5.34071)"
+     ],
+     [
+      "x*cos(5.49779)",
+      "x*sin(5.49779)"
+     ],
+     [
+      "x*cos(5.65487)",
+      "x*sin(5.65487)"
+     ],
+     [
+      "x*cos(5.81195)",
+      "x*sin(5.81195)"
+     ],
+     [
+      "x*cos(5.96903)",
+      "x*sin(5.96903)"
+     ],
+     [
+      "x*cos(6.12611)",
+      "x*sin(6.12611)"
+     ],
+     [
+      "x*cos(6.28319)",
+      "x*sin(6.28319)"
+     ]
+    ],
+    "c": 0
+   },
+   {
+    "t": "vector",
+    "a": [
+     "x",
+     "0"
+    ],
+    "b": [
+     "x",
+     "0.8"
+    ],
+    "nombre": "F",
+    "c": 1
+   },
+   {
+    "t": "punto",
+    "p": [
+     "0",
+     "0"
+    ],
+    "c": 3
+   }
+  ],
+  "lecturas": [
+   {
+    "rotulo": "área encerrada por la curva, pi r al cuadrado",
+    "formula": "pi*x*x"
+   },
+   {
+    "rotulo": "circulación de F igual a menos y, x, es decir 2 por el área",
+    "formula": "2*pi*x*x"
+   }
+  ],
+  "etiquetas": [
+   "La curva es una circunferencia de radio r, recorrida en sentido antihorario",
+   "La circulación del campo que gira es el doble del área"
+  ],
+  "etiquetaSlider": "Radio r, de 0.5 a 2.4",
+  "alt": "Una circunferencia de radio r recorrida en sentido antihorario. El campo F igual a menos y, x gira alrededor del origen, con rotacional 2. Por el teorema de Green, la circulación a lo largo de la curva es la integral doble del rotacional, o sea 2 por el área encerrada, que vale 2 pi r al cuadrado"
+ },
+ "glosario": {
+  "green": "El teorema de Green convierte una integral de línea sobre una curva cerrada en una integral doble sobre la región que encierra.",
+  "positivo": "El sentido positivo de recorrido es el antihorario, que deja la región a la izquierda.",
+  "circulacion": "La circulación de un campo es la integral de línea del campo sobre una curva cerrada.",
+  "area": "Con campos como menos y sobre 2, x sobre 2 la circulación da el área encerrada, y es una forma de calcular áreas."
+ },
+ "ver": {
+  "duracion": 24.0,
+  "capitulos": [
+   [
+    0,
+    4,
+    "Una curva cerrada recorrida en sentido antihorario encierra una región, y el campo menos y, x gira alrededor del origen."
+   ],
+   [
+    4,
+    10,
+    "El teorema de Green dice que la circulación es la integral doble de Q sub x menos P sub y sobre la región."
+   ],
+   [
+    10,
+    16,
+    "Con este campo, Q sub x menos P sub y vale 2, así que la circulación es 2 veces el área."
+   ],
+   [
+    16,
+    20,
+    "Con radio 1 el área es pi, cerca de 3.14, y la circulación es 2 pi, cerca de 6.28."
+   ],
+   [
+    20,
+    24,
+    "Con radio 2.4 la circulación llega a 36.2. Green cambia un cálculo sobre la frontera por otro sobre la región."
+   ]
+  ],
+  "canales": {
+   "draw": [
+    [
+     0.3,
+     0
+    ],
+    [
+     3.5,
+     1
+    ]
+   ],
+   "d": [
+    [
+     4,
+     0.8
+    ],
+    [
+     8,
+     0.8
+    ],
+    [
+     10,
+     1
+    ],
+    [
+     16,
+     1
+    ],
+    [
+     18,
+     2.4
+    ],
+    [
+     24,
+     2.4
+    ]
+   ],
+   "guide": [
+    [
+     4,
+     0
+    ],
+    [
+     5,
+     1
+    ]
+   ]
+  },
+  "intervalos": {
+   "ok": [
+    16,
+    24
+   ]
+  }
+ },
+ "leer": {
+  "secciones": [
+   {
+    "titulo": "La idea",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "El teorema de {{gl:green|Green}} relaciona la {{gl:circulacion|circulación}} de un campo sobre una curva cerrada con una integral doble sobre la región. La curva se recorre en {{gl:positivo|sentido positivo}}, o sea antihorario. Con campos bien escogidos, la circulación da el {{gl:area|área}} encerrada."
+     }
+    ]
+   },
+   {
+    "titulo": "Un ejemplo",
+    "corto": "Un ejemplo",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "El campo menos y, x se integra sobre una circunferencia. Cambia el radio y mira la circulación."
+     },
+     {
+      "t": "eq",
+      "tex": "\\oint_{C}P\\,dx+Q\\,dy=\\iint_{D}\\left(\\dfrac{\\partial Q}{\\partial x}-\\dfrac{\\partial P}{\\partial y}\\right)dA,\\qquad \\oint_{C}-y\\,dx+x\\,dy=2A"
+     },
+     {
+      "t": "grafica",
+      "animar": "dibujar",
+      "alt": "La circunferencia con su campo de giro"
+     }
+    ]
+   },
+   {
+    "titulo": "Piensa antes de ver",
+    "corto": "Piensa",
+    "bloques": [
+     {
+      "t": "piensa",
+      "pregunta": "Con P igual a menos y y Q igual a x, ¿cuánto vale Q sub x menos P sub y?",
+      "opciones": [
+       2,
+       0,
+       1,
+       -2
+      ],
+      "correcta": 2,
+      "bien": "Muy bien. Q sub x es 1 y P sub y es menos 1, y la resta da 2.",
+      "mal": "Q sub x vale 1 y P sub y vale menos 1, así que la resta da 1 más 1, o sea 2."
+     }
+    ]
+   },
+   {
+    "titulo": "Distintos radios",
+    "corto": "Radios",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mira la circulación con radios 0.8, 1, 1.6 y 2.4."
+     },
+     {
+      "t": "acercando",
+      "ds": [
+       0.8,
+       1,
+       1.6,
+       2.4
+      ],
+      "alt": "La circulación con cuatro radios"
+     },
+     {
+      "t": "p",
+      "html": "La circulación crece con el cuadrado del radio, porque el área también lo hace."
+     }
+    ]
+   },
+   {
+    "titulo": "Aplicar Green",
+    "corto": "Cálculo",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Se pasa de la curva a la región, y la integral doble es más corta."
+     },
+     {
+      "t": "pasos",
+      "items": [
+       {
+        "tex": "P=-y,\\quad Q=x",
+        "porque": "El campo."
+       },
+       {
+        "tex": "Q_{x}-P_{y}=1-(-1)=2",
+        "porque": "El integrando de Green."
+       },
+       {
+        "tex": "\\oint_{C}(-y\\,dx+x\\,dy)=\\displaystyle\\iint_{D}2\\,dA=2\\pi r^{2}",
+        "porque": "La circulación."
+       },
+       {
+        "tex": "r=1\\ \\Rightarrow\\ 2\\pi\\approx6.2832",
+        "porque": "Con el círculo unidad."
+       }
+      ]
+     },
+     {
+      "t": "ojo",
+      "html": "Si la curva se recorre en sentido horario, la circulación cambia de signo. Revisa siempre el sentido de la curva antes de aplicar el teorema."
+     }
+    ]
+   },
+   {
+    "titulo": "Otro ejemplo",
+    "corto": "Otro",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Con P igual a 0 y Q igual a x, la circulación es el área."
+     },
+     {
+      "t": "pasos",
+      "items": [
+       {
+        "tex": "\\oint_{C}x\\,dy",
+        "porque": "La integral de línea."
+       },
+       {
+        "tex": "Q=x,\\ P=0\\ \\Rightarrow\\ Q_{x}-P_{y}=1",
+        "porque": "El integrando."
+       },
+       {
+        "tex": "\\oint_{C}x\\,dy=\\displaystyle\\iint_{D}dA=\\text{area de }D",
+        "porque": "Es el área."
+       },
+       {
+        "tex": "\\text{circulo unidad: }\\pi",
+        "porque": "Con el círculo unidad."
+       }
+      ]
+     },
+     {
+      "t": "ojo",
+      "html": "El teorema de Green es el caso en dos dimensiones de los teoremas de Stokes y de la divergencia, que se ven en la última lección."
+     }
+    ]
+   },
+   {
+    "titulo": "¿Para qué sirve?",
+    "corto": "En ingeniería",
+    "bloques": [
+     {
+      "t": "ingenieria",
+      "titulo": "El planímetro",
+      "html": "Un planímetro es un instrumento que calcula el área de una figura recorriendo su borde. Funciona con el teorema de Green, porque la integral de línea de un campo adecuado da el área.",
+      "tex": "A=\\dfrac{1}{2}\\oint_{C}(-y\\,dx+x\\,dy)",
+      "datos": [
+       {
+        "k": "Entrada",
+        "v": "recorrer el contorno"
+       },
+       {
+        "k": "Salida",
+        "v": "área encerrada"
+       },
+       {
+        "k": "Ventaja",
+        "v": "no se mide el interior"
+       }
+      ],
+      "cierre": "El teorema de Green permite medir áreas de terrenos irregulares recorriendo su perímetro. Es la base de los métodos de topografía con coordenadas de los vértices."
+     }
+    ]
+   },
+   {
+    "titulo": "Completa el paso",
+    "corto": "Completa",
+    "bloques": [
+     {
+      "t": "completar",
+      "enunciado": "Por el teorema de Green, la circulación de P dx más Q dy es la integral doble de Q sub x menos [[hueco]].",
+      "tex": "\\oint P\\,dx+Q\\,dy=\\iint\\left(Q_{x}-[[hueco]]\\right)dA",
+      "opciones": [
+       {
+        "tex": "P_{y}",
+        "txt": "P sub y"
+       },
+       {
+        "tex": "P_{x}",
+        "txt": "P sub x"
+       },
+       {
+        "tex": "Q_{y}",
+        "txt": "Q sub y"
+       }
+      ],
+      "correcta": 0,
+      "errores": [
+       "",
+       "P sub x aparece en la divergencia, y no en el rotacional.",
+       "Q sub y aparece en la divergencia, y no en el rotacional."
+      ],
+      "pista": "El rotacional en el plano es Q sub x menos P sub y.",
+      "porque": "Es P sub y."
+     }
+    ]
+   },
+   {
+    "titulo": "Encuentra el error",
+    "corto": "Error",
+    "bloques": [
+     {
+      "t": "error",
+      "enunciado": "Alguien aplicó Green a menos y dx más x dy sobre el círculo unidad y se equivocó. Toca el paso que está mal.",
+      "pasos": [
+       {
+        "tex": "P=-y,\\ Q=x",
+        "porque": "Componentes.",
+        "txt": "componentes"
+       },
+       {
+        "tex": "Q_{x}-P_{y}=1-1=0",
+        "porque": "Este paso es el que falla.",
+        "txt": "P sub y vale 1"
+       },
+       {
+        "tex": "\\oint=0",
+        "porque": "Resultado.",
+        "txt": "cero"
+       }
+      ],
+      "mal": 1,
+      "explicacion": "P sub y es la derivada de menos y respecto a y, que vale menos 1. Entonces Q sub x menos P sub y es 1 más 1, o sea 2, y la integral vale 2 pi.",
+      "correccion": "Q_{x}-P_{y}=1-(-1)=2",
+      "pista": "Cuida el signo de P."
+     }
+    ]
+   },
+   {
+    "titulo": "Ordena los pasos",
+    "corto": "Ordena",
+    "bloques": [
+     {
+      "t": "ordenar",
+      "enunciado": "Estos son los pasos para aplicar el teorema de Green, pero están desordenados.",
+      "pasos": [
+       "P,\\ Q",
+       "Q_{x}-P_{y}",
+       "\\iint_{D}\\left(Q_{x}-P_{y}\\right)dA",
+       "\\text{valor}"
+      ],
+      "mezcla": [
+       2,
+       0,
+       3,
+       1
+      ],
+      "porque": "Se identifican P y Q, se calcula el integrando, se plantea la integral y se calcula.",
+      "pista": "Se empieza con P y Q.",
+      "txt": [
+       "Se identifican P y Q",
+       "Se calcula el integrando",
+       "Se plantea la integral doble",
+       "Se calcula"
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "Revisa tu respuesta",
+    "corto": "Revisa",
+    "bloques": [
+     {
+      "t": "pregunta"
+     },
+     {
+      "t": "nota",
+      "html": "Puedes pedir pistas de a una. Si fallas, el mensaje te dice qué error se cometió."
+     }
+    ]
+   },
+   {
+    "titulo": "Mini simulacro",
+    "corto": "Simulacro",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Preguntas reales del banco de MathUNAL sobre este tema. Responde sin mirar los pasos."
+     },
+     {
+      "t": "simulacro",
+      "titulo": "Mini simulacro del teorema de Green",
+      "preguntas": [
+       {
+        "tipo": "mcq",
+        "texto": "Por el Teorema de Green, $\\displaystyle\\oint_C x\\,dy$ sobre el círculo unitario $C$ (antihorario) es:",
+        "opciones": [
+         "$\\pi$",
+         "$0$",
+         "$2\\pi$",
+         "$-\\pi$"
+        ],
+        "correcta": 0,
+        "resumen": "La integral de x dy sobre el círculo unidad.",
+        "fuente": "Banco MathUNAL, simulacro de Cálculo en Varias Variables"
+       },
+       {
+        "tipo": "mcq",
+        "texto": "El teorema de Green afirma que $\\displaystyle\\oint_C P\\,dx + Q\\,dy$ es igual a:",
+        "opciones": [
+         "$\\displaystyle\\iint_D \\left(\\dfrac{\\partial Q}{\\partial x} - \\dfrac{\\partial P}{\\partial y}\\right)dA$",
+         "$\\displaystyle\\iint_D \\left(\\dfrac{\\partial P}{\\partial x} + \\dfrac{\\partial Q}{\\partial y}\\right)dA$",
+         "$\\displaystyle\\iint_D (P + Q)\\,dA$",
+         "$\\displaystyle\\iint_D \\nabla(PQ)\\,dA$"
+        ],
+        "correcta": 0,
+        "resumen": "El enunciado del teorema de Green.",
+        "fuente": "Banco MathUNAL, simulacro de Cálculo en Varias Variables"
+       },
+       {
+        "tipo": "numerica",
+        "texto": "Usando Green, $\\displaystyle\\oint_C (-y\\,dx + x\\,dy)$ sobre el círculo unidad (sentido positivo) vale (decimal, 4 cifras):",
+        "respuesta": "6.2832",
+        "tolNum": 0.01,
+        "resumen": "La circulación de menos y dx más x dy.",
+        "fuente": "Banco MathUNAL, simulacro de Cálculo en Varias Variables"
+       },
+       {
+        "tipo": "mcq",
+        "texto": "El teorema de Green es el caso bidimensional de:",
+        "opciones": [
+         "tanto el teorema de Stokes como el de la divergencia (según cómo se escriba)",
+         "solo el teorema de Stokes",
+         "solo el teorema de la divergencia",
+         "el teorema fundamental del cálculo"
+        ],
+        "correcta": 0,
+        "resumen": "Green es un caso bidimensional de otros teoremas.",
+        "fuente": "Banco MathUNAL, simulacro de Cálculo en Varias Variables"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "Tu repaso",
+    "corto": "Repaso",
+    "bloques": [
+     {
+      "t": "repaso"
+     }
+    ]
+   },
+   {
+    "titulo": "En resumen",
+    "corto": "Resumen",
+    "bloques": [
+     {
+      "t": "resumen"
+     }
+    ]
+   }
+  ]
+ },
+ "practicar": {
+  "pasos": [
+   {
+    "titulo": "El campo",
+    "grafica": {
+     "draw": 1
+    },
+    "bloques": [
+     {
+      "t": "p",
+      "html": "El campo gira alrededor del origen."
+     },
+     {
+      "t": "eq",
+      "tex": "\\mathbf{F}=(-y,x)"
+     }
+    ]
+   },
+   {
+    "titulo": "Cambia el radio",
+    "grafica": {
+     "draw": 1
+    },
+    "laboratorio": true,
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mueve el deslizador. Abajo se leen el área y la circulación."
+     }
+    ]
+   },
+   {
+    "titulo": "Con r igual a 1",
+    "grafica": {
+     "draw": 1,
+     "guide": 1,
+     "ok": true
+    },
+    "laboratorio": true,
+    "d": 1,
+    "bloques": [
+     {
+      "t": "eq",
+      "tex": "A=\\pi,\\quad \\oint=2\\pi"
+     },
+     {
+      "t": "p",
+      "html": "Con r igual a 1 la circulación es el doble del área."
+     }
+    ]
+   },
+   {
+    "titulo": "Revisa tu respuesta",
+    "grafica": {
+     "draw": 1,
+     "guide": 1,
+     "ok": true,
+     "d": 1
+    },
+    "bloques": [
+     {
+      "t": "pregunta"
+     },
+     {
+      "t": "nota",
+      "html": "La curva se recorre en sentido antihorario."
+     }
+    ]
+   }
+  ]
+ },
+ "pregunta": {
+  "tex": "\\displaystyle\\oint_{C}x\\,dy\\ \\text{sobre la circunferencia unidad vale}",
+  "opciones": [
+   "$\\pi$",
+   "$0$",
+   "$2\\pi$",
+   "$-\\pi$"
+  ],
+  "correcta": 0,
+  "explicacion": "Con P igual a 0 y Q igual a x, Q sub x menos P sub y vale 1. La integral doble de 1 es el área, que es pi.",
+  "verificacion": {
+   "formula": "pi*1*1+0*x",
+   "a": 0,
+   "esperado": 3.1416
+  },
+  "pistas": [
+   "Aplica Green con P igual a 0 y Q igual a x.",
+   "El integrando vale 1.",
+   "La integral de 1 es el área."
+  ],
+  "errores": [
+   "",
+   "Cero sería si el campo fuera conservativo.",
+   "2 pi es la circulación de menos y, x, y no la de x dy.",
+   "Menos pi sería con el sentido horario."
+  ]
+ },
+ "resumen": [
+  "El teorema de Green cambia una integral de línea sobre una curva cerrada por una integral doble de Q sub x menos P sub y.",
+  "La curva se recorre en sentido antihorario.",
+  "Con el campo menos y, x la circulación es el doble del área."
+ ]
+}
