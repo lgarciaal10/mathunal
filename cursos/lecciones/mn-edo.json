@@ -1,0 +1,834 @@
+{
+ "esquema": 1,
+ "id": "mn-m3-l2",
+ "ejemplo": true,
+ "curso": "Métodos Numéricos",
+ "modulo": "Módulo 3 Ajuste, integración y ecuaciones diferenciales",
+ "posicion": "Lección 2 de 4",
+ "titulo": "Diferenciación numérica y EDO",
+ "minutos": 28,
+ "ejercicios": 8,
+ "grafica": {
+  "tipo": "plano",
+  "x": [
+   -0.2,
+   1.4
+  ],
+  "y": [
+   0.4,
+   3.4
+  ],
+  "a": 1,
+  "b": 8,
+  "inicio": 2,
+  "entero": true,
+  "elementos": [
+   {
+    "t": "trazo",
+    "puntos": [
+     [
+      "0.0",
+      "1.0"
+     ],
+     [
+      "0.05",
+      "1.05127"
+     ],
+     [
+      "0.1",
+      "1.10517"
+     ],
+     [
+      "0.15",
+      "1.16183"
+     ],
+     [
+      "0.2",
+      "1.2214"
+     ],
+     [
+      "0.25",
+      "1.28403"
+     ],
+     [
+      "0.3",
+      "1.34986"
+     ],
+     [
+      "0.35",
+      "1.41907"
+     ],
+     [
+      "0.4",
+      "1.49182"
+     ],
+     [
+      "0.45",
+      "1.56831"
+     ],
+     [
+      "0.5",
+      "1.64872"
+     ],
+     [
+      "0.55",
+      "1.73325"
+     ],
+     [
+      "0.6",
+      "1.82212"
+     ],
+     [
+      "0.65",
+      "1.91554"
+     ],
+     [
+      "0.7",
+      "2.01375"
+     ],
+     [
+      "0.75",
+      "2.117"
+     ],
+     [
+      "0.8",
+      "2.22554"
+     ],
+     [
+      "0.85",
+      "2.33965"
+     ],
+     [
+      "0.9",
+      "2.4596"
+     ],
+     [
+      "0.95",
+      "2.58571"
+     ],
+     [
+      "1.0",
+      "2.71828"
+     ]
+    ],
+    "c": 0
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "((1+(x-0-0.37)/abs(x-0-0.37))/2)*0/x",
+     "1+((1+(x-0-0.37)/abs(x-0-0.37))/2)*(exp(0*ln(1+1/x))-1)"
+    ],
+    "b": [
+     "((1+(x-0-0.37)/abs(x-0-0.37))/2)*1/x",
+     "1+((1+(x-0-0.37)/abs(x-0-0.37))/2)*(exp(1*ln(1+1/x))-1)"
+    ],
+    "c": 3
+   },
+   {
+    "t": "punto",
+    "p": [
+     "((1+(x-0-0.37)/abs(x-0-0.37))/2)*1/x",
+     "1+((1+(x-0-0.37)/abs(x-0-0.37))/2)*(exp(1*ln(1+1/x))-1)"
+    ],
+    "c": 2
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "((1+(x-1-0.37)/abs(x-1-0.37))/2)*1/x",
+     "1+((1+(x-1-0.37)/abs(x-1-0.37))/2)*(exp(1*ln(1+1/x))-1)"
+    ],
+    "b": [
+     "((1+(x-1-0.37)/abs(x-1-0.37))/2)*2/x",
+     "1+((1+(x-1-0.37)/abs(x-1-0.37))/2)*(exp(2*ln(1+1/x))-1)"
+    ],
+    "c": 3
+   },
+   {
+    "t": "punto",
+    "p": [
+     "((1+(x-1-0.37)/abs(x-1-0.37))/2)*2/x",
+     "1+((1+(x-1-0.37)/abs(x-1-0.37))/2)*(exp(2*ln(1+1/x))-1)"
+    ],
+    "c": 2
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "((1+(x-2-0.37)/abs(x-2-0.37))/2)*2/x",
+     "1+((1+(x-2-0.37)/abs(x-2-0.37))/2)*(exp(2*ln(1+1/x))-1)"
+    ],
+    "b": [
+     "((1+(x-2-0.37)/abs(x-2-0.37))/2)*3/x",
+     "1+((1+(x-2-0.37)/abs(x-2-0.37))/2)*(exp(3*ln(1+1/x))-1)"
+    ],
+    "c": 3
+   },
+   {
+    "t": "punto",
+    "p": [
+     "((1+(x-2-0.37)/abs(x-2-0.37))/2)*3/x",
+     "1+((1+(x-2-0.37)/abs(x-2-0.37))/2)*(exp(3*ln(1+1/x))-1)"
+    ],
+    "c": 2
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "((1+(x-3-0.37)/abs(x-3-0.37))/2)*3/x",
+     "1+((1+(x-3-0.37)/abs(x-3-0.37))/2)*(exp(3*ln(1+1/x))-1)"
+    ],
+    "b": [
+     "((1+(x-3-0.37)/abs(x-3-0.37))/2)*4/x",
+     "1+((1+(x-3-0.37)/abs(x-3-0.37))/2)*(exp(4*ln(1+1/x))-1)"
+    ],
+    "c": 3
+   },
+   {
+    "t": "punto",
+    "p": [
+     "((1+(x-3-0.37)/abs(x-3-0.37))/2)*4/x",
+     "1+((1+(x-3-0.37)/abs(x-3-0.37))/2)*(exp(4*ln(1+1/x))-1)"
+    ],
+    "c": 2
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "((1+(x-4-0.37)/abs(x-4-0.37))/2)*4/x",
+     "1+((1+(x-4-0.37)/abs(x-4-0.37))/2)*(exp(4*ln(1+1/x))-1)"
+    ],
+    "b": [
+     "((1+(x-4-0.37)/abs(x-4-0.37))/2)*5/x",
+     "1+((1+(x-4-0.37)/abs(x-4-0.37))/2)*(exp(5*ln(1+1/x))-1)"
+    ],
+    "c": 3
+   },
+   {
+    "t": "punto",
+    "p": [
+     "((1+(x-4-0.37)/abs(x-4-0.37))/2)*5/x",
+     "1+((1+(x-4-0.37)/abs(x-4-0.37))/2)*(exp(5*ln(1+1/x))-1)"
+    ],
+    "c": 2
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "((1+(x-5-0.37)/abs(x-5-0.37))/2)*5/x",
+     "1+((1+(x-5-0.37)/abs(x-5-0.37))/2)*(exp(5*ln(1+1/x))-1)"
+    ],
+    "b": [
+     "((1+(x-5-0.37)/abs(x-5-0.37))/2)*6/x",
+     "1+((1+(x-5-0.37)/abs(x-5-0.37))/2)*(exp(6*ln(1+1/x))-1)"
+    ],
+    "c": 3
+   },
+   {
+    "t": "punto",
+    "p": [
+     "((1+(x-5-0.37)/abs(x-5-0.37))/2)*6/x",
+     "1+((1+(x-5-0.37)/abs(x-5-0.37))/2)*(exp(6*ln(1+1/x))-1)"
+    ],
+    "c": 2
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "((1+(x-6-0.37)/abs(x-6-0.37))/2)*6/x",
+     "1+((1+(x-6-0.37)/abs(x-6-0.37))/2)*(exp(6*ln(1+1/x))-1)"
+    ],
+    "b": [
+     "((1+(x-6-0.37)/abs(x-6-0.37))/2)*7/x",
+     "1+((1+(x-6-0.37)/abs(x-6-0.37))/2)*(exp(7*ln(1+1/x))-1)"
+    ],
+    "c": 3
+   },
+   {
+    "t": "punto",
+    "p": [
+     "((1+(x-6-0.37)/abs(x-6-0.37))/2)*7/x",
+     "1+((1+(x-6-0.37)/abs(x-6-0.37))/2)*(exp(7*ln(1+1/x))-1)"
+    ],
+    "c": 2
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "((1+(x-7-0.37)/abs(x-7-0.37))/2)*7/x",
+     "1+((1+(x-7-0.37)/abs(x-7-0.37))/2)*(exp(7*ln(1+1/x))-1)"
+    ],
+    "b": [
+     "((1+(x-7-0.37)/abs(x-7-0.37))/2)*8/x",
+     "1+((1+(x-7-0.37)/abs(x-7-0.37))/2)*(exp(8*ln(1+1/x))-1)"
+    ],
+    "c": 3
+   },
+   {
+    "t": "punto",
+    "p": [
+     "((1+(x-7-0.37)/abs(x-7-0.37))/2)*8/x",
+     "1+((1+(x-7-0.37)/abs(x-7-0.37))/2)*(exp(8*ln(1+1/x))-1)"
+    ],
+    "c": 2
+   }
+  ],
+  "lecturas": [
+   {
+    "rotulo": "valor en t igual a 1 con n pasos de Euler",
+    "formula": "exp(x*ln(1+1/x))"
+   },
+   {
+    "rotulo": "error frente al valor exacto, e",
+    "formula": "2.718281828-exp(x*ln(1+1/x))"
+   }
+  ],
+  "etiquetas": [
+   "Aproximación de y de 1, igual a 1 más 1 entre n elevado a n",
+   "Diferencia con e, que es 2.7183"
+  ],
+  "etiquetaSlider": "Número de pasos n, de 1 a 8",
+  "alt": "La solución exacta y igual a e elevado a t, en azul, entre 0 y 1. En verde, el método de Euler con n pasos, que sigue la tangente en cada paso. Con 1 paso llega a 2, con 2 pasos a 2.25 y con 8 pasos a 2.566. Siempre queda por debajo de la curva exacta"
+ },
+ "glosario": {
+  "progresiva": "La diferencia progresiva aproxima la derivada con f de x más h menos f de x, entre h. Su error es de orden h.",
+  "centrada": "La diferencia centrada usa f de x más h menos f de x menos h, entre 2h. Su error es de orden h al cuadrado.",
+  "euler": "El método de Euler resuelve y prima igual a f de t y avanzando con la tangente. y de n más 1 es y de n más h por f de t de n y de n.",
+  "rk4": "El método de Runge-Kutta de cuarto orden promedia cuatro pendientes en cada paso. Su error global es de orden h a la cuarta."
+ },
+ "ver": {
+  "duracion": 24.0,
+  "capitulos": [
+   [
+    0,
+    4,
+    "Se resuelve y prima igual a y, con y de 0 igual a 1. La solución exacta es la curva e elevado a t."
+   ],
+   [
+    4,
+    9,
+    "Con un paso, Euler sigue la tangente y llega a 2 en t igual a 1."
+   ],
+   [
+    9,
+    15,
+    "Con 2 pasos llega a 2.25, y con 4 pasos llega a 2.44."
+   ],
+   [
+    15,
+    20,
+    "Con 8 pasos llega a 2.566. Se acerca a e, que es 2.718, pero despacio, porque el error baja como h."
+   ],
+   [
+    20,
+    24,
+    "Métodos de orden mayor, como Runge-Kutta de cuarto orden, bajan el error como h a la cuarta."
+   ]
+  ],
+  "canales": {
+   "draw": [
+    [
+     0.3,
+     0
+    ],
+    [
+     3.5,
+     1
+    ]
+   ],
+   "d": [
+    [
+     4,
+     1
+    ],
+    [
+     8,
+     1
+    ],
+    [
+     10,
+     2
+    ],
+    [
+     13,
+     4
+    ],
+    [
+     16,
+     8
+    ],
+    [
+     24,
+     8
+    ]
+   ],
+   "guide": [
+    [
+     4,
+     0
+    ],
+    [
+     5,
+     1
+    ]
+   ]
+  },
+  "intervalos": {
+   "ok": [
+    15,
+    24
+   ]
+  }
+ },
+ "leer": {
+  "secciones": [
+   {
+    "titulo": "La idea",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "La derivada y las ecuaciones diferenciales también se aproximan con fórmulas sencillas. La diferencia {{gl:progresiva|progresiva}} y la {{gl:centrada|centrada}} aproximan la derivada con valores de f. El método de {{gl:euler|Euler}} avanza una ecuación diferencial siguiendo la tangente en cada paso, y el método de {{gl:rk4|Runge-Kutta}} lo hace con mejor precisión. Todos tienen un orden, que dice cómo baja el error al achicar el paso."
+     }
+    ]
+   },
+   {
+    "titulo": "Un ejemplo",
+    "corto": "Un ejemplo",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Se resuelve y prima igual a y con y de 0 igual a 1 usando Euler con n pasos hasta t igual a 1. Mira cómo se acerca a la curva exacta."
+     },
+     {
+      "t": "eq",
+      "tex": "y_{n+1}=y_{n}+h\\,f(t_{n},y_{n}),\\qquad h=\\dfrac{1}{n}"
+     },
+     {
+      "t": "grafica",
+      "animar": "dibujar",
+      "alt": "El método de Euler y la curva exacta"
+     }
+    ]
+   },
+   {
+    "titulo": "Piensa antes de ver",
+    "corto": "Piensa",
+    "bloques": [
+     {
+      "t": "piensa",
+      "pregunta": "Con un solo paso de longitud 1, Euler hace y1 igual a y0 más h por f, con y0 igual a 1, h igual a 1 y f igual a 1. ¿Cuánto vale y1?",
+      "opciones": [
+       1,
+       2,
+       2.5,
+       3
+      ],
+      "correcta": 2,
+      "bien": "Muy bien. Es 1 más 1, o sea 2, mientras el valor exacto es 2.718. Más abajo se ve cómo mejora con más pasos.",
+      "mal": "Es 2, porque 1 más 1 por 1 es 2. El valor exacto es 2.718. Más abajo se ve cómo mejora con más pasos."
+     }
+    ]
+   },
+   {
+    "titulo": "Más pasos",
+    "corto": "Más pasos",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mira Euler con 1, 2, 4 y 8 pasos."
+     },
+     {
+      "t": "acercando",
+      "ds": [
+       1,
+       2,
+       4,
+       8
+      ],
+      "alt": "El método de Euler con cuatro cantidades de pasos"
+     },
+     {
+      "t": "p",
+      "html": "El resultado en t igual a 1 sube de 2 a 2.25, 2.44 y 2.566, siempre por debajo del valor exacto, 2.718."
+     }
+    ]
+   },
+   {
+    "titulo": "Derivadas numéricas",
+    "corto": "Derivadas",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Se aproxima la derivada con un cociente de diferencias."
+     },
+     {
+      "t": "pasos",
+      "items": [
+       {
+        "tex": "f'(x)\\approx\\dfrac{f(x+h)-f(x)}{h}",
+        "porque": "Diferencia progresiva. Su error es de orden h."
+       },
+       {
+        "tex": "f'(x)\\approx\\dfrac{f(x+h)-f(x-h)}{2h}",
+        "porque": "Diferencia centrada. Su error es de orden h al cuadrado."
+       },
+       {
+        "tex": "f(x)=x^{2},\\ x=1,\\ h=0.1:\\ \\dfrac{1.21-1}{0.1}=2.1",
+        "porque": "Con la progresiva queda 2.1, que tiene error 0.1."
+       },
+       {
+        "tex": "\\dfrac{1.21-0.81}{0.2}=2.0",
+        "porque": "Con la centrada queda 2.0, que aquí es exacto."
+       }
+      ]
+     },
+     {
+      "t": "ojo",
+      "html": "Achicar mucho el paso no siempre mejora el resultado. Al restar números casi iguales se pierden cifras, como se vio en la lección de errores."
+     }
+    ]
+   },
+   {
+    "titulo": "Euler y Runge-Kutta",
+    "corto": "Euler y RK4",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "En cada paso se avanza con una pendiente."
+     },
+     {
+      "t": "pasos",
+      "items": [
+       {
+        "tex": "y'=y,\\ y(0)=1,\\ h=0.1:\\quad y_{1}=1+0.1\\cdot1=1.1",
+        "porque": "Un paso de Euler."
+       },
+       {
+        "tex": "y'=t\\left(y+\\tfrac12\\right),\\ h=0.2,\\ y(0.2)=1.01:\\quad y(0.4)\\approx1.01+0.2\\cdot0.2\\cdot1.51=1.0704",
+        "porque": "Otro ejemplo, que usa t en la pendiente."
+       },
+       {
+        "tex": "\\text{Euler: error local}\\ O(h^{2}),\\ \\text{global}\\ O(h)",
+        "porque": "Los errores locales se acumulan y el global es de un orden menos."
+       },
+       {
+        "tex": "\\text{RK4: error global}\\ O(h^{4})",
+        "porque": "Mucho más preciso, con cuatro evaluaciones de f por paso."
+       }
+      ]
+     },
+     {
+      "t": "ojo",
+      "html": "En Euler, la pendiente del paso es la del punto inicial. Por eso se queda atrás cuando la solución es convexa, como e elevado a t, y se queda por debajo."
+     }
+    ]
+   },
+   {
+    "titulo": "¿Para qué sirve?",
+    "corto": "En ingeniería",
+    "bloques": [
+     {
+      "t": "ingenieria",
+      "titulo": "La velocidad a partir de posiciones",
+      "html": "Un sensor mide la posición de una pieza a los 0.9, 1.0 y 1.1 segundos, y entrega 0.81, 1.00 y 1.21 metros. Para estimar la velocidad en t igual a 1 se usa la diferencia centrada, que es más precisa que la progresiva.",
+      "tex": "v(1)\\approx\\dfrac{1.21-0.81}{0.2}=2.0\\ \\text{m/s}",
+      "datos": [
+       {
+        "k": "Posiciones",
+        "v": "0.81, 1.00 y 1.21 m"
+       },
+       {
+        "k": "Diferencia centrada",
+        "v": "2.0 m/s"
+       },
+       {
+        "k": "Diferencia progresiva",
+        "v": "2.1 m/s"
+       }
+      ],
+      "cierre": "Con la posición x al cuadrado, la velocidad exacta en t igual a 1 es 2.0 metros por segundo, y la diferencia centrada la da sin error. La progresiva da 2.1, que está equivocada en 5 por ciento. Con datos reales, con ruido, hay que filtrar antes de derivar, porque derivar amplifica el ruido."
+     }
+    ]
+   },
+   {
+    "titulo": "Completa el paso",
+    "corto": "Completa",
+    "bloques": [
+     {
+      "t": "completar",
+      "enunciado": "Se hace un paso de Euler para y prima igual a y, con y0 igual a 1 y h igual a 0.1. Falta el valor de f.",
+      "tex": "y_{1}=1+0.1\\cdot[[hueco]]",
+      "opciones": [
+       {
+        "tex": "1",
+        "txt": "f de 0 y 1, que vale 1"
+       },
+       {
+        "tex": "0.1",
+        "txt": "el paso"
+       },
+       {
+        "tex": "1.1",
+        "txt": "el resultado"
+       }
+      ],
+      "correcta": 0,
+      "errores": [
+       "",
+       "0.1 es el paso h, que ya multiplica. El valor que falta es la pendiente f.",
+       "1.1 es el resultado final, y no la pendiente."
+      ],
+      "pista": "La pendiente es f de t0 y y0, que aquí es y0.",
+      "porque": "f de 0 y 1 es 1, y 1 más 0.1 por 1 da 1.1."
+     }
+    ]
+   },
+   {
+    "titulo": "Encuentra el error",
+    "corto": "Error",
+    "bloques": [
+     {
+      "t": "error",
+      "enunciado": "Alguien hizo un paso de Euler para y prima igual a y, con y0 igual a 1 y h igual a 0.1, y se equivocó en un paso. Toca el paso que está mal.",
+      "pasos": [
+       {
+        "tex": "y_{0}=1,\\quad f(t,y)=y,\\quad h=0.1",
+        "porque": "Los datos.",
+        "txt": "los datos del problema"
+       },
+       {
+        "tex": "y_{1}=h\\,f(t_{0},y_{0})=0.1",
+        "porque": "Este paso es el que falla.",
+        "txt": "queda 0.1"
+       },
+       {
+        "tex": "\\text{El valor aproximado es}\\ 0.1",
+        "porque": "Depende del paso anterior.",
+        "txt": "y1 vale 0.1"
+       }
+      ],
+      "mal": 1,
+      "explicacion": "La fórmula de Euler suma el incremento al valor anterior. Queda y0 más h por f, o sea 1 más 0.1 por 1, que es 1.1. Con 0.1 se olvida el valor inicial.",
+      "correccion": "y_{1}=y_{0}+h\\,f=1+0.1\\cdot1=1.1",
+      "pista": "Revisa la fórmula completa de Euler."
+     }
+    ]
+   },
+   {
+    "titulo": "Ordena los pasos",
+    "corto": "Ordena",
+    "bloques": [
+     {
+      "t": "ordenar",
+      "enunciado": "Estos son los pasos para aproximar la derivada de x al cuadrado en x igual a 1 con la diferencia centrada y h igual a 0.1, pero están desordenados.",
+      "pasos": [
+       "f(1.1)=1.21,\\quad f(0.9)=0.81",
+       "f(1.1)-f(0.9)=0.4",
+       "\\dfrac{0.4}{2\\cdot0.1}",
+       "f'(1)\\approx2"
+      ],
+      "mezcla": [
+       2,
+       0,
+       3,
+       1
+      ],
+      "porque": "Se evalúa f en los dos lados, se resta y se divide entre 2h.",
+      "pista": "Se empieza evaluando f a los dos lados.",
+      "txt": [
+       "Se evalúa f en x más h y en x menos h",
+       "Se restan",
+       "Se divide entre 2h",
+       "Se calcula"
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "Revisa tu respuesta",
+    "corto": "Revisa",
+    "bloques": [
+     {
+      "t": "pregunta"
+     },
+     {
+      "t": "nota",
+      "html": "Puedes pedir pistas de a una. Si fallas, el mensaje te dice qué error se cometió."
+     }
+    ]
+   },
+   {
+    "titulo": "Mini simulacro",
+    "corto": "Simulacro",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Tres preguntas reales del banco de MathUNAL sobre este tema. Responde sin mirar los pasos."
+     },
+     {
+      "t": "simulacro",
+      "titulo": "Mini simulacro de diferenciación numérica y EDO",
+      "preguntas": [
+       {
+        "tipo": "mcq",
+        "texto": "La diferencia CENTRADA $\\dfrac{f(x+h)-f(x-h)}{2h}$ aproxima $f'(x)$ con error de orden:",
+        "opciones": [
+         "$O(h^{2})$",
+         "$O(h)$",
+         "$O(h^{3})$",
+         "$O(h^{4})$"
+        ],
+        "correcta": 0,
+        "resumen": "La diferencia centrada tiene error de orden $h^2$.",
+        "fuente": "Banco MathUNAL, simulacro de Métodos Numéricos"
+       },
+       {
+        "tipo": "numerica",
+        "texto": "Método de Euler para $y'=y$, $y(0)=1$, con $h=0.1$: la primera aproximación $y_1$ es (decimal):",
+        "respuesta": "1.1",
+        "tolNum": 0.001,
+        "resumen": "$y_1=1+0.1\\cdot1=1.1$.",
+        "fuente": "Banco MathUNAL, simulacro de Métodos Numéricos"
+       },
+       {
+        "tipo": "mcq",
+        "texto": "El método de Runge-Kutta clásico de $4$ etapas (RK4) tiene error GLOBAL de orden:",
+        "opciones": [
+         "$O(h^{4})$",
+         "$O(h)$",
+         "$O(h^{2})$",
+         "$O(h^{5})$"
+        ],
+        "correcta": 0,
+        "resumen": "El método de Runge-Kutta de cuarto orden tiene error global de orden $h^4$.",
+        "fuente": "Banco MathUNAL, simulacro de Métodos Numéricos"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "Tu repaso",
+    "corto": "Repaso",
+    "bloques": [
+     {
+      "t": "repaso"
+     }
+    ]
+   },
+   {
+    "titulo": "En resumen",
+    "corto": "Resumen",
+    "bloques": [
+     {
+      "t": "resumen"
+     }
+    ]
+   }
+  ]
+ },
+ "practicar": {
+  "pasos": [
+   {
+    "titulo": "Euler y la curva exacta",
+    "grafica": {
+     "draw": 1
+    },
+    "bloques": [
+     {
+      "t": "p",
+      "html": "El método de Euler y la solución exacta de y prima igual a y."
+     },
+     {
+      "t": "eq",
+      "tex": "y'=y,\\ y(0)=1"
+     }
+    ]
+   },
+   {
+    "titulo": "Cambia los pasos",
+    "grafica": {
+     "draw": 1
+    },
+    "laboratorio": true,
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mueve el deslizador de 1 a 8. Abajo se leen el valor en t igual a 1 y su error."
+     }
+    ]
+   },
+   {
+    "titulo": "Ocho pasos",
+    "grafica": {
+     "draw": 1,
+     "guide": 1,
+     "ok": true
+    },
+    "laboratorio": true,
+    "d": 8,
+    "bloques": [
+     {
+      "t": "eq",
+      "tex": "\\left(1+\\tfrac18\\right)^{8}=2.566"
+     },
+     {
+      "t": "p",
+      "html": "Con 8 pasos el valor es 2.566, y el error es 0.152."
+     }
+    ]
+   },
+   {
+    "titulo": "Revisa tu respuesta",
+    "grafica": {
+     "draw": 1,
+     "guide": 1,
+     "ok": true,
+     "d": 8
+    },
+    "bloques": [
+     {
+      "t": "pregunta"
+     },
+     {
+      "t": "nota",
+      "html": "Suma el incremento al valor anterior."
+     }
+    ]
+   }
+  ]
+ },
+ "pregunta": {
+  "tex": "\\text{Euler para}\\ y'=2y,\\ y(0)=1,\\ h=0.1:\\ y_{1}=",
+  "opciones": [
+   "$1.2$",
+   "$1.1$",
+   "$2$",
+   "$0.2$"
+  ],
+  "correcta": 0,
+  "explicacion": "La pendiente es f igual a 2 por y0, o sea 2. Entonces y1 es 1 más 0.1 por 2, que da 1.2.",
+  "verificacion": {
+   "formula": "1+0.1*2*1+0*x",
+   "a": 0,
+   "esperado": 1.2
+  },
+  "pistas": [
+   "Calcula la pendiente f de t0 y y0.",
+   "Es 2 por 1, o sea 2.",
+   "Suma h por la pendiente a y0."
+  ],
+  "errores": [
+   "",
+   "1.1 sería para y prima igual a y, con pendiente 1.",
+   "Dos es la pendiente, y no el valor de y1.",
+   "0.2 es solo el incremento, y falta sumarlo a y0."
+  ]
+ },
+ "resumen": [
+  "La diferencia progresiva tiene error de orden h, y la centrada de orden h al cuadrado.",
+  "Euler avanza con la tangente, con error local de orden h al cuadrado y global de orden h.",
+  "Runge-Kutta de cuarto orden tiene error global de orden h a la cuarta."
+ ]
+}
