@@ -1,0 +1,990 @@
+{
+ "esquema": 1,
+ "id": "mn-m2-l3",
+ "ejemplo": true,
+ "curso": "Métodos Numéricos",
+ "modulo": "Módulo 2 Sistemas lineales e interpolación",
+ "posicion": "Lección 3 de 4",
+ "titulo": "Normas y número de condición",
+ "minutos": 28,
+ "ejercicios": 8,
+ "grafica": {
+  "tipo": "plano",
+  "x": [
+   -4.6,
+   4.6
+  ],
+  "y": [
+   -2.5,
+   2.5
+  ],
+  "a": 0.01,
+  "b": 2,
+  "inicio": 1,
+  "elementos": [
+   {
+    "t": "trazo",
+    "puntos": [
+     [
+      "1.00000",
+      "0.00000"
+     ],
+     [
+      "0.99144",
+      "0.13053"
+     ],
+     [
+      "0.96593",
+      "0.25882"
+     ],
+     [
+      "0.92388",
+      "0.38268"
+     ],
+     [
+      "0.86603",
+      "0.50000"
+     ],
+     [
+      "0.79335",
+      "0.60876"
+     ],
+     [
+      "0.70711",
+      "0.70711"
+     ],
+     [
+      "0.60876",
+      "0.79335"
+     ],
+     [
+      "0.50000",
+      "0.86603"
+     ],
+     [
+      "0.38268",
+      "0.92388"
+     ],
+     [
+      "0.25882",
+      "0.96593"
+     ],
+     [
+      "0.13053",
+      "0.99144"
+     ],
+     [
+      "0.00000",
+      "1.00000"
+     ],
+     [
+      "-0.13053",
+      "0.99144"
+     ],
+     [
+      "-0.25882",
+      "0.96593"
+     ],
+     [
+      "-0.38268",
+      "0.92388"
+     ],
+     [
+      "-0.50000",
+      "0.86603"
+     ],
+     [
+      "-0.60876",
+      "0.79335"
+     ],
+     [
+      "-0.70711",
+      "0.70711"
+     ],
+     [
+      "-0.79335",
+      "0.60876"
+     ],
+     [
+      "-0.86603",
+      "0.50000"
+     ],
+     [
+      "-0.92388",
+      "0.38268"
+     ],
+     [
+      "-0.96593",
+      "0.25882"
+     ],
+     [
+      "-0.99144",
+      "0.13053"
+     ],
+     [
+      "-1.00000",
+      "0.00000"
+     ],
+     [
+      "-0.99144",
+      "-0.13053"
+     ],
+     [
+      "-0.96593",
+      "-0.25882"
+     ],
+     [
+      "-0.92388",
+      "-0.38268"
+     ],
+     [
+      "-0.86603",
+      "-0.50000"
+     ],
+     [
+      "-0.79335",
+      "-0.60876"
+     ],
+     [
+      "-0.70711",
+      "-0.70711"
+     ],
+     [
+      "-0.60876",
+      "-0.79335"
+     ],
+     [
+      "-0.50000",
+      "-0.86603"
+     ],
+     [
+      "-0.38268",
+      "-0.92388"
+     ],
+     [
+      "-0.25882",
+      "-0.96593"
+     ],
+     [
+      "-0.13053",
+      "-0.99144"
+     ],
+     [
+      "-0.00000",
+      "-1.00000"
+     ],
+     [
+      "0.13053",
+      "-0.99144"
+     ],
+     [
+      "0.25882",
+      "-0.96593"
+     ],
+     [
+      "0.38268",
+      "-0.92388"
+     ],
+     [
+      "0.50000",
+      "-0.86603"
+     ],
+     [
+      "0.60876",
+      "-0.79335"
+     ],
+     [
+      "0.70711",
+      "-0.70711"
+     ],
+     [
+      "0.79335",
+      "-0.60876"
+     ],
+     [
+      "0.86603",
+      "-0.50000"
+     ],
+     [
+      "0.92388",
+      "-0.38268"
+     ],
+     [
+      "0.96593",
+      "-0.25882"
+     ],
+     [
+      "0.99144",
+      "-0.13053"
+     ],
+     [
+      "1.00000",
+      "-0.00000"
+     ]
+    ],
+    "c": 0
+   },
+   {
+    "t": "trazo",
+    "puntos": [
+     [
+      "2.00000",
+      "x*0.00000"
+     ],
+     [
+      "1.98289",
+      "x*0.13053"
+     ],
+     [
+      "1.93185",
+      "x*0.25882"
+     ],
+     [
+      "1.84776",
+      "x*0.38268"
+     ],
+     [
+      "1.73205",
+      "x*0.50000"
+     ],
+     [
+      "1.58671",
+      "x*0.60876"
+     ],
+     [
+      "1.41421",
+      "x*0.70711"
+     ],
+     [
+      "1.21752",
+      "x*0.79335"
+     ],
+     [
+      "1.00000",
+      "x*0.86603"
+     ],
+     [
+      "0.76537",
+      "x*0.92388"
+     ],
+     [
+      "0.51764",
+      "x*0.96593"
+     ],
+     [
+      "0.26105",
+      "x*0.99144"
+     ],
+     [
+      "0.00000",
+      "x*1.00000"
+     ],
+     [
+      "-0.26105",
+      "x*0.99144"
+     ],
+     [
+      "-0.51764",
+      "x*0.96593"
+     ],
+     [
+      "-0.76537",
+      "x*0.92388"
+     ],
+     [
+      "-1.00000",
+      "x*0.86603"
+     ],
+     [
+      "-1.21752",
+      "x*0.79335"
+     ],
+     [
+      "-1.41421",
+      "x*0.70711"
+     ],
+     [
+      "-1.58671",
+      "x*0.60876"
+     ],
+     [
+      "-1.73205",
+      "x*0.50000"
+     ],
+     [
+      "-1.84776",
+      "x*0.38268"
+     ],
+     [
+      "-1.93185",
+      "x*0.25882"
+     ],
+     [
+      "-1.98289",
+      "x*0.13053"
+     ],
+     [
+      "-2.00000",
+      "x*0.00000"
+     ],
+     [
+      "-1.98289",
+      "x*-0.13053"
+     ],
+     [
+      "-1.93185",
+      "x*-0.25882"
+     ],
+     [
+      "-1.84776",
+      "x*-0.38268"
+     ],
+     [
+      "-1.73205",
+      "x*-0.50000"
+     ],
+     [
+      "-1.58671",
+      "x*-0.60876"
+     ],
+     [
+      "-1.41421",
+      "x*-0.70711"
+     ],
+     [
+      "-1.21752",
+      "x*-0.79335"
+     ],
+     [
+      "-1.00000",
+      "x*-0.86603"
+     ],
+     [
+      "-0.76537",
+      "x*-0.92388"
+     ],
+     [
+      "-0.51764",
+      "x*-0.96593"
+     ],
+     [
+      "-0.26105",
+      "x*-0.99144"
+     ],
+     [
+      "-0.00000",
+      "x*-1.00000"
+     ],
+     [
+      "0.26105",
+      "x*-0.99144"
+     ],
+     [
+      "0.51764",
+      "x*-0.96593"
+     ],
+     [
+      "0.76537",
+      "x*-0.92388"
+     ],
+     [
+      "1.00000",
+      "x*-0.86603"
+     ],
+     [
+      "1.21752",
+      "x*-0.79335"
+     ],
+     [
+      "1.41421",
+      "x*-0.70711"
+     ],
+     [
+      "1.58671",
+      "x*-0.60876"
+     ],
+     [
+      "1.73205",
+      "x*-0.50000"
+     ],
+     [
+      "1.84776",
+      "x*-0.38268"
+     ],
+     [
+      "1.93185",
+      "x*-0.25882"
+     ],
+     [
+      "1.98289",
+      "x*-0.13053"
+     ],
+     [
+      "2.00000",
+      "x*-0.00000"
+     ]
+    ],
+    "c": 1
+   },
+   {
+    "t": "punto",
+    "p": [
+     "2",
+     "0"
+    ],
+    "c": 3
+   },
+   {
+    "t": "punto",
+    "p": [
+     "0",
+     "x"
+    ],
+    "c": 2
+   }
+  ],
+  "lecturas": [
+   {
+    "rotulo": "semieje menor s de la elipse, el segundo valor de la diagonal de A",
+    "formula": "x"
+   },
+   {
+    "rotulo": "número de condición, 2 entre s",
+    "formula": "2/x"
+   }
+  ],
+  "etiquetas": [
+   "Valor s en la matriz diagonal con 2 y s",
+   "Cociente entre el semieje mayor y el menor, igual al número de condición"
+  ],
+  "etiquetaSlider": "Valor s, de 0.01 a 2",
+  "alt": "La circunferencia unidad en azul, y en marrón la imagen de la circunferencia con la matriz diagonal de valores 2 y s. Es una elipse con semieje horizontal 2 y semieje vertical s. Al achicar s la elipse se aplasta, y el número de condición, 2 entre s, crece"
+ },
+ "glosario": {
+  "norma": "Una norma mide el tamaño de un vector o de una matriz. La euclidiana de un vector es la raíz de la suma de los cuadrados de sus componentes.",
+  "infinito": "La norma infinito de una matriz es la mayor suma de valores absolutos de los elementos de una fila.",
+  "condicion": "El número de condición de una matriz es la norma de A por la norma de su inversa. Mide cuánto se amplifican los errores al resolver Ax igual a b.",
+  "malcond": "Un sistema mal condicionado tiene un número de condición grande, y pequeñas perturbaciones en los datos producen grandes cambios en la solución."
+ },
+ "ver": {
+  "duracion": 24.0,
+  "capitulos": [
+   [
+    0,
+    4,
+    "La circunferencia unidad, en azul, se transforma con la matriz diagonal de 2 y s. El resultado es una elipse con semiejes 2 y s."
+   ],
+   [
+    4,
+    10,
+    "Cuando s vale 1, la elipse es casi redonda y el número de condición es 2."
+   ],
+   [
+    10,
+    16,
+    "Al achicar s, la elipse se aplasta. Con s igual a 0.1, el número de condición es 20."
+   ],
+   [
+    16,
+    21,
+    "Con s igual a 0.01 es 200. La matriz casi no distingue ciertas direcciones."
+   ],
+   [
+    21,
+    24,
+    "Un número de condición grande indica un sistema mal condicionado."
+   ]
+  ],
+  "canales": {
+   "draw": [
+    [
+     0.3,
+     0
+    ],
+    [
+     3.5,
+     1
+    ]
+   ],
+   "d": [
+    [
+     4,
+     1
+    ],
+    [
+     8,
+     1
+    ],
+    [
+     11,
+     0.1
+    ],
+    [
+     16,
+     0.1
+    ],
+    [
+     17,
+     0.01
+    ],
+    [
+     24,
+     0.01
+    ]
+   ],
+   "guide": [
+    [
+     4,
+     0
+    ],
+    [
+     5,
+     1
+    ]
+   ]
+  },
+  "intervalos": {
+   "ok": [
+    16,
+    24
+   ]
+  }
+ },
+ "leer": {
+  "secciones": [
+   {
+    "titulo": "La idea",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Una {{gl:norma|norma}} da el tamaño de un vector o de una matriz. Con ellas se define el {{gl:condicion|número de condición}}, que mide cuánto se amplifican los errores al resolver un sistema. Un sistema con número de condición grande está {{gl:malcond|mal condicionado}}, y su solución cambia mucho con datos casi iguales. La norma {{gl:infinito|infinito}} de una matriz es la mayor suma de valores absolutos por fila."
+     }
+    ]
+   },
+   {
+    "titulo": "Un ejemplo",
+    "corto": "Un ejemplo",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "La matriz diagonal con 2 y s transforma la circunferencia unidad en una elipse. Mueve s y mira cómo se aplasta."
+     },
+     {
+      "t": "eq",
+      "tex": "\\kappa(A)=\\|A\\|\\,\\|A^{-1}\\|=\\dfrac{2}{s}"
+     },
+     {
+      "t": "grafica",
+      "animar": "dibujar",
+      "alt": "La elipse que forma la matriz"
+     }
+    ]
+   },
+   {
+    "titulo": "Piensa antes de ver",
+    "corto": "Piensa",
+    "bloques": [
+     {
+      "t": "piensa",
+      "pregunta": "La matriz diagonal con 2 y 0.01 estira 2 veces en una dirección y 0.01 veces en la otra. ¿Cuánto vale la razón entre el mayor estiramiento y el menor?",
+      "opciones": [
+       2,
+       20,
+       100,
+       200
+      ],
+      "correcta": 200,
+      "bien": "Muy bien. Es 2 entre 0.01, o sea 200, y es el número de condición. Más abajo se ve la elipse aplastada.",
+      "mal": "Es 200, porque 2 entre 0.01 da 200. Ese es el número de condición. Más abajo se ve la elipse aplastada."
+     }
+    ]
+   },
+   {
+    "titulo": "Aplastando la elipse",
+    "corto": "La elipse",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mira la elipse con s igual a 2, 1, 0.1 y 0.01."
+     },
+     {
+      "t": "acercando",
+      "ds": [
+       2,
+       1,
+       0.1,
+       0.01
+      ],
+      "alt": "La elipse con cuatro valores de s"
+     },
+     {
+      "t": "p",
+      "html": "Con s igual a 2 la elipse es una circunferencia y el número de condición es 1. Con 0.01 queda casi un segmento."
+     }
+    ]
+   },
+   {
+    "titulo": "Normas",
+    "corto": "Normas",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Hay normas de vectores y normas de matrices."
+     },
+     {
+      "t": "pasos",
+      "items": [
+       {
+        "tex": "\\|(3,-4)\\|_{2}=\\sqrt{9+16}=5",
+        "porque": "La norma euclidiana de un vector."
+       },
+       {
+        "tex": "\\|A\\|_{\\infty}=\\max_{i}\\sum_{j}|a_{ij}|",
+        "porque": "La norma infinito, la mayor suma por filas."
+       },
+       {
+        "tex": "A=\\begin{pmatrix}2&0\\\\0&0.01\\end{pmatrix}:\\ \\|A\\|_{\\infty}=2",
+        "porque": "Para la matriz del ejemplo."
+       },
+       {
+        "tex": "\\|A^{-1}\\|_{\\infty}=100",
+        "porque": "La inversa es la diagonal de 0.5 y 100."
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "El número de condición",
+    "corto": "Condición",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "El número de condición combina la norma de la matriz con la de su inversa."
+     },
+     {
+      "t": "pasos",
+      "items": [
+       {
+        "tex": "\\kappa_{\\infty}(A)=\\|A\\|_{\\infty}\\,\\|A^{-1}\\|_{\\infty}=2\\cdot100=200",
+        "porque": "El número de condición del ejemplo."
+       },
+       {
+        "tex": "\\dfrac{\\|\\delta x\\|}{\\|x\\|}\\le\\kappa(A)\\,\\dfrac{\\|\\delta b\\|}{\\|b\\|}",
+        "porque": "El error relativo en la solución, como máximo kappa veces el del dato."
+       },
+       {
+        "tex": "\\kappa(A)\\ \\text{grande}\\ \\Rightarrow\\ \\text{mal condicionado}",
+        "porque": "Los errores pequeños en los datos pueden dar errores grandes en la solución."
+       }
+      ]
+     },
+     {
+      "t": "ojo",
+      "html": "El número de condición no depende del método, sino del problema. Un buen algoritmo no arregla un sistema mal condicionado. Solo mejores datos o una reformulación lo hacen."
+     }
+    ]
+   },
+   {
+    "titulo": "¿Para qué sirve?",
+    "corto": "En ingeniería",
+    "bloques": [
+     {
+      "t": "ingenieria",
+      "titulo": "Un sistema que amplifica el error",
+      "html": "Se calibra un sensor con un sistema lineal cuyo número de condición es 200. Los datos tienen un error de 0.1 por ciento. En el peor caso, la solución, que son los coeficientes de calibración, puede tener un error de 200 veces eso.",
+      "tex": "\\dfrac{\\|\\delta x\\|}{\\|x\\|}\\le200\\cdot0.1\\%=20\\%",
+      "datos": [
+       {
+        "k": "Número de condición",
+        "v": "200"
+       },
+       {
+        "k": "Error en los datos",
+        "v": "0.1 %"
+       },
+       {
+        "k": "Error posible en la solución",
+        "v": "hasta 20 %"
+       }
+      ],
+      "cierre": "Un error de 20 por ciento en la calibración sería inaceptable. Es una cota de peor caso, y el error real puede ser menor, pero es una advertencia. Para reducirlo se escogen mejores puntos de calibración, se escala el problema o se usan más datos con mínimos cuadrados."
+     }
+    ]
+   },
+   {
+    "titulo": "Completa el paso",
+    "corto": "Completa",
+    "bloques": [
+     {
+      "t": "completar",
+      "enunciado": "Se calcula la norma infinito de la inversa de la matriz diagonal con 2 y 0.01. Falta el valor.",
+      "tex": "\\|A^{-1}\\|_{\\infty}=\\dfrac{1}{0.01}=[[hueco]]",
+      "opciones": [
+       {
+        "tex": "100",
+        "txt": "cien"
+       },
+       {
+        "tex": "0.01",
+        "txt": "un centésimo"
+       },
+       {
+        "tex": "2",
+        "txt": "dos"
+       }
+      ],
+      "correcta": 0,
+      "errores": [
+       "",
+       "Cero coma cero uno es el elemento de A. La inversa tiene el recíproco.",
+       "Dos es la norma de A, y la inversa tiene el recíproco de 0.01."
+      ],
+      "pista": "La inversa de una diagonal invierte cada elemento.",
+      "porque": "1 entre 0.01 es 100."
+     }
+    ]
+   },
+   {
+    "titulo": "Encuentra el error",
+    "corto": "Error",
+    "bloques": [
+     {
+      "t": "error",
+      "enunciado": "Alguien calculó el número de condición de la matriz diagonal con 2 y 0.01 y se equivocó en un paso. Toca el paso que está mal.",
+      "pasos": [
+       {
+        "tex": "\\|A\\|_{\\infty}=2",
+        "porque": "La norma de A.",
+        "txt": "la norma de A es 2"
+       },
+       {
+        "tex": "\\|A^{-1}\\|_{\\infty}=100",
+        "porque": "La norma de la inversa.",
+        "txt": "la norma de la inversa es 100"
+       },
+       {
+        "tex": "\\kappa=\\dfrac{2}{100}=0.02",
+        "porque": "Este paso es el que falla.",
+        "txt": "el número de condición es el cociente"
+       }
+      ],
+      "mal": 2,
+      "explicacion": "El número de condición es el producto de las dos normas, y no el cociente. El valor es 2 por 100, o sea 200.",
+      "correccion": "\\kappa=2\\cdot100=200",
+      "pista": "Recuerda la definición del número de condición."
+     }
+    ]
+   },
+   {
+    "titulo": "Ordena los pasos",
+    "corto": "Ordena",
+    "bloques": [
+     {
+      "t": "ordenar",
+      "enunciado": "Estos son los pasos para calcular el número de condición de la matriz diagonal con 2 y 0.01, pero están desordenados.",
+      "pasos": [
+       "A=\\operatorname{diag}(2,\\ 0.01)",
+       "\\|A\\|_{\\infty}=2",
+       "\\|A^{-1}\\|_{\\infty}=100",
+       "\\kappa=2\\cdot100=200"
+      ],
+      "mezcla": [
+       2,
+       0,
+       3,
+       1
+      ],
+      "porque": "Se calcula la norma de A, la de su inversa y se multiplican.",
+      "pista": "Se empieza con la matriz.",
+      "txt": [
+       "Se parte de la matriz",
+       "Se calcula la norma de A",
+       "Se calcula la norma de la inversa",
+       "Se multiplican"
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "Revisa tu respuesta",
+    "corto": "Revisa",
+    "bloques": [
+     {
+      "t": "pregunta"
+     },
+     {
+      "t": "nota",
+      "html": "Puedes pedir pistas de a una. Si fallas, el mensaje te dice qué error se cometió."
+     }
+    ]
+   },
+   {
+    "titulo": "Mini simulacro",
+    "corto": "Simulacro",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Tres preguntas reales del banco de MathUNAL sobre este tema. Responde sin mirar los pasos."
+     },
+     {
+      "t": "simulacro",
+      "titulo": "Mini simulacro de normas y número de condición",
+      "preguntas": [
+       {
+        "tipo": "numerica",
+        "texto": "La norma $\\|A\\|_{\\infty}$ de $A=\\begin{pmatrix}2&0\\\\0&0.01\\end{pmatrix}$ es (decimal):",
+        "respuesta": "2",
+        "tolNum": 0.001,
+        "resumen": "La norma infinito es la mayor suma de valores absolutos por fila, que aquí es 2.",
+        "fuente": "Banco MathUNAL, simulacro de Métodos Numéricos"
+       },
+       {
+        "tipo": "numerica",
+        "texto": "El número de condición $\\kappa_{\\infty}(A)$ de $A=\\begin{pmatrix}2&0\\\\0&0.01\\end{pmatrix}$ es:",
+        "respuesta": "200",
+        "tolNum": 0.001,
+        "resumen": "$\\kappa_{\\infty}=2\\cdot100=200$.",
+        "fuente": "Banco MathUNAL, simulacro de Métodos Numéricos"
+       },
+       {
+        "tipo": "mcq",
+        "texto": "Un número de condición $\\kappa(A)$ grande indica que el sistema $Ax=b$ es:",
+        "opciones": [
+         "mal condicionado: pequeñas perturbaciones en los datos causan grandes cambios en la solución",
+         "bien condicionado: la solución es muy estable",
+         "singular",
+         "siempre resoluble con Gauss-Seidel"
+        ],
+        "correcta": 0,
+        "resumen": "Un número de condición grande indica un sistema mal condicionado.",
+        "fuente": "Banco MathUNAL, simulacro de Métodos Numéricos"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "Tu repaso",
+    "corto": "Repaso",
+    "bloques": [
+     {
+      "t": "repaso"
+     }
+    ]
+   },
+   {
+    "titulo": "En resumen",
+    "corto": "Resumen",
+    "bloques": [
+     {
+      "t": "resumen"
+     }
+    ]
+   }
+  ]
+ },
+ "practicar": {
+  "pasos": [
+   {
+    "titulo": "La elipse",
+    "grafica": {
+     "draw": 1
+    },
+    "bloques": [
+     {
+      "t": "p",
+      "html": "La imagen de la circunferencia unidad con la matriz diagonal."
+     },
+     {
+      "t": "eq",
+      "tex": "A=\\operatorname{diag}(2,\\ s)"
+     }
+    ]
+   },
+   {
+    "titulo": "Cambia s",
+    "grafica": {
+     "draw": 1
+    },
+    "laboratorio": true,
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mueve el deslizador. Abajo se leen s y el número de condición."
+     }
+    ]
+   },
+   {
+    "titulo": "Mal condicionado",
+    "grafica": {
+     "draw": 1,
+     "guide": 1,
+     "ok": true
+    },
+    "laboratorio": true,
+    "d": 0.01,
+    "bloques": [
+     {
+      "t": "eq",
+      "tex": "\\kappa=\\dfrac{2}{0.01}=200"
+     },
+     {
+      "t": "p",
+      "html": "Con s igual a 0.01 el número de condición es 200."
+     }
+    ]
+   },
+   {
+    "titulo": "Revisa tu respuesta",
+    "grafica": {
+     "draw": 1,
+     "guide": 1,
+     "ok": true,
+     "d": 0.01
+    },
+    "bloques": [
+     {
+      "t": "pregunta"
+     },
+     {
+      "t": "nota",
+      "html": "Suma los valores absolutos de cada fila y toma la mayor."
+     }
+    ]
+   }
+  ]
+ },
+ "pregunta": {
+  "tex": "\\|A\\|_{\\infty}\\ \\text{de}\\ A=\\begin{pmatrix}1&-2\\\\3&4\\end{pmatrix}",
+  "opciones": [
+   "$7$",
+   "$3$",
+   "$10$",
+   "$5$"
+  ],
+  "correcta": 0,
+  "explicacion": "La suma de los valores absolutos de la primera fila es 1 más 2, o sea 3. La de la segunda fila es 3 más 4, o sea 7. La norma infinito es la mayor de las dos, o sea 7.",
+  "verificacion": {
+   "formula": "7+0*x",
+   "a": 0,
+   "esperado": 7
+  },
+  "pistas": [
+   "Suma los valores absolutos de cada fila.",
+   "Son 3 y 7.",
+   "Se toma la mayor."
+  ],
+  "errores": [
+   "",
+   "Tres es la suma de la primera fila, pero la segunda es mayor.",
+   "Diez es la suma de todos los valores absolutos, y no la mayor por fila.",
+   "Cinco no corresponde a ninguna suma de fila."
+  ]
+ },
+ "resumen": [
+  "La norma infinito de una matriz es la mayor suma de valores absolutos por fila.",
+  "El número de condición es la norma de A por la norma de su inversa, y mide la amplificación de los errores.",
+  "Un número de condición grande indica un sistema mal condicionado, y ningún método lo corrige."
+ ]
+}
