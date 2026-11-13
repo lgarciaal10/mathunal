@@ -68,8 +68,8 @@
      "tema": "Eliminación gaussiana y factorización LU",
      "preguntas_banco": 4,
      "parciales_con_el_tema": 0,
-     "estado": "pendiente",
-     "leccion": null
+     "estado": "borrador para revisión",
+     "leccion": "lecciones/mn-gauss.json"
     }
    ]
   },
