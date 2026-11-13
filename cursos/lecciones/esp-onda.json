@@ -1,0 +1,927 @@
+{
+ "esquema": 1,
+ "id": "es-m2-l4",
+ "ejemplo": true,
+ "curso": "Matemáticas Especiales",
+ "modulo": "Módulo 2 Transformada de Fourier y EDP de evolución",
+ "posicion": "Lección 4 de 5",
+ "titulo": "Ecuación de onda y cuerda vibrante",
+ "minutos": 28,
+ "ejercicios": 8,
+ "grafica": {
+  "tipo": "plano",
+  "x": [
+   -0.4,
+   3.6
+  ],
+  "y": [
+   -1.8,
+   1.8
+  ],
+  "a": 0,
+  "b": 6.28,
+  "inicio": 0,
+  "elementos": [
+   {
+    "t": "trazo",
+    "puntos": [
+     [
+      "0.0",
+      "sin(0.0)*cos(x)+0.5*sin(0.0)*cos(2*x)"
+     ],
+     [
+      "0.07854",
+      "sin(0.07854)*cos(x)+0.5*sin(0.15708)*cos(2*x)"
+     ],
+     [
+      "0.15708",
+      "sin(0.15708)*cos(x)+0.5*sin(0.31416)*cos(2*x)"
+     ],
+     [
+      "0.23562",
+      "sin(0.23562)*cos(x)+0.5*sin(0.47124)*cos(2*x)"
+     ],
+     [
+      "0.31416",
+      "sin(0.31416)*cos(x)+0.5*sin(0.62832)*cos(2*x)"
+     ],
+     [
+      "0.3927",
+      "sin(0.3927)*cos(x)+0.5*sin(0.7854)*cos(2*x)"
+     ],
+     [
+      "0.47124",
+      "sin(0.47124)*cos(x)+0.5*sin(0.94248)*cos(2*x)"
+     ],
+     [
+      "0.54978",
+      "sin(0.54978)*cos(x)+0.5*sin(1.09956)*cos(2*x)"
+     ],
+     [
+      "0.62832",
+      "sin(0.62832)*cos(x)+0.5*sin(1.25664)*cos(2*x)"
+     ],
+     [
+      "0.70686",
+      "sin(0.70686)*cos(x)+0.5*sin(1.41372)*cos(2*x)"
+     ],
+     [
+      "0.7854",
+      "sin(0.7854)*cos(x)+0.5*sin(1.5708)*cos(2*x)"
+     ],
+     [
+      "0.86394",
+      "sin(0.86394)*cos(x)+0.5*sin(1.72788)*cos(2*x)"
+     ],
+     [
+      "0.94248",
+      "sin(0.94248)*cos(x)+0.5*sin(1.88496)*cos(2*x)"
+     ],
+     [
+      "1.02102",
+      "sin(1.02102)*cos(x)+0.5*sin(2.04204)*cos(2*x)"
+     ],
+     [
+      "1.09956",
+      "sin(1.09956)*cos(x)+0.5*sin(2.19912)*cos(2*x)"
+     ],
+     [
+      "1.1781",
+      "sin(1.1781)*cos(x)+0.5*sin(2.3562)*cos(2*x)"
+     ],
+     [
+      "1.25664",
+      "sin(1.25664)*cos(x)+0.5*sin(2.51328)*cos(2*x)"
+     ],
+     [
+      "1.33518",
+      "sin(1.33518)*cos(x)+0.5*sin(2.67036)*cos(2*x)"
+     ],
+     [
+      "1.41372",
+      "sin(1.41372)*cos(x)+0.5*sin(2.82744)*cos(2*x)"
+     ],
+     [
+      "1.49226",
+      "sin(1.49226)*cos(x)+0.5*sin(2.98452)*cos(2*x)"
+     ],
+     [
+      "1.5708",
+      "sin(1.5708)*cos(x)+0.5*sin(3.1416)*cos(2*x)"
+     ],
+     [
+      "1.64934",
+      "sin(1.64934)*cos(x)+0.5*sin(3.29868)*cos(2*x)"
+     ],
+     [
+      "1.72788",
+      "sin(1.72788)*cos(x)+0.5*sin(3.45576)*cos(2*x)"
+     ],
+     [
+      "1.80642",
+      "sin(1.80642)*cos(x)+0.5*sin(3.61284)*cos(2*x)"
+     ],
+     [
+      "1.88496",
+      "sin(1.88496)*cos(x)+0.5*sin(3.76992)*cos(2*x)"
+     ],
+     [
+      "1.9635",
+      "sin(1.9635)*cos(x)+0.5*sin(3.927)*cos(2*x)"
+     ],
+     [
+      "2.04204",
+      "sin(2.04204)*cos(x)+0.5*sin(4.08408)*cos(2*x)"
+     ],
+     [
+      "2.12058",
+      "sin(2.12058)*cos(x)+0.5*sin(4.24116)*cos(2*x)"
+     ],
+     [
+      "2.19911",
+      "sin(2.19911)*cos(x)+0.5*sin(4.39822)*cos(2*x)"
+     ],
+     [
+      "2.27765",
+      "sin(2.27765)*cos(x)+0.5*sin(4.5553)*cos(2*x)"
+     ],
+     [
+      "2.35619",
+      "sin(2.35619)*cos(x)+0.5*sin(4.71238)*cos(2*x)"
+     ],
+     [
+      "2.43473",
+      "sin(2.43473)*cos(x)+0.5*sin(4.86946)*cos(2*x)"
+     ],
+     [
+      "2.51327",
+      "sin(2.51327)*cos(x)+0.5*sin(5.02654)*cos(2*x)"
+     ],
+     [
+      "2.59181",
+      "sin(2.59181)*cos(x)+0.5*sin(5.18362)*cos(2*x)"
+     ],
+     [
+      "2.67035",
+      "sin(2.67035)*cos(x)+0.5*sin(5.3407)*cos(2*x)"
+     ],
+     [
+      "2.74889",
+      "sin(2.74889)*cos(x)+0.5*sin(5.49778)*cos(2*x)"
+     ],
+     [
+      "2.82743",
+      "sin(2.82743)*cos(x)+0.5*sin(5.65486)*cos(2*x)"
+     ],
+     [
+      "2.90597",
+      "sin(2.90597)*cos(x)+0.5*sin(5.81194)*cos(2*x)"
+     ],
+     [
+      "2.98451",
+      "sin(2.98451)*cos(x)+0.5*sin(5.96902)*cos(2*x)"
+     ],
+     [
+      "3.06305",
+      "sin(3.06305)*cos(x)+0.5*sin(6.1261)*cos(2*x)"
+     ],
+     [
+      "3.14159",
+      "sin(3.14159)*cos(x)+0.5*sin(6.28318)*cos(2*x)"
+     ]
+    ],
+    "c": 0
+   },
+   {
+    "t": "trazo",
+    "puntos": [
+     [
+      "0.0",
+      "sin(0.0)*cos(x)"
+     ],
+     [
+      "0.07854",
+      "sin(0.07854)*cos(x)"
+     ],
+     [
+      "0.15708",
+      "sin(0.15708)*cos(x)"
+     ],
+     [
+      "0.23562",
+      "sin(0.23562)*cos(x)"
+     ],
+     [
+      "0.31416",
+      "sin(0.31416)*cos(x)"
+     ],
+     [
+      "0.3927",
+      "sin(0.3927)*cos(x)"
+     ],
+     [
+      "0.47124",
+      "sin(0.47124)*cos(x)"
+     ],
+     [
+      "0.54978",
+      "sin(0.54978)*cos(x)"
+     ],
+     [
+      "0.62832",
+      "sin(0.62832)*cos(x)"
+     ],
+     [
+      "0.70686",
+      "sin(0.70686)*cos(x)"
+     ],
+     [
+      "0.7854",
+      "sin(0.7854)*cos(x)"
+     ],
+     [
+      "0.86394",
+      "sin(0.86394)*cos(x)"
+     ],
+     [
+      "0.94248",
+      "sin(0.94248)*cos(x)"
+     ],
+     [
+      "1.02102",
+      "sin(1.02102)*cos(x)"
+     ],
+     [
+      "1.09956",
+      "sin(1.09956)*cos(x)"
+     ],
+     [
+      "1.1781",
+      "sin(1.1781)*cos(x)"
+     ],
+     [
+      "1.25664",
+      "sin(1.25664)*cos(x)"
+     ],
+     [
+      "1.33518",
+      "sin(1.33518)*cos(x)"
+     ],
+     [
+      "1.41372",
+      "sin(1.41372)*cos(x)"
+     ],
+     [
+      "1.49226",
+      "sin(1.49226)*cos(x)"
+     ],
+     [
+      "1.5708",
+      "sin(1.5708)*cos(x)"
+     ],
+     [
+      "1.64934",
+      "sin(1.64934)*cos(x)"
+     ],
+     [
+      "1.72788",
+      "sin(1.72788)*cos(x)"
+     ],
+     [
+      "1.80642",
+      "sin(1.80642)*cos(x)"
+     ],
+     [
+      "1.88496",
+      "sin(1.88496)*cos(x)"
+     ],
+     [
+      "1.9635",
+      "sin(1.9635)*cos(x)"
+     ],
+     [
+      "2.04204",
+      "sin(2.04204)*cos(x)"
+     ],
+     [
+      "2.12058",
+      "sin(2.12058)*cos(x)"
+     ],
+     [
+      "2.19911",
+      "sin(2.19911)*cos(x)"
+     ],
+     [
+      "2.27765",
+      "sin(2.27765)*cos(x)"
+     ],
+     [
+      "2.35619",
+      "sin(2.35619)*cos(x)"
+     ],
+     [
+      "2.43473",
+      "sin(2.43473)*cos(x)"
+     ],
+     [
+      "2.51327",
+      "sin(2.51327)*cos(x)"
+     ],
+     [
+      "2.59181",
+      "sin(2.59181)*cos(x)"
+     ],
+     [
+      "2.67035",
+      "sin(2.67035)*cos(x)"
+     ],
+     [
+      "2.74889",
+      "sin(2.74889)*cos(x)"
+     ],
+     [
+      "2.82743",
+      "sin(2.82743)*cos(x)"
+     ],
+     [
+      "2.90597",
+      "sin(2.90597)*cos(x)"
+     ],
+     [
+      "2.98451",
+      "sin(2.98451)*cos(x)"
+     ],
+     [
+      "3.06305",
+      "sin(3.06305)*cos(x)"
+     ],
+     [
+      "3.14159",
+      "sin(3.14159)*cos(x)"
+     ]
+    ],
+    "c": 3
+   }
+  ],
+  "lecturas": [
+   {
+    "rotulo": "factor del modo uno, coseno de t",
+    "formula": "cos(x)"
+   },
+   {
+    "rotulo": "factor del modo dos, coseno de 2 t",
+    "formula": "cos(2*x)"
+   }
+  ],
+  "etiquetas": [
+   "El modo uno, que es la nota fundamental",
+   "El modo dos oscila al doble de rapidez"
+  ],
+  "etiquetaSlider": "Tiempo t, de 0 a 6.28",
+  "alt": "Una cuerda de longitud pi con los extremos fijos. La forma total es la suma del modo uno, seno de x por coseno de t, y la mitad del modo dos, seno de 2x por coseno de 2t. La curva verde es solo el modo uno. A diferencia del calor, los modos no se apagan, sino que oscilan"
+ },
+ "glosario": {
+  "onda": "La ecuación de onda, u sub t t igual a c al cuadrado u sub x x, describe cómo se propagan y vibran las perturbaciones, como en una cuerda.",
+  "nodo": "Un nodo es un punto de la cuerda que no se mueve durante la vibración de un modo.",
+  "armonico": "Los armónicos son los modos de frecuencia n veces la fundamental. Dan el timbre de un instrumento.",
+  "fundamental": "La frecuencia fundamental es la del primer modo, la más baja, y define la nota que se escucha."
+ },
+ "ver": {
+  "duracion": 24.0,
+  "capitulos": [
+   [
+    0,
+    4,
+    "Una cuerda de longitud pi con los extremos fijos. Su forma inicial es la suma de dos modos, seno de x y la mitad de seno de 2x."
+   ],
+   [
+    4,
+    10,
+    "A diferencia del calor, los modos no se apagan, sino que oscilan, cada uno con coseno de n t."
+   ],
+   [
+    10,
+    16,
+    "Con t igual a pi, el modo uno cambió de signo y el modo dos volvió a su valor inicial."
+   ],
+   [
+    16,
+    20,
+    "En un periodo completo, de 0 a 2 pi, la cuerda vuelve a su forma inicial."
+   ],
+   [
+    20,
+    24,
+    "Los armónicos oscilan con frecuencia n veces la fundamental, y por eso se oye una nota con timbre."
+   ]
+  ],
+  "canales": {
+   "draw": [
+    [
+     0.3,
+     0
+    ],
+    [
+     3.5,
+     1
+    ]
+   ],
+   "d": [
+    [
+     4,
+     0
+    ],
+    [
+     8,
+     0
+    ],
+    [
+     10,
+     1.57
+    ],
+    [
+     13,
+     3.14
+    ],
+    [
+     16,
+     3.14
+    ],
+    [
+     18,
+     6.28
+    ],
+    [
+     24,
+     6.28
+    ]
+   ],
+   "guide": [
+    [
+     4,
+     0
+    ],
+    [
+     5,
+     1
+    ]
+   ]
+  },
+  "intervalos": {
+   "ok": [
+    16,
+    24
+   ]
+  }
+ },
+ "leer": {
+  "secciones": [
+   {
+    "titulo": "La idea",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "La ecuación de {{gl:onda|onda}} describe la cuerda vibrante. Se resuelve igual que la de calor, por separación de variables, pero ahora cada modo oscila y no se apaga. El modo n es seno de n x por coseno de n c t, y su frecuencia es n veces la {{gl:fundamental|fundamental}}. Los {{gl:armonico|armónicos}} dan el timbre, y los {{gl:nodo|nodos}} son los puntos quietos."
+     }
+    ]
+   },
+   {
+    "titulo": "Un ejemplo",
+    "corto": "Un ejemplo",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "La cuerda tiene longitud pi y c igual a 1. Mueve el tiempo y mira cómo oscilan los dos modos."
+     },
+     {
+      "t": "eq",
+      "tex": "u_{tt}=u_{xx},\\qquad u(x,t)=\\operatorname{sen}x\\cos t+\\tfrac{1}{2}\\operatorname{sen}2x\\cos2t"
+     },
+     {
+      "t": "grafica",
+      "animar": "dibujar",
+      "alt": "La cuerda vibrando con dos modos"
+     }
+    ]
+   },
+   {
+    "titulo": "Piensa antes de ver",
+    "corto": "Piensa",
+    "bloques": [
+     {
+      "t": "piensa",
+      "pregunta": "En la ecuación de calor los modos decaen como e elevado a menos n al cuadrado t. En la de onda, ¿cómo evoluciona cada modo en el tiempo?",
+      "opciones": [
+       "Oscila con coseno de n t",
+       "Decae como e elevado a menos n t",
+       "Crece sin límite",
+       "Se mantiene fijo"
+      ],
+      "correcta": "Oscila con coseno de n t",
+      "bien": "Muy bien. En la onda los modos oscilan y no se apagan, porque no hay disipación.",
+      "mal": "En la onda cada modo oscila con coseno de n c t, y no se apaga. Eso es porque no hay disipación."
+     }
+    ]
+   },
+   {
+    "titulo": "La cuerda en el tiempo",
+    "corto": "El tiempo",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mira la cuerda con t igual a 0, 1.57, 3.14 y 4.71."
+     },
+     {
+      "t": "acercando",
+      "ds": [
+       0,
+       1.57,
+       3.14,
+       4.71
+      ],
+      "alt": "La cuerda en cuatro instantes"
+     },
+     {
+      "t": "p",
+      "html": "A t igual a 1.57 el modo uno pasa por cero, y a t igual a 3.14 cambió de signo."
+     }
+    ]
+   },
+   {
+    "titulo": "Separación de variables",
+    "corto": "Separación",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Se busca la solución como un producto, y se obtienen dos ecuaciones de oscilación."
+     },
+     {
+      "t": "pasos",
+      "items": [
+       {
+        "tex": "u(x,t)=F(x)\\,G(t)",
+        "porque": "Se propone una solución separada."
+       },
+       {
+        "tex": "\\dfrac{G''}{c^{2}G}=\\dfrac{F''}{F}=-\\lambda",
+        "porque": "Cada lado depende de una sola variable."
+       },
+       {
+        "tex": "F(0)=F(L)=0\\ \\Rightarrow\\ F=\\operatorname{sen}\\dfrac{n\\pi x}{L},\\ \\lambda=\\left(\\dfrac{n\\pi}{L}\\right)^{2}",
+        "porque": "Los extremos fijos determinan F y lambda."
+       },
+       {
+        "tex": "u_{n}=\\operatorname{sen}\\dfrac{n\\pi x}{L}\\cos\\dfrac{n\\pi ct}{L}",
+        "porque": "El modo n, cuando la cuerda parte del reposo."
+       }
+      ]
+     },
+     {
+      "t": "ojo",
+      "html": "La constante de separación debe ser negativa, como en la de calor. Si no, no hay solución con los extremos fijos que no sea nula."
+     }
+    ]
+   },
+   {
+    "titulo": "Frecuencias de la cuerda",
+    "corto": "Frecuencias",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Cada modo tiene su frecuencia, y son múltiplos de la fundamental."
+     },
+     {
+      "t": "pasos",
+      "items": [
+       {
+        "tex": "f_{n}=\\dfrac{nc}{2L}",
+        "porque": "La frecuencia del modo n."
+       },
+       {
+        "tex": "f_{1}=\\dfrac{c}{2L}",
+        "porque": "La fundamental."
+       },
+       {
+        "tex": "f_{n}=n\\,f_{1}",
+        "porque": "Los armónicos son múltiplos enteros."
+       },
+       {
+        "tex": "c=\\sqrt{T/\\rho}",
+        "porque": "La velocidad depende de la tensión T y de la densidad lineal."
+       }
+      ]
+     },
+     {
+      "t": "ojo",
+      "html": "Más tensión sube la frecuencia, y más densidad la baja. Por eso se afina una cuerda cambiando su tensión."
+     }
+    ]
+   },
+   {
+    "titulo": "¿Para qué sirve?",
+    "corto": "En ingeniería",
+    "bloques": [
+     {
+      "t": "ingenieria",
+      "titulo": "La cuerda de una guitarra",
+      "html": "Una cuerda de 0.65 metros de longitud se afina para que su nota fundamental sea 330 hertz. Con esa frecuencia se calcula la velocidad de la onda en la cuerda.",
+      "tex": "c=2Lf_{1}=2\\,(0.65)\\,(330)\\approx429\\ \\text{m/s}",
+      "datos": [
+       {
+        "k": "Longitud",
+        "v": "0.65 m"
+       },
+       {
+        "k": "Fundamental",
+        "v": "330 Hz"
+       },
+       {
+        "k": "Velocidad de la onda",
+        "v": "cerca de 429 m/s"
+       }
+      ],
+      "cierre": "Al presionar la cuerda con un dedo, la longitud efectiva baja y la fundamental sube, porque f es c entre 2L. En la práctica, la rigidez de la cuerda cambia un poco los armónicos, y por eso se ajusta con el oído."
+     }
+    ]
+   },
+   {
+    "titulo": "Completa el paso",
+    "corto": "Completa",
+    "bloques": [
+     {
+      "t": "completar",
+      "enunciado": "En la cuerda con extremos fijos, la frecuencia del modo n es n veces la [[hueco]].",
+      "tex": "f_{n}=n\\cdot[[hueco]]",
+      "opciones": [
+       {
+        "tex": "f_{1}",
+        "txt": "fundamental"
+       },
+       {
+        "tex": "f_{n+1}",
+        "txt": "la siguiente"
+       },
+       {
+        "tex": "c",
+        "txt": "la velocidad"
+       }
+      ],
+      "correcta": 0,
+      "errores": [
+       "",
+       "La siguiente frecuencia no es una referencia fija para todos los modos.",
+       "La velocidad no es una frecuencia, y sus unidades son otras."
+      ],
+      "pista": "El modo n tiene n veces la frecuencia fundamental.",
+      "porque": "La frecuencia fundamental es la del primer modo."
+     }
+    ]
+   },
+   {
+    "titulo": "Encuentra el error",
+    "corto": "Error",
+    "bloques": [
+     {
+      "t": "error",
+      "enunciado": "Alguien calculó la frecuencia fundamental de una cuerda de 0.5 metros con velocidad 440 metros por segundo, y se equivocó. Toca el paso que está mal.",
+      "pasos": [
+       {
+        "tex": "f_{1}=\\dfrac{c}{2L}",
+        "porque": "La fórmula.",
+        "txt": "la fórmula"
+       },
+       {
+        "tex": "f_{1}=\\dfrac{440}{0.5}",
+        "porque": "Este paso es el que falla.",
+        "txt": "falta el 2"
+       },
+       {
+        "tex": "f_{1}=880\\ \\text{Hz}",
+        "porque": "Resultado.",
+        "txt": "da 880"
+       }
+      ],
+      "mal": 1,
+      "explicacion": "En el denominador va 2L, y no L. Entonces f1 es 440 entre 1, o sea 440 hertz.",
+      "correccion": "f_{1}=\\dfrac{440}{2\\,(0.5)}=440\\ \\text{Hz}",
+      "pista": "Calcula 2 por L."
+     }
+    ]
+   },
+   {
+    "titulo": "Ordena los pasos",
+    "corto": "Ordena",
+    "bloques": [
+     {
+      "t": "ordenar",
+      "enunciado": "Estos son los pasos para obtener la frecuencia del modo n de una cuerda, pero están desordenados.",
+      "pasos": [
+       "u=F(x)\\,G(t)",
+       "F=\\operatorname{sen}(n\\pi x/L)",
+       "G=\\cos(n\\pi ct/L)",
+       "f_{n}=nc/(2L)"
+      ],
+      "mezcla": [
+       2,
+       0,
+       3,
+       1
+      ],
+      "porque": "Primero se separa, después F, luego G y por último se lee la frecuencia.",
+      "pista": "Se empieza separando las variables.",
+      "txt": [
+       "Se separan las variables",
+       "Los extremos fijos dan F",
+       "Se obtiene la oscilación en el tiempo",
+       "Se lee la frecuencia"
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "Revisa tu respuesta",
+    "corto": "Revisa",
+    "bloques": [
+     {
+      "t": "pregunta"
+     },
+     {
+      "t": "nota",
+      "html": "Puedes pedir pistas de a una. Si fallas, el mensaje te dice qué error se cometió."
+     }
+    ]
+   },
+   {
+    "titulo": "Mini simulacro",
+    "corto": "Simulacro",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Tres preguntas reales del banco de MathUNAL sobre este tema. Responde sin mirar los pasos."
+     },
+     {
+      "t": "simulacro",
+      "titulo": "Mini simulacro de la cuerda vibrante",
+      "preguntas": [
+       {
+        "tipo": "mcq",
+        "texto": "La ecuación de onda unidimensional para la cuerda vibrante es:",
+        "opciones": [
+         "$u_{tt}=c^{2}u_{xx}$, con $c=\\sqrt{T/\\rho}$",
+         "$u_t=c^{2}u_{xx}$",
+         "$u_{xx}+u_{tt}=0$",
+         "$u_{tt}=c\\,u_x$"
+        ],
+        "correcta": 0,
+        "resumen": "La ecuación de onda unidimensional.",
+        "fuente": "Banco MathUNAL, simulacro de Matemáticas Especiales"
+       },
+       {
+        "tipo": "mcq",
+        "texto": "Para la cuerda vibrante, la frecuencia del $n$-ésimo modo normal $u_n$ respecto a la fundamental $u_1$ es:",
+        "opciones": [
+         "$n$ veces la fundamental (armónicos: $f_n=n f_1$)",
+         "el doble, para todo $n>1$",
+         "la misma para todos",
+         "la mitad"
+        ],
+        "correcta": 0,
+        "resumen": "Los armónicos son múltiplos de la fundamental.",
+        "fuente": "Banco MathUNAL, simulacro de Matemáticas Especiales"
+       },
+       {
+        "tipo": "numerica",
+        "texto": "Una cuerda de longitud $L=0.5$ m con velocidad de propagación $c=440$ m/s: la frecuencia de su modo fundamental $f_1=\\dfrac{c}{2L}$ es (en Hz):",
+        "respuesta": "440",
+        "tolNum": 0.5,
+        "resumen": "La fundamental con L 0.5 y c 440.",
+        "fuente": "Banco MathUNAL, simulacro de Matemáticas Especiales"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "Tu repaso",
+    "corto": "Repaso",
+    "bloques": [
+     {
+      "t": "repaso"
+     }
+    ]
+   },
+   {
+    "titulo": "En resumen",
+    "corto": "Resumen",
+    "bloques": [
+     {
+      "t": "resumen"
+     }
+    ]
+   }
+  ]
+ },
+ "practicar": {
+  "pasos": [
+   {
+    "titulo": "Dos modos",
+    "grafica": {
+     "draw": 1
+    },
+    "bloques": [
+     {
+      "t": "p",
+      "html": "La forma inicial es la suma de dos modos."
+     },
+     {
+      "t": "eq",
+      "tex": "u(x,0)=\\operatorname{sen}x+\\tfrac{1}{2}\\operatorname{sen}2x"
+     }
+    ]
+   },
+   {
+    "titulo": "Avanza el tiempo",
+    "grafica": {
+     "draw": 1
+    },
+    "laboratorio": true,
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mueve el deslizador. Abajo se leen los factores de oscilación de cada modo."
+     }
+    ]
+   },
+   {
+    "titulo": "Medio periodo",
+    "grafica": {
+     "draw": 1,
+     "guide": 1,
+     "ok": true
+    },
+    "laboratorio": true,
+    "d": 3.14,
+    "bloques": [
+     {
+      "t": "eq",
+      "tex": "\\cos\\pi=-1,\\quad\\cos2\\pi=1"
+     },
+     {
+      "t": "p",
+      "html": "Con t igual a pi, el modo uno cambió de signo y el modo dos quedó igual."
+     }
+    ]
+   },
+   {
+    "titulo": "Revisa tu respuesta",
+    "grafica": {
+     "draw": 1,
+     "guide": 1,
+     "ok": true,
+     "d": 3.14
+    },
+    "bloques": [
+     {
+      "t": "pregunta"
+     },
+     {
+      "t": "nota",
+      "html": "El modo n oscila con coseno de n t."
+     }
+    ]
+   }
+  ]
+ },
+ "pregunta": {
+  "tex": "u_{tt}=u_{xx},\\ u(0,t)=u(\\pi,t)=0,\\ u_t(x,0)=0.\\ \\text{El modo 3 es}",
+  "opciones": [
+   "$\\operatorname{sen}3x\\cos3t$",
+   "$\\operatorname{sen}3x\\,e^{-9t}$",
+   "$\\operatorname{sen}x\\cos3t$",
+   "$\\operatorname{sen}3x\\cos t$"
+  ],
+  "correcta": 0,
+  "explicacion": "El modo n es seno de n x por coseno de n t. Con n igual a 3, es seno de 3x por coseno de 3t.",
+  "verificacion": {
+   "formula": "sin(3*pi/2)*cos(0)+0*x",
+   "a": 0,
+   "esperado": -1
+  },
+  "pistas": [
+   "Es una ecuación de onda, y no de calor.",
+   "El modo n oscila con coseno de n t.",
+   "Con n igual a 3, la parte de x y la de t tienen un 3."
+  ],
+  "errores": [
+   "",
+   "Con el exponencial sería la ecuación de calor, y no la de onda.",
+   "Con seno de x no cumple los extremos para n igual a 3.",
+   "Con coseno de t la frecuencia no es la del modo 3."
+  ]
+ },
+ "resumen": [
+  "En la ecuación de onda cada modo seno de n x oscila como coseno de n c t, y no se apaga.",
+  "La frecuencia del modo n es n veces la fundamental, y la fundamental es c entre 2L.",
+  "Los extremos fijos y la separación de variables determinan los modos."
+ ]
+}

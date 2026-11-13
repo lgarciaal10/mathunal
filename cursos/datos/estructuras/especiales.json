@@ -68,8 +68,8 @@
      "tema": "Ecuación de onda: cuerda vibrante",
      "preguntas_banco": 6,
      "parciales_con_el_tema": 1,
-     "estado": "pendiente",
-     "leccion": null
+     "estado": "borrador para revisión",
+     "leccion": "lecciones/esp-onda.json"
     },
     {
      "tema": "Integral de Fourier",
