@@ -47,8 +47,8 @@
      "tema": "Permutaciones y combinaciones",
      "preguntas_banco": 10,
      "parciales_con_el_tema": 3,
-     "estado": "pendiente",
-     "leccion": null
+     "estado": "borrador para revisión",
+     "leccion": "lecciones/disc-combinatoria.json"
     },
     {
      "tema": "Teoría de conjuntos e inclusión-exclusión",
