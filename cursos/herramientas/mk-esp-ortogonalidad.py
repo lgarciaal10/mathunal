@@ -74,4 +74,4 @@ preg={"tex":"\\text{El período de}\\ f(t)=\\operatorname{sen}(2t)+\\cos(3t)\\ \
  "pistas":["Halla el período de cada término.","Son pi y 2 pi entre 3.","Busca un valor que sea múltiplo de los dos."],
  "errores":["","Pi es el período del seno, pero el coseno de 3t no se repite en pi.","6 pi es un período común, pero no el menor.","Dos pi entre 3 es el período del coseno, y el seno no se repite en ese tiempo."]}
 res=["El período de seno de omega x es 2 pi entre omega, y el de una suma es el mínimo común múltiplo.","Los senos y cosenos de frecuencias enteras son ortogonales en un intervalo de longitud 2 pi.","La integral de una función periódica sobre un período no depende del punto de partida."]
-write(lesson("es-m1-l3","Lección 3 de 5","Funciones periódicas y ortogonalidad",26,graf,glos,ver,S,prac,preg,res,modulo=MOD,ejercicios=8,curso="Matemáticas Especiales"),"esp-ortogonalidad.json")
+write(lesson("es-m1-l1","Lección 1 de 5","Funciones periódicas y ortogonalidad",26,graf,glos,ver,S,prac,preg,res,modulo=MOD,ejercicios=8,curso="Matemáticas Especiales"),"esp-ortogonalidad.json")

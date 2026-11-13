@@ -68,7 +68,7 @@ prac=[
  {"titulo":"Cambia la extensión","grafica":{"draw":1},"laboratorio":True,"bloques":[P("Mueve el deslizador entre 0 y 1. Abajo se leen el valor de la serie en pi y el término constante.")]},
  {"titulo":"La extensión par","grafica":{"draw":1,"guide":1,"ok":True},"laboratorio":True,"d":1,"bloques":[EQ("S(\\pi)=\\pi,\\quad \\dfrac{a_{0}}{2}=\\dfrac{\\pi}{2}"),P("Con la extensión par la función es continua, y la serie vale pi en pi.")]},
  {"titulo":"Revisa tu respuesta","grafica":{"draw":1,"guide":1,"ok":True,"d":1},"bloques":[{"t":"pregunta"},{"t":"nota","html":"Una serie de cosenos es una serie de una función par."}]}]
-preg={"tex":"\\text{Para obtener la serie de cosenos de}\\ f\\ \\text{en}\\ [0,L],\\ \\text{se extiende}\\ f","opciones":["de forma par a $[-L,L]$","de forma impar a $[-L,L]$","con período $L$","como cero"],"correcta":0,
+preg={"tex":"\\text{Serie de cosenos de }f\\text{ en }[0,L]\\text{. Se extiende }f","opciones":["de forma par a $[-L,L]$","de forma impar a $[-L,L]$","con período $L$","como cero"],"correcta":0,
  "explicacion":"Los cosenos son funciones pares, así que la extensión que da una serie de solo cosenos es la par. Eso copia la función en el intervalo negativo.",
  "verificacion":{"formula":"1+0*x","a":0,"esperado":1},
  "pistas":["Los cosenos son funciones pares.","La serie solo tendrá lo que tenga la extensión.","Es la extensión par."],

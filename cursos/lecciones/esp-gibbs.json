@@ -1,10 +1,10 @@
 {
  "esquema": 1,
- "id": "es-m1-l2",
+ "id": "es-m1-l3",
  "ejemplo": true,
  "curso": "Matemáticas Especiales",
  "modulo": "Módulo 1 Series de Fourier",
- "posicion": "Lección 2 de 5",
+ "posicion": "Lección 3 de 5",
  "titulo": "Convergencia de Dirichlet y fenómeno de Gibbs",
  "minutos": 28,
  "ejercicios": 8,
@@ -910,7 +910,7 @@
      },
      {
       "t": "eq",
-      "tex": "f(x)=\\dfrac{4}{\\pi}\\left(\\operatorname{sen}x+\\dfrac{\\operatorname{sen}3x}{3}+\\dfrac{\\operatorname{sen}5x}{5}+\\cdots\\right)"
+      "tex": "f(x)=\\dfrac{4}{\\pi}\\displaystyle\\sum_{k\\ \\text{impar}}\\dfrac{\\operatorname{sen}kx}{k}"
      },
      {
       "t": "grafica",
@@ -1304,7 +1304,7 @@
   ]
  },
  "pregunta": {
-  "tex": "\\text{Una función vale 3 a la derecha de 0 y 1 a la izquierda. La serie de Fourier en 0 vale}",
+  "tex": "f(0^{+})=3,\\ f(0^{-})=1.\\ \\text{La serie en 0 vale}",
   "opciones": [
    "$2$",
    "$3$",

@@ -32,7 +32,7 @@ ver={"duracion":24.0,"capitulos":[
  "intervalos":{"ok":[15,24]}}
 S=[
  sec("La idea",None,P("Una serie de Fourier no siempre converge a la función. Según el teorema de {{gl:dirichlet|Dirichlet}}, en un punto de continuidad converge a f, y en una discontinuidad de {{gl:salto|salto}} converge al promedio de los dos límites laterales. Cerca del salto, las sumas parciales muestran el fenómeno de {{gl:gibbs|Gibbs}}. Si f es continua y suave a trozos, la convergencia es {{gl:uniforme|uniforme}}.")),
- sec("Un ejemplo","Un ejemplo",P("La onda cuadrada tiene un salto en 0. Mira sus sumas parciales y el pico junto al salto."),EQ("f(x)=\\dfrac{4}{\\pi}\\left(\\operatorname{sen}x+\\dfrac{\\operatorname{sen}3x}{3}+\\dfrac{\\operatorname{sen}5x}{5}+\\cdots\\right)"),{"t":"grafica","animar":"dibujar","alt":"Las sumas parciales de la onda cuadrada"}),
+ sec("Un ejemplo","Un ejemplo",P("La onda cuadrada tiene un salto en 0. Mira sus sumas parciales y el pico junto al salto."),EQ("f(x)=\\dfrac{4}{\\pi}\\displaystyle\\sum_{k\\ \\text{impar}}\\dfrac{\\operatorname{sen}kx}{k}"),{"t":"grafica","animar":"dibujar","alt":"Las sumas parciales de la onda cuadrada"}),
  sec("Piensa antes de ver","Piensa",{"t":"piensa","pregunta":"La función vale menos 1 a la izquierda de 0 y 1 a la derecha. ¿A qué valor converge la serie justo en x igual a 0, que es el promedio de los dos límites?","opciones":[-1,0,1,2],"correcta":0,"bien":"Muy bien. El promedio de menos 1 y 1 es 0. Más abajo se ve que todas las sumas parciales valen 0 en ese punto.","mal":"Converge a 0, que es el promedio de menos 1 y 1. Más abajo se ve que todas las sumas parciales valen 0 en ese punto."}),
  sec("Agregando términos","Los términos",P("Mira la suma parcial con 1, 3, 6 y 10 términos."),{"t":"acercando","ds":[1,3,6,10],"alt":"La suma parcial con cuatro cantidades de términos"},P("El pico junto al salto se angosta, pero su altura se queda cerca de 1.18, es decir, un 9 por ciento del salto por encima de 1.")),
  sec("Convergencia","Convergencia",P("El teorema de Dirichlet describe a qué converge la serie en cada punto."),
@@ -73,11 +73,11 @@ prac=[
  {"titulo":"Agrega términos","grafica":{"draw":1},"laboratorio":True,"bloques":[P("Mueve el deslizador de 1 a 10. Abajo se leen el valor máximo de la suma parcial y el exceso sobre 1.")]},
  {"titulo":"Diez términos","grafica":{"draw":1,"guide":1,"ok":True},"laboratorio":True,"d":10,"bloques":[EQ("\\text{pico}\\approx1.18"),P("Con 10 términos el pico sigue en cerca de 1.18, cerca de 9 por ciento del salto.")]},
  {"titulo":"Revisa tu respuesta","grafica":{"draw":1,"guide":1,"ok":True,"d":10},"bloques":[{"t":"pregunta"},{"t":"nota","html":"Promedia los dos límites laterales."}]}]
-preg={"tex":"\\text{Una función vale 3 a la derecha de 0 y 1 a la izquierda. La serie de Fourier en 0 vale}","opciones":["$2$","$3$","$1$","$0$"],"correcta":0,
+preg={"tex":"f(0^{+})=3,\\ f(0^{-})=1.\\ \\text{La serie en 0 vale}","opciones":["$2$","$3$","$1$","$0$"],"correcta":0,
  "explicacion":"En un salto, la serie converge al promedio de los dos límites laterales. El promedio de 3 y 1 es 2.",
  "verificacion":{"formula":"(3+1)/2+0*x","a":0,"esperado":2},
  "pistas":["Es el promedio de los dos límites.","Los límites son 3 y 1.","Su promedio es 2."],
  "errores":["","Tres es el límite de la derecha, y la serie converge al promedio.","Uno es el límite de la izquierda, y la serie converge al promedio.","Cero sería el promedio si los límites fueran opuestos, como menos 1 y 1."]}
 res=["En un punto de continuidad la serie converge a f, y en un salto converge al promedio de los límites laterales.","El fenómeno de Gibbs es un pico de cerca de 9 por ciento del salto que no desaparece al agregar términos.","Si f es continua y suave a trozos, la serie converge de manera uniforme."]
-write(lesson("es-m1-l2","Lección 2 de 5","Convergencia de Dirichlet y fenómeno de Gibbs",28,graf,glos,ver,S,prac,preg,res,modulo=MOD,ejercicios=8,curso="Matemáticas Especiales"),"esp-gibbs.json")
+write(lesson("es-m1-l3","Lección 3 de 5","Convergencia de Dirichlet y fenómeno de Gibbs",28,graf,glos,ver,S,prac,preg,res,modulo=MOD,ejercicios=8,curso="Matemáticas Especiales"),"esp-gibbs.json")
 print('picos',pk)

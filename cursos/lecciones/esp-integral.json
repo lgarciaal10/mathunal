@@ -726,7 +726,7 @@
   ]
  },
  "pregunta": {
-  "tex": "\\text{Con la integral de Fourier del pulso, el valor en }x=1\\text{ es}",
+  "tex": "\\text{En }x=1\\text{, la integral del pulso vale}",
   "opciones": [
    "$\\dfrac{1}{2}$",
    "$1$",

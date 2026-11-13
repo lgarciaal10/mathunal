@@ -73,4 +73,4 @@ preg={"tex":"\\text{El término constante}\\ \\dfrac{a_{0}}{2}\\ \\text{de}\\ f(
  "pistas":["Es el promedio de x al cuadrado en el intervalo.","La integral vale 2 pi al cubo entre 3.","Se divide entre la longitud del intervalo, que es 2 pi."],
  "errores":["","Pi al cuadrado es el valor máximo de la función, y no el promedio.","Pi medios es el promedio de la función valor absoluto de x, no de x al cuadrado.","Cero sería el promedio de una función impar, y x al cuadrado es par."]}
 res=["Una función par tiene solo cosenos y el término constante, y una impar tiene solo senos.","Los coeficientes son integrales de f por coseno y seno de n x, divididas entre pi.","El término constante es el promedio de la función. Para x al cuadrado vale pi al cuadrado entre 3."]
-write(lesson("es-m1-l1","Lección 1 de 5","Coeficientes de Fourier y simetrías",28,graf,glos,ver,S,prac,preg,res,modulo=MOD,ejercicios=8,curso="Matemáticas Especiales"),"esp-coeficientes.json")
+write(lesson("es-m1-l2","Lección 2 de 5","Coeficientes de Fourier y simetrías",28,graf,glos,ver,S,prac,preg,res,modulo=MOD,ejercicios=8,curso="Matemáticas Especiales"),"esp-coeficientes.json")

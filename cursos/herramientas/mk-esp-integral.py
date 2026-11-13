@@ -68,7 +68,7 @@ prac=[
  {"titulo":"Sube la frecuencia","grafica":{"draw":1},"laboratorio":True,"bloques":[P("Mueve el deslizador. Abajo se leen W y el valor de la integral en el centro.")]},
  {"titulo":"Cerca de la caja","grafica":{"draw":1,"guide":1,"ok":True},"laboratorio":True,"d":20,"bloques":[EQ("\\dfrac{2}{\\pi}\\cdot\\dfrac{\\pi}{2}=1"),P("Con frecuencias hasta 20 el valor en x igual a 0 es casi 1.")]},
  {"titulo":"Revisa tu respuesta","grafica":{"draw":1,"guide":1,"ok":True,"d":20},"bloques":[{"t":"pregunta"},{"t":"nota","html":"En el salto se promedian los dos lados."}]}]
-preg={"tex":"\\text{Con la integral de Fourier del pulso, el valor en }x=1\\text{ es}","opciones":["$\\dfrac{1}{2}$","$1$","$0$","$\\dfrac{\\pi}{2}$"],"correcta":0,
+preg={"tex":"\\text{En }x=1\\text{, la integral del pulso vale}","opciones":["$\\dfrac{1}{2}$","$1$","$0$","$\\dfrac{\\pi}{2}$"],"correcta":0,
  "explicacion":"En x igual a 1 hay un salto de 1 a 0, y la integral converge al promedio, un medio.",
  "verificacion":{"formula":"(1+0)/2+0*x","a":0,"esperado":0.5},
  "pistas":["Hay un salto en x igual a 1.","La integral da el promedio de los dos lados.","Promedia 1 y 0."],

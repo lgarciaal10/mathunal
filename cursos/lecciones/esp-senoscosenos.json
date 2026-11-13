@@ -1048,7 +1048,7 @@
   ]
  },
  "pregunta": {
-  "tex": "\\text{Para obtener la serie de cosenos de}\\ f\\ \\text{en}\\ [0,L],\\ \\text{se extiende}\\ f",
+  "tex": "\\text{Serie de cosenos de }f\\text{ en }[0,L]\\text{. Se extiende }f",
   "opciones": [
    "de forma par a $[-L,L]$",
    "de forma impar a $[-L,L]$",
