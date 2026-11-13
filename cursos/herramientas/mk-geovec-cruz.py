@@ -2,7 +2,7 @@ import os, math
 os.environ['CURSO_FU']='Geometría Vectorial y Analítica'; os.environ['BANCO']='geovec'
 from mklib import *
 MOD="Módulo 2 Vectores en el espacio"
-graf={"tipo":"plano","x":[-4.6,5.8],"y":[-3.6,3.6],"a":-3.1416,"b":3.1416,"inicio":1.5708,
+graf={"tipo":"plano","x":[-6.6,6.6],"y":[-3.6,3.6],"a":-3.1416,"b":3.1416,"inicio":1.5708,
  "elementos":[
   {"t":"poligono","puntos":[["0","0"],["2","0"],["2+3*cos(x)","3*sin(x)"],["3*cos(x)","3*sin(x)"]],"c":3},
   {"t":"vector","b":["2","0"],"nombre":"u","c":0},
