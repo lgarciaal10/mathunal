@@ -8,3 +8,7 @@ Segunda versión del reel de fracciones algebraicas, con un lenguaje visual oscu
 
 Las rutas apuntan a la carpeta de trabajo de la sesión. Render con `npx hyperframes@0.9.40 render --quality looks`.
 La voz sigue siendo sintética (edge-tts). Una voz humana o de ElevenLabs sube mucho la percepción de calidad.
+
+## v5
+- `tts.py` sintetiza cada frase por separado (es-CO-SalomeNeural, -8 %) y se une con pausas medidas, luego cadena de voz con filtro de graves, presencia, compresión y eco corto.
+- Escenas bajadas para centrar el contenido, cuadrícula de la gráfica atenuada y duración ajustada a la voz nueva (121 s).

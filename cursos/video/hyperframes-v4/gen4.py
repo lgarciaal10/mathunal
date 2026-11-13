@@ -18,7 +18,7 @@ for si, f in enumerate(FR):
 OFF = 2.8
 words = [(a,b,c,d+OFF,e+OFF) for (a,b,c,d,e) in words]
 SENT = [(a+OFF,b+OFF) for a,b in SENT]
-DUR = 108.87 + OFF
+DUR = 121.34 + OFF
 FIN = round(DUR + 3.4, 2)
 A = lambda s: SENT[s][0]
 B = lambda s: SENT[s][1]
@@ -54,7 +54,7 @@ bounds = [0, A(1) - .3, A(2) - .3, A(3) - .3, A(5) - .3, A(6) - .3, A(12) - .3, 
 # s0 s1 s2 s3(3-4) s4(5) s5(6-11) s6(12) s7(13) s8(14-15)
 sc = []
 def scene(n, inner):
-    sc.append(clip(f's{n}', bounds[n], bounds[n + 1], f'<div class="in" id="i{n}">{inner}</div>'))
+    sc.append(clip(f's{n}', bounds[n], bounds[n + 1], f'<div class="in" id="i{n}" style="top:{ {0:210,1:170,2:230,3:140,4:140,5:20,6:230,7:70,8:190}[n] }px">{inner}</div>'))
 
 E = lambda k, size, extra='': f'<div class="eq" style="font-size:{size}px;{extra}">{K[k]}</div>'
 
@@ -230,7 +230,7 @@ for i,t in enumerate(_ch):
     js.append(f'tl.call(()=>{{document.getElementById("hudl").textContent="{_nm[i]}";}},null,{t:.2f});')
 js.append(f'tl.call(()=>{{document.getElementById("hudl").textContent="Simplificar fracciones";}},null,0);')
 # camara lenta
-js.append(f'tl.fromTo("#card",{{scale:1.07}},{{scale:1.13,duration:{FIN},ease:"none",immediateRender:false}},0);')
+js.append(f'tl.fromTo("#card",{{scale:1.04}},{{scale:1.09,duration:{FIN},ease:"none",immediateRender:false}},0);')
 import json as _j
 _sf={'off':OFF,'fin':FIN,'bounds':bounds,'chips':[wf(8,'multiplicados')+.6, wf(8,'sumados')+.6],'check':[wf(3,'tres')+.3],'bad':[wf(4,'cinco')+.35, wf(1,'mal')],'res':[wf(11,'queda')],'cta':[A(15)+1.6],'hole':[wf(13,'huequito')],'big':[A(9)+.2]}
 _j.dump(_sf,open('/tmp/ref/v4/sfx.json','w'))
@@ -310,7 +310,7 @@ html,body{background:#070B18}
 #hud{position:absolute;right:64px;top:74px;display:flex;gap:10px;z-index:20}
 .pill{width:44px;height:10px;border-radius:6px;background:rgba(255,255,255,.18)}
 #hudl{position:absolute;right:64px;top:100px;font:700 24px 'Space Grotesk';letter-spacing:3px;text-transform:uppercase;color:#9AA6CF;z-index:20}
-#card{top:190px;left:60px;background:transparent;box-shadow:none;border-radius:0;overflow:visible;transform-origin:50% 0}
+#card{top:300px;left:60px;background:transparent;box-shadow:none;border-radius:0;overflow:visible;transform-origin:50% 0}
 #wipe{background:linear-gradient(90deg,rgba(7,11,24,0) 0,#070B18 14%,#070B18 92%,#FF8A4C 92%,#FF8A4C 94%,rgba(7,11,24,0) 100%);height:1180px;top:-20px}
 .kick{color:#FF8A4C;font-size:36px}.kick.l{color:#6FB1FF}
 .mk{background:linear-gradient(transparent 62%,rgba(255,138,76,.55) 62%)}
@@ -318,6 +318,8 @@ html,body{background:#070B18}
 .card,.dom{background:rgba(255,255,255,.06)!important;border-width:3px}
 .okc{border-color:#3DDC84}.badc{border-color:#FF6B6B}
 .chip{color:#0A0F1F}
+#card svg g[stroke="#C9CFDF"]{stroke:rgba(255,255,255,.13)}
+#card svg text{fill:#9AA6CF}
 .helper{background:rgba(111,177,255,.16);color:#CFE0FF}
 .resbox{background:rgba(255,138,76,.12);border-color:#FF8A4C;box-shadow:0 0 60px rgba(255,138,76,.35)}
 .dom b{color:#FF8A4C}.dom i{color:#C9D2F0}
