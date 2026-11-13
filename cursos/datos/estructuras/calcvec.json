@@ -117,8 +117,8 @@
      "tema": "Rotacional y divergencia",
      "preguntas_banco": 9,
      "parciales_con_el_tema": 1,
-     "estado": "pendiente",
-     "leccion": null
+     "estado": "borrador para revisión",
+     "leccion": "lecciones/cv-rotdiv.json"
     },
     {
      "tema": "Teorema de Green",
