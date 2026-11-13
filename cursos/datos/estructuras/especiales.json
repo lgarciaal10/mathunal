@@ -110,8 +110,8 @@
      "tema": "Sturm-Liouville y clasificación de EDP",
      "preguntas_banco": 7,
      "parciales_con_el_tema": 1,
-     "estado": "pendiente",
-     "leccion": null
+     "estado": "borrador para revisión",
+     "leccion": "lecciones/esp-sturm.json"
     },
     {
      "tema": "Integración compleja y residuos",
