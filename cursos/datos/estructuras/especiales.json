@@ -54,8 +54,8 @@
      "tema": "Transformada de Fourier y propiedades",
      "preguntas_banco": 8,
      "parciales_con_el_tema": 1,
-     "estado": "pendiente",
-     "leccion": null
+     "estado": "borrador para revisión",
+     "leccion": "lecciones/esp-transformada.json"
     },
     {
      "tema": "Ecuación de calor",
