@@ -535,5 +535,156 @@
     "titulo": "Calcula primero el *discriminante*"
    }
   ]
+ },
+ "quiz": {
+  "audio": "audio/quiz.mp3",
+  "frases": [
+   "Pregunta de parcial. Tienes cinco segundos para pensarla.",
+   "Cinco. Cuatro. Tres. Dos. Uno.",
+   "Para hallar el radio, completamos el cuadrado en x.",
+   "Menos 6x se vuelve x menos 3, al cuadrado, menos 9.",
+   "Pasamos el 8 y queda x menos 3, al cuadrado, más y al cuadrado, igual a 1.",
+   "El centro es 3, 0, y el radio es la raíz de 1, o sea 1. La respuesta es la A.",
+   "Míralo en el plano. Una circunferencia con centro en 3, 0 y radio 1.",
+   "Practica más preguntas como esta en MathUNAL."
+  ],
+  "escenas": [
+   {
+    "tipo": "quiz",
+    "s": [
+     0,
+     1
+    ],
+    "enunciado": "x^{2}+y^{2}-6x+8=0",
+    "size": 70,
+    "opciones": [
+     "1",
+     "3",
+     "\\sqrt{8}",
+     "9"
+    ],
+    "correcta": 0,
+    "cuenta": {
+     "s": 1
+    },
+    "texto": "¿Cuál es el radio?"
+   },
+   {
+    "tipo": "pasos",
+    "s": [
+     2,
+     3,
+     4
+    ],
+    "titulo": "Completar el cuadrado",
+    "top": 300,
+    "pasos": [
+     {
+      "label": "Se agrupa x",
+      "tex": "x^{2}-6x+y^{2}+8=0",
+      "s": 2,
+      "dt": 0.8,
+      "size": 60
+     },
+     {
+      "label": "Se completa el cuadrado",
+      "tex": "(x-3)^{2}-9+y^{2}+8=0",
+      "s": 3,
+      "dt": 0.6,
+      "size": 60
+     },
+     {
+      "label": "Se pasa el 8",
+      "col": "ver",
+      "tex": "(x-3)^{2}+y^{2}=1",
+      "s": 4,
+      "dt": 1.0,
+      "size": 72
+     }
+    ]
+   },
+   {
+    "tipo": "quiz",
+    "s": [
+     5
+    ],
+    "respuesta": true,
+    "enunciado": "x^{2}+y^{2}-6x+8=0",
+    "size": 70,
+    "opciones": [
+     "1",
+     "3",
+     "\\sqrt{8}",
+     "9"
+    ],
+    "correcta": 0,
+    "texto": "¿Cuál es el radio?"
+   },
+   {
+    "tipo": "grafica",
+    "s": [
+     6
+    ],
+    "titulo": "En el plano",
+    "xr": [
+     -1,
+     7
+    ],
+    "yr": [
+     -4.3,
+     4.3
+    ],
+    "circulos": [
+     {
+      "cx": 3,
+      "cy": 0,
+      "r": 1,
+      "col": "ver",
+      "s": 6,
+      "dt": 0.3
+     }
+    ],
+    "segmentos": [
+     {
+      "x1": 3,
+      "y1": 0,
+      "x2": 4,
+      "y2": 0,
+      "col": "amar",
+      "s": 6,
+      "dt": 2.2,
+      "txt": "radio = 1",
+      "ty": -30
+     }
+    ],
+    "puntos": [
+     {
+      "x": "3",
+      "y": "0",
+      "s": 6,
+      "dt": 1.6,
+      "col": "amar"
+     }
+    ],
+    "marcas": [
+     {
+      "x": "3",
+      "y": "0",
+      "s": 6,
+      "dt": 1.8,
+      "txt": "centro (3, 0)",
+      "dy": -90,
+      "col": "amar"
+     }
+    ]
+   },
+   {
+    "tipo": "cierre",
+    "s": [
+     7
+    ],
+    "titulo": "Practica con preguntas *reales*"
+   }
+  ]
  }
 }

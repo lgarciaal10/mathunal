@@ -6,7 +6,8 @@ import {Reel, duracion} from './Reel';
 import radicales from './guiones/radicales.json';
 import notables from './guiones/notables.json';
 import cuadraticas from './guiones/cuadraticas.json';
-const REELS: [string, any][] = [['reel-radicales', radicales], ['reel-notables', notables], ['reel-cuadraticas', cuadraticas]];
+import quiz from './guiones/quiz.json';
+const REELS: [string, any][] = [['reel-radicales', radicales], ['reel-notables', notables], ['reel-cuadraticas', cuadraticas], ['reel-quiz', quiz]];
 export const Root: React.FC = () => (
   <>
     <Composition id="cadena-vertical" component={Cadena} durationInFrames={DURACION} fps={FPS} width={1080} height={1920} defaultProps={{formato:'vertical'}} />

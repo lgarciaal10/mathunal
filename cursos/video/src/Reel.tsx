@@ -129,6 +129,8 @@ const Grafica: React.FC<P> = ({e, t, A, W}) => {
         <path d={`M${X(0)} ${pad * 0.3} V${H - pad * 0.5} M${pad * 0.5} ${Y(0)} H${W - pad * 0.3}`} stroke={C.mu} strokeWidth={3} fill="none" opacity={0.6} />
         {(e.vlineas || []).map((v: any, i: number) => <g key={i} opacity={dr}><path d={`M${X(v.x)} ${pad * 0.3} V${H - pad * 0.5}`} stroke={C[v.col || 'rojo']} strokeWidth={3} strokeDasharray="14 12" fill="none" opacity={0.7} /><text x={X(v.x) - 14} y={pad * 0.8} fill={C[v.col || 'rojo']} fontFamily={mono} fontSize={32} textAnchor="end">{v.txt}</text></g>)}
         {paths.map((segs: string[], ci: number) => segs.map((d, i) => <path key={ci + '-' + i} d={d} pathLength={1} strokeDasharray="1" strokeDashoffset={1 - Math.min(1, Math.max(0, dr * (e.curvas[ci].retraso ? 1.4 : 3) - (e.curvas[ci].retraso || 0) - i * 0.15))} stroke={C[e.curvas[ci].col || 'azul']} strokeWidth={9} fill="none" strokeLinecap="round" />))}
+        {(e.circulos || []).map((c: any, i: number) => { const on = pr(t, at(A, c.s, c.dt), at(A, c.s, c.dt) + 1.2, Easing.inOut(Easing.quad)); return <ellipse key={'c' + i} cx={X(c.cx)} cy={Y(c.cy)} rx={c.r * (W - 2 * pad) / (xmax - xmin)} ry={c.r * (H - 2 * pad) / (ymax - ymin)} stroke={C[c.col || 'ver']} strokeWidth={9} fill={C[c.col || 'ver'] + '14'} strokeDasharray={1000} strokeDashoffset={1000 * (1 - on)} opacity={on > 0 ? 1 : 0} />; })}
+        {(e.segmentos || []).map((g: any, i: number) => { const on = pr(t, at(A, g.s, g.dt), at(A, g.s, g.dt) + 0.5); return <g key={'g' + i} opacity={on}><line x1={X(g.x1)} y1={Y(g.y1)} x2={X(g.x2)} y2={Y(g.y2)} stroke={C[g.col || 'amar']} strokeWidth={7} strokeDasharray={g.guion ? '12 10' : undefined} />{g.txt && <text x={(X(g.x1) + X(g.x2)) / 2 + (g.tx ?? 0)} y={(Y(g.y1) + Y(g.y2)) / 2 + (g.ty ?? -24)} fill={C[g.col || 'amar']} fontFamily={mono} fontSize={42} fontWeight={700} textAnchor="middle">{g.txt}</text>}</g>; })}
         {dots.map(({d, x, y}: any, i: number) => { const on = pr(t, at(A, d.s, d.dt), at(A, d.s, d.dt) + 0.3); if (!isFinite(y) || on <= 0 || (d.oculto && evaluar(d.oculto, ['p', 'x'])(p, x))) return null; return <g key={i} opacity={on}>{d.guia && <line x1={X(x)} y1={Y(0)} x2={X(x)} y2={Y(y)} stroke={C[d.col || 'ver']} strokeWidth={4} strokeDasharray="8 8" />}<circle cx={X(x)} cy={Y(y)} r={19} fill={C[d.col || 'ver']} /></g>; })}
         {(e.marcas || []).map((m: any, i: number) => { const a = at(A, m.s, m.dt), on = pr(t, a, a + 0.4), pulse = 1 + 0.2 * Math.sin((t - a) * 7) * on, mx = evaluar(m.x, ['p'])(p), my = evaluar(m.y, ['p'])(p); if (!isFinite(mx) || !isFinite(my)) return null; return (
           <g key={i} opacity={on}><circle cx={X(mx)} cy={Y(my)} r={22 * pulse} fill={m.hueco ? C.bg : C[m.col || 'amar']} stroke={C[m.col || 'amar']} strokeWidth={7} />
@@ -140,7 +142,124 @@ const Grafica: React.FC<P> = ({e, t, A, W}) => {
   );
 };
 
-const TIPOS: Record<string, React.FC<P>> = {gancho: Gancho, tarjetas: Tarjetas, pasos: Pasos, lista: Lista, cierre: Cierre, grafica: Grafica};
+/* ---------------- formatos nuevos ---------------- */
+const Quiz: React.FC<P> = ({e, t, A, W, sent}) => {
+  const a0 = at(A, e.s[0]); const ra = e.revela ? at(A, e.revela.s, e.revela.dt) : 1e9;
+  const modoResp = !!e.respuesta;
+  const cs = e.cuenta ? e.cuenta.s : 0, ca = sent[cs]?.a ?? 0, cb = sent[cs]?.b ?? 1;
+  const frac = pr(t, ca, cb, (x) => x), num = Math.max(0, Math.ceil(5 - 5 * frac)), mostrarCuenta = !modoResp && e.cuenta && t >= ca - 0.1 && t < cb + 0.2;
+  const R = 78, circ = 2 * Math.PI * R;
+  return (
+    <div style={{position: 'absolute', left: 70, top: 250, width: W, display: 'flex', flexDirection: 'column', gap: 36}}>
+      <Pop t={t} a={a0} from={0.8} style={{alignSelf: 'flex-start', background: C.amar, color: '#05060B', fontFamily: sans, fontWeight: 800, fontSize: 40, letterSpacing: 2, textTransform: 'uppercase', padding: '10px 28px', borderRadius: 40}}>{modoResp ? 'Respuesta' : 'Pregunta de parcial'}</Pop>
+      {e.texto && <Pop t={t} a={a0 + 0.25} from={0.9} style={{fontFamily: serif, fontWeight: 900, fontSize: 62, textAlign: 'center'}}>{e.texto}</Pop>}
+      <Pop t={t} a={a0 + 0.3} from={0.9} style={{textAlign: 'center'}}><Tex tex={e.enunciado} size={e.size || 58} /></Pop>
+      {e.opciones.map((o: string, i: number) => { const ok = i === e.correcta, rev = modoResp || t >= ra; const col = rev ? (ok ? C.ver : 'rgba(142,154,192,.45)') : C.azul; return (
+        <Pop key={i} t={t} a={a0 + 0.9 + i * 0.25} from={0.85} style={{display: 'flex', alignItems: 'center', gap: 26, border: `5px solid ${col}`, borderRadius: 28, padding: '16px 30px', background: rev && ok ? 'rgba(124,255,155,.10)' : 'rgba(255,255,255,.04)', opacity: rev && !ok ? 0.45 : 1, boxShadow: rev && ok ? '0 0 60px rgba(124,255,155,.3)' : 'none', transform: rev && ok ? `scale(${1.03 + 0.02 * Math.sin(t * 6)})` : undefined}}>
+          <span style={{fontFamily: mono, fontWeight: 800, fontSize: 56, color: col, width: 70}}>{'ABCD'[i]}</span><Tex tex={o} size={60} color={rev && ok ? C.ver : C.tx} />
+          {rev && ok && <span style={{marginLeft: 'auto', fontSize: 70, color: C.ver, fontWeight: 900}}>✓</span>}
+        </Pop>); })}
+      {mostrarCuenta && <div style={{position: 'absolute', left: W / 2 - 100, top: 985, width: 200, height: 200, opacity: pr(t, ca - 0.1, ca + 0.2)}}>
+        <svg width={200} height={200} viewBox="0 0 200 200"><circle cx={100} cy={100} r={R} stroke="rgba(255,255,255,.15)" strokeWidth={12} fill="none" /><circle cx={100} cy={100} r={R} stroke={num <= 2 ? C.rojo : C.amar} strokeWidth={12} fill="none" strokeLinecap="round" strokeDasharray={circ} strokeDashoffset={circ * frac} transform="rotate(-90 100 100)" /></svg>
+        <div style={{position: 'absolute', inset: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', fontFamily: mono, fontWeight: 800, fontSize: 100, color: num <= 2 ? C.rojo : C.amar}}>{num}</div></div>}
+    </div>
+  );
+};
+
+const Seno: React.FC<P> = ({e, t, A, W}) => {
+  const a0 = at(A, e.s[0]), th = e.w * (t - a0) + (e.th0 || 0.6);
+  const cx = 280, cy = 760, R = 200, x0 = cx + R + 60, N = 150, dx = 4.4;
+  const sinv = Math.sin(th), cosv = Math.cos(th), px = cx + R * cosv, py = cy - R * sinv;
+  const onda = pr(t, at(A, e.onda, 0), at(A, e.onda, 1.2)), resalta = e.resalta ? pr(t, at(A, e.resalta, 0), at(A, e.resalta, 0.6)) : 0;
+  const pts: string[] = [];
+  for (let k = 0; k <= N; k++) { const ph = th - k * 0.045; pts.push(`${k ? 'L' : 'M'}${(x0 + k * dx).toFixed(1)} ${(cy - R * Math.sin(ph)).toFixed(1)}`); }
+  const deg = (((th * 180 / Math.PI) % 360) + 360) % 360;
+  return (
+    <div style={{position: 'absolute', inset: 0}}>
+      <svg width={1080} height={1500} viewBox="0 0 1080 1500" style={{position: 'absolute', left: 0, top: 0}}>
+        <path d={`M${cx - R - 40} ${cy} H${x0 + N * dx + 10} M${cx} ${cy - R - 40} V${cy + R + 40}`} stroke={C.mu} strokeWidth={3} opacity={0.5} fill="none" />
+        <circle cx={cx} cy={cy} r={R} stroke={C.azul} strokeWidth={6} fill="rgba(110,168,255,.06)" />
+        <line x1={cx} y1={cy} x2={px} y2={py} stroke={C.tx} strokeWidth={5} />
+        <line x1={px} y1={py} x2={px} y2={cy} stroke={C.ver} strokeWidth={8 + 4 * resalta} strokeDasharray={resalta > 0.5 ? undefined : '10 8'} opacity={0.5 + 0.5 * resalta} />
+        <line x1={cx} y1={cy} x2={px} y2={cy} stroke={C.nar} strokeWidth={8 + 4 * resalta} opacity={0.5 + 0.5 * resalta} />
+        <line x1={px} y1={py} x2={x0} y2={py} stroke={C.ver} strokeWidth={3} strokeDasharray="6 8" opacity={onda * 0.8} />
+        <path d={pts.join(' ')} stroke={C.ver} strokeWidth={9} fill="none" strokeLinecap="round" opacity={onda} style={{filter: 'drop-shadow(0 0 14px rgba(124,255,155,.55))'}} />
+        <circle cx={px} cy={py} r={20} fill={C.amar} style={{filter: 'drop-shadow(0 0 16px rgba(255,216,77,.7))'}} />
+        <text x={cx - R - 10} y={cy - R - 46} fill={C.mu} fontFamily={mono} fontSize={32}>radio 1</text>
+        <text x={px + 24} y={(py + cy) / 2 + 12} fill={C.ver} fontFamily={mono} fontSize={36} fontWeight={700} opacity={resalta}>seno</text>
+        <text x={(cx + px) / 2 - 40} y={cy + 52} fill={C.nar} fontFamily={mono} fontSize={36} fontWeight={700} opacity={resalta}>coseno</text>
+      </svg>
+      <div style={{position: 'absolute', left: 70, top: 1080, width: W, display: 'flex', gap: 24}}>
+        {[['θ', `${deg.toFixed(0)}°`, C.amar], ['sen θ', sinv.toFixed(2), C.ver], ['cos θ', cosv.toFixed(2), C.nar]].map(([l, v, c], i) => <div key={i} style={{flex: 1, background: 'rgba(255,255,255,.05)', borderRadius: 28, padding: '18px 24px', border: `3px solid ${c}55`}}><div style={{fontFamily: sans, fontSize: 34, color: C.mu}}>{l}</div><div style={{fontFamily: mono, fontWeight: 700, fontSize: 64, color: c as string}}>{v}</div></div>)}
+      </div>
+      <Pop t={t} a={a0 + 0.2} style={{position: 'absolute', left: 70, top: 220, fontFamily: serif, fontWeight: 900, fontSize: 86}}>Seno y <span style={{color: C.ver}}>coseno</span></Pop>
+    </div>
+  );
+};
+
+const f_bici = (x: number) => 2.6 + 2.2 * Math.sin(0.8 * x - 0.5);
+const Bici: React.FC<P> = ({e, t, A, W}) => {
+  const x0 = 60, x1 = 1020, top = 330, H = 780, xr = [0, 8], yr = [0, 6];
+  const X = (x: number) => x0 + (x - xr[0]) / (xr[1] - xr[0]) * (x1 - x0), Y = (y: number) => top + H - (y - yr[0]) / (yr[1] - yr[0]) * H;
+  const kf: number[][] = e.kf.map((k: any) => [at(A, k[0], k[1]), k[2]]);
+  let xb = kf[0][1]; for (let i = 1; i < kf.length; i++) if (t >= kf[i - 1][0]) xb = interpolate(t, [kf[i - 1][0], kf[i][0]], [kf[i - 1][1], kf[i][1]], {...clamp, easing: Easing.inOut(Easing.quad)});
+  const d = f_bici(xb + 0.01) - f_bici(xb - 0.01), m = d / 0.02, ang = Math.atan2(-(Y(f_bici(xb + 0.05)) - Y(f_bici(xb - 0.05))), X(xb + 0.05) - X(xb - 0.05));
+  const a = -ang; // ángulo en pantalla (y hacia abajo)
+  const T2 = [Math.cos(a), Math.sin(a)], N = [Math.sin(a), -Math.cos(a)], P0 = [X(xb), Y(f_bici(xb))];
+  const pt = (ox: number, oy: number) => [P0[0] + T2[0] * ox + N[0] * oy, P0[1] + T2[1] * ox + N[1] * oy];
+  const rear = pt(-85, 44), front = pt(85, 44), seat = pt(-45, 150), crank = pt(-15, 70), bar = pt(60, 152), hip = pt(-48, 158), sh = pt(-8, 270), head = pt(2, 312);
+  const pedal = (xb * 55) % (2 * Math.PI), foot = [crank[0] + Math.cos(pedal) * 34, crank[1] + Math.sin(pedal) * 34];
+  const col = m > 0.35 ? C.ver : m < -0.35 ? C.rojo : C.amar, etiqueta = m > 0.35 ? 'sube' : m < -0.35 ? 'baja' : 'plano';
+  const L = (p: number[], q: number[], w = 7) => <line x1={p[0]} y1={p[1]} x2={q[0]} y2={q[1]} stroke={C.tx} strokeWidth={w} strokeLinecap="round" />;
+  const wheel = (c: number[]) => <g><circle cx={c[0]} cy={c[1]} r={44} stroke={C.tx} strokeWidth={7} fill="none" />{[0, 1, 2, 3].map(i => { const q = pedal * 0.7 + i * Math.PI / 2; return <line key={i} x1={c[0] - Math.cos(q) * 40} y1={c[1] - Math.sin(q) * 40} x2={c[0] + Math.cos(q) * 40} y2={c[1] + Math.sin(q) * 40} stroke={C.tx} strokeWidth={2.5} opacity={0.5} />; })}</g>;
+  const pts: string[] = []; for (let k = 0; k <= 160; k++) { const x = xr[0] + (xr[1] - xr[0]) * k / 160; pts.push(`${k ? 'L' : 'M'}${X(x).toFixed(1)} ${Y(f_bici(x)).toFixed(1)}`); }
+  const enc = pr(t, at(A, e.s[0], 0.2), at(A, e.s[0], 1.2));
+  const tl = 150; const tx1 = [P0[0] - T2[0] * tl, P0[1] - T2[1] * tl], tx2 = [P0[0] + T2[0] * tl, P0[1] + T2[1] * tl];
+  return (
+    <div style={{position: 'absolute', inset: 0}}>
+      <Pop t={t} a={at(A, e.s[0])} style={{position: 'absolute', left: 70, top: 215, fontFamily: serif, fontWeight: 900, fontSize: 70, lineHeight: 1.05}}>La derivada es la <span style={{color: C.amar}}>pendiente</span></Pop>
+      <svg width={1080} height={1500} viewBox="0 0 1080 1500" style={{position: 'absolute', left: 0, top: 0, opacity: enc}}>
+        <path d={pts.join(' ') + ` L${X(8)} ${top + H + 120} L${X(0)} ${top + H + 120} Z`} fill="rgba(255,255,255,.07)" />
+        <path d={pts.join(' ')} stroke={C.tx} strokeWidth={7} fill="none" strokeLinecap="round" opacity={0.9} />
+        <line x1={tx1[0]} y1={tx1[1]} x2={tx2[0]} y2={tx2[1]} stroke={col} strokeWidth={6} strokeDasharray="14 10" opacity={0.9} />
+        {wheel(rear)}{wheel(front)}
+        {L(rear, crank)}{L(crank, seat)}{L(seat, rear)}{L(seat, bar)}{L(crank, front)}{L(bar, front)}
+        {L(hip, sh, 9)}{L(sh, bar, 7)}{L(hip, foot, 8)}{L(hip, pt(-20, 90), 7)}
+        <circle cx={head[0]} cy={head[1]} r={24} fill={C.tx} />
+      </svg>
+      <div style={{position: 'absolute', left: 70, top: 1180, width: W, display: 'flex', gap: 24, alignItems: 'stretch'}}>
+        <div style={{flex: 1, background: 'rgba(255,255,255,.05)', borderRadius: 28, padding: '18px 28px', border: `4px solid ${col}`}}><div style={{fontFamily: sans, fontSize: 34, color: C.mu}}>pendiente, f ′(x)</div><div style={{fontFamily: mono, fontWeight: 800, fontSize: 84, color: col}}>{m >= 0 ? '+' : ''}{m.toFixed(2)}</div></div>
+        <div style={{width: 280, background: 'rgba(255,255,255,.05)', borderRadius: 28, padding: '18px 28px', border: `4px solid ${col}`, display: 'flex', alignItems: 'center', justifyContent: 'center', fontFamily: serif, fontWeight: 900, fontSize: 70, color: col}}>{etiqueta}</div>
+      </div>
+    </div>
+  );
+};
+
+const Duelo: React.FC<P> = ({e, t, A, W}) => {
+  const rondas = e.rondas; const cur = rondas.map((r: any) => at(A, r.s, 0)).reduce((m: number, a: number, i: number) => t >= a - 0.05 ? i : m, 0);
+  return (
+    <div style={{position: 'absolute', left: 70, top: 250, width: W}}>
+      <Pop t={t} a={at(A, e.s[0], 0.1)} style={{fontFamily: sans, fontWeight: 800, fontSize: 40, letterSpacing: 2, textTransform: 'uppercase', color: C.amar, marginBottom: 30}}>Mito {cur + 1} de {rondas.length}</Pop>
+      {rondas.map((r: any, i: number) => { if (i !== cur) return null; const a = at(A, r.s, 0), tach = pr(t, at(A, r.s, r.dtMito ?? 2.6), at(A, r.s, (r.dtMito ?? 2.6) + 0.5)), real = at(A, r.s, r.dtReal ?? 3.4);
+        return (
+          <div key={i} style={{display: 'flex', flexDirection: 'column', gap: 40}}>
+            <Pop t={t} a={a + 0.1} from={0.85} style={{border: `6px solid ${C.rojo}`, borderRadius: 34, padding: '28px 30px', background: 'rgba(255,107,107,.07)', transform: `translateX(${Math.sin(t * 40) * 8 * (1 - pr(t, a + 0.5, a + 1.1))}px)`}}>
+              <div style={{fontFamily: sans, fontWeight: 800, fontSize: 40, color: C.rojo, marginBottom: 10}}>✗ MITO</div>
+              <div style={{position: 'relative', textAlign: 'center'}}><Tex tex={r.mito} size={r.size || 80} />
+                <div style={{position: 'absolute', left: '4%', right: '4%', top: '52%', height: 9, background: C.rojo, borderRadius: 6, transformOrigin: 'left center', transform: `scaleX(${tach})`}} /></div>
+            </Pop>
+            <Pop t={t} a={real} from={0.85} style={{border: `6px solid ${C.ver}`, borderRadius: 34, padding: '28px 30px', background: 'rgba(124,255,155,.07)', boxShadow: `0 0 ${50 * (0.5 + 0.5 * Math.sin(t * 5))}px rgba(124,255,155,.25)`}}>
+              <div style={{fontFamily: sans, fontWeight: 800, fontSize: 40, color: C.ver, marginBottom: 10}}>✓ REALIDAD</div>
+              <div style={{textAlign: 'center'}}><Tex tex={r.real} size={r.size || 80} /></div>
+              {r.nota && <div style={{fontFamily: mono, fontSize: 40, color: C.mu, textAlign: 'center', marginTop: 14, opacity: pr(t, real + 0.9, real + 1.4)}}>{r.nota}</div>}
+            </Pop>
+            <Chispas t={t} a={real + 0.1} x={540} y={r.chY || 760} col={C.ver} n={14} />
+          </div>); })}
+    </div>
+  );
+};
+
+const TIPOS: Record<string, React.FC<P>> = {gancho: Gancho, tarjetas: Tarjetas, pasos: Pasos, lista: Lista, cierre: Cierre, grafica: Grafica, quiz: Quiz, seno: Seno, bici: Bici, duelo: Duelo};
 
 export const Reel: React.FC<{g: Guion}> = ({g}) => {
   const frame = useCurrentFrame(); const {width} = useVideoConfig(); const t = frame / FPS;
