@@ -96,8 +96,8 @@
      "tema": "Ecuación de Laplace y problemas de frontera",
      "preguntas_banco": 8,
      "parciales_con_el_tema": 1,
-     "estado": "pendiente",
-     "leccion": null
+     "estado": "borrador para revisión",
+     "leccion": "lecciones/esp-laplace.json"
     },
     {
      "tema": "Ecuaciones de Cauchy-Riemann y mapeos",

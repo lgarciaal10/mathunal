@@ -1,0 +1,941 @@
+{
+ "esquema": 1,
+ "id": "es-m3-l4",
+ "ejemplo": true,
+ "curso": "Matemáticas Especiales",
+ "modulo": "Módulo 3 Ecuación de Laplace y variable compleja",
+ "posicion": "Lección 4 de 5",
+ "titulo": "Ecuación de Laplace y problemas de frontera",
+ "minutos": 28,
+ "ejercicios": 8,
+ "grafica": {
+  "tipo": "plano",
+  "x": [
+   -0.4,
+   3.6
+  ],
+  "y": [
+   -1.5,
+   1.5
+  ],
+  "a": 0,
+  "b": 1,
+  "inicio": 0.5,
+  "elementos": [
+   {
+    "t": "trazo",
+    "puntos": [
+     [
+      "0.0",
+      "0.000000"
+     ],
+     [
+      "0.07854",
+      "0.156435"
+     ],
+     [
+      "0.15708",
+      "0.309018"
+     ],
+     [
+      "0.23562",
+      "0.453991"
+     ],
+     [
+      "0.31416",
+      "0.587786"
+     ],
+     [
+      "0.3927",
+      "0.707108"
+     ],
+     [
+      "0.47124",
+      "0.809018"
+     ],
+     [
+      "0.54978",
+      "0.891008"
+     ],
+     [
+      "0.62832",
+      "0.951057"
+     ],
+     [
+      "0.70686",
+      "0.987689"
+     ],
+     [
+      "0.7854",
+      "1.000000"
+     ],
+     [
+      "0.86394",
+      "0.987688"
+     ],
+     [
+      "0.94248",
+      "0.951055"
+     ],
+     [
+      "1.02102",
+      "0.891004"
+     ],
+     [
+      "1.09956",
+      "0.809014"
+     ],
+     [
+      "1.1781",
+      "0.707103"
+     ],
+     [
+      "1.25664",
+      "0.587780"
+     ],
+     [
+      "1.33518",
+      "0.453985"
+     ],
+     [
+      "1.41372",
+      "0.309011"
+     ],
+     [
+      "1.49226",
+      "0.156428"
+     ],
+     [
+      "1.5708",
+      "-0.000007"
+     ],
+     [
+      "1.64934",
+      "-0.156442"
+     ],
+     [
+      "1.72788",
+      "-0.309025"
+     ],
+     [
+      "1.80642",
+      "-0.453998"
+     ],
+     [
+      "1.88496",
+      "-0.587792"
+     ],
+     [
+      "1.9635",
+      "-0.707113"
+     ],
+     [
+      "2.04204",
+      "-0.809023"
+     ],
+     [
+      "2.12058",
+      "-0.891011"
+     ],
+     [
+      "2.19911",
+      "-0.951054"
+     ],
+     [
+      "2.27765",
+      "-0.987687"
+     ],
+     [
+      "2.35619",
+      "-1.000000"
+     ],
+     [
+      "2.43473",
+      "-0.987690"
+     ],
+     [
+      "2.51327",
+      "-0.951059"
+     ],
+     [
+      "2.59181",
+      "-0.891010"
+     ],
+     [
+      "2.67035",
+      "-0.809021"
+     ],
+     [
+      "2.74889",
+      "-0.707112"
+     ],
+     [
+      "2.82743",
+      "-0.587791"
+     ],
+     [
+      "2.90597",
+      "-0.453996"
+     ],
+     [
+      "2.98451",
+      "-0.309023"
+     ],
+     [
+      "3.06305",
+      "-0.156440"
+     ],
+     [
+      "3.14159",
+      "-0.000005"
+     ]
+    ],
+    "c": 3
+   },
+   {
+    "t": "trazo",
+    "puntos": [
+     [
+      "0.0",
+      "0.000000*((exp(2*x)-exp(-2*x))/2/3.62686)"
+     ],
+     [
+      "0.07854",
+      "0.156435*((exp(2*x)-exp(-2*x))/2/3.62686)"
+     ],
+     [
+      "0.15708",
+      "0.309018*((exp(2*x)-exp(-2*x))/2/3.62686)"
+     ],
+     [
+      "0.23562",
+      "0.453991*((exp(2*x)-exp(-2*x))/2/3.62686)"
+     ],
+     [
+      "0.31416",
+      "0.587786*((exp(2*x)-exp(-2*x))/2/3.62686)"
+     ],
+     [
+      "0.3927",
+      "0.707108*((exp(2*x)-exp(-2*x))/2/3.62686)"
+     ],
+     [
+      "0.47124",
+      "0.809018*((exp(2*x)-exp(-2*x))/2/3.62686)"
+     ],
+     [
+      "0.54978",
+      "0.891008*((exp(2*x)-exp(-2*x))/2/3.62686)"
+     ],
+     [
+      "0.62832",
+      "0.951057*((exp(2*x)-exp(-2*x))/2/3.62686)"
+     ],
+     [
+      "0.70686",
+      "0.987689*((exp(2*x)-exp(-2*x))/2/3.62686)"
+     ],
+     [
+      "0.7854",
+      "1.000000*((exp(2*x)-exp(-2*x))/2/3.62686)"
+     ],
+     [
+      "0.86394",
+      "0.987688*((exp(2*x)-exp(-2*x))/2/3.62686)"
+     ],
+     [
+      "0.94248",
+      "0.951055*((exp(2*x)-exp(-2*x))/2/3.62686)"
+     ],
+     [
+      "1.02102",
+      "0.891004*((exp(2*x)-exp(-2*x))/2/3.62686)"
+     ],
+     [
+      "1.09956",
+      "0.809014*((exp(2*x)-exp(-2*x))/2/3.62686)"
+     ],
+     [
+      "1.1781",
+      "0.707103*((exp(2*x)-exp(-2*x))/2/3.62686)"
+     ],
+     [
+      "1.25664",
+      "0.587780*((exp(2*x)-exp(-2*x))/2/3.62686)"
+     ],
+     [
+      "1.33518",
+      "0.453985*((exp(2*x)-exp(-2*x))/2/3.62686)"
+     ],
+     [
+      "1.41372",
+      "0.309011*((exp(2*x)-exp(-2*x))/2/3.62686)"
+     ],
+     [
+      "1.49226",
+      "0.156428*((exp(2*x)-exp(-2*x))/2/3.62686)"
+     ],
+     [
+      "1.5708",
+      "-0.000007*((exp(2*x)-exp(-2*x))/2/3.62686)"
+     ],
+     [
+      "1.64934",
+      "-0.156442*((exp(2*x)-exp(-2*x))/2/3.62686)"
+     ],
+     [
+      "1.72788",
+      "-0.309025*((exp(2*x)-exp(-2*x))/2/3.62686)"
+     ],
+     [
+      "1.80642",
+      "-0.453998*((exp(2*x)-exp(-2*x))/2/3.62686)"
+     ],
+     [
+      "1.88496",
+      "-0.587792*((exp(2*x)-exp(-2*x))/2/3.62686)"
+     ],
+     [
+      "1.9635",
+      "-0.707113*((exp(2*x)-exp(-2*x))/2/3.62686)"
+     ],
+     [
+      "2.04204",
+      "-0.809023*((exp(2*x)-exp(-2*x))/2/3.62686)"
+     ],
+     [
+      "2.12058",
+      "-0.891011*((exp(2*x)-exp(-2*x))/2/3.62686)"
+     ],
+     [
+      "2.19911",
+      "-0.951054*((exp(2*x)-exp(-2*x))/2/3.62686)"
+     ],
+     [
+      "2.27765",
+      "-0.987687*((exp(2*x)-exp(-2*x))/2/3.62686)"
+     ],
+     [
+      "2.35619",
+      "-1.000000*((exp(2*x)-exp(-2*x))/2/3.62686)"
+     ],
+     [
+      "2.43473",
+      "-0.987690*((exp(2*x)-exp(-2*x))/2/3.62686)"
+     ],
+     [
+      "2.51327",
+      "-0.951059*((exp(2*x)-exp(-2*x))/2/3.62686)"
+     ],
+     [
+      "2.59181",
+      "-0.891010*((exp(2*x)-exp(-2*x))/2/3.62686)"
+     ],
+     [
+      "2.67035",
+      "-0.809021*((exp(2*x)-exp(-2*x))/2/3.62686)"
+     ],
+     [
+      "2.74889",
+      "-0.707112*((exp(2*x)-exp(-2*x))/2/3.62686)"
+     ],
+     [
+      "2.82743",
+      "-0.587791*((exp(2*x)-exp(-2*x))/2/3.62686)"
+     ],
+     [
+      "2.90597",
+      "-0.453996*((exp(2*x)-exp(-2*x))/2/3.62686)"
+     ],
+     [
+      "2.98451",
+      "-0.309023*((exp(2*x)-exp(-2*x))/2/3.62686)"
+     ],
+     [
+      "3.06305",
+      "-0.156440*((exp(2*x)-exp(-2*x))/2/3.62686)"
+     ],
+     [
+      "3.14159",
+      "-0.000005*((exp(2*x)-exp(-2*x))/2/3.62686)"
+     ]
+    ],
+    "c": 0
+   }
+  ],
+  "lecturas": [
+   {
+    "rotulo": "factor seno hiperbólico de 2y entre seno hiperbólico de 2",
+    "formula": "((exp(2*x)-exp(-2*x))/2/3.62686)"
+   },
+   {
+    "rotulo": "altura y dentro del rectángulo",
+    "formula": "x"
+   }
+  ],
+  "etiquetas": [
+   "Este factor reduce la onda del borde de arriba",
+   "La altura y va de 0, la base, a 1, el borde de arriba"
+  ],
+  "etiquetaSlider": "Altura y, de 0 a 1",
+  "alt": "Una función armónica en un rectángulo, con valor seno de 2x en el borde de arriba y cero en los otros tres lados. La curva verde es el borde de arriba. La curva azul es la solución a la altura y, que es la misma onda multiplicada por un factor que crece de 0 a 1"
+ },
+ "glosario": {
+  "laplace": "La ecuación de Laplace, u sub x x más u sub y y igual a cero, describe un estado de equilibrio, sin variación en el tiempo.",
+  "dirichlet": "La condición de Dirichlet da el valor de la función sobre la frontera. La de Neumann da la derivada normal.",
+  "armonica": "Una función armónica cumple la ecuación de Laplace. Alcanza sus valores máximo y mínimo en la frontera.",
+  "mediovalor": "La propiedad del valor medio dice que el valor de una armónica en el centro de un círculo es el promedio de sus valores sobre el círculo."
+ },
+ "ver": {
+  "duracion": 24.0,
+  "capitulos": [
+   [
+    0,
+    4,
+    "En un rectángulo, la función vale seno de 2x en el borde de arriba, y cero en los otros tres lados."
+   ],
+   [
+    4,
+    10,
+    "Se separan las variables. En x queda seno de 2x, y en y queda un seno hiperbólico."
+   ],
+   [
+    10,
+    16,
+    "A la altura 0.5, la onda se reduce al 32 por ciento del borde de arriba."
+   ],
+   [
+    16,
+    20,
+    "En la base vale cero, y en el borde de arriba vale seno de 2x completo."
+   ],
+   [
+    20,
+    24,
+    "Una armónica no tiene máximos adentro, y su valor en el centro es el promedio de la frontera."
+   ]
+  ],
+  "canales": {
+   "draw": [
+    [
+     0.3,
+     0
+    ],
+    [
+     3.5,
+     1
+    ]
+   ],
+   "d": [
+    [
+     4,
+     0
+    ],
+    [
+     8,
+     0
+    ],
+    [
+     10,
+     0.5
+    ],
+    [
+     16,
+     0.5
+    ],
+    [
+     18,
+     1
+    ],
+    [
+     24,
+     1
+    ]
+   ],
+   "guide": [
+    [
+     4,
+     0
+    ],
+    [
+     5,
+     1
+    ]
+   ]
+  },
+  "intervalos": {
+   "ok": [
+    16,
+    24
+   ]
+  }
+ },
+ "leer": {
+  "secciones": [
+   {
+    "titulo": "La idea",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "La ecuación de {{gl:laplace|Laplace}} describe el equilibrio, como la temperatura que ya no cambia. Su solución depende solo de la frontera. Las condiciones de {{gl:dirichlet|Dirichlet}} dan el valor en el borde. Las soluciones son {{gl:armonica|armónicas}}, y cumplen la propiedad del {{gl:mediovalor|valor medio}}."
+     }
+    ]
+   },
+   {
+    "titulo": "Un ejemplo",
+    "corto": "Un ejemplo",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "El rectángulo tiene valor seno de 2x en el borde de arriba, y cero en los otros tres lados. Mueve la altura y mira cómo decae la onda."
+     },
+     {
+      "t": "eq",
+      "tex": "u(x,y)=\\dfrac{\\operatorname{senh}2y}{\\operatorname{senh}2}\\operatorname{sen}2x"
+     },
+     {
+      "t": "grafica",
+      "animar": "dibujar",
+      "alt": "La solución de Laplace a distintas alturas"
+     }
+    ]
+   },
+   {
+    "titulo": "Piensa antes de ver",
+    "corto": "Piensa",
+    "bloques": [
+     {
+      "t": "piensa",
+      "pregunta": "Una función armónica en una región cerrada alcanza su máximo, ¿dónde?",
+      "opciones": [
+       "En la frontera",
+       "En el centro",
+       "En un punto cualquiera",
+       "No tiene máximo"
+      ],
+      "correcta": "En la frontera",
+      "bien": "Muy bien. Es el principio del máximo para funciones armónicas.",
+      "mal": "Alcanza su máximo y su mínimo en la frontera. Es el principio del máximo."
+     }
+    ]
+   },
+   {
+    "titulo": "Por alturas",
+    "corto": "Alturas",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mira la solución en las alturas 0.2, 0.5, 0.8 y 1."
+     },
+     {
+      "t": "acercando",
+      "ds": [
+       0.2,
+       0.5,
+       0.8,
+       1
+      ],
+      "alt": "La solución a cuatro alturas"
+     },
+     {
+      "t": "p",
+      "html": "A la altura 0.5 la onda vale 32 por ciento de la del borde de arriba, y a 0.8 vale 66 por ciento."
+     }
+    ]
+   },
+   {
+    "titulo": "Separación de variables",
+    "corto": "Separación",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Se busca u como producto, y se usa la condición cero en los lados."
+     },
+     {
+      "t": "pasos",
+      "items": [
+       {
+        "tex": "u(x,y)=X(x)\\,Y(y)\\ \\Rightarrow\\ \\dfrac{X''}{X}=-\\dfrac{Y''}{Y}=-\\lambda",
+        "porque": "Se separan las variables."
+       },
+       {
+        "tex": "X(0)=X(\\pi)=0\\ \\Rightarrow\\ X=\\operatorname{sen}nx,\\ \\lambda=n^{2}",
+        "porque": "Los lados verticales fijan X."
+       },
+       {
+        "tex": "Y''=n^{2}Y,\\ Y(0)=0\\ \\Rightarrow\\ Y=\\operatorname{senh}ny",
+        "porque": "La base en cero deja el seno hiperbólico."
+       },
+       {
+        "tex": "u(x,1)=\\operatorname{sen}2x\\ \\Rightarrow\\ u=\\dfrac{\\operatorname{senh}2y}{\\operatorname{senh}2}\\operatorname{sen}2x",
+        "porque": "Se ajusta el borde de arriba."
+       }
+      ]
+     },
+     {
+      "t": "ojo",
+      "html": "En Laplace, a diferencia de la onda, en y no hay oscilación sino crecimiento exponencial. Por eso aparece el seno hiperbólico y no el seno."
+     }
+    ]
+   },
+   {
+    "titulo": "El valor medio",
+    "corto": "Valor medio",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "En un disco, la solución es un desarrollo en r y theta, y se cumple una propiedad fuerte."
+     },
+     {
+      "t": "pasos",
+      "items": [
+       {
+        "tex": "u(r,\\theta)=a_{0}+\\displaystyle\\sum r^{n}(a_{n}\\cos n\\theta+b_{n}\\operatorname{sen}n\\theta)",
+        "porque": "Solución en un disco, acotada en el centro."
+       },
+       {
+        "tex": "u(1,\\theta)=3+2\\cos\\theta\\ \\Rightarrow\\ u=3+2r\\cos\\theta",
+        "porque": "Se lee de la frontera."
+       },
+       {
+        "tex": "u(0,0)=3",
+        "porque": "El centro vale el promedio de la frontera."
+       },
+       {
+        "tex": "u(0,0)=\\dfrac{1}{2\\pi}\\displaystyle\\int_{0}^{2\\pi}u(1,\\theta)\\,d\\theta=3",
+        "porque": "Propiedad del valor medio."
+       }
+      ]
+     },
+     {
+      "t": "ojo",
+      "html": "En el disco, la solución debe ser acotada en el origen, y por eso solo aparecen potencias positivas de r. Si no, hay una singularidad en el centro."
+     }
+    ]
+   },
+   {
+    "titulo": "¿Para qué sirve?",
+    "corto": "En ingeniería",
+    "bloques": [
+     {
+      "t": "ingenieria",
+      "titulo": "La temperatura en una placa",
+      "html": "Una placa metálica cuadrada tiene tres lados a 0 grados y el cuarto con un perfil de temperatura que sube y baja. Una vez que se estabiliza, la temperatura interior cumple la ecuación de Laplace.",
+      "tex": "u(x,y)=\\dfrac{\\operatorname{senh}ny}{\\operatorname{senh}n}\\operatorname{sen}nx",
+      "datos": [
+       {
+        "k": "Lados a cero",
+        "v": "tres"
+       },
+       {
+        "k": "Borde calentado",
+        "v": "seno de n x"
+       },
+       {
+        "k": "Decaimiento hacia adentro",
+        "v": "rápido para n grande"
+       }
+      ],
+      "cierre": "Los detalles finos del borde, que son de frecuencia alta, se atenúan rápido al entrar en la placa. Por eso las placas muestran una temperatura suave adentro aunque el borde sea irregular. En el diseño, se usa para ubicar sensores."
+     }
+    ]
+   },
+   {
+    "titulo": "Completa el paso",
+    "corto": "Completa",
+    "bloques": [
+     {
+      "t": "completar",
+      "enunciado": "Una función armónica en un disco, con valor medio en el centro, cumple que el centro vale el [[hueco]] de la frontera.",
+      "tex": "u(0,0)=[[hueco]]\\ \\text{de la frontera}",
+      "opciones": [
+       {
+        "tex": "\\text{promedio}",
+        "txt": "promedio"
+       },
+       {
+        "tex": "\\text{maximo}",
+        "txt": "máximo"
+       },
+       {
+        "tex": "\\text{minimo}",
+        "txt": "mínimo"
+       }
+      ],
+      "correcta": 0,
+      "errores": [
+       "",
+       "El máximo está en la frontera, y no es el valor en el centro.",
+       "El mínimo está en la frontera, y no es el valor en el centro."
+      ],
+      "pista": "Es la propiedad del valor medio.",
+      "porque": "El centro vale el promedio."
+     }
+    ]
+   },
+   {
+    "titulo": "Encuentra el error",
+    "corto": "Error",
+    "bloques": [
+     {
+      "t": "error",
+      "enunciado": "Alguien resolvió la parte de y en Laplace con la base en cero y se equivocó. Toca el paso que está mal.",
+      "pasos": [
+       {
+        "tex": "Y''=4Y",
+        "porque": "La ecuación para n igual a 2.",
+        "txt": "la ecuación"
+       },
+       {
+        "tex": "Y=\\operatorname{sen}2y",
+        "porque": "Este paso es el que falla.",
+        "txt": "seno"
+       },
+       {
+        "tex": "Y(0)=0\\ \\checkmark",
+        "porque": "Se cumple la condición.",
+        "txt": "la condición"
+       }
+      ],
+      "mal": 1,
+      "explicacion": "Con Y segunda igual a 4Y, la solución usa exponenciales, y no senos. La que vale cero en 0 es el seno hiperbólico de 2y.",
+      "correccion": "Y=\\operatorname{senh}2y",
+      "pista": "Con y segunda igual a más 4Y, hay crecimiento exponencial."
+     }
+    ]
+   },
+   {
+    "titulo": "Ordena los pasos",
+    "corto": "Ordena",
+    "bloques": [
+     {
+      "t": "ordenar",
+      "enunciado": "Estos son los pasos para resolver Laplace en un rectángulo, pero están desordenados.",
+      "pasos": [
+       "u=X(x)\\,Y(y)",
+       "X=\\operatorname{sen}nx",
+       "Y=\\operatorname{senh}ny",
+       "u(x,1)=\\operatorname{sen}2x"
+      ],
+      "mezcla": [
+       2,
+       0,
+       3,
+       1
+      ],
+      "porque": "Primero se separa, luego se fija X, después Y y por último se ajusta el borde.",
+      "pista": "Se empieza separando las variables.",
+      "txt": [
+       "Se separan las variables",
+       "Los lados verticales fijan X",
+       "La base fija Y",
+       "Se ajusta el borde de arriba"
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "Revisa tu respuesta",
+    "corto": "Revisa",
+    "bloques": [
+     {
+      "t": "pregunta"
+     },
+     {
+      "t": "nota",
+      "html": "Puedes pedir pistas de a una. Si fallas, el mensaje te dice qué error se cometió."
+     }
+    ]
+   },
+   {
+    "titulo": "Mini simulacro",
+    "corto": "Simulacro",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Preguntas reales del banco de MathUNAL sobre este tema. Responde sin mirar los pasos."
+     },
+     {
+      "t": "simulacro",
+      "titulo": "Mini simulacro de la ecuación de Laplace",
+      "preguntas": [
+       {
+        "tipo": "mcq",
+        "texto": "La ecuación de Laplace en dos variables es $u_{xx}+u_{yy}=0$; sus soluciones se llaman:",
+        "opciones": [
+         "funciones armónicas",
+         "funciones periódicas",
+         "funciones analíticas",
+         "funciones propias"
+        ],
+        "correcta": 0,
+        "resumen": "Las soluciones de Laplace se llaman armónicas.",
+        "fuente": "Banco MathUNAL, simulacro de Matemáticas Especiales"
+       },
+       {
+        "tipo": "mcq",
+        "texto": "En un problema de frontera para la ecuación de Laplace, la condición de DIRICHLET consiste en dar:",
+        "opciones": [
+         "el valor de $u$ sobre la frontera",
+         "el valor de la derivada normal $\\partial u/\\partial n$ sobre la frontera",
+         "el valor de $u$ en un punto interior",
+         "nada (el problema queda libre)"
+        ],
+        "correcta": 0,
+        "resumen": "La condición de Dirichlet.",
+        "fuente": "Banco MathUNAL, simulacro de Matemáticas Especiales"
+       },
+       {
+        "tipo": "mcq",
+        "texto": "La función armónica en $0<x<\\pi$, $0<y<1$ con $u=0$ en $x=0,\\ x=\\pi,\\ y=0$ y $u(x,1)=\\sin(2x)$ es:",
+        "opciones": [
+         "$u(x,y)=\\dfrac{\\sinh(2y)}{\\sinh 2}\\sin(2x)$",
+         "$u(x,y)=\\dfrac{\\sin(2y)}{\\sin 2}\\sin(2x)$",
+         "$u(x,y)=e^{-2y}\\sin(2x)$",
+         "$u(x,y)=y\\sin(2x)$"
+        ],
+        "correcta": 0,
+        "resumen": "La solución en el rectángulo.",
+        "fuente": "Banco MathUNAL, simulacro de Matemáticas Especiales"
+       },
+       {
+        "tipo": "mcq",
+        "texto": "La PROPIEDAD DEL VALOR MEDIO de las funciones armónicas dice que:",
+        "opciones": [
+         "el valor en el centro de un círculo es el promedio de los valores sobre la circunferencia",
+         "el valor máximo está en el interior",
+         "el laplaciano es constante",
+         "$u$ es lineal"
+        ],
+        "correcta": 0,
+        "resumen": "La propiedad del valor medio.",
+        "fuente": "Banco MathUNAL, simulacro de Matemáticas Especiales"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "Tu repaso",
+    "corto": "Repaso",
+    "bloques": [
+     {
+      "t": "repaso"
+     }
+    ]
+   },
+   {
+    "titulo": "En resumen",
+    "corto": "Resumen",
+    "bloques": [
+     {
+      "t": "resumen"
+     }
+    ]
+   }
+  ]
+ },
+ "practicar": {
+  "pasos": [
+   {
+    "titulo": "El rectángulo",
+    "grafica": {
+     "draw": 1
+    },
+    "bloques": [
+     {
+      "t": "p",
+      "html": "El borde de arriba vale seno de 2x, y los otros tres lados valen cero."
+     },
+     {
+      "t": "eq",
+      "tex": "u_{xx}+u_{yy}=0"
+     }
+    ]
+   },
+   {
+    "titulo": "Sube la altura",
+    "grafica": {
+     "draw": 1
+    },
+    "laboratorio": true,
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mueve el deslizador. Abajo se leen el factor de decaimiento y la altura."
+     }
+    ]
+   },
+   {
+    "titulo": "El borde",
+    "grafica": {
+     "draw": 1,
+     "guide": 1,
+     "ok": true
+    },
+    "laboratorio": true,
+    "d": 1,
+    "bloques": [
+     {
+      "t": "eq",
+      "tex": "\\dfrac{\\operatorname{senh}2}{\\operatorname{senh}2}=1"
+     },
+     {
+      "t": "p",
+      "html": "En el borde de arriba el factor vale 1, y la solución coincide con el dato."
+     }
+    ]
+   },
+   {
+    "titulo": "Revisa tu respuesta",
+    "grafica": {
+     "draw": 1,
+     "guide": 1,
+     "ok": true,
+     "d": 1
+    },
+    "bloques": [
+     {
+      "t": "pregunta"
+     },
+     {
+      "t": "nota",
+      "html": "El centro vale el promedio de la frontera."
+     }
+    ]
+   }
+  ]
+ },
+ "pregunta": {
+  "tex": "u\\ \\text{armonica en el disco unidad},\\ u(1,\\theta)=5+4\\cos\\theta.\\ u(0,0)\\ \\text{vale}",
+  "opciones": [
+   "$5$",
+   "$9$",
+   "$1$",
+   "$4$"
+  ],
+  "correcta": 0,
+  "explicacion": "El valor en el centro es el promedio de la frontera. El promedio de coseno de theta es cero, y queda 5.",
+  "verificacion": {
+   "formula": "5+0*x",
+   "a": 0,
+   "esperado": 5
+  },
+  "pistas": [
+   "Usa la propiedad del valor medio.",
+   "Promedia 5 más 4 coseno de theta.",
+   "El promedio del coseno en una vuelta es cero."
+  ],
+  "errores": [
+   "",
+   "El 9 es el máximo en la frontera, y no el valor en el centro.",
+   "El 1 es el mínimo en la frontera, y no el valor en el centro.",
+   "El 4 es el coeficiente del coseno, y no el promedio."
+  ]
+ },
+ "resumen": [
+  "Las soluciones de la ecuación de Laplace se llaman armónicas, y describen estados de equilibrio.",
+  "La separación de variables en un rectángulo da senos en una dirección y senos hiperbólicos en la otra.",
+  "El valor de una armónica en el centro de un círculo es el promedio de la frontera."
+ ]
+}
