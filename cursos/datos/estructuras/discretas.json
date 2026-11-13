@@ -96,8 +96,8 @@
      "tema": "Aritmética modular y Euclides",
      "preguntas_banco": 5,
      "parciales_con_el_tema": 1,
-     "estado": "pendiente",
-     "leccion": null
+     "estado": "borrador para revisión",
+     "leccion": "lecciones/disc-modular.json"
     },
     {
      "tema": "Funciones generatrices",

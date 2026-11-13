@@ -58,8 +58,8 @@ S=[
 ]
 S+=cierre("Mini simulacro de área y aplicaciones",[
  banco("gv_c1_12","El área es el valor absoluto de $3\\cdot2-0\\cdot1=6$."),
- num("El área del triángulo de vértices $(0,0)$, $(4,0)$ y $(0,3)$ es:","6",0.001,"Es la mitad del determinante, o sea $\\tfrac12\\cdot12=6$."),
- mcq("El área del paralelogramo de $\\mathbf{u}=(1,2)$ y $\\mathbf{v}=(3,1)$ es:",["$5$","$7$","$1$","$-5$"],0,"El determinante es $1\\cdot1-2\\cdot3=-5$, y el área es su valor absoluto, $5$.")])
+ pnum("El área del triángulo de vértices $(0,0)$, $(4,0)$ y $(0,3)$ es:","6",0.001,"Es la mitad del determinante, o sea $\\tfrac12\\cdot12=6$."),
+ pmcq("El área del paralelogramo de $\\mathbf{u}=(1,2)$ y $\\mathbf{v}=(3,1)$ es:",["$5$","$7$","$1$","$-5$"],0,"El determinante es $1\\cdot1-2\\cdot3=-5$, y el área es su valor absoluto, $5$.")])
 prac=[
  {"titulo":"El paralelogramo","grafica":{"draw":1},"bloques":[P("Un paralelogramo de lados u y v."),EQ("A=|u_{1}v_{2}-u_{2}v_{1}|")]},
  {"titulo":"Inclina v","grafica":{"draw":1},"laboratorio":True,"bloques":[P("Mueve el deslizador. Abajo se leen el área y la longitud del lado inclinado.")]},

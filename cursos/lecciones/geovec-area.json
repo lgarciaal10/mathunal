@@ -473,7 +473,7 @@
         "respuesta": "6",
         "tolNum": 0.001,
         "resumen": "Es la mitad del determinante, o sea $\\tfrac12\\cdot12=6$.",
-        "fuente": "Banco MathUNAL, simulacro de Geometría Vectorial y Analítica"
+        "fuente": "Pregunta propia de MathUNAL, escrita para esta lección"
        },
        {
         "tipo": "mcq",
@@ -486,7 +486,7 @@
         ],
         "correcta": 0,
         "resumen": "El determinante es $1\\cdot1-2\\cdot3=-5$, y el área es su valor absoluto, $5$.",
-        "fuente": "Banco MathUNAL, simulacro de Geometría Vectorial y Analítica"
+        "fuente": "Pregunta propia de MathUNAL, escrita para esta lección"
        }
       ]
      }

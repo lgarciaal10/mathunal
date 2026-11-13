@@ -19,6 +19,8 @@ def cierre(simtitle,preguntas):
      sec("En resumen","Resumen",{"t":"resumen"})]
 def mcq(texto,ops,c,res): return {"tipo":"mcq","texto":texto,"opciones":ops,"correcta":c,"resumen":res,"fuente":FU}
 def num(texto,r,tol,res): return {"tipo":"numerica","texto":texto,"respuesta":r,"tolNum":tol,"resumen":res,"fuente":FU}
+def pmcq(texto,ops,c,res): return {"tipo":"mcq","texto":texto,"opciones":ops,"correcta":c,"resumen":res,"fuente":"Pregunta propia de MathUNAL, escrita para esta lección"}
+def pnum(texto,r,tol,res): return {"tipo":"numerica","texto":texto,"respuesta":r,"tolNum":tol,"resumen":res,"fuente":"Pregunta propia de MathUNAL, escrita para esta lección"}
 def eng(titulo,html,tex,datos,cierre_):
     d={"t":"ingenieria","titulo":titulo,"html":html}
     if tex: d["tex"]=tex
