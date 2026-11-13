@@ -96,8 +96,8 @@
      "tema": "Mínimos cuadrados y ajuste de curvas",
      "preguntas_banco": 4,
      "parciales_con_el_tema": 0,
-     "estado": "pendiente",
-     "leccion": null
+     "estado": "borrador para revisión",
+     "leccion": "lecciones/mn-minimos.json"
     },
     {
      "tema": "Splines",
