@@ -47,8 +47,8 @@
      "tema": "Producto vectorial (cruz)",
      "preguntas_banco": 7,
      "parciales_con_el_tema": 1,
-     "estado": "pendiente",
-     "leccion": null
+     "estado": "borrador para revisión",
+     "leccion": "lecciones/geovec-cruz.json"
     },
     {
      "tema": "Triple producto escalar y volumen",
