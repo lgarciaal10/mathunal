@@ -96,8 +96,8 @@
      "tema": "Cardinalidad y conteo",
      "preguntas_banco": 4,
      "parciales_con_el_tema": 0,
-     "estado": "pendiente",
-     "leccion": null
+     "estado": "borrador para revisión",
+     "leccion": "lecciones/fund-cardinalidad.json"
     },
     {
      "tema": "Imagen e imagen inversa",
