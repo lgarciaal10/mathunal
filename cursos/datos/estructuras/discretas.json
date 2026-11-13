@@ -103,8 +103,8 @@
      "tema": "Funciones generatrices",
      "preguntas_banco": 2,
      "parciales_con_el_tema": 1,
-     "estado": "pendiente",
-     "leccion": null
+     "estado": "borrador para revisión",
+     "leccion": "lecciones/disc-generatrices.json"
     }
    ]
   }
