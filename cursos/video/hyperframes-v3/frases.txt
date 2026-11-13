@@ -1,0 +1,16 @@
+Si las fracciones con letras te cuestan, tranquilo. Le pasa a casi todo el mundo.
+Casi todos, al principio, cancelan así. Y el resultado sale mal.
+Veamos por qué, con números que sí podemos comprobar.
+Mira. Cuatro más dos, sobre dos, da tres.
+Pero si cancelas el dos, te queda cuatro más uno, que es cinco. Ya no coincide.
+La regla es sencilla. Solo se cancelan factores, o sea, lo que se multiplica. Lo que se suma no se toca.
+Ahora sí, vamos con una fracción de verdad, paso a paso, sin afán.
+Primero, arriba. Es una diferencia de cuadrados, y se abre en x menos dos, por x más dos.
+Ahora abajo. Buscamos dos números que multiplicados den menos dos, y sumados den menos uno. Son menos dos y uno.
+Mira lo que pasó. Arriba y abajo aparece el mismo factor, x menos dos.
+Ese sí es un factor, así que lo podemos cancelar.
+Y la fracción queda mucho más simple, x más dos, sobre x más uno.
+Un detalle importante. Antes de cancelar, anota el dominio. La x no puede valer dos, ni menos uno.
+Mira la gráfica. En x igual a dos queda un huequito, porque ahí la fracción original no existe.
+Lo hiciste muy bien. Con práctica, esto se vuelve natural.
+Practica con preguntas reales de parciales en MathUNAL.

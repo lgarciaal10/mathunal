@@ -14,12 +14,12 @@ def clave(s):
     return o or '0'
 hub=open(S+'hub/build-hub.py').read()
 URLS={}
-for n,pre in [('URL','calculo'),('URL2','calcint'),('URL3','alglin'),('URL4','edo'),('URL5','otras'),('URL6','matbas')]:
+for n,pre in [('URL','calculo'),('URL2','calcint'),('URL3','alglin'),('URL4','edo'),('URL5','otras'),('URL6','matbas'),('URL7','fund')]:
     m=re.search(r'^'+n+r"=(\{.*?\})\s*$",hub,re.M|re.S)
     if m:
         for k,v in ast.literal_eval(m.group(1)).items(): URLS[(pre if n!='URL5' else k.split(':')[0])+'-'+k]=v
-CURSOS=['Matemáticas Básicas','Cálculo Diferencial','Cálculo Integral','Álgebra Lineal','Ecuaciones Diferenciales']
-CPRE={'matbas':'Matemáticas Básicas','calculo':'Cálculo Diferencial','calcint':'Cálculo Integral','alglin':'Álgebra Lineal','edo':'Ecuaciones Diferenciales'}
+CURSOS=['Matemáticas Básicas','Cálculo Diferencial','Cálculo Integral','Álgebra Lineal','Ecuaciones Diferenciales','Fundamentos de Matemáticas']
+CPRE={'matbas':'Matemáticas Básicas','calculo':'Cálculo Diferencial','calcint':'Cálculo Integral','alglin':'Álgebra Lineal','edo':'Ecuaciones Diferenciales','fund':'Fundamentos de Matemáticas'}
 exec(open(S+'estudio/prereq.py').read())
 lec=[]; stem2id={}
 for pre in CPRE:

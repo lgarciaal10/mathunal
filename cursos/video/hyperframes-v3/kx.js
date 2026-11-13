@@ -1,0 +1,1 @@
+const katex=require('/home/user/mathunal/cursos/video/node_modules/katex');const T=JSON.parse(require('fs').readFileSync('/tmp/ref/v3/kx-in.json','utf8'));const o={};for(const k in T)o[k]=katex.renderToString(T[k],{throwOnError:false});require('fs').writeFileSync('/tmp/ref/v3/kx.json',JSON.stringify(o));console.log(Object.keys(o).length);
