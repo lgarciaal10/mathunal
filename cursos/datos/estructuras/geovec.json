@@ -96,8 +96,8 @@
      "tema": "Cónicas y coordenadas polares",
      "preguntas_banco": 5,
      "parciales_con_el_tema": 0,
-     "estado": "pendiente",
-     "leccion": null
+     "estado": "borrador para revisión",
+     "leccion": "lecciones/geovec-conicas.json"
     },
     {
      "tema": "Rectas en el espacio e intersecciones",

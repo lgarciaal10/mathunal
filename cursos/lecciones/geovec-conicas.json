@@ -1,0 +1,846 @@
+{
+ "esquema": 1,
+ "id": "gv-m3-l3",
+ "ejemplo": true,
+ "curso": "Geometría Vectorial y Analítica",
+ "modulo": "Módulo 3 Rectas, planos y cónicas",
+ "posicion": "Lección 3 de 4",
+ "titulo": "Cónicas y coordenadas polares",
+ "minutos": 28,
+ "ejercicios": 8,
+ "grafica": {
+  "tipo": "plano",
+  "x": [
+   -10.1,
+   10.1
+  ],
+  "y": [
+   -5.5,
+   5.5
+  ],
+  "a": 1,
+  "b": 5,
+  "inicio": 3,
+  "elementos": [
+   {
+    "t": "trazo",
+    "puntos": [
+     [
+      "5*cos(0.00000)",
+      "x*sin(0.00000)"
+     ],
+     [
+      "5*cos(0.13090)",
+      "x*sin(0.13090)"
+     ],
+     [
+      "5*cos(0.26180)",
+      "x*sin(0.26180)"
+     ],
+     [
+      "5*cos(0.39270)",
+      "x*sin(0.39270)"
+     ],
+     [
+      "5*cos(0.52360)",
+      "x*sin(0.52360)"
+     ],
+     [
+      "5*cos(0.65450)",
+      "x*sin(0.65450)"
+     ],
+     [
+      "5*cos(0.78540)",
+      "x*sin(0.78540)"
+     ],
+     [
+      "5*cos(0.91630)",
+      "x*sin(0.91630)"
+     ],
+     [
+      "5*cos(1.04720)",
+      "x*sin(1.04720)"
+     ],
+     [
+      "5*cos(1.17810)",
+      "x*sin(1.17810)"
+     ],
+     [
+      "5*cos(1.30900)",
+      "x*sin(1.30900)"
+     ],
+     [
+      "5*cos(1.43990)",
+      "x*sin(1.43990)"
+     ],
+     [
+      "5*cos(1.57080)",
+      "x*sin(1.57080)"
+     ],
+     [
+      "5*cos(1.70170)",
+      "x*sin(1.70170)"
+     ],
+     [
+      "5*cos(1.83260)",
+      "x*sin(1.83260)"
+     ],
+     [
+      "5*cos(1.96350)",
+      "x*sin(1.96350)"
+     ],
+     [
+      "5*cos(2.09440)",
+      "x*sin(2.09440)"
+     ],
+     [
+      "5*cos(2.22529)",
+      "x*sin(2.22529)"
+     ],
+     [
+      "5*cos(2.35619)",
+      "x*sin(2.35619)"
+     ],
+     [
+      "5*cos(2.48709)",
+      "x*sin(2.48709)"
+     ],
+     [
+      "5*cos(2.61799)",
+      "x*sin(2.61799)"
+     ],
+     [
+      "5*cos(2.74889)",
+      "x*sin(2.74889)"
+     ],
+     [
+      "5*cos(2.87979)",
+      "x*sin(2.87979)"
+     ],
+     [
+      "5*cos(3.01069)",
+      "x*sin(3.01069)"
+     ],
+     [
+      "5*cos(3.14159)",
+      "x*sin(3.14159)"
+     ],
+     [
+      "5*cos(3.27249)",
+      "x*sin(3.27249)"
+     ],
+     [
+      "5*cos(3.40339)",
+      "x*sin(3.40339)"
+     ],
+     [
+      "5*cos(3.53429)",
+      "x*sin(3.53429)"
+     ],
+     [
+      "5*cos(3.66519)",
+      "x*sin(3.66519)"
+     ],
+     [
+      "5*cos(3.79609)",
+      "x*sin(3.79609)"
+     ],
+     [
+      "5*cos(3.92699)",
+      "x*sin(3.92699)"
+     ],
+     [
+      "5*cos(4.05789)",
+      "x*sin(4.05789)"
+     ],
+     [
+      "5*cos(4.18879)",
+      "x*sin(4.18879)"
+     ],
+     [
+      "5*cos(4.31969)",
+      "x*sin(4.31969)"
+     ],
+     [
+      "5*cos(4.45059)",
+      "x*sin(4.45059)"
+     ],
+     [
+      "5*cos(4.58149)",
+      "x*sin(4.58149)"
+     ],
+     [
+      "5*cos(4.71239)",
+      "x*sin(4.71239)"
+     ],
+     [
+      "5*cos(4.84329)",
+      "x*sin(4.84329)"
+     ],
+     [
+      "5*cos(4.97419)",
+      "x*sin(4.97419)"
+     ],
+     [
+      "5*cos(5.10509)",
+      "x*sin(5.10509)"
+     ],
+     [
+      "5*cos(5.23599)",
+      "x*sin(5.23599)"
+     ],
+     [
+      "5*cos(5.36689)",
+      "x*sin(5.36689)"
+     ],
+     [
+      "5*cos(5.49779)",
+      "x*sin(5.49779)"
+     ],
+     [
+      "5*cos(5.62869)",
+      "x*sin(5.62869)"
+     ],
+     [
+      "5*cos(5.75959)",
+      "x*sin(5.75959)"
+     ],
+     [
+      "5*cos(5.89049)",
+      "x*sin(5.89049)"
+     ],
+     [
+      "5*cos(6.02139)",
+      "x*sin(6.02139)"
+     ],
+     [
+      "5*cos(6.15229)",
+      "x*sin(6.15229)"
+     ],
+     [
+      "5*cos(6.28319)",
+      "x*sin(6.28319)"
+     ]
+    ],
+    "c": 0
+   },
+   {
+    "t": "punto",
+    "p": [
+     "sqrt(25-x*x)",
+     "0"
+    ],
+    "c": 1
+   },
+   {
+    "t": "punto",
+    "p": [
+     "-sqrt(25-x*x)",
+     "0"
+    ],
+    "c": 1
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "0",
+     "0"
+    ],
+    "b": [
+     "sqrt(25-x*x)",
+     "0"
+    ],
+    "c": 3,
+    "guia": true,
+    "guion": true
+   }
+  ],
+  "lecturas": [
+   {
+    "rotulo": "semieje vertical b",
+    "formula": "x"
+   },
+   {
+    "rotulo": "distancia c del centro a cada foco",
+    "formula": "sqrt(25-x*x)"
+   }
+  ],
+  "etiquetas": [
+   "Semieje vertical de la elipse, con semieje horizontal 5",
+   "Distancia del centro a cada foco, c igual a la raíz de 25 menos b al cuadrado"
+  ],
+  "etiquetaSlider": "Semieje vertical b",
+  "alt": "Una elipse con semieje horizontal 5 y semieje vertical b que se cambia con el deslizador. Dos puntos sobre el eje horizontal marcan los focos, a una distancia c del centro. Con b igual a 5 la elipse es una circunferencia y los focos coinciden"
+ },
+ "glosario": {
+  "conica": "Las cónicas son las curvas que resultan de cortar un cono con un plano. Son la circunferencia, la elipse, la parábola y la hipérbola.",
+  "foco": "Los focos de una elipse son dos puntos tales que la suma de las distancias de cualquier punto de la curva a ellos es constante.",
+  "polar": "En coordenadas polares un punto se describe con su distancia r al origen y el ángulo theta que forma con el eje horizontal.",
+  "excentricidad": "La excentricidad de una elipse es c entre a. Vale 0 para la circunferencia y se acerca a 1 cuando la elipse es muy alargada."
+ },
+ "ver": {
+  "duracion": 22.0,
+  "capitulos": [
+   [
+    0,
+    4,
+    "La elipse tiene semieje horizontal 5 y semieje vertical b. Los focos están sobre el eje horizontal."
+   ],
+   [
+    4,
+    10,
+    "Los focos están a una distancia c del centro, con c al cuadrado igual a 25 menos b al cuadrado."
+   ],
+   [
+    10,
+    15,
+    "Con b igual a 3, c vale 4. Es la elipse x al cuadrado sobre 25 más y al cuadrado sobre 9 igual a 1."
+   ],
+   [
+    15,
+    19,
+    "Con b igual a 5 la elipse es una circunferencia, y los dos focos coinciden en el centro."
+   ],
+   [
+    19,
+    22,
+    "Cuanto más achatada es la elipse, más lejos del centro están los focos."
+   ]
+  ],
+  "canales": {
+   "draw": [
+    [
+     0.3,
+     0
+    ],
+    [
+     3.5,
+     1
+    ]
+   ],
+   "d": [
+    [
+     4,
+     5
+    ],
+    [
+     7,
+     4
+    ],
+    [
+     10,
+     3
+    ],
+    [
+     14,
+     3
+    ],
+    [
+     16,
+     5
+    ],
+    [
+     19,
+     5
+    ],
+    [
+     21,
+     1.5
+    ],
+    [
+     22,
+     1.5
+    ]
+   ],
+   "guide": [
+    [
+     4,
+     0
+    ],
+    [
+     5,
+     1
+    ]
+   ]
+  },
+  "intervalos": {
+   "ok": [
+    10,
+    15
+   ]
+  }
+ },
+ "leer": {
+  "secciones": [
+   {
+    "titulo": "La idea",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Las {{gl:conica|cónicas}} son curvas que se obtienen al cortar un cono. Tienen ecuaciones sencillas. La circunferencia es x al cuadrado más y al cuadrado igual a r al cuadrado, la elipse es x al cuadrado sobre a al cuadrado más y al cuadrado sobre b al cuadrado igual a 1, y la hipérbola tiene un signo menos. La elipse tiene dos {{gl:foco|focos}}. Y con las coordenadas {{gl:polar|polares}} se describen estas curvas desde el origen."
+     }
+    ]
+   },
+   {
+    "titulo": "Un ejemplo",
+    "corto": "Un ejemplo",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mira la elipse con semieje horizontal 5 y semieje vertical b, y sus dos focos."
+     },
+     {
+      "t": "eq",
+      "tex": "\\dfrac{x^{2}}{25}+\\dfrac{y^{2}}{b^{2}}=1,\\qquad c=\\sqrt{25-b^{2}}"
+     },
+     {
+      "t": "grafica",
+      "animar": "dibujar",
+      "alt": "La elipse con sus focos"
+     }
+    ]
+   },
+   {
+    "titulo": "Piensa antes de ver",
+    "corto": "Piensa",
+    "bloques": [
+     {
+      "t": "piensa",
+      "pregunta": "En la elipse con semiejes 5 y 3, c es la raíz de 25 menos 9. ¿Cuánto vale c?",
+      "opciones": [
+       2,
+       3,
+       4,
+       5
+      ],
+      "correcta": 4,
+      "bien": "Muy bien. Es la raíz de 16, o sea 4. Más abajo se ve en la gráfica.",
+      "mal": "Es la raíz de 16, o sea 4, porque 25 menos 9 es 16. Más abajo se ve en la gráfica."
+     }
+    ]
+   },
+   {
+    "titulo": "Cambiando el semieje",
+    "corto": "El semieje",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mira la elipse con b igual a 5, 4, 3 y 1.5."
+     },
+     {
+      "t": "acercando",
+      "ds": [
+       5,
+       4,
+       3,
+       1.5
+      ],
+      "alt": "La elipse con cuatro valores de b"
+     },
+     {
+      "t": "p",
+      "html": "Con b igual a <b>3</b>, los focos están a 4 del centro. Con b igual a 5 son un solo punto."
+     }
+    ]
+   },
+   {
+    "titulo": "Las cónicas",
+    "corto": "Las cónicas",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Cada cónica tiene su ecuación estándar."
+     },
+     {
+      "t": "pasos",
+      "items": [
+       {
+        "tex": "x^{2}+y^{2}=9",
+        "porque": "Circunferencia de centro el origen y radio 3."
+       },
+       {
+        "tex": "\\dfrac{x^{2}}{4}+\\dfrac{y^{2}}{9}=1",
+        "porque": "Elipse con semieje 2 en x y semieje 3 en y."
+       },
+       {
+        "tex": "\\dfrac{x^{2}}{a^{2}}-\\dfrac{y^{2}}{b^{2}}=1",
+        "porque": "Hipérbola, con un signo menos."
+       },
+       {
+        "tex": "y=ax^{2}",
+        "porque": "Parábola."
+       }
+      ]
+     },
+     {
+      "t": "ojo",
+      "html": "En la elipse se leen los semiejes como las raíces de los denominadores. El de 4 da el semieje 2, y no 4."
+     }
+    ]
+   },
+   {
+    "titulo": "Focos",
+    "corto": "Los focos",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Los focos están sobre el eje mayor, a una distancia c del centro."
+     },
+     {
+      "t": "pasos",
+      "items": [
+       {
+        "tex": "c^{2}=a^{2}-b^{2}",
+        "porque": "En la elipse, con a mayor que b."
+       },
+       {
+        "tex": "\\dfrac{x^{2}}{25}+\\dfrac{y^{2}}{9}=1:\\quad c=\\sqrt{25-9}=4",
+        "porque": "Los focos están en (4, 0) y (menos 4, 0)."
+       },
+       {
+        "tex": "e=\\dfrac{c}{a}=\\dfrac{4}{5}",
+        "porque": "La excentricidad mide qué tan alargada es."
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "Coordenadas polares",
+    "corto": "Polares",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Un punto se puede dar por su distancia al origen y su ángulo."
+     },
+     {
+      "t": "pasos",
+      "items": [
+       {
+        "tex": "x=r\\cos\\theta,\\qquad y=r\\operatorname{sen}\\theta",
+        "porque": "Para pasar de polares a cartesianas."
+       },
+       {
+        "tex": "r=3\\ \\Leftrightarrow\\ x^{2}+y^{2}=9",
+        "porque": "La circunferencia es la curva más simple en polares."
+       },
+       {
+        "tex": "(r,\\theta)=(2,60^{\\circ})\\ \\Rightarrow\\ (1,\\sqrt{3})",
+        "porque": "Un ejemplo de conversión."
+       }
+      ]
+     },
+     {
+      "t": "ojo",
+      "html": "Un mismo punto tiene varias representaciones en polares, porque el ángulo se puede aumentar en 360 grados sin cambiar el punto."
+     }
+    ]
+   },
+   {
+    "titulo": "¿Para qué sirve?",
+    "corto": "En ingeniería",
+    "bloques": [
+     {
+      "t": "ingenieria",
+      "titulo": "El reflector elíptico",
+      "html": "Una bóveda con forma de elipse tiene dos focos. Cualquier onda que sale de un foco rebota en la pared y llega al otro foco. Con semiejes de 5 y 3 metros, los focos están a 4 metros del centro.",
+      "tex": "c=\\sqrt{5^{2}-3^{2}}=4",
+      "datos": [
+       {
+        "k": "Semiejes",
+        "v": "5 m y 3 m"
+       },
+       {
+        "k": "Distancia del centro a cada foco",
+        "v": "4 m"
+       },
+       {
+        "k": "Distancia entre focos",
+        "v": "8 m"
+       }
+      ],
+      "cierre": "Quien habla en un foco es oído con claridad en el otro, aunque esté lejos, porque todas las ondas llegan al mismo punto. Se usa en galerías de susurros y en algunos equipos médicos que concentran ondas. Es un modelo geométrico de rayos, que no incluye el efecto de los materiales."
+     }
+    ]
+   },
+   {
+    "titulo": "Completa el paso",
+    "corto": "Completa",
+    "bloques": [
+     {
+      "t": "completar",
+      "enunciado": "Se halla la distancia del centro a los focos de la elipse x al cuadrado sobre 16 más y al cuadrado sobre 7 igual a 1.",
+      "tex": "c=\\sqrt{16-[[hueco]]}",
+      "opciones": [
+       {
+        "tex": "7",
+        "txt": "siete"
+       },
+       {
+        "tex": "\\sqrt{7}",
+        "txt": "raíz de siete"
+       },
+       {
+        "tex": "23",
+        "txt": "veintitrés"
+       }
+      ],
+      "correcta": 0,
+      "errores": [
+       "",
+       "El denominador ya es el cuadrado del semieje, así que se resta tal cual.",
+       "Se sumó en lugar de restar. Para c se resta el cuadrado del semieje menor."
+      ],
+      "pista": "Se resta el denominador menor.",
+      "porque": "16 menos 7 es 9, y c vale 3."
+     }
+    ]
+   },
+   {
+    "titulo": "Encuentra el error",
+    "corto": "Error",
+    "bloques": [
+     {
+      "t": "error",
+      "enunciado": "Alguien leyó los semiejes de una elipse y se equivocó en un paso. Toca el paso que está mal.",
+      "pasos": [
+       {
+        "tex": "\\dfrac{x^{2}}{4}+\\dfrac{y^{2}}{9}=1",
+        "porque": "La ecuación.",
+        "txt": "es una elipse"
+       },
+       {
+        "tex": "a^{2}=4,\\quad b^{2}=9",
+        "porque": "Se leen los denominadores.",
+        "txt": "los denominadores son 4 y 9"
+       },
+       {
+        "tex": "\\text{Entonces los semiejes son}\\ 4\\ \\text{y}\\ 9",
+        "porque": "Este paso es el que falla.",
+        "txt": "los semiejes son 4 y 9"
+       }
+      ],
+      "mal": 2,
+      "explicacion": "Los denominadores son los cuadrados de los semiejes. Los semiejes son las raíces, o sea 2 y 3.",
+      "correccion": "a=2,\\quad b=3",
+      "pista": "Los semiejes son las raíces de los denominadores."
+     }
+    ]
+   },
+   {
+    "titulo": "Ordena los pasos",
+    "corto": "Ordena",
+    "bloques": [
+     {
+      "t": "ordenar",
+      "enunciado": "Estos son los pasos para pasar el punto de coordenadas polares (2, 60 grados) a cartesianas, pero están desordenados.",
+      "pasos": [
+       "(r,\\theta)=(2,60^{\\circ})",
+       "x=r\\cos\\theta=2\\cdot\\tfrac12=1",
+       "y=r\\operatorname{sen}\\theta=2\\cdot\\tfrac{\\sqrt{3}}{2}=\\sqrt{3}",
+       "(x,y)=(1,\\sqrt{3})"
+      ],
+      "mezcla": [
+       2,
+       0,
+       3,
+       1
+      ],
+      "porque": "Se parte de r y theta, se calculan x e y con coseno y seno, y se escribe el punto.",
+      "pista": "Se empieza con el punto en polares.",
+      "txt": [
+       "Se parte del punto en polares",
+       "Se calcula x",
+       "Se calcula y",
+       "Se escribe el resultado"
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "Revisa tu respuesta",
+    "corto": "Revisa",
+    "bloques": [
+     {
+      "t": "pregunta"
+     },
+     {
+      "t": "nota",
+      "html": "Puedes pedir pistas de a una. Si fallas, el mensaje te dice qué error se cometió."
+     }
+    ]
+   },
+   {
+    "titulo": "Mini simulacro",
+    "corto": "Simulacro",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Tres preguntas reales del banco de MathUNAL sobre este tema. Responde sin mirar los pasos."
+     },
+     {
+      "t": "simulacro",
+      "titulo": "Mini simulacro de cónicas y coordenadas polares",
+      "preguntas": [
+       {
+        "tipo": "mcq",
+        "texto": "La ecuación de la circunferencia de centro $(0,0)$ y radio $3$ es:",
+        "opciones": [
+         "$x^2+y^2=9$",
+         "$x^2+y^2=3$",
+         "$x+y=3$",
+         "$\\dfrac{x^2}{9}+\\dfrac{y^2}{9}=3$"
+        ],
+        "correcta": 0,
+        "resumen": "El radio al cuadrado es 9, así que $x^2+y^2=9$.",
+        "fuente": "Banco MathUNAL, simulacro de Geometría Vectorial y Analítica"
+       },
+       {
+        "tipo": "mcq",
+        "texto": "La ecuación $\\dfrac{x^{2}}{a^{2}} + \\dfrac{y^{2}}{b^{2}} = 1$ representa:",
+        "opciones": [
+         "una elipse",
+         "una hipérbola",
+         "una parábola",
+         "dos rectas"
+        ],
+        "correcta": 0,
+        "resumen": "Con suma de cuadrados sobre denominadores y un igual a 1, es una elipse.",
+        "fuente": "Banco MathUNAL, simulacro de Geometría Vectorial y Analítica"
+       },
+       {
+        "tipo": "numerica",
+        "texto": "Para la elipse $\\dfrac{x^{2}}{25} + \\dfrac{y^{2}}{9} = 1$, la distancia del centro a cada foco ($c$) es:",
+        "respuesta": "4",
+        "tolNum": 0.001,
+        "resumen": "$c=\\sqrt{25-9}=4$.",
+        "fuente": "Banco MathUNAL, simulacro de Geometría Vectorial y Analítica"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "Tu repaso",
+    "corto": "Repaso",
+    "bloques": [
+     {
+      "t": "repaso"
+     }
+    ]
+   },
+   {
+    "titulo": "En resumen",
+    "corto": "Resumen",
+    "bloques": [
+     {
+      "t": "resumen"
+     }
+    ]
+   }
+  ]
+ },
+ "practicar": {
+  "pasos": [
+   {
+    "titulo": "La elipse",
+    "grafica": {
+     "draw": 1
+    },
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Una elipse con semieje horizontal 5 y focos sobre el eje."
+     },
+     {
+      "t": "eq",
+      "tex": "\\dfrac{x^{2}}{25}+\\dfrac{y^{2}}{b^{2}}=1"
+     }
+    ]
+   },
+   {
+    "titulo": "Cambia b",
+    "grafica": {
+     "draw": 1
+    },
+    "laboratorio": true,
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mueve el deslizador. Abajo se leen el semieje b y la distancia c de los focos al centro."
+     }
+    ]
+   },
+   {
+    "titulo": "Con b igual a 3",
+    "grafica": {
+     "draw": 1,
+     "guide": 1,
+     "ok": true
+    },
+    "laboratorio": true,
+    "d": 3,
+    "bloques": [
+     {
+      "t": "eq",
+      "tex": "c=\\sqrt{25-9}=4"
+     },
+     {
+      "t": "p",
+      "html": "Con b igual a 3 los focos están a 4 del centro."
+     }
+    ]
+   },
+   {
+    "titulo": "Revisa tu respuesta",
+    "grafica": {
+     "draw": 1,
+     "guide": 1,
+     "ok": true,
+     "d": 3
+    },
+    "bloques": [
+     {
+      "t": "pregunta"
+     },
+     {
+      "t": "nota",
+      "html": "En polares, r constante es una circunferencia."
+     }
+    ]
+   }
+  ]
+ },
+ "pregunta": {
+  "tex": "\\text{En polares, la curva}\\ r=4\\ \\text{es}",
+  "opciones": [
+   "una circunferencia de radio 4",
+   "una recta",
+   "una elipse",
+   "un solo punto"
+  ],
+  "correcta": 0,
+  "explicacion": "En polares, r es la distancia al origen. Si r vale siempre 4, todos los puntos están a distancia 4 del origen, y forman una circunferencia de radio 4.",
+  "verificacion": {
+   "formula": "sqrt(0*x+16)",
+   "a": 0,
+   "esperado": 4
+  },
+  "pistas": [
+   "r es la distancia al origen.",
+   "Si r es constante, la distancia no cambia.",
+   "Todos los puntos están a distancia 4."
+  ],
+  "errores": [
+   "",
+   "Una recta exigiría que r cambie con el ángulo.",
+   "Una elipse necesita dos semiejes distintos, y aquí la distancia es la misma en todas las direcciones.",
+   "Un solo punto sería r igual a 0."
+  ]
+ },
+ "resumen": [
+  "Las cónicas son la circunferencia, la elipse, la parábola y la hipérbola, y cada una tiene su ecuación estándar.",
+  "En la elipse, los semiejes son las raíces de los denominadores y c al cuadrado es a al cuadrado menos b al cuadrado.",
+  "En polares, x es r coseno de theta y y es r seno de theta."
+ ]
+}
