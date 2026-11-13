@@ -8,7 +8,8 @@ def lagr(vals,var="x"):
         den=1
         for j in range(n):
             if j!=i: den*=(i-j)
-        t.append(f"({v}*{num}/({den}))" if num else f"({v})")
+        vs=(format(v,".12f").rstrip("0").rstrip(".") or "0") if isinstance(v,float) else str(v)
+        t.append(f"({vs}*{num}/({den}))" if num else f"({vs})")
     return "+".join(t) if t else "0"
 def tabla(cols,filas,W=1.7,H=0.95,x0=0.0,top=0.0,colores=None,sel="x"):
     """tabla de verdad como poligonos. filas: lista de listas de 0/1. La fila resaltada es la del parametro x (entero).
