@@ -145,8 +145,8 @@
      "tema": "Integrales de superficie y flujo",
      "preguntas_banco": 2,
      "parciales_con_el_tema": 0,
-     "estado": "pendiente",
-     "leccion": null
+     "estado": "borrador para revisión",
+     "leccion": "lecciones/cv-flujo.json"
     }
    ]
   }
