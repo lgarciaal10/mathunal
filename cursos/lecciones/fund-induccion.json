@@ -1,0 +1,867 @@
+{
+ "esquema": 1,
+ "id": "fu-m2-l3",
+ "ejemplo": true,
+ "curso": "Fundamentos de Matemáticas",
+ "modulo": "Módulo 2 Demostración y conjuntos",
+ "posicion": "Lección 3 de 4",
+ "titulo": "Inducción matemática",
+ "minutos": 28,
+ "ejercicios": 8,
+ "grafica": {
+  "tipo": "plano",
+  "x": [
+   -3.4,
+   9.8
+  ],
+  "y": [
+   -0.6,
+   6.6
+  ],
+  "a": 0,
+  "b": 6,
+  "inicio": 0,
+  "entero": true,
+  "sinejes": true,
+  "elementos": [
+   {
+    "t": "poligono",
+    "puntos": [
+     [
+      "0",
+      "0*((1*(x-0)*(x-2)*(x-3)*(x-4)*(x-5)*(x-6)/(-120))+(1*(x-0)*(x-1)*(x-3)*(x-4)*(x-5)*(x-6)/(48))+(1*(x-0)*(x-1)*(x-2)*(x-4)*(x-5)*(x-6)/(-36))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-5)*(x-6)/(48))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-6)/(-120))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)/(720)))+x*(1-((1*(x-0)*(x-2)*(x-3)*(x-4)*(x-5)*(x-6)/(-120))+(1*(x-0)*(x-1)*(x-3)*(x-4)*(x-5)*(x-6)/(48))+(1*(x-0)*(x-1)*(x-2)*(x-4)*(x-5)*(x-6)/(-36))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-5)*(x-6)/(48))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-6)/(-120))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)/(720))))"
+     ],
+     [
+      "1*((1*(x-0)*(x-2)*(x-3)*(x-4)*(x-5)*(x-6)/(-120))+(1*(x-0)*(x-1)*(x-3)*(x-4)*(x-5)*(x-6)/(48))+(1*(x-0)*(x-1)*(x-2)*(x-4)*(x-5)*(x-6)/(-36))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-5)*(x-6)/(48))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-6)/(-120))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)/(720)))",
+      "0*((1*(x-0)*(x-2)*(x-3)*(x-4)*(x-5)*(x-6)/(-120))+(1*(x-0)*(x-1)*(x-3)*(x-4)*(x-5)*(x-6)/(48))+(1*(x-0)*(x-1)*(x-2)*(x-4)*(x-5)*(x-6)/(-36))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-5)*(x-6)/(48))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-6)/(-120))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)/(720)))+x*(1-((1*(x-0)*(x-2)*(x-3)*(x-4)*(x-5)*(x-6)/(-120))+(1*(x-0)*(x-1)*(x-3)*(x-4)*(x-5)*(x-6)/(48))+(1*(x-0)*(x-1)*(x-2)*(x-4)*(x-5)*(x-6)/(-36))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-5)*(x-6)/(48))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-6)/(-120))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)/(720))))"
+     ],
+     [
+      "1*((1*(x-0)*(x-2)*(x-3)*(x-4)*(x-5)*(x-6)/(-120))+(1*(x-0)*(x-1)*(x-3)*(x-4)*(x-5)*(x-6)/(48))+(1*(x-0)*(x-1)*(x-2)*(x-4)*(x-5)*(x-6)/(-36))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-5)*(x-6)/(48))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-6)/(-120))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)/(720)))",
+      "1*((1*(x-0)*(x-2)*(x-3)*(x-4)*(x-5)*(x-6)/(-120))+(1*(x-0)*(x-1)*(x-3)*(x-4)*(x-5)*(x-6)/(48))+(1*(x-0)*(x-1)*(x-2)*(x-4)*(x-5)*(x-6)/(-36))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-5)*(x-6)/(48))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-6)/(-120))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)/(720)))+x*(1-((1*(x-0)*(x-2)*(x-3)*(x-4)*(x-5)*(x-6)/(-120))+(1*(x-0)*(x-1)*(x-3)*(x-4)*(x-5)*(x-6)/(48))+(1*(x-0)*(x-1)*(x-2)*(x-4)*(x-5)*(x-6)/(-36))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-5)*(x-6)/(48))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-6)/(-120))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)/(720))))"
+     ],
+     [
+      "0",
+      "1*((1*(x-0)*(x-2)*(x-3)*(x-4)*(x-5)*(x-6)/(-120))+(1*(x-0)*(x-1)*(x-3)*(x-4)*(x-5)*(x-6)/(48))+(1*(x-0)*(x-1)*(x-2)*(x-4)*(x-5)*(x-6)/(-36))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-5)*(x-6)/(48))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-6)/(-120))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)/(720)))+x*(1-((1*(x-0)*(x-2)*(x-3)*(x-4)*(x-5)*(x-6)/(-120))+(1*(x-0)*(x-1)*(x-3)*(x-4)*(x-5)*(x-6)/(48))+(1*(x-0)*(x-1)*(x-2)*(x-4)*(x-5)*(x-6)/(-36))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-5)*(x-6)/(48))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-6)/(-120))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)/(720))))"
+     ]
+    ],
+    "c": 3
+   },
+   {
+    "t": "poligono",
+    "puntos": [
+     [
+      "0",
+      "0*((1*(x-0)*(x-2)*(x-3)*(x-4)*(x-5)*(x-6)/(-120)))+x*(1-((1*(x-0)*(x-2)*(x-3)*(x-4)*(x-5)*(x-6)/(-120))))"
+     ],
+     [
+      "1*((1*(x-0)*(x-2)*(x-3)*(x-4)*(x-5)*(x-6)/(-120)))",
+      "0*((1*(x-0)*(x-2)*(x-3)*(x-4)*(x-5)*(x-6)/(-120)))+x*(1-((1*(x-0)*(x-2)*(x-3)*(x-4)*(x-5)*(x-6)/(-120))))"
+     ],
+     [
+      "1*((1*(x-0)*(x-2)*(x-3)*(x-4)*(x-5)*(x-6)/(-120)))",
+      "1*((1*(x-0)*(x-2)*(x-3)*(x-4)*(x-5)*(x-6)/(-120)))+x*(1-((1*(x-0)*(x-2)*(x-3)*(x-4)*(x-5)*(x-6)/(-120))))"
+     ],
+     [
+      "0",
+      "1*((1*(x-0)*(x-2)*(x-3)*(x-4)*(x-5)*(x-6)/(-120)))+x*(1-((1*(x-0)*(x-2)*(x-3)*(x-4)*(x-5)*(x-6)/(-120))))"
+     ]
+    ],
+    "c": 2
+   },
+   {
+    "t": "poligono",
+    "puntos": [
+     [
+      "0",
+      "1*((1*(x-0)*(x-1)*(x-3)*(x-4)*(x-5)*(x-6)/(48))+(1*(x-0)*(x-1)*(x-2)*(x-4)*(x-5)*(x-6)/(-36))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-5)*(x-6)/(48))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-6)/(-120))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)/(720)))+x*(1-((1*(x-0)*(x-1)*(x-3)*(x-4)*(x-5)*(x-6)/(48))+(1*(x-0)*(x-1)*(x-2)*(x-4)*(x-5)*(x-6)/(-36))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-5)*(x-6)/(48))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-6)/(-120))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)/(720))))"
+     ],
+     [
+      "2*((1*(x-0)*(x-1)*(x-3)*(x-4)*(x-5)*(x-6)/(48))+(1*(x-0)*(x-1)*(x-2)*(x-4)*(x-5)*(x-6)/(-36))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-5)*(x-6)/(48))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-6)/(-120))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)/(720)))",
+      "1*((1*(x-0)*(x-1)*(x-3)*(x-4)*(x-5)*(x-6)/(48))+(1*(x-0)*(x-1)*(x-2)*(x-4)*(x-5)*(x-6)/(-36))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-5)*(x-6)/(48))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-6)/(-120))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)/(720)))+x*(1-((1*(x-0)*(x-1)*(x-3)*(x-4)*(x-5)*(x-6)/(48))+(1*(x-0)*(x-1)*(x-2)*(x-4)*(x-5)*(x-6)/(-36))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-5)*(x-6)/(48))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-6)/(-120))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)/(720))))"
+     ],
+     [
+      "2*((1*(x-0)*(x-1)*(x-3)*(x-4)*(x-5)*(x-6)/(48))+(1*(x-0)*(x-1)*(x-2)*(x-4)*(x-5)*(x-6)/(-36))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-5)*(x-6)/(48))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-6)/(-120))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)/(720)))",
+      "2*((1*(x-0)*(x-1)*(x-3)*(x-4)*(x-5)*(x-6)/(48))+(1*(x-0)*(x-1)*(x-2)*(x-4)*(x-5)*(x-6)/(-36))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-5)*(x-6)/(48))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-6)/(-120))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)/(720)))+x*(1-((1*(x-0)*(x-1)*(x-3)*(x-4)*(x-5)*(x-6)/(48))+(1*(x-0)*(x-1)*(x-2)*(x-4)*(x-5)*(x-6)/(-36))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-5)*(x-6)/(48))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-6)/(-120))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)/(720))))"
+     ],
+     [
+      "0",
+      "2*((1*(x-0)*(x-1)*(x-3)*(x-4)*(x-5)*(x-6)/(48))+(1*(x-0)*(x-1)*(x-2)*(x-4)*(x-5)*(x-6)/(-36))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-5)*(x-6)/(48))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-6)/(-120))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)/(720)))+x*(1-((1*(x-0)*(x-1)*(x-3)*(x-4)*(x-5)*(x-6)/(48))+(1*(x-0)*(x-1)*(x-2)*(x-4)*(x-5)*(x-6)/(-36))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-5)*(x-6)/(48))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-6)/(-120))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)/(720))))"
+     ]
+    ],
+    "c": 3
+   },
+   {
+    "t": "poligono",
+    "puntos": [
+     [
+      "0",
+      "1*((1*(x-0)*(x-1)*(x-3)*(x-4)*(x-5)*(x-6)/(48)))+x*(1-((1*(x-0)*(x-1)*(x-3)*(x-4)*(x-5)*(x-6)/(48))))"
+     ],
+     [
+      "2*((1*(x-0)*(x-1)*(x-3)*(x-4)*(x-5)*(x-6)/(48)))",
+      "1*((1*(x-0)*(x-1)*(x-3)*(x-4)*(x-5)*(x-6)/(48)))+x*(1-((1*(x-0)*(x-1)*(x-3)*(x-4)*(x-5)*(x-6)/(48))))"
+     ],
+     [
+      "2*((1*(x-0)*(x-1)*(x-3)*(x-4)*(x-5)*(x-6)/(48)))",
+      "2*((1*(x-0)*(x-1)*(x-3)*(x-4)*(x-5)*(x-6)/(48)))+x*(1-((1*(x-0)*(x-1)*(x-3)*(x-4)*(x-5)*(x-6)/(48))))"
+     ],
+     [
+      "0",
+      "2*((1*(x-0)*(x-1)*(x-3)*(x-4)*(x-5)*(x-6)/(48)))+x*(1-((1*(x-0)*(x-1)*(x-3)*(x-4)*(x-5)*(x-6)/(48))))"
+     ]
+    ],
+    "c": 2
+   },
+   {
+    "t": "poligono",
+    "puntos": [
+     [
+      "0",
+      "2*((1*(x-0)*(x-1)*(x-2)*(x-4)*(x-5)*(x-6)/(-36))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-5)*(x-6)/(48))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-6)/(-120))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)/(720)))+x*(1-((1*(x-0)*(x-1)*(x-2)*(x-4)*(x-5)*(x-6)/(-36))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-5)*(x-6)/(48))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-6)/(-120))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)/(720))))"
+     ],
+     [
+      "3*((1*(x-0)*(x-1)*(x-2)*(x-4)*(x-5)*(x-6)/(-36))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-5)*(x-6)/(48))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-6)/(-120))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)/(720)))",
+      "2*((1*(x-0)*(x-1)*(x-2)*(x-4)*(x-5)*(x-6)/(-36))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-5)*(x-6)/(48))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-6)/(-120))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)/(720)))+x*(1-((1*(x-0)*(x-1)*(x-2)*(x-4)*(x-5)*(x-6)/(-36))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-5)*(x-6)/(48))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-6)/(-120))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)/(720))))"
+     ],
+     [
+      "3*((1*(x-0)*(x-1)*(x-2)*(x-4)*(x-5)*(x-6)/(-36))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-5)*(x-6)/(48))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-6)/(-120))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)/(720)))",
+      "3*((1*(x-0)*(x-1)*(x-2)*(x-4)*(x-5)*(x-6)/(-36))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-5)*(x-6)/(48))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-6)/(-120))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)/(720)))+x*(1-((1*(x-0)*(x-1)*(x-2)*(x-4)*(x-5)*(x-6)/(-36))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-5)*(x-6)/(48))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-6)/(-120))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)/(720))))"
+     ],
+     [
+      "0",
+      "3*((1*(x-0)*(x-1)*(x-2)*(x-4)*(x-5)*(x-6)/(-36))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-5)*(x-6)/(48))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-6)/(-120))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)/(720)))+x*(1-((1*(x-0)*(x-1)*(x-2)*(x-4)*(x-5)*(x-6)/(-36))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-5)*(x-6)/(48))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-6)/(-120))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)/(720))))"
+     ]
+    ],
+    "c": 3
+   },
+   {
+    "t": "poligono",
+    "puntos": [
+     [
+      "0",
+      "2*((1*(x-0)*(x-1)*(x-2)*(x-4)*(x-5)*(x-6)/(-36)))+x*(1-((1*(x-0)*(x-1)*(x-2)*(x-4)*(x-5)*(x-6)/(-36))))"
+     ],
+     [
+      "3*((1*(x-0)*(x-1)*(x-2)*(x-4)*(x-5)*(x-6)/(-36)))",
+      "2*((1*(x-0)*(x-1)*(x-2)*(x-4)*(x-5)*(x-6)/(-36)))+x*(1-((1*(x-0)*(x-1)*(x-2)*(x-4)*(x-5)*(x-6)/(-36))))"
+     ],
+     [
+      "3*((1*(x-0)*(x-1)*(x-2)*(x-4)*(x-5)*(x-6)/(-36)))",
+      "3*((1*(x-0)*(x-1)*(x-2)*(x-4)*(x-5)*(x-6)/(-36)))+x*(1-((1*(x-0)*(x-1)*(x-2)*(x-4)*(x-5)*(x-6)/(-36))))"
+     ],
+     [
+      "0",
+      "3*((1*(x-0)*(x-1)*(x-2)*(x-4)*(x-5)*(x-6)/(-36)))+x*(1-((1*(x-0)*(x-1)*(x-2)*(x-4)*(x-5)*(x-6)/(-36))))"
+     ]
+    ],
+    "c": 2
+   },
+   {
+    "t": "poligono",
+    "puntos": [
+     [
+      "0",
+      "3*((1*(x-0)*(x-1)*(x-2)*(x-3)*(x-5)*(x-6)/(48))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-6)/(-120))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)/(720)))+x*(1-((1*(x-0)*(x-1)*(x-2)*(x-3)*(x-5)*(x-6)/(48))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-6)/(-120))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)/(720))))"
+     ],
+     [
+      "4*((1*(x-0)*(x-1)*(x-2)*(x-3)*(x-5)*(x-6)/(48))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-6)/(-120))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)/(720)))",
+      "3*((1*(x-0)*(x-1)*(x-2)*(x-3)*(x-5)*(x-6)/(48))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-6)/(-120))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)/(720)))+x*(1-((1*(x-0)*(x-1)*(x-2)*(x-3)*(x-5)*(x-6)/(48))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-6)/(-120))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)/(720))))"
+     ],
+     [
+      "4*((1*(x-0)*(x-1)*(x-2)*(x-3)*(x-5)*(x-6)/(48))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-6)/(-120))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)/(720)))",
+      "4*((1*(x-0)*(x-1)*(x-2)*(x-3)*(x-5)*(x-6)/(48))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-6)/(-120))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)/(720)))+x*(1-((1*(x-0)*(x-1)*(x-2)*(x-3)*(x-5)*(x-6)/(48))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-6)/(-120))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)/(720))))"
+     ],
+     [
+      "0",
+      "4*((1*(x-0)*(x-1)*(x-2)*(x-3)*(x-5)*(x-6)/(48))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-6)/(-120))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)/(720)))+x*(1-((1*(x-0)*(x-1)*(x-2)*(x-3)*(x-5)*(x-6)/(48))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-6)/(-120))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)/(720))))"
+     ]
+    ],
+    "c": 3
+   },
+   {
+    "t": "poligono",
+    "puntos": [
+     [
+      "0",
+      "3*((1*(x-0)*(x-1)*(x-2)*(x-3)*(x-5)*(x-6)/(48)))+x*(1-((1*(x-0)*(x-1)*(x-2)*(x-3)*(x-5)*(x-6)/(48))))"
+     ],
+     [
+      "4*((1*(x-0)*(x-1)*(x-2)*(x-3)*(x-5)*(x-6)/(48)))",
+      "3*((1*(x-0)*(x-1)*(x-2)*(x-3)*(x-5)*(x-6)/(48)))+x*(1-((1*(x-0)*(x-1)*(x-2)*(x-3)*(x-5)*(x-6)/(48))))"
+     ],
+     [
+      "4*((1*(x-0)*(x-1)*(x-2)*(x-3)*(x-5)*(x-6)/(48)))",
+      "4*((1*(x-0)*(x-1)*(x-2)*(x-3)*(x-5)*(x-6)/(48)))+x*(1-((1*(x-0)*(x-1)*(x-2)*(x-3)*(x-5)*(x-6)/(48))))"
+     ],
+     [
+      "0",
+      "4*((1*(x-0)*(x-1)*(x-2)*(x-3)*(x-5)*(x-6)/(48)))+x*(1-((1*(x-0)*(x-1)*(x-2)*(x-3)*(x-5)*(x-6)/(48))))"
+     ]
+    ],
+    "c": 2
+   },
+   {
+    "t": "poligono",
+    "puntos": [
+     [
+      "0",
+      "4*((1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-6)/(-120))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)/(720)))+x*(1-((1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-6)/(-120))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)/(720))))"
+     ],
+     [
+      "5*((1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-6)/(-120))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)/(720)))",
+      "4*((1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-6)/(-120))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)/(720)))+x*(1-((1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-6)/(-120))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)/(720))))"
+     ],
+     [
+      "5*((1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-6)/(-120))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)/(720)))",
+      "5*((1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-6)/(-120))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)/(720)))+x*(1-((1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-6)/(-120))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)/(720))))"
+     ],
+     [
+      "0",
+      "5*((1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-6)/(-120))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)/(720)))+x*(1-((1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-6)/(-120))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)/(720))))"
+     ]
+    ],
+    "c": 3
+   },
+   {
+    "t": "poligono",
+    "puntos": [
+     [
+      "0",
+      "4*((1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-6)/(-120)))+x*(1-((1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-6)/(-120))))"
+     ],
+     [
+      "5*((1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-6)/(-120)))",
+      "4*((1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-6)/(-120)))+x*(1-((1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-6)/(-120))))"
+     ],
+     [
+      "5*((1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-6)/(-120)))",
+      "5*((1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-6)/(-120)))+x*(1-((1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-6)/(-120))))"
+     ],
+     [
+      "0",
+      "5*((1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-6)/(-120)))+x*(1-((1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-6)/(-120))))"
+     ]
+    ],
+    "c": 2
+   },
+   {
+    "t": "poligono",
+    "puntos": [
+     [
+      "0",
+      "5*((1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)/(720)))+x*(1-((1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)/(720))))"
+     ],
+     [
+      "6*((1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)/(720)))",
+      "5*((1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)/(720)))+x*(1-((1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)/(720))))"
+     ],
+     [
+      "6*((1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)/(720)))",
+      "6*((1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)/(720)))+x*(1-((1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)/(720))))"
+     ],
+     [
+      "0",
+      "6*((1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)/(720)))+x*(1-((1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)/(720))))"
+     ]
+    ],
+    "c": 3
+   },
+   {
+    "t": "poligono",
+    "puntos": [
+     [
+      "0",
+      "5*((1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)/(720)))+x*(1-((1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)/(720))))"
+     ],
+     [
+      "6*((1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)/(720)))",
+      "5*((1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)/(720)))+x*(1-((1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)/(720))))"
+     ],
+     [
+      "6*((1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)/(720)))",
+      "6*((1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)/(720)))+x*(1-((1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)/(720))))"
+     ],
+     [
+      "0",
+      "6*((1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)/(720)))+x*(1-((1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)/(720))))"
+     ]
+    ],
+    "c": 2
+   }
+  ],
+  "lecturas": [
+   {
+    "rotulo": "cuadros de la escalera con n filas",
+    "formula": "x*(x+1)/2"
+   },
+   {
+    "rotulo": "cuadros nuevos al pasar de n a n más 1",
+    "formula": "x+1"
+   }
+  ],
+  "etiquetas": [
+   "Suma de 1 hasta n, igual a n por n más 1 entre 2",
+   "Tamaño de la fila nueva que se agrega"
+  ],
+  "etiquetaSlider": "Número de filas n, de 0 a 6",
+  "alt": "Una escalera de cuadros. La fila i tiene i cuadros. Al subir n se agrega una fila nueva, resaltada, con un cuadro más que la anterior. Con 6 filas hay 21 cuadros"
+ },
+ "glosario": {
+  "base": "El caso base es el primer valor para el que se comprueba la afirmación, normalmente n igual a 1.",
+  "hipotesis": "La hipótesis inductiva es el supuesto de que la afirmación vale para un valor m. No se prueba, se usa para el paso siguiente.",
+  "paso": "El paso inductivo prueba que si la afirmación vale para m, entonces vale para m más 1.",
+  "fuerte": "En la inducción fuerte la hipótesis supone que la afirmación vale para todos los casos desde el base hasta m, y no solo para m."
+ },
+ "ver": {
+  "duracion": 24.0,
+  "capitulos": [
+   [
+    0,
+    4,
+    "Cada fila de la escalera tiene un cuadro más que la anterior. Con n filas hay 1 más 2 y así hasta n cuadros."
+   ],
+   [
+    4,
+    10,
+    "Sube n de 0 a 6. Cuando n pasa de 3 a 4 se agrega una fila de 4 cuadros, que es la fila resaltada."
+   ],
+   [
+    10,
+    16,
+    "La lectura de abajo lo confirma. Al pasar de n a n más 1, se agregan n más 1 cuadros."
+   ],
+   [
+    16,
+    20,
+    "Esa es la idea de la inducción. Si la fórmula vale para n, al agregar la fila n más 1 también valdrá para n más 1."
+   ],
+   [
+    20,
+    24,
+    "Falta el primer escalón, el caso base. Con n igual a 1 hay un cuadro, y la fórmula da 1 por 2 entre 2, igual a 1."
+   ]
+  ],
+  "canales": {
+   "draw": [
+    [
+     0.3,
+     0
+    ],
+    [
+     3.5,
+     1
+    ]
+   ],
+   "d": [
+    [
+     4,
+     0
+    ],
+    [
+     5,
+     0
+    ],
+    [
+     6,
+     1
+    ],
+    [
+     8,
+     2
+    ],
+    [
+     9,
+     3
+    ],
+    [
+     10,
+     3
+    ],
+    [
+     11,
+     4
+    ],
+    [
+     13,
+     5
+    ],
+    [
+     15,
+     6
+    ],
+    [
+     16,
+     6
+    ],
+    [
+     20,
+     1
+    ],
+    [
+     24,
+     1
+    ]
+   ],
+   "guide": [
+    [
+     4,
+     0
+    ],
+    [
+     5,
+     1
+    ]
+   ]
+  },
+  "intervalos": {
+   "ok": [
+    20,
+    24
+   ]
+  }
+ },
+ "leer": {
+  "secciones": [
+   {
+    "titulo": "La idea",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "La inducción prueba que una afirmación vale para todos los enteros desde uno en adelante, como una fila de fichas de dominó. Primero se prueba el {{gl:base|caso base}}, que es empujar la primera ficha. Después se prueba el {{gl:paso|paso inductivo}}, que dice que cada ficha tumba a la siguiente. Para ese paso se usa la {{gl:hipotesis|hipótesis inductiva}}. Con las dos cosas, caen todas."
+     }
+    ]
+   },
+   {
+    "titulo": "Un ejemplo",
+    "corto": "Un ejemplo",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "La escalera tiene n filas, y la fila i tiene i cuadros. El total de cuadros es la suma de los primeros n números."
+     },
+     {
+      "t": "eq",
+      "tex": "1+2+\\cdots+n=\\dfrac{n(n+1)}{2}"
+     },
+     {
+      "t": "grafica",
+      "animar": "dibujar",
+      "alt": "La escalera de cuadros"
+     }
+    ]
+   },
+   {
+    "titulo": "Piensa antes de ver",
+    "corto": "Piensa",
+    "bloques": [
+     {
+      "t": "piensa",
+      "pregunta": "En una fila de fichas de dominó cada ficha tumba a la siguiente. ¿Cuántas fichas hay que empujar a mano para que caigan todas?",
+      "opciones": [
+       0,
+       1,
+       2,
+       10
+      ],
+      "correcta": 1,
+      "bien": "Muy bien. Basta empujar la primera. Esa es la idea del caso base y del paso inductivo.",
+      "mal": "Basta con una, la primera. Las demás caen solas porque cada una tumba a la siguiente."
+     }
+    ]
+   },
+   {
+    "titulo": "Recorriendo la escalera",
+    "corto": "La escalera",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mira cuántos cuadros hay y cuántos se agregan cuando n vale 1, 3, 4 y 6."
+     },
+     {
+      "t": "acercando",
+      "ds": [
+       1,
+       3,
+       4,
+       6
+      ],
+      "alt": "La escalera con 1, 3, 4 y 6 filas"
+     },
+     {
+      "t": "p",
+      "html": "Cada vez que sube n, se agrega una fila con n cuadros. Esa fila nueva es lo que se usa en el paso inductivo."
+     }
+    ]
+   },
+   {
+    "titulo": "La demostración",
+    "corto": "La demostración",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Estos son los pasos para probar la fórmula de la suma de los primeros n números."
+     },
+     {
+      "t": "pasos",
+      "items": [
+       {
+        "tex": "n=1:\\quad 1=\\dfrac{1\\cdot2}{2}",
+        "porque": "El caso base. Se comprueba el primer valor."
+       },
+       {
+        "tex": "\\displaystyle\\sum_{k=1}^{m}k=\\dfrac{m(m+1)}{2}",
+        "porque": "La hipótesis inductiva. Se supone que vale para m."
+       },
+       {
+        "tex": "\\displaystyle\\sum_{k=1}^{m+1}k=\\dfrac{m(m+1)}{2}+(m+1)",
+        "porque": "Se suma el término nuevo a los dos lados."
+       },
+       {
+        "tex": "=\\dfrac{m(m+1)+2(m+1)}{2}=\\dfrac{(m+1)(m+2)}{2}",
+        "porque": "Se factoriza. Queda la misma fórmula, pero con m más 1."
+       }
+      ]
+     },
+     {
+      "t": "ojo",
+      "html": "Sin caso base la inducción no prueba nada. Con la hipótesis falsa de que todos los números son iguales a su siguiente, el paso inductivo se cumple, pero no hay un primer escalón."
+     }
+    ]
+   },
+   {
+    "titulo": "Inducción fuerte",
+    "corto": "Fuerte",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "A veces para probar el caso m más 1 se necesitan varios casos anteriores, y no solo el último. Entonces se usa la inducción fuerte."
+     },
+     {
+      "t": "pasos",
+      "items": [
+       {
+        "tex": "P(1)\\wedge P(2)\\wedge\\cdots\\wedge P(m)\\ \\Rightarrow\\ P(m+1)",
+        "porque": "La hipótesis incluye todos los casos desde el base hasta m."
+       },
+       {
+        "tex": "\\text{Ejemplo, todo entero}\\ n\\ge2\\ \\text{es producto de primos}",
+        "porque": "Se parte n en dos factores menores, y cada uno ya es producto de primos por hipótesis."
+       }
+      ]
+     },
+     {
+      "t": "ojo",
+      "html": "La inducción débil y la fuerte prueban lo mismo. Se elige la que haga más cómodo el paso inductivo."
+     }
+    ]
+   },
+   {
+    "titulo": "¿Para qué sirve?",
+    "corto": "En ingeniería",
+    "bloques": [
+     {
+      "t": "ingenieria",
+      "titulo": "Los enlaces de una red",
+      "html": "En una red de n computadores donde cada uno se conecta con todos los demás, hacen falta n por n menos 1 entre 2 enlaces. Se puede probar por inducción. Al agregar el computador número n más 1, se agregan n enlaces nuevos, uno por cada computador que ya estaba.",
+      "tex": "E(n)=\\dfrac{n(n-1)}{2}",
+      "datos": [
+       {
+        "k": "Computadores",
+        "v": "10"
+       },
+       {
+        "k": "Enlaces",
+        "v": "45"
+       },
+       {
+        "k": "Al agregar uno más",
+        "v": "10 enlaces nuevos"
+       }
+      ],
+      "cierre": "Con 10 computadores hay 45 enlaces. Al agregar el undécimo se suman 10, y da 55, que es 11 por 10 entre 2. El paso inductivo es justamente esa cuenta. Por eso la red completa se vuelve costosa, porque cada nodo nuevo agrega tantos enlaces como nodos había."
+     }
+    ]
+   },
+   {
+    "titulo": "Completa el paso",
+    "corto": "Completa",
+    "bloques": [
+     {
+      "t": "completar",
+      "enunciado": "Se pasa de m a m más 1 en la suma de los primeros términos. Falta el término que se agrega.",
+      "tex": "\\displaystyle\\sum_{k=1}^{m+1}k=\\sum_{k=1}^{m}k+[[hueco]]",
+      "opciones": [
+       {
+        "tex": "m+1",
+        "txt": "m más 1"
+       },
+       {
+        "tex": "m",
+        "txt": "m"
+       },
+       {
+        "tex": "1",
+        "txt": "1"
+       }
+      ],
+      "correcta": 0,
+      "errores": [
+       "",
+       "El término que se agrega es el de índice m más 1, y no el de índice m, que ya estaba en la suma.",
+       "Se agrega el último término, que vale m más 1 y no uno."
+      ],
+      "pista": "El término nuevo es el de índice m más 1.",
+      "porque": "La suma hasta m más 1 es la suma hasta m más el término m más 1."
+     }
+    ]
+   },
+   {
+    "titulo": "Encuentra el error",
+    "corto": "Error",
+    "bloques": [
+     {
+      "t": "error",
+      "enunciado": "Alguien probó por inducción que la suma de los primeros n impares es n al cuadrado y se equivocó en un paso. Toca el paso que está mal.",
+      "pasos": [
+       {
+        "tex": "n=1:\\quad 1=1^{2}",
+        "porque": "El caso base.",
+        "txt": "con n igual a 1 se cumple"
+       },
+       {
+        "tex": "\\displaystyle\\sum_{k=1}^{m}(2k-1)=m^{2}",
+        "porque": "La hipótesis inductiva.",
+        "txt": "se supone para m"
+       },
+       {
+        "tex": "\\displaystyle\\sum_{k=1}^{m+1}(2k-1)=m^{2}+(2m-1)",
+        "porque": "Este paso es el que falla.",
+        "txt": "se suma el término nuevo"
+       }
+      ],
+      "mal": 2,
+      "explicacion": "El término nuevo es el de índice m más 1, y vale 2 por m más 1 menos 1, o sea 2m más 1. Sumar 2m menos 1 es repetir el término de índice m.",
+      "correccion": "m^{2}+(2m+1)=(m+1)^{2}",
+      "pista": "Calcula el término de índice m más 1."
+     }
+    ]
+   },
+   {
+    "titulo": "Ordena los pasos",
+    "corto": "Ordena",
+    "bloques": [
+     {
+      "t": "ordenar",
+      "enunciado": "Estos son los pasos de una demostración por inducción, pero están desordenados.",
+      "pasos": [
+       "n=1\\ \\text{se cumple}",
+       "P(m)\\ \\text{se supone}",
+       "P(m)\\Rightarrow P(m+1)",
+       "\\forall n\\ge1,\\ P(n)"
+      ],
+      "mezcla": [
+       2,
+       0,
+       3,
+       1
+      ],
+      "porque": "Se prueba el caso base, se supone la hipótesis, se prueba el paso y se concluye.",
+      "pista": "Se empieza por el primer escalón.",
+      "txt": [
+       "Se verifica el caso base",
+       "Se escribe la hipótesis inductiva",
+       "Se prueba el paso inductivo",
+       "Se concluye para todo n"
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "Revisa tu respuesta",
+    "corto": "Revisa",
+    "bloques": [
+     {
+      "t": "pregunta"
+     },
+     {
+      "t": "nota",
+      "html": "Puedes pedir pistas de a una. Si fallas, el mensaje te dice qué error se cometió."
+     }
+    ]
+   },
+   {
+    "titulo": "Mini simulacro",
+    "corto": "Simulacro",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Tres preguntas reales del banco de MathUNAL sobre este tema. Responde sin mirar los pasos."
+     },
+     {
+      "t": "simulacro",
+      "titulo": "Mini simulacro de inducción matemática",
+      "preguntas": [
+       {
+        "tipo": "mcq",
+        "texto": "En la inducción de \"$\\forall n\\ge1$: $\\displaystyle\\sum_{k=1}^n k=\\dfrac{n(n+1)}{2}$\", el caso base consiste en verificar que:",
+        "opciones": [
+         "$1=\\dfrac{1\\cdot2}{2}$",
+         "$2=\\dfrac{2\\cdot3}{2}$",
+         "la fórmula vale para $n=m+1$",
+         "$\\dfrac{n(n+1)}{2}$ es entero"
+        ],
+        "correcta": 0,
+        "resumen": "El caso base es el primer valor, n igual a 1.",
+        "fuente": "Banco MathUNAL, simulacro de Fundamentos de Matemáticas"
+       },
+       {
+        "tipo": "numerica",
+        "texto": "Según la fórmula $\\displaystyle\\sum_{k=1}^n k=\\dfrac{n(n+1)}{2}$, ¿cuánto vale $\\displaystyle\\sum_{k=1}^{5} k$?",
+        "respuesta": "15",
+        "tolNum": 0.001,
+        "resumen": "Con la fórmula, 5 por 6 entre 2 da 15.",
+        "fuente": "Banco MathUNAL, simulacro de Fundamentos de Matemáticas"
+       },
+       {
+        "tipo": "mcq",
+        "texto": "La inducción FUERTE (completa) se diferencia de la débil en que la hipótesis inductiva supone que la afirmación vale para:",
+        "opciones": [
+         "todos los casos desde el base hasta $n$",
+         "solamente el caso $n$",
+         "solamente el caso $n-1$",
+         "el caso $n+1$"
+        ],
+        "correcta": 0,
+        "resumen": "La inducción fuerte supone todos los casos anteriores.",
+        "fuente": "Banco MathUNAL, simulacro de Fundamentos de Matemáticas"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "Tu repaso",
+    "corto": "Repaso",
+    "bloques": [
+     {
+      "t": "repaso"
+     }
+    ]
+   },
+   {
+    "titulo": "En resumen",
+    "corto": "Resumen",
+    "bloques": [
+     {
+      "t": "resumen"
+     }
+    ]
+   }
+  ]
+ },
+ "practicar": {
+  "pasos": [
+   {
+    "titulo": "La escalera",
+    "grafica": {
+     "draw": 1,
+     "guide": 1
+    },
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Una escalera de n filas, con i cuadros en la fila i."
+     },
+     {
+      "t": "eq",
+      "tex": "1+2+\\cdots+n=\\dfrac{n(n+1)}{2}"
+     }
+    ]
+   },
+   {
+    "titulo": "Recorre n",
+    "grafica": {
+     "draw": 1,
+     "guide": 1
+    },
+    "laboratorio": true,
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mueve el deslizador de 0 a 6. Abajo se lee el total de cuadros y la fila que se agrega."
+     }
+    ]
+   },
+   {
+    "titulo": "El paso inductivo",
+    "grafica": {
+     "draw": 1,
+     "guide": 1,
+     "ok": true
+    },
+    "laboratorio": true,
+    "d": 3,
+    "bloques": [
+     {
+      "t": "eq",
+      "tex": "T(3)=6,\\quad T(4)=6+4=10"
+     },
+     {
+      "t": "p",
+      "html": "Con n igual a 3 se pasa a 4 agregando una fila de 4 cuadros."
+     }
+    ]
+   },
+   {
+    "titulo": "Revisa tu respuesta",
+    "grafica": {
+     "draw": 1,
+     "guide": 1,
+     "ok": true,
+     "d": 3
+    },
+    "bloques": [
+     {
+      "t": "pregunta"
+     },
+     {
+      "t": "nota",
+      "html": "Piensa qué prueba el paso inductivo y qué prueba el caso base."
+     }
+    ]
+   }
+  ]
+ },
+ "pregunta": {
+  "tex": "\\text{El paso inductivo prueba que}",
+  "opciones": [
+   "si $P(m)$ es verdadera, entonces $P(m+1)$ es verdadera",
+   "$P(1)$ es verdadera",
+   "$P(m)$ es verdadera para todo $m$",
+   "$P(m+1)$ implica $P(m)$"
+  ],
+  "correcta": 0,
+  "explicacion": "El paso inductivo es un condicional, que dice que si la afirmación vale para m, entonces vale para m más 1. Que P de 1 sea verdadera es el caso base, y que valga para todo m es la conclusión de toda la inducción.",
+  "verificacion": {
+   "formula": "1-(1-0)*1+0*x",
+   "a": 0,
+   "esperado": 0
+  },
+  "pistas": [
+   "Es un condicional.",
+   "Se usa la hipótesis para llegar al caso siguiente.",
+   "Va de m a m más 1."
+  ],
+  "errores": [
+   "",
+   "Eso es el caso base, y no el paso inductivo.",
+   "Eso es la conclusión final de la inducción, no el paso.",
+   "Va en el sentido contrario. El paso va de m a m más 1."
+  ]
+ },
+ "resumen": [
+  "La inducción tiene dos partes, el caso base y el paso inductivo.",
+  "En el paso se supone que vale para m y se prueba que vale para m más 1, usando el término nuevo.",
+  "Sin caso base no se prueba nada. La inducción fuerte supone todos los casos anteriores."
+ ]
+}
