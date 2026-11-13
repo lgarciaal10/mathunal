@@ -26,7 +26,20 @@
   window.MU.math = function(scope){
     if(typeof katex==='undefined') return false;
     [].forEach.call((scope||document).querySelectorAll('[data-tex]:not([data-done])'), function(el){
-      try{ katex.render(el.getAttribute('data-tex'), el, { throwOnError:false, displayMode: el.hasAttribute('data-block') }); el.setAttribute('data-done','1'); }catch(e){}
+      try{
+        var tx=el.getAttribute('data-tex'), tps=tx.match(/\\text\{[^{}]*\}/g);
+        if(tps && tps.join('').length>45){
+          /* enunciado con mucha prosa, se parte en texto que baja de renglón y fórmulas en línea */
+          el.textContent=''; el.className=(el.className?el.className+' ':'')+'mixto';
+          tx.split(/(\\text\{[^{}]*\})/).forEach(function(pz){
+            if(!pz.trim()) return;
+            var m=pz.match(/^\\text\{([^{}]*)\}$/);
+            if(m){ el.appendChild(document.createTextNode(m[1])); }
+            else { var sp=document.createElement('span'); el.appendChild(sp); katex.render(pz,sp,{throwOnError:false}); }
+          });
+          el.setAttribute('data-done','1');
+        } else { katex.render(tx, el, { throwOnError:false, displayMode: el.hasAttribute('data-block') }); el.setAttribute('data-done','1'); }
+      }catch(e){}
     });
     return true;
   };

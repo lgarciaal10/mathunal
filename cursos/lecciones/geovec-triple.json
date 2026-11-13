@@ -592,7 +592,7 @@
   ]
  },
  "pregunta": {
-  "tex": "\\text{Volumen con aristas}\\ (1,1,0),\\ (0,1,1),\\ (1,0,1)",
+  "tex": "\\text{Volumen, aristas}\\ (1,1,0),(0,1,1),(1,0,1)",
   "opciones": [
    "$2$",
    "$0$",

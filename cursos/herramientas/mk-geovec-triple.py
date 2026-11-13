@@ -64,7 +64,7 @@ prac=[
  {"titulo":"Cambia la altura","grafica":{"draw":1},"laboratorio":True,"bloques":[P("Mueve el deslizador. Abajo se leen el triple producto con signo y el volumen.")]},
  {"titulo":"Vectores coplanares","grafica":{"draw":1,"guide":1,"ok":True},"laboratorio":True,"d":0,"bloques":[EQ("x=0\\ \\Rightarrow\\ V=0"),P("Con altura cero, w queda en el plano de la base y el volumen es cero.")]},
  {"titulo":"Revisa tu respuesta","grafica":{"draw":1,"guide":1,"ok":True,"d":0},"bloques":[{"t":"pregunta"},{"t":"nota","html":"Calcula el determinante de tres por tres con los vectores como filas."}]}]
-preg={"tex":"\\text{Volumen con aristas}\\ (1,1,0),\\ (0,1,1),\\ (1,0,1)","opciones":["$2$","$0$","$3$","$1$"],"correcta":0,
+preg={"tex":"\\text{Volumen, aristas}\\ (1,1,0),(0,1,1),(1,0,1)","opciones":["$2$","$0$","$3$","$1$"],"correcta":0,
  "explicacion":"El determinante de tres por tres es 1 por (1 por 1 menos 1 por 0) menos 1 por (0 por 1 menos 1 por 1) más 0, que da 1 más 1, o sea 2. El volumen es 2.",
  "verificacion":{"formula":"1*(1*1-1*0)-1*(0*1-1*1)+0*x","a":0,"esperado":2},
  "pistas":["Desarrolla el determinante por la primera fila.","Da 1 más 1.","El volumen es 2."],
