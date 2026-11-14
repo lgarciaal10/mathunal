@@ -80,7 +80,7 @@
    [
     18,
     22,
-    "Con 8 términos la suma parcial ya es 1.4999. La serie converge a 3 sobre 2, y la fórmula de la serie geométrica lo da directamente."
+    "Con 9 términos, hasta n igual a 8, la suma parcial ya es 1.4999. La serie converge a 3 sobre 2, y la fórmula de la serie geométrica lo da directamente."
    ]
   ],
   "canales": {
@@ -204,7 +204,7 @@
      },
      {
       "t": "p",
-      "html": "Con 8 términos la suma parcial es <b>1.4999</b>. Se acerca a 1.5, o sea 3 sobre 2, y por eso la serie converge a ese valor."
+      "html": "Con 9 términos, hasta n igual a 8, la suma parcial es <b>1.4999</b>. Se acerca a 1.5, o sea 3 sobre 2, y por eso la serie converge a ese valor."
      }
     ]
    },
@@ -648,7 +648,7 @@
      },
      {
       "t": "p",
-      "html": "Con 8 términos la suma parcial ya es 1.4999. La fórmula de la serie geométrica da directamente 3 sobre 2."
+      "html": "Con 9 términos, hasta n igual a 8, la suma parcial ya es 1.4999. La fórmula de la serie geométrica da directamente 3 sobre 2."
      }
     ]
    },

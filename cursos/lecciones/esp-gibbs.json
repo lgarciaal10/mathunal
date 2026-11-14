@@ -803,7 +803,7 @@
   "dirichlet": "Las condiciones de Dirichlet dicen que si f es periódica y continua a trozos con derivada continua a trozos, su serie de Fourier converge en cada punto al promedio de los límites laterales.",
   "salto": "Una discontinuidad de salto es un punto donde los límites laterales existen pero son distintos.",
   "gibbs": "El fenómeno de Gibbs es el pico que aparece junto a un salto en las sumas parciales. Mide cerca de 9 por ciento del salto y no desaparece al agregar términos, aunque se angosta.",
-  "uniforme": "Si f es continua y suave a trozos, su serie converge a f de forma uniforme, sin picos de Gibbs."
+  "uniforme": "Si f es continua, con f de menos L igual a f de L, y suave a trozos, su serie converge a f de forma uniforme, sin picos de Gibbs."
  },
  "ver": {
   "duracion": 24.0,
@@ -896,7 +896,7 @@
     "bloques": [
      {
       "t": "p",
-      "html": "Una serie de Fourier no siempre converge a la función. Según el teorema de {{gl:dirichlet|Dirichlet}}, en un punto de continuidad converge a f, y en una discontinuidad de {{gl:salto|salto}} converge al promedio de los dos límites laterales. Cerca del salto, las sumas parciales muestran el fenómeno de {{gl:gibbs|Gibbs}}. Si f es continua y suave a trozos, la convergencia es {{gl:uniforme|uniforme}}."
+      "html": "Una serie de Fourier no siempre converge a la función. Según el teorema de {{gl:dirichlet|Dirichlet}}, en un punto de continuidad converge a f, y en una discontinuidad de {{gl:salto|salto}} converge al promedio de los dos límites laterales. Cerca del salto, las sumas parciales muestran el fenómeno de {{gl:gibbs|Gibbs}}. Si f es continua, con f de menos L igual a f de L, y suave a trozos, la convergencia es {{gl:uniforme|uniforme}}."
      }
     ]
    },
@@ -1017,8 +1017,8 @@
         "porque": "Al agregar términos no desaparece."
        },
        {
-        "tex": "f\\ \\text{continua y}\\ C^{1}\\ \\text{a trozos}\\ \\Rightarrow\\ \\text{convergencia uniforme}",
-        "porque": "Sin saltos no hay picos de Gibbs."
+        "tex": "f\\ \\text{continua,}\\ f(-L)=f(L)\\ \\text{y}\\ C^{1}\\ \\text{a trozos}\\ \\Rightarrow\\ \\text{convergencia uniforme}",
+        "porque": "Sin saltos, tampoco en los extremos del periodo, no hay picos de Gibbs."
        }
       ]
      },
@@ -1333,6 +1333,6 @@
  "resumen": [
   "En un punto de continuidad la serie converge a f, y en un salto converge al promedio de los límites laterales.",
   "El fenómeno de Gibbs es un pico de cerca de 9 por ciento del salto que no desaparece al agregar términos.",
-  "Si f es continua y suave a trozos, la serie converge de manera uniforme."
+  "Si f es continua, con f de menos L igual a f de L, y suave a trozos, la serie converge de manera uniforme."
  ]
 }

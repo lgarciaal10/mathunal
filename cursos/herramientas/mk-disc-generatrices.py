@@ -32,7 +32,7 @@ S=[
           ("(1+t)^{2}=1+2t+t^{2}","Los coeficientes son 1, 2 y 1."),
           ("\\dfrac{1}{1-2t}=1+2t+4t^{2}+8t^{3}+\\cdots","La sucesión de las potencias de 2."),
           ("\\dfrac{1}{1-t-t^{2}}=1+t+2t^{2}+3t^{3}+5t^{4}+\\cdots","La función generatriz de Fibonacci.")]),
-   OJO("Aquí la variable t no se evalúa en un número cualquiera. Lo que importa son los coeficientes, y la serie se usa como un papel donde se anotan los términos.")),
+   OJO("En una serie infinita, t se trata como un símbolo formal y no se evalúa en un número cualquiera. Lo que importa son los coeficientes. En un polinomio como uno más t, elevado a la n, sí se puede evaluar, y t igual a 1 da la suma de los coeficientes.")),
  sec("Contar con productos","Productos",P("El producto de funciones generatrices cuenta combinaciones de elecciones independientes."),
    PASOS([("(1+t)(1+t)=1+2t+t^{2}","Dos elecciones de tomar o no tomar un objeto."),
           ("\\dfrac{1}{(1-t)(1-t^{2})(1-t^{5})}","Monedas de 1, 2 y 5, con cualquier cantidad de cada una."),

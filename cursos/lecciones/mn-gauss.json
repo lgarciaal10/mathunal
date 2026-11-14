@@ -237,7 +237,7 @@
     "bloques": [
      {
       "t": "p",
-      "html": "Se eliminan las variables de abajo hacia arriba."
+      "html": "Se eliminan las variables columna por columna, anulando lo que queda debajo de cada pivote. Después se sustituye hacia atrás."
      },
      {
       "t": "pasos",
@@ -320,7 +320,7 @@
         "v": "200"
        }
       ],
-      "cierre": "Factorizar cuesta del orden de n al cubo operaciones, mientras que cada par de sustituciones cuesta del orden de n al cuadrado. Para una matriz de 1000 por 1000, eso es unas mil veces menos trabajo por cada carga nueva. Por eso los programas de estructuras guardan la factorización y la reutilizan."
+      "cierre": "Factorizar cuesta del orden de n al cubo operaciones, mientras que cada par de sustituciones cuesta del orden de n al cuadrado. Para una matriz de 1000 por 1000, eso es del orden de cientos de veces menos trabajo por cada carga nueva. Por eso los programas de estructuras guardan la factorización y la reutilizan."
      }
     ]
    },

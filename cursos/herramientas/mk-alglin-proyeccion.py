@@ -46,7 +46,7 @@ S=[
  completar("Se proyecta v igual a (1, 3) sobre u igual a (2, 1). Falta el producto punto de u consigo mismo.","u\\cdot u=2^{2}+1^{2}=[[hueco]]",
    [("5","cinco"),("3","tres"),("25","veinticinco")],0,
    ["","Eso es 2 más 1. El producto punto suma los cuadrados de las componentes, o sea 4 más 1.","Eso es el cuadrado de 5. Hay que sumar 2 al cuadrado y 1 al cuadrado, que da 5."],"Suma los cuadrados de las componentes.","2 al cuadrado es 4 y 1 al cuadrado es 1. La suma es 5."),
- error("Alguien decidió si dos vectores son ortogonales y se equivocó en un paso. Toca el paso que está mal.",
+ error("Alguien decidió si dos vectores son ortogonales y se equivocó en un paso. Toca el primer paso donde aparece el error.",
    [("u=(1,2),\\quad v=(2,1)","Son los dos vectores.","u es 1, 2 y v es 2, 1"),
     ("\\|u\\|=\\|v\\|=\\sqrt{5}\\ \\Rightarrow\\ \\text{son ortogonales}","Este paso es el que falla.","Las normas son iguales a raíz de 5, así que son ortogonales"),
     ("\\text{Los vectores forman un ángulo recto}","Depende del paso anterior.","Los vectores forman un ángulo recto")],1,

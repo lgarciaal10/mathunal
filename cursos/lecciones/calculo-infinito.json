@@ -249,8 +249,8 @@
         "porque": "Es el caso del ejemplo, 2 sobre 1."
        },
        {
-        "tex": "\\text{Grado del numerador}>\\text{grado del denominador}\\ \\Rightarrow\\ \\text{el límite es infinito}",
-        "porque": "El numerador crece más rápido y el cociente crece sin límite."
+        "tex": "\\text{Grado del numerador}>\\text{grado del denominador}\\ \\Rightarrow\\ \\text{el límite es}\\ +\\infty\\ \\text{o}\\ -\\infty",
+        "porque": "El numerador crece más rápido y el cociente crece sin límite en valor absoluto. El signo depende de los coeficientes principales."
        }
       ]
      }
@@ -486,6 +486,6 @@
  "resumen": [
   "Para x que tiende a infinito se divide entre la mayor potencia de x.",
   "Si los grados son iguales, el límite es el cociente de los coeficientes de mayor grado.",
-  "Si el grado del numerador es menor el límite es 0, y si es mayor crece sin límite."
+  "Si el grado del numerador es menor el límite es 0, y si es mayor crece sin límite en valor absoluto, hacia más infinito o menos infinito según el signo."
  ]
 }

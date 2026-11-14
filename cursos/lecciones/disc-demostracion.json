@@ -492,7 +492,7 @@
      },
      {
       "t": "ojo",
-      "html": "Un condicional con hipótesis imposible es verdadero por vacuidad. Si n al cuadrado más 5n nunca es impar, entonces n por n más 5 siempre es par y la afirmación es verdadera sin hacer nada más."
+      "html": "Un condicional con hipótesis imposible es verdadero por vacuidad. Por ejemplo, si n es par e impar a la vez, entonces n al cuadrado es igual a menos 1. La hipótesis nunca se cumple, así que la afirmación es verdadera sin comprobar nada más."
      }
     ]
    },

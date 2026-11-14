@@ -919,7 +919,7 @@
         "porque": "Con la propiedad de traslación."
        },
        {
-        "tex": "\\text{pulso}\\ [-a,a]\\ \\to\\ \\dfrac{\\operatorname{sen}(a\\omega)}{\\omega}",
+        "tex": "\\text{pulso}\\ [-a,a]\\ \\to\\ \\sqrt{2/\\pi}\\,\\dfrac{\\operatorname{sen}(a\\omega)}{\\omega}",
         "porque": "El pulso rectangular da una función sinc."
        },
        {

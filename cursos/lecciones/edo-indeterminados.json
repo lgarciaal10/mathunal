@@ -895,7 +895,7 @@
    [
     14,
     18,
-    "Con omega cerca de 2 la amplitud se dispara. Justo en 2 la forma A coseno de 2t ya no sirve, porque coseno de 2t es solución de la homogénea. Hay que multiplicar por x."
+    "Con omega cerca de 2 la amplitud se dispara. Justo en 2 la forma A coseno de 2t ya no sirve, porque coseno de 2t es solución de la homogénea. Hay que multiplicar por t."
    ],
    [
     18,

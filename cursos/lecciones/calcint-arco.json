@@ -225,7 +225,7 @@
      },
      {
       "t": "ojo",
-      "html": "La derivada se eleva al cuadrado y luego se suma 1, antes de sacar la raíz. Esa raíz suele complicar la integral, y por eso se eligen ejemplos donde el contenido sale como un cuadrado perfecto."
+      "html": "La derivada se eleva al cuadrado y luego se suma 1, antes de sacar la raíz. Esa raíz suele complicar la integral. Hay casos donde el contenido sale como un cuadrado perfecto o una expresión lineal, y otros, como la raíz de uno más x al cuadrado, que piden sustitución trigonométrica."
      }
     ]
    },
@@ -600,7 +600,7 @@
  },
  "resumen": [
   "La longitud de arco es la integral de la raíz de 1 más la derivada al cuadrado.",
-  "Se eligen casos donde lo de adentro de la raíz es un cuadrado perfecto o una expresión lineal.",
+  "A veces lo de adentro de la raíz es un cuadrado perfecto o una expresión lineal, y otras veces hace falta una sustitución trigonométrica.",
   "El área de la superficie de revolución es 2 pi por la integral de f por la raíz de 1 más f prima al cuadrado."
  ]
 }

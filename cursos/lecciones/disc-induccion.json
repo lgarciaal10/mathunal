@@ -489,7 +489,7 @@
      },
      {
       "t": "p",
-      "html": "Cada vez que sube n, se agrega una fila con n cuadros. Esa fila nueva es lo que se usa en el paso inductivo."
+      "html": "Cada vez que n sube a un nuevo valor, se agrega una fila con ese nuevo valor de cuadros. Al pasar de m a m más 1, se agregan m más 1 cuadros. Esa fila nueva es lo que se usa en el paso inductivo."
      }
     ]
    },

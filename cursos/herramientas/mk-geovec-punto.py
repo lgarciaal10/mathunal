@@ -36,7 +36,7 @@ S=[
  sec("Proyección escalar","Proyección",P("La {{gl:escalar|proyección escalar}} de v sobre u es la longitud con signo de la sombra. Es el producto punto dividido entre la norma de u."),
    PASOS([("\\operatorname{comp}_{u}v=\\dfrac{u\\cdot v}{\\|u\\|}","La fórmula de la proyección escalar."),
           ("v=(4,0),\\ u=(1,1):\\quad \\dfrac{4}{\\sqrt{2}}=2.8284","Con el ejemplo, la sombra de v sobre u mide 2.8284."),
-          ("\\operatorname{proy}_{u}v=\\dfrac{u\\cdot v}{u\\cdot u}\\,u","La proyección vectorial se obtiene multiplicando por el vector unitario.")]),
+          ("\\operatorname{proy}_{u}v=\\dfrac{u\\cdot v}{u\\cdot u}\\,u","Es la proyección escalar por el vector unitario de u, y equivale a esta fórmula.")]),
    OJO("Dos vectores son {{gl:ortogonales|ortogonales}} si su producto punto es cero. Tener la misma longitud no basta para que sean perpendiculares.")),
  eng("La fuerza a lo largo de una rampa","Un bloque de 500 newtons de peso descansa sobre una rampa inclinada 30 grados. Solo la parte del peso que va a lo largo de la rampa lo hace deslizar, y esa parte es la proyección escalar del peso sobre la dirección de la rampa.","F_{\\parallel}=\\dfrac{\\mathbf{F}\\cdot\\mathbf{d}}{\\|\\mathbf{d}\\|}",
    [("Peso","500 N"),("Ángulo de la rampa","30 grados"),("Fuerza a lo largo de la rampa","250 N")],"El peso es el vector (0, menos 500) y la dirección de la rampa es (cos 30, sen 30). El producto punto da menos 500 por sen 30, o sea menos 250. El signo indica que la fuerza empuja hacia abajo de la rampa. La otra parte del peso, de 433 newtons, es perpendicular a la rampa y la comprime. Es un modelo sin rozamiento."),

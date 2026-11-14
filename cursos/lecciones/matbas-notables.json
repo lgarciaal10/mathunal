@@ -889,7 +889,7 @@
    "Distancia entre las curvas, h al cuadrado"
   ],
   "etiquetaSlider": "Valor de h",
-  "alt": "Las curvas x más h, al cuadrado, y x al cuadrado más 2h x. La distancia vertical entre las dos es siempre h al cuadrado, el término que falta"
+  "alt": "Las curvas x más h, al cuadrado, y x al cuadrado más 2h x. La distancia vertical entre las dos es siempre h al cuadrado, el último término del desarrollo"
  },
  "glosario": {
   "notable": "Un producto notable es un producto de polinomios que se puede escribir directo, sin multiplicar término a término, como el cuadrado de una suma.",
@@ -912,7 +912,7 @@
    [
     8,
     14,
-    "Al subir h, esa distancia crece. Es h al cuadrado, el término que falta. Por eso x más h, al cuadrado, no es x al cuadrado más h al cuadrado."
+    "Al subir h, esa distancia crece. Es h al cuadrado, el último término del desarrollo. Por eso x más h, al cuadrado, es x al cuadrado más 2hx más h al cuadrado. Si se omite el doble producto 2hx, el resultado es falso."
    ],
    [
     14,
@@ -1053,7 +1053,7 @@
      },
      {
       "t": "p",
-      "html": "La distancia entre las curvas es h al cuadrado. Es justo el término que se pierde si se olvida el doble producto, o si se dice que el cuadrado de una suma es la suma de los cuadrados."
+      "html": "La distancia entre las curvas es h al cuadrado, el último término del desarrollo. Si se dice que el cuadrado de una suma es la suma de los cuadrados, se pierde el doble producto 2hx, que es lo que más separa esa expresión de la curva real."
      }
     ]
    },

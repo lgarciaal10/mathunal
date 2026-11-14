@@ -38,7 +38,7 @@ S=[
           ("\\mathbf{n}_{1}\\cdot\\mathbf{n}_{2}=0\\ \\Leftrightarrow\\ \\text{planos perpendiculares}","Normales perpendiculares."),
           ("x+y+z=1\\ \\text{y}\\ 2x+2y+2z=7","Las normales (1, 1, 1) y (2, 2, 2) son paralelas, así que son planos paralelos.")]),
    OJO("Dos planos con la misma normal pueden ser el mismo plano o planos distintos. Hay que mirar también el término independiente.")),
- eng("El panel solar inclinado","Un panel solar plano se inclina 30 grados, y su normal unitaria es (0, 0.5, 0.866). Los rayos del sol llegan desde arriba, con dirección (0, 0, 1). La energía que recibe es proporcional al producto punto de la normal con la dirección del sol.","I=I_{0}\\,\\hat{\\mathbf{n}}\\cdot\\hat{\\mathbf{s}}=0.866\\,I_{0}",
+ eng("El panel solar inclinado","Un panel solar plano se inclina 30 grados, y su normal unitaria es (0, 0.5, 0.866). El sol está arriba, y la dirección hacia el sol, vista desde el panel, es (0, 0, 1). La energía que recibe es proporcional al producto punto de la normal con la dirección del sol.","I=I_{0}\\,\\hat{\\mathbf{n}}\\cdot\\hat{\\mathbf{s}}=0.866\\,I_{0}",
    [("Normal del panel","(0, 0.5, 0.866)"),("Rayos del sol","(0, 0, 1)"),("Fracción de energía recibida","86.6 %")],"El panel recibe 86.6 por ciento de lo que recibiría uno horizontal con el sol a la vertical. Como el sol cambia de posición durante el día, el ángulo óptimo cambia, y por eso se estudia la normal del panel frente a la dirección del sol. Es un modelo geométrico que no incluye nubes, sombras ni reflejos."),
  completar("Se escribe el plano que pasa por el origen con vector normal (1, 2, 3). Falta el lado izquierdo.","[[hueco]]=0",
    [("x+2y+3z","x más 2y más 3z"),("3x+2y+z","3x más 2y más z"),("x+y+z","x más y más z")],0,

@@ -18,7 +18,7 @@ glos={"superficie":"Una superficie se puede describir con una parametrización, 
 ver={"duracion":24.0,"capitulos":[
  [0,4,"Se mide cuánto campo atraviesa una esfera, con el campo x, y, z que sale del origen."],
  [4,10,"En cada punto de la esfera el campo es perpendicular a la superficie, y su módulo es igual al radio R."],
- [10,16,"Entonces el flujo es R por el área, que es 4 pi R al cubo. Con R igual a 1 vale 4 pi, cerca de 12.57."],
+ [10,16,"El área de la esfera es 4 pi R al cuadrado. Entonces el flujo es R por el área, o sea 4 pi R al cubo. Con R igual a 1 vale 4 pi, cerca de 12.57."],
  [16,20,"Con R igual a 1.4 el flujo es 34.5, y el área es 24.6. El flujo crece más rápido que el área."],
  [20,24,"El flujo cuenta el campo que atraviesa, y cambia de signo si se invierte la orientación."]],
  "canales":{"draw":[[0.3,0],[3.5,1]],"d":[[4,0.4],[8,0.4],[10,1],[13,1],[16,1.4],[18,1.4],[24,1.4]],"guide":[[4,0],[5,1]]},
@@ -26,7 +26,7 @@ ver={"duracion":24.0,"capitulos":[
 S=[
  sec("La idea",None,P("El {{gl:flujo|flujo}} de un campo a través de una {{gl:superficie|superficie}} mide cuánto campo la atraviesa. Se calcula como la integral de F por la {{gl:normal|normal}}, y la {{gl:orientacion|orientación}} define el signo. En una superficie cerrada se usa la normal hacia afuera, y el flujo total dice si hay fuentes adentro.")),
  sec("Un ejemplo","Un ejemplo",P("El campo x, y, z sale del origen. Mueve el radio de la esfera y mira el flujo."),EQ("\\iint_{S}\\mathbf{F}\\cdot d\\mathbf{S}=\\iint_{S}R\\,dS=R\\cdot4\\pi R^{2}=4\\pi R^{3}"),{"t":"grafica","animar":"dibujar","alt":"El área y el flujo según el radio"}),
- sec("Piensa antes de ver","Piensa",{"t":"piensa","pregunta":"Sobre la esfera de radio R, el campo x, y, z apunta hacia afuera. ¿Qué ángulo hace con la normal?","opciones":["Ninguno, es paralelo","90 grados","180 grados","45 grados"],"correcta":"Ninguno, es paralelo","bien":"Muy bien. Por eso F punto n es igual al módulo de F, que es R.","mal":"Son paralelos, porque la normal de la esfera apunta hacia afuera igual que el campo. Entonces F punto n vale R."}),
+ sec("Piensa antes de ver","Piensa",{"t":"piensa","pregunta":"Sobre la esfera de radio R, el campo x, y, z apunta hacia afuera. ¿Qué ángulo hace con la normal?","opciones":["0 grados, es paralelo","90 grados","180 grados","45 grados"],"correcta":"0 grados, es paralelo","bien":"Muy bien. Por eso F punto n es igual al módulo de F, que es R.","mal":"Son paralelos, porque la normal de la esfera apunta hacia afuera igual que el campo. Entonces F punto n vale R."}),
  sec("Distintos radios","Radios",P("Mira el flujo con radios 0.4, 1, 1.2 y 1.4."),{"t":"acercando","ds":[0.4,1,1.2,1.4],"alt":"El flujo con cuatro radios"},P("Con R igual a 1 el flujo es 4 pi, cerca de 12.57.")),
  sec("El flujo por una esfera","Esfera",P("Se calcula el flujo por una esfera con el campo radial."),
    PASOS([("\\mathbf{F}=(x,y,z),\\quad \\mathbf{n}=\\dfrac{(x,y,z)}{R}","El campo y la normal hacia afuera."),

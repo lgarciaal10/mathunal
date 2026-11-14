@@ -645,7 +645,7 @@
     "bloques": [
      {
       "t": "error",
-      "enunciado": "Alguien clasificó una forma cuadrática y se equivocó en un paso. Toca el paso que está mal.",
+      "enunciado": "Alguien clasificó una forma cuadrática y se equivocó en un paso. Toca el primer paso donde aparece el error.",
       "pasos": [
        {
         "tex": "A=\\begin{pmatrix}1&3\\\\3&1\\end{pmatrix}",

@@ -477,7 +477,7 @@
    [
     4,
     10,
-    "Cuando s vale 1, la elipse es casi redonda y el número de condición es 2."
+    "Cuando s vale 1, la elipse es algo alargada, con semiejes 2 y 1, y el número de condición es 2. Con s igual a 2 sería una circunferencia."
    ],
    [
     10,
@@ -571,7 +571,7 @@
      },
      {
       "t": "eq",
-      "tex": "\\kappa(A)=\\|A\\|\\,\\|A^{-1}\\|=\\dfrac{2}{s}"
+      "tex": "\\kappa(A)=\\|A\\|\\,\\|A^{-1}\\|=\\dfrac{2}{s}\\ \\ (s\\le 2)"
      },
      {
       "t": "grafica",

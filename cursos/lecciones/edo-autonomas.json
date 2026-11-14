@@ -1952,7 +1952,7 @@
         "v": "31.6 m/s"
        }
       ],
-      "cierre": "El equilibrio sale de g menos k v cuadrado igual a 0, o sea v igual a la raíz de g sobre k, unos 31.6 metros por segundo. Como f cambia de positiva a negativa, el equilibrio es estable. Cualquier velocidad inicial se acerca a él. Es un modelo simplificado, porque supone una resistencia proporcional al cuadrado."
+      "cierre": "El equilibrio sale de g menos k v cuadrado igual a 0, o sea v igual a la raíz de g sobre k, unos 31.6 metros por segundo. Como f cambia de positiva a negativa, el equilibrio es estable. Cualquier velocidad inicial positiva se acerca a él. Es un modelo simplificado, porque supone una resistencia proporcional al cuadrado."
      }
     ]
    },
@@ -1962,7 +1962,7 @@
     "bloques": [
      {
       "t": "completar",
-      "enunciado": "Se halla el equilibrio estable de y prima igual a y menos 2. Falta el valor.",
+      "enunciado": "Se halla el equilibrio de y prima igual a y menos 2, que resulta inestable. Falta el valor.",
       "tex": "y'=y-2=0\\ \\Rightarrow\\ y=[[hueco]]",
       "opciones": [
        {

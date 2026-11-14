@@ -408,7 +408,7 @@
     "bloques": [
      {
       "t": "error",
-      "enunciado": "Alguien analizó tres vectores del plano y se equivocó en un paso. Toca el paso que está mal.",
+      "enunciado": "Alguien analizó tres vectores del plano y se equivocó en un paso. Toca el primer paso donde aparece el error.",
       "pasos": [
        {
         "tex": "a=(1,0),\\quad b=(0,1),\\quad c=(2,3)",
@@ -498,7 +498,7 @@
          "$\\{(1,1,1),(2,2,2),(0,0,1)\\}$"
         ],
         "correcta": 0,
-        "resumen": "El primer conjunto tiene 3 vectores independientes, porque la matriz es triangular con unos en la diagonal. Los demás tienen menos de 3 vectores o un vector que es múltiplo de otro.",
+        "resumen": "El primer conjunto tiene 3 vectores independientes, porque la matriz es triangular con unos en la diagonal. Los demás no son bases, porque tienen menos de 3 vectores o son dependientes.",
         "fuente": "Banco MathUNAL, simulacro de Álgebra Lineal"
        },
        {

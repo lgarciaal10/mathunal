@@ -309,7 +309,7 @@
         "porque": "Se evalúa la recta en ese t."
        },
        {
-        "tex": "\\mathbf{v}\\cdot\\mathbf{n}=0\\ \\Leftrightarrow\\ \\text{recta paralela al plano}",
+        "tex": "\\mathbf{v}\\cdot\\mathbf{n}=0\\ \\Leftrightarrow\\ \\text{recta paralela al plano o contenida en él}",
         "porque": "Si la dirección es perpendicular a la normal, no hay un único corte."
        }
       ]
@@ -358,8 +358,8 @@
      {
       "t": "ingenieria",
       "titulo": "El rayo láser sobre una placa",
-      "html": "Un láser sale del punto (1, 2, 3) metros con dirección (1, menos 1, 2) y apunta hacia una placa plana en z igual a 1. El punto donde la toca se obtiene al sustituir la recta del rayo en la ecuación del plano.",
-      "tex": "3+2t=1\\ \\Rightarrow\\ t=-1\\ \\Rightarrow\\ (0,3,1)",
+      "html": "Un láser sale del punto (1, 2, 3) metros con dirección (1, menos 1, menos 2) y apunta hacia una placa plana en z igual a 1. El punto donde la toca se obtiene al sustituir la recta del rayo en la ecuación del plano.",
+      "tex": "3-2t=1\\ \\Rightarrow\\ t=1\\ \\Rightarrow\\ (2,1,1)",
       "datos": [
        {
         "k": "Origen del rayo",
@@ -367,14 +367,14 @@
        },
        {
         "k": "Dirección",
-        "v": "(1, menos 1, 2)"
+        "v": "(1, menos 1, menos 2)"
        },
        {
         "k": "Punto en la placa",
-        "v": "(0, 3, 1) m"
+        "v": "(2, 1, 1) m"
        }
       ],
-      "cierre": "El rayo llega a la placa en el punto (0, 3, 1) metros, después de un parámetro t igual a menos 1, es decir, hacia atrás en la dirección dada. Si la dirección fuera paralela a la placa, el rayo nunca la tocaría. Este cálculo se usa en visión por computador y en trazado de rayos."
+      "cierre": "El rayo llega a la placa en el punto (2, 1, 1) metros, después de un parámetro t igual a 1, es decir, hacia adelante en la dirección dada. Si la dirección fuera paralela a la placa, el rayo nunca la tocaría. Este cálculo se usa en visión por computador y en trazado de rayos."
      }
     ]
    },
@@ -533,7 +533,7 @@
          "el plano pasa por el origen"
         ],
         "correcta": 0,
-        "resumen": "Una recta es paralela a un plano si su director es perpendicular a la normal.",
+        "resumen": "Una recta es paralela a un plano, o está contenida en él, si su director es perpendicular a la normal.",
         "fuente": "Banco MathUNAL, simulacro de Geometría Vectorial y Analítica"
        }
       ]

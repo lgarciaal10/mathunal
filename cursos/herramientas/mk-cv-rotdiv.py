@@ -20,7 +20,7 @@ ver={"duracion":24.0,"capitulos":[
  [4,10,"Con alfa igual a 0 el campo es x, y. Las flechas salen del origen, y la divergencia es 2."],
  [10,16,"Con alfa igual a 0.8 el campo sale y gira a la vez. La divergencia baja y el rotacional sube."],
  [16,20,"Con alfa igual a pi medios el campo es menos y, x. Solo gira, la divergencia es 0 y el rotacional es 2."],
- [20,24,"La divergencia mide la expansión y el rotacional mide el giro, y son dos medidas independientes."]],
+ [20,24,"La divergencia mide la expansión y el rotacional mide el giro, y son dos medidas distintas. En general son independientes, y en este campo particular quedan ligadas por el ángulo alfa."]],
  "canales":{"draw":[[0.3,0],[3.5,1]],"d":[[4,0],[8,0],[10,0.8],[13,0.8],[16,1.57079633],[18,1.57079633],[24,1.57079633]],"guide":[[4,0],[5,1]]},
  "intervalos":{"ok":[16,24]}}
 S=[

@@ -18,7 +18,7 @@ glos={"norma":"Una norma mide el tamaño de un vector o de una matriz. La euclid
  "malcond":"Un sistema mal condicionado tiene un número de condición grande, y pequeñas perturbaciones en los datos producen grandes cambios en la solución."}
 ver={"duracion":24.0,"capitulos":[
  [0,4,"La circunferencia unidad, en azul, se transforma con la matriz diagonal de 2 y s. El resultado es una elipse con semiejes 2 y s."],
- [4,10,"Cuando s vale 1, la elipse es casi redonda y el número de condición es 2."],
+ [4,10,"Cuando s vale 1, la elipse es algo alargada, con semiejes 2 y 1, y el número de condición es 2. Con s igual a 2 sería una circunferencia."],
  [10,16,"Al achicar s, la elipse se aplasta. Con s igual a 0.1, el número de condición es 20."],
  [16,21,"Con s igual a 0.01 es 200. La matriz casi no distingue ciertas direcciones."],
  [21,24,"Un número de condición grande indica un sistema mal condicionado."]],
@@ -26,7 +26,7 @@ ver={"duracion":24.0,"capitulos":[
  "intervalos":{"ok":[16,24]}}
 S=[
  sec("La idea",None,P("Una {{gl:norma|norma}} da el tamaño de un vector o de una matriz. Con ellas se define el {{gl:condicion|número de condición}}, que mide cuánto se amplifican los errores al resolver un sistema. Un sistema con número de condición grande está {{gl:malcond|mal condicionado}}, y su solución cambia mucho con datos casi iguales. La norma {{gl:infinito|infinito}} de una matriz es la mayor suma de valores absolutos por fila.")),
- sec("Un ejemplo","Un ejemplo",P("La matriz diagonal con 2 y s transforma la circunferencia unidad en una elipse. Mueve s y mira cómo se aplasta."),EQ("\\kappa(A)=\\|A\\|\\,\\|A^{-1}\\|=\\dfrac{2}{s}"),{"t":"grafica","animar":"dibujar","alt":"La elipse que forma la matriz"}),
+ sec("Un ejemplo","Un ejemplo",P("La matriz diagonal con 2 y s transforma la circunferencia unidad en una elipse. Mueve s y mira cómo se aplasta."),EQ("\\kappa(A)=\\|A\\|\\,\\|A^{-1}\\|=\\dfrac{2}{s}\\ \\ (s\\le 2)"),{"t":"grafica","animar":"dibujar","alt":"La elipse que forma la matriz"}),
  sec("Piensa antes de ver","Piensa",{"t":"piensa","pregunta":"La matriz diagonal con 2 y 0.01 estira 2 veces en una dirección y 0.01 veces en la otra. ¿Cuánto vale la razón entre el mayor estiramiento y el menor?","opciones":[2,20,100,200],"correcta":200,"bien":"Muy bien. Es 2 entre 0.01, o sea 200, y es el número de condición. Más abajo se ve la elipse aplastada.","mal":"Es 200, porque 2 entre 0.01 da 200. Ese es el número de condición. Más abajo se ve la elipse aplastada."}),
  sec("Aplastando la elipse","La elipse",P("Mira la elipse con s igual a 2, 1, 0.1 y 0.01."),{"t":"acercando","ds":[2,1,0.1,0.01],"alt":"La elipse con cuatro valores de s"},P("Con s igual a 2 la elipse es una circunferencia y el número de condición es 1. Con 0.01 queda casi un segmento.")),
  sec("Normas","Normas",P("Hay normas de vectores y normas de matrices."),

@@ -55,7 +55,7 @@ S=[
  completar("Se calcula el determinante de una matriz de 2 por 2. Falta el producto de la diagonal secundaria.","\\det"+M(3,1,2,4)+"=3\\cdot 4-[[hueco]]",
    [("1\\cdot 2","uno por dos"),("3\\cdot 2","tres por dos"),("1\\cdot 4","uno por cuatro")],0,
    ["","Ese producto mezcla un elemento de la diagonal principal con otro de la secundaria. La diagonal secundaria tiene el 1 y el 2.","Ese producto usa el 4, que ya está en la diagonal principal. La diagonal secundaria es 1 y 2."],"La diagonal secundaria va de arriba a la derecha hasta abajo a la izquierda.","La diagonal secundaria tiene el 1 y el 2, y su producto es 2. El determinante es 12 menos 2, o sea 10."),
- error("Alguien calculó este determinante intercambiando filas y se equivocó en un paso. Toca el paso que está mal.",
+ error("Alguien calculó este determinante intercambiando filas y se equivocó en un paso. Toca el primer paso donde aparece el error.",
    [("A="+M(0,1,2,3),"Es la matriz de partida.","La matriz es 0 1, 2 3"),
     ("\\text{Se intercambian las filas y queda}\\ "+M(2,3,0,1)+"\\ \\text{con determinante}\\ 2\\cdot 1=2","Este paso es el que falla.","Se intercambian las filas y el determinante es 2 por 1, o sea 2"),
     ("\\text{Por tanto}\\ \\det A=2","Esta conclusión depende del paso anterior.","Por tanto el determinante de A es 2")],1,

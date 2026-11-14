@@ -481,7 +481,7 @@
   "absoluto": "El error absoluto es la diferencia entre el valor exacto y el aproximado.",
   "relativo": "El error relativo es el error absoluto dividido entre el valor exacto. Mide el error en proporción.",
   "cifras": "Las cifras significativas son los dígitos con que un número se conoce con confianza. Los ceros a la izquierda no cuentan.",
-  "epsilon": "El épsilon de máquina es el menor número tal que uno más épsilon es mayor que uno en la aritmética de la máquina.",
+  "epsilon": "El épsilon de máquina mide la separación entre los números de la máquina cerca de uno, es decir, la distancia entre 1 y el siguiente número representable. Muchos textos lo definen como el menor número que hace que uno más épsilon sea mayor que uno.",
   "cancelacion": "La cancelación catastrófica es la pérdida de cifras significativas al restar dos números casi iguales."
  },
  "ver": {
@@ -697,7 +697,7 @@
       "items": [
        {
         "tex": "1+\\varepsilon_{maq}>1",
-        "porque": "El épsilon de máquina es el menor número que cambia a uno. En doble precisión es cerca de 2.2 por 10 a la menos 16."
+        "porque": "El épsilon de máquina es la distancia entre 1 y el siguiente número que la máquina puede representar. En doble precisión es cerca de 2.2 por 10 a la menos 16."
        },
        {
         "tex": "\\sqrt{x^{2}+1}-x\\ \\text{para}\\ x\\ \\text{grande}",
@@ -711,7 +711,7 @@
      },
      {
       "t": "ojo",
-      "html": "La cancelación no es un error de la máquina, sino de la fórmula. Se evita reescribiendo la expresión para no restar números casi iguales."
+      "html": "La cancelación sale de restar números casi iguales con precisión finita. A veces se evita reescribiendo la fórmula, como con la raíz de x al cuadrado más 1 menos x. En otros casos, como la derivada numérica, solo se controla eligiendo bien el paso."
      }
     ]
    },

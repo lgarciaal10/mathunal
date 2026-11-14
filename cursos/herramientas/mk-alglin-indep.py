@@ -48,7 +48,7 @@ S=[
  completar("Se hallan las coordenadas de (3, 1) en la base {(1, 1), (1, menos 1)}. Al sumar c1 más c2 igual a 3 con c1 menos c2 igual a 1 se obtiene 2c1 igual a 4.","c_{1}=[[hueco]]",
    [("2","dos"),("1","uno"),("4","cuatro")],0,
    ["","Ese es el valor de c2. Falta dividir 4 entre 2, y eso da c1 igual a 2.","Ese es el lado derecho. Hay que dividir entre 2."],"Divide 4 entre 2.","Al sumar las ecuaciones queda 2c1 igual a 4, así que c1 vale 2. Luego c2 vale 1."),
- error("Alguien analizó tres vectores del plano y se equivocó en un paso. Toca el paso que está mal.",
+ error("Alguien analizó tres vectores del plano y se equivocó en un paso. Toca el primer paso donde aparece el error.",
    [("a=(1,0),\\quad b=(0,1),\\quad c=(2,3)","Son los tres vectores.","a es 1, 0, b es 0, 1, c es 2, 3"),
     ("\\text{Ninguno es múltiplo de otro, así que son independientes}","Este paso es el que falla.","Ninguno es múltiplo de otro, así que son independientes"),
     ("\\text{Forman una base de}\\ \\mathbb{R}^{2}","Depende del paso anterior.","Forman una base de R2")],1,
@@ -62,7 +62,7 @@ S=[
    "Se plantea la combinación, se igualan componentes, se suman las ecuaciones y se halla el otro peso.","Se empieza planteando la combinación."),
 ]
 S+=cierre("Mini simulacro de independencia y bases",[
- banco("al_c2_03","El primer conjunto tiene 3 vectores independientes, porque la matriz es triangular con unos en la diagonal. Los demás tienen menos de 3 vectores o un vector que es múltiplo de otro."),
+ banco("al_c2_03","El primer conjunto tiene 3 vectores independientes, porque la matriz es triangular con unos en la diagonal. Los demás no son bases, porque tienen menos de 3 vectores o son dependientes."),
  banco("al_c2_05","Se resuelve $a+b=5$ y $a-b=3$, y queda $a=4$."),
  banco("al_c2_08","$n$ vectores independientes en un espacio de dimensión $n$ forman una base.")])
 prac=[

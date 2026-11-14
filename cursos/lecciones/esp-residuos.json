@@ -258,7 +258,7 @@
    [
     20,
     24,
-    "Si no hay polos adentro, la integral es cero. Solo cuentan los polos encerrados."
+    "Si la función es analítica adentro, la integral es cero. Solo cuentan las singularidades encerradas."
    ]
   ],
   "canales": {
@@ -775,7 +775,7 @@
   ]
  },
  "resumen": [
-  "El teorema de Cauchy dice que la integral es cero si no hay polos adentro.",
+  "El teorema de Cauchy dice que la integral es cero si la función es analítica adentro y sobre el contorno.",
   "El teorema de los residuos da la integral como 2 pi i por la suma de residuos adentro.",
   "Solo cuentan los polos que quedan dentro del contorno."
  ]

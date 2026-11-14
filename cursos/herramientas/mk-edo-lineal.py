@@ -22,7 +22,7 @@ ver={"duracion":22.0,"capitulos":[
  [4,8,"Por eso las soluciones que parten abajo suben, y las que parten arriba bajan, hacia la recta y igual a 2."],
  [8,14,"Al cambiar el valor inicial, la curva cambia, pero todas se acercan a 2."],
  [14,18,"La solución es y igual a 2 más (y de 0 menos 2) por e a la menos 2x. El término con exponencial se va apagando."],
- [18,22,"Con y de 0 igual a 0.5, la solución vale 1.73 en x igual a 1."]],
+ [18,22,"Con y de 0 igual a 0.5, la solución vale 1.80 en x igual a 1."]],
  "canales":{"draw":[[0.3,0],[7.5,1]],"d":[[8,0.5],[10,2.8],[12,0.2],[14,0.5],[22,0.5]],"guide":[[4,0],[5,1]]},
  "intervalos":{"ok":[18,22]}}
 S=[

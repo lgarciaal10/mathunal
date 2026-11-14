@@ -1013,7 +1013,7 @@
      },
      {
       "t": "ojo",
-      "html": "Un origen es estable si todos los valores propios tienen parte real negativa. Con parte real 0 las trayectorias no se acercan al origen, aunque tampoco se alejan."
+      "html": "El origen es asintóticamente estable si todos los valores propios tienen parte real negativa. Con parte real 0 las trayectorias no se acercan al origen, aunque tampoco se alejan, y un centro es estable pero no asintóticamente estable."
      }
     ]
    },
@@ -1316,6 +1316,6 @@
  "resumen": [
   "Un sistema lineal x prima igual a A x se estudia con los valores propios de A.",
   "Valores propios reales negativos dan un nodo estable, reales de signos opuestos dan una silla, y complejos dan una espiral o un centro.",
-  "El origen es estable cuando todos los valores propios tienen parte real negativa."
+  "El origen es asintóticamente estable cuando todos los valores propios tienen parte real negativa."
  ]
 }

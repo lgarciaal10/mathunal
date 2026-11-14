@@ -347,7 +347,7 @@
      },
      {
       "t": "ojo",
-      "html": "Aquí la variable t no se evalúa en un número cualquiera. Lo que importa son los coeficientes, y la serie se usa como un papel donde se anotan los términos."
+      "html": "En una serie infinita, t se trata como un símbolo formal y no se evalúa en un número cualquiera. Lo que importa son los coeficientes. En un polinomio como uno más t, elevado a la n, sí se puede evaluar, y t igual a 1 da la suma de los coeficientes."
      }
     ]
    },

@@ -802,7 +802,7 @@
      },
      {
       "t": "ojo",
-      "html": "Simétrica y antisimétrica no son opuestas. La igualdad es las dos cosas, y una relación con el par 1, 2 y el par 2, 1 no es ninguna de las dos si se agrega algo más."
+      "html": "Simétrica y antisimétrica no son opuestas. La igualdad es las dos cosas. La relación con los pares 1, 2 y 2, 1 es simétrica pero no antisimétrica. La relación con los pares 1, 2 y 2, 3 es antisimétrica pero no simétrica."
      }
     ]
    },
@@ -860,7 +860,7 @@
         "v": "A antes de C"
        }
       ],
-      "cierre": "Si las dependencias formaran un ciclo, A precedería a B y B precedería a A, y el proyecto no podría terminar, porque ninguna tarea podría empezar primero. Verificar que la relación es antisimétrica y transitiva, o sea un orden parcial, sirve para detectar ciclos y para calcular una secuencia posible de trabajo."
+      "cierre": "Si las dependencias formaran un ciclo, A precedería a B y B precedería a A, y el proyecto no podría terminar, porque ninguna tarea podría empezar primero. Verificar que la relación es antisimétrica y transitiva, o sea un orden estricto (un orden parcial si se agrega la reflexividad), sirve para detectar ciclos y para calcular una secuencia posible de trabajo."
      }
     ]
    },

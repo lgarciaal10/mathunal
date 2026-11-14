@@ -418,7 +418,7 @@
    [
     10,
     16,
-    "Entonces el flujo es R por el área, que es 4 pi R al cubo. Con R igual a 1 vale 4 pi, cerca de 12.57."
+    "El área de la esfera es 4 pi R al cuadrado. Entonces el flujo es R por el área, o sea 4 pi R al cubo. Con R igual a 1 vale 4 pi, cerca de 12.57."
    ],
    [
     16,
@@ -528,12 +528,12 @@
       "t": "piensa",
       "pregunta": "Sobre la esfera de radio R, el campo x, y, z apunta hacia afuera. ¿Qué ángulo hace con la normal?",
       "opciones": [
-       "Ninguno, es paralelo",
+       "0 grados, es paralelo",
        "90 grados",
        "180 grados",
        "45 grados"
       ],
-      "correcta": "Ninguno, es paralelo",
+      "correcta": "0 grados, es paralelo",
       "bien": "Muy bien. Por eso F punto n es igual al módulo de F, que es R.",
       "mal": "Son paralelos, porque la normal de la esfera apunta hacia afuera igual que el campo. Entonces F punto n vale R."
      }

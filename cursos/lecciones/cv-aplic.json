@@ -405,7 +405,7 @@
      },
      {
       "t": "p",
-      "html": "El centroide siempre está a 3 cuartos del extremo, en x."
+      "html": "La coordenada x del centroide está siempre a 3 cuartos de la distancia del origen al extremo, o sea a un cuarto de a antes del extremo."
      }
     ]
    },

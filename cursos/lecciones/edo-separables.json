@@ -1828,7 +1828,7 @@
      },
      {
       "t": "p",
-      "html": "Todas las soluciones tienen la misma forma. Cambiar la condición inicial solo las sube o las baja."
+      "html": "Todas las soluciones tienen la misma forma. Cambiar la condición inicial solo las estira o las encoge en vertical, porque multiplica por la constante."
      }
     ]
    },

@@ -300,7 +300,7 @@
        },
        {
         "tex": "\\operatorname{proy}_{u}v=\\dfrac{u\\cdot v}{u\\cdot u}\\,u",
-        "porque": "La proyección vectorial se obtiene multiplicando por el vector unitario."
+        "porque": "Es la proyección escalar por el vector unitario de u, y equivale a esta fórmula."
        }
       ]
      },

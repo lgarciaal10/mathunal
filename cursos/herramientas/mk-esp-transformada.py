@@ -36,7 +36,7 @@ S=[
  sec("Ejemplos clásicos","Ejemplos",P("Algunas transformadas conviene conocerlas."),
    PASOS([("e^{-|x|}\\ \\to\\ \\sqrt{\\tfrac{2}{\\pi}}\\dfrac{1}{1+\\omega^{2}}","La exponencial de dos lados da una lorentziana."),
           ("h(x)=f(x-2)\\ \\Rightarrow\\ \\hat{h}=e^{-2i\\omega}\\sqrt{\\tfrac{2}{\\pi}}\\dfrac{1}{1+\\omega^{2}}","Con la propiedad de traslación."),
-          ("\\text{pulso}\\ [-a,a]\\ \\to\\ \\dfrac{\\operatorname{sen}(a\\omega)}{\\omega}","El pulso rectangular da una función sinc."),
+          ("\\text{pulso}\\ [-a,a]\\ \\to\\ \\sqrt{2/\\pi}\\,\\dfrac{\\operatorname{sen}(a\\omega)}{\\omega}","El pulso rectangular da una función sinc."),
           ("e^{-ax^{2}}\\ \\to\\ \\text{gaussiana}","La gaussiana se transforma en otra gaussiana.")])),
  eng("El ancho de banda de un pulso","Un pulso rectangular muy corto sirve para excitar un circuito y probar muchas frecuencias a la vez, porque su transformada es ancha. Un pulso largo prueba pocas frecuencias, con más precisión. Ese es el compromiso de la incertidumbre.","\\Delta t\\cdot\\Delta\\omega\\gtrsim\\text{constante}",
    [("Pulso corto","banda ancha"),("Pulso largo","banda angosta"),("Compromiso","no se tienen los dos")],"En un radar o en un sistema de comunicaciones, el ancho del pulso decide la resolución en distancia y en frecuencia. Si se quiere medir una distancia con precisión se usa un pulso corto, pero entonces la frecuencia queda poco definida. Es la misma limitación que aparece en mecánica cuántica con posición y momento."),

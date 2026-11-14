@@ -176,7 +176,7 @@
    [
     20,
     24,
-    "La divergencia mide la expansión y el rotacional mide el giro, y son dos medidas independientes."
+    "La divergencia mide la expansión y el rotacional mide el giro, y son dos medidas distintas. En general son independientes, y en este campo particular quedan ligadas por el ángulo alfa."
    ]
   ],
   "canales": {

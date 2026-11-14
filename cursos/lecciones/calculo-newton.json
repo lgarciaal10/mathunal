@@ -118,7 +118,7 @@
     "bloques": [
      {
       "t": "p",
-      "html": "Hay ecuaciones que no se pueden resolver con álgebra, como x al cubo más x igual a 1. El método de Newton encuentra una {{gl:raiz|raíz}} por aproximaciones sucesivas, y usa tangentes para mejorar cada intento."
+      "html": "Hay ecuaciones que no se pueden resolver con álgebra, como x al cubo más x igual a coseno de x. El método de Newton encuentra una {{gl:raiz|raíz}} por aproximaciones sucesivas, y usa tangentes para mejorar cada intento."
      }
     ]
    },

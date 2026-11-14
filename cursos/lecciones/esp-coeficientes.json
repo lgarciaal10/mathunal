@@ -836,7 +836,7 @@
     "bloques": [
      {
       "t": "error",
-      "enunciado": "Alguien analizó la serie de Fourier de f de x igual a x y se equivocó en un paso. Toca el paso que está mal.",
+      "enunciado": "Alguien analizó la serie de Fourier de f de x igual a x y se equivocó en un paso. Toca el primer paso donde aparece el error.",
       "pasos": [
        {
         "tex": "f(x)=x\\ \\text{es impar}",

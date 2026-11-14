@@ -18,7 +18,7 @@ ver={"duracion":22.0,"capitulos":[
  [0,4,"La ecuación y segunda más 4y igual a coseno de omega t describe una masa en un resorte, empujada por una fuerza. Esta es la respuesta cuando omega vale 0.5 y parte del reposo."],
  [4,8,"La curva de apoyo es la solución particular. Tiene la misma forma que la fuerza, un coseno de omega t por una constante."],
  [8,14,"Al acercar omega a 2, la frecuencia natural del resorte, la amplitud de la solución particular crece, porque se divide entre 4 menos omega al cuadrado."],
- [14,18,"Con omega cerca de 2 la amplitud se dispara. Justo en 2 la forma A coseno de 2t ya no sirve, porque coseno de 2t es solución de la homogénea. Hay que multiplicar por x."],
+ [14,18,"Con omega cerca de 2 la amplitud se dispara. Justo en 2 la forma A coseno de 2t ya no sirve, porque coseno de 2t es solución de la homogénea. Hay que multiplicar por t."],
  [18,22,"Con omega igual a 1.85 la amplitud de la solución particular es 1.73, y la respuesta total muestra pulsos."]],
  "canales":{"draw":[[0.3,0],[3.5,1]],"d":[[4,0.5],[8,0.5],[9,1],[13,1.85],[22,1.85]],"guide":[[4,0],[5,1]]},
  "intervalos":{"ok":[18,22]}}

@@ -21,7 +21,7 @@ graf={"tipo":"plano","x":[-8.2,8.2],"y":[-1.8,1.8],"a":1,"b":10,"inicio":3,"ente
 glos={"dirichlet":"Las condiciones de Dirichlet dicen que si f es periódica y continua a trozos con derivada continua a trozos, su serie de Fourier converge en cada punto al promedio de los límites laterales.",
  "salto":"Una discontinuidad de salto es un punto donde los límites laterales existen pero son distintos.",
  "gibbs":"El fenómeno de Gibbs es el pico que aparece junto a un salto en las sumas parciales. Mide cerca de 9 por ciento del salto y no desaparece al agregar términos, aunque se angosta.",
- "uniforme":"Si f es continua y suave a trozos, su serie converge a f de forma uniforme, sin picos de Gibbs."}
+ "uniforme":"Si f es continua, con f de menos L igual a f de L, y suave a trozos, su serie converge a f de forma uniforme, sin picos de Gibbs."}
 ver={"duracion":24.0,"capitulos":[
  [0,4,"La onda cuadrada vale 1 de 0 a pi, y menos 1 de menos pi a 0. Tiene un salto en x igual a 0."],
  [4,9,"Con un término, la serie es una sola onda seno."],
@@ -31,7 +31,7 @@ ver={"duracion":24.0,"capitulos":[
  "canales":{"draw":[[0.3,0],[3.5,1]],"d":[[4,1],[8,1],[10,3],[13,6],[16,10],[24,10]],"guide":[[4,0],[5,1]]},
  "intervalos":{"ok":[15,24]}}
 S=[
- sec("La idea",None,P("Una serie de Fourier no siempre converge a la función. Según el teorema de {{gl:dirichlet|Dirichlet}}, en un punto de continuidad converge a f, y en una discontinuidad de {{gl:salto|salto}} converge al promedio de los dos límites laterales. Cerca del salto, las sumas parciales muestran el fenómeno de {{gl:gibbs|Gibbs}}. Si f es continua y suave a trozos, la convergencia es {{gl:uniforme|uniforme}}.")),
+ sec("La idea",None,P("Una serie de Fourier no siempre converge a la función. Según el teorema de {{gl:dirichlet|Dirichlet}}, en un punto de continuidad converge a f, y en una discontinuidad de {{gl:salto|salto}} converge al promedio de los dos límites laterales. Cerca del salto, las sumas parciales muestran el fenómeno de {{gl:gibbs|Gibbs}}. Si f es continua, con f de menos L igual a f de L, y suave a trozos, la convergencia es {{gl:uniforme|uniforme}}.")),
  sec("Un ejemplo","Un ejemplo",P("La onda cuadrada tiene un salto en 0. Mira sus sumas parciales y el pico junto al salto."),EQ("f(x)=\\dfrac{4}{\\pi}\\displaystyle\\sum_{k\\ \\text{impar}}\\dfrac{\\operatorname{sen}kx}{k}"),{"t":"grafica","animar":"dibujar","alt":"Las sumas parciales de la onda cuadrada"}),
  sec("Piensa antes de ver","Piensa",{"t":"piensa","pregunta":"La función vale menos 1 a la izquierda de 0 y 1 a la derecha. ¿A qué valor converge la serie justo en x igual a 0, que es el promedio de los dos límites?","opciones":[-1,0,1,2],"correcta":0,"bien":"Muy bien. El promedio de menos 1 y 1 es 0. Más abajo se ve que todas las sumas parciales valen 0 en ese punto.","mal":"Converge a 0, que es el promedio de menos 1 y 1. Más abajo se ve que todas las sumas parciales valen 0 en ese punto."}),
  sec("Agregando términos","Los términos",P("Mira la suma parcial con 1, 3, 6 y 10 términos."),{"t":"acercando","ds":[1,3,6,10],"alt":"La suma parcial con cuatro cantidades de términos"},P("El pico junto al salto se angosta, pero su altura se queda cerca de 1.18, es decir, un 9 por ciento del salto por encima de 1.")),
@@ -44,7 +44,7 @@ S=[
  sec("El fenómeno de Gibbs","Gibbs",P("El pico de Gibbs es una propiedad de la convergencia cerca de un salto."),
    PASOS([("\\text{pico}\\approx1+0.0895\\cdot2\\approx1.179","El exceso es cerca de 9 por ciento del salto, que aquí es 2."),
           ("N\\to\\infty\\ \\Rightarrow\\ \\text{el pico se angosta pero no baja}","Al agregar términos no desaparece."),
-          ("f\\ \\text{continua y}\\ C^{1}\\ \\text{a trozos}\\ \\Rightarrow\\ \\text{convergencia uniforme}","Sin saltos no hay picos de Gibbs.")]),
+          ("f\\ \\text{continua,}\\ f(-L)=f(L)\\ \\text{y}\\ C^{1}\\ \\text{a trozos}\\ \\Rightarrow\\ \\text{convergencia uniforme}","Sin saltos, tampoco en los extremos del periodo, no hay picos de Gibbs.")]),
    OJO("Gibbs no es un error de cálculo, sino una propiedad de aproximar un salto con ondas suaves. Se atenúa multiplicando los coeficientes por un factor que decrece, como en los factores de Fejér.")),
  eng("El rebote de una señal cuadrada","Una señal cuadrada que pasa por un filtro pasa bajos pierde sus armónicos altos, y queda como una suma parcial de su serie. En la salida aparece un rebote junto a cada flanco, el fenómeno de Gibbs, que se llama también ringing.","\\text{pico}\\approx1.18\\ \\text{con salto de}\\ -1\\ \\text{a}\\ 1",
    [("Salto","de menos 1 a 1"),("Pico de la suma parcial","cerca de 1.18"),("Al agregar armónicos","se angosta, pero no baja")],"En un amplificador o en un enlace de datos, ese rebote puede superar el nivel permitido en 9 por ciento del salto. Por eso se diseñan los filtros con una transición suave, y no con un corte abrupto, y se deja un margen en los niveles de la señal."),
@@ -78,6 +78,6 @@ preg={"tex":"f(0^{+})=3,\\ f(0^{-})=1.\\ \\text{La serie en 0 vale}","opciones":
  "verificacion":{"formula":"(3+1)/2+0*x","a":0,"esperado":2},
  "pistas":["Es el promedio de los dos límites.","Los límites son 3 y 1.","Su promedio es 2."],
  "errores":["","Tres es el límite de la derecha, y la serie converge al promedio.","Uno es el límite de la izquierda, y la serie converge al promedio.","Cero sería el promedio si los límites fueran opuestos, como menos 1 y 1."]}
-res=["En un punto de continuidad la serie converge a f, y en un salto converge al promedio de los límites laterales.","El fenómeno de Gibbs es un pico de cerca de 9 por ciento del salto que no desaparece al agregar términos.","Si f es continua y suave a trozos, la serie converge de manera uniforme."]
+res=["En un punto de continuidad la serie converge a f, y en un salto converge al promedio de los límites laterales.","El fenómeno de Gibbs es un pico de cerca de 9 por ciento del salto que no desaparece al agregar términos.","Si f es continua, con f de menos L igual a f de L, y suave a trozos, la serie converge de manera uniforme."]
 write(lesson("es-m1-l3","Lección 3 de 5","Convergencia de Dirichlet y fenómeno de Gibbs",28,graf,glos,ver,S,prac,preg,res,modulo=MOD,ejercicios=8,curso="Matemáticas Especiales"),"esp-gibbs.json")
 print('picos',pk)

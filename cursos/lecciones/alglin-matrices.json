@@ -394,7 +394,7 @@
      {
       "t": "ingenieria",
       "titulo": "Una fuerza en ejes inclinados",
-      "html": "En mecánica, una fuerza se descompone en ejes distintos al girar el sistema de referencia. Ese cambio se hace con una matriz de rotación, y la fuerza nueva es el producto de la matriz por el vector de la fuerza.",
+      "html": "En mecánica, a veces se necesita girar una fuerza un ángulo dado. Ese giro se hace con una matriz de rotación, y la fuerza girada es el producto de la matriz por el vector de la fuerza.",
       "tex": "F'=R\\,F=\\begin{pmatrix}\\cos\\theta&-\\operatorname{sen}\\theta\\\\ \\operatorname{sen}\\theta&\\cos\\theta\\end{pmatrix}\\begin{pmatrix}100\\\\0\\end{pmatrix}",
       "datos": [
        {

@@ -18,7 +18,7 @@ ver={"duracion":24.0,"capitulos":[
  [4,10,"Con el ángulo en 0 el corte es la parábola x al cuadrado, que abre hacia arriba, como un mínimo."],
  [10,16,"Con el ángulo en pi cuartos el corte es plano, la curvatura es cero."],
  [16,20,"Con el ángulo en pi medios el corte es menos y al cuadrado, y abre hacia abajo, como un máximo."],
- [20,24,"Mínimo en una dirección y máximo en otra es lo que define un punto silla, y su hessiano es negativo."]],
+ [20,24,"Mínimo en una dirección y máximo en otra es lo que define un punto silla, y su discriminante D, el determinante del hessiano, es negativo."]],
  "canales":{"draw":[[0.3,0],[3.5,1]],"d":[[4,0],[8,0],[10,0.785],[13,0.785],[16,1.5708],[18,1.5708],[24,1.5708]],"guide":[[4,0],[5,1]]},
  "intervalos":{"ok":[16,24]}}
 S=[
@@ -38,7 +38,7 @@ S=[
           ("D<0\\ \\Rightarrow\\ \\text{punto silla}","Cambia de concavidad según la dirección."),
           ("D=0\\ \\Rightarrow\\ \\text{no concluyente}","Se necesita otro método.")]),
    OJO("El signo de f sub x x decide entre mínimo y máximo, pero solo cuando D es positivo. Con D negativo el signo de f sub x x no importa.")),
- eng("El diseño de un depósito","El costo de material de un depósito abierto depende de su largo y su ancho para un volumen fijo. Se busca el diseño de menor costo, y el punto crítico de la función de costo lo da.","C(x,y)=2xy+\\dfrac{2V}{x}+\\dfrac{2V}{y}",
+ eng("El diseño de un depósito","El costo de material de un depósito abierto depende de su largo y su ancho para un volumen fijo. Se busca el diseño de menor costo, y el punto crítico de la función de costo lo da.","C(x,y)=xy+\\dfrac{2V}{x}+\\dfrac{2V}{y}",
    [("Variables","largo y ancho"),("Punto crítico","dos derivadas parciales iguales a cero"),("Clasificación","D positivo y f sub x x positivo, mínimo")],"Con el hessiano se confirma que el punto crítico es un mínimo y no una silla. Luego se compara con el costo en los bordes, porque el dominio es x e y positivos."),
  completar("En un punto crítico con D positivo y f sub x x positivo, hay un [[hueco]] local.","D>0,\\ f_{xx}>0\\ \\Rightarrow\\ [[hueco]]",
    [("\\text{minimo}","mínimo"),("\\text{maximo}","máximo"),("\\text{silla}","silla")],0,

@@ -639,7 +639,7 @@
         "v": "266.7 J"
        }
       ],
-      "cierre": "El trapecio sobreestima el trabajo, porque la fuerza es convexa y los trapecios quedan por encima. Con más mediciones se acercaría al valor real. Si se tuviera un punto en 0.5, 1 y 1.5 metros también, la regla de Simpson daría el valor exacto, porque la fuerza es un polinomio de grado 2."
+      "cierre": "El trapecio sobreestima el trabajo, porque la fuerza es convexa y los trapecios quedan por encima. Con más mediciones se acercaría al valor real. Con esos mismos tres puntos, la regla de Simpson daría 266.7 julios, el valor exacto, porque la fuerza del modelo es un polinomio de grado 2."
      }
     ]
    },

@@ -38,7 +38,7 @@ S=[
    PASOS([("(1,2,3)\\cdot(2,-1,0)=2-2+0=0","Son ortogonales."),
           ("(1,1,0)\\cdot(0,1,1)=1","El producto punto es 1."),
           ("\\cos\\theta=\\dfrac{1}{\\sqrt{2}\\,\\sqrt{2}}=\\dfrac12\\ \\Rightarrow\\ \\theta=60^{\\circ}","El ángulo entre las dos diagonales de caras vecinas de un cubo.")]),
-   OJO("En el espacio, dos vectores perpendiculares a un tercero no son paralelos entre sí. Hay infinitos vectores perpendiculares a uno dado, y forman un plano.")),
+   OJO("En el espacio, dos vectores perpendiculares a un tercero no tienen por qué ser paralelos entre sí, aunque en el plano sí lo serían. Hay infinitos vectores perpendiculares a uno dado, y forman un plano.")),
  eng("El ángulo entre dos barras","Dos barras salen de un mismo nodo de una armadura espacial, con vectores (2, 3, 6) y (6, 2, 3) metros. Para diseñar la unión se necesita el ángulo entre ellas, que se obtiene con el producto punto.","\\cos\\theta=\\dfrac{36}{7\\cdot7}=\\dfrac{36}{49}",
    [("Barra 1","(2, 3, 6) m"),("Barra 2","(6, 2, 3) m"),("Ángulo entre ellas","42.7 grados")],"Las dos barras miden 7 metros, el producto punto es 36 y el coseno es 36 sobre 49, o sea 0.735. El ángulo es 42.7 grados. Con ese valor se diseña la placa de unión. Es un cálculo geométrico y no incluye las cargas, que dependen del material y de la estructura."),
  completar("Se calcula el producto punto de (1, 2, 2) y (3, 0, 4). Falta el resultado.","1\\cdot3+2\\cdot0+2\\cdot4=[[hueco]]",

@@ -447,7 +447,7 @@
     "bloques": [
      {
       "t": "error",
-      "enunciado": "Alguien calculó este determinante intercambiando filas y se equivocó en un paso. Toca el paso que está mal.",
+      "enunciado": "Alguien calculó este determinante intercambiando filas y se equivocó en un paso. Toca el primer paso donde aparece el error.",
       "pasos": [
        {
         "tex": "A=\\begin{pmatrix}0&1\\\\2&3\\end{pmatrix}",

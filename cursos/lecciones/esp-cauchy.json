@@ -291,7 +291,7 @@
     "bloques": [
      {
       "t": "p",
-      "html": "Si f de z es u más i v, la derivada compleja existe solo si se cumplen las ecuaciones de {{gl:cr|Cauchy-Riemann}}, u sub x igual a v sub y y u sub y igual a menos v sub x. Entonces u y v son {{gl:armonica|armónicas}}. Una función analítica define un {{gl:mapeo|mapeo}} del plano que es {{gl:conforme|conforme}}, y conserva los ángulos."
+      "html": "Si f de z es u más i v, la derivada compleja existe solo si se cumplen las ecuaciones de {{gl:cr|Cauchy-Riemann}}, u sub x igual a v sub y y u sub y igual a menos v sub x. Entonces u y v son {{gl:armonica|armónicas}}. Una función analítica define un {{gl:mapeo|mapeo}} del plano que es {{gl:conforme|conforme}} en los puntos donde la derivada no se anula, y conserva los ángulos."
      }
     ]
    },

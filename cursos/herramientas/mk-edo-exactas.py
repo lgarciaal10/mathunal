@@ -46,7 +46,7 @@ S=[
  completar("Se halla la función potencial integrando M igual a 2x más y con respecto a x. Falta la parte que depende de y.","\\psi=x^{2}+xy+[[hueco]]",
    [("g(y)","g de y"),("C","C"),("0","cero")],0,
    ["","La constante C aparece al final, en psi igual a C. Aquí hace falta una función de y, porque al derivar con respecto a x desaparece.","No se puede poner 0. Hay que sumar una función de y, que se halla después con N."],"Al integrar con respecto a x, lo que depende solo de y se perdió.","La constante de integración puede depender de y, y se llama g de y."),
- error("Alguien resolvió una ecuación exacta y se equivocó en un paso. Toca el paso que está mal.",
+ error("Alguien resolvió una ecuación exacta y se equivocó en un paso. Toca el primer paso donde aparece el error.",
    [("M=2x+y,\\quad N=x+2y,\\quad M_{y}=N_{x}=1","Es exacta.","M es 2x más y, N es x más 2y, y las derivadas cruzadas son 1"),
     ("\\psi=\\int M\\,dx=x^{2}+xy+C","Este paso es el que falla.","Psi es x al cuadrado más x y más C"),
     ("\\psi=x^{2}+xy+C=0","Depende del paso anterior.","Psi es x al cuadrado más xy más C igual a 0")],1,

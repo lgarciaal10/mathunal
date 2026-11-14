@@ -320,7 +320,7 @@
      },
      {
       "t": "ojo",
-      "html": "En el espacio, dos vectores perpendiculares a un tercero no son paralelos entre sí. Hay infinitos vectores perpendiculares a uno dado, y forman un plano."
+      "html": "En el espacio, dos vectores perpendiculares a un tercero no tienen por qué ser paralelos entre sí, aunque en el plano sí lo serían. Hay infinitos vectores perpendiculares a uno dado, y forman un plano."
      }
     ]
    },

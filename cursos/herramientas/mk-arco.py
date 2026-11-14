@@ -22,7 +22,7 @@ S=[
  sec("De dónde sale la fórmula","La fórmula",P("Un pedacito de curva es casi recto, y su longitud sale del teorema de Pitágoras con catetos dx y dy. Como dy es y prima por dx, queda la fórmula."),
    EQ("ds=\\sqrt{dx^{2}+dy^{2}}=\\sqrt{1+\\left(y'\\right)^{2}}\\,dx"),
    EQ("L=\\int_{a}^{b}\\sqrt{1+\\left(y'\\right)^{2}}\\,dx"),
-   OJO("La derivada se eleva al cuadrado y luego se suma 1, antes de sacar la raíz. Esa raíz suele complicar la integral, y por eso se eligen ejemplos donde el contenido sale como un cuadrado perfecto.")),
+   OJO("La derivada se eleva al cuadrado y luego se suma 1, antes de sacar la raíz. Esa raíz suele complicar la integral. Hay casos donde el contenido sale como un cuadrado perfecto o una expresión lineal, y otros, como la raíz de uno más x al cuadrado, que piden sustitución trigonométrica.")),
  sec("Aplicarla","Aplicarla",PASOS([("y=\\dfrac{x^{2}}{2}\\ \\Rightarrow\\ y'=x","Se deriva la función."),
           ("L=\\int_{0}^{2}\\sqrt{1+x^{2}}\\,dx","Se reemplaza en la fórmula."),
           ("=\\left[\\dfrac{x\\sqrt{1+x^{2}}+\\ln\\left(x+\\sqrt{1+x^{2}}\\right)}{2}\\right]_{0}^{2}","Esta primitiva sale con sustitución trigonométrica, con x igual a tangente de theta."),
@@ -67,5 +67,5 @@ preg={"tex":"y=\\dfrac{1}{3}\\left(x^{2}+2\\right)^{3/2},\\quad 0\\le x\\le 3,\\
  "verificacion":{"formula":"(3^3/3+3)-(0)+0*x","a":0,"esperado":12},
  "pistas":["Deriva y. La derivada de un tercio por (x al cuadrado más 2) a la tres medios es x por la raíz de x al cuadrado más 2.","Eleva la derivada al cuadrado y suma 1. Queda un cuadrado perfecto.","La raíz da x al cuadrado más 1. Integra entre 0 y 3."],
  "errores":["","Se olvidó el 1 de x al cuadrado más 1. La integral es x al cubo sobre 3 más x, que da 9 más 3.","Revisa la cuenta. La integral es x al cubo sobre 3 más x entre 0 y 3, que da 12.","Revisa la cuenta. La integral es x al cubo sobre 3 más x entre 0 y 3, que da 12."]}
-res=["La longitud de arco es la integral de la raíz de 1 más la derivada al cuadrado.","Se eligen casos donde lo de adentro de la raíz es un cuadrado perfecto o una expresión lineal.","El área de la superficie de revolución es 2 pi por la integral de f por la raíz de 1 más f prima al cuadrado."]
+res=["La longitud de arco es la integral de la raíz de 1 más la derivada al cuadrado.","A veces lo de adentro de la raíz es un cuadrado perfecto o una expresión lineal, y otras veces hace falta una sustitución trigonométrica.","El área de la superficie de revolución es 2 pi por la integral de f por la raíz de 1 más f prima al cuadrado."]
 write(lesson("calcint-m3-l3","Lección 3 de 5","Longitud de arco y superficies",26,graf,glos,ver,S,prac,preg,res,modulo=MOD,ejercicios=4),"calcint-arco.json")

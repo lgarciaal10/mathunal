@@ -11,14 +11,14 @@ graf={"tipo":"plano","x":[-3.5,3.5],"y":[-2.5,19],"a":0.5,"b":2.5,"inicio":1,
   {"t":"punto","p":["1","1+2*x"],"c":3,"guia":True}],
  "lecturas":[{"rotulo":"valor de h","formula":"x"},{"rotulo":"lo que falta, h al cuadrado","formula":"x*x"}],
  "etiquetas":["Valor de h","Distancia entre las curvas, h al cuadrado"],"etiquetaSlider":"Valor de h",
- "alt":"Las curvas x más h, al cuadrado, y x al cuadrado más 2h x. La distancia vertical entre las dos es siempre h al cuadrado, el término que falta"}
+ "alt":"Las curvas x más h, al cuadrado, y x al cuadrado más 2h x. La distancia vertical entre las dos es siempre h al cuadrado, el último término del desarrollo"}
 glos={"notable":"Un producto notable es un producto de polinomios que se puede escribir directo, sin multiplicar término a término, como el cuadrado de una suma.",
  "factorizar":"Factorizar es escribir una expresión como un producto de expresiones más simples. Es el camino contrario a los productos notables.",
  "trinomio":"Un trinomio cuadrado perfecto es una expresión de tres términos que es el cuadrado de un binomio, como x al cuadrado más 6x más 9."}
 ver={"duracion":22.0,"capitulos":[
  [0,4,"La curva grande es x más h, al cuadrado. La curva de apoyo es solo x al cuadrado más 2h por x."],
  [4,8,"Entre las dos hay una distancia fija. Se ve en x igual a 1, entre los dos puntos."],
- [8,14,"Al subir h, esa distancia crece. Es h al cuadrado, el término que falta. Por eso x más h, al cuadrado, no es x al cuadrado más h al cuadrado."],
+ [8,14,"Al subir h, esa distancia crece. Es h al cuadrado, el último término del desarrollo. Por eso x más h, al cuadrado, es x al cuadrado más 2hx más h al cuadrado. Si se omite el doble producto 2hx, el resultado es falso."],
  [14,18,"Con h igual a 2, la distancia es 4. Mira la lectura de abajo."],
  [18,22,"Con h igual a 1.5 la distancia es 2.25. El error más común es olvidar el término del medio, el doble producto."]],
  "canales":{"draw":[[0.3,0],[3.5,1]],"d":[[4,1],[8,1],[11,2.5],[13,2],[17,2],[18,1.5],[22,1.5]],"guide":[[4,0],[5,1]]},
@@ -27,7 +27,7 @@ S=[
  sec("La idea",None,P("Los {{gl:notable|productos notables}} son atajos para multiplicar, y la {{gl:factorizar|factorización}} es usarlos al revés. Saber factorizar sirve para simplificar fracciones, resolver ecuaciones y hallar ceros. Casi todo se reduce a reconocer unos pocos patrones.")),
  sec("Un ejemplo","Un ejemplo",P("Mira el cuadrado de una suma. Falta algo si solo se elevan los términos al cuadrado."),EQ("(x+h)^{2}=x^{2}+2hx+h^{2}"),{"t":"grafica","animar":"dibujar","alt":"Las dos curvas"}),
  sec("Piensa antes de ver","Piensa",{"t":"piensa","pregunta":"En x más 3, al cuadrado, el término del medio es 2 por x por 3. ¿Cuánto vale ese coeficiente de x?","opciones":[3,6,9,12],"correcta":6,"bien":"Muy bien. Es 6x. Más abajo se ve qué pasa si se olvida ese término.","mal":"Es 6, porque 2 por 3 es 6. Más abajo se ve qué pasa si se olvida ese término."}),
- sec("Lo que falta","Lo que falta",P("Mira cómo cambia la distancia entre las curvas al cambiar h."),{"t":"acercando","ds":[1,2,2.5,1.5],"alt":"La distancia para varios h"},P("La distancia entre las curvas es h al cuadrado. Es justo el término que se pierde si se olvida el doble producto, o si se dice que el cuadrado de una suma es la suma de los cuadrados.")),
+ sec("Lo que falta","Lo que falta",P("Mira cómo cambia la distancia entre las curvas al cambiar h."),{"t":"acercando","ds":[1,2,2.5,1.5],"alt":"La distancia para varios h"},P("La distancia entre las curvas es h al cuadrado, el último término del desarrollo. Si se dice que el cuadrado de una suma es la suma de los cuadrados, se pierde el doble producto 2hx, que es lo que más separa esa expresión de la curva real.")),
  sec("Los productos notables","Productos",P("Estos son los patrones que más se usan."),
    PASOS([("(a+b)^{2}=a^{2}+2ab+b^{2},\\qquad (a-b)^{2}=a^{2}-2ab+b^{2}","El cuadrado de una suma o de una resta."),
           ("(a+b)(a-b)=a^{2}-b^{2}","La diferencia de cuadrados."),

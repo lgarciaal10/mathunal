@@ -20,7 +20,7 @@ ver={"duracion":24.0,"capitulos":[
  [4,10,"Con un radio de 0.5 el círculo solo encierra el polo del origen, y la suma de residuos es menos 2."],
  [10,16,"Con radio 1.5 encierra los dos polos, y la suma de residuos es e menos 2, cerca de 0.72."],
  [16,20,"La integral vale 2 pi i por esa suma, así que cambia al cruzar el polo en z igual a 1."],
- [20,24,"Si no hay polos adentro, la integral es cero. Solo cuentan los polos encerrados."]],
+ [20,24,"Si la función es analítica adentro, la integral es cero. Solo cuentan las singularidades encerradas."]],
  "canales":{"draw":[[0.3,0],[3.5,1]],"d":[[4,0.6],[8,0.6],[10,1.5],[16,1.5],[18,2.0],[24,2.0]],"guide":[[4,0],[5,1]]},
  "intervalos":{"ok":[16,24]}}
 S=[
@@ -73,5 +73,5 @@ preg={"tex":"\\oint_{|z|=2}\\dfrac{dz}{z}\\ \\text{vale}","opciones":["$2\\pi i$
  "verificacion":{"formula":"2*pi*1+0*x","a":0,"esperado":6.2832},
  "pistas":["Mira si el polo en cero está dentro del círculo.","El residuo de uno entre z es 1.","Multiplica por 2 pi i."],
  "errores":["","Cero sería si el polo estuviera afuera.","Pi i olvida el factor 2.","4 pi i multiplica de más por el radio."]}
-res=["El teorema de Cauchy dice que la integral es cero si no hay polos adentro.","El teorema de los residuos da la integral como 2 pi i por la suma de residuos adentro.","Solo cuentan los polos que quedan dentro del contorno."]
+res=["El teorema de Cauchy dice que la integral es cero si la función es analítica adentro y sobre el contorno.","El teorema de los residuos da la integral como 2 pi i por la suma de residuos adentro.","Solo cuentan los polos que quedan dentro del contorno."]
 write(lesson("es-m3-l3","Lección 3 de 5","Integración compleja y residuos",28,graf,glos,ver,S,prac,preg,res,modulo=MOD,ejercicios=8,curso="Matemáticas Especiales"),"esp-residuos.json")

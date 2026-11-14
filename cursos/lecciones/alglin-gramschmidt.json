@@ -296,7 +296,7 @@
        },
        {
         "tex": "Q^{T}Q=I\\ \\Rightarrow\\ Q^{-1}=Q^{T}",
-        "porque": "Una matriz con columnas ortonormales se invierte trasponiéndola."
+        "porque": "Una matriz cuadrada con columnas ortonormales se invierte trasponiéndola. Si no es cuadrada, solo se cumple Q transpuesta por Q igual a I."
        }
       ]
      },
@@ -395,7 +395,7 @@
     "bloques": [
      {
       "t": "error",
-      "enunciado": "Alguien aplicó Gram-Schmidt y se equivocó en un paso. Toca el paso que está mal.",
+      "enunciado": "Alguien aplicó Gram-Schmidt y se equivocó en un paso. Toca el primer paso donde aparece el error.",
       "pasos": [
        {
         "tex": "a_{1}=(1,1),\\quad a_{2}=(3,1)",

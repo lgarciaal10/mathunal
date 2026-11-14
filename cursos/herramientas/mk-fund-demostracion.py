@@ -41,7 +41,7 @@ S=[
           ("p\\Rightarrow q\\ \\text{cuando}\\ \\neg q\\ \\text{da más información}","Se usa la contrarrecíproca."),
           ("\\text{la conclusión niega algo, como irracional o infinito}","Se usa la contradicción."),
           ("\\forall x\\ P(x)\\ \\text{que parece falsa}","Se busca un contraejemplo.")]),
-   OJO("Un condicional con hipótesis imposible es verdadero por vacuidad. Si n al cuadrado más 5n nunca es impar, entonces n por n más 5 siempre es par y la afirmación es verdadera sin hacer nada más.")),
+   OJO("Un condicional con hipótesis imposible es verdadero por vacuidad. Por ejemplo, si n es par e impar a la vez, entonces n al cuadrado es igual a menos 1. La hipótesis nunca se cumple, así que la afirmación es verdadera sin comprobar nada más.")),
  eng("Probar un programa con casos de prueba","Un ingeniero de software prueba una función con 40 casos y todos pasan. Eso no demuestra que la función sea correcta para todas las entradas. Basta un caso límite que falle para refutarla, igual que n igual a 40 refuta la expresión de este módulo.","40^{2}+40+41=41^{2}",
    [("Casos que pasan","40"),("Casos que fallan y bastan para refutar","1"),("Primer caso que falla","n = 40")],"Por eso en ingeniería se prueban los valores límite y los casos raros, y para las partes críticas se pasa de probar casos a demostrar. Un conjunto de casos buenos da confianza, pero solo una demostración cubre todas las entradas, y un contraejemplo basta para tirar abajo una afirmación general."),
  completar("Se prueba por contrarrecíproca que si n al cuadrado es impar, entonces n es impar. Falta la hipótesis de la contrarrecíproca.","n\\ \\text{es}\\ [[hueco]]\\ \\Rightarrow\\ n^{2}\\ \\text{es par}",

@@ -629,7 +629,7 @@
      },
      {
       "t": "ojo",
-      "html": "Phi va de 0 a pi y theta de 0 a 2 pi. Si se invierten, la esfera se cubre dos veces o solo la mitad."
+      "html": "Phi va de 0 a pi y theta de 0 a 2 pi. Si phi llega hasta 2 pi, los aportes de seno de phi se cancelan y la integral sale mal. Si theta llega solo hasta pi, se cubre solo media esfera."
      }
     ]
    },

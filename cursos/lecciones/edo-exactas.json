@@ -2369,7 +2369,7 @@
     "bloques": [
      {
       "t": "error",
-      "enunciado": "Alguien resolvió una ecuación exacta y se equivocó en un paso. Toca el paso que está mal.",
+      "enunciado": "Alguien resolvió una ecuación exacta y se equivocó en un paso. Toca el primer paso donde aparece el error.",
       "pasos": [
        {
         "tex": "M=2x+y,\\quad N=x+2y,\\quad M_{y}=N_{x}=1",

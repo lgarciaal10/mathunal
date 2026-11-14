@@ -37,15 +37,15 @@ S=[
    PASOS([("z=3+2t,\\quad \\text{plano}\\ z=1","Se sustituye en la ecuación del plano."),
           ("3+2t=1\\ \\Rightarrow\\ t=-1","Se despeja t."),
           ("(1-1,\\ 2+1,\\ 3-2)=(0,3,1)","Se evalúa la recta en ese t."),
-          ("\\mathbf{v}\\cdot\\mathbf{n}=0\\ \\Leftrightarrow\\ \\text{recta paralela al plano}","Si la dirección es perpendicular a la normal, no hay un único corte.")]),
+          ("\\mathbf{v}\\cdot\\mathbf{n}=0\\ \\Leftrightarrow\\ \\text{recta paralela al plano o contenida en él}","Si la dirección es perpendicular a la normal, no hay un único corte.")]),
    OJO("Una recta paralela a un plano puede estar contenida en él o no cortarlo nunca. Para saber cuál es el caso, se prueba si un punto de la recta está en el plano.")),
  sec("Dos rectas en el espacio","Dos rectas",P("En el espacio, dos rectas tienen tres posibilidades, y la tercera no existe en el plano."),
    PASOS([("\\mathbf{v}_{1}\\parallel\\mathbf{v}_{2}","Paralelas, o la misma recta."),
           ("\\text{existe}\\ t,s:\\ \\mathbf{r}_{1}(t)=\\mathbf{r}_{2}(s)","Se cortan en un punto."),
           ("\\text{ni paralelas ni con punto común}","Se cruzan, y se llaman alabeadas u oblicuas.")]),
    OJO("En el plano, dos rectas no paralelas siempre se cortan. En el espacio no, porque pueden cruzarse sin tocarse.")),
- eng("El rayo láser sobre una placa","Un láser sale del punto (1, 2, 3) metros con dirección (1, menos 1, 2) y apunta hacia una placa plana en z igual a 1. El punto donde la toca se obtiene al sustituir la recta del rayo en la ecuación del plano.","3+2t=1\\ \\Rightarrow\\ t=-1\\ \\Rightarrow\\ (0,3,1)",
-   [("Origen del rayo","(1, 2, 3) m"),("Dirección","(1, menos 1, 2)"),("Punto en la placa","(0, 3, 1) m")],"El rayo llega a la placa en el punto (0, 3, 1) metros, después de un parámetro t igual a menos 1, es decir, hacia atrás en la dirección dada. Si la dirección fuera paralela a la placa, el rayo nunca la tocaría. Este cálculo se usa en visión por computador y en trazado de rayos."),
+ eng("El rayo láser sobre una placa","Un láser sale del punto (1, 2, 3) metros con dirección (1, menos 1, menos 2) y apunta hacia una placa plana en z igual a 1. El punto donde la toca se obtiene al sustituir la recta del rayo en la ecuación del plano.","3-2t=1\\ \\Rightarrow\\ t=1\\ \\Rightarrow\\ (2,1,1)",
+   [("Origen del rayo","(1, 2, 3) m"),("Dirección","(1, menos 1, menos 2)"),("Punto en la placa","(2, 1, 1) m")],"El rayo llega a la placa en el punto (2, 1, 1) metros, después de un parámetro t igual a 1, es decir, hacia adelante en la dirección dada. Si la dirección fuera paralela a la placa, el rayo nunca la tocaría. Este cálculo se usa en visión por computador y en trazado de rayos."),
  completar("Se sustituye la recta en el plano z igual a 1. Falta el valor de la derecha.","3+2t=[[hueco]]",
    [("1","uno"),("0","cero"),("3","tres")],0,
    ["","Cero sería el plano z igual a 0. El plano de este ejemplo es z igual a 1.","Tres es el valor de z en el punto de partida, y no el valor del plano."],"La derecha es el valor de z en el plano.","El plano z igual a 1 pide que 3 más 2t valga 1."),
@@ -65,7 +65,7 @@ S=[
 S+=cierre("Mini simulacro de rectas en el espacio e intersecciones",[
  banco("gv_c3_10","La ecuación vectorial de una recta es un punto más un múltiplo del director."),
  banco("gv_c3_11","Dos rectas que ni se cortan ni son paralelas se cruzan, y se llaman alabeadas."),
- banco("gv_c3_12","Una recta es paralela a un plano si su director es perpendicular a la normal.")])
+ banco("gv_c3_12","Una recta es paralela a un plano, o está contenida en él, si su director es perpendicular a la normal.")])
 prac=[
  {"titulo":"La recta y el plano","grafica":{"draw":1},"bloques":[P("La recta vista en el plano x z, y el plano z igual a 1 como una recta horizontal."),EQ("(x,y,z)=(1,2,3)+t\\,(1,-1,2)")]},
  {"titulo":"Mueve el parámetro","grafica":{"draw":1},"laboratorio":True,"bloques":[P("Mueve el deslizador. Abajo se leen las coordenadas z y y del punto de la recta.")]},

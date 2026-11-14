@@ -45,7 +45,7 @@ S=[
  completar("Se aplica la simetría de una función impar. Falta el coeficiente que se anula.","f\\ \\text{impar}\\ \\Rightarrow\\ [[hueco]]=0",
    [("a_{n}","los coeficientes de los cosenos"),("b_{n}","los coeficientes de los senos"),("b_{1}","solo el primer seno")],0,
    ["","Los senos son justamente los términos que sí aparecen en una función impar.","El primer seno no se anula, y para f de x igual a x vale 2."],"Una función impar solo tiene senos.","Los cosenos son pares, y no aparecen en una función impar."),
- error("Alguien analizó la serie de Fourier de f de x igual a x y se equivocó en un paso. Toca el paso que está mal.",
+ error("Alguien analizó la serie de Fourier de f de x igual a x y se equivocó en un paso. Toca el primer paso donde aparece el error.",
    [("f(x)=x\\ \\text{es impar}","La paridad.","la función es impar"),
     ("\\text{Entonces}\\ b_{n}=0\\ \\text{y solo hay cosenos}","Este paso es el que falla.","los senos se anulan"),
     ("a_{n}=\\dfrac{2}{n}","Los coeficientes.","an vale 2 sobre n")],1,

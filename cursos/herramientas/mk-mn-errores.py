@@ -20,7 +20,7 @@ graf={"tipo":"plano","x":[-1.0,17.0],"y":[-18.5,1.5],"a":1,"b":15,"inicio":4,"en
 glos={"absoluto":"El error absoluto es la diferencia entre el valor exacto y el aproximado.",
  "relativo":"El error relativo es el error absoluto dividido entre el valor exacto. Mide el error en proporción.",
  "cifras":"Las cifras significativas son los dígitos con que un número se conoce con confianza. Los ceros a la izquierda no cuentan.",
- "epsilon":"El épsilon de máquina es el menor número tal que uno más épsilon es mayor que uno en la aritmética de la máquina.",
+ "epsilon":"El épsilon de máquina mide la separación entre los números de la máquina cerca de uno, es decir, la distancia entre 1 y el siguiente número representable. Muchos textos lo definen como el menor número que hace que uno más épsilon sea mayor que uno.",
  "cancelacion":"La cancelación catastrófica es la pérdida de cifras significativas al restar dos números casi iguales."}
 ver={"duracion":24.0,"capitulos":[
  [0,5,"Al calcular una derivada con una diferencia hay dos errores. El de truncamiento baja cuando se achica el paso h."],
@@ -42,10 +42,10 @@ S=[
           ("0.0034567\\ \\to\\ 0.00346\\ \\text{con 3 cifras}","Se redondea al número de cifras pedido.")]),
    OJO("El error relativo sirve para comparar. Un error de 1 metro es enorme al medir una mesa y despreciable al medir una carretera.")),
  sec("Punto flotante","Punto flotante",P("La máquina guarda los números con una cantidad finita de dígitos, y eso tiene consecuencias."),
-   PASOS([("1+\\varepsilon_{maq}>1","El épsilon de máquina es el menor número que cambia a uno. En doble precisión es cerca de 2.2 por 10 a la menos 16."),
+   PASOS([("1+\\varepsilon_{maq}>1","El épsilon de máquina es la distancia entre 1 y el siguiente número que la máquina puede representar. En doble precisión es cerca de 2.2 por 10 a la menos 16."),
           ("\\sqrt{x^{2}+1}-x\\ \\text{para}\\ x\\ \\text{grande}","Se restan números casi iguales y se pierden cifras."),
           ("\\dfrac{1}{\\sqrt{x^{2}+1}+x}","La misma expresión reescrita no pierde cifras.")]),
-   OJO("La cancelación no es un error de la máquina, sino de la fórmula. Se evita reescribiendo la expresión para no restar números casi iguales.")),
+   OJO("La cancelación sale de restar números casi iguales con precisión finita. A veces se evita reescribiendo la fórmula, como con la raíz de x al cuadrado más 1 menos x. En otros casos, como la derivada numérica, solo se controla eligiendo bien el paso.")),
  eng("Cuánto achicar el paso de una derivada","Un sensor entrega una posición cada cierto tiempo, y la velocidad se estima con la diferencia de dos posiciones consecutivas dividida entre el paso. Achicar el paso reduce el error del método, pero amplifica el ruido y el redondeo de las mediciones.","E_{total}=\\text{truncamiento}+\\text{redondeo}",
    [("Paso muy grande","domina el truncamiento"),("Paso muy pequeño","domina el redondeo"),("Paso óptimo","cerca de la raíz del épsilon")],"Con aritmética de doble precisión el paso óptimo de una diferencia progresiva está cerca de 10 a la menos 8. Con mediciones reales, que tienen mucho más ruido que el épsilon de máquina, el paso óptimo es mucho mayor. Por eso se filtra la señal antes de derivarla, o se usa una diferencia centrada con paso moderado."),
  completar("Se calcula el error relativo de aproximar 2 por 2.1.","E_{rel}=\\dfrac{|2-2.1|}{[[hueco]]}",

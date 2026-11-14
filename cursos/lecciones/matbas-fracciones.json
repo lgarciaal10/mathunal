@@ -831,7 +831,7 @@
     "bloques": [
      {
       "t": "piensa",
-      "pregunta": "En una fracción, el factor x menos 2 se puede cancelar arriba y abajo. ¿Qué valor de x hay que excluir del dominio?",
+      "pregunta": "En una fracción, el factor x menos 2 se puede cancelar arriba y abajo. Además de x igual a menos 1, que ya estaba excluido, ¿qué otro valor de x hay que excluir del dominio?",
       "opciones": [
        0,
        1,

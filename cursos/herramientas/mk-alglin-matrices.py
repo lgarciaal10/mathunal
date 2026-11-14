@@ -49,7 +49,7 @@ S=[
    PASOS([("A="+M(2,1,1,1)+",\\quad ad-bc=2-1=1","El determinante no es cero, así que existe la inversa."),
           ("A^{-1}="+M(1,-1,-1,2),"Se intercambian los de la diagonal y se cambia el signo de los otros dos."),
           ("AA^{-1}="+M(1,0,0,1),"Se comprueba multiplicando.")])),
- eng("Una fuerza en ejes inclinados","En mecánica, una fuerza se descompone en ejes distintos al girar el sistema de referencia. Ese cambio se hace con una matriz de rotación, y la fuerza nueva es el producto de la matriz por el vector de la fuerza.","F'=R\\,F=\\begin{pmatrix}\\cos\\theta&-\\operatorname{sen}\\theta\\\\ \\operatorname{sen}\\theta&\\cos\\theta\\end{pmatrix}\\begin{pmatrix}100\\\\0\\end{pmatrix}",
+ eng("Una fuerza en ejes inclinados","En mecánica, a veces se necesita girar una fuerza un ángulo dado. Ese giro se hace con una matriz de rotación, y la fuerza girada es el producto de la matriz por el vector de la fuerza.","F'=R\\,F=\\begin{pmatrix}\\cos\\theta&-\\operatorname{sen}\\theta\\\\ \\operatorname{sen}\\theta&\\cos\\theta\\end{pmatrix}\\begin{pmatrix}100\\\\0\\end{pmatrix}",
    [("Fuerza","100 N sobre el eje x"),("Giro","30 grados"),("Componentes","86.6 N y 50 N")],"El producto da 100 por el coseno de 30 grados y 100 por el seno de 30 grados, o sea 86.6 newtons y 50 newtons. La longitud de la fuerza no cambia, porque una rotación solo gira los vectores. Es un modelo simplificado, porque solo trata fuerzas en el plano."),
  completar("Se calcula la entrada de la fila 2 y la columna 2 del producto AB con A de filas (1, 0) y (2, 1), y B de filas (3, 1) y (0, 2). Se toma la fila 2 de A y la columna 2 de B.","(AB)_{22}=2\\cdot 1+1\\cdot 2=[[hueco]]",
    [("4","cuatro"),("2","dos"),("5","cinco")],0,

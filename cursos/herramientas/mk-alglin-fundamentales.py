@@ -47,7 +47,7 @@ S=[
  completar("Una matriz de 4 por 6 tiene rango 3. Falta la nulidad.","\\operatorname{nulidad}=n-\\operatorname{rango}=[[hueco]]",
    [("3","tres"),("1","uno"),("2","dos")],0,
    ["","Se usó el número de filas, 4, en vez del de columnas, 6. La nulidad es 6 menos 3.","Revisa la cuenta. El número de columnas es 6 y el rango es 3, así que la nulidad es 3."],"Usa el número de columnas.","La matriz tiene 6 columnas. La nulidad es 6 menos 3, o sea 3."),
- error("Alguien calculó el rango de una matriz y se equivocó en un paso. Toca el paso que está mal.",
+ error("Alguien calculó el rango de una matriz y se equivocó en un paso. Toca el primer paso donde aparece el error.",
    [("A="+M(1,2,2,4),"Es la matriz.","La matriz es 1, 2, 2, 4"),
     ("\\text{Tiene dos filas distintas de cero, así que el rango es 2}","Este paso es el que falla.","Tiene dos filas distintas de cero, así que el rango es 2"),
     ("\\text{Por tanto la nulidad es}\\ 2-2=0","Depende del paso anterior.","Por tanto la nulidad es 2 menos 2, o sea 0")],1,

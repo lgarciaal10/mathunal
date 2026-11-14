@@ -51,7 +51,7 @@ S=[
  completar("Una matriz simétrica de 2 por 2 tiene traza 4 y un valor propio igual a 3. Falta el otro.","\\lambda_{1}+\\lambda_{2}=\\operatorname{tr}A\\ \\Rightarrow\\ \\lambda_{2}=[[hueco]]",
    [("1","uno"),("3","tres"),("4","cuatro")],0,
    ["","Ese es el que ya se conoce. La suma debe dar la traza, 4, y 3 más 3 da 6.","Esa es la traza, y no el otro valor propio. Hay que restar el 3 conocido."],"Resta el valor propio conocido de la traza.","La suma de los valores propios es la traza, 4. Si uno es 3, el otro es 4 menos 3, o sea 1."),
- error("Alguien clasificó una forma cuadrática y se equivocó en un paso. Toca el paso que está mal.",
+ error("Alguien clasificó una forma cuadrática y se equivocó en un paso. Toca el primer paso donde aparece el error.",
    [("A="+M(1,3,3,1),"Es la matriz.","A tiene filas 1, 3 y 3, 1"),
     ("\\text{Los elementos de la diagonal son positivos, así que es definida positiva}","Este paso es el que falla.","Los elementos de la diagonal son positivos, así que es definida positiva"),
     ("\\text{Sus curvas de nivel son elipses}","Depende del paso anterior.","Sus curvas de nivel son elipses")],1,

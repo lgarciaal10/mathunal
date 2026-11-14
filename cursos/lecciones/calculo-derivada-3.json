@@ -393,7 +393,7 @@
     "bloques": [
      {
       "t": "error",
-      "enunciado": "Alguien derivó esta función y se equivocó en un paso. Toca el paso que está mal.",
+      "enunciado": "Alguien derivó esta función y se equivocó en un paso. Toca el primer paso donde aparece el error.",
       "pasos": [
        {
         "tex": "y=(x^{2}+1)^{5}",

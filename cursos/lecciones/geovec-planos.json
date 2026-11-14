@@ -322,7 +322,7 @@
      {
       "t": "ingenieria",
       "titulo": "El panel solar inclinado",
-      "html": "Un panel solar plano se inclina 30 grados, y su normal unitaria es (0, 0.5, 0.866). Los rayos del sol llegan desde arriba, con dirección (0, 0, 1). La energía que recibe es proporcional al producto punto de la normal con la dirección del sol.",
+      "html": "Un panel solar plano se inclina 30 grados, y su normal unitaria es (0, 0.5, 0.866). El sol está arriba, y la dirección hacia el sol, vista desde el panel, es (0, 0, 1). La energía que recibe es proporcional al producto punto de la normal con la dirección del sol.",
       "tex": "I=I_{0}\\,\\hat{\\mathbf{n}}\\cdot\\hat{\\mathbf{s}}=0.866\\,I_{0}",
       "datos": [
        {

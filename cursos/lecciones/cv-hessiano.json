@@ -254,7 +254,7 @@
    [
     20,
     24,
-    "Mínimo en una dirección y máximo en otra es lo que define un punto silla, y su hessiano es negativo."
+    "Mínimo en una dirección y máximo en otra es lo que define un punto silla, y su discriminante D, el determinante del hessiano, es negativo."
    ]
   ],
   "canales": {
@@ -467,7 +467,7 @@
       "t": "ingenieria",
       "titulo": "El diseño de un depósito",
       "html": "El costo de material de un depósito abierto depende de su largo y su ancho para un volumen fijo. Se busca el diseño de menor costo, y el punto crítico de la función de costo lo da.",
-      "tex": "C(x,y)=2xy+\\dfrac{2V}{x}+\\dfrac{2V}{y}",
+      "tex": "C(x,y)=xy+\\dfrac{2V}{x}+\\dfrac{2V}{y}",
       "datos": [
        {
         "k": "Variables",

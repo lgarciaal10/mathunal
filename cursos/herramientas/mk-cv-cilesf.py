@@ -39,7 +39,7 @@ S=[
           ("dV=\\rho^{2}\\operatorname{sen}\\phi\\,d\\rho\\,d\\phi\\,d\\theta","El elemento de volumen."),
           ("0\\le\\rho\\le R,\\quad 0\\le\\phi\\le\\pi,\\quad 0\\le\\theta\\le2\\pi","Los límites de una esfera."),
           ("V=\\dfrac{R^{3}}{3}\\cdot2\\cdot2\\pi=\\dfrac{4\\pi R^{3}}{3}","El resultado.")]),
-   OJO("Phi va de 0 a pi y theta de 0 a 2 pi. Si se invierten, la esfera se cubre dos veces o solo la mitad.")),
+   OJO("Phi va de 0 a pi y theta de 0 a 2 pi. Si phi llega hasta 2 pi, los aportes de seno de phi se cancelan y la integral sale mal. Si theta llega solo hasta pi, se cubre solo media esfera.")),
  eng("El tanque esférico","Un tanque esférico de 1.5 metros de radio se llena de agua. El volumen se calcula con una integral triple en esféricas, y con la densidad se obtiene la masa.","V=\\dfrac{4\\pi R^{3}}{3}=\\dfrac{4\\pi(1.5)^{3}}{3}\\approx14.1\\ \\text{m}^{3}",
    [("Radio","1.5 m"),("Volumen","cerca de 14.1 m³"),("Masa de agua","cerca de 14 100 kg")],"Para un tanque a medio llenar, el volumen de agua es el de un casquete, que se obtiene con límites de phi o de rho distintos. El método es el mismo."),
  completar("El elemento de volumen en coordenadas cilíndricas es [[hueco]] dz dr d theta.","dV=[[hueco]]\\,dz\\,dr\\,d\\theta",

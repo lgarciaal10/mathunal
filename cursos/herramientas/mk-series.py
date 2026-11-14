@@ -14,14 +14,14 @@ ver={"duracion":22.0,"capitulos":[
  [5,10,"Al sumar más términos, la suma parcial sube. Con n igual a 1 es 1.33 y con n igual a 3 es 1.48."],
  [10,14,"Cada término nuevo aporta cada vez menos, y la curva se aplana."],
  [14,18,"La curva se acerca a la recta y igual a 3 sobre 2. Esa es la suma de toda la serie."],
- [18,22,"Con 8 términos la suma parcial ya es 1.4999. La serie converge a 3 sobre 2, y la fórmula de la serie geométrica lo da directamente."]],
+ [18,22,"Con 9 términos, hasta n igual a 8, la suma parcial ya es 1.4999. La serie converge a 3 sobre 2, y la fórmula de la serie geométrica lo da directamente."]],
  "canales":{"draw":[[0.3,0],[2.4,1]],"d":[[5,0.6],[10,3],[14,6],[18,8],[22,8]],"guide":[[14,0],[15,1]]},
  "intervalos":{"ok":[18,22]}}
 S=[
  sec("La idea",None,P("Una {{gl:serie|serie}} es una suma de infinitos términos. Parece imposible sumar infinitos números, pero a veces la suma da un número finito. Se mira la {{gl:parcial|suma parcial}}, que es lo que va llevando la suma después de cada término, y se pregunta si se acerca a un número. Si es así, la serie {{gl:converge|converge}}.")),
  sec("Un ejemplo","Un ejemplo",P("Mira esta suma infinita, donde cada término es la tercera parte del anterior."),EQ("\\sum_{n=0}^{\\infty}\\left(\\dfrac{1}{3}\\right)^{n}=1+\\dfrac{1}{3}+\\dfrac{1}{9}+\\dfrac{1}{27}+\\cdots"),{"t":"grafica","animar":"dibujar","alt":"Curva de las sumas parciales que se dibuja"}),
  sec("Piensa antes de ver","Piensa",{"t":"piensa","pregunta":"La suma parcial con dos términos es 1 más 1 tercio. ¿Cuánto vale, más o menos?","opciones":[1,1.33,1.5,2],"correcta":1.33,"bien":"Muy bien. Vale 1.33. Más abajo se ve cómo siguen creciendo las sumas parciales.","mal":"Vale 1.33, porque 1 más 1 tercio es 4 tercios. Más abajo se ve cómo siguen creciendo las sumas parciales."}),
- sec("Las sumas parciales","Sumas parciales",P("Mira cómo crece la suma parcial al agregar términos y cómo se va aplanando."),{"t":"acercando","ds":[0,1,2,4,8],"alt":"La curva de sumas parciales que sube y se aplana hacia 3 sobre 2"},P("Con 8 términos la suma parcial es <b>1.4999</b>. Se acerca a 1.5, o sea 3 sobre 2, y por eso la serie converge a ese valor.")),
+ sec("Las sumas parciales","Sumas parciales",P("Mira cómo crece la suma parcial al agregar términos y cómo se va aplanando."),{"t":"acercando","ds":[0,1,2,4,8],"alt":"La curva de sumas parciales que sube y se aplana hacia 3 sobre 2"},P("Con 9 términos, hasta n igual a 8, la suma parcial es <b>1.4999</b>. Se acerca a 1.5, o sea 3 sobre 2, y por eso la serie converge a ese valor.")),
  sec("Sucesiones","Sucesiones",P("Una sucesión es una lista de números, a sub 0, a sub 1, a sub 2, y así. Converge si sus valores se acercan a un número cuando n crece. Las sumas parciales forman una sucesión, y la serie converge si esa sucesión converge."),
    PASOS([("a_{n}=\\dfrac{n}{n+1}=\\dfrac{1}{2},\\ \\dfrac{2}{3},\\ \\dfrac{3}{4},\\ \\ldots","Se calculan los primeros términos."),
           ("\\lim_{n\\to\\infty}\\dfrac{n}{n+1}=\\lim_{n\\to\\infty}\\dfrac{1}{1+1/n}=1","Se divide arriba y abajo entre n. La sucesión converge a 1.")])),
@@ -75,7 +75,7 @@ prac=[
  {"titulo":"Las sumas parciales","grafica":{"draw":1},"bloques":[P("Esta curva une las sumas parciales de la serie."),EQ("S_{N}=\\sum_{n=0}^{N}\\left(\\dfrac{1}{3}\\right)^{n}")]},
  {"titulo":"Suma más términos","grafica":{"draw":1},"laboratorio":True,"bloques":[P("Mueve el deslizador para elegir cuántos términos sumas. Abajo se ve la suma parcial.")]},
  {"titulo":"Se aplana","grafica":{"draw":1,"guide":1},"laboratorio":True,"d":4,"bloques":[P("Con n igual a 4 la suma parcial es 1.494. Cada término nuevo aporta muy poco y la curva se acerca a la recta y igual a 3 sobre 2.")]},
- {"titulo":"La suma","grafica":{"draw":1,"guide":1,"ok":True},"laboratorio":True,"d":8,"bloques":[EQ("\\sum_{n=0}^{\\infty}\\left(\\dfrac{1}{3}\\right)^{n}=\\dfrac{1}{1-1/3}=\\dfrac{3}{2}"),P("Con 8 términos la suma parcial ya es 1.4999. La fórmula de la serie geométrica da directamente 3 sobre 2.")]},
+ {"titulo":"La suma","grafica":{"draw":1,"guide":1,"ok":True},"laboratorio":True,"d":8,"bloques":[EQ("\\sum_{n=0}^{\\infty}\\left(\\dfrac{1}{3}\\right)^{n}=\\dfrac{1}{1-1/3}=\\dfrac{3}{2}"),P("Con 9 términos, hasta n igual a 8, la suma parcial ya es 1.4999. La fórmula de la serie geométrica da directamente 3 sobre 2.")]},
  {"titulo":"Revisa tu respuesta","grafica":{"draw":1,"guide":1,"ok":True,"d":8},"bloques":[{"t":"pregunta"},{"t":"nota","html":"Fíjate en dónde empieza la suma y en cuál es la razón."}]}]
 preg={"tex":"\\sum_{n=1}^{\\infty}3\\left(\\dfrac{2}{5}\\right)^{n}","opciones":["$2$","$5$","$\\dfrac{6}{5}$","Diverge"],"correcta":0,
  "explicacion":"Es una serie geométrica de razón 2 sobre 5, que es menor que 1, así que converge. Como empieza en n igual a 1, el primer término es 3 por 2 sobre 5, o sea 6 sobre 5. La suma es el primer término entre 1 menos la razón, o sea 6 sobre 5 dividido entre 3 sobre 5, que da 2.",
