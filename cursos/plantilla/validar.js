@@ -190,6 +190,7 @@ function bloque(b, donde) {
   if (b.t === 'ordenar') {
     if (!Array.isArray(b.pasos) || b.pasos.length < 3) err(`ordenar de ${donde} necesita al menos 3 pasos`);
     else { if (!Array.isArray(b.txt) || b.txt.length !== b.pasos.length) aviso(`Falta txt (un texto por paso para lector de pantalla) en ordenar de ${donde}`); b.pasos.forEach((s, i) => tex.push([`${donde} ordenar paso ${i + 1}`, s])); if (!perm(b.mezcla, b.pasos.length)) err(`mezcla de ${donde} debe ser una permutación de 0 a ${b.pasos.length - 1}`); else if (b.mezcla.every((k, i) => k === i)) err(`mezcla de ${donde} no puede dejar los pasos ya en orden`); }
+    if (b.equiv !== undefined) { if (!Array.isArray(b.equiv) || b.equiv.some(g => !Array.isArray(g) || g.length < 2 || g.some(i => !Number.isInteger(i) || i < 0 || i >= (b.pasos || []).length))) err(`equiv de ${donde} debe ser una lista de grupos de índices de pasos`); }
     [b.enunciado, b.porque, b.pista].forEach(t => { if (t) textos.push([donde + ' ordenar', t]); });
   }
   if (b.t === 'simulacro') {

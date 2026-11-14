@@ -659,7 +659,7 @@
     "bloques": [
      {
       "t": "piensa",
-      "pregunta": "Con s igual a 2, la curva es e a la menos t. ¿Cuánto vale en t igual a 0?",
+      "pregunta": "La curva es y igual a e a la menos t. ¿Cuánto vale en t igual a 0?",
       "opciones": [
        0,
        0.5,

@@ -544,6 +544,12 @@
        "Primera ecuación",
        "Segunda ecuación",
        "Se cumplen las dos"
+      ],
+      "equiv": [
+       [
+        1,
+        2
+       ]
       ]
      }
     ]

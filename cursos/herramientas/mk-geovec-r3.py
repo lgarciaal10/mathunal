@@ -27,7 +27,7 @@ ver={"duracion":22.0,"capitulos":[
 S=[
  sec("La idea",None,P("Un vector del espacio tiene tres {{gl:componentes3|componentes}}. Todo lo del plano se extiende con una componente más. La {{gl:norma3|norma}} es la raíz de la suma de tres cuadrados, el {{gl:punto3|producto punto}} suma tres productos, y dos vectores son {{gl:ortogonales3|ortogonales}} si ese producto es cero.")),
  sec("Un ejemplo","Un ejemplo",P("Mira el vector u de componentes 2, 3 y z. Su norma se arma con dos triángulos rectángulos, uno en la base y otro vertical."),EQ("\\|\\mathbf{u}\\|=\\sqrt{2^{2}+3^{2}+z^{2}}=\\sqrt{13+z^{2}}"),{"t":"grafica","animar":"dibujar","alt":"El triángulo de la norma de u"}),
- sec("Piensa antes de ver","Piensa",{"t":"piensa","pregunta":"La diagonal de la base mide la raíz de 13 y la altura es 6. ¿Cuánto vale 13 más 6 al cuadrado?","opciones":[19,36,49,169],"correcta":49,"bien":"Muy bien. Es 13 más 36, o sea 49, y su raíz es 7. Más abajo se ve.","mal":"Es 13 más 36, o sea 49, y su raíz es 7. Más abajo se ve."}),
+ sec("Piensa antes de ver","Piensa",{"t":"piensa","pregunta":"La diagonal de la base mide la raíz de 13 y la altura es 6. ¿Cuánto vale 13 más el cuadrado de 6?","opciones":[19,36,49,169],"correcta":49,"bien":"Muy bien. Es 13 más 36, o sea 49, y su raíz es 7. Más abajo se ve.","mal":"Es 13 más 36, o sea 49, y su raíz es 7. Más abajo se ve."}),
  sec("Cambiando z","Cambiando z",P("Mira la norma de u para z igual a 0, 2, 4 y 6."),{"t":"acercando","ds":[0,2,4,6],"alt":"El vector u para cuatro valores de z"},P("Con z igual a 6 el vector es (2, 3, 6) y su norma es exactamente 7.")),
  sec("Producto punto y norma","Producto punto",P("Se hacen las mismas cuentas del plano, con una componente más."),
    PASOS([("(1,2,3)\\cdot(4,5,6)=4+10+18=32","Se multiplica componente por componente y se suma."),
@@ -43,7 +43,7 @@ S=[
    [("Barra 1","(2, 3, 6) m"),("Barra 2","(6, 2, 3) m"),("Ángulo entre ellas","42.7 grados")],"Las dos barras miden 7 metros, el producto punto es 36 y el coseno es 36 sobre 49, o sea 0.735. El ángulo es 42.7 grados. Con ese valor se diseña la placa de unión. Es un cálculo geométrico y no incluye las cargas, que dependen del material y de la estructura."),
  completar("Se calcula el producto punto de (1, 2, 2) y (3, 0, 4). Falta el resultado.","1\\cdot3+2\\cdot0+2\\cdot4=[[hueco]]",
    [("11","once"),("9","nueve"),("24","veinticuatro")],0,
-   ["","Nueve sale de olvidar el último producto, 2 por 4.","Veinticuatro es el producto de todas las componentes, y no la suma de los productos."],"Se suman los tres productos.","3 más 0 más 8 es 11."),
+   ["","Nueve sale de elevar al cuadrado las componentes de un solo vector, 1 más 4 más 4. Hay que multiplicar cada componente de uno por la del otro.","Veinticuatro no sale de este cálculo. Hay que multiplicar cada componente de uno por la del otro y sumar los tres productos."],"Se suman los tres productos.","3 más 0 más 8 es 11."),
  error("Alguien calculó la norma de un vector y se equivocó en un paso. Toca el paso que está mal.",
    [("\\mathbf{u}=(2,3,6)","El vector.","el vector es 2, 3, 6"),
     ("\\|\\mathbf{u}\\|=\\sqrt{2+3+6}=\\sqrt{11}","Este paso es el que falla.","la norma es raíz de 11"),

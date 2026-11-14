@@ -596,6 +596,12 @@
        "Se calculan los momentos",
        "Se divide",
        "Se escribe el centroide"
+      ],
+      "equiv": [
+       [
+        0,
+        1
+       ]
       ]
      }
     ]

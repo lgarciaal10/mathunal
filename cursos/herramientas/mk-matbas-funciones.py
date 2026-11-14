@@ -69,6 +69,6 @@ preg={"tex":"f(x)=2x+1,\\ g(x)=x^{2}.\\ \\text{Entonces}\\ (f\\circ g)(3)\\ \\te
  "explicacion":"Primero se calcula g de 3, que es 9. Después f de 9 es 2 por 9 más 1, o sea 19.",
  "verificacion":{"formula":"2*(x*x)+1","a":3,"esperado":19},
  "pistas":["En f de g de 3, se calcula primero g.","g de 3 es 9.","Ahora calcula f de 9."],
- "errores":["","Ese es g de f de 3. Se aplicó primero f, pero en f de g el orden es el contrario.","Ese valor sale de sumar mal. Primero hay que elevar 3 al cuadrado.","Ese es f de 3. Falta aplicar g antes."]}
+ "errores":["","Ese es g de f de 3. Se aplicó primero f, pero en f de g el orden es el contrario.","Ese valor sale de calcular g de 3 como 6, duplicando en lugar de elevar al cuadrado. Primero hay que elevar 3 al cuadrado.","Ese es f de 3. Falta aplicar g antes."]}
 res=["El dominio excluye los valores que dividen por cero, dan raíces de negativos o logaritmos de números no positivos.","En una composición se aplica primero la función de adentro.","Para invertir se intercambian x y y y se despeja. La gráfica de la inversa es el reflejo en y igual a x."]
 write(lesson("mb-m3-l2","Lección 2 de 4","Funciones, dominio, rango e inversa",28,graf,glos,ver,S,prac,preg,res,modulo=MOD,ejercicios=13,curso="Matemáticas Básicas"),"matbas-funciones.json")

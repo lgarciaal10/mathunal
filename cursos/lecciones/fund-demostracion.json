@@ -562,7 +562,7 @@
     "bloques": [
      {
       "t": "error",
-      "enunciado": "Alguien probó por contradicción que la raíz de 2 es irracional y se equivocó en un paso. Toca el paso que está mal.",
+      "enunciado": "Alguien probó por contradicción que la raíz de 2 es irracional y se equivocó en un paso. Toca el primer paso donde aparece el error.",
       "pasos": [
        {
         "tex": "\\sqrt2=\\dfrac pq\\ \\text{reducida}",
@@ -575,15 +575,15 @@
         "txt": "p al cuadrado es el doble de q al cuadrado"
        },
        {
-        "tex": "\\text{Entonces}\\ p\\ \\text{es par y}\\ q\\ \\text{es impar}",
+        "tex": "\\text{Entonces}\\ p\\ \\text{es impar}",
         "porque": "Este paso es el que falla.",
-        "txt": "queda p par y q impar"
+        "txt": "queda p impar"
        }
       ],
       "mal": 2,
-      "explicacion": "De p par se escribe p igual a 2r, y queda q al cuadrado igual a 2r al cuadrado. Entonces q también es par. Que p y q sean pares contradice que la fracción esté reducida.",
-      "correccion": "p=2r\\Rightarrow q^{2}=2r^{2}\\Rightarrow q\\ \\text{par}",
-      "pista": "Sigue el razonamiento con p igual a 2r."
+      "explicacion": "De p al cuadrado igual a 2 q al cuadrado, p al cuadrado es par, y un cuadrado par solo viene de un número par. Entonces p es par. Con p igual a 2r queda q al cuadrado igual a 2r al cuadrado, y q también es par, lo que contradice que la fracción esté reducida.",
+      "correccion": "p^{2}=2q^{2}\\Rightarrow p^{2}\\ \\text{par}\\Rightarrow p\\ \\text{par}",
+      "pista": "Un cuadrado par solo viene de un número par."
      }
     ]
    },

@@ -638,7 +638,7 @@
   "errores": [
    "",
    "Ese es g de f de 3. Se aplicó primero f, pero en f de g el orden es el contrario.",
-   "Ese valor sale de sumar mal. Primero hay que elevar 3 al cuadrado.",
+   "Ese valor sale de calcular g de 3 como 6, duplicando en lugar de elevar al cuadrado. Primero hay que elevar 3 al cuadrado.",
    "Ese es f de 3. Falta aplicar g antes."
   ]
  },

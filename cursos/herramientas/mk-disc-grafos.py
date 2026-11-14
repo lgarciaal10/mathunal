@@ -82,6 +82,6 @@ preg={"tex":"\\text{Un grafo de 6 vértices con grados 3, 3, 2, 2, 2 y 2 tiene c
  "explicacion":"La suma de los grados es 3 más 3 más 2 más 2 más 2 más 2, o sea 14. Como la suma de los grados es el doble de las aristas, el grafo tiene 7 aristas.",
  "verificacion":{"formula":"(3+3+2+2+2+2)/2+0*x","a":0,"esperado":7},
  "pistas":["Suma los grados.","Da 14.","Las aristas son la mitad."],
- "errores":["","Catorce es la suma de los grados, que es el doble de las aristas.","Seis es el número de vértices, y no el de aristas.","Doce se obtiene al sumar mal los grados."]}
+ "errores":["","Catorce es la suma de los grados, que es el doble de las aristas.","Seis es el número de vértices, y no el de aristas.","Doce sale de una suma mal hecha. Suma los seis grados, 3 más 3 más 2 más 2 más 2 más 2."]}
 res=["En todo grafo, la suma de los grados es el doble del número de aristas.","El grafo completo con n vértices tiene n por n menos 1 entre 2 aristas, y un árbol tiene n menos 1.","Un grafo conexo tiene circuito euleriano si y solo si todos sus vértices tienen grado par."]
 write(lesson("di-m3-l2","Lección 2 de 4","Teoría de grafos",28,graf,glos,ver,S,prac,preg,res,modulo=MOD,ejercicios=8,curso="Matemáticas Discretas"),"disc-grafos.json")

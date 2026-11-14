@@ -514,8 +514,8 @@
   "errores": [
    "",
    "Ese 48 es 12x al cuadrado sin restar el 6. Falta el segundo término.",
-   "Revisa la cuenta. La segunda derivada es 12x al cuadrado menos 6, y en x igual a 2 sale 48 menos 6.",
-   "Revisa la cuenta. La derivada de −6x es −6, y en x igual a 2 sale 48 menos 6."
+   "Revisa la cuenta. La segunda derivada es 12x al cuadrado menos 6, y en x igual a 2 sale 48 menos 6. El 36 sale de restar 12 en lugar de 6.",
+   "Revisa la cuenta. La segunda derivada es 12x al cuadrado menos 6, y en x igual a 2 sale 48 menos 6. El 30 sale de restar 18 en lugar de 6."
   ]
  },
  "resumen": [

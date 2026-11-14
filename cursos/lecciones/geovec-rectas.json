@@ -617,7 +617,7 @@
   "errores": [
    "",
    "Falta dividir entre la raíz de 2. Ese es solo el valor absoluto del numerador.",
-   "Se dividió entre 2 y no entre raíz de 2, que es la norma de los coeficientes.",
+   "Sale de usar un numerador de 1, por no restar 4 al evaluar, y dividir entre raíz de 2.",
    "Se multiplicó en lugar de dividir entre la raíz de 2."
   ]
  },

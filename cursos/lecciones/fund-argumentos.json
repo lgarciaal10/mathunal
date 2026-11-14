@@ -928,7 +928,7 @@
       "correcta": 0,
       "errores": [
        "",
-       "Concluir p sería afirmar el antecedente, y de q falsa no se puede obtener p verdadera.",
+       "Concluir p no es válido. Con la premisa de que q es falsa, lo válido es concluir no p.",
        "La segunda premisa ya dice que q es falsa, así que no se puede concluir q."
       ],
       "pista": "Si la consecuencia falla, la condición no pudo cumplirse.",
@@ -961,7 +961,7 @@
        }
       ],
       "mal": 2,
-      "explicacion": "Modus ponens necesita la condición p como premisa. Aquí se tiene la consecuencia q, y concluir p es afirmar el consecuente. La calle pudo mojarse por otra razón.",
+      "explicacion": "Modus ponens necesita la condición p como premisa. Aquí se tiene la consecuencia q, y concluir p es afirmar el consecuente. q pudo ser verdadera por otra razón distinta de p.",
       "correccion": "p\\rightarrow q,\\ \\ q\\ \\ \\not\\therefore\\ \\ p",
       "pista": "Pregúntate si la calle solo se moja cuando llueve."
      }
@@ -993,6 +993,12 @@
        "Con p implica q y modus ponens se obtiene q",
        "Se toma la premisa q implica r",
        "Con q, q implica r y modus ponens se obtiene r"
+      ],
+      "equiv": [
+       [
+        1,
+        2
+       ]
       ]
      }
     ]

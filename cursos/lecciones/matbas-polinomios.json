@@ -1004,7 +1004,7 @@
   "errores": [
    "",
    "Ese es P de menos 1. El divisor x menos 1 corresponde a c igual a 1, no a menos 1.",
-   "Ese resultado sale de olvidar el menos 4 o de sumarlo con el signo contrario.",
+   "Ese resultado es el opuesto del correcto. Se cambió el signo al final.",
    "Ese es solo el término independiente. Hay que reemplazar también el resto de términos."
   ]
  },

@@ -734,6 +734,12 @@
        "Los extremos fijos dan F",
        "Se obtiene la oscilación en el tiempo",
        "Se lee la frecuencia"
+      ],
+      "equiv": [
+       [
+        1,
+        2
+       ]
       ]
      }
     ]
@@ -915,7 +921,7 @@
   "errores": [
    "",
    "Con el exponencial sería la ecuación de calor, y no la de onda.",
-   "Con seno de x no cumple los extremos para n igual a 3.",
+   "Con seno de x y coseno de 3t no se cumple la ecuación de onda, porque las frecuencias en el espacio y en el tiempo no coinciden.",
    "Con coseno de t la frecuencia no es la del modo 3."
   ]
  },

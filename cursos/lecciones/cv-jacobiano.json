@@ -376,7 +376,7 @@
       "errores": [
        "",
        "El inverso del jacobiano sirve para ir en sentido contrario.",
-       "Con uno el área no cambiaría, y el cambio sería una isometría."
+       "Con uno el área se conservaría. Aquí el determinante da otro valor, y se calcula con la fórmula."
       ],
       "pista": "Es el determinante de las derivadas.",
       "porque": "Es el jacobiano."
@@ -440,6 +440,12 @@
        "Se calcula el jacobiano",
        "Se transforma la región",
        "Se escribe la integral"
+      ],
+      "equiv": [
+       [
+        1,
+        2
+       ]
       ]
      }
     ]
@@ -615,7 +621,7 @@
   ],
   "errores": [
    "",
-   "El 5 es la suma de los números de la diagonal, 2 más 2, más 1.",
+   "El 5 sale de sumar 2 por 2 y 1 por 1 en lugar de restarlos.",
    "El 1 es el valor de la diagonal secundaria.",
    "El 4 es el producto de la diagonal sin restar."
   ]

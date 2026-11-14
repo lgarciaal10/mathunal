@@ -67,6 +67,6 @@ preg={"tex":"\\text{El residuo de dividir}\\ x^{3}+2x-4\\ \\text{entre}\\ x-1\\ 
  "explicacion":"Por el teorema del residuo, el residuo es P de 1. Queda 1 más 2 menos 4, que es menos 1.",
  "verificacion":{"formula":"x*x*x+2*x-4","a":1,"esperado":-1},
  "pistas":["El divisor es x menos 1, así que c vale 1.","El residuo es P de 1.","Calcula 1 al cubo, más 2 por 1, menos 4."],
- "errores":["","Ese es P de menos 1. El divisor x menos 1 corresponde a c igual a 1, no a menos 1.","Ese resultado sale de olvidar el menos 4 o de sumarlo con el signo contrario.","Ese es solo el término independiente. Hay que reemplazar también el resto de términos."]}
+ "errores":["","Ese es P de menos 1. El divisor x menos 1 corresponde a c igual a 1, no a menos 1.","Ese resultado es el opuesto del correcto. Se cambió el signo al final.","Ese es solo el término independiente. Hay que reemplazar también el resto de términos."]}
 res=["El residuo de dividir P entre x menos c es P de c.","Si P de c vale 0, entonces x menos c es un factor.","Con una raíz conocida se divide y se factoriza lo que queda."]
 write(lesson("mb-m1-l2","Lección 2 de 4","Polinomios y división",28,graf,glos,ver,S,prac,preg,res,modulo=MOD,ejercicios=6,curso="Matemáticas Básicas"),"matbas-polinomios.json")

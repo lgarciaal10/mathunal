@@ -54,7 +54,7 @@ S.append({"titulo":"¿Para qué sirve?","corto":"En ingeniería","bloques":[{"t"
  "cierre":"Con u igual a t y dv igual a e a la −t sobre 2 por dt, el volumen en 10 segundos es 0.2 por (4 − 24 e a la −5), o sea unos 0.77 litros. Si la bomba siguiera para siempre, el volumen sería de 0.8 litros. Es un modelo simplificado, porque una bomba real depende de la línea y del tanque."}]})
 S.append({"titulo":"Completa el paso","corto":"Completa","bloques":[{"t":"completar","enunciado":"Se integra x por logaritmo de x. Según LIATE, falta escoger u.","tex":"\\int x\\ln x\\,dx,\\quad u=[[hueco]]",
  "opciones":[{"tex":"\\ln x","txt":"logaritmo de x"},{"tex":"x","txt":"x"},{"tex":"x\\ln x","txt":"x por logaritmo de x"}],"correcta":0,
- "errores":["","La x es algebraica y el logaritmo va antes en LIATE. Además, al derivar la x no se simplifica nada y al integrar el logaritmo se complica.","Eso es toda la función, y u debe ser solo uno de los dos factores. El otro, con dx, es dv."],
+ "errores":["","La x es algebraica y el logaritmo va antes en LIATE. Además, con u igual a x habría que integrar el logaritmo para hallar v, y eso ya requiere otra integración por partes.","Eso es toda la función, y u debe ser solo uno de los dos factores. El otro, con dx, es dv."],
  "pista":"En LIATE la L va primero.","porque":"El logaritmo se simplifica al derivarlo, porque su derivada es 1 sobre x, y la x se integra fácil. Por eso u es el logaritmo y dv es x dx."}]})
 S.append({"titulo":"Encuentra el error","corto":"Error","bloques":[{"t":"error","enunciado":"Alguien resolvió esta integral y se equivocó en un paso. Toca el paso que está mal.","pasos":[
  {"tex":"\\int x\\,e^{-x}\\,dx","porque":"Es la integral original.","txt":"Integral de x por e a la menos x"},

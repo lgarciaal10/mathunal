@@ -427,6 +427,12 @@
        "Las normas",
        "Se arma el cociente",
        "Se despeja el ángulo"
+      ],
+      "equiv": [
+       [
+        0,
+        1
+       ]
       ]
      }
     ]

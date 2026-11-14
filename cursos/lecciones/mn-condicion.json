@@ -802,6 +802,12 @@
        "Se calcula la norma de A",
        "Se calcula la norma de la inversa",
        "Se multiplican"
+      ],
+      "equiv": [
+       [
+        1,
+        2
+       ]
       ]
      }
     ]

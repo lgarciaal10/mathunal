@@ -421,6 +421,12 @@
        "Ángulo",
        "Se aplica la potencia",
        "Se simplifica"
+      ],
+      "equiv": [
+       [
+        0,
+        1
+       ]
       ]
      }
     ]

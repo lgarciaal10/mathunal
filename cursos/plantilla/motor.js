@@ -429,13 +429,14 @@
 
   /* ordenar los pasos de un procedimiento, tocando cada paso en el orden que le toca */
   function Ordena(root,b){
-    var pool=root.querySelector('.pool'), put=root.querySelector('.put'), fb=root.querySelector('.fb'), rst=root.querySelector('[data-reset]'), n=b.pasos.length, colocados=0;
+    var pool=root.querySelector('.pool'), put=root.querySelector('.put'), fb=root.querySelector('.fb'), rst=root.querySelector('[data-reset]'), n=b.pasos.length, colocados=0, puestos={}, G=b.equiv||[];
+    function mismoGrupo(a,c){ for(var i=0;i<G.length;i++){ if(G[i].indexOf(a)>=0&&G[i].indexOf(c)>=0) return true; } return false; }
     function mover(btn){ var k=+btn.getAttribute('data-k');
-      if(k===colocados){ btn.disabled=true; btn.classList.add('ok'); var li=document.createElement('li'); li.innerHTML='<span data-tex="'+attr(b.pasos[k])+'"></span>'; put.appendChild(li); colocados++; mathIn(li);
+      if(!puestos[k]&&(k===colocados||mismoGrupo(k,colocados))){ puestos[k]=1; btn.disabled=true; btn.classList.add('ok'); var li=document.createElement('li'); li.innerHTML='<span data-tex="'+attr(b.pasos[k])+'"></span>'; put.appendChild(li); colocados++; mathIn(li);
         if(colocados===n){ fb.innerHTML='<b>Quedó en orden.</b> '+(b.porque||''); } else fb.innerHTML='<b>Bien.</b> Ahora, ¿qué sigue?'; }
       else { btn.classList.remove('no'); void btn.offsetWidth; btn.classList.add('no'); fb.innerHTML='<b>Todavía no.</b> '+(b.pista||'Piensa qué hay que hacer justo después del último paso que pusiste.'); } }
     [].forEach.call(pool.querySelectorAll('.stepbtn'),function(x){ x.addEventListener('click',function(){ mover(x); }); });
-    rst.addEventListener('click',function(){ colocados=0; put.innerHTML=''; fb.textContent=''; [].forEach.call(pool.querySelectorAll('.stepbtn'),function(x){ x.disabled=false; x.classList.remove('ok','no'); }); });
+    rst.addEventListener('click',function(){ colocados=0; puestos={}; put.innerHTML=''; fb.textContent=''; [].forEach.call(pool.querySelectorAll('.stepbtn'),function(x){ x.disabled=false; x.classList.remove('ok','no'); }); });
   }
 
   /* tarjeta de repaso espaciado y aviso cuando toca repasar */

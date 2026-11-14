@@ -381,7 +381,7 @@
       "correcta": 0,
       "errores": [
        "",
-       "La x es algebraica y el logaritmo va antes en LIATE. Además, al derivar la x no se simplifica nada y al integrar el logaritmo se complica.",
+       "La x es algebraica y el logaritmo va antes en LIATE. Además, con u igual a x habría que integrar el logaritmo para hallar v, y eso ya requiere otra integración por partes.",
        "Eso es toda la función, y u debe ser solo uno de los dos factores. El otro, con dx, es dv."
       ],
       "pista": "En LIATE la L va primero.",

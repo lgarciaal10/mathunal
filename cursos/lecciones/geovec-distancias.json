@@ -428,6 +428,12 @@
        "Se evalúa en el origen",
        "Se calcula la longitud de la normal",
        "Se divide"
+      ],
+      "equiv": [
+       [
+        1,
+        2
+       ]
       ]
      }
     ]

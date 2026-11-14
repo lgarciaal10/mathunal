@@ -730,6 +730,12 @@
        "Los lados verticales fijan X",
        "La base fija Y",
        "Se ajusta el borde de arriba"
+      ],
+      "equiv": [
+       [
+        1,
+        2
+       ]
       ]
      }
     ]

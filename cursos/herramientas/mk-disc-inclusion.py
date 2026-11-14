@@ -70,6 +70,6 @@ preg={"tex":"\\text{Hay 40 estudiantes. 25 estudian inglés, 18 francés y 6 amb
  "explicacion":"Los que estudian al menos un idioma son 25 más 18 menos 6, o sea 37. Los que no estudian ninguno son 40 menos 37, o sea 3.",
  "verificacion":{"formula":"40-(25+18-6)+0*x","a":0,"esperado":3},
  "pistas":["Primero cuenta la unión de los dos grupos.","Son 25 más 18 menos 6, o sea 37.","Resta 37 de 40."],
- "errores":["","Nueve sale de restar solo 31, que es 25 más 6 sin considerar el francés.","Doce sale de olvidar el término que se resta.","Quince es 40 menos 25, que no usa los datos del francés."]}
+ "errores":["","Nueve sale de restar solo 31, que es 25 más 6 sin considerar el francés.","Doce son los que estudian solo francés, 18 menos 6, y no responde a cuántos no estudian ninguno.","Quince es 40 menos 25, que no usa los datos del francés."]}
 res=["La unión de dos conjuntos tiene |A| más |B| menos |A intersección B| elementos.","Con tres conjuntos los signos alternan, y la intersección triple se suma.","A menos B es A intersección el complemento de B, y el conjunto potencia de n elementos tiene dos elevado a n."]
 write(lesson("di-m2-l2","Lección 2 de 4","Teoría de conjuntos e inclusión-exclusión",26,graf,glos,ver,S,prac,preg,res,modulo=MOD,ejercicios=8,curso="Matemáticas Discretas"),"disc-inclusion.json")

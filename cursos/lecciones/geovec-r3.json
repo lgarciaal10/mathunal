@@ -225,7 +225,7 @@
     "bloques": [
      {
       "t": "piensa",
-      "pregunta": "La diagonal de la base mide la raíz de 13 y la altura es 6. ¿Cuánto vale 13 más 6 al cuadrado?",
+      "pregunta": "La diagonal de la base mide la raíz de 13 y la altura es 6. ¿Cuánto vale 13 más el cuadrado de 6?",
       "opciones": [
        19,
        36,
@@ -376,8 +376,8 @@
       "correcta": 0,
       "errores": [
        "",
-       "Nueve sale de olvidar el último producto, 2 por 4.",
-       "Veinticuatro es el producto de todas las componentes, y no la suma de los productos."
+       "Nueve sale de elevar al cuadrado las componentes de un solo vector, 1 más 4 más 4. Hay que multiplicar cada componente de uno por la del otro.",
+       "Veinticuatro no sale de este cálculo. Hay que multiplicar cada componente de uno por la del otro y sumar los tres productos."
       ],
       "pista": "Se suman los tres productos.",
       "porque": "3 más 0 más 8 es 11."
@@ -441,6 +441,12 @@
        "Se calculan las normas",
        "Se arma el coseno",
        "Se despeja el ángulo"
+      ],
+      "equiv": [
+       [
+        0,
+        1
+       ]
       ]
      }
     ]

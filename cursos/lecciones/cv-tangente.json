@@ -584,6 +584,12 @@
        "Se evalúan las derivadas parciales",
        "Se arma el plano",
        "Se simplifica"
+      ],
+      "equiv": [
+       [
+        0,
+        1
+       ]
       ]
      }
     ]

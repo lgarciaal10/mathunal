@@ -753,7 +753,7 @@
       "opciones": [
        {
         "tex": "n",
-        "txt": "un entero n"
+        "txt": "un entero positivo n"
        },
        {
         "tex": "\\pi",
@@ -771,7 +771,7 @@
        "Con un medio, seno de pi sobre 2 vale 1 y no 0."
       ],
       "pista": "El seno vale 0 cuando su argumento es un múltiplo de pi.",
-      "porque": "Si pi por la raíz es n por pi, la raíz es un entero n."
+      "porque": "Si pi por la raíz es n por pi, la raíz es un entero positivo n."
      }
     ]
    },

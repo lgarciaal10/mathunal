@@ -451,6 +451,12 @@
        "El producto punto de u consigo mismo",
        "Se arma el cociente por u",
        "Es la proyección"
+      ],
+      "equiv": [
+       [
+        0,
+        1
+       ]
       ]
      }
     ]

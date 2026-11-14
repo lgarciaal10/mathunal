@@ -67,6 +67,6 @@ preg={"tex":"\\dfrac{x^{2}-1}{x^{2}+x}\\ \\text{se simplifica como}","opciones":
  "explicacion":"El numerador es x menos 1 por x más 1, y el denominador es x por x más 1. Se cancela x más 1 y queda x menos 1 sobre x, con x distinto de 0 y de menos 1.",
  "verificacion":{"formula":"(x*x-1)/(x*x+x)-(x-1)/x","a":3,"esperado":0},
  "pistas":["Factoriza el numerador como una diferencia de cuadrados.","El denominador tiene factor común x.","El factor que se repite es x más 1."],
- "errores":["","Esa respuesta cancela x con x menos 1, y no son factores iguales. El que se repite es x más 1.","Se cancelaron mal los términos. Después de cancelar x más 1 queda x menos 1 arriba.","Eso sale de cancelar x al cuadrado con x al cuadrado como si fueran términos. Hay que factorizar primero."]}
+ "errores":["","Esa respuesta cancela x con x menos 1, y no son factores iguales. El que se repite es x más 1.","Se cancelaron mal los términos. Después de cancelar x más 1 queda x menos 1 arriba.","Eso sale de tachar x al cuadrado y luego también la x que queda abajo, como si fueran términos. Hay que factorizar primero."]}
 res=["Para simplificar se factoriza y se cancelan factores comunes, no términos.","Para sumar se usa un denominador común, y para dividir se multiplica por el inverso.","Los valores que anulan un denominador quedan fuera del dominio, aunque se cancelen."]
 write(lesson("mb-m1-l4","Lección 4 de 4","Fracciones algebraicas",24,graf,glos,ver,S,prac,preg,res,modulo=MOD,ejercicios=3,curso="Matemáticas Básicas"),"matbas-fracciones.json")

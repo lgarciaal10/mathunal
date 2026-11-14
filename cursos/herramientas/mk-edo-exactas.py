@@ -41,7 +41,7 @@ S=[
    PASOS([("y\\,dx-x\\,dy=0\\ \\text{no es exacta}","Las derivadas cruzadas son 1 y menos 1."),
           ("\\mu=\\dfrac{1}{y^{2}}\\ \\Rightarrow\\ \\dfrac{dx}{y}-\\dfrac{x}{y^{2}}\\,dy=0","Al multiplicar queda exacta."),
           ("\\psi=\\dfrac{x}{y}=C","La solución son rectas por el origen.")])),
- eng("Un campo de fuerzas conservativo","Una fuerza que viene de una energía potencial, F igual a menos el gradiente de la energía, es conservativa. El trabajo no depende del camino, y las trayectorias de energía constante son las curvas de nivel. Reconocerla es revisar si la ecuación es exacta.","\\mathbf{F}=(2x+y,\\ x+2y)=\\nabla\\psi,\\quad \\psi=x^{2}+xy+y^{2}",
+ eng("Un campo de fuerzas conservativo","Una fuerza que viene de una energía potencial, F igual a menos el gradiente de U, es conservativa, y la función ψ de abajo es menos U. El trabajo no depende del camino, y las trayectorias de energía constante son las curvas de nivel. Reconocerla es revisar si la ecuación es exacta.","\\mathbf{F}=(2x+y,\\ x+2y)=\\nabla\\psi,\\quad \\psi=x^{2}+xy+y^{2}",
    [("Fuerza","(2x + y, x + 2y)"),("Punto inicial","(0, 0)"),("Punto final","(1, 1)")],"Como F sale de psi, el trabajo de (0, 0) a (1, 1) es psi de (1, 1) menos psi de (0, 0), o sea 3 menos 0, igual a 3 julios, por cualquier camino. Es un modelo simplificado, porque supone una fuerza que depende solo de la posición."),
  completar("Se halla la función potencial integrando M igual a 2x más y con respecto a x. Falta la parte que depende de y.","\\psi=x^{2}+xy+[[hueco]]",
    [("g(y)","g de y"),("C","C"),("0","cero")],0,

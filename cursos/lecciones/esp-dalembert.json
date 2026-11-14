@@ -966,7 +966,7 @@
   "errores": [
    "",
    "Un medio de e a la menos 1 olvida que hay dos ondas que se suman.",
-   "Con e a la menos 2 se evaluó f en 2, pero lo correcto es f en 1.",
+   "Con e a la menos 2 se elevó al cuadrado el resultado. Hay que evaluar f en 1 y en menos 1 y promediar.",
    "Con 1 sería el valor en t igual a 0, y no en t igual a 1."
   ]
  },

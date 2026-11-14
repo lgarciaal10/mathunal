@@ -1228,7 +1228,7 @@
    "",
    "Esa respuesta cancela x con x menos 1, y no son factores iguales. El que se repite es x más 1.",
    "Se cancelaron mal los términos. Después de cancelar x más 1 queda x menos 1 arriba.",
-   "Eso sale de cancelar x al cuadrado con x al cuadrado como si fueran términos. Hay que factorizar primero."
+   "Eso sale de tachar x al cuadrado y luego también la x que queda abajo, como si fueran términos. Hay que factorizar primero."
   ]
  },
  "resumen": [

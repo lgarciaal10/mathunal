@@ -41,7 +41,7 @@ S=[
    [("Jacobiano","3"),("Área en el mapa","10 unidades"),("Área real","30 unidades")],"Con transformaciones no lineales el jacobiano cambia de un punto a otro. Entonces se integra su valor, en lugar de multiplicar por una constante."),
  completar("En un cambio de variable, el área se multiplica por el valor absoluto del [[hueco]].","dx\\,dy=[[hueco]]\\,du\\,dv",
    [("|J|","el valor absoluto del jacobiano"),("J^{-1}","el inverso del jacobiano"),("1","uno")],0,
-   ["","El inverso del jacobiano sirve para ir en sentido contrario.","Con uno el área no cambiaría, y el cambio sería una isometría."],"Es el determinante de las derivadas.","Es el jacobiano."),
+   ["","El inverso del jacobiano sirve para ir en sentido contrario.","Con uno el área se conservaría. Aquí el determinante da otro valor, y se calcula con la fórmula."],"Es el determinante de las derivadas.","Es el jacobiano."),
  error("Alguien calculó el jacobiano de x igual a 2u más v y y igual a u más 2v, y se equivocó. Toca el paso que está mal.",
    [("x_{u}=2,\\ x_{v}=1,\\ y_{u}=1,\\ y_{v}=2","Derivadas.","derivadas"),
     ("J=2\\cdot1-1\\cdot2=0","Este paso es el que falla.","usa los productos cruzados"),
@@ -68,6 +68,6 @@ preg={"tex":"x=2u+v,\\ y=u+2v.\\ \\text{El jacobiano vale}","opciones":["$3$","$
  "explicacion":"El determinante es 2 por 2 menos 1 por 1, o sea 3.",
  "verificacion":{"formula":"2*2-1*1+0*x","a":0,"esperado":3},
  "pistas":["Es un determinante de 2 por 2.","Las entradas son las derivadas parciales.","Diagonal principal menos la otra."],
- "errores":["","El 5 es la suma de los números de la diagonal, 2 más 2, más 1.","El 1 es el valor de la diagonal secundaria.","El 4 es el producto de la diagonal sin restar."]}
+ "errores":["","El 5 sale de sumar 2 por 2 y 1 por 1 en lugar de restarlos.","El 1 es el valor de la diagonal secundaria.","El 4 es el producto de la diagonal sin restar."]}
 res=["El jacobiano es el determinante de las derivadas parciales, y mide el factor de estiramiento del área.","En la integral se usa su valor absoluto.","Las polares tienen jacobiano r."]
 write(lesson("cv-m2-l3","Lección 3 de 6","Cambio de variable y jacobiano",26,graf,glos,ver,S,prac,preg,res,modulo=MOD,ejercicios=8,curso="Cálculo en Varias Variables"),"cv-jacobiano.json")

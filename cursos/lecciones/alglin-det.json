@@ -456,18 +456,18 @@
        },
        {
         "tex": "\\text{Se intercambian las filas y queda}\\ \\begin{pmatrix}2&3\\\\0&1\\end{pmatrix}\\ \\text{con determinante}\\ 2\\cdot 1=2",
-        "porque": "Este paso es el que falla.",
-        "txt": "Se intercambian las filas y el determinante es 2 por 1, o sea 2"
+        "porque": "Es el determinante de la matriz triangular, el producto de su diagonal.",
+        "txt": "Se intercambian las filas y el determinante de esa matriz es 2 por 1, o sea 2"
        },
        {
         "tex": "\\text{Por tanto}\\ \\det A=2",
-        "porque": "Esta conclusión depende del paso anterior.",
+        "porque": "Este paso es el que falla.",
         "txt": "Por tanto el determinante de A es 2"
        }
       ],
-      "mal": 1,
-      "explicacion": "Intercambiar dos filas cambia el signo del determinante, así que el de A es el opuesto del de la matriz con las filas intercambiadas. Con la fórmula directa, 0 por 3 menos 1 por 2 da menos 2.",
-      "correccion": "\\det A=0\\cdot 3-1\\cdot 2=-2",
+      "mal": 2,
+      "explicacion": "Intercambiar dos filas cambia el signo del determinante, así que el de A es el opuesto del de la matriz con las filas intercambiadas, o sea menos 2. Con la fórmula directa, 0 por 3 menos 1 por 2 da menos 2.",
+      "correccion": "\\det A=-(2\\cdot 1)=-2",
       "pista": "Calcula el determinante de A con la fórmula directa y compáralo."
      }
     ]

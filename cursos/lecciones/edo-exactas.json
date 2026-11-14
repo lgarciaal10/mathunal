@@ -2310,7 +2310,7 @@
      {
       "t": "ingenieria",
       "titulo": "Un campo de fuerzas conservativo",
-      "html": "Una fuerza que viene de una energía potencial, F igual a menos el gradiente de la energía, es conservativa. El trabajo no depende del camino, y las trayectorias de energía constante son las curvas de nivel. Reconocerla es revisar si la ecuación es exacta.",
+      "html": "Una fuerza que viene de una energía potencial, F igual a menos el gradiente de U, es conservativa, y la función ψ de abajo es menos U. El trabajo no depende del camino, y las trayectorias de energía constante son las curvas de nivel. Reconocerla es revisar si la ecuación es exacta.",
       "tex": "\\mathbf{F}=(2x+y,\\ x+2y)=\\nabla\\psi,\\quad \\psi=x^{2}+xy+y^{2}",
       "datos": [
        {

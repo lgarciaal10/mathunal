@@ -653,6 +653,12 @@
        "Se calcula x",
        "Se calcula y",
        "Se escribe el resultado"
+      ],
+      "equiv": [
+       [
+        1,
+        2
+       ]
       ]
      }
     ]

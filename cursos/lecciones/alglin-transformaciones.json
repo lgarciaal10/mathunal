@@ -494,6 +494,12 @@
        "Gira e1 y queda en el eje y",
        "Gira e2 y queda en el lado negativo del eje x",
        "Las imágenes son las columnas"
+      ],
+      "equiv": [
+       [
+        1,
+        2
+       ]
       ]
      }
     ]

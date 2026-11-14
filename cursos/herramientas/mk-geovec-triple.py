@@ -68,6 +68,6 @@ preg={"tex":"\\text{Volumen, aristas}\\ (1,1,0),(0,1,1),(1,0,1)","opciones":["$2
  "explicacion":"El determinante de tres por tres es 1 por (1 por 1 menos 1 por 0) menos 1 por (0 por 1 menos 1 por 1) más 0, que da 1 más 1, o sea 2. El volumen es 2.",
  "verificacion":{"formula":"1*(1*1-1*0)-1*(0*1-1*1)+0*x","a":0,"esperado":2},
  "pistas":["Desarrolla el determinante por la primera fila.","Da 1 más 1.","El volumen es 2."],
- "errores":["","Cero indicaría vectores coplanares, y este determinante no se anula.","Tres sale de olvidar el signo del segundo término del desarrollo.","Uno es solo el primer término. Falta el segundo."]}
+ "errores":["","Cero indicaría vectores coplanares, y este determinante no se anula.","Tres no sale de un desarrollo correcto del determinante. Revisa los signos de los cofactores.","Uno es solo el primer término. Falta el segundo."]}
 res=["El triple producto a punto b cruz c da el volumen con signo del paralelepípedo.","El volumen es su valor absoluto, y es igual al área de la base por la altura.","Si es cero, los tres vectores son coplanares."]
 write(lesson("gv-m2-l2","Lección 2 de 4","Triple producto escalar y volumen",26,graf,glos,ver,S,prac,preg,res,modulo=MOD,ejercicios=8,curso="Geometría Vectorial y Analítica"),"geovec-triple.json")

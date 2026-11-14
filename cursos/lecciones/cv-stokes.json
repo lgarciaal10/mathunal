@@ -580,6 +580,12 @@
        "Se calcula la divergencia",
        "Se plantea la integral triple",
        "Se calcula el flujo"
+      ],
+      "equiv": [
+       [
+        0,
+        1
+       ]
       ]
      }
     ]

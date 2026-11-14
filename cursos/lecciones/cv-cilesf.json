@@ -750,6 +750,12 @@
        "Se escribe el elemento de volumen",
        "Se escriben los límites",
        "Se integra"
+      ],
+      "equiv": [
+       [
+        1,
+        2
+       ]
       ]
      }
     ]

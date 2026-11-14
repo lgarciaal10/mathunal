@@ -557,7 +557,7 @@
   ],
   "errores": [
    "",
-   "Ese −5/4 está al revés. Es menos (2x + y) sobre (x + 2y), con la suma de x e y en el denominador.",
+   "Ese −5/4 está al revés. Es menos (2x + y) sobre (x + 2y), con 2x + y arriba y x + 2y abajo.",
    "Falta el signo. Al pasar los términos al otro lado, el resultado queda negativo.",
    "Ese −1/2 sale de olvidar el término xy por completo, que aporta y y x por dy sobre dx."
   ]

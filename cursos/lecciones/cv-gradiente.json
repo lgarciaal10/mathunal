@@ -602,6 +602,12 @@
        "Se evalúa en el punto",
        "Se hace unitaria la dirección",
        "Se hace el producto punto"
+      ],
+      "equiv": [
+       [
+        1,
+        2
+       ]
       ]
      }
     ]
@@ -791,7 +797,7 @@
   "errores": [
    "",
    "El 7 es la suma 3 más 4, y no el producto punto.",
-   "El 1 sería con u perpendicular al gradiente.",
+   "El 0 sería con u perpendicular al gradiente. El 1 no sale de este producto punto.",
    "El 7 quintos mezcla mal los términos."
   ]
  },

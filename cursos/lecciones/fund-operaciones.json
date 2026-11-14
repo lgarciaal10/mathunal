@@ -1074,6 +1074,12 @@
        "Se cuenta lo que comparten",
        "Se aplica la inclusión y exclusión",
        "Se escribe el resultado"
+      ],
+      "equiv": [
+       [
+        0,
+        1
+       ]
       ]
      }
     ]

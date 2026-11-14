@@ -54,7 +54,7 @@ S=[
     ("3+2t=1","Se iguala al plano.","se iguala a 1"),
     ("\\text{Entonces}\\ t=1","Este paso es el que falla.","queda t igual a 1")],2,
    "De 3 más 2t igual a 1 se despeja 2t igual a menos 2, y t vale menos 1. Con t igual a 1 se obtendría z igual a 5.",
-   "t=-1,\\quad (x,y,z)=(0,3,1)","Despeja t con cuidado del signo."),
+   "t=-1","Despeja t con cuidado del signo."),
  ordenar("Estos son los pasos para hallar el punto donde la recta corta al plano z igual a 1, pero están desordenados.",
    [("(x,y,z)=(1+t,\\ 2-t,\\ 3+2t)","Se escribe la recta en paramétricas"),
     ("3+2t=1","Se sustituye en la ecuación del plano"),

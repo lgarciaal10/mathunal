@@ -473,6 +473,12 @@
        "Las potencias de A son las de D, entre P y P inversa",
        "Se elevan los elementos de la diagonal",
        "Se multiplica y queda la fórmula"
+      ],
+      "equiv": [
+       [
+        1,
+        2
+       ]
       ]
      }
     ]

@@ -614,7 +614,7 @@
   "errores": [
    "",
    "Cero indicaría vectores coplanares, y este determinante no se anula.",
-   "Tres sale de olvidar el signo del segundo término del desarrollo.",
+   "Tres no sale de un desarrollo correcto del determinante. Revisa los signos de los cofactores.",
    "Uno es solo el primer término. Falta el segundo."
   ]
  },

@@ -669,7 +669,7 @@
       "errores": [
        "",
        "Seis es la suma sin el factor un medio de h entre 2.",
-       "Dos sale de olvidar el término del extremo derecho, el 4."
+       "Dos sale de olvidar el extremo derecho, el 4, y además el factor un medio."
       ],
       "pista": "Se suman los términos y se multiplica por h entre 2.",
       "porque": "0 más 2 más 4 es 6, y la mitad es 3."
@@ -733,6 +733,12 @@
        "Se evalúa la función en los nodos",
        "Se arma la fórmula",
        "Se calcula"
+      ],
+      "equiv": [
+       [
+        0,
+        1
+       ]
       ]
      }
     ]

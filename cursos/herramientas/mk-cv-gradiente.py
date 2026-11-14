@@ -73,6 +73,6 @@ preg={"tex":"\\nabla f(P)=(3,4),\\ u=\\left(\\tfrac{3}{5},\\tfrac{4}{5}\\right).
  "explicacion":"El producto punto es 3 por 3 quintos más 4 por 4 quintos, o sea 25 quintos, que es 5. Es la magnitud del gradiente porque u apunta como el gradiente.",
  "verificacion":{"formula":"3*3/5+4*4/5+0*x","a":0,"esperado":5},
  "pistas":["Haz el producto punto.","Multiplica componente por componente.","Suma los dos productos."],
- "errores":["","El 7 es la suma 3 más 4, y no el producto punto.","El 1 sería con u perpendicular al gradiente.","El 7 quintos mezcla mal los términos."]}
+ "errores":["","El 7 es la suma 3 más 4, y no el producto punto.","El 0 sería con u perpendicular al gradiente. El 1 no sale de este producto punto.","El 7 quintos mezcla mal los términos."]}
 res=["El gradiente es el vector de derivadas parciales, apunta hacia el máximo crecimiento y es perpendicular a las curvas de nivel.","La derivada direccional es el gradiente por u, con u unitario.","El máximo de la derivada direccional es la magnitud del gradiente."]
 write(lesson("cv-m1-l5","Lección 5 de 7","Gradiente y derivada direccional",28,graf,glos,ver,S,prac,preg,res,modulo=MOD,ejercicios=8,curso="Cálculo en Varias Variables"),"cv-gradiente.json")

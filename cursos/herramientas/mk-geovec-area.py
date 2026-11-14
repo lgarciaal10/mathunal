@@ -42,7 +42,7 @@ S=[
    [("Vértices","(0,0), (40,0), (10,30)"),("Determinante","1200"),("Área","600 m²")],"El determinante da 1200 y el área es la mitad, 600 metros cuadrados. Esta forma es cómoda en topografía, porque solo usa las coordenadas de los vértices, sin necesidad de medir alturas. Con más vértices se divide el terreno en triángulos y se suman las áreas."),
  completar("Se calcula el área del paralelogramo de u igual a (3, 0) y v igual a (1, 2). Falta el resultado.","A=|3\\cdot2-0\\cdot1|=[[hueco]]",
    [("6","seis"),("5","cinco"),("3","tres")],0,
-   ["","Cinco saldría de sumar en lugar de restar, o de usar otros números. Aquí 3 por 2 es 6 y 0 por 1 es 0.","Tres es el área del triángulo, la mitad del paralelogramo."],"Calcula 3 por 2 menos 0 por 1.","El determinante es 6 y su valor absoluto es 6."),
+   ["","Cinco no sale de este cálculo. Aquí 3 por 2 es 6 y 0 por 1 es 0, y el valor es 6.","Tres es el área del triángulo, la mitad del paralelogramo."],"Calcula 3 por 2 menos 0 por 1.","El determinante es 6 y su valor absoluto es 6."),
  error("Alguien calculó el área de un triángulo de lados u igual a (3, 0) y v igual a (1, 2) y se equivocó en un paso. Toca el paso que está mal.",
    [("u=(3,0),\\quad v=(1,2)","Son los dos vectores.","los lados son estos"),
     ("u_{1}v_{2}-u_{2}v_{1}=6","El determinante.","el determinante vale 6"),

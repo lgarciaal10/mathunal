@@ -655,7 +655,7 @@
       "errores": [
        "",
        "El signo es negativo, porque p menos p entre 3 queda igual a menos 5.",
-       "Menos quince sería el valor de p multiplicado por 3, y la ecuación aún no se despeja."
+       "Menos quince sale de multiplicar por 3 el lado derecho, menos 5, y la ecuación aún no se despeja así."
       ],
       "pista": "Pasa p entre 3 al lado izquierdo y deja el término constante.",
       "porque": "De p igual a p entre 3 menos 5 sale 2p entre 3 igual a menos 5."

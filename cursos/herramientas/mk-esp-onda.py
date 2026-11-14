@@ -69,6 +69,6 @@ preg={"tex":"u_{tt}=u_{xx},\\ u(0,t)=u(\\pi,t)=0,\\ u_t(x,0)=0.\\ \\text{El modo
  "explicacion":"El modo n es seno de n x por coseno de n t. Con n igual a 3, es seno de 3x por coseno de 3t.",
  "verificacion":{"formula":"sin(3*pi/2)*cos(0)+0*x","a":0,"esperado":-1},
  "pistas":["Es una ecuación de onda, y no de calor.","El modo n oscila con coseno de n t.","Con n igual a 3, la parte de x y la de t tienen un 3."],
- "errores":["","Con el exponencial sería la ecuación de calor, y no la de onda.","Con seno de x no cumple los extremos para n igual a 3.","Con coseno de t la frecuencia no es la del modo 3."]}
+ "errores":["","Con el exponencial sería la ecuación de calor, y no la de onda.","Con seno de x y coseno de 3t no se cumple la ecuación de onda, porque las frecuencias en el espacio y en el tiempo no coinciden.","Con coseno de t la frecuencia no es la del modo 3."]}
 res=["En la ecuación de onda cada modo seno de n x oscila como coseno de n c t, y no se apaga.","La frecuencia del modo n es n veces la fundamental, y la fundamental es c entre 2L.","Los extremos fijos y la separación de variables determinan los modos."]
 write(lesson("es-m2-l4","Lección 4 de 5","Ecuación de onda y cuerda vibrante",28,graf,glos,ver,S,prac,preg,res,modulo=MOD,ejercicios=8,curso="Matemáticas Especiales"),"esp-onda.json")

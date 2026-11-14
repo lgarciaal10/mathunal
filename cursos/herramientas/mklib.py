@@ -34,7 +34,24 @@ def ordenar(enun,pasos,mezcla,porque,pista):
     return sec("Ordena los pasos","Ordena",{"t":"ordenar","enunciado":enun,"pasos":[a for a,b in pasos],"mezcla":mezcla,"porque":porque,"pista":pista,"txt":[b for a,b in pasos]})
 def lesson(id_,posicion,titulo,minutos,graf,glos,ver,secciones,prac,preg,resumen,modulo="Módulo 1 Integral definida y técnicas básicas",ejercicios=7,curso="Cálculo Integral"):
     return {"esquema":1,"id":id_,"ejemplo":True,"curso":curso,"modulo":modulo,"posicion":posicion,"titulo":titulo,"minutos":minutos,"ejercicios":ejercicios,"grafica":graf,"glosario":glos,"ver":ver,"leer":{"secciones":secciones},"practicar":{"pasos":prac},"pregunta":preg,"resumen":resumen}
+# pasos de ORDENAR que se pueden intercambiar sin romper la lógica, por lección
+EQUIV={'alglin-proyeccion':[[0,1]],'alglin-transformaciones':[[1,2]],'alglin-diagonalizacion':[[1,2]],'disc-grafos':[[1,2]],
+ 'geovec-punto':[[0,1]],'geovec-r3':[[0,1]],'geovec-distancias':[[1,2]],'geovec-conicas':[[1,2]],'geovec-lineal':[[0,1]],
+ 'fund-argumentos':[[1,2]],'fund-induccion':[[0,1]],'disc-induccion':[[0,1]],'fund-operaciones':[[0,1]],
+ 'mn-condicion':[[1,2]],'mn-integracion':[[0,1]],'mn-interpolacion':[[0,1]],'mn-splines':[[1,2,3]],
+ 'esp-laplace':[[1,2]],'esp-cauchy':[[1,2]],'esp-integral':[[0,1],[2,3]],'esp-complejos':[[0,1]],'esp-onda':[[1,2]],
+ 'calcint-partes':[[0,1]],'cv-gradiente':[[1,2]],'cv-cadena':[[0,1]],'cv-lagrange':[[0,1]],'cv-limites':[[0,1]],
+ 'cv-jacobiano':[[1,2]],'cv-polares':[[1,2]],'cv-cilesf':[[1,2]],'cv-stokes':[[0,1]],'cv-aplic':[[0,1]],'cv-tangente':[[0,1]]}
 def write(L,name):
+    stem=name.replace('.json','')
+    if stem in EQUIV:
+        def w(o):
+            if isinstance(o,dict):
+                if o.get('t')=='ordenar': o['equiv']=EQUIV[stem]
+                for v in o.values(): w(v)
+            elif isinstance(o,list):
+                for v in o: w(v)
+        w(L)
     json.dump(L,open(name,'w'),ensure_ascii=False,indent=1)
 
 def M(*c):

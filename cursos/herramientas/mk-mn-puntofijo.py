@@ -52,7 +52,7 @@ S=[
    [("Reynolds","100 000"),("Rugosidad relativa","0.001"),("Factor de fricción","cerca de 0.022")],"Para estos datos, el factor de fricción queda cerca de 0.022. La iteración converge rápido porque el lado derecho depende poco de f, o sea, la derivada es pequeña. Este tipo de ecuación implícita aparece en hidráulica, en transferencia de calor y en el diseño de redes de tuberías."),
  completar("Se calcula el punto fijo de g de x igual a x entre 3 menos 5. Falta el valor.","\\dfrac{2p}{3}=[[hueco]]",
    [("-5","menos cinco"),("5","cinco"),("-15","menos quince")],0,
-   ["","El signo es negativo, porque p menos p entre 3 queda igual a menos 5.","Menos quince sería el valor de p multiplicado por 3, y la ecuación aún no se despeja."],"Pasa p entre 3 al lado izquierdo y deja el término constante.","De p igual a p entre 3 menos 5 sale 2p entre 3 igual a menos 5."),
+   ["","El signo es negativo, porque p menos p entre 3 queda igual a menos 5.","Menos quince sale de multiplicar por 3 el lado derecho, menos 5, y la ecuación aún no se despeja así."],"Pasa p entre 3 al lado izquierdo y deja el término constante.","De p igual a p entre 3 menos 5 sale 2p entre 3 igual a menos 5."),
  error("Alguien analizó la convergencia de una iteración de punto fijo y se equivocó en un paso. Toca el paso que está mal.",
    [("g(x)=1.5x-1,\\quad p=2","La función y su punto fijo.","g de 2 es 2"),
     ("g'(p)=1.5","La derivada.","la derivada vale 1.5"),

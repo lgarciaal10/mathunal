@@ -572,6 +572,12 @@
        "Se toma otra",
        "Se comparan",
        "Se concluye"
+      ],
+      "equiv": [
+       [
+        0,
+        1
+       ]
       ]
      }
     ]

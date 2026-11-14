@@ -43,7 +43,7 @@ S=[
    [("Masa","250 kg"),("Rigidez","2250 N/m"),("Amortiguamiento crítico","1500 N·s/m")],"La frecuencia natural es la raíz de k sobre m, o sea 3 radianes por segundo. El amortiguamiento crítico, donde la raíz es doble, es 2 por la raíz de k por m, o sea 1500 newton segundo por metro. Con 750, la mitad, el vehículo todavía oscila un poco al pasar un bache. Es un modelo simplificado, porque supone un resorte y un amortiguador lineales."),
  completar("Se halla la ecuación característica de y segunda menos 3y prima más 2y igual a 0.","r^{2}-3r+2=[[hueco]]",
    [("0","cero"),("1","uno"),("3","tres")],0,
-   ["","La ecuación característica se iguala a 0, porque la ecuación original es igual a 0.","Esa es la derivada y no un valor. La ecuación característica se iguala a 0."],"Se iguala a 0, igual que la EDO.","La EDO es igual a 0, así que su ecuación característica también."),
+   ["","La ecuación característica se iguala a 0, porque la ecuación original es igual a 0.","Ese 3 es el coeficiente de r en el lado izquierdo y no un valor para igualar. La ecuación característica se iguala a 0."],"Se iguala a 0, igual que la EDO.","La EDO es igual a 0, así que su ecuación característica también."),
  error("Alguien resolvió una ecuación y se equivocó en un paso. Toca el paso que está mal.",
    [("y''+9y=0\\ \\Rightarrow\\ r^{2}+9=0","Es la ecuación característica.","y segunda más 9y igual a 0 da r cuadrado más 9 igual a 0"),
     ("r=\\pm 3i","Las raíces son imaginarias.","Las raíces son más y menos 3i"),

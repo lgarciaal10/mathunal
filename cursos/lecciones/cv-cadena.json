@@ -540,6 +540,12 @@
        "Se derivan x y y respecto a t",
        "Se arma la suma",
        "Se reemplaza x y y por sus expresiones"
+      ],
+      "equiv": [
+       [
+        0,
+        1
+       ]
       ]
      }
     ]

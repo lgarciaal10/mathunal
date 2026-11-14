@@ -642,7 +642,7 @@
   "errores": [
    "",
    "Ese es el valor propio más grande. Se pide el más pequeño.",
-   "Los valores propios deben sumar 7, la traza, y multiplicar 10, el determinante. 1 y 7 no los cumplen.",
+   "Los valores propios deben sumar 7, la traza, y multiplicar 10, el determinante. Si uno fuera 1, el otro sería 6 por la traza, y el producto daría 6 y no 10.",
    "Los valores propios deben sumar 7 y multiplicar 10. Si uno fuera 3, el otro sería 4, y eso da 12."
   ]
  },

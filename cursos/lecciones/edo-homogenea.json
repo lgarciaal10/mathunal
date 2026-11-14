@@ -860,7 +860,7 @@
       "errores": [
        "",
        "La ecuación característica se iguala a 0, porque la ecuación original es igual a 0.",
-       "Esa es la derivada y no un valor. La ecuación característica se iguala a 0."
+       "Ese 3 es el coeficiente de r en el lado izquierdo y no un valor para igualar. La ecuación característica se iguala a 0."
       ],
       "pista": "Se iguala a 0, igual que la EDO.",
       "porque": "La EDO es igual a 0, así que su ecuación característica también."

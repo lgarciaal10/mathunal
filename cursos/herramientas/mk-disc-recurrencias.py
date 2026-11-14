@@ -73,6 +73,6 @@ preg={"tex":"\\text{Si}\\ a_{n}=2a_{n-1}+1\\ \\text{con}\\ a_{0}=1,\\ \\text{ent
  "explicacion":"a de 1 es 2 por 1 más 1, o sea 3. a de 2 es 2 por 3 más 1, o sea 7. Y a de 3 es 2 por 7 más 1, o sea 15.",
  "verificacion":{"formula":"2*(2*(2*1+1)+1)+1+0*x","a":0,"esperado":15},
  "pistas":["Calcula a de 1 con la regla.","Son 3 y luego 7.","El siguiente es 2 por 7 más 1."],
- "errores":["","Ocho sería 2 elevado a 3, que no incluye el sumando 1 de cada paso.","Nueve sale de detenerse un paso antes y sumar mal.","Siete es a de 2, y se pide a de 3."]}
+ "errores":["","Ocho sería 2 elevado a 3, que no incluye el sumando 1 de cada paso.","Nueve sale de calcular 2 al cubo y sumar 1 una sola vez, en lugar de sumar 1 en cada paso.","Siete es a de 2, y se pide a de 3."]}
 res=["Una recurrencia define cada término a partir de los anteriores, con valores iniciales.","La ecuación característica de a de n igual a a de n menos 1 más 2 por a de n menos 2 es r al cuadrado menos r menos 2.","Las raíces de la característica dan la fórmula cerrada, y en Fibonacci el cociente de términos se acerca a 1.618."]
 write(lesson("di-m3-l1","Lección 1 de 4","Relaciones de recurrencia",28,graf,glos,ver,S,prac,preg,res,modulo=MOD,ejercicios=8,curso="Matemáticas Discretas"),"disc-recurrencias.json")

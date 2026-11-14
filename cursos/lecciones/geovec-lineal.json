@@ -420,6 +420,12 @@
        "Se toma v",
        "Se suman componente a componente",
        "Es el objetivo"
+      ],
+      "equiv": [
+       [
+        0,
+        1
+       ]
       ]
      }
     ]

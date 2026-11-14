@@ -672,6 +672,12 @@
        "Se escribe la hipótesis inductiva",
        "Se prueba el paso inductivo",
        "Se concluye para todo n"
+      ],
+      "equiv": [
+       [
+        0,
+        1
+       ]
       ]
      }
     ]

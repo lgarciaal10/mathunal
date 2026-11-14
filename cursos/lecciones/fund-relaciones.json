@@ -844,7 +844,7 @@
      {
       "t": "ingenieria",
       "titulo": "Las dependencias de un proyecto",
-      "html": "En un proyecto se dice que la tarea A precede a la B si A debe terminar antes de que empiece B. Si A precede a B y B precede a C, entonces A precede a C, que es la transitividad. Y no puede ocurrir que A preceda a B y B preceda a A, que es la antisimetría.",
+      "html": "En un proyecto se dice que la tarea A precede a la B si A debe terminar antes de que empiece B. Si A precede a B y B precede a C, entonces A precede a C, que es la transitividad. Y no puede ocurrir que A preceda a B y B preceda a A, que es la asimetría.",
       "tex": "a\\prec b,\\ b\\prec c\\ \\Rightarrow\\ a\\prec c",
       "datos": [
        {
@@ -860,7 +860,7 @@
         "v": "A antes de C"
        }
       ],
-      "cierre": "Si las dependencias formaran un ciclo, A precedería a B y B precedería a A, y el proyecto no podría terminar, porque ninguna tarea podría empezar primero. Verificar que la relación es antisimétrica y transitiva, o sea un orden estricto (un orden parcial si se agrega la reflexividad), sirve para detectar ciclos y para calcular una secuencia posible de trabajo."
+      "cierre": "Si las dependencias formaran un ciclo, A precedería a B y B precedería a A, y el proyecto no podría terminar, porque ninguna tarea podría empezar primero. Verificar que la relación es asimétrica y transitiva, o sea un orden estricto (un orden parcial exige reflexividad, antisimetría y transitividad), sirve para detectar ciclos y para calcular una secuencia posible de trabajo."
      }
     ]
    },

@@ -365,7 +365,7 @@
       "correcta": 0,
       "errores": [
        "",
-       "Cinco saldría de sumar en lugar de restar, o de usar otros números. Aquí 3 por 2 es 6 y 0 por 1 es 0.",
+       "Cinco no sale de este cálculo. Aquí 3 por 2 es 6 y 0 por 1 es 0, y el valor es 6.",
        "Tres es el área del triángulo, la mitad del paralelogramo."
       ],
       "pista": "Calcula 3 por 2 menos 0 por 1.",

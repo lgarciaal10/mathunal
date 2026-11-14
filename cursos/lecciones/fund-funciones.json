@@ -717,7 +717,7 @@
   ],
   "errores": [
    "",
-   "Hay otra opción que también ocurre siempre, y la composición sí conserva la inyectividad.",
+   "No ocurre siempre. La composición de inyectivas es inyectiva, así que no puede ser no inyectiva.",
    "La composición de inyectivas conserva la inyectividad, así que no puede ser ninguna de las dos negaciones.",
    "Para ser biyectiva faltaría la sobreyectividad, y eso no se puede asegurar."
   ]

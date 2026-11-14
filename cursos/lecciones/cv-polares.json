@@ -584,6 +584,12 @@
        "Se agrega el factor r",
        "Se escriben los límites",
        "Se integra"
+      ],
+      "equiv": [
+       [
+        1,
+        2
+       ]
       ]
      }
     ]

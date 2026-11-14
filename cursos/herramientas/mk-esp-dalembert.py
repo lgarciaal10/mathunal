@@ -68,6 +68,6 @@ preg={"tex":"u_{tt}=u_{xx},\\ u(x,0)=e^{-x^{2}},\\ u_t(x,0)=0.\\ \\text{El valor
  "explicacion":"Con c igual a 1, u de 0 y 1 es un medio por f de 1 más f de menos 1, o sea un medio por dos e a la menos 1. Da e a la menos 1.",
  "verificacion":{"formula":"0.5*(exp(-1)+exp(-1))+0*x","a":0,"esperado":0.3679},
  "pistas":["Aplica D'Alembert con c igual a 1.","Evalúa f en x más t y en x menos t.","f de 1 y f de menos 1 valen lo mismo."],
- "errores":["","Un medio de e a la menos 1 olvida que hay dos ondas que se suman.","Con e a la menos 2 se evaluó f en 2, pero lo correcto es f en 1.","Con 1 sería el valor en t igual a 0, y no en t igual a 1."]}
+ "errores":["","Un medio de e a la menos 1 olvida que hay dos ondas que se suman.","Con e a la menos 2 se elevó al cuadrado el resultado. Hay que evaluar f en 1 y en menos 1 y promediar.","Con 1 sería el valor en t igual a 0, y no en t igual a 1."]}
 res=["La fórmula de D'Alembert escribe la solución como suma de dos ondas viajeras, una hacia cada lado.","Si parte del reposo, cada onda lleva la mitad de la forma inicial.","Las ondas viajeras mantienen su forma, y se mueven a velocidad c."]
 write(lesson("es-m2-l5","Lección 5 de 5","Fórmula de D'Alembert",28,graf,glos,ver,S,prac,preg,res,modulo=MOD,ejercicios=8,curso="Matemáticas Especiales"),"esp-dalembert.json")

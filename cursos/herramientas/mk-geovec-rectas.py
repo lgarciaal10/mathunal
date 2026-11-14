@@ -72,6 +72,6 @@ preg={"tex":"\\text{Distancia de}\\ (1,1)\\ \\text{a la recta}\\ x+y-4=0","opcio
  "explicacion":"El numerador es el valor absoluto de 1 más 1 menos 4, que da 2, y el denominador es la raíz de 1 más 1, que es raíz de 2. El cociente es 2 entre raíz de 2, o sea raíz de 2.",
  "verificacion":{"formula":"abs(1+1-4)/sqrt(2)+0*x","a":0,"esperado":1.4142},
  "pistas":["Calcula el valor de x más y menos 4 en el punto.","Da menos 2. Se toma el valor absoluto.","Se divide entre la raíz de 1 más 1."],
- "errores":["","Falta dividir entre la raíz de 2. Ese es solo el valor absoluto del numerador.","Se dividió entre 2 y no entre raíz de 2, que es la norma de los coeficientes.","Se multiplicó en lugar de dividir entre la raíz de 2."]}
+ "errores":["","Falta dividir entre la raíz de 2. Ese es solo el valor absoluto del numerador.","Sale de usar un numerador de 1, por no restar 4 al evaluar, y dividir entre raíz de 2.","Se multiplicó en lugar de dividir entre la raíz de 2."]}
 res=["Una recta se describe con un punto y una pendiente, con un punto y un director, o con una ecuación general.","La pendiente es el cambio en y entre el cambio en x, o la segunda componente del director entre la primera.","La distancia de un punto a una recta es el valor absoluto de a x0 más b y0 más c, entre la raíz de a al cuadrado más b al cuadrado."]
 write(lesson("gv-m1-l3","Lección 3 de 4","Rectas en el plano",28,graf,glos,ver,S,prac,preg,res,modulo=MOD,ejercicios=8,curso="Geometría Vectorial y Analítica"),"geovec-rectas.json")

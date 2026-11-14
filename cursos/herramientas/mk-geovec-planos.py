@@ -39,7 +39,7 @@ S=[
           ("x+y+z=1\\ \\text{y}\\ 2x+2y+2z=7","Las normales (1, 1, 1) y (2, 2, 2) son paralelas, así que son planos paralelos.")]),
    OJO("Dos planos con la misma normal pueden ser el mismo plano o planos distintos. Hay que mirar también el término independiente.")),
  eng("El panel solar inclinado","Un panel solar plano se inclina 30 grados, y su normal unitaria es (0, 0.5, 0.866). El sol está arriba, y la dirección hacia el sol, vista desde el panel, es (0, 0, 1). La energía que recibe es proporcional al producto punto de la normal con la dirección del sol.","I=I_{0}\\,\\hat{\\mathbf{n}}\\cdot\\hat{\\mathbf{s}}=0.866\\,I_{0}",
-   [("Normal del panel","(0, 0.5, 0.866)"),("Rayos del sol","(0, 0, 1)"),("Fracción de energía recibida","86.6 %")],"El panel recibe 86.6 por ciento de lo que recibiría uno horizontal con el sol a la vertical. Como el sol cambia de posición durante el día, el ángulo óptimo cambia, y por eso se estudia la normal del panel frente a la dirección del sol. Es un modelo geométrico que no incluye nubes, sombras ni reflejos."),
+   [("Normal del panel","(0, 0.5, 0.866)"),("Dirección hacia el sol","(0, 0, 1)"),("Fracción de energía recibida","86.6 %")],"El panel recibe 86.6 por ciento de lo que recibiría uno horizontal con el sol a la vertical. Como el sol cambia de posición durante el día, el ángulo óptimo cambia, y por eso se estudia la normal del panel frente a la dirección del sol. Es un modelo geométrico que no incluye nubes, sombras ni reflejos."),
  completar("Se escribe el plano que pasa por el origen con vector normal (1, 2, 3). Falta el lado izquierdo.","[[hueco]]=0",
    [("x+2y+3z","x más 2y más 3z"),("3x+2y+z","3x más 2y más z"),("x+y+z","x más y más z")],0,
    ["","Los coeficientes están al revés. Deben coincidir con las componentes de la normal.","Esos coeficientes son todos 1, que corresponde a la normal (1, 1, 1)."],"Los coeficientes son las componentes de la normal.","La normal (1, 2, 3) da los coeficientes 1, 2 y 3."),
@@ -69,6 +69,6 @@ preg={"tex":"\\text{Un vector normal al plano}\\ 2x-y+5z=7\\ \\text{es}","opcion
  "explicacion":"En la ecuación ax más by más cz igual a d, la normal es (a, b, c). Aquí los coeficientes son 2, menos 1 y 5, así que la normal es (2, menos 1, 5).",
  "verificacion":{"formula":"2+0*x","a":0,"esperado":2},
  "pistas":["Mira los coeficientes de x, y y z.","Son 2, menos 1 y 5.","Importa el signo de cada uno."],
- "errores":["","El signo del segundo coeficiente es negativo, y la normal lo conserva.","Siete es el término independiente, que no entra en la normal.","Los coeficientes se invirtieron y se cambiaron de signo."]}
+ "errores":["","El signo del segundo coeficiente es negativo, y la normal lo conserva.","Siete es el término independiente, que no entra en la normal.","Se intercambiaron los valores de los dos primeros coeficientes."]}
 res=["Un plano se describe con un punto y una normal, y su ecuación es n punto r menos r0 igual a cero.","En ax más by más cz igual a d, la normal es (a, b, c).","Dos planos son paralelos si sus normales lo son, y perpendiculares si el producto punto de las normales es cero."]
 write(lesson("gv-m3-l1","Lección 1 de 4","Planos en el espacio",28,graf,glos,ver,S,prac,preg,res,modulo=MOD,ejercicios=8,curso="Geometría Vectorial y Analítica"),"geovec-planos.json")

@@ -1142,7 +1142,7 @@
         "v": "unos 12 cm²"
        }
       ],
-      "cierre": "Con 50 grados de aumento y un coeficiente de 12 millonésimas por grado, el lado crece 0.6 milímetros. El aumento de área es 2 por L por el aumento, o sea 12 centímetros cuadrados, más el término del cuadrado, que es 0.0036 centímetros cuadrados y pesa menos del 0.03 por ciento. Por eso en ingeniería se usa 2 L por el aumento. Es una aproximación válida para cambios pequeños."
+      "cierre": "Con 50 grados de aumento y un coeficiente de 12 millonésimas por grado, el lado crece 0.6 milímetros. El aumento de área es 2 por L por el aumento, o sea 12 centímetros cuadrados, más el término del cuadrado, que es 0.0036 centímetros cuadrados y pesa cerca del 0.03 por ciento. Por eso en ingeniería se usa 2 L por el aumento. Es una aproximación válida para cambios pequeños."
      }
     ]
    },
@@ -1172,7 +1172,7 @@
       "errores": [
        "",
        "Al elevar menos 3 al cuadrado el signo se pierde, y queda positivo.",
-       "El 6 sería 2 por 3, que ya aparece en el término del medio, y no el cuadrado de 3."
+       "El 6 sería 2 por 3, un doble producto mal formado. Al final va el cuadrado de 3, que es 9."
       ],
       "pista": "El último término es el cuadrado de 3.",
       "porque": "Tres al cuadrado es 9, y es positivo."
@@ -1424,8 +1424,8 @@
   "errores": [
    "",
    "Al desarrollar x menos 3 al cubo salen cuatro términos con signos alternados, no x al cubo menos 27.",
-   "En la diferencia de cubos el término del medio del segundo factor es positivo. Con menos 3x sería una suma de cubos.",
-   "Al multiplicar eso no aparece el término de x al cuadrado que se cancela. Falta el término del medio."
+   "Con menos 3x en el segundo factor el producto no da x al cubo menos 27. Ese signo del medio pertenece a la suma de cubos, que usa x más 3 en el primer factor.",
+   "Al multiplicar quedan menos 3x al cuadrado y 9x sin cancelarse. Falta el término 3x del segundo factor."
   ]
  },
  "resumen": [

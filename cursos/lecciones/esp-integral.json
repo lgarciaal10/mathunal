@@ -572,6 +572,16 @@
        "Se arma la integral",
        "Se verifica con Dirichlet",
        "Se revisa el salto"
+      ],
+      "equiv": [
+       [
+        0,
+        1
+       ],
+       [
+        2,
+        3
+       ]
       ]
      }
     ]

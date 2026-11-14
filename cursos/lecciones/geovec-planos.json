@@ -330,7 +330,7 @@
         "v": "(0, 0.5, 0.866)"
        },
        {
-        "k": "Rayos del sol",
+        "k": "Dirección hacia el sol",
         "v": "(0, 0, 1)"
        },
        {
@@ -614,7 +614,7 @@
    "",
    "El signo del segundo coeficiente es negativo, y la normal lo conserva.",
    "Siete es el término independiente, que no entra en la normal.",
-   "Los coeficientes se invirtieron y se cambiaron de signo."
+   "Se intercambiaron los valores de los dos primeros coeficientes."
   ]
  },
  "resumen": [

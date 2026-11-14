@@ -65,6 +65,6 @@ prac=[
 preg={"tex":"y'=y(1-y)","encabezado":"Para la ecuación logística y prima igual a y por (1 menos y), el equilibrio y igual a 1 es:","opciones":["asintóticamente estable (sumidero)","inestable (fuente)","semiestable","no es un equilibrio"],"correcta":0,
  "explicacion":"Cerca de 1 la pendiente es positiva por debajo y negativa por arriba. Las soluciones se acercan a 1 desde los dos lados. Con la derivada, f prima de 1 es 1 menos 2, o sea menos 1, negativa.",
  "pistas":["Mira el signo de f a la izquierda y a la derecha de 1.","A la izquierda es positiva y a la derecha negativa.","La derivada de f en 1 vale menos 1."],
- "errores":["","Una fuente haría que las soluciones se alejen, y aquí se acercan.","Semiestable sería si f no cambiara de signo en el equilibrio, y aquí sí cambia.","La derivada es 0 en 1 porque f de 1 es 0, así que sí es un equilibrio."]}
+ "errores":["","Una fuente haría que las soluciones se alejen, y aquí se acercan.","Semiestable sería si f no cambiara de signo en el equilibrio, y aquí sí cambia.","y prima vale 0 en 1 porque f de 1 es 0, así que sí es un equilibrio."]}
 res=["En una ecuación autónoma los equilibrios salen de f de y igual a 0.","El signo de f a cada lado dice hacia dónde van las soluciones, y la derivada de f en el equilibrio dice si es estable.","Un equilibrio estable atrae a las soluciones cercanas, y uno inestable las aleja."]
 write(lesson("edo-m1-l5","Lección 5 de 6","Autónomas y estabilidad",24,graf,glos,ver,S,prac,preg,res,modulo=MOD,curso="Ecuaciones Diferenciales",ejercicios=4),"edo-autonomas.json")

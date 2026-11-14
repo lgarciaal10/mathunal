@@ -631,7 +631,7 @@
   "errores": [
    "",
    "El resultado es negativo, y la integral de una función positiva no puede serlo. Se invirtió el cociente dentro del logaritmo.",
-   "Falta restar el valor en el límite de abajo. En x igual a 1 la primitiva vale ln de 1 sobre 2.",
+   "Revisa el cociente dentro del logaritmo. Con la primitiva ln de x sobre x más 1, la resta da ln de 2 sobre 3 menos ln de 1 sobre 2, o sea ln de 4 sobre 3.",
    "Revisa la cuenta con la primitiva ln de x sobre x más 1. Sale ln de 2 sobre 3 menos ln de 1 sobre 2."
   ]
  },

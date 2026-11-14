@@ -437,7 +437,7 @@
       ],
       "mal": 2,
       "explicacion": "De 3 más 2t igual a 1 se despeja 2t igual a menos 2, y t vale menos 1. Con t igual a 1 se obtendría z igual a 5.",
-      "correccion": "t=-1,\\quad (x,y,z)=(0,3,1)",
+      "correccion": "t=-1",
       "pista": "Despeja t con cuidado del signo."
      }
     ]

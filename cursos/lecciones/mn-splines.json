@@ -548,6 +548,13 @@
        "Se imponen los valores en los nodos",
        "Se imponen las continuidades",
        "Se agregan las condiciones naturales"
+      ],
+      "equiv": [
+       [
+        1,
+        2,
+        3
+       ]
       ]
      }
     ]

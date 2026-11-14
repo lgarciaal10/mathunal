@@ -584,6 +584,12 @@
        "Se agrega la restricción",
        "Se resuelve el sistema",
        "Se comparan los valores"
+      ],
+      "equiv": [
+       [
+        0,
+        1
+       ]
       ]
      }
     ]

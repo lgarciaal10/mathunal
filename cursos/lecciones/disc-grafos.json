@@ -700,6 +700,12 @@
        "Se verifica que son pares",
        "Se verifica que es conexo",
        "Se concluye"
+      ],
+      "equiv": [
+       [
+        1,
+        2
+       ]
       ]
      }
     ]
@@ -882,7 +888,7 @@
    "",
    "Catorce es la suma de los grados, que es el doble de las aristas.",
    "Seis es el número de vértices, y no el de aristas.",
-   "Doce se obtiene al sumar mal los grados."
+   "Doce sale de una suma mal hecha. Suma los seis grados, 3 más 3 más 2 más 2 más 2 más 2."
   ]
  },
  "resumen": [

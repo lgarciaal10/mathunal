@@ -43,7 +43,7 @@ S=[
    [("Fuerza medida en 0, 1 y 2 m","0, 100 y 400 N"),("Trabajo con trapecios","300 J"),("Valor exacto si F igual a 100 x²","266.7 J")],"El trapecio sobreestima el trabajo, porque la fuerza es convexa y los trapecios quedan por encima. Con más mediciones se acercaría al valor real. Con esos mismos tres puntos, la regla de Simpson daría 266.7 julios, el valor exacto, porque la fuerza del modelo es un polinomio de grado 2."),
  completar("Se calcula la regla del trapecio con 2 subintervalos para x al cuadrado entre 0 y 2. Falta el resultado.","T_{2}=\\dfrac{1}{2}(0+2\\cdot1+4)=[[hueco]]",
    [("3","tres"),("6","seis"),("2","dos")],0,
-   ["","Seis es la suma sin el factor un medio de h entre 2.","Dos sale de olvidar el término del extremo derecho, el 4."],"Se suman los términos y se multiplica por h entre 2.","0 más 2 más 4 es 6, y la mitad es 3."),
+   ["","Seis es la suma sin el factor un medio de h entre 2.","Dos sale de olvidar el extremo derecho, el 4, y además el factor un medio."],"Se suman los términos y se multiplica por h entre 2.","0 más 2 más 4 es 6, y la mitad es 3."),
  error("Alguien calculó Simpson simple para x al cuadrado entre 0 y 2 y se equivocó en un paso. Toca el paso que está mal.",
    [("h=1,\\quad f_{0}=0,\\ f_{1}=1,\\ f_{2}=4","Los datos.","los valores de la función"),
     ("S=\\dfrac{h}{3}\\left(f_{0}+f_{1}+f_{2}\\right)=\\dfrac{5}{3}","Este paso es el que falla.","se suman los tres valores"),

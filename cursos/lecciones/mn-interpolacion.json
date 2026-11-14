@@ -549,6 +549,12 @@
        "Se calcula la primera diferencia entre x1 y x2",
        "Se calcula la segunda diferencia",
        "Se escribe el polinomio"
+      ],
+      "equiv": [
+       [
+        0,
+        1
+       ]
       ]
      }
     ]
