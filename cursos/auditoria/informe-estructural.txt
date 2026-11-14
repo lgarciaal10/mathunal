@@ -1,0 +1,2 @@
+Lecciones 158 hallazgos 0
+Cobertura {'piensa': 158, 'completar': 135, 'error': 135, 'ordenar': 135, 'simulacro_q': 432, 'verif_ok': 152, 'completar_no_verificable': 131, 'error_no_verificable': 135, 'graf_formulas': 3620, 'verif_opcion': 24, 'completar_verificado': 4}
