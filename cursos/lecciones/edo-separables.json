@@ -1,0 +1,2225 @@
+{
+ "esquema": 1,
+ "id": "edo-m1-l1",
+ "ejemplo": true,
+ "curso": "Ecuaciones Diferenciales",
+ "modulo": "Módulo 1 EDO de primer orden",
+ "posicion": "Lección 1 de 6",
+ "titulo": "Variables separables",
+ "minutos": 26,
+ "ejercicios": 7,
+ "grafica": {
+  "tipo": "plano",
+  "x": [
+   -2.2,
+   2.2
+  ],
+  "y": [
+   -1.2,
+   1.2
+  ],
+  "a": -1,
+  "b": 1,
+  "inicio": 0.8,
+  "elementos": [
+   {
+    "t": "segmento",
+    "a": [
+     "-2.0486",
+     "-0.8126"
+    ],
+    "b": [
+     "-1.9514",
+     "-0.9874"
+    ],
+    "c": 0
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "-2.0640",
+     "-0.5232"
+    ],
+    "b": [
+     "-1.9360",
+     "-0.6768"
+    ],
+    "c": 0
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "-2.0857",
+     "-0.2486"
+    ],
+    "b": [
+     "-1.9143",
+     "-0.3514"
+    ],
+    "c": 0
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "-2.1000",
+     "0.0000"
+    ],
+    "b": [
+     "-1.9000",
+     "0.0000"
+    ],
+    "c": 0
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "-2.0857",
+     "0.2486"
+    ],
+    "b": [
+     "-1.9143",
+     "0.3514"
+    ],
+    "c": 0
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "-2.0640",
+     "0.5232"
+    ],
+    "b": [
+     "-1.9360",
+     "0.6768"
+    ],
+    "c": 0
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "-2.0486",
+     "0.8126"
+    ],
+    "b": [
+     "-1.9514",
+     "0.9874"
+    ],
+    "c": 0
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "-1.8036",
+     "-0.8156"
+    ],
+    "b": [
+     "-1.6964",
+     "-0.9844"
+    ],
+    "c": 0
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "-1.8190",
+     "-0.5276"
+    ],
+    "b": [
+     "-1.6810",
+     "-0.6724"
+    ],
+    "c": 0
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "-1.8385",
+     "-0.2535"
+    ],
+    "b": [
+     "-1.6615",
+     "-0.3465"
+    ],
+    "c": 0
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "-1.8500",
+     "0.0000"
+    ],
+    "b": [
+     "-1.6500",
+     "0.0000"
+    ],
+    "c": 0
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "-1.8385",
+     "0.2535"
+    ],
+    "b": [
+     "-1.6615",
+     "0.3465"
+    ],
+    "c": 0
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "-1.8190",
+     "0.5276"
+    ],
+    "b": [
+     "-1.6810",
+     "0.6724"
+    ],
+    "c": 0
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "-1.8036",
+     "0.8156"
+    ],
+    "b": [
+     "-1.6964",
+     "0.9844"
+    ],
+    "c": 0
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "-1.5595",
+     "-0.8196"
+    ],
+    "b": [
+     "-1.4405",
+     "-0.9804"
+    ],
+    "c": 0
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "-1.5743",
+     "-0.5331"
+    ],
+    "b": [
+     "-1.4257",
+     "-0.6669"
+    ],
+    "c": 0
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "-1.5912",
+     "-0.2590"
+    ],
+    "b": [
+     "-1.4088",
+     "-0.3410"
+    ],
+    "c": 0
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "-1.6000",
+     "0.0000"
+    ],
+    "b": [
+     "-1.4000",
+     "0.0000"
+    ],
+    "c": 0
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "-1.5912",
+     "0.2590"
+    ],
+    "b": [
+     "-1.4088",
+     "0.3410"
+    ],
+    "c": 0
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "-1.5743",
+     "0.5331"
+    ],
+    "b": [
+     "-1.4257",
+     "0.6669"
+    ],
+    "c": 0
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "-1.5595",
+     "0.8196"
+    ],
+    "b": [
+     "-1.4405",
+     "0.9804"
+    ],
+    "c": 0
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "-1.3164",
+     "-0.8253"
+    ],
+    "b": [
+     "-1.1836",
+     "-0.9747"
+    ],
+    "c": 0
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "-1.3300",
+     "-0.5400"
+    ],
+    "b": [
+     "-1.1700",
+     "-0.6600"
+    ],
+    "c": 0
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "-1.3436",
+     "-0.2649"
+    ],
+    "b": [
+     "-1.1564",
+     "-0.3351"
+    ],
+    "c": 0
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "-1.3500",
+     "0.0000"
+    ],
+    "b": [
+     "-1.1500",
+     "0.0000"
+    ],
+    "c": 0
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "-1.3436",
+     "0.2649"
+    ],
+    "b": [
+     "-1.1564",
+     "0.3351"
+    ],
+    "c": 0
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "-1.3300",
+     "0.5400"
+    ],
+    "b": [
+     "-1.1700",
+     "0.6600"
+    ],
+    "c": 0
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "-1.3164",
+     "0.8253"
+    ],
+    "b": [
+     "-1.1836",
+     "0.9747"
+    ],
+    "c": 0
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "-1.0743",
+     "-0.8331"
+    ],
+    "b": [
+     "-0.9257",
+     "-0.9669"
+    ],
+    "c": 0
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "-1.0857",
+     "-0.5486"
+    ],
+    "b": [
+     "-0.9143",
+     "-0.6514"
+    ],
+    "c": 0
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "-1.0958",
+     "-0.2713"
+    ],
+    "b": [
+     "-0.9042",
+     "-0.3287"
+    ],
+    "c": 0
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "-1.1000",
+     "0.0000"
+    ],
+    "b": [
+     "-0.9000",
+     "0.0000"
+    ],
+    "c": 0
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "-1.0958",
+     "0.2713"
+    ],
+    "b": [
+     "-0.9042",
+     "0.3287"
+    ],
+    "c": 0
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "-1.0857",
+     "0.5486"
+    ],
+    "b": [
+     "-0.9143",
+     "0.6514"
+    ],
+    "c": 0
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "-1.0743",
+     "0.8331"
+    ],
+    "b": [
+     "-0.9257",
+     "0.9669"
+    ],
+    "c": 0
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "-0.8329",
+     "-0.8441"
+    ],
+    "b": [
+     "-0.6671",
+     "-0.9559"
+    ],
+    "c": 0
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "-0.8412",
+     "-0.5590"
+    ],
+    "b": [
+     "-0.6588",
+     "-0.6410"
+    ],
+    "c": 0
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "-0.8476",
+     "-0.2780"
+    ],
+    "b": [
+     "-0.6524",
+     "-0.3220"
+    ],
+    "c": 0
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "-0.8500",
+     "0.0000"
+    ],
+    "b": [
+     "-0.6500",
+     "0.0000"
+    ],
+    "c": 0
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "-0.8476",
+     "0.2780"
+    ],
+    "b": [
+     "-0.6524",
+     "0.3220"
+    ],
+    "c": 0
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "-0.8412",
+     "0.5590"
+    ],
+    "b": [
+     "-0.6588",
+     "0.6410"
+    ],
+    "c": 0
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "-0.8329",
+     "0.8441"
+    ],
+    "b": [
+     "-0.6671",
+     "0.9559"
+    ],
+    "c": 0
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "-0.5912",
+     "-0.8590"
+    ],
+    "b": [
+     "-0.4088",
+     "-0.9410"
+    ],
+    "c": 0
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "-0.5958",
+     "-0.5713"
+    ],
+    "b": [
+     "-0.4042",
+     "-0.6287"
+    ],
+    "c": 0
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "-0.5989",
+     "-0.2852"
+    ],
+    "b": [
+     "-0.4011",
+     "-0.3148"
+    ],
+    "c": 0
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "-0.6000",
+     "0.0000"
+    ],
+    "b": [
+     "-0.4000",
+     "0.0000"
+    ],
+    "c": 0
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "-0.5989",
+     "0.2852"
+    ],
+    "b": [
+     "-0.4011",
+     "0.3148"
+    ],
+    "c": 0
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "-0.5958",
+     "0.5713"
+    ],
+    "b": [
+     "-0.4042",
+     "0.6287"
+    ],
+    "c": 0
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "-0.5912",
+     "0.8590"
+    ],
+    "b": [
+     "-0.4088",
+     "0.9410"
+    ],
+    "c": 0
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "-0.3476",
+     "-0.8780"
+    ],
+    "b": [
+     "-0.1524",
+     "-0.9220"
+    ],
+    "c": 0
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "-0.3489",
+     "-0.5852"
+    ],
+    "b": [
+     "-0.1511",
+     "-0.6148"
+    ],
+    "c": 0
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "-0.3497",
+     "-0.2925"
+    ],
+    "b": [
+     "-0.1503",
+     "-0.3075"
+    ],
+    "c": 0
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "-0.3500",
+     "0.0000"
+    ],
+    "b": [
+     "-0.1500",
+     "0.0000"
+    ],
+    "c": 0
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "-0.3497",
+     "0.2925"
+    ],
+    "b": [
+     "-0.1503",
+     "0.3075"
+    ],
+    "c": 0
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "-0.3489",
+     "0.5852"
+    ],
+    "b": [
+     "-0.1511",
+     "0.6148"
+    ],
+    "c": 0
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "-0.3476",
+     "0.8780"
+    ],
+    "b": [
+     "-0.1524",
+     "0.9220"
+    ],
+    "c": 0
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "-0.1000",
+     "-0.9000"
+    ],
+    "b": [
+     "0.1000",
+     "-0.9000"
+    ],
+    "c": 0
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "-0.1000",
+     "-0.6000"
+    ],
+    "b": [
+     "0.1000",
+     "-0.6000"
+    ],
+    "c": 0
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "-0.1000",
+     "-0.3000"
+    ],
+    "b": [
+     "0.1000",
+     "-0.3000"
+    ],
+    "c": 0
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "-0.1000",
+     "0.0000"
+    ],
+    "b": [
+     "0.1000",
+     "0.0000"
+    ],
+    "c": 0
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "-0.1000",
+     "0.3000"
+    ],
+    "b": [
+     "0.1000",
+     "0.3000"
+    ],
+    "c": 0
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "-0.1000",
+     "0.6000"
+    ],
+    "b": [
+     "0.1000",
+     "0.6000"
+    ],
+    "c": 0
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "-0.1000",
+     "0.9000"
+    ],
+    "b": [
+     "0.1000",
+     "0.9000"
+    ],
+    "c": 0
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "0.1524",
+     "-0.9220"
+    ],
+    "b": [
+     "0.3476",
+     "-0.8780"
+    ],
+    "c": 0
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "0.1511",
+     "-0.6148"
+    ],
+    "b": [
+     "0.3489",
+     "-0.5852"
+    ],
+    "c": 0
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "0.1503",
+     "-0.3075"
+    ],
+    "b": [
+     "0.3497",
+     "-0.2925"
+    ],
+    "c": 0
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "0.1500",
+     "0.0000"
+    ],
+    "b": [
+     "0.3500",
+     "0.0000"
+    ],
+    "c": 0
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "0.1503",
+     "0.3075"
+    ],
+    "b": [
+     "0.3497",
+     "0.2925"
+    ],
+    "c": 0
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "0.1511",
+     "0.6148"
+    ],
+    "b": [
+     "0.3489",
+     "0.5852"
+    ],
+    "c": 0
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "0.1524",
+     "0.9220"
+    ],
+    "b": [
+     "0.3476",
+     "0.8780"
+    ],
+    "c": 0
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "0.4088",
+     "-0.9410"
+    ],
+    "b": [
+     "0.5912",
+     "-0.8590"
+    ],
+    "c": 0
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "0.4042",
+     "-0.6287"
+    ],
+    "b": [
+     "0.5958",
+     "-0.5713"
+    ],
+    "c": 0
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "0.4011",
+     "-0.3148"
+    ],
+    "b": [
+     "0.5989",
+     "-0.2852"
+    ],
+    "c": 0
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "0.4000",
+     "0.0000"
+    ],
+    "b": [
+     "0.6000",
+     "0.0000"
+    ],
+    "c": 0
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "0.4011",
+     "0.3148"
+    ],
+    "b": [
+     "0.5989",
+     "0.2852"
+    ],
+    "c": 0
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "0.4042",
+     "0.6287"
+    ],
+    "b": [
+     "0.5958",
+     "0.5713"
+    ],
+    "c": 0
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "0.4088",
+     "0.9410"
+    ],
+    "b": [
+     "0.5912",
+     "0.8590"
+    ],
+    "c": 0
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "0.6671",
+     "-0.9559"
+    ],
+    "b": [
+     "0.8329",
+     "-0.8441"
+    ],
+    "c": 0
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "0.6588",
+     "-0.6410"
+    ],
+    "b": [
+     "0.8412",
+     "-0.5590"
+    ],
+    "c": 0
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "0.6524",
+     "-0.3220"
+    ],
+    "b": [
+     "0.8476",
+     "-0.2780"
+    ],
+    "c": 0
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "0.6500",
+     "0.0000"
+    ],
+    "b": [
+     "0.8500",
+     "0.0000"
+    ],
+    "c": 0
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "0.6524",
+     "0.3220"
+    ],
+    "b": [
+     "0.8476",
+     "0.2780"
+    ],
+    "c": 0
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "0.6588",
+     "0.6410"
+    ],
+    "b": [
+     "0.8412",
+     "0.5590"
+    ],
+    "c": 0
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "0.6671",
+     "0.9559"
+    ],
+    "b": [
+     "0.8329",
+     "0.8441"
+    ],
+    "c": 0
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "0.9257",
+     "-0.9669"
+    ],
+    "b": [
+     "1.0743",
+     "-0.8331"
+    ],
+    "c": 0
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "0.9143",
+     "-0.6514"
+    ],
+    "b": [
+     "1.0857",
+     "-0.5486"
+    ],
+    "c": 0
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "0.9042",
+     "-0.3287"
+    ],
+    "b": [
+     "1.0958",
+     "-0.2713"
+    ],
+    "c": 0
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "0.9000",
+     "0.0000"
+    ],
+    "b": [
+     "1.1000",
+     "0.0000"
+    ],
+    "c": 0
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "0.9042",
+     "0.3287"
+    ],
+    "b": [
+     "1.0958",
+     "0.2713"
+    ],
+    "c": 0
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "0.9143",
+     "0.6514"
+    ],
+    "b": [
+     "1.0857",
+     "0.5486"
+    ],
+    "c": 0
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "0.9257",
+     "0.9669"
+    ],
+    "b": [
+     "1.0743",
+     "0.8331"
+    ],
+    "c": 0
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "1.1836",
+     "-0.9747"
+    ],
+    "b": [
+     "1.3164",
+     "-0.8253"
+    ],
+    "c": 0
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "1.1700",
+     "-0.6600"
+    ],
+    "b": [
+     "1.3300",
+     "-0.5400"
+    ],
+    "c": 0
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "1.1564",
+     "-0.3351"
+    ],
+    "b": [
+     "1.3436",
+     "-0.2649"
+    ],
+    "c": 0
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "1.1500",
+     "0.0000"
+    ],
+    "b": [
+     "1.3500",
+     "0.0000"
+    ],
+    "c": 0
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "1.1564",
+     "0.3351"
+    ],
+    "b": [
+     "1.3436",
+     "0.2649"
+    ],
+    "c": 0
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "1.1700",
+     "0.6600"
+    ],
+    "b": [
+     "1.3300",
+     "0.5400"
+    ],
+    "c": 0
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "1.1836",
+     "0.9747"
+    ],
+    "b": [
+     "1.3164",
+     "0.8253"
+    ],
+    "c": 0
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "1.4405",
+     "-0.9804"
+    ],
+    "b": [
+     "1.5595",
+     "-0.8196"
+    ],
+    "c": 0
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "1.4257",
+     "-0.6669"
+    ],
+    "b": [
+     "1.5743",
+     "-0.5331"
+    ],
+    "c": 0
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "1.4088",
+     "-0.3410"
+    ],
+    "b": [
+     "1.5912",
+     "-0.2590"
+    ],
+    "c": 0
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "1.4000",
+     "0.0000"
+    ],
+    "b": [
+     "1.6000",
+     "0.0000"
+    ],
+    "c": 0
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "1.4088",
+     "0.3410"
+    ],
+    "b": [
+     "1.5912",
+     "0.2590"
+    ],
+    "c": 0
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "1.4257",
+     "0.6669"
+    ],
+    "b": [
+     "1.5743",
+     "0.5331"
+    ],
+    "c": 0
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "1.4405",
+     "0.9804"
+    ],
+    "b": [
+     "1.5595",
+     "0.8196"
+    ],
+    "c": 0
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "1.6964",
+     "-0.9844"
+    ],
+    "b": [
+     "1.8036",
+     "-0.8156"
+    ],
+    "c": 0
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "1.6810",
+     "-0.6724"
+    ],
+    "b": [
+     "1.8190",
+     "-0.5276"
+    ],
+    "c": 0
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "1.6615",
+     "-0.3465"
+    ],
+    "b": [
+     "1.8385",
+     "-0.2535"
+    ],
+    "c": 0
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "1.6500",
+     "0.0000"
+    ],
+    "b": [
+     "1.8500",
+     "0.0000"
+    ],
+    "c": 0
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "1.6615",
+     "0.3465"
+    ],
+    "b": [
+     "1.8385",
+     "0.2535"
+    ],
+    "c": 0
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "1.6810",
+     "0.6724"
+    ],
+    "b": [
+     "1.8190",
+     "0.5276"
+    ],
+    "c": 0
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "1.6964",
+     "0.9844"
+    ],
+    "b": [
+     "1.8036",
+     "0.8156"
+    ],
+    "c": 0
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "1.9514",
+     "-0.9874"
+    ],
+    "b": [
+     "2.0486",
+     "-0.8126"
+    ],
+    "c": 0
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "1.9360",
+     "-0.6768"
+    ],
+    "b": [
+     "2.0640",
+     "-0.5232"
+    ],
+    "c": 0
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "1.9143",
+     "-0.3514"
+    ],
+    "b": [
+     "2.0857",
+     "-0.2486"
+    ],
+    "c": 0
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "1.9000",
+     "0.0000"
+    ],
+    "b": [
+     "2.1000",
+     "0.0000"
+    ],
+    "c": 0
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "1.9143",
+     "0.3514"
+    ],
+    "b": [
+     "2.0857",
+     "0.2486"
+    ],
+    "c": 0
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "1.9360",
+     "0.6768"
+    ],
+    "b": [
+     "2.0640",
+     "0.5232"
+    ],
+    "c": 0
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "1.9514",
+     "0.9874"
+    ],
+    "b": [
+     "2.0486",
+     "0.8126"
+    ],
+    "c": 0
+   },
+   {
+    "t": "trazo",
+    "puntos": [
+     [
+      "-2.1000",
+      "x*exp(0-0.5*(-2.1000)*(-2.1000))"
+     ],
+     [
+      "-2.0125",
+      "x*exp(0-0.5*(-2.0125)*(-2.0125))"
+     ],
+     [
+      "-1.9250",
+      "x*exp(0-0.5*(-1.9250)*(-1.9250))"
+     ],
+     [
+      "-1.8375",
+      "x*exp(0-0.5*(-1.8375)*(-1.8375))"
+     ],
+     [
+      "-1.7500",
+      "x*exp(0-0.5*(-1.7500)*(-1.7500))"
+     ],
+     [
+      "-1.6625",
+      "x*exp(0-0.5*(-1.6625)*(-1.6625))"
+     ],
+     [
+      "-1.5750",
+      "x*exp(0-0.5*(-1.5750)*(-1.5750))"
+     ],
+     [
+      "-1.4875",
+      "x*exp(0-0.5*(-1.4875)*(-1.4875))"
+     ],
+     [
+      "-1.4000",
+      "x*exp(0-0.5*(-1.4000)*(-1.4000))"
+     ],
+     [
+      "-1.3125",
+      "x*exp(0-0.5*(-1.3125)*(-1.3125))"
+     ],
+     [
+      "-1.2250",
+      "x*exp(0-0.5*(-1.2250)*(-1.2250))"
+     ],
+     [
+      "-1.1375",
+      "x*exp(0-0.5*(-1.1375)*(-1.1375))"
+     ],
+     [
+      "-1.0500",
+      "x*exp(0-0.5*(-1.0500)*(-1.0500))"
+     ],
+     [
+      "-0.9625",
+      "x*exp(0-0.5*(-0.9625)*(-0.9625))"
+     ],
+     [
+      "-0.8750",
+      "x*exp(0-0.5*(-0.8750)*(-0.8750))"
+     ],
+     [
+      "-0.7875",
+      "x*exp(0-0.5*(-0.7875)*(-0.7875))"
+     ],
+     [
+      "-0.7000",
+      "x*exp(0-0.5*(-0.7000)*(-0.7000))"
+     ],
+     [
+      "-0.6125",
+      "x*exp(0-0.5*(-0.6125)*(-0.6125))"
+     ],
+     [
+      "-0.5250",
+      "x*exp(0-0.5*(-0.5250)*(-0.5250))"
+     ],
+     [
+      "-0.4375",
+      "x*exp(0-0.5*(-0.4375)*(-0.4375))"
+     ],
+     [
+      "-0.3500",
+      "x*exp(0-0.5*(-0.3500)*(-0.3500))"
+     ],
+     [
+      "-0.2625",
+      "x*exp(0-0.5*(-0.2625)*(-0.2625))"
+     ],
+     [
+      "-0.1750",
+      "x*exp(0-0.5*(-0.1750)*(-0.1750))"
+     ],
+     [
+      "-0.0875",
+      "x*exp(0-0.5*(-0.0875)*(-0.0875))"
+     ],
+     [
+      "0.0000",
+      "x*exp(0-0.5*(0.0000)*(0.0000))"
+     ],
+     [
+      "0.0875",
+      "x*exp(0-0.5*(0.0875)*(0.0875))"
+     ],
+     [
+      "0.1750",
+      "x*exp(0-0.5*(0.1750)*(0.1750))"
+     ],
+     [
+      "0.2625",
+      "x*exp(0-0.5*(0.2625)*(0.2625))"
+     ],
+     [
+      "0.3500",
+      "x*exp(0-0.5*(0.3500)*(0.3500))"
+     ],
+     [
+      "0.4375",
+      "x*exp(0-0.5*(0.4375)*(0.4375))"
+     ],
+     [
+      "0.5250",
+      "x*exp(0-0.5*(0.5250)*(0.5250))"
+     ],
+     [
+      "0.6125",
+      "x*exp(0-0.5*(0.6125)*(0.6125))"
+     ],
+     [
+      "0.7000",
+      "x*exp(0-0.5*(0.7000)*(0.7000))"
+     ],
+     [
+      "0.7875",
+      "x*exp(0-0.5*(0.7875)*(0.7875))"
+     ],
+     [
+      "0.8750",
+      "x*exp(0-0.5*(0.8750)*(0.8750))"
+     ],
+     [
+      "0.9625",
+      "x*exp(0-0.5*(0.9625)*(0.9625))"
+     ],
+     [
+      "1.0500",
+      "x*exp(0-0.5*(1.0500)*(1.0500))"
+     ],
+     [
+      "1.1375",
+      "x*exp(0-0.5*(1.1375)*(1.1375))"
+     ],
+     [
+      "1.2250",
+      "x*exp(0-0.5*(1.2250)*(1.2250))"
+     ],
+     [
+      "1.3125",
+      "x*exp(0-0.5*(1.3125)*(1.3125))"
+     ],
+     [
+      "1.4000",
+      "x*exp(0-0.5*(1.4000)*(1.4000))"
+     ],
+     [
+      "1.4875",
+      "x*exp(0-0.5*(1.4875)*(1.4875))"
+     ],
+     [
+      "1.5750",
+      "x*exp(0-0.5*(1.5750)*(1.5750))"
+     ],
+     [
+      "1.6625",
+      "x*exp(0-0.5*(1.6625)*(1.6625))"
+     ],
+     [
+      "1.7500",
+      "x*exp(0-0.5*(1.7500)*(1.7500))"
+     ],
+     [
+      "1.8375",
+      "x*exp(0-0.5*(1.8375)*(1.8375))"
+     ],
+     [
+      "1.9250",
+      "x*exp(0-0.5*(1.9250)*(1.9250))"
+     ],
+     [
+      "2.0125",
+      "x*exp(0-0.5*(2.0125)*(2.0125))"
+     ],
+     [
+      "2.1000",
+      "x*exp(0-0.5*(2.1000)*(2.1000))"
+     ]
+    ],
+    "c": 2
+   },
+   {
+    "t": "punto",
+    "p": [
+     "0",
+     "x"
+    ],
+    "c": 1,
+    "nombre": "y(0) = C"
+   }
+  ],
+  "lecturas": [
+   {
+    "rotulo": "C",
+    "formula": "x"
+   },
+   {
+    "rotulo": "y(1)",
+    "formula": "x*exp(-0.5)"
+   }
+  ],
+  "etiquetas": [
+   "Condición inicial C",
+   "Valor de y en x igual a 1"
+  ],
+  "etiquetaSlider": "Condición inicial y(0)",
+  "alt": "El campo de pendientes de la ecuación y prima igual a menos x por y, con segmentos cortos, y la curva solución que pasa por el punto de altura C sobre el eje y"
+ },
+ "glosario": {
+  "edo": "Una ecuación diferencial ordinaria, o EDO, es una ecuación que relaciona una función con sus derivadas. Su solución es una función, no un número.",
+  "separable": "Una EDO es de variables separables si se puede escribir como dy sobre dx igual a g de x por h de y, de modo que cada variable quede de un lado.",
+  "pvi": "Un problema de valor inicial es una EDO junto con el valor de la solución en un punto, como y de 0 igual a 3. Con él se escoge una sola solución de la familia.",
+  "campo": "El campo de pendientes dibuja en cada punto un segmento corto con la pendiente que la EDO exige ahí. Las soluciones son curvas que siguen esos segmentos."
+ },
+ "ver": {
+  "duracion": 22.0,
+  "capitulos": [
+   [
+    0,
+    4,
+    "La ecuación y prima igual a menos x por y dice qué pendiente debe tener la solución en cada punto. Los segmentos cortos muestran esas pendientes."
+   ],
+   [
+    4,
+    8,
+    "Una solución es una curva que sigue los segmentos, como un bote que sigue una corriente."
+   ],
+   [
+    8,
+    14,
+    "Al cambiar la condición inicial C, la curva cambia, pero todas tienen la misma forma de campana, porque la solución es C por e a la menos x cuadrado sobre 2."
+   ],
+   [
+    14,
+    18,
+    "La condición inicial y de 0 igual a C escoge una sola curva de toda la familia."
+   ],
+   [
+    18,
+    22,
+    "Con C igual a 0.8 la solución vale 0.49 en x igual a 1."
+   ]
+  ],
+  "canales": {
+   "draw": [
+    [
+     0.3,
+     0
+    ],
+    [
+     7.5,
+     1
+    ]
+   ],
+   "d": [
+    [
+     8,
+     0.8
+    ],
+    [
+     10,
+     -0.8
+    ],
+    [
+     12,
+     1
+    ],
+    [
+     14,
+     0.8
+    ],
+    [
+     22,
+     0.8
+    ]
+   ]
+  },
+  "intervalos": {
+   "ok": [
+    18,
+    22
+   ]
+  }
+ },
+ "leer": {
+  "secciones": [
+   {
+    "titulo": "La idea",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Una {{gl:edo|ecuación diferencial}} es una ecuación cuya incógnita es una función y que trae sus derivadas. Describen cómo cambian las cosas, como la temperatura de un motor, la carga de un condensador o la altura de un líquido. Las de {{gl:separable|variables separables}} son las más sencillas, porque se resuelven separando las variables e integrando cada lado."
+     }
+    ]
+   },
+   {
+    "titulo": "Un ejemplo",
+    "corto": "Un ejemplo",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mira la ecuación diferencial siguiente. En cada punto del plano dice qué pendiente debe tener la solución."
+     },
+     {
+      "t": "eq",
+      "tex": "\\dfrac{dy}{dx}=-x\\,y"
+     },
+     {
+      "t": "p",
+      "html": "La gráfica dibuja el {{gl:campo|campo de pendientes}} con segmentos cortos y una curva solución."
+     },
+     {
+      "t": "grafica",
+      "animar": "dibujar",
+      "alt": "El campo de pendientes y una solución"
+     }
+    ]
+   },
+   {
+    "titulo": "Piensa antes de ver",
+    "corto": "Piensa",
+    "bloques": [
+     {
+      "t": "piensa",
+      "pregunta": "En el punto (1, 1) la pendiente que pide la ecuación es menos x por y. ¿Cuánto vale?",
+      "opciones": [
+       -1,
+       0,
+       1,
+       2
+      ],
+      "correcta": -1,
+      "bien": "Muy bien. Vale menos 1, así que la solución baja ahí. Más abajo se ve el campo.",
+      "mal": "Vale menos 1, porque menos 1 por 1 es menos 1. Más abajo se ve el campo."
+     }
+    ]
+   },
+   {
+    "titulo": "Seguir las pendientes",
+    "corto": "Seguir",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mira cómo cambia la solución al cambiar su condición inicial."
+     },
+     {
+      "t": "acercando",
+      "ds": [
+       -0.8,
+       0.3,
+       0.8,
+       1
+      ],
+      "alt": "La curva solución para varios valores iniciales"
+     },
+     {
+      "t": "p",
+      "html": "Todas las soluciones tienen la misma forma. Cambiar la condición inicial solo las sube o las baja."
+     }
+    ]
+   },
+   {
+    "titulo": "Separar las variables",
+    "corto": "Separar",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Se pasan todas las y a un lado, con dy, y todas las x al otro, con dx. Luego se integra cada lado."
+     },
+     {
+      "t": "pasos",
+      "items": [
+       {
+        "tex": "\\dfrac{dy}{dx}=-x\\,y\\ \\Rightarrow\\ \\dfrac{dy}{y}=-x\\,dx",
+        "porque": "Se divide entre y y se multiplica por dx."
+       },
+       {
+        "tex": "\\ln|y|=-\\dfrac{x^{2}}{2}+c",
+        "porque": "Se integra cada lado."
+       },
+       {
+        "tex": "y=C\\,e^{-x^{2}/2}",
+        "porque": "Se aplica la exponencial. La constante positiva e a la c y el signo se juntan en una constante C."
+       },
+       {
+        "tex": "y(0)=3\\ \\Rightarrow\\ C=3",
+        "porque": "La condición inicial fija C."
+       }
+      ]
+     },
+     {
+      "t": "ojo",
+      "html": "Al dividir entre y se pierde la solución y igual a 0. Aquí no se pierde, porque sale cuando C vale 0."
+     }
+    ]
+   },
+   {
+    "titulo": "Con una condición inicial",
+    "corto": "Con condición inicial",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Un {{gl:pvi|problema de valor inicial}} agrega el valor de la solución en un punto. Eso escoge una curva de la familia."
+     },
+     {
+      "t": "pasos",
+      "items": [
+       {
+        "tex": "y'=3y,\\quad y(0)=2",
+        "porque": "La ecuación y la condición inicial."
+       },
+       {
+        "tex": "\\dfrac{dy}{y}=3\\,dx\\ \\Rightarrow\\ \\ln|y|=3x+c\\ \\Rightarrow\\ y=Ce^{3x}",
+        "porque": "Se separa e integra."
+       },
+       {
+        "tex": "y(0)=C=2\\ \\Rightarrow\\ y=2e^{3x}",
+        "porque": "Se reemplaza la condición inicial."
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "Qué es una solución",
+    "corto": "Solución",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Una solución se comprueba reemplazándola en la ecuación."
+     },
+     {
+      "t": "pasos",
+      "items": [
+       {
+        "tex": "y=Ce^{-x^{2}/2}\\ \\Rightarrow\\ y'=Ce^{-x^{2}/2}\\cdot(-x)=-x\\,y",
+        "porque": "Se deriva con la regla de la cadena y se compara."
+       },
+       {
+        "tex": "\\text{Orden de}\\ y''+(y')^{3}+y=0\\ \\text{es 2}",
+        "porque": "El orden es la derivada más alta que aparece."
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "¿Para qué sirve?",
+    "corto": "En ingeniería",
+    "bloques": [
+     {
+      "t": "ingenieria",
+      "titulo": "El enfriamiento de un motor",
+      "html": "Un bloque de motor se enfría al apagarlo. La ley de enfriamiento de Newton dice que la temperatura baja a una velocidad proporcional a la diferencia con el ambiente. Es una ecuación de variables separables.",
+      "tex": "\\dfrac{dT}{dt}=-k\\,(T-T_{a})",
+      "datos": [
+       {
+        "k": "Temperatura inicial",
+        "v": "90 °C"
+       },
+       {
+        "k": "Temperatura ambiente",
+        "v": "20 °C"
+       },
+       {
+        "k": "Constante k",
+        "v": "0.05 por minuto"
+       }
+      ],
+      "cierre": "Al separar e integrar queda T igual a 20 más 70 por e a la menos 0.05 t. A los 30 minutos la temperatura es 20 más 70 por e a la menos 1.5, o sea unos 35.6 grados. Es un modelo simplificado, porque supone un ambiente a temperatura constante y una temperatura uniforme en el bloque."
+     }
+    ]
+   },
+   {
+    "titulo": "Completa el paso",
+    "corto": "Completa",
+    "bloques": [
+     {
+      "t": "completar",
+      "enunciado": "Se separan las variables en la ecuación y prima igual a menos x por y. Falta el lado de las x.",
+      "tex": "\\dfrac{dy}{y}=[[hueco]]\\,dx",
+      "opciones": [
+       {
+        "tex": "-x",
+        "txt": "menos x"
+       },
+       {
+        "tex": "x",
+        "txt": "x"
+       },
+       {
+        "tex": "-\\dfrac{1}{x}",
+        "txt": "menos uno sobre x"
+       }
+      ],
+      "correcta": 0,
+      "errores": [
+       "",
+       "Falta el signo menos. La ecuación es y prima igual a menos x por y.",
+       "Al dividir entre y no aparece 1 sobre x. Queda menos x por dx."
+      ],
+      "pista": "Divide los dos lados entre y.",
+      "porque": "Al dividir entre y, queda dy sobre y igual a menos x por dx."
+     }
+    ]
+   },
+   {
+    "titulo": "Encuentra el error",
+    "corto": "Error",
+    "bloques": [
+     {
+      "t": "error",
+      "enunciado": "Alguien resolvió una ecuación de variables separables y se equivocó en un paso. Toca el paso que está mal.",
+      "pasos": [
+       {
+        "tex": "\\dfrac{dy}{y}=-x\\,dx",
+        "porque": "La separación está bien.",
+        "txt": "dy sobre y es menos x por dx"
+       },
+       {
+        "tex": "\\ln|y|=-\\dfrac{x^{2}}{2}+c",
+        "porque": "La integración está bien.",
+        "txt": "El logaritmo de y es menos x al cuadrado sobre 2 más c"
+       },
+       {
+        "tex": "y=-\\dfrac{x^{2}}{2}+c",
+        "porque": "Este paso es el que falla.",
+        "txt": "Entonces y es menos x al cuadrado sobre 2 más c"
+       }
+      ],
+      "mal": 2,
+      "explicacion": "Falta aplicar la exponencial a los dos lados. Del logaritmo de y se pasa a y con e elevado a lo del otro lado, y la solución es y igual a C por e a la menos x cuadrado sobre 2.",
+      "correccion": "y=Ce^{-x^{2}/2}",
+      "pista": "Para quitar el logaritmo hay que aplicar la exponencial."
+     }
+    ]
+   },
+   {
+    "titulo": "Ordena los pasos",
+    "corto": "Ordena",
+    "bloques": [
+     {
+      "t": "ordenar",
+      "enunciado": "Estos son los pasos para resolver y prima igual a 3y con y de 0 igual a 2, pero están desordenados.",
+      "pasos": [
+       "\\dfrac{dy}{y}=3\\,dx",
+       "\\ln|y|=3x+c",
+       "y=Ce^{3x}",
+       "y(0)=2\\ \\Rightarrow\\ y=2e^{3x}"
+      ],
+      "mezcla": [
+       2,
+       0,
+       3,
+       1
+      ],
+      "porque": "Se separa, se integra, se aplica la exponencial y se usa la condición inicial para hallar C.",
+      "pista": "Primero se separan las variables.",
+      "txt": [
+       "Se separan las variables",
+       "Se integra",
+       "Se aplica la exponencial",
+       "Se usa la condición inicial"
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "Revisa tu respuesta",
+    "corto": "Revisa",
+    "bloques": [
+     {
+      "t": "pregunta"
+     },
+     {
+      "t": "nota",
+      "html": "Puedes pedir pistas de a una. Si fallas, el mensaje te dice qué error se cometió."
+     }
+    ]
+   },
+   {
+    "titulo": "Mini simulacro",
+    "corto": "Simulacro",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Tres preguntas reales del banco de MathUNAL sobre este tema. Responde sin mirar los pasos."
+     },
+     {
+      "t": "simulacro",
+      "titulo": "Mini simulacro de variables separables",
+      "preguntas": [
+       {
+        "tipo": "mcq",
+        "texto": "La solución general de $\\dfrac{dy}{dx}=2xy$ es:",
+        "opciones": [
+         "$y=Ce^{x^2}$",
+         "$y=Ce^{2x}$",
+         "$y=x^2+C$",
+         "$y=Cx^2$"
+        ],
+        "correcta": 0,
+        "resumen": "Se separa $\\frac{dy}{y}=2x\\,dx$, se integra $\\ln|y|=x^2+c$ y queda $y=Ce^{x^2}$.",
+        "fuente": "Banco MathUNAL, simulacro de Ecuaciones Diferenciales"
+       },
+       {
+        "tipo": "mcq",
+        "texto": "La solución general de $\\dfrac{dy}{dx} = \\dfrac{x}{y}$ es:",
+        "opciones": [
+         "$y^{2} = x^{2} + C$",
+         "$y = x + C$",
+         "$y = Cx$",
+         "$y^{2} = 2x + C$"
+        ],
+        "correcta": 0,
+        "resumen": "Se separa $y\\,dy=x\\,dx$ y se integra para obtener $\\frac{y^2}{2}=\\frac{x^2}{2}+c$.",
+        "fuente": "Banco MathUNAL, simulacro de Ecuaciones Diferenciales"
+       },
+       {
+        "tipo": "numerica",
+        "texto": "Para $y' = 2y$ con $y(0) = 1$, el valor de $y(1)$ es (decimal, 4 cifras):",
+        "respuesta": "7.3891",
+        "tolNum": 0.01,
+        "resumen": "La solución es $y=e^{2x}$ y vale $e^2\\approx 7.3891$ en $x=1$.",
+        "fuente": "Banco MathUNAL, simulacro de Ecuaciones Diferenciales"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "Tu repaso",
+    "corto": "Repaso",
+    "bloques": [
+     {
+      "t": "repaso"
+     }
+    ]
+   },
+   {
+    "titulo": "En resumen",
+    "corto": "Resumen",
+    "bloques": [
+     {
+      "t": "resumen"
+     }
+    ]
+   }
+  ]
+ },
+ "practicar": {
+  "pasos": [
+   {
+    "titulo": "El campo",
+    "grafica": {
+     "draw": 1
+    },
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Los segmentos son las pendientes que pide la ecuación."
+     },
+     {
+      "t": "eq",
+      "tex": "y'=-x\\,y"
+     }
+    ]
+   },
+   {
+    "titulo": "Cambia y(0)",
+    "grafica": {
+     "draw": 1
+    },
+    "laboratorio": true,
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mueve el deslizador. La curva solución cambia con la condición inicial y siempre sigue los segmentos. Abajo se ven C y el valor de y en x igual a 1."
+     }
+    ]
+   },
+   {
+    "titulo": "Una condición inicial",
+    "grafica": {
+     "draw": 1,
+     "ok": true
+    },
+    "laboratorio": true,
+    "d": 0.8,
+    "bloques": [
+     {
+      "t": "eq",
+      "tex": "y(0)=0.8\\ \\Rightarrow\\ y=0.8\\,e^{-x^{2}/2},\\quad y(1)=0.49"
+     },
+     {
+      "t": "p",
+      "html": "La solución pasa por el punto marcado en el eje y."
+     }
+    ]
+   },
+   {
+    "titulo": "Revisa tu respuesta",
+    "grafica": {
+     "draw": 1,
+     "ok": true,
+     "d": 0.8
+    },
+    "bloques": [
+     {
+      "t": "pregunta"
+     },
+     {
+      "t": "nota",
+      "html": "Separa, integra y usa la condición inicial."
+     }
+    ]
+   }
+  ]
+ },
+ "pregunta": {
+  "tex": "y'=-2xy,\\ y(0)=3\\ \\Rightarrow\\ y(1)",
+  "opciones": [
+   "$1.104$",
+   "$3$",
+   "$0.405$",
+   "$8.155$"
+  ],
+  "correcta": 0,
+  "explicacion": "Se separa dy sobre y igual a menos 2x dx y se integra, ln de y igual a menos x al cuadrado más c. La solución es y igual a C por e a la menos x al cuadrado, y con y de 0 igual a 3 queda C igual a 3. En x igual a 1 vale 3 por e a la menos 1, o sea 1.104.",
+  "verificacion": {
+   "formula": "3*exp(0-1)+0*x",
+   "a": 0,
+   "esperado": 1.1036
+  },
+  "pistas": [
+   "Separa las variables, dy sobre y igual a menos 2x dx.",
+   "La solución es C por e a la menos x al cuadrado. Usa y de 0 igual a 3.",
+   "Evalúa 3 por e a la menos x al cuadrado en x igual a 1."
+  ],
+  "errores": [
+   "",
+   "Ese es el valor inicial. La solución cambia con x.",
+   "Revisa la cuenta. 3 por e a la menos 1 es 3 por 0.368.",
+   "Con exponente positivo la solución crecería, pero la ecuación tiene un signo menos y la solución decae."
+  ]
+ },
+ "resumen": [
+  "Una EDO de variables separables se escribe con cada variable de un lado y se integra.",
+  "La solución general trae una constante, y la condición inicial la fija.",
+  "El campo de pendientes muestra qué forma tienen las soluciones antes de resolver."
+ ]
+}

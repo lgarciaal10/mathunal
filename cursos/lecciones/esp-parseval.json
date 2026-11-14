@@ -1,0 +1,931 @@
+{
+ "esquema": 1,
+ "id": "es-m1-l4",
+ "ejemplo": true,
+ "curso": "Matemáticas Especiales",
+ "modulo": "Módulo 1 Series de Fourier",
+ "posicion": "Lección 4 de 5",
+ "titulo": "Identidad de Parseval y sumas de series",
+ "minutos": 26,
+ "ejercicios": 8,
+ "grafica": {
+  "tipo": "plano",
+  "x": [
+   -0.8,
+   9.8
+  ],
+  "y": [
+   -0.7,
+   4.6
+  ],
+  "a": 0,
+  "b": 8,
+  "inicio": 1,
+  "entero": true,
+  "elementos": [
+   {
+    "t": "poligono",
+    "puntos": [
+     [
+      "0.6",
+      "0"
+     ],
+     [
+      "1.4",
+      "0"
+     ],
+     [
+      "1.4",
+      "4.000000"
+     ],
+     [
+      "0.6",
+      "4.000000"
+     ]
+    ],
+    "c": 0
+   },
+   {
+    "t": "poligono",
+    "puntos": [
+     [
+      "0.6",
+      "0"
+     ],
+     [
+      "1.4",
+      "0"
+     ],
+     [
+      "1.4",
+      "4.000000*((1*(x-0)*(x-2)*(x-3)*(x-4)*(x-5)*(x-6)*(x-7)*(x-8)/(-5040))+(1*(x-0)*(x-1)*(x-3)*(x-4)*(x-5)*(x-6)*(x-7)*(x-8)/(1440))+(1*(x-0)*(x-1)*(x-2)*(x-4)*(x-5)*(x-6)*(x-7)*(x-8)/(-720))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-5)*(x-6)*(x-7)*(x-8)/(576))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-6)*(x-7)*(x-8)/(-720))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-7)*(x-8)/(1440))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-6)*(x-8)/(-5040))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-6)*(x-7)/(40320)))"
+     ],
+     [
+      "0.6",
+      "4.000000*((1*(x-0)*(x-2)*(x-3)*(x-4)*(x-5)*(x-6)*(x-7)*(x-8)/(-5040))+(1*(x-0)*(x-1)*(x-3)*(x-4)*(x-5)*(x-6)*(x-7)*(x-8)/(1440))+(1*(x-0)*(x-1)*(x-2)*(x-4)*(x-5)*(x-6)*(x-7)*(x-8)/(-720))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-5)*(x-6)*(x-7)*(x-8)/(576))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-6)*(x-7)*(x-8)/(-720))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-7)*(x-8)/(1440))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-6)*(x-8)/(-5040))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-6)*(x-7)/(40320)))"
+     ]
+    ],
+    "c": 3
+   },
+   {
+    "t": "poligono",
+    "puntos": [
+     [
+      "1.6",
+      "0"
+     ],
+     [
+      "2.4",
+      "0"
+     ],
+     [
+      "2.4",
+      "1.000000"
+     ],
+     [
+      "1.6",
+      "1.000000"
+     ]
+    ],
+    "c": 0
+   },
+   {
+    "t": "poligono",
+    "puntos": [
+     [
+      "1.6",
+      "0"
+     ],
+     [
+      "2.4",
+      "0"
+     ],
+     [
+      "2.4",
+      "1.000000*((1*(x-0)*(x-1)*(x-3)*(x-4)*(x-5)*(x-6)*(x-7)*(x-8)/(1440))+(1*(x-0)*(x-1)*(x-2)*(x-4)*(x-5)*(x-6)*(x-7)*(x-8)/(-720))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-5)*(x-6)*(x-7)*(x-8)/(576))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-6)*(x-7)*(x-8)/(-720))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-7)*(x-8)/(1440))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-6)*(x-8)/(-5040))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-6)*(x-7)/(40320)))"
+     ],
+     [
+      "1.6",
+      "1.000000*((1*(x-0)*(x-1)*(x-3)*(x-4)*(x-5)*(x-6)*(x-7)*(x-8)/(1440))+(1*(x-0)*(x-1)*(x-2)*(x-4)*(x-5)*(x-6)*(x-7)*(x-8)/(-720))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-5)*(x-6)*(x-7)*(x-8)/(576))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-6)*(x-7)*(x-8)/(-720))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-7)*(x-8)/(1440))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-6)*(x-8)/(-5040))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-6)*(x-7)/(40320)))"
+     ]
+    ],
+    "c": 3
+   },
+   {
+    "t": "poligono",
+    "puntos": [
+     [
+      "2.6",
+      "0"
+     ],
+     [
+      "3.4",
+      "0"
+     ],
+     [
+      "3.4",
+      "0.444444"
+     ],
+     [
+      "2.6",
+      "0.444444"
+     ]
+    ],
+    "c": 0
+   },
+   {
+    "t": "poligono",
+    "puntos": [
+     [
+      "2.6",
+      "0"
+     ],
+     [
+      "3.4",
+      "0"
+     ],
+     [
+      "3.4",
+      "0.444444*((1*(x-0)*(x-1)*(x-2)*(x-4)*(x-5)*(x-6)*(x-7)*(x-8)/(-720))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-5)*(x-6)*(x-7)*(x-8)/(576))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-6)*(x-7)*(x-8)/(-720))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-7)*(x-8)/(1440))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-6)*(x-8)/(-5040))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-6)*(x-7)/(40320)))"
+     ],
+     [
+      "2.6",
+      "0.444444*((1*(x-0)*(x-1)*(x-2)*(x-4)*(x-5)*(x-6)*(x-7)*(x-8)/(-720))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-5)*(x-6)*(x-7)*(x-8)/(576))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-6)*(x-7)*(x-8)/(-720))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-7)*(x-8)/(1440))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-6)*(x-8)/(-5040))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-6)*(x-7)/(40320)))"
+     ]
+    ],
+    "c": 3
+   },
+   {
+    "t": "poligono",
+    "puntos": [
+     [
+      "3.6",
+      "0"
+     ],
+     [
+      "4.4",
+      "0"
+     ],
+     [
+      "4.4",
+      "0.250000"
+     ],
+     [
+      "3.6",
+      "0.250000"
+     ]
+    ],
+    "c": 0
+   },
+   {
+    "t": "poligono",
+    "puntos": [
+     [
+      "3.6",
+      "0"
+     ],
+     [
+      "4.4",
+      "0"
+     ],
+     [
+      "4.4",
+      "0.250000*((1*(x-0)*(x-1)*(x-2)*(x-3)*(x-5)*(x-6)*(x-7)*(x-8)/(576))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-6)*(x-7)*(x-8)/(-720))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-7)*(x-8)/(1440))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-6)*(x-8)/(-5040))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-6)*(x-7)/(40320)))"
+     ],
+     [
+      "3.6",
+      "0.250000*((1*(x-0)*(x-1)*(x-2)*(x-3)*(x-5)*(x-6)*(x-7)*(x-8)/(576))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-6)*(x-7)*(x-8)/(-720))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-7)*(x-8)/(1440))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-6)*(x-8)/(-5040))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-6)*(x-7)/(40320)))"
+     ]
+    ],
+    "c": 3
+   },
+   {
+    "t": "poligono",
+    "puntos": [
+     [
+      "4.6",
+      "0"
+     ],
+     [
+      "5.4",
+      "0"
+     ],
+     [
+      "5.4",
+      "0.160000"
+     ],
+     [
+      "4.6",
+      "0.160000"
+     ]
+    ],
+    "c": 0
+   },
+   {
+    "t": "poligono",
+    "puntos": [
+     [
+      "4.6",
+      "0"
+     ],
+     [
+      "5.4",
+      "0"
+     ],
+     [
+      "5.4",
+      "0.160000*((1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-6)*(x-7)*(x-8)/(-720))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-7)*(x-8)/(1440))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-6)*(x-8)/(-5040))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-6)*(x-7)/(40320)))"
+     ],
+     [
+      "4.6",
+      "0.160000*((1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-6)*(x-7)*(x-8)/(-720))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-7)*(x-8)/(1440))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-6)*(x-8)/(-5040))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-6)*(x-7)/(40320)))"
+     ]
+    ],
+    "c": 3
+   },
+   {
+    "t": "poligono",
+    "puntos": [
+     [
+      "5.6",
+      "0"
+     ],
+     [
+      "6.4",
+      "0"
+     ],
+     [
+      "6.4",
+      "0.111111"
+     ],
+     [
+      "5.6",
+      "0.111111"
+     ]
+    ],
+    "c": 0
+   },
+   {
+    "t": "poligono",
+    "puntos": [
+     [
+      "5.6",
+      "0"
+     ],
+     [
+      "6.4",
+      "0"
+     ],
+     [
+      "6.4",
+      "0.111111*((1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-7)*(x-8)/(1440))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-6)*(x-8)/(-5040))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-6)*(x-7)/(40320)))"
+     ],
+     [
+      "5.6",
+      "0.111111*((1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-7)*(x-8)/(1440))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-6)*(x-8)/(-5040))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-6)*(x-7)/(40320)))"
+     ]
+    ],
+    "c": 3
+   },
+   {
+    "t": "poligono",
+    "puntos": [
+     [
+      "6.6",
+      "0"
+     ],
+     [
+      "7.4",
+      "0"
+     ],
+     [
+      "7.4",
+      "0.081633"
+     ],
+     [
+      "6.6",
+      "0.081633"
+     ]
+    ],
+    "c": 0
+   },
+   {
+    "t": "poligono",
+    "puntos": [
+     [
+      "6.6",
+      "0"
+     ],
+     [
+      "7.4",
+      "0"
+     ],
+     [
+      "7.4",
+      "0.081633*((1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-6)*(x-8)/(-5040))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-6)*(x-7)/(40320)))"
+     ],
+     [
+      "6.6",
+      "0.081633*((1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-6)*(x-8)/(-5040))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-6)*(x-7)/(40320)))"
+     ]
+    ],
+    "c": 3
+   },
+   {
+    "t": "poligono",
+    "puntos": [
+     [
+      "7.6",
+      "0"
+     ],
+     [
+      "8.4",
+      "0"
+     ],
+     [
+      "8.4",
+      "0.062500"
+     ],
+     [
+      "7.6",
+      "0.062500"
+     ]
+    ],
+    "c": 0
+   },
+   {
+    "t": "poligono",
+    "puntos": [
+     [
+      "7.6",
+      "0"
+     ],
+     [
+      "8.4",
+      "0"
+     ],
+     [
+      "8.4",
+      "0.062500*((1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-6)*(x-7)/(40320)))"
+     ],
+     [
+      "7.6",
+      "0.062500*((1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-6)*(x-7)/(40320)))"
+     ]
+    ],
+    "c": 3
+   }
+  ],
+  "lecturas": [
+   {
+    "rotulo": "suma de los primeros N cuadrados b de n al cuadrado",
+    "formula": "((4*(x-0)*(x-2)*(x-3)*(x-4)*(x-5)*(x-6)*(x-7)*(x-8)/(-5040))+(5*(x-0)*(x-1)*(x-3)*(x-4)*(x-5)*(x-6)*(x-7)*(x-8)/(1440))+(5.444444444*(x-0)*(x-1)*(x-2)*(x-4)*(x-5)*(x-6)*(x-7)*(x-8)/(-720))+(5.694444444*(x-0)*(x-1)*(x-2)*(x-3)*(x-5)*(x-6)*(x-7)*(x-8)/(576))+(5.854444444*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-6)*(x-7)*(x-8)/(-720))+(5.965555556*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-7)*(x-8)/(1440))+(6.047188209*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-6)*(x-8)/(-5040))+(6.109688209*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-6)*(x-7)/(40320)))"
+   },
+   {
+    "rotulo": "porcentaje de la energía total, 2 pi al cuadrado entre 3",
+    "formula": "((4*(x-0)*(x-2)*(x-3)*(x-4)*(x-5)*(x-6)*(x-7)*(x-8)/(-5040))+(5*(x-0)*(x-1)*(x-3)*(x-4)*(x-5)*(x-6)*(x-7)*(x-8)/(1440))+(5.444444444*(x-0)*(x-1)*(x-2)*(x-4)*(x-5)*(x-6)*(x-7)*(x-8)/(-720))+(5.694444444*(x-0)*(x-1)*(x-2)*(x-3)*(x-5)*(x-6)*(x-7)*(x-8)/(576))+(5.854444444*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-6)*(x-7)*(x-8)/(-720))+(5.965555556*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-7)*(x-8)/(1440))+(6.047188209*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-6)*(x-8)/(-5040))+(6.109688209*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-6)*(x-7)/(40320)))/6.579736*100"
+   }
+  ],
+  "etiquetas": [
+   "Suma de 4 entre n al cuadrado hasta N",
+   "Cuánto del total ya reúnen los primeros N armónicos"
+  ],
+  "etiquetaSlider": "Términos N, de 0 a 8",
+  "alt": "Barras con los cuadrados de los coeficientes b de n de la serie de Fourier de x, que valen 4 entre n al cuadrado. Los primeros N están en verde. La suma de todas las barras, hasta infinito, es 2 pi al cuadrado entre 3, que es el promedio de x al cuadrado multiplicado por 2. Con 3 términos ya se reúne casi 83 por ciento"
+ },
+ "glosario": {
+  "parseval": "La identidad de Parseval dice que la energía de una función, la integral de su cuadrado entre pi, es igual a la suma de los cuadrados de sus coeficientes de Fourier.",
+  "energia": "La energía de una señal es la integral de su cuadrado. En un armónico es proporcional al cuadrado de su amplitud.",
+  "leibniz": "La serie de Leibniz es uno menos un tercio más un quinto, y así. Suma pi entre 4, y sale de evaluar la onda cuadrada en pi medios.",
+  "basel": "La suma de uno entre n al cuadrado vale pi al cuadrado entre 6. Sale de evaluar la serie de x al cuadrado en pi."
+ },
+ "ver": {
+  "duracion": 24.0,
+  "capitulos": [
+   [
+    0,
+    4,
+    "Cada barra es el cuadrado del coeficiente b de n de la serie de x, que vale 4 entre n al cuadrado."
+   ],
+   [
+    4,
+    9,
+    "Con un término se tiene 4, que es el 61 por ciento del total."
+   ],
+   [
+    9,
+    15,
+    "Con 3 términos suma 5.44, casi 83 por ciento."
+   ],
+   [
+    15,
+    20,
+    "La suma completa, hasta infinito, es 2 pi al cuadrado entre 3, o sea 6.58. Esa es la identidad de Parseval."
+   ],
+   [
+    20,
+    24,
+    "De ahí sale que la suma de uno entre n al cuadrado vale pi al cuadrado entre 6."
+   ]
+  ],
+  "canales": {
+   "draw": [
+    [
+     0.3,
+     0
+    ],
+    [
+     3.5,
+     1
+    ]
+   ],
+   "d": [
+    [
+     4,
+     1
+    ],
+    [
+     8,
+     1
+    ],
+    [
+     10,
+     3
+    ],
+    [
+     14,
+     3
+    ],
+    [
+     16,
+     8
+    ],
+    [
+     24,
+     8
+    ]
+   ],
+   "guide": [
+    [
+     4,
+     0
+    ],
+    [
+     5,
+     1
+    ]
+   ]
+  },
+  "intervalos": {
+   "ok": [
+    15,
+    24
+   ]
+  }
+ },
+ "leer": {
+  "secciones": [
+   {
+    "titulo": "La idea",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "La identidad de {{gl:parseval|Parseval}} relaciona la {{gl:energia|energía}} de una función con la de sus coeficientes. Es un teorema de Pitágoras para funciones. También permite sumar series famosas, como la de {{gl:basel|uno entre n al cuadrado}} y la de {{gl:leibniz|Leibniz}}, evaluando una serie de Fourier en un punto conveniente."
+     }
+    ]
+   },
+   {
+    "titulo": "Un ejemplo",
+    "corto": "Un ejemplo",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Para f de x igual a x, el promedio de x al cuadrado, multiplicado por 2, es 2 pi al cuadrado entre 3. Mira cómo los cuadrados de los coeficientes lo van reuniendo."
+     },
+     {
+      "t": "eq",
+      "tex": "\\dfrac{1}{\\pi}\\displaystyle\\int_{-\\pi}^{\\pi}f(x)^{2}\\,dx=\\dfrac{a_{0}^{2}}{2}+\\sum_{n\\ge1}\\left(a_{n}^{2}+b_{n}^{2}\\right)"
+     },
+     {
+      "t": "grafica",
+      "animar": "dibujar",
+      "alt": "Las barras de los cuadrados de los coeficientes"
+     }
+    ]
+   },
+   {
+    "titulo": "Piensa antes de ver",
+    "corto": "Piensa",
+    "bloques": [
+     {
+      "t": "piensa",
+      "pregunta": "El coeficiente b1 de la serie de x vale 2, así que su cuadrado vale 4. Si el total de la energía es 6.58, ¿qué fracción aproximada reúne el primer término?",
+      "opciones": [
+       "Unos 6 de cada 10",
+       "Unos 2 de cada 10",
+       "Casi todo"
+      ],
+      "correcta": "Unos 6 de cada 10",
+      "bien": "Muy bien. 4 entre 6.58 es 0.61. El primer armónico reúne el 61 por ciento. Más abajo se ve.",
+      "mal": "4 entre 6.58 es 0.61, o sea unos 6 de cada 10. Más abajo se ve."
+     }
+    ]
+   },
+   {
+    "titulo": "Sumando armónicos",
+    "corto": "Los armónicos",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mira la energía reunida con 1, 3, 5 y 8 armónicos."
+     },
+     {
+      "t": "acercando",
+      "ds": [
+       1,
+       3,
+       5,
+       8
+      ],
+      "alt": "La energía con cuatro cantidades de armónicos"
+     },
+     {
+      "t": "p",
+      "html": "Con 8 armónicos ya se reúne el 93 por ciento. La suma completa da exactamente 2 pi al cuadrado entre 3."
+     }
+    ]
+   },
+   {
+    "titulo": "La identidad",
+    "corto": "La identidad",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Cada coeficiente aporta un cuadrado a la suma."
+     },
+     {
+      "t": "pasos",
+      "items": [
+       {
+        "tex": "\\dfrac{1}{L}\\displaystyle\\int_{-L}^{L}f^{2}\\,dx=\\dfrac{a_{0}^{2}}{2}+\\sum(a_{n}^{2}+b_{n}^{2})",
+        "porque": "La identidad de Parseval en [menos L, L]."
+       },
+       {
+        "tex": "f(x)=x:\\ \\dfrac{1}{\\pi}\\displaystyle\\int_{-\\pi}^{\\pi}x^{2}dx=\\dfrac{2\\pi^{2}}{3}",
+        "porque": "El lado izquierdo."
+       },
+       {
+        "tex": "\\sum b_{n}^{2}=\\sum\\dfrac{4}{n^{2}}",
+        "porque": "El lado derecho."
+       },
+       {
+        "tex": "\\sum\\dfrac{1}{n^{2}}=\\dfrac{\\pi^{2}}{6}",
+        "porque": "Al igualar y despejar."
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "Sumas de series",
+    "corto": "Sumas",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Evaluando una serie de Fourier en un punto se obtienen sumas exactas."
+     },
+     {
+      "t": "pasos",
+      "items": [
+       {
+        "tex": "x^{2}=\\dfrac{\\pi^{2}}{3}+4\\displaystyle\\sum\\dfrac{(-1)^{n}}{n^{2}}\\cos nx",
+        "porque": "La serie de x al cuadrado."
+       },
+       {
+        "tex": "x=\\pi:\\ \\pi^{2}=\\dfrac{\\pi^{2}}{3}+4\\sum\\dfrac{1}{n^{2}}\\ \\Rightarrow\\ \\sum\\dfrac{1}{n^{2}}=\\dfrac{\\pi^{2}}{6}",
+        "porque": "Evaluada en pi."
+       },
+       {
+        "tex": "x=0:\\ 0=\\dfrac{\\pi^{2}}{3}+4\\sum\\dfrac{(-1)^{n}}{n^{2}}\\ \\Rightarrow\\ \\sum\\dfrac{(-1)^{n+1}}{n^{2}}=\\dfrac{\\pi^{2}}{12}=0.8225",
+        "porque": "Evaluada en 0."
+       },
+       {
+        "tex": "\\text{onda cuadrada en}\\ \\tfrac{\\pi}{2}:\\ 1=\\dfrac{4}{\\pi}\\left(1-\\dfrac13+\\dfrac15-\\cdots\\right)\\ \\Rightarrow\\ \\dfrac{\\pi}{4}=0.7854",
+        "porque": "La serie de Leibniz."
+       }
+      ]
+     },
+     {
+      "t": "ojo",
+      "html": "Para que la evaluación sea válida, la serie debe converger a f en ese punto. En puntos de salto hay que usar el promedio de los límites laterales."
+     }
+    ]
+   },
+   {
+    "titulo": "¿Para qué sirve?",
+    "corto": "En ingeniería",
+    "bloques": [
+     {
+      "t": "ingenieria",
+      "titulo": "La energía de un armónico",
+      "html": "La potencia de una señal periódica es la suma de las potencias de sus armónicos. En una señal en diente de sierra, el primer armónico reúne el 61 por ciento de la energía total, y los tres primeros reúnen el 83 por ciento. Con eso se decide qué filtro diseñar.",
+      "tex": "P_{total}=\\sum_{n}\\dfrac{b_{n}^{2}}{2}",
+      "datos": [
+       {
+        "k": "Primer armónico",
+        "v": "61 %"
+       },
+       {
+        "k": "Tres primeros",
+        "v": "83 %"
+       },
+       {
+        "k": "Ocho primeros",
+        "v": "93 %"
+       }
+      ],
+      "cierre": "Si un sistema solo deja pasar los tres primeros armónicos, perderá una sexta parte de la energía de la señal, que es un 17 por ciento. Esa estimación se hace sin integrar de nuevo, solo sumando cuadrados de coeficientes. Es el motivo por el que Parseval se usa mucho en análisis de señales."
+     }
+    ]
+   },
+   {
+    "titulo": "Completa el paso",
+    "corto": "Completa",
+    "bloques": [
+     {
+      "t": "completar",
+      "enunciado": "Se despeja la suma de uno entre n al cuadrado a partir de la identidad de Parseval para f de x igual a x.",
+      "tex": "4\\sum\\dfrac{1}{n^{2}}=\\dfrac{2\\pi^{2}}{3}\\ \\Rightarrow\\ \\sum\\dfrac{1}{n^{2}}=[[hueco]]",
+      "opciones": [
+       {
+        "tex": "\\dfrac{\\pi^{2}}{6}",
+        "txt": "pi al cuadrado entre 6"
+       },
+       {
+        "tex": "\\dfrac{\\pi^{2}}{3}",
+        "txt": "pi al cuadrado entre 3"
+       },
+       {
+        "tex": "\\dfrac{\\pi^{2}}{12}",
+        "txt": "pi al cuadrado entre 12"
+       }
+      ],
+      "correcta": 0,
+      "errores": [
+       "",
+       "Falta dividir entre 4. Dos pi al cuadrado entre 3, dividido entre 4, es pi al cuadrado entre 6.",
+       "Pi al cuadrado entre 12 es la suma alternada, y no la de todos los términos positivos."
+      ],
+      "pista": "Se divide entre 4.",
+      "porque": "2 pi al cuadrado entre 3, entre 4, es pi al cuadrado entre 6."
+     }
+    ]
+   },
+   {
+    "titulo": "Encuentra el error",
+    "corto": "Error",
+    "bloques": [
+     {
+      "t": "error",
+      "enunciado": "Alguien obtuvo la serie de Leibniz de la onda cuadrada y se equivocó en un paso. Toca el paso que está mal.",
+      "pasos": [
+       {
+        "tex": "f\\!\\left(\\tfrac{\\pi}{2}\\right)=1=\\dfrac{4}{\\pi}\\left(1-\\dfrac{1}{3}+\\dfrac{1}{5}-\\cdots\\right)",
+        "porque": "Se evalúa la serie en pi medios.",
+        "txt": "se evalúa en pi medios"
+       },
+       {
+        "tex": "\\text{Entonces la suma vale}\\ \\dfrac{4}{\\pi}",
+        "porque": "Este paso es el que falla.",
+        "txt": "la suma vale 4 entre pi"
+       },
+       {
+        "tex": "\\text{Resultado: }1.273",
+        "porque": "Depende del anterior.",
+        "txt": "da 1.273"
+       }
+      ],
+      "mal": 1,
+      "explicacion": "Al despejar la suma, el 4 entre pi pasa dividiendo. Queda la suma igual a pi entre 4, o sea 0.7854.",
+      "correccion": "1-\\dfrac13+\\dfrac15-\\cdots=\\dfrac{\\pi}{4}",
+      "pista": "Despeja la suma con cuidado."
+     }
+    ]
+   },
+   {
+    "titulo": "Ordena los pasos",
+    "corto": "Ordena",
+    "bloques": [
+     {
+      "t": "ordenar",
+      "enunciado": "Estos son los pasos para sumar uno entre n al cuadrado con la serie de x al cuadrado, pero están desordenados.",
+      "pasos": [
+       "x^{2}=\\dfrac{\\pi^{2}}{3}+4\\sum\\dfrac{(-1)^{n}}{n^{2}}\\cos nx",
+       "x=\\pi:\\ \\pi^{2}=\\dfrac{\\pi^{2}}{3}+4\\sum\\dfrac{1}{n^{2}}",
+       "4\\sum\\dfrac{1}{n^{2}}=\\dfrac{2\\pi^{2}}{3}",
+       "\\sum\\dfrac{1}{n^{2}}=\\dfrac{\\pi^{2}}{6}"
+      ],
+      "mezcla": [
+       2,
+       0,
+       3,
+       1
+      ],
+      "porque": "Se evalúa la serie en pi, se despeja la suma y se divide entre 4.",
+      "pista": "Se empieza con la serie de x al cuadrado.",
+      "txt": [
+       "Se parte de la serie de x al cuadrado",
+       "Se evalúa en pi, donde coseno de n pi es menos uno elevado a n",
+       "Se despeja la suma",
+       "Se divide entre 4"
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "Revisa tu respuesta",
+    "corto": "Revisa",
+    "bloques": [
+     {
+      "t": "pregunta"
+     },
+     {
+      "t": "nota",
+      "html": "Puedes pedir pistas de a una. Si fallas, el mensaje te dice qué error se cometió."
+     }
+    ]
+   },
+   {
+    "titulo": "Mini simulacro",
+    "corto": "Simulacro",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Tres preguntas reales del banco de MathUNAL sobre este tema. Responde sin mirar los pasos."
+     },
+     {
+      "t": "simulacro",
+      "titulo": "Mini simulacro de la identidad de Parseval y sumas de series",
+      "preguntas": [
+       {
+        "tipo": "mcq",
+        "texto": "De la serie de Fourier de $f(x)=x^{2}$ en $[-\\pi,\\pi]$, evaluada en $x=\\pi$, se obtiene $\\displaystyle\\sum_{n=1}^{\\infty}\\dfrac{1}{n^{2}}=$",
+        "opciones": [
+         "$\\dfrac{\\pi^{2}}{6}$",
+         "$\\dfrac{\\pi^{2}}{12}$",
+         "$\\dfrac{\\pi^{2}}{3}$",
+         "$\\dfrac{\\pi}{4}$"
+        ],
+        "correcta": 0,
+        "resumen": "Evaluando la serie de $x^2$ en $x=\\pi$ se obtiene $\\pi^2/6$.",
+        "fuente": "Banco MathUNAL, simulacro de Matemáticas Especiales"
+       },
+       {
+        "tipo": "numerica",
+        "texto": "La serie de Leibniz $1-\\dfrac{1}{3}+\\dfrac{1}{5}-\\dfrac{1}{7}+\\cdots$ (que sale de la onda cuadrada) vale (decimal, 4 cifras):",
+        "respuesta": "0.7854",
+        "tolNum": 0.001,
+        "resumen": "La serie de Leibniz suma $\\pi/4=0.7854$.",
+        "fuente": "Banco MathUNAL, simulacro de Matemáticas Especiales"
+       },
+       {
+        "tipo": "mcq",
+        "texto": "La identidad de Parseval para una serie de Fourier en $[-L,L]$ afirma que:",
+        "opciones": [
+         "$\\dfrac{1}{L}\\displaystyle\\int_{-L}^{L}f(x)^{2}\\,dx=\\dfrac{a_0^{2}}{2}+\\sum_{n\\ge1}(a_n^{2}+b_n^{2})$",
+         "$\\displaystyle\\int_{-L}^{L}f=\\sum a_n$",
+         "$f(x)=\\sum(a_n+b_n)$",
+         "$a_n=b_n$ para todo $n$"
+        ],
+        "correcta": 0,
+        "resumen": "La identidad de Parseval iguala la energía de f con la suma de los cuadrados de los coeficientes.",
+        "fuente": "Banco MathUNAL, simulacro de Matemáticas Especiales"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "Tu repaso",
+    "corto": "Repaso",
+    "bloques": [
+     {
+      "t": "repaso"
+     }
+    ]
+   },
+   {
+    "titulo": "En resumen",
+    "corto": "Resumen",
+    "bloques": [
+     {
+      "t": "resumen"
+     }
+    ]
+   }
+  ]
+ },
+ "practicar": {
+  "pasos": [
+   {
+    "titulo": "Los cuadrados",
+    "grafica": {
+     "draw": 1
+    },
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Los cuadrados de los coeficientes de la serie de x."
+     },
+     {
+      "t": "eq",
+      "tex": "b_{n}^{2}=\\dfrac{4}{n^{2}}"
+     }
+    ]
+   },
+   {
+    "titulo": "Suma armónicos",
+    "grafica": {
+     "draw": 1
+    },
+    "laboratorio": true,
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mueve el deslizador de 0 a 8. Abajo se leen la suma de cuadrados y el porcentaje de la energía total."
+     }
+    ]
+   },
+   {
+    "titulo": "Tres armónicos",
+    "grafica": {
+     "draw": 1,
+     "guide": 1,
+     "ok": true
+    },
+    "laboratorio": true,
+    "d": 3,
+    "bloques": [
+     {
+      "t": "eq",
+      "tex": "4+1+\\tfrac49=5.44"
+     },
+     {
+      "t": "p",
+      "html": "Con tres armónicos se reúne casi el 83 por ciento de la energía."
+     }
+    ]
+   },
+   {
+    "titulo": "Revisa tu respuesta",
+    "grafica": {
+     "draw": 1,
+     "guide": 1,
+     "ok": true,
+     "d": 3
+    },
+    "bloques": [
+     {
+      "t": "pregunta"
+     },
+     {
+      "t": "nota",
+      "html": "Se evalúa la serie de x al cuadrado en pi."
+     }
+    ]
+   }
+  ]
+ },
+ "pregunta": {
+  "tex": "\\displaystyle\\sum_{n=1}^{\\infty}\\dfrac{1}{n^{2}}=",
+  "opciones": [
+   "$\\dfrac{\\pi^{2}}{6}$",
+   "$\\dfrac{\\pi^{2}}{12}$",
+   "$\\dfrac{\\pi}{4}$",
+   "$1$"
+  ],
+  "correcta": 0,
+  "explicacion": "Se evalúa la serie de x al cuadrado en x igual a pi. Queda pi al cuadrado igual a pi al cuadrado entre 3 más 4 por la suma, y se despeja la suma, que vale pi al cuadrado entre 6, cerca de 1.645.",
+  "verificacion": {
+   "formula": "pi*pi/6+0*x",
+   "a": 0,
+   "esperado": 1.6449
+  },
+  "pistas": [
+   "Usa la serie de x al cuadrado en x igual a pi.",
+   "Coseno de n pi por menos uno elevado a n da uno.",
+   "Despeja la suma."
+  ],
+  "errores": [
+   "",
+   "Pi al cuadrado entre 12 es la suma con signos alternados.",
+   "Pi entre 4 es la serie de Leibniz, que sale de otra función.",
+   "Uno es solo el primer término, y la suma es mayor."
+  ]
+ },
+ "resumen": [
+  "La identidad de Parseval iguala la energía de f con la suma de los cuadrados de los coeficientes.",
+  "Evaluando la serie de x al cuadrado se obtiene la suma de uno entre n al cuadrado, que es pi al cuadrado entre 6.",
+  "La serie de Leibniz suma pi entre 4, y sale de la onda cuadrada evaluada en pi medios."
+ ]
+}

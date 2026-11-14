@@ -1,0 +1,662 @@
+{
+ "esquema": 1,
+ "id": "alglin-m1-l2",
+ "ejemplo": true,
+ "curso": "Álgebra Lineal",
+ "modulo": "Módulo 1 Matrices, determinantes y sistemas",
+ "posicion": "Lección 2 de 4",
+ "titulo": "Sistemas de ecuaciones lineales",
+ "minutos": 26,
+ "ejercicios": 7,
+ "grafica": {
+  "tipo": "plano",
+  "x": [
+   -5,
+   7.83
+  ],
+  "y": [
+   -2.5,
+   4.5
+  ],
+  "a": -2,
+  "b": 4,
+  "inicio": -1,
+  "elementos": [
+   {
+    "t": "recta",
+    "p": [
+     "0",
+     "4"
+    ],
+    "dir": [
+     "1",
+     "-2"
+    ],
+    "nombre": "2x + y = 4",
+    "c": 0
+   },
+   {
+    "t": "recta",
+    "p": [
+     "x",
+     "0"
+    ],
+    "dir": [
+     "1",
+     "1"
+    ],
+    "nombre": "x - y = k",
+    "c": 1
+   },
+   {
+    "t": "punto",
+    "p": [
+     "(4+x)/3",
+     "(4-2*x)/3"
+    ],
+    "nombre": "solución",
+    "c": 2
+   }
+  ],
+  "lecturas": [
+   {
+    "rotulo": "x",
+    "formula": "(4+x)/3"
+   },
+   {
+    "rotulo": "y",
+    "formula": "(4-2*x)/3"
+   }
+  ],
+  "etiquetas": [
+   "Valor de x en la solución",
+   "Valor de y en la solución"
+  ],
+  "etiquetaSlider": "Valor de k en la segunda ecuación",
+  "alt": "Dos rectas, 2x más y igual a 4 y x menos y igual a k, que se cortan en un punto que se mueve al cambiar k"
+ },
+ "glosario": {
+  "sistema": "Un sistema de ecuaciones lineales es un conjunto de ecuaciones de primer grado con las mismas incógnitas, que se quiere resolver a la vez.",
+  "consistente": "Un sistema es consistente si tiene al menos una solución. Si no tiene ninguna, es inconsistente.",
+  "rango": "El rango de una matriz es el número de filas, o de columnas, que son realmente independientes. Se cuenta con los pivotes de la forma escalonada.",
+  "homogeneo": "Un sistema homogéneo es uno cuyos términos independientes son todos cero, o sea de la forma A x igual a 0."
+ },
+ "ver": {
+  "duracion": 22.0,
+  "capitulos": [
+   [
+    0,
+    3,
+    "Cada ecuación del sistema es una recta en el plano."
+   ],
+   [
+    3,
+    6,
+    "La solución es el punto donde las dos rectas se cortan, porque ahí se cumplen las dos ecuaciones."
+   ],
+   [
+    6,
+    12,
+    "Al cambiar k en la segunda ecuación, esa recta se desliza y el punto de corte se mueve."
+   ],
+   [
+    12,
+    17,
+    "Con k igual a menos 1, las rectas se cortan en (1, 2)."
+   ],
+   [
+    17,
+    22,
+    "Se comprueba. 2 por 1 más 2 es 4, y 1 menos 2 es menos 1."
+   ]
+  ],
+  "canales": {
+   "draw": [
+    [
+     0.3,
+     0
+    ],
+    [
+     5.5,
+     1
+    ]
+   ],
+   "d": [
+    [
+     6,
+     -1
+    ],
+    [
+     9,
+     2
+    ],
+    [
+     11,
+     -2
+    ],
+    [
+     12,
+     -1
+    ],
+    [
+     22,
+     -1
+    ]
+   ]
+  },
+  "intervalos": {
+   "ok": [
+    17,
+    22
+   ]
+  }
+ },
+ "leer": {
+  "secciones": [
+   {
+    "titulo": "La idea",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Un {{gl:sistema|sistema de ecuaciones lineales}} pide encontrar valores de las incógnitas que cumplan todas las ecuaciones a la vez. Con dos incógnitas, cada ecuación es una recta, y resolver el sistema es encontrar el punto donde se cortan."
+     }
+    ]
+   },
+   {
+    "titulo": "Un ejemplo",
+    "corto": "Un ejemplo",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mira este sistema. La primera recta es fija y la segunda depende de un número k."
+     },
+     {
+      "t": "eq",
+      "tex": "\\begin{cases}2x+y=4\\\\x-y=k\\end{cases}"
+     },
+     {
+      "t": "grafica",
+      "animar": "dibujar",
+      "alt": "Las dos rectas del sistema y su punto de corte"
+     }
+    ]
+   },
+   {
+    "titulo": "Piensa antes de ver",
+    "corto": "Piensa",
+    "bloques": [
+     {
+      "t": "piensa",
+      "pregunta": "Con k igual a menos 1, el punto (1, y) está en las dos rectas. ¿Cuánto vale y? Sale de 2 por 1 más y igual a 4.",
+      "opciones": [
+       1,
+       2,
+       3,
+       4
+      ],
+      "correcta": 2,
+      "bien": "Muy bien. Vale 2. Más abajo se ve el punto de corte.",
+      "mal": "Vale 2, porque 2 por 1 más y es 4. Más abajo se ve el punto de corte."
+     }
+    ]
+   },
+   {
+    "titulo": "El punto de corte",
+    "corto": "El corte",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mira cómo se mueve la solución cuando cambia k."
+     },
+     {
+      "t": "acercando",
+      "ds": [
+       -2,
+       -1,
+       1,
+       4
+      ],
+      "alt": "Las dos rectas y su punto de corte para varios valores de k"
+     },
+     {
+      "t": "p",
+      "html": "La primera recta no se mueve. La segunda se desliza al cambiar k y arrastra el punto de corte. Con k igual a menos 1 la solución es <b>(1, 2)</b>."
+     }
+    ]
+   },
+   {
+    "titulo": "En forma de matriz",
+    "corto": "En matriz",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "El sistema se puede escribir como una sola ecuación con una matriz, A por x igual a b."
+     },
+     {
+      "t": "eq",
+      "tex": "\\begin{pmatrix}2&1\\\\1&-1\\end{pmatrix}\\begin{pmatrix}x\\\\y\\end{pmatrix}=\\begin{pmatrix}4\\\\k\\end{pmatrix}"
+     },
+     {
+      "t": "p",
+      "html": "La matriz A tiene los coeficientes, el vector x tiene las incógnitas y el vector b tiene los términos de la derecha."
+     }
+    ]
+   },
+   {
+    "titulo": "Resolver con k igual a menos 1",
+    "corto": "Resolver",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Se suman las ecuaciones para eliminar y."
+     },
+     {
+      "t": "pasos",
+      "items": [
+       {
+        "tex": "\\begin{cases}2x+y=4\\\\x-y=-1\\end{cases}",
+        "porque": "Es el sistema con k igual a menos 1."
+       },
+       {
+        "tex": "3x=3\\ \\Rightarrow\\ x=1",
+        "porque": "Al sumar, la y se cancela."
+       },
+       {
+        "tex": "y=4-2x=2",
+        "porque": "Se reemplaza x en la primera ecuación."
+       },
+       {
+        "tex": "(x,y)=(1,2)",
+        "porque": "Es la solución. Se comprueba con la segunda ecuación, 1 menos 2 es menos 1."
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "Tres casos",
+    "corto": "Tres casos",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Dos rectas pueden cortarse en un punto, no cortarse nunca o ser la misma recta. Eso da tres casos para el sistema."
+     },
+     {
+      "t": "pasos",
+      "items": [
+       {
+        "tex": "\\det A\\ne 0\\ \\Rightarrow\\ \\text{una solución única}",
+        "porque": "Las rectas tienen pendientes distintas. Es el caso del ejemplo, con determinante 2 por menos 1 menos 1 por 1, o sea menos 3."
+       },
+       {
+        "tex": "x+3y=3,\\ \\ 2x+6y=7\\ \\Rightarrow\\ \\text{sin solución}",
+        "porque": "Son paralelas. Al restar el doble de la primera a la segunda sale 0 igual a 1, que es imposible."
+       },
+       {
+        "tex": "x+3y=3,\\ \\ 2x+6y=6\\ \\Rightarrow\\ \\text{infinitas soluciones}",
+        "porque": "Son la misma recta, así que todos sus puntos son soluciones."
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "Rango y variables libres",
+    "corto": "Rango",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "El {{gl:rango|rango}} cuenta cuántas ecuaciones aportan información nueva. Si el sistema es {{gl:consistente|consistente}} y el rango es menor que el número de incógnitas, sobran incógnitas, llamadas variables libres, y hay infinitas soluciones."
+     },
+     {
+      "t": "pasos",
+      "items": [
+       {
+        "tex": "\\operatorname{rango}(A)=n\\ \\text{y consistente}\\ \\Rightarrow\\ \\text{solución única}",
+        "porque": "No sobra ninguna incógnita."
+       },
+       {
+        "tex": "\\operatorname{rango}(A)<n\\ \\text{y consistente}\\ \\Rightarrow\\ \\text{infinitas soluciones}",
+        "porque": "Hay variables libres."
+       },
+       {
+        "tex": "\\operatorname{rango}(A)<\\operatorname{rango}\\left([A\\,|\\,b]\\right)\\ \\Rightarrow\\ \\text{sin solución}",
+        "porque": "Agregar b a la matriz sube el rango, así que b no es combinación de las columnas."
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "Sistemas homogéneos",
+    "corto": "Homogéneos",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Un sistema {{gl:homogeneo|homogéneo}} tiene todos los términos de la derecha iguales a 0."
+     },
+     {
+      "t": "pasos",
+      "items": [
+       {
+        "tex": "A\\mathbf{x}=\\mathbf{0}",
+        "porque": "Siempre es consistente."
+       },
+       {
+        "tex": "\\mathbf{x}=\\mathbf{0}\\ \\text{es solución}",
+        "porque": "Es la solución trivial, y siempre sirve."
+       },
+       {
+        "tex": "\\operatorname{rango}(A)<n\\ \\Rightarrow\\ \\text{hay soluciones no triviales}",
+        "porque": "Si hay variables libres, además de la trivial hay infinitas más."
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "¿Para qué sirve?",
+    "corto": "En ingeniería",
+    "bloques": [
+     {
+      "t": "ingenieria",
+      "titulo": "Una carga colgada de dos cables",
+      "html": "Un cuerpo de 500 newtons cuelga de dos cables que forman 30 y 60 grados con la horizontal. En equilibrio, las fuerzas horizontales y las verticales se cancelan, y eso da un sistema de dos ecuaciones con las dos tensiones como incógnitas.",
+      "tex": "\\begin{cases}T_{1}\\cos 30^{\\circ}-T_{2}\\cos 60^{\\circ}=0\\\\ T_{1}\\operatorname{sen}30^{\\circ}+T_{2}\\operatorname{sen}60^{\\circ}=500\\end{cases}",
+      "datos": [
+       {
+        "k": "Peso",
+        "v": "500 N"
+       },
+       {
+        "k": "Ángulos",
+        "v": "30 y 60 grados"
+       },
+       {
+        "k": "Tensiones",
+        "v": "250 N y 433 N"
+       }
+      ],
+      "cierre": "Al resolver el sistema salen T1 igual a 250 newtons y T2 igual a 250 por la raíz de 3, o sea unos 433 newtons. El cable más inclinado hacia la vertical soporta más fuerza. Es un modelo simplificado, porque supone cables sin peso y un nudo que no se mueve."
+     }
+    ]
+   },
+   {
+    "titulo": "Completa el paso",
+    "corto": "Completa",
+    "bloques": [
+     {
+      "t": "completar",
+      "enunciado": "Se resuelve el sistema 2x más y igual a 4 y x menos y igual a menos 1 sumando las dos ecuaciones. Falta el lado derecho.",
+      "tex": "3x=[[hueco]]",
+      "opciones": [
+       {
+        "tex": "3",
+        "txt": "tres"
+       },
+       {
+        "tex": "5",
+        "txt": "cinco"
+       },
+       {
+        "tex": "-3",
+        "txt": "menos tres"
+       }
+      ],
+      "correcta": 0,
+      "errores": [
+       "",
+       "Se restaron los lados derechos y no se sumaron. Sumar 4 y menos 1 da 3.",
+       "El signo está al revés. 4 más menos 1 es 3, positivo."
+      ],
+      "pista": "Suma los lados derechos, 4 y menos 1.",
+      "porque": "Al sumar las ecuaciones se cancela y y queda 3x igual a 4 menos 1, o sea 3."
+     }
+    ]
+   },
+   {
+    "titulo": "Encuentra el error",
+    "corto": "Error",
+    "bloques": [
+     {
+      "t": "error",
+      "enunciado": "Alguien analizó este sistema y se equivocó en un paso. Toca el paso que está mal.",
+      "pasos": [
+       {
+        "tex": "\\begin{cases}x+2y=2\\\\2x+4y=7\\end{cases}",
+        "porque": "Es el sistema original.",
+        "txt": "Las ecuaciones son x más 2y igual a 2 y 2x más 4y igual a 7"
+       },
+       {
+        "tex": "\\text{Las rectas tienen pendientes distintas, así que hay solución única}",
+        "porque": "Este paso es el que falla.",
+        "txt": "Las rectas tienen pendientes distintas, así que hay solución única"
+       },
+       {
+        "tex": "\\text{La solución es el punto de corte}",
+        "porque": "Depende del paso anterior.",
+        "txt": "La solución es el punto de corte"
+       }
+      ],
+      "mal": 1,
+      "explicacion": "Las dos rectas tienen la misma pendiente. Al restar el doble de la primera a la segunda sale 0 igual a 3, que es imposible. Las rectas son paralelas y el sistema no tiene solución.",
+      "correccion": "2x+4y-2(x+2y)=7-4\\ \\Rightarrow\\ 0=3",
+      "pista": "Compara los coeficientes de la segunda ecuación con el doble de la primera."
+     }
+    ]
+   },
+   {
+    "titulo": "Ordena los pasos",
+    "corto": "Ordena",
+    "bloques": [
+     {
+      "t": "ordenar",
+      "enunciado": "Estos son los pasos para resolver el sistema 2x más y igual a 4 y x menos y igual a menos 1, pero están desordenados.",
+      "pasos": [
+       "2x+y=4,\\ \\ x-y=-1",
+       "3x=3\\ \\Rightarrow\\ x=1",
+       "y=4-2\\cdot 1=2",
+       "(x,y)=(1,2)"
+      ],
+      "mezcla": [
+       2,
+       0,
+       3,
+       1
+      ],
+      "porque": "Se escriben las ecuaciones, se suman para eliminar y, se despeja x y luego y.",
+      "pista": "Primero van las ecuaciones.",
+      "txt": [
+       "Son las dos ecuaciones",
+       "Al sumarlas queda 3x igual a 3, o sea x igual a 1",
+       "Se reemplaza en la primera y sale y igual a 2",
+       "Es la solución"
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "Revisa tu respuesta",
+    "corto": "Revisa",
+    "bloques": [
+     {
+      "t": "pregunta"
+     },
+     {
+      "t": "nota",
+      "html": "Puedes pedir pistas de a una. Si fallas, el mensaje te dice qué error se cometió."
+     }
+    ]
+   },
+   {
+    "titulo": "Mini simulacro",
+    "corto": "Simulacro",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Tres preguntas reales del banco de MathUNAL sobre este tema. Responde sin mirar los pasos."
+     },
+     {
+      "t": "simulacro",
+      "titulo": "Mini simulacro de sistemas",
+      "preguntas": [
+       {
+        "tipo": "mcq",
+        "texto": "El sistema $\\begin{pmatrix}1&2\\\\2&a\\end{pmatrix}\\mathbf{x}=\\mathbf{b}$ tiene solución única para todo $\\mathbf{b}$ si y solo si:",
+        "opciones": [
+         "$a\\neq4$",
+         "$a=4$",
+         "$a\\neq0$",
+         "para todo $a$"
+        ],
+        "correcta": 0,
+        "resumen": "El determinante $a-4$ se anula solo si $a=4$. En ese caso las filas son proporcionales y no hay solución única para todo $\\mathbf{b}$.",
+        "fuente": "Banco MathUNAL, simulacro de Álgebra Lineal"
+       },
+       {
+        "tipo": "mcq",
+        "texto": "Si un sistema lineal es consistente y $\\text{rango}(A)$ es menor que el número de incógnitas, entonces:",
+        "opciones": [
+         "tiene infinitas soluciones (hay variables libres)",
+         "tiene solución única",
+         "no tiene solución",
+         "$A$ es invertible"
+        ],
+        "correcta": 0,
+        "resumen": "Con rango menor que el número de incógnitas sobran variables libres, y por eso hay infinitas soluciones.",
+        "fuente": "Banco MathUNAL, simulacro de Álgebra Lineal"
+       },
+       {
+        "tipo": "numerica",
+        "texto": "En el sistema $x + y = 3$, $x - y = 1$, el valor de $x$ es:",
+        "respuesta": "2",
+        "tolNum": 0.001,
+        "resumen": "Al sumar las ecuaciones queda $2x=4$, así que $x=2$.",
+        "fuente": "Banco MathUNAL, simulacro de Álgebra Lineal"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "Tu repaso",
+    "corto": "Repaso",
+    "bloques": [
+     {
+      "t": "repaso"
+     }
+    ]
+   },
+   {
+    "titulo": "En resumen",
+    "corto": "Resumen",
+    "bloques": [
+     {
+      "t": "resumen"
+     }
+    ]
+   }
+  ]
+ },
+ "practicar": {
+  "pasos": [
+   {
+    "titulo": "Las rectas",
+    "grafica": {
+     "draw": 1
+    },
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Cada ecuación es una recta."
+     },
+     {
+      "t": "eq",
+      "tex": "\\begin{cases}2x+y=4\\\\x-y=k\\end{cases}"
+     }
+    ]
+   },
+   {
+    "titulo": "Cambia k",
+    "grafica": {
+     "draw": 1
+    },
+    "laboratorio": true,
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mueve el deslizador. La segunda recta se desliza y el punto de corte se mueve. Abajo se ven los valores de x y de y en la solución."
+     }
+    ]
+   },
+   {
+    "titulo": "La solución",
+    "grafica": {
+     "draw": 1,
+     "ok": true
+    },
+    "laboratorio": true,
+    "d": -1,
+    "bloques": [
+     {
+      "t": "eq",
+      "tex": "(x,y)=(1,2)"
+     },
+     {
+      "t": "p",
+      "html": "Con k igual a menos 1 las rectas se cortan en (1, 2). Se comprueba en las dos ecuaciones."
+     }
+    ]
+   },
+   {
+    "titulo": "Revisa tu respuesta",
+    "grafica": {
+     "draw": 1,
+     "ok": true,
+     "d": -1
+    },
+    "bloques": [
+     {
+      "t": "pregunta"
+     },
+     {
+      "t": "nota",
+      "html": "Elimina una incógnita y reemplaza en la otra ecuación."
+     }
+    ]
+   }
+  ]
+ },
+ "pregunta": {
+  "tex": "\\begin{cases}x+2y=5\\\\3x-y=1\\end{cases}\\ \\Rightarrow\\ y=?",
+  "opciones": [
+   "$2$",
+   "$1$",
+   "$3$",
+   "$-1$"
+  ],
+  "correcta": 0,
+  "explicacion": "De la segunda ecuación, y es 3x menos 1. Al reemplazar en la primera queda x más 6x menos 2 igual a 5, o sea 7x igual a 7 y x igual a 1. Entonces y vale 3 por 1 menos 1, o sea 2.",
+  "verificacion": {
+   "formula": "(1*1-3*5)/(1*(0-1)-2*3)+0*x",
+   "a": 0,
+   "esperado": 2
+  },
+  "pistas": [
+   "Despeja y en la segunda ecuación.",
+   "Queda y igual a 3x menos 1. Reemplázalo en la primera.",
+   "Sale 7x igual a 7. Con x calculado, halla y."
+  ],
+  "errores": [
+   "",
+   "Ese es el valor de x y no el de y. Falta reemplazarlo para hallar y.",
+   "Revisa la cuenta. Con x igual a 1, y es 3 por 1 menos 1.",
+   "Revisa el signo. De la segunda ecuación y es 3x menos 1, y con x igual a 1 da 2."
+  ]
+ },
+ "resumen": [
+  "Cada ecuación lineal con dos incógnitas es una recta, y la solución es donde se cortan.",
+  "Un sistema puede tener solución única, ninguna o infinitas. El determinante y el rango lo deciden.",
+  "Un sistema homogéneo siempre tiene la solución trivial. Si el rango es menor que las incógnitas, tiene más."
+ ]
+}

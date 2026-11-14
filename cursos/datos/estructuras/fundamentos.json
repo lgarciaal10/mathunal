@@ -1,0 +1,112 @@
+{
+ "esquema": 1,
+ "curso": "Fundamentos de Matemáticas",
+ "estado": "PROVISIONAL. Los módulos y temas salen del banco de MathUNAL. El orden dentro de cada módulo es por cantidad de preguntas, NO pedagógico, y falta el temario oficial (PENDIENTE).",
+ "modulos": [
+  {
+   "n": 1,
+   "nombre": "Lógica y argumentación",
+   "peso": 35,
+   "lecciones": [
+    {
+     "tema": "Lógica proposicional",
+     "preguntas_banco": 12,
+     "parciales_con_el_tema": 1,
+     "estado": "borrador para revisión",
+     "leccion": "lecciones/fund-logica.json"
+    },
+    {
+     "tema": "Cuantificadores y predicados",
+     "preguntas_banco": 7,
+     "parciales_con_el_tema": 1,
+     "estado": "borrador para revisión",
+     "leccion": "lecciones/fund-cuantificadores.json"
+    },
+    {
+     "tema": "Formas de argumento e inferencia",
+     "preguntas_banco": 5,
+     "parciales_con_el_tema": 0,
+     "estado": "borrador para revisión",
+     "leccion": "lecciones/fund-argumentos.json"
+    }
+   ]
+  },
+  {
+   "n": 2,
+   "nombre": "Demostración y conjuntos",
+   "peso": 35,
+   "lecciones": [
+    {
+     "tema": "Métodos de demostración",
+     "preguntas_banco": 8,
+     "parciales_con_el_tema": 2,
+     "estado": "borrador para revisión",
+     "leccion": "lecciones/fund-demostracion.json"
+    },
+    {
+     "tema": "Álgebra de conjuntos y conjunto potencia",
+     "preguntas_banco": 8,
+     "parciales_con_el_tema": 2,
+     "estado": "borrador para revisión",
+     "leccion": "lecciones/fund-conjuntos.json"
+    },
+    {
+     "tema": "Inducción matemática",
+     "preguntas_banco": 7,
+     "parciales_con_el_tema": 1,
+     "estado": "borrador para revisión",
+     "leccion": "lecciones/fund-induccion.json"
+    },
+    {
+     "tema": "Operaciones con conjuntos",
+     "preguntas_banco": 7,
+     "parciales_con_el_tema": 2,
+     "estado": "borrador para revisión",
+     "leccion": "lecciones/fund-operaciones.json"
+    }
+   ]
+  },
+  {
+   "n": 3,
+   "nombre": "Relaciones y funciones",
+   "peso": 30,
+   "lecciones": [
+    {
+     "tema": "Funciones: inyectiva, sobreyectiva, biyectiva",
+     "preguntas_banco": 8,
+     "parciales_con_el_tema": 2,
+     "estado": "borrador para revisión",
+     "leccion": "lecciones/fund-funciones.json"
+    },
+    {
+     "tema": "Relaciones de equivalencia",
+     "preguntas_banco": 6,
+     "parciales_con_el_tema": 1,
+     "estado": "borrador para revisión",
+     "leccion": "lecciones/fund-equivalencia.json"
+    },
+    {
+     "tema": "Relaciones y sus propiedades",
+     "preguntas_banco": 5,
+     "parciales_con_el_tema": 1,
+     "estado": "borrador para revisión",
+     "leccion": "lecciones/fund-relaciones.json"
+    },
+    {
+     "tema": "Cardinalidad y conteo",
+     "preguntas_banco": 4,
+     "parciales_con_el_tema": 0,
+     "estado": "borrador para revisión",
+     "leccion": "lecciones/fund-cardinalidad.json"
+    },
+    {
+     "tema": "Imagen e imagen inversa",
+     "preguntas_banco": 4,
+     "parciales_con_el_tema": 1,
+     "estado": "borrador para revisión",
+     "leccion": "lecciones/fund-imagen.json"
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,978 @@
+{
+ "esquema": 1,
+ "id": "es-m2-l5",
+ "ejemplo": true,
+ "curso": "Matemáticas Especiales",
+ "modulo": "Módulo 2 Transformada de Fourier y EDP de evolución",
+ "posicion": "Lección 5 de 5",
+ "titulo": "Fórmula de D'Alembert",
+ "minutos": 28,
+ "ejercicios": 8,
+ "grafica": {
+  "tipo": "plano",
+  "x": [
+   -6.5,
+   6.5
+  ],
+  "y": [
+   -0.3,
+   1.2
+  ],
+  "a": 0,
+  "b": 5,
+  "inicio": 0,
+  "elementos": [
+   {
+    "t": "trazo",
+    "puntos": [
+     [
+      "-6.0",
+      "0.5*(exp(-((-6.0)-x)*((-6.0)-x))+exp(-((-6.0)+x)*((-6.0)+x)))"
+     ],
+     [
+      "-5.75",
+      "0.5*(exp(-((-5.75)-x)*((-5.75)-x))+exp(-((-5.75)+x)*((-5.75)+x)))"
+     ],
+     [
+      "-5.5",
+      "0.5*(exp(-((-5.5)-x)*((-5.5)-x))+exp(-((-5.5)+x)*((-5.5)+x)))"
+     ],
+     [
+      "-5.25",
+      "0.5*(exp(-((-5.25)-x)*((-5.25)-x))+exp(-((-5.25)+x)*((-5.25)+x)))"
+     ],
+     [
+      "-5.0",
+      "0.5*(exp(-((-5.0)-x)*((-5.0)-x))+exp(-((-5.0)+x)*((-5.0)+x)))"
+     ],
+     [
+      "-4.75",
+      "0.5*(exp(-((-4.75)-x)*((-4.75)-x))+exp(-((-4.75)+x)*((-4.75)+x)))"
+     ],
+     [
+      "-4.5",
+      "0.5*(exp(-((-4.5)-x)*((-4.5)-x))+exp(-((-4.5)+x)*((-4.5)+x)))"
+     ],
+     [
+      "-4.25",
+      "0.5*(exp(-((-4.25)-x)*((-4.25)-x))+exp(-((-4.25)+x)*((-4.25)+x)))"
+     ],
+     [
+      "-4.0",
+      "0.5*(exp(-((-4.0)-x)*((-4.0)-x))+exp(-((-4.0)+x)*((-4.0)+x)))"
+     ],
+     [
+      "-3.75",
+      "0.5*(exp(-((-3.75)-x)*((-3.75)-x))+exp(-((-3.75)+x)*((-3.75)+x)))"
+     ],
+     [
+      "-3.5",
+      "0.5*(exp(-((-3.5)-x)*((-3.5)-x))+exp(-((-3.5)+x)*((-3.5)+x)))"
+     ],
+     [
+      "-3.25",
+      "0.5*(exp(-((-3.25)-x)*((-3.25)-x))+exp(-((-3.25)+x)*((-3.25)+x)))"
+     ],
+     [
+      "-3.0",
+      "0.5*(exp(-((-3.0)-x)*((-3.0)-x))+exp(-((-3.0)+x)*((-3.0)+x)))"
+     ],
+     [
+      "-2.75",
+      "0.5*(exp(-((-2.75)-x)*((-2.75)-x))+exp(-((-2.75)+x)*((-2.75)+x)))"
+     ],
+     [
+      "-2.5",
+      "0.5*(exp(-((-2.5)-x)*((-2.5)-x))+exp(-((-2.5)+x)*((-2.5)+x)))"
+     ],
+     [
+      "-2.25",
+      "0.5*(exp(-((-2.25)-x)*((-2.25)-x))+exp(-((-2.25)+x)*((-2.25)+x)))"
+     ],
+     [
+      "-2.0",
+      "0.5*(exp(-((-2.0)-x)*((-2.0)-x))+exp(-((-2.0)+x)*((-2.0)+x)))"
+     ],
+     [
+      "-1.75",
+      "0.5*(exp(-((-1.75)-x)*((-1.75)-x))+exp(-((-1.75)+x)*((-1.75)+x)))"
+     ],
+     [
+      "-1.5",
+      "0.5*(exp(-((-1.5)-x)*((-1.5)-x))+exp(-((-1.5)+x)*((-1.5)+x)))"
+     ],
+     [
+      "-1.25",
+      "0.5*(exp(-((-1.25)-x)*((-1.25)-x))+exp(-((-1.25)+x)*((-1.25)+x)))"
+     ],
+     [
+      "-1.0",
+      "0.5*(exp(-((-1.0)-x)*((-1.0)-x))+exp(-((-1.0)+x)*((-1.0)+x)))"
+     ],
+     [
+      "-0.75",
+      "0.5*(exp(-((-0.75)-x)*((-0.75)-x))+exp(-((-0.75)+x)*((-0.75)+x)))"
+     ],
+     [
+      "-0.5",
+      "0.5*(exp(-((-0.5)-x)*((-0.5)-x))+exp(-((-0.5)+x)*((-0.5)+x)))"
+     ],
+     [
+      "-0.25",
+      "0.5*(exp(-((-0.25)-x)*((-0.25)-x))+exp(-((-0.25)+x)*((-0.25)+x)))"
+     ],
+     [
+      "0.0",
+      "0.5*(exp(-((0.0)-x)*((0.0)-x))+exp(-((0.0)+x)*((0.0)+x)))"
+     ],
+     [
+      "0.25",
+      "0.5*(exp(-((0.25)-x)*((0.25)-x))+exp(-((0.25)+x)*((0.25)+x)))"
+     ],
+     [
+      "0.5",
+      "0.5*(exp(-((0.5)-x)*((0.5)-x))+exp(-((0.5)+x)*((0.5)+x)))"
+     ],
+     [
+      "0.75",
+      "0.5*(exp(-((0.75)-x)*((0.75)-x))+exp(-((0.75)+x)*((0.75)+x)))"
+     ],
+     [
+      "1.0",
+      "0.5*(exp(-((1.0)-x)*((1.0)-x))+exp(-((1.0)+x)*((1.0)+x)))"
+     ],
+     [
+      "1.25",
+      "0.5*(exp(-((1.25)-x)*((1.25)-x))+exp(-((1.25)+x)*((1.25)+x)))"
+     ],
+     [
+      "1.5",
+      "0.5*(exp(-((1.5)-x)*((1.5)-x))+exp(-((1.5)+x)*((1.5)+x)))"
+     ],
+     [
+      "1.75",
+      "0.5*(exp(-((1.75)-x)*((1.75)-x))+exp(-((1.75)+x)*((1.75)+x)))"
+     ],
+     [
+      "2.0",
+      "0.5*(exp(-((2.0)-x)*((2.0)-x))+exp(-((2.0)+x)*((2.0)+x)))"
+     ],
+     [
+      "2.25",
+      "0.5*(exp(-((2.25)-x)*((2.25)-x))+exp(-((2.25)+x)*((2.25)+x)))"
+     ],
+     [
+      "2.5",
+      "0.5*(exp(-((2.5)-x)*((2.5)-x))+exp(-((2.5)+x)*((2.5)+x)))"
+     ],
+     [
+      "2.75",
+      "0.5*(exp(-((2.75)-x)*((2.75)-x))+exp(-((2.75)+x)*((2.75)+x)))"
+     ],
+     [
+      "3.0",
+      "0.5*(exp(-((3.0)-x)*((3.0)-x))+exp(-((3.0)+x)*((3.0)+x)))"
+     ],
+     [
+      "3.25",
+      "0.5*(exp(-((3.25)-x)*((3.25)-x))+exp(-((3.25)+x)*((3.25)+x)))"
+     ],
+     [
+      "3.5",
+      "0.5*(exp(-((3.5)-x)*((3.5)-x))+exp(-((3.5)+x)*((3.5)+x)))"
+     ],
+     [
+      "3.75",
+      "0.5*(exp(-((3.75)-x)*((3.75)-x))+exp(-((3.75)+x)*((3.75)+x)))"
+     ],
+     [
+      "4.0",
+      "0.5*(exp(-((4.0)-x)*((4.0)-x))+exp(-((4.0)+x)*((4.0)+x)))"
+     ],
+     [
+      "4.25",
+      "0.5*(exp(-((4.25)-x)*((4.25)-x))+exp(-((4.25)+x)*((4.25)+x)))"
+     ],
+     [
+      "4.5",
+      "0.5*(exp(-((4.5)-x)*((4.5)-x))+exp(-((4.5)+x)*((4.5)+x)))"
+     ],
+     [
+      "4.75",
+      "0.5*(exp(-((4.75)-x)*((4.75)-x))+exp(-((4.75)+x)*((4.75)+x)))"
+     ],
+     [
+      "5.0",
+      "0.5*(exp(-((5.0)-x)*((5.0)-x))+exp(-((5.0)+x)*((5.0)+x)))"
+     ],
+     [
+      "5.25",
+      "0.5*(exp(-((5.25)-x)*((5.25)-x))+exp(-((5.25)+x)*((5.25)+x)))"
+     ],
+     [
+      "5.5",
+      "0.5*(exp(-((5.5)-x)*((5.5)-x))+exp(-((5.5)+x)*((5.5)+x)))"
+     ],
+     [
+      "5.75",
+      "0.5*(exp(-((5.75)-x)*((5.75)-x))+exp(-((5.75)+x)*((5.75)+x)))"
+     ],
+     [
+      "6.0",
+      "0.5*(exp(-((6.0)-x)*((6.0)-x))+exp(-((6.0)+x)*((6.0)+x)))"
+     ]
+    ],
+    "c": 0
+   },
+   {
+    "t": "trazo",
+    "puntos": [
+     [
+      "-6.0",
+      "0.5*exp(-((-6.0)-x)*((-6.0)-x))"
+     ],
+     [
+      "-5.75",
+      "0.5*exp(-((-5.75)-x)*((-5.75)-x))"
+     ],
+     [
+      "-5.5",
+      "0.5*exp(-((-5.5)-x)*((-5.5)-x))"
+     ],
+     [
+      "-5.25",
+      "0.5*exp(-((-5.25)-x)*((-5.25)-x))"
+     ],
+     [
+      "-5.0",
+      "0.5*exp(-((-5.0)-x)*((-5.0)-x))"
+     ],
+     [
+      "-4.75",
+      "0.5*exp(-((-4.75)-x)*((-4.75)-x))"
+     ],
+     [
+      "-4.5",
+      "0.5*exp(-((-4.5)-x)*((-4.5)-x))"
+     ],
+     [
+      "-4.25",
+      "0.5*exp(-((-4.25)-x)*((-4.25)-x))"
+     ],
+     [
+      "-4.0",
+      "0.5*exp(-((-4.0)-x)*((-4.0)-x))"
+     ],
+     [
+      "-3.75",
+      "0.5*exp(-((-3.75)-x)*((-3.75)-x))"
+     ],
+     [
+      "-3.5",
+      "0.5*exp(-((-3.5)-x)*((-3.5)-x))"
+     ],
+     [
+      "-3.25",
+      "0.5*exp(-((-3.25)-x)*((-3.25)-x))"
+     ],
+     [
+      "-3.0",
+      "0.5*exp(-((-3.0)-x)*((-3.0)-x))"
+     ],
+     [
+      "-2.75",
+      "0.5*exp(-((-2.75)-x)*((-2.75)-x))"
+     ],
+     [
+      "-2.5",
+      "0.5*exp(-((-2.5)-x)*((-2.5)-x))"
+     ],
+     [
+      "-2.25",
+      "0.5*exp(-((-2.25)-x)*((-2.25)-x))"
+     ],
+     [
+      "-2.0",
+      "0.5*exp(-((-2.0)-x)*((-2.0)-x))"
+     ],
+     [
+      "-1.75",
+      "0.5*exp(-((-1.75)-x)*((-1.75)-x))"
+     ],
+     [
+      "-1.5",
+      "0.5*exp(-((-1.5)-x)*((-1.5)-x))"
+     ],
+     [
+      "-1.25",
+      "0.5*exp(-((-1.25)-x)*((-1.25)-x))"
+     ],
+     [
+      "-1.0",
+      "0.5*exp(-((-1.0)-x)*((-1.0)-x))"
+     ],
+     [
+      "-0.75",
+      "0.5*exp(-((-0.75)-x)*((-0.75)-x))"
+     ],
+     [
+      "-0.5",
+      "0.5*exp(-((-0.5)-x)*((-0.5)-x))"
+     ],
+     [
+      "-0.25",
+      "0.5*exp(-((-0.25)-x)*((-0.25)-x))"
+     ],
+     [
+      "0.0",
+      "0.5*exp(-((0.0)-x)*((0.0)-x))"
+     ],
+     [
+      "0.25",
+      "0.5*exp(-((0.25)-x)*((0.25)-x))"
+     ],
+     [
+      "0.5",
+      "0.5*exp(-((0.5)-x)*((0.5)-x))"
+     ],
+     [
+      "0.75",
+      "0.5*exp(-((0.75)-x)*((0.75)-x))"
+     ],
+     [
+      "1.0",
+      "0.5*exp(-((1.0)-x)*((1.0)-x))"
+     ],
+     [
+      "1.25",
+      "0.5*exp(-((1.25)-x)*((1.25)-x))"
+     ],
+     [
+      "1.5",
+      "0.5*exp(-((1.5)-x)*((1.5)-x))"
+     ],
+     [
+      "1.75",
+      "0.5*exp(-((1.75)-x)*((1.75)-x))"
+     ],
+     [
+      "2.0",
+      "0.5*exp(-((2.0)-x)*((2.0)-x))"
+     ],
+     [
+      "2.25",
+      "0.5*exp(-((2.25)-x)*((2.25)-x))"
+     ],
+     [
+      "2.5",
+      "0.5*exp(-((2.5)-x)*((2.5)-x))"
+     ],
+     [
+      "2.75",
+      "0.5*exp(-((2.75)-x)*((2.75)-x))"
+     ],
+     [
+      "3.0",
+      "0.5*exp(-((3.0)-x)*((3.0)-x))"
+     ],
+     [
+      "3.25",
+      "0.5*exp(-((3.25)-x)*((3.25)-x))"
+     ],
+     [
+      "3.5",
+      "0.5*exp(-((3.5)-x)*((3.5)-x))"
+     ],
+     [
+      "3.75",
+      "0.5*exp(-((3.75)-x)*((3.75)-x))"
+     ],
+     [
+      "4.0",
+      "0.5*exp(-((4.0)-x)*((4.0)-x))"
+     ],
+     [
+      "4.25",
+      "0.5*exp(-((4.25)-x)*((4.25)-x))"
+     ],
+     [
+      "4.5",
+      "0.5*exp(-((4.5)-x)*((4.5)-x))"
+     ],
+     [
+      "4.75",
+      "0.5*exp(-((4.75)-x)*((4.75)-x))"
+     ],
+     [
+      "5.0",
+      "0.5*exp(-((5.0)-x)*((5.0)-x))"
+     ],
+     [
+      "5.25",
+      "0.5*exp(-((5.25)-x)*((5.25)-x))"
+     ],
+     [
+      "5.5",
+      "0.5*exp(-((5.5)-x)*((5.5)-x))"
+     ],
+     [
+      "5.75",
+      "0.5*exp(-((5.75)-x)*((5.75)-x))"
+     ],
+     [
+      "6.0",
+      "0.5*exp(-((6.0)-x)*((6.0)-x))"
+     ]
+    ],
+    "c": 3
+   }
+  ],
+  "lecturas": [
+   {
+    "rotulo": "posición de cada pulso, x igual a c por t",
+    "formula": "x"
+   },
+   {
+    "rotulo": "valor en x igual a 0, e elevado a menos t al cuadrado",
+    "formula": "exp(-x*x)"
+   }
+  ],
+  "etiquetas": [
+   "El pulso que viaja a la derecha",
+   "La suma de los dos, que es la cuerda"
+  ],
+  "etiquetaSlider": "Tiempo t, de 0 a 5",
+  "alt": "Un pulso inicial en forma de campana en el centro de una cuerda infinita se divide en dos pulsos de la mitad de altura. Uno viaja a la derecha y el otro a la izquierda, con velocidad c igual a 1. La curva verde es solo el pulso que va a la derecha"
+ },
+ "glosario": {
+  "dalembert": "La fórmula de D'Alembert da la solución de la ecuación de onda en una cuerda infinita como suma de dos ondas viajeras.",
+  "viajera": "Una onda viajera es una forma que se desplaza sin cambiar. F de x menos c t va a la derecha, y F de x más c t va a la izquierda.",
+  "caracteristica": "Las rectas x menos c t igual a una constante, y x más c t igual a una constante, son las características, por donde viaja la información.",
+  "velocidad": "La velocidad inicial g de x aporta un término de integral. Si la cuerda parte del reposo, ese término no aparece."
+ },
+ "ver": {
+  "duracion": 24.0,
+  "capitulos": [
+   [
+    0,
+    4,
+    "Una cuerda infinita tiene un pulso en forma de campana en el centro, y parte del reposo."
+   ],
+   [
+    4,
+    10,
+    "La fórmula de D'Alembert dice que el pulso se parte en dos de la mitad de altura, y cada uno viaja con velocidad c."
+   ],
+   [
+    10,
+    16,
+    "Con t igual a 2 hay dos pulsos de altura 0.5 en x igual a más y menos 2, y el centro ya casi vale cero."
+   ],
+   [
+    16,
+    20,
+    "Cada pulso conserva su forma mientras viaja, porque en una cuerda ideal no hay disipación."
+   ],
+   [
+    20,
+    24,
+    "La solución es una suma de dos ondas viajeras, una hacia cada lado."
+   ]
+  ],
+  "canales": {
+   "draw": [
+    [
+     0.3,
+     0
+    ],
+    [
+     3.5,
+     1
+    ]
+   ],
+   "d": [
+    [
+     4,
+     0
+    ],
+    [
+     8,
+     0
+    ],
+    [
+     10,
+     1
+    ],
+    [
+     13,
+     2
+    ],
+    [
+     16,
+     2
+    ],
+    [
+     18,
+     4
+    ],
+    [
+     24,
+     4
+    ]
+   ],
+   "guide": [
+    [
+     4,
+     0
+    ],
+    [
+     5,
+     1
+    ]
+   ]
+  },
+  "intervalos": {
+   "ok": [
+    16,
+    24
+   ]
+  }
+ },
+ "leer": {
+  "secciones": [
+   {
+    "titulo": "La idea",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "En una cuerda infinita la ecuación de onda tiene una solución explícita, la {{gl:dalembert|fórmula de D'Alembert}}. La solución es una suma de dos {{gl:viajera|ondas viajeras}}, una hacia cada lado, que se desplazan a velocidad c. Siguen las {{gl:caracteristica|características}}. Si la cuerda no parte del reposo, la {{gl:velocidad|velocidad inicial}} suma un término de integral."
+     }
+    ]
+   },
+   {
+    "titulo": "Un ejemplo",
+    "corto": "Un ejemplo",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "El pulso inicial es una campana en el centro. Mueve el tiempo y mira cómo se parte en dos."
+     },
+     {
+      "t": "eq",
+      "tex": "u(x,t)=\\tfrac{1}{2}\\big[f(x+ct)+f(x-ct)\\big],\\qquad f(x)=e^{-x^{2}}"
+     },
+     {
+      "t": "grafica",
+      "animar": "dibujar",
+      "alt": "El pulso partiéndose en dos ondas viajeras"
+     }
+    ]
+   },
+   {
+    "titulo": "Piensa antes de ver",
+    "corto": "Piensa",
+    "bloques": [
+     {
+      "t": "piensa",
+      "pregunta": "La función F de x menos c t, con c positiva, ¿hacia dónde se desplaza al crecer t?",
+      "opciones": [
+       "Hacia la derecha",
+       "Hacia la izquierda",
+       "No se mueve",
+       "Se apaga"
+      ],
+      "correcta": "Hacia la derecha",
+      "bien": "Muy bien. Para mantener x menos c t constante, x debe crecer con t.",
+      "mal": "Va hacia la derecha. Para mantener x menos c t constante, x tiene que crecer con el tiempo."
+     }
+    ]
+   },
+   {
+    "titulo": "El pulso se parte",
+    "corto": "Pulsos",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mira la cuerda con t igual a 0, 1, 2 y 4."
+     },
+     {
+      "t": "acercando",
+      "ds": [
+       0,
+       1,
+       2,
+       4
+      ],
+      "alt": "La cuerda en cuatro instantes"
+     },
+     {
+      "t": "p",
+      "html": "A t igual a 2 hay dos pulsos de la mitad de altura, y están en x igual a más y menos 2."
+     }
+    ]
+   },
+   {
+    "titulo": "La fórmula",
+    "corto": "Fórmula",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "La solución general es suma de dos ondas viajeras. Los datos iniciales fijan cuáles."
+     },
+     {
+      "t": "pasos",
+      "items": [
+       {
+        "tex": "u(x,t)=F(x-ct)+G(x+ct)",
+        "porque": "Toda solución de la ecuación de onda tiene esta forma."
+       },
+       {
+        "tex": "u(x,0)=f(x),\\ u_{t}(x,0)=0\\ \\Rightarrow\\ F=G=\\tfrac{1}{2}f",
+        "porque": "Con velocidad inicial cero, las dos ondas son la mitad de f."
+       },
+       {
+        "tex": "u=\\tfrac{1}{2}\\big[f(x-ct)+f(x+ct)\\big]",
+        "porque": "La fórmula de D'Alembert."
+       },
+       {
+        "tex": "u_{t}(x,0)=g\\ \\Rightarrow\\ +\\dfrac{1}{2c}\\displaystyle\\int_{x-ct}^{x+ct}g(s)\\,ds",
+        "porque": "Si hay velocidad inicial, se suma este término."
+       }
+      ]
+     },
+     {
+      "t": "ojo",
+      "html": "Cada onda lleva la mitad de la forma inicial. Si se olvida el un medio, la altura inicial en t igual a 0 saldría el doble."
+     }
+    ]
+   },
+   {
+    "titulo": "Un cálculo",
+    "corto": "Cálculo",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Se aplica la fórmula con f igual a seno de x, y c igual a 2."
+     },
+     {
+      "t": "pasos",
+      "items": [
+       {
+        "tex": "u=\\tfrac{1}{2}\\big[\\operatorname{sen}(x+2t)+\\operatorname{sen}(x-2t)\\big]",
+        "porque": "D'Alembert con f igual a seno."
+       },
+       {
+        "tex": "\\operatorname{sen}A+\\operatorname{sen}B=2\\operatorname{sen}\\dfrac{A+B}{2}\\cos\\dfrac{A-B}{2}",
+        "porque": "Identidad de suma de senos."
+       },
+       {
+        "tex": "u=\\operatorname{sen}x\\cos2t",
+        "porque": "Coincide con el modo de la cuerda de largo pi."
+       },
+       {
+        "tex": "x=\\dfrac{\\pi}{2},\\ t=\\dfrac{\\pi}{4}:\\ u=1\\cdot\\cos\\dfrac{\\pi}{2}=0",
+        "porque": "Un valor concreto."
+       }
+      ]
+     },
+     {
+      "t": "ojo",
+      "html": "Con f igual a seno de x, D'Alembert y la separación de variables dan el mismo resultado. Son dos caminos para la misma solución."
+     }
+    ]
+   },
+   {
+    "titulo": "¿Para qué sirve?",
+    "corto": "En ingeniería",
+    "bloques": [
+     {
+      "t": "ingenieria",
+      "titulo": "Un pulso en un cable largo",
+      "html": "Un pulso de tensión viaja por un cable largo, y se parte en dos pulsos que se alejan en sentidos opuestos. La velocidad depende de las propiedades del cable.",
+      "tex": "c=\\sqrt{T/\\rho}",
+      "datos": [
+       {
+        "k": "Tensión",
+        "v": "100 N"
+       },
+       {
+        "k": "Densidad lineal",
+        "v": "0.25 kg/m"
+       },
+       {
+        "k": "Velocidad",
+        "v": "20 m/s"
+       }
+      ],
+      "cierre": "Con una velocidad de 20 metros por segundo, un pulso tarda 0.5 segundos en recorrer 10 metros. Mientras no llegue a un extremo, cada pulso mantiene su forma. Después aparece la reflexión, que no cubre esta fórmula de cuerda infinita."
+     }
+    ]
+   },
+   {
+    "titulo": "Completa el paso",
+    "corto": "Completa",
+    "bloques": [
+     {
+      "t": "completar",
+      "enunciado": "En la fórmula de D'Alembert, cuando la cuerda parte del reposo, u de x y t es [[hueco]] por la suma de f de x más c t y f de x menos c t.",
+      "tex": "u(x,t)=[[hueco]]\\big[f(x+ct)+f(x-ct)\\big]",
+      "opciones": [
+       {
+        "tex": "\\dfrac{1}{2}",
+        "txt": "un medio"
+       },
+       {
+        "tex": "1",
+        "txt": "uno"
+       },
+       {
+        "tex": "2",
+        "txt": "dos"
+       }
+      ],
+      "correcta": 0,
+      "errores": [
+       "",
+       "Con 1, la altura inicial en t igual a 0 sería el doble de f.",
+       "Con 2, sería aún más grande, y en t igual a 0 no daría f."
+      ],
+      "pista": "Cada onda viajera lleva la mitad de la forma inicial.",
+      "porque": "El factor es un medio."
+     }
+    ]
+   },
+   {
+    "titulo": "Encuentra el error",
+    "corto": "Error",
+    "bloques": [
+     {
+      "t": "error",
+      "enunciado": "Alguien aplicó la fórmula de D'Alembert con f igual a seno de x y c igual a 2, y se equivocó. Toca el paso que está mal.",
+      "pasos": [
+       {
+        "tex": "u=\\tfrac{1}{2}\\big[\\operatorname{sen}(x+2t)+\\operatorname{sen}(x-2t)\\big]",
+        "porque": "Se aplica la fórmula.",
+        "txt": "la fórmula"
+       },
+       {
+        "tex": "u=\\operatorname{sen}x\\cos t",
+        "porque": "Este paso es el que falla.",
+        "txt": "queda coseno de t"
+       },
+       {
+        "tex": "u\\!\\left(\\tfrac{\\pi}{2},\\tfrac{\\pi}{4}\\right)=\\cos\\tfrac{\\pi}{4}",
+        "porque": "Valor.",
+        "txt": "valor"
+       }
+      ],
+      "mal": 1,
+      "explicacion": "La suma de senos da seno de x por coseno de 2t, y no de t. Con c igual a 2, el factor es coseno de 2t.",
+      "correccion": "u=\\operatorname{sen}x\\cos2t",
+      "pista": "Usa la identidad de suma de senos."
+     }
+    ]
+   },
+   {
+    "titulo": "Ordena los pasos",
+    "corto": "Ordena",
+    "bloques": [
+     {
+      "t": "ordenar",
+      "enunciado": "Estos son los pasos para resolver la cuerda infinita con D'Alembert, pero están desordenados.",
+      "pasos": [
+       "u=F(x-ct)+G(x+ct)",
+       "F=G=f/2",
+       "u=\\tfrac{1}{2}[f(x-ct)+f(x+ct)]",
+       "u(x_{0},t_{0})"
+      ],
+      "mezcla": [
+       2,
+       0,
+       3,
+       1
+      ],
+      "porque": "Primero la forma general, luego se ajustan los datos, después la fórmula y por último se evalúa.",
+      "pista": "Se empieza con la forma general.",
+      "txt": [
+       "Se escribe la forma general",
+       "Con reposo, se ajustan los datos",
+       "Se obtiene la fórmula",
+       "Se calcula"
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "Revisa tu respuesta",
+    "corto": "Revisa",
+    "bloques": [
+     {
+      "t": "pregunta"
+     },
+     {
+      "t": "nota",
+      "html": "Puedes pedir pistas de a una. Si fallas, el mensaje te dice qué error se cometió."
+     }
+    ]
+   },
+   {
+    "titulo": "Mini simulacro",
+    "corto": "Simulacro",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Dos preguntas reales del banco de MathUNAL sobre este tema. Responde sin mirar los pasos."
+     },
+     {
+      "t": "simulacro",
+      "titulo": "Mini simulacro de la fórmula de D'Alembert",
+      "preguntas": [
+       {
+        "tipo": "mcq",
+        "texto": "La fórmula de D'Alembert para $u_{tt}=c^{2}u_{xx}$ con $u(x,0)=f(x)$ y $u_t(x,0)=0$ es:",
+        "opciones": [
+         "$u(x,t)=\\dfrac{1}{2}\\big[f(x+ct)+f(x-ct)\\big]$",
+         "$u(x,t)=f(x)\\cos(ct)$",
+         "$u(x,t)=\\dfrac{1}{2c}\\displaystyle\\int_{x-ct}^{x+ct}f(s)\\,ds$",
+         "$u(x,t)=f(x-ct)$"
+        ],
+        "correcta": 0,
+        "resumen": "La fórmula de D'Alembert.",
+        "fuente": "Banco MathUNAL, simulacro de Matemáticas Especiales"
+       },
+       {
+        "tipo": "numerica",
+        "texto": "Para $u_{tt}=c^{2}u_{xx}$ con $c=2$, $u(x,0)=\\sin x$, $u_t(x,0)=0$: usando D'Alembert, $u\\!\\left(\\dfrac{\\pi}{2},\\dfrac{\\pi}{4}\\right)$ vale:",
+        "respuesta": "0",
+        "tolNum": 0.001,
+        "resumen": "El valor con c igual a 2 y f igual a seno.",
+        "fuente": "Banco MathUNAL, simulacro de Matemáticas Especiales"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "Tu repaso",
+    "corto": "Repaso",
+    "bloques": [
+     {
+      "t": "repaso"
+     }
+    ]
+   },
+   {
+    "titulo": "En resumen",
+    "corto": "Resumen",
+    "bloques": [
+     {
+      "t": "resumen"
+     }
+    ]
+   }
+  ]
+ },
+ "practicar": {
+  "pasos": [
+   {
+    "titulo": "Pulso inicial",
+    "grafica": {
+     "draw": 1
+    },
+    "bloques": [
+     {
+      "t": "p",
+      "html": "La cuerda es infinita y parte del reposo."
+     },
+     {
+      "t": "eq",
+      "tex": "f(x)=e^{-x^{2}}"
+     }
+    ]
+   },
+   {
+    "titulo": "Avanza el tiempo",
+    "grafica": {
+     "draw": 1
+    },
+    "laboratorio": true,
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mueve el deslizador. Abajo se leen la posición de cada pulso y el valor en el centro."
+     }
+    ]
+   },
+   {
+    "titulo": "Dos pulsos",
+    "grafica": {
+     "draw": 1,
+     "guide": 1,
+     "ok": true
+    },
+    "laboratorio": true,
+    "d": 2,
+    "bloques": [
+     {
+      "t": "eq",
+      "tex": "u(0,2)=e^{-4}\\approx0.018"
+     },
+     {
+      "t": "p",
+      "html": "Con t igual a 2 el centro casi vale cero, y hay dos pulsos en más y menos 2."
+     }
+    ]
+   },
+   {
+    "titulo": "Revisa tu respuesta",
+    "grafica": {
+     "draw": 1,
+     "guide": 1,
+     "ok": true,
+     "d": 2
+    },
+    "bloques": [
+     {
+      "t": "pregunta"
+     },
+     {
+      "t": "nota",
+      "html": "Cada pulso lleva un medio de la forma inicial."
+     }
+    ]
+   }
+  ]
+ },
+ "pregunta": {
+  "tex": "u_{tt}=u_{xx},\\ u(x,0)=e^{-x^{2}},\\ u_t(x,0)=0.\\ \\text{El valor }u(0,1)\\text{ es}",
+  "opciones": [
+   "$e^{-1}$",
+   "$\\dfrac{1}{2}e^{-1}$",
+   "$e^{-2}$",
+   "$1$"
+  ],
+  "correcta": 0,
+  "explicacion": "Con c igual a 1, u de 0 y 1 es un medio por f de 1 más f de menos 1, o sea un medio por dos e a la menos 1. Da e a la menos 1.",
+  "verificacion": {
+   "formula": "0.5*(exp(-1)+exp(-1))+0*x",
+   "a": 0,
+   "esperado": 0.3679
+  },
+  "pistas": [
+   "Aplica D'Alembert con c igual a 1.",
+   "Evalúa f en x más t y en x menos t.",
+   "f de 1 y f de menos 1 valen lo mismo."
+  ],
+  "errores": [
+   "",
+   "Un medio de e a la menos 1 olvida que hay dos ondas que se suman.",
+   "Con e a la menos 2 se evaluó f en 2, pero lo correcto es f en 1.",
+   "Con 1 sería el valor en t igual a 0, y no en t igual a 1."
+  ]
+ },
+ "resumen": [
+  "La fórmula de D'Alembert escribe la solución como suma de dos ondas viajeras, una hacia cada lado.",
+  "Si parte del reposo, cada onda lleva la mitad de la forma inicial.",
+  "Las ondas viajeras mantienen su forma, y se mueven a velocidad c."
+ ]
+}

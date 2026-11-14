@@ -1,0 +1,609 @@
+{
+ "esquema": 1,
+ "id": "gv-m1-l1",
+ "ejemplo": true,
+ "curso": "Geometría Vectorial y Analítica",
+ "modulo": "Módulo 1 Vectores y rectas en el plano",
+ "posicion": "Lección 1 de 4",
+ "titulo": "Producto punto y proyección",
+ "minutos": 26,
+ "ejercicios": 8,
+ "grafica": {
+  "tipo": "plano",
+  "x": [
+   -4.6,
+   4.6
+  ],
+  "y": [
+   -0.9,
+   4.1
+  ],
+  "a": 0,
+  "b": 3.1416,
+  "inicio": 1.0472,
+  "elementos": [
+   {
+    "t": "vector",
+    "b": [
+     "4",
+     "0"
+    ],
+    "nombre": "u",
+    "c": 0
+   },
+   {
+    "t": "vector",
+    "b": [
+     "3*cos(x)",
+     "3*sin(x)"
+    ],
+    "nombre": "v",
+    "c": 1
+   },
+   {
+    "t": "vector",
+    "b": [
+     "3*cos(x)",
+     "0"
+    ],
+    "nombre": "sombra",
+    "c": 2
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "3*cos(x)",
+     "0"
+    ],
+    "b": [
+     "3*cos(x)",
+     "3*sin(x)"
+    ],
+    "guion": true,
+    "c": 3,
+    "guia": true
+   }
+  ],
+  "lecturas": [
+   {
+    "rotulo": "producto punto de u con v",
+    "formula": "12*cos(x)"
+   },
+   {
+    "rotulo": "ángulo entre u y v, en grados",
+    "formula": "x*180/pi"
+   }
+  ],
+  "etiquetas": [
+   "Producto punto de u con v, igual a 12 por el coseno del ángulo",
+   "Ángulo entre los dos vectores"
+  ],
+  "etiquetaSlider": "Ángulo del vector v, en radianes",
+  "alt": "El vector u de longitud 4 sobre el eje horizontal y el vector v de longitud 3 que gira. Un segmento punteado baja desde la punta de v hasta el eje, y marca la sombra de v sobre u"
+ },
+ "glosario": {
+  "punto": "El producto punto de dos vectores es la suma de los productos de sus componentes. También es el producto de las longitudes por el coseno del ángulo entre ellos.",
+  "norma": "La norma de un vector es su longitud, la raíz de la suma de los cuadrados de sus componentes.",
+  "ortogonales": "Dos vectores son ortogonales si forman un ángulo de 90 grados, o sea, si su producto punto es cero.",
+  "escalar": "La proyección escalar de v sobre u es la longitud con signo de la sombra de v sobre u. Se calcula como el producto punto dividido entre la norma de u."
+ },
+ "ver": {
+  "duracion": 22.0,
+  "capitulos": [
+   [
+    0,
+    4,
+    "El vector u mide 4 y está sobre el eje. El vector v mide 3 y puede girar."
+   ],
+   [
+    4,
+    9,
+    "Al abrir el ángulo, la sombra de v sobre u se acorta, y con ella el producto punto."
+   ],
+   [
+    9,
+    13,
+    "Con 90 grados la sombra desaparece y el producto punto vale cero. Los vectores son perpendiculares."
+   ],
+   [
+    13,
+    18,
+    "Con más de 90 grados la sombra apunta hacia atrás y el producto punto es negativo."
+   ],
+   [
+    18,
+    22,
+    "Con 180 grados los vectores apuntan en sentidos opuestos y el producto punto vale menos 12."
+   ]
+  ],
+  "canales": {
+   "draw": [
+    [
+     0.3,
+     0
+    ],
+    [
+     3.5,
+     1
+    ]
+   ],
+   "d": [
+    [
+     4,
+     0
+    ],
+    [
+     8,
+     1.0472
+    ],
+    [
+     10,
+     1.5708
+    ],
+    [
+     13,
+     1.5708
+    ],
+    [
+     16,
+     2.3562
+    ],
+    [
+     19,
+     3.1416
+    ],
+    [
+     22,
+     3.1416
+    ]
+   ],
+   "guide": [
+    [
+     4,
+     0
+    ],
+    [
+     5,
+     1
+    ]
+   ]
+  },
+  "intervalos": {
+   "ok": [
+    18,
+    22
+   ]
+  }
+ },
+ "leer": {
+  "secciones": [
+   {
+    "titulo": "La idea",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "El {{gl:punto|producto punto}} convierte dos vectores en un número. Ese número mide cuánto apuntan en la misma dirección, y sirve para calcular longitudes, ángulos y proyecciones. Es positivo si el ángulo es agudo, cero si es recto y negativo si es obtuso."
+     }
+    ]
+   },
+   {
+    "titulo": "Un ejemplo",
+    "corto": "Un ejemplo",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mira el vector u de longitud 4 y el vector v de longitud 3, que gira. La línea punteada baja la punta de v hasta el eje."
+     },
+     {
+      "t": "eq",
+      "tex": "\\mathbf{u}\\cdot\\mathbf{v}=\\|\\mathbf{u}\\|\\,\\|\\mathbf{v}\\|\\cos\\theta"
+     },
+     {
+      "t": "grafica",
+      "animar": "dibujar",
+      "alt": "Los vectores u y v y la sombra de v sobre u"
+     }
+    ]
+   },
+   {
+    "titulo": "Piensa antes de ver",
+    "corto": "Piensa",
+    "bloques": [
+     {
+      "t": "piensa",
+      "pregunta": "Dos vectores forman un ángulo de 90 grados. ¿Cuánto vale el coseno de ese ángulo?",
+      "opciones": [
+       0,
+       1,
+       2,
+       3
+      ],
+      "correcta": 0,
+      "bien": "Muy bien. Vale 0, y por eso el producto punto de dos vectores perpendiculares es cero. Más abajo se ve.",
+      "mal": "Vale 0. El coseno de 90 grados es cero, así que el producto punto de dos vectores perpendiculares es cero. Más abajo se ve."
+     }
+    ]
+   },
+   {
+    "titulo": "Girando el vector",
+    "corto": "El giro",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mira cómo cambia el producto punto al girar v."
+     },
+     {
+      "t": "acercando",
+      "ds": [
+       0,
+       1.0472,
+       1.5708,
+       3.1416
+      ],
+      "alt": "El vector v a 0, 60, 90 y 180 grados"
+     },
+     {
+      "t": "p",
+      "html": "Con 0 grados los dos vectores apuntan igual y el producto punto vale 12. Con 90 vale 0, y con 180 vale menos 12."
+     }
+    ]
+   },
+   {
+    "titulo": "Producto punto, norma y ángulo",
+    "corto": "Producto punto",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Se multiplican las componentes que están en la misma posición y se suman."
+     },
+     {
+      "t": "pasos",
+      "items": [
+       {
+        "tex": "(2,3)\\cdot(4,-1)=8-3=5",
+        "porque": "Se multiplica componente por componente y se suma."
+       },
+       {
+        "tex": "\\|(3,4)\\|=\\sqrt{9+16}=5",
+        "porque": "La norma es la raíz del producto punto del vector consigo mismo."
+       },
+       {
+        "tex": "\\cos\\theta=\\dfrac{u\\cdot v}{\\|u\\|\\,\\|v\\|}",
+        "porque": "Con eso se despeja el ángulo entre dos vectores."
+       },
+       {
+        "tex": "u=(1,0),\\ v=(1,1)\\ \\Rightarrow\\ \\cos\\theta=\\dfrac{1}{\\sqrt{2}}\\ \\Rightarrow\\ \\theta=45^{\\circ}",
+        "porque": "Es el ángulo entre el eje y la diagonal."
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "Proyección escalar",
+    "corto": "Proyección",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "La {{gl:escalar|proyección escalar}} de v sobre u es la longitud con signo de la sombra. Es el producto punto dividido entre la norma de u."
+     },
+     {
+      "t": "pasos",
+      "items": [
+       {
+        "tex": "\\operatorname{comp}_{u}v=\\dfrac{u\\cdot v}{\\|u\\|}",
+        "porque": "La fórmula de la proyección escalar."
+       },
+       {
+        "tex": "v=(4,0),\\ u=(1,1):\\quad \\dfrac{4}{\\sqrt{2}}=2.8284",
+        "porque": "Con el ejemplo, la sombra de v sobre u mide 2.8284."
+       },
+       {
+        "tex": "\\operatorname{proy}_{u}v=\\dfrac{u\\cdot v}{u\\cdot u}\\,u",
+        "porque": "La proyección vectorial se obtiene multiplicando por el vector unitario."
+       }
+      ]
+     },
+     {
+      "t": "ojo",
+      "html": "Dos vectores son {{gl:ortogonales|ortogonales}} si su producto punto es cero. Tener la misma longitud no basta para que sean perpendiculares."
+     }
+    ]
+   },
+   {
+    "titulo": "¿Para qué sirve?",
+    "corto": "En ingeniería",
+    "bloques": [
+     {
+      "t": "ingenieria",
+      "titulo": "La fuerza a lo largo de una rampa",
+      "html": "Un bloque de 500 newtons de peso descansa sobre una rampa inclinada 30 grados. Solo la parte del peso que va a lo largo de la rampa lo hace deslizar, y esa parte es la proyección escalar del peso sobre la dirección de la rampa.",
+      "tex": "F_{\\parallel}=\\dfrac{\\mathbf{F}\\cdot\\mathbf{d}}{\\|\\mathbf{d}\\|}",
+      "datos": [
+       {
+        "k": "Peso",
+        "v": "500 N"
+       },
+       {
+        "k": "Ángulo de la rampa",
+        "v": "30 grados"
+       },
+       {
+        "k": "Fuerza a lo largo de la rampa",
+        "v": "250 N"
+       }
+      ],
+      "cierre": "El peso es el vector (0, menos 500) y la dirección de la rampa es (cos 30, sen 30). El producto punto da menos 500 por sen 30, o sea menos 250. El signo indica que la fuerza empuja hacia abajo de la rampa. La otra parte del peso, de 433 newtons, es perpendicular a la rampa y la comprime. Es un modelo sin rozamiento."
+     }
+    ]
+   },
+   {
+    "titulo": "Completa el paso",
+    "corto": "Completa",
+    "bloques": [
+     {
+      "t": "completar",
+      "enunciado": "Se calcula el producto punto con el ángulo entre los vectores. Falta la función.",
+      "tex": "\\mathbf{u}\\cdot\\mathbf{v}=\\|\\mathbf{u}\\|\\,\\|\\mathbf{v}\\|\\,[[hueco]]",
+      "opciones": [
+       {
+        "tex": "\\cos\\theta",
+        "txt": "coseno"
+       },
+       {
+        "tex": "\\sin\\theta",
+        "txt": "seno"
+       },
+       {
+        "tex": "\\tan\\theta",
+        "txt": "tangente"
+       }
+      ],
+      "correcta": 0,
+      "errores": [
+       "",
+       "El seno aparece en el producto vectorial, y no en el producto punto.",
+       "La tangente no aparece en ninguna de las dos fórmulas."
+      ],
+      "pista": "El producto punto usa el coseno.",
+      "porque": "El coseno es cero a 90 grados y por eso el producto punto de vectores perpendiculares es cero."
+     }
+    ]
+   },
+   {
+    "titulo": "Encuentra el error",
+    "corto": "Error",
+    "bloques": [
+     {
+      "t": "error",
+      "enunciado": "Alguien analizó dos vectores y se equivocó en un paso. Toca el paso que está mal.",
+      "pasos": [
+       {
+        "tex": "u=(3,4),\\quad v=(4,-3)",
+        "porque": "Son los dos vectores.",
+        "txt": "u es 3, 4 y v es 4, menos 3"
+       },
+       {
+        "tex": "u\\cdot v=12-12=0",
+        "porque": "El producto punto.",
+        "txt": "el producto punto es cero"
+       },
+       {
+        "tex": "\\text{Entonces}\\ u\\ \\text{y}\\ v\\ \\text{son paralelos}",
+        "porque": "Este paso es el que falla.",
+        "txt": "por tanto son paralelos"
+       }
+      ],
+      "mal": 2,
+      "explicacion": "Un producto punto igual a cero indica que los vectores son perpendiculares, y no paralelos. Para que fueran paralelos, uno tendría que ser múltiplo del otro.",
+      "correccion": "u\\cdot v=0\\ \\Rightarrow\\ u\\perp v",
+      "pista": "Recuerda qué significa un producto punto cero."
+     }
+    ]
+   },
+   {
+    "titulo": "Ordena los pasos",
+    "corto": "Ordena",
+    "bloques": [
+     {
+      "t": "ordenar",
+      "enunciado": "Estos son los pasos para calcular el ángulo entre u igual a (1, 0) y v igual a (1, 1), pero están desordenados.",
+      "pasos": [
+       "u\\cdot v=1",
+       "\\|u\\|=1,\\ \\ \\|v\\|=\\sqrt{2}",
+       "\\cos\\theta=\\dfrac{1}{\\sqrt{2}}",
+       "\\theta=45^{\\circ}"
+      ],
+      "mezcla": [
+       2,
+       0,
+       3,
+       1
+      ],
+      "porque": "Se calcula el producto punto, las normas, el coseno y finalmente el ángulo.",
+      "pista": "Se empieza con el producto punto.",
+      "txt": [
+       "El producto punto",
+       "Las normas",
+       "Se arma el cociente",
+       "Se despeja el ángulo"
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "Revisa tu respuesta",
+    "corto": "Revisa",
+    "bloques": [
+     {
+      "t": "pregunta"
+     },
+     {
+      "t": "nota",
+      "html": "Puedes pedir pistas de a una. Si fallas, el mensaje te dice qué error se cometió."
+     }
+    ]
+   },
+   {
+    "titulo": "Mini simulacro",
+    "corto": "Simulacro",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Tres preguntas reales del banco de MathUNAL sobre este tema. Responde sin mirar los pasos."
+     },
+     {
+      "t": "simulacro",
+      "titulo": "Mini simulacro de producto punto y proyección",
+      "preguntas": [
+       {
+        "tipo": "numerica",
+        "texto": "Calcule $\\mathbf{u}\\cdot\\mathbf{v}$ para $\\mathbf{u}=(2,3)$ y $\\mathbf{v}=(4,-1)$.",
+        "respuesta": "5",
+        "tolNum": 0.001,
+        "resumen": "$2\\cdot4+3\\cdot(-1)=5$.",
+        "fuente": "Banco MathUNAL, simulacro de Geometría Vectorial y Analítica"
+       },
+       {
+        "tipo": "numerica",
+        "texto": "$(1,2)\\cdot(3,4)$",
+        "respuesta": "11",
+        "tolNum": 0.001,
+        "resumen": "$1\\cdot3+2\\cdot4=11$.",
+        "fuente": "Banco MathUNAL, simulacro de Geometría Vectorial y Analítica"
+       },
+       {
+        "tipo": "numerica",
+        "texto": "La proyección ESCALAR de $(4,0)$ sobre $(1,1)$ es (decimal, 4 cifras):",
+        "respuesta": "2.8284",
+        "tolNum": 0.005,
+        "resumen": "$\\dfrac{(4,0)\\cdot(1,1)}{\\|(1,1)\\|}=\\dfrac{4}{\\sqrt2}=2.8284$.",
+        "fuente": "Banco MathUNAL, simulacro de Geometría Vectorial y Analítica"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "Tu repaso",
+    "corto": "Repaso",
+    "bloques": [
+     {
+      "t": "repaso"
+     }
+    ]
+   },
+   {
+    "titulo": "En resumen",
+    "corto": "Resumen",
+    "bloques": [
+     {
+      "t": "resumen"
+     }
+    ]
+   }
+  ]
+ },
+ "practicar": {
+  "pasos": [
+   {
+    "titulo": "Dos vectores",
+    "grafica": {
+     "draw": 1
+    },
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Un vector u fijo y un vector v que gira."
+     },
+     {
+      "t": "eq",
+      "tex": "\\mathbf{u}\\cdot\\mathbf{v}=12\\cos\\theta"
+     }
+    ]
+   },
+   {
+    "titulo": "Gira v",
+    "grafica": {
+     "draw": 1
+    },
+    "laboratorio": true,
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mueve el deslizador. Abajo se leen el producto punto y el ángulo en grados."
+     }
+    ]
+   },
+   {
+    "titulo": "Ángulo recto",
+    "grafica": {
+     "draw": 1,
+     "guide": 1
+    },
+    "laboratorio": true,
+    "d": 1.5708,
+    "bloques": [
+     {
+      "t": "eq",
+      "tex": "\\theta=90^{\\circ}\\ \\Rightarrow\\ \\mathbf{u}\\cdot\\mathbf{v}=0"
+     },
+     {
+      "t": "p",
+      "html": "Con 90 grados la sombra desaparece y el producto punto vale cero."
+     }
+    ]
+   },
+   {
+    "titulo": "Revisa tu respuesta",
+    "grafica": {
+     "draw": 1,
+     "guide": 1,
+     "ok": true,
+     "d": 3.1416
+    },
+    "bloques": [
+     {
+      "t": "pregunta"
+     },
+     {
+      "t": "nota",
+      "html": "Multiplica componente por componente y suma, sin olvidar los signos."
+     }
+    ]
+   }
+  ]
+ },
+ "pregunta": {
+  "tex": "\\text{El producto punto de}\\ (2,-1,3)\\ \\text{y}\\ (1,4,0)\\ \\text{es}",
+  "opciones": [
+   "$-2$",
+   "$2$",
+   "$6$",
+   "$0$"
+  ],
+  "correcta": 0,
+  "explicacion": "Se multiplica componente por componente, 2 por 1 más menos 1 por 4 más 3 por 0, que da 2 menos 4 más 0, o sea menos 2.",
+  "verificacion": {
+   "formula": "2*1+(-1)*4+3*0+0*x",
+   "a": 0,
+   "esperado": -2
+  },
+  "pistas": [
+   "Multiplica las primeras componentes entre sí, las segundas entre sí y las terceras entre sí.",
+   "Son 2, menos 4 y 0.",
+   "Suma los tres resultados."
+  ],
+  "errores": [
+   "",
+   "Es el valor absoluto. El signo importa y el resultado es negativo.",
+   "Se sumaron los valores sin respetar el signo menos de la segunda componente.",
+   "Cero indicaría que son perpendiculares, y aquí el producto es menos 2."
+  ]
+ },
+ "resumen": [
+  "El producto punto es la suma de los productos de las componentes, y también la norma de u por la de v por el coseno del ángulo.",
+  "Es positivo si el ángulo es agudo, cero si es recto y negativo si es obtuso.",
+  "La proyección escalar de v sobre u es el producto punto dividido entre la norma de u."
+ ]
+}

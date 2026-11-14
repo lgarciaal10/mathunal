@@ -1,0 +1,119 @@
+{
+ "esquema": 1,
+ "curso": "Cálculo Integral",
+ "estado": "PROVISIONAL. Los módulos y temas salen del banco de MathUNAL. El orden dentro de cada módulo es por cantidad de preguntas, NO pedagógico, y falta el temario oficial (PENDIENTE).",
+ "modulos": [
+  {
+   "n": 1,
+   "nombre": "Integral definida y técnicas básicas",
+   "peso": 30,
+   "lecciones": [
+    {
+     "tema": "Integral definida y TFC",
+     "preguntas_banco": 11,
+     "parciales_con_el_tema": 2,
+     "estado": "borrador para revisión",
+     "leccion": "lecciones/calcint-tfc.json"
+    },
+    {
+     "tema": "Sustitución",
+     "preguntas_banco": 6,
+     "parciales_con_el_tema": 0,
+     "estado": "borrador para revisión",
+     "leccion": "lecciones/calcint-sustitucion.json"
+    },
+    {
+     "tema": "Integración por partes",
+     "preguntas_banco": 5,
+     "parciales_con_el_tema": 0,
+     "estado": "borrador para revisión",
+     "leccion": "lecciones/calcint-partes.json"
+    },
+    {
+     "tema": "Área entre curvas",
+     "preguntas_banco": 3,
+     "parciales_con_el_tema": 0,
+     "estado": "borrador para revisión",
+     "leccion": "lecciones/calcint-entre.json"
+    }
+   ]
+  },
+  {
+   "n": 2,
+   "nombre": "Técnicas avanzadas e impropias",
+   "peso": 35,
+   "lecciones": [
+    {
+     "tema": "Fracciones parciales",
+     "preguntas_banco": 8,
+     "parciales_con_el_tema": 1,
+     "estado": "borrador para revisión",
+     "leccion": "lecciones/calcint-fparc.json"
+    },
+    {
+     "tema": "Integrales impropias",
+     "preguntas_banco": 7,
+     "parciales_con_el_tema": 1,
+     "estado": "borrador para revisión",
+     "leccion": "lecciones/calcint-impropias.json"
+    },
+    {
+     "tema": "Sustitución trigonométrica",
+     "preguntas_banco": 6,
+     "parciales_con_el_tema": 1,
+     "estado": "borrador para revisión",
+     "leccion": "lecciones/calcint-sentri.json"
+    },
+    {
+     "tema": "Integrales trigonométricas",
+     "preguntas_banco": 5,
+     "parciales_con_el_tema": 0,
+     "estado": "borrador para revisión",
+     "leccion": "lecciones/calcint-trig.json"
+    }
+   ]
+  },
+  {
+   "n": 3,
+   "nombre": "Aplicaciones, polares y series",
+   "peso": 35,
+   "lecciones": [
+    {
+     "tema": "Sucesiones y series",
+     "preguntas_banco": 11,
+     "parciales_con_el_tema": 1,
+     "estado": "borrador para revisión",
+     "leccion": "lecciones/calcint-series.json"
+    },
+    {
+     "tema": "Volúmenes de revolución",
+     "preguntas_banco": 8,
+     "parciales_con_el_tema": 2,
+     "estado": "borrador para revisión",
+     "leccion": "lecciones/calcint-volumenes.json"
+    },
+    {
+     "tema": "Trabajo y valor promedio",
+     "preguntas_banco": 5,
+     "parciales_con_el_tema": 1,
+     "estado": "borrador para revisión",
+     "leccion": "lecciones/calcint-trabajo.json"
+    },
+    {
+     "tema": "Coordenadas polares",
+     "preguntas_banco": 4,
+     "parciales_con_el_tema": 2,
+     "estado": "borrador para revisión",
+     "leccion": "lecciones/calcint-polares.json"
+    },
+    {
+     "tema": "Longitud de arco y superficies",
+     "preguntas_banco": 3,
+     "parciales_con_el_tema": 1,
+     "estado": "borrador para revisión",
+     "leccion": "lecciones/calcint-arco.json"
+    }
+   ]
+  }
+ ]
+}

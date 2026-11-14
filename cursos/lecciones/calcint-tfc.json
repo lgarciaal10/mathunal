@@ -1,0 +1,679 @@
+{
+ "esquema": 1,
+ "id": "calcint-m1-l1",
+ "ejemplo": true,
+ "curso": "Cálculo Integral",
+ "modulo": "Módulo 1 Integral definida y técnicas básicas",
+ "posicion": "Lección 1 de 4",
+ "titulo": "Integral definida y teorema fundamental",
+ "minutos": 26,
+ "ejercicios": 7,
+ "grafica": {
+  "tipo": "area",
+  "x": [
+   0,
+   4.5
+  ],
+  "y": [
+   0,
+   4.5
+  ],
+  "funcion": "4*x-x*x",
+  "primitiva": "2*x*x-x*x*x/3",
+  "a": 0,
+  "b": 3.8,
+  "franja": 0.12,
+  "limite": 3,
+  "etiquetas": [
+   "Área acumulada",
+   "Altura de la curva"
+  ],
+  "rotulos": [
+   "área",
+   "altura"
+  ],
+  "etiquetaSlider": "Posición de x",
+  "alt": "Curva de 4x menos x al cuadrado con el área bajo ella sombreada desde 0 hasta un x que avanza hasta 4"
+ },
+ "glosario": {
+  "integral": "La integral definida de f entre a y b es el área con signo bajo la curva entre esos dos valores.",
+  "prim": "Una primitiva de f es una función F cuya derivada es f. Por ejemplo, x al cubo sobre 3 es una primitiva de x al cuadrado.",
+  "acum": "El área acumulada es el área bajo la curva desde un punto fijo hasta un x que se va moviendo.",
+  "signo": "El área con signo cuenta como positiva la parte que está sobre el eje x y como negativa la que está debajo."
+ },
+ "ver": {
+  "duracion": 22.0,
+  "capitulos": [
+   [
+    0,
+    2.5,
+    "Esta es la curva de f(x) igual a 4x menos x al cuadrado."
+   ],
+   [
+    2.5,
+    5,
+    "Se mide el área bajo ella a partir de x igual a 0."
+   ],
+   [
+    5,
+    11,
+    "Al avanzar x, el área se va llenando."
+   ],
+   [
+    11,
+    15,
+    "Con x igual a 3 la curva mide 3 de alto y el área acumulada es 9."
+   ],
+   [
+    15,
+    19,
+    "Al llegar a x igual a 4 la curva toca el eje y el área acumulada es 10.6667, o sea 32 sobre 3."
+   ],
+   [
+    19,
+    22,
+    "El teorema fundamental da ese mismo número restando la primitiva en 4 y en 0."
+   ]
+  ],
+  "canales": {
+   "draw": [
+    [
+     0.3,
+     0
+    ],
+    [
+     2.4,
+     1
+    ]
+   ],
+   "hole": [
+    [
+     2.5,
+     0
+    ],
+    [
+     3.3,
+     1
+    ]
+   ],
+   "d": [
+    [
+     5,
+     0.3
+    ],
+    [
+     11,
+     3
+    ],
+    [
+     15,
+     3
+    ],
+    [
+     19,
+     4
+    ],
+    [
+     22,
+     4
+    ]
+   ],
+   "guide": [
+    [
+     11,
+     0
+    ],
+    [
+     12,
+     1
+    ]
+   ]
+  },
+  "intervalos": {
+   "ok": [
+    19,
+    22
+   ]
+  }
+ },
+ "leer": {
+  "secciones": [
+   {
+    "titulo": "La idea",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Una {{gl:integral|integral definida}} mide el área bajo una curva entre dos valores. Calcularla como suma de franjas es muy lento. El teorema fundamental del cálculo da un atajo, que es buscar una {{gl:prim|primitiva}} y restar sus valores en los extremos."
+     }
+    ]
+   },
+   {
+    "titulo": "Un ejemplo",
+    "corto": "Un ejemplo",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mira esta integral, que mide el área bajo una parábola entre x igual a 0 y x igual a 4."
+     },
+     {
+      "t": "eq",
+      "tex": "\\int_{0}^{4}\\left(4x-x^{2}\\right)dx"
+     },
+     {
+      "t": "grafica",
+      "animar": "dibujar",
+      "alt": "Curva que se dibuja y marca el punto de partida en x igual a 0"
+     }
+    ]
+   },
+   {
+    "titulo": "Piensa antes de ver",
+    "corto": "Piensa",
+    "bloques": [
+     {
+      "t": "piensa",
+      "pregunta": "Cuando x vale 3, ¿qué tan alta está la curva? Es el valor de 4x menos x al cuadrado.",
+      "opciones": [
+       1,
+       2,
+       3,
+       4
+      ],
+      "correcta": 3,
+      "bien": "Muy bien. La altura es 3, porque 12 menos 9 da 3. Más abajo se ve el área acumulada hasta ahí.",
+      "mal": "La altura es 3, porque 4 por 3 menos 3 al cuadrado da 3. Más abajo se ve el área acumulada hasta ahí."
+     }
+    ]
+   },
+   {
+    "titulo": "El área que se acumula",
+    "corto": "El área",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mira cómo se llena el área y qué valen el área y la altura en cada x."
+     },
+     {
+      "t": "acercando",
+      "ds": [
+       1,
+       2,
+       3,
+       4
+      ],
+      "alt": "El área bajo la parábola que va creciendo mientras x avanza hasta 4"
+     },
+     {
+      "t": "p",
+      "html": "Con x igual a 4 la curva toca el eje y el área acumulada es <b>10.6667</b>. Ese es el número que debe salir al integrar."
+     }
+    ]
+   },
+   {
+    "titulo": "El teorema fundamental",
+    "corto": "El teorema",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Si F es una primitiva de f, la integral definida es la resta de F en los dos extremos."
+     },
+     {
+      "t": "eq",
+      "tex": "\\int_{a}^{b} f(x)\\,dx=F(b)-F(a)"
+     },
+     {
+      "t": "pasos",
+      "items": [
+       {
+        "tex": "F(x)=2x^{2}-\\dfrac{x^{3}}{3}",
+        "porque": "Una primitiva de 4x es 2x al cuadrado y una de x al cuadrado es x al cubo sobre 3. Se verifica derivando."
+       },
+       {
+        "tex": "F(4)=32-\\dfrac{64}{3}=\\dfrac{32}{3},\\qquad F(0)=0",
+        "porque": "Se evalúa la primitiva en el extremo de arriba y en el de abajo."
+       },
+       {
+        "tex": "\\int_{0}^{4}\\left(4x-x^{2}\\right)dx=\\dfrac{32}{3}-0=\\dfrac{32}{3}\\approx 10.6667",
+        "porque": "Sale el mismo valor que mostraba el área acumulada de la gráfica."
+       }
+      ]
+     },
+     {
+      "t": "ojo",
+      "html": "No hace falta sumar la constante C. Se cancela al restar F de b menos F de a."
+     }
+    ]
+   },
+   {
+    "titulo": "Propiedades útiles",
+    "corto": "Propiedades",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Hay reglas que ahorran cuentas."
+     },
+     {
+      "t": "pasos",
+      "items": [
+       {
+        "tex": "\\int_{a}^{b} f=-\\int_{b}^{a} f",
+        "porque": "Si se invierten los límites, el signo cambia."
+       },
+       {
+        "tex": "\\int_{a}^{b} f=\\int_{a}^{c} f+\\int_{c}^{b} f",
+        "porque": "Se puede partir el intervalo en cualquier punto c."
+       },
+       {
+        "tex": "\\int_{a}^{b} k\\,f(x)\\,dx=k\\int_{a}^{b} f(x)\\,dx",
+        "porque": "Una constante sale de la integral."
+       },
+       {
+        "tex": "\\int_{-a}^{a} f=0\\quad \\text{si}\\ f\\ \\text{es impar}",
+        "porque": "Si la función es impar y el intervalo es simétrico, lo de un lado cancela lo del otro. Por ejemplo, x al cubo entre menos 2 y 2."
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "Derivar una integral",
+    "corto": "Derivar",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "La otra mitad del teorema dice que derivar y acumular son operaciones inversas. Si se acumula el área hasta x y luego se deriva, sale la altura de la curva."
+     },
+     {
+      "t": "eq",
+      "tex": "\\dfrac{d}{dx}\\int_{a}^{x} f(t)\\,dt=f(x)"
+     },
+     {
+      "t": "p",
+      "html": "Si el límite de arriba no es x sino una función de x, entra la regla de la cadena."
+     },
+     {
+      "t": "pasos",
+      "items": [
+       {
+        "tex": "\\dfrac{d}{dx}\\int_{1}^{x^{3}} \\cos t\\,dt",
+        "porque": "Se quiere derivar una integral con el límite superior x al cubo."
+       },
+       {
+        "tex": "=\\cos\\left(x^{3}\\right)\\cdot 3x^{2}",
+        "porque": "Se evalúa el integrando en el límite de arriba y se multiplica por la derivada de ese límite."
+       }
+      ]
+     },
+     {
+      "t": "ojo",
+      "html": "El límite de abajo es una constante y no influye en el resultado. Si el límite de abajo fuera x, se cambia el signo."
+     }
+    ]
+   },
+   {
+    "titulo": "Área con signo",
+    "corto": "Con signo",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "La integral cuenta como negativa la parte que queda debajo del eje x. Por eso la integral no siempre es el área."
+     },
+     {
+      "t": "pasos",
+      "items": [
+       {
+        "tex": "\\int_{0}^{\\pi}\\operatorname{sen}x\\,dx=2,\\qquad \\int_{\\pi}^{2\\pi}\\operatorname{sen}x\\,dx=-2",
+        "porque": "La primera parte queda sobre el eje y la segunda debajo."
+       },
+       {
+        "tex": "\\int_{0}^{2\\pi}\\operatorname{sen}x\\,dx=0",
+        "porque": "Las dos partes se cancelan, aunque hay área en las dos."
+       },
+       {
+        "tex": "\\text{Área real}=2+2=4",
+        "porque": "Para el área real hay que sumar el valor absoluto de cada parte."
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "¿Para qué sirve?",
+    "corto": "En ingeniería",
+    "bloques": [
+     {
+      "t": "ingenieria",
+      "titulo": "El arranque de una bomba",
+      "html": "Cuando una bomba arranca, su potencia sube, llega a un máximo y vuelve a cero cuando termina el ciclo. La energía que consume es el área bajo la curva de potencia, o sea la integral de la potencia en el tiempo.",
+      "tex": "P(t)=60\\,t-3\\,t^{2}\\ \\text{W}",
+      "datos": [
+       {
+        "k": "Potencia máxima",
+        "v": "300 W a los 10 s"
+       },
+       {
+        "k": "Duración del ciclo",
+        "v": "20 s"
+       },
+       {
+        "k": "Energía",
+        "v": "unos 1.1 Wh"
+       }
+      ],
+      "cierre": "Se integra de 0 a 20 segundos. La primitiva es 30t² − t³ y vale 12 000 − 8 000, o sea 4 000 julios, unos 1.1 vatios hora. Es un modelo simplificado, porque la potencia real de una bomba no sigue exactamente una parábola."
+     }
+    ]
+   },
+   {
+    "titulo": "Completa el paso",
+    "corto": "Completa",
+    "bloques": [
+     {
+      "t": "completar",
+      "enunciado": "Se calcula la integral de x al cuadrado entre 1 y 3. Falta la resta de la primitiva en los extremos.",
+      "tex": "\\int_{1}^{3} x^{2}\\,dx=\\left[\\dfrac{x^{3}}{3}\\right]_{1}^{3}=[[hueco]]",
+      "opciones": [
+       {
+        "tex": "\\dfrac{27}{3}-\\dfrac{1}{3}",
+        "txt": "veintisiete tercios menos un tercio"
+       },
+       {
+        "tex": "\\dfrac{27}{3}+\\dfrac{1}{3}",
+        "txt": "veintisiete tercios más un tercio"
+       },
+       {
+        "tex": "\\dfrac{27}{3}-0",
+        "txt": "veintisiete tercios menos cero"
+       }
+      ],
+      "correcta": 0,
+      "errores": [
+       "",
+       "Se resta y no se suma. La integral es F de arriba menos F de abajo.",
+       "El extremo de abajo es 1 y no 0. Hay que evaluar la primitiva en 1, que da un tercio."
+      ],
+      "pista": "Evalúa la primitiva en 3 y en 1 y resta.",
+      "porque": "La primitiva en 3 vale 27 sobre 3 y en 1 vale 1 sobre 3. La resta es 26 sobre 3."
+     }
+    ]
+   },
+   {
+    "titulo": "Encuentra el error",
+    "corto": "Error",
+    "bloques": [
+     {
+      "t": "error",
+      "enunciado": "Alguien calculó el área bajo el seno entre 0 y 2 pi y se equivocó en un paso. Toca el paso que está mal.",
+      "pasos": [
+       {
+        "tex": "\\int_{0}^{2\\pi}\\operatorname{sen}x\\,dx",
+        "porque": "Es la integral original.",
+        "txt": "Integral de 0 a 2 pi de seno de x"
+       },
+       {
+        "tex": "=\\bigl[-\\cos x\\bigr]_{0}^{2\\pi}=-1-(-1)=0",
+        "porque": "La cuenta está bien. La integral vale 0.",
+        "txt": "Es menos coseno de x evaluado de 0 a 2 pi, que da menos 1 menos menos 1, o sea 0"
+       },
+       {
+        "tex": "\\text{Por tanto el área bajo la curva es }0",
+        "porque": "Este paso es el que falla.",
+        "txt": "Por tanto el área bajo la curva es 0"
+       }
+      ],
+      "mal": 2,
+      "explicacion": "La integral vale 0 porque cuenta la parte de abajo como negativa, pero el área real no puede ser 0. Hay área sobre el eje de 0 a pi y área debajo de pi a 2 pi.",
+      "correccion": "A=2\\int_{0}^{\\pi}\\operatorname{sen}x\\,dx=2\\cdot 2=4",
+      "pista": "Pregúntate si la curva queda siempre sobre el eje x."
+     }
+    ]
+   },
+   {
+    "titulo": "Ordena los pasos",
+    "corto": "Ordena",
+    "bloques": [
+     {
+      "t": "ordenar",
+      "enunciado": "Estos son los pasos para derivar una integral con límite superior x al cuadrado, pero están desordenados.",
+      "pasos": [
+       "F(x)=\\int_{1}^{x^{2}}\\cos t\\,dt",
+       "u=x^{2},\\quad F=\\int_{1}^{u}\\cos t\\,dt",
+       "\\dfrac{dF}{dx}=\\cos(u)\\cdot u'",
+       "=2x\\cos\\left(x^{2}\\right)"
+      ],
+      "mezcla": [
+       2,
+       0,
+       3,
+       1
+      ],
+      "porque": "Se identifica el límite como u, se aplica la primera parte del teorema y se multiplica por la derivada de u.",
+      "pista": "Primero se escribe la función y se termina con el resultado en x.",
+      "txt": [
+       "F de x es la integral de 1 a x al cuadrado de coseno de t",
+       "u es x al cuadrado y F es la integral de 1 a u de coseno de t",
+       "dF sobre dx es coseno de u por u prima",
+       "Es 2x por coseno de x al cuadrado"
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "Revisa tu respuesta",
+    "corto": "Revisa",
+    "bloques": [
+     {
+      "t": "pregunta"
+     },
+     {
+      "t": "nota",
+      "html": "Puedes pedir pistas de a una. Si fallas, el mensaje te dice qué error se cometió."
+     }
+    ]
+   },
+   {
+    "titulo": "Mini simulacro",
+    "corto": "Simulacro",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Tres preguntas reales del banco de MathUNAL sobre este tema. Responde sin mirar los pasos."
+     },
+     {
+      "t": "simulacro",
+      "titulo": "Mini simulacro de integral definida",
+      "preguntas": [
+       {
+        "tipo": "mcq",
+        "texto": "Si $\\displaystyle F(x)=\\int_1^{x^2}\\sin(t^2)\\,dt$, entonces $F'(x)=$",
+        "opciones": [
+         "$2x\\sin(x^4)$",
+         "$\\sin(x^4)$",
+         "$\\sin(x^2)$",
+         "$2x\\sin(x^2)$"
+        ],
+        "correcta": 0,
+        "resumen": "Es la primera parte del teorema con la regla de la cadena en el límite superior.",
+        "fuente": "Banco MathUNAL, simulacro de Cálculo Integral"
+       },
+       {
+        "tipo": "numerica",
+        "texto": "Calcule $\\displaystyle\\int_0^{1}(3x^2+2x)\\,dx$.",
+        "respuesta": "2",
+        "tolNum": 0.001,
+        "resumen": "Se antideriva término a término y queda $[x^3+x^2]_0^1=2$.",
+        "fuente": "Banco MathUNAL, simulacro de Cálculo Integral"
+       },
+       {
+        "tipo": "mcq",
+        "texto": "$\\displaystyle\\int_{-1}^{1} x^{3}\\,dx$ es igual a:",
+        "opciones": [
+         "$0$",
+         "$\\dfrac{1}{2}$",
+         "$\\dfrac{1}{4}$",
+         "$2$"
+        ],
+        "correcta": 0,
+        "resumen": "$x^3$ es impar y el intervalo es simétrico, así que da $0$.",
+        "fuente": "Banco MathUNAL, simulacro de Cálculo Integral"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "Tu repaso",
+    "corto": "Repaso",
+    "bloques": [
+     {
+      "t": "repaso"
+     }
+    ]
+   },
+   {
+    "titulo": "En resumen",
+    "corto": "Resumen",
+    "bloques": [
+     {
+      "t": "resumen"
+     }
+    ]
+   }
+  ]
+ },
+ "practicar": {
+  "pasos": [
+   {
+    "titulo": "La curva",
+    "grafica": {
+     "draw": 1
+    },
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Se mide el área bajo esta curva."
+     },
+     {
+      "t": "eq",
+      "tex": "f(x)=4x-x^{2}"
+     }
+    ]
+   },
+   {
+    "titulo": "El punto de partida",
+    "grafica": {
+     "draw": 1,
+     "hole": 1
+    },
+    "bloques": [
+     {
+      "t": "p",
+      "html": "El área se empieza a medir desde x igual a 0."
+     }
+    ]
+   },
+   {
+    "titulo": "Mueve x",
+    "grafica": {
+     "draw": 1,
+     "hole": 1
+    },
+    "laboratorio": true,
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mueve el deslizador. La zona sombreada crece y abajo se ve el área y la altura de la curva en x."
+     }
+    ]
+   },
+   {
+    "titulo": "La altura",
+    "grafica": {
+     "draw": 1,
+     "hole": 1,
+     "guide": 1
+    },
+    "laboratorio": true,
+    "d": 3,
+    "bloques": [
+     {
+      "t": "p",
+      "html": "La franja amarilla tiene la altura de la curva. Con x igual a 3 mide 3 y el área acumulada es 9."
+     }
+    ]
+   },
+   {
+    "titulo": "El teorema",
+    "grafica": {
+     "draw": 1,
+     "hole": 1,
+     "guide": 1,
+     "ok": true
+    },
+    "laboratorio": true,
+    "d": 3.7,
+    "bloques": [
+     {
+      "t": "eq",
+      "tex": "\\int_{0}^{4}\\left(4x-x^{2}\\right)dx=F(4)-F(0)=\\dfrac{32}{3}"
+     },
+     {
+      "t": "p",
+      "html": "Cerca de x igual a 4 el área ya está cerca de 10.5. En 4 llega a 10.6667, que es lo que da la resta de la primitiva."
+     }
+    ]
+   },
+   {
+    "titulo": "Revisa tu respuesta",
+    "grafica": {
+     "draw": 1,
+     "hole": 1,
+     "guide": 1,
+     "ok": true,
+     "d": 3.7
+    },
+    "bloques": [
+     {
+      "t": "pregunta"
+     },
+     {
+      "t": "nota",
+      "html": "Busca una primitiva y evalúala en los dos límites."
+     }
+    ]
+   }
+  ]
+ },
+ "pregunta": {
+  "tex": "\\int_{1}^{4} 3\\sqrt{x}\\,dx",
+  "opciones": [
+   "$14$",
+   "$16$",
+   "$\\dfrac{14}{3}$",
+   "$10$"
+  ],
+  "correcta": 0,
+  "explicacion": "La raíz de x es x a la un medio, y una primitiva de 3 por x a la un medio es 2 por x a la tres medios. En 4 vale 16 y en 1 vale 2. La resta da 14.",
+  "verificacion": {
+   "formula": "(2*4^1.5-2*1^1.5)+0*x",
+   "a": 0,
+   "esperado": 14
+  },
+  "pistas": [
+   "Escribe la raíz de x como x a la un medio.",
+   "La primitiva de x a la un medio es 2 tercios de x a la tres medios. Con el 3 de adelante queda 2 por x a la tres medios.",
+   "Evalúa en 4 y en 1 y resta."
+  ],
+  "errores": [
+   "",
+   "Falta restar el valor en el límite inferior. En x igual a 1 la primitiva vale 2.",
+   "Falta multiplicar por el 3 de adelante. Con la primitiva 2 tercios de x a la tres medios sale 14 sobre 3.",
+   "Revisa la cuenta. La primitiva es 2 por x a la tres medios, que vale 16 en 4 y 2 en 1. La resta es 14."
+  ]
+ },
+ "resumen": [
+  "La integral definida es la resta de una primitiva en los extremos, F de b menos F de a.",
+  "Derivar una integral que acumula área devuelve la altura de la curva, y si el límite es una función de x se usa la regla de la cadena.",
+  "La integral cuenta como negativa la parte bajo el eje x, así que no siempre es el área."
+ ]
+}

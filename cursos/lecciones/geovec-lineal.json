@@ -1,0 +1,618 @@
+{
+ "esquema": 1,
+ "id": "gv-m2-l4",
+ "ejemplo": true,
+ "curso": "Geometría Vectorial y Analítica",
+ "modulo": "Módulo 2 Vectores en el espacio",
+ "posicion": "Lección 4 de 4",
+ "titulo": "Combinaciones lineales y dependencia",
+ "minutos": 28,
+ "ejercicios": 8,
+ "grafica": {
+  "tipo": "plano",
+  "x": [
+   -4.0,
+   8.5
+  ],
+  "y": [
+   -2.5,
+   6.4
+  ],
+  "a": -1,
+  "b": 3.5,
+  "inicio": 1,
+  "elementos": [
+   {
+    "t": "vector",
+    "b": [
+     "2*x",
+     "x"
+    ],
+    "nombre": "a u",
+    "c": 0
+   },
+   {
+    "t": "vector",
+    "a": [
+     "2*x",
+     "x"
+    ],
+    "b": [
+     "2*x-1",
+     "x+2"
+    ],
+    "nombre": "v",
+    "c": 1
+   },
+   {
+    "t": "punto",
+    "p": [
+     "3",
+     "4"
+    ],
+    "c": 3
+   },
+   {
+    "t": "punto",
+    "p": [
+     "2*x-1",
+     "x+2"
+    ],
+    "c": 2
+   }
+  ],
+  "lecturas": [
+   {
+    "rotulo": "coeficiente a de u",
+    "formula": "x"
+   },
+   {
+    "rotulo": "distancia de la punta al objetivo (3, 4)",
+    "formula": "sqrt(5)*abs(x-2)"
+   }
+  ],
+  "etiquetas": [
+   "Cuántas veces se toma u, con u igual a (2, 1)",
+   "Qué tan lejos queda la punta de a u más v del objetivo"
+  ],
+  "etiquetaSlider": "Coeficiente a de u",
+  "alt": "Los vectores u igual a (2, 1) y v igual a (menos 1, 2). Se toma a veces u y a continuación se agrega v. La punta del camino es a u más v, y con a igual a 2 llega al punto objetivo (3, 4)"
+ },
+ "glosario": {
+  "combinacion": "Una combinación lineal de vectores es una suma de múltiplos de ellos, como a u más b v.",
+  "generado": "El conjunto generado por unos vectores es el de todas sus combinaciones lineales.",
+  "independientes": "Unos vectores son linealmente independientes si la única combinación que da el vector cero es la que tiene todos los coeficientes cero.",
+  "dependientes": "Unos vectores son linealmente dependientes si alguno es combinación de los otros, o sea, si hay una combinación no trivial que da cero."
+ },
+ "ver": {
+  "duracion": 22.0,
+  "capitulos": [
+   [
+    0,
+    4,
+    "Los vectores u igual a (2, 1) y v igual a (menos 1, 2) se combinan. Primero se toma a veces u, y después se agrega v."
+   ],
+   [
+    4,
+    10,
+    "La punta del camino es a u más v. El punto marcado es el objetivo, (3, 4)."
+   ],
+   [
+    10,
+    15,
+    "Con a igual a 2, el camino llega justo al objetivo. Entonces (3, 4) es 2 u más v."
+   ],
+   [
+    15,
+    19,
+    "Esto se puede con cualquier objetivo del plano, porque u y v no son paralelos. Son linealmente independientes."
+   ],
+   [
+    19,
+    22,
+    "Si fueran paralelos, solo se alcanzarían los puntos de una recta."
+   ]
+  ],
+  "canales": {
+   "draw": [
+    [
+     0.3,
+     0
+    ],
+    [
+     3.5,
+     1
+    ]
+   ],
+   "d": [
+    [
+     4,
+     0
+    ],
+    [
+     8,
+     1
+    ],
+    [
+     10,
+     3
+    ],
+    [
+     12,
+     2
+    ],
+    [
+     19,
+     2
+    ],
+    [
+     22,
+     2
+    ]
+   ],
+   "guide": [
+    [
+     4,
+     0
+    ],
+    [
+     5,
+     1
+    ]
+   ]
+  },
+  "intervalos": {
+   "ok": [
+    10,
+    22
+   ]
+  }
+ },
+ "leer": {
+  "secciones": [
+   {
+    "titulo": "La idea",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Una {{gl:combinacion|combinación lineal}} suma múltiplos de unos vectores. Todas las combinaciones forman el conjunto {{gl:generado|generado}} por ellos. Si cada vector aporta una dirección nueva, son {{gl:independientes|linealmente independientes}}. Si alguno se puede armar con los otros, son {{gl:dependientes|dependientes}} y sobra alguno."
+     }
+    ]
+   },
+   {
+    "titulo": "Un ejemplo",
+    "corto": "Un ejemplo",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Se quiere llegar al punto (3, 4) combinando u igual a (2, 1) y v igual a (menos 1, 2). Mueve a hasta que la punta llegue."
+     },
+     {
+      "t": "eq",
+      "tex": "a(2,1)+(-1,2)=(2a-1,\\ a+2)"
+     },
+     {
+      "t": "grafica",
+      "animar": "dibujar",
+      "alt": "El camino de u y v hacia el objetivo"
+     }
+    ]
+   },
+   {
+    "titulo": "Piensa antes de ver",
+    "corto": "Piensa",
+    "bloques": [
+     {
+      "t": "piensa",
+      "pregunta": "Con a igual a 2, 2 por (2, 1) es (4, 2). Si se le suma (menos 1, 2), ¿cuánto vale la segunda componente del resultado?",
+      "opciones": [
+       2,
+       3,
+       4,
+       5
+      ],
+      "correcta": 4,
+      "bien": "Muy bien. Es 2 más 2, o sea 4. Y la primera es 4 menos 1, o sea 3. Más abajo se ve que llega al objetivo.",
+      "mal": "Es 2 más 2, o sea 4. Y la primera componente es 4 menos 1, o sea 3. Más abajo se ve que llega al objetivo."
+     }
+    ]
+   },
+   {
+    "titulo": "Moviendo el coeficiente",
+    "corto": "El coeficiente",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mira el camino con a igual a 0, 1, 2 y 3."
+     },
+     {
+      "t": "acercando",
+      "ds": [
+       0,
+       1,
+       2,
+       3
+      ],
+      "alt": "El camino con cuatro valores de a"
+     },
+     {
+      "t": "p",
+      "html": "Con a igual a <b>2</b> la punta coincide con el objetivo y la distancia es cero."
+     }
+    ]
+   },
+   {
+    "titulo": "Dependencia e independencia",
+    "corto": "Independencia",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Para decidir si unos vectores son independientes se busca una combinación no trivial que dé cero."
+     },
+     {
+      "t": "pasos",
+      "items": [
+       {
+        "tex": "(1,2,3),\\ (2,4,6),\\ (0,0,1)",
+        "porque": "Los tres vectores del ejemplo del banco."
+       },
+       {
+        "tex": "2(1,2,3)-(2,4,6)+0(0,0,1)=\\mathbf{0}",
+        "porque": "Hay una combinación con coeficientes no todos cero que da cero."
+       },
+       {
+        "tex": "\\text{Entonces son linealmente dependientes}",
+        "porque": "Porque (2, 4, 6) es el doble de (1, 2, 3)."
+       },
+       {
+        "tex": "\\{(1,0,0),(0,1,0),(1,1,0)\\}\\ \\text{dependiente}",
+        "porque": "Porque (1, 1, 0) es la suma de los dos primeros."
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "El determinante",
+    "corto": "Con el determinante",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "En R³, tres vectores son independientes si y solo si el determinante que forman es distinto de cero."
+     },
+     {
+      "t": "pasos",
+      "items": [
+       {
+        "tex": "\\det\\begin{pmatrix}1&0&0\\\\0&1&0\\\\0&0&1\\end{pmatrix}=1",
+        "porque": "Los vectores de la base son independientes."
+       },
+       {
+        "tex": "\\det\\neq0\\ \\Leftrightarrow\\ \\text{independientes}",
+        "porque": "El criterio del determinante."
+       },
+       {
+        "tex": "\\det=0\\ \\Leftrightarrow\\ \\text{dependientes, o sea, coplanares}",
+        "porque": "Si es cero, los tres están en un mismo plano."
+       }
+      ]
+     },
+     {
+      "t": "ojo",
+      "html": "Independientes no significa perpendiculares. Dos vectores pueden formar cualquier ángulo distinto de cero y de 180 grados y ser independientes."
+     }
+    ]
+   },
+   {
+    "titulo": "¿Para qué sirve?",
+    "corto": "En ingeniería",
+    "bloques": [
+     {
+      "t": "ingenieria",
+      "titulo": "Los movimientos de un robot",
+      "html": "Un robot tiene dos actuadores que mueven la herramienta en las direcciones (2, 1) y (menos 1, 2). Cualquier posición del plano se alcanza como combinación de ellas. Es posible porque las dos direcciones son independientes.",
+      "tex": "\\det\\begin{pmatrix}2&-1\\\\1&2\\end{pmatrix}=5",
+      "datos": [
+       {
+        "k": "Actuador 1",
+        "v": "(2, 1)"
+       },
+       {
+        "k": "Actuador 2",
+        "v": "(menos 1, 2)"
+       },
+       {
+        "k": "Determinante",
+        "v": "5, alcanza todo el plano"
+       }
+      ],
+      "cierre": "Como el determinante es distinto de cero, el robot alcanza cualquier punto del plano. Si las dos direcciones fueran paralelas, el determinante sería cero y la herramienta solo podría moverse sobre una recta. Esas posiciones, llamadas singularidades, se evitan al diseñar el robot."
+     }
+    ]
+   },
+   {
+    "titulo": "Completa el paso",
+    "corto": "Completa",
+    "bloques": [
+     {
+      "t": "completar",
+      "enunciado": "Se calcula una combinación de los vectores de la base. Falta el resultado.",
+      "tex": "2(1,0)+3(0,1)=[[hueco]]",
+      "opciones": [
+       {
+        "tex": "(2,3)",
+        "txt": "dos, tres"
+       },
+       {
+        "tex": "(3,2)",
+        "txt": "tres, dos"
+       },
+       {
+        "tex": "(5,5)",
+        "txt": "cinco, cinco"
+       }
+      ],
+      "correcta": 0,
+      "errores": [
+       "",
+       "Los coeficientes se invirtieron. El 2 multiplica a (1, 0) y va en la primera componente.",
+       "Se sumaron los coeficientes como si fueran una sola componente."
+      ],
+      "pista": "Cada coeficiente multiplica a su vector.",
+      "porque": "2 por (1, 0) es (2, 0), 3 por (0, 1) es (0, 3), y su suma es (2, 3)."
+     }
+    ]
+   },
+   {
+    "titulo": "Encuentra el error",
+    "corto": "Error",
+    "bloques": [
+     {
+      "t": "error",
+      "enunciado": "Alguien analizó tres vectores y se equivocó en un paso. Toca el paso que está mal.",
+      "pasos": [
+       {
+        "tex": "(2,4,6)=2(1,2,3)",
+        "porque": "Un vector es múltiplo de otro.",
+        "txt": "el segundo es el doble del primero"
+       },
+       {
+        "tex": "2(1,2,3)-(2,4,6)=\\mathbf{0}",
+        "porque": "Hay una combinación no trivial que da cero.",
+        "txt": "la combinación da cero"
+       },
+       {
+        "tex": "\\text{Entonces son linealmente independientes}",
+        "porque": "Este paso es el que falla.",
+        "txt": "por tanto son independientes"
+       }
+      ],
+      "mal": 2,
+      "explicacion": "Si existe una combinación con coeficientes no todos cero que da el vector cero, los vectores son dependientes. Aquí (2, 4, 6) es el doble de (1, 2, 3).",
+      "correccion": "\\text{combinación no trivial}=\\mathbf{0}\\ \\Rightarrow\\ \\text{dependientes}",
+      "pista": "Recuerda qué significa una combinación no trivial que da cero."
+     }
+    ]
+   },
+   {
+    "titulo": "Ordena los pasos",
+    "corto": "Ordena",
+    "bloques": [
+     {
+      "t": "ordenar",
+      "enunciado": "Estos son los pasos para escribir (3, 4) como 2 por (2, 1) más (menos 1, 2), pero están desordenados.",
+      "pasos": [
+       "2(2,1)=(4,2)",
+       "v=(-1,2)",
+       "(4-1,\\ 2+2)",
+       "(3,4)"
+      ],
+      "mezcla": [
+       2,
+       0,
+       3,
+       1
+      ],
+      "porque": "Se multiplica u por 2, se suma v componente a componente y se obtiene el objetivo.",
+      "pista": "Se empieza multiplicando u por 2.",
+      "txt": [
+       "Se calcula 2u",
+       "Se toma v",
+       "Se suman componente a componente",
+       "Es el objetivo"
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "Revisa tu respuesta",
+    "corto": "Revisa",
+    "bloques": [
+     {
+      "t": "pregunta"
+     },
+     {
+      "t": "nota",
+      "html": "Puedes pedir pistas de a una. Si fallas, el mensaje te dice qué error se cometió."
+     }
+    ]
+   },
+   {
+    "titulo": "Mini simulacro",
+    "corto": "Simulacro",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Tres preguntas reales del banco de MathUNAL sobre este tema. Responde sin mirar los pasos."
+     },
+     {
+      "t": "simulacro",
+      "titulo": "Mini simulacro de combinaciones lineales y dependencia",
+      "preguntas": [
+       {
+        "tipo": "mcq",
+        "texto": "Los vectores $(1,2,3)$, $(2,4,6)$ y $(0,0,1)$ son:",
+        "opciones": [
+         "linealmente dependientes",
+         "linealmente independientes",
+         "una base de $\\mathbb{R}^3$",
+         "todos unitarios"
+        ],
+        "correcta": 0,
+        "resumen": "$(2,4,6)=2(1,2,3)$, así que son dependientes.",
+        "fuente": "Banco MathUNAL, simulacro de Geometría Vectorial y Analítica"
+       },
+       {
+        "tipo": "mcq",
+        "texto": "Tres vectores de $\\mathbb{R}^3$ son linealmente INDEPENDIENTES si y solo si:",
+        "opciones": [
+         "el determinante $3\\times3$ que forman es distinto de cero",
+         "son unitarios",
+         "su suma es $\\mathbf{0}$",
+         "son mutuamente perpendiculares"
+        ],
+        "correcta": 0,
+        "resumen": "Son independientes si y solo si el determinante es distinto de cero.",
+        "fuente": "Banco MathUNAL, simulacro de Geometría Vectorial y Analítica"
+       },
+       {
+        "tipo": "mcq",
+        "texto": "El conjunto $\\{(1,0,0),\\ (0,1,0),\\ (1,1,0)\\}$ en $\\mathbb{R}^3$ es:",
+        "opciones": [
+         "linealmente dependiente",
+         "una base de $\\mathbb{R}^3$",
+         "linealmente independiente",
+         "ortonormal"
+        ],
+        "correcta": 0,
+        "resumen": "$(1,1,0)$ es la suma de los otros dos.",
+        "fuente": "Banco MathUNAL, simulacro de Geometría Vectorial y Analítica"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "Tu repaso",
+    "corto": "Repaso",
+    "bloques": [
+     {
+      "t": "repaso"
+     }
+    ]
+   },
+   {
+    "titulo": "En resumen",
+    "corto": "Resumen",
+    "bloques": [
+     {
+      "t": "resumen"
+     }
+    ]
+   }
+  ]
+ },
+ "practicar": {
+  "pasos": [
+   {
+    "titulo": "El camino",
+    "grafica": {
+     "draw": 1
+    },
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Se toma a veces u y se agrega v."
+     },
+     {
+      "t": "eq",
+      "tex": "a(2,1)+(-1,2)"
+     }
+    ]
+   },
+   {
+    "titulo": "Mueve a",
+    "grafica": {
+     "draw": 1
+    },
+    "laboratorio": true,
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mueve el deslizador. Abajo se leen el coeficiente y la distancia de la punta al objetivo."
+     }
+    ]
+   },
+   {
+    "titulo": "Llegar al objetivo",
+    "grafica": {
+     "draw": 1,
+     "guide": 1,
+     "ok": true
+    },
+    "laboratorio": true,
+    "d": 2,
+    "bloques": [
+     {
+      "t": "eq",
+      "tex": "2(2,1)+(-1,2)=(3,4)"
+     },
+     {
+      "t": "p",
+      "html": "Con a igual a 2 la punta coincide con el objetivo."
+     }
+    ]
+   },
+   {
+    "titulo": "Revisa tu respuesta",
+    "grafica": {
+     "draw": 1,
+     "guide": 1,
+     "ok": true,
+     "d": 2
+    },
+    "bloques": [
+     {
+      "t": "pregunta"
+     },
+     {
+      "t": "nota",
+      "html": "Calcula el determinante de los tres vectores."
+     }
+    ]
+   }
+  ]
+ },
+ "pregunta": {
+  "tex": "\\text{Los vectores}\\ (1,0,0),\\ (0,1,0),\\ (0,0,2)\\ \\text{son}",
+  "opciones": [
+   "linealmente independientes",
+   "linealmente dependientes",
+   "coplanares",
+   "paralelos"
+  ],
+  "correcta": 0,
+  "explicacion": "El determinante que forman es 1 por 1 por 2, o sea 2, que es distinto de cero. Entonces son linealmente independientes y no son coplanares.",
+  "verificacion": {
+   "formula": "1*(1*2-0*0)-0+0*x",
+   "a": 0,
+   "esperado": 2
+  },
+  "pistas": [
+   "Calcula el determinante de tres por tres.",
+   "Es una matriz diagonal.",
+   "El determinante es 2, distinto de cero."
+  ],
+  "errores": [
+   "",
+   "El determinante no es cero, así que no hay una combinación no trivial que dé cero.",
+   "Coplanares exigiría un determinante cero, y aquí vale 2.",
+   "Ninguno es múltiplo de otro, así que no son paralelos."
+  ]
+ },
+ "resumen": [
+  "Una combinación lineal suma múltiplos de vectores, y todas las combinaciones forman su conjunto generado.",
+  "Unos vectores son dependientes si una combinación no trivial da cero, y entonces alguno sobra.",
+  "En R³, tres vectores son independientes si y solo si su determinante es distinto de cero."
+ ]
+}

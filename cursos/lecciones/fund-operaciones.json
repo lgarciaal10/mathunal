@@ -1,0 +1,1269 @@
+{
+ "esquema": 1,
+ "id": "fu-m2-l4",
+ "ejemplo": true,
+ "curso": "Fundamentos de Matemáticas",
+ "modulo": "Módulo 2 Demostración y conjuntos",
+ "posicion": "Lección 4 de 4",
+ "titulo": "Operaciones con conjuntos",
+ "minutos": 26,
+ "ejercicios": 8,
+ "grafica": {
+  "tipo": "plano",
+  "x": [
+   -0.6,
+   7.8
+  ],
+  "y": [
+   -0.1,
+   4.5
+  ],
+  "a": 0,
+  "b": 4,
+  "inicio": 0,
+  "entero": true,
+  "sinejes": true,
+  "elementos": [
+   {
+    "t": "poligono",
+    "puntos": [
+     [
+      "0",
+      "4.4"
+     ],
+     [
+      "1.2",
+      "4.4"
+     ],
+     [
+      "1.2",
+      "3.3000000000000003"
+     ],
+     [
+      "0",
+      "3.3000000000000003"
+     ]
+    ],
+    "c": 0,
+    "nombre": ""
+   },
+   {
+    "t": "poligono",
+    "puntos": [
+     [
+      "0",
+      "3.3"
+     ],
+     [
+      "1.2",
+      "3.3"
+     ],
+     [
+      "1.2",
+      "2.1999999999999997"
+     ],
+     [
+      "0",
+      "2.1999999999999997"
+     ]
+    ],
+    "c": 0,
+    "nombre": "A"
+   },
+   {
+    "t": "poligono",
+    "puntos": [
+     [
+      "0",
+      "2.2"
+     ],
+     [
+      "1.2",
+      "2.2"
+     ],
+     [
+      "1.2",
+      "1.1"
+     ],
+     [
+      "0",
+      "1.1"
+     ]
+    ],
+    "c": 0,
+    "nombre": "B"
+   },
+   {
+    "t": "poligono",
+    "puntos": [
+     [
+      "0",
+      "1.1"
+     ],
+     [
+      "1.2",
+      "1.1"
+     ],
+     [
+      "1.2",
+      "0.0"
+     ],
+     [
+      "0",
+      "0.0"
+     ]
+    ],
+    "c": 0,
+    "nombre": "R"
+   },
+   {
+    "t": "poligono",
+    "puntos": [
+     [
+      "1.2",
+      "4.4"
+     ],
+     [
+      "2.4",
+      "4.4"
+     ],
+     [
+      "2.4",
+      "3.3"
+     ],
+     [
+      "1.2",
+      "3.3"
+     ]
+    ],
+    "c": 0,
+    "nombre": "1"
+   },
+   {
+    "t": "poligono",
+    "puntos": [
+     [
+      "1.2",
+      "3.3"
+     ],
+     [
+      "2.4",
+      "3.3"
+     ],
+     [
+      "2.4",
+      "2.2"
+     ],
+     [
+      "1.2",
+      "2.2"
+     ]
+    ],
+    "c": 3,
+    "nombre": "V"
+   },
+   {
+    "t": "poligono",
+    "puntos": [
+     [
+      "1.2",
+      "2.2"
+     ],
+     [
+      "2.4",
+      "2.2"
+     ],
+     [
+      "2.4",
+      "1.1"
+     ],
+     [
+      "1.2",
+      "1.1"
+     ]
+    ],
+    "c": 1,
+    "nombre": "F"
+   },
+   {
+    "t": "poligono",
+    "puntos": [
+     [
+      "1.2",
+      "0"
+     ],
+     [
+      "2.4",
+      "0"
+     ],
+     [
+      "2.4",
+      "1.1*((1*(x-1)*(x-2)*(x-3)*(x-4)/(24))+(1*(x-0)*(x-1)*(x-3)*(x-4)/(4))+(1*(x-0)*(x-1)*(x-2)*(x-4)/(-6)))"
+     ],
+     [
+      "1.2",
+      "1.1*((1*(x-1)*(x-2)*(x-3)*(x-4)/(24))+(1*(x-0)*(x-1)*(x-3)*(x-4)/(4))+(1*(x-0)*(x-1)*(x-2)*(x-4)/(-6)))"
+     ]
+    ],
+    "c": 3
+   },
+   {
+    "t": "poligono",
+    "puntos": [
+     [
+      "1.2",
+      "1.1*((1*(x-1)*(x-2)*(x-3)*(x-4)/(24))+(1*(x-0)*(x-1)*(x-3)*(x-4)/(4))+(1*(x-0)*(x-1)*(x-2)*(x-4)/(-6)))"
+     ],
+     [
+      "2.4",
+      "1.1*((1*(x-1)*(x-2)*(x-3)*(x-4)/(24))+(1*(x-0)*(x-1)*(x-3)*(x-4)/(4))+(1*(x-0)*(x-1)*(x-2)*(x-4)/(-6)))"
+     ],
+     [
+      "2.4",
+      "1.1"
+     ],
+     [
+      "1.2",
+      "1.1"
+     ]
+    ],
+    "c": 1
+   },
+   {
+    "t": "poligono",
+    "puntos": [
+     [
+      "2.4",
+      "4.4"
+     ],
+     [
+      "3.5999999999999996",
+      "4.4"
+     ],
+     [
+      "3.5999999999999996",
+      "3.3"
+     ],
+     [
+      "2.4",
+      "3.3"
+     ]
+    ],
+    "c": 0,
+    "nombre": "2"
+   },
+   {
+    "t": "poligono",
+    "puntos": [
+     [
+      "2.4",
+      "3.3"
+     ],
+     [
+      "3.5999999999999996",
+      "3.3"
+     ],
+     [
+      "3.5999999999999996",
+      "2.2"
+     ],
+     [
+      "2.4",
+      "2.2"
+     ]
+    ],
+    "c": 3,
+    "nombre": "V"
+   },
+   {
+    "t": "poligono",
+    "puntos": [
+     [
+      "2.4",
+      "2.2"
+     ],
+     [
+      "3.5999999999999996",
+      "2.2"
+     ],
+     [
+      "3.5999999999999996",
+      "1.1"
+     ],
+     [
+      "2.4",
+      "1.1"
+     ]
+    ],
+    "c": 3,
+    "nombre": "V"
+   },
+   {
+    "t": "poligono",
+    "puntos": [
+     [
+      "2.4",
+      "0"
+     ],
+     [
+      "3.5999999999999996",
+      "0"
+     ],
+     [
+      "3.5999999999999996",
+      "1.1*((1*(x-1)*(x-2)*(x-3)*(x-4)/(24))+(1*(x-0)*(x-2)*(x-3)*(x-4)/(-6)))"
+     ],
+     [
+      "2.4",
+      "1.1*((1*(x-1)*(x-2)*(x-3)*(x-4)/(24))+(1*(x-0)*(x-2)*(x-3)*(x-4)/(-6)))"
+     ]
+    ],
+    "c": 3
+   },
+   {
+    "t": "poligono",
+    "puntos": [
+     [
+      "2.4",
+      "1.1*((1*(x-1)*(x-2)*(x-3)*(x-4)/(24))+(1*(x-0)*(x-2)*(x-3)*(x-4)/(-6)))"
+     ],
+     [
+      "3.5999999999999996",
+      "1.1*((1*(x-1)*(x-2)*(x-3)*(x-4)/(24))+(1*(x-0)*(x-2)*(x-3)*(x-4)/(-6)))"
+     ],
+     [
+      "3.5999999999999996",
+      "1.1"
+     ],
+     [
+      "2.4",
+      "1.1"
+     ]
+    ],
+    "c": 1
+   },
+   {
+    "t": "poligono",
+    "puntos": [
+     [
+      "3.5999999999999996",
+      "4.4"
+     ],
+     [
+      "4.8",
+      "4.4"
+     ],
+     [
+      "4.8",
+      "3.3"
+     ],
+     [
+      "3.5999999999999996",
+      "3.3"
+     ]
+    ],
+    "c": 0,
+    "nombre": "3"
+   },
+   {
+    "t": "poligono",
+    "puntos": [
+     [
+      "3.5999999999999996",
+      "3.3"
+     ],
+     [
+      "4.8",
+      "3.3"
+     ],
+     [
+      "4.8",
+      "2.2"
+     ],
+     [
+      "3.5999999999999996",
+      "2.2"
+     ]
+    ],
+    "c": 3,
+    "nombre": "V"
+   },
+   {
+    "t": "poligono",
+    "puntos": [
+     [
+      "3.5999999999999996",
+      "2.2"
+     ],
+     [
+      "4.8",
+      "2.2"
+     ],
+     [
+      "4.8",
+      "1.1"
+     ],
+     [
+      "3.5999999999999996",
+      "1.1"
+     ]
+    ],
+    "c": 3,
+    "nombre": "V"
+   },
+   {
+    "t": "poligono",
+    "puntos": [
+     [
+      "3.5999999999999996",
+      "0"
+     ],
+     [
+      "4.8",
+      "0"
+     ],
+     [
+      "4.8",
+      "1.1*((1*(x-1)*(x-2)*(x-3)*(x-4)/(24))+(1*(x-0)*(x-2)*(x-3)*(x-4)/(-6)))"
+     ],
+     [
+      "3.5999999999999996",
+      "1.1*((1*(x-1)*(x-2)*(x-3)*(x-4)/(24))+(1*(x-0)*(x-2)*(x-3)*(x-4)/(-6)))"
+     ]
+    ],
+    "c": 3
+   },
+   {
+    "t": "poligono",
+    "puntos": [
+     [
+      "3.5999999999999996",
+      "1.1*((1*(x-1)*(x-2)*(x-3)*(x-4)/(24))+(1*(x-0)*(x-2)*(x-3)*(x-4)/(-6)))"
+     ],
+     [
+      "4.8",
+      "1.1*((1*(x-1)*(x-2)*(x-3)*(x-4)/(24))+(1*(x-0)*(x-2)*(x-3)*(x-4)/(-6)))"
+     ],
+     [
+      "4.8",
+      "1.1"
+     ],
+     [
+      "3.5999999999999996",
+      "1.1"
+     ]
+    ],
+    "c": 1
+   },
+   {
+    "t": "poligono",
+    "puntos": [
+     [
+      "4.8",
+      "4.4"
+     ],
+     [
+      "6.0",
+      "4.4"
+     ],
+     [
+      "6.0",
+      "3.3"
+     ],
+     [
+      "4.8",
+      "3.3"
+     ]
+    ],
+    "c": 0,
+    "nombre": "4"
+   },
+   {
+    "t": "poligono",
+    "puntos": [
+     [
+      "4.8",
+      "3.3"
+     ],
+     [
+      "6.0",
+      "3.3"
+     ],
+     [
+      "6.0",
+      "2.2"
+     ],
+     [
+      "4.8",
+      "2.2"
+     ]
+    ],
+    "c": 1,
+    "nombre": "F"
+   },
+   {
+    "t": "poligono",
+    "puntos": [
+     [
+      "4.8",
+      "2.2"
+     ],
+     [
+      "6.0",
+      "2.2"
+     ],
+     [
+      "6.0",
+      "1.1"
+     ],
+     [
+      "4.8",
+      "1.1"
+     ]
+    ],
+    "c": 3,
+    "nombre": "V"
+   },
+   {
+    "t": "poligono",
+    "puntos": [
+     [
+      "4.8",
+      "0"
+     ],
+     [
+      "6.0",
+      "0"
+     ],
+     [
+      "6.0",
+      "1.1*((1*(x-1)*(x-2)*(x-3)*(x-4)/(24))+(1*(x-0)*(x-1)*(x-2)*(x-4)/(-6))+(1*(x-0)*(x-1)*(x-2)*(x-3)/(24)))"
+     ],
+     [
+      "4.8",
+      "1.1*((1*(x-1)*(x-2)*(x-3)*(x-4)/(24))+(1*(x-0)*(x-1)*(x-2)*(x-4)/(-6))+(1*(x-0)*(x-1)*(x-2)*(x-3)/(24)))"
+     ]
+    ],
+    "c": 3
+   },
+   {
+    "t": "poligono",
+    "puntos": [
+     [
+      "4.8",
+      "1.1*((1*(x-1)*(x-2)*(x-3)*(x-4)/(24))+(1*(x-0)*(x-1)*(x-2)*(x-4)/(-6))+(1*(x-0)*(x-1)*(x-2)*(x-3)/(24)))"
+     ],
+     [
+      "6.0",
+      "1.1*((1*(x-1)*(x-2)*(x-3)*(x-4)/(24))+(1*(x-0)*(x-1)*(x-2)*(x-4)/(-6))+(1*(x-0)*(x-1)*(x-2)*(x-3)/(24)))"
+     ],
+     [
+      "6.0",
+      "1.1"
+     ],
+     [
+      "4.8",
+      "1.1"
+     ]
+    ],
+    "c": 1
+   },
+   {
+    "t": "poligono",
+    "puntos": [
+     [
+      "6.0",
+      "4.4"
+     ],
+     [
+      "7.2",
+      "4.4"
+     ],
+     [
+      "7.2",
+      "3.3"
+     ],
+     [
+      "6.0",
+      "3.3"
+     ]
+    ],
+    "c": 0,
+    "nombre": "5"
+   },
+   {
+    "t": "poligono",
+    "puntos": [
+     [
+      "6.0",
+      "3.3"
+     ],
+     [
+      "7.2",
+      "3.3"
+     ],
+     [
+      "7.2",
+      "2.2"
+     ],
+     [
+      "6.0",
+      "2.2"
+     ]
+    ],
+    "c": 1,
+    "nombre": "F"
+   },
+   {
+    "t": "poligono",
+    "puntos": [
+     [
+      "6.0",
+      "2.2"
+     ],
+     [
+      "7.2",
+      "2.2"
+     ],
+     [
+      "7.2",
+      "1.1"
+     ],
+     [
+      "6.0",
+      "1.1"
+     ]
+    ],
+    "c": 1,
+    "nombre": "F"
+   },
+   {
+    "t": "poligono",
+    "puntos": [
+     [
+      "6.0",
+      "0"
+     ],
+     [
+      "7.2",
+      "0"
+     ],
+     [
+      "7.2",
+      "1.1*((1*(x-0)*(x-1)*(x-2)*(x-3)/(24)))"
+     ],
+     [
+      "6.0",
+      "1.1*((1*(x-0)*(x-1)*(x-2)*(x-3)/(24)))"
+     ]
+    ],
+    "c": 3
+   },
+   {
+    "t": "poligono",
+    "puntos": [
+     [
+      "6.0",
+      "1.1*((1*(x-0)*(x-1)*(x-2)*(x-3)/(24)))"
+     ],
+     [
+      "7.2",
+      "1.1*((1*(x-0)*(x-1)*(x-2)*(x-3)/(24)))"
+     ],
+     [
+      "7.2",
+      "1.1"
+     ],
+     [
+      "6.0",
+      "1.1"
+     ]
+    ],
+    "c": 1
+   }
+  ],
+  "lecturas": [
+   {
+    "rotulo": "operación (0 unión, 1 intersección, 2 diferencia, 3 simétrica, 4 complemento de A)",
+    "formula": "x"
+   },
+   {
+    "rotulo": "elementos del resultado R",
+    "formula": "(4*(x-1)*(x-2)*(x-3)*(x-4)/(24))+(2*(x-0)*(x-2)*(x-3)*(x-4)/(-6))+(1*(x-0)*(x-1)*(x-3)*(x-4)/(4))+(2*(x-0)*(x-1)*(x-2)*(x-4)/(-6))+(2*(x-0)*(x-1)*(x-2)*(x-3)/(24))"
+   }
+  ],
+  "etiquetas": [
+   "Número de la operación elegida",
+   "Cantidad de elementos del conjunto resultado"
+  ],
+  "etiquetaSlider": "Operación, de 0 a 4",
+  "alt": "Una tabla con el universo de 1 a 5. La fila A marca los elementos 1, 2 y 3 y la fila B marca 2, 3 y 4. La fila R muestra en verde los elementos del resultado de la operación elegida con el deslizador"
+ },
+ "glosario": {
+  "union": "La unión reúne los elementos que están en A, en B o en ambos.",
+  "interseccion": "La intersección reúne solo los elementos que están en A y en B a la vez.",
+  "diferencia": "La diferencia A menos B tiene los elementos de A que no están en B.",
+  "simetrica": "La diferencia simétrica reúne los elementos que están en uno de los conjuntos pero no en los dos.",
+  "producto": "El producto cartesiano A por B es el conjunto de pares ordenados con el primer elemento en A y el segundo en B."
+ },
+ "ver": {
+  "duracion": 24.0,
+  "capitulos": [
+   [
+    0,
+    4,
+    "El universo son los números del 1 al 5. La fila A marca el conjunto uno, dos y tres, y la fila B marca dos, tres y cuatro."
+   ],
+   [
+    4,
+    9,
+    "En la operación 0, la unión, el resultado tiene los elementos que están en A o en B, o sea, del 1 al 4."
+   ],
+   [
+    9,
+    13,
+    "La intersección, operación 1, deja solo los que están en los dos, que son el 2 y el 3."
+   ],
+   [
+    13,
+    18,
+    "La diferencia A menos B deja el 1, y la simétrica deja el 1 y el 4, los que están en un conjunto pero no en los dos."
+   ],
+   [
+    18,
+    24,
+    "El complemento de A, operación 4, son los elementos del universo que no están en A, es decir, el 4 y el 5."
+   ]
+  ],
+  "canales": {
+   "draw": [
+    [
+     0.3,
+     0
+    ],
+    [
+     3.5,
+     1
+    ]
+   ],
+   "d": [
+    [
+     4,
+     0
+    ],
+    [
+     5,
+     0
+    ],
+    [
+     6,
+     0
+    ],
+    [
+     9,
+     0
+    ],
+    [
+     10,
+     1
+    ],
+    [
+     13,
+     1
+    ],
+    [
+     14,
+     2
+    ],
+    [
+     16,
+     3
+    ],
+    [
+     17,
+     3
+    ],
+    [
+     18,
+     4
+    ],
+    [
+     24,
+     4
+    ]
+   ],
+   "guide": [
+    [
+     4,
+     0
+    ],
+    [
+     5,
+     1
+    ]
+   ]
+  },
+  "intervalos": {
+   "ok": [
+    18,
+    24
+   ]
+  }
+ },
+ "leer": {
+  "secciones": [
+   {
+    "titulo": "La idea",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Los conjuntos se combinan con operaciones. La {{gl:union|unión}} junta, la {{gl:interseccion|intersección}} deja lo común, la {{gl:diferencia|diferencia}} quita y la {{gl:simetrica|diferencia simétrica}} deja lo que no es común. El complemento toma lo que queda fuera del conjunto, dentro de un universo. Y el {{gl:producto|producto cartesiano}} arma pares ordenados."
+     }
+    ]
+   },
+   {
+    "titulo": "Un ejemplo",
+    "corto": "Un ejemplo",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Con el universo del 1 al 5, el conjunto A de 1, 2 y 3, y el conjunto B de 2, 3 y 4, mueve el deslizador para ver cada operación."
+     },
+     {
+      "t": "eq",
+      "tex": "A=\\{1,2,3\\},\\qquad B=\\{2,3,4\\}"
+     },
+     {
+      "t": "grafica",
+      "animar": "dibujar",
+      "alt": "La tabla con los conjuntos A, B y el resultado"
+     }
+    ]
+   },
+   {
+    "titulo": "Piensa antes de ver",
+    "corto": "Piensa",
+    "bloques": [
+     {
+      "t": "piensa",
+      "pregunta": "El conjunto A tiene 3 elementos, B también tiene 3 y comparten 2. ¿Cuántos elementos tiene la unión de A y B?",
+      "opciones": [
+       3,
+       4,
+       5,
+       6
+      ],
+      "correcta": 4,
+      "bien": "Muy bien. Son 4, porque los 2 compartidos se cuentan una sola vez. Más abajo se ve en la tabla.",
+      "mal": "Son 4. Si se suman 3 y 3 se obtiene 6, pero los 2 elementos compartidos se contaron dos veces, así que hay que restarlos."
+     }
+    ]
+   },
+   {
+    "titulo": "Recorriendo las operaciones",
+    "corto": "Las operaciones",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mira el resultado de cada operación."
+     },
+     {
+      "t": "acercando",
+      "ds": [
+       0,
+       1,
+       2,
+       3
+      ],
+      "alt": "El resultado de la unión, la intersección, la diferencia y la diferencia simétrica"
+     },
+     {
+      "t": "p",
+      "html": "La fila R se pinta de verde en los elementos del resultado."
+     }
+    ]
+   },
+   {
+    "titulo": "Las operaciones",
+    "corto": "Resumen",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Estas son las operaciones con los conjuntos del ejemplo."
+     },
+     {
+      "t": "pasos",
+      "items": [
+       {
+        "tex": "A\\cup B=\\{1,2,3,4\\}",
+        "porque": "Unión. Está en A, en B o en ambos."
+       },
+       {
+        "tex": "A\\cap B=\\{2,3\\}",
+        "porque": "Intersección. Está en A y en B."
+       },
+       {
+        "tex": "A-B=\\{1\\}",
+        "porque": "Diferencia. Está en A y no está en B."
+       },
+       {
+        "tex": "A\\,\\triangle\\,B=(A-B)\\cup(B-A)=\\{1,4\\}",
+        "porque": "Diferencia simétrica. Está en uno solo de los dos."
+       },
+       {
+        "tex": "A^{c}=\\{4,5\\}",
+        "porque": "Complemento de A en el universo del 1 al 5."
+       },
+       {
+        "tex": "\\{a,b\\}\\times\\{1,2,3\\}\\ \\text{tiene}\\ 2\\cdot3=6\\ \\text{pares}",
+        "porque": "Producto cartesiano. Se multiplican las cantidades."
+       }
+      ]
+     },
+     {
+      "t": "ojo",
+      "html": "La diferencia no es conmutativa, porque A menos B no es B menos A. Y en un producto cartesiano el orden importa, así que el par a, 1 no es el par 1, a."
+     }
+    ]
+   },
+   {
+    "titulo": "Cómo se cuenta",
+    "corto": "Contar",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Para contar una unión no basta sumar, porque los elementos comunes se contarían dos veces."
+     },
+     {
+      "t": "pasos",
+      "items": [
+       {
+        "tex": "|A\\cup B|=|A|+|B|-|A\\cap B|",
+        "porque": "Inclusión y exclusión. Se resta lo que se contó doble."
+       },
+       {
+        "tex": "|A|=3,\\ |B|=3,\\ |A\\cap B|=2",
+        "porque": "Los datos del ejemplo."
+       },
+       {
+        "tex": "|A\\cup B|=3+3-2=4",
+        "porque": "Resultado."
+       }
+      ]
+     },
+     {
+      "t": "ojo",
+      "html": "La fórmula se usa cuando se conocen las cantidades y no los elementos. Si los conjuntos no comparten elementos, la intersección vale cero y basta sumar."
+     }
+    ]
+   },
+   {
+    "titulo": "¿Para qué sirve?",
+    "corto": "En ingeniería",
+    "bloques": [
+     {
+      "t": "ingenieria",
+      "titulo": "Las alarmas de una planta",
+      "html": "En una planta, 30 sensores tienen alarma de temperatura, 25 tienen alarma de presión y 10 tienen las dos. Para saber cuántos sensores tienen al menos una alarma no se suman 30 y 25, porque los 10 que tienen ambas se contarían dos veces.",
+      "tex": "|A\\cup B|=|A|+|B|-|A\\cap B|",
+      "datos": [
+       {
+        "k": "Con alarma de temperatura",
+        "v": "30"
+       },
+       {
+        "k": "Con alarma de presión",
+        "v": "25"
+       },
+       {
+        "k": "Con las dos",
+        "v": "10"
+       }
+      ],
+      "cierre": "Los sensores con al menos una alarma son 30 más 25 menos 10, que da 45. Esa cuenta evita pedir mantenimiento para sensores que no existen. Contar con inclusión y exclusión es útil siempre que dos criterios se superponen, como permisos, fallas o clientes que cumplen dos condiciones."
+     }
+    ]
+   },
+   {
+    "titulo": "Completa el paso",
+    "corto": "Completa",
+    "bloques": [
+     {
+      "t": "completar",
+      "enunciado": "Se cuenta la unión de dos conjuntos. Falta lo que se resta.",
+      "tex": "|A\\cup B|=|A|+|B|-[[hueco]]",
+      "opciones": [
+       {
+        "tex": "|A\\cap B|",
+        "txt": "los elementos comunes"
+       },
+       {
+        "tex": "|A-B|",
+        "txt": "los que están solo en A"
+       },
+       {
+        "tex": "|A\\times B|",
+        "txt": "los pares ordenados"
+       }
+      ],
+      "correcta": 0,
+      "errores": [
+       "",
+       "Los que están solo en A se cuentan una vez, y no hay que restarlos.",
+       "Los pares ordenados son otro conjunto, y no se relacionan con lo que se contó doble."
+      ],
+      "pista": "Se resta lo que se contó dos veces.",
+      "porque": "Los elementos comunes se contaron en A y en B, por eso se restan una vez."
+     }
+    ]
+   },
+   {
+    "titulo": "Encuentra el error",
+    "corto": "Error",
+    "bloques": [
+     {
+      "t": "error",
+      "enunciado": "Alguien calculó la diferencia simétrica de dos conjuntos y se equivocó en un paso. Toca el paso que está mal.",
+      "pasos": [
+       {
+        "tex": "A=\\{1,2,3\\},\\ B=\\{3,4\\}",
+        "porque": "Los conjuntos.",
+        "txt": "los conjuntos son estos"
+       },
+       {
+        "tex": "A\\,\\triangle\\,B=(A-B)\\cup(B-A)",
+        "porque": "La definición.",
+        "txt": "se usa la definición"
+       },
+       {
+        "tex": "\\text{Entonces}\\ A\\,\\triangle\\,B=\\{1,2,3,4\\}",
+        "porque": "Este paso es el que falla.",
+        "txt": "queda toda la unión"
+       }
+      ],
+      "mal": 2,
+      "explicacion": "El 3 está en los dos conjuntos, así que no entra en la diferencia simétrica. A menos B es 1 y 2, B menos A es 4, y la unión es 1, 2 y 4.",
+      "correccion": "A\\,\\triangle\\,B=\\{1,2,4\\}",
+      "pista": "Calcula A menos B y B menos A por separado."
+     }
+    ]
+   },
+   {
+    "titulo": "Ordena los pasos",
+    "corto": "Ordena",
+    "bloques": [
+     {
+      "t": "ordenar",
+      "enunciado": "Estos son los pasos para contar la unión de dos conjuntos, pero están desordenados.",
+      "pasos": [
+       "|A|=3,\\ |B|=3",
+       "|A\\cap B|=2",
+       "3+3-2",
+       "|A\\cup B|=4"
+      ],
+      "mezcla": [
+       2,
+       0,
+       3,
+       1
+      ],
+      "porque": "Se cuentan los dos conjuntos, se cuenta lo común y se resta.",
+      "pista": "Se empieza contando cada conjunto.",
+      "txt": [
+       "Se cuentan los dos conjuntos",
+       "Se cuenta lo que comparten",
+       "Se aplica la inclusión y exclusión",
+       "Se escribe el resultado"
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "Revisa tu respuesta",
+    "corto": "Revisa",
+    "bloques": [
+     {
+      "t": "pregunta"
+     },
+     {
+      "t": "nota",
+      "html": "Puedes pedir pistas de a una. Si fallas, el mensaje te dice qué error se cometió."
+     }
+    ]
+   },
+   {
+    "titulo": "Mini simulacro",
+    "corto": "Simulacro",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Tres preguntas reales del banco de MathUNAL sobre este tema. Responde sin mirar los pasos."
+     },
+     {
+      "t": "simulacro",
+      "titulo": "Mini simulacro de operaciones con conjuntos",
+      "preguntas": [
+       {
+        "tipo": "mcq",
+        "texto": "Sean $A=\\{1,2,3\\}$ y $B=\\{2,3,4\\}$. Entonces $A\\cap B$ es:",
+        "opciones": [
+         "$\\{2,3\\}$",
+         "$\\{1,2,3,4\\}$",
+         "$\\{1,4\\}$",
+         "$\\{1\\}$"
+        ],
+        "correcta": 0,
+        "resumen": "La intersección deja los elementos que están en los dos conjuntos.",
+        "fuente": "Banco MathUNAL, simulacro de Fundamentos de Matemáticas"
+       },
+       {
+        "tipo": "mcq",
+        "texto": "Sean $A=\\{1,2,3\\}$ y $B=\\{3,4\\}$. La diferencia simétrica $A\\,\\triangle\\,B$ es:",
+        "opciones": [
+         "$\\{1,2,4\\}$",
+         "$\\{3\\}$",
+         "$\\{1,2,3,4\\}$",
+         "$\\{1,2\\}$"
+        ],
+        "correcta": 0,
+        "resumen": "La diferencia simétrica deja lo que está en uno solo de los dos conjuntos.",
+        "fuente": "Banco MathUNAL, simulacro de Fundamentos de Matemáticas"
+       },
+       {
+        "tipo": "numerica",
+        "texto": "Si $A=\\{a,b\\}$ y $B=\\{1,2,3\\}$, ¿cuántos elementos tiene el producto cartesiano $A\\times B$?",
+        "respuesta": "6",
+        "tolNum": 0.001,
+        "resumen": "El producto cartesiano tiene 2 por 3, es decir, 6 pares.",
+        "fuente": "Banco MathUNAL, simulacro de Fundamentos de Matemáticas"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "Tu repaso",
+    "corto": "Repaso",
+    "bloques": [
+     {
+      "t": "repaso"
+     }
+    ]
+   },
+   {
+    "titulo": "En resumen",
+    "corto": "Resumen",
+    "bloques": [
+     {
+      "t": "resumen"
+     }
+    ]
+   }
+  ]
+ },
+ "practicar": {
+  "pasos": [
+   {
+    "titulo": "Los conjuntos",
+    "grafica": {
+     "draw": 1,
+     "guide": 1
+    },
+    "bloques": [
+     {
+      "t": "p",
+      "html": "El universo del 1 al 5, con A de 1, 2 y 3, y B de 2, 3 y 4."
+     },
+     {
+      "t": "eq",
+      "tex": "A=\\{1,2,3\\},\\ B=\\{2,3,4\\}"
+     }
+    ]
+   },
+   {
+    "titulo": "Recorre las operaciones",
+    "grafica": {
+     "draw": 1,
+     "guide": 1
+    },
+    "laboratorio": true,
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mueve el deslizador de 0 a 4. Abajo se lee la operación elegida y cuántos elementos tiene el resultado."
+     }
+    ]
+   },
+   {
+    "titulo": "La intersección",
+    "grafica": {
+     "draw": 1,
+     "guide": 1,
+     "ok": true
+    },
+    "laboratorio": true,
+    "d": 1,
+    "bloques": [
+     {
+      "t": "eq",
+      "tex": "A\\cap B=\\{2,3\\}"
+     },
+     {
+      "t": "p",
+      "html": "Con la operación 1, la fila R tiene verdes solo el 2 y el 3."
+     }
+    ]
+   },
+   {
+    "titulo": "Revisa tu respuesta",
+    "grafica": {
+     "draw": 1,
+     "guide": 1,
+     "ok": true,
+     "d": 1
+    },
+    "bloques": [
+     {
+      "t": "pregunta"
+     },
+     {
+      "t": "nota",
+      "html": "A menos B deja lo que está en A y no está en B."
+     }
+    ]
+   }
+  ]
+ },
+ "pregunta": {
+  "tex": "\\text{Si}\\ A=\\{1,2,3\\}\\ \\text{y}\\ B=\\{2,3,4\\},\\ \\text{entonces}\\ A-B\\ \\text{es}",
+  "opciones": [
+   "$\\{1\\}$",
+   "$\\{4\\}$",
+   "$\\{2,3\\}$",
+   "$\\{1,4\\}$"
+  ],
+  "correcta": 0,
+  "explicacion": "A menos B son los elementos de A que no están en B. El 2 y el 3 sí están en B, así que solo queda el 1.",
+  "verificacion": {
+   "formula": "1-(1-0)*1+0*x",
+   "a": 0,
+   "esperado": 0
+  },
+  "pistas": [
+   "Mira los elementos de A.",
+   "Quita los que están en B.",
+   "Queda el 1."
+  ],
+  "errores": [
+   "",
+   "El 4 está en B y no en A, así que sería B menos A.",
+   "Esa es la intersección, los elementos comunes.",
+   "Esa es la diferencia simétrica, que une las dos diferencias."
+  ]
+ },
+ "resumen": [
+  "La unión junta, la intersección deja lo común, la diferencia quita y la simétrica deja lo que no es común.",
+  "Para contar una unión se usa |A| más |B| menos |A intersección B|.",
+  "El producto cartesiano tiene tantos pares como el producto de las cantidades, y el orden de cada par importa."
+ ]
+}

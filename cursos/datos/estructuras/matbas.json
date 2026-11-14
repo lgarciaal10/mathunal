@@ -1,0 +1,119 @@
+{
+ "esquema": 1,
+ "curso": "Matemáticas Básicas",
+ "estado": "PROVISIONAL. Los módulos y temas salen del banco de MathUNAL. El orden dentro de cada módulo es por cantidad de preguntas, NO pedagógico, y falta el temario oficial (PENDIENTE).",
+ "modulos": [
+  {
+   "n": 1,
+   "nombre": "Álgebra y expresiones",
+   "peso": 35,
+   "lecciones": [
+    {
+     "tema": "Exponentes y radicales",
+     "preguntas_banco": 10,
+     "parciales_con_el_tema": 1,
+     "estado": "borrador para revisión",
+     "leccion": "lecciones/matbas-exponentes.json"
+    },
+    {
+     "tema": "Polinomios y división",
+     "preguntas_banco": 8,
+     "parciales_con_el_tema": 1,
+     "estado": "borrador para revisión",
+     "leccion": "lecciones/matbas-polinomios.json"
+    },
+    {
+     "tema": "Productos notables y factorización",
+     "preguntas_banco": 8,
+     "parciales_con_el_tema": 1,
+     "estado": "borrador para revisión",
+     "leccion": "lecciones/matbas-notables.json"
+    },
+    {
+     "tema": "Fracciones algebraicas",
+     "preguntas_banco": 7,
+     "parciales_con_el_tema": 1,
+     "estado": "borrador para revisión",
+     "leccion": "lecciones/matbas-fracciones.json"
+    }
+   ]
+  },
+  {
+   "n": 2,
+   "nombre": "Ecuaciones, inecuaciones y sistemas",
+   "peso": 35,
+   "lecciones": [
+    {
+     "tema": "Ecuaciones exponenciales y logarítmicas",
+     "preguntas_banco": 9,
+     "parciales_con_el_tema": 1,
+     "estado": "borrador para revisión",
+     "leccion": "lecciones/matbas-explog.json"
+    },
+    {
+     "tema": "Ecuaciones lineales y cuadráticas",
+     "preguntas_banco": 9,
+     "parciales_con_el_tema": 1,
+     "estado": "borrador para revisión",
+     "leccion": "lecciones/matbas-cuadraticas.json"
+    },
+    {
+     "tema": "Inecuaciones",
+     "preguntas_banco": 8,
+     "parciales_con_el_tema": 1,
+     "estado": "borrador para revisión",
+     "leccion": "lecciones/matbas-inecuaciones.json"
+    },
+    {
+     "tema": "Sistemas de ecuaciones",
+     "preguntas_banco": 6,
+     "parciales_con_el_tema": 2,
+     "estado": "borrador para revisión",
+     "leccion": "lecciones/matbas-sistemas.json"
+    },
+    {
+     "tema": "Ecuaciones con radicales y valor absoluto",
+     "preguntas_banco": 4,
+     "parciales_con_el_tema": 1,
+     "estado": "borrador para revisión",
+     "leccion": "lecciones/matbas-radicales.json"
+    }
+   ]
+  },
+  {
+   "n": 3,
+   "nombre": "Funciones, trigonometría y geometría analítica",
+   "peso": 30,
+   "lecciones": [
+    {
+     "tema": "Trigonometría",
+     "preguntas_banco": 16,
+     "parciales_con_el_tema": 1,
+     "estado": "borrador para revisión",
+     "leccion": "lecciones/matbas-trigonometria.json"
+    },
+    {
+     "tema": "Funciones: dominio, rango e inversa",
+     "preguntas_banco": 15,
+     "parciales_con_el_tema": 1,
+     "estado": "borrador para revisión",
+     "leccion": "lecciones/matbas-funciones.json"
+    },
+    {
+     "tema": "Función lineal y cuadrática",
+     "preguntas_banco": 11,
+     "parciales_con_el_tema": 1,
+     "estado": "borrador para revisión",
+     "leccion": "lecciones/matbas-linealcuad.json"
+    },
+    {
+     "tema": "Geometría analítica (recta y circunferencia)",
+     "preguntas_banco": 9,
+     "parciales_con_el_tema": 1,
+     "estado": "borrador para revisión",
+     "leccion": "lecciones/matbas-geoanalitica.json"
+    }
+   ]
+  }
+ ]
+}

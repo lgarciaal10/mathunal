@@ -1,0 +1,893 @@
+{
+ "esquema": 1,
+ "id": "di-m3-l2",
+ "ejemplo": true,
+ "curso": "Matemáticas Discretas",
+ "modulo": "Módulo 3 Recurrencias, grafos y teoría de números",
+ "posicion": "Lección 2 de 4",
+ "titulo": "Teoría de grafos",
+ "minutos": 28,
+ "ejercicios": 8,
+ "grafica": {
+  "tipo": "plano",
+  "x": [
+   -8.1,
+   8.1
+  ],
+  "y": [
+   -4.4,
+   4.4
+  ],
+  "a": 2,
+  "b": 7,
+  "inicio": 5,
+  "entero": true,
+  "elementos": [
+   {
+    "t": "segmento",
+    "a": [
+     "3.0+((1*(x-0)*(x-1)*(x-3)*(x-4)*(x-5)*(x-6)*(x-7)/(-240))+(1*(x-0)*(x-1)*(x-2)*(x-4)*(x-5)*(x-6)*(x-7)/(144))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-5)*(x-6)*(x-7)/(-144))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-6)*(x-7)/(240))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-7)/(-720))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-6)/(5040)))*(0.00000)",
+     "0.0+((1*(x-0)*(x-1)*(x-3)*(x-4)*(x-5)*(x-6)*(x-7)/(-240))+(1*(x-0)*(x-1)*(x-2)*(x-4)*(x-5)*(x-6)*(x-7)/(144))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-5)*(x-6)*(x-7)/(-144))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-6)*(x-7)/(240))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-7)/(-720))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-6)/(5040)))*(0.00000)"
+    ],
+    "b": [
+     "3.0+((1*(x-0)*(x-1)*(x-3)*(x-4)*(x-5)*(x-6)*(x-7)/(-240))+(1*(x-0)*(x-1)*(x-2)*(x-4)*(x-5)*(x-6)*(x-7)/(144))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-5)*(x-6)*(x-7)/(-144))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-6)*(x-7)/(240))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-7)/(-720))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-6)/(5040)))*(-1.12953)",
+     "0.0+((1*(x-0)*(x-1)*(x-3)*(x-4)*(x-5)*(x-6)*(x-7)/(-240))+(1*(x-0)*(x-1)*(x-2)*(x-4)*(x-5)*(x-6)*(x-7)/(144))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-5)*(x-6)*(x-7)/(-144))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-6)*(x-7)/(240))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-7)/(-720))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-6)/(5040)))*(2.34549)"
+    ],
+    "c": 0
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "3.0+((1*(x-0)*(x-1)*(x-2)*(x-4)*(x-5)*(x-6)*(x-7)/(144))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-5)*(x-6)*(x-7)/(-144))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-6)*(x-7)/(240))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-7)/(-720))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-6)/(5040)))*(0.00000)",
+     "0.0+((1*(x-0)*(x-1)*(x-2)*(x-4)*(x-5)*(x-6)*(x-7)/(144))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-5)*(x-6)*(x-7)/(-144))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-6)*(x-7)/(240))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-7)/(-720))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-6)/(5040)))*(0.00000)"
+    ],
+    "b": [
+     "3.0+((1*(x-0)*(x-1)*(x-2)*(x-4)*(x-5)*(x-6)*(x-7)/(144))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-5)*(x-6)*(x-7)/(-144))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-6)*(x-7)/(240))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-7)/(-720))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-6)/(5040)))*(-3.66756)",
+     "0.0+((1*(x-0)*(x-1)*(x-2)*(x-4)*(x-5)*(x-6)*(x-7)/(144))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-5)*(x-6)*(x-7)/(-144))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-6)*(x-7)/(240))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-7)/(-720))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-6)/(5040)))*(2.92478)"
+    ],
+    "c": 0
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "3.0+((1*(x-0)*(x-1)*(x-2)*(x-3)*(x-5)*(x-6)*(x-7)/(-144))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-6)*(x-7)/(240))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-7)/(-720))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-6)/(5040)))*(0.00000)",
+     "0.0+((1*(x-0)*(x-1)*(x-2)*(x-3)*(x-5)*(x-6)*(x-7)/(-144))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-6)*(x-7)/(240))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-7)/(-720))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-6)/(5040)))*(0.00000)"
+    ],
+    "b": [
+     "3.0+((1*(x-0)*(x-1)*(x-2)*(x-3)*(x-5)*(x-6)*(x-7)/(-144))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-6)*(x-7)/(240))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-7)/(-720))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-6)/(5040)))*(-5.70291)",
+     "0.0+((1*(x-0)*(x-1)*(x-2)*(x-3)*(x-5)*(x-6)*(x-7)/(-144))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-6)*(x-7)/(240))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-7)/(-720))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-6)/(5040)))*(1.30165)"
+    ],
+    "c": 0
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "3.0+((1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-6)*(x-7)/(240))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-7)/(-720))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-6)/(5040)))*(0.00000)",
+     "0.0+((1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-6)*(x-7)/(240))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-7)/(-720))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-6)/(5040)))*(0.00000)"
+    ],
+    "b": [
+     "3.0+((1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-6)*(x-7)/(240))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-7)/(-720))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-6)/(5040)))*(-5.70291)",
+     "0.0+((1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-6)*(x-7)/(240))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-7)/(-720))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-6)/(5040)))*(-1.30165)"
+    ],
+    "c": 0
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "3.0+((1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-7)/(-720))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-6)/(5040)))*(0.00000)",
+     "0.0+((1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-7)/(-720))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-6)/(5040)))*(0.00000)"
+    ],
+    "b": [
+     "3.0+((1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-7)/(-720))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-6)/(5040)))*(-3.66756)",
+     "0.0+((1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-7)/(-720))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-6)/(5040)))*(-2.92478)"
+    ],
+    "c": 0
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "3.0+((1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-6)/(5040)))*(0.00000)",
+     "0.0+((1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-6)/(5040)))*(0.00000)"
+    ],
+    "b": [
+     "3.0+((1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-6)/(5040)))*(-1.12953)",
+     "0.0+((1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-6)/(5040)))*(-2.34549)"
+    ],
+    "c": 0
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "3.0+((1*(x-0)*(x-1)*(x-2)*(x-4)*(x-5)*(x-6)*(x-7)/(144))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-5)*(x-6)*(x-7)/(-144))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-6)*(x-7)/(240))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-7)/(-720))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-6)/(5040)))*(-1.12953)",
+     "0.0+((1*(x-0)*(x-1)*(x-2)*(x-4)*(x-5)*(x-6)*(x-7)/(144))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-5)*(x-6)*(x-7)/(-144))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-6)*(x-7)/(240))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-7)/(-720))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-6)/(5040)))*(2.34549)"
+    ],
+    "b": [
+     "3.0+((1*(x-0)*(x-1)*(x-2)*(x-4)*(x-5)*(x-6)*(x-7)/(144))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-5)*(x-6)*(x-7)/(-144))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-6)*(x-7)/(240))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-7)/(-720))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-6)/(5040)))*(-3.66756)",
+     "0.0+((1*(x-0)*(x-1)*(x-2)*(x-4)*(x-5)*(x-6)*(x-7)/(144))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-5)*(x-6)*(x-7)/(-144))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-6)*(x-7)/(240))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-7)/(-720))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-6)/(5040)))*(2.92478)"
+    ],
+    "c": 0
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "3.0+((1*(x-0)*(x-1)*(x-2)*(x-3)*(x-5)*(x-6)*(x-7)/(-144))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-6)*(x-7)/(240))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-7)/(-720))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-6)/(5040)))*(-1.12953)",
+     "0.0+((1*(x-0)*(x-1)*(x-2)*(x-3)*(x-5)*(x-6)*(x-7)/(-144))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-6)*(x-7)/(240))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-7)/(-720))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-6)/(5040)))*(2.34549)"
+    ],
+    "b": [
+     "3.0+((1*(x-0)*(x-1)*(x-2)*(x-3)*(x-5)*(x-6)*(x-7)/(-144))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-6)*(x-7)/(240))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-7)/(-720))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-6)/(5040)))*(-5.70291)",
+     "0.0+((1*(x-0)*(x-1)*(x-2)*(x-3)*(x-5)*(x-6)*(x-7)/(-144))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-6)*(x-7)/(240))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-7)/(-720))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-6)/(5040)))*(1.30165)"
+    ],
+    "c": 0
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "3.0+((1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-6)*(x-7)/(240))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-7)/(-720))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-6)/(5040)))*(-1.12953)",
+     "0.0+((1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-6)*(x-7)/(240))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-7)/(-720))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-6)/(5040)))*(2.34549)"
+    ],
+    "b": [
+     "3.0+((1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-6)*(x-7)/(240))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-7)/(-720))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-6)/(5040)))*(-5.70291)",
+     "0.0+((1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-6)*(x-7)/(240))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-7)/(-720))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-6)/(5040)))*(-1.30165)"
+    ],
+    "c": 0
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "3.0+((1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-7)/(-720))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-6)/(5040)))*(-1.12953)",
+     "0.0+((1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-7)/(-720))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-6)/(5040)))*(2.34549)"
+    ],
+    "b": [
+     "3.0+((1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-7)/(-720))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-6)/(5040)))*(-3.66756)",
+     "0.0+((1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-7)/(-720))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-6)/(5040)))*(-2.92478)"
+    ],
+    "c": 0
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "3.0+((1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-6)/(5040)))*(-1.12953)",
+     "0.0+((1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-6)/(5040)))*(2.34549)"
+    ],
+    "b": [
+     "3.0+((1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-6)/(5040)))*(-1.12953)",
+     "0.0+((1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-6)/(5040)))*(-2.34549)"
+    ],
+    "c": 0
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "3.0+((1*(x-0)*(x-1)*(x-2)*(x-3)*(x-5)*(x-6)*(x-7)/(-144))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-6)*(x-7)/(240))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-7)/(-720))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-6)/(5040)))*(-3.66756)",
+     "0.0+((1*(x-0)*(x-1)*(x-2)*(x-3)*(x-5)*(x-6)*(x-7)/(-144))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-6)*(x-7)/(240))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-7)/(-720))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-6)/(5040)))*(2.92478)"
+    ],
+    "b": [
+     "3.0+((1*(x-0)*(x-1)*(x-2)*(x-3)*(x-5)*(x-6)*(x-7)/(-144))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-6)*(x-7)/(240))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-7)/(-720))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-6)/(5040)))*(-5.70291)",
+     "0.0+((1*(x-0)*(x-1)*(x-2)*(x-3)*(x-5)*(x-6)*(x-7)/(-144))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-6)*(x-7)/(240))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-7)/(-720))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-6)/(5040)))*(1.30165)"
+    ],
+    "c": 0
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "3.0+((1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-6)*(x-7)/(240))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-7)/(-720))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-6)/(5040)))*(-3.66756)",
+     "0.0+((1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-6)*(x-7)/(240))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-7)/(-720))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-6)/(5040)))*(2.92478)"
+    ],
+    "b": [
+     "3.0+((1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-6)*(x-7)/(240))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-7)/(-720))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-6)/(5040)))*(-5.70291)",
+     "0.0+((1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-6)*(x-7)/(240))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-7)/(-720))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-6)/(5040)))*(-1.30165)"
+    ],
+    "c": 0
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "3.0+((1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-7)/(-720))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-6)/(5040)))*(-3.66756)",
+     "0.0+((1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-7)/(-720))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-6)/(5040)))*(2.92478)"
+    ],
+    "b": [
+     "3.0+((1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-7)/(-720))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-6)/(5040)))*(-3.66756)",
+     "0.0+((1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-7)/(-720))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-6)/(5040)))*(-2.92478)"
+    ],
+    "c": 0
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "3.0+((1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-6)/(5040)))*(-3.66756)",
+     "0.0+((1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-6)/(5040)))*(2.92478)"
+    ],
+    "b": [
+     "3.0+((1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-6)/(5040)))*(-1.12953)",
+     "0.0+((1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-6)/(5040)))*(-2.34549)"
+    ],
+    "c": 0
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "3.0+((1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-6)*(x-7)/(240))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-7)/(-720))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-6)/(5040)))*(-5.70291)",
+     "0.0+((1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-6)*(x-7)/(240))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-7)/(-720))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-6)/(5040)))*(1.30165)"
+    ],
+    "b": [
+     "3.0+((1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-6)*(x-7)/(240))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-7)/(-720))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-6)/(5040)))*(-5.70291)",
+     "0.0+((1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-6)*(x-7)/(240))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-7)/(-720))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-6)/(5040)))*(-1.30165)"
+    ],
+    "c": 0
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "3.0+((1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-7)/(-720))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-6)/(5040)))*(-5.70291)",
+     "0.0+((1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-7)/(-720))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-6)/(5040)))*(1.30165)"
+    ],
+    "b": [
+     "3.0+((1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-7)/(-720))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-6)/(5040)))*(-3.66756)",
+     "0.0+((1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-7)/(-720))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-6)/(5040)))*(-2.92478)"
+    ],
+    "c": 0
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "3.0+((1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-6)/(5040)))*(-5.70291)",
+     "0.0+((1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-6)/(5040)))*(1.30165)"
+    ],
+    "b": [
+     "3.0+((1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-6)/(5040)))*(-1.12953)",
+     "0.0+((1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-6)/(5040)))*(-2.34549)"
+    ],
+    "c": 0
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "3.0+((1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-7)/(-720))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-6)/(5040)))*(-5.70291)",
+     "0.0+((1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-7)/(-720))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-6)/(5040)))*(-1.30165)"
+    ],
+    "b": [
+     "3.0+((1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-7)/(-720))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-6)/(5040)))*(-3.66756)",
+     "0.0+((1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-7)/(-720))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-6)/(5040)))*(-2.92478)"
+    ],
+    "c": 0
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "3.0+((1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-6)/(5040)))*(-5.70291)",
+     "0.0+((1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-6)/(5040)))*(-1.30165)"
+    ],
+    "b": [
+     "3.0+((1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-6)/(5040)))*(-1.12953)",
+     "0.0+((1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-6)/(5040)))*(-2.34549)"
+    ],
+    "c": 0
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "3.0+((1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-6)/(5040)))*(-3.66756)",
+     "0.0+((1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-6)/(5040)))*(-2.92478)"
+    ],
+    "b": [
+     "3.0+((1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-6)/(5040)))*(-1.12953)",
+     "0.0+((1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-6)/(5040)))*(-2.34549)"
+    ],
+    "c": 0
+   },
+   {
+    "t": "punto",
+    "p": [
+     "3.0+((1*(x-0)*(x-2)*(x-3)*(x-4)*(x-5)*(x-6)*(x-7)/(720))+(1*(x-0)*(x-1)*(x-3)*(x-4)*(x-5)*(x-6)*(x-7)/(-240))+(1*(x-0)*(x-1)*(x-2)*(x-4)*(x-5)*(x-6)*(x-7)/(144))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-5)*(x-6)*(x-7)/(-144))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-6)*(x-7)/(240))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-7)/(-720))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-6)/(5040)))*(0.00000)",
+     "0.0+((1*(x-0)*(x-2)*(x-3)*(x-4)*(x-5)*(x-6)*(x-7)/(720))+(1*(x-0)*(x-1)*(x-3)*(x-4)*(x-5)*(x-6)*(x-7)/(-240))+(1*(x-0)*(x-1)*(x-2)*(x-4)*(x-5)*(x-6)*(x-7)/(144))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-5)*(x-6)*(x-7)/(-144))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-6)*(x-7)/(240))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-7)/(-720))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-6)/(5040)))*(0.00000)"
+    ],
+    "c": 1
+   },
+   {
+    "t": "punto",
+    "p": [
+     "3.0+((1*(x-0)*(x-1)*(x-3)*(x-4)*(x-5)*(x-6)*(x-7)/(-240))+(1*(x-0)*(x-1)*(x-2)*(x-4)*(x-5)*(x-6)*(x-7)/(144))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-5)*(x-6)*(x-7)/(-144))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-6)*(x-7)/(240))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-7)/(-720))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-6)/(5040)))*(-1.12953)",
+     "0.0+((1*(x-0)*(x-1)*(x-3)*(x-4)*(x-5)*(x-6)*(x-7)/(-240))+(1*(x-0)*(x-1)*(x-2)*(x-4)*(x-5)*(x-6)*(x-7)/(144))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-5)*(x-6)*(x-7)/(-144))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-6)*(x-7)/(240))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-7)/(-720))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-6)/(5040)))*(2.34549)"
+    ],
+    "c": 2
+   },
+   {
+    "t": "punto",
+    "p": [
+     "3.0+((1*(x-0)*(x-1)*(x-2)*(x-4)*(x-5)*(x-6)*(x-7)/(144))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-5)*(x-6)*(x-7)/(-144))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-6)*(x-7)/(240))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-7)/(-720))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-6)/(5040)))*(-3.66756)",
+     "0.0+((1*(x-0)*(x-1)*(x-2)*(x-4)*(x-5)*(x-6)*(x-7)/(144))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-5)*(x-6)*(x-7)/(-144))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-6)*(x-7)/(240))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-7)/(-720))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-6)/(5040)))*(2.92478)"
+    ],
+    "c": 2
+   },
+   {
+    "t": "punto",
+    "p": [
+     "3.0+((1*(x-0)*(x-1)*(x-2)*(x-3)*(x-5)*(x-6)*(x-7)/(-144))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-6)*(x-7)/(240))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-7)/(-720))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-6)/(5040)))*(-5.70291)",
+     "0.0+((1*(x-0)*(x-1)*(x-2)*(x-3)*(x-5)*(x-6)*(x-7)/(-144))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-6)*(x-7)/(240))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-7)/(-720))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-6)/(5040)))*(1.30165)"
+    ],
+    "c": 2
+   },
+   {
+    "t": "punto",
+    "p": [
+     "3.0+((1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-6)*(x-7)/(240))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-7)/(-720))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-6)/(5040)))*(-5.70291)",
+     "0.0+((1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-6)*(x-7)/(240))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-7)/(-720))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-6)/(5040)))*(-1.30165)"
+    ],
+    "c": 2
+   },
+   {
+    "t": "punto",
+    "p": [
+     "3.0+((1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-7)/(-720))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-6)/(5040)))*(-3.66756)",
+     "0.0+((1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-7)/(-720))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-6)/(5040)))*(-2.92478)"
+    ],
+    "c": 2
+   },
+   {
+    "t": "punto",
+    "p": [
+     "3.0+((1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-6)/(5040)))*(-1.12953)",
+     "0.0+((1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-6)/(5040)))*(-2.34549)"
+    ],
+    "c": 2
+   }
+  ],
+  "lecturas": [
+   {
+    "rotulo": "aristas del grafo completo con n vértices",
+    "formula": "x*(x-1)/2"
+   },
+   {
+    "rotulo": "suma de los grados, el doble de las aristas",
+    "formula": "x*(x-1)"
+   }
+  ],
+  "etiquetas": [
+   "Número de aristas, n por n menos 1 entre 2",
+   "Suma de los grados de todos los vértices"
+  ],
+  "etiquetaSlider": "Número de vértices n, de 2 a 7",
+  "alt": "El grafo completo con n vértices puestos en un círculo, y una arista entre cada par de vértices. Con 5 vértices hay 10 aristas, y con 7 vértices hay 21 aristas"
+ },
+ "glosario": {
+  "grafo": "Un grafo es un conjunto de vértices unidos por aristas. Se usa para modelar redes y relaciones.",
+  "grado": "El grado de un vértice es el número de aristas que llegan a él.",
+  "completo": "El grafo completo K de n tiene n vértices y una arista entre cada par de ellos. Tiene n por n menos 1 entre 2 aristas.",
+  "arbol": "Un árbol es un grafo conexo sin ciclos. Con n vértices tiene exactamente n menos 1 aristas.",
+  "euleriano": "Un circuito euleriano recorre cada arista exactamente una vez y vuelve al inicio. Existe en un grafo conexo si y solo si todos los vértices tienen grado par."
+ },
+ "ver": {
+  "duracion": 22.0,
+  "capitulos": [
+   [
+    0,
+    4,
+    "Cada punto es un vértice y cada segmento es una arista. Este es el grafo completo, donde todos los vértices están unidos."
+   ],
+   [
+    4,
+    9,
+    "Con 3 vértices hay 3 aristas, y con 4 vértices hay 6."
+   ],
+   [
+    9,
+    14,
+    "Con 5 vértices hay 10 aristas. Cada vértice tiene grado 4."
+   ],
+   [
+    14,
+    19,
+    "La suma de los grados es el doble de las aristas, porque cada arista toca dos vértices."
+   ],
+   [
+    19,
+    22,
+    "Con 7 vértices hay 21 aristas, y todos los vértices tienen grado 6, que es par, así que hay un circuito euleriano."
+   ]
+  ],
+  "canales": {
+   "draw": [
+    [
+     0.3,
+     0
+    ],
+    [
+     3.5,
+     1
+    ]
+   ],
+   "d": [
+    [
+     4,
+     2
+    ],
+    [
+     6,
+     3
+    ],
+    [
+     8,
+     4
+    ],
+    [
+     10,
+     5
+    ],
+    [
+     16,
+     5
+    ],
+    [
+     17,
+     7
+    ],
+    [
+     22,
+     7
+    ]
+   ],
+   "guide": [
+    [
+     4,
+     0
+    ],
+    [
+     5,
+     1
+    ]
+   ]
+  },
+  "intervalos": {
+   "ok": [
+    9,
+    22
+   ]
+  }
+ },
+ "leer": {
+  "secciones": [
+   {
+    "titulo": "La idea",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Un {{gl:grafo|grafo}} tiene vértices y aristas, y sirve para modelar redes. El {{gl:grado|grado}} de un vértice cuenta sus aristas. El grafo {{gl:completo|completo}} une todos los pares. Un {{gl:arbol|árbol}} es un grafo conexo sin ciclos. Y un circuito {{gl:euleriano|euleriano}} recorre cada arista una sola vez."
+     }
+    ]
+   },
+   {
+    "titulo": "Un ejemplo",
+    "corto": "Un ejemplo",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mira el grafo completo con n vértices. Cada par de vértices tiene una arista."
+     },
+     {
+      "t": "eq",
+      "tex": "|E|=\\dbinom{n}{2}=\\dfrac{n(n-1)}{2}"
+     },
+     {
+      "t": "grafica",
+      "animar": "dibujar",
+      "alt": "El grafo completo"
+     }
+    ]
+   },
+   {
+    "titulo": "Piensa antes de ver",
+    "corto": "Piensa",
+    "bloques": [
+     {
+      "t": "piensa",
+      "pregunta": "En el grafo completo con 4 vértices, cada vértice se une con los otros 3. Si se suman los grados, ¿cuánto da?",
+      "opciones": [
+       7,
+       8,
+       12,
+       16
+      ],
+      "correcta": 12,
+      "bien": "Muy bien. Es 4 por 3, o sea 12, que es el doble de las 6 aristas. Más abajo se ve.",
+      "mal": "Es 12, porque son 4 vértices con grado 3 cada uno. Es el doble de las 6 aristas. Más abajo se ve."
+     }
+    ]
+   },
+   {
+    "titulo": "Añadiendo vértices",
+    "corto": "Los vértices",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mira el grafo completo con 3, 4, 5 y 7 vértices."
+     },
+     {
+      "t": "acercando",
+      "ds": [
+       3,
+       4,
+       5,
+       7
+      ],
+      "alt": "El grafo completo con cuatro cantidades de vértices"
+     },
+     {
+      "t": "p",
+      "html": "Con 5 vértices hay 10 aristas, y con 7 hay 21."
+     }
+    ]
+   },
+   {
+    "titulo": "Grados y aristas",
+    "corto": "Grados",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Cada arista toca dos vértices, y eso relaciona los grados con el número de aristas."
+     },
+     {
+      "t": "pasos",
+      "items": [
+       {
+        "tex": "\\displaystyle\\sum_{v}\\deg(v)=2\\,|E|",
+        "porque": "Lema del apretón de manos."
+       },
+       {
+        "tex": "K_{5}:\\ 5\\cdot4=20=2\\cdot10",
+        "porque": "En K5 hay 10 aristas, y la suma de los grados es 20."
+       },
+       {
+        "tex": "|E|=\\dfrac{n(n-1)}{2}",
+        "porque": "Las aristas del grafo completo."
+       },
+       {
+        "tex": "\\text{árbol con}\\ n\\ \\text{vértices}\\ \\Rightarrow\\ n-1\\ \\text{aristas}",
+        "porque": "Los árboles tienen la menor cantidad de aristas para estar conectados."
+       }
+      ]
+     },
+     {
+      "t": "ojo",
+      "html": "La suma de los grados siempre es par. Por eso no existe un grafo con un número impar de vértices de grado impar."
+     }
+    ]
+   },
+   {
+    "titulo": "Circuitos eulerianos",
+    "corto": "Euler",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Un circuito euleriano pasa por todas las aristas una sola vez."
+     },
+     {
+      "t": "pasos",
+      "items": [
+       {
+        "tex": "\\text{conexo y todos los grados pares}\\ \\Leftrightarrow\\ \\text{circuito euleriano}",
+        "porque": "El criterio de Euler."
+       },
+       {
+        "tex": "K_{5}:\\ \\text{grado}\\ 4\\ \\text{en cada vértice}",
+        "porque": "Todos son pares, así que K5 tiene circuito euleriano."
+       },
+       {
+        "tex": "K_{4}:\\ \\text{grado}\\ 3\\ \\text{en cada vértice}",
+        "porque": "Son impares, y K4 no lo tiene."
+       }
+      ]
+     },
+     {
+      "t": "ojo",
+      "html": "Hace falta que el grafo sea conexo. Si tiene dos partes separadas no hay circuito que las recorra a las dos."
+     }
+    ]
+   },
+   {
+    "titulo": "¿Para qué sirve?",
+    "corto": "En ingeniería",
+    "bloques": [
+     {
+      "t": "ingenieria",
+      "titulo": "Una red de computadores",
+      "html": "En una red de 8 equipos donde cada uno se conecta con todos los demás hacen falta 28 cables. Una red en forma de árbol conecta los 8 equipos con 7 cables. Las dos son grafos, pero con una cantidad de aristas muy diferente.",
+      "tex": "\\dbinom{8}{2}=28,\\qquad n-1=7",
+      "datos": [
+       {
+        "k": "Equipos",
+        "v": "8"
+       },
+       {
+        "k": "Cables si todos se unen",
+        "v": "28"
+       },
+       {
+        "k": "Cables en árbol",
+        "v": "7"
+       }
+      ],
+      "cierre": "Unir todos con todos da mucha redundancia, pero cuesta cuatro veces más cables. El árbol es lo más barato, pero si un cable falla se desconecta una parte. En el diseño de redes se elige un punto intermedio, con unos pocos ciclos. Entender cuántas aristas cuesta cada diseño permite estimar costos antes de instalar."
+     }
+    ]
+   },
+   {
+    "titulo": "Completa el paso",
+    "corto": "Completa",
+    "bloques": [
+     {
+      "t": "completar",
+      "enunciado": "Se completa el lema del apretón de manos.",
+      "tex": "\\displaystyle\\sum_{v}\\deg(v)=[[hueco]]\\cdot|E|",
+      "opciones": [
+       {
+        "tex": "2",
+        "txt": "dos"
+       },
+       {
+        "tex": "1",
+        "txt": "uno"
+       },
+       {
+        "tex": "|V|",
+        "txt": "la cantidad de vértices"
+       }
+      ],
+      "correcta": 0,
+      "errores": [
+       "",
+       "Con uno se contaría cada arista una sola vez, pero cada arista toca dos vértices.",
+       "La cantidad de vértices no interviene, y la suma de grados depende de las aristas."
+      ],
+      "pista": "Cada arista aporta a dos grados.",
+      "porque": "Cada arista se cuenta una vez en cada uno de sus dos extremos."
+     }
+    ]
+   },
+   {
+    "titulo": "Encuentra el error",
+    "corto": "Error",
+    "bloques": [
+     {
+      "t": "error",
+      "enunciado": "Alguien contó las aristas de K5 y se equivocó en un paso. Toca el paso que está mal.",
+      "pasos": [
+       {
+        "tex": "K_{5}\\ \\text{tiene 5 vértices}",
+        "porque": "El dato.",
+        "txt": "K5 tiene 5 vértices"
+       },
+       {
+        "tex": "\\text{cada vértice se une con 4 más}",
+        "porque": "El grado de cada vértice.",
+        "txt": "cada vértice tiene grado 4"
+       },
+       {
+        "tex": "\\text{Entonces hay}\\ 5\\cdot4=20\\ \\text{aristas}",
+        "porque": "Este paso es el que falla.",
+        "txt": "hay 20 aristas"
+       }
+      ],
+      "mal": 2,
+      "explicacion": "El producto 5 por 4 cuenta cada arista dos veces, una desde cada extremo, y es la suma de grados. Las aristas son la mitad, o sea 10.",
+      "correccion": "|E|=\\dfrac{5\\cdot4}{2}=10",
+      "pista": "Piensa cuántas veces se cuenta cada arista."
+     }
+    ]
+   },
+   {
+    "titulo": "Ordena los pasos",
+    "corto": "Ordena",
+    "bloques": [
+     {
+      "t": "ordenar",
+      "enunciado": "Estos son los pasos para decidir si un grafo tiene un circuito euleriano, pero están desordenados.",
+      "pasos": [
+       "\\text{se calcula el grado de cada vértice}",
+       "\\text{todos los grados son pares}",
+       "\\text{el grafo es conexo}",
+       "\\text{hay circuito euleriano}"
+      ],
+      "mezcla": [
+       2,
+       0,
+       3,
+       1
+      ],
+      "porque": "Se calculan los grados, se verifica que son pares, se verifica que es conexo y se concluye.",
+      "pista": "Se empieza calculando los grados.",
+      "txt": [
+       "Se calculan los grados",
+       "Se verifica que son pares",
+       "Se verifica que es conexo",
+       "Se concluye"
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "Revisa tu respuesta",
+    "corto": "Revisa",
+    "bloques": [
+     {
+      "t": "pregunta"
+     },
+     {
+      "t": "nota",
+      "html": "Puedes pedir pistas de a una. Si fallas, el mensaje te dice qué error se cometió."
+     }
+    ]
+   },
+   {
+    "titulo": "Mini simulacro",
+    "corto": "Simulacro",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Tres preguntas reales del banco de MathUNAL sobre este tema. Responde sin mirar los pasos."
+     },
+     {
+      "t": "simulacro",
+      "titulo": "Mini simulacro de teoría de grafos",
+      "preguntas": [
+       {
+        "tipo": "mcq",
+        "texto": "En cualquier grafo, la suma de los grados de todos los vértices es igual a:",
+        "opciones": [
+         "$2\\times$ (número de aristas)",
+         "el número de aristas",
+         "el número de vértices",
+         "$0$"
+        ],
+        "correcta": 0,
+        "resumen": "La suma de los grados es el doble del número de aristas.",
+        "fuente": "Banco MathUNAL, simulacro de Matemáticas Discretas"
+       },
+       {
+        "tipo": "numerica",
+        "texto": "El grafo completo $K_5$ tiene cuántas aristas:",
+        "respuesta": "10",
+        "tolNum": 0.001,
+        "resumen": "$\\binom{5}{2}=10$ aristas.",
+        "fuente": "Banco MathUNAL, simulacro de Matemáticas Discretas"
+       },
+       {
+        "tipo": "mcq",
+        "texto": "Un grafo conexo tiene un CIRCUITO euleriano (recorre cada arista exactamente una vez y vuelve al inicio) si y solo si:",
+        "opciones": [
+         "todos sus vértices tienen grado par",
+         "todos sus vértices tienen grado impar",
+         "es un árbol",
+         "tiene un número par de aristas"
+        ],
+        "correcta": 0,
+        "resumen": "Un grafo conexo tiene un circuito euleriano si todos sus vértices tienen grado par.",
+        "fuente": "Banco MathUNAL, simulacro de Matemáticas Discretas"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "Tu repaso",
+    "corto": "Repaso",
+    "bloques": [
+     {
+      "t": "repaso"
+     }
+    ]
+   },
+   {
+    "titulo": "En resumen",
+    "corto": "Resumen",
+    "bloques": [
+     {
+      "t": "resumen"
+     }
+    ]
+   }
+  ]
+ },
+ "practicar": {
+  "pasos": [
+   {
+    "titulo": "El grafo completo",
+    "grafica": {
+     "draw": 1
+    },
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Un grafo con una arista entre cada par de vértices."
+     },
+     {
+      "t": "eq",
+      "tex": "|E|=\\dfrac{n(n-1)}{2}"
+     }
+    ]
+   },
+   {
+    "titulo": "Añade vértices",
+    "grafica": {
+     "draw": 1
+    },
+    "laboratorio": true,
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mueve el deslizador de 2 a 7. Abajo se leen las aristas y la suma de los grados."
+     }
+    ]
+   },
+   {
+    "titulo": "Con 5 vértices",
+    "grafica": {
+     "draw": 1,
+     "guide": 1,
+     "ok": true
+    },
+    "laboratorio": true,
+    "d": 5,
+    "bloques": [
+     {
+      "t": "eq",
+      "tex": "\\dfrac{5\\cdot4}{2}=10"
+     },
+     {
+      "t": "p",
+      "html": "Con 5 vértices hay 10 aristas y la suma de los grados es 20."
+     }
+    ]
+   },
+   {
+    "titulo": "Revisa tu respuesta",
+    "grafica": {
+     "draw": 1,
+     "guide": 1,
+     "ok": true,
+     "d": 5
+    },
+    "bloques": [
+     {
+      "t": "pregunta"
+     },
+     {
+      "t": "nota",
+      "html": "La suma de los grados es el doble de las aristas."
+     }
+    ]
+   }
+  ]
+ },
+ "pregunta": {
+  "tex": "\\text{Un grafo de 6 vértices con grados 3, 3, 2, 2, 2 y 2 tiene cuántas aristas}",
+  "opciones": [
+   "$7$",
+   "$14$",
+   "$6$",
+   "$12$"
+  ],
+  "correcta": 0,
+  "explicacion": "La suma de los grados es 3 más 3 más 2 más 2 más 2 más 2, o sea 14. Como la suma de los grados es el doble de las aristas, el grafo tiene 7 aristas.",
+  "verificacion": {
+   "formula": "(3+3+2+2+2+2)/2+0*x",
+   "a": 0,
+   "esperado": 7
+  },
+  "pistas": [
+   "Suma los grados.",
+   "Da 14.",
+   "Las aristas son la mitad."
+  ],
+  "errores": [
+   "",
+   "Catorce es la suma de los grados, que es el doble de las aristas.",
+   "Seis es el número de vértices, y no el de aristas.",
+   "Doce se obtiene al sumar mal los grados."
+  ]
+ },
+ "resumen": [
+  "En todo grafo, la suma de los grados es el doble del número de aristas.",
+  "El grafo completo con n vértices tiene n por n menos 1 entre 2 aristas, y un árbol tiene n menos 1.",
+  "Un grafo conexo tiene circuito euleriano si y solo si todos sus vértices tienen grado par."
+ ]
+}

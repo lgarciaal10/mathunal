@@ -1,0 +1,1193 @@
+{
+ "esquema": 1,
+ "id": "fu-m1-l3",
+ "ejemplo": true,
+ "curso": "Fundamentos de Matemáticas",
+ "modulo": "Módulo 1 Lógica y argumentación",
+ "posicion": "Lección 3 de 3",
+ "titulo": "Formas de argumento e inferencia",
+ "minutos": 26,
+ "ejercicios": 8,
+ "grafica": {
+  "tipo": "plano",
+  "x": [
+   -0.654,
+   9.154
+  ],
+  "y": [
+   -5.25,
+   0.5
+  ],
+  "a": 0,
+  "b": 3,
+  "inicio": 0,
+  "entero": true,
+  "sinejes": true,
+  "elementos": [
+   {
+    "t": "poligono",
+    "puntos": [
+     [
+      "0.0",
+      "0.0"
+     ],
+     [
+      "1.7",
+      "0.0"
+     ],
+     [
+      "1.7",
+      "-0.95"
+     ],
+     [
+      "0.0",
+      "-0.95"
+     ]
+    ],
+    "c": 0,
+    "nombre": "p"
+   },
+   {
+    "t": "poligono",
+    "puntos": [
+     [
+      "1.7",
+      "0.0"
+     ],
+     [
+      "3.4",
+      "0.0"
+     ],
+     [
+      "3.4",
+      "-0.95"
+     ],
+     [
+      "1.7",
+      "-0.95"
+     ]
+    ],
+    "c": 0,
+    "nombre": "q"
+   },
+   {
+    "t": "poligono",
+    "puntos": [
+     [
+      "3.4",
+      "0.0"
+     ],
+     [
+      "5.1",
+      "0.0"
+     ],
+     [
+      "5.1",
+      "-0.95"
+     ],
+     [
+      "3.4",
+      "-0.95"
+     ]
+    ],
+    "c": 0,
+    "nombre": "P1"
+   },
+   {
+    "t": "poligono",
+    "puntos": [
+     [
+      "5.1",
+      "0.0"
+     ],
+     [
+      "6.8",
+      "0.0"
+     ],
+     [
+      "6.8",
+      "-0.95"
+     ],
+     [
+      "5.1",
+      "-0.95"
+     ]
+    ],
+    "c": 0,
+    "nombre": "P2"
+   },
+   {
+    "t": "poligono",
+    "puntos": [
+     [
+      "6.8",
+      "0.0"
+     ],
+     [
+      "8.5",
+      "0.0"
+     ],
+     [
+      "8.5",
+      "-0.95"
+     ],
+     [
+      "6.8",
+      "-0.95"
+     ]
+    ],
+    "c": 0,
+    "nombre": "C"
+   },
+   {
+    "t": "poligono",
+    "puntos": [
+     [
+      "0.0",
+      "-0.95"
+     ],
+     [
+      "1.7",
+      "-0.95"
+     ],
+     [
+      "1.7",
+      "-1.9"
+     ],
+     [
+      "0.0",
+      "-1.9"
+     ]
+    ],
+    "c": 3,
+    "nombre": "V"
+   },
+   {
+    "t": "poligono",
+    "puntos": [
+     [
+      "1.7",
+      "-0.95"
+     ],
+     [
+      "3.4",
+      "-0.95"
+     ],
+     [
+      "3.4",
+      "-1.9"
+     ],
+     [
+      "1.7",
+      "-1.9"
+     ]
+    ],
+    "c": 3,
+    "nombre": "V"
+   },
+   {
+    "t": "poligono",
+    "puntos": [
+     [
+      "3.4",
+      "-0.95"
+     ],
+     [
+      "5.1",
+      "-0.95"
+     ],
+     [
+      "5.1",
+      "-1.9"
+     ],
+     [
+      "3.4",
+      "-1.9"
+     ]
+    ],
+    "c": 3,
+    "nombre": "V"
+   },
+   {
+    "t": "poligono",
+    "puntos": [
+     [
+      "5.1",
+      "-0.95"
+     ],
+     [
+      "6.8",
+      "-0.95"
+     ],
+     [
+      "6.8",
+      "-1.9"
+     ],
+     [
+      "5.1",
+      "-1.9"
+     ]
+    ],
+    "c": 3,
+    "nombre": "V"
+   },
+   {
+    "t": "poligono",
+    "puntos": [
+     [
+      "6.8",
+      "-0.95"
+     ],
+     [
+      "8.5",
+      "-0.95"
+     ],
+     [
+      "8.5",
+      "-1.9"
+     ],
+     [
+      "6.8",
+      "-1.9"
+     ]
+    ],
+    "c": 3,
+    "nombre": "V"
+   },
+   {
+    "t": "poligono",
+    "puntos": [
+     [
+      "0.0",
+      "-1.9"
+     ],
+     [
+      "1.7",
+      "-1.9"
+     ],
+     [
+      "1.7",
+      "-2.8499999999999996"
+     ],
+     [
+      "0.0",
+      "-2.8499999999999996"
+     ]
+    ],
+    "c": 3,
+    "nombre": "V"
+   },
+   {
+    "t": "poligono",
+    "puntos": [
+     [
+      "1.7",
+      "-1.9"
+     ],
+     [
+      "3.4",
+      "-1.9"
+     ],
+     [
+      "3.4",
+      "-2.8499999999999996"
+     ],
+     [
+      "1.7",
+      "-2.8499999999999996"
+     ]
+    ],
+    "c": 1,
+    "nombre": "F"
+   },
+   {
+    "t": "poligono",
+    "puntos": [
+     [
+      "3.4",
+      "-1.9"
+     ],
+     [
+      "5.1",
+      "-1.9"
+     ],
+     [
+      "5.1",
+      "-2.8499999999999996"
+     ],
+     [
+      "3.4",
+      "-2.8499999999999996"
+     ]
+    ],
+    "c": 1,
+    "nombre": "F"
+   },
+   {
+    "t": "poligono",
+    "puntos": [
+     [
+      "5.1",
+      "-1.9"
+     ],
+     [
+      "6.8",
+      "-1.9"
+     ],
+     [
+      "6.8",
+      "-2.8499999999999996"
+     ],
+     [
+      "5.1",
+      "-2.8499999999999996"
+     ]
+    ],
+    "c": 1,
+    "nombre": "F"
+   },
+   {
+    "t": "poligono",
+    "puntos": [
+     [
+      "6.8",
+      "-1.9"
+     ],
+     [
+      "8.5",
+      "-1.9"
+     ],
+     [
+      "8.5",
+      "-2.8499999999999996"
+     ],
+     [
+      "6.8",
+      "-2.8499999999999996"
+     ]
+    ],
+    "c": 3,
+    "nombre": "V"
+   },
+   {
+    "t": "poligono",
+    "puntos": [
+     [
+      "0.0",
+      "-2.8499999999999996"
+     ],
+     [
+      "1.7",
+      "-2.8499999999999996"
+     ],
+     [
+      "1.7",
+      "-3.8"
+     ],
+     [
+      "0.0",
+      "-3.8"
+     ]
+    ],
+    "c": 1,
+    "nombre": "F"
+   },
+   {
+    "t": "poligono",
+    "puntos": [
+     [
+      "1.7",
+      "-2.8499999999999996"
+     ],
+     [
+      "3.4",
+      "-2.8499999999999996"
+     ],
+     [
+      "3.4",
+      "-3.8"
+     ],
+     [
+      "1.7",
+      "-3.8"
+     ]
+    ],
+    "c": 3,
+    "nombre": "V"
+   },
+   {
+    "t": "poligono",
+    "puntos": [
+     [
+      "3.4",
+      "-2.8499999999999996"
+     ],
+     [
+      "5.1",
+      "-2.8499999999999996"
+     ],
+     [
+      "5.1",
+      "-3.8"
+     ],
+     [
+      "3.4",
+      "-3.8"
+     ]
+    ],
+    "c": 3,
+    "nombre": "V"
+   },
+   {
+    "t": "poligono",
+    "puntos": [
+     [
+      "5.1",
+      "-2.8499999999999996"
+     ],
+     [
+      "6.8",
+      "-2.8499999999999996"
+     ],
+     [
+      "6.8",
+      "-3.8"
+     ],
+     [
+      "5.1",
+      "-3.8"
+     ]
+    ],
+    "c": 3,
+    "nombre": "V"
+   },
+   {
+    "t": "poligono",
+    "puntos": [
+     [
+      "6.8",
+      "-2.8499999999999996"
+     ],
+     [
+      "8.5",
+      "-2.8499999999999996"
+     ],
+     [
+      "8.5",
+      "-3.8"
+     ],
+     [
+      "6.8",
+      "-3.8"
+     ]
+    ],
+    "c": 1,
+    "nombre": "F"
+   },
+   {
+    "t": "poligono",
+    "puntos": [
+     [
+      "0.0",
+      "-3.8"
+     ],
+     [
+      "1.7",
+      "-3.8"
+     ],
+     [
+      "1.7",
+      "-4.75"
+     ],
+     [
+      "0.0",
+      "-4.75"
+     ]
+    ],
+    "c": 1,
+    "nombre": "F"
+   },
+   {
+    "t": "poligono",
+    "puntos": [
+     [
+      "1.7",
+      "-3.8"
+     ],
+     [
+      "3.4",
+      "-3.8"
+     ],
+     [
+      "3.4",
+      "-4.75"
+     ],
+     [
+      "1.7",
+      "-4.75"
+     ]
+    ],
+    "c": 1,
+    "nombre": "F"
+   },
+   {
+    "t": "poligono",
+    "puntos": [
+     [
+      "3.4",
+      "-3.8"
+     ],
+     [
+      "5.1",
+      "-3.8"
+     ],
+     [
+      "5.1",
+      "-4.75"
+     ],
+     [
+      "3.4",
+      "-4.75"
+     ]
+    ],
+    "c": 3,
+    "nombre": "V"
+   },
+   {
+    "t": "poligono",
+    "puntos": [
+     [
+      "5.1",
+      "-3.8"
+     ],
+     [
+      "6.8",
+      "-3.8"
+     ],
+     [
+      "6.8",
+      "-4.75"
+     ],
+     [
+      "5.1",
+      "-4.75"
+     ]
+    ],
+    "c": 1,
+    "nombre": "F"
+   },
+   {
+    "t": "poligono",
+    "puntos": [
+     [
+      "6.8",
+      "-3.8"
+     ],
+     [
+      "8.5",
+      "-3.8"
+     ],
+     [
+      "8.5",
+      "-4.75"
+     ],
+     [
+      "6.8",
+      "-4.75"
+     ]
+    ],
+    "c": 1,
+    "nombre": "F"
+   },
+   {
+    "t": "poligono",
+    "puntos": [
+     [
+      "0.0",
+      "(0.0-(x+1)*0.95)"
+     ],
+     [
+      "8.5",
+      "(0.0-(x+1)*0.95)"
+     ],
+     [
+      "8.5",
+      "(0.0-(x+2)*0.95)"
+     ],
+     [
+      "0.0",
+      "(0.0-(x+2)*0.95)"
+     ]
+    ],
+    "c": 2
+   }
+  ],
+  "lecturas": [
+   {
+    "rotulo": "las dos premisas son verdaderas (1 si es cierto)",
+    "formula": "(1*(x-1)*(x-2)*(x-3)/(-6))+(1*(x-0)*(x-1)*(x-3)/(-2))"
+   },
+   {
+    "rotulo": "la conclusión es verdadera (1 si es cierto)",
+    "formula": "(1*(x-1)*(x-2)*(x-3)/(-6))+(1*(x-0)*(x-2)*(x-3)/(2))"
+   }
+  ],
+  "etiquetas": [
+   "Valor de las dos premisas juntas, 1 si ambas son verdaderas",
+   "Valor de la conclusión, 1 si es verdadera"
+  ],
+  "etiquetaSlider": "Fila de la tabla, de 0 a 3",
+  "alt": "La tabla de verdad del argumento de p implica q y q, luego p. Hay columnas para p, q, la premisa P1, la premisa P2 y la conclusión C. En la fila en que p es falsa y q es verdadera las dos premisas son verdaderas y la conclusión es falsa, así que el argumento es inválido"
+ },
+ "glosario": {
+  "premisa": "Una premisa es una proposición que se acepta como punto de partida en un argumento.",
+  "conclusion": "La conclusión es la proposición que se quiere obtener a partir de las premisas.",
+  "valido": "Un argumento es válido si en toda fila en que las premisas son verdaderas, la conclusión también lo es. La validez habla de la forma, no de si las premisas son ciertas.",
+  "falacia": "Una falacia es un razonamiento que parece válido pero no lo es, porque existe una fila con premisas verdaderas y conclusión falsa."
+ },
+ "ver": {
+  "duracion": 24.0,
+  "capitulos": [
+   [
+    0,
+    5,
+    "Este argumento tiene dos premisas, P1 que dice p implica q, y P2 que dice q. La conclusión C es p. Veamos si es válido."
+   ],
+   [
+    5,
+    10,
+    "Recorre las filas. Un argumento es válido si, cada vez que las dos premisas son verdaderas, la conclusión también lo es."
+   ],
+   [
+    10,
+    17,
+    "En la fila 2, p es falsa y q es verdadera. Las dos premisas son verdaderas, pero la conclusión es falsa."
+   ],
+   [
+    17,
+    21,
+    "Esa sola fila es un contraejemplo. El argumento es inválido, y se llama afirmar el consecuente."
+   ],
+   [
+    21,
+    24,
+    "Para mostrar que un argumento es inválido basta un contraejemplo, y para mostrar que es válido hay que revisar todas las filas."
+   ]
+  ],
+  "canales": {
+   "draw": [
+    [
+     0.3,
+     0
+    ],
+    [
+     4.5,
+     1
+    ]
+   ],
+   "d": [
+    [
+     5,
+     0
+    ],
+    [
+     8,
+     0
+    ],
+    [
+     9,
+     1
+    ],
+    [
+     11,
+     1
+    ],
+    [
+     12,
+     2
+    ],
+    [
+     22,
+     2
+    ],
+    [
+     23,
+     3
+    ],
+    [
+     24,
+     3
+    ]
+   ],
+   "guide": [
+    [
+     5,
+     0
+    ],
+    [
+     6,
+     1
+    ]
+   ]
+  },
+  "intervalos": {
+   "ok": [
+    17,
+    24
+   ]
+  }
+ },
+ "leer": {
+  "secciones": [
+   {
+    "titulo": "La idea",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Un argumento tiene {{gl:premisa|premisas}} y una {{gl:conclusion|conclusión}}. Es {{gl:valido|válido}} si, siempre que las premisas son verdaderas, la conclusión también lo es. Si existe una sola fila donde las premisas son verdaderas y la conclusión falsa, el razonamiento es una {{gl:falacia|falacia}}. Validez y verdad son cosas distintas, porque un argumento válido puede partir de premisas falsas."
+     }
+    ]
+   },
+   {
+    "titulo": "Un ejemplo",
+    "corto": "Un ejemplo",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Esta tabla revisa el argumento de que si p implica q, y q es verdadera, entonces p. P1 es p implica q, P2 es q y C es la conclusión p."
+     },
+     {
+      "t": "eq",
+      "tex": "p\\rightarrow q,\\ \\ q\\ \\ \\therefore\\ \\ p"
+     },
+     {
+      "t": "grafica",
+      "animar": "dibujar",
+      "alt": "La tabla del argumento"
+     }
+    ]
+   },
+   {
+    "titulo": "Piensa antes de ver",
+    "corto": "Piensa",
+    "bloques": [
+     {
+      "t": "piensa",
+      "pregunta": "Para probar que un argumento es inválido hay que encontrar una fila con premisas verdaderas y conclusión falsa. ¿Cuántas filas así se necesitan?",
+      "opciones": [
+       1,
+       2,
+       3,
+       4
+      ],
+      "correcta": 1,
+      "bien": "Muy bien. Una sola fila basta. Más abajo se ve en la tabla.",
+      "mal": "Basta una. Un solo contraejemplo ya rompe la validez. Más abajo se ve en la tabla."
+     }
+    ]
+   },
+   {
+    "titulo": "Recorriendo las filas",
+    "corto": "Las filas",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mira las dos lecturas en cada fila."
+     },
+     {
+      "t": "acercando",
+      "ds": [
+       0,
+       1,
+       2,
+       3
+      ],
+      "alt": "Las cuatro filas de la tabla"
+     },
+     {
+      "t": "p",
+      "html": "En la fila 2 las premisas valen 1 y la conclusión vale 0. Ese es el contraejemplo."
+     }
+    ]
+   },
+   {
+    "titulo": "Las formas válidas",
+    "corto": "Formas válidas",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Estas cuatro formas son válidas, y vale la pena reconocerlas de memoria."
+     },
+     {
+      "t": "pasos",
+      "items": [
+       {
+        "tex": "p\\rightarrow q,\\ \\ p\\ \\ \\therefore\\ \\ q",
+        "porque": "Modus ponens. Si se cumple la condición, se cumple la consecuencia."
+       },
+       {
+        "tex": "p\\rightarrow q,\\ \\ \\neg q\\ \\ \\therefore\\ \\ \\neg p",
+        "porque": "Modus tollens. Si la consecuencia falla, la condición no pudo cumplirse."
+       },
+       {
+        "tex": "p\\rightarrow q,\\ \\ q\\rightarrow r\\ \\ \\therefore\\ \\ p\\rightarrow r",
+        "porque": "Silogismo hipotético. Los condicionales se encadenan."
+       },
+       {
+        "tex": "p\\vee q,\\ \\ \\neg p\\ \\ \\therefore\\ \\ q",
+        "porque": "Silogismo disyuntivo. Si una de dos opciones falla, se cumple la otra."
+       }
+      ]
+     },
+     {
+      "t": "ojo",
+      "html": "Afirmar el consecuente, de p implica q y q concluir p, y negar el antecedente, de p implica q y no p concluir no q, parecen válidos pero no lo son."
+     }
+    ]
+   },
+   {
+    "titulo": "Cómo se prueba una falacia",
+    "corto": "Contraejemplos",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Para mostrar que un argumento es inválido basta dar valores que hagan verdaderas las premisas y falsa la conclusión."
+     },
+     {
+      "t": "pasos",
+      "items": [
+       {
+        "tex": "p\\rightarrow q,\\ \\ \\neg p\\ \\ \\therefore\\ \\ \\neg q",
+        "porque": "Se quiere ver si negar el antecedente permite negar el consecuente."
+       },
+       {
+        "tex": "p=F,\\ \\ q=V",
+        "porque": "Se elige este caso."
+       },
+       {
+        "tex": "p\\rightarrow q=V,\\ \\ \\neg p=V,\\ \\ \\neg q=F",
+        "porque": "Las premisas valen V y la conclusión vale F, así que es una falacia."
+       }
+      ]
+     },
+     {
+      "t": "ojo",
+      "html": "Que un argumento sea válido no significa que su conclusión sea cierta. Si una premisa es falsa, la conclusión puede ser falsa aunque el argumento sea válido."
+     }
+    ]
+   },
+   {
+    "titulo": "¿Para qué sirve?",
+    "corto": "En ingeniería",
+    "bloques": [
+     {
+      "t": "ingenieria",
+      "titulo": "Diagnóstico de una falla",
+      "html": "Un técnico razona así. Si el fusible se quemó, el motor no arranca. El motor no arranca, luego el fusible se quemó. Ese razonamiento afirma el consecuente. El motor puede no arrancar por una batería descargada o por un contacto suelto.",
+      "tex": "p\\rightarrow q,\\ \\ q\\ \\ \\not\\therefore\\ \\ p",
+      "datos": [
+       {
+        "k": "Premisas",
+        "v": "2"
+       },
+       {
+        "k": "Causas posibles de que no arranque",
+        "v": "varias"
+       },
+       {
+        "k": "Conclusión que sí es válida",
+        "v": "si arranca, el fusible está bien"
+       }
+      ],
+      "cierre": "El razonamiento válido es el contrarrecíproco. Si el motor arranca, el fusible no se quemó. Un diagnóstico sensato usa modus tollens para descartar causas, y no afirma el consecuente para señalar una sola. Cada causa descartada acota el problema, pero un síntoma por sí solo no prueba qué falló."
+     }
+    ]
+   },
+   {
+    "titulo": "Completa el paso",
+    "corto": "Completa",
+    "bloques": [
+     {
+      "t": "completar",
+      "enunciado": "Se usa modus tollens. Falta la conclusión.",
+      "tex": "p\\rightarrow q,\\ \\ \\neg q\\ \\ \\therefore\\ \\ [[hueco]]",
+      "opciones": [
+       {
+        "tex": "\\neg p",
+        "txt": "no p"
+       },
+       {
+        "tex": "p",
+        "txt": "p"
+       },
+       {
+        "tex": "q",
+        "txt": "q"
+       }
+      ],
+      "correcta": 0,
+      "errores": [
+       "",
+       "Concluir p sería afirmar el antecedente, y de q falsa no se puede obtener p verdadera.",
+       "La segunda premisa ya dice que q es falsa, así que no se puede concluir q."
+      ],
+      "pista": "Si la consecuencia falla, la condición no pudo cumplirse.",
+      "porque": "De p implica q y no q se concluye no p."
+     }
+    ]
+   },
+   {
+    "titulo": "Encuentra el error",
+    "corto": "Error",
+    "bloques": [
+     {
+      "t": "error",
+      "enunciado": "Alguien razonó con dos premisas y se equivocó en un paso. Toca el paso que está mal.",
+      "pasos": [
+       {
+        "tex": "p\\rightarrow q",
+        "porque": "Primera premisa.",
+        "txt": "si llueve, la calle se moja"
+       },
+       {
+        "tex": "q",
+        "porque": "Segunda premisa.",
+        "txt": "la calle está mojada"
+       },
+       {
+        "tex": "\\text{Entonces}\\ p\\ \\text{por modus ponens}",
+        "porque": "Este paso es el que falla.",
+        "txt": "entonces llovió"
+       }
+      ],
+      "mal": 2,
+      "explicacion": "Modus ponens necesita la condición p como premisa. Aquí se tiene la consecuencia q, y concluir p es afirmar el consecuente. La calle pudo mojarse por otra razón.",
+      "correccion": "p\\rightarrow q,\\ \\ q\\ \\ \\not\\therefore\\ \\ p",
+      "pista": "Pregúntate si la calle solo se moja cuando llueve."
+     }
+    ]
+   },
+   {
+    "titulo": "Ordena los pasos",
+    "corto": "Ordena",
+    "bloques": [
+     {
+      "t": "ordenar",
+      "enunciado": "Estos son los pasos para concluir r a partir de p, de p implica q y de q implica r, pero están desordenados.",
+      "pasos": [
+       "p",
+       "q",
+       "q\\rightarrow r",
+       "r"
+      ],
+      "mezcla": [
+       2,
+       0,
+       3,
+       1
+      ],
+      "porque": "Se aplica modus ponens dos veces, y la conclusión de la primera es la premisa de la segunda.",
+      "pista": "Se empieza con la premisa que no es un condicional.",
+      "txt": [
+       "Se parte de la premisa p",
+       "Con p implica q y modus ponens se obtiene q",
+       "Se toma la premisa q implica r",
+       "Con q, q implica r y modus ponens se obtiene r"
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "Revisa tu respuesta",
+    "corto": "Revisa",
+    "bloques": [
+     {
+      "t": "pregunta"
+     },
+     {
+      "t": "nota",
+      "html": "Puedes pedir pistas de a una. Si fallas, el mensaje te dice qué error se cometió."
+     }
+    ]
+   },
+   {
+    "titulo": "Mini simulacro",
+    "corto": "Simulacro",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Tres preguntas reales del banco de MathUNAL sobre este tema. Responde sin mirar los pasos."
+     },
+     {
+      "t": "simulacro",
+      "titulo": "Mini simulacro de formas de argumento e inferencia",
+      "preguntas": [
+       {
+        "tipo": "mcq",
+        "texto": "Si $p\\rightarrow q$ es verdadera y $q$ es falsa, entonces $p$ es:",
+        "opciones": [
+         "falsa",
+         "verdadera",
+         "no se puede determinar",
+         "una tautología"
+        ],
+        "correcta": 0,
+        "resumen": "Es modus tollens. Si q es falsa y p implica q, entonces p es falsa.",
+        "fuente": "Banco MathUNAL, simulacro de Fundamentos de Matemáticas"
+       },
+       {
+        "tipo": "mcq",
+        "texto": "De $p\\rightarrow q$ y $\\neg q$, se concluye:",
+        "opciones": [
+         "$\\neg p$",
+         "$p$",
+         "$q$",
+         "nada válido"
+        ],
+        "correcta": 0,
+        "resumen": "De p implica q y no q se concluye no p.",
+        "fuente": "Banco MathUNAL, simulacro de Fundamentos de Matemáticas"
+       },
+       {
+        "tipo": "mcq",
+        "texto": "El razonamiento \"De $p\\vee q$ y $\\neg p$ se concluye $q$\" es:",
+        "opciones": [
+         "válido (silogismo disyuntivo)",
+         "inválido",
+         "válido solo si $p=F$",
+         "una falacia"
+        ],
+        "correcta": 0,
+        "resumen": "Es el silogismo disyuntivo. Si una opción falla, se cumple la otra.",
+        "fuente": "Banco MathUNAL, simulacro de Fundamentos de Matemáticas"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "Tu repaso",
+    "corto": "Repaso",
+    "bloques": [
+     {
+      "t": "repaso"
+     }
+    ]
+   },
+   {
+    "titulo": "En resumen",
+    "corto": "Resumen",
+    "bloques": [
+     {
+      "t": "resumen"
+     }
+    ]
+   }
+  ]
+ },
+ "practicar": {
+  "pasos": [
+   {
+    "titulo": "El argumento",
+    "grafica": {
+     "draw": 1,
+     "guide": 1
+    },
+    "bloques": [
+     {
+      "t": "p",
+      "html": "La tabla del argumento de p implica q y q, luego p."
+     },
+     {
+      "t": "eq",
+      "tex": "p\\rightarrow q,\\ q\\ \\therefore\\ p"
+     }
+    ]
+   },
+   {
+    "titulo": "Recorre las filas",
+    "grafica": {
+     "draw": 1,
+     "guide": 1
+    },
+    "laboratorio": true,
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mueve el deslizador de 0 a 3. Abajo se leen las premisas juntas y la conclusión."
+     }
+    ]
+   },
+   {
+    "titulo": "El contraejemplo",
+    "grafica": {
+     "draw": 1,
+     "guide": 1,
+     "ok": true
+    },
+    "laboratorio": true,
+    "d": 2,
+    "bloques": [
+     {
+      "t": "eq",
+      "tex": "p=F,\\ q=V\\ \\Rightarrow\\ P1=P2=V,\\ C=F"
+     },
+     {
+      "t": "p",
+      "html": "En la fila 2 las premisas valen 1 y la conclusión vale 0."
+     }
+    ]
+   },
+   {
+    "titulo": "Revisa tu respuesta",
+    "grafica": {
+     "draw": 1,
+     "guide": 1,
+     "ok": true,
+     "d": 2
+    },
+    "bloques": [
+     {
+      "t": "pregunta"
+     },
+     {
+      "t": "nota",
+      "html": "Busca cuál de los razonamientos afirma el consecuente."
+     }
+    ]
+   }
+  ]
+ },
+ "pregunta": {
+  "tex": "\\text{Cuál de estos razonamientos es inválido}",
+  "opciones": [
+   "De $p\\rightarrow q$ y $q$ se concluye $p$",
+   "De $p\\rightarrow q$ y $p$ se concluye $q$",
+   "De $p\\rightarrow q$ y $\\neg q$ se concluye $\\neg p$",
+   "De $p\\rightarrow q$ y $q\\rightarrow r$ se concluye $p\\rightarrow r$"
+  ],
+  "correcta": 0,
+  "explicacion": "Concluir p a partir de p implica q y de q es afirmar el consecuente. Falla en la fila p falsa y q verdadera. Los otros tres son modus ponens, modus tollens y silogismo hipotético, que son válidos.",
+  "verificacion": {
+   "formula": "1-(1-0)*1+0*x",
+   "a": 0,
+   "esperado": 0
+  },
+  "pistas": [
+   "Busca el que concluye algo a partir de la consecuencia.",
+   "Una de las opciones usa q para obtener p.",
+   "Es la primera."
+  ],
+  "errores": [
+   "",
+   "Esa es modus ponens y es válida.",
+   "Esa es modus tollens y es válida.",
+   "Esa es el silogismo hipotético y es válida."
+  ]
+ },
+ "resumen": [
+  "Un argumento es válido si en toda fila con premisas verdaderas la conclusión es verdadera.",
+  "Las formas válidas básicas son modus ponens, modus tollens, silogismo hipotético y silogismo disyuntivo.",
+  "Afirmar el consecuente y negar el antecedente son falacias, y se prueban con un contraejemplo."
+ ]
+}

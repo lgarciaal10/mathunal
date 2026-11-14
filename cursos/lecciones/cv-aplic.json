@@ -1,0 +1,779 @@
+{
+ "esquema": 1,
+ "id": "cv-m2-l6",
+ "ejemplo": true,
+ "curso": "Cálculo en Varias Variables",
+ "modulo": "Módulo 2 Integrales múltiples",
+ "posicion": "Lección 6 de 6",
+ "titulo": "Aplicaciones de las integrales múltiples",
+ "minutos": 26,
+ "ejercicios": 8,
+ "grafica": {
+  "tipo": "plano",
+  "x": [
+   -0.3,
+   2.5
+  ],
+  "y": [
+   -0.4,
+   4.4
+  ],
+  "a": 0.5,
+  "b": 2,
+  "inicio": 1,
+  "elementos": [
+   {
+    "t": "trazo",
+    "puntos": [
+     [
+      "0.0",
+      "0.0000"
+     ],
+     [
+      "0.05",
+      "0.0025"
+     ],
+     [
+      "0.1",
+      "0.0100"
+     ],
+     [
+      "0.15",
+      "0.0225"
+     ],
+     [
+      "0.2",
+      "0.0400"
+     ],
+     [
+      "0.25",
+      "0.0625"
+     ],
+     [
+      "0.3",
+      "0.0900"
+     ],
+     [
+      "0.35",
+      "0.1225"
+     ],
+     [
+      "0.4",
+      "0.1600"
+     ],
+     [
+      "0.45",
+      "0.2025"
+     ],
+     [
+      "0.5",
+      "0.2500"
+     ],
+     [
+      "0.55",
+      "0.3025"
+     ],
+     [
+      "0.6",
+      "0.3600"
+     ],
+     [
+      "0.65",
+      "0.4225"
+     ],
+     [
+      "0.7",
+      "0.4900"
+     ],
+     [
+      "0.75",
+      "0.5625"
+     ],
+     [
+      "0.8",
+      "0.6400"
+     ],
+     [
+      "0.85",
+      "0.7225"
+     ],
+     [
+      "0.9",
+      "0.8100"
+     ],
+     [
+      "0.95",
+      "0.9025"
+     ],
+     [
+      "1.0",
+      "1.0000"
+     ],
+     [
+      "1.05",
+      "1.1025"
+     ],
+     [
+      "1.1",
+      "1.2100"
+     ],
+     [
+      "1.15",
+      "1.3225"
+     ],
+     [
+      "1.2",
+      "1.4400"
+     ],
+     [
+      "1.25",
+      "1.5625"
+     ],
+     [
+      "1.3",
+      "1.6900"
+     ],
+     [
+      "1.35",
+      "1.8225"
+     ],
+     [
+      "1.4",
+      "1.9600"
+     ],
+     [
+      "1.45",
+      "2.1025"
+     ],
+     [
+      "1.5",
+      "2.2500"
+     ],
+     [
+      "1.55",
+      "2.4025"
+     ],
+     [
+      "1.6",
+      "2.5600"
+     ],
+     [
+      "1.65",
+      "2.7225"
+     ],
+     [
+      "1.7",
+      "2.8900"
+     ],
+     [
+      "1.75",
+      "3.0625"
+     ],
+     [
+      "1.8",
+      "3.2400"
+     ],
+     [
+      "1.85",
+      "3.4225"
+     ],
+     [
+      "1.9",
+      "3.6100"
+     ],
+     [
+      "1.95",
+      "3.8025"
+     ],
+     [
+      "2.0",
+      "4.0000"
+     ]
+    ],
+    "c": 3
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "x",
+     "0"
+    ],
+    "b": [
+     "x",
+     "x*x"
+    ],
+    "c": 3
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "0",
+     "0"
+    ],
+    "b": [
+     "x",
+     "0"
+    ],
+    "c": 3
+   },
+   {
+    "t": "punto",
+    "p": [
+     "0.75*x",
+     "0.3*x*x"
+    ],
+    "c": 0
+   }
+  ],
+  "lecturas": [
+   {
+    "rotulo": "masa de la lámina de densidad 1, a al cubo sobre 3",
+    "formula": "x*x*x/3"
+   },
+   {
+    "rotulo": "coordenada x del centroide, 3 a sobre 4",
+    "formula": "0.75*x"
+   }
+  ],
+  "etiquetas": [
+   "La lámina está entre la curva y igual a x al cuadrado, el eje x y la recta x igual a a",
+   "El punto naranja es el centroide, donde se equilibra la lámina"
+  ],
+  "etiquetaSlider": "Extremo a, de 0.5 a 2",
+  "alt": "Una lámina plana limitada por la parábola y igual a x al cuadrado, el eje x y la recta vertical x igual a a. Su masa con densidad 1 es a al cubo sobre 3, y su centroide está en 3a sobre 4 y 3a al cuadrado sobre 10. Al crecer a la lámina crece y el centroide se desplaza hacia la derecha y hacia arriba"
+ },
+ "glosario": {
+  "masa": "La masa de una lámina es la integral doble de la densidad sobre la región, y con densidad 1 es el área.",
+  "centroide": "El centro de masa tiene por coordenadas los momentos divididos entre la masa, x barra igual a M sub y entre m.",
+  "momento": "El momento M sub y es la integral de x por la densidad, y M sub x es la integral de y por la densidad.",
+  "inercia": "El momento de inercia mide la resistencia a girar. Respecto al eje z es la integral de x al cuadrado más y al cuadrado por la densidad."
+ },
+ "ver": {
+  "duracion": 24.0,
+  "capitulos": [
+   [
+    0,
+    4,
+    "Una lámina está bajo la parábola y igual a x al cuadrado, entre 0 y a, con densidad 1."
+   ],
+   [
+    4,
+    10,
+    "La masa es la integral doble de la densidad, o sea el área, que vale a al cubo entre 3."
+   ],
+   [
+    10,
+    16,
+    "Con a igual a 1 la masa es un tercio, y el centroide está en 0.75 y 0.3."
+   ],
+   [
+    16,
+    20,
+    "Con a igual a 2 la masa es 2.67, y el centroide está en 1.5 y 1.2."
+   ],
+   [
+    20,
+    24,
+    "El centroide es el punto de equilibrio, y se calcula con los momentos entre la masa."
+   ]
+  ],
+  "canales": {
+   "draw": [
+    [
+     0.3,
+     0
+    ],
+    [
+     3.5,
+     1
+    ]
+   ],
+   "d": [
+    [
+     4,
+     0.6
+    ],
+    [
+     8,
+     0.6
+    ],
+    [
+     10,
+     1
+    ],
+    [
+     13,
+     1
+    ],
+    [
+     16,
+     2
+    ],
+    [
+     18,
+     2
+    ],
+    [
+     24,
+     2
+    ]
+   ],
+   "guide": [
+    [
+     4,
+     0
+    ],
+    [
+     5,
+     1
+    ]
+   ]
+  },
+  "intervalos": {
+   "ok": [
+    16,
+    24
+   ]
+  }
+ },
+ "leer": {
+  "secciones": [
+   {
+    "titulo": "La idea",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Las integrales dobles calculan la {{gl:masa|masa}} de una lámina cuando se integra la densidad. Con los {{gl:momento|momentos}} se halla el {{gl:centroide|centro de masa}}, y con el cuadrado de la distancia al eje, el momento de {{gl:inercia|inercia}}. Son las aplicaciones más comunes de las integrales múltiples en ingeniería."
+     }
+    ]
+   },
+   {
+    "titulo": "Un ejemplo",
+    "corto": "Un ejemplo",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "La lámina está bajo y igual a x al cuadrado, de 0 a a. Cambia a y mira la masa y el centroide."
+     },
+     {
+      "t": "eq",
+      "tex": "m=\\displaystyle\\int_{0}^{a}\\!\\int_{0}^{x^{2}}dy\\,dx=\\dfrac{a^{3}}{3},\\qquad \\bar{x}=\\dfrac{M_{y}}{m}=\\dfrac{3a}{4}"
+     },
+     {
+      "t": "grafica",
+      "animar": "dibujar",
+      "alt": "La lámina bajo la parábola y su centroide"
+     }
+    ]
+   },
+   {
+    "titulo": "Piensa antes de ver",
+    "corto": "Piensa",
+    "bloques": [
+     {
+      "t": "piensa",
+      "pregunta": "Una lámina de densidad 1 sobre el rectángulo de 2 por 3. ¿Cuál es su masa?",
+      "opciones": [
+       6,
+       5,
+       3,
+       2
+      ],
+      "correcta": 6,
+      "bien": "Muy bien. Con densidad 1, la masa es el área, 2 por 3.",
+      "mal": "Con densidad 1 la masa es el área, o sea 2 por 3, que da 6."
+     }
+    ]
+   },
+   {
+    "titulo": "Distintos extremos",
+    "corto": "Extremos",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mira la lámina con a igual a 0.6, 1, 1.5 y 2."
+     },
+     {
+      "t": "acercando",
+      "ds": [
+       0.6,
+       1,
+       1.5,
+       2
+      ],
+      "alt": "La lámina con cuatro valores de a"
+     },
+     {
+      "t": "p",
+      "html": "El centroide siempre está a 3 cuartos del extremo, en x."
+     }
+    ]
+   },
+   {
+    "titulo": "Masa y centroide",
+    "corto": "Cálculo",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Primero la masa, luego los momentos."
+     },
+     {
+      "t": "pasos",
+      "items": [
+       {
+        "tex": "m=\\displaystyle\\int_{0}^{a}\\!\\int_{0}^{x^{2}}dy\\,dx=\\int_{0}^{a}x^{2}\\,dx=\\dfrac{a^{3}}{3}",
+        "porque": "La masa, con densidad 1."
+       },
+       {
+        "tex": "M_{y}=\\displaystyle\\int_{0}^{a}\\!\\int_{0}^{x^{2}}x\\,dy\\,dx=\\int_{0}^{a}x^{3}\\,dx=\\dfrac{a^{4}}{4}",
+        "porque": "El momento respecto al eje y."
+       },
+       {
+        "tex": "\\bar{x}=\\dfrac{a^{4}/4}{a^{3}/3}=\\dfrac{3a}{4}",
+        "porque": "La coordenada x del centroide."
+       },
+       {
+        "tex": "M_{x}=\\displaystyle\\int_{0}^{a}\\dfrac{x^{4}}{2}\\,dx=\\dfrac{a^{5}}{10}\\ \\Rightarrow\\ \\bar{y}=\\dfrac{3a^{2}}{10}",
+        "porque": "La coordenada y."
+       }
+      ]
+     },
+     {
+      "t": "ojo",
+      "html": "El momento M sub y se calcula con x, y da la coordenada x barra. El momento M sub x se calcula con y. Es fácil confundir los nombres."
+     }
+    ]
+   },
+   {
+    "titulo": "El momento de inercia",
+    "corto": "Inercia",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "La inercia pesa más los puntos que están lejos del eje."
+     },
+     {
+      "t": "pasos",
+      "items": [
+       {
+        "tex": "I_{z}=\\displaystyle\\iint_{D}(x^{2}+y^{2})\\,\\rho\\,dA",
+        "porque": "Momento de inercia respecto al eje z."
+       },
+       {
+        "tex": "D:\\ 0\\le x\\le1,\\ 0\\le y\\le1,\\ \\rho=1",
+        "porque": "Un cuadrado de lado 1."
+       },
+       {
+        "tex": "I_{z}=\\displaystyle\\int_{0}^{1}\\!\\int_{0}^{1}(x^{2}+y^{2})\\,dy\\,dx=\\dfrac{1}{3}+\\dfrac{1}{3}",
+        "porque": "Cada término da un tercio."
+       },
+       {
+        "tex": "I_{z}=\\dfrac{2}{3}",
+        "porque": "El resultado."
+       }
+      ]
+     },
+     {
+      "t": "ojo",
+      "html": "La inercia depende del eje respecto al cual se mide. El mismo cuerpo tiene inercias distintas respecto a ejes distintos."
+     }
+    ]
+   },
+   {
+    "titulo": "¿Para qué sirve?",
+    "corto": "En ingeniería",
+    "bloques": [
+     {
+      "t": "ingenieria",
+      "titulo": "El centro de gravedad de una pieza",
+      "html": "Una pieza plana de aluminio, con densidad constante, tiene forma de la región bajo una parábola. Para sostenerla en equilibrio se necesita saber dónde está su centro de masa.",
+      "tex": "\\bar{x}=\\dfrac{3a}{4},\\qquad \\bar{y}=\\dfrac{3a^{2}}{10}",
+      "datos": [
+       {
+        "k": "a",
+        "v": "0.2 m"
+       },
+       {
+        "k": "Centro en x",
+        "v": "0.15 m"
+       },
+       {
+        "k": "Centro en y",
+        "v": "0.012 m"
+       }
+      ],
+      "cierre": "El punto de apoyo ideal es el centroide. Con una densidad que varía, se calcula con la densidad dentro de las integrales, y el centro cambia de lugar."
+     }
+    ]
+   },
+   {
+    "titulo": "Completa el paso",
+    "corto": "Completa",
+    "bloques": [
+     {
+      "t": "completar",
+      "enunciado": "La masa de una lámina con densidad rho es la integral doble de [[hueco]] sobre la región.",
+      "tex": "m=\\displaystyle\\iint_{D}[[hueco]]\\,dA",
+      "opciones": [
+       {
+        "tex": "\\rho(x,y)",
+        "txt": "la densidad"
+       },
+       {
+        "tex": "x\\,\\rho",
+        "txt": "x por la densidad"
+       },
+       {
+        "tex": "x^{2}+y^{2}",
+        "txt": "x al cuadrado más y al cuadrado"
+       }
+      ],
+      "correcta": 0,
+      "errores": [
+       "",
+       "Eso es el integrando del momento respecto al eje y, y no el de la masa.",
+       "Eso es el integrando de la inercia, y no el de la masa."
+      ],
+      "pista": "La masa es la suma de la densidad en cada pedazo.",
+      "porque": "Es la densidad."
+     }
+    ]
+   },
+   {
+    "titulo": "Encuentra el error",
+    "corto": "Error",
+    "bloques": [
+     {
+      "t": "error",
+      "enunciado": "Alguien calculó el centroide de una lámina y se equivocó. Toca el paso que está mal.",
+      "pasos": [
+       {
+        "tex": "m=\\dfrac{a^{3}}{3},\\quad M_{y}=\\dfrac{a^{4}}{4}",
+        "porque": "Masa y momento.",
+        "txt": "masa y momento"
+       },
+       {
+        "tex": "\\bar{x}=\\dfrac{m}{M_{y}}",
+        "porque": "Este paso es el que falla.",
+        "txt": "invierte el cociente"
+       },
+       {
+        "tex": "\\bar{x}=\\dfrac{4}{3a}",
+        "porque": "Resultado.",
+        "txt": "4 sobre 3a"
+       }
+      ],
+      "mal": 1,
+      "explicacion": "El centroide es el momento dividido entre la masa, y no al revés. Entonces x barra es a a la cuarta sobre 4, entre a al cubo sobre 3, o sea 3a sobre 4.",
+      "correccion": "\\bar{x}=\\dfrac{M_{y}}{m}=\\dfrac{3a}{4}",
+      "pista": "El momento va arriba y la masa abajo."
+     }
+    ]
+   },
+   {
+    "titulo": "Ordena los pasos",
+    "corto": "Ordena",
+    "bloques": [
+     {
+      "t": "ordenar",
+      "enunciado": "Estos son los pasos para hallar el centroide de una lámina, pero están desordenados.",
+      "pasos": [
+       "m=\\iint\\rho\\,dA",
+       "M_{y}=\\iint x\\rho\\,dA,\\ M_{x}=\\iint y\\rho\\,dA",
+       "\\bar{x}=\\dfrac{M_{y}}{m},\\ \\bar{y}=\\dfrac{M_{x}}{m}",
+       "(\\bar{x},\\bar{y})"
+      ],
+      "mezcla": [
+       2,
+       0,
+       3,
+       1
+      ],
+      "porque": "Primero la masa, luego los momentos, después los cocientes y por último el punto.",
+      "pista": "Se empieza con la masa.",
+      "txt": [
+       "Se calcula la masa",
+       "Se calculan los momentos",
+       "Se divide",
+       "Se escribe el centroide"
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "Revisa tu respuesta",
+    "corto": "Revisa",
+    "bloques": [
+     {
+      "t": "pregunta"
+     },
+     {
+      "t": "nota",
+      "html": "Puedes pedir pistas de a una. Si fallas, el mensaje te dice qué error se cometió."
+     }
+    ]
+   },
+   {
+    "titulo": "Mini simulacro",
+    "corto": "Simulacro",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Tres preguntas reales del banco de MathUNAL sobre este tema. Responde sin mirar los pasos."
+     },
+     {
+      "t": "simulacro",
+      "titulo": "Mini simulacro de aplicaciones de integrales dobles",
+      "preguntas": [
+       {
+        "tipo": "numerica",
+        "texto": "La masa de una lámina de densidad $\\rho(x,y) = 1$ sobre el rectángulo $[0,2]\\times[0,3]$ es:",
+        "respuesta": "6",
+        "tolNum": 0.001,
+        "resumen": "La masa de una lámina de densidad 1 sobre un rectángulo.",
+        "fuente": "Banco MathUNAL, simulacro de Cálculo en Varias Variables"
+       },
+       {
+        "tipo": "numerica",
+        "texto": "La masa de una lámina de densidad $\\rho=x$ sobre el cuadrado $[0,1]\\times[0,1]$ es:",
+        "respuesta": "0.5",
+        "tolNum": 0.01,
+        "resumen": "La integral de x sobre el cuadrado es un medio.",
+        "fuente": "Pregunta propia de MathUNAL, escrita para esta lección"
+       },
+       {
+        "tipo": "numerica",
+        "texto": "La masa de la lámina bajo $y=x^{2}$ entre 0 y $a=2$, con densidad 1, en decimales con 3 cifras, es:",
+        "respuesta": "2.667",
+        "tolNum": 0.002,
+        "resumen": "Es a al cubo entre 3, o sea 8 tercios, cerca de 2.667.",
+        "fuente": "Pregunta propia de MathUNAL, escrita para esta lección"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "Tu repaso",
+    "corto": "Repaso",
+    "bloques": [
+     {
+      "t": "repaso"
+     }
+    ]
+   },
+   {
+    "titulo": "En resumen",
+    "corto": "Resumen",
+    "bloques": [
+     {
+      "t": "resumen"
+     }
+    ]
+   }
+  ]
+ },
+ "practicar": {
+  "pasos": [
+   {
+    "titulo": "La lámina",
+    "grafica": {
+     "draw": 1
+    },
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Se estudia la lámina bajo la parábola."
+     },
+     {
+      "t": "eq",
+      "tex": "0\\le y\\le x^{2},\\quad 0\\le x\\le a"
+     }
+    ]
+   },
+   {
+    "titulo": "Cambia a",
+    "grafica": {
+     "draw": 1
+    },
+    "laboratorio": true,
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mueve el deslizador. Abajo se leen la masa y la coordenada x del centroide."
+     }
+    ]
+   },
+   {
+    "titulo": "Con a igual a 2",
+    "grafica": {
+     "draw": 1,
+     "guide": 1,
+     "ok": true
+    },
+    "laboratorio": true,
+    "d": 2,
+    "bloques": [
+     {
+      "t": "eq",
+      "tex": "m=\\tfrac{8}{3},\\quad \\bar{x}=1.5"
+     },
+     {
+      "t": "p",
+      "html": "Con a igual a 2 la masa es 2.67 y el centroide está en 1.5."
+     }
+    ]
+   },
+   {
+    "titulo": "Revisa tu respuesta",
+    "grafica": {
+     "draw": 1,
+     "guide": 1,
+     "ok": true,
+     "d": 2
+    },
+    "bloques": [
+     {
+      "t": "pregunta"
+     },
+     {
+      "t": "nota",
+      "html": "El centroide es el momento entre la masa."
+     }
+    ]
+   }
+  ]
+ },
+ "pregunta": {
+  "tex": "\\text{La masa con densidad 1 sobre }[0,2]\\times[0,3]\\text{ es}",
+  "opciones": [
+   "$6$",
+   "$5$",
+   "$3$",
+   "$12$"
+  ],
+  "correcta": 0,
+  "explicacion": "Con densidad 1 la masa es el área del rectángulo, 2 por 3, o sea 6.",
+  "verificacion": {
+   "formula": "2*3+0*x",
+   "a": 0,
+   "esperado": 6
+  },
+  "pistas": [
+   "Con densidad 1, la masa es el área.",
+   "El área es base por altura.",
+   "2 por 3."
+  ],
+  "errores": [
+   "",
+   "El 5 es la suma de los lados.",
+   "El 3 es solo uno de los lados.",
+   "El 12 sería con un factor 2 de más."
+  ]
+ },
+ "resumen": [
+  "La masa es la integral de la densidad, y el centroide es el momento entre la masa.",
+  "El momento M sub y usa x, y el M sub x usa y.",
+  "La inercia pesa más los puntos lejos del eje."
+ ]
+}

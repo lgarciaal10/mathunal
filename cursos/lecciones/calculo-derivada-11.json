@@ -1,0 +1,585 @@
+{
+ "esquema": 1,
+ "id": "calculo-m3-l2",
+ "ejemplo": true,
+ "curso": "Cálculo",
+ "modulo": "Módulo 3 Aplicaciones de la derivada",
+ "posicion": "Lección 2 de 8",
+ "titulo": "Valores extremos",
+ "minutos": 22,
+ "ejercicios": 4,
+ "grafica": {
+  "tipo": "secante",
+  "x": [
+   -2.2,
+   2.2
+  ],
+  "y": [
+   -4.5,
+   4.5
+  ],
+  "funcion": "x*x*x-3*x",
+  "a": 1,
+  "derivada": "3*x*x-3",
+  "limite": 0,
+  "etiquetas": [
+   "Distancia h",
+   "Pendiente de la secante"
+  ],
+  "etiquetaSlider": "Valor de h",
+  "zoom": {
+   "factor": 55
+  },
+  "alt": "Curva de x al cubo menos 3x con una cima en x igual a menos 1 y un valle en x igual a 1, donde una secante se acerca a la tangente horizontal"
+ },
+ "glosario": {
+  "extremo": "Un extremo es un valor máximo o mínimo de una función, o sea el más alto o el más bajo.",
+  "critico": "Un punto crítico es donde la derivada vale 0 o no existe. Ahí puede haber un máximo o un mínimo.",
+  "local": "Un extremo local es el más alto o el más bajo solo en su vecindad. Un extremo absoluto lo es en todo el intervalo.",
+  "tangente": "La recta tangente toca la curva en un punto y tiene la misma inclinación que la curva ahí.",
+  "pend": "La pendiente dice cuánto sube la recta por cada unidad que avanza hacia la derecha."
+ },
+ "ver": {
+  "duracion": 24.0,
+  "capitulos": [
+   [
+    0,
+    2.5,
+    "Esta es la curva de f(x) igual a x al cubo menos 3x. Tiene una cima y un valle."
+   ],
+   [
+    2.5,
+    4.5,
+    "Miremos el fondo del valle, en el punto (1, −2)."
+   ],
+   [
+    4.5,
+    8,
+    "Se traza la secante con un segundo punto a distancia h."
+   ],
+   [
+    8,
+    12.5,
+    "Mientras h se achica, la pendiente de la secante cambia."
+   ],
+   [
+    12.5,
+    15.8,
+    "La secante se vuelve la tangente y su pendiente se acerca a 0. La tangente es horizontal."
+   ],
+   [
+    15.8,
+    19.8,
+    "De cerca, el fondo del valle se ve casi plano."
+   ],
+   [
+    19.8,
+    24,
+    "En un máximo o un mínimo la derivada vale 0, y por eso se buscan los puntos donde f prima es 0."
+   ]
+  ],
+  "canales": {
+   "draw": [
+    [
+     0.3,
+     0
+    ],
+    [
+     2.4,
+     1
+    ]
+   ],
+   "hole": [
+    [
+     2.5,
+     0
+    ],
+    [
+     3.2,
+     1
+    ]
+   ],
+   "d": [
+    [
+     4.5,
+     1
+    ],
+    [
+     6,
+     0.5
+    ],
+    [
+     8,
+     0.5
+    ],
+    [
+     9.5,
+     0.1
+    ],
+    [
+     11,
+     0.1
+    ],
+    [
+     12.5,
+     0.01
+    ]
+   ],
+   "guide": [
+    [
+     12.5,
+     0
+    ],
+    [
+     13.5,
+     1
+    ]
+   ],
+   "zoom": [
+    [
+     15.8,
+     0
+    ],
+    [
+     18.3,
+     1
+    ],
+    [
+     19.0,
+     1
+    ],
+    [
+     19.8,
+     0
+    ]
+   ]
+  },
+  "intervalos": {
+   "ok": [
+    19.8,
+    24.0
+   ]
+  }
+ },
+ "leer": {
+  "secciones": [
+   {
+    "titulo": "La idea",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "El valor más alto o el más bajo de una función se llama {{gl:extremo|extremo}}. Para encontrarlos se buscan los puntos donde la tangente es horizontal, o sea donde la derivada vale 0."
+     }
+    ]
+   },
+   {
+    "titulo": "Un ejemplo",
+    "corto": "Un ejemplo",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mira esta función. Tiene una cima en x igual a −1 y un valle en x igual a 1."
+     },
+     {
+      "t": "eq",
+      "tex": "f(x)=x^{3}-3x"
+     },
+     {
+      "t": "grafica",
+      "animar": "dibujar",
+      "alt": "Curva que se dibuja con una cima y un valle"
+     }
+    ]
+   },
+   {
+    "titulo": "Piensa antes de ver",
+    "corto": "Piensa",
+    "bloques": [
+     {
+      "t": "piensa",
+      "pregunta": "En el fondo del valle, el punto (1, −2), la tangente es horizontal. ¿A qué número crees que se acerca la pendiente de la secante cuando h es muy pequeño?",
+      "opciones": [
+       -3,
+       0,
+       1,
+       3
+      ],
+      "correcta": 0,
+      "bien": "Muy bien. Se acerca a 0 y más abajo se ve por qué.",
+      "mal": "El número es 0. Una tangente horizontal tiene pendiente 0."
+     }
+    ]
+   },
+   {
+    "titulo": "Acercando el segundo punto",
+    "corto": "Acercándose",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mira cómo cambia la pendiente de la secante al achicar h."
+     },
+     {
+      "t": "acercando",
+      "ds": [
+       1,
+       0.5,
+       0.1,
+       0.01
+      ],
+      "alt": "Una secante que gira hasta volverse horizontal"
+     },
+     {
+      "t": "p",
+      "html": "La pendiente se acerca a <b>0</b>. Al terminar, la gráfica hace zoom para que veas el detalle."
+     }
+    ]
+   },
+   {
+    "titulo": "Puntos críticos",
+    "corto": "Críticos",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Los {{gl:critico|puntos críticos}} se encuentran igualando la derivada a 0."
+     },
+     {
+      "t": "pasos",
+      "items": [
+       {
+        "tex": "f'(x)=3x^{2}-3",
+        "porque": "Se deriva con la regla de la potencia."
+       },
+       {
+        "tex": "3x^{2}-3=0\\ \\Rightarrow\\ x=-1\\ \\text{o}\\ x=1",
+        "porque": "Se iguala a 0 y se despeja x. Las dos soluciones son los puntos críticos."
+       },
+       {
+        "tex": "f(-1)=2,\\quad f(1)=-2",
+        "porque": "Se evalúa la función original en cada punto crítico."
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "Máximo o mínimo",
+    "corto": "Máx o mín",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Estos extremos son {{gl:local|locales}}, o sea los más altos o más bajos de su vecindad. Para saber cuál es cuál se usa la segunda derivada. Si es positiva la curva se abre hacia arriba y hay un mínimo. Si es negativa se abre hacia abajo y hay un máximo."
+     },
+     {
+      "t": "pasos",
+      "items": [
+       {
+        "tex": "f''(x)=6x",
+        "porque": "Se deriva otra vez."
+       },
+       {
+        "tex": "f''(1)=6>0\\ \\Rightarrow\\ \\text{mínimo local en } x=1",
+        "porque": "La segunda derivada es positiva, así que el punto es un valle."
+       },
+       {
+        "tex": "f''(-1)=-6<0\\ \\Rightarrow\\ \\text{máximo local en } x=-1",
+        "porque": "La segunda derivada es negativa, así que el punto es una cima."
+       }
+      ]
+     },
+     {
+      "t": "ojo",
+      "html": "Que la derivada valga 0 no basta. En f(x) igual a x al cubo la derivada vale 0 en x igual a 0, pero ahí no hay máximo ni mínimo."
+     }
+    ]
+   },
+   {
+    "titulo": "En un intervalo cerrado",
+    "corto": "Intervalo",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Si se busca el valor más alto y el más bajo en un intervalo cerrado, también hay que mirar los extremos del intervalo. Se evalúa la función en los puntos críticos que caen dentro y en los dos extremos, y se comparan."
+     },
+     {
+      "t": "pasos",
+      "items": [
+       {
+        "tex": "\\text{En }[0,3]\\ \\text{los candidatos son}\\ x=0,\\ x=1,\\ x=3",
+        "porque": "El punto crítico x igual a −1 queda fuera del intervalo, así que no cuenta."
+       },
+       {
+        "tex": "f(0)=0,\\quad f(1)=-2,\\quad f(3)=18",
+        "porque": "Se evalúa la función en cada candidato."
+       },
+       {
+        "tex": "\\text{máximo absoluto }18\\ (x=3),\\quad \\text{mínimo absoluto }-2\\ (x=1)",
+        "porque": "Se toma el valor más grande y el más pequeño de la lista."
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "¿Para qué sirve?",
+    "corto": "En ingeniería",
+    "bloques": [
+     {
+      "t": "ingenieria",
+      "titulo": "El momento máximo en una viga",
+      "html": "En una viga apoyada en sus dos extremos con una carga repartida, el momento flector cambia a lo largo de la viga. El punto donde ese momento es máximo es el más exigido, y se encuentra igualando la derivada a 0.",
+      "tex": "M(x)=\\dfrac{wL}{2}\\,x-\\dfrac{w}{2}\\,x^{2}\\ \\Rightarrow\\ M'(x)=\\dfrac{wL}{2}-w\\,x=0\\ \\Rightarrow\\ x=\\dfrac{L}{2}",
+      "datos": [
+       {
+        "k": "Carga repartida",
+        "v": "5 kN/m"
+       },
+       {
+        "k": "Luz",
+        "v": "4 m"
+       },
+       {
+        "k": "Máximo en x",
+        "v": "2 m, el centro"
+       },
+       {
+        "k": "Momento máximo",
+        "v": "10 kN·m"
+       }
+      ],
+      "cierre": "El valor máximo es w·L² sobre 8. La segunda derivada, −w, es negativa, así que es un máximo. Con ese valor se dimensiona la sección de la viga."
+     }
+    ]
+   },
+   {
+    "titulo": "Revisa tu respuesta",
+    "corto": "Revisa",
+    "bloques": [
+     {
+      "t": "pregunta"
+     },
+     {
+      "t": "nota",
+      "html": "Deriva, iguala a 0, despeja x y evalúa la función en ese punto."
+     }
+    ]
+   },
+   {
+    "titulo": "Mini simulacro",
+    "corto": "Simulacro",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Tres preguntas reales del banco de MathUNAL sobre este tema. Responde sin mirar los pasos."
+     },
+     {
+      "t": "simulacro",
+      "titulo": "Mini simulacro",
+      "preguntas": [
+       {
+        "texto": "La función $f(x)=x^{4/3}(x-7)^2$ tiene puntos críticos en:",
+        "resumen": "Se deriva con la regla del producto y se factoriza. Queda $f'(x)=x^{1/3}(x-7)\\left(\\frac{10x}{3}-\\frac{28}{3}\\right)$, que se anula en $x=0$, $x=\\frac{14}{5}$ y $x=7$.",
+        "fuente": "Banco MathUNAL, Parcial 1, 2025-2",
+        "tipo": "mcq",
+        "opciones": [
+         "$x=0$ y $x=7$ únicamente",
+         "$x=0$, $x=\\dfrac{14}{5}$ y $x=7$",
+         "$x=0$ y $x=3$ únicamente",
+         "$x=3$ y $x=7$ únicamente"
+        ],
+        "correcta": 1
+       },
+       {
+        "texto": "El valor máximo absoluto de $f(x)=x^3-3x+1$ en $[-2,2]$ es:",
+        "resumen": "Se evalúa en los puntos críticos $x=\\pm1$ y en los extremos $x=\\pm2$. Los valores son $f(-2)=-1$, $f(-1)=3$, $f(1)=-1$ y $f(2)=3$, así que el máximo es 3.",
+        "fuente": "Banco MathUNAL, Parcial 3, 2025-2",
+        "tipo": "mcq",
+        "opciones": [
+         "$3$",
+         "$-1$",
+         "$1$",
+         "$9$"
+        ],
+        "correcta": 0
+       },
+       {
+        "texto": "Para $f(x)=x^{3}-3x$, el valor MÍNIMO local es:",
+        "resumen": "La derivada $f'(x)=3x^2-3$ vale 0 en $x=\\pm1$. Como $f''(x)=6x$ es positiva en $x=1$, ahí hay un mínimo local, y $f(1)=-2$.",
+        "fuente": "Banco MathUNAL, simulacro de Cálculo Diferencial",
+        "tipo": "numerica",
+        "respuesta": "-2",
+        "tolNum": 0.001
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "Tu repaso",
+    "corto": "Repaso",
+    "bloques": [
+     {
+      "t": "repaso"
+     }
+    ]
+   },
+   {
+    "titulo": "En resumen",
+    "corto": "Resumen",
+    "bloques": [
+     {
+      "t": "resumen"
+     }
+    ]
+   }
+  ]
+ },
+ "practicar": {
+  "pasos": [
+   {
+    "titulo": "La curva",
+    "grafica": {
+     "draw": 1
+    },
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Esta curva tiene una cima y un valle."
+     },
+     {
+      "t": "eq",
+      "tex": "f(x)=x^{3}-3x"
+     }
+    ]
+   },
+   {
+    "titulo": "El valle",
+    "grafica": {
+     "draw": 1,
+     "hole": 1
+    },
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Se mira el fondo del valle, en el punto (1, −2)."
+     }
+    ]
+   },
+   {
+    "titulo": "Acerca el segundo punto",
+    "grafica": {
+     "draw": 1,
+     "hole": 1
+    },
+    "laboratorio": true,
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mueve el deslizador de h. La secante gira y abajo se ve su pendiente."
+     }
+    ]
+   },
+   {
+    "titulo": "La tangente",
+    "grafica": {
+     "draw": 1,
+     "hole": 1,
+     "guide": 1
+    },
+    "laboratorio": true,
+    "d": 0.01,
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Con h muy pequeño la pendiente se acerca a 0. La tangente es horizontal."
+     }
+    ]
+   },
+   {
+    "titulo": "Derivada igual a cero",
+    "grafica": {
+     "draw": 1,
+     "hole": 1,
+     "guide": 1,
+     "ok": true
+    },
+    "bloques": [
+     {
+      "t": "eq",
+      "tex": "f'(x)=3x^{2}-3=0\\ \\Rightarrow\\ x=\\pm 1"
+     },
+     {
+      "t": "p",
+      "html": "En el valle la derivada vale 0. Eso mismo pasa en la cima, en x igual a −1."
+     }
+    ]
+   },
+   {
+    "titulo": "Mira de cerca",
+    "grafica": {
+     "draw": 1,
+     "hole": 1,
+     "guide": 1,
+     "zoom": 1
+    },
+    "laboratorio": true,
+    "d": 0.01,
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Ahora la gráfica está con zoom. De cerca, la curva casi se ve como una recta y la secante se pega a la tangente. Mueve h para comprobarlo."
+     }
+    ]
+   },
+   {
+    "titulo": "Revisa tu respuesta",
+    "grafica": {
+     "draw": 1,
+     "hole": 1,
+     "guide": 1,
+     "ok": true
+    },
+    "bloques": [
+     {
+      "t": "pregunta"
+     },
+     {
+      "t": "nota",
+      "html": "Deriva, iguala a 0, despeja x y evalúa la función en ese punto."
+     }
+    ]
+   }
+  ]
+ },
+ "pregunta": {
+  "tex": "\\text{valor mínimo de}\\ f(x)=x^{2}-4x+1",
+  "opciones": [
+   "-3",
+   "2",
+   "-4",
+   "1"
+  ],
+  "correcta": 0,
+  "explicacion": "La derivada es 2x menos 4 y vale 0 en x igual a 2. Ahí la función vale 4 menos 8 más 1, que da −3. El 2 es el lugar del mínimo y no su valor.",
+  "verificacion": {
+   "formula": "(2+x)^2-4*(2+x)+1",
+   "a": 0,
+   "esperado": -3
+  },
+  "pistas": [
+   "Encuentra el punto crítico igualando la derivada a 0.",
+   "La derivada es 2x menos 4 y vale 0 en x igual a 2.",
+   "El valor mínimo es la función evaluada en ese punto, f(2)."
+  ],
+  "errores": [
+   "",
+   "Ese 2 es el lugar del mínimo, o sea la x. Se pide el valor de la función.",
+   "Ese −4 es el coeficiente de x. Falta evaluar la función en el punto crítico.",
+   "Ese 1 es f(0), el término independiente. El mínimo está en x igual a 2."
+  ]
+ },
+ "resumen": [
+  "Los extremos se buscan donde la derivada vale 0, los puntos críticos.",
+  "La segunda derivada positiva indica un mínimo y negativa indica un máximo.",
+  "En un intervalo cerrado también se evalúan los extremos del intervalo y se comparan."
+ ]
+}

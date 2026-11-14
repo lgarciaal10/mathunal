@@ -1,0 +1,707 @@
+{
+ "esquema": 1,
+ "id": "calcint-m3-l5",
+ "ejemplo": true,
+ "curso": "Cálculo Integral",
+ "modulo": "Módulo 3 Aplicaciones, polares y series",
+ "posicion": "Lección 5 de 5",
+ "titulo": "Sucesiones y series",
+ "minutos": 30,
+ "ejercicios": 7,
+ "grafica": {
+  "tipo": "asintota",
+  "x": [
+   0,
+   12
+  ],
+  "y": [
+   0,
+   1.8
+  ],
+  "funcion": "1.5*(1-exp(0-1.0986123*(x+1)))",
+  "asintotas": [
+   {
+    "y": 1.5,
+    "etiqueta": "suma = 3/2"
+   }
+  ],
+  "deslizador": {
+   "ancla": 0,
+   "dmin": 0.5,
+   "dmax": 9
+  },
+  "entero": true,
+  "rotulos": [
+   "n",
+   "suma parcial"
+  ],
+  "limite": 1.33,
+  "etiquetas": [
+   "Último término sumado",
+   "Suma parcial"
+  ],
+  "etiquetaSlider": "Último término n",
+  "alt": "Curva de las sumas parciales de la serie 1 más 1 tercio más 1 noveno, que sube y se acerca a la recta y igual a 3 sobre 2"
+ },
+ "glosario": {
+  "serie": "Una serie es una suma de infinitos términos. Se escribe con el símbolo sigma, por ejemplo la suma de a sub n desde n igual a 0 hasta infinito.",
+  "parcial": "La suma parcial S sub N es la suma de los primeros términos, desde el primero hasta el término N.",
+  "converge": "Una serie converge si sus sumas parciales se acercan a un número. Ese número es la suma de la serie. Si no, diverge.",
+  "razon": "La razón de una serie geométrica es el número r por el que se multiplica cada término para obtener el siguiente."
+ },
+ "ver": {
+  "duracion": 22.0,
+  "capitulos": [
+   [
+    0,
+    2.5,
+    "Esta curva une las sumas parciales de la serie 1 más un tercio más un noveno, y así sucesivamente."
+   ],
+   [
+    2.5,
+    5,
+    "Con un solo término, n igual a 0, la suma es 1."
+   ],
+   [
+    5,
+    10,
+    "Al sumar más términos, la suma parcial sube. Con n igual a 1 es 1.33 y con n igual a 3 es 1.48."
+   ],
+   [
+    10,
+    14,
+    "Cada término nuevo aporta cada vez menos, y la curva se aplana."
+   ],
+   [
+    14,
+    18,
+    "La curva se acerca a la recta y igual a 3 sobre 2. Esa es la suma de toda la serie."
+   ],
+   [
+    18,
+    22,
+    "Con 8 términos la suma parcial ya es 1.4999. La serie converge a 3 sobre 2, y la fórmula de la serie geométrica lo da directamente."
+   ]
+  ],
+  "canales": {
+   "draw": [
+    [
+     0.3,
+     0
+    ],
+    [
+     2.4,
+     1
+    ]
+   ],
+   "d": [
+    [
+     5,
+     0.6
+    ],
+    [
+     10,
+     3
+    ],
+    [
+     14,
+     6
+    ],
+    [
+     18,
+     8
+    ],
+    [
+     22,
+     8
+    ]
+   ],
+   "guide": [
+    [
+     14,
+     0
+    ],
+    [
+     15,
+     1
+    ]
+   ]
+  },
+  "intervalos": {
+   "ok": [
+    18,
+    22
+   ]
+  }
+ },
+ "leer": {
+  "secciones": [
+   {
+    "titulo": "La idea",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Una {{gl:serie|serie}} es una suma de infinitos términos. Parece imposible sumar infinitos números, pero a veces la suma da un número finito. Se mira la {{gl:parcial|suma parcial}}, que es lo que va llevando la suma después de cada término, y se pregunta si se acerca a un número. Si es así, la serie {{gl:converge|converge}}."
+     }
+    ]
+   },
+   {
+    "titulo": "Un ejemplo",
+    "corto": "Un ejemplo",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mira esta suma infinita, donde cada término es la tercera parte del anterior."
+     },
+     {
+      "t": "eq",
+      "tex": "\\sum_{n=0}^{\\infty}\\left(\\dfrac{1}{3}\\right)^{n}=1+\\dfrac{1}{3}+\\dfrac{1}{9}+\\dfrac{1}{27}+\\cdots"
+     },
+     {
+      "t": "grafica",
+      "animar": "dibujar",
+      "alt": "Curva de las sumas parciales que se dibuja"
+     }
+    ]
+   },
+   {
+    "titulo": "Piensa antes de ver",
+    "corto": "Piensa",
+    "bloques": [
+     {
+      "t": "piensa",
+      "pregunta": "La suma parcial con dos términos es 1 más 1 tercio. ¿Cuánto vale, más o menos?",
+      "opciones": [
+       1,
+       1.33,
+       1.5,
+       2
+      ],
+      "correcta": 1.33,
+      "bien": "Muy bien. Vale 1.33. Más abajo se ve cómo siguen creciendo las sumas parciales.",
+      "mal": "Vale 1.33, porque 1 más 1 tercio es 4 tercios. Más abajo se ve cómo siguen creciendo las sumas parciales."
+     }
+    ]
+   },
+   {
+    "titulo": "Las sumas parciales",
+    "corto": "Sumas parciales",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mira cómo crece la suma parcial al agregar términos y cómo se va aplanando."
+     },
+     {
+      "t": "acercando",
+      "ds": [
+       0,
+       1,
+       2,
+       4,
+       8
+      ],
+      "alt": "La curva de sumas parciales que sube y se aplana hacia 3 sobre 2"
+     },
+     {
+      "t": "p",
+      "html": "Con 8 términos la suma parcial es <b>1.4999</b>. Se acerca a 1.5, o sea 3 sobre 2, y por eso la serie converge a ese valor."
+     }
+    ]
+   },
+   {
+    "titulo": "Sucesiones",
+    "corto": "Sucesiones",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Una sucesión es una lista de números, a sub 0, a sub 1, a sub 2, y así. Converge si sus valores se acercan a un número cuando n crece. Las sumas parciales forman una sucesión, y la serie converge si esa sucesión converge."
+     },
+     {
+      "t": "pasos",
+      "items": [
+       {
+        "tex": "a_{n}=\\dfrac{n}{n+1}=\\dfrac{1}{2},\\ \\dfrac{2}{3},\\ \\dfrac{3}{4},\\ \\ldots",
+        "porque": "Se calculan los primeros términos."
+       },
+       {
+        "tex": "\\lim_{n\\to\\infty}\\dfrac{n}{n+1}=\\lim_{n\\to\\infty}\\dfrac{1}{1+1/n}=1",
+        "porque": "Se divide arriba y abajo entre n. La sucesión converge a 1."
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "Serie geométrica",
+    "corto": "Geométrica",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Es la serie donde cada término es el anterior por un número fijo r, la {{gl:razon|razón}}. Es la más importante porque tiene fórmula."
+     },
+     {
+      "t": "eq",
+      "tex": "\\sum_{n=0}^{\\infty}a\\,r^{n}=\\dfrac{a}{1-r}\\qquad |r|<1"
+     },
+     {
+      "t": "pasos",
+      "items": [
+       {
+        "tex": "a=1,\\quad r=\\dfrac{1}{3}\\ \\Rightarrow\\ \\sum_{n=0}^{\\infty}\\left(\\dfrac{1}{3}\\right)^{n}=\\dfrac{1}{1-1/3}=\\dfrac{3}{2}",
+        "porque": "Es el mismo valor al que se acercaban las sumas parciales."
+       },
+       {
+        "tex": "|r|\\ge 1\\ \\Rightarrow\\ \\text{la serie diverge}",
+        "porque": "Si la razón es 1 o más en valor absoluto, los términos no se achican y la suma se dispara."
+       }
+      ]
+     },
+     {
+      "t": "ojo",
+      "html": "La fórmula da la suma desde n igual a 0. Si la suma empieza en n igual a 1, el primer término es a por r, y no a."
+     }
+    ]
+   },
+   {
+    "titulo": "Series telescópicas",
+    "corto": "Telescópicas",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "A veces los términos se cancelan en cadena."
+     },
+     {
+      "t": "pasos",
+      "items": [
+       {
+        "tex": "\\dfrac{1}{n(n+2)}=\\dfrac{1}{2}\\left(\\dfrac{1}{n}-\\dfrac{1}{n+2}\\right)",
+        "porque": "Se parte en fracciones parciales."
+       },
+       {
+        "tex": "S_{N}=\\dfrac{1}{2}\\left(1+\\dfrac{1}{2}-\\dfrac{1}{N+1}-\\dfrac{1}{N+2}\\right)",
+        "porque": "Casi todos los términos se cancelan y quedan los de los extremos."
+       },
+       {
+        "tex": "\\sum_{n=1}^{\\infty}\\dfrac{1}{n(n+2)}=\\dfrac{1}{2}\\cdot\\dfrac{3}{2}=\\dfrac{3}{4}",
+        "porque": "Cuando N crece, los dos últimos términos tienden a 0."
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "Criterio del término general y series p",
+    "corto": "Series p",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Hay dos pruebas rápidas. La primera es que si el término no tiende a 0, la serie diverge. La segunda es la serie p."
+     },
+     {
+      "t": "eq",
+      "tex": "\\sum_{n=1}^{\\infty}\\dfrac{1}{n^{p}}\\ \\text{converge si}\\ p>1,\\ \\text{y diverge si}\\ p\\le 1"
+     },
+     {
+      "t": "pasos",
+      "items": [
+       {
+        "tex": "\\sum\\dfrac{1}{n}\\ \\text{(armónica) diverge}",
+        "porque": "Aquí p vale 1. Aunque los términos tienden a 0, la suma crece sin parar."
+       },
+       {
+        "tex": "\\sum\\dfrac{1}{n^{3}}\\ \\text{converge}",
+        "porque": "Aquí p vale 3, mayor que 1."
+       }
+      ]
+     },
+     {
+      "t": "ojo",
+      "html": "Que el término tienda a 0 no garantiza que la serie converja. Solo sirve para descartar. Es necesario, pero no suficiente."
+     }
+    ]
+   },
+   {
+    "titulo": "Criterio de la razón",
+    "corto": "Criterio de la razón",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Compara cada término con el siguiente. Sirve con factoriales y potencias."
+     },
+     {
+      "t": "eq",
+      "tex": "L=\\lim_{n\\to\\infty}\\left|\\dfrac{a_{n+1}}{a_{n}}\\right|\\quad L<1\\ \\text{converge},\\ L>1\\ \\text{diverge}"
+     },
+     {
+      "t": "pasos",
+      "items": [
+       {
+        "tex": "a_{n}=\\dfrac{n}{2^{n}}\\ \\Rightarrow\\ \\left|\\dfrac{a_{n+1}}{a_{n}}\\right|=\\dfrac{n+1}{2n}",
+        "porque": "Se divide el término siguiente entre el actual."
+       },
+       {
+        "tex": "L=\\lim_{n\\to\\infty}\\dfrac{n+1}{2n}=\\dfrac{1}{2}<1",
+        "porque": "El límite es un medio. La serie converge."
+       }
+      ]
+     },
+     {
+      "t": "ojo",
+      "html": "Si L vale exactamente 1, el criterio no decide y hay que usar otro."
+     }
+    ]
+   },
+   {
+    "titulo": "Series de potencias",
+    "corto": "De potencias",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Una serie de potencias tiene la variable x. Converge para unos valores de x y diverge para otros. Se halla el radio con el criterio de la razón y luego se revisan los extremos por separado."
+     },
+     {
+      "t": "pasos",
+      "items": [
+       {
+        "tex": "\\sum_{n=1}^{\\infty}\\dfrac{x^{n}}{n\\,2^{n}}:\\quad \\lim\\left|\\dfrac{a_{n+1}}{a_{n}}\\right|=\\dfrac{|x|}{2}<1\\ \\Rightarrow\\ |x|<2",
+        "porque": "El radio de convergencia es 2."
+       },
+       {
+        "tex": "x=2:\\ \\sum\\dfrac{1}{n}\\ \\text{diverge}",
+        "porque": "En x igual a 2 sale la serie armónica."
+       },
+       {
+        "tex": "x=-2:\\ \\sum\\dfrac{(-1)^{n}}{n}\\ \\text{converge}",
+        "porque": "En x igual a menos 2 la serie alterna y converge."
+       },
+       {
+        "tex": "\\text{Intervalo de convergencia}=[-2,\\,2)",
+        "porque": "Entra el extremo izquierdo y no el derecho."
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "¿Para qué sirve?",
+    "corto": "En ingeniería",
+    "bloques": [
+     {
+      "t": "ingenieria",
+      "titulo": "El rebote de una pieza",
+      "html": "Una pieza cae y rebota varias veces, y en cada rebote sube un 60 por ciento de la altura anterior. La distancia total que recorre es una serie geométrica, porque cada recorrido es una fracción fija del anterior.",
+      "tex": "d=2+2\\left(2\\cdot 0.6+2\\cdot 0.6^{2}+2\\cdot 0.6^{3}+\\cdots\\right)",
+      "datos": [
+       {
+        "k": "Altura inicial",
+        "v": "2 m"
+       },
+       {
+        "k": "Rebote",
+        "v": "60 % de la altura anterior"
+       },
+       {
+        "k": "Recorrido total",
+        "v": "8 m"
+       }
+      ],
+      "cierre": "Después de la caída inicial de 2 metros, cada rebote sube y baja la misma distancia. La serie geométrica de razón 0.6 suma 0.6 sobre 0.4, o sea 1.5, y el recorrido total es 2 más 2 por 2 por 1.5, o sea 8 metros. Es un modelo simplificado, porque en la práctica la pieza se detiene en un tiempo finito."
+     }
+    ]
+   },
+   {
+    "titulo": "Completa el paso",
+    "corto": "Completa",
+    "bloques": [
+     {
+      "t": "completar",
+      "enunciado": "Se suma la serie 2 más 2 por un cuarto más 2 por un cuarto al cuadrado, y así sucesivamente. Hay que aplicar la fórmula de la serie geométrica.",
+      "tex": "\\sum_{n=0}^{\\infty}2\\left(\\dfrac{1}{4}\\right)^{n}=\\dfrac{2}{1-1/4}=[[hueco]]",
+      "opciones": [
+       {
+        "tex": "\\dfrac{8}{3}",
+        "txt": "ocho tercios"
+       },
+       {
+        "tex": "8",
+        "txt": "ocho"
+       },
+       {
+        "tex": "\\dfrac{5}{2}",
+        "txt": "cinco medios"
+       }
+      ],
+      "correcta": 0,
+      "errores": [
+       "",
+       "Se dividió entre un cuarto y no entre 1 menos un cuarto. El denominador es 3 sobre 4.",
+       "Esa es la suma de solo los dos primeros términos, y la serie tiene infinitos. La fórmula da 8 sobre 3."
+      ],
+      "pista": "El denominador es 1 menos un cuarto, o sea tres cuartos.",
+      "porque": "El denominador es 3 sobre 4 y dividir 2 entre 3 sobre 4 da 8 sobre 3."
+     }
+    ]
+   },
+   {
+    "titulo": "Encuentra el error",
+    "corto": "Error",
+    "bloques": [
+     {
+      "t": "error",
+      "enunciado": "Alguien analizó la serie armónica y se equivocó en un paso. Toca el paso que está mal.",
+      "pasos": [
+       {
+        "tex": "a_{n}=\\dfrac{1}{n}\\ \\text{tiende a}\\ 0",
+        "porque": "Es cierto, el término tiende a 0.",
+        "txt": "El término uno sobre n tiende a 0"
+       },
+       {
+        "tex": "\\text{Por tanto la serie}\\ \\sum\\dfrac{1}{n}\\ \\text{converge}",
+        "porque": "Este paso es el que falla.",
+        "txt": "Por tanto la serie de uno sobre n converge"
+       },
+       {
+        "tex": "\\text{Su suma es un número finito}",
+        "porque": "La conclusión depende del paso anterior.",
+        "txt": "Su suma es un número finito"
+       }
+      ],
+      "mal": 1,
+      "explicacion": "Que el término tienda a 0 es necesario, pero no suficiente. La serie armónica diverge, porque es una serie p con p igual a 1.",
+      "correccion": "\\sum_{n=1}^{\\infty}\\dfrac{1}{n}\\ \\text{diverge, aunque}\\ \\dfrac{1}{n}\\to 0",
+      "pista": "¿Un término que tiende a 0 basta para que la suma sea finita?"
+     }
+    ]
+   },
+   {
+    "titulo": "Ordena los pasos",
+    "corto": "Ordena",
+    "bloques": [
+     {
+      "t": "ordenar",
+      "enunciado": "Estos son los pasos para analizar la serie de n sobre 2 a la n con el criterio de la razón, pero están desordenados.",
+      "pasos": [
+       "a_{n}=\\dfrac{n}{2^{n}}",
+       "\\left|\\dfrac{a_{n+1}}{a_{n}}\\right|=\\dfrac{n+1}{2n}",
+       "L=\\lim_{n\\to\\infty}\\dfrac{n+1}{2n}=\\dfrac{1}{2}",
+       "L<1\\ \\Rightarrow\\ \\text{la serie converge}"
+      ],
+      "mezcla": [
+       2,
+       0,
+       3,
+       1
+      ],
+      "porque": "Se escribe el término, se arma el cociente, se calcula el límite y se compara con 1.",
+      "pista": "Primero se escribe el término general.",
+      "txt": [
+       "El término es n sobre 2 a la n",
+       "El cociente es n más 1 sobre 2n",
+       "El límite es un medio",
+       "Como L es menor que 1, la serie converge"
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "Revisa tu respuesta",
+    "corto": "Revisa",
+    "bloques": [
+     {
+      "t": "pregunta"
+     },
+     {
+      "t": "nota",
+      "html": "Puedes pedir pistas de a una. Si fallas, el mensaje te dice qué error se cometió."
+     }
+    ]
+   },
+   {
+    "titulo": "Mini simulacro",
+    "corto": "Simulacro",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Tres preguntas reales del banco de MathUNAL sobre este tema. Responde sin mirar los pasos."
+     },
+     {
+      "t": "simulacro",
+      "titulo": "Mini simulacro de series",
+      "preguntas": [
+       {
+        "tipo": "numerica",
+        "texto": "$\\displaystyle\\sum_{n=0}^{\\infty} \\left(\\dfrac{1}{2}\\right)^{n}$",
+        "respuesta": "2",
+        "tolNum": 0.001,
+        "resumen": "Geométrica con $a=1$ y $r=1/2$. La suma es $\\dfrac{a}{1-r}=2$.",
+        "fuente": "Banco MathUNAL, simulacro de Cálculo Integral"
+       },
+       {
+        "tipo": "mcq",
+        "texto": "La serie $\\displaystyle\\sum_{n=1}^{\\infty} \\dfrac{1}{n^{2}}$:",
+        "opciones": [
+         "converge ($p$-serie con $p=2>1$)",
+         "diverge",
+         "converge a $1$",
+         "es alternante"
+        ],
+        "correcta": 0,
+        "resumen": "Es una $p$-serie. Converge si y solo si $p>1$.",
+        "fuente": "Banco MathUNAL, simulacro de Cálculo Integral"
+       },
+       {
+        "tipo": "mcq",
+        "texto": "El intervalo de convergencia de $\\displaystyle\\sum_{n=1}^{\\infty}\\frac{x^n}{n}$ es:",
+        "opciones": [
+         "$[-1,\\,1)$",
+         "$(-1,\\,1)$",
+         "$(-1,\\,1]$",
+         "$[-1,\\,1]$"
+        ],
+        "correcta": 0,
+        "resumen": "El radio es $1$ por el criterio de la razón. En $x=1$ sale la armónica, que diverge, y en $x=-1$ la alternante, que converge.",
+        "fuente": "Banco MathUNAL, simulacro de Cálculo Integral"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "Tu repaso",
+    "corto": "Repaso",
+    "bloques": [
+     {
+      "t": "repaso"
+     }
+    ]
+   },
+   {
+    "titulo": "En resumen",
+    "corto": "Resumen",
+    "bloques": [
+     {
+      "t": "resumen"
+     }
+    ]
+   }
+  ]
+ },
+ "practicar": {
+  "pasos": [
+   {
+    "titulo": "Las sumas parciales",
+    "grafica": {
+     "draw": 1
+    },
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Esta curva une las sumas parciales de la serie."
+     },
+     {
+      "t": "eq",
+      "tex": "S_{N}=\\sum_{n=0}^{N}\\left(\\dfrac{1}{3}\\right)^{n}"
+     }
+    ]
+   },
+   {
+    "titulo": "Suma más términos",
+    "grafica": {
+     "draw": 1
+    },
+    "laboratorio": true,
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mueve el deslizador para elegir cuántos términos sumas. Abajo se ve la suma parcial."
+     }
+    ]
+   },
+   {
+    "titulo": "Se aplana",
+    "grafica": {
+     "draw": 1,
+     "guide": 1
+    },
+    "laboratorio": true,
+    "d": 4,
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Con n igual a 4 la suma parcial es 1.494. Cada término nuevo aporta muy poco y la curva se acerca a la recta y igual a 3 sobre 2."
+     }
+    ]
+   },
+   {
+    "titulo": "La suma",
+    "grafica": {
+     "draw": 1,
+     "guide": 1,
+     "ok": true
+    },
+    "laboratorio": true,
+    "d": 8,
+    "bloques": [
+     {
+      "t": "eq",
+      "tex": "\\sum_{n=0}^{\\infty}\\left(\\dfrac{1}{3}\\right)^{n}=\\dfrac{1}{1-1/3}=\\dfrac{3}{2}"
+     },
+     {
+      "t": "p",
+      "html": "Con 8 términos la suma parcial ya es 1.4999. La fórmula de la serie geométrica da directamente 3 sobre 2."
+     }
+    ]
+   },
+   {
+    "titulo": "Revisa tu respuesta",
+    "grafica": {
+     "draw": 1,
+     "guide": 1,
+     "ok": true,
+     "d": 8
+    },
+    "bloques": [
+     {
+      "t": "pregunta"
+     },
+     {
+      "t": "nota",
+      "html": "Fíjate en dónde empieza la suma y en cuál es la razón."
+     }
+    ]
+   }
+  ]
+ },
+ "pregunta": {
+  "tex": "\\sum_{n=1}^{\\infty}3\\left(\\dfrac{2}{5}\\right)^{n}",
+  "opciones": [
+   "$2$",
+   "$5$",
+   "$\\dfrac{6}{5}$",
+   "Diverge"
+  ],
+  "correcta": 0,
+  "explicacion": "Es una serie geométrica de razón 2 sobre 5, que es menor que 1, así que converge. Como empieza en n igual a 1, el primer término es 3 por 2 sobre 5, o sea 6 sobre 5. La suma es el primer término entre 1 menos la razón, o sea 6 sobre 5 dividido entre 3 sobre 5, que da 2.",
+  "verificacion": {
+   "formula": "(3*2/5)/(1-2/5)+0*x",
+   "a": 0,
+   "esperado": 2
+  },
+  "pistas": [
+   "Es una serie geométrica. ¿Cuál es su razón?",
+   "La razón es 2 sobre 5, menor que 1, así que converge. Ojo, la suma empieza en n igual a 1.",
+   "El primer término es 6 sobre 5. La suma es el primer término dividido entre 1 menos la razón."
+  ],
+  "errores": [
+   "",
+   "Ese es el resultado si la suma empezara en n igual a 0, con primer término 3. Como empieza en n igual a 1, el primer término es 6 sobre 5.",
+   "Ese es el primer término y no la suma. Falta dividir entre 1 menos la razón.",
+   "La razón es 2 sobre 5, que es menor que 1 en valor absoluto, así que converge."
+  ]
+ },
+ "resumen": [
+  "Una serie converge si sus sumas parciales se acercan a un número. Ese número es su suma.",
+  "La geométrica con razón menor que 1 en valor absoluto suma el primer término dividido entre 1 menos la razón.",
+  "La serie p converge si p es mayor que 1. El criterio de la razón compara un término con el siguiente. Que el término tienda a 0 no basta."
+ ]
+}

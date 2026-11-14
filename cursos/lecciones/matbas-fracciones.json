@@ -1,0 +1,1239 @@
+{
+ "esquema": 1,
+ "id": "mb-m1-l4",
+ "ejemplo": true,
+ "curso": "Matemáticas Básicas",
+ "modulo": "Módulo 1 Álgebra y expresiones",
+ "posicion": "Lección 4 de 4",
+ "titulo": "Fracciones algebraicas",
+ "minutos": 24,
+ "ejercicios": 3,
+ "grafica": {
+  "tipo": "plano",
+  "x": [
+   -4.5,
+   5.5
+  ],
+  "y": [
+   -3,
+   7
+  ],
+  "a": 0,
+  "b": 4.5,
+  "inicio": 0,
+  "elementos": [
+   {
+    "t": "trazo",
+    "puntos": [
+     [
+      "-4.5000",
+      "(-4.5000+2)/(-4.5000+1)"
+     ],
+     [
+      "-4.4138",
+      "(-4.4138+2)/(-4.4138+1)"
+     ],
+     [
+      "-4.3275",
+      "(-4.3275+2)/(-4.3275+1)"
+     ],
+     [
+      "-4.2412",
+      "(-4.2412+2)/(-4.2412+1)"
+     ],
+     [
+      "-4.1550",
+      "(-4.1550+2)/(-4.1550+1)"
+     ],
+     [
+      "-4.0687",
+      "(-4.0687+2)/(-4.0687+1)"
+     ],
+     [
+      "-3.9825",
+      "(-3.9825+2)/(-3.9825+1)"
+     ],
+     [
+      "-3.8963",
+      "(-3.8963+2)/(-3.8963+1)"
+     ],
+     [
+      "-3.8100",
+      "(-3.8100+2)/(-3.8100+1)"
+     ],
+     [
+      "-3.7237",
+      "(-3.7237+2)/(-3.7237+1)"
+     ],
+     [
+      "-3.6375",
+      "(-3.6375+2)/(-3.6375+1)"
+     ],
+     [
+      "-3.5513",
+      "(-3.5513+2)/(-3.5513+1)"
+     ],
+     [
+      "-3.4650",
+      "(-3.4650+2)/(-3.4650+1)"
+     ],
+     [
+      "-3.3788",
+      "(-3.3788+2)/(-3.3788+1)"
+     ],
+     [
+      "-3.2925",
+      "(-3.2925+2)/(-3.2925+1)"
+     ],
+     [
+      "-3.2062",
+      "(-3.2062+2)/(-3.2062+1)"
+     ],
+     [
+      "-3.1200",
+      "(-3.1200+2)/(-3.1200+1)"
+     ],
+     [
+      "-3.0337",
+      "(-3.0337+2)/(-3.0337+1)"
+     ],
+     [
+      "-2.9475",
+      "(-2.9475+2)/(-2.9475+1)"
+     ],
+     [
+      "-2.8613",
+      "(-2.8613+2)/(-2.8613+1)"
+     ],
+     [
+      "-2.7750",
+      "(-2.7750+2)/(-2.7750+1)"
+     ],
+     [
+      "-2.6887",
+      "(-2.6887+2)/(-2.6887+1)"
+     ],
+     [
+      "-2.6025",
+      "(-2.6025+2)/(-2.6025+1)"
+     ],
+     [
+      "-2.5162",
+      "(-2.5162+2)/(-2.5162+1)"
+     ],
+     [
+      "-2.4300",
+      "(-2.4300+2)/(-2.4300+1)"
+     ],
+     [
+      "-2.3438",
+      "(-2.3438+2)/(-2.3438+1)"
+     ],
+     [
+      "-2.2575",
+      "(-2.2575+2)/(-2.2575+1)"
+     ],
+     [
+      "-2.1712",
+      "(-2.1712+2)/(-2.1712+1)"
+     ],
+     [
+      "-2.0850",
+      "(-2.0850+2)/(-2.0850+1)"
+     ],
+     [
+      "-1.9987",
+      "(-1.9987+2)/(-1.9987+1)"
+     ],
+     [
+      "-1.9125",
+      "(-1.9125+2)/(-1.9125+1)"
+     ],
+     [
+      "-1.8262",
+      "(-1.8262+2)/(-1.8262+1)"
+     ],
+     [
+      "-1.7400",
+      "(-1.7400+2)/(-1.7400+1)"
+     ],
+     [
+      "-1.6537",
+      "(-1.6537+2)/(-1.6537+1)"
+     ],
+     [
+      "-1.5675",
+      "(-1.5675+2)/(-1.5675+1)"
+     ],
+     [
+      "-1.4813",
+      "(-1.4813+2)/(-1.4813+1)"
+     ],
+     [
+      "-1.3950",
+      "(-1.3950+2)/(-1.3950+1)"
+     ],
+     [
+      "-1.3087",
+      "(-1.3087+2)/(-1.3087+1)"
+     ],
+     [
+      "-1.2225",
+      "(-1.2225+2)/(-1.2225+1)"
+     ],
+     [
+      "-1.1362",
+      "(-1.1362+2)/(-1.1362+1)"
+     ],
+     [
+      "-1.0500",
+      "(-1.0500+2)/(-1.0500+1)"
+     ]
+    ],
+    "c": 2
+   },
+   {
+    "t": "trazo",
+    "puntos": [
+     [
+      "-0.9300",
+      "(-0.9300+2)/(-0.9300+1)"
+     ],
+     [
+      "-0.8722",
+      "(-0.8722+2)/(-0.8722+1)"
+     ],
+     [
+      "-0.8144",
+      "(-0.8144+2)/(-0.8144+1)"
+     ],
+     [
+      "-0.7566",
+      "(-0.7566+2)/(-0.7566+1)"
+     ],
+     [
+      "-0.6988",
+      "(-0.6988+2)/(-0.6988+1)"
+     ],
+     [
+      "-0.6410",
+      "(-0.6410+2)/(-0.6410+1)"
+     ],
+     [
+      "-0.5832",
+      "(-0.5832+2)/(-0.5832+1)"
+     ],
+     [
+      "-0.5254",
+      "(-0.5254+2)/(-0.5254+1)"
+     ],
+     [
+      "-0.4676",
+      "(-0.4676+2)/(-0.4676+1)"
+     ],
+     [
+      "-0.4098",
+      "(-0.4098+2)/(-0.4098+1)"
+     ],
+     [
+      "-0.3520",
+      "(-0.3520+2)/(-0.3520+1)"
+     ],
+     [
+      "-0.2942",
+      "(-0.2942+2)/(-0.2942+1)"
+     ],
+     [
+      "-0.2364",
+      "(-0.2364+2)/(-0.2364+1)"
+     ],
+     [
+      "-0.1786",
+      "(-0.1786+2)/(-0.1786+1)"
+     ],
+     [
+      "-0.1208",
+      "(-0.1208+2)/(-0.1208+1)"
+     ],
+     [
+      "-0.0630",
+      "(-0.0630+2)/(-0.0630+1)"
+     ],
+     [
+      "-0.0052",
+      "(-0.0052+2)/(-0.0052+1)"
+     ],
+     [
+      "0.0526",
+      "(0.0526+2)/(0.0526+1)"
+     ],
+     [
+      "0.1104",
+      "(0.1104+2)/(0.1104+1)"
+     ],
+     [
+      "0.1682",
+      "(0.1682+2)/(0.1682+1)"
+     ],
+     [
+      "0.2260",
+      "(0.2260+2)/(0.2260+1)"
+     ],
+     [
+      "0.2838",
+      "(0.2838+2)/(0.2838+1)"
+     ],
+     [
+      "0.3416",
+      "(0.3416+2)/(0.3416+1)"
+     ],
+     [
+      "0.3994",
+      "(0.3994+2)/(0.3994+1)"
+     ],
+     [
+      "0.4572",
+      "(0.4572+2)/(0.4572+1)"
+     ],
+     [
+      "0.5150",
+      "(0.5150+2)/(0.5150+1)"
+     ],
+     [
+      "0.5728",
+      "(0.5728+2)/(0.5728+1)"
+     ],
+     [
+      "0.6306",
+      "(0.6306+2)/(0.6306+1)"
+     ],
+     [
+      "0.6884",
+      "(0.6884+2)/(0.6884+1)"
+     ],
+     [
+      "0.7462",
+      "(0.7462+2)/(0.7462+1)"
+     ],
+     [
+      "0.8040",
+      "(0.8040+2)/(0.8040+1)"
+     ],
+     [
+      "0.8618",
+      "(0.8618+2)/(0.8618+1)"
+     ],
+     [
+      "0.9196",
+      "(0.9196+2)/(0.9196+1)"
+     ],
+     [
+      "0.9774",
+      "(0.9774+2)/(0.9774+1)"
+     ],
+     [
+      "1.0352",
+      "(1.0352+2)/(1.0352+1)"
+     ],
+     [
+      "1.0930",
+      "(1.0930+2)/(1.0930+1)"
+     ],
+     [
+      "1.1508",
+      "(1.1508+2)/(1.1508+1)"
+     ],
+     [
+      "1.2086",
+      "(1.2086+2)/(1.2086+1)"
+     ],
+     [
+      "1.2664",
+      "(1.2664+2)/(1.2664+1)"
+     ],
+     [
+      "1.3242",
+      "(1.3242+2)/(1.3242+1)"
+     ],
+     [
+      "1.3820",
+      "(1.3820+2)/(1.3820+1)"
+     ],
+     [
+      "1.4398",
+      "(1.4398+2)/(1.4398+1)"
+     ],
+     [
+      "1.4976",
+      "(1.4976+2)/(1.4976+1)"
+     ],
+     [
+      "1.5554",
+      "(1.5554+2)/(1.5554+1)"
+     ],
+     [
+      "1.6132",
+      "(1.6132+2)/(1.6132+1)"
+     ],
+     [
+      "1.6710",
+      "(1.6710+2)/(1.6710+1)"
+     ],
+     [
+      "1.7288",
+      "(1.7288+2)/(1.7288+1)"
+     ],
+     [
+      "1.7866",
+      "(1.7866+2)/(1.7866+1)"
+     ],
+     [
+      "1.8444",
+      "(1.8444+2)/(1.8444+1)"
+     ],
+     [
+      "1.9022",
+      "(1.9022+2)/(1.9022+1)"
+     ],
+     [
+      "1.9600",
+      "(1.9600+2)/(1.9600+1)"
+     ]
+    ],
+    "c": 2
+   },
+   {
+    "t": "trazo",
+    "puntos": [
+     [
+      "2.0400",
+      "(2.0400+2)/(2.0400+1)"
+     ],
+     [
+      "2.0977",
+      "(2.0977+2)/(2.0977+1)"
+     ],
+     [
+      "2.1553",
+      "(2.1553+2)/(2.1553+1)"
+     ],
+     [
+      "2.2130",
+      "(2.2130+2)/(2.2130+1)"
+     ],
+     [
+      "2.2707",
+      "(2.2707+2)/(2.2707+1)"
+     ],
+     [
+      "2.3283",
+      "(2.3283+2)/(2.3283+1)"
+     ],
+     [
+      "2.3860",
+      "(2.3860+2)/(2.3860+1)"
+     ],
+     [
+      "2.4437",
+      "(2.4437+2)/(2.4437+1)"
+     ],
+     [
+      "2.5013",
+      "(2.5013+2)/(2.5013+1)"
+     ],
+     [
+      "2.5590",
+      "(2.5590+2)/(2.5590+1)"
+     ],
+     [
+      "2.6167",
+      "(2.6167+2)/(2.6167+1)"
+     ],
+     [
+      "2.6743",
+      "(2.6743+2)/(2.6743+1)"
+     ],
+     [
+      "2.7320",
+      "(2.7320+2)/(2.7320+1)"
+     ],
+     [
+      "2.7897",
+      "(2.7897+2)/(2.7897+1)"
+     ],
+     [
+      "2.8473",
+      "(2.8473+2)/(2.8473+1)"
+     ],
+     [
+      "2.9050",
+      "(2.9050+2)/(2.9050+1)"
+     ],
+     [
+      "2.9627",
+      "(2.9627+2)/(2.9627+1)"
+     ],
+     [
+      "3.0203",
+      "(3.0203+2)/(3.0203+1)"
+     ],
+     [
+      "3.0780",
+      "(3.0780+2)/(3.0780+1)"
+     ],
+     [
+      "3.1357",
+      "(3.1357+2)/(3.1357+1)"
+     ],
+     [
+      "3.1933",
+      "(3.1933+2)/(3.1933+1)"
+     ],
+     [
+      "3.2510",
+      "(3.2510+2)/(3.2510+1)"
+     ],
+     [
+      "3.3087",
+      "(3.3087+2)/(3.3087+1)"
+     ],
+     [
+      "3.3663",
+      "(3.3663+2)/(3.3663+1)"
+     ],
+     [
+      "3.4240",
+      "(3.4240+2)/(3.4240+1)"
+     ],
+     [
+      "3.4817",
+      "(3.4817+2)/(3.4817+1)"
+     ],
+     [
+      "3.5393",
+      "(3.5393+2)/(3.5393+1)"
+     ],
+     [
+      "3.5970",
+      "(3.5970+2)/(3.5970+1)"
+     ],
+     [
+      "3.6547",
+      "(3.6547+2)/(3.6547+1)"
+     ],
+     [
+      "3.7123",
+      "(3.7123+2)/(3.7123+1)"
+     ],
+     [
+      "3.7700",
+      "(3.7700+2)/(3.7700+1)"
+     ],
+     [
+      "3.8277",
+      "(3.8277+2)/(3.8277+1)"
+     ],
+     [
+      "3.8853",
+      "(3.8853+2)/(3.8853+1)"
+     ],
+     [
+      "3.9430",
+      "(3.9430+2)/(3.9430+1)"
+     ],
+     [
+      "4.0007",
+      "(4.0007+2)/(4.0007+1)"
+     ],
+     [
+      "4.0583",
+      "(4.0583+2)/(4.0583+1)"
+     ],
+     [
+      "4.1160",
+      "(4.1160+2)/(4.1160+1)"
+     ],
+     [
+      "4.1737",
+      "(4.1737+2)/(4.1737+1)"
+     ],
+     [
+      "4.2313",
+      "(4.2313+2)/(4.2313+1)"
+     ],
+     [
+      "4.2890",
+      "(4.2890+2)/(4.2890+1)"
+     ],
+     [
+      "4.3467",
+      "(4.3467+2)/(4.3467+1)"
+     ],
+     [
+      "4.4043",
+      "(4.4043+2)/(4.4043+1)"
+     ],
+     [
+      "4.4620",
+      "(4.4620+2)/(4.4620+1)"
+     ],
+     [
+      "4.5197",
+      "(4.5197+2)/(4.5197+1)"
+     ],
+     [
+      "4.5773",
+      "(4.5773+2)/(4.5773+1)"
+     ],
+     [
+      "4.6350",
+      "(4.6350+2)/(4.6350+1)"
+     ],
+     [
+      "4.6927",
+      "(4.6927+2)/(4.6927+1)"
+     ],
+     [
+      "4.7503",
+      "(4.7503+2)/(4.7503+1)"
+     ],
+     [
+      "4.8080",
+      "(4.8080+2)/(4.8080+1)"
+     ],
+     [
+      "4.8657",
+      "(4.8657+2)/(4.8657+1)"
+     ],
+     [
+      "4.9233",
+      "(4.9233+2)/(4.9233+1)"
+     ],
+     [
+      "4.9810",
+      "(4.9810+2)/(4.9810+1)"
+     ],
+     [
+      "5.0387",
+      "(5.0387+2)/(5.0387+1)"
+     ],
+     [
+      "5.0963",
+      "(5.0963+2)/(5.0963+1)"
+     ],
+     [
+      "5.1540",
+      "(5.1540+2)/(5.1540+1)"
+     ],
+     [
+      "5.2117",
+      "(5.2117+2)/(5.2117+1)"
+     ],
+     [
+      "5.2693",
+      "(5.2693+2)/(5.2693+1)"
+     ],
+     [
+      "5.3270",
+      "(5.3270+2)/(5.3270+1)"
+     ],
+     [
+      "5.3847",
+      "(5.3847+2)/(5.3847+1)"
+     ],
+     [
+      "5.4423",
+      "(5.4423+2)/(5.4423+1)"
+     ],
+     [
+      "5.5000",
+      "(5.5000+2)/(5.5000+1)"
+     ]
+    ],
+    "c": 2
+   },
+   {
+    "t": "recta",
+    "p": [
+     "-1",
+     "0"
+    ],
+    "dir": [
+     "0",
+     "1"
+    ],
+    "guion": true,
+    "c": 3,
+    "guia": true
+   },
+   {
+    "t": "recta",
+    "p": [
+     "2",
+     "0"
+    ],
+    "dir": [
+     "0",
+     "1"
+    ],
+    "guion": true,
+    "c": 3,
+    "guia": true
+   },
+   {
+    "t": "punto",
+    "p": [
+     "x",
+     "(x+2)/(x+1)"
+    ],
+    "c": 1
+   }
+  ],
+  "lecturas": [
+   {
+    "rotulo": "valor de x",
+    "formula": "x"
+   },
+   {
+    "rotulo": "(x+2)/(x+1)",
+    "formula": "(x+2)/(x+1)"
+   }
+  ],
+  "etiquetas": [
+   "Valor de x",
+   "Valor de la fracción simplificada"
+  ],
+  "etiquetaSlider": "Valor de x",
+  "alt": "La gráfica de x más 2 sobre x más 1, con una asíntota vertical en x igual a menos 1 y un hueco en x igual a 2, donde la fracción original x al cuadrado menos 4 sobre x al cuadrado menos x menos 2 no está definida"
+ },
+ "glosario": {
+  "algebraica": "Una fracción algebraica es un cociente de polinomios, como x más 2 sobre x más 1.",
+  "simplificar": "Simplificar una fracción es cancelar los factores comunes del numerador y del denominador. Solo se cancelan factores, no términos que se suman.",
+  "dominio": "El dominio de una fracción algebraica son los valores de x para los que el denominador no vale 0."
+ },
+ "ver": {
+  "duracion": 22.0,
+  "capitulos": [
+   [
+    0,
+    4,
+    "Esta es la gráfica de x al cuadrado menos 4, sobre x al cuadrado menos x menos 2."
+   ],
+   [
+    4,
+    8,
+    "El numerador y el denominador tienen un factor común, x menos 2. Al cancelarlo queda x más 2 sobre x más 1."
+   ],
+   [
+    8,
+    14,
+    "La curva es la de x más 2 sobre x más 1, con un hueco en x igual a 2, donde la fracción original no está definida. Mueve el punto para verlo."
+   ],
+   [
+    14,
+    18,
+    "En x igual a 3 la fracción vale 1.25. Cuanto más grande es x, más se acerca a 1."
+   ],
+   [
+    18,
+    22,
+    "En x igual a 2 el punto cae en el hueco, a la altura 1.33. La fracción simplificada sí vale eso, pero la original no existe ahí."
+   ]
+  ],
+  "canales": {
+   "draw": [
+    [
+     0.3,
+     0
+    ],
+    [
+     3.5,
+     1
+    ]
+   ],
+   "d": [
+    [
+     4,
+     0
+    ],
+    [
+     8,
+     0
+    ],
+    [
+     11,
+     3
+    ],
+    [
+     17,
+     3
+    ],
+    [
+     18,
+     2
+    ],
+    [
+     22,
+     2
+    ]
+   ],
+   "guide": [
+    [
+     4,
+     0
+    ],
+    [
+     5,
+     1
+    ]
+   ]
+  },
+  "intervalos": {
+   "ok": [
+    18,
+    22
+   ]
+  }
+ },
+ "leer": {
+  "secciones": [
+   {
+    "titulo": "La idea",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Las {{gl:algebraica|fracciones algebraicas}} se manejan igual que las numéricas. Se factoriza para {{gl:simplificar|simplificar}}, se busca un denominador común para sumar, y se invierte para dividir. Lo que hay que cuidar es el {{gl:dominio|dominio}}, porque los valores que anulan un denominador nunca se permiten."
+     }
+    ]
+   },
+   {
+    "titulo": "Un ejemplo",
+    "corto": "Un ejemplo",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Esta fracción parece complicada, pero tiene un factor repetido."
+     },
+     {
+      "t": "eq",
+      "tex": "\\dfrac{x^{2}-4}{x^{2}-x-2}=\\dfrac{(x-2)(x+2)}{(x-2)(x+1)}"
+     },
+     {
+      "t": "grafica",
+      "animar": "dibujar",
+      "alt": "La gráfica de la fracción"
+     }
+    ]
+   },
+   {
+    "titulo": "Piensa antes de ver",
+    "corto": "Piensa",
+    "bloques": [
+     {
+      "t": "piensa",
+      "pregunta": "En una fracción, el factor x menos 2 se puede cancelar arriba y abajo. ¿Qué valor de x hay que excluir del dominio?",
+      "opciones": [
+       0,
+       1,
+       2,
+       -2
+      ],
+      "correcta": 2,
+      "bien": "Muy bien. Hay que excluir x igual a 2, porque ahí el denominador original vale 0. Más abajo se ve el hueco.",
+      "mal": "Hay que excluir x igual a 2, porque ahí x menos 2 vale 0. Más abajo se ve el hueco."
+     }
+    ]
+   },
+   {
+    "titulo": "Moviendo el punto",
+    "corto": "Moviendo x",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mira el valor de la fracción simplificada en varios puntos."
+     },
+     {
+      "t": "acercando",
+      "ds": [
+       0,
+       1,
+       3,
+       2
+      ],
+      "alt": "El valor de la fracción en varios x"
+     },
+     {
+      "t": "p",
+      "html": "Con x igual a 2 la fracción simplificada vale 4 tercios, pero la original no está definida. Por eso la gráfica tiene un hueco."
+     }
+    ]
+   },
+   {
+    "titulo": "Simplificar",
+    "corto": "Simplificar",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Se factoriza todo y se cancelan los factores comunes."
+     },
+     {
+      "t": "pasos",
+      "items": [
+       {
+        "tex": "\\dfrac{x^{2}-4}{x^{2}-x-2}=\\dfrac{(x-2)(x+2)}{(x-2)(x+1)}",
+        "porque": "Se factorizan el numerador y el denominador."
+       },
+       {
+        "tex": "=\\dfrac{x+2}{x+1},\\quad x\\ne 2,\\ x\\ne -1",
+        "porque": "Se cancela el factor x menos 2, y se recuerdan los valores excluidos."
+       }
+      ]
+     },
+     {
+      "t": "ojo",
+      "html": "Solo se cancelan factores, no términos. En x más 3 sobre x no se puede cancelar la x, porque el 3 se suma."
+     }
+    ]
+   },
+   {
+    "titulo": "Sumar y dividir",
+    "corto": "Operaciones",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Para sumar se busca un denominador común. Para dividir se multiplica por el inverso."
+     },
+     {
+      "t": "pasos",
+      "items": [
+       {
+        "tex": "\\dfrac{1}{x}+\\dfrac{1}{x+1}=\\dfrac{(x+1)+x}{x(x+1)}=\\dfrac{2x+1}{x(x+1)}",
+        "porque": "Cada fracción se escribe con el denominador común x por x más 1."
+       },
+       {
+        "tex": "\\dfrac{x^{2}-1}{x}\\div\\dfrac{x-1}{x^{2}}=\\dfrac{(x-1)(x+1)}{x}\\cdot\\dfrac{x^{2}}{x-1}",
+        "porque": "Dividir es multiplicar por el inverso."
+       },
+       {
+        "tex": "=x(x+1)=x^{2}+x",
+        "porque": "Se cancelan x menos 1 y una x."
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "¿Para qué sirve?",
+    "corto": "En ingeniería",
+    "bloques": [
+     {
+      "t": "ingenieria",
+      "titulo": "Resistencias en paralelo",
+      "html": "Cuando dos resistencias se conectan en paralelo, la resistencia total sale de sumar los inversos. Es una suma de fracciones.",
+      "tex": "\\dfrac{1}{R}=\\dfrac{1}{R_{1}}+\\dfrac{1}{R_{2}}\\ \\Rightarrow\\ R=\\dfrac{R_{1}R_{2}}{R_{1}+R_{2}}",
+      "datos": [
+       {
+        "k": "R1",
+        "v": "6 ohmios"
+       },
+       {
+        "k": "R2",
+        "v": "12 ohmios"
+       },
+       {
+        "k": "Total",
+        "v": "4 ohmios"
+       }
+      ],
+      "cierre": "Con 6 y 12 ohmios, la suma de inversos es un sexto más un doceavo, que es un cuarto, y la resistencia total es 4 ohmios. Siempre es menor que la más pequeña de las dos, porque la corriente tiene dos caminos. Es un modelo ideal, que supone cables sin resistencia."
+     }
+    ]
+   },
+   {
+    "titulo": "Completa el paso",
+    "corto": "Completa",
+    "bloques": [
+     {
+      "t": "completar",
+      "enunciado": "Se suman dos fracciones con el denominador común x por x más 1.",
+      "tex": "\\dfrac{1}{x}+\\dfrac{1}{x+1}=\\dfrac{[[hueco]]}{x(x+1)}",
+      "opciones": [
+       {
+        "tex": "2x+1",
+        "txt": "dos x más uno"
+       },
+       {
+        "tex": "2",
+        "txt": "dos"
+       },
+       {
+        "tex": "x+2",
+        "txt": "x más dos"
+       }
+      ],
+      "correcta": 0,
+      "errores": [
+       "",
+       "Con 2 arriba se estaría sumando 1 más 1, pero los denominadores son distintos y hay que multiplicar.",
+       "Con x más 2 se sumaron mal los numeradores. Cada uno se multiplica por el factor que le falta al denominador."
+      ],
+      "pista": "A la primera fracción le falta el factor x más 1, y a la segunda le falta x.",
+      "porque": "Queda x más 1 más x, que es 2x más 1."
+     }
+    ]
+   },
+   {
+    "titulo": "Encuentra el error",
+    "corto": "Error",
+    "bloques": [
+     {
+      "t": "error",
+      "enunciado": "Alguien simplificó una fracción y se equivocó en un paso. Toca el paso que está mal.",
+      "pasos": [
+       {
+        "tex": "\\dfrac{x^{2}-9}{x^{2}-3x}=\\dfrac{(x-3)(x+3)}{x(x-3)}",
+        "porque": "Se factoriza.",
+        "txt": "se factoriza arriba y abajo"
+       },
+       {
+        "tex": "=\\dfrac{x+3}{x}",
+        "porque": "Se cancela x menos 3.",
+        "txt": "se cancela el factor x menos 3 y queda x más 3 sobre x"
+       },
+       {
+        "tex": "=1+3=4",
+        "porque": "Este paso es el que falla.",
+        "txt": "se cancela la x con el 3 y queda 4"
+       }
+      ],
+      "mal": 2,
+      "explicacion": "La x de abajo no es un factor del numerador. En x más 3 la x se suma con el 3, así que no se puede cancelar. El resultado se deja como x más 3 sobre x, o como 1 más 3 sobre x.",
+      "correccion": "\\dfrac{x+3}{x}=1+\\dfrac{3}{x}",
+      "pista": "Recuerda que solo se cancelan factores."
+     }
+    ]
+   },
+   {
+    "titulo": "Ordena los pasos",
+    "corto": "Ordena",
+    "bloques": [
+     {
+      "t": "ordenar",
+      "enunciado": "Estos son los pasos para restar 2 sobre x menos 1 sobre x más 2, pero están desordenados.",
+      "pasos": [
+       "\\dfrac{2}{x}-\\dfrac{1}{x+2}",
+       "\\dfrac{2(x+2)}{x(x+2)}-\\dfrac{x}{x(x+2)}",
+       "\\dfrac{2x+4-x}{x(x+2)}",
+       "\\dfrac{x+4}{x(x+2)}"
+      ],
+      "mezcla": [
+       2,
+       0,
+       3,
+       1
+      ],
+      "porque": "Se escribe con denominador común, se restan los numeradores y se reducen términos.",
+      "pista": "Se empieza con la resta original.",
+      "txt": [
+       "La resta original",
+       "Se usa el denominador común",
+       "Se resta",
+       "Se reducen términos"
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "Revisa tu respuesta",
+    "corto": "Revisa",
+    "bloques": [
+     {
+      "t": "pregunta"
+     },
+     {
+      "t": "nota",
+      "html": "Puedes pedir pistas de a una. Si fallas, el mensaje te dice qué error se cometió."
+     }
+    ]
+   },
+   {
+    "titulo": "Mini simulacro",
+    "corto": "Simulacro",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Tres preguntas reales del banco de MathUNAL sobre este tema. Responde sin mirar los pasos."
+     },
+     {
+      "t": "simulacro",
+      "titulo": "Mini simulacro de fracciones algebraicas",
+      "preguntas": [
+       {
+        "tipo": "mcq",
+        "texto": "Simplifique $\\dfrac{x^{2}-4}{x^{2}-x-2}$:",
+        "opciones": [
+         "$\\dfrac{x+2}{x+1}$",
+         "$\\dfrac{x-2}{x-1}$",
+         "$\\dfrac{x+2}{x-1}$",
+         "$2$"
+        ],
+        "correcta": 0,
+        "resumen": "Se factoriza $x^2-4=(x-2)(x+2)$ y $x^2-x-2=(x-2)(x+1)$, y se cancela $x-2$.",
+        "fuente": "Banco MathUNAL, simulacro de Matemáticas Básicas"
+       },
+       {
+        "tipo": "mcq",
+        "texto": "$\\dfrac{1}{x}+\\dfrac{1}{x+1}$ es igual a:",
+        "opciones": [
+         "$\\dfrac{2x+1}{x(x+1)}$",
+         "$\\dfrac{2}{2x+1}$",
+         "$\\dfrac{1}{2x+1}$",
+         "$\\dfrac{x+2}{x(x+1)}$"
+        ],
+        "correcta": 0,
+        "resumen": "Con denominador común $x(x+1)$, el numerador es $(x+1)+x=2x+1$.",
+        "fuente": "Banco MathUNAL, simulacro de Matemáticas Básicas"
+       },
+       {
+        "tipo": "mcq",
+        "texto": "$\\dfrac{x^{2}-1}{x}\\div\\dfrac{x-1}{x^{2}}$ es igual a (para $x\\ne0,1$):",
+        "opciones": [
+         "$x^{2}+x$",
+         "$\\dfrac{x-1}{x}$",
+         "$x-1$",
+         "$\\dfrac{1}{x}$"
+        ],
+        "correcta": 0,
+        "resumen": "Se multiplica por el inverso, y queda $\\dfrac{(x-1)(x+1)}{x}\\cdot\\dfrac{x^2}{x-1}=x^2+x$.",
+        "fuente": "Banco MathUNAL, simulacro de Matemáticas Básicas"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "Tu repaso",
+    "corto": "Repaso",
+    "bloques": [
+     {
+      "t": "repaso"
+     }
+    ]
+   },
+   {
+    "titulo": "En resumen",
+    "corto": "Resumen",
+    "bloques": [
+     {
+      "t": "resumen"
+     }
+    ]
+   }
+  ]
+ },
+ "practicar": {
+  "pasos": [
+   {
+    "titulo": "La fracción",
+    "grafica": {
+     "draw": 1,
+     "guide": 1
+    },
+    "bloques": [
+     {
+      "t": "p",
+      "html": "La curva de la fracción simplificada, con un hueco en x igual a 2."
+     },
+     {
+      "t": "eq",
+      "tex": "\\dfrac{x^{2}-4}{x^{2}-x-2}"
+     }
+    ]
+   },
+   {
+    "titulo": "Mueve el punto",
+    "grafica": {
+     "draw": 1,
+     "guide": 1
+    },
+    "laboratorio": true,
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mueve el deslizador. Abajo se lee el valor de la fracción simplificada."
+     }
+    ]
+   },
+   {
+    "titulo": "El hueco",
+    "grafica": {
+     "draw": 1,
+     "guide": 1,
+     "ok": true
+    },
+    "laboratorio": true,
+    "d": 2,
+    "bloques": [
+     {
+      "t": "eq",
+      "tex": "x=2\\ \\Rightarrow\\ \\dfrac{x+2}{x+1}=\\dfrac{4}{3}"
+     },
+     {
+      "t": "p",
+      "html": "En x igual a 2 la fracción original no existe, pero la simplificada vale 1.33."
+     }
+    ]
+   },
+   {
+    "titulo": "Revisa tu respuesta",
+    "grafica": {
+     "draw": 1,
+     "guide": 1,
+     "ok": true,
+     "d": 2
+    },
+    "bloques": [
+     {
+      "t": "pregunta"
+     },
+     {
+      "t": "nota",
+      "html": "Factoriza arriba y abajo antes de cancelar."
+     }
+    ]
+   }
+  ]
+ },
+ "pregunta": {
+  "tex": "\\dfrac{x^{2}-1}{x^{2}+x}\\ \\text{se simplifica como}",
+  "opciones": [
+   "$\\dfrac{x-1}{x}$",
+   "$\\dfrac{x-1}{x+1}$",
+   "$\\dfrac{1}{x}$",
+   "$-1$"
+  ],
+  "correcta": 0,
+  "explicacion": "El numerador es x menos 1 por x más 1, y el denominador es x por x más 1. Se cancela x más 1 y queda x menos 1 sobre x, con x distinto de 0 y de menos 1.",
+  "verificacion": {
+   "formula": "(x*x-1)/(x*x+x)-(x-1)/x",
+   "a": 3,
+   "esperado": 0
+  },
+  "pistas": [
+   "Factoriza el numerador como una diferencia de cuadrados.",
+   "El denominador tiene factor común x.",
+   "El factor que se repite es x más 1."
+  ],
+  "errores": [
+   "",
+   "Esa respuesta cancela x con x menos 1, y no son factores iguales. El que se repite es x más 1.",
+   "Se cancelaron mal los términos. Después de cancelar x más 1 queda x menos 1 arriba.",
+   "Eso sale de cancelar x al cuadrado con x al cuadrado como si fueran términos. Hay que factorizar primero."
+  ]
+ },
+ "resumen": [
+  "Para simplificar se factoriza y se cancelan factores comunes, no términos.",
+  "Para sumar se usa un denominador común, y para dividir se multiplica por el inverso.",
+  "Los valores que anulan un denominador quedan fuera del dominio, aunque se cancelen."
+ ]
+}

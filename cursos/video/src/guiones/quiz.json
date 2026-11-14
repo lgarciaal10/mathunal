@@ -1,0 +1,184 @@
+{
+ "audio": "audio/quiz.mp3",
+ "fin": 40.29,
+ "sent": [
+  {
+   "t": "Pregunta de parcial. Tienes cinco segundos para pensarla.",
+   "a": 0.0,
+   "b": 4.53
+  },
+  {
+   "t": "Cinco. Cuatro. Tres. Dos. Uno.",
+   "a": 5.02,
+   "b": 7.49
+  },
+  {
+   "t": "Para hallar el radio, completamos el cuadrado en x.",
+   "a": 7.96,
+   "b": 11.89
+  },
+  {
+   "t": "Menos 6x se vuelve x menos 3, al cuadrado, menos 9.",
+   "a": 12.37,
+   "b": 17.0
+  },
+  {
+   "t": "Pasamos el 8 y queda x menos 3, al cuadrado, más y al cuadrado, igual a 1.",
+   "a": 17.48,
+   "b": 23.6
+  },
+  {
+   "t": "El centro es 3, 0, y el radio es la raíz de 1, o sea 1. La respuesta es la A.",
+   "a": 24.04,
+   "b": 28.78
+  },
+  {
+   "t": "Míralo en el plano. Una circunferencia con centro en 3, 0 y radio 1.",
+   "a": 29.18,
+   "b": 35.89
+  },
+  {
+   "t": "Practica más preguntas como esta en MathUNAL.",
+   "a": 36.32,
+   "b": 39.39
+  }
+ ],
+ "escenas": [
+  {
+   "tipo": "quiz",
+   "s": [
+    0,
+    1
+   ],
+   "enunciado": "x^{2}+y^{2}-6x+8=0",
+   "size": 70,
+   "opciones": [
+    "1",
+    "3",
+    "\\sqrt{8}",
+    "9"
+   ],
+   "correcta": 0,
+   "cuenta": {
+    "s": 1
+   },
+   "texto": "¿Cuál es el radio?"
+  },
+  {
+   "tipo": "pasos",
+   "s": [
+    2,
+    3,
+    4
+   ],
+   "titulo": "Completar el cuadrado",
+   "top": 300,
+   "pasos": [
+    {
+     "label": "Se agrupa x",
+     "tex": "x^{2}-6x+y^{2}+8=0",
+     "s": 2,
+     "dt": 0.8,
+     "size": 60
+    },
+    {
+     "label": "Se completa el cuadrado",
+     "tex": "(x-3)^{2}-9+y^{2}+8=0",
+     "s": 3,
+     "dt": 0.6,
+     "size": 60
+    },
+    {
+     "label": "Se pasa el 8",
+     "col": "ver",
+     "tex": "(x-3)^{2}+y^{2}=1",
+     "s": 4,
+     "dt": 1.0,
+     "size": 72
+    }
+   ]
+  },
+  {
+   "tipo": "quiz",
+   "s": [
+    5
+   ],
+   "respuesta": true,
+   "enunciado": "x^{2}+y^{2}-6x+8=0",
+   "size": 70,
+   "opciones": [
+    "1",
+    "3",
+    "\\sqrt{8}",
+    "9"
+   ],
+   "correcta": 0,
+   "texto": "¿Cuál es el radio?"
+  },
+  {
+   "tipo": "grafica",
+   "s": [
+    6
+   ],
+   "titulo": "En el plano",
+   "xr": [
+    -1,
+    7
+   ],
+   "yr": [
+    -4.3,
+    4.3
+   ],
+   "circulos": [
+    {
+     "cx": 3,
+     "cy": 0,
+     "r": 1,
+     "col": "ver",
+     "s": 6,
+     "dt": 0.3
+    }
+   ],
+   "segmentos": [
+    {
+     "x1": 3,
+     "y1": 0,
+     "x2": 4,
+     "y2": 0,
+     "col": "amar",
+     "s": 6,
+     "dt": 2.2,
+     "txt": "radio = 1",
+     "ty": -30
+    }
+   ],
+   "puntos": [
+    {
+     "x": "3",
+     "y": "0",
+     "s": 6,
+     "dt": 1.6,
+     "col": "amar"
+    }
+   ],
+   "marcas": [
+    {
+     "x": "3",
+     "y": "0",
+     "s": 6,
+     "dt": 1.8,
+     "txt": "centro (3, 0)",
+     "dy": -90,
+     "col": "amar"
+    }
+   ]
+  },
+  {
+   "tipo": "cierre",
+   "s": [
+    7
+   ],
+   "titulo": "Practica con preguntas *reales*"
+  }
+ ]
+}

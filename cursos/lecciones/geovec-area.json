@@ -1,0 +1,618 @@
+{
+ "esquema": 1,
+ "id": "gv-m1-l4",
+ "ejemplo": true,
+ "curso": "Geometría Vectorial y Analítica",
+ "modulo": "Módulo 1 Vectores y rectas en el plano",
+ "posicion": "Lección 4 de 4",
+ "titulo": "Área y aplicaciones",
+ "minutos": 26,
+ "ejercicios": 8,
+ "grafica": {
+  "tipo": "plano",
+  "x": [
+   -3.5,
+   11.5
+  ],
+  "y": [
+   -3.0,
+   5.2
+  ],
+  "a": -2,
+  "b": 6,
+  "inicio": 1,
+  "elementos": [
+   {
+    "t": "poligono",
+    "puntos": [
+     [
+      "0",
+      "0"
+     ],
+     [
+      "3",
+      "0"
+     ],
+     [
+      "3+x",
+      "2"
+     ],
+     [
+      "x",
+      "2"
+     ]
+    ],
+    "c": 3
+   },
+   {
+    "t": "vector",
+    "b": [
+     "3",
+     "0"
+    ],
+    "nombre": "u",
+    "c": 0
+   },
+   {
+    "t": "vector",
+    "b": [
+     "x",
+     "2"
+    ],
+    "nombre": "v",
+    "c": 1
+   }
+  ],
+  "lecturas": [
+   {
+    "rotulo": "área del paralelogramo",
+    "formula": "abs(3*2-0*x)"
+   },
+   {
+    "rotulo": "longitud de v",
+    "formula": "sqrt(x*x+4)"
+   }
+  ],
+  "etiquetas": [
+   "Valor absoluto del determinante de u y v",
+   "Longitud del lado inclinado"
+  ],
+  "etiquetaSlider": "Primera componente de v",
+  "alt": "Un paralelogramo formado por el vector u igual a (3, 0) y el vector v igual a (x, 2). Al mover el deslizador el paralelogramo se inclina, pero su base y su altura no cambian, así que el área siempre vale 6"
+ },
+ "glosario": {
+  "paralelogramo": "El paralelogramo de dos vectores es la figura de cuatro lados que ellos forman. Su área es el valor absoluto del determinante de los vectores.",
+  "determinante": "El determinante de dos vectores del plano es u1 por v2 menos u2 por v1. Su valor absoluto es el área del paralelogramo.",
+  "orientacion": "El signo del determinante indica la orientación. Es positivo si v queda a la izquierda de u, y negativo si queda a la derecha.",
+  "triangulo": "El triángulo formado por dos vectores tiene la mitad del área del paralelogramo."
+ },
+ "ver": {
+  "duracion": 22.0,
+  "capitulos": [
+   [
+    0,
+    3,
+    "El paralelogramo está formado por u igual a (3, 0) y v igual a (x, 2)."
+   ],
+   [
+    3,
+    9,
+    "Al mover x, el lado v se inclina, pero la base sigue valiendo 3 y la altura sigue valiendo 2."
+   ],
+   [
+    9,
+    15,
+    "El área es base por altura, 3 por 2, que da 6, aunque el paralelogramo se incline."
+   ],
+   [
+    15,
+    19,
+    "El determinante u1 por v2 menos u2 por v1 da lo mismo, 3 por 2 menos 0 por x, o sea 6."
+   ],
+   [
+    19,
+    22,
+    "El triángulo con los mismos lados tiene la mitad del área, es decir, 3."
+   ]
+  ],
+  "canales": {
+   "draw": [
+    [
+     0.3,
+     0
+    ],
+    [
+     2.8,
+     1
+    ]
+   ],
+   "d": [
+    [
+     3,
+     1
+    ],
+    [
+     6,
+     3
+    ],
+    [
+     9,
+     5
+    ],
+    [
+     12,
+     -2
+    ],
+    [
+     15,
+     1
+    ],
+    [
+     19,
+     1
+    ],
+    [
+     22,
+     1
+    ]
+   ],
+   "guide": [
+    [
+     3,
+     0
+    ],
+    [
+     4,
+     1
+    ]
+   ]
+  },
+  "intervalos": {
+   "ok": [
+    15,
+    22
+   ]
+  }
+ },
+ "leer": {
+  "secciones": [
+   {
+    "titulo": "La idea",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Dos vectores del plano forman un {{gl:paralelogramo|paralelogramo}}. Su área se calcula con el {{gl:determinante|determinante}} de las componentes, y el signo de ese determinante dice la {{gl:orientacion|orientación}}. Con eso se calculan áreas de triángulos y de terrenos a partir de las coordenadas de los vértices."
+     }
+    ]
+   },
+   {
+    "titulo": "Un ejemplo",
+    "corto": "Un ejemplo",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mira el paralelogramo de u igual a (3, 0) y v igual a (x, 2). Al mover x se inclina, pero el área no cambia."
+     },
+     {
+      "t": "eq",
+      "tex": "A=\\left|u_{1}v_{2}-u_{2}v_{1}\\right|=\\left|3\\cdot2-0\\cdot x\\right|=6"
+     },
+     {
+      "t": "grafica",
+      "animar": "dibujar",
+      "alt": "El paralelogramo de u y v"
+     }
+    ]
+   },
+   {
+    "titulo": "Piensa antes de ver",
+    "corto": "Piensa",
+    "bloques": [
+     {
+      "t": "piensa",
+      "pregunta": "El paralelogramo tiene base 3 y altura 2. ¿Cuánto vale su área?",
+      "opciones": [
+       5,
+       6,
+       8,
+       12
+      ],
+      "correcta": 6,
+      "bien": "Muy bien. Es base por altura, o sea 6. Más abajo se ve que no cambia al inclinarlo.",
+      "mal": "Es base por altura, 3 por 2, o sea 6. Más abajo se ve que no cambia al inclinarlo."
+     }
+    ]
+   },
+   {
+    "titulo": "Inclinando el paralelogramo",
+    "corto": "Inclinando",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mira el paralelogramo para x igual a menos 2, 1, 3 y 5."
+     },
+     {
+      "t": "acercando",
+      "ds": [
+       -2,
+       1,
+       3,
+       5
+      ],
+      "alt": "El paralelogramo con cuatro inclinaciones"
+     },
+     {
+      "t": "p",
+      "html": "Aunque cambia la forma, la base y la altura son las mismas, y el área sigue siendo 6."
+     }
+    ]
+   },
+   {
+    "titulo": "El determinante como área",
+    "corto": "Determinante",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "El área sale de un determinante de dos por dos."
+     },
+     {
+      "t": "pasos",
+      "items": [
+       {
+        "tex": "A=|u_{1}v_{2}-u_{2}v_{1}|",
+        "porque": "El valor absoluto del determinante."
+       },
+       {
+        "tex": "u=(3,0),\\ v=(1,2):\\quad |3\\cdot2-0\\cdot1|=6",
+        "porque": "Con el ejemplo del banco."
+       },
+       {
+        "tex": "u=(2,1),\\ v=(1,3):\\quad |6-1|=5",
+        "porque": "Otro paralelogramo, con área 5."
+       },
+       {
+        "tex": "u_{1}v_{2}-u_{2}v_{1}=0\\ \\Rightarrow\\ u\\parallel v",
+        "porque": "Si el área es cero, los vectores son paralelos y el paralelogramo se aplasta en un segmento."
+       }
+      ]
+     },
+     {
+      "t": "ojo",
+      "html": "El signo del determinante se pierde al tomar valor absoluto. Antes de eso sirve para saber si v está a la izquierda o a la derecha de u."
+     }
+    ]
+   },
+   {
+    "titulo": "Triángulos y terrenos",
+    "corto": "Triángulos",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Un triángulo es la mitad de un paralelogramo."
+     },
+     {
+      "t": "pasos",
+      "items": [
+       {
+        "tex": "A_{\\triangle}=\\tfrac12\\left|u_{1}v_{2}-u_{2}v_{1}\\right|",
+        "porque": "El área del triángulo es la mitad."
+       },
+       {
+        "tex": "(0,0),\\ (4,0),\\ (0,3):\\quad \\tfrac12|4\\cdot3-0\\cdot0|=6",
+        "porque": "Un triángulo recto de catetos 4 y 3."
+       },
+       {
+        "tex": "(0,0),\\ (40,0),\\ (10,30):\\quad \\tfrac12|40\\cdot30|=600",
+        "porque": "Un terreno de 600 metros cuadrados."
+       }
+      ]
+     },
+     {
+      "t": "ojo",
+      "html": "Para un triángulo con un vértice fuera del origen, primero se restan las coordenadas de ese vértice para obtener los dos vectores de los lados."
+     }
+    ]
+   },
+   {
+    "titulo": "¿Para qué sirve?",
+    "corto": "En ingeniería",
+    "bloques": [
+     {
+      "t": "ingenieria",
+      "titulo": "El área de un terreno triangular",
+      "html": "Un terreno tiene vértices en (0, 0), (40, 0) y (10, 30), con las medidas en metros. Sus lados desde el origen son los vectores (40, 0) y (10, 30), y el área es la mitad del valor absoluto de su determinante.",
+      "tex": "A=\\tfrac12\\left|40\\cdot30-0\\cdot10\\right|=600",
+      "datos": [
+       {
+        "k": "Vértices",
+        "v": "(0,0), (40,0), (10,30)"
+       },
+       {
+        "k": "Determinante",
+        "v": "1200"
+       },
+       {
+        "k": "Área",
+        "v": "600 m²"
+       }
+      ],
+      "cierre": "El determinante da 1200 y el área es la mitad, 600 metros cuadrados. Esta forma es cómoda en topografía, porque solo usa las coordenadas de los vértices, sin necesidad de medir alturas. Con más vértices se divide el terreno en triángulos y se suman las áreas."
+     }
+    ]
+   },
+   {
+    "titulo": "Completa el paso",
+    "corto": "Completa",
+    "bloques": [
+     {
+      "t": "completar",
+      "enunciado": "Se calcula el área del paralelogramo de u igual a (3, 0) y v igual a (1, 2). Falta el resultado.",
+      "tex": "A=|3\\cdot2-0\\cdot1|=[[hueco]]",
+      "opciones": [
+       {
+        "tex": "6",
+        "txt": "seis"
+       },
+       {
+        "tex": "5",
+        "txt": "cinco"
+       },
+       {
+        "tex": "3",
+        "txt": "tres"
+       }
+      ],
+      "correcta": 0,
+      "errores": [
+       "",
+       "Cinco saldría de sumar en lugar de restar, o de usar otros números. Aquí 3 por 2 es 6 y 0 por 1 es 0.",
+       "Tres es el área del triángulo, la mitad del paralelogramo."
+      ],
+      "pista": "Calcula 3 por 2 menos 0 por 1.",
+      "porque": "El determinante es 6 y su valor absoluto es 6."
+     }
+    ]
+   },
+   {
+    "titulo": "Encuentra el error",
+    "corto": "Error",
+    "bloques": [
+     {
+      "t": "error",
+      "enunciado": "Alguien calculó el área de un triángulo de lados u igual a (3, 0) y v igual a (1, 2) y se equivocó en un paso. Toca el paso que está mal.",
+      "pasos": [
+       {
+        "tex": "u=(3,0),\\quad v=(1,2)",
+        "porque": "Son los dos vectores.",
+        "txt": "los lados son estos"
+       },
+       {
+        "tex": "u_{1}v_{2}-u_{2}v_{1}=6",
+        "porque": "El determinante.",
+        "txt": "el determinante vale 6"
+       },
+       {
+        "tex": "\\text{Entonces el área del triángulo es}\\ 6",
+        "porque": "Este paso es el que falla.",
+        "txt": "el área del triángulo es 6"
+       }
+      ],
+      "mal": 2,
+      "explicacion": "El determinante da el área del paralelogramo, que es 6. El triángulo es la mitad, o sea 3.",
+      "correccion": "A_{\\triangle}=\\tfrac12\\cdot6=3",
+      "pista": "Recuerda cuántos triángulos caben en un paralelogramo."
+     }
+    ]
+   },
+   {
+    "titulo": "Ordena los pasos",
+    "corto": "Ordena",
+    "bloques": [
+     {
+      "t": "ordenar",
+      "enunciado": "Estos son los pasos para calcular el área del paralelogramo de u igual a (3, 0) y v igual a (1, 2), pero están desordenados.",
+      "pasos": [
+       "u_{1}v_{2}-u_{2}v_{1}",
+       "3\\cdot2-0\\cdot1",
+       "6",
+       "A=|6|=6"
+      ],
+      "mezcla": [
+       2,
+       0,
+       3,
+       1
+      ],
+      "porque": "Se arma el determinante, se sustituye, se calcula y se toma el valor absoluto.",
+      "pista": "Se empieza armando el determinante.",
+      "txt": [
+       "Se arma el determinante",
+       "Se sustituyen las componentes",
+       "Se calcula",
+       "Se toma el valor absoluto"
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "Revisa tu respuesta",
+    "corto": "Revisa",
+    "bloques": [
+     {
+      "t": "pregunta"
+     },
+     {
+      "t": "nota",
+      "html": "Puedes pedir pistas de a una. Si fallas, el mensaje te dice qué error se cometió."
+     }
+    ]
+   },
+   {
+    "titulo": "Mini simulacro",
+    "corto": "Simulacro",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Tres preguntas reales del banco de MathUNAL sobre este tema. Responde sin mirar los pasos."
+     },
+     {
+      "t": "simulacro",
+      "titulo": "Mini simulacro de área y aplicaciones",
+      "preguntas": [
+       {
+        "tipo": "numerica",
+        "texto": "El área del paralelogramo determinado por $(3,0)$ y $(1,2)$ es:",
+        "respuesta": "6",
+        "tolNum": 0.001,
+        "resumen": "El área es el valor absoluto de $3\\cdot2-0\\cdot1=6$.",
+        "fuente": "Banco MathUNAL, simulacro de Geometría Vectorial y Analítica"
+       },
+       {
+        "tipo": "numerica",
+        "texto": "El área del triángulo de vértices $(0,0)$, $(4,0)$ y $(0,3)$ es:",
+        "respuesta": "6",
+        "tolNum": 0.001,
+        "resumen": "Es la mitad del determinante, o sea $\\tfrac12\\cdot12=6$.",
+        "fuente": "Pregunta propia de MathUNAL, escrita para esta lección"
+       },
+       {
+        "tipo": "mcq",
+        "texto": "El área del paralelogramo de $\\mathbf{u}=(1,2)$ y $\\mathbf{v}=(3,1)$ es:",
+        "opciones": [
+         "$5$",
+         "$7$",
+         "$1$",
+         "$-5$"
+        ],
+        "correcta": 0,
+        "resumen": "El determinante es $1\\cdot1-2\\cdot3=-5$, y el área es su valor absoluto, $5$.",
+        "fuente": "Pregunta propia de MathUNAL, escrita para esta lección"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "Tu repaso",
+    "corto": "Repaso",
+    "bloques": [
+     {
+      "t": "repaso"
+     }
+    ]
+   },
+   {
+    "titulo": "En resumen",
+    "corto": "Resumen",
+    "bloques": [
+     {
+      "t": "resumen"
+     }
+    ]
+   }
+  ]
+ },
+ "practicar": {
+  "pasos": [
+   {
+    "titulo": "El paralelogramo",
+    "grafica": {
+     "draw": 1
+    },
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Un paralelogramo de lados u y v."
+     },
+     {
+      "t": "eq",
+      "tex": "A=|u_{1}v_{2}-u_{2}v_{1}|"
+     }
+    ]
+   },
+   {
+    "titulo": "Inclina v",
+    "grafica": {
+     "draw": 1
+    },
+    "laboratorio": true,
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mueve el deslizador. Abajo se leen el área y la longitud del lado inclinado."
+     }
+    ]
+   },
+   {
+    "titulo": "Mismo área",
+    "grafica": {
+     "draw": 1,
+     "guide": 1,
+     "ok": true
+    },
+    "laboratorio": true,
+    "d": 5,
+    "bloques": [
+     {
+      "t": "eq",
+      "tex": "A=|3\\cdot2-0\\cdot x|=6"
+     },
+     {
+      "t": "p",
+      "html": "Con cualquier x el área vale 6, porque la base y la altura no cambian."
+     }
+    ]
+   },
+   {
+    "titulo": "Revisa tu respuesta",
+    "grafica": {
+     "draw": 1,
+     "guide": 1,
+     "ok": true,
+     "d": 5
+    },
+    "bloques": [
+     {
+      "t": "pregunta"
+     },
+     {
+      "t": "nota",
+      "html": "Calcula el determinante y toma su valor absoluto."
+     }
+    ]
+   }
+  ]
+ },
+ "pregunta": {
+  "tex": "\\text{Área del paralelogramo de}\\ (2,1)\\ \\text{y}\\ (1,3)",
+  "opciones": [
+   "$5$",
+   "$7$",
+   "$6$",
+   "$1$"
+  ],
+  "correcta": 0,
+  "explicacion": "El determinante es 2 por 3 menos 1 por 1, o sea 6 menos 1, que da 5. Su valor absoluto es 5.",
+  "verificacion": {
+   "formula": "abs(2*3-1*1)+0*x",
+   "a": 0,
+   "esperado": 5
+  },
+  "pistas": [
+   "Calcula 2 por 3 menos 1 por 1.",
+   "Da 5.",
+   "El valor absoluto de 5 es 5."
+  ],
+  "errores": [
+   "",
+   "Siete sale de sumar 6 y 1. Hay que restar.",
+   "Seis es solo el primer producto. Falta restar 1 por 1.",
+   "Uno es solo el segundo producto. Falta el primero y la resta."
+  ]
+ },
+ "resumen": [
+  "El área del paralelogramo de dos vectores es el valor absoluto de su determinante.",
+  "El área del triángulo es la mitad, y se puede calcular con las coordenadas de los vértices.",
+  "Un determinante cero indica vectores paralelos, y el signo indica la orientación."
+ ]
+}

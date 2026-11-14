@@ -1,0 +1,1055 @@
+{
+ "esquema": 1,
+ "id": "di-m3-l1",
+ "ejemplo": true,
+ "curso": "Matemáticas Discretas",
+ "modulo": "Módulo 3 Recurrencias, grafos y teoría de números",
+ "posicion": "Lección 1 de 4",
+ "titulo": "Relaciones de recurrencia",
+ "minutos": 28,
+ "ejercicios": 8,
+ "grafica": {
+  "tipo": "plano",
+  "x": [
+   -1.0,
+   12.0
+  ],
+  "y": [
+   -7,
+   62
+  ],
+  "a": 0,
+  "b": 10,
+  "inicio": 6,
+  "entero": true,
+  "elementos": [
+   {
+    "t": "poligono",
+    "puntos": [
+     [
+      "0.1",
+      "0"
+     ],
+     [
+      "0.9",
+      "0"
+     ],
+     [
+      "0.9",
+      "0"
+     ],
+     [
+      "0.1",
+      "0"
+     ]
+    ],
+    "c": 0
+   },
+   {
+    "t": "poligono",
+    "puntos": [
+     [
+      "0.1",
+      "0"
+     ],
+     [
+      "0.9",
+      "0"
+     ],
+     [
+      "0.9",
+      "0*((1*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-6)*(x-7)*(x-8)*(x-9)*(x-10)/(3628800)))"
+     ],
+     [
+      "0.1",
+      "0*((1*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-6)*(x-7)*(x-8)*(x-9)*(x-10)/(3628800)))"
+     ]
+    ],
+    "c": 3
+   },
+   {
+    "t": "poligono",
+    "puntos": [
+     [
+      "1.1",
+      "0"
+     ],
+     [
+      "1.9",
+      "0"
+     ],
+     [
+      "1.9",
+      "1"
+     ],
+     [
+      "1.1",
+      "1"
+     ]
+    ],
+    "c": 0
+   },
+   {
+    "t": "poligono",
+    "puntos": [
+     [
+      "1.1",
+      "0"
+     ],
+     [
+      "1.9",
+      "0"
+     ],
+     [
+      "1.9",
+      "1*((1*(x-0)*(x-2)*(x-3)*(x-4)*(x-5)*(x-6)*(x-7)*(x-8)*(x-9)*(x-10)/(-362880)))"
+     ],
+     [
+      "1.1",
+      "1*((1*(x-0)*(x-2)*(x-3)*(x-4)*(x-5)*(x-6)*(x-7)*(x-8)*(x-9)*(x-10)/(-362880)))"
+     ]
+    ],
+    "c": 3
+   },
+   {
+    "t": "poligono",
+    "puntos": [
+     [
+      "2.1",
+      "0"
+     ],
+     [
+      "2.9",
+      "0"
+     ],
+     [
+      "2.9",
+      "1"
+     ],
+     [
+      "2.1",
+      "1"
+     ]
+    ],
+    "c": 0
+   },
+   {
+    "t": "poligono",
+    "puntos": [
+     [
+      "2.1",
+      "0"
+     ],
+     [
+      "2.9",
+      "0"
+     ],
+     [
+      "2.9",
+      "1*((1*(x-0)*(x-1)*(x-3)*(x-4)*(x-5)*(x-6)*(x-7)*(x-8)*(x-9)*(x-10)/(80640)))"
+     ],
+     [
+      "2.1",
+      "1*((1*(x-0)*(x-1)*(x-3)*(x-4)*(x-5)*(x-6)*(x-7)*(x-8)*(x-9)*(x-10)/(80640)))"
+     ]
+    ],
+    "c": 3
+   },
+   {
+    "t": "poligono",
+    "puntos": [
+     [
+      "3.1",
+      "0"
+     ],
+     [
+      "3.9",
+      "0"
+     ],
+     [
+      "3.9",
+      "2"
+     ],
+     [
+      "3.1",
+      "2"
+     ]
+    ],
+    "c": 0
+   },
+   {
+    "t": "poligono",
+    "puntos": [
+     [
+      "3.1",
+      "0"
+     ],
+     [
+      "3.9",
+      "0"
+     ],
+     [
+      "3.9",
+      "2*((1*(x-0)*(x-1)*(x-2)*(x-4)*(x-5)*(x-6)*(x-7)*(x-8)*(x-9)*(x-10)/(-30240)))"
+     ],
+     [
+      "3.1",
+      "2*((1*(x-0)*(x-1)*(x-2)*(x-4)*(x-5)*(x-6)*(x-7)*(x-8)*(x-9)*(x-10)/(-30240)))"
+     ]
+    ],
+    "c": 3
+   },
+   {
+    "t": "poligono",
+    "puntos": [
+     [
+      "4.1",
+      "0"
+     ],
+     [
+      "4.9",
+      "0"
+     ],
+     [
+      "4.9",
+      "3"
+     ],
+     [
+      "4.1",
+      "3"
+     ]
+    ],
+    "c": 0
+   },
+   {
+    "t": "poligono",
+    "puntos": [
+     [
+      "4.1",
+      "0"
+     ],
+     [
+      "4.9",
+      "0"
+     ],
+     [
+      "4.9",
+      "3*((1*(x-0)*(x-1)*(x-2)*(x-3)*(x-5)*(x-6)*(x-7)*(x-8)*(x-9)*(x-10)/(17280)))"
+     ],
+     [
+      "4.1",
+      "3*((1*(x-0)*(x-1)*(x-2)*(x-3)*(x-5)*(x-6)*(x-7)*(x-8)*(x-9)*(x-10)/(17280)))"
+     ]
+    ],
+    "c": 3
+   },
+   {
+    "t": "poligono",
+    "puntos": [
+     [
+      "5.1",
+      "0"
+     ],
+     [
+      "5.9",
+      "0"
+     ],
+     [
+      "5.9",
+      "5"
+     ],
+     [
+      "5.1",
+      "5"
+     ]
+    ],
+    "c": 0
+   },
+   {
+    "t": "poligono",
+    "puntos": [
+     [
+      "5.1",
+      "0"
+     ],
+     [
+      "5.9",
+      "0"
+     ],
+     [
+      "5.9",
+      "5*((1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-6)*(x-7)*(x-8)*(x-9)*(x-10)/(-14400)))"
+     ],
+     [
+      "5.1",
+      "5*((1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-6)*(x-7)*(x-8)*(x-9)*(x-10)/(-14400)))"
+     ]
+    ],
+    "c": 3
+   },
+   {
+    "t": "poligono",
+    "puntos": [
+     [
+      "6.1",
+      "0"
+     ],
+     [
+      "6.9",
+      "0"
+     ],
+     [
+      "6.9",
+      "8"
+     ],
+     [
+      "6.1",
+      "8"
+     ]
+    ],
+    "c": 0
+   },
+   {
+    "t": "poligono",
+    "puntos": [
+     [
+      "6.1",
+      "0"
+     ],
+     [
+      "6.9",
+      "0"
+     ],
+     [
+      "6.9",
+      "8*((1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-7)*(x-8)*(x-9)*(x-10)/(17280)))"
+     ],
+     [
+      "6.1",
+      "8*((1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-7)*(x-8)*(x-9)*(x-10)/(17280)))"
+     ]
+    ],
+    "c": 3
+   },
+   {
+    "t": "poligono",
+    "puntos": [
+     [
+      "7.1",
+      "0"
+     ],
+     [
+      "7.9",
+      "0"
+     ],
+     [
+      "7.9",
+      "13"
+     ],
+     [
+      "7.1",
+      "13"
+     ]
+    ],
+    "c": 0
+   },
+   {
+    "t": "poligono",
+    "puntos": [
+     [
+      "7.1",
+      "0"
+     ],
+     [
+      "7.9",
+      "0"
+     ],
+     [
+      "7.9",
+      "13*((1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-6)*(x-8)*(x-9)*(x-10)/(-30240)))"
+     ],
+     [
+      "7.1",
+      "13*((1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-6)*(x-8)*(x-9)*(x-10)/(-30240)))"
+     ]
+    ],
+    "c": 3
+   },
+   {
+    "t": "poligono",
+    "puntos": [
+     [
+      "8.1",
+      "0"
+     ],
+     [
+      "8.9",
+      "0"
+     ],
+     [
+      "8.9",
+      "21"
+     ],
+     [
+      "8.1",
+      "21"
+     ]
+    ],
+    "c": 0
+   },
+   {
+    "t": "poligono",
+    "puntos": [
+     [
+      "8.1",
+      "0"
+     ],
+     [
+      "8.9",
+      "0"
+     ],
+     [
+      "8.9",
+      "21*((1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-6)*(x-7)*(x-9)*(x-10)/(80640)))"
+     ],
+     [
+      "8.1",
+      "21*((1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-6)*(x-7)*(x-9)*(x-10)/(80640)))"
+     ]
+    ],
+    "c": 3
+   },
+   {
+    "t": "poligono",
+    "puntos": [
+     [
+      "9.1",
+      "0"
+     ],
+     [
+      "9.9",
+      "0"
+     ],
+     [
+      "9.9",
+      "34"
+     ],
+     [
+      "9.1",
+      "34"
+     ]
+    ],
+    "c": 0
+   },
+   {
+    "t": "poligono",
+    "puntos": [
+     [
+      "9.1",
+      "0"
+     ],
+     [
+      "9.9",
+      "0"
+     ],
+     [
+      "9.9",
+      "34*((1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-6)*(x-7)*(x-8)*(x-10)/(-362880)))"
+     ],
+     [
+      "9.1",
+      "34*((1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-6)*(x-7)*(x-8)*(x-10)/(-362880)))"
+     ]
+    ],
+    "c": 3
+   },
+   {
+    "t": "poligono",
+    "puntos": [
+     [
+      "10.1",
+      "0"
+     ],
+     [
+      "10.9",
+      "0"
+     ],
+     [
+      "10.9",
+      "55"
+     ],
+     [
+      "10.1",
+      "55"
+     ]
+    ],
+    "c": 0
+   },
+   {
+    "t": "poligono",
+    "puntos": [
+     [
+      "10.1",
+      "0"
+     ],
+     [
+      "10.9",
+      "0"
+     ],
+     [
+      "10.9",
+      "55*((1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-6)*(x-7)*(x-8)*(x-9)/(3628800)))"
+     ],
+     [
+      "10.1",
+      "55*((1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-6)*(x-7)*(x-8)*(x-9)/(3628800)))"
+     ]
+    ],
+    "c": 3
+   }
+  ],
+  "lecturas": [
+   {
+    "rotulo": "término F de n",
+    "formula": "((1*(x-0)*(x-2)*(x-3)*(x-4)*(x-5)*(x-6)*(x-7)*(x-8)*(x-9)*(x-10)/(-362880))+(1*(x-0)*(x-1)*(x-3)*(x-4)*(x-5)*(x-6)*(x-7)*(x-8)*(x-9)*(x-10)/(80640))+(2*(x-0)*(x-1)*(x-2)*(x-4)*(x-5)*(x-6)*(x-7)*(x-8)*(x-9)*(x-10)/(-30240))+(3*(x-0)*(x-1)*(x-2)*(x-3)*(x-5)*(x-6)*(x-7)*(x-8)*(x-9)*(x-10)/(17280))+(5*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-6)*(x-7)*(x-8)*(x-9)*(x-10)/(-14400))+(8*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-7)*(x-8)*(x-9)*(x-10)/(17280))+(13*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-6)*(x-8)*(x-9)*(x-10)/(-30240))+(21*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-6)*(x-7)*(x-9)*(x-10)/(80640))+(34*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-6)*(x-7)*(x-8)*(x-10)/(-362880))+(55*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-6)*(x-7)*(x-8)*(x-9)/(3628800)))"
+   },
+   {
+    "rotulo": "razón entre F de n más 1 y F de n",
+    "formula": "((1.0*(x-0)*(x-2)*(x-3)*(x-4)*(x-5)*(x-6)*(x-7)*(x-8)*(x-9)*(x-10)/(-362880))+(2.0*(x-0)*(x-1)*(x-3)*(x-4)*(x-5)*(x-6)*(x-7)*(x-8)*(x-9)*(x-10)/(80640))+(1.5*(x-0)*(x-1)*(x-2)*(x-4)*(x-5)*(x-6)*(x-7)*(x-8)*(x-9)*(x-10)/(-30240))+(1.666667*(x-0)*(x-1)*(x-2)*(x-3)*(x-5)*(x-6)*(x-7)*(x-8)*(x-9)*(x-10)/(17280))+(1.6*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-6)*(x-7)*(x-8)*(x-9)*(x-10)/(-14400))+(1.625*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-7)*(x-8)*(x-9)*(x-10)/(17280))+(1.615385*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-6)*(x-8)*(x-9)*(x-10)/(-30240))+(1.619048*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-6)*(x-7)*(x-9)*(x-10)/(80640))+(1.617647*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-6)*(x-7)*(x-8)*(x-10)/(-362880))+(1.618182*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-6)*(x-7)*(x-8)*(x-9)/(3628800)))"
+   }
+  ],
+  "etiquetas": [
+   "Término de Fibonacci elegido",
+   "Cociente entre un término y el anterior, que se acerca a 1.618"
+  ],
+  "etiquetaSlider": "Posición n, de 0 a 10",
+  "alt": "Barras con los términos de Fibonacci de F de 0 a F de 10, que valen 0, 1, 1, 2, 3, 5, 8, 13, 21, 34 y 55. Cada barra es la suma de las dos anteriores. El término elegido se resalta en verde"
+ },
+ "glosario": {
+  "recurrencia": "Una relación de recurrencia define cada término a partir de los anteriores, junto con unos valores iniciales.",
+  "caracteristica": "La ecuación característica de una recurrencia lineal homogénea se obtiene reemplazando a de n por r elevado a n. Sus raíces dan las soluciones.",
+  "fibonacci": "La sucesión de Fibonacci empieza con 1 y 1, y cada término es la suma de los dos anteriores.",
+  "cerrada": "Una fórmula cerrada da el término n directamente, sin calcular los anteriores."
+ },
+ "ver": {
+  "duracion": 22.0,
+  "capitulos": [
+   [
+    0,
+    4,
+    "Cada barra es un término de Fibonacci. Cada uno es la suma de los dos anteriores."
+   ],
+   [
+    4,
+    9,
+    "Con n igual a 6, el término es 8, que es 5 más 3."
+   ],
+   [
+    9,
+    15,
+    "El cociente entre un término y el anterior se acerca a 1.618."
+   ],
+   [
+    15,
+    19,
+    "Ese número es la raíz positiva de la ecuación característica r al cuadrado menos r menos 1 igual a 0."
+   ],
+   [
+    19,
+    22,
+    "Resolver una recurrencia es hallar una fórmula cerrada para cada término."
+   ]
+  ],
+  "canales": {
+   "draw": [
+    [
+     0.3,
+     0
+    ],
+    [
+     3.5,
+     1
+    ]
+   ],
+   "d": [
+    [
+     4,
+     0
+    ],
+    [
+     6,
+     6
+    ],
+    [
+     9,
+     6
+    ],
+    [
+     10,
+     8
+    ],
+    [
+     15,
+     10
+    ],
+    [
+     22,
+     10
+    ]
+   ],
+   "guide": [
+    [
+     4,
+     0
+    ],
+    [
+     5,
+     1
+    ]
+   ]
+  },
+  "intervalos": {
+   "ok": [
+    9,
+    22
+   ]
+  }
+ },
+ "leer": {
+  "secciones": [
+   {
+    "titulo": "La idea",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Una {{gl:recurrencia|relación de recurrencia}} describe una sucesión diciendo cómo se obtiene cada término a partir de los anteriores. Con valores iniciales queda bien definida. La más famosa es la de {{gl:fibonacci|Fibonacci}}. Para las lineales se usa la {{gl:caracteristica|ecuación característica}}, que lleva a una fórmula {{gl:cerrada|cerrada}}."
+     }
+    ]
+   },
+   {
+    "titulo": "Un ejemplo",
+    "corto": "Un ejemplo",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mira los términos de Fibonacci. Cada barra es la suma de las dos anteriores, y el cociente entre términos consecutivos se acerca a un número fijo."
+     },
+     {
+      "t": "eq",
+      "tex": "F_{n}=F_{n-1}+F_{n-2},\\qquad F_{1}=F_{2}=1"
+     },
+     {
+      "t": "grafica",
+      "animar": "dibujar",
+      "alt": "Las barras de Fibonacci"
+     }
+    ]
+   },
+   {
+    "titulo": "Piensa antes de ver",
+    "corto": "Piensa",
+    "bloques": [
+     {
+      "t": "piensa",
+      "pregunta": "Fibonacci empieza con 1, 1, 2, 3, 5. ¿Cuál es el término siguiente?",
+      "opciones": [
+       6,
+       7,
+       8,
+       9
+      ],
+      "correcta": 8,
+      "bien": "Muy bien. Es 5 más 3, o sea 8. Más abajo se ve en la barra.",
+      "mal": "Es 8, porque es la suma de los dos anteriores, 5 más 3. Más abajo se ve en la barra."
+     }
+    ]
+   },
+   {
+    "titulo": "Recorriendo los términos",
+    "corto": "Los términos",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mira los términos con n igual a 0, 6, 8 y 10."
+     },
+     {
+      "t": "acercando",
+      "ds": [
+       0,
+       6,
+       8,
+       10
+      ],
+      "alt": "Los términos de Fibonacci para cuatro valores de n"
+     },
+     {
+      "t": "p",
+      "html": "El cociente entre términos consecutivos se estabiliza cerca de 1.618, la razón áurea."
+     }
+    ]
+   },
+   {
+    "titulo": "Calcular términos",
+    "corto": "Calcular",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Con la regla y los valores iniciales se calcula término por término."
+     },
+     {
+      "t": "pasos",
+      "items": [
+       {
+        "tex": "a_{n}=3a_{n-1},\\ a_{0}=2\\ \\Rightarrow\\ a_{1}=6,\\ a_{2}=18,\\ a_{3}=54",
+        "porque": "Cada término es el triple del anterior."
+       },
+       {
+        "tex": "a_{n}=2\\cdot3^{n}",
+        "porque": "La fórmula cerrada de esta recurrencia."
+       },
+       {
+        "tex": "F_{1}=F_{2}=1,\\ F_{3}=2,\\ F_{4}=3,\\ F_{5}=5,\\ F_{6}=8",
+        "porque": "Los primeros términos de Fibonacci."
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "La ecuación característica",
+    "corto": "Característica",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Para recurrencias lineales de segundo orden se busca una solución de la forma r elevado a n."
+     },
+     {
+      "t": "pasos",
+      "items": [
+       {
+        "tex": "a_{n}=a_{n-1}+2a_{n-2}\\ \\Rightarrow\\ r^{2}-r-2=0",
+        "porque": "Se reemplaza a de n por r elevado a n y se divide entre r elevado a n menos 2."
+       },
+       {
+        "tex": "(r-2)(r+1)=0\\ \\Rightarrow\\ r=2\\ \\text{o}\\ r=-1",
+        "porque": "Las raíces."
+       },
+       {
+        "tex": "a_{n}=A\\,2^{n}+B\\,(-1)^{n}",
+        "porque": "La solución general, con A y B según los valores iniciales."
+       },
+       {
+        "tex": "a_{n}=5a_{n-1}-6a_{n-2}\\ \\Rightarrow\\ r^{2}=5r-6",
+        "porque": "Otro ejemplo, con raíces 2 y 3."
+       }
+      ]
+     },
+     {
+      "t": "ojo",
+      "html": "La ecuación característica pasa todos los términos al mismo lado con el signo cambiado. Un error de signo en ese paso da raíces equivocadas."
+     }
+    ]
+   },
+   {
+    "titulo": "¿Para qué sirve?",
+    "corto": "En ingeniería",
+    "bloques": [
+     {
+      "t": "ingenieria",
+      "titulo": "La altura de los rebotes",
+      "html": "Una pelota se suelta desde 2 metros y en cada rebote alcanza el 80 por ciento de la altura anterior. La altura del rebote n cumple la recurrencia h de n igual a 0.8 por h de n menos 1. Su fórmula cerrada es 2 por 0.8 elevado a n.",
+      "tex": "h_{n}=0.8\\,h_{n-1},\\quad h_{n}=2\\cdot0.8^{n}",
+      "datos": [
+       {
+        "k": "Altura inicial",
+        "v": "2 m"
+       },
+       {
+        "k": "Factor por rebote",
+        "v": "0.8"
+       },
+       {
+        "k": "Altura tras 5 rebotes",
+        "v": "0.66 m"
+       }
+      ],
+      "cierre": "Después de 5 rebotes la altura es 2 por 0.8 elevado a 5, o sea 0.66 metros. Con la fórmula cerrada no hace falta calcular los 4 rebotes anteriores. La misma idea sirve para el saldo de una deuda con interés, o para la señal que se amortigua en un circuito."
+     }
+    ]
+   },
+   {
+    "titulo": "Completa el paso",
+    "corto": "Completa",
+    "bloques": [
+     {
+      "t": "completar",
+      "enunciado": "Se calcula el primer término de la recurrencia a de n igual a 3 por a de n menos 1, con a de 0 igual a 2.",
+      "tex": "a_{1}=3\\cdot2=[[hueco]]",
+      "opciones": [
+       {
+        "tex": "6",
+        "txt": "seis"
+       },
+       {
+        "tex": "5",
+        "txt": "cinco"
+       },
+       {
+        "tex": "9",
+        "txt": "nueve"
+       }
+      ],
+      "correcta": 0,
+      "errores": [
+       "",
+       "Cinco sería sumar, y la regla multiplica por 3.",
+       "Nueve sería el triple de 3, y el valor inicial es 2."
+      ],
+      "pista": "Se multiplica el valor inicial por 3.",
+      "porque": "3 por 2 es 6."
+     }
+    ]
+   },
+   {
+    "titulo": "Encuentra el error",
+    "corto": "Error",
+    "bloques": [
+     {
+      "t": "error",
+      "enunciado": "Alguien halló la ecuación característica de a de n igual a a de n menos 1 más 2 por a de n menos 2 y se equivocó en un paso. Toca el paso que está mal.",
+      "pasos": [
+       {
+        "tex": "a_{n}=a_{n-1}+2a_{n-2}",
+        "porque": "La recurrencia.",
+        "txt": "la regla de recurrencia"
+       },
+       {
+        "tex": "r^{n}=r^{n-1}+2r^{n-2}",
+        "porque": "Se reemplaza a de n por r elevado a n.",
+        "txt": "se reemplaza por potencias de r"
+       },
+       {
+        "tex": "r^{2}+r-2=0",
+        "porque": "Este paso es el que falla.",
+        "txt": "queda r al cuadrado más r menos 2"
+       }
+      ],
+      "mal": 2,
+      "explicacion": "Al dividir entre r elevado a n menos 2 queda r al cuadrado igual a r más 2. Pasando todo al mismo lado queda r al cuadrado menos r menos 2 igual a 0. El signo de r cambia.",
+      "correccion": "r^{2}-r-2=0",
+      "pista": "Pasa todos los términos a un lado."
+     }
+    ]
+   },
+   {
+    "titulo": "Ordena los pasos",
+    "corto": "Ordena",
+    "bloques": [
+     {
+      "t": "ordenar",
+      "enunciado": "Estos son los pasos para calcular a de 3 en la recurrencia a de n igual a 3 por a de n menos 1, con a de 0 igual a 2, pero están desordenados.",
+      "pasos": [
+       "a_{0}=2",
+       "a_{1}=3\\cdot2=6",
+       "a_{2}=3\\cdot6=18",
+       "a_{3}=3\\cdot18=54"
+      ],
+      "mezcla": [
+       2,
+       0,
+       3,
+       1
+      ],
+      "porque": "Se parte del valor inicial y se aplica la regla una vez por cada término.",
+      "pista": "Se empieza con el valor inicial.",
+      "txt": [
+       "Se parte del valor inicial",
+       "Se calcula a de 1",
+       "Se calcula a de 2",
+       "Se calcula a de 3"
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "Revisa tu respuesta",
+    "corto": "Revisa",
+    "bloques": [
+     {
+      "t": "pregunta"
+     },
+     {
+      "t": "nota",
+      "html": "Puedes pedir pistas de a una. Si fallas, el mensaje te dice qué error se cometió."
+     }
+    ]
+   },
+   {
+    "titulo": "Mini simulacro",
+    "corto": "Simulacro",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Tres preguntas reales del banco de MathUNAL sobre este tema. Responde sin mirar los pasos."
+     },
+     {
+      "t": "simulacro",
+      "titulo": "Mini simulacro de relaciones de recurrencia",
+      "preguntas": [
+       {
+        "tipo": "numerica",
+        "texto": "Si $a_n = 3\\,a_{n-1}$ con $a_0 = 2$, ¿cuánto vale $a_3$?",
+        "respuesta": "54",
+        "tolNum": 0.001,
+        "resumen": "$a_1=6$, $a_2=18$, $a_3=54$.",
+        "fuente": "Banco MathUNAL, simulacro de Matemáticas Discretas"
+       },
+       {
+        "tipo": "mcq",
+        "texto": "La ecuación característica de la recurrencia $a_n = a_{n-1} + 2\\,a_{n-2}$ es:",
+        "opciones": [
+         "$r^2 - r - 2 = 0$, con raíces $2$ y $-1$",
+         "$r^2 + r + 2 = 0$",
+         "$r^2 - r + 2 = 0$",
+         "$r - 3 = 0$"
+        ],
+        "correcta": 0,
+        "resumen": "Se pasa todo a un lado, $r^2-r-2=0$, con raíces $2$ y $-1$.",
+        "fuente": "Banco MathUNAL, simulacro de Matemáticas Discretas"
+       },
+       {
+        "tipo": "numerica",
+        "texto": "Si $F_1 = F_2 = 1$ y $F_n = F_{n-1} + F_{n-2}$, el valor de $F_6$ es:",
+        "respuesta": "8",
+        "tolNum": 0.001,
+        "resumen": "$1,1,2,3,5,8$.",
+        "fuente": "Banco MathUNAL, simulacro de Matemáticas Discretas"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "Tu repaso",
+    "corto": "Repaso",
+    "bloques": [
+     {
+      "t": "repaso"
+     }
+    ]
+   },
+   {
+    "titulo": "En resumen",
+    "corto": "Resumen",
+    "bloques": [
+     {
+      "t": "resumen"
+     }
+    ]
+   }
+  ]
+ },
+ "practicar": {
+  "pasos": [
+   {
+    "titulo": "Fibonacci",
+    "grafica": {
+     "draw": 1
+    },
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Los términos de la sucesión de Fibonacci."
+     },
+     {
+      "t": "eq",
+      "tex": "F_{n}=F_{n-1}+F_{n-2}"
+     }
+    ]
+   },
+   {
+    "titulo": "Recorre n",
+    "grafica": {
+     "draw": 1
+    },
+    "laboratorio": true,
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mueve el deslizador de 0 a 10. Abajo se leen el término y el cociente con el siguiente."
+     }
+    ]
+   },
+   {
+    "titulo": "El cociente",
+    "grafica": {
+     "draw": 1,
+     "guide": 1,
+     "ok": true
+    },
+    "laboratorio": true,
+    "d": 10,
+    "bloques": [
+     {
+      "t": "eq",
+      "tex": "\\dfrac{89}{55}=1.6182"
+     },
+     {
+      "t": "p",
+      "html": "Con n igual a 10, el cociente ya está muy cerca de 1.618."
+     }
+    ]
+   },
+   {
+    "titulo": "Revisa tu respuesta",
+    "grafica": {
+     "draw": 1,
+     "guide": 1,
+     "ok": true,
+     "d": 10
+    },
+    "bloques": [
+     {
+      "t": "pregunta"
+     },
+     {
+      "t": "nota",
+      "html": "Aplica la regla paso a paso desde el valor inicial."
+     }
+    ]
+   }
+  ]
+ },
+ "pregunta": {
+  "tex": "\\text{Si}\\ a_{n}=2a_{n-1}+1\\ \\text{con}\\ a_{0}=1,\\ \\text{entonces}\\ a_{3}=",
+  "opciones": [
+   "$15$",
+   "$8$",
+   "$9$",
+   "$7$"
+  ],
+  "correcta": 0,
+  "explicacion": "a de 1 es 2 por 1 más 1, o sea 3. a de 2 es 2 por 3 más 1, o sea 7. Y a de 3 es 2 por 7 más 1, o sea 15.",
+  "verificacion": {
+   "formula": "2*(2*(2*1+1)+1)+1+0*x",
+   "a": 0,
+   "esperado": 15
+  },
+  "pistas": [
+   "Calcula a de 1 con la regla.",
+   "Son 3 y luego 7.",
+   "El siguiente es 2 por 7 más 1."
+  ],
+  "errores": [
+   "",
+   "Ocho sería 2 elevado a 3, que no incluye el sumando 1 de cada paso.",
+   "Nueve sale de detenerse un paso antes y sumar mal.",
+   "Siete es a de 2, y se pide a de 3."
+  ]
+ },
+ "resumen": [
+  "Una recurrencia define cada término a partir de los anteriores, con valores iniciales.",
+  "La ecuación característica de a de n igual a a de n menos 1 más 2 por a de n menos 2 es r al cuadrado menos r menos 2.",
+  "Las raíces de la característica dan la fórmula cerrada, y en Fibonacci el cociente de términos se acerca a 1.618."
+ ]
+}

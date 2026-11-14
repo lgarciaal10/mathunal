@@ -1,0 +1,451 @@
+{
+ "esquema": 1,
+ "id": "calculo-m3-l1",
+ "ejemplo": true,
+ "curso": "Cálculo",
+ "modulo": "Módulo 3 Aplicaciones de la derivada",
+ "posicion": "Lección 1 de 8",
+ "titulo": "Teorema del valor medio",
+ "minutos": 15,
+ "ejercicios": 1,
+ "grafica": {
+  "tipo": "tvm",
+  "x": [
+   0,
+   5
+  ],
+  "y": [
+   0,
+   2.6
+  ],
+  "funcion": "sqrt(x)",
+  "a": 1,
+  "b": 4,
+  "derivada": "1/(2*sqrt(x))",
+  "c": 2.25,
+  "limite": 0.3333333333,
+  "etiquetas": [
+   "Pendiente de la tangente",
+   "Pendiente de la cuerda"
+  ],
+  "etiquetaSlider": "Posición de la tangente",
+  "rotulos": [
+   "tangente",
+   "cuerda"
+  ],
+  "alt": "Curva de la raíz cuadrada de x entre 1 y 4 con la cuerda que une los extremos y una tangente que recorre la curva"
+ },
+ "glosario": {
+  "cuerda": "Una cuerda es el segmento que une dos puntos de la curva.",
+  "tvm": "El teorema del valor medio dice que, entre dos puntos de una curva suave, hay un lugar donde la tangente es paralela a la cuerda que los une.",
+  "deriv": "Una función es derivable en un punto si tiene tangente ahí, sin picos ni saltos.",
+  "cont": "Una función es continua si su gráfica se puede dibujar sin levantar el lápiz.",
+  "pend": "La pendiente dice cuánto sube la recta por cada unidad que avanza hacia la derecha."
+ },
+ "ver": {
+  "duracion": 21,
+  "capitulos": [
+   [
+    0,
+    2.5,
+    "Esta es la curva de la raíz cuadrada de x entre x igual a 1 y x igual a 4."
+   ],
+   [
+    2.5,
+    5,
+    "Se marcan los dos extremos y se traza la cuerda que los une."
+   ],
+   [
+    5,
+    8,
+    "La cuerda tiene pendiente un tercio, que es la inclinación promedio de la curva."
+   ],
+   [
+    8,
+    13,
+    "Ahora una tangente recorre la curva. Mira cómo cambia su pendiente."
+   ],
+   [
+    13,
+    17,
+    "En algún punto la tangente es paralela a la cuerda."
+   ],
+   [
+    17,
+    21,
+    "Ese punto es x igual a 2.25, y ahí la derivada vale un tercio."
+   ]
+  ],
+  "canales": {
+   "draw": [
+    [
+     0.3,
+     0
+    ],
+    [
+     2.4,
+     1
+    ]
+   ],
+   "hole": [
+    [
+     2.5,
+     0
+    ],
+    [
+     3.3,
+     1
+    ]
+   ],
+   "guide": [
+    [
+     3.3,
+     0
+    ],
+    [
+     4.5,
+     1
+    ]
+   ],
+   "d": [
+    [
+     8,
+     1.15
+    ],
+    [
+     10,
+     3.7
+    ],
+    [
+     12,
+     1.6
+    ],
+    [
+     14.5,
+     2.25
+    ]
+   ]
+  },
+  "intervalos": {
+   "ok": [
+    14.5,
+    21
+   ]
+  }
+ },
+ "leer": {
+  "secciones": [
+   {
+    "titulo": "La idea",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Si en 2 horas recorres 160 kilómetros, tu velocidad promedio fue de 80 kilómetros por hora. El {{gl:tvm|teorema del valor medio}} dice que en algún instante ibas exactamente a 80 kilómetros por hora, ni más ni menos."
+     }
+    ]
+   },
+   {
+    "titulo": "Un ejemplo",
+    "corto": "Un ejemplo",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mira esta función entre x igual a 1 y x igual a 4."
+     },
+     {
+      "t": "eq",
+      "tex": "f(x)=\\sqrt{x},\\quad [1,4]"
+     },
+     {
+      "t": "grafica",
+      "animar": "dibujar",
+      "alt": "Curva de la raíz cuadrada que se dibuja entre los dos extremos"
+     }
+    ]
+   },
+   {
+    "titulo": "Piensa antes de ver",
+    "corto": "Piensa",
+    "bloques": [
+     {
+      "t": "piensa",
+      "pregunta": "La {{gl:cuerda|cuerda}} une el punto (1, 1) con el punto (4, 2). Sube 1 mientras avanza 3. ¿Qué pendiente tiene?",
+      "opciones": [
+       0.25,
+       0.33,
+       0.5,
+       3
+      ],
+      "correcta": 0.33,
+      "bien": "Muy bien. La pendiente es un tercio, o sea 0.33.",
+      "mal": "La pendiente es un tercio, o sea 0.33, porque sube 1 mientras avanza 3."
+     }
+    ]
+   },
+   {
+    "titulo": "Una tangente que recorre la curva",
+    "corto": "Recorrido",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Ahora una tangente se mueve de un extremo al otro. Mira cuándo su pendiente se iguala con la de la cuerda."
+     },
+     {
+      "t": "acercando",
+      "ds": [
+       1.2,
+       3.5,
+       1.7,
+       2.25
+      ],
+      "alt": "Una tangente que recorre la curva hasta ponerse paralela a la cuerda"
+     },
+     {
+      "t": "p",
+      "html": "En x igual a <b>2.25</b> las dos pendientes valen lo mismo, así que la tangente es paralela a la cuerda."
+     }
+    ]
+   },
+   {
+    "titulo": "El teorema",
+    "corto": "El teorema",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Si f es {{gl:cont|continua}} en [a, b] y {{gl:deriv|derivable}} entre a y b, existe un punto c donde la derivada vale lo mismo que la pendiente de la cuerda."
+     },
+     {
+      "t": "eq",
+      "tex": "f'(c)=\\dfrac{f(b)-f(a)}{b-a}"
+     },
+     {
+      "t": "pasos",
+      "items": [
+       {
+        "tex": "\\dfrac{f(4)-f(1)}{4-1}=\\dfrac{2-1}{3}=\\dfrac{1}{3}",
+        "porque": "Se calcula la pendiente de la cuerda."
+       },
+       {
+        "tex": "f'(x)=\\dfrac{1}{2\\sqrt{x}}\\ \\Rightarrow\\ \\dfrac{1}{2\\sqrt{c}}=\\dfrac{1}{3}",
+        "porque": "Se deriva y se iguala a la pendiente de la cuerda."
+       },
+       {
+        "tex": "\\sqrt{c}=\\dfrac{3}{2}\\ \\Rightarrow\\ c=\\dfrac{9}{4}=2.25",
+        "porque": "Se despeja c y sale el mismo punto que se vio en la gráfica. Está entre 1 y 4, como pide el teorema."
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "Cuándo no funciona",
+    "corto": "Condiciones",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Las dos condiciones importan. Con f(x) igual a |x| en [−1, 1], la cuerda es horizontal porque f(−1) y f(1) valen 1. Pero no hay ningún punto con tangente horizontal."
+     },
+     {
+      "t": "ojo",
+      "html": "La función |x| tiene un pico en x igual a 0 y ahí no es derivable. Sin esa condición el teorema falla."
+     },
+     {
+      "t": "p",
+      "html": "Cuando f(a) y f(b) son iguales, la cuerda es horizontal y el teorema dice que hay un punto con tangente horizontal. Ese caso se llama teorema de Rolle."
+     }
+    ]
+   },
+   {
+    "titulo": "¿Para qué sirve?",
+    "corto": "En ingeniería",
+    "bloques": [
+     {
+      "t": "ingenieria",
+      "titulo": "El control de velocidad por tramo",
+      "html": "En algunos tramos de carretera la velocidad se controla midiendo cuánto tarda un vehículo entre dos puntos, y no la velocidad en un punto. Esa es la velocidad promedio, que es la pendiente de la cuerda en la gráfica de posición.",
+      "tex": "\\bar v=\\dfrac{s(b)-s(a)}{b-a}=s'(c)",
+      "datos": [
+       {
+        "k": "Distancia",
+        "v": "3 km"
+       },
+       {
+        "k": "Tiempo",
+        "v": "2 minutos"
+       },
+       {
+        "k": "Velocidad promedio",
+        "v": "90 km/h"
+       }
+      ],
+      "cierre": "Por el teorema del valor medio, si la posición es continua y derivable, en algún instante el vehículo iba exactamente a 90 km/h. Por eso, si el promedio supera un límite, en algún momento se superó ese límite."
+     }
+    ]
+   },
+   {
+    "titulo": "Revisa tu respuesta",
+    "corto": "Revisa",
+    "bloques": [
+     {
+      "t": "pregunta"
+     },
+     {
+      "t": "nota",
+      "html": "Calcula la pendiente de la cuerda y despeja c en f prima de c."
+     }
+    ]
+   },
+   {
+    "titulo": "Tu repaso",
+    "corto": "Repaso",
+    "bloques": [
+     {
+      "t": "repaso"
+     }
+    ]
+   },
+   {
+    "titulo": "En resumen",
+    "corto": "Resumen",
+    "bloques": [
+     {
+      "t": "resumen"
+     }
+    ]
+   }
+  ]
+ },
+ "practicar": {
+  "pasos": [
+   {
+    "titulo": "La curva",
+    "grafica": {
+     "draw": 1
+    },
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Esta es la curva de la raíz cuadrada de x entre 1 y 4."
+     },
+     {
+      "t": "eq",
+      "tex": "f(x)=\\sqrt{x},\\quad [1,4]"
+     }
+    ]
+   },
+   {
+    "titulo": "Los extremos",
+    "grafica": {
+     "draw": 1,
+     "hole": 1
+    },
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Se marcan los puntos (1, 1) y (4, 2) en los extremos."
+     }
+    ]
+   },
+   {
+    "titulo": "La cuerda",
+    "grafica": {
+     "draw": 1,
+     "hole": 1,
+     "guide": 1
+    },
+    "bloques": [
+     {
+      "t": "p",
+      "html": "La cuerda une los dos extremos. Su pendiente es 1 sobre 3, o sea 0.33."
+     }
+    ]
+   },
+   {
+    "titulo": "Mueve la tangente",
+    "grafica": {
+     "draw": 1,
+     "hole": 1,
+     "guide": 1
+    },
+    "laboratorio": true,
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mueve el deslizador y mira cómo cambia la pendiente de la tangente. Busca cuándo se iguala con la de la cuerda."
+     }
+    ]
+   },
+   {
+    "titulo": "El punto c",
+    "grafica": {
+     "draw": 1,
+     "hole": 1,
+     "guide": 1,
+     "ok": true
+    },
+    "laboratorio": true,
+    "d": 2.25,
+    "bloques": [
+     {
+      "t": "p",
+      "html": "En x igual a 2.25 las dos pendientes valen 0.33. Ese es el punto c del teorema."
+     },
+     {
+      "t": "eq",
+      "tex": "\\dfrac{1}{2\\sqrt{c}}=\\dfrac{1}{3}\\ \\Rightarrow\\ c=\\dfrac{9}{4}"
+     }
+    ]
+   },
+   {
+    "titulo": "Revisa tu respuesta",
+    "grafica": {
+     "draw": 1,
+     "hole": 1,
+     "guide": 1,
+     "ok": true
+    },
+    "bloques": [
+     {
+      "t": "pregunta"
+     },
+     {
+      "t": "nota",
+      "html": "Calcula la pendiente de la cuerda y despeja c."
+     }
+    ]
+   }
+  ]
+ },
+ "pregunta": {
+  "tex": "c\\ \\text{para}\\ f(x)=x^{2}+1\\ \\text{en}\\ [1,5]",
+  "opciones": [
+   "2",
+   "3",
+   "4",
+   "6"
+  ],
+  "correcta": 1,
+  "explicacion": "La cuerda tiene pendiente (26 − 2) sobre 4, que es 6. Como f prima de x es 2x, se resuelve 2c igual a 6 y sale c igual a 3, que está entre 1 y 5.",
+  "verificacion": {
+   "formula": "((5*5+1)-(1*1+1))/(4*2)+0*x",
+   "a": 0,
+   "esperado": 3
+  },
+  "pistas": [
+   "Calcula la pendiente de la cuerda, f(5) menos f(1) sobre 5 menos 1.",
+   "Da 24 sobre 4, o sea 6.",
+   "Resuelve f prima de c igual a 6, o sea 2c igual a 6."
+  ],
+  "errores": [
+   "Ese 2 no cumple f prima de c igual a 6. Con c igual a 2 la derivada vale 4.",
+   "",
+   "Ese 4 es el largo del intervalo, 5 menos 1. El punto c sale de f prima de c igual a la pendiente de la cuerda.",
+   "Ese 6 es la pendiente de la cuerda, no el punto c. Falta resolver 2c igual a 6."
+  ]
+ },
+ "resumen": [
+  "El teorema dice que hay un punto c donde la tangente es paralela a la cuerda.",
+  "La pendiente de la cuerda es f(b) menos f(a), sobre b menos a, y se iguala a f prima de c.",
+  "Hacen falta continuidad en [a, b] y derivabilidad entre a y b."
+ ]
+}

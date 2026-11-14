@@ -1,0 +1,733 @@
+{
+ "esquema": 1,
+ "id": "cv-m1-l4",
+ "ejemplo": true,
+ "curso": "Cálculo en Varias Variables",
+ "modulo": "Módulo 1 Cálculo diferencial en varias variables",
+ "posicion": "Lección 4 de 7",
+ "titulo": "Regla de la cadena",
+ "minutos": 26,
+ "ejercicios": 8,
+ "grafica": {
+  "tipo": "plano",
+  "x": [
+   -0.2,
+   1.5
+  ],
+  "y": [
+   -0.6,
+   6
+  ],
+  "a": 0,
+  "b": 1.4,
+  "inicio": 1,
+  "elementos": [
+   {
+    "t": "trazo",
+    "puntos": [
+     [
+      "0.0",
+      "0.00000"
+     ],
+     [
+      "0.05",
+      "0.00000"
+     ],
+     [
+      "0.1",
+      "0.00001"
+     ],
+     [
+      "0.15",
+      "0.00008"
+     ],
+     [
+      "0.2",
+      "0.00032"
+     ],
+     [
+      "0.25",
+      "0.00098"
+     ],
+     [
+      "0.3",
+      "0.00243"
+     ],
+     [
+      "0.35",
+      "0.00525"
+     ],
+     [
+      "0.4",
+      "0.01024"
+     ],
+     [
+      "0.45",
+      "0.01845"
+     ],
+     [
+      "0.5",
+      "0.03125"
+     ],
+     [
+      "0.55",
+      "0.05033"
+     ],
+     [
+      "0.6",
+      "0.07776"
+     ],
+     [
+      "0.65",
+      "0.11603"
+     ],
+     [
+      "0.7",
+      "0.16807"
+     ],
+     [
+      "0.75",
+      "0.23730"
+     ],
+     [
+      "0.8",
+      "0.32768"
+     ],
+     [
+      "0.85",
+      "0.44371"
+     ],
+     [
+      "0.9",
+      "0.59049"
+     ],
+     [
+      "0.95",
+      "0.77378"
+     ],
+     [
+      "1.0",
+      "1.00000"
+     ],
+     [
+      "1.05",
+      "1.27628"
+     ],
+     [
+      "1.1",
+      "1.61051"
+     ],
+     [
+      "1.15",
+      "2.01136"
+     ],
+     [
+      "1.2",
+      "2.48832"
+     ],
+     [
+      "1.25",
+      "3.05176"
+     ],
+     [
+      "1.3",
+      "3.71293"
+     ],
+     [
+      "1.35",
+      "4.48403"
+     ],
+     [
+      "1.4",
+      "5.37824"
+     ],
+     [
+      "1.45",
+      "6.40973"
+     ]
+    ],
+    "c": 0
+   },
+   {
+    "t": "recta",
+    "p": [
+     "x",
+     "x*x*x*x*x"
+    ],
+    "dir": [
+     "1",
+     "5*x*x*x*x"
+    ],
+    "c": 1
+   },
+   {
+    "t": "punto",
+    "p": [
+     "x",
+     "x*x*x*x*x"
+    ],
+    "c": 1
+   }
+  ],
+  "lecturas": [
+   {
+    "rotulo": "derivada por la cadena, f sub x por x prima más f sub y por y prima",
+    "formula": "2*x*x*x*x+3*x*x*x*x"
+   },
+   {
+    "rotulo": "valor de z igual a x por y, que es t a la 5",
+    "formula": "x*x*x*x*x"
+   }
+  ],
+  "etiquetas": [
+   "La pendiente de la tangente es dz entre dt, y se calcula con la regla de la cadena",
+   "El valor de z a lo largo de la curva"
+  ],
+  "etiquetaSlider": "Tiempo t, de 0 a 1.4",
+  "alt": "La función z igual a x por y, evaluada a lo largo de la curva x igual a t al cuadrado y y igual a t al cubo, es z igual a t a la quinta. La recta tangente en cada t tiene pendiente igual a la regla de la cadena, que es 5 por t a la cuarta"
+ },
+ "glosario": {
+  "cadena": "La regla de la cadena en varias variables suma, para cada variable, la derivada parcial por la derivada de esa variable respecto a t.",
+  "compuesta": "Una función compuesta en varias variables es una función z igual a f de x y, donde x y y dependen de otra variable t.",
+  "arbol": "El diagrama de árbol dibuja las dependencias, y cada camino de z a t da un término de la regla de la cadena.",
+  "implicita": "La derivación implícita calcula dy entre dx de una ecuación F de x y igual a cero con la fórmula menos F sub x entre F sub y."
+ },
+ "ver": {
+  "duracion": 24.0,
+  "capitulos": [
+   [
+    0,
+    4,
+    "La función es z igual a x por y, y x y y dependen del tiempo t, con x igual a t al cuadrado y y igual a t al cubo."
+   ],
+   [
+    4,
+    10,
+    "La regla de la cadena suma dos caminos, y vale f sub x por x prima más f sub y por y prima."
+   ],
+   [
+    10,
+    16,
+    "Con t igual a 1, f sub x es y igual a 1 y x prima es 2. Luego f sub y es x igual a 1 y y prima es 3. La suma da 5."
+   ],
+   [
+    16,
+    20,
+    "En general da 5 t a la cuarta, que es la derivada de t a la quinta, y coincide."
+   ],
+   [
+    20,
+    24,
+    "La regla de la cadena permite derivar sin hacer la composición completa."
+   ]
+  ],
+  "canales": {
+   "draw": [
+    [
+     0.3,
+     0
+    ],
+    [
+     3.5,
+     1
+    ]
+   ],
+   "d": [
+    [
+     4,
+     0.5
+    ],
+    [
+     8,
+     0.5
+    ],
+    [
+     10,
+     1
+    ],
+    [
+     13,
+     1
+    ],
+    [
+     16,
+     1.2
+    ],
+    [
+     18,
+     1.2
+    ],
+    [
+     24,
+     1.2
+    ]
+   ],
+   "guide": [
+    [
+     4,
+     0
+    ],
+    [
+     5,
+     1
+    ]
+   ]
+  },
+  "intervalos": {
+   "ok": [
+    16,
+    24
+   ]
+  }
+ },
+ "leer": {
+  "secciones": [
+   {
+    "titulo": "La idea",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Cuando z depende de x y y, y estas dependen de t, la {{gl:cadena|regla de la cadena}} suma un término por cada variable intermedia. La {{gl:compuesta|función compuesta}} se puede derivar sin reemplazar todo, y el {{gl:arbol|diagrama de árbol}} ayuda a no olvidar caminos. Con una ecuación implícita se usa la regla de la {{gl:implicita|derivación implícita}}."
+     }
+    ]
+   },
+   {
+    "titulo": "Un ejemplo",
+    "corto": "Un ejemplo",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "La función es z igual a x por y con x igual a t al cuadrado y y igual a t al cubo. Mueve t y mira la pendiente."
+     },
+     {
+      "t": "eq",
+      "tex": "\\dfrac{dz}{dt}=f_{x}\\,\\dfrac{dx}{dt}+f_{y}\\,\\dfrac{dy}{dt}=y\\cdot2t+x\\cdot3t^{2}=5t^{4}"
+     },
+     {
+      "t": "grafica",
+      "animar": "dibujar",
+      "alt": "La función de t y su tangente"
+     }
+    ]
+   },
+   {
+    "titulo": "Piensa antes de ver",
+    "corto": "Piensa",
+    "bloques": [
+     {
+      "t": "piensa",
+      "pregunta": "Con z igual a x por y, ¿cuánto vale f sub x?",
+      "opciones": [
+       "y",
+       "x",
+       "1",
+       "x por y"
+      ],
+      "correcta": "y",
+      "bien": "Muy bien. Se deriva respecto a x y y queda constante.",
+      "mal": "f sub x es y, porque al derivar respecto a x, y se trata como constante."
+     }
+    ]
+   },
+   {
+    "titulo": "A lo largo de la curva",
+    "corto": "Pendiente",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mira la pendiente con t igual a 0.5, 1, 1.2 y 1.4."
+     },
+     {
+      "t": "acercando",
+      "ds": [
+       0.5,
+       1,
+       1.2,
+       1.4
+      ],
+      "alt": "La pendiente en cuatro valores de t"
+     },
+     {
+      "t": "p",
+      "html": "Con t igual a 1 la pendiente es 5, y crece rápido después."
+     }
+    ]
+   },
+   {
+    "titulo": "La regla",
+    "corto": "Regla",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Se suman los caminos, y cada uno multiplica dos derivadas."
+     },
+     {
+      "t": "pasos",
+      "items": [
+       {
+        "tex": "z=f(x,y),\\ x=x(t),\\ y=y(t)",
+        "porque": "Las dependencias."
+       },
+       {
+        "tex": "\\dfrac{dz}{dt}=\\dfrac{\\partial f}{\\partial x}\\dfrac{dx}{dt}+\\dfrac{\\partial f}{\\partial y}\\dfrac{dy}{dt}",
+        "porque": "La regla de la cadena."
+       },
+       {
+        "tex": "f=xy,\\ x=t^{2},\\ y=t^{3}",
+        "porque": "El ejemplo."
+       },
+       {
+        "tex": "\\dfrac{dz}{dt}=y(2t)+x(3t^{2})=t^{3}(2t)+t^{2}(3t^{2})=5t^{4}",
+        "porque": "El resultado."
+       }
+      ]
+     },
+     {
+      "t": "ojo",
+      "html": "En el resultado, x y y se reemplazan por sus expresiones en t, para que la respuesta quede en una sola variable."
+     }
+    ]
+   },
+   {
+    "titulo": "Derivación implícita",
+    "corto": "Implícita",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "La regla de la cadena da una fórmula corta para dy entre dx cuando y está definida por una ecuación."
+     },
+     {
+      "t": "pasos",
+      "items": [
+       {
+        "tex": "F(x,y)=0",
+        "porque": "La ecuación."
+       },
+       {
+        "tex": "\\dfrac{dy}{dx}=-\\dfrac{F_{x}}{F_{y}}",
+        "porque": "La fórmula, con F sub y distinta de cero."
+       },
+       {
+        "tex": "F=x^{2}+y^{2}-25",
+        "porque": "Una circunferencia."
+       },
+       {
+        "tex": "\\dfrac{dy}{dx}=-\\dfrac{2x}{2y}=-\\dfrac{x}{y}",
+        "porque": "La pendiente en cada punto."
+       }
+      ]
+     },
+     {
+      "t": "ojo",
+      "html": "La fórmula exige F sub y distinta de cero. Donde F sub y vale cero la tangente es vertical, y dy entre dx no existe."
+     }
+    ]
+   },
+   {
+    "titulo": "¿Para qué sirve?",
+    "corto": "En ingeniería",
+    "bloques": [
+     {
+      "t": "ingenieria",
+      "titulo": "Cambio de temperatura de un dron",
+      "html": "Un dron vuela por una región donde la temperatura es T de x y y. Su posición cambia con el tiempo, y se quiere saber cómo cambia la temperatura que mide.",
+      "tex": "\\dfrac{dT}{dt}=T_{x}\\,\\dfrac{dx}{dt}+T_{y}\\,\\dfrac{dy}{dt}",
+      "datos": [
+       {
+        "k": "T sub x",
+        "v": "cambio por metro hacia el este"
+       },
+       {
+        "k": "dx entre dt",
+        "v": "velocidad hacia el este"
+       },
+       {
+        "k": "Resultado",
+        "v": "cambio de temperatura por segundo"
+       }
+      ],
+      "cierre": "La regla de la cadena combina el mapa de temperatura con la trayectoria del dron. Es la base para controlar sensores y para el descenso por gradiente en optimización."
+     }
+    ]
+   },
+   {
+    "titulo": "Completa el paso",
+    "corto": "Completa",
+    "bloques": [
+     {
+      "t": "completar",
+      "enunciado": "Con z igual a f de x, y, la derivada de z respecto a t es f sub x por dx entre dt más [[hueco]].",
+      "tex": "\\dfrac{dz}{dt}=f_{x}\\dfrac{dx}{dt}+[[hueco]]",
+      "opciones": [
+       {
+        "tex": "f_{y}\\dfrac{dy}{dt}",
+        "txt": "f sub y por dy entre dt"
+       },
+       {
+        "tex": "f_{y}\\dfrac{dx}{dt}",
+        "txt": "f sub y por dx entre dt"
+       },
+       {
+        "tex": "f_{xy}",
+        "txt": "f sub xy"
+       }
+      ],
+      "correcta": 0,
+      "errores": [
+       "",
+       "Cada derivada parcial se multiplica por la derivada de su propia variable.",
+       "La derivada mixta no aparece en la regla de la cadena."
+      ],
+      "pista": "Cada camino aporta un término.",
+      "porque": "Falta el camino por y."
+     }
+    ]
+   },
+   {
+    "titulo": "Encuentra el error",
+    "corto": "Error",
+    "bloques": [
+     {
+      "t": "error",
+      "enunciado": "Alguien derivó z igual a x por y con x igual a t al cuadrado y y igual a t al cubo, y se equivocó. Toca el paso que está mal.",
+      "pasos": [
+       {
+        "tex": "z=xy,\\ x=t^{2},\\ y=t^{3}",
+        "porque": "Datos.",
+        "txt": "datos"
+       },
+       {
+        "tex": "\\dfrac{dz}{dt}=y\\cdot2t",
+        "porque": "Este paso es el que falla.",
+        "txt": "falta el camino por y"
+       },
+       {
+        "tex": "\\dfrac{dz}{dt}=2t^{4}",
+        "porque": "Resultado.",
+        "txt": "2 t a la 4"
+       }
+      ],
+      "mal": 1,
+      "explicacion": "Faltó el segundo camino, el de y. La regla suma y por 2t más x por 3t al cuadrado, y da 5t a la cuarta.",
+      "correccion": "\\dfrac{dz}{dt}=y(2t)+x(3t^{2})=5t^{4}",
+      "pista": "Suma los dos caminos."
+     }
+    ]
+   },
+   {
+    "titulo": "Ordena los pasos",
+    "corto": "Ordena",
+    "bloques": [
+     {
+      "t": "ordenar",
+      "enunciado": "Estos son los pasos para aplicar la regla de la cadena, pero están desordenados.",
+      "pasos": [
+       "f_{x},\\ f_{y}",
+       "x',\\ y'",
+       "f_{x}x'+f_{y}y'",
+       "\\text{todo en terminos de }t"
+      ],
+      "mezcla": [
+       2,
+       0,
+       3,
+       1
+      ],
+      "porque": "Primero las parciales, luego x prima y y prima, después la suma y al final todo en términos de t.",
+      "pista": "Se empieza con las derivadas parciales.",
+      "txt": [
+       "Se calculan las derivadas parciales",
+       "Se derivan x y y respecto a t",
+       "Se arma la suma",
+       "Se reemplaza x y y por sus expresiones"
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "Revisa tu respuesta",
+    "corto": "Revisa",
+    "bloques": [
+     {
+      "t": "pregunta"
+     },
+     {
+      "t": "nota",
+      "html": "Puedes pedir pistas de a una. Si fallas, el mensaje te dice qué error se cometió."
+     }
+    ]
+   },
+   {
+    "titulo": "Mini simulacro",
+    "corto": "Simulacro",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Tres preguntas reales del banco de MathUNAL sobre este tema. Responde sin mirar los pasos."
+     },
+     {
+      "t": "simulacro",
+      "titulo": "Mini simulacro de la regla de la cadena",
+      "preguntas": [
+       {
+        "tipo": "mcq",
+        "texto": "Si $z = f(x,y)$ con $x = x(t)$, $y = y(t)$, entonces $\\dfrac{dz}{dt}$ es:",
+        "opciones": [
+         "$\\dfrac{\\partial f}{\\partial x}\\dfrac{dx}{dt} + \\dfrac{\\partial f}{\\partial y}\\dfrac{dy}{dt}$",
+         "$\\dfrac{\\partial f}{\\partial x} + \\dfrac{\\partial f}{\\partial y}$",
+         "$\\dfrac{\\partial f}{\\partial x}\\dfrac{\\partial f}{\\partial y}$",
+         "$\\dfrac{df}{dx}\\dfrac{dx}{dt}$"
+        ],
+        "correcta": 0,
+        "resumen": "La regla de la cadena para z de x, y con x y y que dependen de t.",
+        "fuente": "Banco MathUNAL, simulacro de Cálculo en Varias Variables"
+       },
+       {
+        "tipo": "numerica",
+        "texto": "Con $z=x^{2}y$, $x=t$ y $y=t^{2}$, el valor de $\\dfrac{dz}{dt}$ en $t=1$ es:",
+        "respuesta": "4",
+        "tolNum": 0.01,
+        "resumen": "z es t a la 4, y su derivada es 4 t al cubo, o sea 4 en t igual a 1.",
+        "fuente": "Pregunta propia de MathUNAL, escrita para esta lección"
+       },
+       {
+        "tipo": "mcq",
+        "texto": "Si $x^{2}+y^{2}=25$, entonces $\\dfrac{dy}{dx}$ vale:",
+        "opciones": [
+         "$-\\dfrac{x}{y}$",
+         "$\\dfrac{x}{y}$",
+         "$-\\dfrac{y}{x}$",
+         "$-2x$"
+        ],
+        "correcta": 0,
+        "resumen": "Con F igual a x al cuadrado más y al cuadrado menos 25, menos F sub x entre F sub y es menos x entre y.",
+        "fuente": "Pregunta propia de MathUNAL, escrita para esta lección"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "Tu repaso",
+    "corto": "Repaso",
+    "bloques": [
+     {
+      "t": "repaso"
+     }
+    ]
+   },
+   {
+    "titulo": "En resumen",
+    "corto": "Resumen",
+    "bloques": [
+     {
+      "t": "resumen"
+     }
+    ]
+   }
+  ]
+ },
+ "practicar": {
+  "pasos": [
+   {
+    "titulo": "La curva",
+    "grafica": {
+     "draw": 1
+    },
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Se evalúa f a lo largo de la curva."
+     },
+     {
+      "t": "eq",
+      "tex": "z=xy,\\quad x=t^{2},\\quad y=t^{3}"
+     }
+    ]
+   },
+   {
+    "titulo": "Mueve t",
+    "grafica": {
+     "draw": 1
+    },
+    "laboratorio": true,
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mueve el deslizador. Abajo se leen la pendiente por la regla de la cadena y el valor de z."
+     }
+    ]
+   },
+   {
+    "titulo": "En t igual a 1",
+    "grafica": {
+     "draw": 1,
+     "guide": 1,
+     "ok": true
+    },
+    "laboratorio": true,
+    "d": 1,
+    "bloques": [
+     {
+      "t": "eq",
+      "tex": "\\dfrac{dz}{dt}=1\\cdot2+1\\cdot3=5"
+     },
+     {
+      "t": "p",
+      "html": "Con t igual a 1, f sub x vale 1, x prima vale 2, f sub y vale 1 y y prima vale 3."
+     }
+    ]
+   },
+   {
+    "titulo": "Revisa tu respuesta",
+    "grafica": {
+     "draw": 1,
+     "guide": 1,
+     "ok": true,
+     "d": 1
+    },
+    "bloques": [
+     {
+      "t": "pregunta"
+     },
+     {
+      "t": "nota",
+      "html": "Se suma un término por cada variable."
+     }
+    ]
+   }
+  ]
+ },
+ "pregunta": {
+  "tex": "z=xy,\\ x=t^{2},\\ y=t^{3}.\\ \\dfrac{dz}{dt}\\Big|_{t=1}\\ \\text{vale}",
+  "opciones": [
+   "$5$",
+   "$2$",
+   "$3$",
+   "$6$"
+  ],
+  "correcta": 0,
+  "explicacion": "La regla da y por 2t más x por 3 t al cuadrado. En t igual a 1, es 2 más 3, o sea 5.",
+  "verificacion": {
+   "formula": "1*2+1*3+0*x",
+   "a": 0,
+   "esperado": 5
+  },
+  "pistas": [
+   "Calcula f sub x y f sub y.",
+   "Multiplica cada una por la derivada de su variable.",
+   "Suma los dos términos."
+  ],
+  "errores": [
+   "",
+   "El 2 es solo el primer camino, y falta el segundo.",
+   "El 3 es solo el segundo camino, y falta el primero.",
+   "El 6 es el producto de 2 y 3, y no la suma."
+  ]
+ },
+ "resumen": [
+  "La regla de la cadena suma un término por cada variable intermedia.",
+  "Se multiplica cada derivada parcial por la derivada de su variable respecto a t.",
+  "En una ecuación implícita, dy entre dx es menos F sub x entre F sub y."
+ ]
+}

@@ -1,0 +1,808 @@
+{
+ "esquema": 1,
+ "id": "di-m2-l4",
+ "ejemplo": true,
+ "curso": "Matemáticas Discretas",
+ "modulo": "Módulo 2 Conjuntos, conteo y combinatoria",
+ "posicion": "Lección 4 de 4",
+ "titulo": "Principios de conteo",
+ "minutos": 26,
+ "ejercicios": 8,
+ "grafica": {
+  "tipo": "plano",
+  "x": [
+   -0.6,
+   5.6
+  ],
+  "y": [
+   -0.7,
+   3.4
+  ],
+  "a": 0,
+  "b": 11,
+  "inicio": 6,
+  "entero": true,
+  "elementos": [
+   {
+    "t": "poligono",
+    "puntos": [
+     [
+      "0.1",
+      "0"
+     ],
+     [
+      "0.9",
+      "0"
+     ],
+     [
+      "0.9",
+      "1"
+     ],
+     [
+      "0.1",
+      "1"
+     ]
+    ],
+    "c": 0
+   },
+   {
+    "t": "poligono",
+    "puntos": [
+     [
+      "0.1",
+      "0"
+     ],
+     [
+      "0.9",
+      "0"
+     ],
+     [
+      "0.9",
+      "(1*(x-0)*(x-2)*(x-3)*(x-4)*(x-5)*(x-6)*(x-7)*(x-8)*(x-9)*(x-10)*(x-11)/(3628800))+(1*(x-0)*(x-1)*(x-3)*(x-4)*(x-5)*(x-6)*(x-7)*(x-8)*(x-9)*(x-10)*(x-11)/(-725760))+(1*(x-0)*(x-1)*(x-2)*(x-4)*(x-5)*(x-6)*(x-7)*(x-8)*(x-9)*(x-10)*(x-11)/(241920))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-5)*(x-6)*(x-7)*(x-8)*(x-9)*(x-10)*(x-11)/(-120960))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-6)*(x-7)*(x-8)*(x-9)*(x-10)*(x-11)/(86400))+(2*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-7)*(x-8)*(x-9)*(x-10)*(x-11)/(-86400))+(2*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-6)*(x-8)*(x-9)*(x-10)*(x-11)/(120960))+(2*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-6)*(x-7)*(x-9)*(x-10)*(x-11)/(-241920))+(2*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-6)*(x-7)*(x-8)*(x-10)*(x-11)/(725760))+(2*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-6)*(x-7)*(x-8)*(x-9)*(x-11)/(-3628800))+(3*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-6)*(x-7)*(x-8)*(x-9)*(x-10)/(39916800))"
+     ],
+     [
+      "0.1",
+      "(1*(x-0)*(x-2)*(x-3)*(x-4)*(x-5)*(x-6)*(x-7)*(x-8)*(x-9)*(x-10)*(x-11)/(3628800))+(1*(x-0)*(x-1)*(x-3)*(x-4)*(x-5)*(x-6)*(x-7)*(x-8)*(x-9)*(x-10)*(x-11)/(-725760))+(1*(x-0)*(x-1)*(x-2)*(x-4)*(x-5)*(x-6)*(x-7)*(x-8)*(x-9)*(x-10)*(x-11)/(241920))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-5)*(x-6)*(x-7)*(x-8)*(x-9)*(x-10)*(x-11)/(-120960))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-6)*(x-7)*(x-8)*(x-9)*(x-10)*(x-11)/(86400))+(2*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-7)*(x-8)*(x-9)*(x-10)*(x-11)/(-86400))+(2*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-6)*(x-8)*(x-9)*(x-10)*(x-11)/(120960))+(2*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-6)*(x-7)*(x-9)*(x-10)*(x-11)/(-241920))+(2*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-6)*(x-7)*(x-8)*(x-10)*(x-11)/(725760))+(2*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-6)*(x-7)*(x-8)*(x-9)*(x-11)/(-3628800))+(3*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-6)*(x-7)*(x-8)*(x-9)*(x-10)/(39916800))"
+     ]
+    ],
+    "c": 3
+   },
+   {
+    "t": "poligono",
+    "puntos": [
+     [
+      "1.1",
+      "0"
+     ],
+     [
+      "1.9",
+      "0"
+     ],
+     [
+      "1.9",
+      "1"
+     ],
+     [
+      "1.1",
+      "1"
+     ]
+    ],
+    "c": 0
+   },
+   {
+    "t": "poligono",
+    "puntos": [
+     [
+      "1.1",
+      "0"
+     ],
+     [
+      "1.9",
+      "0"
+     ],
+     [
+      "1.9",
+      "(1*(x-0)*(x-1)*(x-3)*(x-4)*(x-5)*(x-6)*(x-7)*(x-8)*(x-9)*(x-10)*(x-11)/(-725760))+(1*(x-0)*(x-1)*(x-2)*(x-4)*(x-5)*(x-6)*(x-7)*(x-8)*(x-9)*(x-10)*(x-11)/(241920))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-5)*(x-6)*(x-7)*(x-8)*(x-9)*(x-10)*(x-11)/(-120960))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-6)*(x-7)*(x-8)*(x-9)*(x-10)*(x-11)/(86400))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-7)*(x-8)*(x-9)*(x-10)*(x-11)/(-86400))+(2*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-6)*(x-8)*(x-9)*(x-10)*(x-11)/(120960))+(2*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-6)*(x-7)*(x-9)*(x-10)*(x-11)/(-241920))+(2*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-6)*(x-7)*(x-8)*(x-10)*(x-11)/(725760))+(2*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-6)*(x-7)*(x-8)*(x-9)*(x-11)/(-3628800))+(2*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-6)*(x-7)*(x-8)*(x-9)*(x-10)/(39916800))"
+     ],
+     [
+      "1.1",
+      "(1*(x-0)*(x-1)*(x-3)*(x-4)*(x-5)*(x-6)*(x-7)*(x-8)*(x-9)*(x-10)*(x-11)/(-725760))+(1*(x-0)*(x-1)*(x-2)*(x-4)*(x-5)*(x-6)*(x-7)*(x-8)*(x-9)*(x-10)*(x-11)/(241920))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-5)*(x-6)*(x-7)*(x-8)*(x-9)*(x-10)*(x-11)/(-120960))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-6)*(x-7)*(x-8)*(x-9)*(x-10)*(x-11)/(86400))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-7)*(x-8)*(x-9)*(x-10)*(x-11)/(-86400))+(2*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-6)*(x-8)*(x-9)*(x-10)*(x-11)/(120960))+(2*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-6)*(x-7)*(x-9)*(x-10)*(x-11)/(-241920))+(2*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-6)*(x-7)*(x-8)*(x-10)*(x-11)/(725760))+(2*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-6)*(x-7)*(x-8)*(x-9)*(x-11)/(-3628800))+(2*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-6)*(x-7)*(x-8)*(x-9)*(x-10)/(39916800))"
+     ]
+    ],
+    "c": 3
+   },
+   {
+    "t": "poligono",
+    "puntos": [
+     [
+      "2.1",
+      "0"
+     ],
+     [
+      "2.9",
+      "0"
+     ],
+     [
+      "2.9",
+      "1"
+     ],
+     [
+      "2.1",
+      "1"
+     ]
+    ],
+    "c": 0
+   },
+   {
+    "t": "poligono",
+    "puntos": [
+     [
+      "2.1",
+      "0"
+     ],
+     [
+      "2.9",
+      "0"
+     ],
+     [
+      "2.9",
+      "(1*(x-0)*(x-1)*(x-2)*(x-4)*(x-5)*(x-6)*(x-7)*(x-8)*(x-9)*(x-10)*(x-11)/(241920))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-5)*(x-6)*(x-7)*(x-8)*(x-9)*(x-10)*(x-11)/(-120960))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-6)*(x-7)*(x-8)*(x-9)*(x-10)*(x-11)/(86400))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-7)*(x-8)*(x-9)*(x-10)*(x-11)/(-86400))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-6)*(x-8)*(x-9)*(x-10)*(x-11)/(120960))+(2*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-6)*(x-7)*(x-9)*(x-10)*(x-11)/(-241920))+(2*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-6)*(x-7)*(x-8)*(x-10)*(x-11)/(725760))+(2*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-6)*(x-7)*(x-8)*(x-9)*(x-11)/(-3628800))+(2*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-6)*(x-7)*(x-8)*(x-9)*(x-10)/(39916800))"
+     ],
+     [
+      "2.1",
+      "(1*(x-0)*(x-1)*(x-2)*(x-4)*(x-5)*(x-6)*(x-7)*(x-8)*(x-9)*(x-10)*(x-11)/(241920))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-5)*(x-6)*(x-7)*(x-8)*(x-9)*(x-10)*(x-11)/(-120960))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-6)*(x-7)*(x-8)*(x-9)*(x-10)*(x-11)/(86400))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-7)*(x-8)*(x-9)*(x-10)*(x-11)/(-86400))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-6)*(x-8)*(x-9)*(x-10)*(x-11)/(120960))+(2*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-6)*(x-7)*(x-9)*(x-10)*(x-11)/(-241920))+(2*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-6)*(x-7)*(x-8)*(x-10)*(x-11)/(725760))+(2*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-6)*(x-7)*(x-8)*(x-9)*(x-11)/(-3628800))+(2*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-6)*(x-7)*(x-8)*(x-9)*(x-10)/(39916800))"
+     ]
+    ],
+    "c": 3
+   },
+   {
+    "t": "poligono",
+    "puntos": [
+     [
+      "3.1",
+      "0"
+     ],
+     [
+      "3.9",
+      "0"
+     ],
+     [
+      "3.9",
+      "1"
+     ],
+     [
+      "3.1",
+      "1"
+     ]
+    ],
+    "c": 0
+   },
+   {
+    "t": "poligono",
+    "puntos": [
+     [
+      "3.1",
+      "0"
+     ],
+     [
+      "3.9",
+      "0"
+     ],
+     [
+      "3.9",
+      "(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-5)*(x-6)*(x-7)*(x-8)*(x-9)*(x-10)*(x-11)/(-120960))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-6)*(x-7)*(x-8)*(x-9)*(x-10)*(x-11)/(86400))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-7)*(x-8)*(x-9)*(x-10)*(x-11)/(-86400))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-6)*(x-8)*(x-9)*(x-10)*(x-11)/(120960))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-6)*(x-7)*(x-9)*(x-10)*(x-11)/(-241920))+(2*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-6)*(x-7)*(x-8)*(x-10)*(x-11)/(725760))+(2*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-6)*(x-7)*(x-8)*(x-9)*(x-11)/(-3628800))+(2*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-6)*(x-7)*(x-8)*(x-9)*(x-10)/(39916800))"
+     ],
+     [
+      "3.1",
+      "(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-5)*(x-6)*(x-7)*(x-8)*(x-9)*(x-10)*(x-11)/(-120960))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-6)*(x-7)*(x-8)*(x-9)*(x-10)*(x-11)/(86400))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-7)*(x-8)*(x-9)*(x-10)*(x-11)/(-86400))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-6)*(x-8)*(x-9)*(x-10)*(x-11)/(120960))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-6)*(x-7)*(x-9)*(x-10)*(x-11)/(-241920))+(2*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-6)*(x-7)*(x-8)*(x-10)*(x-11)/(725760))+(2*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-6)*(x-7)*(x-8)*(x-9)*(x-11)/(-3628800))+(2*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-6)*(x-7)*(x-8)*(x-9)*(x-10)/(39916800))"
+     ]
+    ],
+    "c": 3
+   },
+   {
+    "t": "poligono",
+    "puntos": [
+     [
+      "4.1",
+      "0"
+     ],
+     [
+      "4.9",
+      "0"
+     ],
+     [
+      "4.9",
+      "1"
+     ],
+     [
+      "4.1",
+      "1"
+     ]
+    ],
+    "c": 0
+   },
+   {
+    "t": "poligono",
+    "puntos": [
+     [
+      "4.1",
+      "0"
+     ],
+     [
+      "4.9",
+      "0"
+     ],
+     [
+      "4.9",
+      "(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-6)*(x-7)*(x-8)*(x-9)*(x-10)*(x-11)/(86400))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-7)*(x-8)*(x-9)*(x-10)*(x-11)/(-86400))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-6)*(x-8)*(x-9)*(x-10)*(x-11)/(120960))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-6)*(x-7)*(x-9)*(x-10)*(x-11)/(-241920))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-6)*(x-7)*(x-8)*(x-10)*(x-11)/(725760))+(2*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-6)*(x-7)*(x-8)*(x-9)*(x-11)/(-3628800))+(2*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-6)*(x-7)*(x-8)*(x-9)*(x-10)/(39916800))"
+     ],
+     [
+      "4.1",
+      "(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-6)*(x-7)*(x-8)*(x-9)*(x-10)*(x-11)/(86400))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-7)*(x-8)*(x-9)*(x-10)*(x-11)/(-86400))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-6)*(x-8)*(x-9)*(x-10)*(x-11)/(120960))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-6)*(x-7)*(x-9)*(x-10)*(x-11)/(-241920))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-6)*(x-7)*(x-8)*(x-10)*(x-11)/(725760))+(2*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-6)*(x-7)*(x-8)*(x-9)*(x-11)/(-3628800))+(2*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-6)*(x-7)*(x-8)*(x-9)*(x-10)/(39916800))"
+     ]
+    ],
+    "c": 3
+   }
+  ],
+  "lecturas": [
+   {
+    "rotulo": "objetos repartidos en las 5 cajas",
+    "formula": "x"
+   },
+   {
+    "rotulo": "mínimo posible del máximo en una caja",
+    "formula": "(1*(x-0)*(x-2)*(x-3)*(x-4)*(x-5)*(x-6)*(x-7)*(x-8)*(x-9)*(x-10)*(x-11)/(3628800))+(1*(x-0)*(x-1)*(x-3)*(x-4)*(x-5)*(x-6)*(x-7)*(x-8)*(x-9)*(x-10)*(x-11)/(-725760))+(1*(x-0)*(x-1)*(x-2)*(x-4)*(x-5)*(x-6)*(x-7)*(x-8)*(x-9)*(x-10)*(x-11)/(241920))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-5)*(x-6)*(x-7)*(x-8)*(x-9)*(x-10)*(x-11)/(-120960))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-6)*(x-7)*(x-8)*(x-9)*(x-10)*(x-11)/(86400))+(2*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-7)*(x-8)*(x-9)*(x-10)*(x-11)/(-86400))+(2*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-6)*(x-8)*(x-9)*(x-10)*(x-11)/(120960))+(2*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-6)*(x-7)*(x-9)*(x-10)*(x-11)/(-241920))+(2*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-6)*(x-7)*(x-8)*(x-10)*(x-11)/(725760))+(2*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-6)*(x-7)*(x-8)*(x-9)*(x-11)/(-3628800))+(3*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-6)*(x-7)*(x-8)*(x-9)*(x-10)/(39916800))"
+   }
+  ],
+  "etiquetas": [
+   "Cantidad total de objetos",
+   "Alguna caja tiene al menos esta cantidad"
+  ],
+  "etiquetaSlider": "Objetos, de 0 a 11",
+  "alt": "Cinco cajas, cada una con una altura que indica sus objetos. Se reparten de a uno, en orden. Con 5 objetos cada caja tiene uno, y con 6 objetos alguna caja tiene al menos 2"
+ },
+ "glosario": {
+  "suma": "La regla de la suma dice que si una tarea se puede hacer de a formas o de b formas, sin que se superpongan, hay a más b formas en total.",
+  "producto": "La regla del producto dice que si una tarea tiene pasos con a, b y c opciones, hay a por b por c formas de hacerla.",
+  "palomar": "El principio del palomar dice que si se colocan n más 1 objetos en n cajas, alguna caja tiene al menos 2 objetos.",
+  "cadena": "Una cadena binaria de longitud n es una lista de n ceros y unos. Hay 2 elevado a n."
+ },
+ "ver": {
+  "duracion": 22.0,
+  "capitulos": [
+   [
+    0,
+    4,
+    "Hay 5 cajas y se reparten objetos de a uno, en orden."
+   ],
+   [
+    4,
+    9,
+    "Con 5 objetos, cada caja puede tener uno. Es posible que ninguna tenga dos."
+   ],
+   [
+    9,
+    14,
+    "Con 6 objetos, alguna caja debe tener al menos 2. Eso es el principio del palomar."
+   ],
+   [
+    14,
+    19,
+    "Con 11 objetos, alguna caja tiene al menos 3."
+   ],
+   [
+    19,
+    22,
+    "Con n más 1 objetos en n cajas, siempre hay una caja con al menos 2."
+   ]
+  ],
+  "canales": {
+   "draw": [
+    [
+     0.3,
+     0
+    ],
+    [
+     3.5,
+     1
+    ]
+   ],
+   "d": [
+    [
+     4,
+     0
+    ],
+    [
+     7,
+     5
+    ],
+    [
+     9,
+     5
+    ],
+    [
+     10,
+     6
+    ],
+    [
+     14,
+     6
+    ],
+    [
+     15,
+     11
+    ],
+    [
+     19,
+     11
+    ],
+    [
+     22,
+     11
+    ]
+   ],
+   "guide": [
+    [
+     4,
+     0
+    ],
+    [
+     5,
+     1
+    ]
+   ]
+  },
+  "intervalos": {
+   "ok": [
+    9,
+    22
+   ]
+  }
+ },
+ "leer": {
+  "secciones": [
+   {
+    "titulo": "La idea",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Contar sin listar se basa en pocas reglas. La {{gl:suma|regla de la suma}} junta casos que no se superponen, y la {{gl:producto|regla del producto}} multiplica las opciones de cada paso. Con ellas se cuentan las {{gl:cadena|cadenas binarias}} y las funciones entre conjuntos. Y el {{gl:palomar|principio del palomar}} afirma que, con más objetos que cajas, alguna caja se repite."
+     }
+    ]
+   },
+   {
+    "titulo": "Un ejemplo",
+    "corto": "Un ejemplo",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Se reparten objetos de a uno en 5 cajas. Mueve la cantidad de objetos y mira cuándo una caja tiene que tener dos."
+     },
+     {
+      "t": "eq",
+      "tex": "n+1\\ \\text{objetos en}\\ n\\ \\text{cajas}\\ \\Rightarrow\\ \\text{alguna caja tiene}\\ \\ge2"
+     },
+     {
+      "t": "grafica",
+      "animar": "dibujar",
+      "alt": "Cinco cajas con objetos"
+     }
+    ]
+   },
+   {
+    "titulo": "Piensa antes de ver",
+    "corto": "Piensa",
+    "bloques": [
+     {
+      "t": "piensa",
+      "pregunta": "Hay 5 cajas y se reparten 6 objetos. ¿Cuál es el menor número de objetos que tiene la caja más llena?",
+      "opciones": [
+       1,
+       2,
+       3,
+       6
+      ],
+      "correcta": 2,
+      "bien": "Muy bien. Es 2, porque no caben 6 objetos en 5 cajas con uno cada una. Más abajo se ve.",
+      "mal": "Es 2. Con 5 objetos se llenaría una por caja, pero el sexto obliga a que alguna tenga dos. Más abajo se ve."
+     }
+    ]
+   },
+   {
+    "titulo": "Recorriendo los objetos",
+    "corto": "Los objetos",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mira las cajas con 0, 5, 6 y 11 objetos."
+     },
+     {
+      "t": "acercando",
+      "ds": [
+       0,
+       5,
+       6,
+       11
+      ],
+      "alt": "Las cajas con cuatro cantidades de objetos"
+     },
+     {
+      "t": "p",
+      "html": "Con 6 objetos aparece la primera caja con 2. Con 11 aparece una con 3."
+     }
+    ]
+   },
+   {
+    "titulo": "Las reglas de conteo",
+    "corto": "Reglas",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Con dos reglas se cuentan muchas situaciones."
+     },
+     {
+      "t": "pasos",
+      "items": [
+       {
+        "tex": "a+b",
+        "porque": "Regla de la suma. Si se escoge una opción o la otra, se suman."
+       },
+       {
+        "tex": "a\\cdot b\\cdot c",
+        "porque": "Regla del producto. Si se hacen pasos seguidos, se multiplican."
+       },
+       {
+        "tex": "2^{5}=32",
+        "porque": "Cadenas binarias de longitud 5, con 2 opciones por posición."
+       },
+       {
+        "tex": "4^{3}=64",
+        "porque": "Funciones de un conjunto de 3 elementos en uno de 4. Cada elemento elige entre 4."
+       }
+      ]
+     },
+     {
+      "t": "ojo",
+      "html": "Se suma cuando hay que escoger entre alternativas, y se multiplica cuando se hacen pasos seguidos. Confundirlas es el error más común al contar."
+     }
+    ]
+   },
+   {
+    "titulo": "El principio del palomar",
+    "corto": "Palomar",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Es sencillo, pero demuestra cosas que no parecen obvias."
+     },
+     {
+      "t": "pasos",
+      "items": [
+       {
+        "tex": "n+1\\ \\text{objetos en}\\ n\\ \\text{cajas}\\ \\Rightarrow\\ \\text{alguna caja tiene}\\ \\ge2",
+        "porque": "La forma básica."
+       },
+       {
+        "tex": "m\\ \\text{objetos en}\\ n\\ \\text{cajas}\\ \\Rightarrow\\ \\text{alguna caja tiene}\\ \\ge\\lceil m/n\\rceil",
+        "porque": "La forma general."
+       },
+       {
+        "tex": "30\\ \\text{personas, 12 meses}\\ \\Rightarrow\\ \\ge\\lceil 30/12\\rceil=3",
+        "porque": "Siempre hay un mes con al menos 3 cumpleaños."
+       }
+      ]
+     },
+     {
+      "t": "ojo",
+      "html": "El principio afirma que existe una caja con al menos esa cantidad, pero no dice cuál es. Sirve para probar que algo existe, y no para encontrarlo."
+     }
+    ]
+   },
+   {
+    "titulo": "¿Para qué sirve?",
+    "corto": "En ingeniería",
+    "bloques": [
+     {
+      "t": "ingenieria",
+      "titulo": "Los códigos de 8 bits",
+      "html": "Un código de 8 bits es una cadena binaria de longitud 8, así que hay dos elevado a 8 códigos distintos. Si hay más mensajes que códigos, el principio del palomar obliga a que dos mensajes distintos compartan código.",
+      "tex": "2^{8}=256",
+      "datos": [
+       {
+        "k": "Bits",
+        "v": "8"
+       },
+       {
+        "k": "Códigos posibles",
+        "v": "256"
+       },
+       {
+        "k": "Con 257 mensajes",
+        "v": "dos comparten código"
+       }
+      ],
+      "cierre": "Es la razón por la que ninguna función hash puede ser inyectiva sobre un conjunto más grande que su salida. En sistemas reales las colisiones son inevitables, y lo que se diseña es la forma de manejarlas. Esta cuenta, de dos elevado a n, es la misma de los subconjuntos y de las cadenas binarias."
+     }
+    ]
+   },
+   {
+    "titulo": "Completa el paso",
+    "corto": "Completa",
+    "bloques": [
+     {
+      "t": "completar",
+      "enunciado": "Se cuentan las cadenas binarias de longitud 4. Falta el resultado.",
+      "tex": "2\\cdot2\\cdot2\\cdot2=[[hueco]]",
+      "opciones": [
+       {
+        "tex": "16",
+        "txt": "dieciséis"
+       },
+       {
+        "tex": "8",
+        "txt": "ocho"
+       },
+       {
+        "tex": "4",
+        "txt": "cuatro"
+       }
+      ],
+      "correcta": 0,
+      "errores": [
+       "",
+       "Ocho sale de multiplicar solo tres de las cuatro posiciones.",
+       "Cuatro es la longitud, y no la cantidad de cadenas."
+      ],
+      "pista": "Se multiplican las opciones de las cuatro posiciones.",
+      "porque": "2 por 2 por 2 por 2 es 16."
+     }
+    ]
+   },
+   {
+    "titulo": "Encuentra el error",
+    "corto": "Error",
+    "bloques": [
+     {
+      "t": "error",
+      "enunciado": "Alguien contó las funciones de un conjunto de 3 elementos a uno de 4 y se equivocó en un paso. Toca el paso que está mal.",
+      "pasos": [
+       {
+        "tex": "|A|=3,\\quad |B|=4",
+        "porque": "Los datos.",
+        "txt": "los tamaños son 3 y 4"
+       },
+       {
+        "tex": "\\text{Cada elemento de}\\ A\\ \\text{elige una imagen en}\\ B",
+        "porque": "La idea de la cuenta.",
+        "txt": "cada elemento de A elige"
+       },
+       {
+        "tex": "\\#=3^{4}=81",
+        "porque": "Este paso es el que falla.",
+        "txt": "son 3 elevado a 4"
+       }
+      ],
+      "mal": 2,
+      "explicacion": "Cada uno de los 3 elementos del dominio tiene 4 opciones, así que el total es 4 por 4 por 4, o sea 4 al cubo, que es 64. La base es el tamaño del codominio.",
+      "correccion": "\\#=4^{3}=64",
+      "pista": "Fíjate en cuántas opciones tiene cada elemento."
+     }
+    ]
+   },
+   {
+    "titulo": "Ordena los pasos",
+    "corto": "Ordena",
+    "bloques": [
+     {
+      "t": "ordenar",
+      "enunciado": "Estos son los pasos para contar las cadenas binarias de longitud 5, pero están desordenados.",
+      "pasos": [
+       "5\\ \\text{posiciones}",
+       "2\\ \\text{opciones en cada una}",
+       "2\\cdot2\\cdot2\\cdot2\\cdot2",
+       "32"
+      ],
+      "mezcla": [
+       2,
+       0,
+       3,
+       1
+      ],
+      "porque": "Se cuentan las posiciones, las opciones de cada una, y se multiplica.",
+      "pista": "Se empieza contando las posiciones.",
+      "txt": [
+       "Se cuentan las posiciones",
+       "Se cuentan las opciones de cada posición",
+       "Se multiplican",
+       "Se calcula"
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "Revisa tu respuesta",
+    "corto": "Revisa",
+    "bloques": [
+     {
+      "t": "pregunta"
+     },
+     {
+      "t": "nota",
+      "html": "Puedes pedir pistas de a una. Si fallas, el mensaje te dice qué error se cometió."
+     }
+    ]
+   },
+   {
+    "titulo": "Mini simulacro",
+    "corto": "Simulacro",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Tres preguntas reales del banco de MathUNAL sobre este tema. Responde sin mirar los pasos."
+     },
+     {
+      "t": "simulacro",
+      "titulo": "Mini simulacro de principios de conteo",
+      "preguntas": [
+       {
+        "tipo": "mcq",
+        "texto": "¿Cuántas cadenas binarias de longitud $5$ existen?",
+        "opciones": [
+         "$32$",
+         "$25$",
+         "$10$",
+         "$5$"
+        ],
+        "correcta": 0,
+        "resumen": "Hay 2 opciones en cada una de las 5 posiciones, o sea $2^5=32$.",
+        "fuente": "Banco MathUNAL, simulacro de Matemáticas Discretas"
+       },
+       {
+        "tipo": "numerica",
+        "texto": "El número de funciones de un conjunto de $3$ elementos a uno de $4$ elementos es:",
+        "respuesta": "64",
+        "tolNum": 0.001,
+        "resumen": "Cada uno de los 3 elementos elige entre 4 imágenes, o sea $4^3=64$.",
+        "fuente": "Banco MathUNAL, simulacro de Matemáticas Discretas"
+       },
+       {
+        "tipo": "mcq",
+        "texto": "El principio del palomar (casillero) afirma que si se colocan $n + 1$ objetos en $n$ cajas, entonces:",
+        "opciones": [
+         "alguna caja contiene al menos $2$ objetos",
+         "todas las cajas tienen $1$ objeto",
+         "alguna caja queda vacía",
+         "no se puede colocar"
+        ],
+        "correcta": 0,
+        "resumen": "Con más objetos que cajas, alguna caja contiene al menos 2.",
+        "fuente": "Banco MathUNAL, simulacro de Matemáticas Discretas"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "Tu repaso",
+    "corto": "Repaso",
+    "bloques": [
+     {
+      "t": "repaso"
+     }
+    ]
+   },
+   {
+    "titulo": "En resumen",
+    "corto": "Resumen",
+    "bloques": [
+     {
+      "t": "resumen"
+     }
+    ]
+   }
+  ]
+ },
+ "practicar": {
+  "pasos": [
+   {
+    "titulo": "Las cajas",
+    "grafica": {
+     "draw": 1
+    },
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Cinco cajas y objetos repartidos de a uno."
+     },
+     {
+      "t": "eq",
+      "tex": "\\lceil m/5\\rceil"
+     }
+    ]
+   },
+   {
+    "titulo": "Reparte objetos",
+    "grafica": {
+     "draw": 1
+    },
+    "laboratorio": true,
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mueve el deslizador de 0 a 11. Abajo se leen la cantidad de objetos y el mínimo posible de la caja más llena."
+     }
+    ]
+   },
+   {
+    "titulo": "Con 6 objetos",
+    "grafica": {
+     "draw": 1,
+     "guide": 1,
+     "ok": true
+    },
+    "laboratorio": true,
+    "d": 6,
+    "bloques": [
+     {
+      "t": "eq",
+      "tex": "\\lceil 6/5\\rceil=2"
+     },
+     {
+      "t": "p",
+      "html": "Con 6 objetos, alguna caja tiene al menos 2."
+     }
+    ]
+   },
+   {
+    "titulo": "Revisa tu respuesta",
+    "grafica": {
+     "draw": 1,
+     "guide": 1,
+     "ok": true,
+     "d": 6
+    },
+    "bloques": [
+     {
+      "t": "pregunta"
+     },
+     {
+      "t": "nota",
+      "html": "Divide los objetos entre las cajas y redondea hacia arriba."
+     }
+    ]
+   }
+  ]
+ },
+ "pregunta": {
+  "tex": "\\text{En una clase de 30 estudiantes, ¿cuántos cumplen años en el mismo mes, como mínimo?}",
+  "opciones": [
+   "$3$",
+   "$2$",
+   "$1$",
+   "$12$"
+  ],
+  "correcta": 0,
+  "explicacion": "Hay 12 meses y 30 estudiantes. El principio del palomar da al menos el redondeo hacia arriba de 30 entre 12, o sea 3 estudiantes, en algún mes.",
+  "verificacion": {
+   "formula": "3+0*x",
+   "a": 0,
+   "esperado": 3
+  },
+  "pistas": [
+   "Hay 12 cajas, los meses.",
+   "Divide 30 entre 12.",
+   "Redondea hacia arriba, y queda 3."
+  ],
+  "errores": [
+   "",
+   "Dos es el redondeo hacia abajo, y el principio pide hacia arriba.",
+   "Uno es lo que se obtiene con 12 estudiantes, y aquí hay 30.",
+   "Doce es el número de meses, y no la cantidad de estudiantes."
+  ]
+ },
+ "resumen": [
+  "La regla de la suma junta alternativas y la del producto multiplica pasos seguidos.",
+  "Hay 2 elevado a n cadenas binarias de longitud n, y B elevado a A funciones de A en B.",
+  "Con m objetos en n cajas, alguna caja tiene al menos m entre n, redondeado hacia arriba."
+ ]
+}

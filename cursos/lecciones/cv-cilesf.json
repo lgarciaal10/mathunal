@@ -1,0 +1,951 @@
+{
+ "esquema": 1,
+ "id": "cv-m2-l5",
+ "ejemplo": true,
+ "curso": "Cálculo en Varias Variables",
+ "modulo": "Módulo 2 Integrales múltiples",
+ "posicion": "Lección 5 de 6",
+ "titulo": "Coordenadas cilíndricas y esféricas",
+ "minutos": 28,
+ "ejercicios": 8,
+ "grafica": {
+  "tipo": "plano",
+  "x": [
+   -0.2,
+   2.3
+  ],
+  "y": [
+   -4,
+   56
+  ],
+  "a": 0,
+  "b": 2,
+  "inicio": 1,
+  "elementos": [
+   {
+    "t": "trazo",
+    "puntos": [
+     [
+      "0.0",
+      "0.0000"
+     ],
+     [
+      "0.05",
+      "0.0008"
+     ],
+     [
+      "0.1",
+      "0.0063"
+     ],
+     [
+      "0.15",
+      "0.0212"
+     ],
+     [
+      "0.2",
+      "0.0503"
+     ],
+     [
+      "0.25",
+      "0.0982"
+     ],
+     [
+      "0.3",
+      "0.1696"
+     ],
+     [
+      "0.35",
+      "0.2694"
+     ],
+     [
+      "0.4",
+      "0.4021"
+     ],
+     [
+      "0.45",
+      "0.5726"
+     ],
+     [
+      "0.5",
+      "0.7854"
+     ],
+     [
+      "0.55",
+      "1.0454"
+     ],
+     [
+      "0.6",
+      "1.3572"
+     ],
+     [
+      "0.65",
+      "1.7255"
+     ],
+     [
+      "0.7",
+      "2.1551"
+     ],
+     [
+      "0.75",
+      "2.6507"
+     ],
+     [
+      "0.8",
+      "3.2170"
+     ],
+     [
+      "0.85",
+      "3.8587"
+     ],
+     [
+      "0.9",
+      "4.5804"
+     ],
+     [
+      "0.95",
+      "5.3870"
+     ],
+     [
+      "1.0",
+      "6.2832"
+     ],
+     [
+      "1.05",
+      "7.2736"
+     ],
+     [
+      "1.1",
+      "8.3629"
+     ],
+     [
+      "1.15",
+      "9.5559"
+     ],
+     [
+      "1.2",
+      "10.8573"
+     ],
+     [
+      "1.25",
+      "12.2718"
+     ],
+     [
+      "1.3",
+      "13.8042"
+     ],
+     [
+      "1.35",
+      "15.4590"
+     ],
+     [
+      "1.4",
+      "17.2411"
+     ],
+     [
+      "1.45",
+      "19.1551"
+     ],
+     [
+      "1.5",
+      "21.2058"
+     ],
+     [
+      "1.55",
+      "23.3978"
+     ],
+     [
+      "1.6",
+      "25.7359"
+     ],
+     [
+      "1.65",
+      "28.2249"
+     ],
+     [
+      "1.7",
+      "30.8693"
+     ],
+     [
+      "1.75",
+      "33.6739"
+     ],
+     [
+      "1.8",
+      "36.6435"
+     ],
+     [
+      "1.85",
+      "39.7828"
+     ],
+     [
+      "1.9",
+      "43.0964"
+     ],
+     [
+      "1.95",
+      "46.5890"
+     ],
+     [
+      "2.0",
+      "50.2655"
+     ]
+    ],
+    "c": 3
+   },
+   {
+    "t": "trazo",
+    "puntos": [
+     [
+      "0.0",
+      "0.0000"
+     ],
+     [
+      "0.05",
+      "0.0005"
+     ],
+     [
+      "0.1",
+      "0.0042"
+     ],
+     [
+      "0.15",
+      "0.0141"
+     ],
+     [
+      "0.2",
+      "0.0335"
+     ],
+     [
+      "0.25",
+      "0.0654"
+     ],
+     [
+      "0.3",
+      "0.1131"
+     ],
+     [
+      "0.35",
+      "0.1796"
+     ],
+     [
+      "0.4",
+      "0.2681"
+     ],
+     [
+      "0.45",
+      "0.3817"
+     ],
+     [
+      "0.5",
+      "0.5236"
+     ],
+     [
+      "0.55",
+      "0.6969"
+     ],
+     [
+      "0.6",
+      "0.9048"
+     ],
+     [
+      "0.65",
+      "1.1503"
+     ],
+     [
+      "0.7",
+      "1.4368"
+     ],
+     [
+      "0.75",
+      "1.7671"
+     ],
+     [
+      "0.8",
+      "2.1447"
+     ],
+     [
+      "0.85",
+      "2.5724"
+     ],
+     [
+      "0.9",
+      "3.0536"
+     ],
+     [
+      "0.95",
+      "3.5914"
+     ],
+     [
+      "1.0",
+      "4.1888"
+     ],
+     [
+      "1.05",
+      "4.8490"
+     ],
+     [
+      "1.1",
+      "5.5753"
+     ],
+     [
+      "1.15",
+      "6.3706"
+     ],
+     [
+      "1.2",
+      "7.2382"
+     ],
+     [
+      "1.25",
+      "8.1812"
+     ],
+     [
+      "1.3",
+      "9.2028"
+     ],
+     [
+      "1.35",
+      "10.3060"
+     ],
+     [
+      "1.4",
+      "11.4940"
+     ],
+     [
+      "1.45",
+      "12.7701"
+     ],
+     [
+      "1.5",
+      "14.1372"
+     ],
+     [
+      "1.55",
+      "15.5985"
+     ],
+     [
+      "1.6",
+      "17.1573"
+     ],
+     [
+      "1.65",
+      "18.8166"
+     ],
+     [
+      "1.7",
+      "20.5795"
+     ],
+     [
+      "1.75",
+      "22.4493"
+     ],
+     [
+      "1.8",
+      "24.4290"
+     ],
+     [
+      "1.85",
+      "26.5218"
+     ],
+     [
+      "1.9",
+      "28.7309"
+     ],
+     [
+      "1.95",
+      "31.0594"
+     ],
+     [
+      "2.0",
+      "33.5103"
+     ]
+    ],
+    "c": 0
+   },
+   {
+    "t": "punto",
+    "p": [
+     "x",
+     "4*pi*x*x*x/3"
+    ],
+    "c": 0
+   },
+   {
+    "t": "punto",
+    "p": [
+     "x",
+     "2*pi*x*x*x"
+    ],
+    "c": 3
+   }
+  ],
+  "lecturas": [
+   {
+    "rotulo": "volumen de la esfera de radio R, 4 pi R al cubo sobre 3",
+    "formula": "4*pi*x*x*x/3"
+   },
+   {
+    "rotulo": "volumen del cilindro que la rodea, 2 pi R al cubo",
+    "formula": "2*pi*x*x*x"
+   }
+  ],
+  "etiquetas": [
+   "Con esféricas, la esfera se integra con rho al cuadrado seno de phi",
+   "El cilindro de radio R y altura 2R, y la esfera ocupa dos tercios de él"
+  ],
+  "etiquetaSlider": "Radio R, de 0 a 2",
+  "alt": "El volumen de una esfera de radio R, que es 4 pi R al cubo sobre 3, comparado con el del cilindro de radio R y altura 2R, que vale 2 pi R al cubo. La esfera siempre ocupa dos tercios del cilindro. Ambos volúmenes se calculan con integrales triples en coordenadas esféricas y cilíndricas"
+ },
+ "glosario": {
+  "cilindricas": "En coordenadas cilíndricas un punto se da por r, theta y z. Sirven cuando el sólido tiene simetría alrededor del eje z.",
+  "esfericas": "En coordenadas esféricas un punto se da por la distancia rho al origen, el ángulo phi desde el eje z y el ángulo theta. Sirven con esferas y conos.",
+  "jac": "El elemento de volumen es r dz dr d theta en cilíndricas y rho al cuadrado seno de phi d rho d phi d theta en esféricas.",
+  "phi": "El ángulo phi va de 0 a pi, medido desde el eje z positivo. El ángulo theta va de 0 a 2 pi, alrededor del eje."
+ },
+ "ver": {
+  "duracion": 24.0,
+  "capitulos": [
+   [
+    0,
+    4,
+    "Se comparan el volumen de una esfera y el del cilindro que la rodea, con radio R y altura 2R."
+   ],
+   [
+    4,
+    10,
+    "En cilíndricas el volumen del cilindro es pi R al cuadrado por 2R, o sea 2 pi R al cubo."
+   ],
+   [
+    10,
+    16,
+    "En esféricas la esfera da 4 pi R al cubo entre 3. Con R igual a 1 son 4.19 contra 6.28."
+   ],
+   [
+    16,
+    20,
+    "Con R igual a 2, la esfera mide 33.5 y el cilindro 50.3. La razón es siempre dos tercios."
+   ],
+   [
+    20,
+    24,
+    "Con la simetría correcta, la integral se simplifica mucho. El factor adicional es r en cilíndricas y rho al cuadrado seno phi en esféricas."
+   ]
+  ],
+  "canales": {
+   "draw": [
+    [
+     0.3,
+     0
+    ],
+    [
+     3.5,
+     1
+    ]
+   ],
+   "d": [
+    [
+     4,
+     0.5
+    ],
+    [
+     8,
+     0.5
+    ],
+    [
+     10,
+     1
+    ],
+    [
+     13,
+     1
+    ],
+    [
+     16,
+     2
+    ],
+    [
+     18,
+     2
+    ],
+    [
+     24,
+     2
+    ]
+   ],
+   "guide": [
+    [
+     4,
+     0
+    ],
+    [
+     5,
+     1
+    ]
+   ]
+  },
+  "intervalos": {
+   "ok": [
+    16,
+    24
+   ]
+  }
+ },
+ "leer": {
+  "secciones": [
+   {
+    "titulo": "La idea",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Con simetría alrededor del eje z se usan las {{gl:cilindricas|coordenadas cilíndricas}}, y con simetría respecto a un punto, las {{gl:esfericas|esféricas}}. Cada sistema trae su {{gl:jac|factor}} en el elemento de volumen. En esféricas, los ángulos {{gl:phi|phi y theta}} tienen rangos distintos, y no se deben confundir."
+     }
+    ]
+   },
+   {
+    "titulo": "Un ejemplo",
+    "corto": "Un ejemplo",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Se comparan una esfera y el cilindro que la rodea. Cambia el radio R y mira la razón de los volúmenes."
+     },
+     {
+      "t": "eq",
+      "tex": "V_{esfera}=\\displaystyle\\int_{0}^{2\\pi}\\!\\int_{0}^{\\pi}\\!\\int_{0}^{R}\\rho^{2}\\operatorname{sen}\\phi\\,d\\rho\\,d\\phi\\,d\\theta=\\dfrac{4\\pi R^{3}}{3}"
+     },
+     {
+      "t": "grafica",
+      "animar": "dibujar",
+      "alt": "Los volúmenes de la esfera y el cilindro"
+     }
+    ]
+   },
+   {
+    "titulo": "Piensa antes de ver",
+    "corto": "Piensa",
+    "bloques": [
+     {
+      "t": "piensa",
+      "pregunta": "En cilíndricas, el volumen del cilindro de radio R y altura h es el área de la base por la altura. ¿Cuánto vale la base?",
+      "opciones": [
+       "pi R al cuadrado",
+       "2 pi R",
+       "pi R",
+       "R al cuadrado"
+      ],
+      "correcta": "pi R al cuadrado",
+      "bien": "Muy bien. Es el área del círculo, y la altura se multiplica después.",
+      "mal": "La base es un círculo de radio R, y su área es pi R al cuadrado."
+     }
+    ]
+   },
+   {
+    "titulo": "Distintos radios",
+    "corto": "Radios",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mira los volúmenes con R igual a 0.5, 1, 1.5 y 2."
+     },
+     {
+      "t": "acercando",
+      "ds": [
+       0.5,
+       1,
+       1.5,
+       2
+      ],
+      "alt": "Los volúmenes con cuatro radios"
+     },
+     {
+      "t": "p",
+      "html": "Siempre se cumple que la esfera es dos tercios del cilindro."
+     }
+    ]
+   },
+   {
+    "titulo": "Cilíndricas",
+    "corto": "Cilíndricas",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Se usa r, theta y z, con un factor r."
+     },
+     {
+      "t": "pasos",
+      "items": [
+       {
+        "tex": "x=r\\cos\\theta,\\quad y=r\\operatorname{sen}\\theta,\\quad z=z",
+        "porque": "El cambio."
+       },
+       {
+        "tex": "dV=r\\,dz\\,dr\\,d\\theta",
+        "porque": "El elemento de volumen."
+       },
+       {
+        "tex": "V=\\displaystyle\\int_{0}^{2\\pi}\\!\\int_{0}^{R}\\!\\int_{0}^{h}r\\,dz\\,dr\\,d\\theta",
+        "porque": "El cilindro de radio R y altura h."
+       },
+       {
+        "tex": "V=2\\pi\\cdot\\dfrac{R^{2}}{2}\\cdot h=\\pi R^{2}h",
+        "porque": "El resultado conocido."
+       }
+      ]
+     },
+     {
+      "t": "ojo",
+      "html": "El factor es r, y no r al cuadrado. Solo el elemento de la parte horizontal lo lleva, y z queda igual."
+     }
+    ]
+   },
+   {
+    "titulo": "Esféricas",
+    "corto": "Esféricas",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Se usa rho, phi y theta, con un factor rho al cuadrado por seno de phi."
+     },
+     {
+      "t": "pasos",
+      "items": [
+       {
+        "tex": "x=\\rho\\operatorname{sen}\\phi\\cos\\theta,\\ y=\\rho\\operatorname{sen}\\phi\\operatorname{sen}\\theta,\\ z=\\rho\\cos\\phi",
+        "porque": "El cambio."
+       },
+       {
+        "tex": "dV=\\rho^{2}\\operatorname{sen}\\phi\\,d\\rho\\,d\\phi\\,d\\theta",
+        "porque": "El elemento de volumen."
+       },
+       {
+        "tex": "0\\le\\rho\\le R,\\quad 0\\le\\phi\\le\\pi,\\quad 0\\le\\theta\\le2\\pi",
+        "porque": "Los límites de una esfera."
+       },
+       {
+        "tex": "V=\\dfrac{R^{3}}{3}\\cdot2\\cdot2\\pi=\\dfrac{4\\pi R^{3}}{3}",
+        "porque": "El resultado."
+       }
+      ]
+     },
+     {
+      "t": "ojo",
+      "html": "Phi va de 0 a pi y theta de 0 a 2 pi. Si se invierten, la esfera se cubre dos veces o solo la mitad."
+     }
+    ]
+   },
+   {
+    "titulo": "¿Para qué sirve?",
+    "corto": "En ingeniería",
+    "bloques": [
+     {
+      "t": "ingenieria",
+      "titulo": "El tanque esférico",
+      "html": "Un tanque esférico de 1.5 metros de radio se llena de agua. El volumen se calcula con una integral triple en esféricas, y con la densidad se obtiene la masa.",
+      "tex": "V=\\dfrac{4\\pi R^{3}}{3}=\\dfrac{4\\pi(1.5)^{3}}{3}\\approx14.1\\ \\text{m}^{3}",
+      "datos": [
+       {
+        "k": "Radio",
+        "v": "1.5 m"
+       },
+       {
+        "k": "Volumen",
+        "v": "cerca de 14.1 m³"
+       },
+       {
+        "k": "Masa de agua",
+        "v": "cerca de 14 100 kg"
+       }
+      ],
+      "cierre": "Para un tanque a medio llenar, el volumen de agua es el de un casquete, que se obtiene con límites de phi o de rho distintos. El método es el mismo."
+     }
+    ]
+   },
+   {
+    "titulo": "Completa el paso",
+    "corto": "Completa",
+    "bloques": [
+     {
+      "t": "completar",
+      "enunciado": "El elemento de volumen en coordenadas cilíndricas es [[hueco]] dz dr d theta.",
+      "tex": "dV=[[hueco]]\\,dz\\,dr\\,d\\theta",
+      "opciones": [
+       {
+        "tex": "r",
+        "txt": "r"
+       },
+       {
+        "tex": "r^{2}",
+        "txt": "r al cuadrado"
+       },
+       {
+        "tex": "1",
+        "txt": "uno"
+       }
+      ],
+      "correcta": 0,
+      "errores": [
+       "",
+       "El factor r al cuadrado es de otras coordenadas, como las esféricas con seno de phi.",
+       "Con uno no se corrige la deformación de las áreas lejos del eje."
+      ],
+      "pista": "Viene del jacobiano de las polares.",
+      "porque": "Es r."
+     }
+    ]
+   },
+   {
+    "titulo": "Encuentra el error",
+    "corto": "Error",
+    "bloques": [
+     {
+      "t": "error",
+      "enunciado": "Alguien escribió el elemento de volumen en esféricas y se equivocó. Toca el paso que está mal.",
+      "pasos": [
+       {
+        "tex": "x=\\rho\\operatorname{sen}\\phi\\cos\\theta",
+        "porque": "El cambio.",
+        "txt": "el cambio"
+       },
+       {
+        "tex": "dV=\\rho\\operatorname{sen}\\phi\\,d\\rho\\,d\\phi\\,d\\theta",
+        "porque": "Este paso es el que falla.",
+        "txt": "rho a la primera"
+       },
+       {
+        "tex": "V=\\dfrac{2\\pi R^{2}}{2}",
+        "porque": "Resultado.",
+        "txt": "un resultado distinto"
+       }
+      ],
+      "mal": 1,
+      "explicacion": "El factor es rho al cuadrado por seno de phi, y no rho por seno de phi. Con rho a la primera, las unidades no darían volumen.",
+      "correccion": "dV=\\rho^{2}\\operatorname{sen}\\phi\\,d\\rho\\,d\\phi\\,d\\theta",
+      "pista": "Cuenta las dimensiones del factor."
+     }
+    ]
+   },
+   {
+    "titulo": "Ordena los pasos",
+    "corto": "Ordena",
+    "bloques": [
+     {
+      "t": "ordenar",
+      "enunciado": "Estos son los pasos para calcular el volumen de una esfera en esféricas, pero están desordenados.",
+      "pasos": [
+       "x,y,z\\to\\rho,\\phi,\\theta",
+       "dV=\\rho^{2}\\operatorname{sen}\\phi\\,d\\rho\\,d\\phi\\,d\\theta",
+       "0\\le\\rho\\le R,\\ 0\\le\\phi\\le\\pi,\\ 0\\le\\theta\\le2\\pi",
+       "V=\\dfrac{4\\pi R^{3}}{3}"
+      ],
+      "mezcla": [
+       2,
+       0,
+       3,
+       1
+      ],
+      "porque": "Primero el cambio, luego el elemento de volumen, después los límites y por último se integra.",
+      "pista": "Se empieza con el cambio de coordenadas.",
+      "txt": [
+       "Se hace el cambio",
+       "Se escribe el elemento de volumen",
+       "Se escriben los límites",
+       "Se integra"
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "Revisa tu respuesta",
+    "corto": "Revisa",
+    "bloques": [
+     {
+      "t": "pregunta"
+     },
+     {
+      "t": "nota",
+      "html": "Puedes pedir pistas de a una. Si fallas, el mensaje te dice qué error se cometió."
+     }
+    ]
+   },
+   {
+    "titulo": "Mini simulacro",
+    "corto": "Simulacro",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Preguntas reales del banco de MathUNAL sobre este tema. Responde sin mirar los pasos."
+     },
+     {
+      "t": "simulacro",
+      "titulo": "Mini simulacro de cilíndricas y esféricas",
+      "preguntas": [
+       {
+        "tipo": "mcq",
+        "texto": "El elemento de volumen en coordenadas CILÍNDRICAS es:",
+        "opciones": [
+         "$dV = r\\,dz\\,dr\\,d\\theta$",
+         "$dV = dz\\,dr\\,d\\theta$",
+         "$dV = r^{2}\\,dz\\,dr\\,d\\theta$",
+         "$dV = \\rho^{2}\\operatorname{sen}\\phi\\,d\\rho\\,d\\phi\\,d\\theta$"
+        ],
+        "correcta": 0,
+        "resumen": "El elemento de volumen en cilíndricas.",
+        "fuente": "Banco MathUNAL, simulacro de Cálculo en Varias Variables"
+       },
+       {
+        "tipo": "mcq",
+        "texto": "El elemento de volumen en coordenadas ESFÉRICAS es:",
+        "opciones": [
+         "$dV = \\rho^{2}\\operatorname{sen}\\phi\\,d\\rho\\,d\\phi\\,d\\theta$",
+         "$dV = \\rho^{2}\\,d\\rho\\,d\\phi\\,d\\theta$",
+         "$dV = \\rho\\operatorname{sen}\\phi\\,d\\rho\\,d\\phi\\,d\\theta$",
+         "$dV = \\operatorname{sen}\\phi\\,d\\rho\\,d\\phi\\,d\\theta$"
+        ],
+        "correcta": 0,
+        "resumen": "El elemento de volumen en esféricas.",
+        "fuente": "Banco MathUNAL, simulacro de Cálculo en Varias Variables"
+       },
+       {
+        "tipo": "numerica",
+        "texto": "El volumen de una esfera de radio 3 es (decimal, 1 cifra):",
+        "respuesta": "113.1",
+        "tolNum": 0.2,
+        "resumen": "Es 4 pi por 27 entre 3, o sea 36 pi, cerca de 113.1.",
+        "fuente": "Pregunta propia de MathUNAL, escrita para esta lección"
+       },
+       {
+        "tipo": "numerica",
+        "texto": "El volumen de un cilindro de radio 1 y altura 2 es (decimal, 4 cifras):",
+        "respuesta": "6.2832",
+        "tolNum": 0.001,
+        "resumen": "Es pi por 1 al cuadrado por 2, o sea 2 pi.",
+        "fuente": "Pregunta propia de MathUNAL, escrita para esta lección"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "Tu repaso",
+    "corto": "Repaso",
+    "bloques": [
+     {
+      "t": "repaso"
+     }
+    ]
+   },
+   {
+    "titulo": "En resumen",
+    "corto": "Resumen",
+    "bloques": [
+     {
+      "t": "resumen"
+     }
+    ]
+   }
+  ]
+ },
+ "practicar": {
+  "pasos": [
+   {
+    "titulo": "Esfera y cilindro",
+    "grafica": {
+     "draw": 1
+    },
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Se comparan el volumen de la esfera y el del cilindro circunscrito."
+     },
+     {
+      "t": "eq",
+      "tex": "V_{cil}=2\\pi R^{3},\\quad V_{esf}=\\tfrac{4}{3}\\pi R^{3}"
+     }
+    ]
+   },
+   {
+    "titulo": "Cambia R",
+    "grafica": {
+     "draw": 1
+    },
+    "laboratorio": true,
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mueve el deslizador. Abajo se leen los dos volúmenes."
+     }
+    ]
+   },
+   {
+    "titulo": "Con R igual a 2",
+    "grafica": {
+     "draw": 1,
+     "guide": 1,
+     "ok": true
+    },
+    "laboratorio": true,
+    "d": 2,
+    "bloques": [
+     {
+      "t": "eq",
+      "tex": "\\tfrac{4}{3}\\pi(8)\\approx33.5"
+     },
+     {
+      "t": "p",
+      "html": "La esfera mide 33.5 y el cilindro 50.3, y la razón es dos tercios."
+     }
+    ]
+   },
+   {
+    "titulo": "Revisa tu respuesta",
+    "grafica": {
+     "draw": 1,
+     "guide": 1,
+     "ok": true,
+     "d": 2
+    },
+    "bloques": [
+     {
+      "t": "pregunta"
+     },
+     {
+      "t": "nota",
+      "html": "Phi va de 0 a pi, y theta de 0 a 2 pi."
+     }
+    ]
+   }
+  ]
+ },
+ "pregunta": {
+  "tex": "\\text{En esféricas, el elemento de volumen es}",
+  "opciones": [
+   "$\\rho^{2}\\operatorname{sen}\\phi\\,d\\rho\\,d\\phi\\,d\\theta$",
+   "$\\rho\\,d\\rho\\,d\\phi\\,d\\theta$",
+   "$r\\,dr\\,d\\theta\\,dz$",
+   "$\\rho^{2}\\,d\\rho\\,d\\phi\\,d\\theta$"
+  ],
+  "correcta": 0,
+  "explicacion": "El jacobiano de las esféricas es rho al cuadrado por seno de phi. El de cilíndricas es r.",
+  "verificacion": {
+   "formula": "2*2*sin(pi/2)+0*x",
+   "a": 0,
+   "esperado": 4
+  },
+  "pistas": [
+   "Es un factor con rho.",
+   "Lleva un seno.",
+   "Es rho al cuadrado por seno de phi."
+  ],
+  "errores": [
+   "",
+   "Rho a la primera no tiene las dimensiones de un volumen.",
+   "Ese es el de las cilíndricas, y no el de las esféricas.",
+   "Falta el seno de phi, que corrige los círculos cerca de los polos."
+  ]
+ },
+ "resumen": [
+  "En cilíndricas dV es r dz dr d theta, y en esféricas es rho al cuadrado seno de phi d rho d phi d theta.",
+  "Phi va de 0 a pi y theta de 0 a 2 pi.",
+  "La esfera ocupa dos tercios del cilindro que la rodea."
+ ]
+}

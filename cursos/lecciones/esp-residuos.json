@@ -1,0 +1,782 @@
+{
+ "esquema": 1,
+ "id": "es-m3-l3",
+ "ejemplo": true,
+ "curso": "Matemáticas Especiales",
+ "modulo": "Módulo 3 Ecuación de Laplace y variable compleja",
+ "posicion": "Lección 3 de 5",
+ "titulo": "Integración compleja y residuos",
+ "minutos": 28,
+ "ejercicios": 8,
+ "grafica": {
+  "tipo": "plano",
+  "x": [
+   -4.4,
+   4.4
+  ],
+  "y": [
+   -2.44,
+   2.44
+  ],
+  "a": 0.3,
+  "b": 2.2,
+  "inicio": 0.6,
+  "elementos": [
+   {
+    "t": "trazo",
+    "puntos": [
+     [
+      "x*cos(0.00000)",
+      "x*sin(0.00000)"
+     ],
+     [
+      "x*cos(0.15708)",
+      "x*sin(0.15708)"
+     ],
+     [
+      "x*cos(0.31416)",
+      "x*sin(0.31416)"
+     ],
+     [
+      "x*cos(0.47124)",
+      "x*sin(0.47124)"
+     ],
+     [
+      "x*cos(0.62832)",
+      "x*sin(0.62832)"
+     ],
+     [
+      "x*cos(0.78540)",
+      "x*sin(0.78540)"
+     ],
+     [
+      "x*cos(0.94248)",
+      "x*sin(0.94248)"
+     ],
+     [
+      "x*cos(1.09956)",
+      "x*sin(1.09956)"
+     ],
+     [
+      "x*cos(1.25664)",
+      "x*sin(1.25664)"
+     ],
+     [
+      "x*cos(1.41372)",
+      "x*sin(1.41372)"
+     ],
+     [
+      "x*cos(1.57080)",
+      "x*sin(1.57080)"
+     ],
+     [
+      "x*cos(1.72788)",
+      "x*sin(1.72788)"
+     ],
+     [
+      "x*cos(1.88496)",
+      "x*sin(1.88496)"
+     ],
+     [
+      "x*cos(2.04204)",
+      "x*sin(2.04204)"
+     ],
+     [
+      "x*cos(2.19911)",
+      "x*sin(2.19911)"
+     ],
+     [
+      "x*cos(2.35619)",
+      "x*sin(2.35619)"
+     ],
+     [
+      "x*cos(2.51327)",
+      "x*sin(2.51327)"
+     ],
+     [
+      "x*cos(2.67035)",
+      "x*sin(2.67035)"
+     ],
+     [
+      "x*cos(2.82743)",
+      "x*sin(2.82743)"
+     ],
+     [
+      "x*cos(2.98451)",
+      "x*sin(2.98451)"
+     ],
+     [
+      "x*cos(3.14159)",
+      "x*sin(3.14159)"
+     ],
+     [
+      "x*cos(3.29867)",
+      "x*sin(3.29867)"
+     ],
+     [
+      "x*cos(3.45575)",
+      "x*sin(3.45575)"
+     ],
+     [
+      "x*cos(3.61283)",
+      "x*sin(3.61283)"
+     ],
+     [
+      "x*cos(3.76991)",
+      "x*sin(3.76991)"
+     ],
+     [
+      "x*cos(3.92699)",
+      "x*sin(3.92699)"
+     ],
+     [
+      "x*cos(4.08407)",
+      "x*sin(4.08407)"
+     ],
+     [
+      "x*cos(4.24115)",
+      "x*sin(4.24115)"
+     ],
+     [
+      "x*cos(4.39823)",
+      "x*sin(4.39823)"
+     ],
+     [
+      "x*cos(4.55531)",
+      "x*sin(4.55531)"
+     ],
+     [
+      "x*cos(4.71239)",
+      "x*sin(4.71239)"
+     ],
+     [
+      "x*cos(4.86947)",
+      "x*sin(4.86947)"
+     ],
+     [
+      "x*cos(5.02655)",
+      "x*sin(5.02655)"
+     ],
+     [
+      "x*cos(5.18363)",
+      "x*sin(5.18363)"
+     ],
+     [
+      "x*cos(5.34071)",
+      "x*sin(5.34071)"
+     ],
+     [
+      "x*cos(5.49779)",
+      "x*sin(5.49779)"
+     ],
+     [
+      "x*cos(5.65487)",
+      "x*sin(5.65487)"
+     ],
+     [
+      "x*cos(5.81195)",
+      "x*sin(5.81195)"
+     ],
+     [
+      "x*cos(5.96903)",
+      "x*sin(5.96903)"
+     ],
+     [
+      "x*cos(6.12611)",
+      "x*sin(6.12611)"
+     ],
+     [
+      "x*cos(6.28319)",
+      "x*sin(6.28319)"
+     ]
+    ],
+    "c": 0
+   },
+   {
+    "t": "punto",
+    "p": [
+     "0",
+     "0"
+    ],
+    "c": 3
+   },
+   {
+    "t": "punto",
+    "p": [
+     "1",
+     "0"
+    ],
+    "c": 1
+   }
+  ],
+  "lecturas": [
+   {
+    "rotulo": "suma de residuos dentro del contorno",
+    "formula": "-2+2.71828*(1+(x-1)/(abs(x-1)+0.000001))/2"
+   },
+   {
+    "rotulo": "radio r del contorno",
+    "formula": "x"
+   }
+  ],
+  "etiquetas": [
+   "Los residuos son menos 2 en z igual a 0 y e en z igual a 1",
+   "El contorno es un círculo de radio r, recorrido en sentido positivo"
+  ],
+  "etiquetaSlider": "Radio r, de 0.3 a 2.2",
+  "alt": "En el plano complejo, un círculo de radio r centrado en el origen, y dos polos de la función, uno en z igual a 0 y otro en z igual a 1. Con r menor que 1 el círculo encierra solo el polo en 0. Con r mayor que 1 encierra los dos"
+ },
+ "glosario": {
+  "residuo": "El residuo de una función en un polo es el coeficiente de uno entre z menos z cero, en su desarrollo de Laurent.",
+  "cauchy": "El teorema integral de Cauchy dice que la integral de una función analítica sobre un contorno cerrado, sin polos adentro, vale cero.",
+  "polo": "Un polo es un punto donde la función se hace infinita, de la forma uno entre z menos z cero elevado a un entero positivo.",
+  "teoremares": "El teorema de los residuos dice que la integral sobre un contorno cerrado vale 2 pi i por la suma de los residuos de los polos que quedan adentro."
+ },
+ "ver": {
+  "duracion": 24.0,
+  "capitulos": [
+   [
+    0,
+    4,
+    "La función tiene dos polos, uno en z igual a 0 y otro en z igual a 1, y se integra sobre un círculo de radio r."
+   ],
+   [
+    4,
+    10,
+    "Con un radio de 0.5 el círculo solo encierra el polo del origen, y la suma de residuos es menos 2."
+   ],
+   [
+    10,
+    16,
+    "Con radio 1.5 encierra los dos polos, y la suma de residuos es e menos 2, cerca de 0.72."
+   ],
+   [
+    16,
+    20,
+    "La integral vale 2 pi i por esa suma, así que cambia al cruzar el polo en z igual a 1."
+   ],
+   [
+    20,
+    24,
+    "Si no hay polos adentro, la integral es cero. Solo cuentan los polos encerrados."
+   ]
+  ],
+  "canales": {
+   "draw": [
+    [
+     0.3,
+     0
+    ],
+    [
+     3.5,
+     1
+    ]
+   ],
+   "d": [
+    [
+     4,
+     0.6
+    ],
+    [
+     8,
+     0.6
+    ],
+    [
+     10,
+     1.5
+    ],
+    [
+     16,
+     1.5
+    ],
+    [
+     18,
+     2.0
+    ],
+    [
+     24,
+     2.0
+    ]
+   ],
+   "guide": [
+    [
+     4,
+     0
+    ],
+    [
+     5,
+     1
+    ]
+   ]
+  },
+  "intervalos": {
+   "ok": [
+    16,
+    24
+   ]
+  }
+ },
+ "leer": {
+  "secciones": [
+   {
+    "titulo": "La idea",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "El {{gl:cauchy|teorema de Cauchy}} dice que, si la función es analítica adentro y sobre un contorno cerrado, la integral vale cero. Si hay {{gl:polo|polos}} adentro, entonces cuenta el {{gl:residuo|residuo}} de cada uno. El {{gl:teoremares|teorema de los residuos}} da la integral como 2 pi i por la suma de residuos encerrados."
+     }
+    ]
+   },
+   {
+    "titulo": "Un ejemplo",
+    "corto": "Un ejemplo",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "La función tiene polos en 0 y en 1. Cambia el radio del círculo y mira qué polos quedan adentro."
+     },
+     {
+      "t": "eq",
+      "tex": "f(z)=\\dfrac{e^{z}}{z^{2}(z-1)}"
+     },
+     {
+      "t": "grafica",
+      "animar": "dibujar",
+      "alt": "Un círculo de radio r y los polos de la función"
+     }
+    ]
+   },
+   {
+    "titulo": "Piensa antes de ver",
+    "corto": "Piensa",
+    "bloques": [
+     {
+      "t": "piensa",
+      "pregunta": "Una función analítica en todo el plano se integra sobre un círculo, y no tiene polos. ¿Cuánto vale la integral?",
+      "opciones": [
+       0,
+       1,
+       "2 pi i",
+       "pi"
+      ],
+      "correcta": 0,
+      "bien": "Muy bien. Sin polos dentro, el teorema de Cauchy da cero.",
+      "mal": "Sin polos adentro vale cero, por el teorema de Cauchy. Solo los polos aportan a la integral."
+     }
+    ]
+   },
+   {
+    "titulo": "El radio y los polos",
+    "corto": "Polos",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mira el círculo con radios 0.4, 0.9, 1.2 y 2."
+     },
+     {
+      "t": "acercando",
+      "ds": [
+       0.4,
+       0.9,
+       1.2,
+       2
+      ],
+      "alt": "El contorno con cuatro radios"
+     },
+     {
+      "t": "p",
+      "html": "Con radios 0.4 y 0.9 solo el polo del origen está adentro. Con 1.2 y 2 están los dos."
+     }
+    ]
+   },
+   {
+    "titulo": "Calcular el residuo",
+    "corto": "Residuos",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Para un polo doble se deriva una vez, y para uno simple se evalúa el resto."
+     },
+     {
+      "t": "pasos",
+      "items": [
+       {
+        "tex": "\\operatorname{Res}_{z=0}f=\\dfrac{d}{dz}\\left[\\dfrac{e^{z}}{z-1}\\right]_{z=0}",
+        "porque": "Polo doble en 0, se multiplica por z al cuadrado y se deriva."
+       },
+       {
+        "tex": "\\dfrac{e^{z}(z-1)-e^{z}}{(z-1)^{2}}\\bigg|_{z=0}=\\dfrac{-1-1}{1}=-2",
+        "porque": "El valor de la derivada."
+       },
+       {
+        "tex": "\\operatorname{Res}_{z=1}f=\\dfrac{e^{1}}{1^{2}}=e",
+        "porque": "Polo simple en 1, se evalúa el resto."
+       },
+       {
+        "tex": "\\oint_{|z|=1.5}f\\,dz=2\\pi i\\,(e-2)",
+        "porque": "Con los dos polos adentro."
+       }
+      ]
+     },
+     {
+      "t": "ojo",
+      "html": "Con el círculo de radio menor que 1, el polo en 1 queda afuera. Entonces la integral es 2 pi i por menos 2, o sea menos 4 pi i."
+     }
+    ]
+   },
+   {
+    "titulo": "Los teoremas",
+    "corto": "Teoremas",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Estos son los resultados que se usan una y otra vez."
+     },
+     {
+      "t": "pasos",
+      "items": [
+       {
+        "tex": "\\oint_{C}f\\,dz=0\\quad\\text{si f es analitica adentro}",
+        "porque": "Teorema de Cauchy."
+       },
+       {
+        "tex": "\\operatorname{Res}_{z_{0}}\\dfrac{1}{z}=1\\ \\Rightarrow\\ \\oint_{|z|=r}\\dfrac{dz}{z}=2\\pi i",
+        "porque": "El caso básico."
+       },
+       {
+        "tex": "\\operatorname{Res}_{z_{0}}\\dfrac{p}{q}=\\dfrac{p(z_{0})}{q'(z_{0})}",
+        "porque": "Polo simple con p y q."
+       },
+       {
+        "tex": "\\oint_{C}f\\,dz=2\\pi i\\displaystyle\\sum\\operatorname{Res}",
+        "porque": "Teorema de los residuos."
+       }
+      ]
+     },
+     {
+      "t": "ojo",
+      "html": "El contorno debe recorrerse en sentido positivo, o sea antihorario. En sentido contrario la integral cambia de signo."
+     }
+    ]
+   },
+   {
+    "titulo": "¿Para qué sirve?",
+    "corto": "En ingeniería",
+    "bloques": [
+     {
+      "t": "ingenieria",
+      "titulo": "Una integral real con residuos",
+      "html": "La integral de uno entre uno más x al cuadrado, de menos infinito a infinito, se calcula con un semicírculo grande en el plano superior y un solo residuo.",
+      "tex": "\\displaystyle\\int_{-\\infty}^{\\infty}\\dfrac{dx}{1+x^{2}}=2\\pi i\\cdot\\dfrac{1}{2i}=\\pi",
+      "datos": [
+       {
+        "k": "Polo en el semiplano superior",
+        "v": "z igual a i"
+       },
+       {
+        "k": "Residuo",
+        "v": "uno entre 2i"
+       },
+       {
+        "k": "Resultado",
+        "v": "pi"
+       }
+      ],
+      "cierre": "Este truco convierte integrales reales difíciles en un cálculo de residuos. Se usa en procesamiento de señales y en electromagnetismo, y se complementa con la verificación de que el arco grande no aporta."
+     }
+    ]
+   },
+   {
+    "titulo": "Completa el paso",
+    "corto": "Completa",
+    "bloques": [
+     {
+      "t": "completar",
+      "enunciado": "El residuo de uno entre z en z igual a cero es [[hueco]].",
+      "tex": "\\operatorname{Res}_{z=0}\\dfrac{1}{z}=[[hueco]]",
+      "opciones": [
+       {
+        "tex": "1",
+        "txt": "uno"
+       },
+       {
+        "tex": "0",
+        "txt": "cero"
+       },
+       {
+        "tex": "2\\pi i",
+        "txt": "dos pi i"
+       }
+      ],
+      "correcta": 0,
+      "errores": [
+       "",
+       "Con cero se confunde con una función analítica.",
+       "Con 2 pi i se confunde el residuo con el valor de la integral."
+      ],
+      "pista": "El residuo es el coeficiente de uno entre z, que aquí es 1.",
+      "porque": "Es 1."
+     }
+    ]
+   },
+   {
+    "titulo": "Encuentra el error",
+    "corto": "Error",
+    "bloques": [
+     {
+      "t": "error",
+      "enunciado": "Alguien calculó la integral de uno entre z sobre el círculo de radio 3 y se equivocó. Toca el paso que está mal.",
+      "pasos": [
+       {
+        "tex": "\\operatorname{Res}_{z=0}\\dfrac{1}{z}=1",
+        "porque": "El residuo.",
+        "txt": "el residuo"
+       },
+       {
+        "tex": "\\oint\\dfrac{dz}{z}=\\operatorname{Res}=1",
+        "porque": "Este paso es el que falla.",
+        "txt": "da 1"
+       },
+       {
+        "tex": "\\text{resultado}=1",
+        "porque": "Resultado.",
+        "txt": "1"
+       }
+      ],
+      "mal": 1,
+      "explicacion": "Falta el factor 2 pi i del teorema de los residuos. La integral es 2 pi i por el residuo, o sea 2 pi i.",
+      "correccion": "\\oint\\dfrac{dz}{z}=2\\pi i\\cdot1=2\\pi i",
+      "pista": "Multiplica por 2 pi i."
+     }
+    ]
+   },
+   {
+    "titulo": "Ordena los pasos",
+    "corto": "Ordena",
+    "bloques": [
+     {
+      "t": "ordenar",
+      "enunciado": "Estos son los pasos para calcular una integral de contorno con residuos, pero están desordenados.",
+      "pasos": [
+       "z_{1},\\ z_{2},\\dots",
+       "z_{k}\\ \\text{dentro de}\\ C",
+       "\\operatorname{Res}_{z_{k}}f",
+       "\\oint_{C}f\\,dz=2\\pi i\\sum\\operatorname{Res}"
+      ],
+      "mezcla": [
+       2,
+       0,
+       3,
+       1
+      ],
+      "porque": "Se hallan los polos, se eligen los de adentro, se calculan los residuos y se aplica el teorema.",
+      "pista": "Se empieza hallando los polos.",
+      "txt": [
+       "Se encuentran los polos",
+       "Se eligen los que quedan adentro",
+       "Se calcula cada residuo",
+       "Se aplica el teorema"
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "Revisa tu respuesta",
+    "corto": "Revisa",
+    "bloques": [
+     {
+      "t": "pregunta"
+     },
+     {
+      "t": "nota",
+      "html": "Puedes pedir pistas de a una. Si fallas, el mensaje te dice qué error se cometió."
+     }
+    ]
+   },
+   {
+    "titulo": "Mini simulacro",
+    "corto": "Simulacro",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Preguntas reales del banco de MathUNAL sobre este tema. Responde sin mirar los pasos."
+     },
+     {
+      "t": "simulacro",
+      "titulo": "Mini simulacro de integración compleja",
+      "preguntas": [
+       {
+        "tipo": "mcq",
+        "texto": "El teorema integral de Cauchy afirma que si $f$ es analítica dentro y sobre un contorno cerrado simple $C$, entonces:",
+        "opciones": [
+         "$\\displaystyle\\oint_{C}f(z)\\,dz=0$",
+         "$\\displaystyle\\oint_{C}f(z)\\,dz=2\\pi i$",
+         "$\\displaystyle\\oint_{C}f(z)\\,dz=f(0)$",
+         "la integral depende de la parametrización"
+        ],
+        "correcta": 0,
+        "resumen": "El teorema de Cauchy.",
+        "fuente": "Banco MathUNAL, simulacro de Matemáticas Especiales"
+       },
+       {
+        "tipo": "numerica",
+        "texto": "El residuo de $f(z)=\\dfrac{1}{z}$ en $z=0$ es:",
+        "respuesta": "1",
+        "tolNum": 0.001,
+        "resumen": "El residuo de uno entre z.",
+        "fuente": "Banco MathUNAL, simulacro de Matemáticas Especiales"
+       },
+       {
+        "tipo": "mcq",
+        "texto": "El teorema de los residuos dice que $\\displaystyle\\oint_{C}f(z)\\,dz$ (con $C$ cerrado simple, orientación positiva) vale:",
+        "opciones": [
+         "$2\\pi i\\displaystyle\\sum(\\text{residuos de }f\\text{ dentro de }C)$",
+         "$\\displaystyle\\sum(\\text{residuos})$",
+         "$\\pi i\\displaystyle\\sum(\\text{residuos})$",
+         "$0$ siempre"
+        ],
+        "correcta": 0,
+        "resumen": "El teorema de los residuos.",
+        "fuente": "Banco MathUNAL, simulacro de Matemáticas Especiales"
+       },
+       {
+        "tipo": "mcq",
+        "texto": "Si $f(z)=\\dfrac{p(z)}{q(z)}$ tiene un polo SIMPLE en $z_0$ (con $q(z_0)=0$, $q'(z_0)\\ne0$, $p(z_0)\\ne0$), su residuo es:",
+        "opciones": [
+         "$\\dfrac{p(z_0)}{q'(z_0)}$",
+         "$\\dfrac{p'(z_0)}{q(z_0)}$",
+         "$p(z_0)\\,q(z_0)$",
+         "$\\dfrac{p(z_0)}{q(z_0)}$"
+        ],
+        "correcta": 0,
+        "resumen": "El residuo de un polo simple p entre q.",
+        "fuente": "Banco MathUNAL, simulacro de Matemáticas Especiales"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "Tu repaso",
+    "corto": "Repaso",
+    "bloques": [
+     {
+      "t": "repaso"
+     }
+    ]
+   },
+   {
+    "titulo": "En resumen",
+    "corto": "Resumen",
+    "bloques": [
+     {
+      "t": "resumen"
+     }
+    ]
+   }
+  ]
+ },
+ "practicar": {
+  "pasos": [
+   {
+    "titulo": "Los polos",
+    "grafica": {
+     "draw": 1
+    },
+    "bloques": [
+     {
+      "t": "p",
+      "html": "La función tiene un polo doble en 0 y uno simple en 1."
+     },
+     {
+      "t": "eq",
+      "tex": "f(z)=\\dfrac{e^{z}}{z^{2}(z-1)}"
+     }
+    ]
+   },
+   {
+    "titulo": "Cambia el radio",
+    "grafica": {
+     "draw": 1
+    },
+    "laboratorio": true,
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mueve el deslizador. Abajo se leen la suma de residuos encerrados y el radio."
+     }
+    ]
+   },
+   {
+    "titulo": "Los dos adentro",
+    "grafica": {
+     "draw": 1,
+     "guide": 1,
+     "ok": true
+    },
+    "laboratorio": true,
+    "d": 1.5,
+    "bloques": [
+     {
+      "t": "eq",
+      "tex": "-2+e\\approx0.718"
+     },
+     {
+      "t": "p",
+      "html": "Con radio 1.5 están los dos polos, y la suma de residuos es e menos 2."
+     }
+    ]
+   },
+   {
+    "titulo": "Revisa tu respuesta",
+    "grafica": {
+     "draw": 1,
+     "guide": 1,
+     "ok": true,
+     "d": 1.5
+    },
+    "bloques": [
+     {
+      "t": "pregunta"
+     },
+     {
+      "t": "nota",
+      "html": "Solo cuentan los polos dentro del contorno."
+     }
+    ]
+   }
+  ]
+ },
+ "pregunta": {
+  "tex": "\\oint_{|z|=2}\\dfrac{dz}{z}\\ \\text{vale}",
+  "opciones": [
+   "$2\\pi i$",
+   "$0$",
+   "$\\pi i$",
+   "$4\\pi i$"
+  ],
+  "correcta": 0,
+  "explicacion": "El polo en cero queda dentro del círculo de radio 2, y su residuo es 1. Entonces la integral es 2 pi i por 1.",
+  "verificacion": {
+   "formula": "2*pi*1+0*x",
+   "a": 0,
+   "esperado": 6.2832
+  },
+  "pistas": [
+   "Mira si el polo en cero está dentro del círculo.",
+   "El residuo de uno entre z es 1.",
+   "Multiplica por 2 pi i."
+  ],
+  "errores": [
+   "",
+   "Cero sería si el polo estuviera afuera.",
+   "Pi i olvida el factor 2.",
+   "4 pi i multiplica de más por el radio."
+  ]
+ },
+ "resumen": [
+  "El teorema de Cauchy dice que la integral es cero si no hay polos adentro.",
+  "El teorema de los residuos da la integral como 2 pi i por la suma de residuos adentro.",
+  "Solo cuentan los polos que quedan dentro del contorno."
+ ]
+}

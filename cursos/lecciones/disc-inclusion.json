@@ -1,0 +1,663 @@
+{
+ "esquema": 1,
+ "id": "di-m2-l2",
+ "ejemplo": true,
+ "curso": "Matemáticas Discretas",
+ "modulo": "Módulo 2 Conjuntos, conteo y combinatoria",
+ "posicion": "Lección 2 de 4",
+ "titulo": "Teoría de conjuntos e inclusión-exclusión",
+ "minutos": 26,
+ "ejercicios": 8,
+ "grafica": {
+  "tipo": "plano",
+  "x": [
+   -4.0,
+   39.0
+  ],
+  "y": [
+   -2.6,
+   3.8
+  ],
+  "a": 0,
+  "b": 15,
+  "inicio": 5,
+  "entero": true,
+  "elementos": [
+   {
+    "t": "poligono",
+    "puntos": [
+     [
+      "0",
+      "1.6"
+     ],
+     [
+      "20",
+      "1.6"
+     ],
+     [
+      "20",
+      "2.6"
+     ],
+     [
+      "0",
+      "2.6"
+     ]
+    ],
+    "c": 0
+   },
+   {
+    "t": "poligono",
+    "puntos": [
+     [
+      "20-x",
+      "0.4"
+     ],
+     [
+      "35-x",
+      "0.4"
+     ],
+     [
+      "35-x",
+      "1.4"
+     ],
+     [
+      "20-x",
+      "1.4"
+     ]
+    ],
+    "c": 1
+   },
+   {
+    "t": "poligono",
+    "puntos": [
+     [
+      "20-x",
+      "0.4"
+     ],
+     [
+      "20",
+      "0.4"
+     ],
+     [
+      "20",
+      "2.6"
+     ],
+     [
+      "20-x",
+      "2.6"
+     ]
+    ],
+    "c": 2
+   },
+   {
+    "t": "poligono",
+    "puntos": [
+     [
+      "0",
+      "-1.4"
+     ],
+     [
+      "35-x",
+      "-1.4"
+     ],
+     [
+      "35-x",
+      "-0.4"
+     ],
+     [
+      "0",
+      "-0.4"
+     ]
+    ],
+    "c": 3
+   }
+  ],
+  "lecturas": [
+   {
+    "rotulo": "elementos en común, la intersección",
+    "formula": "x"
+   },
+   {
+    "rotulo": "elementos de la unión, 20 más 15 menos la intersección",
+    "formula": "35-x"
+   }
+  ],
+  "etiquetas": [
+   "Cuántos elementos están en A y en B",
+   "Tamaño de la unión, que es la barra de abajo"
+  ],
+  "etiquetaSlider": "Elementos en común, de 0 a 15",
+  "alt": "Tres barras. La de arriba es el conjunto A con 20 elementos y la del medio es el conjunto B con 15. La parte donde se superponen está resaltada. La barra de abajo es la unión y mide 35 menos los elementos en común"
+ },
+ "glosario": {
+  "union": "La unión reúne los elementos de A, de B o de ambos. Cada elemento se cuenta una sola vez.",
+  "inclusion": "El principio de inclusión y exclusión dice que para contar una unión se suman los tamaños y se restan las intersecciones, para no contar dos veces los elementos comunes.",
+  "diferencia": "La diferencia A menos B reúne los elementos de A que no están en B. Es lo mismo que A intersección el complemento de B.",
+  "potencia": "El conjunto potencia de A tiene todos los subconjuntos de A. Si A tiene n elementos, el conjunto potencia tiene dos elevado a n."
+ },
+ "ver": {
+  "duracion": 22.0,
+  "capitulos": [
+   [
+    0,
+    4,
+    "El conjunto A tiene 20 elementos y B tiene 15. La barra de abajo es la unión de los dos."
+   ],
+   [
+    4,
+    10,
+    "Con 5 elementos en común, la unión tiene 20 más 15 menos 5, o sea 30."
+   ],
+   [
+    10,
+    15,
+    "Si los conjuntos no comparten nada, la unión tiene 35 elementos."
+   ],
+   [
+    15,
+    19,
+    "Si comparten los 15, B queda dentro de A y la unión es solo A, con 20 elementos."
+   ],
+   [
+    19,
+    22,
+    "La fórmula resta lo común, porque se contó dos veces."
+   ]
+  ],
+  "canales": {
+   "draw": [
+    [
+     0.3,
+     0
+    ],
+    [
+     3.5,
+     1
+    ]
+   ],
+   "d": [
+    [
+     4,
+     5
+    ],
+    [
+     9,
+     5
+    ],
+    [
+     10,
+     0
+    ],
+    [
+     14,
+     0
+    ],
+    [
+     15,
+     15
+    ],
+    [
+     19,
+     15
+    ],
+    [
+     22,
+     15
+    ]
+   ],
+   "guide": [
+    [
+     4,
+     0
+    ],
+    [
+     5,
+     1
+    ]
+   ]
+  },
+  "intervalos": {
+   "ok": [
+    15,
+    22
+   ]
+  }
+ },
+ "leer": {
+  "secciones": [
+   {
+    "titulo": "La idea",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Para contar los elementos de una {{gl:union|unión}} no basta sumar los tamaños, porque los elementos comunes se contarían dos veces. El principio de {{gl:inclusion|inclusión y exclusión}} corrige eso restando la intersección. También se cuentan las {{gl:diferencia|diferencias}} y el {{gl:potencia|conjunto potencia}}."
+     }
+    ]
+   },
+   {
+    "titulo": "Un ejemplo",
+    "corto": "Un ejemplo",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Se tienen un conjunto A de 20 elementos y un conjunto B de 15. Mueve la cantidad de elementos en común y mira la barra de la unión."
+     },
+     {
+      "t": "eq",
+      "tex": "|A\\cup B|=|A|+|B|-|A\\cap B|"
+     },
+     {
+      "t": "grafica",
+      "animar": "dibujar",
+      "alt": "Las barras de A, B y la unión"
+     }
+    ]
+   },
+   {
+    "titulo": "Piensa antes de ver",
+    "corto": "Piensa",
+    "bloques": [
+     {
+      "t": "piensa",
+      "pregunta": "Si A tiene 20 elementos, B tiene 15 y comparten 5, ¿cuántos elementos tiene la unión?",
+      "opciones": [
+       25,
+       30,
+       35,
+       40
+      ],
+      "correcta": 30,
+      "bien": "Muy bien. Son 20 más 15 menos 5, o sea 30. Más abajo se ve en la barra.",
+      "mal": "Son 30. Sumar 20 y 15 da 35, pero los 5 comunes se contaron dos veces, así que se restan. Más abajo se ve en la barra."
+     }
+    ]
+   },
+   {
+    "titulo": "Cambiando la intersección",
+    "corto": "La intersección",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mira la unión con 0, 5, 10 y 15 elementos en común."
+     },
+     {
+      "t": "acercando",
+      "ds": [
+       0,
+       5,
+       10,
+       15
+      ],
+      "alt": "La unión con cuatro valores de la intersección"
+     },
+     {
+      "t": "p",
+      "html": "Cuanto más comparten, más pequeña es la unión. Con 15 en común, la unión es A."
+     }
+    ]
+   },
+   {
+    "titulo": "Inclusión y exclusión",
+    "corto": "Fórmulas",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "La fórmula se extiende a tres conjuntos, alternando signos."
+     },
+     {
+      "t": "pasos",
+      "items": [
+       {
+        "tex": "|A\\cup B|=|A|+|B|-|A\\cap B|",
+        "porque": "Dos conjuntos."
+       },
+       {
+        "tex": "|A|=5,\\ |B|=7,\\ |A\\cap B|=2\\ \\Rightarrow\\ |A\\cup B|=10",
+        "porque": "Con los números del banco."
+       },
+       {
+        "tex": "|A\\cup B\\cup C|=|A|+|B|+|C|-|A\\cap B|-|A\\cap C|-|B\\cap C|+|A\\cap B\\cap C|",
+        "porque": "Tres conjuntos."
+       },
+       {
+        "tex": "|A^{c}|=|U|-|A|",
+        "porque": "El complemento se cuenta restando del universo."
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "Diferencias y conjunto potencia",
+    "corto": "Más conteo",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Otras cuentas de conjuntos que aparecen a menudo."
+     },
+     {
+      "t": "pasos",
+      "items": [
+       {
+        "tex": "A\\setminus B=A\\cap B^{c}",
+        "porque": "La diferencia es lo que está en A y no está en B."
+       },
+       {
+        "tex": "|A\\setminus B|=|A|-|A\\cap B|",
+        "porque": "Se cuenta quitando lo común."
+       },
+       {
+        "tex": "|\\mathcal{P}(A)|=2^{|A|},\\quad |A|=4\\ \\Rightarrow\\ 16",
+        "porque": "El conjunto potencia tiene dos elevado a la cantidad de elementos."
+       }
+      ]
+     },
+     {
+      "t": "ojo",
+      "html": "En la fórmula de tres conjuntos, el último término se suma. Los signos alternan, y por eso la intersección triple vuelve a entrar con signo positivo."
+     }
+    ]
+   },
+   {
+    "titulo": "¿Para qué sirve?",
+    "corto": "En ingeniería",
+    "bloques": [
+     {
+      "t": "ingenieria",
+      "titulo": "Piezas con defectos de dos tipos",
+      "html": "En un lote de 200 piezas, 20 tienen defecto de superficie y 15 tienen defecto dimensional. Se encontró que 5 piezas tienen los dos defectos. Para saber cuántas piezas deben revisarse no se suman 20 y 15.",
+      "tex": "|A\\cup B|=20+15-5=30",
+      "datos": [
+       {
+        "k": "Con defecto de superficie",
+        "v": "20"
+       },
+       {
+        "k": "Con defecto dimensional",
+        "v": "15"
+       },
+       {
+        "k": "Con ambos defectos",
+        "v": "5"
+       }
+      ],
+      "cierre": "Las piezas con al menos un defecto son 30, y las 170 restantes están libres de defectos. Si se hubieran sumado 20 y 15, se habrían descartado 35 piezas, y 5 de ellas se habrían contado dos veces. Con inclusión y exclusión se evita descartar de más, y se estima el costo real del control de calidad."
+     }
+    ]
+   },
+   {
+    "titulo": "Completa el paso",
+    "corto": "Completa",
+    "bloques": [
+     {
+      "t": "completar",
+      "enunciado": "Se completa la fórmula de inclusión y exclusión para tres conjuntos. Falta el último término.",
+      "tex": "|A\\cup B\\cup C|=\\ldots-|B\\cap C|+[[hueco]]",
+      "opciones": [
+       {
+        "tex": "|A\\cap B\\cap C|",
+        "txt": "la intersección triple"
+       },
+       {
+        "tex": "|A\\cup B\\cup C|",
+        "txt": "la unión triple"
+       },
+       {
+        "tex": "0",
+        "txt": "cero"
+       }
+      ],
+      "correcta": 0,
+      "errores": [
+       "",
+       "La unión es lo que se está calculando, y no entra en el lado derecho.",
+       "El término no vale cero en general, porque hay elementos que están en los tres conjuntos."
+      ],
+      "pista": "La intersección triple vuelve a entrar con signo positivo.",
+      "porque": "Al restar las intersecciones de a pares se quitó de más lo que está en los tres, y se vuelve a sumar."
+     }
+    ]
+   },
+   {
+    "titulo": "Encuentra el error",
+    "corto": "Error",
+    "bloques": [
+     {
+      "t": "error",
+      "enunciado": "Alguien calculó la unión de dos conjuntos y se equivocó en un paso. Toca el paso que está mal.",
+      "pasos": [
+       {
+        "tex": "|A|=5,\\ |B|=7,\\ |A\\cap B|=2",
+        "porque": "Los datos.",
+        "txt": "los tamaños son 5, 7 y 2"
+       },
+       {
+        "tex": "|A\\cup B|=5+7+2",
+        "porque": "Este paso es el que falla.",
+        "txt": "se suman los tres"
+       },
+       {
+        "tex": "|A\\cup B|=14",
+        "porque": "Resultado.",
+        "txt": "la unión tiene 14"
+       }
+      ],
+      "mal": 1,
+      "explicacion": "Los 2 elementos comunes ya están dentro de los 5 y los 7, así que se restan para no contarlos dos veces. La cuenta correcta es 5 más 7 menos 2, o sea 10.",
+      "correccion": "|A\\cup B|=5+7-2=10",
+      "pista": "Recuerda qué se hace con la intersección."
+     }
+    ]
+   },
+   {
+    "titulo": "Ordena los pasos",
+    "corto": "Ordena",
+    "bloques": [
+     {
+      "t": "ordenar",
+      "enunciado": "Estos son los pasos para probar que A menos B es igual a A intersección el complemento de B, pero están desordenados.",
+      "pasos": [
+       "x\\in A\\setminus B",
+       "x\\in A\\ \\wedge\\ x\\notin B",
+       "x\\in A\\ \\wedge\\ x\\in B^{c}",
+       "x\\in A\\cap B^{c}"
+      ],
+      "mezcla": [
+       2,
+       0,
+       3,
+       1
+      ],
+      "porque": "Se parte de la definición de la diferencia y se reescribe cada condición con el complemento.",
+      "pista": "Se empieza tomando un elemento.",
+      "txt": [
+       "Se toma x en la diferencia",
+       "Por definición de diferencia",
+       "No estar en B es estar en el complemento",
+       "Es la intersección"
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "Revisa tu respuesta",
+    "corto": "Revisa",
+    "bloques": [
+     {
+      "t": "pregunta"
+     },
+     {
+      "t": "nota",
+      "html": "Puedes pedir pistas de a una. Si fallas, el mensaje te dice qué error se cometió."
+     }
+    ]
+   },
+   {
+    "titulo": "Mini simulacro",
+    "corto": "Simulacro",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Tres preguntas reales del banco de MathUNAL sobre este tema. Responde sin mirar los pasos."
+     },
+     {
+      "t": "simulacro",
+      "titulo": "Mini simulacro de teoría de conjuntos e inclusión-exclusión",
+      "preguntas": [
+       {
+        "tipo": "numerica",
+        "texto": "Si $|A|=20$, $|B|=15$ y $|A\\cap B|=5$, ¿cuánto vale $|A\\cup B|$?",
+        "respuesta": "30",
+        "tolNum": 0.001,
+        "resumen": "$20+15-5=30$.",
+        "fuente": "Banco MathUNAL, simulacro de Matemáticas Discretas"
+       },
+       {
+        "tipo": "numerica",
+        "texto": "Si $|A| = 4$, el número de subconjuntos de $A$ (cardinal del conjunto potencia $|\\mathcal{P}(A)|$) es:",
+        "respuesta": "16",
+        "tolNum": 0.001,
+        "resumen": "El conjunto potencia de un conjunto de 4 elementos tiene $2^4=16$ subconjuntos.",
+        "fuente": "Banco MathUNAL, simulacro de Matemáticas Discretas"
+       },
+       {
+        "tipo": "mcq",
+        "texto": "La diferencia de conjuntos $A \\setminus B$ es igual a:",
+        "opciones": [
+         "$A \\cap B^{c}$",
+         "$A \\cup B^{c}$",
+         "$B \\setminus A$",
+         "$(A \\cup B)^{c}$"
+        ],
+        "correcta": 0,
+        "resumen": "$A\\setminus B$ son los elementos de $A$ que no están en $B$, es decir, $A\\cap B^{c}$.",
+        "fuente": "Banco MathUNAL, simulacro de Matemáticas Discretas"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "Tu repaso",
+    "corto": "Repaso",
+    "bloques": [
+     {
+      "t": "repaso"
+     }
+    ]
+   },
+   {
+    "titulo": "En resumen",
+    "corto": "Resumen",
+    "bloques": [
+     {
+      "t": "resumen"
+     }
+    ]
+   }
+  ]
+ },
+ "practicar": {
+  "pasos": [
+   {
+    "titulo": "Dos conjuntos",
+    "grafica": {
+     "draw": 1
+    },
+    "bloques": [
+     {
+      "t": "p",
+      "html": "A con 20 elementos y B con 15, y la barra de la unión."
+     },
+     {
+      "t": "eq",
+      "tex": "|A\\cup B|=35-|A\\cap B|"
+     }
+    ]
+   },
+   {
+    "titulo": "Mueve la intersección",
+    "grafica": {
+     "draw": 1
+    },
+    "laboratorio": true,
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mueve el deslizador de 0 a 15. Abajo se leen los elementos en común y el tamaño de la unión."
+     }
+    ]
+   },
+   {
+    "titulo": "Con 5 en común",
+    "grafica": {
+     "draw": 1,
+     "guide": 1,
+     "ok": true
+    },
+    "laboratorio": true,
+    "d": 5,
+    "bloques": [
+     {
+      "t": "eq",
+      "tex": "20+15-5=30"
+     },
+     {
+      "t": "p",
+      "html": "Con 5 elementos en común, la unión tiene 30."
+     }
+    ]
+   },
+   {
+    "titulo": "Revisa tu respuesta",
+    "grafica": {
+     "draw": 1,
+     "guide": 1,
+     "ok": true,
+     "d": 5
+    },
+    "bloques": [
+     {
+      "t": "pregunta"
+     },
+     {
+      "t": "nota",
+      "html": "Cuenta primero a cuántos estudian al menos un idioma."
+     }
+    ]
+   }
+  ]
+ },
+ "pregunta": {
+  "tex": "\\text{Hay 40 estudiantes. 25 estudian inglés, 18 francés y 6 ambos. ¿Cuántos no estudian ninguno?}",
+  "opciones": [
+   "$3$",
+   "$9$",
+   "$12$",
+   "$15$"
+  ],
+  "correcta": 0,
+  "explicacion": "Los que estudian al menos un idioma son 25 más 18 menos 6, o sea 37. Los que no estudian ninguno son 40 menos 37, o sea 3.",
+  "verificacion": {
+   "formula": "40-(25+18-6)+0*x",
+   "a": 0,
+   "esperado": 3
+  },
+  "pistas": [
+   "Primero cuenta la unión de los dos grupos.",
+   "Son 25 más 18 menos 6, o sea 37.",
+   "Resta 37 de 40."
+  ],
+  "errores": [
+   "",
+   "Nueve sale de restar solo 31, que es 25 más 6 sin considerar el francés.",
+   "Doce sale de olvidar el término que se resta.",
+   "Quince es 40 menos 25, que no usa los datos del francés."
+  ]
+ },
+ "resumen": [
+  "La unión de dos conjuntos tiene |A| más |B| menos |A intersección B| elementos.",
+  "Con tres conjuntos los signos alternan, y la intersección triple se suma.",
+  "A menos B es A intersección el complemento de B, y el conjunto potencia de n elementos tiene dos elevado a n."
+ ]
+}

@@ -1,0 +1,537 @@
+{
+ "esquema": 1,
+ "id": "calculo-m1-l3",
+ "ejemplo": true,
+ "curso": "Cálculo",
+ "modulo": "Módulo 1 Límites y continuidad",
+ "posicion": "Lección 3 de 6",
+ "titulo": "Límites notables",
+ "minutos": 20,
+ "ejercicios": 4,
+ "grafica": {
+  "x": [
+   -6.5,
+   6.5
+  ],
+  "y": [
+   -0.4,
+   1.3
+  ],
+  "curva": "sin(x)/x",
+  "funcion": "sin(x)/x",
+  "hueco": {
+   "x": 0,
+   "y": 1
+  },
+  "limite": 1,
+  "etiquetaHueco": "0 sobre 0",
+  "alt": "Gráfica de seno de x sobre x con un hueco en x igual a 0 y dos puntos que se acercan por los lados",
+  "zoom": {
+   "factor": 3200
+  }
+ },
+ "glosario": {
+  "notable": "Un límite notable es uno que se usa tanto que conviene aprenderlo de memoria.",
+  "rad": "Un radián es la medida de ángulo que se usa en cálculo. Con la calculadora en radianes, pi radianes equivalen a 180 grados.",
+  "indet": "Una indeterminación como 0 sobre 0 no da una respuesta directa y hay que trabajar la expresión."
+ },
+ "ver": {
+  "duracion": 23.0,
+  "capitulos": [
+   [
+    0,
+    2.5,
+    "Esta es la función seno de x sobre x. Se dibuja su curva."
+   ],
+   [
+    2.5,
+    4.5,
+    "En x igual a 0 da 0 sobre 0, así que ahí no se puede evaluar."
+   ],
+   [
+    4.5,
+    8,
+    "Acerquémonos a 0 por la izquierda y por la derecha."
+   ],
+   [
+    8,
+    12.5,
+    "Cada vez más cerca. Mira cómo cambian los valores."
+   ],
+   [
+    12.5,
+    15.8,
+    "Por los dos lados los valores se acercan a 1."
+   ],
+   [
+    15.8,
+    19.8,
+    "Con mucho zoom se ve que los dos puntos casi tocan el hueco."
+   ],
+   [
+    19.8,
+    23.0,
+    "Este resultado es el límite notable y se usa en muchos ejercicios."
+   ]
+  ],
+  "canales": {
+   "draw": [
+    [
+     0.3,
+     0
+    ],
+    [
+     2.4,
+     1
+    ]
+   ],
+   "hole": [
+    [
+     2.5,
+     0
+    ],
+    [
+     3.2,
+     1
+    ]
+   ],
+   "d": [
+    [
+     4.5,
+     1
+    ],
+    [
+     6,
+     0.1
+    ],
+    [
+     8.5,
+     0.1
+    ],
+    [
+     10,
+     0.01
+    ],
+    [
+     11,
+     0.01
+    ],
+    [
+     12.5,
+     0.001
+    ]
+   ],
+   "guide": [
+    [
+     12.5,
+     0
+    ],
+    [
+     13.5,
+     1
+    ]
+   ],
+   "zoom": [
+    [
+     15.8,
+     0
+    ],
+    [
+     18.3,
+     1
+    ],
+    [
+     19.0,
+     1
+    ],
+    [
+     19.8,
+     0
+    ]
+   ]
+  },
+  "intervalos": {
+   "zero": [
+    3.2,
+    4.7
+   ],
+   "ok": [
+    19.8,
+    23.0
+   ]
+  }
+ },
+ "leer": {
+  "secciones": [
+   {
+    "titulo": "La idea",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Algunos límites aparecen tantas veces que se aprenden de memoria. Se llaman {{gl:notable|límites notables}}. El más famoso es el del seno de x sobre x cuando x se acerca a 0."
+     }
+    ]
+   },
+   {
+    "titulo": "El límite más famoso",
+    "corto": "El límite",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mira esta función. Recuerda que x va en {{gl:rad|radianes}}."
+     },
+     {
+      "t": "eq",
+      "tex": "f(x)=\\dfrac{\\operatorname{sen}(x)}{x}"
+     },
+     {
+      "t": "p",
+      "html": "En x igual a 0 el numerador vale 0 y el denominador también vale 0. Es una {{gl:indet|indeterminación}} y en la gráfica se ve un hueco."
+     },
+     {
+      "t": "grafica",
+      "animar": "dibujar",
+      "alt": "Gráfica que se dibuja y muestra un hueco en x igual a 0"
+     }
+    ]
+   },
+   {
+    "titulo": "Piensa antes de ver",
+    "corto": "Piensa",
+    "bloques": [
+     {
+      "t": "piensa",
+      "pregunta": "Si x se acerca a 0 por los dos lados, ¿a qué número crees que se acerca f(x)?",
+      "opciones": [
+       0,
+       1,
+       2,
+       3
+      ],
+      "correcta": 1,
+      "bien": "Muy bien. Se acerca a 1 y más abajo lo comprobamos con valores.",
+      "mal": "El número es el 1 y más abajo lo comprobamos con valores."
+     }
+    ]
+   },
+   {
+    "titulo": "Acercándose por los dos lados",
+    "corto": "Acercándose",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Se prueban valores cada vez más cerca de 0."
+     },
+     {
+      "t": "acercando",
+      "ds": [
+       1,
+       0.1,
+       0.01,
+       0.001
+      ],
+      "alt": "Dos puntos que se acercan al hueco por la izquierda y por la derecha"
+     },
+     {
+      "t": "p",
+      "html": "Por los dos lados los valores se acercan a <b>1</b>. Al terminar, la gráfica hace zoom para que veas el detalle."
+     }
+    ]
+   },
+   {
+    "titulo": "El resultado",
+    "corto": "El resultado",
+    "bloques": [
+     {
+      "t": "eq",
+      "tex": "\\lim_{x\\to 0}\\dfrac{\\operatorname{sen}(x)}{x}=1"
+     },
+     {
+      "t": "p",
+      "html": "Cuando x es muy pequeño, sen(x) y x casi valen lo mismo, por eso su cociente se acerca a 1."
+     },
+     {
+      "t": "ojo",
+      "html": "Esto solo vale con x en radianes. Con grados el resultado sería otro número."
+     }
+    ]
+   },
+   {
+    "titulo": "Cómo se usa",
+    "corto": "Cómo se usa",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Para usar el límite notable, el argumento del seno tiene que ser igual a lo que está abajo. Si no lo es, se multiplica y se divide por lo que falta."
+     },
+     {
+      "t": "pasos",
+      "items": [
+       {
+        "tex": "\\lim_{x\\to 0}\\dfrac{\\operatorname{sen}(5x)}{x}",
+        "porque": "Arriba hay 5x y abajo solo x, así que no coinciden."
+       },
+       {
+        "tex": "=\\lim_{x\\to 0}\\dfrac{\\operatorname{sen}(5x)}{x}\\cdot\\dfrac{5}{5}=5\\lim_{x\\to 0}\\dfrac{\\operatorname{sen}(5x)}{5x}",
+        "porque": "Se multiplica y se divide por 5 para que abajo quede 5x."
+       },
+       {
+        "tex": "=5\\cdot 1=5",
+        "porque": "Ahora el argumento coincide, así que ese límite vale 1."
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "¿Para qué sirve?",
+    "corto": "En ingeniería",
+    "bloques": [
+     {
+      "t": "ingenieria",
+      "titulo": "El péndulo y los ángulos pequeños",
+      "html": "Para calcular el período de un péndulo se usa la aproximación de ángulos pequeños, que reemplaza sen θ por θ. Esa aproximación sale del límite notable de sen θ sobre θ, que vale 1 cuando θ tiende a 0.",
+      "tex": "T\\approx 2\\pi\\sqrt{\\dfrac{L}{g}}",
+      "datos": [
+       {
+        "k": "Ángulo",
+        "v": "10° (0.1745 rad)"
+       },
+       {
+        "k": "sen θ vale",
+        "v": "0.17365"
+       },
+       {
+        "k": "Error de usar θ",
+        "v": "0.51 %"
+       }
+      ],
+      "cierre": "Con 30° el error sube a 4.7 %. Por eso la aproximación sirve para oscilaciones pequeñas y deja de servir cuando el péndulo se abre mucho."
+     }
+    ]
+   },
+   {
+    "titulo": "Revisa tu respuesta",
+    "corto": "Revisa",
+    "bloques": [
+     {
+      "t": "pregunta"
+     },
+     {
+      "t": "nota",
+      "html": "Mira si el argumento del seno coincide con lo de abajo."
+     }
+    ]
+   },
+   {
+    "titulo": "Mini simulacro",
+    "corto": "Simulacro",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Tres preguntas reales del banco de MathUNAL sobre este tema. Responde sin mirar los pasos."
+     },
+     {
+      "t": "simulacro",
+      "titulo": "Mini simulacro",
+      "preguntas": [
+       {
+        "texto": "$\\displaystyle\\lim_{x\\to0}\\dfrac{\\tan x}{x}$ es igual a:",
+        "resumen": "Se escribe $\\frac{\\tan x}{x}=\\frac{\\operatorname{sen}x}{x}\\cdot\\frac{1}{\\cos x}$. El primer factor tiende a 1 y el segundo también, así que el límite es 1.",
+        "fuente": "Banco MathUNAL, preguntas del corte 1",
+        "tipo": "mcq",
+        "opciones": [
+         "$1$",
+         "$0$",
+         "$\\infty$",
+         "no existe"
+        ],
+        "correcta": 0
+       },
+       {
+        "texto": "Calcule $\\displaystyle\\lim_{x\\to0}\\dfrac{\\operatorname{sen}(3x)}{\\tan(5x)}$.",
+        "resumen": "Se ajusta cada argumento. Queda $\\frac{3\\cdot\\frac{\\operatorname{sen}3x}{3x}}{5\\cdot\\frac{\\tan 5x}{5x}}$, y los dos cocientes notables tienden a 1. El resultado es $\\frac{3}{5}$.",
+        "fuente": "Banco MathUNAL, simulacro de Cálculo Diferencial",
+        "tipo": "mcq",
+        "opciones": [
+         "$\\dfrac{3}{5}$",
+         "$1$",
+         "$\\dfrac{5}{3}$",
+         "$0$"
+        ],
+        "correcta": 0
+       },
+       {
+        "texto": "Calcule $\\displaystyle\\lim_{x\\to0}\\dfrac{\\operatorname{sen}(5x)}{x}$.",
+        "resumen": "Se multiplica y se divide por 5 para que el argumento coincida con el denominador. Queda $5\\cdot\\frac{\\operatorname{sen}5x}{5x}$, que tiende a 5.",
+        "fuente": "Banco MathUNAL, simulacro de Cálculo Diferencial",
+        "tipo": "numerica",
+        "respuesta": "5",
+        "tolNum": 0.001
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "Tu repaso",
+    "corto": "Repaso",
+    "bloques": [
+     {
+      "t": "repaso"
+     }
+    ]
+   }
+  ]
+ },
+ "practicar": {
+  "pasos": [
+   {
+    "titulo": "La función",
+    "grafica": {
+     "draw": 1
+    },
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Esta función parece sencilla, pero tiene un detalle en x igual a 0."
+     },
+     {
+      "t": "eq",
+      "tex": "f(x)=\\dfrac{\\operatorname{sen}(x)}{x}"
+     }
+    ]
+   },
+   {
+    "titulo": "El punto que falta",
+    "grafica": {
+     "draw": 1,
+     "hole": 1,
+     "zero": true
+    },
+    "bloques": [
+     {
+      "t": "p",
+      "html": "En x igual a 0 el seno vale 0 y el denominador también. Queda 0 sobre 0, así que f(0) no existe."
+     }
+    ]
+   },
+   {
+    "titulo": "Acércate a 0",
+    "grafica": {
+     "draw": 1,
+     "hole": 1
+    },
+    "laboratorio": true,
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mueve el deslizador y mira los valores de f por la izquierda y por la derecha."
+     }
+    ]
+   },
+   {
+    "titulo": "Hacia dónde va",
+    "grafica": {
+     "draw": 1,
+     "hole": 1,
+     "guide": 1
+    },
+    "laboratorio": true,
+    "d": 0.01,
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Los dos valores se acercan a 1. Ese es el límite notable."
+     }
+    ]
+   },
+   {
+    "titulo": "El resultado",
+    "grafica": {
+     "draw": 1,
+     "hole": 1,
+     "guide": 1,
+     "ok": true
+    },
+    "bloques": [
+     {
+      "t": "eq",
+      "tex": "\\lim_{x\\to 0}\\dfrac{\\operatorname{sen}(x)}{x}=1"
+     },
+     {
+      "t": "p",
+      "html": "Recuerda que vale con x en radianes."
+     }
+    ]
+   },
+   {
+    "titulo": "Mira de cerca",
+    "grafica": {
+     "draw": 1,
+     "hole": 1,
+     "guide": 1,
+     "zoom": 1
+    },
+    "laboratorio": true,
+    "d": 0.001,
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Ahora la gráfica está con mucho zoom. Los dos puntos casi tocan el hueco. Mueve el deslizador para alejarlos."
+     }
+    ]
+   },
+   {
+    "titulo": "Revisa tu respuesta",
+    "grafica": {
+     "draw": 1,
+     "hole": 1,
+     "guide": 1,
+     "ok": true
+    },
+    "bloques": [
+     {
+      "t": "pregunta"
+     },
+     {
+      "t": "nota",
+      "html": "Haz que el argumento del seno coincida con lo de abajo."
+     }
+    ]
+   }
+  ]
+ },
+ "pregunta": {
+  "tex": "\\lim_{x\\to 0}\\dfrac{\\operatorname{sen}(3x)}{x}",
+  "opciones": [
+   "1",
+   "3",
+   "0",
+   "1/3"
+  ],
+  "correcta": 1,
+  "explicacion": "Se multiplica y se divide por 3 para que abajo quede 3x. Queda 3 por el límite de sen(3x) sobre 3x, que vale 1, así que el resultado es 3.",
+  "verificacion": {
+   "formula": "sin(3*x)/x",
+   "a": 0,
+   "esperado": 3
+  },
+  "pistas": [
+   "Recuerda el límite notable, sen(u) sobre u tiende a 1 cuando u tiende a 0.",
+   "Para usarlo, abajo tiene que quedar 3x, igual que el argumento del seno.",
+   "Multiplica y divide entre 3. Queda 3 por el límite de sen(3x) sobre 3x."
+  ],
+  "errores": [
+   "Ese 1 es el límite notable aplicado sin ajustar. Aquí abajo falta el 3 para que el argumento coincida.",
+   "",
+   "El cociente no se va a 0. Cuando x es pequeño, sen(3x) vale casi 3x, así que el cociente se acerca a 3.",
+   "Ese 1/3 sale de dividir en vez de multiplicar. Al ajustar el denominador a 3x, queda un factor 3 afuera y no un tercio."
+  ]
+ },
+ "resumen": [
+  "El límite de sen(x) sobre x cuando x tiende a 0 vale 1, con x en radianes.",
+  "El argumento del seno tiene que coincidir con lo que está abajo.",
+  "Si no coincide, se multiplica y se divide por lo que falta."
+ ]
+}

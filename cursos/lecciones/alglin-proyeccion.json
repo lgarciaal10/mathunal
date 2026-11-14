@@ -1,0 +1,649 @@
+{
+ "esquema": 1,
+ "id": "alglin-m2-l3",
+ "ejemplo": true,
+ "curso": "Álgebra Lineal",
+ "modulo": "Módulo 2 Espacios vectoriales y transformaciones",
+ "posicion": "Lección 3 de 4",
+ "titulo": "Producto punto y proyección",
+ "minutos": 26,
+ "ejercicios": 7,
+ "grafica": {
+  "tipo": "plano",
+  "x": [
+   -3.5,
+   9.33
+  ],
+  "y": [
+   -2,
+   5
+  ],
+  "a": -2,
+  "b": 4,
+  "inicio": 1,
+  "elementos": [
+   {
+    "t": "vector",
+    "b": [
+     "2",
+     "1"
+    ],
+    "nombre": "u",
+    "c": 0
+   },
+   {
+    "t": "vector",
+    "b": [
+     "x",
+     "3"
+    ],
+    "nombre": "v",
+    "c": 1
+   },
+   {
+    "t": "vector",
+    "b": [
+     "(2*x+3)/5*2",
+     "(2*x+3)/5"
+    ],
+    "nombre": "proyección",
+    "c": 2
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "(2*x+3)/5*2",
+     "(2*x+3)/5"
+    ],
+    "b": [
+     "x",
+     "3"
+    ],
+    "guion": true,
+    "nombre": "perpendicular",
+    "c": 3,
+    "guia": true
+   }
+  ],
+  "lecturas": [
+   {
+    "rotulo": "producto punto",
+    "formula": "2*x+3"
+   },
+   {
+    "rotulo": "longitud de la proyección",
+    "formula": "abs(2*x+3)/sqrt(5)"
+   }
+  ],
+  "etiquetas": [
+   "Producto punto de v con u",
+   "Longitud de la proyección"
+  ],
+  "etiquetaSlider": "Primera componente del vector v",
+  "alt": "El vector u igual a (2, 1), el vector v igual a (x, 3) y la proyección de v sobre u, con un segmento punteado perpendicular a u que une la punta de la proyección con la de v"
+ },
+ "glosario": {
+  "punto": "El producto punto de dos vectores es la suma de los productos de sus componentes. Mide cuánto apuntan en la misma dirección.",
+  "norma": "La norma de un vector es su longitud. Se calcula como la raíz de la suma de los cuadrados de sus componentes.",
+  "ortogonales": "Dos vectores son ortogonales si forman un ángulo recto, o sea si su producto punto es cero.",
+  "proyeccion": "La proyección de v sobre u es la parte de v que va en la dirección de u. Es la sombra de v sobre la recta de u."
+ },
+ "ver": {
+  "duracion": 22.0,
+  "capitulos": [
+   [
+    0,
+    3,
+    "Estos son dos vectores, u igual a (2, 1) y v igual a (x, 3)."
+   ],
+   [
+    3,
+    6,
+    "La proyección de v sobre u es la sombra de v sobre la recta de u."
+   ],
+   [
+    6,
+    12,
+    "Al mover v, la sombra se desliza sobre u. El segmento punteado, que une v con su sombra, siempre es perpendicular a u."
+   ],
+   [
+    12,
+    17,
+    "Con x igual a 1, el producto punto de v con u vale 5 y la proyección es el mismo u."
+   ],
+   [
+    17,
+    22,
+    "Con x igual a menos 1.5, v y u son perpendiculares y la proyección es cero."
+   ]
+  ],
+  "canales": {
+   "draw": [
+    [
+     0.3,
+     0
+    ],
+    [
+     5.5,
+     1
+    ]
+   ],
+   "d": [
+    [
+     6,
+     1
+    ],
+    [
+     9,
+     3
+    ],
+    [
+     11,
+     2
+    ],
+    [
+     12,
+     1
+    ],
+    [
+     16,
+     1
+    ],
+    [
+     17,
+     -1.5
+    ],
+    [
+     22,
+     -1.5
+    ]
+   ],
+   "guide": [
+    [
+     3,
+     0
+    ],
+    [
+     4,
+     1
+    ]
+   ]
+  },
+  "intervalos": {
+   "ok": [
+    17,
+    22
+   ]
+  }
+ },
+ "leer": {
+  "secciones": [
+   {
+    "titulo": "La idea",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "El producto punto es una operación que convierte dos vectores en un número. Ese número mide cuánto apuntan en la misma dirección y permite calcular longitudes, ángulos y proyecciones. Con él se descompone un vector en una parte que va a lo largo de otro y una parte perpendicular."
+     }
+    ]
+   },
+   {
+    "titulo": "Un ejemplo",
+    "corto": "Un ejemplo",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mira los vectores u igual a (2, 1) y v igual a (x, 3), y la sombra de v sobre u."
+     },
+     {
+      "t": "eq",
+      "tex": "\\operatorname{proy}_{u}v=\\dfrac{v\\cdot u}{u\\cdot u}\\,u"
+     },
+     {
+      "t": "grafica",
+      "animar": "dibujar",
+      "alt": "Los vectores u y v"
+     }
+    ]
+   },
+   {
+    "titulo": "Piensa antes de ver",
+    "corto": "Piensa",
+    "bloques": [
+     {
+      "t": "piensa",
+      "pregunta": "Con x igual a 1, v es (1, 3). Su producto punto con u igual a (2, 1) es 1 por 2 más 3 por 1. ¿Cuánto vale?",
+      "opciones": [
+       3,
+       4,
+       5,
+       6
+      ],
+      "correcta": 5,
+      "bien": "Muy bien. Vale 5. Más abajo se ve la proyección que sale de ahí.",
+      "mal": "Vale 5, porque 2 más 3 es 5. Más abajo se ve la proyección que sale de ahí."
+     }
+    ]
+   },
+   {
+    "titulo": "La sombra",
+    "corto": "La sombra",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mira cómo se mueve la proyección cuando cambia v."
+     },
+     {
+      "t": "acercando",
+      "ds": [
+       -1.5,
+       0,
+       1,
+       3
+      ],
+      "alt": "La proyección de v sobre u para varios valores de x"
+     },
+     {
+      "t": "p",
+      "html": "Con x igual a <b>menos 1.5</b>, el producto punto es 0 y la proyección desaparece. Eso pasa cuando los vectores son perpendiculares."
+     }
+    ]
+   },
+   {
+    "titulo": "Producto punto, norma y ángulo",
+    "corto": "Producto punto",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Se multiplican las componentes que están en la misma posición y se suman."
+     },
+     {
+      "t": "pasos",
+      "items": [
+       {
+        "tex": "(2,-1,3)\\cdot(1,4,0)=2-4+0=-2",
+        "porque": "Se multiplican componente por componente y se suma."
+       },
+       {
+        "tex": "\\|(2,3,6)\\|=\\sqrt{4+9+36}=7",
+        "porque": "La norma es la raíz del producto punto del vector consigo mismo."
+       },
+       {
+        "tex": "\\cos\\theta=\\dfrac{u\\cdot v}{\\|u\\|\\,\\|v\\|}",
+        "porque": "El producto punto también da el ángulo entre dos vectores."
+       },
+       {
+        "tex": "u=(1,0),\\ v=(1,1)\\ \\Rightarrow\\ \\cos\\theta=\\dfrac{1}{\\sqrt{2}}\\ \\Rightarrow\\ \\theta=45^{\\circ}",
+        "porque": "Es el ángulo entre un vector del eje y la diagonal."
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "Ortogonalidad",
+    "corto": "Ortogonalidad",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Dos vectores distintos de cero son {{gl:ortogonales|ortogonales}} si y solo si su {{gl:punto|producto punto}} es cero."
+     },
+     {
+      "t": "pasos",
+      "items": [
+       {
+        "tex": "(1,2)\\cdot(4,-2)=4-4=0",
+        "porque": "Son ortogonales."
+       },
+       {
+        "tex": "(1,2)\\cdot(2,1)=4\\ne 0",
+        "porque": "No son ortogonales, aunque tengan la misma longitud."
+       }
+      ]
+     },
+     {
+      "t": "ojo",
+      "html": "Tener la misma norma no hace ortogonales a dos vectores. Lo que decide es el producto punto."
+     }
+    ]
+   },
+   {
+    "titulo": "La proyección",
+    "corto": "La proyección",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "La {{gl:proyeccion|proyección}} de v sobre u es el múltiplo de u que queda más cerca de v. Lo que sobra, v menos la proyección, es perpendicular a u."
+     },
+     {
+      "t": "pasos",
+      "items": [
+       {
+        "tex": "v=(1,3),\\ u=(2,1):\\quad v\\cdot u=5,\\quad u\\cdot u=5",
+        "porque": "Se calculan los dos productos punto."
+       },
+       {
+        "tex": "\\operatorname{proy}_{u}v=\\dfrac{5}{5}(2,1)=(2,1)",
+        "porque": "Se aplica la fórmula."
+       },
+       {
+        "tex": "v-\\operatorname{proy}_{u}v=(-1,2),\\quad (-1,2)\\cdot(2,1)=0",
+        "porque": "La parte que sobra es perpendicular a u."
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "¿Para qué sirve?",
+    "corto": "En ingeniería",
+    "bloques": [
+     {
+      "t": "ingenieria",
+      "titulo": "El trabajo de una fuerza inclinada",
+      "html": "Cuando una fuerza empuja un cuerpo en una dirección distinta de su desplazamiento, solo trabaja la parte de la fuerza que va a lo largo del desplazamiento. Esa parte es la proyección, y el trabajo es el producto punto de la fuerza con el desplazamiento.",
+      "tex": "W=\\mathbf{F}\\cdot\\mathbf{d}=(30,40)\\cdot(5,0)",
+      "datos": [
+       {
+        "k": "Fuerza",
+        "v": "(30, 40) N"
+       },
+       {
+        "k": "Desplazamiento",
+        "v": "(5, 0) m"
+       },
+       {
+        "k": "Trabajo",
+        "v": "150 J"
+       }
+      ],
+      "cierre": "El producto punto da 30 por 5 más 40 por 0, o sea 150 julios. La componente vertical de 40 newtons no hace trabajo, porque el desplazamiento es horizontal. Es un modelo simplificado, porque supone una fuerza constante."
+     }
+    ]
+   },
+   {
+    "titulo": "Completa el paso",
+    "corto": "Completa",
+    "bloques": [
+     {
+      "t": "completar",
+      "enunciado": "Se proyecta v igual a (1, 3) sobre u igual a (2, 1). Falta el producto punto de u consigo mismo.",
+      "tex": "u\\cdot u=2^{2}+1^{2}=[[hueco]]",
+      "opciones": [
+       {
+        "tex": "5",
+        "txt": "cinco"
+       },
+       {
+        "tex": "3",
+        "txt": "tres"
+       },
+       {
+        "tex": "25",
+        "txt": "veinticinco"
+       }
+      ],
+      "correcta": 0,
+      "errores": [
+       "",
+       "Eso es 2 más 1. El producto punto suma los cuadrados de las componentes, o sea 4 más 1.",
+       "Eso es el cuadrado de 5. Hay que sumar 2 al cuadrado y 1 al cuadrado, que da 5."
+      ],
+      "pista": "Suma los cuadrados de las componentes.",
+      "porque": "2 al cuadrado es 4 y 1 al cuadrado es 1. La suma es 5."
+     }
+    ]
+   },
+   {
+    "titulo": "Encuentra el error",
+    "corto": "Error",
+    "bloques": [
+     {
+      "t": "error",
+      "enunciado": "Alguien decidió si dos vectores son ortogonales y se equivocó en un paso. Toca el paso que está mal.",
+      "pasos": [
+       {
+        "tex": "u=(1,2),\\quad v=(2,1)",
+        "porque": "Son los dos vectores.",
+        "txt": "u es 1, 2 y v es 2, 1"
+       },
+       {
+        "tex": "\\|u\\|=\\|v\\|=\\sqrt{5}\\ \\Rightarrow\\ \\text{son ortogonales}",
+        "porque": "Este paso es el que falla.",
+        "txt": "Las normas son iguales a raíz de 5, así que son ortogonales"
+       },
+       {
+        "tex": "\\text{Los vectores forman un ángulo recto}",
+        "porque": "Depende del paso anterior.",
+        "txt": "Los vectores forman un ángulo recto"
+       }
+      ],
+      "mal": 1,
+      "explicacion": "Que las normas sean iguales no decide. Se mira el producto punto, que aquí es 1 por 2 más 2 por 1, o sea 4, y no es cero. Los vectores no son ortogonales.",
+      "correccion": "u\\cdot v=2+2=4\\ne 0",
+      "pista": "Calcula el producto punto de los dos vectores."
+     }
+    ]
+   },
+   {
+    "titulo": "Ordena los pasos",
+    "corto": "Ordena",
+    "bloques": [
+     {
+      "t": "ordenar",
+      "enunciado": "Estos son los pasos para proyectar v igual a (1, 3) sobre u igual a (2, 1), pero están desordenados.",
+      "pasos": [
+       "v\\cdot u=1\\cdot 2+3\\cdot 1=5",
+       "u\\cdot u=2^{2}+1^{2}=5",
+       "\\operatorname{proy}_{u}v=\\dfrac{5}{5}(2,1)",
+       "=(2,1)"
+      ],
+      "mezcla": [
+       2,
+       0,
+       3,
+       1
+      ],
+      "porque": "Se calculan los dos productos punto, se arma el cociente y se multiplica por u.",
+      "pista": "Se empieza con el producto punto de v con u.",
+      "txt": [
+       "El producto punto de v con u",
+       "El producto punto de u consigo mismo",
+       "Se arma el cociente por u",
+       "Es la proyección"
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "Revisa tu respuesta",
+    "corto": "Revisa",
+    "bloques": [
+     {
+      "t": "pregunta"
+     },
+     {
+      "t": "nota",
+      "html": "Puedes pedir pistas de a una. Si fallas, el mensaje te dice qué error se cometió."
+     }
+    ]
+   },
+   {
+    "titulo": "Mini simulacro",
+    "corto": "Simulacro",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Tres preguntas reales del banco de MathUNAL sobre este tema. Responde sin mirar los pasos."
+     },
+     {
+      "t": "simulacro",
+      "titulo": "Mini simulacro de producto punto y proyección",
+      "preguntas": [
+       {
+        "tipo": "numerica",
+        "texto": "La norma de la proyección de $(3,4)$ sobre $(1,0)$ es:",
+        "respuesta": "3",
+        "tolNum": 0.001,
+        "resumen": "La proyección sobre el eje $x$ conserva la primera componente, y su norma es $3$.",
+        "fuente": "Banco MathUNAL, simulacro de Álgebra Lineal"
+       },
+       {
+        "tipo": "numerica",
+        "texto": "$(1,2,2)\\cdot(2,0,1)$",
+        "respuesta": "4",
+        "tolNum": 0.001,
+        "resumen": "$1\\cdot2+2\\cdot0+2\\cdot1=4$.",
+        "fuente": "Banco MathUNAL, simulacro de Álgebra Lineal"
+       },
+       {
+        "tipo": "numerica",
+        "texto": "$\\|(3,4)\\|$",
+        "respuesta": "5",
+        "tolNum": 0.001,
+        "resumen": "$\\sqrt{3^2+4^2}=5$.",
+        "fuente": "Banco MathUNAL, simulacro de Álgebra Lineal"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "Tu repaso",
+    "corto": "Repaso",
+    "bloques": [
+     {
+      "t": "repaso"
+     }
+    ]
+   },
+   {
+    "titulo": "En resumen",
+    "corto": "Resumen",
+    "bloques": [
+     {
+      "t": "resumen"
+     }
+    ]
+   }
+  ]
+ },
+ "practicar": {
+  "pasos": [
+   {
+    "titulo": "Dos vectores",
+    "grafica": {
+     "draw": 1
+    },
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Estos son dos vectores y la sombra de v sobre u."
+     },
+     {
+      "t": "eq",
+      "tex": "u=(2,1),\\qquad v=(x,3)"
+     }
+    ]
+   },
+   {
+    "titulo": "Mueve v",
+    "grafica": {
+     "draw": 1
+    },
+    "laboratorio": true,
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mueve el deslizador. El vector v cambia, la proyección se desliza sobre u y abajo se ven el producto punto y la longitud de la proyección."
+     }
+    ]
+   },
+   {
+    "titulo": "El perpendicular",
+    "grafica": {
+     "draw": 1,
+     "guide": 1
+    },
+    "laboratorio": true,
+    "d": 1,
+    "bloques": [
+     {
+      "t": "p",
+      "html": "El segmento punteado une la punta de v con la de su proyección y es perpendicular a u. Con x igual a 1 la proyección es el mismo u."
+     }
+    ]
+   },
+   {
+    "titulo": "Ortogonales",
+    "grafica": {
+     "draw": 1,
+     "guide": 1,
+     "ok": true
+    },
+    "laboratorio": true,
+    "d": -1.5,
+    "bloques": [
+     {
+      "t": "eq",
+      "tex": "v\\cdot u=2x+3=0\\ \\Rightarrow\\ x=-\\tfrac{3}{2}"
+     },
+     {
+      "t": "p",
+      "html": "Con x igual a menos 1.5 el producto punto es 0, los vectores son perpendiculares y no hay proyección."
+     }
+    ]
+   },
+   {
+    "titulo": "Revisa tu respuesta",
+    "grafica": {
+     "draw": 1,
+     "guide": 1,
+     "ok": true,
+     "d": -1.5
+    },
+    "bloques": [
+     {
+      "t": "pregunta"
+     },
+     {
+      "t": "nota",
+      "html": "Calcula los dos productos punto y arma el cociente."
+     }
+    ]
+   }
+  ]
+ },
+ "pregunta": {
+  "tex": "\\text{Segunda componente de}\\ \\operatorname{proy}_{u}v,\\ v=(5,1),\\ u=(2,1)",
+  "opciones": [
+   "$2.2$",
+   "$4.4$",
+   "$1.1$",
+   "$5.5$"
+  ],
+  "correcta": 0,
+  "explicacion": "El producto punto de v con u es 5 por 2 más 1 por 1, o sea 11, y el de u consigo mismo es 5. La proyección es 11 sobre 5 por (2, 1), o sea (4.4, 2.2). Su segunda componente es 2.2.",
+  "verificacion": {
+   "formula": "11/5*1+0*x",
+   "a": 0,
+   "esperado": 2.2
+  },
+  "pistas": [
+   "Calcula el producto punto de v con u y el de u consigo mismo.",
+   "Son 11 y 5. La proyección es 11 sobre 5 por u.",
+   "Multiplica 11 sobre 5 por la segunda componente de u, que es 1."
+  ],
+  "errores": [
+   "",
+   "Ese es el valor de la primera componente de la proyección. Se pide la segunda.",
+   "Se dividió el producto punto entre 10 y no entre 5. El de u consigo mismo es 5.",
+   "Se dividió 11 entre 2 en vez de entre 5. Hay que dividir entre el producto punto de u consigo mismo."
+  ]
+ },
+ "resumen": [
+  "El producto punto mide cuánto apuntan dos vectores en la misma dirección. Da longitudes y ángulos.",
+  "Dos vectores son ortogonales si su producto punto es cero.",
+  "La proyección de v sobre u es el producto punto de v con u, dividido entre el de u consigo mismo, por u."
+ ]
+}

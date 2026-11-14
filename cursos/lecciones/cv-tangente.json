@@ -1,0 +1,777 @@
+{
+ "esquema": 1,
+ "id": "cv-m1-l3",
+ "ejemplo": true,
+ "curso": "Cálculo en Varias Variables",
+ "modulo": "Módulo 1 Cálculo diferencial en varias variables",
+ "posicion": "Lección 3 de 7",
+ "titulo": "Plano tangente y linealización",
+ "minutos": 26,
+ "ejercicios": 8,
+ "grafica": {
+  "tipo": "plano",
+  "x": [
+   -0.5,
+   3.1
+  ],
+  "y": [
+   -0.5,
+   8.4
+  ],
+  "a": 0,
+  "b": 2.7,
+  "inicio": 1.5,
+  "elementos": [
+   {
+    "t": "trazo",
+    "puntos": [
+     [
+      "-0.5",
+      "1.2500"
+     ],
+     [
+      "-0.4",
+      "1.1600"
+     ],
+     [
+      "-0.3",
+      "1.0900"
+     ],
+     [
+      "-0.2",
+      "1.0400"
+     ],
+     [
+      "-0.1",
+      "1.0100"
+     ],
+     [
+      "0.0",
+      "1.0000"
+     ],
+     [
+      "0.1",
+      "1.0100"
+     ],
+     [
+      "0.2",
+      "1.0400"
+     ],
+     [
+      "0.3",
+      "1.0900"
+     ],
+     [
+      "0.4",
+      "1.1600"
+     ],
+     [
+      "0.5",
+      "1.2500"
+     ],
+     [
+      "0.6",
+      "1.3600"
+     ],
+     [
+      "0.7",
+      "1.4900"
+     ],
+     [
+      "0.8",
+      "1.6400"
+     ],
+     [
+      "0.9",
+      "1.8100"
+     ],
+     [
+      "1.0",
+      "2.0000"
+     ],
+     [
+      "1.1",
+      "2.2100"
+     ],
+     [
+      "1.2",
+      "2.4400"
+     ],
+     [
+      "1.3",
+      "2.6900"
+     ],
+     [
+      "1.4",
+      "2.9600"
+     ],
+     [
+      "1.5",
+      "3.2500"
+     ],
+     [
+      "1.6",
+      "3.5600"
+     ],
+     [
+      "1.7",
+      "3.8900"
+     ],
+     [
+      "1.8",
+      "4.2400"
+     ],
+     [
+      "1.9",
+      "4.6100"
+     ],
+     [
+      "2.0",
+      "5.0000"
+     ],
+     [
+      "2.1",
+      "5.4100"
+     ],
+     [
+      "2.2",
+      "5.8400"
+     ],
+     [
+      "2.3",
+      "6.2900"
+     ],
+     [
+      "2.4",
+      "6.7600"
+     ],
+     [
+      "2.5",
+      "7.2500"
+     ],
+     [
+      "2.6",
+      "7.7600"
+     ],
+     [
+      "2.7",
+      "8.2900"
+     ],
+     [
+      "2.8",
+      "8.8400"
+     ],
+     [
+      "2.9",
+      "9.4100"
+     ],
+     [
+      "3.0",
+      "10.0000"
+     ]
+    ],
+    "c": 0
+   },
+   {
+    "t": "recta",
+    "p": [
+     "1",
+     "2"
+    ],
+    "dir": [
+     "1",
+     "2"
+    ],
+    "c": 1
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "x",
+     "2*x"
+    ],
+    "b": [
+     "x",
+     "x*x+1"
+    ],
+    "c": 3
+   },
+   {
+    "t": "punto",
+    "p": [
+     "x",
+     "x*x+1"
+    ],
+    "c": 0
+   },
+   {
+    "t": "punto",
+    "p": [
+     "x",
+     "2*x"
+    ],
+    "c": 1
+   }
+  ],
+  "lecturas": [
+   {
+    "rotulo": "valor real f de x y 1, igual a x al cuadrado más 1",
+    "formula": "x*x+1"
+   },
+   {
+    "rotulo": "aproximación del plano tangente, igual a 2 x",
+    "formula": "2*x"
+   }
+  ],
+  "etiquetas": [
+   "La superficie, cortada por el plano y igual a 1",
+   "El plano tangente en 1, 1, que se ve como una recta"
+  ],
+  "etiquetaSlider": "Posición x, de 0 a 2.7",
+  "alt": "El corte de z igual a x al cuadrado más y al cuadrado con el plano y igual a 1 es una parábola, y el plano tangente en el punto 1, 1, 2 deja una recta tangente. Cerca de x igual a 1 la recta y la parábola casi coinciden, y lejos se separan. El segmento muestra el error de la aproximación"
+ },
+ "glosario": {
+  "tangente": "El plano tangente a una superficie en un punto es el plano que mejor se pega a la superficie cerca de ese punto.",
+  "linealizacion": "La linealización de f en el punto a b es la función lineal L de x y igual a f de a b más las derivadas parciales por los incrementos.",
+  "diferencial": "La diferencial total es df igual a f sub x dx más f sub y dy, y estima el cambio de f para cambios pequeños en x y en y.",
+  "error": "El error de la aproximación lineal es la diferencia entre el valor real y la linealización, y crece como el cuadrado de la distancia al punto."
+ },
+ "ver": {
+  "duracion": 24.0,
+  "capitulos": [
+   [
+    0,
+    4,
+    "La superficie z igual a x al cuadrado más y al cuadrado se corta con el plano y igual a 1, y queda una parábola."
+   ],
+   [
+    4,
+    10,
+    "El plano tangente en el punto 1, 1, 2 deja una recta tangente, de ecuación 2 x."
+   ],
+   [
+    10,
+    16,
+    "Con x igual a 1.1 el valor real es 2.21 y la aproximación es 2.2, muy cerca."
+   ],
+   [
+    16,
+    20,
+    "Con x igual a 2 el valor real es 5 y la aproximación es 4. El error crece."
+   ],
+   [
+    20,
+    24,
+    "Por eso la linealización sirve solo cerca del punto de tangencia."
+   ]
+  ],
+  "canales": {
+   "draw": [
+    [
+     0.3,
+     0
+    ],
+    [
+     3.5,
+     1
+    ]
+   ],
+   "d": [
+    [
+     4,
+     1
+    ],
+    [
+     8,
+     1
+    ],
+    [
+     10,
+     1.1
+    ],
+    [
+     13,
+     1.1
+    ],
+    [
+     16,
+     2
+    ],
+    [
+     18,
+     2
+    ],
+    [
+     24,
+     2
+    ]
+   ],
+   "guide": [
+    [
+     4,
+     0
+    ],
+    [
+     5,
+     1
+    ]
+   ]
+  },
+  "intervalos": {
+   "ok": [
+    16,
+    24
+   ]
+  }
+ },
+ "leer": {
+  "secciones": [
+   {
+    "titulo": "La idea",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "El {{gl:tangente|plano tangente}} es el equivalente en dos variables de la recta tangente. Con él se arma la {{gl:linealizacion|linealización}}, que aproxima la función cerca de un punto. Su uso más común es la {{gl:diferencial|diferencial}}, para estimar cambios pequeños. El {{gl:error|error}} crece con el cuadrado de la distancia."
+     }
+    ]
+   },
+   {
+    "titulo": "Un ejemplo",
+    "corto": "Un ejemplo",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "La función es x al cuadrado más y al cuadrado, y el punto de tangencia es 1, 1. Mueve la posición x y mira el error."
+     },
+     {
+      "t": "eq",
+      "tex": "z=x^{2}+y^{2},\\qquad L(x,y)=2x+2y-2"
+     },
+     {
+      "t": "grafica",
+      "animar": "dibujar",
+      "alt": "La parábola de corte y la recta del plano tangente"
+     }
+    ]
+   },
+   {
+    "titulo": "Piensa antes de ver",
+    "corto": "Piensa",
+    "bloques": [
+     {
+      "t": "piensa",
+      "pregunta": "La función f vale x al cuadrado más y al cuadrado. ¿Cuánto vale f en el punto 1, 1?",
+      "opciones": [
+       2,
+       1,
+       4,
+       0
+      ],
+      "correcta": 2,
+      "bien": "Muy bien. Vale 2, y es la altura del plano tangente en el punto.",
+      "mal": "f de 1, 1 es 1 más 1, o sea 2. Esa es la altura del plano tangente en el punto."
+     }
+    ]
+   },
+   {
+    "titulo": "Cerca y lejos",
+    "corto": "Error",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mira la aproximación con x igual a 1.1, 1.5, 2 y 2.5."
+     },
+     {
+      "t": "acercando",
+      "ds": [
+       1.1,
+       1.5,
+       2,
+       2.5
+      ],
+      "alt": "La aproximación en cuatro posiciones"
+     },
+     {
+      "t": "p",
+      "html": "Cerca de x igual a 1 el error es pequeño, y a 2.5 ya pasa de 2."
+     }
+    ]
+   },
+   {
+    "titulo": "El plano tangente",
+    "corto": "Plano",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Se calcula con el valor de la función y las dos derivadas parciales en el punto."
+     },
+     {
+      "t": "pasos",
+      "items": [
+       {
+        "tex": "f(1,1)=2,\\quad f_{x}=2x=2,\\quad f_{y}=2y=2",
+        "porque": "Valor y derivadas parciales en el punto."
+       },
+       {
+        "tex": "z=f(a,b)+f_{x}(a,b)(x-a)+f_{y}(a,b)(y-b)",
+        "porque": "La fórmula del plano tangente."
+       },
+       {
+        "tex": "z=2+2(x-1)+2(y-1)",
+        "porque": "Se reemplazan los valores."
+       },
+       {
+        "tex": "z=2x+2y-2",
+        "porque": "Se simplifica."
+       }
+      ]
+     },
+     {
+      "t": "ojo",
+      "html": "El plano tangente pasa por el punto de la superficie, y por eso lleva el término f de a, b. Si se olvida, el plano queda a la altura equivocada."
+     }
+    ]
+   },
+   {
+    "titulo": "Linealización y diferencial",
+    "corto": "Linealización",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "La linealización estima valores cerca del punto, y la diferencial estima el cambio."
+     },
+     {
+      "t": "pasos",
+      "items": [
+       {
+        "tex": "L(x,y)=2x+2y-2",
+        "porque": "La linealización en 1, 1."
+       },
+       {
+        "tex": "L(1.1,\\,0.9)=2.2+1.8-2=2",
+        "porque": "Una estimación del valor en 1.1, 0.9."
+       },
+       {
+        "tex": "f(1.1,\\,0.9)=1.21+0.81=2.02",
+        "porque": "El valor real."
+       },
+       {
+        "tex": "df=2\\,dx+2\\,dy=2(0.1)+2(-0.1)=0",
+        "porque": "La diferencial estima un cambio de 0, y el real fue 0.02."
+       }
+      ]
+     },
+     {
+      "t": "ojo",
+      "html": "La diferencial estima el cambio a primer orden. El error es de segundo orden, y por eso, si los incrementos son pequeños, sale despreciable."
+     }
+    ]
+   },
+   {
+    "titulo": "¿Para qué sirve?",
+    "corto": "En ingeniería",
+    "bloques": [
+     {
+      "t": "ingenieria",
+      "titulo": "Un error de medición en un área",
+      "html": "Se mide un rectángulo de 10 por 20 centímetros con un error de 0.1 centímetros en cada lado. La diferencial estima el error del área sin hacer el cálculo exacto.",
+      "tex": "A=xy,\\quad dA=y\\,dx+x\\,dy=20(0.1)+10(0.1)=3\\ \\text{cm}^{2}",
+      "datos": [
+       {
+        "k": "Área",
+        "v": "200 cm²"
+       },
+       {
+        "k": "Error por la diferencial",
+        "v": "cerca de 3 cm²"
+       },
+       {
+        "k": "Error relativo",
+        "v": "cerca de 1.5 por ciento"
+       }
+      ],
+      "cierre": "La diferencial total es la herramienta estándar para propagar errores de medición. Con ella se decide qué medida conviene hacer con más cuidado, la que más peso tiene en el error."
+     }
+    ]
+   },
+   {
+    "titulo": "Completa el paso",
+    "corto": "Completa",
+    "bloques": [
+     {
+      "t": "completar",
+      "enunciado": "El plano tangente a f en el punto a, b tiene la forma z igual a f de a, b más f sub x por x menos a más [[hueco]].",
+      "tex": "z=f(a,b)+f_{x}(a,b)(x-a)+[[hueco]]",
+      "opciones": [
+       {
+        "tex": "f_{y}(a,b)(y-b)",
+        "txt": "f sub y por y menos b"
+       },
+       {
+        "tex": "f_{y}(a,b)\\,y",
+        "txt": "f sub y por y"
+       },
+       {
+        "tex": "f_{xy}(a,b)",
+        "txt": "la derivada mixta"
+       }
+      ],
+      "correcta": 0,
+      "errores": [
+       "",
+       "Sin el menos b, el plano no pasa por el punto de tangencia.",
+       "La derivada mixta no es la pendiente en la dirección y."
+      ],
+      "pista": "Cada pendiente se multiplica por el incremento de su variable.",
+      "porque": "Falta el término con y."
+     }
+    ]
+   },
+   {
+    "titulo": "Encuentra el error",
+    "corto": "Error",
+    "bloques": [
+     {
+      "t": "error",
+      "enunciado": "Alguien halló el plano tangente a z igual a x al cuadrado más y al cuadrado en 1, 1, y se equivocó. Toca el paso que está mal.",
+      "pasos": [
+       {
+        "tex": "f_{x}=2x=2,\\ f_{y}=2y=2",
+        "porque": "Derivadas parciales.",
+        "txt": "derivadas"
+       },
+       {
+        "tex": "z=2(x-1)+2(y-1)",
+        "porque": "Este paso es el que falla.",
+        "txt": "falta f de 1, 1"
+       },
+       {
+        "tex": "z=2x+2y-4",
+        "porque": "Resultado.",
+        "txt": "da 2x más 2y menos 4"
+       }
+      ],
+      "mal": 1,
+      "explicacion": "Falta el valor de la función en el punto, que es 2. Entonces z es 2 más 2 por x menos 1 más 2 por y menos 1, o sea 2x más 2y menos 2.",
+      "correccion": "z=2+2(x-1)+2(y-1)=2x+2y-2",
+      "pista": "Suma f de 1, 1."
+     }
+    ]
+   },
+   {
+    "titulo": "Ordena los pasos",
+    "corto": "Ordena",
+    "bloques": [
+     {
+      "t": "ordenar",
+      "enunciado": "Estos son los pasos para hallar un plano tangente, pero están desordenados.",
+      "pasos": [
+       "f(a,b)",
+       "f_{x}(a,b),\\ f_{y}(a,b)",
+       "z=f(a,b)+f_{x}(x-a)+f_{y}(y-b)",
+       "z=2x+2y-2"
+      ],
+      "mezcla": [
+       2,
+       0,
+       3,
+       1
+      ],
+      "porque": "Se evalúa la función, las derivadas, se arma el plano y se simplifica.",
+      "pista": "Se empieza con el valor de la función.",
+      "txt": [
+       "Se evalúa la función en el punto",
+       "Se evalúan las derivadas parciales",
+       "Se arma el plano",
+       "Se simplifica"
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "Revisa tu respuesta",
+    "corto": "Revisa",
+    "bloques": [
+     {
+      "t": "pregunta"
+     },
+     {
+      "t": "nota",
+      "html": "Puedes pedir pistas de a una. Si fallas, el mensaje te dice qué error se cometió."
+     }
+    ]
+   },
+   {
+    "titulo": "Mini simulacro",
+    "corto": "Simulacro",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Tres preguntas reales del banco de MathUNAL sobre este tema. Responde sin mirar los pasos."
+     },
+     {
+      "t": "simulacro",
+      "titulo": "Mini simulacro de plano tangente",
+      "preguntas": [
+       {
+        "tipo": "mcq",
+        "texto": "El plano tangente a $z=x^2+y^2$ en el punto $(1,1,2)$ es:",
+        "opciones": [
+         "$z=2x+2y-2$",
+         "$z=2x+2y+2$",
+         "$z=x+y$",
+         "$z=2x+2y$"
+        ],
+        "correcta": 0,
+        "resumen": "El plano tangente a x al cuadrado más y al cuadrado en 1, 1, 2.",
+        "fuente": "Banco MathUNAL, simulacro de Cálculo en Varias Variables"
+       },
+       {
+        "tipo": "mcq",
+        "texto": "El plano tangente a la superficie $z = f(x,y)$ en el punto $(a, b, f(a,b))$ es:",
+        "opciones": [
+         "$z = f(a,b) + f_{x}(a,b)(x-a) + f_{y}(a,b)(y-b)$",
+         "$z = f_{x}(a,b)\\,x + f_{y}(a,b)\\,y$",
+         "$z = f(a,b)$",
+         "$z = \\nabla f\\cdot(x,y)$"
+        ],
+        "correcta": 0,
+        "resumen": "La fórmula del plano tangente.",
+        "fuente": "Banco MathUNAL, simulacro de Cálculo en Varias Variables"
+       },
+       {
+        "tipo": "numerica",
+        "texto": "Con la linealización $L(x,y)=2x+2y-2$, el valor aproximado en el punto $(1.1,\\,0.9)$ es (decimal, 1 cifra):",
+        "respuesta": "2.0",
+        "tolNum": 0.01,
+        "resumen": "L de 1.1 y 0.9 es 2.2 más 1.8 menos 2, o sea 2.0.",
+        "fuente": "Pregunta propia de MathUNAL, escrita para esta lección"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "Tu repaso",
+    "corto": "Repaso",
+    "bloques": [
+     {
+      "t": "repaso"
+     }
+    ]
+   },
+   {
+    "titulo": "En resumen",
+    "corto": "Resumen",
+    "bloques": [
+     {
+      "t": "resumen"
+     }
+    ]
+   }
+  ]
+ },
+ "practicar": {
+  "pasos": [
+   {
+    "titulo": "La superficie",
+    "grafica": {
+     "draw": 1
+    },
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Se corta con el plano y igual a 1."
+     },
+     {
+      "t": "eq",
+      "tex": "z=x^{2}+y^{2}"
+     }
+    ]
+   },
+   {
+    "titulo": "Mueve el punto",
+    "grafica": {
+     "draw": 1
+    },
+    "laboratorio": true,
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mueve el deslizador. Abajo se leen el valor real y la aproximación del plano tangente."
+     }
+    ]
+   },
+   {
+    "titulo": "Con x igual a 2",
+    "grafica": {
+     "draw": 1,
+     "guide": 1,
+     "ok": true
+    },
+    "laboratorio": true,
+    "d": 2,
+    "bloques": [
+     {
+      "t": "eq",
+      "tex": "f=5,\\quad L=4"
+     },
+     {
+      "t": "p",
+      "html": "Con x igual a 2 el error es 1, y la aproximación ya no es buena."
+     }
+    ]
+   },
+   {
+    "titulo": "Revisa tu respuesta",
+    "grafica": {
+     "draw": 1,
+     "guide": 1,
+     "ok": true,
+     "d": 2
+    },
+    "bloques": [
+     {
+      "t": "pregunta"
+     },
+     {
+      "t": "nota",
+      "html": "La linealización sirve cerca del punto de tangencia."
+     }
+    ]
+   }
+  ]
+ },
+ "pregunta": {
+  "tex": "z=x^{2}+y^{2}\\ \\text{en}\\ (1,1,2).\\ \\text{El plano tangente es}",
+  "opciones": [
+   "$z=2x+2y-2$",
+   "$z=2x+2y+2$",
+   "$z=x+y$",
+   "$z=2x+2y$"
+  ],
+  "correcta": 0,
+  "explicacion": "Se usa z igual a 2 más 2 por x menos 1 más 2 por y menos 1, que se simplifica en 2x más 2y menos 2.",
+  "verificacion": {
+   "formula": "2*1+2*1-2+0*x",
+   "a": 0,
+   "esperado": 2
+  },
+  "pistas": [
+   "Calcula las dos derivadas parciales en 1, 1.",
+   "Usa la fórmula con f de a, b.",
+   "El plano debe valer 2 en el punto 1, 1."
+  ],
+  "errores": [
+   "",
+   "El signo del término constante no es más 2, porque en 1, 1 daría 6.",
+   "En 1, 1 daría 2, pero la pendiente no es 1.",
+   "En 1, 1 daría 4, y debe dar 2."
+  ]
+ },
+ "resumen": [
+  "El plano tangente es z igual a f de a, b más f sub x por x menos a más f sub y por y menos b.",
+  "La linealización aproxima la función cerca del punto, y el error crece con el cuadrado de la distancia.",
+  "La diferencial total estima cambios pequeños de la función."
+ ]
+}

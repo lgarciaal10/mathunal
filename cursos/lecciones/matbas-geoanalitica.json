@@ -1,0 +1,896 @@
+{
+ "esquema": 1,
+ "id": "mb-m3-l4",
+ "ejemplo": true,
+ "curso": "Matemáticas Básicas",
+ "modulo": "Módulo 3 Funciones, trigonometría y geometría analítica",
+ "posicion": "Lección 4 de 4",
+ "titulo": "Geometría analítica",
+ "minutos": 28,
+ "ejercicios": 7,
+ "grafica": {
+  "tipo": "plano",
+  "x": [
+   -8,
+   13
+  ],
+  "y": [
+   -1.5,
+   10
+  ],
+  "a": 0,
+  "b": 1,
+  "inicio": 0,
+  "elementos": [
+   {
+    "t": "trazo",
+    "puntos": [
+     [
+      "4.0000",
+      "0.0000"
+     ],
+     [
+      "3.9945",
+      "0.1045"
+     ],
+     [
+      "3.9781",
+      "0.2079"
+     ],
+     [
+      "3.9511",
+      "0.3090"
+     ],
+     [
+      "3.9135",
+      "0.4067"
+     ],
+     [
+      "3.8660",
+      "0.5000"
+     ],
+     [
+      "3.8090",
+      "0.5878"
+     ],
+     [
+      "3.7431",
+      "0.6691"
+     ],
+     [
+      "3.6691",
+      "0.7431"
+     ],
+     [
+      "3.5878",
+      "0.8090"
+     ],
+     [
+      "3.5000",
+      "0.8660"
+     ],
+     [
+      "3.4067",
+      "0.9135"
+     ],
+     [
+      "3.3090",
+      "0.9511"
+     ],
+     [
+      "3.2079",
+      "0.9781"
+     ],
+     [
+      "3.1045",
+      "0.9945"
+     ],
+     [
+      "3.0000",
+      "1.0000"
+     ],
+     [
+      "2.8955",
+      "0.9945"
+     ],
+     [
+      "2.7921",
+      "0.9781"
+     ],
+     [
+      "2.6910",
+      "0.9511"
+     ],
+     [
+      "2.5933",
+      "0.9135"
+     ],
+     [
+      "2.5000",
+      "0.8660"
+     ],
+     [
+      "2.4122",
+      "0.8090"
+     ],
+     [
+      "2.3309",
+      "0.7431"
+     ],
+     [
+      "2.2569",
+      "0.6691"
+     ],
+     [
+      "2.1910",
+      "0.5878"
+     ],
+     [
+      "2.1340",
+      "0.5000"
+     ],
+     [
+      "2.0865",
+      "0.4067"
+     ],
+     [
+      "2.0489",
+      "0.3090"
+     ],
+     [
+      "2.0219",
+      "0.2079"
+     ],
+     [
+      "2.0055",
+      "0.1045"
+     ],
+     [
+      "2.0000",
+      "0.0000"
+     ],
+     [
+      "2.0055",
+      "-0.1045"
+     ],
+     [
+      "2.0219",
+      "-0.2079"
+     ],
+     [
+      "2.0489",
+      "-0.3090"
+     ],
+     [
+      "2.0865",
+      "-0.4067"
+     ],
+     [
+      "2.1340",
+      "-0.5000"
+     ],
+     [
+      "2.1910",
+      "-0.5878"
+     ],
+     [
+      "2.2569",
+      "-0.6691"
+     ],
+     [
+      "2.3309",
+      "-0.7431"
+     ],
+     [
+      "2.4122",
+      "-0.8090"
+     ],
+     [
+      "2.5000",
+      "-0.8660"
+     ],
+     [
+      "2.5933",
+      "-0.9135"
+     ],
+     [
+      "2.6910",
+      "-0.9511"
+     ],
+     [
+      "2.7921",
+      "-0.9781"
+     ],
+     [
+      "2.8955",
+      "-0.9945"
+     ],
+     [
+      "3.0000",
+      "-1.0000"
+     ],
+     [
+      "3.1045",
+      "-0.9945"
+     ],
+     [
+      "3.2079",
+      "-0.9781"
+     ],
+     [
+      "3.3090",
+      "-0.9511"
+     ],
+     [
+      "3.4067",
+      "-0.9135"
+     ],
+     [
+      "3.5000",
+      "-0.8660"
+     ],
+     [
+      "3.5878",
+      "-0.8090"
+     ],
+     [
+      "3.6691",
+      "-0.7431"
+     ],
+     [
+      "3.7431",
+      "-0.6691"
+     ],
+     [
+      "3.8090",
+      "-0.5878"
+     ],
+     [
+      "3.8660",
+      "-0.5000"
+     ],
+     [
+      "3.9135",
+      "-0.4067"
+     ],
+     [
+      "3.9511",
+      "-0.3090"
+     ],
+     [
+      "3.9781",
+      "-0.2079"
+     ],
+     [
+      "3.9945",
+      "-0.1045"
+     ],
+     [
+      "4.0000",
+      "-0.0000"
+     ]
+    ],
+    "c": 3,
+    "guia": true
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "1",
+     "1"
+    ],
+    "b": [
+     "7",
+     "9"
+    ],
+    "c": 2
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "1",
+     "1"
+    ],
+    "b": [
+     "1+6*x",
+     "1+8*x"
+    ],
+    "c": 1,
+    "guia": true,
+    "guion": true
+   },
+   {
+    "t": "punto",
+    "p": [
+     "1",
+     "1"
+    ],
+    "c": 2
+   },
+   {
+    "t": "punto",
+    "p": [
+     "7",
+     "9"
+    ],
+    "c": 2
+   },
+   {
+    "t": "punto",
+    "p": [
+     "1+6*x",
+     "1+8*x"
+    ],
+    "c": 1,
+    "guia": true
+   }
+  ],
+  "lecturas": [
+   {
+    "rotulo": "fracción recorrida s",
+    "formula": "x"
+   },
+   {
+    "rotulo": "distancia desde A",
+    "formula": "10*x"
+   }
+  ],
+  "etiquetas": [
+   "Fracción recorrida de A a B",
+   "Distancia recorrida desde A"
+  ],
+  "etiquetaSlider": "Fracción recorrida s",
+  "alt": "El segmento del punto A, 1 coma 1, al punto B, 7 coma 9, que mide 10, con un punto que se mueve de A a B. Abajo, cerca de A, la circunferencia de centro 3, 0 y radio 1. Con s igual a un medio el punto es el punto medio, 4 coma 5"
+ },
+ "glosario": {
+  "distancia": "La distancia entre dos puntos sale del teorema de Pitágoras. Es la raíz de la diferencia de las x al cuadrado más la diferencia de las y al cuadrado.",
+  "puntomedio": "El punto medio de un segmento tiene como coordenadas el promedio de las coordenadas de los extremos.",
+  "circunferencia": "Una circunferencia es el conjunto de puntos a una distancia r, el radio, de un punto fijo, el centro. Su ecuación es x menos h al cuadrado más y menos k al cuadrado igual a r al cuadrado."
+ },
+ "ver": {
+  "duracion": 22.0,
+  "capitulos": [
+   [
+    0,
+    4,
+    "Los puntos A, 1 coma 1, y B, 7 coma 9, definen un segmento. Un punto se va a mover de A a B."
+   ],
+   [
+    4,
+    8,
+    "La distancia entre A y B sale de Pitágoras. Es la raíz de 6 al cuadrado más 8 al cuadrado, o sea 10."
+   ],
+   [
+    8,
+    14,
+    "Mueve s. La distancia recorrida desde A crece de 0 a 10."
+   ],
+   [
+    14,
+    18,
+    "Con s igual a un medio, el punto es el punto medio, 4 coma 5. Es el promedio de las coordenadas de A y de B."
+   ],
+   [
+    18,
+    22,
+    "Abajo, cerca de A, está la circunferencia de centro 3, 0 y radio 1. Su ecuación es x al cuadrado más y al cuadrado, menos 6x, más 8, igual a 0."
+   ]
+  ],
+  "canales": {
+   "draw": [
+    [
+     0.3,
+     0
+    ],
+    [
+     3.5,
+     1
+    ]
+   ],
+   "d": [
+    [
+     4,
+     0
+    ],
+    [
+     8,
+     0
+    ],
+    [
+     11,
+     1
+    ],
+    [
+     13,
+     0.5
+    ],
+    [
+     18,
+     0.5
+    ],
+    [
+     22,
+     0.5
+    ]
+   ],
+   "guide": [
+    [
+     4,
+     0
+    ],
+    [
+     5,
+     1
+    ]
+   ]
+  },
+  "intervalos": {
+   "ok": [
+    18,
+    22
+   ]
+  }
+ },
+ "leer": {
+  "secciones": [
+   {
+    "titulo": "La idea",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "La geometría analítica describe figuras con ecuaciones. Con las coordenadas se calcula la {{gl:distancia|distancia}} entre puntos, el {{gl:puntomedio|punto medio}} de un segmento, la ecuación de una recta y la ecuación de una {{gl:circunferencia|circunferencia}}."
+     }
+    ]
+   },
+   {
+    "titulo": "Un ejemplo",
+    "corto": "Un ejemplo",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mira un segmento, un punto que lo recorre y una circunferencia."
+     },
+     {
+      "t": "eq",
+      "tex": "d=\\sqrt{(x_{2}-x_{1})^{2}+(y_{2}-y_{1})^{2}}"
+     },
+     {
+      "t": "grafica",
+      "animar": "dibujar",
+      "alt": "Un segmento y una circunferencia"
+     }
+    ]
+   },
+   {
+    "titulo": "Piensa antes de ver",
+    "corto": "Piensa",
+    "bloques": [
+     {
+      "t": "piensa",
+      "pregunta": "Entre A, 1 coma 1, y B, 7 coma 9, la diferencia de x es 6 y la de y es 8. ¿Cuánto vale la raíz de 6 al cuadrado más 8 al cuadrado?",
+      "opciones": [
+       10,
+       12,
+       14,
+       100
+      ],
+      "correcta": 10,
+      "bien": "Muy bien. Vale 10, porque 36 más 64 es 100. Es una terna pitagórica.",
+      "mal": "Vale 10, porque 36 más 64 es 100, y la raíz de 100 es 10."
+     }
+    ]
+   },
+   {
+    "titulo": "Recorriendo el segmento",
+    "corto": "El segmento",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mira la distancia recorrida desde A al avanzar por el segmento."
+     },
+     {
+      "t": "acercando",
+      "ds": [
+       0,
+       0.5,
+       1,
+       0.25
+      ],
+      "alt": "El punto en varios lugares del segmento"
+     },
+     {
+      "t": "p",
+      "html": "La distancia recorrida es 10 por s. Con s igual a un medio llegamos al punto medio, que está a 5 de cada extremo."
+     }
+    ]
+   },
+   {
+    "titulo": "Distancia y punto medio",
+    "corto": "Distancia",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Las dos fórmulas se usan con las coordenadas de los extremos."
+     },
+     {
+      "t": "pasos",
+      "items": [
+       {
+        "tex": "d=\\sqrt{(7-1)^{2}+(9-1)^{2}}=\\sqrt{36+64}=10",
+        "porque": "La distancia entre A y B."
+       },
+       {
+        "tex": "M=\\left(\\dfrac{x_{1}+x_{2}}{2},\\ \\dfrac{y_{1}+y_{2}}{2}\\right)=(4,5)",
+        "porque": "El punto medio."
+       },
+       {
+        "tex": "(2,-1)\\ \\text{y}\\ (6,5)\\ \\Rightarrow\\ M=(4,2)",
+        "porque": "Otro ejemplo de punto medio."
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "La recta",
+    "corto": "La recta",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Una recta se escribe con un punto y la pendiente."
+     },
+     {
+      "t": "pasos",
+      "items": [
+       {
+        "tex": "y-y_{1}=m\\,(x-x_{1})",
+        "porque": "La forma punto-pendiente."
+       },
+       {
+        "tex": "m=2,\\ (0,-3)\\ \\Rightarrow\\ y=2x-3",
+        "porque": "Un ejemplo."
+       },
+       {
+        "tex": "m_{1}=m_{2}\\ \\text{(paralelas)},\\qquad m_{1}m_{2}=-1\\ \\text{(perpendiculares)}",
+        "porque": "Rectas paralelas y perpendiculares."
+       }
+      ]
+     },
+     {
+      "t": "ojo",
+      "html": "Los lados opuestos de un paralelogramo son paralelos y tienen la misma pendiente."
+     }
+    ]
+   },
+   {
+    "titulo": "La circunferencia",
+    "corto": "Circunferencia",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Se completa el cuadrado para leer el centro y el radio."
+     },
+     {
+      "t": "pasos",
+      "items": [
+       {
+        "tex": "(x-h)^{2}+(y-k)^{2}=r^{2}",
+        "porque": "La ecuación con centro h, k y radio r."
+       },
+       {
+        "tex": "x^{2}+y^{2}-6x+8=0\\ \\Rightarrow\\ (x-3)^{2}+y^{2}=9-8=1",
+        "porque": "Se completa el cuadrado en x y se pasa la constante."
+       },
+       {
+        "tex": "\\text{centro}\\ (3,0),\\quad r=1",
+        "porque": "Se lee el centro y el radio."
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "¿Para qué sirve?",
+    "corto": "En ingeniería",
+    "bloques": [
+     {
+      "t": "ingenieria",
+      "titulo": "El avance de una fresadora",
+      "html": "Una fresadora de control numérico mueve el cabezal en línea recta entre dos puntos del plano. La distancia entre ellos define el tiempo de avance.",
+      "tex": "d=\\sqrt{\\Delta x^{2}+\\Delta y^{2}}",
+      "datos": [
+       {
+        "k": "De",
+        "v": "10, 20 mm"
+       },
+       {
+        "k": "A",
+        "v": "40, 60 mm"
+       },
+       {
+        "k": "Recorrido",
+        "v": "50 mm"
+       }
+      ],
+      "cierre": "El cabezal se mueve 30 milímetros en x y 40 en y, así que la distancia es la raíz de 900 más 1600, o sea 50 milímetros. Con una velocidad de avance de 25 milímetros por segundo, tarda 2 segundos. Es el tiempo de movimiento en línea recta, sin considerar aceleraciones al arrancar y frenar."
+     }
+    ]
+   },
+   {
+    "titulo": "Completa el paso",
+    "corto": "Completa",
+    "bloques": [
+     {
+      "t": "completar",
+      "enunciado": "Se completa el cuadrado de x al cuadrado más y al cuadrado menos 6x más 8.",
+      "tex": "(x-[[hueco]])^{2}+y^{2}=1",
+      "opciones": [
+       {
+        "tex": "3",
+        "txt": "tres"
+       },
+       {
+        "tex": "6",
+        "txt": "seis"
+       },
+       {
+        "tex": "-3",
+        "txt": "menos tres"
+       }
+      ],
+      "correcta": 0,
+      "errores": [
+       "",
+       "El número es la mitad del coeficiente de x, y no el coeficiente completo.",
+       "Con x más 3 el centro quedaría en menos 3, y el término de x sería positivo."
+      ],
+      "pista": "Es la mitad del coeficiente de x.",
+      "porque": "La mitad de 6 es 3, y el centro está en x igual a 3."
+     }
+    ]
+   },
+   {
+    "titulo": "Encuentra el error",
+    "corto": "Error",
+    "bloques": [
+     {
+      "t": "error",
+      "enunciado": "Alguien calculó la distancia entre 1 coma 1 y 4 coma 5 y se equivocó en un paso. Toca el paso que está mal.",
+      "pasos": [
+       {
+        "tex": "d=\\sqrt{(x_{2}-x_{1})^{2}+(y_{2}-y_{1})^{2}}",
+        "porque": "La fórmula.",
+        "txt": "la fórmula de la distancia"
+       },
+       {
+        "tex": "d=\\sqrt{3+4}",
+        "porque": "Este paso es el que falla.",
+        "txt": "queda la raíz de 3 más 4"
+       },
+       {
+        "tex": "d=\\sqrt{7}",
+        "porque": "El resultado.",
+        "txt": "la distancia es raíz de 7"
+       }
+      ],
+      "mal": 1,
+      "explicacion": "Cada diferencia se eleva al cuadrado antes de sumar. Es 3 al cuadrado más 4 al cuadrado, o sea 9 más 16, y la distancia es 5.",
+      "correccion": "d=\\sqrt{9+16}=5",
+      "pista": "Recuerda elevar al cuadrado cada diferencia."
+     }
+    ]
+   },
+   {
+    "titulo": "Ordena los pasos",
+    "corto": "Ordena",
+    "bloques": [
+     {
+      "t": "ordenar",
+      "enunciado": "Estos son los pasos para hallar la recta por 1 coma 2 y 3 coma 8, pero están desordenados.",
+      "pasos": [
+       "m=\\dfrac{8-2}{3-1}=3",
+       "y-2=3(x-1)",
+       "y=3x-3+2",
+       "y=3x-1"
+      ],
+      "mezcla": [
+       2,
+       0,
+       3,
+       1
+      ],
+      "porque": "Se calcula la pendiente, se usa la forma punto-pendiente y se despeja y.",
+      "pista": "Se empieza con la pendiente.",
+      "txt": [
+       "La pendiente",
+       "La forma punto-pendiente",
+       "Se distribuye",
+       "Se reducen términos"
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "Revisa tu respuesta",
+    "corto": "Revisa",
+    "bloques": [
+     {
+      "t": "pregunta"
+     },
+     {
+      "t": "nota",
+      "html": "Puedes pedir pistas de a una. Si fallas, el mensaje te dice qué error se cometió."
+     }
+    ]
+   },
+   {
+    "titulo": "Mini simulacro",
+    "corto": "Simulacro",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Tres preguntas reales del banco de MathUNAL sobre este tema. Responde sin mirar los pasos."
+     },
+     {
+      "t": "simulacro",
+      "titulo": "Mini simulacro de geometría analítica",
+      "preguntas": [
+       {
+        "tipo": "numerica",
+        "texto": "La distancia entre los puntos $(1,2)$ y $(4,6)$ es:",
+        "respuesta": "5",
+        "tolNum": 0.001,
+        "resumen": "Se calcula $\\sqrt{3^2+4^2}=\\sqrt{25}=5$.",
+        "fuente": "Banco MathUNAL, simulacro de Matemáticas Básicas"
+       },
+       {
+        "tipo": "mcq",
+        "texto": "El punto medio del segmento de extremos $(2,-1)$ y $(6,5)$ es:",
+        "opciones": [
+         "$(4,2)$",
+         "$(8,4)$",
+         "$(2,3)$",
+         "$(4,3)$"
+        ],
+        "correcta": 0,
+        "resumen": "El punto medio es el promedio, $\\left(\\tfrac{2+6}{2},\\tfrac{-1+5}{2}\\right)=(4,2)$.",
+        "fuente": "Banco MathUNAL, simulacro de Matemáticas Básicas"
+       },
+       {
+        "tipo": "numerica",
+        "texto": "El radio de la circunferencia $x^{2}+y^{2}-6x+8=0$ es:",
+        "respuesta": "1",
+        "tolNum": 0.001,
+        "resumen": "Se completa el cuadrado, $(x-3)^2+y^2=1$, y el radio es $1$.",
+        "fuente": "Banco MathUNAL, simulacro de Matemáticas Básicas"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "Tu repaso",
+    "corto": "Repaso",
+    "bloques": [
+     {
+      "t": "repaso"
+     }
+    ]
+   },
+   {
+    "titulo": "En resumen",
+    "corto": "Resumen",
+    "bloques": [
+     {
+      "t": "resumen"
+     }
+    ]
+   }
+  ]
+ },
+ "practicar": {
+  "pasos": [
+   {
+    "titulo": "El segmento",
+    "grafica": {
+     "draw": 1,
+     "guide": 1
+    },
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Un segmento y una circunferencia."
+     },
+     {
+      "t": "eq",
+      "tex": "A(1,1),\\ B(7,9)"
+     }
+    ]
+   },
+   {
+    "titulo": "Mueve el punto",
+    "grafica": {
+     "draw": 1,
+     "guide": 1
+    },
+    "laboratorio": true,
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mueve el deslizador. Abajo se lee la distancia recorrida desde A."
+     }
+    ]
+   },
+   {
+    "titulo": "El punto medio",
+    "grafica": {
+     "draw": 1,
+     "guide": 1,
+     "ok": true
+    },
+    "laboratorio": true,
+    "d": 0.5,
+    "bloques": [
+     {
+      "t": "eq",
+      "tex": "s=\\tfrac{1}{2}\\ \\Rightarrow\\ M=(4,5)"
+     },
+     {
+      "t": "p",
+      "html": "Con s igual a un medio, el punto está a 5 de cada extremo."
+     }
+    ]
+   },
+   {
+    "titulo": "Revisa tu respuesta",
+    "grafica": {
+     "draw": 1,
+     "guide": 1,
+     "ok": true,
+     "d": 0.5
+    },
+    "bloques": [
+     {
+      "t": "pregunta"
+     },
+     {
+      "t": "nota",
+      "html": "Eleva al cuadrado cada diferencia y suma."
+     }
+    ]
+   }
+  ]
+ },
+ "pregunta": {
+  "tex": "\\text{La distancia entre}\\ (-1,2)\\ \\text{y}\\ (4,14)\\ \\text{es}",
+  "opciones": [
+   "$13$",
+   "$17$",
+   "$7$",
+   "$169$"
+  ],
+  "correcta": 0,
+  "explicacion": "La diferencia de x es 5 y la de y es 12. Entonces la distancia es la raíz de 25 más 144, o sea la raíz de 169, que es 13.",
+  "verificacion": {
+   "formula": "sqrt((4+1)*(4+1)+(14-2)*(14-2))+0*x",
+   "a": 0,
+   "esperado": 13
+  },
+  "pistas": [
+   "Resta las x y resta las y.",
+   "Salen 5 y 12.",
+   "Eleva al cuadrado, suma y saca la raíz."
+  ],
+  "errores": [
+   "",
+   "Ese es 5 más 12. Hay que elevar al cuadrado, sumar y después sacar la raíz.",
+   "Ese es 12 menos 5. No es la fórmula de la distancia.",
+   "Ese valor es 25 más 144, y falta sacar la raíz."
+  ]
+ },
+ "resumen": [
+  "La distancia es la raíz de la suma de los cuadrados de las diferencias de x y de y.",
+  "El punto medio es el promedio de las coordenadas, y las rectas paralelas tienen la misma pendiente.",
+  "La circunferencia tiene la ecuación x menos h al cuadrado más y menos k al cuadrado igual a r al cuadrado, y se lee completando el cuadrado."
+ ]
+}

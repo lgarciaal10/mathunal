@@ -1,0 +1,158 @@
+{
+ "exam": [
+  {
+   "k": "calcdif_p1",
+   "i": 2,
+   "q": {
+    "tipo": "mcq",
+    "texto": "Si $f$ es diferenciable y $g(x)=x^2 f\\!\\left(\\dfrac{3}{x}\\right)$, entonces $g'(x)$ es:",
+    "opciones": [
+     "$2xf\\!\\left(\\dfrac{3}{x}\\right)+3f'\\!\\left(\\dfrac{3}{x}\\right)$",
+     "$2xf\\!\\left(\\dfrac{3}{x}\\right)-\\dfrac{3}{x}f'\\!\\left(\\dfrac{3}{x}\\right)$",
+     "$2xf\\!\\left(\\dfrac{3}{x}\\right)-3f'\\!\\left(\\dfrac{3}{x}\\right)$",
+     "$x^2f'\\!\\left(\\dfrac{3}{x}\\right)\\cdot\\dfrac{-3}{x^2}$"
+    ],
+    "correcta": 2,
+    "resumen": "Regla del producto + cadena. El término con $f'$ lleva $-3/x$ como derivada interna.",
+    "pasos": [
+     "Regla del producto: $g'(x)=2x\\,f\\!\\left(\\frac{3}{x}\\right)+x^2\\cdot\\frac{d}{dx}\\left[f\\!\\left(\\frac{3}{x}\\right)\\right]$",
+     "Cadena: $\\frac{d}{dx}\\left[f\\!\\left(\\frac{3}{x}\\right)\\right]=f'\\!\\left(\\frac{3}{x}\\right)\\cdot\\left(-\\frac{3}{x^2}\\right)$",
+     "$g'(x)=2xf\\!\\left(\\frac{3}{x}\\right)+x^2\\cdot f'\\!\\left(\\frac{3}{x}\\right)\\cdot\\left(-\\frac{3}{x^2}\\right)$",
+     "$g'(x)=\\boxed{2xf\\!\\left(\\frac{3}{x}\\right)-3f'\\!\\left(\\frac{3}{x}\\right)}$"
+    ],
+    "tema": "Regla de la cadena",
+    "corte": 2,
+    "freq": "alta",
+    "tipoError": "procedimiento",
+    "gemela": "calcdif_quiz3_1",
+    "_src": "calcdif_p1_2"
+   }
+  },
+  {
+   "k": "calcdif_p2",
+   "i": 3,
+   "q": {
+    "tipo": "mcq",
+    "texto": "Si $f(x)=\\arctan(\\sinh x)$, entonces $f'(x)=$",
+    "opciones": [
+     "$\\dfrac{\\cosh x}{1+\\sinh^2 x}$",
+     "$\\dfrac{1}{\\cosh x}$",
+     "$\\text{sech}\\,x$",
+     "Opciones B y C son iguales"
+    ],
+    "correcta": 3,
+    "resumen": "Las opciones B, C son iguales: $\\cosh^{-1}x=\\text{sech }x$ y $1/\\cosh x=\\text{sech }x$.",
+    "pasos": [
+     "$f'(x)=\\dfrac{1}{1+\\sinh^2 x}\\cdot\\cosh x=\\dfrac{\\cosh x}{1+\\sinh^2 x}$",
+     "Identidad hiperbólica: $1+\\sinh^2 x=\\cosh^2 x$",
+     "$f'(x)=\\dfrac{\\cosh x}{\\cosh^2 x}=\\dfrac{1}{\\cosh x}=\\text{sech }x$",
+     "Opciones B y C son idénticas: $\\boxed{\\text{sech }x}$"
+    ],
+    "tema": "Regla de la cadena",
+    "corte": 2,
+    "freq": "baja",
+    "tipoError": "formula",
+    "_src": "calcdif_p2_3"
+   }
+  },
+  {
+   "k": "calcdif_quiz3",
+   "i": 2,
+   "q": {
+    "tipo": "mcq",
+    "texto": "Sea $f(x)=\\arctan\\left(\\dfrac{2x}{1-x^2}\\right)$. Para $|x|<1$, $f'(x)=$",
+    "opciones": [
+     "$\\dfrac{2}{1+x^2}$",
+     "$\\dfrac{1}{1+x^2}$",
+     "$2\\arctan x$",
+     "$\\dfrac{1}{1-x^2}$"
+    ],
+    "correcta": 0,
+    "resumen": "Reconocemos que $f(x)=2\\arctan x$ por la identidad $\\tan(2\\alpha)=\\frac{2\\tan\\alpha}{1-\\tan^2\\alpha}$.",
+    "pasos": [
+     "Sea $x=\\tan\\alpha$ ($|\\alpha|<\\pi/4$). Entonces $\\frac{2x}{1-x^2}=\\frac{2\\tan\\alpha}{1-\\tan^2\\alpha}=\\tan(2\\alpha)$",
+     "$f(x)=\\arctan(\\tan 2\\alpha)=2\\alpha=2\\arctan x$",
+     "$f'(x)=[2\\arctan x]'=\\dfrac{2}{1+x^2}$"
+    ],
+    "tema": "Regla de la cadena",
+    "corte": 2,
+    "freq": "baja",
+    "tipoError": "conceptual",
+    "_src": "calcdif_quiz3_2"
+   }
+  },
+  {
+   "k": "calcdif_c2",
+   "i": 7,
+   "q": {
+    "tipo": "numerica",
+    "texto": "Halle la pendiente de la recta tangente a $f(x)=\\ln x$ en $x=\\tfrac12$.",
+    "respuesta": 2,
+    "tol": 0.001,
+    "tolParcial": 0.2,
+    "puntaje": 15,
+    "resumen": "La pendiente de la tangente es la derivada evaluada en el punto.",
+    "pasos": [
+     "$f'(x)=\\dfrac{1}{x}$",
+     "$f'\\!\\left(\\tfrac12\\right)=\\dfrac{1}{1/2}$",
+     "$=\\boxed{2}$"
+    ],
+    "tema": "Recta tangente y normal",
+    "corte": 2,
+    "freq": "media",
+    "tipoError": "formula",
+    "compruebalo": "tangente",
+    "_src": "calcdif_p2_6"
+   }
+  }
+ ],
+ "sim": [
+  {
+   "id": "cd_c2_01",
+   "c": 2,
+   "t": "Regla de la cadena",
+   "f": "alta",
+   "e": "procedimiento",
+   "tipo": "mcq",
+   "dif": 3,
+   "tEsp": 90,
+   "texto": "Si $y=\\sqrt{\\tan(3x)}$, entonces $\\dfrac{dy}{dx}=$",
+   "opciones": [
+    "$\\dfrac{3\\sec^2(3x)}{2\\sqrt{\\tan(3x)}}$",
+    "$\\dfrac{\\sec^2(3x)}{2\\sqrt{\\tan(3x)}}$",
+    "$\\dfrac{3\\sec^2(3x)}{\\sqrt{\\tan(3x)}}$",
+    "$\\dfrac{1}{2\\sqrt{\\tan(3x)}}$"
+   ],
+   "correcta": 0,
+   "resumen": "Cadena de tres capas: raíz, tangente y $3x$.",
+   "gem": "calcdif_p1_2",
+   "tema": "Regla de la cadena",
+   "corte": 2,
+   "freq": "alta",
+   "tipoError": "procedimiento",
+   "_src": "cd_c2_01",
+   "gemela": "calcdif_p1_2"
+  },
+  {
+   "id": "cd_c2_07",
+   "c": 2,
+   "t": "Regla de la cadena",
+   "f": "alta",
+   "e": "procedimiento",
+   "tipo": "numerica",
+   "dif": 2,
+   "tEsp": 40,
+   "texto": "Si $g(x)=(2x+1)^{4}$, el valor de $g'(0)$ es:",
+   "resumen": "$g'(x)=4(2x+1)^3\\cdot2$.",
+   "respuesta": "8",
+   "unidad": "",
+   "tolNum": 0.001,
+   "puntaje": 10,
+   "tema": "Regla de la cadena",
+   "corte": 2,
+   "freq": "alta",
+   "tipoError": "procedimiento",
+   "_src": "cd_c2_07"
+  }
+ ]
+}

@@ -1,0 +1,712 @@
+{
+ "esquema": 1,
+ "id": "alglin-m1-l1",
+ "ejemplo": true,
+ "curso": "Álgebra Lineal",
+ "modulo": "Módulo 1 Matrices, determinantes y sistemas",
+ "posicion": "Lección 1 de 4",
+ "titulo": "Matrices y operaciones",
+ "minutos": 26,
+ "ejercicios": 7,
+ "grafica": {
+  "tipo": "plano",
+  "x": [
+   -3.5,
+   9.33
+  ],
+  "y": [
+   -2,
+   5
+  ],
+  "a": -1,
+  "b": 1.5,
+  "inicio": 1,
+  "elementos": [
+   {
+    "t": "vector",
+    "b": [
+     "2",
+     "1"
+    ],
+    "nombre": "a1",
+    "c": 0
+   },
+   {
+    "t": "vector",
+    "a": [
+     "2",
+     "1"
+    ],
+    "b": [
+     "2+x",
+     "1+2*x"
+    ],
+    "nombre": "x2 por a2",
+    "c": 1
+   },
+   {
+    "t": "vector",
+    "b": [
+     "2+x",
+     "1+2*x"
+    ],
+    "nombre": "Ax",
+    "c": 2
+   },
+   {
+    "t": "vector",
+    "b": [
+     "1",
+     "2"
+    ],
+    "nombre": "a2",
+    "c": 3,
+    "guia": true
+   }
+  ],
+  "lecturas": [
+   {
+    "rotulo": "primera componente de Ax",
+    "formula": "2+x"
+   },
+   {
+    "rotulo": "segunda componente de Ax",
+    "formula": "1+2*x"
+   }
+  ],
+  "etiquetas": [
+   "Primera componente",
+   "Segunda componente"
+  ],
+  "etiquetaSlider": "Valor de x2",
+  "alt": "Las columnas a1 igual a (2, 1) y a2 igual a (1, 2) de una matriz, y el vector Ax que se obtiene sumando a1 con x2 veces a2"
+ },
+ "glosario": {
+  "matriz": "Una matriz es una tabla rectangular de números. Una matriz de m por n tiene m filas y n columnas.",
+  "columnas": "Las columnas de una matriz son sus listas verticales de números. Cada una se puede ver como un vector.",
+  "traspuesta": "La matriz traspuesta A con T se obtiene cambiando las filas por las columnas de A.",
+  "traza": "La traza de una matriz cuadrada es la suma de los números de su diagonal principal."
+ },
+ "ver": {
+  "duracion": 22.0,
+  "capitulos": [
+   [
+    0,
+    3,
+    "La matriz A tiene dos columnas, a1 igual a (2, 1) y a2 igual a (1, 2)."
+   ],
+   [
+    3,
+    6,
+    "Multiplicar A por el vector (1, x2) es combinar sus columnas, 1 por a1 más x2 por a2."
+   ],
+   [
+    6,
+    12,
+    "Al cambiar x2, la segunda flecha se alarga o se acorta y el resultado Ax se mueve."
+   ],
+   [
+    12,
+    17,
+    "Con x2 igual a 1, Ax es (3, 3), la suma de las dos columnas."
+   ],
+   [
+    17,
+    22,
+    "Con x2 igual a 0, el resultado es solo a1, o sea (2, 1)."
+   ]
+  ],
+  "canales": {
+   "draw": [
+    [
+     0.3,
+     0
+    ],
+    [
+     5.5,
+     1
+    ]
+   ],
+   "d": [
+    [
+     6,
+     0
+    ],
+    [
+     9,
+     1.5
+    ],
+    [
+     11,
+     -0.5
+    ],
+    [
+     12,
+     1
+    ],
+    [
+     16,
+     1
+    ],
+    [
+     17,
+     0
+    ],
+    [
+     22,
+     0
+    ]
+   ],
+   "guide": [
+    [
+     3,
+     0
+    ],
+    [
+     4,
+     1
+    ]
+   ]
+  },
+  "intervalos": {
+   "ok": [
+    17,
+    22
+   ]
+  }
+ },
+ "leer": {
+  "secciones": [
+   {
+    "titulo": "La idea",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Una {{gl:matriz|matriz}} es una tabla de números que representa muchas cosas, como un sistema de ecuaciones, un cambio de coordenadas o una transformación. Lo más importante es entender cómo se multiplican, porque ese producto describe cómo se combinan los efectos."
+     }
+    ]
+   },
+   {
+    "titulo": "Un ejemplo",
+    "corto": "Un ejemplo",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mira la matriz A cuyas {{gl:columnas|columnas}} son los vectores a1 igual a (2, 1) y a2 igual a (1, 2). Se multiplica por el vector (1, x2)."
+     },
+     {
+      "t": "eq",
+      "tex": "A\\begin{pmatrix}1\\\\x_{2}\\end{pmatrix}=\\begin{pmatrix}2&1\\\\1&2\\end{pmatrix}\\begin{pmatrix}1\\\\x_{2}\\end{pmatrix}=1\\cdot a_{1}+x_{2}\\cdot a_{2}"
+     },
+     {
+      "t": "grafica",
+      "animar": "dibujar",
+      "alt": "Las columnas de la matriz y el vector resultado"
+     }
+    ]
+   },
+   {
+    "titulo": "Piensa antes de ver",
+    "corto": "Piensa",
+    "bloques": [
+     {
+      "t": "piensa",
+      "pregunta": "Cuando x2 vale 1, el resultado es 1 por a1 más 1 por a2. ¿Cuánto vale su primera componente?",
+      "opciones": [
+       2,
+       3,
+       4,
+       5
+      ],
+      "correcta": 3,
+      "bien": "Muy bien. Es 2 más 1, o sea 3. Más abajo se ve el vector resultado.",
+      "mal": "Es 2 más 1, o sea 3, porque a1 aporta 2 y a2 aporta 1. Más abajo se ve el vector resultado."
+     }
+    ]
+   },
+   {
+    "titulo": "Combinando columnas",
+    "corto": "Combinando",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mira cómo se mueve el resultado al cambiar x2."
+     },
+     {
+      "t": "acercando",
+      "ds": [
+       -0.5,
+       0,
+       1,
+       1.5
+      ],
+      "alt": "El vector resultado cuando cambia x2"
+     },
+     {
+      "t": "p",
+      "html": "El producto de una matriz por un vector siempre es una combinación de sus columnas, con los números del vector como pesos."
+     }
+    ]
+   },
+   {
+    "titulo": "Tamaños y entradas",
+    "corto": "Tamaño",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Una matriz de m por n tiene m filas y n columnas. Su entrada de la fila i y la columna j se escribe a con subíndices i y j."
+     },
+     {
+      "t": "pasos",
+      "items": [
+       {
+        "tex": "A=\\begin{pmatrix}2&1\\\\1&2\\end{pmatrix}\\ \\text{es de 2 por 2}",
+        "porque": "Tiene 2 filas y 2 columnas."
+       },
+       {
+        "tex": "A=\\begin{pmatrix}1&0&3\\\\2&1&0\\end{pmatrix}\\ \\text{es de 2 por 3}",
+        "porque": "Tiene 2 filas y 3 columnas."
+       },
+       {
+        "tex": "a_{12}=0",
+        "porque": "La entrada de la fila 1 y la columna 2 de esta última vale 0."
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "Suma y multiplicación por un número",
+    "corto": "Suma",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Se suman las matrices del mismo tamaño entrada por entrada, y un número multiplica todas las entradas."
+     },
+     {
+      "t": "pasos",
+      "items": [
+       {
+        "tex": "\\begin{pmatrix}1&2\\\\3&4\\end{pmatrix}+\\begin{pmatrix}0&1\\\\1&0\\end{pmatrix}=\\begin{pmatrix}1&3\\\\4&4\\end{pmatrix}",
+        "porque": "Se suman las entradas que están en la misma posición."
+       },
+       {
+        "tex": "3\\begin{pmatrix}1&2\\\\3&4\\end{pmatrix}=\\begin{pmatrix}3&6\\\\9&12\\end{pmatrix}",
+        "porque": "El número multiplica cada entrada."
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "Producto de matrices",
+    "corto": "Producto",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Cada entrada del producto AB es la fila de A por la columna de B, multiplicando y sumando. Para que se pueda, las columnas de A deben ser tantas como las filas de B."
+     },
+     {
+      "t": "pasos",
+      "items": [
+       {
+        "tex": "A=\\begin{pmatrix}1&0\\\\2&1\\end{pmatrix},\\quad B=\\begin{pmatrix}3&1\\\\0&2\\end{pmatrix}",
+        "porque": "Son dos matrices de 2 por 2."
+       },
+       {
+        "tex": "AB=\\begin{pmatrix}1\\cdot 3+0\\cdot 0&1\\cdot 1+0\\cdot 2\\\\2\\cdot 3+1\\cdot 0&2\\cdot 1+1\\cdot 2\\end{pmatrix}=\\begin{pmatrix}3&1\\\\6&4\\end{pmatrix}",
+        "porque": "Cada entrada es fila por columna."
+       },
+       {
+        "tex": "BA=\\begin{pmatrix}5&1\\\\4&2\\end{pmatrix}",
+        "porque": "Al multiplicar en el otro orden sale otra matriz."
+       }
+      ]
+     },
+     {
+      "t": "ojo",
+      "html": "El producto de matrices no es conmutativo. En general AB y BA son distintos, y a veces uno de los dos ni siquiera se puede hacer."
+     }
+    ]
+   },
+   {
+    "titulo": "Traspuesta y traza",
+    "corto": "Traspuesta",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "La {{gl:traspuesta|traspuesta}} cambia filas por columnas. La {{gl:traza|traza}} suma la diagonal."
+     },
+     {
+      "t": "pasos",
+      "items": [
+       {
+        "tex": "\\left(\\begin{pmatrix}3&1\\\\6&4\\end{pmatrix}\\right)^{T}=\\begin{pmatrix}3&6\\\\1&4\\end{pmatrix}",
+        "porque": "Las filas pasan a ser columnas."
+       },
+       {
+        "tex": "(AB)^{T}=B^{T}A^{T}",
+        "porque": "La traspuesta de un producto es el producto de las traspuestas en orden contrario."
+       },
+       {
+        "tex": "\\operatorname{tr}\\begin{pmatrix}4&1\\\\2&6\\end{pmatrix}=4+6=10",
+        "porque": "La traza es la suma de la diagonal principal."
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "La inversa de una matriz de 2 por 2",
+    "corto": "La inversa",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "La inversa de A es la matriz que, multiplicada por A, da la identidad. Para 2 por 2 hay una fórmula."
+     },
+     {
+      "t": "eq",
+      "tex": "A=\\begin{pmatrix}a&b\\\\c&d\\end{pmatrix}\\ \\Rightarrow\\ A^{-1}=\\dfrac{1}{ad-bc}\\begin{pmatrix}d&-b\\\\-c&a\\end{pmatrix}"
+     },
+     {
+      "t": "pasos",
+      "items": [
+       {
+        "tex": "A=\\begin{pmatrix}2&1\\\\1&1\\end{pmatrix},\\quad ad-bc=2-1=1",
+        "porque": "El determinante no es cero, así que existe la inversa."
+       },
+       {
+        "tex": "A^{-1}=\\begin{pmatrix}1&-1\\\\-1&2\\end{pmatrix}",
+        "porque": "Se intercambian los de la diagonal y se cambia el signo de los otros dos."
+       },
+       {
+        "tex": "AA^{-1}=\\begin{pmatrix}1&0\\\\0&1\\end{pmatrix}",
+        "porque": "Se comprueba multiplicando."
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "¿Para qué sirve?",
+    "corto": "En ingeniería",
+    "bloques": [
+     {
+      "t": "ingenieria",
+      "titulo": "Una fuerza en ejes inclinados",
+      "html": "En mecánica, una fuerza se descompone en ejes distintos al girar el sistema de referencia. Ese cambio se hace con una matriz de rotación, y la fuerza nueva es el producto de la matriz por el vector de la fuerza.",
+      "tex": "F'=R\\,F=\\begin{pmatrix}\\cos\\theta&-\\operatorname{sen}\\theta\\\\ \\operatorname{sen}\\theta&\\cos\\theta\\end{pmatrix}\\begin{pmatrix}100\\\\0\\end{pmatrix}",
+      "datos": [
+       {
+        "k": "Fuerza",
+        "v": "100 N sobre el eje x"
+       },
+       {
+        "k": "Giro",
+        "v": "30 grados"
+       },
+       {
+        "k": "Componentes",
+        "v": "86.6 N y 50 N"
+       }
+      ],
+      "cierre": "El producto da 100 por el coseno de 30 grados y 100 por el seno de 30 grados, o sea 86.6 newtons y 50 newtons. La longitud de la fuerza no cambia, porque una rotación solo gira los vectores. Es un modelo simplificado, porque solo trata fuerzas en el plano."
+     }
+    ]
+   },
+   {
+    "titulo": "Completa el paso",
+    "corto": "Completa",
+    "bloques": [
+     {
+      "t": "completar",
+      "enunciado": "Se calcula la entrada de la fila 2 y la columna 2 del producto AB con A de filas (1, 0) y (2, 1), y B de filas (3, 1) y (0, 2). Se toma la fila 2 de A y la columna 2 de B.",
+      "tex": "(AB)_{22}=2\\cdot 1+1\\cdot 2=[[hueco]]",
+      "opciones": [
+       {
+        "tex": "4",
+        "txt": "cuatro"
+       },
+       {
+        "tex": "2",
+        "txt": "dos"
+       },
+       {
+        "tex": "5",
+        "txt": "cinco"
+       }
+      ],
+      "correcta": 0,
+      "errores": [
+       "",
+       "Falta sumar. 2 por 1 es 2 y 1 por 2 es 2, y la suma es 4.",
+       "Revisa la cuenta. 2 por 1 es 2 y 1 por 2 es 2, y la suma es 4."
+      ],
+      "pista": "Multiplica y luego suma los dos productos.",
+      "porque": "2 por 1 es 2 y 1 por 2 es 2. La suma es 4."
+     }
+    ]
+   },
+   {
+    "titulo": "Encuentra el error",
+    "corto": "Error",
+    "bloques": [
+     {
+      "t": "error",
+      "enunciado": "Alguien comparó AB con BA y se equivocó en un paso. Toca el paso que está mal.",
+      "pasos": [
+       {
+        "tex": "AB=\\begin{pmatrix}3&1\\\\6&4\\end{pmatrix}",
+        "porque": "Es el producto de A por B, y está bien.",
+        "txt": "A B es 3 1, 6 4"
+       },
+       {
+        "tex": "\\text{Como el producto de números es conmutativo, }BA=AB",
+        "porque": "Este paso es el que falla.",
+        "txt": "Como el producto de números es conmutativo, B A es igual a A B"
+       },
+       {
+        "tex": "\\text{Por tanto}\\ BA=\\begin{pmatrix}3&1\\\\6&4\\end{pmatrix}",
+        "porque": "Depende del paso anterior.",
+        "txt": "Por tanto B A es 3 1, 6 4"
+       }
+      ],
+      "mal": 1,
+      "explicacion": "El producto de matrices no es conmutativo. Al calcularlo, BA da la de filas (5, 1) y (4, 2), que es distinta de AB.",
+      "correccion": "BA=\\begin{pmatrix}5&1\\\\4&2\\end{pmatrix}\\ne AB",
+      "pista": "Calcula BA con la regla de fila por columna y compárala."
+     }
+    ]
+   },
+   {
+    "titulo": "Ordena los pasos",
+    "corto": "Ordena",
+    "bloques": [
+     {
+      "t": "ordenar",
+      "enunciado": "Estos son los pasos para hallar la inversa de A con filas (2, 1) y (1, 1) y comprobarla, pero están desordenados.",
+      "pasos": [
+       "\\det A=2\\cdot 1-1\\cdot 1=1",
+       "A^{-1}=\\dfrac{1}{1}\\begin{pmatrix}1&-1\\\\-1&2\\end{pmatrix}",
+       "AA^{-1}=\\begin{pmatrix}2-1&-2+2\\\\1-1&-1+2\\end{pmatrix}",
+       "=\\begin{pmatrix}1&0\\\\0&1\\end{pmatrix}"
+      ],
+      "mezcla": [
+       2,
+       0,
+       3,
+       1
+      ],
+      "porque": "Se calcula el determinante, se aplica la fórmula, se multiplica por A y debe salir la identidad.",
+      "pista": "Primero se necesita el determinante.",
+      "txt": [
+       "El determinante es 1",
+       "Se aplica la fórmula de la inversa",
+       "Se multiplica A por la inversa",
+       "Sale la identidad"
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "Revisa tu respuesta",
+    "corto": "Revisa",
+    "bloques": [
+     {
+      "t": "pregunta"
+     },
+     {
+      "t": "nota",
+      "html": "Puedes pedir pistas de a una. Si fallas, el mensaje te dice qué error se cometió."
+     }
+    ]
+   },
+   {
+    "titulo": "Mini simulacro",
+    "corto": "Simulacro",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Tres preguntas reales del banco de MathUNAL sobre este tema. Responde sin mirar los pasos."
+     },
+     {
+      "t": "simulacro",
+      "titulo": "Mini simulacro de matrices",
+      "preguntas": [
+       {
+        "tipo": "mcq",
+        "texto": "El producto $\\begin{pmatrix}1&2\\\\3&4\\end{pmatrix}\\begin{pmatrix}0&1\\\\1&0\\end{pmatrix}$ es:",
+        "opciones": [
+         "$\\begin{pmatrix}2&1\\\\4&3\\end{pmatrix}$",
+         "$\\begin{pmatrix}1&2\\\\3&4\\end{pmatrix}$",
+         "$\\begin{pmatrix}0&2\\\\3&0\\end{pmatrix}$",
+         "$\\begin{pmatrix}3&4\\\\1&2\\end{pmatrix}$"
+        ],
+        "correcta": 0,
+        "resumen": "Es el producto de $A$ por una matriz que intercambia columnas, así que intercambia las columnas de $A$.",
+        "fuente": "Banco MathUNAL, simulacro de Álgebra Lineal"
+       },
+       {
+        "tipo": "mcq",
+        "texto": "$(AB)^{T}$ es igual a:",
+        "opciones": [
+         "$B^{T}A^{T}$",
+         "$A^{T}B^{T}$",
+         "$(BA)^{T}$",
+         "$AB$"
+        ],
+        "correcta": 0,
+        "resumen": "La traspuesta de un producto es el producto de las traspuestas en orden contrario.",
+        "fuente": "Banco MathUNAL, simulacro de Álgebra Lineal"
+       },
+       {
+        "tipo": "numerica",
+        "texto": "La traza de $\\begin{pmatrix}2&5\\\\1&7\\end{pmatrix}$ es:",
+        "respuesta": "9",
+        "tolNum": 0.001,
+        "resumen": "La traza es la suma de la diagonal, $2+7=9$.",
+        "fuente": "Banco MathUNAL, simulacro de Álgebra Lineal"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "Tu repaso",
+    "corto": "Repaso",
+    "bloques": [
+     {
+      "t": "repaso"
+     }
+    ]
+   },
+   {
+    "titulo": "En resumen",
+    "corto": "Resumen",
+    "bloques": [
+     {
+      "t": "resumen"
+     }
+    ]
+   }
+  ]
+ },
+ "practicar": {
+  "pasos": [
+   {
+    "titulo": "Las columnas",
+    "grafica": {
+     "draw": 1
+    },
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Estas son las columnas de la matriz y el resultado de multiplicarla por un vector."
+     },
+     {
+      "t": "eq",
+      "tex": "Ax=1\\cdot a_{1}+x_{2}\\cdot a_{2}"
+     }
+    ]
+   },
+   {
+    "titulo": "Cambia x2",
+    "grafica": {
+     "draw": 1
+    },
+    "laboratorio": true,
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mueve el deslizador. La segunda flecha se estira y el resultado Ax cambia. Abajo se ven sus dos componentes."
+     }
+    ]
+   },
+   {
+    "titulo": "Suma de columnas",
+    "grafica": {
+     "draw": 1,
+     "guide": 1
+    },
+    "laboratorio": true,
+    "d": 1,
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Con x2 igual a 1, el resultado es a1 más a2, o sea (3, 3)."
+     }
+    ]
+   },
+   {
+    "titulo": "Resultado",
+    "grafica": {
+     "draw": 1,
+     "guide": 1,
+     "ok": true
+    },
+    "laboratorio": true,
+    "d": 0,
+    "bloques": [
+     {
+      "t": "eq",
+      "tex": "\\begin{pmatrix}2&1\\\\1&2\\end{pmatrix}\\begin{pmatrix}1\\\\0\\end{pmatrix}=\\begin{pmatrix}2\\\\1\\end{pmatrix}"
+     },
+     {
+      "t": "p",
+      "html": "Con x2 igual a 0 el vector solo toma la primera columna."
+     }
+    ]
+   },
+   {
+    "titulo": "Revisa tu respuesta",
+    "grafica": {
+     "draw": 1,
+     "guide": 1,
+     "ok": true,
+     "d": 0
+    },
+    "bloques": [
+     {
+      "t": "pregunta"
+     },
+     {
+      "t": "nota",
+      "html": "Multiplica fila por columna y suma."
+     }
+    ]
+   }
+  ]
+ },
+ "pregunta": {
+  "tex": "\\operatorname{tr}(AB)\\ \\text{con}\\ A=\\begin{pmatrix}1&2\\\\0&1\\end{pmatrix},\\ B=\\begin{pmatrix}1&0\\\\3&1\\end{pmatrix}",
+  "opciones": [
+   "$8$",
+   "$4$",
+   "$10$",
+   "$7$"
+  ],
+  "correcta": 0,
+  "explicacion": "El producto AB es la matriz de filas (7, 2) y (3, 1), porque la primera entrada es 1 por 1 más 2 por 3. Su traza es la suma de la diagonal, 7 más 1, o sea 8.",
+  "verificacion": {
+   "formula": "((1*1+2*3)+(0*0+1*1))+0*x",
+   "a": 0,
+   "esperado": 8
+  },
+  "pistas": [
+   "Primero calcula el producto AB con fila por columna.",
+   "La primera entrada es 1 por 1 más 2 por 3, y la última es 0 por 0 más 1 por 1.",
+   "La traza es la suma de las dos entradas de la diagonal del producto."
+  ],
+  "errores": [
+   "",
+   "Se multiplicaron las trazas de A y de B, que son 2 y 2. La traza del producto no es el producto de las trazas.",
+   "Revisa el producto. La entrada (1, 1) es 7 y la (2, 2) es 1.",
+   "Es solo la primera entrada de la diagonal del producto. Falta sumar la segunda, que es 1."
+  ]
+ },
+ "resumen": [
+  "Un producto de matriz por vector es una combinación de las columnas de la matriz.",
+  "En el producto AB, cada entrada es una fila de A por una columna de B. No es conmutativo.",
+  "La traspuesta de un producto invierte el orden. La traza suma la diagonal. La inversa 2 por 2 usa el determinante."
+ ]
+}

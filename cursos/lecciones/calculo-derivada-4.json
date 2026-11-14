@@ -1,0 +1,570 @@
+{
+ "esquema": 1,
+ "id": "calculo-m2-l4",
+ "ejemplo": true,
+ "curso": "Cálculo",
+ "modulo": "Módulo 2 La derivada",
+ "posicion": "Lección 4 de 10",
+ "titulo": "Derivación implícita",
+ "minutos": 22,
+ "ejercicios": 4,
+ "grafica": {
+  "tipo": "secante",
+  "x": [
+   -1,
+   5
+  ],
+  "y": [
+   0,
+   6
+  ],
+  "funcion": "sqrt(25-x*x)",
+  "a": 3,
+  "derivada": "-x/sqrt(25-x*x)",
+  "limite": -0.75,
+  "etiquetas": [
+   "Distancia h",
+   "Pendiente de la secante"
+  ],
+  "etiquetaSlider": "Valor de h",
+  "alt": "Arco superior del círculo de radio 5 con una secante que se acerca a la tangente en el punto 3, 4",
+  "zoom": {
+   "factor": 70
+  }
+ },
+ "glosario": {
+  "impl": "Una relación implícita tiene la y mezclada con la x, como x al cuadrado más y al cuadrado igual a 25, sin despejar la y.",
+  "tangente": "La recta tangente toca la curva en un punto y tiene la misma inclinación que la curva ahí.",
+  "pend": "La pendiente dice cuánto sube la recta por cada unidad que avanza hacia la derecha.",
+  "dydx": "dy sobre dx se lee derivada de y respecto a x y mide cuánto cambia y cuando x cambia."
+ },
+ "ver": {
+  "duracion": 23.0,
+  "capitulos": [
+   [
+    0,
+    2.5,
+    "Este es el arco superior del círculo x al cuadrado más y al cuadrado igual a 25."
+   ],
+   [
+    2.5,
+    4.5,
+    "Miremos su inclinación en el punto (3, 4)."
+   ],
+   [
+    4.5,
+    8,
+    "Se traza la secante con un segundo punto a distancia h."
+   ],
+   [
+    8,
+    12.5,
+    "Mientras h se achica, la pendiente de la secante cambia."
+   ],
+   [
+    12.5,
+    15.8,
+    "La secante se vuelve la tangente y su pendiente se acerca a menos 0.75."
+   ],
+   [
+    15.8,
+    19.8,
+    "De cerca, la curva casi se ve como una recta, y esa recta es la tangente."
+   ],
+   [
+    19.8,
+    23.0,
+    "Derivando de forma implícita sale menos x sobre y, que en (3, 4) vale menos 3 sobre 4."
+   ]
+  ],
+  "canales": {
+   "draw": [
+    [
+     0.3,
+     0
+    ],
+    [
+     2.4,
+     1
+    ]
+   ],
+   "hole": [
+    [
+     2.5,
+     0
+    ],
+    [
+     3.2,
+     1
+    ]
+   ],
+   "d": [
+    [
+     4.5,
+     1
+    ],
+    [
+     6,
+     0.5
+    ],
+    [
+     8,
+     0.5
+    ],
+    [
+     9.5,
+     0.1
+    ],
+    [
+     11,
+     0.1
+    ],
+    [
+     12.5,
+     0.01
+    ]
+   ],
+   "guide": [
+    [
+     12.5,
+     0
+    ],
+    [
+     13.5,
+     1
+    ]
+   ],
+   "zoom": [
+    [
+     15.8,
+     0
+    ],
+    [
+     18.3,
+     1
+    ],
+    [
+     19.0,
+     1
+    ],
+    [
+     19.8,
+     0
+    ]
+   ]
+  },
+  "intervalos": {
+   "ok": [
+    19.8,
+    23.0
+   ]
+  }
+ },
+ "leer": {
+  "secciones": [
+   {
+    "titulo": "La idea",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "A veces la curva viene como una {{gl:impl|relación implícita}}, con la y mezclada con la x, y despejar la y es difícil o imposible. La derivación implícita permite hallar la pendiente sin despejar."
+     }
+    ]
+   },
+   {
+    "titulo": "Un ejemplo",
+    "corto": "Un ejemplo",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Este es un círculo de radio 5. En la gráfica se ve su mitad de arriba y el punto (3, 4)."
+     },
+     {
+      "t": "eq",
+      "tex": "x^{2}+y^{2}=25"
+     },
+     {
+      "t": "grafica",
+      "animar": "dibujar",
+      "alt": "Arco superior del círculo que se dibuja y marca el punto 3, 4"
+     }
+    ]
+   },
+   {
+    "titulo": "Piensa antes de ver",
+    "corto": "Piensa",
+    "bloques": [
+     {
+      "t": "piensa",
+      "pregunta": "En el punto (3, 4) la curva baja hacia la derecha. ¿A qué número crees que se acerca la pendiente de la secante?",
+      "opciones": [
+       -1,
+       -0.75,
+       -0.5,
+       0.75
+      ],
+      "correcta": -0.75,
+      "bien": "Muy bien. Se acerca a menos 0.75 y más abajo se ve por qué.",
+      "mal": "El número es menos 0.75 y más abajo se ve por qué."
+     }
+    ]
+   },
+   {
+    "titulo": "Acercando el segundo punto",
+    "corto": "Acercándose",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mira cómo cambia la pendiente de la secante al achicar h."
+     },
+     {
+      "t": "acercando",
+      "ds": [
+       1,
+       0.5,
+       0.1,
+       0.01
+      ],
+      "alt": "Una secante que gira hasta parecerse a la tangente"
+     },
+     {
+      "t": "p",
+      "html": "La pendiente se acerca a <b>−0.75</b>, que es −3 sobre 4. Al terminar, la gráfica hace zoom para que veas el detalle."
+     }
+    ]
+   },
+   {
+    "titulo": "Derivar sin despejar",
+    "corto": "Sin despejar",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Se deriva cada término respecto a x. Como y depende de x, cada vez que aparece y se usa la regla de la cadena y se multiplica por {{gl:dydx|dy sobre dx}}."
+     },
+     {
+      "t": "pasos",
+      "items": [
+       {
+        "tex": "x^{2}+y^{2}=25",
+        "porque": "Se parte de la ecuación del círculo."
+       },
+       {
+        "tex": "2x+2y\\,\\dfrac{dy}{dx}=0",
+        "porque": "La derivada de x al cuadrado es 2x. Para y al cuadrado sale 2y por dy sobre dx, por la regla de la cadena. El 25 es constante y da 0."
+       },
+       {
+        "tex": "\\dfrac{dy}{dx}=-\\dfrac{x}{y}",
+        "porque": "Se despeja dy sobre dx."
+       },
+       {
+        "tex": "\\dfrac{dy}{dx}\\Big|_{(3,4)}=-\\dfrac{3}{4}",
+        "porque": "Se evalúa en x igual a 3 y y igual a 4, y sale lo mismo que midió la secante."
+       }
+      ]
+     },
+     {
+      "t": "ojo",
+      "html": "No olvides multiplicar por dy sobre dx cada vez que derives un término con y. Es el error más común."
+     }
+    ]
+   },
+   {
+    "titulo": "Con producto",
+    "corto": "Con producto",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Si aparece x por y, se usa también la regla del producto."
+     },
+     {
+      "t": "eq",
+      "tex": "x^{2}+xy+y^{2}=7"
+     },
+     {
+      "t": "pasos",
+      "items": [
+       {
+        "tex": "2x+\\left(y+x\\,\\dfrac{dy}{dx}\\right)+2y\\,\\dfrac{dy}{dx}=0",
+        "porque": "El término xy se deriva con la regla del producto."
+       },
+       {
+        "tex": "\\dfrac{dy}{dx}\\,(x+2y)=-(2x+y)",
+        "porque": "Se agrupan los términos con dy sobre dx."
+       },
+       {
+        "tex": "\\dfrac{dy}{dx}=-\\dfrac{2x+y}{x+2y}",
+        "porque": "Se despeja dy sobre dx."
+       },
+       {
+        "tex": "\\dfrac{dy}{dx}\\Big|_{(1,2)}=-\\dfrac{4}{5}",
+        "porque": "El punto (1, 2) está en la curva porque 1 más 2 más 4 es 7."
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "¿Para qué sirve?",
+    "corto": "En ingeniería",
+    "bloques": [
+     {
+      "t": "ingenieria",
+      "titulo": "El proceso adiabático del aire",
+      "html": "En una compresión rápida de un gas, sin intercambio de calor, la presión y el volumen cumplen P por V elevado a 1.4. Como P no está despejada, se deriva de forma implícita para saber cuánto cambia la presión cuando cambia el volumen.",
+      "tex": "P\\,V^{1.4}=\\text{constante}\\ \\Rightarrow\\ \\dfrac{dP}{dV}=-1.4\\,\\dfrac{P}{V}",
+      "datos": [
+       {
+        "k": "Presión",
+        "v": "100 kPa"
+       },
+       {
+        "k": "Volumen",
+        "v": "0.02 m³"
+       },
+       {
+        "k": "dP/dV",
+        "v": "−7·10⁶ Pa por m³"
+       }
+      ],
+      "cierre": "El signo negativo dice que al comprimir el gas la presión sube. El 1.4 es el exponente del aire, y el modelo supone un gas ideal."
+     }
+    ]
+   },
+   {
+    "titulo": "Revisa tu respuesta",
+    "corto": "Revisa",
+    "bloques": [
+     {
+      "t": "pregunta"
+     },
+     {
+      "t": "nota",
+      "html": "Deriva cada término, agrupa los dy sobre dx y despeja."
+     }
+    ]
+   },
+   {
+    "titulo": "Mini simulacro",
+    "corto": "Simulacro",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Tres preguntas reales del banco de MathUNAL sobre este tema. Responde sin mirar los pasos."
+     },
+     {
+      "t": "simulacro",
+      "titulo": "Mini simulacro",
+      "preguntas": [
+       {
+        "texto": "Sea $y=f(x)$ definida implícitamente por $e^y+xy=e$. Entonces $y'(0)=$",
+        "resumen": "Si $x=0$ queda $e^y=e$, o sea $y=1$. Al derivar sale $e^y y'+y+xy'=0$. En $x=0$ y $y=1$ queda $e\\,y'+1=0$, y entonces $y'=-\\frac{1}{e}$.",
+        "fuente": "Banco MathUNAL, Parcial 2, 2025-1",
+        "tipo": "mcq",
+        "opciones": [
+         "$-\\dfrac{1}{e}$",
+         "$0$",
+         "$\\dfrac{1}{e}$",
+         "$-e$"
+        ],
+        "correcta": 0
+       },
+       {
+        "texto": "Si $x^2y+y^3=10$, entonces $\\dfrac{dy}{dx}$ en el punto $(1,2)$ es:",
+        "resumen": "Se deriva con la regla del producto y la cadena, $2xy+x^2y'+3y^2y'=0$. En $(1,2)$ queda $4+13y'=0$, y entonces $y'=-\\frac{4}{13}$.",
+        "fuente": "Banco MathUNAL, Quiz 3, 2025-2",
+        "tipo": "mcq",
+        "opciones": [
+         "$-\\dfrac{4}{13}$",
+         "$\\dfrac{4}{13}$",
+         "$-\\dfrac{4}{5}$",
+         "$-\\dfrac{13}{4}$"
+        ],
+        "correcta": 0
+       },
+       {
+        "texto": "Si $x^2+y^2=25$, entonces $\\dfrac{d^2y}{dx^2}$ en el punto $(3,4)$ es:",
+        "resumen": "Primero $y'=-\\frac{x}{y}$. Al derivar otra vez con el cociente y la cadena sale $y''=-\\frac{y^2+x^2}{y^3}=-\\frac{25}{y^3}$. En $(3,4)$ vale $-\\frac{25}{64}$.",
+        "fuente": "Banco MathUNAL, simulacro de Cálculo Diferencial",
+        "tipo": "mcq",
+        "opciones": [
+         "$-\\dfrac{25}{64}$",
+         "$-\\dfrac{3}{4}$",
+         "$\\dfrac{25}{64}$",
+         "$-\\dfrac{7}{16}$"
+        ],
+        "correcta": 0
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "Tu repaso",
+    "corto": "Repaso",
+    "bloques": [
+     {
+      "t": "repaso"
+     }
+    ]
+   },
+   {
+    "titulo": "En resumen",
+    "corto": "Resumen",
+    "bloques": [
+     {
+      "t": "resumen"
+     }
+    ]
+   }
+  ]
+ },
+ "practicar": {
+  "pasos": [
+   {
+    "titulo": "La curva",
+    "grafica": {
+     "draw": 1
+    },
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Este es el arco superior de un círculo de radio 5."
+     },
+     {
+      "t": "eq",
+      "tex": "x^{2}+y^{2}=25"
+     }
+    ]
+   },
+   {
+    "titulo": "El punto",
+    "grafica": {
+     "draw": 1,
+     "hole": 1
+    },
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Se quiere la pendiente de la curva en el punto (3, 4)."
+     }
+    ]
+   },
+   {
+    "titulo": "Acerca el segundo punto",
+    "grafica": {
+     "draw": 1,
+     "hole": 1
+    },
+    "laboratorio": true,
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mueve el deslizador de h. La secante gira y abajo se ve su pendiente."
+     }
+    ]
+   },
+   {
+    "titulo": "La tangente",
+    "grafica": {
+     "draw": 1,
+     "hole": 1,
+     "guide": 1
+    },
+    "laboratorio": true,
+    "d": 0.01,
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Con h muy pequeño la pendiente se acerca a menos 0.75."
+     }
+    ]
+   },
+   {
+    "titulo": "Sin despejar",
+    "grafica": {
+     "draw": 1,
+     "hole": 1,
+     "guide": 1,
+     "ok": true
+    },
+    "bloques": [
+     {
+      "t": "eq",
+      "tex": "2x+2y\\,y'=0\\ \\Rightarrow\\ y'=-\\dfrac{x}{y}"
+     },
+     {
+      "t": "p",
+      "html": "En (3, 4) vale menos 3 sobre 4, justo lo que midió la secante."
+     }
+    ]
+   },
+   {
+    "titulo": "Mira de cerca",
+    "grafica": {
+     "draw": 1,
+     "hole": 1,
+     "guide": 1,
+     "zoom": 1
+    },
+    "laboratorio": true,
+    "d": 0.01,
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Ahora la gráfica está con zoom. De cerca, la curva casi se ve como una recta y la secante se pega a la tangente. Mueve h para comprobarlo."
+     }
+    ]
+   },
+   {
+    "titulo": "Revisa tu respuesta",
+    "grafica": {
+     "draw": 1,
+     "hole": 1,
+     "guide": 1,
+     "ok": true
+    },
+    "bloques": [
+     {
+      "t": "pregunta"
+     },
+     {
+      "t": "nota",
+      "html": "Cada término con y lleva dy sobre dx."
+     }
+    ]
+   }
+  ]
+ },
+ "pregunta": {
+  "tex": "\\dfrac{dy}{dx}\\ \\text{en}\\ (1,2)\\ \\text{si}\\ x^{2}+xy+y^{2}=7",
+  "opciones": [
+   "-4/5",
+   "-5/4",
+   "4/5",
+   "-1/2"
+  ],
+  "correcta": 0,
+  "explicacion": "Al derivar sale 2x más y más x por dy sobre dx más 2y por dy sobre dx igual a 0. Se despeja dy sobre dx igual a menos (2x + y) sobre (x + 2y), y en (1, 2) queda menos 4 sobre 5.",
+  "verificacion": {
+   "formula": "((-(1+x)+sqrt(28-3*(1+x)^2))/2-2)/x",
+   "a": 0,
+   "esperado": -0.8
+  },
+  "pistas": [
+   "Deriva cada término respecto a x. Cada vez que aparece y, hay que multiplicar por dy sobre dx.",
+   "El término xy usa la regla del producto. Queda 2x más y más x por dy sobre dx más 2y por dy sobre dx igual a 0.",
+   "Agrupa los dy sobre dx, despeja y evalúa en x igual a 1, y igual a 2."
+  ],
+  "errores": [
+   "",
+   "Ese −5/4 está al revés. Es menos (2x + y) sobre (x + 2y), con la suma de x e y en el denominador.",
+   "Falta el signo. Al pasar los términos al otro lado, el resultado queda negativo.",
+   "Ese −1/2 sale de olvidar el término xy por completo, que aporta y y x por dy sobre dx."
+  ]
+ },
+ "resumen": [
+  "Se deriva cada término respecto a x sin despejar y.",
+  "Cada término con y se multiplica por dy sobre dx, por la regla de la cadena.",
+  "Después se agrupan los dy sobre dx y se despeja."
+ ]
+}

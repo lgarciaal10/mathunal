@@ -1,0 +1,477 @@
+{
+ "esquema": 1,
+ "id": "calculo-m3-l8",
+ "ejemplo": true,
+ "curso": "Cálculo",
+ "modulo": "Módulo 3 Aplicaciones de la derivada",
+ "posicion": "Lección 8 de 8",
+ "titulo": "Teorema fundamental del cálculo",
+ "minutos": 17,
+ "ejercicios": 1,
+ "grafica": {
+  "tipo": "area",
+  "x": [
+   0,
+   3.4
+  ],
+  "y": [
+   0,
+   12
+  ],
+  "funcion": "x*x",
+  "primitiva": "x*x*x/3",
+  "a": 0,
+  "b": 3,
+  "franja": 0.2,
+  "limite": 4,
+  "etiquetas": [
+   "Área acumulada",
+   "Altura de la curva"
+  ],
+  "rotulos": [
+   "área",
+   "altura"
+  ],
+  "etiquetaSlider": "Posición de x",
+  "alt": "Curva de x al cuadrado con el área bajo ella sombreada desde 0 hasta un x que avanza y una franja delgada en el borde"
+ },
+ "glosario": {
+  "prim": "Una primitiva de f es una función F cuya derivada es f. Por ejemplo, x al cubo sobre 3 es una primitiva de x al cuadrado.",
+  "acum": "El área acumulada es el área bajo la curva desde un punto fijo hasta un x que se va moviendo.",
+  "integral": "La integral definida de f entre a y b es el área con signo bajo la curva entre esos dos valores."
+ },
+ "ver": {
+  "duracion": 21,
+  "capitulos": [
+   [
+    0,
+    2.5,
+    "Esta es la curva de f(x) igual a x al cuadrado."
+   ],
+   [
+    2.5,
+    5,
+    "Se marca el punto de partida, a igual a 0."
+   ],
+   [
+    5,
+    9,
+    "Ahora x avanza hacia la derecha y la zona bajo la curva se va llenando. Esa es el área acumulada."
+   ],
+   [
+    9,
+    14,
+    "Mira una franja delgada en x. Su área es casi la altura de la curva por su ancho."
+   ],
+   [
+    14,
+    18,
+    "Por eso el área crece al ritmo de la altura. La derivada del área acumulada es la altura de la curva."
+   ],
+   [
+    18,
+    21,
+    "Con x igual a 2 el área vale 8 sobre 3, o sea 2.6667, que es x al cubo sobre 3."
+   ]
+  ],
+  "canales": {
+   "draw": [
+    [
+     0.3,
+     0
+    ],
+    [
+     2.4,
+     1
+    ]
+   ],
+   "hole": [
+    [
+     2.5,
+     0
+    ],
+    [
+     3.3,
+     1
+    ]
+   ],
+   "d": [
+    [
+     5,
+     0.3
+    ],
+    [
+     9,
+     1.6
+    ],
+    [
+     11,
+     0.9
+    ],
+    [
+     14,
+     1.5
+    ],
+    [
+     17,
+     2
+    ]
+   ],
+   "guide": [
+    [
+     9,
+     0
+    ],
+    [
+     10,
+     1
+    ]
+   ]
+  },
+  "intervalos": {
+   "ok": [
+    18,
+    21
+   ]
+  }
+ },
+ "leer": {
+  "secciones": [
+   {
+    "titulo": "La idea",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "El teorema fundamental del cálculo une dos ideas. La derivada mide cuánto cambia algo y la {{gl:integral|integral}} acumula cuánto hay. El teorema dice que una deshace a la otra."
+     }
+    ]
+   },
+   {
+    "titulo": "Un ejemplo",
+    "corto": "Un ejemplo",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Se mide el {{gl:acum|área acumulada}} bajo esta curva, desde 0 hasta un x que se mueve."
+     },
+     {
+      "t": "eq",
+      "tex": "f(x)=x^{2}"
+     },
+     {
+      "t": "grafica",
+      "animar": "dibujar",
+      "alt": "Curva de x al cuadrado que se dibuja"
+     }
+    ]
+   },
+   {
+    "titulo": "Piensa antes de ver",
+    "corto": "Piensa",
+    "bloques": [
+     {
+      "t": "piensa",
+      "pregunta": "Cuando x vale 2, el área crece casi como una franja delgada que tiene la altura de la curva. ¿Cuánto mide esa altura?",
+      "opciones": [
+       2,
+       4,
+       8,
+       16
+      ],
+      "correcta": 4,
+      "bien": "Muy bien. La altura es f(2), o sea 4, y más abajo se ve qué significa.",
+      "mal": "La altura es f(2), o sea 4, y más abajo se ve qué significa."
+     }
+    ]
+   },
+   {
+    "titulo": "El área que se acumula",
+    "corto": "El área",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mira cómo se va llenando el área y qué valen el área y la altura en cada x."
+     },
+     {
+      "t": "acercando",
+      "ds": [
+       0.5,
+       1,
+       1.5,
+       2,
+       2.5
+      ],
+      "alt": "El área bajo la curva que va creciendo mientras x avanza"
+     },
+     {
+      "t": "p",
+      "html": "Con x igual a 2 la altura de la curva es 4 y el área acumulada es <b>2.6667</b>."
+     }
+    ]
+   },
+   {
+    "titulo": "Primera parte",
+    "corto": "Primera parte",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "El área acumulada A de x crece al ritmo de la altura de la curva. O sea que su derivada es la función original."
+     },
+     {
+      "t": "eq",
+      "tex": "A(x)=\\int_{0}^{x} t^{2}\\,dt\\ \\Rightarrow\\ A'(x)=x^{2}"
+     },
+     {
+      "t": "pasos",
+      "items": [
+       {
+        "tex": "A(x)=\\dfrac{x^{3}}{3}",
+        "porque": "El área bajo x al cuadrado desde 0 hasta x es x al cubo sobre 3."
+       },
+       {
+        "tex": "A'(x)=\\dfrac{3x^{2}}{3}=x^{2}",
+        "porque": "Al derivar el área se recupera la función original."
+       },
+       {
+        "tex": "A(2)=\\dfrac{8}{3}\\approx 2.6667,\\quad A'(2)=4",
+        "porque": "En x igual a 2 el área vale 2.6667 y crece a razón de 4, que es la altura de la curva."
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "Segunda parte",
+    "corto": "Segunda parte",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Esta parte es la que se usa para calcular. Si F es una {{gl:prim|primitiva}} de f, la integral definida es una resta."
+     },
+     {
+      "t": "eq",
+      "tex": "\\int_{a}^{b} f(x)\\,dx=F(b)-F(a)"
+     },
+     {
+      "t": "pasos",
+      "items": [
+       {
+        "tex": "\\int_{1}^{3} x^{2}\\,dx,\\quad F(x)=\\dfrac{x^{3}}{3}",
+        "porque": "Se busca una primitiva de x al cuadrado."
+       },
+       {
+        "tex": "=\\dfrac{3^{3}}{3}-\\dfrac{1^{3}}{3}=9-\\dfrac{1}{3}",
+        "porque": "Se evalúa la primitiva en los dos límites y se resta."
+       },
+       {
+        "tex": "=\\dfrac{26}{3}\\approx 8.67",
+        "porque": "El área bajo la curva entre 1 y 3 es unos 8.67 unidades cuadradas."
+       }
+      ]
+     },
+     {
+      "t": "ojo",
+      "html": "La integral definida es un área con signo. Lo que queda debajo del eje x cuenta como negativo."
+     }
+    ]
+   },
+   {
+    "titulo": "¿Para qué sirve?",
+    "corto": "En ingeniería",
+    "bloques": [
+     {
+      "t": "ingenieria",
+      "titulo": "El trabajo de un resorte",
+      "html": "Para estirar un resorte hace falta una fuerza que crece con el estiramiento. El trabajo es el área bajo la curva de la fuerza contra el desplazamiento, o sea una integral, y el teorema fundamental permite calcularla con una primitiva.",
+      "tex": "W=\\int_{0}^{0.1} 2000\\,x\\,dx=\\Big[\\,1000\\,x^{2}\\,\\Big]_{0}^{0.1}",
+      "datos": [
+       {
+        "k": "Rigidez k",
+        "v": "2000 N/m"
+       },
+       {
+        "k": "Estiramiento",
+        "v": "0.1 m"
+       },
+       {
+        "k": "Fuerza final",
+        "v": "200 N"
+       },
+       {
+        "k": "Trabajo",
+        "v": "10 J"
+       }
+      ],
+      "cierre": "La primitiva de k·x es un medio de k por x al cuadrado, y evaluada da 10 J. Es la energía que queda almacenada en el resorte."
+     }
+    ]
+   },
+   {
+    "titulo": "Revisa tu respuesta",
+    "corto": "Revisa",
+    "bloques": [
+     {
+      "t": "pregunta"
+     },
+     {
+      "t": "nota",
+      "html": "Busca una primitiva y evalúala en los dos límites."
+     }
+    ]
+   },
+   {
+    "titulo": "Tu repaso",
+    "corto": "Repaso",
+    "bloques": [
+     {
+      "t": "repaso"
+     }
+    ]
+   },
+   {
+    "titulo": "En resumen",
+    "corto": "Resumen",
+    "bloques": [
+     {
+      "t": "resumen"
+     }
+    ]
+   }
+  ]
+ },
+ "practicar": {
+  "pasos": [
+   {
+    "titulo": "La curva",
+    "grafica": {
+     "draw": 1
+    },
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Se mide el área bajo esta curva."
+     },
+     {
+      "t": "eq",
+      "tex": "f(x)=x^{2}"
+     }
+    ]
+   },
+   {
+    "titulo": "El punto de partida",
+    "grafica": {
+     "draw": 1,
+     "hole": 1
+    },
+    "bloques": [
+     {
+      "t": "p",
+      "html": "El área se empieza a medir desde a igual a 0."
+     }
+    ]
+   },
+   {
+    "titulo": "Mueve x",
+    "grafica": {
+     "draw": 1,
+     "hole": 1
+    },
+    "laboratorio": true,
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mueve el deslizador. La zona sombreada crece y abajo se ve el área y la altura de la curva en x."
+     }
+    ]
+   },
+   {
+    "titulo": "La franja",
+    "grafica": {
+     "draw": 1,
+     "hole": 1,
+     "guide": 1
+    },
+    "laboratorio": true,
+    "d": 1.5,
+    "bloques": [
+     {
+      "t": "p",
+      "html": "La franja amarilla tiene la altura de la curva. Cuando x avanza un poquito, el área crece esa altura por ese poquito."
+     }
+    ]
+   },
+   {
+    "titulo": "La derivada del área",
+    "grafica": {
+     "draw": 1,
+     "hole": 1,
+     "guide": 1,
+     "ok": true
+    },
+    "laboratorio": true,
+    "d": 2,
+    "bloques": [
+     {
+      "t": "eq",
+      "tex": "A(x)=\\dfrac{x^{3}}{3}\\ \\Rightarrow\\ A'(x)=x^{2}=f(x)"
+     },
+     {
+      "t": "p",
+      "html": "Con x igual a 2 el área vale 2.6667 y crece a razón de 4, que es la altura."
+     }
+    ]
+   },
+   {
+    "titulo": "Revisa tu respuesta",
+    "grafica": {
+     "draw": 1,
+     "hole": 1,
+     "guide": 1,
+     "ok": true,
+     "d": 2
+    },
+    "bloques": [
+     {
+      "t": "pregunta"
+     },
+     {
+      "t": "nota",
+      "html": "Busca una primitiva y evalúala en los dos límites."
+     }
+    ]
+   }
+  ]
+ },
+ "pregunta": {
+  "tex": "\\int_{0}^{2} 3x^{2}\\,dx",
+  "opciones": [
+   "8",
+   "6",
+   "12",
+   "4"
+  ],
+  "correcta": 0,
+  "explicacion": "Una primitiva de 3x al cuadrado es x al cubo. Se evalúa en 2 y en 0, y queda 8 menos 0, que da 8.",
+  "verificacion": {
+   "formula": "(1/3)*(3*0*0+4*3*1*1+3*2*2)+0*x",
+   "a": 0,
+   "esperado": 8
+  },
+  "pistas": [
+   "Busca una primitiva de 3x al cuadrado.",
+   "La primitiva es x al cubo, porque su derivada es 3x al cuadrado.",
+   "Evalúa en 2 y en 0 y resta."
+  ],
+  "errores": [
+   "",
+   "Revisa la primitiva. Debe ser x al cubo, que en 2 vale 8.",
+   "Ese 12 es el valor de la función en x igual a 2, no el área. Falta integrar.",
+   "Revisa la primitiva. Debe ser x al cubo, que en 2 vale 8 y en 0 vale 0."
+  ]
+ },
+ "resumen": [
+  "La derivada del área acumulada bajo f es la propia f.",
+  "La integral definida entre a y b es F(b) menos F(a), con F una primitiva de f.",
+  "La integral definida es un área con signo."
+ ]
+}

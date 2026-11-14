@@ -1,0 +1,224 @@
+{
+ "audio": "audio/cuadraticas.mp3",
+ "fin": 49.02,
+ "sent": [
+  {
+   "t": "Una ecuación cuadrática puede tener dos soluciones, una sola, o ninguna. ¿De qué depende?",
+   "a": 0.0,
+   "b": 6.13
+  },
+  {
+   "t": "Depende de un número que se llama discriminante. Es b al cuadrado menos 4ac.",
+   "a": 6.61,
+   "b": 12.61
+  },
+  {
+   "t": "Si es positivo, hay dos soluciones. Si es cero, hay una sola. Y si es negativo, no hay soluciones reales.",
+   "a": 13.2,
+   "b": 20.73
+  },
+  {
+   "t": "Veámoslo en la parábola. Al subir q, la parábola sube y las soluciones se acercan.",
+   "a": 21.2,
+   "b": 26.55
+  },
+  {
+   "t": "Con q igual a 6, las soluciones son 2 y 3.",
+   "a": 26.96,
+   "b": 30.42
+  },
+  {
+   "t": "Con q igual a 6.25, la parábola solo toca el eje. Es una solución doble.",
+   "a": 30.79,
+   "b": 34.94
+  },
+  {
+   "t": "Y con q mayor, ya no corta el eje. No hay soluciones reales.",
+   "a": 35.36,
+   "b": 39.17
+  },
+  {
+   "t": "Calcula siempre el discriminante primero. Te ahorra trabajo.",
+   "a": 39.49,
+   "b": 44.96
+  },
+  {
+   "t": "Practica con preguntas reales en MathUNAL.",
+   "a": 45.36,
+   "b": 48.12
+  }
+ ],
+ "escenas": [
+  {
+   "tipo": "gancho",
+   "s": [
+    0
+   ],
+   "titulo": "¿Cuántas soluciones *tiene*?",
+   "tex": "x^{2}-5x+q=0",
+   "size": 100
+  },
+  {
+   "tipo": "pasos",
+   "s": [
+    1
+   ],
+   "titulo": "El discriminante",
+   "top": 480,
+   "pasos": [
+    {
+     "label": "Se calcula así",
+     "col": "amar",
+     "tex": "\\Delta=b^{2}-4ac",
+     "s": 1,
+     "dt": 0.7,
+     "size": 100,
+     "centro": true
+    }
+   ]
+  },
+  {
+   "tipo": "tarjetas",
+   "s": [
+    2
+   ],
+   "titulo": "Tres *casos*",
+   "top": 300,
+   "cards": [
+    {
+     "tipo": "ok",
+     "label": "Delta mayor que 0",
+     "tex": "\\text{dos soluciones}",
+     "s": 2,
+     "dt": 0.8
+    },
+    {
+     "tipo": "aviso",
+     "label": "Delta igual a 0",
+     "tex": "\\text{una solución doble}",
+     "s": 2,
+     "dt": 2.9
+    },
+    {
+     "tipo": "mal",
+     "label": "Delta menor que 0",
+     "tex": "\\text{ninguna real}",
+     "s": 2,
+     "dt": 5.0
+    }
+   ]
+  },
+  {
+   "tipo": "grafica",
+   "s": [
+    3,
+    4,
+    5,
+    6
+   ],
+   "titulo": "Mueve q",
+   "xr": [
+    -1,
+    6.5
+   ],
+   "yr": [
+    -7,
+    8.5
+   ],
+   "curvas": [
+    {
+     "f": "x*x-5*x+p",
+     "col": "azul"
+    }
+   ],
+   "param": {
+    "kf": [
+     [
+      3,
+      0.5,
+      0
+     ],
+     [
+      3,
+      5.2,
+      6
+     ],
+     [
+      4,
+      0.2,
+      6
+     ],
+     [
+      4,
+      2.5,
+      6
+     ],
+     [
+      5,
+      0.4,
+      6.25
+     ],
+     [
+      5,
+      4.5,
+      6.25
+     ],
+     [
+      6,
+      0.4,
+      6.25
+     ],
+     [
+      6,
+      2.4,
+      8
+     ]
+    ]
+   },
+   "marcas": [
+    {
+     "x": "(5-sqrt(25-4*p))/2",
+     "y": "0",
+     "s": 3,
+     "dt": 0.5,
+     "txt": "",
+     "col": "ver"
+    },
+    {
+     "x": "(5+sqrt(25-4*p))/2",
+     "y": "0",
+     "s": 3,
+     "dt": 0.5,
+     "txt": "",
+     "col": "ver"
+    }
+   ],
+   "textos": [
+    {
+     "txt": "q = ${p.toFixed(2)}",
+     "x": 520,
+     "y": 130,
+     "col": "tx",
+     "s": 3,
+     "dt": 0.5
+    },
+    {
+     "txt": "Δ = ${(25-4*p).toFixed(2)}",
+     "x": 520,
+     "y": 190,
+     "col": "amar",
+     "s": 3,
+     "dt": 0.5
+    }
+   ]
+  },
+  {
+   "tipo": "cierre",
+   "s": [
+    7,
+    8
+   ],
+   "titulo": "Calcula primero el *discriminante*"
+  }
+ ]
+}

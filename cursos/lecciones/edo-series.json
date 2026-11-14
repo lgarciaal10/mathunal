@@ -1,0 +1,1019 @@
+{
+ "esquema": 1,
+ "id": "edo-m3-l5",
+ "ejemplo": true,
+ "curso": "Ecuaciones Diferenciales",
+ "modulo": "Módulo 3 Laplace, sistemas y series",
+ "posicion": "Lección 5 de 5",
+ "titulo": "Series y problemas de frontera",
+ "minutos": 30,
+ "ejercicios": 5,
+ "grafica": {
+  "tipo": "plano",
+  "x": [
+   -0.3,
+   3.6
+  ],
+  "y": [
+   -1.4,
+   1.4
+  ],
+  "a": 0.2,
+  "b": 10,
+  "inicio": 0.5,
+  "elementos": [
+   {
+    "t": "recta",
+    "p": [
+     "3.141593",
+     "0"
+    ],
+    "dir": [
+     "0",
+     "1"
+    ],
+    "guion": true,
+    "c": 3
+   },
+   {
+    "t": "trazo",
+    "puntos": [
+     [
+      "0.0000",
+      "sin(sqrt(x)*0.0000)"
+     ],
+     [
+      "0.0314",
+      "sin(sqrt(x)*0.0314)"
+     ],
+     [
+      "0.0628",
+      "sin(sqrt(x)*0.0628)"
+     ],
+     [
+      "0.0942",
+      "sin(sqrt(x)*0.0942)"
+     ],
+     [
+      "0.1257",
+      "sin(sqrt(x)*0.1257)"
+     ],
+     [
+      "0.1571",
+      "sin(sqrt(x)*0.1571)"
+     ],
+     [
+      "0.1885",
+      "sin(sqrt(x)*0.1885)"
+     ],
+     [
+      "0.2199",
+      "sin(sqrt(x)*0.2199)"
+     ],
+     [
+      "0.2513",
+      "sin(sqrt(x)*0.2513)"
+     ],
+     [
+      "0.2827",
+      "sin(sqrt(x)*0.2827)"
+     ],
+     [
+      "0.3142",
+      "sin(sqrt(x)*0.3142)"
+     ],
+     [
+      "0.3456",
+      "sin(sqrt(x)*0.3456)"
+     ],
+     [
+      "0.3770",
+      "sin(sqrt(x)*0.3770)"
+     ],
+     [
+      "0.4084",
+      "sin(sqrt(x)*0.4084)"
+     ],
+     [
+      "0.4398",
+      "sin(sqrt(x)*0.4398)"
+     ],
+     [
+      "0.4712",
+      "sin(sqrt(x)*0.4712)"
+     ],
+     [
+      "0.5027",
+      "sin(sqrt(x)*0.5027)"
+     ],
+     [
+      "0.5341",
+      "sin(sqrt(x)*0.5341)"
+     ],
+     [
+      "0.5655",
+      "sin(sqrt(x)*0.5655)"
+     ],
+     [
+      "0.5969",
+      "sin(sqrt(x)*0.5969)"
+     ],
+     [
+      "0.6283",
+      "sin(sqrt(x)*0.6283)"
+     ],
+     [
+      "0.6597",
+      "sin(sqrt(x)*0.6597)"
+     ],
+     [
+      "0.6912",
+      "sin(sqrt(x)*0.6912)"
+     ],
+     [
+      "0.7226",
+      "sin(sqrt(x)*0.7226)"
+     ],
+     [
+      "0.7540",
+      "sin(sqrt(x)*0.7540)"
+     ],
+     [
+      "0.7854",
+      "sin(sqrt(x)*0.7854)"
+     ],
+     [
+      "0.8168",
+      "sin(sqrt(x)*0.8168)"
+     ],
+     [
+      "0.8482",
+      "sin(sqrt(x)*0.8482)"
+     ],
+     [
+      "0.8796",
+      "sin(sqrt(x)*0.8796)"
+     ],
+     [
+      "0.9111",
+      "sin(sqrt(x)*0.9111)"
+     ],
+     [
+      "0.9425",
+      "sin(sqrt(x)*0.9425)"
+     ],
+     [
+      "0.9739",
+      "sin(sqrt(x)*0.9739)"
+     ],
+     [
+      "1.0053",
+      "sin(sqrt(x)*1.0053)"
+     ],
+     [
+      "1.0367",
+      "sin(sqrt(x)*1.0367)"
+     ],
+     [
+      "1.0681",
+      "sin(sqrt(x)*1.0681)"
+     ],
+     [
+      "1.0996",
+      "sin(sqrt(x)*1.0996)"
+     ],
+     [
+      "1.1310",
+      "sin(sqrt(x)*1.1310)"
+     ],
+     [
+      "1.1624",
+      "sin(sqrt(x)*1.1624)"
+     ],
+     [
+      "1.1938",
+      "sin(sqrt(x)*1.1938)"
+     ],
+     [
+      "1.2252",
+      "sin(sqrt(x)*1.2252)"
+     ],
+     [
+      "1.2566",
+      "sin(sqrt(x)*1.2566)"
+     ],
+     [
+      "1.2881",
+      "sin(sqrt(x)*1.2881)"
+     ],
+     [
+      "1.3195",
+      "sin(sqrt(x)*1.3195)"
+     ],
+     [
+      "1.3509",
+      "sin(sqrt(x)*1.3509)"
+     ],
+     [
+      "1.3823",
+      "sin(sqrt(x)*1.3823)"
+     ],
+     [
+      "1.4137",
+      "sin(sqrt(x)*1.4137)"
+     ],
+     [
+      "1.4451",
+      "sin(sqrt(x)*1.4451)"
+     ],
+     [
+      "1.4765",
+      "sin(sqrt(x)*1.4765)"
+     ],
+     [
+      "1.5080",
+      "sin(sqrt(x)*1.5080)"
+     ],
+     [
+      "1.5394",
+      "sin(sqrt(x)*1.5394)"
+     ],
+     [
+      "1.5708",
+      "sin(sqrt(x)*1.5708)"
+     ],
+     [
+      "1.6022",
+      "sin(sqrt(x)*1.6022)"
+     ],
+     [
+      "1.6336",
+      "sin(sqrt(x)*1.6336)"
+     ],
+     [
+      "1.6650",
+      "sin(sqrt(x)*1.6650)"
+     ],
+     [
+      "1.6965",
+      "sin(sqrt(x)*1.6965)"
+     ],
+     [
+      "1.7279",
+      "sin(sqrt(x)*1.7279)"
+     ],
+     [
+      "1.7593",
+      "sin(sqrt(x)*1.7593)"
+     ],
+     [
+      "1.7907",
+      "sin(sqrt(x)*1.7907)"
+     ],
+     [
+      "1.8221",
+      "sin(sqrt(x)*1.8221)"
+     ],
+     [
+      "1.8535",
+      "sin(sqrt(x)*1.8535)"
+     ],
+     [
+      "1.8850",
+      "sin(sqrt(x)*1.8850)"
+     ],
+     [
+      "1.9164",
+      "sin(sqrt(x)*1.9164)"
+     ],
+     [
+      "1.9478",
+      "sin(sqrt(x)*1.9478)"
+     ],
+     [
+      "1.9792",
+      "sin(sqrt(x)*1.9792)"
+     ],
+     [
+      "2.0106",
+      "sin(sqrt(x)*2.0106)"
+     ],
+     [
+      "2.0420",
+      "sin(sqrt(x)*2.0420)"
+     ],
+     [
+      "2.0735",
+      "sin(sqrt(x)*2.0735)"
+     ],
+     [
+      "2.1049",
+      "sin(sqrt(x)*2.1049)"
+     ],
+     [
+      "2.1363",
+      "sin(sqrt(x)*2.1363)"
+     ],
+     [
+      "2.1677",
+      "sin(sqrt(x)*2.1677)"
+     ],
+     [
+      "2.1991",
+      "sin(sqrt(x)*2.1991)"
+     ],
+     [
+      "2.2305",
+      "sin(sqrt(x)*2.2305)"
+     ],
+     [
+      "2.2619",
+      "sin(sqrt(x)*2.2619)"
+     ],
+     [
+      "2.2934",
+      "sin(sqrt(x)*2.2934)"
+     ],
+     [
+      "2.3248",
+      "sin(sqrt(x)*2.3248)"
+     ],
+     [
+      "2.3562",
+      "sin(sqrt(x)*2.3562)"
+     ],
+     [
+      "2.3876",
+      "sin(sqrt(x)*2.3876)"
+     ],
+     [
+      "2.4190",
+      "sin(sqrt(x)*2.4190)"
+     ],
+     [
+      "2.4504",
+      "sin(sqrt(x)*2.4504)"
+     ],
+     [
+      "2.4819",
+      "sin(sqrt(x)*2.4819)"
+     ],
+     [
+      "2.5133",
+      "sin(sqrt(x)*2.5133)"
+     ],
+     [
+      "2.5447",
+      "sin(sqrt(x)*2.5447)"
+     ],
+     [
+      "2.5761",
+      "sin(sqrt(x)*2.5761)"
+     ],
+     [
+      "2.6075",
+      "sin(sqrt(x)*2.6075)"
+     ],
+     [
+      "2.6389",
+      "sin(sqrt(x)*2.6389)"
+     ],
+     [
+      "2.6704",
+      "sin(sqrt(x)*2.6704)"
+     ],
+     [
+      "2.7018",
+      "sin(sqrt(x)*2.7018)"
+     ],
+     [
+      "2.7332",
+      "sin(sqrt(x)*2.7332)"
+     ],
+     [
+      "2.7646",
+      "sin(sqrt(x)*2.7646)"
+     ],
+     [
+      "2.7960",
+      "sin(sqrt(x)*2.7960)"
+     ],
+     [
+      "2.8274",
+      "sin(sqrt(x)*2.8274)"
+     ],
+     [
+      "2.8588",
+      "sin(sqrt(x)*2.8588)"
+     ],
+     [
+      "2.8903",
+      "sin(sqrt(x)*2.8903)"
+     ],
+     [
+      "2.9217",
+      "sin(sqrt(x)*2.9217)"
+     ],
+     [
+      "2.9531",
+      "sin(sqrt(x)*2.9531)"
+     ],
+     [
+      "2.9845",
+      "sin(sqrt(x)*2.9845)"
+     ],
+     [
+      "3.0159",
+      "sin(sqrt(x)*3.0159)"
+     ],
+     [
+      "3.0473",
+      "sin(sqrt(x)*3.0473)"
+     ],
+     [
+      "3.0788",
+      "sin(sqrt(x)*3.0788)"
+     ],
+     [
+      "3.1102",
+      "sin(sqrt(x)*3.1102)"
+     ],
+     [
+      "3.1416",
+      "sin(sqrt(x)*3.1416)"
+     ]
+    ],
+    "c": 2
+   },
+   {
+    "t": "punto",
+    "p": [
+     "3.141593",
+     "sin(pi*sqrt(x))"
+    ],
+    "c": 1
+   }
+  ],
+  "lecturas": [
+   {
+    "rotulo": "lambda",
+    "formula": "x"
+   },
+   {
+    "rotulo": "y en x=pi",
+    "formula": "sin(pi*sqrt(x))"
+   }
+  ],
+  "etiquetas": [
+   "Valor de lambda",
+   "Valor de y en x igual a pi"
+  ],
+  "etiquetaSlider": "Valor de lambda",
+  "alt": "La función seno de la raíz de lambda por x entre 0 y pi. El punto del extremo derecho solo cae sobre el eje cuando lambda vale 1, 4 o 9"
+ },
+ "glosario": {
+  "frontera": "Un problema de valores en la frontera pide condiciones en dos puntos distintos, por ejemplo y de 0 igual a 0 e y de pi igual a 0, y no los dos en el mismo punto como un problema de valor inicial.",
+  "propios": "Los valores propios de un problema de frontera son los valores de lambda para los que existe una solución que no es cero. Las soluciones correspondientes son las funciones propias.",
+  "serie": "Una solución en serie de potencias escribe la solución como una suma infinita de potencias de x, con coeficientes que se hallan con una fórmula de recurrencia."
+ },
+ "ver": {
+  "duracion": 22.0,
+  "capitulos": [
+   [
+    0,
+    4,
+    "El problema es y segunda más lambda y igual a 0, con y de 0 igual a 0 y y de pi igual a 0. Las condiciones están en los dos extremos. Esta es la solución seno de la raíz de lambda por x, que ya cumple la primera."
+   ],
+   [
+    4,
+    8,
+    "Con lambda igual a 0.5, la curva no termina en 0 cuando x llega a pi. Falta cumplir la segunda condición."
+   ],
+   [
+    8,
+    14,
+    "Al subir lambda, la curva oscila más rápido. Solo en ciertos valores termina justo en 0 en x igual a pi."
+   ],
+   [
+    14,
+    18,
+    "Eso pasa con lambda igual a 1, 4 y 9. Son los valores propios del problema, y las curvas son seno de n por x."
+   ],
+   [
+    18,
+    22,
+    "Con lambda igual a 4 la curva es seno de 2x, y el punto del extremo cae sobre el eje."
+   ]
+  ],
+  "canales": {
+   "draw": [
+    [
+     0.3,
+     0
+    ],
+    [
+     3.5,
+     1
+    ]
+   ],
+   "d": [
+    [
+     4,
+     0.5
+    ],
+    [
+     8,
+     0.5
+    ],
+    [
+     11,
+     2.5
+    ],
+    [
+     14,
+     2.5
+    ],
+    [
+     15,
+     1
+    ],
+    [
+     16,
+     4
+    ],
+    [
+     17,
+     9
+    ],
+    [
+     18,
+     4
+    ],
+    [
+     22,
+     4
+    ]
+   ],
+   "guide": [
+    [
+     4,
+     0
+    ],
+    [
+     5,
+     1
+    ]
+   ]
+  },
+  "intervalos": {
+   "ok": [
+    18,
+    22
+   ]
+  }
+ },
+ "leer": {
+  "secciones": [
+   {
+    "titulo": "La idea",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Esta lección junta dos ideas. Primero, cuando los coeficientes no son constantes, a veces la solución se escribe como una {{gl:serie|serie de potencias}}. Segundo, hay problemas con condiciones en los dos extremos de un intervalo, los {{gl:frontera|problemas de frontera}}. En ellos solo algunos valores de un parámetro, los {{gl:propios|valores propios}}, dan una solución que no es cero."
+     }
+    ]
+   },
+   {
+    "titulo": "Un ejemplo",
+    "corto": "Un ejemplo",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mira este problema con condiciones en los dos extremos. La curva es la solución que ya cumple la condición de la izquierda."
+     },
+     {
+      "t": "eq",
+      "tex": "y''+\\lambda y=0,\\qquad y(0)=0,\\ y(\\pi)=0"
+     },
+     {
+      "t": "grafica",
+      "animar": "dibujar",
+      "alt": "La solución seno de la raíz de lambda por x"
+     }
+    ]
+   },
+   {
+    "titulo": "Piensa antes de ver",
+    "corto": "Piensa",
+    "bloques": [
+     {
+      "t": "piensa",
+      "pregunta": "Con lambda igual a 9 la solución es seno de 3x. ¿Cuánto vale en x igual a pi, o sea seno de 3 pi?",
+      "opciones": [
+       -1,
+       0,
+       1,
+       3
+      ],
+      "correcta": 0,
+      "bien": "Muy bien. Vale 0, porque 3 pi es un múltiplo de pi. Más abajo se ve qué pasa con otros valores.",
+      "mal": "Vale 0, porque 3 pi es un múltiplo de pi y ahí el seno se anula. Más abajo se ve qué pasa con otros valores."
+     }
+    ]
+   },
+   {
+    "titulo": "Buscando lambda",
+    "corto": "Buscando lambda",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mueve lambda y mira cuándo el extremo derecho cae sobre el eje."
+     },
+     {
+      "t": "acercando",
+      "ds": [
+       0.5,
+       1,
+       4,
+       9
+      ],
+      "alt": "La solución para varios valores de lambda"
+     },
+     {
+      "t": "p",
+      "html": "Solo con lambda igual a 1, 4 y 9, y los cuadrados perfectos siguientes, la curva cumple y de pi igual a 0."
+     }
+    ]
+   },
+   {
+    "titulo": "Los valores propios",
+    "corto": "Valores propios",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Se aplican las dos condiciones a la solución general."
+     },
+     {
+      "t": "pasos",
+      "items": [
+       {
+        "tex": "y=c_{1}\\cos\\left(\\sqrt{\\lambda}\\,x\\right)+c_{2}\\operatorname{sen}\\left(\\sqrt{\\lambda}\\,x\\right)",
+        "porque": "La solución general con lambda positivo."
+       },
+       {
+        "tex": "y(0)=0\\ \\Rightarrow\\ c_{1}=0",
+        "porque": "La condición de la izquierda."
+       },
+       {
+        "tex": "y(\\pi)=0\\ \\Rightarrow\\ c_{2}\\operatorname{sen}\\left(\\pi\\sqrt{\\lambda}\\right)=0",
+        "porque": "Para que c2 no sea 0, el seno debe anularse."
+       },
+       {
+        "tex": "\\sqrt{\\lambda}=n\\ \\Rightarrow\\ \\lambda_{n}=n^{2},\\quad y_{n}=\\operatorname{sen}nx",
+        "porque": "Los valores propios son los cuadrados de los enteros."
+       }
+      ]
+     },
+     {
+      "t": "ojo",
+      "html": "Con c2 igual a 0 siempre se cumplen las dos condiciones, pero esa es la solución cero. Un valor propio es el que permite una solución distinta de cero."
+     }
+    ]
+   },
+   {
+    "titulo": "Soluciones en serie",
+    "corto": "En serie",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Cuando los coeficientes no son constantes, se prueba una serie de potencias y se halla una recurrencia para los coeficientes."
+     },
+     {
+      "t": "pasos",
+      "items": [
+       {
+        "tex": "y=\\sum_{n=0}^{\\infty}c_{n}x^{n},\\quad y''=\\sum_{n=0}^{\\infty}(n+2)(n+1)\\,c_{n+2}x^{n}",
+        "porque": "Se escribe la serie y su segunda derivada, con el índice corrido."
+       },
+       {
+        "tex": "(n+2)(n+1)\\,c_{n+2}+c_{n}=0",
+        "porque": "Se reemplaza en y segunda más y igual a 0 y se agrupa cada potencia de x."
+       },
+       {
+        "tex": "c_{n+2}=-\\dfrac{c_{n}}{(n+2)(n+1)}",
+        "porque": "La recurrencia."
+       },
+       {
+        "tex": "c_{0}=1,\\ c_{1}=0\\ \\Rightarrow\\ y=1-\\dfrac{x^{2}}{2}+\\dfrac{x^{4}}{24}-\\cdots=\\cos x",
+        "porque": "Con c0 igual a 1 y c1 igual a 0, la serie es la del coseno."
+       }
+      ]
+     },
+     {
+      "t": "ojo",
+      "html": "Este método funciona cerca de un punto ordinario, donde los coeficientes de la ecuación son analíticos. En otros puntos se necesitan métodos más avanzados."
+     }
+    ]
+   },
+   {
+    "titulo": "¿Para qué sirve?",
+    "corto": "En ingeniería",
+    "bloques": [
+     {
+      "t": "ingenieria",
+      "titulo": "El pandeo de una columna",
+      "html": "Una columna esbelta cargada de arriba falla de repente cuando la carga llega a un valor crítico, y se dobla de lado. Ese valor es el menor valor propio de un problema de frontera, con la columna apoyada en los dos extremos.",
+      "tex": "EI\\,y''+P\\,y=0,\\quad y(0)=y(L)=0",
+      "datos": [
+       {
+        "k": "Largo",
+        "v": "3 m"
+       },
+       {
+        "k": "Rigidez EI",
+        "v": "1.6 millones de N·m²"
+       },
+       {
+        "k": "Carga crítica",
+        "v": "unos 1750 kN"
+       }
+      ],
+      "cierre": "La carga crítica es pi al cuadrado por EI sobre L al cuadrado. Con estos datos queda unos 1750 kilonewton. Las cargas de los valores propios siguientes, 4, 9 veces la primera, corresponden a formas más onduladas que en la práctica no se alcanzan, porque la columna ya falló. Es la fórmula de Euler, que solo vale para columnas esbeltas, y supone un material perfecto y una carga bien centrada."
+     }
+    ]
+   },
+   {
+    "titulo": "Completa el paso",
+    "corto": "Completa",
+    "bloques": [
+     {
+      "t": "completar",
+      "enunciado": "Para que c2 no sea 0, el seno debe anularse en x igual a pi.",
+      "tex": "\\operatorname{sen}\\left(\\pi\\sqrt{\\lambda}\\right)=0\\ \\Rightarrow\\ \\sqrt{\\lambda}=[[hueco]]",
+      "opciones": [
+       {
+        "tex": "n",
+        "txt": "un entero n"
+       },
+       {
+        "tex": "\\pi",
+        "txt": "pi"
+       },
+       {
+        "tex": "\\tfrac{1}{2}",
+        "txt": "un medio"
+       }
+      ],
+      "correcta": 0,
+      "errores": [
+       "",
+       "El seno se anula en múltiplos de pi, pero aquí ya aparece pi multiplicando. Lo que debe ser entero es la raíz.",
+       "Con un medio, seno de pi sobre 2 vale 1 y no 0."
+      ],
+      "pista": "El seno vale 0 cuando su argumento es un múltiplo de pi.",
+      "porque": "Si pi por la raíz es n por pi, la raíz es un entero n."
+     }
+    ]
+   },
+   {
+    "titulo": "Encuentra el error",
+    "corto": "Error",
+    "bloques": [
+     {
+      "t": "error",
+      "enunciado": "Alguien resolvió un problema de frontera y se equivocó en un paso. Toca el paso que está mal.",
+      "pasos": [
+       {
+        "tex": "y=c_{1}\\cos\\left(\\sqrt{\\lambda}\\,x\\right)+c_{2}\\operatorname{sen}\\left(\\sqrt{\\lambda}\\,x\\right)",
+        "porque": "La solución general.",
+        "txt": "la solución general con coseno y seno"
+       },
+       {
+        "tex": "y(0)=0\\ \\Rightarrow\\ c_{1}=0",
+        "porque": "Se aplica la condición de la izquierda.",
+        "txt": "la condición en 0 da c1 igual a 0"
+       },
+       {
+        "tex": "y(\\pi)=0\\ \\Rightarrow\\ c_{2}=0",
+        "porque": "Este paso es el que falla.",
+        "txt": "la condición en pi da c2 igual a 0"
+       }
+      ],
+      "mal": 2,
+      "explicacion": "Con c2 igual a 0 solo queda la solución cero. Para una solución distinta de cero hay que exigir que el seno se anule, y eso da los valores propios.",
+      "correccion": "\\operatorname{sen}\\left(\\pi\\sqrt{\\lambda}\\right)=0",
+      "pista": "Piensa si se busca la solución cero o una distinta."
+     }
+    ]
+   },
+   {
+    "titulo": "Ordena los pasos",
+    "corto": "Ordena",
+    "bloques": [
+     {
+      "t": "ordenar",
+      "enunciado": "Estos son los pasos para hallar la recurrencia de la serie de y segunda más y igual a 0, pero están desordenados.",
+      "pasos": [
+       "y=\\sum c_{n}x^{n}",
+       "y''=\\sum (n+2)(n+1)\\,c_{n+2}x^{n}",
+       "(n+2)(n+1)\\,c_{n+2}+c_{n}=0",
+       "c_{n+2}=-\\dfrac{c_{n}}{(n+2)(n+1)}"
+      ],
+      "mezcla": [
+       2,
+       0,
+       3,
+       1
+      ],
+      "porque": "Se propone la serie, se deriva dos veces, se reemplaza y se despeja el coeficiente de más alto índice.",
+      "pista": "Se empieza proponiendo la serie.",
+      "txt": [
+       "La serie propuesta",
+       "La segunda derivada",
+       "Se reemplaza y se agrupa",
+       "La recurrencia"
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "Revisa tu respuesta",
+    "corto": "Revisa",
+    "bloques": [
+     {
+      "t": "pregunta"
+     },
+     {
+      "t": "nota",
+      "html": "Puedes pedir pistas de a una. Si fallas, el mensaje te dice qué error se cometió."
+     }
+    ]
+   },
+   {
+    "titulo": "Mini simulacro",
+    "corto": "Simulacro",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Dos preguntas reales del banco de MathUNAL sobre este tema. Responde sin mirar los pasos."
+     },
+     {
+      "t": "simulacro",
+      "titulo": "Mini simulacro de series y frontera",
+      "preguntas": [
+       {
+        "tipo": "mcq",
+        "texto": "El punto $x = 0$ es un punto ORDINARIO de $y'' + p(x)\\,y' + q(x)\\,y = 0$ si:",
+        "opciones": [
+         "$p(x)$ y $q(x)$ son analíticas en $x = 0$",
+         "$p(0) = q(0) = 0$",
+         "$p$ y $q$ son polinomios de grado $\\le 1$",
+         "la EDO es de coeficientes constantes"
+        ],
+        "correcta": 0,
+        "resumen": "Un punto es ordinario cuando $p$ y $q$ son analíticas en él, y entonces existe una solución en serie de potencias.",
+        "fuente": "Banco MathUNAL, simulacro de Ecuaciones Diferenciales"
+       },
+       {
+        "tipo": "mcq",
+        "texto": "Para $y''+\\lambda y=0$ con $y(0)=y(\\pi)=0$, el menor valor propio positivo es:",
+        "opciones": [
+         "$1$",
+         "$\\pi$",
+         "$\\pi^{2}$",
+         "$2$"
+        ],
+        "correcta": 0,
+        "resumen": "Hace falta $\\sin(\\pi\\sqrt{\\lambda})=0$, y el menor entero positivo es $1$, así que $\\lambda=1$.",
+        "fuente": "Pregunta original de esta lección"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "Tu repaso",
+    "corto": "Repaso",
+    "bloques": [
+     {
+      "t": "repaso"
+     }
+    ]
+   },
+   {
+    "titulo": "En resumen",
+    "corto": "Resumen",
+    "bloques": [
+     {
+      "t": "resumen"
+     }
+    ]
+   }
+  ]
+ },
+ "practicar": {
+  "pasos": [
+   {
+    "titulo": "El problema",
+    "grafica": {
+     "draw": 1,
+     "guide": 1
+    },
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Una ecuación con condiciones en los dos extremos, 0 y pi."
+     },
+     {
+      "t": "eq",
+      "tex": "y''+\\lambda y=0"
+     }
+    ]
+   },
+   {
+    "titulo": "Cambia lambda",
+    "grafica": {
+     "draw": 1,
+     "guide": 1
+    },
+    "laboratorio": true,
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mueve el deslizador. Abajo se lee el valor de y en x igual a pi, que casi siempre es distinto de 0."
+     }
+    ]
+   },
+   {
+    "titulo": "Un valor propio",
+    "grafica": {
+     "draw": 1,
+     "guide": 1,
+     "ok": true
+    },
+    "laboratorio": true,
+    "d": 4,
+    "bloques": [
+     {
+      "t": "eq",
+      "tex": "\\lambda=4\\ \\Rightarrow\\ y=\\operatorname{sen}2x"
+     },
+     {
+      "t": "p",
+      "html": "Con lambda igual a 4 el extremo cae sobre el eje y y de pi vale 0."
+     }
+    ]
+   },
+   {
+    "titulo": "Revisa tu respuesta",
+    "grafica": {
+     "draw": 1,
+     "guide": 1,
+     "ok": true,
+     "d": 4
+    },
+    "bloques": [
+     {
+      "t": "pregunta"
+     },
+     {
+      "t": "nota",
+      "html": "Pide que el seno se anule en x igual a pi."
+     }
+    ]
+   }
+  ]
+ },
+ "pregunta": {
+  "tex": "y''+\\lambda y=0,\\ y(0)=y(\\pi)=0\\ \\text{tiene solución no nula cuando}\\ \\lambda=",
+  "opciones": [
+   "$4$",
+   "$2$",
+   "$\\pi$",
+   "$3$"
+  ],
+  "correcta": 0,
+  "explicacion": "La solución que cumple y de 0 igual a 0 es seno de la raíz de lambda por x. En x igual a pi hace falta que seno de pi por la raíz de lambda sea 0, o sea que la raíz sea un entero. Con lambda igual a 4, la raíz es 2.",
+  "verificacion": {
+   "formula": "sin(pi*sqrt(x))",
+   "a": 4,
+   "esperado": 0
+  },
+  "pistas": [
+   "La solución es seno de la raíz de lambda por x.",
+   "En x igual a pi, seno de pi por la raíz de lambda debe valer 0.",
+   "Eso pasa si la raíz de lambda es un entero."
+  ],
+  "errores": [
+   "",
+   "Con lambda igual a 2 la raíz es 1.41, que no es un entero, y seno de 1.41 pi no vale 0.",
+   "Con lambda igual a pi la raíz no es un entero, así que el seno no se anula.",
+   "Con lambda igual a 3 la raíz es 1.73, que no es un entero. Los valores propios son cuadrados perfectos."
+  ]
+ },
+ "resumen": [
+  "Un problema de frontera tiene condiciones en dos puntos. Solo ciertos valores del parámetro, los valores propios, dan soluciones distintas de cero.",
+  "Para y segunda más lambda y igual a 0 con y de 0 y y de pi iguales a 0, los valores propios son los cuadrados de los enteros.",
+  "Una serie de potencias se resuelve con una recurrencia para los coeficientes cerca de un punto ordinario."
+ ]
+}

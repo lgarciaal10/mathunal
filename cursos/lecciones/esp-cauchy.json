@@ -1,0 +1,755 @@
+{
+ "esquema": 1,
+ "id": "es-m3-l2",
+ "ejemplo": true,
+ "curso": "Matemáticas Especiales",
+ "modulo": "Módulo 3 Ecuación de Laplace y variable compleja",
+ "posicion": "Lección 2 de 5",
+ "titulo": "Ecuaciones de Cauchy-Riemann y mapeos",
+ "minutos": 28,
+ "ejercicios": 8,
+ "grafica": {
+  "tipo": "plano",
+  "x": [
+   -4,
+   4
+  ],
+  "y": [
+   -0.5,
+   4
+  ],
+  "a": 0.05,
+  "b": 3.1,
+  "inicio": 1,
+  "elementos": [
+   {
+    "t": "trazo",
+    "puntos": [
+     [
+      "2.7183",
+      "0.0000"
+     ],
+     [
+      "2.7034",
+      "0.2841"
+     ],
+     [
+      "2.6589",
+      "0.5652"
+     ],
+     [
+      "2.5852",
+      "0.8400"
+     ],
+     [
+      "2.4833",
+      "1.1056"
+     ],
+     [
+      "2.3541",
+      "1.3591"
+     ],
+     [
+      "2.1991",
+      "1.5978"
+     ],
+     [
+      "2.0201",
+      "1.8189"
+     ],
+     [
+      "1.8189",
+      "2.0201"
+     ],
+     [
+      "1.5978",
+      "2.1991"
+     ],
+     [
+      "1.3591",
+      "2.3541"
+     ],
+     [
+      "1.1056",
+      "2.4833"
+     ],
+     [
+      "0.8400",
+      "2.5852"
+     ],
+     [
+      "0.5652",
+      "2.6589"
+     ],
+     [
+      "0.2841",
+      "2.7034"
+     ],
+     [
+      "0.0000",
+      "2.7183"
+     ],
+     [
+      "-0.2841",
+      "2.7034"
+     ],
+     [
+      "-0.5652",
+      "2.6589"
+     ],
+     [
+      "-0.8400",
+      "2.5852"
+     ],
+     [
+      "-1.1056",
+      "2.4833"
+     ],
+     [
+      "-1.3591",
+      "2.3541"
+     ],
+     [
+      "-1.5978",
+      "2.1991"
+     ],
+     [
+      "-1.8189",
+      "2.0201"
+     ],
+     [
+      "-2.0201",
+      "1.8189"
+     ],
+     [
+      "-2.1991",
+      "1.5978"
+     ],
+     [
+      "-2.3541",
+      "1.3591"
+     ],
+     [
+      "-2.4833",
+      "1.1056"
+     ],
+     [
+      "-2.5852",
+      "0.8400"
+     ],
+     [
+      "-2.6589",
+      "0.5652"
+     ],
+     [
+      "-2.7034",
+      "0.2841"
+     ],
+     [
+      "-2.7183",
+      "0.0000"
+     ]
+    ],
+    "c": 3
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "0",
+     "0"
+    ],
+    "b": [
+     "3.7*cos(x)",
+     "3.7*sin(x)"
+    ],
+    "c": 0
+   },
+   {
+    "t": "punto",
+    "p": [
+     "2.71828*cos(x)",
+     "2.71828*sin(x)"
+    ],
+    "c": 1
+   }
+  ],
+  "lecturas": [
+   {
+    "rotulo": "ángulo del rayo, igual a Im z, en radianes",
+    "formula": "x"
+   },
+   {
+    "rotulo": "parte imaginaria de w en Re z igual a 1",
+    "formula": "2.71828*sin(x)"
+   }
+  ],
+  "etiquetas": [
+   "El rayo, imagen de una recta horizontal, con ángulo igual a la altura",
+   "El punto sobre el semicírculo de radio e, imagen de Re z igual a 1"
+  ],
+  "etiquetaSlider": "Altura Im z, de 0 a pi",
+  "alt": "La aplicación w igual a e elevado a z lleva cada recta horizontal Im z igual a s a un rayo que sale del origen con ángulo s. Al variar s de 0 a pi, los rayos barren el semiplano superior. La recta vertical Re z igual a 1 se convierte en un semicírculo de radio e"
+ },
+ "glosario": {
+  "cr": "Las ecuaciones de Cauchy-Riemann, u sub x igual a v sub y y u sub y igual a menos v sub x, son la condición para que una función compleja sea derivable.",
+  "armonica": "Una función es armónica si cumple la ecuación de Laplace, u sub x x más u sub y y igual a cero.",
+  "mapeo": "Un mapeo es la transformación del plano que hace una función compleja, y se estudia por la imagen de rectas y curvas.",
+  "conforme": "Un mapeo conforme, dado por una función analítica con derivada no nula, conserva los ángulos entre curvas."
+ },
+ "ver": {
+  "duracion": 24.0,
+  "capitulos": [
+   [
+    0,
+    4,
+    "Se escribe f de z como u más i v, y la derivabilidad compleja exige las ecuaciones de Cauchy-Riemann."
+   ],
+   [
+    4,
+    10,
+    "Con la función e a la z, una recta horizontal se convierte en un rayo desde el origen, con ángulo igual a la altura."
+   ],
+   [
+    10,
+    16,
+    "Con la altura en pi medios, el rayo apunta hacia arriba, y la imagen del punto es i por e."
+   ],
+   [
+    16,
+    20,
+    "Al llegar la altura a pi, el rayo es el eje real negativo, y la franja completa cubre el semiplano superior."
+   ],
+   [
+    20,
+    24,
+    "La parte real y la imaginaria de una función analítica son armónicas, y por eso están ligadas."
+   ]
+  ],
+  "canales": {
+   "draw": [
+    [
+     0.3,
+     0
+    ],
+    [
+     3.5,
+     1
+    ]
+   ],
+   "d": [
+    [
+     4,
+     0.3
+    ],
+    [
+     8,
+     0.3
+    ],
+    [
+     10,
+     1.57
+    ],
+    [
+     13,
+     1.57
+    ],
+    [
+     16,
+     3.1
+    ],
+    [
+     18,
+     3.1
+    ],
+    [
+     24,
+     3.1
+    ]
+   ],
+   "guide": [
+    [
+     4,
+     0
+    ],
+    [
+     5,
+     1
+    ]
+   ]
+  },
+  "intervalos": {
+   "ok": [
+    16,
+    24
+   ]
+  }
+ },
+ "leer": {
+  "secciones": [
+   {
+    "titulo": "La idea",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Si f de z es u más i v, la derivada compleja existe solo si se cumplen las ecuaciones de {{gl:cr|Cauchy-Riemann}}, u sub x igual a v sub y y u sub y igual a menos v sub x. Entonces u y v son {{gl:armonica|armónicas}}. Una función analítica define un {{gl:mapeo|mapeo}} del plano que es {{gl:conforme|conforme}}, y conserva los ángulos."
+     }
+    ]
+   },
+   {
+    "titulo": "Un ejemplo",
+    "corto": "Un ejemplo",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "La función e a la z transforma rectas horizontales en rayos. Cambia la altura y mira el rayo girar."
+     },
+     {
+      "t": "eq",
+      "tex": "w=e^{z}=e^{x}\\cos y+i\\,e^{x}\\operatorname{sen}y"
+     },
+     {
+      "t": "grafica",
+      "animar": "dibujar",
+      "alt": "El rayo imagen de una recta horizontal bajo e a la z"
+     }
+    ]
+   },
+   {
+    "titulo": "Piensa antes de ver",
+    "corto": "Piensa",
+    "bloques": [
+     {
+      "t": "piensa",
+      "pregunta": "Con u igual a e elevado a x por coseno de y, ¿cuánto vale u sub x?",
+      "opciones": [
+       "e elevado a x por coseno de y",
+       "menos e elevado a x por seno de y",
+       "e elevado a x por seno de y",
+       "cero"
+      ],
+      "correcta": "e elevado a x por coseno de y",
+      "bien": "Muy bien. Derivar respecto a x deja la misma expresión, porque e elevado a x no cambia.",
+      "mal": "Al derivar respecto a x, e elevado a x no cambia y el coseno de y es una constante. Queda e elevado a x por coseno de y."
+     }
+    ]
+   },
+   {
+    "titulo": "Rectas y rayos",
+    "corto": "Rayos",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mira el rayo con alturas 0.3, 1.57, 2.5 y 3.1."
+     },
+     {
+      "t": "acercando",
+      "ds": [
+       0.3,
+       1.57,
+       2.5,
+       3.1
+      ],
+      "alt": "El rayo imagen con cuatro alturas"
+     },
+     {
+      "t": "p",
+      "html": "Con la altura en 1.57 el rayo apunta hacia arriba, y con 3.1 es casi el eje real negativo."
+     }
+    ]
+   },
+   {
+    "titulo": "Cauchy-Riemann",
+    "corto": "Ecuaciones",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Se comprueba con la función e a la z, que debe ser analítica."
+     },
+     {
+      "t": "pasos",
+      "items": [
+       {
+        "tex": "u=e^{x}\\cos y,\\quad v=e^{x}\\operatorname{sen}y",
+        "porque": "Las partes real e imaginaria."
+       },
+       {
+        "tex": "u_{x}=e^{x}\\cos y=v_{y}",
+        "porque": "Primera ecuación."
+       },
+       {
+        "tex": "u_{y}=-e^{x}\\operatorname{sen}y=-v_{x}",
+        "porque": "Segunda ecuación."
+       },
+       {
+        "tex": "u_{xx}+u_{yy}=e^{x}\\cos y-e^{x}\\cos y=0",
+        "porque": "Entonces u es armónica."
+       }
+      ]
+     },
+     {
+      "t": "ojo",
+      "html": "Las ecuaciones de Cauchy-Riemann son necesarias. Para que sea analítica, además las derivadas parciales deben ser continuas."
+     }
+    ]
+   },
+   {
+    "titulo": "Un contraejemplo",
+    "corto": "Contraejemplo",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "La conjugada de z no es analítica, y las ecuaciones lo detectan."
+     },
+     {
+      "t": "pasos",
+      "items": [
+       {
+        "tex": "f(z)=\\bar{z}=x-iy\\ \\Rightarrow\\ u=x,\\ v=-y",
+        "porque": "Partes real e imaginaria."
+       },
+       {
+        "tex": "u_{x}=1,\\quad v_{y}=-1",
+        "porque": "Las dos derivadas son distintas."
+       },
+       {
+        "tex": "u_{x}\\ne v_{y}",
+        "porque": "No se cumple Cauchy-Riemann."
+       },
+       {
+        "tex": "f\\ \\text{no es analitica en ningun punto}",
+        "porque": "La conjugada no es derivable."
+       }
+      ]
+     },
+     {
+      "t": "ojo",
+      "html": "Con f igual a z al cuadrado, u es x al cuadrado menos y al cuadrado y v es 2xy. Entonces u sub x es 2x y v sub y es 2x, y las ecuaciones sí se cumplen."
+     }
+    ]
+   },
+   {
+    "titulo": "¿Para qué sirve?",
+    "corto": "En ingeniería",
+    "bloques": [
+     {
+      "t": "ingenieria",
+      "titulo": "Flujo alrededor de un cilindro",
+      "html": "En un fluido ideal que pasa por un cilindro, el potencial complejo es una función analítica. Su parte real es el potencial de velocidades y su parte imaginaria es la función de corriente. Ambas son armónicas.",
+      "tex": "\\Omega(z)=U\\left(z+\\dfrac{R^{2}}{z}\\right)",
+      "datos": [
+       {
+        "k": "Velocidad lejos",
+        "v": "U"
+       },
+       {
+        "k": "Radio del cilindro",
+        "v": "R"
+       },
+       {
+        "k": "Sobre el cilindro",
+        "v": "la corriente es constante"
+       }
+      ],
+      "cierre": "La analiticidad enlaza potencial y corriente por Cauchy-Riemann, y por eso se conoce uno al conocer el otro. Es un modelo ideal, sin viscosidad, y sirve como primera aproximación."
+     }
+    ]
+   },
+   {
+    "titulo": "Completa el paso",
+    "corto": "Completa",
+    "bloques": [
+     {
+      "t": "completar",
+      "enunciado": "Las ecuaciones de Cauchy-Riemann dicen que u sub x es igual a [[hueco]].",
+      "tex": "u_{x}=[[hueco]]",
+      "opciones": [
+       {
+        "tex": "v_{y}",
+        "txt": "v sub y"
+       },
+       {
+        "tex": "v_{x}",
+        "txt": "v sub x"
+       },
+       {
+        "tex": "-v_{y}",
+        "txt": "menos v sub y"
+       }
+      ],
+      "correcta": 0,
+      "errores": [
+       "",
+       "Con v sub x se confunde con la segunda ecuación, que lleva un signo menos.",
+       "Con menos v sub y el signo no es correcto."
+      ],
+      "pista": "La primera ecuación iguala u sub x con v sub y.",
+      "porque": "Es v sub y."
+     }
+    ]
+   },
+   {
+    "titulo": "Encuentra el error",
+    "corto": "Error",
+    "bloques": [
+     {
+      "t": "error",
+      "enunciado": "Alguien revisó si f de z igual a la conjugada de z cumple Cauchy-Riemann, y se equivocó. Toca el paso que está mal.",
+      "pasos": [
+       {
+        "tex": "u=x,\\quad v=-y",
+        "porque": "Partes real e imaginaria.",
+        "txt": "partes"
+       },
+       {
+        "tex": "u_{x}=1,\\quad v_{y}=1",
+        "porque": "Este paso es el que falla.",
+        "txt": "v sub y igual a 1"
+       },
+       {
+        "tex": "u_{x}=v_{y}\\ \\Rightarrow\\ \\text{analitica}",
+        "porque": "Conclusión.",
+        "txt": "analitica"
+       }
+      ],
+      "mal": 1,
+      "explicacion": "v es menos y, así que v sub y es menos 1. Como u sub x es 1, no se cumple la igualdad, y la conjugada no es analítica.",
+      "correccion": "v_{y}=-1",
+      "pista": "Deriva v igual a menos y respecto a y."
+     }
+    ]
+   },
+   {
+    "titulo": "Ordena los pasos",
+    "corto": "Ordena",
+    "bloques": [
+     {
+      "t": "ordenar",
+      "enunciado": "Estos son los pasos para verificar Cauchy-Riemann con z al cuadrado, pero están desordenados.",
+      "pasos": [
+       "z^{2}=(x^{2}-y^{2})+i(2xy)",
+       "u_{x}=2x,\\quad v_{y}=2x",
+       "u_{y}=-2y,\\quad v_{x}=2y",
+       "u_{x}=v_{y},\\quad u_{y}=-v_{x}"
+      ],
+      "mezcla": [
+       2,
+       0,
+       3,
+       1
+      ],
+      "porque": "Primero se separan las partes, luego se calculan las derivadas y por último se comprueba.",
+      "pista": "Se empieza separando u y v.",
+      "txt": [
+       "Se separan las partes",
+       "Primera ecuación",
+       "Segunda ecuación",
+       "Se cumplen las dos"
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "Revisa tu respuesta",
+    "corto": "Revisa",
+    "bloques": [
+     {
+      "t": "pregunta"
+     },
+     {
+      "t": "nota",
+      "html": "Puedes pedir pistas de a una. Si fallas, el mensaje te dice qué error se cometió."
+     }
+    ]
+   },
+   {
+    "titulo": "Mini simulacro",
+    "corto": "Simulacro",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Preguntas reales del banco de MathUNAL sobre este tema. Responde sin mirar los pasos."
+     },
+     {
+      "t": "simulacro",
+      "titulo": "Mini simulacro de Cauchy-Riemann",
+      "preguntas": [
+       {
+        "tipo": "mcq",
+        "texto": "Escribiendo $f(z)=u(x,y)+i\\,v(x,y)$, las ecuaciones de Cauchy-Riemann son:",
+        "opciones": [
+         "$u_x=v_y$ y $u_y=-v_x$",
+         "$u_x=v_x$ y $u_y=v_y$",
+         "$u_x=-v_y$ y $u_y=v_x$",
+         "$u_x+u_y=v_x+v_y$"
+        ],
+        "correcta": 0,
+        "resumen": "Las ecuaciones de Cauchy-Riemann.",
+        "fuente": "Banco MathUNAL, simulacro de Matemáticas Especiales"
+       },
+       {
+        "tipo": "mcq",
+        "texto": "Para $f(z)=\\bar{z}$ (es decir $u=x$, $v=-y$), ¿se satisfacen las ecuaciones de Cauchy-Riemann?",
+        "opciones": [
+         "No: $u_x=1$ pero $v_y=-1$, así que $f$ no es analítica en ningún punto",
+         "Sí, en todo el plano",
+         "Sí, solo en $z=0$",
+         "Sí, sobre el eje real"
+        ],
+        "correcta": 0,
+        "resumen": "La conjugada no es analítica.",
+        "fuente": "Banco MathUNAL, simulacro de Matemáticas Especiales"
+       },
+       {
+        "tipo": "mcq",
+        "texto": "Si $f=u+iv$ es analítica en un abierto, entonces $u$ y $v$:",
+        "opciones": [
+         "son ambas armónicas ($u_{xx}+u_{yy}=0$) y se llaman conjugadas armónicas",
+         "son ambas constantes",
+         "son polinomios de grado 1",
+         "no tienen relación entre sí"
+        ],
+        "correcta": 0,
+        "resumen": "Las partes de una analítica son armónicas.",
+        "fuente": "Banco MathUNAL, simulacro de Matemáticas Especiales"
+       },
+       {
+        "tipo": "mcq",
+        "texto": "La aplicación $w=e^{z}$ transforma la franja horizontal $0<\\operatorname{Im}(z)<\\pi$ en:",
+        "opciones": [
+         "el semiplano superior $\\operatorname{Im}(w)>0$",
+         "el disco unidad",
+         "una franja vertical",
+         "todo el plano menos el origen"
+        ],
+        "correcta": 0,
+        "resumen": "La franja se transforma con e a la z.",
+        "fuente": "Banco MathUNAL, simulacro de Matemáticas Especiales"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "Tu repaso",
+    "corto": "Repaso",
+    "bloques": [
+     {
+      "t": "repaso"
+     }
+    ]
+   },
+   {
+    "titulo": "En resumen",
+    "corto": "Resumen",
+    "bloques": [
+     {
+      "t": "resumen"
+     }
+    ]
+   }
+  ]
+ },
+ "practicar": {
+  "pasos": [
+   {
+    "titulo": "La función",
+    "grafica": {
+     "draw": 1
+    },
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Se estudia la imagen de rectas horizontales."
+     },
+     {
+      "t": "eq",
+      "tex": "w=e^{z},\\quad z=x+iy"
+     }
+    ]
+   },
+   {
+    "titulo": "Cambia la altura",
+    "grafica": {
+     "draw": 1
+    },
+    "laboratorio": true,
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mueve el deslizador. El rayo imagen gira con la altura, y abajo se leen el ángulo y la parte imaginaria de w."
+     }
+    ]
+   },
+   {
+    "titulo": "Arriba",
+    "grafica": {
+     "draw": 1,
+     "guide": 1,
+     "ok": true
+    },
+    "laboratorio": true,
+    "d": 1.57,
+    "bloques": [
+     {
+      "t": "eq",
+      "tex": "e^{1+i\\pi/2}=i\\,e"
+     },
+     {
+      "t": "p",
+      "html": "Con la altura en pi medios, el rayo apunta hacia arriba."
+     }
+    ]
+   },
+   {
+    "titulo": "Revisa tu respuesta",
+    "grafica": {
+     "draw": 1,
+     "guide": 1,
+     "ok": true,
+     "d": 1.57
+    },
+    "bloques": [
+     {
+      "t": "pregunta"
+     },
+     {
+      "t": "nota",
+      "html": "El ángulo del rayo es la altura Im z."
+     }
+    ]
+   }
+  ]
+ },
+ "pregunta": {
+  "tex": "f(z)=z^{2},\\ u=x^{2}-y^{2},\\ v=2xy.\\ \\text{Entonces }v_{x}\\text{ es}",
+  "opciones": [
+   "$2y$",
+   "$2x$",
+   "$-2y$",
+   "$0$"
+  ],
+  "correcta": 0,
+  "explicacion": "v es 2xy, y al derivar respecto a x queda 2y. Con u sub y igual a menos 2y, se cumple que u sub y es menos v sub x.",
+  "verificacion": {
+   "formula": "2*1+0*x",
+   "a": 0,
+   "esperado": 2
+  },
+  "pistas": [
+   "v es 2xy.",
+   "Deriva respecto a x, con y constante.",
+   "Queda 2y."
+  ],
+  "errores": [
+   "",
+   "Con 2x se derivó respecto a y.",
+   "Con menos 2y es u sub y, y no v sub x.",
+   "Con 0 se tomó y como cero."
+  ]
+ },
+ "resumen": [
+  "Las ecuaciones de Cauchy-Riemann son u sub x igual a v sub y y u sub y igual a menos v sub x.",
+  "Las partes real e imaginaria de una función analítica son armónicas.",
+  "La función e a la z convierte una franja de altura pi en el semiplano superior."
+ ]
+}

@@ -1,0 +1,1080 @@
+{
+ "esquema": 1,
+ "id": "es-m1-l1",
+ "ejemplo": true,
+ "curso": "Matemáticas Especiales",
+ "modulo": "Módulo 1 Series de Fourier",
+ "posicion": "Lección 1 de 5",
+ "titulo": "Funciones periódicas y ortogonalidad",
+ "minutos": 26,
+ "ejercicios": 8,
+ "grafica": {
+  "tipo": "plano",
+  "x": [
+   -4.4,
+   4.4
+  ],
+  "y": [
+   -1.4,
+   1.4
+  ],
+  "a": 1,
+  "b": 6,
+  "inicio": 1,
+  "entero": true,
+  "elementos": [
+   {
+    "t": "trazo",
+    "puntos": [
+     [
+      "-3.14159",
+      "sin(-3.14159)*sin(x*-3.14159)"
+     ],
+     [
+      "-3.08923",
+      "sin(-3.08923)*sin(x*-3.08923)"
+     ],
+     [
+      "-3.03687",
+      "sin(-3.03687)*sin(x*-3.03687)"
+     ],
+     [
+      "-2.98451",
+      "sin(-2.98451)*sin(x*-2.98451)"
+     ],
+     [
+      "-2.93215",
+      "sin(-2.93215)*sin(x*-2.93215)"
+     ],
+     [
+      "-2.87979",
+      "sin(-2.87979)*sin(x*-2.87979)"
+     ],
+     [
+      "-2.82743",
+      "sin(-2.82743)*sin(x*-2.82743)"
+     ],
+     [
+      "-2.77507",
+      "sin(-2.77507)*sin(x*-2.77507)"
+     ],
+     [
+      "-2.72271",
+      "sin(-2.72271)*sin(x*-2.72271)"
+     ],
+     [
+      "-2.67035",
+      "sin(-2.67035)*sin(x*-2.67035)"
+     ],
+     [
+      "-2.61799",
+      "sin(-2.61799)*sin(x*-2.61799)"
+     ],
+     [
+      "-2.56563",
+      "sin(-2.56563)*sin(x*-2.56563)"
+     ],
+     [
+      "-2.51327",
+      "sin(-2.51327)*sin(x*-2.51327)"
+     ],
+     [
+      "-2.46091",
+      "sin(-2.46091)*sin(x*-2.46091)"
+     ],
+     [
+      "-2.40855",
+      "sin(-2.40855)*sin(x*-2.40855)"
+     ],
+     [
+      "-2.35619",
+      "sin(-2.35619)*sin(x*-2.35619)"
+     ],
+     [
+      "-2.30383",
+      "sin(-2.30383)*sin(x*-2.30383)"
+     ],
+     [
+      "-2.25147",
+      "sin(-2.25147)*sin(x*-2.25147)"
+     ],
+     [
+      "-2.19911",
+      "sin(-2.19911)*sin(x*-2.19911)"
+     ],
+     [
+      "-2.14675",
+      "sin(-2.14675)*sin(x*-2.14675)"
+     ],
+     [
+      "-2.0944",
+      "sin(-2.0944)*sin(x*-2.0944)"
+     ],
+     [
+      "-2.04204",
+      "sin(-2.04204)*sin(x*-2.04204)"
+     ],
+     [
+      "-1.98968",
+      "sin(-1.98968)*sin(x*-1.98968)"
+     ],
+     [
+      "-1.93732",
+      "sin(-1.93732)*sin(x*-1.93732)"
+     ],
+     [
+      "-1.88496",
+      "sin(-1.88496)*sin(x*-1.88496)"
+     ],
+     [
+      "-1.8326",
+      "sin(-1.8326)*sin(x*-1.8326)"
+     ],
+     [
+      "-1.78024",
+      "sin(-1.78024)*sin(x*-1.78024)"
+     ],
+     [
+      "-1.72788",
+      "sin(-1.72788)*sin(x*-1.72788)"
+     ],
+     [
+      "-1.67552",
+      "sin(-1.67552)*sin(x*-1.67552)"
+     ],
+     [
+      "-1.62316",
+      "sin(-1.62316)*sin(x*-1.62316)"
+     ],
+     [
+      "-1.5708",
+      "sin(-1.5708)*sin(x*-1.5708)"
+     ],
+     [
+      "-1.51844",
+      "sin(-1.51844)*sin(x*-1.51844)"
+     ],
+     [
+      "-1.46608",
+      "sin(-1.46608)*sin(x*-1.46608)"
+     ],
+     [
+      "-1.41372",
+      "sin(-1.41372)*sin(x*-1.41372)"
+     ],
+     [
+      "-1.36136",
+      "sin(-1.36136)*sin(x*-1.36136)"
+     ],
+     [
+      "-1.309",
+      "sin(-1.309)*sin(x*-1.309)"
+     ],
+     [
+      "-1.25664",
+      "sin(-1.25664)*sin(x*-1.25664)"
+     ],
+     [
+      "-1.20428",
+      "sin(-1.20428)*sin(x*-1.20428)"
+     ],
+     [
+      "-1.15192",
+      "sin(-1.15192)*sin(x*-1.15192)"
+     ],
+     [
+      "-1.09956",
+      "sin(-1.09956)*sin(x*-1.09956)"
+     ],
+     [
+      "-1.0472",
+      "sin(-1.0472)*sin(x*-1.0472)"
+     ],
+     [
+      "-0.99484",
+      "sin(-0.99484)*sin(x*-0.99484)"
+     ],
+     [
+      "-0.94248",
+      "sin(-0.94248)*sin(x*-0.94248)"
+     ],
+     [
+      "-0.89012",
+      "sin(-0.89012)*sin(x*-0.89012)"
+     ],
+     [
+      "-0.83776",
+      "sin(-0.83776)*sin(x*-0.83776)"
+     ],
+     [
+      "-0.7854",
+      "sin(-0.7854)*sin(x*-0.7854)"
+     ],
+     [
+      "-0.73304",
+      "sin(-0.73304)*sin(x*-0.73304)"
+     ],
+     [
+      "-0.68068",
+      "sin(-0.68068)*sin(x*-0.68068)"
+     ],
+     [
+      "-0.62832",
+      "sin(-0.62832)*sin(x*-0.62832)"
+     ],
+     [
+      "-0.57596",
+      "sin(-0.57596)*sin(x*-0.57596)"
+     ],
+     [
+      "-0.5236",
+      "sin(-0.5236)*sin(x*-0.5236)"
+     ],
+     [
+      "-0.47124",
+      "sin(-0.47124)*sin(x*-0.47124)"
+     ],
+     [
+      "-0.41888",
+      "sin(-0.41888)*sin(x*-0.41888)"
+     ],
+     [
+      "-0.36652",
+      "sin(-0.36652)*sin(x*-0.36652)"
+     ],
+     [
+      "-0.31416",
+      "sin(-0.31416)*sin(x*-0.31416)"
+     ],
+     [
+      "-0.2618",
+      "sin(-0.2618)*sin(x*-0.2618)"
+     ],
+     [
+      "-0.20944",
+      "sin(-0.20944)*sin(x*-0.20944)"
+     ],
+     [
+      "-0.15708",
+      "sin(-0.15708)*sin(x*-0.15708)"
+     ],
+     [
+      "-0.10472",
+      "sin(-0.10472)*sin(x*-0.10472)"
+     ],
+     [
+      "-0.05236",
+      "sin(-0.05236)*sin(x*-0.05236)"
+     ],
+     [
+      "-0.0",
+      "sin(-0.0)*sin(x*-0.0)"
+     ],
+     [
+      "0.05236",
+      "sin(0.05236)*sin(x*0.05236)"
+     ],
+     [
+      "0.10472",
+      "sin(0.10472)*sin(x*0.10472)"
+     ],
+     [
+      "0.15708",
+      "sin(0.15708)*sin(x*0.15708)"
+     ],
+     [
+      "0.20944",
+      "sin(0.20944)*sin(x*0.20944)"
+     ],
+     [
+      "0.2618",
+      "sin(0.2618)*sin(x*0.2618)"
+     ],
+     [
+      "0.31416",
+      "sin(0.31416)*sin(x*0.31416)"
+     ],
+     [
+      "0.36652",
+      "sin(0.36652)*sin(x*0.36652)"
+     ],
+     [
+      "0.41888",
+      "sin(0.41888)*sin(x*0.41888)"
+     ],
+     [
+      "0.47124",
+      "sin(0.47124)*sin(x*0.47124)"
+     ],
+     [
+      "0.5236",
+      "sin(0.5236)*sin(x*0.5236)"
+     ],
+     [
+      "0.57596",
+      "sin(0.57596)*sin(x*0.57596)"
+     ],
+     [
+      "0.62832",
+      "sin(0.62832)*sin(x*0.62832)"
+     ],
+     [
+      "0.68068",
+      "sin(0.68068)*sin(x*0.68068)"
+     ],
+     [
+      "0.73304",
+      "sin(0.73304)*sin(x*0.73304)"
+     ],
+     [
+      "0.7854",
+      "sin(0.7854)*sin(x*0.7854)"
+     ],
+     [
+      "0.83776",
+      "sin(0.83776)*sin(x*0.83776)"
+     ],
+     [
+      "0.89012",
+      "sin(0.89012)*sin(x*0.89012)"
+     ],
+     [
+      "0.94248",
+      "sin(0.94248)*sin(x*0.94248)"
+     ],
+     [
+      "0.99484",
+      "sin(0.99484)*sin(x*0.99484)"
+     ],
+     [
+      "1.0472",
+      "sin(1.0472)*sin(x*1.0472)"
+     ],
+     [
+      "1.09956",
+      "sin(1.09956)*sin(x*1.09956)"
+     ],
+     [
+      "1.15192",
+      "sin(1.15192)*sin(x*1.15192)"
+     ],
+     [
+      "1.20428",
+      "sin(1.20428)*sin(x*1.20428)"
+     ],
+     [
+      "1.25664",
+      "sin(1.25664)*sin(x*1.25664)"
+     ],
+     [
+      "1.309",
+      "sin(1.309)*sin(x*1.309)"
+     ],
+     [
+      "1.36136",
+      "sin(1.36136)*sin(x*1.36136)"
+     ],
+     [
+      "1.41372",
+      "sin(1.41372)*sin(x*1.41372)"
+     ],
+     [
+      "1.46608",
+      "sin(1.46608)*sin(x*1.46608)"
+     ],
+     [
+      "1.51844",
+      "sin(1.51844)*sin(x*1.51844)"
+     ],
+     [
+      "1.5708",
+      "sin(1.5708)*sin(x*1.5708)"
+     ],
+     [
+      "1.62316",
+      "sin(1.62316)*sin(x*1.62316)"
+     ],
+     [
+      "1.67552",
+      "sin(1.67552)*sin(x*1.67552)"
+     ],
+     [
+      "1.72788",
+      "sin(1.72788)*sin(x*1.72788)"
+     ],
+     [
+      "1.78024",
+      "sin(1.78024)*sin(x*1.78024)"
+     ],
+     [
+      "1.8326",
+      "sin(1.8326)*sin(x*1.8326)"
+     ],
+     [
+      "1.88496",
+      "sin(1.88496)*sin(x*1.88496)"
+     ],
+     [
+      "1.93732",
+      "sin(1.93732)*sin(x*1.93732)"
+     ],
+     [
+      "1.98968",
+      "sin(1.98968)*sin(x*1.98968)"
+     ],
+     [
+      "2.04204",
+      "sin(2.04204)*sin(x*2.04204)"
+     ],
+     [
+      "2.0944",
+      "sin(2.0944)*sin(x*2.0944)"
+     ],
+     [
+      "2.14675",
+      "sin(2.14675)*sin(x*2.14675)"
+     ],
+     [
+      "2.19911",
+      "sin(2.19911)*sin(x*2.19911)"
+     ],
+     [
+      "2.25147",
+      "sin(2.25147)*sin(x*2.25147)"
+     ],
+     [
+      "2.30383",
+      "sin(2.30383)*sin(x*2.30383)"
+     ],
+     [
+      "2.35619",
+      "sin(2.35619)*sin(x*2.35619)"
+     ],
+     [
+      "2.40855",
+      "sin(2.40855)*sin(x*2.40855)"
+     ],
+     [
+      "2.46091",
+      "sin(2.46091)*sin(x*2.46091)"
+     ],
+     [
+      "2.51327",
+      "sin(2.51327)*sin(x*2.51327)"
+     ],
+     [
+      "2.56563",
+      "sin(2.56563)*sin(x*2.56563)"
+     ],
+     [
+      "2.61799",
+      "sin(2.61799)*sin(x*2.61799)"
+     ],
+     [
+      "2.67035",
+      "sin(2.67035)*sin(x*2.67035)"
+     ],
+     [
+      "2.72271",
+      "sin(2.72271)*sin(x*2.72271)"
+     ],
+     [
+      "2.77507",
+      "sin(2.77507)*sin(x*2.77507)"
+     ],
+     [
+      "2.82743",
+      "sin(2.82743)*sin(x*2.82743)"
+     ],
+     [
+      "2.87979",
+      "sin(2.87979)*sin(x*2.87979)"
+     ],
+     [
+      "2.93215",
+      "sin(2.93215)*sin(x*2.93215)"
+     ],
+     [
+      "2.98451",
+      "sin(2.98451)*sin(x*2.98451)"
+     ],
+     [
+      "3.03687",
+      "sin(3.03687)*sin(x*3.03687)"
+     ],
+     [
+      "3.08923",
+      "sin(3.08923)*sin(x*3.08923)"
+     ],
+     [
+      "3.14159",
+      "sin(3.14159)*sin(x*3.14159)"
+     ]
+    ],
+    "c": 0
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "-3.141592653589793",
+     "0"
+    ],
+    "b": [
+     "3.141592653589793",
+     "0"
+    ],
+    "c": 3
+   }
+  ],
+  "lecturas": [
+   {
+    "rotulo": "integral de seno de x por seno de n x entre menos pi y pi",
+    "formula": "((3.141592654*(x-0)*(x-2)*(x-3)*(x-4)*(x-5)*(x-6)/(-120)))"
+   },
+   {
+    "rotulo": "período de seno de n x",
+    "formula": "2*pi/x"
+   }
+  ],
+  "etiquetas": [
+   "Vale pi con n igual a 1, y cero con los demás n",
+   "El período se acorta al subir n"
+  ],
+  "etiquetaSlider": "Frecuencia n, de 1 a 6",
+  "alt": "La curva del producto de seno de x por seno de n x entre menos pi y pi. Con n igual a 1 el producto es seno al cuadrado y siempre es positivo, y su integral vale pi. Con n mayor que 1 el producto tiene partes positivas y negativas iguales que se cancelan, y la integral vale cero"
+ },
+ "glosario": {
+  "periodica": "Una función es periódica de período T si f de x más T es igual a f de x para todo x. El período de seno de omega x es 2 pi entre omega.",
+  "ortogonal": "Dos funciones son ortogonales en un intervalo si la integral de su producto es cero. Es la versión para funciones del producto punto cero.",
+  "producto": "Las fórmulas de producto a suma convierten un producto de senos y cosenos en una suma, y se integran fácilmente.",
+  "norma": "La norma al cuadrado de seno de n x en el intervalo de menos pi a pi vale pi, y la del coseno de n x también, si n es distinto de cero."
+ },
+ "ver": {
+  "duracion": 24.0,
+  "capitulos": [
+   [
+    0,
+    4,
+    "La curva es el producto de seno de x por seno de n x. La integral de ese producto dice si las dos ondas son ortogonales."
+   ],
+   [
+    4,
+    9,
+    "Con n igual a 1, el producto es seno al cuadrado, siempre positivo, y la integral vale pi."
+   ],
+   [
+    9,
+    15,
+    "Con n igual a 2 o a 3, el producto tiene partes positivas y negativas que se cancelan, y la integral vale cero."
+   ],
+   [
+    15,
+    20,
+    "El período de seno de n x es 2 pi entre n, así que a mayor n más oscila."
+   ],
+   [
+    20,
+    24,
+    "Por eso los senos y cosenos de frecuencias enteras forman un conjunto ortogonal en el intervalo de menos pi a pi."
+   ]
+  ],
+  "canales": {
+   "draw": [
+    [
+     0.3,
+     0
+    ],
+    [
+     3.5,
+     1
+    ]
+   ],
+   "d": [
+    [
+     4,
+     1
+    ],
+    [
+     8,
+     1
+    ],
+    [
+     10,
+     2
+    ],
+    [
+     12,
+     3
+    ],
+    [
+     15,
+     4
+    ],
+    [
+     24,
+     4
+    ]
+   ],
+   "guide": [
+    [
+     4,
+     0
+    ],
+    [
+     5,
+     1
+    ]
+   ]
+  },
+  "intervalos": {
+   "ok": [
+    15,
+    24
+   ]
+  }
+ },
+ "leer": {
+  "secciones": [
+   {
+    "titulo": "La idea",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Una función {{gl:periodica|periódica}} se repite cada cierto período. La suma de ondas de distinto período es periódica si sus períodos tienen un múltiplo común. Dos funciones son {{gl:ortogonal|ortogonales}} si la integral de su producto es cero. Con las fórmulas de {{gl:producto|producto a suma}} se prueba que los senos y cosenos de frecuencias enteras son ortogonales entre sí, y de ahí salen los coeficientes de Fourier."
+     }
+    ]
+   },
+   {
+    "titulo": "Un ejemplo",
+    "corto": "Un ejemplo",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mira el producto de seno de x por seno de n x. Cuando la parte positiva y la negativa se compensan, la integral vale cero."
+     },
+     {
+      "t": "eq",
+      "tex": "\\displaystyle\\int_{-\\pi}^{\\pi}\\operatorname{sen}(mx)\\operatorname{sen}(nx)\\,dx=\\begin{cases}\\pi&m=n\\\\0&m\\neq n\\end{cases}"
+     },
+     {
+      "t": "grafica",
+      "animar": "dibujar",
+      "alt": "El producto de dos senos"
+     }
+    ]
+   },
+   {
+    "titulo": "Piensa antes de ver",
+    "corto": "Piensa",
+    "bloques": [
+     {
+      "t": "piensa",
+      "pregunta": "Con n igual a 1, el producto es seno de x al cuadrado, que nunca es negativo. ¿La integral de menos pi a pi es positiva, cero o negativa?",
+      "opciones": [
+       "Positiva",
+       "Cero",
+       "Negativa"
+      ],
+      "correcta": "Positiva",
+      "bien": "Muy bien. Es positiva, y vale pi. Más abajo se ve que con n distinto de 1 se anula.",
+      "mal": "Es positiva, porque seno al cuadrado nunca es negativo y no se cancela. Vale pi. Más abajo se ve que con n distinto de 1 se anula."
+     }
+    ]
+   },
+   {
+    "titulo": "Cambiando la frecuencia",
+    "corto": "La frecuencia",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mira el producto con n igual a 1, 2, 3 y 5."
+     },
+     {
+      "t": "acercando",
+      "ds": [
+       1,
+       2,
+       3,
+       5
+      ],
+      "alt": "El producto para cuatro frecuencias"
+     },
+     {
+      "t": "p",
+      "html": "Solo con n igual a 1 el producto es siempre positivo. Con los demás, las partes positivas y negativas son iguales."
+     }
+    ]
+   },
+   {
+    "titulo": "Períodos",
+    "corto": "Períodos",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "El período de una onda y el de una suma."
+     },
+     {
+      "t": "pasos",
+      "items": [
+       {
+        "tex": "T=\\dfrac{2\\pi}{\\omega}",
+        "porque": "El período de seno de omega x."
+       },
+       {
+        "tex": "\\cos\\!\\left(\\tfrac{2}{3}x+1\\right):\\ T=\\dfrac{2\\pi}{2/3}=3\\pi",
+        "porque": "Un ejemplo, con la frecuencia 2 tercios."
+       },
+       {
+        "tex": "\\operatorname{sen}\\!\\left(\\tfrac{\\pi}{3}t\\right)+\\operatorname{sen}\\!\\left(\\tfrac{2\\pi}{5}t\\right):\\ T_{1}=6,\\ T_{2}=5",
+        "porque": "Los períodos de cada término."
+       },
+       {
+        "tex": "T=\\operatorname{mcm}(6,5)=30",
+        "porque": "El período de la suma es el mínimo común múltiplo."
+       }
+      ]
+     },
+     {
+      "t": "ojo",
+      "html": "Para una suma de ondas, el período no es la suma ni el promedio de los períodos, sino el menor tiempo en que todas se repiten juntas."
+     }
+    ]
+   },
+   {
+    "titulo": "Ortogonalidad",
+    "corto": "Ortogonalidad",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Con las identidades de producto a suma se calculan estas integrales."
+     },
+     {
+      "t": "pasos",
+      "items": [
+       {
+        "tex": "\\displaystyle\\int_{-\\pi}^{\\pi}\\operatorname{sen}(mx)\\cos(nx)\\,dx=0",
+        "porque": "Seno y coseno siempre son ortogonales."
+       },
+       {
+        "tex": "\\operatorname{sen}3x\\cos5x=\\tfrac12\\left[\\operatorname{sen}8x-\\operatorname{sen}2x\\right]\\ \\Rightarrow\\ \\displaystyle\\int=0",
+        "porque": "Un ejemplo."
+       },
+       {
+        "tex": "\\displaystyle\\int_{-\\pi}^{\\pi}\\cos^{2}(2x)\\,dx=\\pi=3.1416",
+        "porque": "La norma al cuadrado de coseno de 2x."
+       },
+       {
+        "tex": "\\displaystyle\\int_{-L}^{L}f\\,dx=\\int_{a}^{a+2L}f\\,dx",
+        "porque": "Para una función de período 2L, el punto de partida no importa."
+       }
+      ]
+     },
+     {
+      "t": "ojo",
+      "html": "La ortogonalidad no depende del intervalo que se escoja, sino de que tenga la longitud de un período. En menos pi a pi funciona para frecuencias enteras."
+     }
+    ]
+   },
+   {
+    "titulo": "¿Para qué sirve?",
+    "corto": "En ingeniería",
+    "bloques": [
+     {
+      "t": "ingenieria",
+      "titulo": "Separar señales por frecuencia",
+      "html": "Un analizador de vibraciones recibe una señal que mezcla ondas de distintas frecuencias. Para saber cuánto aporta la frecuencia n, multiplica la señal por seno de n x y la integra en un período. Las demás frecuencias se anulan por la ortogonalidad.",
+      "tex": "\\displaystyle\\int_{-\\pi}^{\\pi}\\operatorname{sen}(x)\\operatorname{sen}(3x)\\,dx=0",
+      "datos": [
+       {
+        "k": "Señal 1",
+        "v": "seno de x"
+       },
+       {
+        "k": "Señal 2",
+        "v": "seno de 3x"
+       },
+       {
+        "k": "Integral del producto",
+        "v": "0"
+       }
+      ],
+      "cierre": "Ese principio es la base de los analizadores de espectro. Cada coeficiente mide la cantidad de una frecuencia, sin que las otras interfieran. Si el intervalo de integración no coincide con un múltiplo del período, las frecuencias se filtran unas en otras, y se habla de fuga espectral."
+     }
+    ]
+   },
+   {
+    "titulo": "Completa el paso",
+    "corto": "Completa",
+    "bloques": [
+     {
+      "t": "completar",
+      "enunciado": "Se calcula el período de coseno de dos tercios de x más 1. Falta el resultado.",
+      "tex": "T=\\dfrac{2\\pi}{2/3}=[[hueco]]",
+      "opciones": [
+       {
+        "tex": "3\\pi",
+        "txt": "tres pi"
+       },
+       {
+        "tex": "2\\pi",
+        "txt": "dos pi"
+       },
+       {
+        "tex": "\\pi",
+        "txt": "pi"
+       }
+      ],
+      "correcta": 0,
+      "errores": [
+       "",
+       "2 pi es el período de coseno de x, y aquí la frecuencia es menor, así que el período es mayor.",
+       "Pi sería el período de coseno de 2x, que oscila más rápido."
+      ],
+      "pista": "El período es 2 pi entre la frecuencia.",
+      "porque": "Dividir entre 2 tercios es multiplicar por 3 medios, y queda 3 pi."
+     }
+    ]
+   },
+   {
+    "titulo": "Encuentra el error",
+    "corto": "Error",
+    "bloques": [
+     {
+      "t": "error",
+      "enunciado": "Alguien halló el período de una suma de ondas y se equivocó en un paso. Toca el paso que está mal.",
+      "pasos": [
+       {
+        "tex": "T_{1}=6,\\quad T_{2}=5",
+        "porque": "Los períodos de cada onda.",
+        "txt": "los períodos son 6 y 5"
+       },
+       {
+        "tex": "T=6+5=11",
+        "porque": "Este paso es el que falla.",
+        "txt": "se suman los períodos"
+       },
+       {
+        "tex": "\\text{El período es 11}",
+        "porque": "Resultado.",
+        "txt": "el período es 11"
+       }
+      ],
+      "mal": 1,
+      "explicacion": "El período de la suma es el menor número en que las dos ondas se repiten juntas, o sea, el mínimo común múltiplo de 6 y 5, que es 30.",
+      "correccion": "T=\\operatorname{mcm}(6,5)=30",
+      "pista": "Busca el menor número que contiene a 6 y a 5."
+     }
+    ]
+   },
+   {
+    "titulo": "Ordena los pasos",
+    "corto": "Ordena",
+    "bloques": [
+     {
+      "t": "ordenar",
+      "enunciado": "Estos son los pasos para calcular la integral de seno de 3x por coseno de 5x entre menos pi y pi, pero están desordenados.",
+      "pasos": [
+       "\\operatorname{sen}3x\\cos5x=\\tfrac12\\left[\\operatorname{sen}8x+\\operatorname{sen}(-2x)\\right]",
+       "=\\tfrac12\\left[\\operatorname{sen}8x-\\operatorname{sen}2x\\right]",
+       "\\displaystyle\\int_{-\\pi}^{\\pi}\\operatorname{sen}(kx)\\,dx=0",
+       "\\text{la integral vale}\\ 0"
+      ],
+      "mezcla": [
+       2,
+       0,
+       3,
+       1
+      ],
+      "porque": "Se convierte el producto en suma, se simplifica y se integra cada seno, que da cero.",
+      "pista": "Se empieza con la identidad de producto a suma.",
+      "txt": [
+       "Se usa producto a suma",
+       "Se simplifica",
+       "Cada seno de frecuencia entera se integra a cero",
+       "Se concluye"
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "Revisa tu respuesta",
+    "corto": "Revisa",
+    "bloques": [
+     {
+      "t": "pregunta"
+     },
+     {
+      "t": "nota",
+      "html": "Puedes pedir pistas de a una. Si fallas, el mensaje te dice qué error se cometió."
+     }
+    ]
+   },
+   {
+    "titulo": "Mini simulacro",
+    "corto": "Simulacro",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Tres preguntas reales del banco de MathUNAL sobre este tema. Responde sin mirar los pasos."
+     },
+     {
+      "t": "simulacro",
+      "titulo": "Mini simulacro de funciones periódicas y ortogonalidad",
+      "preguntas": [
+       {
+        "tipo": "mcq",
+        "texto": "El conjunto $\\{1,\\cos x,\\sin x,\\cos 2x,\\sin 2x,\\ldots\\}$ en $[-\\pi,\\pi]$ es:",
+        "opciones": [
+         "ortogonal bajo $\\langle f,g\\rangle=\\int_{-\\pi}^{\\pi}f g\\,dx$",
+         "linealmente dependiente",
+         "ortonormal sin necesidad de normalizar",
+         "una base finita"
+        ],
+        "correcta": 0,
+        "resumen": "Los senos y cosenos de frecuencias enteras son ortogonales con el producto interno de la integral.",
+        "fuente": "Banco MathUNAL, simulacro de Matemáticas Especiales"
+       },
+       {
+        "tipo": "numerica",
+        "texto": "El valor de $\\displaystyle\\int_{-\\pi}^{\\pi}\\cos^{2}(2x)\\,dx$ es (decimal, 4 cifras):",
+        "respuesta": "3.1416",
+        "tolNum": 0.01,
+        "resumen": "$\\int_{-\\pi}^{\\pi}\\cos^2(2x)\\,dx=\\pi=3.1416$.",
+        "fuente": "Banco MathUNAL, simulacro de Matemáticas Especiales"
+       },
+       {
+        "tipo": "numerica",
+        "texto": "El período de $f(t)=\\sin\\!\\left(\\tfrac{\\pi}{3}t\\right)+\\sin\\!\\left(\\tfrac{2\\pi}{5}t\\right)$ es:",
+        "respuesta": "30",
+        "tolNum": 0.001,
+        "resumen": "Los períodos son 6 y 5, y el mínimo común múltiplo es 30.",
+        "fuente": "Banco MathUNAL, simulacro de Matemáticas Especiales"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "Tu repaso",
+    "corto": "Repaso",
+    "bloques": [
+     {
+      "t": "repaso"
+     }
+    ]
+   },
+   {
+    "titulo": "En resumen",
+    "corto": "Resumen",
+    "bloques": [
+     {
+      "t": "resumen"
+     }
+    ]
+   }
+  ]
+ },
+ "practicar": {
+  "pasos": [
+   {
+    "titulo": "El producto",
+    "grafica": {
+     "draw": 1
+    },
+    "bloques": [
+     {
+      "t": "p",
+      "html": "El producto de seno de x por seno de n x."
+     },
+     {
+      "t": "eq",
+      "tex": "\\operatorname{sen}(x)\\operatorname{sen}(nx)"
+     }
+    ]
+   },
+   {
+    "titulo": "Cambia n",
+    "grafica": {
+     "draw": 1
+    },
+    "laboratorio": true,
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mueve el deslizador de 1 a 6. Abajo se leen la integral del producto y el período de seno de n x."
+     }
+    ]
+   },
+   {
+    "titulo": "n igual a 3",
+    "grafica": {
+     "draw": 1,
+     "guide": 1,
+     "ok": true
+    },
+    "laboratorio": true,
+    "d": 3,
+    "bloques": [
+     {
+      "t": "eq",
+      "tex": "\\displaystyle\\int\\operatorname{sen}x\\operatorname{sen}3x\\,dx=0"
+     },
+     {
+      "t": "p",
+      "html": "Con n igual a 3 las partes positivas y negativas se compensan."
+     }
+    ]
+   },
+   {
+    "titulo": "Revisa tu respuesta",
+    "grafica": {
+     "draw": 1,
+     "guide": 1,
+     "ok": true,
+     "d": 3
+    },
+    "bloques": [
+     {
+      "t": "pregunta"
+     },
+     {
+      "t": "nota",
+      "html": "Busca el menor tiempo en que las dos ondas se repiten juntas."
+     }
+    ]
+   }
+  ]
+ },
+ "pregunta": {
+  "tex": "\\text{El período de}\\ f(t)=\\operatorname{sen}(2t)+\\cos(3t)\\ \\text{es}",
+  "opciones": [
+   "$2\\pi$",
+   "$\\pi$",
+   "$6\\pi$",
+   "$\\dfrac{2\\pi}{3}$"
+  ],
+  "correcta": 0,
+  "explicacion": "Seno de 2t tiene período pi y coseno de 3t tiene período 2 pi entre 3. El menor tiempo en que las dos se repiten es 2 pi, porque 2 pi es dos veces pi y tres veces 2 pi entre 3.",
+  "verificacion": {
+   "formula": "2*pi+0*x",
+   "a": 0,
+   "esperado": 6.2832
+  },
+  "pistas": [
+   "Halla el período de cada término.",
+   "Son pi y 2 pi entre 3.",
+   "Busca un valor que sea múltiplo de los dos."
+  ],
+  "errores": [
+   "",
+   "Pi es el período del seno, pero el coseno de 3t no se repite en pi.",
+   "6 pi es un período común, pero no el menor.",
+   "Dos pi entre 3 es el período del coseno, y el seno no se repite en ese tiempo."
+  ]
+ },
+ "resumen": [
+  "El período de seno de omega x es 2 pi entre omega, y el de una suma es el mínimo común múltiplo.",
+  "Los senos y cosenos de frecuencias enteras son ortogonales en un intervalo de longitud 2 pi.",
+  "La integral de una función periódica sobre un período no depende del punto de partida."
+ ]
+}

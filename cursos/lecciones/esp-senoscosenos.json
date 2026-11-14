@@ -1,0 +1,1082 @@
+{
+ "esquema": 1,
+ "id": "es-m1-l5",
+ "ejemplo": true,
+ "curso": "Matemáticas Especiales",
+ "modulo": "Módulo 1 Series de Fourier",
+ "posicion": "Lección 5 de 5",
+ "titulo": "Series de senos y cosenos",
+ "minutos": 26,
+ "ejercicios": 8,
+ "grafica": {
+  "tipo": "plano",
+  "x": [
+   -8.2,
+   8.2
+  ],
+  "y": [
+   -4.5,
+   4.5
+  ],
+  "a": 0,
+  "b": 1,
+  "inicio": 0,
+  "entero": true,
+  "elementos": [
+   {
+    "t": "trazo",
+    "puntos": [
+     [
+      "-3.14159",
+      "-3.14159*(1-x)+3.14159*x"
+     ],
+     [
+      "-3.03687",
+      "-3.03687*(1-x)+3.03687*x"
+     ],
+     [
+      "-2.93215",
+      "-2.93215*(1-x)+2.93215*x"
+     ],
+     [
+      "-2.82743",
+      "-2.82743*(1-x)+2.82743*x"
+     ],
+     [
+      "-2.72271",
+      "-2.72271*(1-x)+2.72271*x"
+     ],
+     [
+      "-2.61799",
+      "-2.61799*(1-x)+2.61799*x"
+     ],
+     [
+      "-2.51327",
+      "-2.51327*(1-x)+2.51327*x"
+     ],
+     [
+      "-2.40855",
+      "-2.40855*(1-x)+2.40855*x"
+     ],
+     [
+      "-2.30383",
+      "-2.30383*(1-x)+2.30383*x"
+     ],
+     [
+      "-2.19911",
+      "-2.19911*(1-x)+2.19911*x"
+     ],
+     [
+      "-2.0944",
+      "-2.09440*(1-x)+2.09440*x"
+     ],
+     [
+      "-1.98968",
+      "-1.98968*(1-x)+1.98968*x"
+     ],
+     [
+      "-1.88496",
+      "-1.88496*(1-x)+1.88496*x"
+     ],
+     [
+      "-1.78024",
+      "-1.78024*(1-x)+1.78024*x"
+     ],
+     [
+      "-1.67552",
+      "-1.67552*(1-x)+1.67552*x"
+     ],
+     [
+      "-1.5708",
+      "-1.57080*(1-x)+1.57080*x"
+     ],
+     [
+      "-1.46608",
+      "-1.46608*(1-x)+1.46608*x"
+     ],
+     [
+      "-1.36136",
+      "-1.36136*(1-x)+1.36136*x"
+     ],
+     [
+      "-1.25664",
+      "-1.25664*(1-x)+1.25664*x"
+     ],
+     [
+      "-1.15192",
+      "-1.15192*(1-x)+1.15192*x"
+     ],
+     [
+      "-1.0472",
+      "-1.04720*(1-x)+1.04720*x"
+     ],
+     [
+      "-0.94248",
+      "-0.94248*(1-x)+0.94248*x"
+     ],
+     [
+      "-0.83776",
+      "-0.83776*(1-x)+0.83776*x"
+     ],
+     [
+      "-0.73304",
+      "-0.73304*(1-x)+0.73304*x"
+     ],
+     [
+      "-0.62832",
+      "-0.62832*(1-x)+0.62832*x"
+     ],
+     [
+      "-0.5236",
+      "-0.52360*(1-x)+0.52360*x"
+     ],
+     [
+      "-0.41888",
+      "-0.41888*(1-x)+0.41888*x"
+     ],
+     [
+      "-0.31416",
+      "-0.31416*(1-x)+0.31416*x"
+     ],
+     [
+      "-0.20944",
+      "-0.20944*(1-x)+0.20944*x"
+     ],
+     [
+      "-0.10472",
+      "-0.10472*(1-x)+0.10472*x"
+     ],
+     [
+      "-0.0",
+      "-0.00000*(1-x)+0.00000*x"
+     ],
+     [
+      "0.10472",
+      "0.10472*(1-x)+0.10472*x"
+     ],
+     [
+      "0.20944",
+      "0.20944*(1-x)+0.20944*x"
+     ],
+     [
+      "0.31416",
+      "0.31416*(1-x)+0.31416*x"
+     ],
+     [
+      "0.41888",
+      "0.41888*(1-x)+0.41888*x"
+     ],
+     [
+      "0.5236",
+      "0.52360*(1-x)+0.52360*x"
+     ],
+     [
+      "0.62832",
+      "0.62832*(1-x)+0.62832*x"
+     ],
+     [
+      "0.73304",
+      "0.73304*(1-x)+0.73304*x"
+     ],
+     [
+      "0.83776",
+      "0.83776*(1-x)+0.83776*x"
+     ],
+     [
+      "0.94248",
+      "0.94248*(1-x)+0.94248*x"
+     ],
+     [
+      "1.0472",
+      "1.04720*(1-x)+1.04720*x"
+     ],
+     [
+      "1.15192",
+      "1.15192*(1-x)+1.15192*x"
+     ],
+     [
+      "1.25664",
+      "1.25664*(1-x)+1.25664*x"
+     ],
+     [
+      "1.36136",
+      "1.36136*(1-x)+1.36136*x"
+     ],
+     [
+      "1.46608",
+      "1.46608*(1-x)+1.46608*x"
+     ],
+     [
+      "1.5708",
+      "1.57080*(1-x)+1.57080*x"
+     ],
+     [
+      "1.67552",
+      "1.67552*(1-x)+1.67552*x"
+     ],
+     [
+      "1.78024",
+      "1.78024*(1-x)+1.78024*x"
+     ],
+     [
+      "1.88496",
+      "1.88496*(1-x)+1.88496*x"
+     ],
+     [
+      "1.98968",
+      "1.98968*(1-x)+1.98968*x"
+     ],
+     [
+      "2.0944",
+      "2.09440*(1-x)+2.09440*x"
+     ],
+     [
+      "2.19911",
+      "2.19911*(1-x)+2.19911*x"
+     ],
+     [
+      "2.30383",
+      "2.30383*(1-x)+2.30383*x"
+     ],
+     [
+      "2.40855",
+      "2.40855*(1-x)+2.40855*x"
+     ],
+     [
+      "2.51327",
+      "2.51327*(1-x)+2.51327*x"
+     ],
+     [
+      "2.61799",
+      "2.61799*(1-x)+2.61799*x"
+     ],
+     [
+      "2.72271",
+      "2.72271*(1-x)+2.72271*x"
+     ],
+     [
+      "2.82743",
+      "2.82743*(1-x)+2.82743*x"
+     ],
+     [
+      "2.93215",
+      "2.93215*(1-x)+2.93215*x"
+     ],
+     [
+      "3.03687",
+      "3.03687*(1-x)+3.03687*x"
+     ],
+     [
+      "3.14159",
+      "3.14159*(1-x)+3.14159*x"
+     ]
+    ],
+    "c": 3
+   },
+   {
+    "t": "trazo",
+    "puntos": [
+     [
+      "-3.14159",
+      "(-0.000027)*(1-x)+(3.078140)*x"
+     ],
+     [
+      "-3.03687",
+      "(-1.026376)*(1-x)+(3.044262)*x"
+     ],
+     [
+      "-2.93215",
+      "(-1.932424)*(1-x)+(2.953985)*x"
+     ],
+     [
+      "-2.82743",
+      "(-2.620710)*(1-x)+(2.834647)*x"
+     ],
+     [
+      "-2.72271",
+      "(-3.034336)*(1-x)+(2.714073)*x"
+     ],
+     [
+      "-2.61799",
+      "(-3.165705)*(1-x)+(2.606841)*x"
+     ],
+     [
+      "-2.51327",
+      "(-3.054549)*(1-x)+(2.510906)*x"
+     ],
+     [
+      "-2.40855",
+      "(-2.776070)*(1-x)+(2.415251)*x"
+     ],
+     [
+      "-2.30383",
+      "(-2.422286)*(1-x)+(2.311433)*x"
+     ],
+     [
+      "-2.19911",
+      "(-2.081195)*(1-x)+(2.200109)*x"
+     ],
+     [
+      "-2.0944",
+      "(-1.818663)*(1-x)+(2.088688)*x"
+     ],
+     [
+      "-1.98968",
+      "(-1.666968)*(1-x)+(1.983591)*x"
+     ],
+     [
+      "-1.88496",
+      "(-1.622513)*(1-x)+(1.884566)*x"
+     ],
+     [
+      "-1.78024",
+      "(-1.652113)*(1-x)+(1.785581)*x"
+     ],
+     [
+      "-1.67552",
+      "(-1.705958)*(1-x)+(1.680968)*x"
+     ],
+     [
+      "-1.5708",
+      "(-1.733333)*(1-x)+(1.570800)*x"
+     ],
+     [
+      "-1.46608",
+      "(-1.696875)*(1-x)+(1.460632)*x"
+     ],
+     [
+      "-1.36136",
+      "(-1.581791)*(1-x)+(1.356019)*x"
+     ],
+     [
+      "-1.25664",
+      "(-1.398005)*(1-x)+(1.257034)*x"
+     ],
+     [
+      "-1.15192",
+      "(-1.175202)*(1-x)+(1.158008)*x"
+     ],
+     [
+      "-1.0472",
+      "(-0.952633)*(1-x)+(1.052912)*x"
+     ],
+     [
+      "-0.94248",
+      "(-0.766885)*(1-x)+(0.941481)*x"
+     ],
+     [
+      "-0.83776",
+      "(-0.641172)*(1-x)+(0.830157)*x"
+     ],
+     [
+      "-0.73304",
+      "(-0.579129)*(1-x)+(0.726339)*x"
+     ],
+     [
+      "-0.62832",
+      "(-0.564659)*(1-x)+(0.630684)*x"
+     ],
+     [
+      "-0.5236",
+      "(-0.567629)*(1-x)+(0.534749)*x"
+     ],
+     [
+      "-0.41888",
+      "(-0.553516)*(1-x)+(0.427517)*x"
+     ],
+     [
+      "-0.31416",
+      "(-0.494066)*(1-x)+(0.306943)*x"
+     ],
+     [
+      "-0.20944",
+      "(-0.375782)*(1-x)+(0.187605)*x"
+     ],
+     [
+      "-0.10472",
+      "(-0.203789)*(1-x)+(0.097329)*x"
+     ],
+     [
+      "-0.0",
+      "(0.000000)*(1-x)+(0.063453)*x"
+     ],
+     [
+      "0.10472",
+      "(0.203789)*(1-x)+(0.097329)*x"
+     ],
+     [
+      "0.20944",
+      "(0.375782)*(1-x)+(0.187605)*x"
+     ],
+     [
+      "0.31416",
+      "(0.494066)*(1-x)+(0.306943)*x"
+     ],
+     [
+      "0.41888",
+      "(0.553516)*(1-x)+(0.427517)*x"
+     ],
+     [
+      "0.5236",
+      "(0.567629)*(1-x)+(0.534749)*x"
+     ],
+     [
+      "0.62832",
+      "(0.564659)*(1-x)+(0.630684)*x"
+     ],
+     [
+      "0.73304",
+      "(0.579129)*(1-x)+(0.726339)*x"
+     ],
+     [
+      "0.83776",
+      "(0.641172)*(1-x)+(0.830157)*x"
+     ],
+     [
+      "0.94248",
+      "(0.766885)*(1-x)+(0.941481)*x"
+     ],
+     [
+      "1.0472",
+      "(0.952633)*(1-x)+(1.052912)*x"
+     ],
+     [
+      "1.15192",
+      "(1.175202)*(1-x)+(1.158008)*x"
+     ],
+     [
+      "1.25664",
+      "(1.398005)*(1-x)+(1.257034)*x"
+     ],
+     [
+      "1.36136",
+      "(1.581791)*(1-x)+(1.356019)*x"
+     ],
+     [
+      "1.46608",
+      "(1.696875)*(1-x)+(1.460632)*x"
+     ],
+     [
+      "1.5708",
+      "(1.733333)*(1-x)+(1.570800)*x"
+     ],
+     [
+      "1.67552",
+      "(1.705958)*(1-x)+(1.680968)*x"
+     ],
+     [
+      "1.78024",
+      "(1.652113)*(1-x)+(1.785581)*x"
+     ],
+     [
+      "1.88496",
+      "(1.622513)*(1-x)+(1.884566)*x"
+     ],
+     [
+      "1.98968",
+      "(1.666968)*(1-x)+(1.983591)*x"
+     ],
+     [
+      "2.0944",
+      "(1.818663)*(1-x)+(2.088688)*x"
+     ],
+     [
+      "2.19911",
+      "(2.081195)*(1-x)+(2.200109)*x"
+     ],
+     [
+      "2.30383",
+      "(2.422286)*(1-x)+(2.311433)*x"
+     ],
+     [
+      "2.40855",
+      "(2.776070)*(1-x)+(2.415251)*x"
+     ],
+     [
+      "2.51327",
+      "(3.054549)*(1-x)+(2.510906)*x"
+     ],
+     [
+      "2.61799",
+      "(3.165705)*(1-x)+(2.606841)*x"
+     ],
+     [
+      "2.72271",
+      "(3.034336)*(1-x)+(2.714073)*x"
+     ],
+     [
+      "2.82743",
+      "(2.620710)*(1-x)+(2.834647)*x"
+     ],
+     [
+      "2.93215",
+      "(1.932424)*(1-x)+(2.953985)*x"
+     ],
+     [
+      "3.03687",
+      "(1.026376)*(1-x)+(3.044262)*x"
+     ],
+     [
+      "3.14159",
+      "(0.000027)*(1-x)+(3.078140)*x"
+     ]
+    ],
+    "c": 0
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "0",
+     "-3.6"
+    ],
+    "b": [
+     "0",
+     "3.6"
+    ],
+    "c": 3,
+    "guion": true,
+    "guia": true
+   }
+  ],
+  "lecturas": [
+   {
+    "rotulo": "valor de la serie en x igual a pi",
+    "formula": "3.141593*x"
+   },
+   {
+    "rotulo": "término constante a0 entre 2",
+    "formula": "1.570796*x"
+   }
+  ],
+  "etiquetas": [
+   "0 con la serie de senos, que tiene un salto en pi. Pi con la serie de cosenos, que es continua",
+   "0 con senos, porque no tiene término constante. Pi medios con cosenos"
+  ],
+  "etiquetaSlider": "Extensión, 0 impar con senos y 1 par con cosenos",
+  "alt": "La función f de x igual a x dada solo entre 0 y pi, y sus dos extensiones a menos pi y pi. La impar, en verde, es la recta x y su serie de solo senos tiene saltos en los extremos. La par, que es el valor absoluto de x, tiene una serie de solo cosenos y es continua. La curva azul es la suma parcial de cinco términos"
+ },
+ "glosario": {
+  "mediorango": "Una función dada solo en el intervalo de 0 a L se puede desarrollar en una serie de solo senos o de solo cosenos, según como se extienda a menos L.",
+  "impar": "La extensión impar copia la función con signo contrario en el intervalo negativo. Da una serie de senos.",
+  "par": "La extensión par copia la función en el intervalo negativo. Da una serie de cosenos.",
+  "frontera": "Las condiciones de frontera deciden la serie. Con extremos en cero se usan senos, y con derivada cero en los extremos se usan cosenos."
+ },
+ "ver": {
+  "duracion": 24.0,
+  "capitulos": [
+   [
+    0,
+    4,
+    "La función es f de x igual a x, dada solo entre 0 y pi. Se puede extender de dos maneras al intervalo de menos pi a pi."
+   ],
+   [
+    4,
+    10,
+    "Con la extensión impar queda una serie de solo senos. En pi hay un salto, así que la serie vale 0 allí."
+   ],
+   [
+    10,
+    16,
+    "Con la extensión par queda una serie de solo cosenos. La función extendida es continua, y no hay salto ni picos."
+   ],
+   [
+    16,
+    20,
+    "El término constante de la serie de cosenos es el promedio, pi medios. La de senos no tiene término constante."
+   ],
+   [
+    20,
+    24,
+    "Así se escoge la serie según las condiciones de frontera del problema."
+   ]
+  ],
+  "canales": {
+   "draw": [
+    [
+     0.3,
+     0
+    ],
+    [
+     3.5,
+     1
+    ]
+   ],
+   "d": [
+    [
+     4,
+     0
+    ],
+    [
+     7,
+     0
+    ],
+    [
+     10,
+     1
+    ],
+    [
+     16,
+     1
+    ],
+    [
+     24,
+     1
+    ]
+   ],
+   "guide": [
+    [
+     4,
+     0
+    ],
+    [
+     5,
+     1
+    ]
+   ]
+  },
+  "intervalos": {
+   "ok": [
+    10,
+    24
+   ]
+  }
+ },
+ "leer": {
+  "secciones": [
+   {
+    "titulo": "La idea",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "En muchos problemas físicos la función solo está definida en un intervalo de 0 a L. Para desarrollarla en serie de Fourier se la extiende al intervalo simétrico, y hay dos formas. Con la extensión {{gl:impar|impar}} queda una serie de senos, y con la extensión {{gl:par|par}} queda una serie de cosenos. La elección depende de las {{gl:frontera|condiciones de frontera}}."
+     }
+    ]
+   },
+   {
+    "titulo": "Un ejemplo",
+    "corto": "Un ejemplo",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "La función f de x igual a x en el intervalo de 0 a pi. Mueve el deslizador para ver las dos extensiones y las sumas parciales de sus series."
+     },
+     {
+      "t": "eq",
+      "tex": "x=\\sum\\dfrac{2(-1)^{n+1}}{n}\\operatorname{sen}nx,\\qquad x=\\dfrac{\\pi}{2}-\\dfrac{4}{\\pi}\\sum_{n\\ \\text{impar}}\\dfrac{\\cos nx}{n^{2}}"
+     },
+     {
+      "t": "grafica",
+      "animar": "dibujar",
+      "alt": "Las dos extensiones de la función"
+     }
+    ]
+   },
+   {
+    "titulo": "Piensa antes de ver",
+    "corto": "Piensa",
+    "bloques": [
+     {
+      "t": "piensa",
+      "pregunta": "Para obtener una serie que solo tenga senos, ¿cómo se extiende la función al intervalo negativo?",
+      "opciones": [
+       "De forma impar",
+       "De forma par"
+      ],
+      "correcta": "De forma impar",
+      "bien": "Muy bien. Una función impar solo tiene senos. Más abajo se ve el efecto en los extremos.",
+      "mal": "De forma impar, porque una función impar solo tiene senos. Más abajo se ve el efecto en los extremos."
+     }
+    ]
+   },
+   {
+    "titulo": "Las dos extensiones",
+    "corto": "Las extensiones",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mira las dos extensiones y sus sumas parciales."
+     },
+     {
+      "t": "acercando",
+      "ds": [
+       0,
+       1
+      ],
+      "alt": "La extensión impar y la par"
+     },
+     {
+      "t": "p",
+      "html": "La serie de cosenos converge mejor, porque la extensión par es continua. La de senos tiene un salto en pi."
+     }
+    ]
+   },
+   {
+    "titulo": "Cómo se calcula",
+    "corto": "Cómo se calcula",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Se usan las fórmulas de la parte par o impar, integrando solo de 0 a pi."
+     },
+     {
+      "t": "pasos",
+      "items": [
+       {
+        "tex": "b_{n}=\\dfrac{2}{\\pi}\\displaystyle\\int_{0}^{\\pi}f(x)\\operatorname{sen}(nx)\\,dx",
+        "porque": "Serie de senos, con extensión impar."
+       },
+       {
+        "tex": "a_{n}=\\dfrac{2}{\\pi}\\displaystyle\\int_{0}^{\\pi}f(x)\\cos(nx)\\,dx",
+        "porque": "Serie de cosenos, con extensión par."
+       },
+       {
+        "tex": "f(x)=\\operatorname{sen}x:\\ \\dfrac{a_{0}}{2}=\\dfrac{1}{\\pi}\\displaystyle\\int_{0}^{\\pi}\\operatorname{sen}x\\,dx=\\dfrac{2}{\\pi}=0.6366",
+        "porque": "El término constante de la serie de cosenos."
+       },
+       {
+        "tex": "\\operatorname{sen}^{2}x=\\dfrac12-\\dfrac12\\cos2x",
+        "porque": "Esta función ya está escrita como una serie de Fourier."
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "Cuál escoger",
+    "corto": "Cuál escoger",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Las condiciones de frontera de la ecuación orientan la elección."
+     },
+     {
+      "t": "pasos",
+      "items": [
+       {
+        "tex": "u(0)=u(L)=0\\ \\Rightarrow\\ \\text{serie de senos}",
+        "porque": "Los extremos fijos, como una cuerda sujeta."
+       },
+       {
+        "tex": "u'(0)=u'(L)=0\\ \\Rightarrow\\ \\text{serie de cosenos}",
+        "porque": "Los extremos aislados, sin flujo de calor."
+       },
+       {
+        "tex": "\\text{extensión par continua}\\ \\Rightarrow\\ \\text{sin picos de Gibbs}",
+        "porque": "La serie de cosenos suele converger más rápido."
+       }
+      ]
+     },
+     {
+      "t": "ojo",
+      "html": "La función original, entre 0 y L, es la misma en los dos casos. Lo que cambia es la extensión, y por eso la serie converge distinto fuera del intervalo, aunque coincidan adentro."
+     }
+    ]
+   },
+   {
+    "titulo": "¿Para qué sirve?",
+    "corto": "En ingeniería",
+    "bloques": [
+     {
+      "t": "ingenieria",
+      "titulo": "Una barra con los extremos aislados",
+      "html": "Una barra metálica de longitud pi tiene sus extremos aislados térmicamente, así que no hay flujo de calor en ellos. La condición es que la derivada de la temperatura sea cero en los dos extremos, y la solución se arma con una serie de cosenos.",
+      "tex": "u_{x}(0,t)=u_{x}(\\pi,t)=0\\ \\Rightarrow\\ \\text{cosenos}",
+      "datos": [
+       {
+        "k": "Extremos",
+        "v": "aislados"
+       },
+       {
+        "k": "Condición",
+        "v": "derivada nula"
+       },
+       {
+        "k": "Serie",
+        "v": "de cosenos"
+       }
+      ],
+      "cierre": "En la serie de cosenos el término constante es la temperatura promedio de la barra, que se mantiene con el tiempo porque no entra ni sale calor. Con los extremos a temperatura fija, en cambio, se usan senos, y la temperatura tiende al valor de los extremos. Elegir bien la extensión es lo que hace que el desarrollo cumpla las condiciones de frontera."
+     }
+    ]
+   },
+   {
+    "titulo": "Completa el paso",
+    "corto": "Completa",
+    "bloques": [
+     {
+      "t": "completar",
+      "enunciado": "Se elige la extensión para una serie de solo senos.",
+      "tex": "\\text{Se extiende la función de forma}\\ [[hueco]]",
+      "opciones": [
+       {
+        "tex": "\\text{impar}",
+        "txt": "impar"
+       },
+       {
+        "tex": "\\text{par}",
+        "txt": "par"
+       },
+       {
+        "tex": "\\text{constante}",
+        "txt": "constante"
+       }
+      ],
+      "correcta": 0,
+      "errores": [
+       "",
+       "Una extensión par da una serie de cosenos y no de senos.",
+       "Una extensión constante no corresponde a una serie de Fourier de senos."
+      ],
+      "pista": "Los senos son funciones impares.",
+      "porque": "La extensión impar da una función impar, que solo tiene senos."
+     }
+    ]
+   },
+   {
+    "titulo": "Encuentra el error",
+    "corto": "Error",
+    "bloques": [
+     {
+      "t": "error",
+      "enunciado": "Alguien calculó el término constante de la serie de cosenos de seno de x en el intervalo de 0 a pi y se equivocó en un paso. Toca el paso que está mal.",
+      "pasos": [
+       {
+        "tex": "\\dfrac{a_{0}}{2}=\\dfrac{1}{\\pi}\\displaystyle\\int_{0}^{\\pi}\\operatorname{sen}x\\,dx",
+        "porque": "La fórmula.",
+        "txt": "el promedio de la función"
+       },
+       {
+        "tex": "\\displaystyle\\int_{0}^{\\pi}\\operatorname{sen}x\\,dx=1",
+        "porque": "Este paso es el que falla.",
+        "txt": "la integral vale 1"
+       },
+       {
+        "tex": "\\dfrac{a_{0}}{2}=\\dfrac{1}{\\pi}",
+        "porque": "Resultado.",
+        "txt": "queda 1 sobre pi"
+       }
+      ],
+      "mal": 1,
+      "explicacion": "La integral de seno de x entre 0 y pi es menos coseno evaluado en pi menos en 0, o sea 1 más 1, que da 2. El término constante es 2 entre pi, o sea 0.6366.",
+      "correccion": "\\displaystyle\\int_{0}^{\\pi}\\operatorname{sen}x\\,dx=2\\ \\Rightarrow\\ \\dfrac{a_{0}}{2}=\\dfrac{2}{\\pi}",
+      "pista": "Evalúa menos coseno en los dos extremos."
+     }
+    ]
+   },
+   {
+    "titulo": "Ordena los pasos",
+    "corto": "Ordena",
+    "bloques": [
+     {
+      "t": "ordenar",
+      "enunciado": "Estos son los pasos para hallar la serie de Fourier de seno al cuadrado de x, pero están desordenados.",
+      "pasos": [
+       "\\operatorname{sen}^{2}x=\\dfrac{1-\\cos2x}{2}",
+       "=\\dfrac12-\\dfrac12\\cos2x",
+       "\\dfrac{a_{0}}{2}=\\dfrac12,\\ \\ a_{2}=-\\dfrac12",
+       "\\text{los demás coeficientes valen}\\ 0"
+      ],
+      "mezcla": [
+       2,
+       0,
+       3,
+       1
+      ],
+      "porque": "Se usa la identidad, se separan los términos y se identifican los coeficientes sin integrar.",
+      "pista": "Se empieza con la identidad del ángulo doble.",
+      "txt": [
+       "Se usa la identidad del ángulo doble",
+       "Se separan los términos",
+       "Se identifican los coeficientes",
+       "No hace falta integrar"
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "Revisa tu respuesta",
+    "corto": "Revisa",
+    "bloques": [
+     {
+      "t": "pregunta"
+     },
+     {
+      "t": "nota",
+      "html": "Puedes pedir pistas de a una. Si fallas, el mensaje te dice qué error se cometió."
+     }
+    ]
+   },
+   {
+    "titulo": "Mini simulacro",
+    "corto": "Simulacro",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Tres preguntas reales del banco de MathUNAL sobre este tema. Responde sin mirar los pasos."
+     },
+     {
+      "t": "simulacro",
+      "titulo": "Mini simulacro de series de senos y cosenos",
+      "preguntas": [
+       {
+        "tipo": "mcq",
+        "texto": "Para obtener la serie de Fourier de SENOS de una $f$ definida en $[0,L]$, se extiende $f$ de manera:",
+        "opciones": [
+         "impar a $[-L,L]$",
+         "par a $[-L,L]$",
+         "periódica con período $L$",
+         "constante"
+        ],
+        "correcta": 0,
+        "resumen": "Para una serie de senos se extiende la función de forma impar.",
+        "fuente": "Banco MathUNAL, simulacro de Matemáticas Especiales"
+       },
+       {
+        "tipo": "numerica",
+        "texto": "El término constante de la serie de Fourier de COSENOS de $f(x)=\\sin x$ en $[0,\\pi]$ (extensión par) es (decimal, 4 cifras):",
+        "respuesta": "0.6366",
+        "tolNum": 0.01,
+        "resumen": "$\\dfrac{1}{\\pi}\\int_0^{\\pi}\\sin x\\,dx=\\dfrac{2}{\\pi}=0.6366$.",
+        "fuente": "Banco MathUNAL, simulacro de Matemáticas Especiales"
+       },
+       {
+        "tipo": "mcq",
+        "texto": "La serie de Fourier de $f(x)=\\sin^{2}x$ es:",
+        "opciones": [
+         "$\\dfrac{1}{2}-\\dfrac{1}{2}\\cos(2x)$",
+         "$\\dfrac{1}{2}+\\dfrac{1}{2}\\cos(2x)$",
+         "$\\displaystyle\\sum_{n\\ge1}\\dfrac{2}{n}\\sin(nx)$",
+         "$\\sin(2x)$"
+        ],
+        "correcta": 0,
+        "resumen": "$\\sin^2x=\\dfrac{1}{2}-\\dfrac{1}{2}\\cos2x$.",
+        "fuente": "Banco MathUNAL, simulacro de Matemáticas Especiales"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "Tu repaso",
+    "corto": "Repaso",
+    "bloques": [
+     {
+      "t": "repaso"
+     }
+    ]
+   },
+   {
+    "titulo": "En resumen",
+    "corto": "Resumen",
+    "bloques": [
+     {
+      "t": "resumen"
+     }
+    ]
+   }
+  ]
+ },
+ "practicar": {
+  "pasos": [
+   {
+    "titulo": "Dos extensiones",
+    "grafica": {
+     "draw": 1
+    },
+    "bloques": [
+     {
+      "t": "p",
+      "html": "La función x en el intervalo de 0 a pi y sus extensiones."
+     },
+     {
+      "t": "eq",
+      "tex": "f(x)=x,\\quad 0<x<\\pi"
+     }
+    ]
+   },
+   {
+    "titulo": "Cambia la extensión",
+    "grafica": {
+     "draw": 1
+    },
+    "laboratorio": true,
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mueve el deslizador entre 0 y 1. Abajo se leen el valor de la serie en pi y el término constante."
+     }
+    ]
+   },
+   {
+    "titulo": "La extensión par",
+    "grafica": {
+     "draw": 1,
+     "guide": 1,
+     "ok": true
+    },
+    "laboratorio": true,
+    "d": 1,
+    "bloques": [
+     {
+      "t": "eq",
+      "tex": "S(\\pi)=\\pi,\\quad \\dfrac{a_{0}}{2}=\\dfrac{\\pi}{2}"
+     },
+     {
+      "t": "p",
+      "html": "Con la extensión par la función es continua, y la serie vale pi en pi."
+     }
+    ]
+   },
+   {
+    "titulo": "Revisa tu respuesta",
+    "grafica": {
+     "draw": 1,
+     "guide": 1,
+     "ok": true,
+     "d": 1
+    },
+    "bloques": [
+     {
+      "t": "pregunta"
+     },
+     {
+      "t": "nota",
+      "html": "Una serie de cosenos es una serie de una función par."
+     }
+    ]
+   }
+  ]
+ },
+ "pregunta": {
+  "tex": "\\text{Serie de cosenos de }f\\text{ en }[0,L]\\text{. Se extiende }f",
+  "opciones": [
+   "de forma par a $[-L,L]$",
+   "de forma impar a $[-L,L]$",
+   "con período $L$",
+   "como cero"
+  ],
+  "correcta": 0,
+  "explicacion": "Los cosenos son funciones pares, así que la extensión que da una serie de solo cosenos es la par. Eso copia la función en el intervalo negativo.",
+  "verificacion": {
+   "formula": "1+0*x",
+   "a": 0,
+   "esperado": 1
+  },
+  "pistas": [
+   "Los cosenos son funciones pares.",
+   "La serie solo tendrá lo que tenga la extensión.",
+   "Es la extensión par."
+  ],
+  "errores": [
+   "",
+   "La extensión impar da una serie de solo senos.",
+   "Extender con período L no da necesariamente una serie de cosenos.",
+   "Extender con cero no es una extensión par ni impar de la función."
+  ]
+ },
+ "resumen": [
+  "Una función dada en el intervalo de 0 a L se desarrolla en senos con la extensión impar y en cosenos con la par.",
+  "Con extremos en cero se usa la serie de senos, y con derivada cero en los extremos la de cosenos.",
+  "La serie de cosenos suele converger más rápido, porque la extensión par es continua."
+ ]
+}

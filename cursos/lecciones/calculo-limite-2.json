@@ -1,0 +1,500 @@
+{
+ "esquema": 1,
+ "id": "calculo-m1-l2",
+ "ejemplo": true,
+ "curso": "Cálculo",
+ "modulo": "Módulo 1 Límites y continuidad",
+ "posicion": "Lección 2 de 6",
+ "titulo": "Límites por factorización",
+ "minutos": 18,
+ "ejercicios": 4,
+ "grafica": {
+  "x": [
+   -0.5,
+   5.5
+  ],
+  "y": [
+   0,
+   8
+  ],
+  "curva": "x+2",
+  "funcion": "(x*x-x-6)/(x-3)",
+  "hueco": {
+   "x": 3,
+   "y": 5
+  },
+  "limite": 5,
+  "etiquetaHueco": "0 sobre 0",
+  "alt": "Gráfica de la función con un hueco en x igual a 3 y dos puntos que se acercan",
+  "zoom": {
+   "factor": 1500
+  }
+ },
+ "glosario": {
+  "indet": "Una indeterminación como 0 sobre 0 no da una respuesta directa y hay que trabajar la expresión.",
+  "trin": "Un trinomio es una expresión de tres términos, por ejemplo x al cuadrado menos x menos 6.",
+  "fact": "Factorizar es escribir una expresión como un producto, por ejemplo x al cuadrado menos 9 es (x − 3)(x + 3)."
+ },
+ "ver": {
+  "duracion": 23.0,
+  "capitulos": [
+   [
+    0,
+    2.5,
+    "Esta es la función. Se dibuja su curva."
+   ],
+   [
+    2.5,
+    4.5,
+    "En x igual a 3 da 0 sobre 0, así que ahí no se puede evaluar."
+   ],
+   [
+    4.5,
+    8,
+    "Acerquémonos a 3 por la izquierda y por la derecha."
+   ],
+   [
+    8,
+    12.5,
+    "Cada vez más cerca. Mira cómo cambian los valores."
+   ],
+   [
+    12.5,
+    15.8,
+    "Por los dos lados los valores se acercan a 5."
+   ],
+   [
+    15.8,
+    19.8,
+    "Con mucho zoom se ve que los dos puntos casi tocan el hueco."
+   ],
+   [
+    19.8,
+    23.0,
+    "Factorizando se ve por qué el límite vale 5."
+   ]
+  ],
+  "canales": {
+   "draw": [
+    [
+     0.3,
+     0
+    ],
+    [
+     2.4,
+     1
+    ]
+   ],
+   "hole": [
+    [
+     2.5,
+     0
+    ],
+    [
+     3.2,
+     1
+    ]
+   ],
+   "d": [
+    [
+     4.5,
+     1
+    ],
+    [
+     6,
+     0.1
+    ],
+    [
+     8.5,
+     0.1
+    ],
+    [
+     10,
+     0.01
+    ],
+    [
+     11,
+     0.01
+    ],
+    [
+     12.5,
+     0.001
+    ]
+   ],
+   "guide": [
+    [
+     12.5,
+     0
+    ],
+    [
+     13.5,
+     1
+    ]
+   ],
+   "zoom": [
+    [
+     15.8,
+     0
+    ],
+    [
+     18.3,
+     1
+    ],
+    [
+     19.0,
+     1
+    ],
+    [
+     19.8,
+     0
+    ]
+   ]
+  },
+  "intervalos": {
+   "zero": [
+    3.2,
+    4.7
+   ],
+   "ok": [
+    19.8,
+    23.0
+   ]
+  }
+ },
+ "leer": {
+  "secciones": [
+   {
+    "titulo": "La idea",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Cuando un límite da 0 sobre 0, casi siempre se puede {{gl:fact|factorizar}}. Se cancela lo que causa el problema y queda una expresión que sí se puede evaluar."
+     }
+    ]
+   },
+   {
+    "titulo": "Un ejemplo",
+    "corto": "Un ejemplo",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mira esta función."
+     },
+     {
+      "t": "eq",
+      "tex": "f(x)=\\dfrac{x^{2}-x-6}{x-3}"
+     },
+     {
+      "t": "p",
+      "html": "En x igual a 3 el numerador vale 9 menos 3 menos 6, o sea 0, y el denominador también vale 0. Es una {{gl:indet|indeterminación}} y en la gráfica se ve un hueco."
+     },
+     {
+      "t": "grafica",
+      "animar": "dibujar",
+      "alt": "Gráfica que se dibuja y muestra un hueco en x igual a 3"
+     }
+    ]
+   },
+   {
+    "titulo": "Piensa antes de ver",
+    "corto": "Piensa",
+    "bloques": [
+     {
+      "t": "piensa",
+      "pregunta": "Si x se acerca a 3 por los dos lados, ¿a qué número crees que se acerca f(x)?",
+      "opciones": [
+       3,
+       4,
+       5,
+       6
+      ],
+      "correcta": 5,
+      "bien": "Muy bien. Se acerca a 5 y más abajo se ve por qué.",
+      "mal": "El número es el 5 y más abajo se ve por qué."
+     }
+    ]
+   },
+   {
+    "titulo": "Acercándose por los dos lados",
+    "corto": "Acercándose",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Se prueban valores cada vez más cerca de 3."
+     },
+     {
+      "t": "acercando",
+      "ds": [
+       1,
+       0.1,
+       0.01,
+       0.001
+      ],
+      "alt": "Dos puntos que se acercan al hueco por la izquierda y por la derecha"
+     },
+     {
+      "t": "p",
+      "html": "Por los dos lados los valores se acercan a <b>5</b>. Al terminar, la gráfica hace zoom para que veas el detalle."
+     }
+    ]
+   },
+   {
+    "titulo": "Cómo se factoriza",
+    "corto": "Factorizar",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "El numerador es un {{gl:trin|trinomio}}. Se buscan dos números que multiplicados den −6 y sumados den −1, que son −3 y 2."
+     },
+     {
+      "t": "pasos",
+      "items": [
+       {
+        "tex": "x^{2}-x-6=(x-3)(x+2)",
+        "porque": "Se factoriza el trinomio con los números −3 y 2."
+       },
+       {
+        "tex": "\\dfrac{x^{2}-x-6}{x-3}=\\dfrac{\\textcolor{#E8632A}{\\cancel{(x-3)}}(x+2)}{\\textcolor{#E8632A}{\\cancel{x-3}}}=x+2\\quad (x\\neq 3)",
+        "porque": "Se cancela x − 3 mientras x no sea 3."
+       },
+       {
+        "tex": "\\lim_{x\\to 3}\\dfrac{x^{2}-x-6}{x-3}=\\lim_{x\\to 3}(x+2)=5",
+        "porque": "Ahora sí se evalúa en x igual a 3."
+       }
+      ]
+     },
+     {
+      "t": "ojo",
+      "html": "Cancelar x − 3 solo vale cuando x no es 3. Por eso el resultado es el límite y no el valor de la función en 3."
+     }
+    ]
+   },
+   {
+    "titulo": "Revisa tu respuesta",
+    "corto": "Revisa",
+    "bloques": [
+     {
+      "t": "pregunta"
+     }
+    ]
+   },
+   {
+    "titulo": "Mini simulacro",
+    "corto": "Simulacro",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Tres preguntas reales del banco de MathUNAL sobre este tema. Responde sin mirar los pasos."
+     },
+     {
+      "t": "simulacro",
+      "titulo": "Mini simulacro",
+      "preguntas": [
+       {
+        "texto": "$\\displaystyle\\lim_{x\\to2}\\dfrac{x^{2}-4}{x^{2}-x-2}$ (decimal, 4 cifras)",
+        "resumen": "Se factoriza $x^2-4=(x-2)(x+2)$ y $x^2-x-2=(x-2)(x+1)$. Al cancelar queda $\\frac{x+2}{x+1}$, que en $x=2$ vale $\\frac{4}{3}\\approx 1.3333$.",
+        "fuente": "Banco MathUNAL, preguntas del corte 1",
+        "tipo": "numerica",
+        "respuesta": "1.3333",
+        "tolNum": 0.01
+       },
+       {
+        "texto": "Calcule $\\displaystyle\\lim_{x\\to3}\\dfrac{x^2-9}{x^2-x-6}$.",
+        "resumen": "Se factoriza $x^2-9=(x-3)(x+3)$ y $x^2-x-6=(x-3)(x+2)$. Al cancelar queda $\\frac{x+3}{x+2}$, que en $x=3$ vale $\\frac{6}{5}$.",
+        "fuente": "Banco MathUNAL, preguntas del corte 1",
+        "tipo": "mcq",
+        "opciones": [
+         "$\\dfrac{6}{5}$",
+         "$1$",
+         "$0$",
+         "No existe"
+        ],
+        "correcta": 0
+       },
+       {
+        "texto": "$\\displaystyle\\lim_{x\\to3}\\dfrac{x^{2}-9}{x-3}$",
+        "resumen": "Se factoriza $x^2-9=(x-3)(x+3)$, se cancela $x-3$ y queda $x+3$, que en $x=3$ vale 6.",
+        "fuente": "Banco MathUNAL, simulacro de Cálculo Diferencial",
+        "tipo": "numerica",
+        "respuesta": "6",
+        "tolNum": 0.001
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "Tu repaso",
+    "corto": "Repaso",
+    "bloques": [
+     {
+      "t": "repaso"
+     }
+    ]
+   },
+   {
+    "titulo": "En resumen",
+    "corto": "Resumen",
+    "bloques": [
+     {
+      "t": "resumen"
+     }
+    ]
+   }
+  ]
+ },
+ "practicar": {
+  "pasos": [
+   {
+    "titulo": "La función",
+    "grafica": {
+     "draw": 1
+    },
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Esta función se ve como una recta, pero tiene un detalle."
+     },
+     {
+      "t": "eq",
+      "tex": "f(x)=\\dfrac{x^{2}-x-6}{x-3}"
+     }
+    ]
+   },
+   {
+    "titulo": "El punto que falta",
+    "grafica": {
+     "draw": 1,
+     "hole": 1,
+     "zero": true
+    },
+    "bloques": [
+     {
+      "t": "p",
+      "html": "En x igual a 3 el numerador y el denominador valen 0. Queda 0 sobre 0, así que f(3) no existe."
+     }
+    ]
+   },
+   {
+    "titulo": "Acércate a 3",
+    "grafica": {
+     "draw": 1,
+     "hole": 1
+    },
+    "laboratorio": true,
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mueve el deslizador y mira los valores de f por la izquierda y por la derecha."
+     }
+    ]
+   },
+   {
+    "titulo": "Hacia dónde va",
+    "grafica": {
+     "draw": 1,
+     "hole": 1,
+     "guide": 1
+    },
+    "laboratorio": true,
+    "d": 0.01,
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Los dos valores se acercan a 5. Ese es el límite."
+     }
+    ]
+   },
+   {
+    "titulo": "Factoriza",
+    "grafica": {
+     "draw": 1,
+     "hole": 1,
+     "guide": 1,
+     "ok": true
+    },
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Se factoriza el numerador y se cancela x − 3."
+     },
+     {
+      "t": "eq",
+      "tex": "x^{2}-x-6=(x-3)(x+2)"
+     },
+     {
+      "t": "eq",
+      "tex": "\\lim_{x\\to 3}\\dfrac{x^{2}-x-6}{x-3}=5"
+     }
+    ]
+   },
+   {
+    "titulo": "Mira de cerca",
+    "grafica": {
+     "draw": 1,
+     "hole": 1,
+     "guide": 1,
+     "zoom": 1
+    },
+    "laboratorio": true,
+    "d": 0.001,
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Ahora la gráfica está con mucho zoom. Los dos puntos casi tocan el hueco. Mueve el deslizador para alejarlos."
+     }
+    ]
+   },
+   {
+    "titulo": "Revisa tu respuesta",
+    "grafica": {
+     "draw": 1,
+     "hole": 1,
+     "guide": 1,
+     "ok": true
+    },
+    "bloques": [
+     {
+      "t": "pregunta"
+     },
+     {
+      "t": "nota",
+      "html": "Primero se factoriza y después se cancela."
+     }
+    ]
+   }
+  ]
+ },
+ "pregunta": {
+  "tex": "\\lim_{x\\to 2}\\dfrac{x^{2}-5x+6}{x-2}",
+  "opciones": [
+   "-1",
+   "0",
+   "1",
+   "No existe"
+  ],
+  "correcta": 0,
+  "explicacion": "Se factoriza x al cuadrado menos 5x más 6 como (x − 2)(x − 3), se cancela x − 2 y queda x − 3, que en x igual a 2 vale −1.",
+  "verificacion": {
+   "formula": "(x*x-5*x+6)/(x-2)",
+   "a": 2,
+   "esperado": -1
+  },
+  "pistas": [
+   "Al reemplazar x por 2 queda 0 sobre 0.",
+   "Factoriza x al cuadrado menos 5x más 6 buscando dos números que multipliquen 6 y sumen −5.",
+   "Esos números son −2 y −3. Cancela x − 2 y evalúa x − 3 en 2."
+  ],
+  "errores": [
+   "",
+   "Ese 0 sale de dejar el numerador evaluado y olvidar que el denominador también vale 0. Hay que factorizar y cancelar.",
+   "Ese 1 sale de un error de signo al evaluar x − 3 en 2. Da 2 menos 3, o sea −1.",
+   "El límite sí existe. El 0 sobre 0 indica que hay que simplificar."
+  ]
+ },
+ "resumen": [
+  "Un límite que da 0 sobre 0 se puede trabajar factorizando.",
+  "Se cancela el factor común mientras x no sea el punto.",
+  "El límite es el valor al que se acerca la expresión simplificada."
+ ]
+}

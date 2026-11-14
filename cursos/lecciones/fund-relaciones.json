@@ -1,0 +1,1154 @@
+{
+ "esquema": 1,
+ "id": "fu-m3-l3",
+ "ejemplo": true,
+ "curso": "Fundamentos de Matemáticas",
+ "modulo": "Módulo 3 Relaciones y funciones",
+ "posicion": "Lección 3 de 5",
+ "titulo": "Relaciones y sus propiedades",
+ "minutos": 28,
+ "ejercicios": 8,
+ "grafica": {
+  "tipo": "plano",
+  "x": [
+   -1.25,
+   6.45
+  ],
+  "y": [
+   -0.3,
+   3.9
+  ],
+  "a": 0,
+  "b": 3,
+  "inicio": 0,
+  "entero": true,
+  "sinejes": true,
+  "elementos": [
+   {
+    "t": "poligono",
+    "puntos": [
+     [
+      "0",
+      "3.6"
+     ],
+     [
+      "1.3",
+      "3.6"
+     ],
+     [
+      "1.3",
+      "2.7"
+     ],
+     [
+      "0",
+      "2.7"
+     ]
+    ],
+    "c": 0,
+    "nombre": "x/y"
+   },
+   {
+    "t": "poligono",
+    "puntos": [
+     [
+      "1.3",
+      "3.6"
+     ],
+     [
+      "2.6",
+      "3.6"
+     ],
+     [
+      "2.6",
+      "2.7"
+     ],
+     [
+      "1.3",
+      "2.7"
+     ]
+    ],
+    "c": 0,
+    "nombre": "1"
+   },
+   {
+    "t": "poligono",
+    "puntos": [
+     [
+      "2.6",
+      "3.6"
+     ],
+     [
+      "3.9",
+      "3.6"
+     ],
+     [
+      "3.9",
+      "2.7"
+     ],
+     [
+      "2.6",
+      "2.7"
+     ]
+    ],
+    "c": 0,
+    "nombre": "2"
+   },
+   {
+    "t": "poligono",
+    "puntos": [
+     [
+      "3.9",
+      "3.6"
+     ],
+     [
+      "5.2",
+      "3.6"
+     ],
+     [
+      "5.2",
+      "2.7"
+     ],
+     [
+      "3.9",
+      "2.7"
+     ]
+    ],
+    "c": 0,
+    "nombre": "3"
+   },
+   {
+    "t": "poligono",
+    "puntos": [
+     [
+      "0",
+      "2.7"
+     ],
+     [
+      "1.3",
+      "2.7"
+     ],
+     [
+      "1.3",
+      "1.8"
+     ],
+     [
+      "0",
+      "1.8"
+     ]
+    ],
+    "c": 0,
+    "nombre": "1"
+   },
+   {
+    "t": "poligono",
+    "puntos": [
+     [
+      "1.3",
+      "1.8"
+     ],
+     [
+      "2.6",
+      "1.8"
+     ],
+     [
+      "2.6",
+      "1.8+0.9*((1*(x-1)*(x-2)*(x-3)/(-6))+(1*(x-0)*(x-2)*(x-3)/(2)))"
+     ],
+     [
+      "1.3",
+      "1.8+0.9*((1*(x-1)*(x-2)*(x-3)/(-6))+(1*(x-0)*(x-2)*(x-3)/(2)))"
+     ]
+    ],
+    "c": 3
+   },
+   {
+    "t": "poligono",
+    "puntos": [
+     [
+      "1.3",
+      "1.8+0.9*((1*(x-1)*(x-2)*(x-3)/(-6))+(1*(x-0)*(x-2)*(x-3)/(2)))"
+     ],
+     [
+      "2.6",
+      "1.8+0.9*((1*(x-1)*(x-2)*(x-3)/(-6))+(1*(x-0)*(x-2)*(x-3)/(2)))"
+     ],
+     [
+      "2.6",
+      "2.7"
+     ],
+     [
+      "1.3",
+      "2.7"
+     ]
+    ],
+    "c": 1
+   },
+   {
+    "t": "poligono",
+    "puntos": [
+     [
+      "2.6",
+      "1.8"
+     ],
+     [
+      "3.9",
+      "1.8"
+     ],
+     [
+      "3.9",
+      "1.8+0.9*((1*(x-1)*(x-2)*(x-3)/(-6))+(1*(x-0)*(x-2)*(x-3)/(2))+(1*(x-0)*(x-1)*(x-3)/(-2))+(1*(x-0)*(x-1)*(x-2)/(6)))"
+     ],
+     [
+      "2.6",
+      "1.8+0.9*((1*(x-1)*(x-2)*(x-3)/(-6))+(1*(x-0)*(x-2)*(x-3)/(2))+(1*(x-0)*(x-1)*(x-3)/(-2))+(1*(x-0)*(x-1)*(x-2)/(6)))"
+     ]
+    ],
+    "c": 3
+   },
+   {
+    "t": "poligono",
+    "puntos": [
+     [
+      "2.6",
+      "1.8+0.9*((1*(x-1)*(x-2)*(x-3)/(-6))+(1*(x-0)*(x-2)*(x-3)/(2))+(1*(x-0)*(x-1)*(x-3)/(-2))+(1*(x-0)*(x-1)*(x-2)/(6)))"
+     ],
+     [
+      "3.9",
+      "1.8+0.9*((1*(x-1)*(x-2)*(x-3)/(-6))+(1*(x-0)*(x-2)*(x-3)/(2))+(1*(x-0)*(x-1)*(x-3)/(-2))+(1*(x-0)*(x-1)*(x-2)/(6)))"
+     ],
+     [
+      "3.9",
+      "2.7"
+     ],
+     [
+      "2.6",
+      "2.7"
+     ]
+    ],
+    "c": 1
+   },
+   {
+    "t": "poligono",
+    "puntos": [
+     [
+      "3.9",
+      "1.8"
+     ],
+     [
+      "5.2",
+      "1.8"
+     ],
+     [
+      "5.2",
+      "1.8+0.9*((1*(x-1)*(x-2)*(x-3)/(-6))+(1*(x-0)*(x-1)*(x-3)/(-2)))"
+     ],
+     [
+      "3.9",
+      "1.8+0.9*((1*(x-1)*(x-2)*(x-3)/(-6))+(1*(x-0)*(x-1)*(x-3)/(-2)))"
+     ]
+    ],
+    "c": 3
+   },
+   {
+    "t": "poligono",
+    "puntos": [
+     [
+      "3.9",
+      "1.8+0.9*((1*(x-1)*(x-2)*(x-3)/(-6))+(1*(x-0)*(x-1)*(x-3)/(-2)))"
+     ],
+     [
+      "5.2",
+      "1.8+0.9*((1*(x-1)*(x-2)*(x-3)/(-6))+(1*(x-0)*(x-1)*(x-3)/(-2)))"
+     ],
+     [
+      "5.2",
+      "2.7"
+     ],
+     [
+      "3.9",
+      "2.7"
+     ]
+    ],
+    "c": 1
+   },
+   {
+    "t": "poligono",
+    "puntos": [
+     [
+      "0",
+      "1.8"
+     ],
+     [
+      "1.3",
+      "1.8"
+     ],
+     [
+      "1.3",
+      "0.9"
+     ],
+     [
+      "0",
+      "0.9"
+     ]
+    ],
+    "c": 0,
+    "nombre": "2"
+   },
+   {
+    "t": "poligono",
+    "puntos": [
+     [
+      "1.3",
+      "0.9"
+     ],
+     [
+      "2.6",
+      "0.9"
+     ],
+     [
+      "2.6",
+      "0.9+0.9*((1*(x-0)*(x-2)*(x-3)/(2))+(1*(x-0)*(x-1)*(x-3)/(-2)))"
+     ],
+     [
+      "1.3",
+      "0.9+0.9*((1*(x-0)*(x-2)*(x-3)/(2))+(1*(x-0)*(x-1)*(x-3)/(-2)))"
+     ]
+    ],
+    "c": 3
+   },
+   {
+    "t": "poligono",
+    "puntos": [
+     [
+      "1.3",
+      "0.9+0.9*((1*(x-0)*(x-2)*(x-3)/(2))+(1*(x-0)*(x-1)*(x-3)/(-2)))"
+     ],
+     [
+      "2.6",
+      "0.9+0.9*((1*(x-0)*(x-2)*(x-3)/(2))+(1*(x-0)*(x-1)*(x-3)/(-2)))"
+     ],
+     [
+      "2.6",
+      "1.8"
+     ],
+     [
+      "1.3",
+      "1.8"
+     ]
+    ],
+    "c": 1
+   },
+   {
+    "t": "poligono",
+    "puntos": [
+     [
+      "2.6",
+      "0.9"
+     ],
+     [
+      "3.9",
+      "0.9"
+     ],
+     [
+      "3.9",
+      "0.9+0.9*((1*(x-1)*(x-2)*(x-3)/(-6))+(1*(x-0)*(x-2)*(x-3)/(2)))"
+     ],
+     [
+      "2.6",
+      "0.9+0.9*((1*(x-1)*(x-2)*(x-3)/(-6))+(1*(x-0)*(x-2)*(x-3)/(2)))"
+     ]
+    ],
+    "c": 3
+   },
+   {
+    "t": "poligono",
+    "puntos": [
+     [
+      "2.6",
+      "0.9+0.9*((1*(x-1)*(x-2)*(x-3)/(-6))+(1*(x-0)*(x-2)*(x-3)/(2)))"
+     ],
+     [
+      "3.9",
+      "0.9+0.9*((1*(x-1)*(x-2)*(x-3)/(-6))+(1*(x-0)*(x-2)*(x-3)/(2)))"
+     ],
+     [
+      "3.9",
+      "1.8"
+     ],
+     [
+      "2.6",
+      "1.8"
+     ]
+    ],
+    "c": 1
+   },
+   {
+    "t": "poligono",
+    "puntos": [
+     [
+      "3.9",
+      "0.9"
+     ],
+     [
+      "5.2",
+      "0.9"
+     ],
+     [
+      "5.2",
+      "0.9+0.9*((1*(x-1)*(x-2)*(x-3)/(-6))+(1*(x-0)*(x-1)*(x-3)/(-2)))"
+     ],
+     [
+      "3.9",
+      "0.9+0.9*((1*(x-1)*(x-2)*(x-3)/(-6))+(1*(x-0)*(x-1)*(x-3)/(-2)))"
+     ]
+    ],
+    "c": 3
+   },
+   {
+    "t": "poligono",
+    "puntos": [
+     [
+      "3.9",
+      "0.9+0.9*((1*(x-1)*(x-2)*(x-3)/(-6))+(1*(x-0)*(x-1)*(x-3)/(-2)))"
+     ],
+     [
+      "5.2",
+      "0.9+0.9*((1*(x-1)*(x-2)*(x-3)/(-6))+(1*(x-0)*(x-1)*(x-3)/(-2)))"
+     ],
+     [
+      "5.2",
+      "1.8"
+     ],
+     [
+      "3.9",
+      "1.8"
+     ]
+    ],
+    "c": 1
+   },
+   {
+    "t": "poligono",
+    "puntos": [
+     [
+      "0",
+      "0.9"
+     ],
+     [
+      "1.3",
+      "0.9"
+     ],
+     [
+      "1.3",
+      "0.0"
+     ],
+     [
+      "0",
+      "0.0"
+     ]
+    ],
+    "c": 0,
+    "nombre": "3"
+   },
+   {
+    "t": "poligono",
+    "puntos": [
+     [
+      "1.3",
+      "0.0"
+     ],
+     [
+      "2.6",
+      "0.0"
+     ],
+     [
+      "2.6",
+      "0.0+0.9*((1*(x-0)*(x-1)*(x-3)/(-2)))"
+     ],
+     [
+      "1.3",
+      "0.0+0.9*((1*(x-0)*(x-1)*(x-3)/(-2)))"
+     ]
+    ],
+    "c": 3
+   },
+   {
+    "t": "poligono",
+    "puntos": [
+     [
+      "1.3",
+      "0.0+0.9*((1*(x-0)*(x-1)*(x-3)/(-2)))"
+     ],
+     [
+      "2.6",
+      "0.0+0.9*((1*(x-0)*(x-1)*(x-3)/(-2)))"
+     ],
+     [
+      "2.6",
+      "0.9"
+     ],
+     [
+      "1.3",
+      "0.9"
+     ]
+    ],
+    "c": 1
+   },
+   {
+    "t": "poligono",
+    "puntos": [
+     [
+      "2.6",
+      "0.0"
+     ],
+     [
+      "3.9",
+      "0.0"
+     ],
+     [
+      "3.9",
+      "0.0+0.9*((1*(x-0)*(x-1)*(x-3)/(-2)))"
+     ],
+     [
+      "2.6",
+      "0.0+0.9*((1*(x-0)*(x-1)*(x-3)/(-2)))"
+     ]
+    ],
+    "c": 3
+   },
+   {
+    "t": "poligono",
+    "puntos": [
+     [
+      "2.6",
+      "0.0+0.9*((1*(x-0)*(x-1)*(x-3)/(-2)))"
+     ],
+     [
+      "3.9",
+      "0.0+0.9*((1*(x-0)*(x-1)*(x-3)/(-2)))"
+     ],
+     [
+      "3.9",
+      "0.9"
+     ],
+     [
+      "2.6",
+      "0.9"
+     ]
+    ],
+    "c": 1
+   },
+   {
+    "t": "poligono",
+    "puntos": [
+     [
+      "3.9",
+      "0.0"
+     ],
+     [
+      "5.2",
+      "0.0"
+     ],
+     [
+      "5.2",
+      "0.0+0.9*((1*(x-1)*(x-2)*(x-3)/(-6))+(1*(x-0)*(x-2)*(x-3)/(2)))"
+     ],
+     [
+      "3.9",
+      "0.0+0.9*((1*(x-1)*(x-2)*(x-3)/(-6))+(1*(x-0)*(x-2)*(x-3)/(2)))"
+     ]
+    ],
+    "c": 3
+   },
+   {
+    "t": "poligono",
+    "puntos": [
+     [
+      "3.9",
+      "0.0+0.9*((1*(x-1)*(x-2)*(x-3)/(-6))+(1*(x-0)*(x-2)*(x-3)/(2)))"
+     ],
+     [
+      "5.2",
+      "0.0+0.9*((1*(x-1)*(x-2)*(x-3)/(-6))+(1*(x-0)*(x-2)*(x-3)/(2)))"
+     ],
+     [
+      "5.2",
+      "0.9"
+     ],
+     [
+      "3.9",
+      "0.9"
+     ]
+    ],
+    "c": 1
+   }
+  ],
+  "lecturas": [
+   {
+    "rotulo": "la relación es reflexiva (1 si es cierto)",
+    "formula": "(1*(x-1)*(x-2)*(x-3)/(-6))+(1*(x-0)*(x-2)*(x-3)/(2))"
+   },
+   {
+    "rotulo": "la relación es simétrica (1 si es cierto)",
+    "formula": "(1*(x-0)*(x-2)*(x-3)/(2))+(1*(x-0)*(x-1)*(x-3)/(-2))"
+   }
+  ],
+  "etiquetas": [
+   "Reflexiva, 1 si la diagonal está llena",
+   "Simétrica, 1 si la tabla es igual al reflejarla sobre la diagonal"
+  ],
+  "etiquetaSlider": "Relación, de 0 a 3",
+  "alt": "Una tabla de 3 por 3 para el conjunto 1, 2, 3. Una casilla verde en la fila x y la columna y significa que x se relaciona con y. Con el deslizador cambia la relación entre menor o igual, equivalencia, distinto y un solo par"
+ },
+ "glosario": {
+  "relacion": "Una relación en A es un conjunto de pares ordenados de A. Si el par x, y está en R se escribe x R y.",
+  "reflexiva": "Una relación es reflexiva si todo elemento se relaciona consigo mismo. En la tabla, la diagonal está llena.",
+  "simetrica": "Una relación es simétrica si cada vez que x se relaciona con y, también y se relaciona con x. La tabla es igual a su reflejo sobre la diagonal.",
+  "transitiva": "Una relación es transitiva si x R y y y R z implican x R z.",
+  "antisimetrica": "Una relación es antisimétrica si x R y y y R x solo pueden ocurrir cuando x es igual a y."
+ },
+ "ver": {
+  "duracion": 24.0,
+  "capitulos": [
+   [
+    0,
+    4,
+    "La tabla muestra una relación en el conjunto 1, 2, 3. Una casilla verde en la fila x y la columna y significa que x se relaciona con y."
+   ],
+   [
+    4,
+    9,
+    "Con la relación menor o igual, la diagonal está llena y por eso es reflexiva. Pero el par 1, 2 está y el 2, 1 no, así que no es simétrica."
+   ],
+   [
+    9,
+    14,
+    "Con la equivalencia, la diagonal está llena y la tabla es simétrica respecto de la diagonal."
+   ],
+   [
+    14,
+    19,
+    "La relación distinto tiene la diagonal vacía, así que no es reflexiva, pero sí es simétrica."
+   ],
+   [
+    19,
+    24,
+    "Reflexiva pide la diagonal llena. Simétrica pide que la tabla sea igual al reflejarla sobre la diagonal."
+   ]
+  ],
+  "canales": {
+   "draw": [
+    [
+     0.3,
+     0
+    ],
+    [
+     3.5,
+     1
+    ]
+   ],
+   "d": [
+    [
+     4,
+     0
+    ],
+    [
+     8,
+     0
+    ],
+    [
+     9,
+     1
+    ],
+    [
+     13,
+     1
+    ],
+    [
+     14,
+     2
+    ],
+    [
+     18,
+     2
+    ],
+    [
+     19,
+     0
+    ],
+    [
+     24,
+     0
+    ]
+   ],
+   "guide": [
+    [
+     4,
+     0
+    ],
+    [
+     5,
+     1
+    ]
+   ]
+  },
+  "intervalos": {
+   "ok": [
+    19,
+    24
+   ]
+  }
+ },
+ "leer": {
+  "secciones": [
+   {
+    "titulo": "La idea",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Una {{gl:relacion|relación}} dice qué elementos de un conjunto están conectados entre sí. Se estudian cuatro propiedades. La {{gl:reflexiva|reflexiva}} conecta cada elemento consigo mismo, la {{gl:simetrica|simétrica}} conecta en los dos sentidos, la {{gl:antisimetrica|antisimétrica}} no permite conexiones de ida y vuelta entre distintos, y la {{gl:transitiva|transitiva}} permite encadenar. Con ellas se distinguen las equivalencias y los órdenes."
+     }
+    ]
+   },
+   {
+    "titulo": "Un ejemplo",
+    "corto": "Un ejemplo",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "La tabla muestra cuatro relaciones en el conjunto 1, 2, 3. Una casilla verde significa que la fila se relaciona con la columna."
+     },
+     {
+      "t": "eq",
+      "tex": "x\\,R\\,y\\ \\iff\\ (x,y)\\in R"
+     },
+     {
+      "t": "grafica",
+      "animar": "dibujar",
+      "alt": "La tabla de la relación"
+     }
+    ]
+   },
+   {
+    "titulo": "Piensa antes de ver",
+    "corto": "Piensa",
+    "bloques": [
+     {
+      "t": "piensa",
+      "pregunta": "Una relación en el conjunto 1, 2, 3 es reflexiva. ¿Cuántos pares tiene como mínimo?",
+      "opciones": [
+       1,
+       2,
+       3,
+       6
+      ],
+      "correcta": 3,
+      "bien": "Muy bien. Son 3, los de la diagonal, el 1, 1, el 2, 2 y el 3, 3. Más abajo se ve en la tabla.",
+      "mal": "Son 3, los pares de la diagonal, el 1, 1, el 2, 2 y el 3, 3. Más abajo se ve en la tabla."
+     }
+    ]
+   },
+   {
+    "titulo": "Recorriendo las relaciones",
+    "corto": "Las relaciones",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mira las cuatro relaciones y sus lecturas."
+     },
+     {
+      "t": "acercando",
+      "ds": [
+       0,
+       1,
+       2,
+       3
+      ],
+      "alt": "Las cuatro relaciones"
+     },
+     {
+      "t": "p",
+      "html": "La equivalencia es la única que es reflexiva y simétrica a la vez."
+     }
+    ]
+   },
+   {
+    "titulo": "Las cuatro propiedades",
+    "corto": "Propiedades",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Cada propiedad se lee en la tabla o se prueba con elementos."
+     },
+     {
+      "t": "pasos",
+      "items": [
+       {
+        "tex": "\\forall x\\ \\ x\\,R\\,x",
+        "porque": "Reflexiva. Toda la diagonal está llena."
+       },
+       {
+        "tex": "x\\,R\\,y\\ \\Rightarrow\\ y\\,R\\,x",
+        "porque": "Simétrica. La tabla es igual a su reflejo."
+       },
+       {
+        "tex": "x\\,R\\,y\\ \\wedge\\ y\\,R\\,x\\ \\Rightarrow\\ x=y",
+        "porque": "Antisimétrica. No hay ida y vuelta entre elementos distintos."
+       },
+       {
+        "tex": "x\\,R\\,y\\ \\wedge\\ y\\,R\\,z\\ \\Rightarrow\\ x\\,R\\,z",
+        "porque": "Transitiva. Si hay un camino de dos pasos, también hay uno directo."
+       }
+      ]
+     },
+     {
+      "t": "ojo",
+      "html": "Simétrica y antisimétrica no son opuestas. La igualdad es las dos cosas, y una relación con el par 1, 2 y el par 2, 1 no es ninguna de las dos si se agrega algo más."
+     }
+    ]
+   },
+   {
+    "titulo": "Equivalencias y órdenes",
+    "corto": "Tipos",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Con las propiedades se arman dos tipos de relaciones muy importantes."
+     },
+     {
+      "t": "pasos",
+      "items": [
+       {
+        "tex": "\\text{reflexiva}+\\text{simétrica}+\\text{transitiva}",
+        "porque": "Relación de equivalencia, como tener el mismo residuo."
+       },
+       {
+        "tex": "\\text{reflexiva}+\\text{antisimétrica}+\\text{transitiva}",
+        "porque": "Orden parcial, como menor o igual o como divide a."
+       },
+       {
+        "tex": "x\\ \\text{divide a}\\ y\\ \\text{en}\\ \\mathbb{Z}^{+}",
+        "porque": "Es reflexiva y transitiva, pero no simétrica, porque 2 divide a 4 y 4 no divide a 2."
+       }
+      ]
+     },
+     {
+      "t": "ojo",
+      "html": "La relación x R y si el producto x por y es mayor o igual que cero no es transitiva. Con 1, 0 y menos 1, el 0 rompe la cadena."
+     }
+    ]
+   },
+   {
+    "titulo": "¿Para qué sirve?",
+    "corto": "En ingeniería",
+    "bloques": [
+     {
+      "t": "ingenieria",
+      "titulo": "Las dependencias de un proyecto",
+      "html": "En un proyecto se dice que la tarea A precede a la B si A debe terminar antes de que empiece B. Si A precede a B y B precede a C, entonces A precede a C, que es la transitividad. Y no puede ocurrir que A preceda a B y B preceda a A, que es la antisimetría.",
+      "tex": "a\\prec b,\\ b\\prec c\\ \\Rightarrow\\ a\\prec c",
+      "datos": [
+       {
+        "k": "Tareas",
+        "v": "A, B y C"
+       },
+       {
+        "k": "Dependencias directas",
+        "v": "A antes de B, B antes de C"
+       },
+       {
+        "k": "Dependencia que se deduce",
+        "v": "A antes de C"
+       }
+      ],
+      "cierre": "Si las dependencias formaran un ciclo, A precedería a B y B precedería a A, y el proyecto no podría terminar, porque ninguna tarea podría empezar primero. Verificar que la relación es antisimétrica y transitiva, o sea un orden parcial, sirve para detectar ciclos y para calcular una secuencia posible de trabajo."
+     }
+    ]
+   },
+   {
+    "titulo": "Completa el paso",
+    "corto": "Completa",
+    "bloques": [
+     {
+      "t": "completar",
+      "enunciado": "Se prueba que la relación x divide a y es reflexiva. Falta lo que debe cumplirse.",
+      "tex": "\\text{Reflexiva exige que}\\ [[hueco]]\\ \\text{para todo}\\ x",
+      "opciones": [
+       {
+        "tex": "x\\mid x",
+        "txt": "x divide a x"
+       },
+       {
+        "tex": "x\\mid y",
+        "txt": "x divide a y"
+       },
+       {
+        "tex": "y\\mid x",
+        "txt": "y divide a x"
+       }
+      ],
+      "correcta": 0,
+      "errores": [
+       "",
+       "Eso habla de dos elementos distintos, y la reflexividad solo compara cada elemento consigo mismo.",
+       "Eso también habla de dos elementos, y no de un elemento con él mismo."
+      ],
+      "pista": "Reflexiva compara cada elemento consigo mismo.",
+      "porque": "Todo número se divide a sí mismo, así que x divide a x y la relación es reflexiva."
+     }
+    ]
+   },
+   {
+    "titulo": "Encuentra el error",
+    "corto": "Error",
+    "bloques": [
+     {
+      "t": "error",
+      "enunciado": "Alguien dijo que la relación x R y si x por y es mayor o igual que cero es transitiva y se equivocó en un paso. Toca el paso que está mal.",
+      "pasos": [
+       {
+        "tex": "x=1,\\ y=0,\\ z=-1",
+        "porque": "Se eligen valores.",
+        "txt": "se eligen tres números"
+       },
+       {
+        "tex": "1\\cdot0\\ge0\\ \\text{y}\\ 0\\cdot(-1)\\ge0",
+        "porque": "Se cumplen x R y y y R z.",
+        "txt": "las dos primeras relaciones valen"
+       },
+       {
+        "tex": "\\text{Entonces}\\ 1\\cdot(-1)\\ge0\\ \\text{y}\\ x\\,R\\,z",
+        "porque": "Este paso es el que falla.",
+        "txt": "también x R z"
+       }
+      ],
+      "mal": 2,
+      "explicacion": "El producto de 1 por menos 1 es menos 1, que no es mayor o igual que cero. Entonces x no se relaciona con z, y la relación no es transitiva.",
+      "correccion": "1\\cdot(-1)=-1<0",
+      "pista": "Calcula el producto de x por z."
+     }
+    ]
+   },
+   {
+    "titulo": "Ordena los pasos",
+    "corto": "Ordena",
+    "bloques": [
+     {
+      "t": "ordenar",
+      "enunciado": "Estos son los pasos para probar que x divide a y es transitiva, pero están desordenados.",
+      "pasos": [
+       "x\\mid y\\ \\text{y}\\ y\\mid z",
+       "y=xa,\\ \\ z=yb",
+       "z=x(ab)",
+       "x\\mid z"
+      ],
+      "mezcla": [
+       2,
+       0,
+       3,
+       1
+      ],
+      "porque": "Se escriben las dos divisibilidades, se sustituye y se ve que x divide a z.",
+      "pista": "Se empieza con las hipótesis.",
+      "txt": [
+       "Se parte de las dos divisibilidades",
+       "Se escriben con múltiplos",
+       "Se sustituye y",
+       "Por tanto la relación es transitiva"
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "Revisa tu respuesta",
+    "corto": "Revisa",
+    "bloques": [
+     {
+      "t": "pregunta"
+     },
+     {
+      "t": "nota",
+      "html": "Puedes pedir pistas de a una. Si fallas, el mensaje te dice qué error se cometió."
+     }
+    ]
+   },
+   {
+    "titulo": "Mini simulacro",
+    "corto": "Simulacro",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Tres preguntas reales del banco de MathUNAL sobre este tema. Responde sin mirar los pasos."
+     },
+     {
+      "t": "simulacro",
+      "titulo": "Mini simulacro de relaciones y sus propiedades",
+      "preguntas": [
+       {
+        "tipo": "mcq",
+        "texto": "Para que una relación $R$ en $A=\\{1,2,3\\}$ sea REFLEXIVA, debe contener obligatoriamente:",
+        "opciones": [
+         "$(1,1),(2,2),(3,3)$",
+         "$(1,2),(2,3),(1,3)$",
+         "$(1,2)$ y $(2,1)$",
+         "ningún par"
+        ],
+        "correcta": 0,
+        "resumen": "Reflexiva exige la diagonal completa, o sea, todos los pares de un elemento consigo mismo.",
+        "fuente": "Banco MathUNAL, simulacro de Fundamentos de Matemáticas"
+       },
+       {
+        "tipo": "mcq",
+        "texto": "En $\\mathbb{Z}^{+}$, la relación \"$x$ divide a $y$\" es:",
+        "opciones": [
+         "reflexiva y transitiva, pero no simétrica",
+         "de equivalencia",
+         "simétrica y transitiva",
+         "solo simétrica"
+        ],
+        "correcta": 0,
+        "resumen": "Divide a es reflexiva y transitiva, pero no simétrica.",
+        "fuente": "Banco MathUNAL, simulacro de Fundamentos de Matemáticas"
+       },
+       {
+        "tipo": "mcq",
+        "texto": "¿La relación \"$x\\,R\\,y \\iff xy\\ge0$\" en $\\mathbb{R}$ es transitiva?",
+        "opciones": [
+         "No: $x=1$, $y=0$, $z=-1$ es contraejemplo",
+         "Sí, siempre",
+         "Sí, solo si $x,y,z>0$",
+         "No es ni reflexiva"
+        ],
+        "correcta": 0,
+        "resumen": "El cero rompe la transitividad de la relación del producto.",
+        "fuente": "Banco MathUNAL, simulacro de Fundamentos de Matemáticas"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "Tu repaso",
+    "corto": "Repaso",
+    "bloques": [
+     {
+      "t": "repaso"
+     }
+    ]
+   },
+   {
+    "titulo": "En resumen",
+    "corto": "Resumen",
+    "bloques": [
+     {
+      "t": "resumen"
+     }
+    ]
+   }
+  ]
+ },
+ "practicar": {
+  "pasos": [
+   {
+    "titulo": "La tabla",
+    "grafica": {
+     "draw": 1,
+     "guide": 1
+    },
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Una tabla de 3 por 3 para el conjunto 1, 2, 3."
+     },
+     {
+      "t": "eq",
+      "tex": "x\\,R\\,y"
+     }
+    ]
+   },
+   {
+    "titulo": "Recorre las relaciones",
+    "grafica": {
+     "draw": 1,
+     "guide": 1
+    },
+    "laboratorio": true,
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mueve el deslizador de 0 a 3. Abajo se lee si la relación es reflexiva y si es simétrica."
+     }
+    ]
+   },
+   {
+    "titulo": "La equivalencia",
+    "grafica": {
+     "draw": 1,
+     "guide": 1,
+     "ok": true
+    },
+    "laboratorio": true,
+    "d": 1,
+    "bloques": [
+     {
+      "t": "eq",
+      "tex": "\\text{reflexiva}=1,\\ \\text{simétrica}=1"
+     },
+     {
+      "t": "p",
+      "html": "Con la relación 1, la diagonal está llena y la tabla es igual a su reflejo."
+     }
+    ]
+   },
+   {
+    "titulo": "Revisa tu respuesta",
+    "grafica": {
+     "draw": 1,
+     "guide": 1,
+     "ok": true,
+     "d": 1
+    },
+    "bloques": [
+     {
+      "t": "pregunta"
+     },
+     {
+      "t": "nota",
+      "html": "Revisa una por una las propiedades en la relación menor que."
+     }
+    ]
+   }
+  ]
+ },
+ "pregunta": {
+  "tex": "\\text{La relación}\\ x<y\\ \\text{en}\\ \\mathbb{R}\\ \\text{es}",
+  "opciones": [
+   "transitiva, pero no reflexiva ni simétrica",
+   "reflexiva y transitiva",
+   "de equivalencia",
+   "simétrica y transitiva"
+  ],
+  "correcta": 0,
+  "explicacion": "Menor que no es reflexiva, porque x no es menor que x. No es simétrica, porque si x es menor que y entonces y no es menor que x. Sí es transitiva, porque x menor que y y y menor que z dan x menor que z.",
+  "verificacion": {
+   "formula": "1-(1-0)*1+0*x",
+   "a": 0,
+   "esperado": 0
+  },
+  "pistas": [
+   "Revisa si x es menor que x.",
+   "Revisa si se puede invertir el orden.",
+   "Solo se cumple la transitividad."
+  ],
+  "errores": [
+   "",
+   "No es reflexiva, porque x no es menor que x.",
+   "No es de equivalencia, porque no es reflexiva ni simétrica.",
+   "No es simétrica, porque si x es menor que y entonces y no es menor que x."
+  ]
+ },
+ "resumen": [
+  "Una relación puede ser reflexiva, simétrica, antisimétrica y transitiva, y se lee en la tabla.",
+  "Reflexiva más simétrica más transitiva es una equivalencia, y reflexiva más antisimétrica más transitiva es un orden parcial.",
+  "Para refutar una propiedad basta un contraejemplo, y para probarla hay que cubrir todos los casos."
+ ]
+}

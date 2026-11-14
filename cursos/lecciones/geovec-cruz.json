@@ -1,0 +1,618 @@
+{
+ "esquema": 1,
+ "id": "gv-m2-l1",
+ "ejemplo": true,
+ "curso": "Geometría Vectorial y Analítica",
+ "modulo": "Módulo 2 Vectores en el espacio",
+ "posicion": "Lección 1 de 4",
+ "titulo": "Producto vectorial",
+ "minutos": 28,
+ "ejercicios": 8,
+ "grafica": {
+  "tipo": "plano",
+  "x": [
+   -6.6,
+   6.6
+  ],
+  "y": [
+   -3.6,
+   3.6
+  ],
+  "a": -3.1416,
+  "b": 3.1416,
+  "inicio": 1.5708,
+  "elementos": [
+   {
+    "t": "poligono",
+    "puntos": [
+     [
+      "0",
+      "0"
+     ],
+     [
+      "2",
+      "0"
+     ],
+     [
+      "2+3*cos(x)",
+      "3*sin(x)"
+     ],
+     [
+      "3*cos(x)",
+      "3*sin(x)"
+     ]
+    ],
+    "c": 3
+   },
+   {
+    "t": "vector",
+    "b": [
+     "2",
+     "0"
+    ],
+    "nombre": "u",
+    "c": 0
+   },
+   {
+    "t": "vector",
+    "b": [
+     "3*cos(x)",
+     "3*sin(x)"
+    ],
+    "nombre": "v",
+    "c": 1
+   }
+  ],
+  "lecturas": [
+   {
+    "rotulo": "tercera componente de u por v",
+    "formula": "6*sin(x)"
+   },
+   {
+    "rotulo": "longitud de u por v, igual al área",
+    "formula": "6*abs(sin(x))"
+   }
+  ],
+  "etiquetas": [
+   "Es positiva si el producto vectorial sale de la hoja hacia quien mira, y negativa si entra en la hoja",
+   "Es el área del paralelogramo, siempre positiva"
+  ],
+  "etiquetaSlider": "Ángulo de v, en radianes",
+  "alt": "El vector u de longitud 2 sobre el eje horizontal y el vector v de longitud 3 que gira. El paralelogramo que forman tiene un área igual a la longitud del producto vectorial, y el signo del producto indica si v queda arriba o abajo de u"
+ },
+ "glosario": {
+  "cruz": "El producto vectorial de dos vectores del espacio es otro vector, perpendicular a los dos. Su longitud es el área del paralelogramo que forman.",
+  "mano": "La regla de la mano derecha dice hacia dónde apunta el producto vectorial. Los dedos van de u hacia v y el pulgar marca la dirección.",
+  "anticonmutativo": "El producto vectorial es anticonmutativo, porque al cambiar el orden de los vectores el resultado cambia de signo.",
+  "torque": "El torque es el producto vectorial del vector de posición por la fuerza. Mide la tendencia a girar."
+ },
+ "ver": {
+  "duracion": 22.0,
+  "capitulos": [
+   [
+    0,
+    4,
+    "En este plano, u mide 2 y está sobre el eje. El vector v mide 3 y puede girar. El producto vectorial apunta perpendicular a la hoja."
+   ],
+   [
+    4,
+    9,
+    "Su tercera componente es 6 por el seno del ángulo. Con 90 grados vale 6, y es el máximo."
+   ],
+   [
+    9,
+    13,
+    "Con 0 grados, v es paralelo a u y el producto vectorial vale cero."
+   ],
+   [
+    13,
+    18,
+    "Si v pasa al otro lado, el seno es negativo y el producto apunta hacia el otro lado de la hoja, aunque su longitud es la misma."
+   ],
+   [
+    18,
+    22,
+    "La longitud del producto vectorial es siempre el área del paralelogramo."
+   ]
+  ],
+  "canales": {
+   "draw": [
+    [
+     0.3,
+     0
+    ],
+    [
+     3.5,
+     1
+    ]
+   ],
+   "d": [
+    [
+     4,
+     1.5708
+    ],
+    [
+     8,
+     1.5708
+    ],
+    [
+     10,
+     0
+    ],
+    [
+     13,
+     0
+    ],
+    [
+     15,
+     -1.5708
+    ],
+    [
+     22,
+     -1.5708
+    ]
+   ],
+   "guide": [
+    [
+     4,
+     0
+    ],
+    [
+     5,
+     1
+    ]
+   ]
+  },
+  "intervalos": {
+   "ok": [
+    18,
+    22
+   ]
+  }
+ },
+ "leer": {
+  "secciones": [
+   {
+    "titulo": "La idea",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "El {{gl:cruz|producto vectorial}} toma dos vectores del espacio y da un tercero que es perpendicular a los dos. Su longitud es el área del paralelogramo que forman, y su sentido lo da la {{gl:mano|regla de la mano derecha}}. Es {{gl:anticonmutativo|anticonmutativo}}, porque el orden importa. Se usa para el {{gl:torque|torque}} y para hallar normales."
+     }
+    ]
+   },
+   {
+    "titulo": "Un ejemplo",
+    "corto": "Un ejemplo",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Para verlo en una hoja, se toman dos vectores del plano. El producto vectorial apunta perpendicular a la hoja, y se lee en su tercera componente."
+     },
+     {
+      "t": "eq",
+      "tex": "\\mathbf{u}\\times\\mathbf{v}=(0,0,\\ u_{1}v_{2}-u_{2}v_{1})"
+     },
+     {
+      "t": "grafica",
+      "animar": "dibujar",
+      "alt": "El paralelogramo de u y v"
+     }
+    ]
+   },
+   {
+    "titulo": "Piensa antes de ver",
+    "corto": "Piensa",
+    "bloques": [
+     {
+      "t": "piensa",
+      "pregunta": "Si dos vectores son paralelos, el paralelogramo que forman se aplasta. ¿Cuánto vale su área?",
+      "opciones": [
+       0,
+       1,
+       2,
+       6
+      ],
+      "correcta": 0,
+      "bien": "Muy bien. Vale 0, y por eso el producto vectorial de vectores paralelos es el vector cero. Más abajo se ve.",
+      "mal": "Vale 0, porque el paralelogramo se aplasta en un segmento. Por eso el producto vectorial de vectores paralelos es el vector cero. Más abajo se ve."
+     }
+    ]
+   },
+   {
+    "titulo": "Girando v",
+    "corto": "Girando",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mira el producto vectorial con ángulos de 90 grados, 0 y menos 90 grados."
+     },
+     {
+      "t": "acercando",
+      "ds": [
+       1.5708,
+       0,
+       -1.5708
+      ],
+      "alt": "El paralelogramo para tres ángulos de v"
+     },
+     {
+      "t": "p",
+      "html": "A 90 grados el producto vale 6 y a menos 90 vale menos 6. Con 0 grados vale cero."
+     }
+    ]
+   },
+   {
+    "titulo": "Cómo se calcula",
+    "corto": "Cómo se calcula",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Cada componente es un determinante de dos por dos."
+     },
+     {
+      "t": "pasos",
+      "items": [
+       {
+        "tex": "\\mathbf{u}\\times\\mathbf{v}=(u_{2}v_{3}-u_{3}v_{2},\\ u_{3}v_{1}-u_{1}v_{3},\\ u_{1}v_{2}-u_{2}v_{1})",
+        "porque": "La fórmula completa."
+       },
+       {
+        "tex": "\\mathbf{i}\\times\\mathbf{j}=\\mathbf{k}",
+        "porque": "Los vectores de la base dan el tercero."
+       },
+       {
+        "tex": "(2,1,0)\\times(1,3,0)=(0,0,\\ 2\\cdot3-1\\cdot1)=(0,0,5)",
+        "porque": "Con dos vectores del plano, solo queda la tercera componente."
+       },
+       {
+        "tex": "\\|\\mathbf{u}\\times\\mathbf{v}\\|=\\|\\mathbf{u}\\|\\,\\|\\mathbf{v}\\|\\operatorname{sen}\\theta",
+        "porque": "La longitud del producto vectorial."
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "Propiedades",
+    "corto": "Propiedades",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "El producto vectorial se comporta distinto del producto de números."
+     },
+     {
+      "t": "pasos",
+      "items": [
+       {
+        "tex": "\\mathbf{u}\\times\\mathbf{v}=-(\\mathbf{v}\\times\\mathbf{u})",
+        "porque": "Anticonmutativo. Al cambiar el orden cambia el signo."
+       },
+       {
+        "tex": "\\mathbf{u}\\times\\mathbf{u}=\\mathbf{0}",
+        "porque": "Un vector con él mismo da el vector cero."
+       },
+       {
+        "tex": "(\\mathbf{u}\\times\\mathbf{v})\\cdot\\mathbf{u}=0",
+        "porque": "El resultado es perpendicular a u y también a v."
+       },
+       {
+        "tex": "\\mathbf{u}\\parallel\\mathbf{v}\\ \\Leftrightarrow\\ \\mathbf{u}\\times\\mathbf{v}=\\mathbf{0}",
+        "porque": "Es cero si y solo si los vectores son paralelos."
+       }
+      ]
+     },
+     {
+      "t": "ojo",
+      "html": "El producto vectorial solo existe en el espacio de tres dimensiones, y no es asociativo. El orden de los factores importa."
+     }
+    ]
+   },
+   {
+    "titulo": "¿Para qué sirve?",
+    "corto": "En ingeniería",
+    "bloques": [
+     {
+      "t": "ingenieria",
+      "titulo": "El torque de una fuerza",
+      "html": "Se aplica una fuerza de 100 newtons hacia arriba en el extremo de una llave de 0.5 metros. El torque es el producto vectorial del vector de posición por la fuerza, y apunta perpendicular a las dos, a lo largo del eje del tornillo.",
+      "tex": "\\boldsymbol{\\tau}=\\mathbf{r}\\times\\mathbf{F}=(0,0,50)",
+      "datos": [
+       {
+        "k": "Posición",
+        "v": "(0.5, 0, 0) m"
+       },
+       {
+        "k": "Fuerza",
+        "v": "(0, 100, 0) N"
+       },
+       {
+        "k": "Torque",
+        "v": "(0, 0, 50) N·m"
+       }
+      ],
+      "cierre": "El torque vale 50 newton metro y apunta a lo largo del eje, que es la dirección en que el tornillo avanza o retrocede. Si la fuerza se aplicara paralela a la llave, el producto vectorial sería cero y no habría giro. Por eso las llaves largas ayudan, ya que a mayor distancia hay mayor torque con la misma fuerza."
+     }
+    ]
+   },
+   {
+    "titulo": "Completa el paso",
+    "corto": "Completa",
+    "bloques": [
+     {
+      "t": "completar",
+      "enunciado": "Se aplica la anticonmutatividad del producto vectorial. Falta el resultado.",
+      "tex": "\\mathbf{j}\\times\\mathbf{i}=[[hueco]]",
+      "opciones": [
+       {
+        "tex": "-\\mathbf{k}",
+        "txt": "menos k"
+       },
+       {
+        "tex": "\\mathbf{k}",
+        "txt": "k"
+       },
+       {
+        "tex": "\\mathbf{0}",
+        "txt": "el vector cero"
+       }
+      ],
+      "correcta": 0,
+      "errores": [
+       "",
+       "Con i por j se obtiene k, pero al invertir el orden el resultado cambia de signo.",
+       "El vector cero solo aparece con vectores paralelos, y estos son perpendiculares."
+      ],
+      "pista": "Al cambiar el orden cambia el signo.",
+      "porque": "i cruz j es k, y j cruz i es menos k."
+     }
+    ]
+   },
+   {
+    "titulo": "Encuentra el error",
+    "corto": "Error",
+    "bloques": [
+     {
+      "t": "error",
+      "enunciado": "Alguien analizó el producto vectorial de i y j y se equivocó en un paso. Toca el paso que está mal.",
+      "pasos": [
+       {
+        "tex": "\\mathbf{u}=\\mathbf{i},\\quad \\mathbf{v}=\\mathbf{j}",
+        "porque": "Son los dos vectores.",
+        "txt": "u es i y v es j"
+       },
+       {
+        "tex": "\\mathbf{u}\\times\\mathbf{v}=\\mathbf{k}",
+        "porque": "El producto.",
+        "txt": "el producto es k"
+       },
+       {
+        "tex": "\\text{Entonces}\\ \\mathbf{v}\\times\\mathbf{u}=\\mathbf{k}",
+        "porque": "Este paso es el que falla.",
+        "txt": "por tanto j cruz i también es k"
+       }
+      ],
+      "mal": 2,
+      "explicacion": "El producto vectorial es anticonmutativo. Al cambiar el orden cambia el signo, así que j cruz i es menos k.",
+      "correccion": "\\mathbf{v}\\times\\mathbf{u}=-\\mathbf{k}",
+      "pista": "Recuerda qué pasa al cambiar el orden."
+     }
+    ]
+   },
+   {
+    "titulo": "Ordena los pasos",
+    "corto": "Ordena",
+    "bloques": [
+     {
+      "t": "ordenar",
+      "enunciado": "Estos son los pasos para hallar la tercera componente de (2, 1, 0) por (1, 3, 0), pero están desordenados.",
+      "pasos": [
+       "\\mathbf{u}=(2,1,0),\\ \\mathbf{v}=(1,3,0)",
+       "(\\mathbf{u}\\times\\mathbf{v})_{3}=u_{1}v_{2}-u_{2}v_{1}",
+       "2\\cdot3-1\\cdot1",
+       "5"
+      ],
+      "mezcla": [
+       2,
+       0,
+       3,
+       1
+      ],
+      "porque": "Se escribe la fórmula de la tercera componente, se sustituye y se calcula.",
+      "pista": "Se empieza con los vectores.",
+      "txt": [
+       "Se escriben los vectores",
+       "Se escribe la tercera componente",
+       "Se sustituye",
+       "Se calcula"
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "Revisa tu respuesta",
+    "corto": "Revisa",
+    "bloques": [
+     {
+      "t": "pregunta"
+     },
+     {
+      "t": "nota",
+      "html": "Puedes pedir pistas de a una. Si fallas, el mensaje te dice qué error se cometió."
+     }
+    ]
+   },
+   {
+    "titulo": "Mini simulacro",
+    "corto": "Simulacro",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Tres preguntas reales del banco de MathUNAL sobre este tema. Responde sin mirar los pasos."
+     },
+     {
+      "t": "simulacro",
+      "titulo": "Mini simulacro del producto vectorial",
+      "preguntas": [
+       {
+        "tipo": "mcq",
+        "texto": "$\\mathbf{i}\\times\\mathbf{j}=$",
+        "opciones": [
+         "$\\mathbf{k}$",
+         "$-\\mathbf{k}$",
+         "$\\mathbf{0}$",
+         "$1$"
+        ],
+        "correcta": 0,
+        "resumen": "Con la regla de la mano derecha, i cruz j es k.",
+        "fuente": "Banco MathUNAL, simulacro de Geometría Vectorial y Analítica"
+       },
+       {
+        "tipo": "numerica",
+        "texto": "Para $u = (2,0,0)$ y $v = (0,3,0)$, el valor de $\\|u \\times v\\|$ es:",
+        "respuesta": "6",
+        "tolNum": 0.001,
+        "resumen": "Es el área del rectángulo de lados 2 y 3.",
+        "fuente": "Banco MathUNAL, simulacro de Geometría Vectorial y Analítica"
+       },
+       {
+        "tipo": "mcq",
+        "texto": "El producto vectorial cumple:",
+        "opciones": [
+         "$u \\times v = -(v \\times u)$ (anticonmutativo)",
+         "$u \\times v = v \\times u$",
+         "$u \\times u = u$",
+         "$u \\times v$ es paralelo a $u$"
+        ],
+        "correcta": 0,
+        "resumen": "El producto vectorial es anticonmutativo.",
+        "fuente": "Banco MathUNAL, simulacro de Geometría Vectorial y Analítica"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "Tu repaso",
+    "corto": "Repaso",
+    "bloques": [
+     {
+      "t": "repaso"
+     }
+    ]
+   },
+   {
+    "titulo": "En resumen",
+    "corto": "Resumen",
+    "bloques": [
+     {
+      "t": "resumen"
+     }
+    ]
+   }
+  ]
+ },
+ "practicar": {
+  "pasos": [
+   {
+    "titulo": "Dos vectores",
+    "grafica": {
+     "draw": 1
+    },
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Un vector u fijo y un vector v que gira, en una hoja."
+     },
+     {
+      "t": "eq",
+      "tex": "(\\mathbf{u}\\times\\mathbf{v})_{3}=6\\operatorname{sen}\\theta"
+     }
+    ]
+   },
+   {
+    "titulo": "Gira v",
+    "grafica": {
+     "draw": 1
+    },
+    "laboratorio": true,
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mueve el deslizador. Abajo se leen la tercera componente del producto y su longitud."
+     }
+    ]
+   },
+   {
+    "titulo": "Ángulo recto",
+    "grafica": {
+     "draw": 1,
+     "guide": 1,
+     "ok": true
+    },
+    "laboratorio": true,
+    "d": 1.5708,
+    "bloques": [
+     {
+      "t": "eq",
+      "tex": "\\theta=90^{\\circ}\\ \\Rightarrow\\ \\|\\mathbf{u}\\times\\mathbf{v}\\|=6"
+     },
+     {
+      "t": "p",
+      "html": "Con 90 grados el producto vectorial es el mayor posible."
+     }
+    ]
+   },
+   {
+    "titulo": "Revisa tu respuesta",
+    "grafica": {
+     "draw": 1,
+     "guide": 1,
+     "ok": true,
+     "d": 1.5708
+    },
+    "bloques": [
+     {
+      "t": "pregunta"
+     },
+     {
+      "t": "nota",
+      "html": "Los vectores paralelos tienen un paralelogramo de área cero."
+     }
+    ]
+   }
+  ]
+ },
+ "pregunta": {
+  "tex": "\\text{El producto vectorial}\\ (1,2,3)\\times(2,4,6)\\ \\text{es}",
+  "opciones": [
+   "$\\mathbf{0}$",
+   "$(0,0,1)$",
+   "$(2,8,18)$",
+   "$28$"
+  ],
+  "correcta": 0,
+  "explicacion": "Los vectores son paralelos, porque (2, 4, 6) es el doble de (1, 2, 3). El paralelogramo que forman se aplasta, y su área es cero. Por eso el producto vectorial es el vector cero.",
+  "verificacion": {
+   "formula": "2*6-3*4+0*x",
+   "a": 0,
+   "esperado": 0
+  },
+  "pistas": [
+   "Mira si un vector es múltiplo del otro.",
+   "Sí lo es, es el doble.",
+   "Entonces el área es cero."
+  ],
+  "errores": [
+   "",
+   "Ese vector no es perpendicular a los dos. Aquí el resultado es único y no depende de una elección.",
+   "Eso sale de multiplicar componente por componente, que no es el producto vectorial.",
+   "Eso es el producto punto, y es un número. El producto vectorial da un vector."
+  ]
+ },
+ "resumen": [
+  "El producto vectorial de dos vectores es perpendicular a los dos, y su longitud es el área del paralelogramo.",
+  "Es anticonmutativo y vale cero cuando los vectores son paralelos.",
+  "Se calcula con determinantes de dos por dos, y la regla de la mano derecha da el sentido."
+ ]
+}

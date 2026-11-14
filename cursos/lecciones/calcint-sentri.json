@@ -1,0 +1,670 @@
+{
+ "esquema": 1,
+ "id": "calcint-m2-l2",
+ "ejemplo": true,
+ "curso": "Cálculo Integral",
+ "modulo": "Módulo 2 Técnicas avanzadas e impropias",
+ "posicion": "Lección 2 de 4",
+ "titulo": "Sustitución trigonométrica",
+ "minutos": 28,
+ "ejercicios": 7,
+ "grafica": {
+  "tipo": "area",
+  "x": [
+   0,
+   1.2
+  ],
+  "y": [
+   0,
+   1.2
+  ],
+  "funcion": "sqrt(1-x*x)",
+  "primitiva": "(x*sqrt(1-x*x)+asin(x))/2",
+  "a": 0,
+  "b": 0.95,
+  "franja": 0.04,
+  "limite": 0.8,
+  "etiquetas": [
+   "Área acumulada",
+   "Altura de la curva"
+  ],
+  "rotulos": [
+   "área",
+   "altura"
+  ],
+  "etiquetaSlider": "Posición de x",
+  "alt": "Cuarto de círculo de radio 1 con el área bajo la curva sombreada desde 0 hasta un x que avanza hasta 1"
+ },
+ "glosario": {
+  "ident": "Una identidad trigonométrica es una igualdad que se cumple para todos los valores del ángulo, como seno al cuadrado más coseno al cuadrado igual a 1.",
+  "triangulo": "El triángulo de referencia es un triángulo rectángulo que se dibuja con el ángulo theta para volver de theta a x al final de la integral.",
+  "prim": "Una primitiva de f es una función F cuya derivada es f. Por ejemplo, x al cubo sobre 3 es una primitiva de x al cuadrado."
+ },
+ "ver": {
+  "duracion": 22.0,
+  "capitulos": [
+   [
+    0,
+    2.5,
+    "Esta es la curva de f(x) igual a la raíz de 1 menos x al cuadrado. Es un cuarto de círculo de radio 1."
+   ],
+   [
+    2.5,
+    5,
+    "Se mide el área bajo ella a partir de x igual a 0."
+   ],
+   [
+    5,
+    11,
+    "Al avanzar x, el área se va llenando. La curva baja desde 1 hasta tocar el eje en x igual a 1."
+   ],
+   [
+    11,
+    16,
+    "Con x igual a 0.6 la curva mide 0.8 de alto."
+   ],
+   [
+    16,
+    22,
+    "Al llegar a x igual a 1 el área acumulada es 0.7854, que es pi sobre 4, un cuarto del área del círculo."
+   ]
+  ],
+  "canales": {
+   "draw": [
+    [
+     0.3,
+     0
+    ],
+    [
+     2.4,
+     1
+    ]
+   ],
+   "hole": [
+    [
+     2.5,
+     0
+    ],
+    [
+     3.3,
+     1
+    ]
+   ],
+   "d": [
+    [
+     5,
+     0.2
+    ],
+    [
+     11,
+     0.6
+    ],
+    [
+     15,
+     0.6
+    ],
+    [
+     16,
+     1
+    ],
+    [
+     22,
+     1
+    ]
+   ],
+   "guide": [
+    [
+     11,
+     0
+    ],
+    [
+     12,
+     1
+    ]
+   ]
+  },
+  "intervalos": {
+   "ok": [
+    19,
+    22
+   ]
+  }
+ },
+ "leer": {
+  "secciones": [
+   {
+    "titulo": "La idea",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Algunas integrales traen una raíz que no se puede quitar con una sustitución común, como la raíz de 1 menos x al cuadrado. La sustitución trigonométrica la elimina. Se cambia x por un seno, una tangente o una secante, y con una {{gl:ident|identidad}} la raíz desaparece."
+     }
+    ]
+   },
+   {
+    "titulo": "Un ejemplo",
+    "corto": "Un ejemplo",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mira esta integral, que mide el área de un cuarto de círculo de radio 1."
+     },
+     {
+      "t": "eq",
+      "tex": "\\int_{0}^{1}\\sqrt{1-x^{2}}\\,dx"
+     },
+     {
+      "t": "grafica",
+      "animar": "dibujar",
+      "alt": "Curva que se dibuja y marca el punto de partida en x igual a 0"
+     }
+    ]
+   },
+   {
+    "titulo": "Piensa antes de ver",
+    "corto": "Piensa",
+    "bloques": [
+     {
+      "t": "piensa",
+      "pregunta": "Cuando x vale 0.6, ¿cuánto vale la raíz de 1 menos x al cuadrado?",
+      "opciones": [
+       0.4,
+       0.6,
+       0.8,
+       1
+      ],
+      "correcta": 0.8,
+      "bien": "Muy bien. Vale 0.8, porque 1 menos 0.36 es 0.64 y su raíz es 0.8. Más abajo se ve el área acumulada.",
+      "mal": "Vale 0.8, porque 1 menos 0.36 es 0.64 y su raíz es 0.8. Más abajo se ve el área acumulada."
+     }
+    ]
+   },
+   {
+    "titulo": "El área que se acumula",
+    "corto": "El área",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mira cómo se llena el área y qué valen el área y la altura en cada x."
+     },
+     {
+      "t": "acercando",
+      "ds": [
+       0.3,
+       0.6,
+       0.9,
+       1
+      ],
+      "alt": "El área bajo el cuarto de círculo que va creciendo hasta x igual a 1"
+     },
+     {
+      "t": "p",
+      "html": "Con x igual a 1 la curva toca el eje y el área acumulada es <b>0.7854</b>. Ese es el número que debe salir al integrar."
+     }
+    ]
+   },
+   {
+    "titulo": "La sustitución",
+    "corto": "La sustitución",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Se elige x igual a seno de theta. Así 1 menos x al cuadrado se vuelve 1 menos seno al cuadrado, que es coseno al cuadrado."
+     },
+     {
+      "t": "pasos",
+      "items": [
+       {
+        "tex": "x=\\operatorname{sen}\\theta,\\quad dx=\\cos\\theta\\,d\\theta",
+        "porque": "Se cambia x y también dx, que es la derivada por d theta."
+       },
+       {
+        "tex": "\\sqrt{1-x^{2}}=\\sqrt{1-\\operatorname{sen}^{2}\\theta}=\\cos\\theta",
+        "porque": "La raíz desaparece por la identidad. Sirve cuando theta está entre menos pi sobre 2 y pi sobre 2, donde el coseno no es negativo."
+       },
+       {
+        "tex": "\\int\\sqrt{1-x^{2}}\\,dx=\\int\\cos\\theta\\cdot\\cos\\theta\\,d\\theta=\\int\\cos^{2}\\theta\\,d\\theta",
+        "porque": "Hay dos cosenos, uno de la raíz y otro de dx."
+       },
+       {
+        "tex": "=\\dfrac{\\theta}{2}+\\dfrac{\\operatorname{sen}2\\theta}{4}+C",
+        "porque": "Se integra con la identidad del ángulo doble."
+       }
+      ]
+     },
+     {
+      "t": "ojo",
+      "html": "El dx también se cambia. Olvidar el coseno que viene de dx es el error más común."
+     }
+    ]
+   },
+   {
+    "titulo": "Volver a x",
+    "corto": "Volver a x",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "El resultado queda en theta y hay que devolverlo a x. Se usa un {{gl:triangulo|triángulo de referencia}}. Como el seno de theta es x sobre 1, el cateto opuesto es x, la hipotenusa es 1 y el otro cateto es la raíz de 1 menos x al cuadrado."
+     },
+     {
+      "t": "pasos",
+      "items": [
+       {
+        "tex": "\\theta=\\arcsin x,\\qquad \\operatorname{sen}2\\theta=2\\operatorname{sen}\\theta\\cos\\theta=2x\\sqrt{1-x^{2}}",
+        "porque": "Con el triángulo, el coseno de theta es la raíz de 1 menos x al cuadrado."
+       },
+       {
+        "tex": "\\int\\sqrt{1-x^{2}}\\,dx=\\dfrac{\\arcsin x}{2}+\\dfrac{x\\sqrt{1-x^{2}}}{2}+C",
+        "porque": "Ya está en x."
+       },
+       {
+        "tex": "\\int_{0}^{1}\\sqrt{1-x^{2}}\\,dx=\\left(\\dfrac{\\pi}{4}+0\\right)-(0+0)=\\dfrac{\\pi}{4}\\approx 0.7854",
+        "porque": "Es el mismo valor que mostraba el área de la gráfica."
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "Los tres casos",
+    "corto": "Los tres casos",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Según la raíz que aparezca, se usa una sustitución distinta."
+     },
+     {
+      "t": "pasos",
+      "items": [
+       {
+        "tex": "\\sqrt{a^{2}-x^{2}}\\ \\Rightarrow\\ x=a\\operatorname{sen}\\theta,\\quad \\sqrt{\\ }=a\\cos\\theta",
+        "porque": "Resta, con la x al cuadrado restando. Se usa seno."
+       },
+       {
+        "tex": "\\sqrt{a^{2}+x^{2}}\\ \\Rightarrow\\ x=a\\tan\\theta,\\quad \\sqrt{\\ }=a\\sec\\theta",
+        "porque": "Suma. Se usa tangente, porque 1 más tangente al cuadrado es secante al cuadrado."
+       },
+       {
+        "tex": "\\sqrt{x^{2}-a^{2}}\\ \\Rightarrow\\ x=a\\sec\\theta,\\quad \\sqrt{\\ }=a\\tan\\theta",
+        "porque": "La x al cuadrado va primero y resta. Se usa secante."
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "Un caso con tangente",
+    "corto": "Con tangente",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mira cómo cambia la integral con la raíz de x al cuadrado más 4."
+     },
+     {
+      "t": "pasos",
+      "items": [
+       {
+        "tex": "x=2\\tan\\theta,\\quad dx=2\\sec^{2}\\theta\\,d\\theta,\\quad \\sqrt{x^{2}+4}=2\\sec\\theta",
+        "porque": "Se cambian x, dx y la raíz."
+       },
+       {
+        "tex": "\\int\\dfrac{dx}{\\sqrt{x^{2}+4}}=\\int\\dfrac{2\\sec^{2}\\theta}{2\\sec\\theta}\\,d\\theta=\\int\\sec\\theta\\,d\\theta",
+        "porque": "Se simplifica."
+       },
+       {
+        "tex": "=\\ln\\left|\\sec\\theta+\\tan\\theta\\right|+C=\\ln\\left|\\dfrac{\\sqrt{x^{2}+4}}{2}+\\dfrac{x}{2}\\right|+C",
+        "porque": "Con el triángulo, la secante es la raíz sobre 2 y la tangente es x sobre 2."
+       },
+       {
+        "tex": "=\\ln\\left|x+\\sqrt{x^{2}+4}\\right|+C",
+        "porque": "El 2 de abajo pasa a la constante."
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "¿Para qué sirve?",
+    "corto": "En ingeniería",
+    "bloques": [
+     {
+      "t": "ingenieria",
+      "titulo": "El nivel en un tanque horizontal",
+      "html": "Un tanque cilíndrico acostado se llena hasta cierta altura. Para saber cuánto líquido hay, se necesita el área de la sección ocupada, que es una parte de un círculo. Esa área sale de integrar la raíz de R cuadrado menos y cuadrado, y se resuelve con sustitución trigonométrica.",
+      "tex": "y^{2}+z^{2}=R^{2}",
+      "datos": [
+       {
+        "k": "Radio del tanque",
+        "v": "0.5 m"
+       },
+       {
+        "k": "Altura del líquido",
+        "v": "0.25 m desde el fondo"
+       },
+       {
+        "k": "Largo del tanque",
+        "v": "2 m"
+       }
+      ],
+      "cierre": "El área de la sección es unos 0.1536 metros cuadrados. Por el largo de 2 metros, el volumen es de unos 0.307 metros cúbicos, o sea 307 litros. Es un modelo simplificado, porque no toma en cuenta las tapas del tanque ni su inclinación."
+     }
+    ]
+   },
+   {
+    "titulo": "Completa el paso",
+    "corto": "Completa",
+    "bloques": [
+     {
+      "t": "completar",
+      "enunciado": "Se sustituye x igual a 3 por seno de theta en la raíz de 9 menos x al cuadrado. Falta simplificar la raíz.",
+      "tex": "\\sqrt{9-x^{2}}=\\sqrt{9-9\\operatorname{sen}^{2}\\theta}=[[hueco]]",
+      "opciones": [
+       {
+        "tex": "3\\cos\\theta",
+        "txt": "tres coseno de theta"
+       },
+       {
+        "tex": "3\\operatorname{sen}\\theta",
+        "txt": "tres seno de theta"
+       },
+       {
+        "tex": "9\\cos\\theta",
+        "txt": "nueve coseno de theta"
+       }
+      ],
+      "correcta": 0,
+      "errores": [
+       "",
+       "El seno no queda. Al sacar 9 de la raíz y usar la identidad, 1 menos seno al cuadrado es coseno al cuadrado.",
+       "La raíz de 9 es 3 y no 9. Sale 3 por coseno de theta."
+      ],
+      "pista": "Saca el 9 como factor común y usa la identidad.",
+      "porque": "Se saca 9 de la raíz, queda 3 por la raíz de 1 menos seno al cuadrado, y eso es 3 por coseno de theta."
+     }
+    ]
+   },
+   {
+    "titulo": "Encuentra el error",
+    "corto": "Error",
+    "bloques": [
+     {
+      "t": "error",
+      "enunciado": "Alguien resolvió esta integral y se equivocó en un paso. Toca el paso que está mal.",
+      "pasos": [
+       {
+        "tex": "x=\\operatorname{sen}\\theta,\\quad dx=\\cos\\theta\\,d\\theta",
+        "porque": "Es el cambio de variable correcto.",
+        "txt": "x es seno de theta y dx es coseno de theta d theta"
+       },
+       {
+        "tex": "\\sqrt{1-x^{2}}=\\sqrt{1-\\operatorname{sen}^{2}\\theta}=\\cos\\theta",
+        "porque": "La raíz se simplifica bien.",
+        "txt": "La raíz de 1 menos x al cuadrado es coseno de theta"
+       },
+       {
+        "tex": "\\int\\sqrt{1-x^{2}}\\,dx=\\int\\cos\\theta\\,d\\theta",
+        "porque": "Este paso es el que falla.",
+        "txt": "La integral queda como la integral de coseno de theta d theta"
+       },
+       {
+        "tex": "=\\operatorname{sen}\\theta+C=x+C",
+        "porque": "La cuenta sigue bien con lo que viene del paso anterior, pero el resultado no puede ser x.",
+        "txt": "Queda seno de theta, o sea x más C"
+       }
+      ],
+      "mal": 2,
+      "explicacion": "Falta el coseno que viene de dx. Hay dos cosenos, el de la raíz y el de dx, y la integral es la de coseno al cuadrado. El resultado x más C no tiene sentido, porque la derivada de x es 1 y no la raíz.",
+      "correccion": "\\int\\sqrt{1-x^{2}}\\,dx=\\int\\cos\\theta\\cdot\\cos\\theta\\,d\\theta=\\int\\cos^{2}\\theta\\,d\\theta",
+      "pista": "Cuenta cuántos factores trae la integral original después del cambio de variable."
+     }
+    ]
+   },
+   {
+    "titulo": "Ordena los pasos",
+    "corto": "Ordena",
+    "bloques": [
+     {
+      "t": "ordenar",
+      "enunciado": "Estos son los pasos para integrar 1 sobre 1 más x al cuadrado con tangente, pero están desordenados.",
+      "pasos": [
+       "x=\\tan\\theta,\\quad dx=\\sec^{2}\\theta\\,d\\theta",
+       "1+x^{2}=1+\\tan^{2}\\theta=\\sec^{2}\\theta",
+       "\\int\\dfrac{dx}{1+x^{2}}=\\int\\dfrac{\\sec^{2}\\theta}{\\sec^{2}\\theta}\\,d\\theta=\\int d\\theta",
+       "=\\theta+C=\\arctan x+C"
+      ],
+      "mezcla": [
+       2,
+       0,
+       3,
+       1
+      ],
+      "porque": "Se cambian x y dx, se simplifica el denominador con la identidad, se integra y se vuelve a x.",
+      "pista": "Primero se hace el cambio de variable.",
+      "txt": [
+       "x es tangente de theta y dx es secante al cuadrado de theta d theta",
+       "Uno más x al cuadrado es secante al cuadrado de theta",
+       "La integral queda como la integral de d theta",
+       "Es theta más C, o sea arco tangente de x más C"
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "Revisa tu respuesta",
+    "corto": "Revisa",
+    "bloques": [
+     {
+      "t": "pregunta"
+     },
+     {
+      "t": "nota",
+      "html": "Puedes pedir pistas de a una. Si fallas, el mensaje te dice qué error se cometió."
+     }
+    ]
+   },
+   {
+    "titulo": "Mini simulacro",
+    "corto": "Simulacro",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Tres preguntas reales del banco de MathUNAL sobre este tema. Responde sin mirar los pasos."
+     },
+     {
+      "t": "simulacro",
+      "titulo": "Mini simulacro de sustitución trigonométrica",
+      "preguntas": [
+       {
+        "tipo": "mcq",
+        "texto": "$\\displaystyle\\int \\frac{dx}{\\sqrt{9-x^2}}=$",
+        "opciones": [
+         "$\\arcsin\\dfrac{x}{3}+C$",
+         "$\\dfrac13\\arcsin\\dfrac{x}{3}+C$",
+         "$\\ln\\!\\big|x+\\sqrt{9-x^2}\\big|+C$",
+         "$3\\arcsin\\dfrac{x}{3}+C$"
+        ],
+        "correcta": 0,
+        "resumen": "Con $x=3\\sin\\theta$ la integral queda $\\int d\\theta=\\theta=\\arcsin(x/3)$.",
+        "fuente": "Banco MathUNAL, simulacro de Cálculo Integral"
+       },
+       {
+        "tipo": "mcq",
+        "texto": "Para $\\displaystyle\\int \\sqrt{x^{2}+1}\\,dx$ se usa la sustitución:",
+        "opciones": [
+         "$x = \\tan\\theta$",
+         "$x = \\operatorname{sen}\\theta$",
+         "$x = \\sec\\theta$",
+         "$x = e^{\\theta}$"
+        ],
+        "correcta": 0,
+        "resumen": "La forma $x^2+a^2$ pide tangente, porque $1+\\tan^2\\theta=\\sec^2\\theta$.",
+        "fuente": "Banco MathUNAL, simulacro de Cálculo Integral"
+       },
+       {
+        "tipo": "numerica",
+        "texto": "$\\displaystyle\\int_{0}^{1} \\dfrac{dx}{\\sqrt{1-x^{2}}}$ (decimal, 4 cifras)",
+        "respuesta": "1.5708",
+        "tolNum": 0.005,
+        "resumen": "Con $x=\\sin\\theta$ queda $\\int_0^{\\pi/2}d\\theta=\\pi/2\\approx 1.5708$.",
+        "fuente": "Banco MathUNAL, simulacro de Cálculo Integral"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "Tu repaso",
+    "corto": "Repaso",
+    "bloques": [
+     {
+      "t": "repaso"
+     }
+    ]
+   },
+   {
+    "titulo": "En resumen",
+    "corto": "Resumen",
+    "bloques": [
+     {
+      "t": "resumen"
+     }
+    ]
+   }
+  ]
+ },
+ "practicar": {
+  "pasos": [
+   {
+    "titulo": "La curva",
+    "grafica": {
+     "draw": 1
+    },
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Se mide el área bajo esta curva, un cuarto de círculo."
+     },
+     {
+      "t": "eq",
+      "tex": "f(x)=\\sqrt{1-x^{2}}"
+     }
+    ]
+   },
+   {
+    "titulo": "El punto de partida",
+    "grafica": {
+     "draw": 1,
+     "hole": 1
+    },
+    "bloques": [
+     {
+      "t": "p",
+      "html": "El área se empieza a medir desde x igual a 0."
+     }
+    ]
+   },
+   {
+    "titulo": "Mueve x",
+    "grafica": {
+     "draw": 1,
+     "hole": 1
+    },
+    "laboratorio": true,
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mueve el deslizador. La zona sombreada crece y abajo se ve el área y la altura de la curva en x."
+     }
+    ]
+   },
+   {
+    "titulo": "La altura",
+    "grafica": {
+     "draw": 1,
+     "hole": 1,
+     "guide": 1
+    },
+    "laboratorio": true,
+    "d": 0.6,
+    "bloques": [
+     {
+      "t": "p",
+      "html": "La franja amarilla tiene la altura de la curva. Con x igual a 0.6 mide 0.8, que es la raíz de 1 menos 0.36."
+     }
+    ]
+   },
+   {
+    "titulo": "El resultado",
+    "grafica": {
+     "draw": 1,
+     "hole": 1,
+     "guide": 1,
+     "ok": true
+    },
+    "laboratorio": true,
+    "d": 0.9,
+    "bloques": [
+     {
+      "t": "eq",
+      "tex": "\\int_{0}^{1}\\sqrt{1-x^{2}}\\,dx=\\dfrac{\\pi}{4}"
+     },
+     {
+      "t": "p",
+      "html": "Cerca de x igual a 0.9 el área ya está cerca de 0.7. En x igual a 1 llega a 0.7854, que es pi sobre 4."
+     }
+    ]
+   },
+   {
+    "titulo": "Revisa tu respuesta",
+    "grafica": {
+     "draw": 1,
+     "hole": 1,
+     "guide": 1,
+     "ok": true,
+     "d": 0.9
+    },
+    "bloques": [
+     {
+      "t": "pregunta"
+     },
+     {
+      "t": "nota",
+      "html": "Elige la sustitución según la forma de la raíz y no olvides el dx."
+     }
+    ]
+   }
+  ]
+ },
+ "pregunta": {
+  "tex": "\\int_{-2}^{2}\\sqrt{4-x^{2}}\\,dx",
+  "opciones": [
+   "$2\\pi$",
+   "$\\pi$",
+   "$4\\pi$",
+   "$4$"
+  ],
+  "correcta": 0,
+  "explicacion": "Con x igual a 2 seno de theta, la raíz es 2 coseno de theta y dx es 2 coseno de theta d theta. La integral es 4 veces la de coseno al cuadrado de theta entre menos pi sobre 2 y pi sobre 2, que vale 4 por pi sobre 2, o sea 2 pi. Es el área de medio círculo de radio 2.",
+  "verificacion": {
+   "formula": "(2*sqrt(4-2*2)/2+2*asin(2/2))-((0-2)*sqrt(4-(0-2)*(0-2))/2+2*asin((0-2)/2))+0*x",
+   "a": 0,
+   "esperado": 6.2831853072
+  },
+  "pistas": [
+   "La raíz de 4 menos x al cuadrado pide x igual a 2 por seno de theta.",
+   "Con esa sustitución la raíz es 2 coseno de theta y dx es 2 coseno de theta d theta. Los límites de theta son menos pi sobre 2 y pi sobre 2.",
+   "Queda 4 veces la integral de coseno al cuadrado, que da theta sobre 2 más seno de 2 theta sobre 4."
+  ],
+  "errores": [
+   "",
+   "Falta un factor 2. Tanto la raíz como dx traen un 2, y juntos dan 4 coseno al cuadrado.",
+   "Ese es el área del círculo completo de radio 2. La integral solo cubre la mitad de arriba.",
+   "Falta el coseno que viene de dx. La integral correcta es la de 4 coseno al cuadrado y no la de 2 coseno."
+  ]
+ },
+ "resumen": [
+  "Cuando hay una raíz con x al cuadrado, se cambia x por seno, tangente o secante para quitarla con una identidad.",
+  "Se cambia también dx, y si la integral es definida, los límites. Al final se vuelve a x con un triángulo.",
+  "Resta con a al cuadrado primero usa seno. Suma usa tangente. Resta con x al cuadrado primero usa secante."
+ ]
+}

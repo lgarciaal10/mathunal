@@ -1,0 +1,688 @@
+{
+ "esquema": 1,
+ "id": "calculo-m2-l3",
+ "ejemplo": true,
+ "curso": "Cálculo",
+ "modulo": "Módulo 2 La derivada",
+ "posicion": "Lección 3 de 10",
+ "titulo": "La regla de la cadena",
+ "minutos": 22,
+ "ejercicios": 7,
+ "grafica": {
+  "tipo": "secante",
+  "x": [
+   -1.2,
+   2.2
+  ],
+  "y": [
+   0,
+   30
+  ],
+  "funcion": "(2*x+1)^2",
+  "a": 1,
+  "derivada": "4*(2*x+1)",
+  "limite": 12,
+  "etiquetas": [
+   "Distancia h",
+   "Pendiente de la secante"
+  ],
+  "etiquetaSlider": "Valor de h",
+  "alt": "Curva de la función 2x más 1 al cuadrado con una secante que se acerca a la tangente en x igual a 1",
+  "zoom": {
+   "factor": 40
+  }
+ },
+ "glosario": {
+  "comp": "Una función compuesta es una función dentro de otra, como (2x + 1) al cuadrado, donde primero se calcula 2x + 1 y luego se eleva al cuadrado.",
+  "tangente": "La recta tangente toca la curva en un punto y tiene la misma inclinación que la curva ahí.",
+  "pend": "La pendiente dice cuánto sube la recta por cada unidad que avanza hacia la derecha.",
+  "interna": "La función interna es la que se calcula primero, la que está dentro del paréntesis.",
+  "externa": "La función externa es la que se aplica al resultado de la interna."
+ },
+ "ver": {
+  "duracion": 23.0,
+  "capitulos": [
+   [
+    0,
+    2.5,
+    "Esta es la curva de f(x) igual a 2x más 1, todo al cuadrado."
+   ],
+   [
+    2.5,
+    4.5,
+    "Es una función compuesta y queremos su inclinación en x igual a 1."
+   ],
+   [
+    4.5,
+    8,
+    "Se traza la secante con un segundo punto a distancia h."
+   ],
+   [
+    8,
+    12.5,
+    "Mientras h se achica, la pendiente de la secante cambia."
+   ],
+   [
+    12.5,
+    15.8,
+    "La secante se vuelve la tangente y su pendiente se acerca a 12."
+   ],
+   [
+    15.8,
+    19.8,
+    "De cerca, la curva casi se ve como una recta, y esa recta es la tangente."
+   ],
+   [
+    19.8,
+    23.0,
+    "La regla de la cadena da el mismo 12 sin necesidad del límite."
+   ]
+  ],
+  "canales": {
+   "draw": [
+    [
+     0.3,
+     0
+    ],
+    [
+     2.4,
+     1
+    ]
+   ],
+   "hole": [
+    [
+     2.5,
+     0
+    ],
+    [
+     3.2,
+     1
+    ]
+   ],
+   "d": [
+    [
+     4.5,
+     1
+    ],
+    [
+     6,
+     0.5
+    ],
+    [
+     8,
+     0.5
+    ],
+    [
+     9.5,
+     0.1
+    ],
+    [
+     11,
+     0.1
+    ],
+    [
+     12.5,
+     0.01
+    ]
+   ],
+   "guide": [
+    [
+     12.5,
+     0
+    ],
+    [
+     13.5,
+     1
+    ]
+   ],
+   "zoom": [
+    [
+     15.8,
+     0
+    ],
+    [
+     18.3,
+     1
+    ],
+    [
+     19.0,
+     1
+    ],
+    [
+     19.8,
+     0
+    ]
+   ]
+  },
+  "intervalos": {
+   "ok": [
+    19.8,
+    23.0
+   ]
+  }
+ },
+ "leer": {
+  "secciones": [
+   {
+    "titulo": "La idea",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Muchas funciones son una {{gl:comp|función compuesta}}, o sea una función dentro de otra. Para derivarlas se usa la regla de la cadena, que va derivando de afuera hacia adentro."
+     }
+    ]
+   },
+   {
+    "titulo": "Un ejemplo",
+    "corto": "Un ejemplo",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mira esta función y su inclinación en x igual a 1."
+     },
+     {
+      "t": "eq",
+      "tex": "f(x)=(2x+1)^{2}"
+     },
+     {
+      "t": "p",
+      "html": "La {{gl:interna|función interna}} es 2x más 1 y la {{gl:externa|función externa}} es elevar al cuadrado."
+     },
+     {
+      "t": "grafica",
+      "animar": "dibujar",
+      "alt": "Curva que se dibuja y marca el punto en x igual a 1"
+     }
+    ]
+   },
+   {
+    "titulo": "Piensa antes de ver",
+    "corto": "Piensa",
+    "bloques": [
+     {
+      "t": "piensa",
+      "pregunta": "Cuando el segundo punto se acerca al primero, ¿a qué número crees que se acerca la pendiente de la secante?",
+      "opciones": [
+       6,
+       9,
+       12,
+       16
+      ],
+      "correcta": 12,
+      "bien": "Muy bien. Se acerca a 12 y más abajo se ve por qué.",
+      "mal": "El número es el 12 y más abajo se ve por qué."
+     }
+    ]
+   },
+   {
+    "titulo": "Acercando el segundo punto",
+    "corto": "Acercándose",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mira cómo cambia la pendiente de la secante al achicar h."
+     },
+     {
+      "t": "acercando",
+      "ds": [
+       1,
+       0.5,
+       0.1,
+       0.01
+      ],
+      "alt": "Una secante que gira hasta parecerse a la tangente"
+     },
+     {
+      "t": "p",
+      "html": "La pendiente se acerca a <b>12</b>. Al terminar, la gráfica hace zoom para que veas el detalle."
+     }
+    ]
+   },
+   {
+    "titulo": "Con el límite",
+    "corto": "Con el límite",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Primero se comprueba con la definición, que es lenta pero segura."
+     },
+     {
+      "t": "pasos",
+      "items": [
+       {
+        "tex": "\\dfrac{f(1+h)-f(1)}{h}=\\dfrac{(3+2h)^{2}-9}{h}",
+        "porque": "En x igual a 1 la función vale 9, y en 1 más h el paréntesis vale 3 más 2h."
+       },
+       {
+        "tex": "=\\dfrac{9+12h+4h^{2}-9}{h}=12+4h\\quad (h\\neq 0)",
+        "porque": "Se desarrolla el cuadrado y se cancela h."
+       },
+       {
+        "tex": "f'(1)=\\lim_{h\\to 0}(12+4h)=12",
+        "porque": "Cuando h se acerca a 0 solo queda el 12."
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "El atajo de la cadena",
+    "corto": "El atajo",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "La regla de la cadena da lo mismo en dos pasos. Se deriva la externa dejando la interna igual y se multiplica por la derivada de la interna."
+     },
+     {
+      "t": "eq",
+      "tex": "\\dfrac{d}{dx}\\,g\\bigl(u(x)\\bigr)=g'\\bigl(u(x)\\bigr)\\cdot u'(x)"
+     },
+     {
+      "t": "pasos",
+      "items": [
+       {
+        "tex": "u=2x+1,\\quad g(u)=u^{2}",
+        "porque": "Se separan la función interna y la externa."
+       },
+       {
+        "tex": "f'(x)=2u\\cdot u'=2(2x+1)\\cdot 2=4(2x+1)",
+        "porque": "Se deriva la externa, se deja u igual y se multiplica por u prima, que vale 2."
+       },
+       {
+        "tex": "f'(1)=4\\cdot 3=12",
+        "porque": "Se evalúa en x igual a 1 y sale lo mismo que con el límite."
+       }
+      ]
+     },
+     {
+      "t": "ojo",
+      "html": "El error más común es olvidar multiplicar por la derivada de la función interna. Aquí sería quedarse con 2 por 3, que da 6 y no 12."
+     }
+    ]
+   },
+   {
+    "titulo": "Más ejemplos",
+    "corto": "Más ejemplos",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "La idea es siempre la misma. Se identifica lo de adentro y lo de afuera."
+     },
+     {
+      "t": "pasos",
+      "items": [
+       {
+        "tex": "\\dfrac{d}{dx}\\left(x^{2}+1\\right)^{5}=5\\left(x^{2}+1\\right)^{4}\\cdot 2x",
+        "porque": "Externa, la quinta potencia. Interna, x al cuadrado más 1."
+       },
+       {
+        "tex": "\\dfrac{d}{dx}\\operatorname{sen}(3x^{2})=\\cos(3x^{2})\\cdot 6x",
+        "porque": "Externa, el seno. Interna, 3x al cuadrado."
+       },
+       {
+        "tex": "\\dfrac{d}{dx}\\,e^{2x}=e^{2x}\\cdot 2",
+        "porque": "Externa, la exponencial. Interna, 2x."
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "¿Para qué sirve?",
+    "corto": "En ingeniería",
+    "bloques": [
+     {
+      "t": "ingenieria",
+      "titulo": "El pistón de un motor",
+      "html": "En un motor, el pistón sube y baja mientras el cigüeñal gira. Con un modelo simplificado, su posición sigue un movimiento armónico. Para saber qué tan rápido se mueve hay que derivar una función compuesta, porque el ángulo depende del tiempo.",
+      "tex": "x(t)=0.05\\,\\cos(100\\,t)\\ \\text{m}",
+      "datos": [
+       {
+        "k": "Radio del cigüeñal",
+        "v": "5 cm"
+       },
+       {
+        "k": "Velocidad angular",
+        "v": "100 rad/s"
+       },
+       {
+        "k": "Equivale a",
+        "v": "unas 955 rpm"
+       }
+      ],
+      "cierre": "Por la regla de la cadena, la velocidad es v(t) igual a −0.05 por 100 por sen(100t), o sea −5 sen(100t) metros por segundo. La rapidez máxima es de 5 metros por segundo, unos 18 kilómetros por hora. Es un modelo simplificado, porque el pistón real no sigue exactamente un movimiento armónico."
+     }
+    ]
+   },
+   {
+    "titulo": "Completa el paso",
+    "corto": "Completa",
+    "bloques": [
+     {
+      "t": "completar",
+      "enunciado": "Se deriva el seno de 3x al cuadrado. Falta la derivada de lo de adentro.",
+      "tex": "\\dfrac{d}{dx}\\operatorname{sen}(3x^{2})=\\cos(3x^{2})\\cdot [[hueco]]",
+      "opciones": [
+       {
+        "tex": "6x",
+        "txt": "seis equis"
+       },
+       {
+        "tex": "3x^{2}",
+        "txt": "tres equis al cuadrado"
+       },
+       {
+        "tex": "\\operatorname{sen}(6x)",
+        "txt": "seno de seis equis"
+       }
+      ],
+      "correcta": 0,
+      "errores": [
+       "",
+       "Eso es lo de adentro tal cual, y lo que falta es su derivada. La derivada de 3x al cuadrado es 6x.",
+       "No se vuelve a derivar el seno. Solo falta la derivada de lo de adentro."
+      ],
+      "pista": "Lo que falta es la derivada de 3x al cuadrado.",
+      "porque": "La función de afuera es el seno y su derivada es el coseno. Se multiplica por la derivada de lo de adentro, que es 6x."
+     }
+    ]
+   },
+   {
+    "titulo": "Encuentra el error",
+    "corto": "Error",
+    "bloques": [
+     {
+      "t": "error",
+      "enunciado": "Alguien derivó esta función y se equivocó en un paso. Toca el paso que está mal.",
+      "pasos": [
+       {
+        "tex": "y=(x^{2}+1)^{5}",
+        "porque": "Es la función original.",
+        "txt": "y es igual a x al cuadrado más 1, todo a la quinta"
+       },
+       {
+        "tex": "\\text{Afuera}\\ u^{5},\\quad \\text{adentro}\\ u=x^{2}+1",
+        "porque": "Separar la función de afuera y la de adentro es justo lo que pide la regla.",
+        "txt": "Afuera u a la quinta, adentro u es igual a x al cuadrado más 1"
+       },
+       {
+        "tex": "y'=5\\,(x^{2}+1)^{4}",
+        "porque": "Este paso es el que falla.",
+        "txt": "y prima es igual a 5 por (x al cuadrado más 1) a la cuarta"
+       },
+       {
+        "tex": "y'(1)=5\\cdot 2^{4}=80",
+        "porque": "La cuenta está bien con lo que viene del paso anterior, pero el resultado depende de un paso que está incompleto.",
+        "txt": "y prima en 1 es igual a 5 por 2 a la cuarta, o sea 80"
+       }
+      ],
+      "mal": 2,
+      "explicacion": "Falta multiplicar por la derivada de lo de adentro. Es el error más común de la regla de la cadena.",
+      "correccion": "y'=5\\,(x^{2}+1)^{4}\\cdot 2x=10x\\,(x^{2}+1)^{4}",
+      "pista": "Compara con el atajo. ¿Qué falta después de derivar lo de afuera?"
+     }
+    ]
+   },
+   {
+    "titulo": "Ordena los pasos",
+    "corto": "Ordena",
+    "bloques": [
+     {
+      "t": "ordenar",
+      "enunciado": "Estos son los pasos para derivar una raíz con la regla de la cadena, pero están desordenados.",
+      "pasos": [
+       "y=\\sqrt{1+x^{2}}=(1+x^{2})^{1/2}",
+       "y'=\\tfrac{1}{2}\\,(1+x^{2})^{-1/2}\\cdot (1+x^{2})'",
+       "y'=\\tfrac{1}{2}\\,(1+x^{2})^{-1/2}\\cdot 2x",
+       "y'=\\dfrac{x}{\\sqrt{1+x^{2}}}"
+      ],
+      "mezcla": [
+       2,
+       0,
+       3,
+       1
+      ],
+      "porque": "Primero se escribe la raíz como potencia. Después se deriva lo de afuera, se multiplica por la derivada de lo de adentro y se simplifica.",
+      "pista": "Antes de derivar hay que escribir la raíz como una potencia.",
+      "txt": [
+       "y es la raíz de 1 más x al cuadrado, o sea 1 más x al cuadrado a la un medio",
+       "y prima es un medio por (1 más x al cuadrado) a la menos un medio, por la derivada de 1 más x al cuadrado",
+       "y prima es un medio por (1 más x al cuadrado) a la menos un medio, por 2x",
+       "y prima es x sobre la raíz de 1 más x al cuadrado"
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "Revisa tu respuesta",
+    "corto": "Revisa",
+    "bloques": [
+     {
+      "t": "pregunta"
+     },
+     {
+      "t": "nota",
+      "html": "Puedes pedir pistas de a una. Si fallas, el mensaje te dice qué error se cometió."
+     }
+    ]
+   },
+   {
+    "titulo": "Mini simulacro",
+    "corto": "Simulacro",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Tres preguntas reales del banco de MathUNAL sobre este tema. Responde sin mirar los pasos."
+     },
+     {
+      "t": "simulacro",
+      "titulo": "Mini simulacro de la cadena",
+      "preguntas": [
+       {
+        "tipo": "numerica",
+        "texto": "Si $g(x)=(2x+1)^{4}$, el valor de $g'(0)$ es:",
+        "respuesta": "8",
+        "tolNum": 0.001,
+        "resumen": "$g'(x)=4(2x+1)^3\\cdot 2$, y en $x=0$ queda $4\\cdot 1\\cdot 2=8$.",
+        "fuente": "Banco MathUNAL, simulacro de Cálculo Diferencial"
+       },
+       {
+        "tipo": "mcq",
+        "texto": "Si $y=\\sqrt{\\tan(3x)}$, entonces $\\dfrac{dy}{dx}=$",
+        "opciones": [
+         "$\\dfrac{3\\sec^2(3x)}{2\\sqrt{\\tan(3x)}}$",
+         "$\\dfrac{\\sec^2(3x)}{2\\sqrt{\\tan(3x)}}$",
+         "$\\dfrac{3\\sec^2(3x)}{\\sqrt{\\tan(3x)}}$",
+         "$\\dfrac{1}{2\\sqrt{\\tan(3x)}}$"
+        ],
+        "correcta": 0,
+        "resumen": "Hay tres capas, la raíz, la tangente y $3x$. Se multiplican sus tres derivadas, $\\frac{1}{2\\sqrt{\\tan 3x}}$, $\\sec^2(3x)$ y $3$.",
+        "fuente": "Banco MathUNAL, simulacro de Cálculo Diferencial"
+       },
+       {
+        "tipo": "mcq",
+        "texto": "Si $f$ es diferenciable y $g(x)=x^2 f\\!\\left(\\dfrac{3}{x}\\right)$, entonces $g'(x)$ es:",
+        "opciones": [
+         "$2xf\\!\\left(\\dfrac{3}{x}\\right)+3f'\\!\\left(\\dfrac{3}{x}\\right)$",
+         "$2xf\\!\\left(\\dfrac{3}{x}\\right)-\\dfrac{3}{x}f'\\!\\left(\\dfrac{3}{x}\\right)$",
+         "$2xf\\!\\left(\\dfrac{3}{x}\\right)-3f'\\!\\left(\\dfrac{3}{x}\\right)$",
+         "$x^2f'\\!\\left(\\dfrac{3}{x}\\right)\\cdot\\dfrac{-3}{x^2}$"
+        ],
+        "correcta": 2,
+        "resumen": "Se usa la regla del producto y la cadena. La derivada de $3/x$ es $-3/x^2$, y al multiplicar por $x^2$ queda $-3f'(3/x)$.",
+        "fuente": "Banco MathUNAL, Parcial 1, 2025-2"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "Tu repaso",
+    "corto": "Repaso",
+    "bloques": [
+     {
+      "t": "repaso"
+     }
+    ]
+   },
+   {
+    "titulo": "En resumen",
+    "corto": "Resumen",
+    "bloques": [
+     {
+      "t": "resumen"
+     }
+    ]
+   }
+  ]
+ },
+ "practicar": {
+  "pasos": [
+   {
+    "titulo": "La curva",
+    "grafica": {
+     "draw": 1
+    },
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Esta es la curva de una función compuesta."
+     },
+     {
+      "t": "eq",
+      "tex": "f(x)=(2x+1)^{2}"
+     }
+    ]
+   },
+   {
+    "titulo": "El punto",
+    "grafica": {
+     "draw": 1,
+     "hole": 1
+    },
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Se quiere la inclinación de la curva en x igual a 1."
+     }
+    ]
+   },
+   {
+    "titulo": "Acerca el segundo punto",
+    "grafica": {
+     "draw": 1,
+     "hole": 1
+    },
+    "laboratorio": true,
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mueve el deslizador de h. La secante gira y abajo se ve su pendiente."
+     }
+    ]
+   },
+   {
+    "titulo": "La tangente",
+    "grafica": {
+     "draw": 1,
+     "hole": 1,
+     "guide": 1
+    },
+    "laboratorio": true,
+    "d": 0.01,
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Con h muy pequeño la pendiente se acerca a 12."
+     }
+    ]
+   },
+   {
+    "titulo": "El atajo",
+    "grafica": {
+     "draw": 1,
+     "hole": 1,
+     "guide": 1,
+     "ok": true
+    },
+    "bloques": [
+     {
+      "t": "eq",
+      "tex": "f'(x)=2(2x+1)\\cdot 2=4(2x+1)"
+     },
+     {
+      "t": "p",
+      "html": "En x igual a 1 vale 12, justo lo que midió la secante."
+     }
+    ]
+   },
+   {
+    "titulo": "Mira de cerca",
+    "grafica": {
+     "draw": 1,
+     "hole": 1,
+     "guide": 1,
+     "zoom": 1
+    },
+    "laboratorio": true,
+    "d": 0.01,
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Ahora la gráfica está con zoom. De cerca, la curva casi se ve como una recta y la secante se pega a la tangente. Mueve h para comprobarlo."
+     }
+    ]
+   },
+   {
+    "titulo": "Revisa tu respuesta",
+    "grafica": {
+     "draw": 1,
+     "hole": 1,
+     "guide": 1,
+     "ok": true
+    },
+    "bloques": [
+     {
+      "t": "pregunta"
+     },
+     {
+      "t": "nota",
+      "html": "No olvides multiplicar por la derivada de lo de adentro."
+     }
+    ]
+   }
+  ]
+ },
+ "pregunta": {
+  "tex": "f'(1)\\ \\text{si}\\ f(x)=(x^{2}+1)^{3}",
+  "opciones": [
+   "12",
+   "24",
+   "6",
+   "8"
+  ],
+  "correcta": 1,
+  "explicacion": "La derivada es 3 por (x al cuadrado más 1) al cuadrado, por 2x. En x igual a 1 queda 3 por 4 por 2, que da 24.",
+  "verificacion": {
+   "formula": "(((1+x)^2+1)^3-8)/x",
+   "a": 0,
+   "esperado": 24
+  },
+  "pistas": [
+   "Identifica qué está afuera y qué está adentro. Afuera es la tercera potencia y adentro es x al cuadrado más 1.",
+   "Deriva lo de afuera dejando lo de adentro igual. Queda 3 por (x al cuadrado más 1) al cuadrado.",
+   "Ahora multiplica por la derivada de lo de adentro, que es 2x, y evalúa en x igual a 1."
+  ],
+  "errores": [
+   "Este resultado sale si se olvida multiplicar por la derivada de lo de adentro, 2x. Quedó 3 por 4, y faltó el 2x.",
+   "",
+   "Sale de multiplicar el exponente 3 por 2x y olvidar el factor (x al cuadrado más 1) al cuadrado, que en x igual a 1 vale 4.",
+   "Ese es el valor de la función, f(1) igual a 2 al cubo. Aquí se pide la derivada y no la función."
+  ]
+ },
+ "resumen": [
+  "Una función compuesta se deriva de afuera hacia adentro.",
+  "Se deriva la externa dejando la interna igual y se multiplica por la derivada de la interna.",
+  "Olvidar la derivada de la interna es el error más común."
+ ]
+}

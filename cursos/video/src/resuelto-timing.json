@@ -1,0 +1,61 @@
+{
+ "audio": "audio/fracciones.mp3",
+ "fin": 56.0,
+ "sent": [
+  {
+   "t": "¿Alguna vez cancelaste una x así y te dio mal?",
+   "a": 0.0,
+   "b": 3.08
+  },
+  {
+   "t": "Ese es el error más común al simplificar. Solo se pueden cancelar factores, nunca términos que se suman.",
+   "a": 3.53,
+   "b": 10.38
+  },
+  {
+   "t": "Veamos el truco con esta fracción.",
+   "a": 10.81,
+   "b": 14.6
+  },
+  {
+   "t": "Primero, factoriza arriba. Es una diferencia de cuadrados, y se abre en x menos 2 por x más 2.",
+   "a": 15.0,
+   "b": 21.25
+  },
+  {
+   "t": "Ahora abajo. Buscamos dos números que sumen menos 1 y multipliquen menos 2. Son menos 2 y 1.",
+   "a": 21.62,
+   "b": 27.56
+  },
+  {
+   "t": "Mira qué pasó. El factor x menos 2 aparece arriba y abajo.",
+   "a": 27.99,
+   "b": 32.41
+  },
+  {
+   "t": "Es como dividir arriba y abajo entre lo mismo. Se cancela.",
+   "a": 32.78,
+   "b": 36.32
+  },
+  {
+   "t": "Y queda x más 2 sobre x más 1. Mucho más sencillo, ¿no?",
+   "a": 36.74,
+   "b": 41.22
+  },
+  {
+   "t": "Pero ojo. En x igual a 2 la fracción original no existe. Mira la gráfica, ahí queda un hueco.",
+   "a": 41.64,
+   "b": 48.15
+  },
+  {
+   "t": "Por eso, antes de cancelar, siempre revisa el dominio.",
+   "a": 48.5,
+   "b": 51.95
+  },
+  {
+   "t": "Practica con preguntas reales en MathUNAL.",
+   "a": 52.32,
+   "b": 55.07
+  }
+ ]
+}

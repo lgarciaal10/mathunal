@@ -1,0 +1,687 @@
+{
+ "esquema": 1,
+ "id": "di-m3-l4",
+ "ejemplo": true,
+ "curso": "Matemáticas Discretas",
+ "modulo": "Módulo 3 Recurrencias, grafos y teoría de números",
+ "posicion": "Lección 4 de 4",
+ "titulo": "Funciones generatrices",
+ "minutos": 26,
+ "ejercicios": 8,
+ "grafica": {
+  "tipo": "plano",
+  "x": [
+   -1.4,
+   2.2
+  ],
+  "y": [
+   -3,
+   36
+  ],
+  "a": 0,
+  "b": 5,
+  "inicio": 2,
+  "entero": true,
+  "elementos": [
+   {
+    "t": "trazo",
+    "puntos": [
+     [
+      "-0.9",
+      "exp(x*ln(0.1))"
+     ],
+     [
+      "-0.8",
+      "exp(x*ln(0.2))"
+     ],
+     [
+      "-0.7",
+      "exp(x*ln(0.3))"
+     ],
+     [
+      "-0.6",
+      "exp(x*ln(0.4))"
+     ],
+     [
+      "-0.5",
+      "exp(x*ln(0.5))"
+     ],
+     [
+      "-0.4",
+      "exp(x*ln(0.6))"
+     ],
+     [
+      "-0.3",
+      "exp(x*ln(0.7))"
+     ],
+     [
+      "-0.2",
+      "exp(x*ln(0.8))"
+     ],
+     [
+      "-0.1",
+      "exp(x*ln(0.9))"
+     ],
+     [
+      "0.0",
+      "exp(x*ln(1.0))"
+     ],
+     [
+      "0.1",
+      "exp(x*ln(1.1))"
+     ],
+     [
+      "0.2",
+      "exp(x*ln(1.2))"
+     ],
+     [
+      "0.3",
+      "exp(x*ln(1.3))"
+     ],
+     [
+      "0.4",
+      "exp(x*ln(1.4))"
+     ],
+     [
+      "0.5",
+      "exp(x*ln(1.5))"
+     ],
+     [
+      "0.6",
+      "exp(x*ln(1.6))"
+     ],
+     [
+      "0.7",
+      "exp(x*ln(1.7))"
+     ],
+     [
+      "0.8",
+      "exp(x*ln(1.8))"
+     ],
+     [
+      "0.9",
+      "exp(x*ln(1.9))"
+     ],
+     [
+      "1.0",
+      "exp(x*ln(2.0))"
+     ]
+    ],
+    "c": 0
+   },
+   {
+    "t": "recta",
+    "p": [
+     "1",
+     "0"
+    ],
+    "dir": [
+     "0",
+     "1"
+    ],
+    "c": 3,
+    "guion": true,
+    "guia": true
+   },
+   {
+    "t": "punto",
+    "p": [
+     "1",
+     "exp(x*ln(2))"
+    ],
+    "c": 2
+   }
+  ],
+  "lecturas": [
+   {
+    "rotulo": "coeficiente de t al cuadrado en (1 más t) a la n",
+    "formula": "x*(x-1)/2"
+   },
+   {
+    "rotulo": "valor del polinomio en t igual a 1, la suma de los coeficientes",
+    "formula": "exp(x*ln(2))"
+   }
+  ],
+  "etiquetas": [
+   "Combinaciones C de n sobre 2",
+   "Dos elevado a n, el total de subconjuntos"
+  ],
+  "etiquetaSlider": "Exponente n, de 0 a 5",
+  "alt": "La curva del polinomio 1 más t elevado a la n, para t entre menos 0.9 y 1.0. Un punto marca el valor en t igual a 1, que es dos elevado a n. Al subir n la curva crece más rápido. Los coeficientes del polinomio son las combinaciones C de n sobre k"
+ },
+ "glosario": {
+  "generatriz": "La función generatriz de una sucesión es la serie cuyos coeficientes son los términos de la sucesión.",
+  "binomio": "El binomio de Newton dice que el coeficiente de t elevado a k en 1 más t elevado a n es C de n sobre k.",
+  "producto": "El producto de funciones generatrices cuenta las formas de combinar elecciones independientes.",
+  "geometrica": "La serie geométrica 1 más x más x al cuadrado y siguientes tiene suma 1 sobre 1 menos x, para x pequeño."
+ },
+ "ver": {
+  "duracion": 22.0,
+  "capitulos": [
+   [
+    0,
+    4,
+    "La curva es 1 más t elevado a n, la función generatriz de las combinaciones."
+   ],
+   [
+    4,
+    9,
+    "Los coeficientes del polinomio son los números C de n sobre k. Con n igual a 2, el polinomio es 1 más 2t más t al cuadrado."
+   ],
+   [
+    9,
+    14,
+    "En t igual a 1 el polinomio vale 2 elevado a n, porque es la suma de todos los coeficientes."
+   ],
+   [
+    14,
+    19,
+    "Con n igual a 5, el coeficiente de t al cuadrado es 10, que es C de 5 sobre 2."
+   ],
+   [
+    19,
+    22,
+    "Una función generatriz guarda una sucesión entera como los coeficientes de una serie."
+   ]
+  ],
+  "canales": {
+   "draw": [
+    [
+     0.3,
+     0
+    ],
+    [
+     3.5,
+     1
+    ]
+   ],
+   "d": [
+    [
+     4,
+     0
+    ],
+    [
+     6,
+     2
+    ],
+    [
+     9,
+     2
+    ],
+    [
+     11,
+     4
+    ],
+    [
+     14,
+     4
+    ],
+    [
+     15,
+     5
+    ],
+    [
+     22,
+     5
+    ]
+   ],
+   "guide": [
+    [
+     4,
+     0
+    ],
+    [
+     5,
+     1
+    ]
+   ]
+  },
+  "intervalos": {
+   "ok": [
+    14,
+    22
+   ]
+  }
+ },
+ "leer": {
+  "secciones": [
+   {
+    "titulo": "La idea",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Una {{gl:generatriz|función generatriz}} guarda una sucesión como los coeficientes de una serie, y así las operaciones con series cuentan cosas. El {{gl:binomio|binomio}} 1 más t elevado a n genera las combinaciones. El {{gl:producto|producto}} de funciones generatrices cuenta combinaciones de elecciones. Y la serie {{gl:geometrica|geométrica}} genera la sucesión de unos."
+     }
+    ]
+   },
+   {
+    "titulo": "Un ejemplo",
+    "corto": "Un ejemplo",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "El polinomio 1 más t elevado a n reúne las combinaciones C de n sobre k como coeficientes. Mueve n y observa la curva y su valor en t igual a 1."
+     },
+     {
+      "t": "eq",
+      "tex": "(1+t)^{n}=\\displaystyle\\sum_{k=0}^{n}\\dbinom{n}{k}t^{k}"
+     },
+     {
+      "t": "grafica",
+      "animar": "dibujar",
+      "alt": "La curva del polinomio"
+     }
+    ]
+   },
+   {
+    "titulo": "Piensa antes de ver",
+    "corto": "Piensa",
+    "bloques": [
+     {
+      "t": "piensa",
+      "pregunta": "El polinomio 1 más t, elevado a 2, es 1 más 2t más t al cuadrado. ¿Cuánto suman sus coeficientes?",
+      "opciones": [
+       2,
+       3,
+       4,
+       5
+      ],
+      "correcta": 4,
+      "bien": "Muy bien. Suman 1 más 2 más 1, o sea 4, que es 2 al cuadrado. Más abajo se ve el punto.",
+      "mal": "Suman 4, porque 1 más 2 más 1 es 4, que es 2 al cuadrado. Más abajo se ve el punto."
+     }
+    ]
+   },
+   {
+    "titulo": "Cambiando el exponente",
+    "corto": "El exponente",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mira el polinomio con n igual a 1, 2, 4 y 5."
+     },
+     {
+      "t": "acercando",
+      "ds": [
+       1,
+       2,
+       4,
+       5
+      ],
+      "alt": "El polinomio para cuatro valores de n"
+     },
+     {
+      "t": "p",
+      "html": "La suma de los coeficientes es siempre 2 elevado a n. Es el valor del polinomio en t igual a 1."
+     }
+    ]
+   },
+   {
+    "titulo": "Series y sucesiones",
+    "corto": "Series",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "La misma idea sirve para otras sucesiones."
+     },
+     {
+      "t": "pasos",
+      "items": [
+       {
+        "tex": "\\dfrac{1}{1-t}=1+t+t^{2}+t^{3}+\\cdots",
+        "porque": "La sucesión 1, 1, 1, y siguientes."
+       },
+       {
+        "tex": "(1+t)^{2}=1+2t+t^{2}",
+        "porque": "Los coeficientes son 1, 2 y 1."
+       },
+       {
+        "tex": "\\dfrac{1}{1-2t}=1+2t+4t^{2}+8t^{3}+\\cdots",
+        "porque": "La sucesión de las potencias de 2."
+       },
+       {
+        "tex": "\\dfrac{1}{1-t-t^{2}}=1+t+2t^{2}+3t^{3}+5t^{4}+\\cdots",
+        "porque": "La función generatriz de Fibonacci."
+       }
+      ]
+     },
+     {
+      "t": "ojo",
+      "html": "Aquí la variable t no se evalúa en un número cualquiera. Lo que importa son los coeficientes, y la serie se usa como un papel donde se anotan los términos."
+     }
+    ]
+   },
+   {
+    "titulo": "Contar con productos",
+    "corto": "Productos",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "El producto de funciones generatrices cuenta combinaciones de elecciones independientes."
+     },
+     {
+      "t": "pasos",
+      "items": [
+       {
+        "tex": "(1+t)(1+t)=1+2t+t^{2}",
+        "porque": "Dos elecciones de tomar o no tomar un objeto."
+       },
+       {
+        "tex": "\\dfrac{1}{(1-t)(1-t^{2})(1-t^{5})}",
+        "porque": "Monedas de 1, 2 y 5, con cualquier cantidad de cada una."
+       },
+       {
+        "tex": "[t^{10}]\\ \\text{vale}\\ 10",
+        "porque": "Hay 10 formas de reunir 10 con esas monedas."
+       }
+      ]
+     },
+     {
+      "t": "ojo",
+      "html": "Cada factor representa un tipo de elección. El coeficiente de t elevado a n en el producto cuenta las formas de que el total sea n."
+     }
+    ]
+   },
+   {
+    "titulo": "¿Para qué sirve?",
+    "corto": "En ingeniería",
+    "bloques": [
+     {
+      "t": "ingenieria",
+      "titulo": "Armar una longitud con espaciadores",
+      "html": "Se quiere armar una pila de 10 milímetros con espaciadores de 1, 2 y 5 milímetros, usando cuantos se quiera de cada tipo. Cada tipo aporta un factor a la función generatriz, y el coeficiente de t elevado a 10 cuenta las formas.",
+      "tex": "\\dfrac{1}{(1-t)(1-t^{2})(1-t^{5})}",
+      "datos": [
+       {
+        "k": "Espaciadores",
+        "v": "1, 2 y 5 mm"
+       },
+       {
+        "k": "Altura total",
+        "v": "10 mm"
+       },
+       {
+        "k": "Formas de armarla",
+        "v": "10"
+       }
+      ],
+      "cierre": "Hay 6 formas sin usar espaciadores de 5, 3 usando uno, y 1 usando dos, para un total de 10. Con la función generatriz se obtiene el mismo resultado sin listar casos, y se puede cambiar la altura para ver cuántas formas hay. Es un conteo de combinaciones, y no dice cuál de ellas conviene en la práctica."
+     }
+    ]
+   },
+   {
+    "titulo": "Completa el paso",
+    "corto": "Completa",
+    "bloques": [
+     {
+      "t": "completar",
+      "enunciado": "Se desarrolla 1 más t, elevado a 2. Falta el coeficiente del medio.",
+      "tex": "(1+t)^{2}=1+[[hueco]]\\,t+t^{2}",
+      "opciones": [
+       {
+        "tex": "2",
+        "txt": "dos"
+       },
+       {
+        "tex": "1",
+        "txt": "uno"
+       },
+       {
+        "tex": "3",
+        "txt": "tres"
+       }
+      ],
+      "correcta": 0,
+      "errores": [
+       "",
+       "Uno sería el coeficiente de (1 más t) a la 1, y aquí el exponente es 2.",
+       "Tres no sale, porque los coeficientes son 1, 2 y 1."
+      ],
+      "pista": "El coeficiente del medio es C de 2 sobre 1.",
+      "porque": "C de 2 sobre 1 es 2."
+     }
+    ]
+   },
+   {
+    "titulo": "Encuentra el error",
+    "corto": "Error",
+    "bloques": [
+     {
+      "t": "error",
+      "enunciado": "Alguien halló el coeficiente de t al cuadrado en 1 más t, elevado a 4, y se equivocó en un paso. Toca el paso que está mal.",
+      "pasos": [
+       {
+        "tex": "(1+t)^{4}=\\displaystyle\\sum_{k}\\dbinom{4}{k}t^{k}",
+        "porque": "El binomio.",
+        "txt": "el desarrollo con combinaciones"
+       },
+       {
+        "tex": "[t^{2}]=\\dbinom{4}{2}",
+        "porque": "El coeficiente de t al cuadrado.",
+        "txt": "hay que calcular C de 4 sobre 2"
+       },
+       {
+        "tex": "\\dbinom{4}{2}=4",
+        "porque": "Este paso es el que falla.",
+        "txt": "C de 4 sobre 2 vale 4"
+       }
+      ],
+      "mal": 2,
+      "explicacion": "C de 4 sobre 2 es 4 por 3 entre 2, o sea 6. El valor 4 es C de 4 sobre 1.",
+      "correccion": "\\dbinom{4}{2}=6",
+      "pista": "Calcula 4 por 3 y divide entre 2."
+     }
+    ]
+   },
+   {
+    "titulo": "Ordena los pasos",
+    "corto": "Ordena",
+    "bloques": [
+     {
+      "t": "ordenar",
+      "enunciado": "Estos son los pasos para desarrollar 1 más t, elevado a 2, pero están desordenados.",
+      "pasos": [
+       "(1+t)^{2}=(1+t)(1+t)",
+       "=1+t+t+t^{2}",
+       "=1+2t+t^{2}",
+       "\\text{coeficientes}\\ 1,\\ 2,\\ 1"
+      ],
+      "mezcla": [
+       2,
+       0,
+       3,
+       1
+      ],
+      "porque": "Se escribe el producto, se multiplica, se juntan términos y se leen los coeficientes.",
+      "pista": "Se empieza escribiendo el producto.",
+      "txt": [
+       "Se escribe como un producto",
+       "Se multiplica término a término",
+       "Se juntan los términos iguales",
+       "Se leen los coeficientes"
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "Revisa tu respuesta",
+    "corto": "Revisa",
+    "bloques": [
+     {
+      "t": "pregunta"
+     },
+     {
+      "t": "nota",
+      "html": "Puedes pedir pistas de a una. Si fallas, el mensaje te dice qué error se cometió."
+     }
+    ]
+   },
+   {
+    "titulo": "Mini simulacro",
+    "corto": "Simulacro",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Tres preguntas reales del banco de MathUNAL sobre este tema. Responde sin mirar los pasos."
+     },
+     {
+      "t": "simulacro",
+      "titulo": "Mini simulacro de funciones generatrices",
+      "preguntas": [
+       {
+        "tipo": "numerica",
+        "texto": "El coeficiente de $t^{2}$ en $(1+t)^{6}$ es:",
+        "respuesta": "15",
+        "tolNum": 0.001,
+        "resumen": "Es $\\binom{6}{2}=15$.",
+        "fuente": "Pregunta propia de MathUNAL, escrita para esta lección"
+       },
+       {
+        "tipo": "numerica",
+        "texto": "La suma de los coeficientes de $(1+t)^{4}$ es:",
+        "respuesta": "16",
+        "tolNum": 0.001,
+        "resumen": "Es el valor en $t=1$, o sea $2^{4}=16$.",
+        "fuente": "Pregunta propia de MathUNAL, escrita para esta lección"
+       },
+       {
+        "tipo": "mcq",
+        "texto": "La función generatriz de la sucesión $1,1,1,1,\\ldots$ es:",
+        "opciones": [
+         "$\\dfrac{1}{1-t}$",
+         "$1+t$",
+         "$\\dfrac{1}{1+t}$",
+         "$(1-t)^{2}$"
+        ],
+        "correcta": 0,
+        "resumen": "La serie geométrica $1+t+t^{2}+\\cdots$ suma $\\dfrac{1}{1-t}$.",
+        "fuente": "Pregunta propia de MathUNAL, escrita para esta lección"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "Tu repaso",
+    "corto": "Repaso",
+    "bloques": [
+     {
+      "t": "repaso"
+     }
+    ]
+   },
+   {
+    "titulo": "En resumen",
+    "corto": "Resumen",
+    "bloques": [
+     {
+      "t": "resumen"
+     }
+    ]
+   }
+  ]
+ },
+ "practicar": {
+  "pasos": [
+   {
+    "titulo": "El polinomio",
+    "grafica": {
+     "draw": 1
+    },
+    "bloques": [
+     {
+      "t": "p",
+      "html": "La curva de 1 más t elevado a n."
+     },
+     {
+      "t": "eq",
+      "tex": "(1+t)^{n}"
+     }
+    ]
+   },
+   {
+    "titulo": "Cambia n",
+    "grafica": {
+     "draw": 1
+    },
+    "laboratorio": true,
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mueve el deslizador de 0 a 5. Abajo se leen el coeficiente de t al cuadrado y la suma de los coeficientes."
+     }
+    ]
+   },
+   {
+    "titulo": "Con n igual a 5",
+    "grafica": {
+     "draw": 1,
+     "guide": 1,
+     "ok": true
+    },
+    "laboratorio": true,
+    "d": 5,
+    "bloques": [
+     {
+      "t": "eq",
+      "tex": "\\dbinom{5}{2}=10,\\qquad 2^{5}=32"
+     },
+     {
+      "t": "p",
+      "html": "Con n igual a 5, el coeficiente de t al cuadrado es 10 y los coeficientes suman 32."
+     }
+    ]
+   },
+   {
+    "titulo": "Revisa tu respuesta",
+    "grafica": {
+     "draw": 1,
+     "guide": 1,
+     "ok": true,
+     "d": 5
+    },
+    "bloques": [
+     {
+      "t": "pregunta"
+     },
+     {
+      "t": "nota",
+      "html": "El coeficiente de t elevado a k en 1 más t elevado a n es C de n sobre k."
+     }
+    ]
+   }
+  ]
+ },
+ "pregunta": {
+  "tex": "\\text{El coeficiente de}\\ t^{3}\\ \\text{en}\\ (1+t)^{5}\\ \\text{es}",
+  "opciones": [
+   "$10$",
+   "$5$",
+   "$15$",
+   "$20$"
+  ],
+  "correcta": 0,
+  "explicacion": "El coeficiente es la combinación C de 5 sobre 3, que es 5 por 4 por 3 entre 3 por 2 por 1, o sea 10.",
+  "verificacion": {
+   "formula": "5*4*3/(3*2*1)+0*x",
+   "a": 0,
+   "esperado": 10
+  },
+  "pistas": [
+   "El coeficiente es una combinación.",
+   "Es C de 5 sobre 3.",
+   "Calcula 5 por 4 por 3 entre 6."
+  ],
+  "errores": [
+   "",
+   "Cinco es C de 5 sobre 1, el coeficiente de t.",
+   "Quince es C de 6 sobre 2, y no 5 sobre 3.",
+   "Veinte es P de 5 y 2, que no es una combinación."
+  ]
+ },
+ "resumen": [
+  "Una función generatriz guarda una sucesión como los coeficientes de una serie.",
+  "El coeficiente de t elevado a k en 1 más t elevado a n es C de n sobre k, y la suma de los coeficientes es 2 elevado a n.",
+  "El producto de funciones generatrices cuenta combinaciones de elecciones independientes."
+ ]
+}

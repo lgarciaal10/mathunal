@@ -1,0 +1,1124 @@
+{
+ "esquema": 1,
+ "id": "edo-m2-l1",
+ "ejemplo": true,
+ "curso": "Ecuaciones Diferenciales",
+ "modulo": "Módulo 2 Orden superior y coeficientes constantes",
+ "posicion": "Lección 1 de 4",
+ "titulo": "Homogénea con coeficientes constantes",
+ "minutos": 28,
+ "ejercicios": 7,
+ "grafica": {
+  "tipo": "plano",
+  "x": [
+   -0.5,
+   10
+  ],
+  "y": [
+   -2.86,
+   2.86
+  ],
+  "a": 0,
+  "b": 5.5,
+  "inicio": 1,
+  "elementos": [
+   {
+    "t": "trazo",
+    "puntos": [
+     [
+      "0.0000",
+      "exp(0-x*0.0000/2)"
+     ],
+     [
+      "0.4750",
+      "exp(0-x*0.4750/2)"
+     ],
+     [
+      "0.9500",
+      "exp(0-x*0.9500/2)"
+     ],
+     [
+      "1.4250",
+      "exp(0-x*1.4250/2)"
+     ],
+     [
+      "1.9000",
+      "exp(0-x*1.9000/2)"
+     ],
+     [
+      "2.3750",
+      "exp(0-x*2.3750/2)"
+     ],
+     [
+      "2.8500",
+      "exp(0-x*2.8500/2)"
+     ],
+     [
+      "3.3250",
+      "exp(0-x*3.3250/2)"
+     ],
+     [
+      "3.8000",
+      "exp(0-x*3.8000/2)"
+     ],
+     [
+      "4.2750",
+      "exp(0-x*4.2750/2)"
+     ],
+     [
+      "4.7500",
+      "exp(0-x*4.7500/2)"
+     ],
+     [
+      "5.2250",
+      "exp(0-x*5.2250/2)"
+     ],
+     [
+      "5.7000",
+      "exp(0-x*5.7000/2)"
+     ],
+     [
+      "6.1750",
+      "exp(0-x*6.1750/2)"
+     ],
+     [
+      "6.6500",
+      "exp(0-x*6.6500/2)"
+     ],
+     [
+      "7.1250",
+      "exp(0-x*7.1250/2)"
+     ],
+     [
+      "7.6000",
+      "exp(0-x*7.6000/2)"
+     ],
+     [
+      "8.0750",
+      "exp(0-x*8.0750/2)"
+     ],
+     [
+      "8.5500",
+      "exp(0-x*8.5500/2)"
+     ],
+     [
+      "9.0250",
+      "exp(0-x*9.0250/2)"
+     ],
+     [
+      "9.5000",
+      "exp(0-x*9.5000/2)"
+     ]
+    ],
+    "c": 3,
+    "guia": true
+   },
+   {
+    "t": "trazo",
+    "puntos": [
+     [
+      "0.0000",
+      "0-exp(0-x*0.0000/2)"
+     ],
+     [
+      "0.4750",
+      "0-exp(0-x*0.4750/2)"
+     ],
+     [
+      "0.9500",
+      "0-exp(0-x*0.9500/2)"
+     ],
+     [
+      "1.4250",
+      "0-exp(0-x*1.4250/2)"
+     ],
+     [
+      "1.9000",
+      "0-exp(0-x*1.9000/2)"
+     ],
+     [
+      "2.3750",
+      "0-exp(0-x*2.3750/2)"
+     ],
+     [
+      "2.8500",
+      "0-exp(0-x*2.8500/2)"
+     ],
+     [
+      "3.3250",
+      "0-exp(0-x*3.3250/2)"
+     ],
+     [
+      "3.8000",
+      "0-exp(0-x*3.8000/2)"
+     ],
+     [
+      "4.2750",
+      "0-exp(0-x*4.2750/2)"
+     ],
+     [
+      "4.7500",
+      "0-exp(0-x*4.7500/2)"
+     ],
+     [
+      "5.2250",
+      "0-exp(0-x*5.2250/2)"
+     ],
+     [
+      "5.7000",
+      "0-exp(0-x*5.7000/2)"
+     ],
+     [
+      "6.1750",
+      "0-exp(0-x*6.1750/2)"
+     ],
+     [
+      "6.6500",
+      "0-exp(0-x*6.6500/2)"
+     ],
+     [
+      "7.1250",
+      "0-exp(0-x*7.1250/2)"
+     ],
+     [
+      "7.6000",
+      "0-exp(0-x*7.6000/2)"
+     ],
+     [
+      "8.0750",
+      "0-exp(0-x*8.0750/2)"
+     ],
+     [
+      "8.5500",
+      "0-exp(0-x*8.5500/2)"
+     ],
+     [
+      "9.0250",
+      "0-exp(0-x*9.0250/2)"
+     ],
+     [
+      "9.5000",
+      "0-exp(0-x*9.5000/2)"
+     ]
+    ],
+    "c": 3,
+    "guia": true
+   },
+   {
+    "t": "trazo",
+    "puntos": [
+     [
+      "0.0000",
+      "exp(0-x*0.0000/2)*(cos(sqrt(9-x*x/4)*0.0000)+x/(2*sqrt(9-x*x/4))*sin(sqrt(9-x*x/4)*0.0000))"
+     ],
+     [
+      "0.1187",
+      "exp(0-x*0.1187/2)*(cos(sqrt(9-x*x/4)*0.1187)+x/(2*sqrt(9-x*x/4))*sin(sqrt(9-x*x/4)*0.1187))"
+     ],
+     [
+      "0.2375",
+      "exp(0-x*0.2375/2)*(cos(sqrt(9-x*x/4)*0.2375)+x/(2*sqrt(9-x*x/4))*sin(sqrt(9-x*x/4)*0.2375))"
+     ],
+     [
+      "0.3563",
+      "exp(0-x*0.3563/2)*(cos(sqrt(9-x*x/4)*0.3563)+x/(2*sqrt(9-x*x/4))*sin(sqrt(9-x*x/4)*0.3563))"
+     ],
+     [
+      "0.4750",
+      "exp(0-x*0.4750/2)*(cos(sqrt(9-x*x/4)*0.4750)+x/(2*sqrt(9-x*x/4))*sin(sqrt(9-x*x/4)*0.4750))"
+     ],
+     [
+      "0.5938",
+      "exp(0-x*0.5938/2)*(cos(sqrt(9-x*x/4)*0.5938)+x/(2*sqrt(9-x*x/4))*sin(sqrt(9-x*x/4)*0.5938))"
+     ],
+     [
+      "0.7125",
+      "exp(0-x*0.7125/2)*(cos(sqrt(9-x*x/4)*0.7125)+x/(2*sqrt(9-x*x/4))*sin(sqrt(9-x*x/4)*0.7125))"
+     ],
+     [
+      "0.8313",
+      "exp(0-x*0.8313/2)*(cos(sqrt(9-x*x/4)*0.8313)+x/(2*sqrt(9-x*x/4))*sin(sqrt(9-x*x/4)*0.8313))"
+     ],
+     [
+      "0.9500",
+      "exp(0-x*0.9500/2)*(cos(sqrt(9-x*x/4)*0.9500)+x/(2*sqrt(9-x*x/4))*sin(sqrt(9-x*x/4)*0.9500))"
+     ],
+     [
+      "1.0688",
+      "exp(0-x*1.0688/2)*(cos(sqrt(9-x*x/4)*1.0688)+x/(2*sqrt(9-x*x/4))*sin(sqrt(9-x*x/4)*1.0688))"
+     ],
+     [
+      "1.1875",
+      "exp(0-x*1.1875/2)*(cos(sqrt(9-x*x/4)*1.1875)+x/(2*sqrt(9-x*x/4))*sin(sqrt(9-x*x/4)*1.1875))"
+     ],
+     [
+      "1.3062",
+      "exp(0-x*1.3062/2)*(cos(sqrt(9-x*x/4)*1.3062)+x/(2*sqrt(9-x*x/4))*sin(sqrt(9-x*x/4)*1.3062))"
+     ],
+     [
+      "1.4250",
+      "exp(0-x*1.4250/2)*(cos(sqrt(9-x*x/4)*1.4250)+x/(2*sqrt(9-x*x/4))*sin(sqrt(9-x*x/4)*1.4250))"
+     ],
+     [
+      "1.5437",
+      "exp(0-x*1.5437/2)*(cos(sqrt(9-x*x/4)*1.5437)+x/(2*sqrt(9-x*x/4))*sin(sqrt(9-x*x/4)*1.5437))"
+     ],
+     [
+      "1.6625",
+      "exp(0-x*1.6625/2)*(cos(sqrt(9-x*x/4)*1.6625)+x/(2*sqrt(9-x*x/4))*sin(sqrt(9-x*x/4)*1.6625))"
+     ],
+     [
+      "1.7812",
+      "exp(0-x*1.7812/2)*(cos(sqrt(9-x*x/4)*1.7812)+x/(2*sqrt(9-x*x/4))*sin(sqrt(9-x*x/4)*1.7812))"
+     ],
+     [
+      "1.9000",
+      "exp(0-x*1.9000/2)*(cos(sqrt(9-x*x/4)*1.9000)+x/(2*sqrt(9-x*x/4))*sin(sqrt(9-x*x/4)*1.9000))"
+     ],
+     [
+      "2.0187",
+      "exp(0-x*2.0187/2)*(cos(sqrt(9-x*x/4)*2.0187)+x/(2*sqrt(9-x*x/4))*sin(sqrt(9-x*x/4)*2.0187))"
+     ],
+     [
+      "2.1375",
+      "exp(0-x*2.1375/2)*(cos(sqrt(9-x*x/4)*2.1375)+x/(2*sqrt(9-x*x/4))*sin(sqrt(9-x*x/4)*2.1375))"
+     ],
+     [
+      "2.2563",
+      "exp(0-x*2.2563/2)*(cos(sqrt(9-x*x/4)*2.2563)+x/(2*sqrt(9-x*x/4))*sin(sqrt(9-x*x/4)*2.2563))"
+     ],
+     [
+      "2.3750",
+      "exp(0-x*2.3750/2)*(cos(sqrt(9-x*x/4)*2.3750)+x/(2*sqrt(9-x*x/4))*sin(sqrt(9-x*x/4)*2.3750))"
+     ],
+     [
+      "2.4937",
+      "exp(0-x*2.4937/2)*(cos(sqrt(9-x*x/4)*2.4937)+x/(2*sqrt(9-x*x/4))*sin(sqrt(9-x*x/4)*2.4937))"
+     ],
+     [
+      "2.6125",
+      "exp(0-x*2.6125/2)*(cos(sqrt(9-x*x/4)*2.6125)+x/(2*sqrt(9-x*x/4))*sin(sqrt(9-x*x/4)*2.6125))"
+     ],
+     [
+      "2.7313",
+      "exp(0-x*2.7313/2)*(cos(sqrt(9-x*x/4)*2.7313)+x/(2*sqrt(9-x*x/4))*sin(sqrt(9-x*x/4)*2.7313))"
+     ],
+     [
+      "2.8500",
+      "exp(0-x*2.8500/2)*(cos(sqrt(9-x*x/4)*2.8500)+x/(2*sqrt(9-x*x/4))*sin(sqrt(9-x*x/4)*2.8500))"
+     ],
+     [
+      "2.9688",
+      "exp(0-x*2.9688/2)*(cos(sqrt(9-x*x/4)*2.9688)+x/(2*sqrt(9-x*x/4))*sin(sqrt(9-x*x/4)*2.9688))"
+     ],
+     [
+      "3.0875",
+      "exp(0-x*3.0875/2)*(cos(sqrt(9-x*x/4)*3.0875)+x/(2*sqrt(9-x*x/4))*sin(sqrt(9-x*x/4)*3.0875))"
+     ],
+     [
+      "3.2062",
+      "exp(0-x*3.2062/2)*(cos(sqrt(9-x*x/4)*3.2062)+x/(2*sqrt(9-x*x/4))*sin(sqrt(9-x*x/4)*3.2062))"
+     ],
+     [
+      "3.3250",
+      "exp(0-x*3.3250/2)*(cos(sqrt(9-x*x/4)*3.3250)+x/(2*sqrt(9-x*x/4))*sin(sqrt(9-x*x/4)*3.3250))"
+     ],
+     [
+      "3.4438",
+      "exp(0-x*3.4438/2)*(cos(sqrt(9-x*x/4)*3.4438)+x/(2*sqrt(9-x*x/4))*sin(sqrt(9-x*x/4)*3.4438))"
+     ],
+     [
+      "3.5625",
+      "exp(0-x*3.5625/2)*(cos(sqrt(9-x*x/4)*3.5625)+x/(2*sqrt(9-x*x/4))*sin(sqrt(9-x*x/4)*3.5625))"
+     ],
+     [
+      "3.6812",
+      "exp(0-x*3.6812/2)*(cos(sqrt(9-x*x/4)*3.6812)+x/(2*sqrt(9-x*x/4))*sin(sqrt(9-x*x/4)*3.6812))"
+     ],
+     [
+      "3.8000",
+      "exp(0-x*3.8000/2)*(cos(sqrt(9-x*x/4)*3.8000)+x/(2*sqrt(9-x*x/4))*sin(sqrt(9-x*x/4)*3.8000))"
+     ],
+     [
+      "3.9188",
+      "exp(0-x*3.9188/2)*(cos(sqrt(9-x*x/4)*3.9188)+x/(2*sqrt(9-x*x/4))*sin(sqrt(9-x*x/4)*3.9188))"
+     ],
+     [
+      "4.0375",
+      "exp(0-x*4.0375/2)*(cos(sqrt(9-x*x/4)*4.0375)+x/(2*sqrt(9-x*x/4))*sin(sqrt(9-x*x/4)*4.0375))"
+     ],
+     [
+      "4.1562",
+      "exp(0-x*4.1562/2)*(cos(sqrt(9-x*x/4)*4.1562)+x/(2*sqrt(9-x*x/4))*sin(sqrt(9-x*x/4)*4.1562))"
+     ],
+     [
+      "4.2750",
+      "exp(0-x*4.2750/2)*(cos(sqrt(9-x*x/4)*4.2750)+x/(2*sqrt(9-x*x/4))*sin(sqrt(9-x*x/4)*4.2750))"
+     ],
+     [
+      "4.3937",
+      "exp(0-x*4.3937/2)*(cos(sqrt(9-x*x/4)*4.3937)+x/(2*sqrt(9-x*x/4))*sin(sqrt(9-x*x/4)*4.3937))"
+     ],
+     [
+      "4.5125",
+      "exp(0-x*4.5125/2)*(cos(sqrt(9-x*x/4)*4.5125)+x/(2*sqrt(9-x*x/4))*sin(sqrt(9-x*x/4)*4.5125))"
+     ],
+     [
+      "4.6312",
+      "exp(0-x*4.6312/2)*(cos(sqrt(9-x*x/4)*4.6312)+x/(2*sqrt(9-x*x/4))*sin(sqrt(9-x*x/4)*4.6312))"
+     ],
+     [
+      "4.7500",
+      "exp(0-x*4.7500/2)*(cos(sqrt(9-x*x/4)*4.7500)+x/(2*sqrt(9-x*x/4))*sin(sqrt(9-x*x/4)*4.7500))"
+     ],
+     [
+      "4.8688",
+      "exp(0-x*4.8688/2)*(cos(sqrt(9-x*x/4)*4.8688)+x/(2*sqrt(9-x*x/4))*sin(sqrt(9-x*x/4)*4.8688))"
+     ],
+     [
+      "4.9875",
+      "exp(0-x*4.9875/2)*(cos(sqrt(9-x*x/4)*4.9875)+x/(2*sqrt(9-x*x/4))*sin(sqrt(9-x*x/4)*4.9875))"
+     ],
+     [
+      "5.1063",
+      "exp(0-x*5.1063/2)*(cos(sqrt(9-x*x/4)*5.1063)+x/(2*sqrt(9-x*x/4))*sin(sqrt(9-x*x/4)*5.1063))"
+     ],
+     [
+      "5.2250",
+      "exp(0-x*5.2250/2)*(cos(sqrt(9-x*x/4)*5.2250)+x/(2*sqrt(9-x*x/4))*sin(sqrt(9-x*x/4)*5.2250))"
+     ],
+     [
+      "5.3438",
+      "exp(0-x*5.3438/2)*(cos(sqrt(9-x*x/4)*5.3438)+x/(2*sqrt(9-x*x/4))*sin(sqrt(9-x*x/4)*5.3438))"
+     ],
+     [
+      "5.4625",
+      "exp(0-x*5.4625/2)*(cos(sqrt(9-x*x/4)*5.4625)+x/(2*sqrt(9-x*x/4))*sin(sqrt(9-x*x/4)*5.4625))"
+     ],
+     [
+      "5.5812",
+      "exp(0-x*5.5812/2)*(cos(sqrt(9-x*x/4)*5.5812)+x/(2*sqrt(9-x*x/4))*sin(sqrt(9-x*x/4)*5.5812))"
+     ],
+     [
+      "5.7000",
+      "exp(0-x*5.7000/2)*(cos(sqrt(9-x*x/4)*5.7000)+x/(2*sqrt(9-x*x/4))*sin(sqrt(9-x*x/4)*5.7000))"
+     ],
+     [
+      "5.8187",
+      "exp(0-x*5.8187/2)*(cos(sqrt(9-x*x/4)*5.8187)+x/(2*sqrt(9-x*x/4))*sin(sqrt(9-x*x/4)*5.8187))"
+     ],
+     [
+      "5.9375",
+      "exp(0-x*5.9375/2)*(cos(sqrt(9-x*x/4)*5.9375)+x/(2*sqrt(9-x*x/4))*sin(sqrt(9-x*x/4)*5.9375))"
+     ],
+     [
+      "6.0563",
+      "exp(0-x*6.0563/2)*(cos(sqrt(9-x*x/4)*6.0563)+x/(2*sqrt(9-x*x/4))*sin(sqrt(9-x*x/4)*6.0563))"
+     ],
+     [
+      "6.1750",
+      "exp(0-x*6.1750/2)*(cos(sqrt(9-x*x/4)*6.1750)+x/(2*sqrt(9-x*x/4))*sin(sqrt(9-x*x/4)*6.1750))"
+     ],
+     [
+      "6.2938",
+      "exp(0-x*6.2938/2)*(cos(sqrt(9-x*x/4)*6.2938)+x/(2*sqrt(9-x*x/4))*sin(sqrt(9-x*x/4)*6.2938))"
+     ],
+     [
+      "6.4125",
+      "exp(0-x*6.4125/2)*(cos(sqrt(9-x*x/4)*6.4125)+x/(2*sqrt(9-x*x/4))*sin(sqrt(9-x*x/4)*6.4125))"
+     ],
+     [
+      "6.5312",
+      "exp(0-x*6.5312/2)*(cos(sqrt(9-x*x/4)*6.5312)+x/(2*sqrt(9-x*x/4))*sin(sqrt(9-x*x/4)*6.5312))"
+     ],
+     [
+      "6.6500",
+      "exp(0-x*6.6500/2)*(cos(sqrt(9-x*x/4)*6.6500)+x/(2*sqrt(9-x*x/4))*sin(sqrt(9-x*x/4)*6.6500))"
+     ],
+     [
+      "6.7687",
+      "exp(0-x*6.7687/2)*(cos(sqrt(9-x*x/4)*6.7687)+x/(2*sqrt(9-x*x/4))*sin(sqrt(9-x*x/4)*6.7687))"
+     ],
+     [
+      "6.8875",
+      "exp(0-x*6.8875/2)*(cos(sqrt(9-x*x/4)*6.8875)+x/(2*sqrt(9-x*x/4))*sin(sqrt(9-x*x/4)*6.8875))"
+     ],
+     [
+      "7.0062",
+      "exp(0-x*7.0062/2)*(cos(sqrt(9-x*x/4)*7.0062)+x/(2*sqrt(9-x*x/4))*sin(sqrt(9-x*x/4)*7.0062))"
+     ],
+     [
+      "7.1250",
+      "exp(0-x*7.1250/2)*(cos(sqrt(9-x*x/4)*7.1250)+x/(2*sqrt(9-x*x/4))*sin(sqrt(9-x*x/4)*7.1250))"
+     ],
+     [
+      "7.2438",
+      "exp(0-x*7.2438/2)*(cos(sqrt(9-x*x/4)*7.2438)+x/(2*sqrt(9-x*x/4))*sin(sqrt(9-x*x/4)*7.2438))"
+     ],
+     [
+      "7.3625",
+      "exp(0-x*7.3625/2)*(cos(sqrt(9-x*x/4)*7.3625)+x/(2*sqrt(9-x*x/4))*sin(sqrt(9-x*x/4)*7.3625))"
+     ],
+     [
+      "7.4813",
+      "exp(0-x*7.4813/2)*(cos(sqrt(9-x*x/4)*7.4813)+x/(2*sqrt(9-x*x/4))*sin(sqrt(9-x*x/4)*7.4813))"
+     ],
+     [
+      "7.6000",
+      "exp(0-x*7.6000/2)*(cos(sqrt(9-x*x/4)*7.6000)+x/(2*sqrt(9-x*x/4))*sin(sqrt(9-x*x/4)*7.6000))"
+     ],
+     [
+      "7.7188",
+      "exp(0-x*7.7188/2)*(cos(sqrt(9-x*x/4)*7.7188)+x/(2*sqrt(9-x*x/4))*sin(sqrt(9-x*x/4)*7.7188))"
+     ],
+     [
+      "7.8375",
+      "exp(0-x*7.8375/2)*(cos(sqrt(9-x*x/4)*7.8375)+x/(2*sqrt(9-x*x/4))*sin(sqrt(9-x*x/4)*7.8375))"
+     ],
+     [
+      "7.9562",
+      "exp(0-x*7.9562/2)*(cos(sqrt(9-x*x/4)*7.9562)+x/(2*sqrt(9-x*x/4))*sin(sqrt(9-x*x/4)*7.9562))"
+     ],
+     [
+      "8.0750",
+      "exp(0-x*8.0750/2)*(cos(sqrt(9-x*x/4)*8.0750)+x/(2*sqrt(9-x*x/4))*sin(sqrt(9-x*x/4)*8.0750))"
+     ],
+     [
+      "8.1937",
+      "exp(0-x*8.1937/2)*(cos(sqrt(9-x*x/4)*8.1937)+x/(2*sqrt(9-x*x/4))*sin(sqrt(9-x*x/4)*8.1937))"
+     ],
+     [
+      "8.3125",
+      "exp(0-x*8.3125/2)*(cos(sqrt(9-x*x/4)*8.3125)+x/(2*sqrt(9-x*x/4))*sin(sqrt(9-x*x/4)*8.3125))"
+     ],
+     [
+      "8.4313",
+      "exp(0-x*8.4313/2)*(cos(sqrt(9-x*x/4)*8.4313)+x/(2*sqrt(9-x*x/4))*sin(sqrt(9-x*x/4)*8.4313))"
+     ],
+     [
+      "8.5500",
+      "exp(0-x*8.5500/2)*(cos(sqrt(9-x*x/4)*8.5500)+x/(2*sqrt(9-x*x/4))*sin(sqrt(9-x*x/4)*8.5500))"
+     ],
+     [
+      "8.6687",
+      "exp(0-x*8.6687/2)*(cos(sqrt(9-x*x/4)*8.6687)+x/(2*sqrt(9-x*x/4))*sin(sqrt(9-x*x/4)*8.6687))"
+     ],
+     [
+      "8.7875",
+      "exp(0-x*8.7875/2)*(cos(sqrt(9-x*x/4)*8.7875)+x/(2*sqrt(9-x*x/4))*sin(sqrt(9-x*x/4)*8.7875))"
+     ],
+     [
+      "8.9062",
+      "exp(0-x*8.9062/2)*(cos(sqrt(9-x*x/4)*8.9062)+x/(2*sqrt(9-x*x/4))*sin(sqrt(9-x*x/4)*8.9062))"
+     ],
+     [
+      "9.0250",
+      "exp(0-x*9.0250/2)*(cos(sqrt(9-x*x/4)*9.0250)+x/(2*sqrt(9-x*x/4))*sin(sqrt(9-x*x/4)*9.0250))"
+     ],
+     [
+      "9.1438",
+      "exp(0-x*9.1438/2)*(cos(sqrt(9-x*x/4)*9.1438)+x/(2*sqrt(9-x*x/4))*sin(sqrt(9-x*x/4)*9.1438))"
+     ],
+     [
+      "9.2625",
+      "exp(0-x*9.2625/2)*(cos(sqrt(9-x*x/4)*9.2625)+x/(2*sqrt(9-x*x/4))*sin(sqrt(9-x*x/4)*9.2625))"
+     ],
+     [
+      "9.3812",
+      "exp(0-x*9.3812/2)*(cos(sqrt(9-x*x/4)*9.3812)+x/(2*sqrt(9-x*x/4))*sin(sqrt(9-x*x/4)*9.3812))"
+     ],
+     [
+      "9.5000",
+      "exp(0-x*9.5000/2)*(cos(sqrt(9-x*x/4)*9.5000)+x/(2*sqrt(9-x*x/4))*sin(sqrt(9-x*x/4)*9.5000))"
+     ]
+    ],
+    "c": 2
+   },
+   {
+    "t": "punto",
+    "p": [
+     "0",
+     "1"
+    ],
+    "c": 1
+   }
+  ],
+  "lecturas": [
+   {
+    "rotulo": "amortiguamiento b",
+    "formula": "x"
+   },
+   {
+    "rotulo": "frecuencia angular",
+    "formula": "sqrt(9-x*x/4)"
+   }
+  ],
+  "etiquetas": [
+   "Amortiguamiento b",
+   "Frecuencia angular de la oscilación"
+  ],
+  "etiquetaSlider": "Amortiguamiento b",
+  "alt": "La solución de y segunda más b por y prima más 9y igual a 0 con y de 0 igual a 1 y y prima de 0 igual a 0, una oscilación que se apaga más rápido al subir b, entre dos curvas envolventes"
+ },
+ "glosario": {
+  "caracteristica": "La ecuación característica de y segunda más b por y prima más c por y igual a 0 es r cuadrado más b por r más c igual a 0. Sus raíces r dan las soluciones e a la r x.",
+  "amortiguada": "Una oscilación amortiguada es la que se va apagando con el tiempo, como un resorte con fricción.",
+  "frecuencia": "La frecuencia angular es la rapidez con que gira la oscilación, en radianes por segundo. El período es 2 pi sobre ella."
+ },
+ "ver": {
+  "duracion": 22.0,
+  "capitulos": [
+   [
+    0,
+    4,
+    "La ecuación y segunda más b por y prima más 9y igual a 0 describe un resorte con fricción. Esta es su solución, con y de 0 igual a 1."
+   ],
+   [
+    4,
+    8,
+    "Con poca fricción, el resorte oscila muchas veces. Las curvas punteadas son la envolvente, que baja como e a la menos b t sobre 2."
+   ],
+   [
+    8,
+    14,
+    "Al subir b, las oscilaciones se apagan más rápido y su frecuencia baja un poco."
+   ],
+   [
+    14,
+    18,
+    "Con b cerca de 6, casi no oscila. Con b igual a 6 la ecuación característica tiene una raíz doble y el resorte vuelve sin rebotar."
+   ],
+   [
+    18,
+    22,
+    "Con b igual a 1, las raíces son complejas, menos 0.5 más y menos 2.96 i, y la solución es e a la menos 0.5 x por una combinación de coseno y seno."
+   ]
+  ],
+  "canales": {
+   "draw": [
+    [
+     0.3,
+     0
+    ],
+    [
+     3.5,
+     1
+    ]
+   ],
+   "d": [
+    [
+     4,
+     0.2
+    ],
+    [
+     8,
+     1
+    ],
+    [
+     10,
+     3
+    ],
+    [
+     13,
+     5.5
+    ],
+    [
+     14,
+     5.5
+    ],
+    [
+     17,
+     1
+    ],
+    [
+     22,
+     1
+    ]
+   ],
+   "guide": [
+    [
+     4,
+     0
+    ],
+    [
+     5,
+     1
+    ]
+   ]
+  },
+  "intervalos": {
+   "ok": [
+    18,
+    22
+   ]
+  }
+ },
+ "leer": {
+  "secciones": [
+   {
+    "titulo": "La idea",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Las ecuaciones de segundo orden con coeficientes constantes describen resortes, circuitos y vibraciones. Se resuelven probando soluciones de la forma e a la r x. Eso lleva a la {{gl:caracteristica|ecuación característica}}, un polinomio cuyas raíces dicen cómo es la solución, si crece, decae u oscila."
+     }
+    ]
+   },
+   {
+    "titulo": "Un ejemplo",
+    "corto": "Un ejemplo",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mira un resorte con fricción. La ecuación y su solución con el resorte soltado desde el reposo en y igual a 1."
+     },
+     {
+      "t": "eq",
+      "tex": "y''+b\\,y'+9y=0,\\qquad y(0)=1,\\ y'(0)=0"
+     },
+     {
+      "t": "grafica",
+      "animar": "dibujar",
+      "alt": "La oscilación amortiguada"
+     }
+    ]
+   },
+   {
+    "titulo": "Piensa antes de ver",
+    "corto": "Piensa",
+    "bloques": [
+     {
+      "t": "piensa",
+      "pregunta": "Sin fricción, b igual a 0, la ecuación característica es r cuadrado más 9 igual a 0 y la frecuencia angular es la raíz de 9. ¿Cuánto vale?",
+      "opciones": [
+       1,
+       3,
+       6,
+       9
+      ],
+      "correcta": 3,
+      "bien": "Muy bien. Vale 3. Más abajo se ve cómo baja al subir b.",
+      "mal": "Vale 3, la raíz de 9. Más abajo se ve cómo baja al subir b."
+     }
+    ]
+   },
+   {
+    "titulo": "Más fricción",
+    "corto": "Más fricción",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mira cómo cambia la oscilación al subir el amortiguamiento b."
+     },
+     {
+      "t": "acercando",
+      "ds": [
+       0.2,
+       1,
+       3,
+       5.5
+      ],
+      "alt": "La oscilación para varios valores de b"
+     },
+     {
+      "t": "p",
+      "html": "La {{gl:amortiguada|oscilación amortiguada}} se apaga más rápido y su {{gl:frecuencia|frecuencia angular}} baja, porque es la raíz de 9 menos b al cuadrado sobre 4."
+     }
+    ]
+   },
+   {
+    "titulo": "La ecuación característica",
+    "corto": "Característica",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Se reemplaza y por e a la r x y se divide entre e a la r x."
+     },
+     {
+      "t": "pasos",
+      "items": [
+       {
+        "tex": "y''-3y'+2y=0,\\quad y=e^{rx}",
+        "porque": "Una ecuación de ejemplo."
+       },
+       {
+        "tex": "r^{2}-3r+2=0\\ \\Rightarrow\\ (r-1)(r-2)=0",
+        "porque": "La ecuación característica."
+       },
+       {
+        "tex": "r=1,\\ r=2\\ \\Rightarrow\\ y=c_{1}e^{x}+c_{2}e^{2x}",
+        "porque": "Dos raíces reales distintas dan dos exponenciales."
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "Los tres casos",
+    "corto": "Tres casos",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Según las raíces de la ecuación característica hay tres formas de solución."
+     },
+     {
+      "t": "pasos",
+      "items": [
+       {
+        "tex": "r_{1}\\ne r_{2}\\ \\text{reales}\\ \\Rightarrow\\ y=c_{1}e^{r_{1}x}+c_{2}e^{r_{2}x}",
+        "porque": "Dos raíces reales distintas."
+       },
+       {
+        "tex": "r\\ \\text{doble}\\ \\Rightarrow\\ y=(c_{1}+c_{2}x)\\,e^{rx}",
+        "porque": "Una raíz doble. Se agrega el factor x para tener dos soluciones independientes."
+       },
+       {
+        "tex": "r=\\alpha\\pm\\beta i\\ \\Rightarrow\\ y=e^{\\alpha x}(c_{1}\\cos\\beta x+c_{2}\\operatorname{sen}\\beta x)",
+        "porque": "Raíces complejas. La parte real da el decaimiento y la imaginaria, la oscilación."
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "El caso del ejemplo",
+    "corto": "El ejemplo",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Con b igual a 1 la ecuación característica es r cuadrado más r más 9, con raíces complejas."
+     },
+     {
+      "t": "pasos",
+      "items": [
+       {
+        "tex": "r=\\dfrac{-1\\pm\\sqrt{1-36}}{2}=-\\dfrac{1}{2}\\pm 2.96\\,i",
+        "porque": "La parte real es menos un medio y la imaginaria es la frecuencia."
+       },
+       {
+        "tex": "y=e^{-x/2}\\left(c_{1}\\cos 2.96x+c_{2}\\operatorname{sen}2.96x\\right)",
+        "porque": "Es la forma de la solución. Con las condiciones iniciales se hallan c1 y c2."
+       }
+      ]
+     },
+     {
+      "t": "ojo",
+      "html": "Con b igual a 6 la raíz es doble y vale menos 3. Con b mayor que 6 hay dos raíces reales negativas y no hay oscilación."
+     }
+    ]
+   },
+   {
+    "titulo": "¿Para qué sirve?",
+    "corto": "En ingeniería",
+    "bloques": [
+     {
+      "t": "ingenieria",
+      "titulo": "La suspensión de un vehículo",
+      "html": "Una rueda con amortiguador se modela como una masa, un resorte y un amortiguador. Su ecuación es de segundo orden con coeficientes constantes, y el amortiguador se escoge para que la rueda no rebote demasiado.",
+      "tex": "m\\,y''+c\\,y'+k\\,y=0",
+      "datos": [
+       {
+        "k": "Masa",
+        "v": "250 kg"
+       },
+       {
+        "k": "Rigidez",
+        "v": "2250 N/m"
+       },
+       {
+        "k": "Amortiguamiento crítico",
+        "v": "1500 N·s/m"
+       }
+      ],
+      "cierre": "La frecuencia natural es la raíz de k sobre m, o sea 3 radianes por segundo. El amortiguamiento crítico, donde la raíz es doble, es 2 por la raíz de k por m, o sea 1500 newton segundo por metro. Con 750, la mitad, el vehículo todavía oscila un poco al pasar un bache. Es un modelo simplificado, porque supone un resorte y un amortiguador lineales."
+     }
+    ]
+   },
+   {
+    "titulo": "Completa el paso",
+    "corto": "Completa",
+    "bloques": [
+     {
+      "t": "completar",
+      "enunciado": "Se halla la ecuación característica de y segunda menos 3y prima más 2y igual a 0.",
+      "tex": "r^{2}-3r+2=[[hueco]]",
+      "opciones": [
+       {
+        "tex": "0",
+        "txt": "cero"
+       },
+       {
+        "tex": "1",
+        "txt": "uno"
+       },
+       {
+        "tex": "3",
+        "txt": "tres"
+       }
+      ],
+      "correcta": 0,
+      "errores": [
+       "",
+       "La ecuación característica se iguala a 0, porque la ecuación original es igual a 0.",
+       "Esa es la derivada y no un valor. La ecuación característica se iguala a 0."
+      ],
+      "pista": "Se iguala a 0, igual que la EDO.",
+      "porque": "La EDO es igual a 0, así que su ecuación característica también."
+     }
+    ]
+   },
+   {
+    "titulo": "Encuentra el error",
+    "corto": "Error",
+    "bloques": [
+     {
+      "t": "error",
+      "enunciado": "Alguien resolvió una ecuación y se equivocó en un paso. Toca el paso que está mal.",
+      "pasos": [
+       {
+        "tex": "y''+9y=0\\ \\Rightarrow\\ r^{2}+9=0",
+        "porque": "Es la ecuación característica.",
+        "txt": "y segunda más 9y igual a 0 da r cuadrado más 9 igual a 0"
+       },
+       {
+        "tex": "r=\\pm 3i",
+        "porque": "Las raíces son imaginarias.",
+        "txt": "Las raíces son más y menos 3i"
+       },
+       {
+        "tex": "y=c_{1}e^{3x}+c_{2}e^{-3x}",
+        "porque": "Este paso es el que falla.",
+        "txt": "y es c1 e a la 3x más c2 e a la menos 3x"
+       }
+      ],
+      "mal": 2,
+      "explicacion": "Las raíces son imaginarias, no reales. Con r igual a mas o menos beta i la solución es c1 coseno de beta x más c2 seno de beta x. Aquí es c1 coseno de 3x más c2 seno de 3x.",
+      "correccion": "y=c_{1}\\cos 3x+c_{2}\\operatorname{sen}3x",
+      "pista": "Fíjate si las raíces son reales o imaginarias."
+     }
+    ]
+   },
+   {
+    "titulo": "Ordena los pasos",
+    "corto": "Ordena",
+    "bloques": [
+     {
+      "t": "ordenar",
+      "enunciado": "Estos son los pasos para resolver y segunda más 2y prima más 5y igual a 0, pero están desordenados.",
+      "pasos": [
+       "r^{2}+2r+5=0",
+       "r=-1\\pm 2i",
+       "\\alpha=-1,\\ \\beta=2",
+       "y=e^{-x}(c_{1}\\cos 2x+c_{2}\\operatorname{sen}2x)"
+      ],
+      "mezcla": [
+       2,
+       0,
+       3,
+       1
+      ],
+      "porque": "Se plantea la ecuación característica, se hallan las raíces complejas y se arma la solución.",
+      "pista": "Se empieza con la ecuación característica.",
+      "txt": [
+       "La ecuación característica",
+       "Las raíces con la fórmula cuadrática",
+       "La parte real y la imaginaria",
+       "La solución"
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "Revisa tu respuesta",
+    "corto": "Revisa",
+    "bloques": [
+     {
+      "t": "pregunta"
+     },
+     {
+      "t": "nota",
+      "html": "Puedes pedir pistas de a una. Si fallas, el mensaje te dice qué error se cometió."
+     }
+    ]
+   },
+   {
+    "titulo": "Mini simulacro",
+    "corto": "Simulacro",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Tres preguntas reales del banco de MathUNAL sobre este tema. Responde sin mirar los pasos."
+     },
+     {
+      "t": "simulacro",
+      "titulo": "Mini simulacro de ecuaciones homogéneas",
+      "preguntas": [
+       {
+        "tipo": "mcq",
+        "texto": "La solución general de $y''+y'-6y=0$ es:",
+        "opciones": [
+         "$y=c_1e^{2x}+c_2e^{-3x}$",
+         "$y=c_1e^{-2x}+c_2e^{3x}$",
+         "$y=(c_1+c_2x)e^{2x}$",
+         "$y=c_1\\cos 6x+c_2\\sin 6x$"
+        ],
+        "correcta": 0,
+        "resumen": "La característica es $r^2+r-6=(r-2)(r+3)$, con raíces $2$ y $-3$.",
+        "fuente": "Banco MathUNAL, simulacro de Ecuaciones Diferenciales"
+       },
+       {
+        "tipo": "mcq",
+        "texto": "La solución general de $y''+4y=0$ es:",
+        "opciones": [
+         "$y=c_1\\cos 2x+c_2\\sin 2x$",
+         "$y=c_1e^{2x}+c_2e^{-2x}$",
+         "$y=c_1\\cos 4x+c_2\\sin 4x$",
+         "$y=(c_1+c_2x)e^{2x}$"
+        ],
+        "correcta": 0,
+        "resumen": "La característica es $r^2+4=0$, con raíces $\\pm 2i$.",
+        "fuente": "Banco MathUNAL, simulacro de Ecuaciones Diferenciales"
+       },
+       {
+        "tipo": "mcq",
+        "texto": "La solución general de $y''-6y'+9y=0$ es:",
+        "opciones": [
+         "$y=(c_1+c_2x)e^{3x}$",
+         "$y=c_1e^{3x}+c_2e^{-3x}$",
+         "$y=c_1e^{3x}+c_2xe^{-3x}$",
+         "$y=c_1\\cos 3x+c_2\\sin 3x$"
+        ],
+        "correcta": 0,
+        "resumen": "La característica es $(r-3)^2=0$, con raíz doble $3$.",
+        "fuente": "Banco MathUNAL, simulacro de Ecuaciones Diferenciales"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "Tu repaso",
+    "corto": "Repaso",
+    "bloques": [
+     {
+      "t": "repaso"
+     }
+    ]
+   },
+   {
+    "titulo": "En resumen",
+    "corto": "Resumen",
+    "bloques": [
+     {
+      "t": "resumen"
+     }
+    ]
+   }
+  ]
+ },
+ "practicar": {
+  "pasos": [
+   {
+    "titulo": "La oscilación",
+    "grafica": {
+     "draw": 1,
+     "guide": 1
+    },
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Un resorte soltado desde el reposo, con fricción b."
+     },
+     {
+      "t": "eq",
+      "tex": "y''+b\\,y'+9y=0"
+     }
+    ]
+   },
+   {
+    "titulo": "Cambia b",
+    "grafica": {
+     "draw": 1,
+     "guide": 1
+    },
+    "laboratorio": true,
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mueve el deslizador. Con más fricción las oscilaciones se apagan antes. Abajo se ven b y la frecuencia angular."
+     }
+    ]
+   },
+   {
+    "titulo": "Casi sin oscilar",
+    "grafica": {
+     "draw": 1,
+     "guide": 1,
+     "ok": true
+    },
+    "laboratorio": true,
+    "d": 5.5,
+    "bloques": [
+     {
+      "t": "eq",
+      "tex": "b=6\\ \\Rightarrow\\ r=-3\\ \\text{(doble)}"
+     },
+     {
+      "t": "p",
+      "html": "Con b cerca de 6 casi no hay oscilación. Es el caso del amortiguamiento crítico."
+     }
+    ]
+   },
+   {
+    "titulo": "Revisa tu respuesta",
+    "grafica": {
+     "draw": 1,
+     "guide": 1,
+     "ok": true,
+     "d": 5.5
+    },
+    "bloques": [
+     {
+      "t": "pregunta"
+     },
+     {
+      "t": "nota",
+      "html": "Halla las raíces de la ecuación característica."
+     }
+    ]
+   }
+  ]
+ },
+ "pregunta": {
+  "tex": "y''+4y'+13y=0\\ \\text{oscila con frecuencia angular}",
+  "opciones": [
+   "$3$",
+   "$2$",
+   "$13$",
+   "$\\sqrt{13}$"
+  ],
+  "correcta": 0,
+  "explicacion": "La ecuación característica es r cuadrado más 4r más 13 igual a 0, con raíces menos 2 más y menos 3i. La parte imaginaria, 3, es la frecuencia angular. La parte real, menos 2, es el decaimiento.",
+  "verificacion": {
+   "formula": "sqrt(13-4)+0*x",
+   "a": 0,
+   "esperado": 3
+  },
+  "pistas": [
+   "Halla las raíces de r cuadrado más 4r más 13 igual a 0.",
+   "Salen menos 2 más y menos 3i.",
+   "La frecuencia angular es la parte imaginaria."
+  ],
+  "errores": [
+   "",
+   "Ese es el decaimiento, la parte real con el signo cambiado. La frecuencia es la parte imaginaria.",
+   "Ese es el término constante. La frecuencia sale de la raíz, no del coeficiente.",
+   "Esa es la raíz del término constante, y no resta el efecto del 4. La frecuencia es la raíz de 13 menos 4."
+  ]
+ },
+ "resumen": [
+  "La ecuación característica se obtiene probando e a la r x.",
+  "Raíces reales distintas dan exponenciales, una raíz doble agrega el factor x y raíces complejas dan seno y coseno con una exponencial.",
+  "La parte real de la raíz da el decaimiento y la imaginaria da la frecuencia."
+ ]
+}

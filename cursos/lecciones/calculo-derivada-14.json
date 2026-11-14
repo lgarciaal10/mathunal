@@ -1,0 +1,569 @@
+{
+ "esquema": 1,
+ "id": "calculo-m3-l5",
+ "ejemplo": true,
+ "curso": "Cálculo",
+ "modulo": "Módulo 3 Aplicaciones de la derivada",
+ "posicion": "Lección 5 de 8",
+ "titulo": "Optimización",
+ "minutos": 23,
+ "ejercicios": 4,
+ "grafica": {
+  "x": [
+   0,
+   20
+  ],
+  "y": [
+   0,
+   110
+  ],
+  "funcion": "x*(20-x)",
+  "a": 10,
+  "derivada": "20-2*x",
+  "limite": 0,
+  "zoom": {
+   "factor": 250
+  },
+  "alt": "Curva del área de un rectángulo según su ancho, con forma de colina y una secante que se acerca a la tangente horizontal en la cima",
+  "tipo": "secante",
+  "etiquetas": [
+   "Distancia h",
+   "Pendiente de la secante"
+  ],
+  "etiquetaSlider": "Valor de h"
+ },
+ "glosario": {
+  "objetivo": "La función objetivo es la que se quiere hacer lo más grande o lo más pequeña, como el área o el costo.",
+  "restr": "La restricción es la condición que liga las variables, como un perímetro fijo.",
+  "tangente": "La recta tangente toca la curva en un punto y tiene la misma inclinación que la curva ahí.",
+  "pend": "La pendiente dice cuánto sube la recta por cada unidad que avanza hacia la derecha."
+ },
+ "ver": {
+  "duracion": 24.0,
+  "capitulos": [
+   [
+    0,
+    2.5,
+    "Esta curva muestra el área de un corral según su ancho, con 40 metros de cerca."
+   ],
+   [
+    2.5,
+    4.5,
+    "Se busca el ancho que da el área más grande. Miremos x igual a 10."
+   ],
+   [
+    4.5,
+    8,
+    "Se traza la secante con un segundo punto a distancia h."
+   ],
+   [
+    8,
+    12.5,
+    "Mientras h se achica, la pendiente de la secante cambia."
+   ],
+   [
+    12.5,
+    15.8,
+    "La secante se vuelve la tangente y su pendiente se acerca a 0. En la cima la tangente es horizontal."
+   ],
+   [
+    15.8,
+    19.8,
+    "De cerca, la cima se ve casi plana."
+   ],
+   [
+    19.8,
+    24,
+    "Cuando la derivada vale 0 está el máximo, y así se resuelven los problemas de optimización."
+   ]
+  ],
+  "canales": {
+   "draw": [
+    [
+     0.3,
+     0
+    ],
+    [
+     2.4,
+     1
+    ]
+   ],
+   "hole": [
+    [
+     2.5,
+     0
+    ],
+    [
+     3.2,
+     1
+    ]
+   ],
+   "d": [
+    [
+     4.5,
+     1
+    ],
+    [
+     6,
+     0.5
+    ],
+    [
+     8,
+     0.5
+    ],
+    [
+     9.5,
+     0.1
+    ],
+    [
+     11,
+     0.1
+    ],
+    [
+     12.5,
+     0.01
+    ]
+   ],
+   "guide": [
+    [
+     12.5,
+     0
+    ],
+    [
+     13.5,
+     1
+    ]
+   ],
+   "zoom": [
+    [
+     15.8,
+     0
+    ],
+    [
+     18.3,
+     1
+    ],
+    [
+     19.0,
+     1
+    ],
+    [
+     19.8,
+     0
+    ]
+   ]
+  },
+  "intervalos": {
+   "ok": [
+    19.8,
+    24.0
+   ]
+  }
+ },
+ "leer": {
+  "secciones": [
+   {
+    "titulo": "La idea",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Optimizar es encontrar el mayor o el menor valor posible de algo, como el área más grande o el costo más bajo. Se usa la derivada para encontrar el punto donde la tangente es horizontal."
+     }
+    ]
+   },
+   {
+    "titulo": "Un ejemplo",
+    "corto": "Un ejemplo",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Se tienen 40 metros de cerca para un corral rectangular. ¿Qué medidas dan el área más grande? En la gráfica se ve el área según el ancho x."
+     },
+     {
+      "t": "eq",
+      "tex": "A(x)=x\\,(20-x)"
+     },
+     {
+      "t": "grafica",
+      "animar": "dibujar",
+      "alt": "Curva del área según el ancho, con forma de colina"
+     }
+    ]
+   },
+   {
+    "titulo": "Piensa antes de ver",
+    "corto": "Piensa",
+    "bloques": [
+     {
+      "t": "piensa",
+      "pregunta": "En la cima de la colina, cuando x vale 10, la curva está plana un instante. ¿A qué número crees que se acerca la pendiente de la secante?",
+      "opciones": [
+       -1,
+       0,
+       1,
+       10
+      ],
+      "correcta": 0,
+      "bien": "Muy bien. Se acerca a 0 y más abajo se ve por qué.",
+      "mal": "El número es 0. En la cima la tangente es horizontal."
+     }
+    ]
+   },
+   {
+    "titulo": "Acercando el segundo punto",
+    "corto": "Acercándose",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mira cómo cambia la pendiente de la secante al achicar h."
+     },
+     {
+      "t": "acercando",
+      "ds": [
+       1,
+       0.5,
+       0.1,
+       0.01
+      ],
+      "alt": "Una secante que gira hasta volverse horizontal en la cima"
+     },
+     {
+      "t": "p",
+      "html": "La pendiente se acerca a <b>0</b>. Al terminar, la gráfica hace zoom para que veas el detalle."
+     }
+    ]
+   },
+   {
+    "titulo": "Los pasos del método",
+    "corto": "El método",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Los problemas de optimización siguen siempre el mismo orden."
+     },
+     {
+      "t": "pasos",
+      "items": [
+       {
+        "tex": "\\text{Ancho}\\ x,\\quad \\text{largo}\\ y",
+        "porque": "Se nombran las variables, con un dibujo si ayuda."
+       },
+       {
+        "tex": "2x+2y=40\\ \\Rightarrow\\ y=20-x",
+        "porque": "La {{gl:restr|restricción}} es el perímetro fijo. Se despeja una variable en función de la otra."
+       },
+       {
+        "tex": "A=x\\,y=x(20-x)=20x-x^{2}",
+        "porque": "La {{gl:objetivo|función objetivo}} es el área, que se quiere hacer lo más grande posible."
+       },
+       {
+        "tex": "A'(x)=20-2x=0\\ \\Rightarrow\\ x=10",
+        "porque": "Se deriva y se iguala a 0."
+       },
+       {
+        "tex": "A''(x)=-2<0\\ \\Rightarrow\\ \\text{máximo}",
+        "porque": "La segunda derivada negativa confirma que es un máximo."
+       },
+       {
+        "tex": "y=20-10=10,\\quad A=100\\ \\text{m}^{2}",
+        "porque": "Se responde con las dos medidas y con unidades. El corral es un cuadrado de 10 por 10."
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "Otro ejemplo",
+    "corto": "Otro ejemplo",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Dos números positivos suman 50. ¿Cuánto vale su producto máximo?"
+     },
+     {
+      "t": "pasos",
+      "items": [
+       {
+        "tex": "P=x(50-x)=50x-x^{2}",
+        "porque": "Si un número es x, el otro es 50 menos x."
+       },
+       {
+        "tex": "P'(x)=50-2x=0\\ \\Rightarrow\\ x=25",
+        "porque": "Se deriva e iguala a 0."
+       },
+       {
+        "tex": "P(25)=25\\cdot 25=625",
+        "porque": "Los dos números son 25 y el producto máximo es 625."
+       }
+      ]
+     },
+     {
+      "t": "ojo",
+      "html": "Revisa siempre que la respuesta tenga sentido, con unidades y dentro del intervalo permitido. Si la variable tiene límites, evalúa también los extremos."
+     }
+    ]
+   },
+   {
+    "titulo": "¿Para qué sirve?",
+    "corto": "En ingeniería",
+    "bloques": [
+     {
+      "t": "ingenieria",
+      "titulo": "La lata de un litro con el menor material",
+      "html": "Una lata cilíndrica debe guardar 1 litro y se quiere gastar el menor material posible. El área de metal depende del radio, y se minimiza derivando.",
+      "tex": "A(r)=2\\pi r^{2}+\\dfrac{2000}{r}\\ \\text{cm}^{2}\\ \\Rightarrow\\ r=\\sqrt[3]{\\dfrac{500}{\\pi}}",
+      "datos": [
+       {
+        "k": "Volumen",
+        "v": "1000 cm³"
+       },
+       {
+        "k": "Radio óptimo",
+        "v": "5.42 cm"
+       },
+       {
+        "k": "Altura",
+        "v": "10.84 cm"
+       },
+       {
+        "k": "Área de metal",
+        "v": "553.6 cm²"
+       }
+      ],
+      "cierre": "La altura óptima es el doble del radio, o sea que la lata es tan alta como ancha. Las latas reales suelen ser más altas, porque pesan otros factores como el costo de fabricación y el agarre."
+     }
+    ]
+   },
+   {
+    "titulo": "Revisa tu respuesta",
+    "corto": "Revisa",
+    "bloques": [
+     {
+      "t": "pregunta"
+     },
+     {
+      "t": "nota",
+      "html": "Despeja y de la restricción, arma la función objetivo y deriva."
+     }
+    ]
+   },
+   {
+    "titulo": "Mini simulacro",
+    "corto": "Simulacro",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Tres preguntas reales del banco de MathUNAL sobre este tema. Responde sin mirar los pasos."
+     },
+     {
+      "t": "simulacro",
+      "titulo": "Mini simulacro",
+      "preguntas": [
+       {
+        "texto": "Una caja abierta de base cuadrada tiene volumen fijo $V=32$ m³. El lado $x$ que minimiza el material (base + 4 lados) es:",
+        "resumen": "Con $x^2h=32$ el material es $A=x^2+4xh=x^2+\\frac{128}{x}$. Se deriva, $A'=2x-\\frac{128}{x^2}=0$, y sale $x^3=64$, o sea $x=4$.",
+        "fuente": "Banco MathUNAL, Parcial 3, 2025-2",
+        "tipo": "mcq",
+        "opciones": [
+         "$x=4$",
+         "$x=2$",
+         "$x=8$",
+         "$x=\\sqrt{32}$"
+        ],
+        "correcta": 0
+       },
+       {
+        "texto": "El punto de la parábola $y=x^2$ más cercano al punto $(0,3)$ tiene abscisa:",
+        "resumen": "Se minimiza la distancia al cuadrado $D=x^2+(x^2-3)^2$. Su derivada es $2x(2x^2-5)$, que vale 0 en $x=0$ y en $x=\\pm\\sqrt{5/2}$. En 0 vale 9 y en los otros dos vale $\\frac{11}{4}$, así que el mínimo está en $\\pm\\sqrt{5/2}$.",
+        "fuente": "Banco MathUNAL, simulacro de Cálculo Diferencial",
+        "tipo": "mcq",
+        "opciones": [
+         "$\\pm\\sqrt{\\dfrac{5}{2}}$",
+         "$0$",
+         "$\\pm\\dfrac{3}{2}$",
+         "$\\pm\\sqrt{3}$"
+        ],
+        "correcta": 0
+       },
+       {
+        "texto": "Entre los rectángulos de perímetro $20$, el área máxima posible es:",
+        "resumen": "Si un lado mide $x$, el otro mide $10-x$ y el área es $x(10-x)$. Su derivada $10-2x$ vale 0 en $x=5$, y el área máxima es 25.",
+        "fuente": "Banco MathUNAL, simulacro de Cálculo Diferencial",
+        "tipo": "numerica",
+        "respuesta": "25",
+        "tolNum": 0.001
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "Tu repaso",
+    "corto": "Repaso",
+    "bloques": [
+     {
+      "t": "repaso"
+     }
+    ]
+   },
+   {
+    "titulo": "En resumen",
+    "corto": "Resumen",
+    "bloques": [
+     {
+      "t": "resumen"
+     }
+    ]
+   }
+  ]
+ },
+ "practicar": {
+  "pasos": [
+   {
+    "titulo": "La curva",
+    "grafica": {
+     "draw": 1
+    },
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Esta curva muestra el área de un corral según su ancho."
+     },
+     {
+      "t": "eq",
+      "tex": "A(x)=x\\,(20-x)"
+     }
+    ]
+   },
+   {
+    "titulo": "La cima",
+    "grafica": {
+     "draw": 1,
+     "hole": 1
+    },
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Se mira la cima, en x igual a 10, donde el área es de 100 metros cuadrados."
+     }
+    ]
+   },
+   {
+    "titulo": "Acerca el segundo punto",
+    "grafica": {
+     "draw": 1,
+     "hole": 1
+    },
+    "laboratorio": true,
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mueve el deslizador de h. La secante gira y abajo se ve su pendiente."
+     }
+    ]
+   },
+   {
+    "titulo": "La tangente",
+    "grafica": {
+     "draw": 1,
+     "hole": 1,
+     "guide": 1
+    },
+    "laboratorio": true,
+    "d": 0.01,
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Con h muy pequeño la pendiente se acerca a 0. En la cima la tangente es horizontal."
+     }
+    ]
+   },
+   {
+    "titulo": "Derivar e igualar a cero",
+    "grafica": {
+     "draw": 1,
+     "hole": 1,
+     "guide": 1,
+     "ok": true
+    },
+    "bloques": [
+     {
+      "t": "eq",
+      "tex": "A'(x)=20-2x=0\\ \\Rightarrow\\ x=10"
+     },
+     {
+      "t": "p",
+      "html": "El máximo está en x igual a 10, o sea en un corral cuadrado de 10 por 10 metros."
+     }
+    ]
+   },
+   {
+    "titulo": "Mira de cerca",
+    "grafica": {
+     "draw": 1,
+     "hole": 1,
+     "guide": 1,
+     "zoom": 1
+    },
+    "laboratorio": true,
+    "d": 0.01,
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Ahora la gráfica está con zoom. De cerca, la curva casi se ve como una recta y la secante se pega a la tangente. Mueve h para comprobarlo."
+     }
+    ]
+   },
+   {
+    "titulo": "Revisa tu respuesta",
+    "grafica": {
+     "draw": 1,
+     "hole": 1,
+     "guide": 1,
+     "ok": true
+    },
+    "bloques": [
+     {
+      "t": "pregunta"
+     },
+     {
+      "t": "nota",
+      "html": "Despeja y de la restricción, arma la función objetivo y deriva."
+     }
+    ]
+   }
+  ]
+ },
+ "pregunta": {
+  "tex": "\\text{área máxima si}\\ P=60\\ \\text{m}",
+  "opciones": [
+   "225",
+   "200",
+   "150",
+   "900"
+  ],
+  "correcta": 0,
+  "explicacion": "Si el ancho es x, el largo es 30 menos x y el área es x por (30 − x). La derivada 30 − 2x vale 0 en x igual a 15, y el área es 15 por 15, o sea 225 metros cuadrados.",
+  "verificacion": {
+   "formula": "(15+x)*(30-(15+x))",
+   "a": 0,
+   "esperado": 225
+  },
+  "pistas": [
+   "Si el ancho es x, el largo es 30 menos x, porque el perímetro es 60.",
+   "El área es x por (30 − x). Deriva e iguala a 0.",
+   "La derivada 30 − 2x vale 0 en x igual a 15. Calcula el área con 15 por 15."
+  ],
+  "errores": [
+   "",
+   "Ese 200 sale de 10 por 20, que sí suma 30 pero no es el máximo. El máximo es un cuadrado de 15 por 15.",
+   "Revisa la cuenta. Con perímetro 60, el área máxima es un cuadrado de lado 15.",
+   "Ese 900 sale de usar 30 por 30, que daría perímetro 120. Aquí el perímetro es 60."
+  ]
+ },
+ "resumen": [
+  "Se escribe la función objetivo en una sola variable usando la restricción.",
+  "Se deriva, se iguala a 0 y se comprueba que sea máximo o mínimo.",
+  "Se responde con unidades y se revisan los extremos del intervalo si existen."
+ ]
+}

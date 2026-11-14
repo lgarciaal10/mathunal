@@ -1,0 +1,1114 @@
+{
+ "esquema": 1,
+ "id": "es-m3-l5",
+ "ejemplo": true,
+ "curso": "Matemáticas Especiales",
+ "modulo": "Módulo 3 Ecuación de Laplace y variable compleja",
+ "posicion": "Lección 5 de 5",
+ "titulo": "Sturm-Liouville y clasificación de EDP",
+ "minutos": 28,
+ "ejercicios": 8,
+ "grafica": {
+  "tipo": "plano",
+  "x": [
+   -0.4,
+   3.6
+  ],
+  "y": [
+   -1.4,
+   1.4
+  ],
+  "a": 1,
+  "b": 5,
+  "inicio": 1,
+  "entero": true,
+  "elementos": [
+   {
+    "t": "trazo",
+    "puntos": [
+     [
+      "0.0",
+      "cos(0.0*x)"
+     ],
+     [
+      "0.05236",
+      "cos(0.05236*x)"
+     ],
+     [
+      "0.10472",
+      "cos(0.10472*x)"
+     ],
+     [
+      "0.15708",
+      "cos(0.15708*x)"
+     ],
+     [
+      "0.20944",
+      "cos(0.20944*x)"
+     ],
+     [
+      "0.2618",
+      "cos(0.2618*x)"
+     ],
+     [
+      "0.31416",
+      "cos(0.31416*x)"
+     ],
+     [
+      "0.36652",
+      "cos(0.36652*x)"
+     ],
+     [
+      "0.41888",
+      "cos(0.41888*x)"
+     ],
+     [
+      "0.47124",
+      "cos(0.47124*x)"
+     ],
+     [
+      "0.5236",
+      "cos(0.5236*x)"
+     ],
+     [
+      "0.57596",
+      "cos(0.57596*x)"
+     ],
+     [
+      "0.62832",
+      "cos(0.62832*x)"
+     ],
+     [
+      "0.68068",
+      "cos(0.68068*x)"
+     ],
+     [
+      "0.73304",
+      "cos(0.73304*x)"
+     ],
+     [
+      "0.7854",
+      "cos(0.7854*x)"
+     ],
+     [
+      "0.83776",
+      "cos(0.83776*x)"
+     ],
+     [
+      "0.89012",
+      "cos(0.89012*x)"
+     ],
+     [
+      "0.94248",
+      "cos(0.94248*x)"
+     ],
+     [
+      "0.99484",
+      "cos(0.99484*x)"
+     ],
+     [
+      "1.0472",
+      "cos(1.0472*x)"
+     ],
+     [
+      "1.09956",
+      "cos(1.09956*x)"
+     ],
+     [
+      "1.15192",
+      "cos(1.15192*x)"
+     ],
+     [
+      "1.20428",
+      "cos(1.20428*x)"
+     ],
+     [
+      "1.25664",
+      "cos(1.25664*x)"
+     ],
+     [
+      "1.309",
+      "cos(1.309*x)"
+     ],
+     [
+      "1.36136",
+      "cos(1.36136*x)"
+     ],
+     [
+      "1.41372",
+      "cos(1.41372*x)"
+     ],
+     [
+      "1.46608",
+      "cos(1.46608*x)"
+     ],
+     [
+      "1.51844",
+      "cos(1.51844*x)"
+     ],
+     [
+      "1.5708",
+      "cos(1.5708*x)"
+     ],
+     [
+      "1.62316",
+      "cos(1.62316*x)"
+     ],
+     [
+      "1.67552",
+      "cos(1.67552*x)"
+     ],
+     [
+      "1.72788",
+      "cos(1.72788*x)"
+     ],
+     [
+      "1.78024",
+      "cos(1.78024*x)"
+     ],
+     [
+      "1.8326",
+      "cos(1.8326*x)"
+     ],
+     [
+      "1.88496",
+      "cos(1.88496*x)"
+     ],
+     [
+      "1.93732",
+      "cos(1.93732*x)"
+     ],
+     [
+      "1.98968",
+      "cos(1.98968*x)"
+     ],
+     [
+      "2.04204",
+      "cos(2.04204*x)"
+     ],
+     [
+      "2.0944",
+      "cos(2.0944*x)"
+     ],
+     [
+      "2.14675",
+      "cos(2.14675*x)"
+     ],
+     [
+      "2.19911",
+      "cos(2.19911*x)"
+     ],
+     [
+      "2.25147",
+      "cos(2.25147*x)"
+     ],
+     [
+      "2.30383",
+      "cos(2.30383*x)"
+     ],
+     [
+      "2.35619",
+      "cos(2.35619*x)"
+     ],
+     [
+      "2.40855",
+      "cos(2.40855*x)"
+     ],
+     [
+      "2.46091",
+      "cos(2.46091*x)"
+     ],
+     [
+      "2.51327",
+      "cos(2.51327*x)"
+     ],
+     [
+      "2.56563",
+      "cos(2.56563*x)"
+     ],
+     [
+      "2.61799",
+      "cos(2.61799*x)"
+     ],
+     [
+      "2.67035",
+      "cos(2.67035*x)"
+     ],
+     [
+      "2.72271",
+      "cos(2.72271*x)"
+     ],
+     [
+      "2.77507",
+      "cos(2.77507*x)"
+     ],
+     [
+      "2.82743",
+      "cos(2.82743*x)"
+     ],
+     [
+      "2.87979",
+      "cos(2.87979*x)"
+     ],
+     [
+      "2.93215",
+      "cos(2.93215*x)"
+     ],
+     [
+      "2.98451",
+      "cos(2.98451*x)"
+     ],
+     [
+      "3.03687",
+      "cos(3.03687*x)"
+     ],
+     [
+      "3.08923",
+      "cos(3.08923*x)"
+     ],
+     [
+      "3.14159",
+      "cos(3.14159*x)"
+     ]
+    ],
+    "c": 3
+   },
+   {
+    "t": "trazo",
+    "puntos": [
+     [
+      "0.0",
+      "sin(0.0*x)"
+     ],
+     [
+      "0.05236",
+      "sin(0.05236*x)"
+     ],
+     [
+      "0.10472",
+      "sin(0.10472*x)"
+     ],
+     [
+      "0.15708",
+      "sin(0.15708*x)"
+     ],
+     [
+      "0.20944",
+      "sin(0.20944*x)"
+     ],
+     [
+      "0.2618",
+      "sin(0.2618*x)"
+     ],
+     [
+      "0.31416",
+      "sin(0.31416*x)"
+     ],
+     [
+      "0.36652",
+      "sin(0.36652*x)"
+     ],
+     [
+      "0.41888",
+      "sin(0.41888*x)"
+     ],
+     [
+      "0.47124",
+      "sin(0.47124*x)"
+     ],
+     [
+      "0.5236",
+      "sin(0.5236*x)"
+     ],
+     [
+      "0.57596",
+      "sin(0.57596*x)"
+     ],
+     [
+      "0.62832",
+      "sin(0.62832*x)"
+     ],
+     [
+      "0.68068",
+      "sin(0.68068*x)"
+     ],
+     [
+      "0.73304",
+      "sin(0.73304*x)"
+     ],
+     [
+      "0.7854",
+      "sin(0.7854*x)"
+     ],
+     [
+      "0.83776",
+      "sin(0.83776*x)"
+     ],
+     [
+      "0.89012",
+      "sin(0.89012*x)"
+     ],
+     [
+      "0.94248",
+      "sin(0.94248*x)"
+     ],
+     [
+      "0.99484",
+      "sin(0.99484*x)"
+     ],
+     [
+      "1.0472",
+      "sin(1.0472*x)"
+     ],
+     [
+      "1.09956",
+      "sin(1.09956*x)"
+     ],
+     [
+      "1.15192",
+      "sin(1.15192*x)"
+     ],
+     [
+      "1.20428",
+      "sin(1.20428*x)"
+     ],
+     [
+      "1.25664",
+      "sin(1.25664*x)"
+     ],
+     [
+      "1.309",
+      "sin(1.309*x)"
+     ],
+     [
+      "1.36136",
+      "sin(1.36136*x)"
+     ],
+     [
+      "1.41372",
+      "sin(1.41372*x)"
+     ],
+     [
+      "1.46608",
+      "sin(1.46608*x)"
+     ],
+     [
+      "1.51844",
+      "sin(1.51844*x)"
+     ],
+     [
+      "1.5708",
+      "sin(1.5708*x)"
+     ],
+     [
+      "1.62316",
+      "sin(1.62316*x)"
+     ],
+     [
+      "1.67552",
+      "sin(1.67552*x)"
+     ],
+     [
+      "1.72788",
+      "sin(1.72788*x)"
+     ],
+     [
+      "1.78024",
+      "sin(1.78024*x)"
+     ],
+     [
+      "1.8326",
+      "sin(1.8326*x)"
+     ],
+     [
+      "1.88496",
+      "sin(1.88496*x)"
+     ],
+     [
+      "1.93732",
+      "sin(1.93732*x)"
+     ],
+     [
+      "1.98968",
+      "sin(1.98968*x)"
+     ],
+     [
+      "2.04204",
+      "sin(2.04204*x)"
+     ],
+     [
+      "2.0944",
+      "sin(2.0944*x)"
+     ],
+     [
+      "2.14675",
+      "sin(2.14675*x)"
+     ],
+     [
+      "2.19911",
+      "sin(2.19911*x)"
+     ],
+     [
+      "2.25147",
+      "sin(2.25147*x)"
+     ],
+     [
+      "2.30383",
+      "sin(2.30383*x)"
+     ],
+     [
+      "2.35619",
+      "sin(2.35619*x)"
+     ],
+     [
+      "2.40855",
+      "sin(2.40855*x)"
+     ],
+     [
+      "2.46091",
+      "sin(2.46091*x)"
+     ],
+     [
+      "2.51327",
+      "sin(2.51327*x)"
+     ],
+     [
+      "2.56563",
+      "sin(2.56563*x)"
+     ],
+     [
+      "2.61799",
+      "sin(2.61799*x)"
+     ],
+     [
+      "2.67035",
+      "sin(2.67035*x)"
+     ],
+     [
+      "2.72271",
+      "sin(2.72271*x)"
+     ],
+     [
+      "2.77507",
+      "sin(2.77507*x)"
+     ],
+     [
+      "2.82743",
+      "sin(2.82743*x)"
+     ],
+     [
+      "2.87979",
+      "sin(2.87979*x)"
+     ],
+     [
+      "2.93215",
+      "sin(2.93215*x)"
+     ],
+     [
+      "2.98451",
+      "sin(2.98451*x)"
+     ],
+     [
+      "3.03687",
+      "sin(3.03687*x)"
+     ],
+     [
+      "3.08923",
+      "sin(3.08923*x)"
+     ],
+     [
+      "3.14159",
+      "sin(3.14159*x)"
+     ]
+    ],
+    "c": 0
+   }
+  ],
+  "lecturas": [
+   {
+    "rotulo": "valor propio lambda, igual a n al cuadrado",
+    "formula": "x*x"
+   },
+   {
+    "rotulo": "número de ceros dentro del intervalo, n menos 1",
+    "formula": "x-1"
+   }
+  ],
+  "etiquetas": [
+   "Con extremos fijos, la función propia es seno de n x",
+   "Cada modo tiene un cero más que el anterior, y el coseno en verde sería con extremos libres"
+  ],
+  "etiquetaSlider": "Modo n, de 1 a 5",
+  "alt": "Las funciones propias del problema menos X segunda igual a lambda X en el intervalo de 0 a pi. Con extremos fijos son seno de n x, en azul, y con extremos libres son coseno de n x, en verde. Con n mayor la función oscila más, y tiene n menos 1 ceros dentro del intervalo"
+ },
+ "glosario": {
+  "sl": "Un problema de Sturm-Liouville busca los valores propios lambda para los que hay soluciones no nulas de una ecuación con condiciones de frontera.",
+  "propios": "Los valores propios son los lambda admisibles, y las funciones propias son las soluciones correspondientes.",
+  "clasificacion": "Una EDP de segundo orden con coeficientes A, B y C es elíptica, parabólica o hiperbólica según el signo de B al cuadrado menos 4 A C.",
+  "neumann": "La condición de Neumann fija la derivada de la función en el extremo, y la de Dirichlet fija el valor."
+ },
+ "ver": {
+  "duracion": 24.0,
+  "capitulos": [
+   [
+    0,
+    4,
+    "Al separar variables siempre aparece el mismo problema, menos X segunda igual a lambda X, con condiciones en los extremos."
+   ],
+   [
+    4,
+    10,
+    "Con extremos fijos, las funciones propias son seno de n x, y los valores propios son n al cuadrado."
+   ],
+   [
+    10,
+    16,
+    "Con n igual a 3, hay dos ceros dentro del intervalo, y lambda vale 9."
+   ],
+   [
+    16,
+    20,
+    "Con extremos libres, que es Neumann, las funciones propias son coseno de n x, y n también puede ser 0."
+   ],
+   [
+    20,
+    24,
+    "Los modos son ortogonales, y por eso se pueden combinar para ajustar cualquier dato inicial."
+   ]
+  ],
+  "canales": {
+   "draw": [
+    [
+     0.3,
+     0
+    ],
+    [
+     3.5,
+     1
+    ]
+   ],
+   "d": [
+    [
+     4,
+     1
+    ],
+    [
+     8,
+     1
+    ],
+    [
+     10,
+     2
+    ],
+    [
+     13,
+     3
+    ],
+    [
+     16,
+     3
+    ],
+    [
+     18,
+     4
+    ],
+    [
+     24,
+     4
+    ]
+   ],
+   "guide": [
+    [
+     4,
+     0
+    ],
+    [
+     5,
+     1
+    ]
+   ]
+  },
+  "intervalos": {
+   "ok": [
+    16,
+    24
+   ]
+  }
+ },
+ "leer": {
+  "secciones": [
+   {
+    "titulo": "La idea",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Al resolver una EDP por separación de variables aparece un problema de {{gl:sl|Sturm-Liouville}}. Sus {{gl:propios|valores y funciones propias}} dependen de las condiciones de frontera, de {{gl:neumann|Dirichlet o Neumann}}. Por otra parte, el tipo de la EDP, que se lee con la {{gl:clasificacion|clasificación}}, indica qué método usar, y puede ser elíptica, parabólica o hiperbólica."
+     }
+    ]
+   },
+   {
+    "titulo": "Un ejemplo",
+    "corto": "Un ejemplo",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "El problema es menos X segunda igual a lambda X en el intervalo de 0 a pi. Cambia n y mira cuántos ceros tiene la función propia."
+     },
+     {
+      "t": "eq",
+      "tex": "-X''=\\lambda X,\\quad X(0)=X(\\pi)=0\\ \\Rightarrow\\ X_{n}=\\operatorname{sen}nx,\\ \\lambda_{n}=n^{2}"
+     },
+     {
+      "t": "grafica",
+      "animar": "dibujar",
+      "alt": "Las funciones propias de un problema de Sturm-Liouville"
+     }
+    ]
+   },
+   {
+    "titulo": "Piensa antes de ver",
+    "corto": "Piensa",
+    "bloques": [
+     {
+      "t": "piensa",
+      "pregunta": "Para el problema con X en 0 y en pi iguales a cero, el valor propio del modo 3 es n al cuadrado. ¿Cuánto vale?",
+      "opciones": [
+       9,
+       3,
+       6,
+       27
+      ],
+      "correcta": 9,
+      "bien": "Muy bien. Tres al cuadrado es 9.",
+      "mal": "El valor propio es n al cuadrado. Con n igual a 3 vale 9."
+     }
+    ]
+   },
+   {
+    "titulo": "Los modos",
+    "corto": "Modos",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mira las funciones propias con n igual a 1, 2, 3 y 4."
+     },
+     {
+      "t": "acercando",
+      "ds": [
+       1,
+       2,
+       3,
+       4
+      ],
+      "alt": "Las funciones propias con cuatro valores de n"
+     },
+     {
+      "t": "p",
+      "html": "Cada modo tiene un cero más dentro del intervalo."
+     }
+    ]
+   },
+   {
+    "titulo": "Condiciones de frontera",
+    "corto": "Fronteras",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "El tipo de condición cambia los valores propios."
+     },
+     {
+      "t": "pasos",
+      "items": [
+       {
+        "tex": "X(0)=X(\\pi)=0\\ \\Rightarrow\\ X_{n}=\\operatorname{sen}nx,\\ \\lambda_{n}=n^{2},\\ n\\ge1",
+        "porque": "Dirichlet, con valores fijos en los extremos."
+       },
+       {
+        "tex": "X'(0)=X'(\\pi)=0\\ \\Rightarrow\\ X_{n}=\\cos nx,\\ \\lambda_{n}=n^{2},\\ n\\ge0",
+        "porque": "Neumann, con derivadas nulas, e incluye la constante."
+       },
+       {
+        "tex": "\\displaystyle\\int_{0}^{\\pi}X_{m}X_{n}\\,dx=0\\quad(m\\ne n)",
+        "porque": "Las funciones propias son ortogonales."
+       },
+       {
+        "tex": "\\lambda_{3}=3^{2}=9",
+        "porque": "Un valor concreto."
+       }
+      ]
+     },
+     {
+      "t": "ojo",
+      "html": "Con Neumann, lambda igual a 0 es un valor propio, con función propia constante. Con Dirichlet, lambda igual a 0 solo da la función nula, y por eso no cuenta."
+     }
+    ]
+   },
+   {
+    "titulo": "Clasificar una EDP",
+    "corto": "Clasificación",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "El signo de B al cuadrado menos 4AC dice el tipo."
+     },
+     {
+      "t": "pasos",
+      "items": [
+       {
+        "tex": "Au_{xx}+Bu_{xy}+Cu_{yy}+\\cdots=0",
+        "porque": "La forma general."
+       },
+       {
+        "tex": "B^{2}-4AC<0\\ \\to\\ \\text{eliptica}",
+        "porque": "Como Laplace."
+       },
+       {
+        "tex": "B^{2}-4AC=0\\ \\to\\ \\text{parabolica}",
+        "porque": "Como calor."
+       },
+       {
+        "tex": "B^{2}-4AC>0\\ \\to\\ \\text{hiperbolica}",
+        "porque": "Como onda."
+       }
+      ]
+     },
+     {
+      "t": "ojo",
+      "html": "Los términos de primer orden y los de orden cero no cambian el tipo. Solo cuentan los coeficientes de las segundas derivadas A, B y C."
+     }
+    ]
+   },
+   {
+    "titulo": "¿Para qué sirve?",
+    "corto": "En ingeniería",
+    "bloques": [
+     {
+      "t": "ingenieria",
+      "titulo": "Las tres EDP clásicas",
+      "html": "Cada EDP clásica tiene un tipo y una conducta. Calor es parabólica y disipa, onda es hiperbólica y propaga, Laplace es elíptica y describe el equilibrio.",
+      "tex": "\\text{calor, onda, Laplace}\\ \\leftrightarrow\\ \\text{parabolica, hiperbolica, eliptica}",
+      "datos": [
+       {
+        "k": "Calor",
+        "v": "u sub t igual a u sub x x"
+       },
+       {
+        "k": "Onda",
+        "v": "u sub t t igual a u sub x x"
+       },
+       {
+        "k": "Laplace",
+        "v": "u sub x x más u sub y y igual a 0"
+       }
+      ],
+      "cierre": "Conocer el tipo ayuda a escoger el método numérico. Las parabólicas se resuelven avanzando en el tiempo, las hiperbólicas siguen las características y las elípticas exigen resolver todo el dominio a la vez."
+     }
+    ]
+   },
+   {
+    "titulo": "Completa el paso",
+    "corto": "Completa",
+    "bloques": [
+     {
+      "t": "completar",
+      "enunciado": "Una EDP con B al cuadrado menos 4AC igual a cero es de tipo [[hueco]].",
+      "tex": "B^{2}-4AC=0\\ \\Rightarrow\\ [[hueco]]",
+      "opciones": [
+       {
+        "tex": "\\text{parabolica}",
+        "txt": "parabólica"
+       },
+       {
+        "tex": "\\text{eliptica}",
+        "txt": "elíptica"
+       },
+       {
+        "tex": "\\text{hiperbolica}",
+        "txt": "hiperbólica"
+       }
+      ],
+      "correcta": 0,
+      "errores": [
+       "",
+       "Con elíptica el discriminante sería negativo.",
+       "Con hiperbólica el discriminante sería positivo."
+      ],
+      "pista": "El caso cero es el parabólico.",
+      "porque": "Es parabólica."
+     }
+    ]
+   },
+   {
+    "titulo": "Encuentra el error",
+    "corto": "Error",
+    "bloques": [
+     {
+      "t": "error",
+      "enunciado": "Alguien clasificó la EDP u sub x x más 2 u sub x y más u sub y y más u sub x igual a 0 y se equivocó. Toca el paso que está mal.",
+      "pasos": [
+       {
+        "tex": "A=1,\\ B=2,\\ C=1",
+        "porque": "Se leen los coeficientes.",
+        "txt": "coeficientes"
+       },
+       {
+        "tex": "B^{2}-4AC=4-4+1=1>0",
+        "porque": "Este paso es el que falla.",
+        "txt": "se suma el término de primer orden"
+       },
+       {
+        "tex": "\\text{hiperbolica}",
+        "porque": "Conclusión.",
+        "txt": "hiperbólica"
+       }
+      ],
+      "mal": 1,
+      "explicacion": "El término de primer orden no entra en el discriminante. B al cuadrado menos 4AC es 4 menos 4, o sea 0, y la EDP es parabólica.",
+      "correccion": "B^{2}-4AC=4-4=0",
+      "pista": "Solo usa A, B y C."
+     }
+    ]
+   },
+   {
+    "titulo": "Ordena los pasos",
+    "corto": "Ordena",
+    "bloques": [
+     {
+      "t": "ordenar",
+      "enunciado": "Estos son los pasos para hallar los valores propios de menos X segunda igual a lambda X con extremos fijos, pero están desordenados.",
+      "pasos": [
+       "-X''=\\lambda X",
+       "X=\\operatorname{sen}(kx)",
+       "\\operatorname{sen}(k\\pi)=0\\ \\Rightarrow\\ k=n",
+       "\\lambda_{n}=n^{2}"
+      ],
+      "mezcla": [
+       2,
+       0,
+       3,
+       1
+      ],
+      "porque": "Se parte de la ecuación, se elige seno, se usa el extremo derecho y se lee lambda.",
+      "pista": "Se empieza con la ecuación.",
+      "txt": [
+       "Se parte de la ecuación",
+       "Con X en cero a la izquierda queda seno",
+       "El extremo derecho fija k",
+       "Se lee el valor propio"
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "Revisa tu respuesta",
+    "corto": "Revisa",
+    "bloques": [
+     {
+      "t": "pregunta"
+     },
+     {
+      "t": "nota",
+      "html": "Puedes pedir pistas de a una. Si fallas, el mensaje te dice qué error se cometió."
+     }
+    ]
+   },
+   {
+    "titulo": "Mini simulacro",
+    "corto": "Simulacro",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Preguntas reales del banco de MathUNAL sobre este tema. Responde sin mirar los pasos."
+     },
+     {
+      "t": "simulacro",
+      "titulo": "Mini simulacro de Sturm-Liouville",
+      "preguntas": [
+       {
+        "tipo": "mcq",
+        "texto": "Una EDP de segundo orden $A\\,u_{xx}+B\\,u_{xy}+C\\,u_{yy}+\\cdots=0$ es elíptica, parabólica o hiperbólica según que:",
+        "opciones": [
+         "$B^{2}-4AC$ sea $<0$, $=0$ o $>0$, respectivamente",
+         "$A+C$ sea $<0$, $=0$ o $>0$",
+         "$A$, $B$, $C$ sean todos positivos",
+         "la EDP tenga o no solución"
+        ],
+        "correcta": 0,
+        "resumen": "La clasificación por B al cuadrado menos 4AC.",
+        "fuente": "Banco MathUNAL, simulacro de Matemáticas Especiales"
+       },
+       {
+        "tipo": "mcq",
+        "texto": "La EDP $u_{xx}+2u_{xy}+u_{yy}+u_x=0$ es de tipo:",
+        "opciones": [
+         "parabólico",
+         "elíptico",
+         "hiperbólico",
+         "no clasificable"
+        ],
+        "correcta": 0,
+        "resumen": "El tipo de una EDP concreta.",
+        "fuente": "Banco MathUNAL, simulacro de Matemáticas Especiales"
+       },
+       {
+        "tipo": "mcq",
+        "texto": "El tipo de las tres EDP clásicas es:",
+        "opciones": [
+         "calor: parabólica · onda: hiperbólica · Laplace: elíptica",
+         "calor: elíptica · onda: parabólica · Laplace: hiperbólica",
+         "las tres son hiperbólicas",
+         "las tres son elípticas"
+        ],
+        "correcta": 0,
+        "resumen": "El tipo de las tres EDP clásicas.",
+        "fuente": "Banco MathUNAL, simulacro de Matemáticas Especiales"
+       },
+       {
+        "tipo": "numerica",
+        "texto": "Los valores propios de $-X''=\\lambda X$ con $X(0)=X(\\pi)=0$ son $\\lambda_n=n^{2}$. El valor de $\\lambda_3$ es:",
+        "respuesta": "9",
+        "tolNum": 0.001,
+        "resumen": "El tercer valor propio.",
+        "fuente": "Banco MathUNAL, simulacro de Matemáticas Especiales"
+       },
+       {
+        "tipo": "mcq",
+        "texto": "Para $-X''=\\lambda X$ con condiciones de NEUMANN $X'(0)=X'(L)=0$, los valores propios son:",
+        "opciones": [
+         "$\\lambda_n=\\left(\\dfrac{n\\pi}{L}\\right)^{2}$ para $n=0,1,2,\\ldots$ (incluye $\\lambda_0=0$ con $X_0=$ const.)",
+         "$\\lambda_n=\\left(\\dfrac{n\\pi}{L}\\right)^{2}$ solo para $n\\ge1$",
+         "no hay valores propios",
+         "$\\lambda_n$ negativos"
+        ],
+        "correcta": 0,
+        "resumen": "Los valores propios con Neumann.",
+        "fuente": "Banco MathUNAL, simulacro de Matemáticas Especiales"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "Tu repaso",
+    "corto": "Repaso",
+    "bloques": [
+     {
+      "t": "repaso"
+     }
+    ]
+   },
+   {
+    "titulo": "En resumen",
+    "corto": "Resumen",
+    "bloques": [
+     {
+      "t": "resumen"
+     }
+    ]
+   }
+  ]
+ },
+ "practicar": {
+  "pasos": [
+   {
+    "titulo": "El problema",
+    "grafica": {
+     "draw": 1
+    },
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Se buscan los lambda con solución no nula."
+     },
+     {
+      "t": "eq",
+      "tex": "-X''=\\lambda X,\\quad X(0)=X(\\pi)=0"
+     }
+    ]
+   },
+   {
+    "titulo": "Cambia el modo",
+    "grafica": {
+     "draw": 1
+    },
+    "laboratorio": true,
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mueve el deslizador. Solo importan los valores enteros de n. Abajo se leen lambda y el número de ceros."
+     }
+    ]
+   },
+   {
+    "titulo": "El modo tres",
+    "grafica": {
+     "draw": 1,
+     "guide": 1,
+     "ok": true
+    },
+    "laboratorio": true,
+    "d": 3,
+    "bloques": [
+     {
+      "t": "eq",
+      "tex": "\\lambda_{3}=9"
+     },
+     {
+      "t": "p",
+      "html": "Con n igual a 3 hay dos ceros dentro del intervalo."
+     }
+    ]
+   },
+   {
+    "titulo": "Revisa tu respuesta",
+    "grafica": {
+     "draw": 1,
+     "guide": 1,
+     "ok": true,
+     "d": 3
+    },
+    "bloques": [
+     {
+      "t": "pregunta"
+     },
+     {
+      "t": "nota",
+      "html": "El tipo depende solo de A, B y C."
+     }
+    ]
+   }
+  ]
+ },
+ "pregunta": {
+  "tex": "u_{xx}-u_{yy}=0\\ \\text{es de tipo}",
+  "opciones": [
+   "hiperbólico",
+   "elíptico",
+   "parabólico",
+   "no clasificable"
+  ],
+  "correcta": 0,
+  "explicacion": "Aquí A vale 1, B vale 0 y C vale menos 1. El discriminante B al cuadrado menos 4AC es 4, que es positivo, y la EDP es hiperbólica.",
+  "verificacion": {
+   "formula": "0-4*1*(-1)+0*x",
+   "a": 0,
+   "esperado": 4
+  },
+  "pistas": [
+   "Lee A, B y C.",
+   "Calcula B al cuadrado menos 4AC.",
+   "Es positivo."
+  ],
+  "errores": [
+   "",
+   "Elíptico sería con discriminante negativo.",
+   "Parabólico sería con discriminante cero.",
+   "Siempre se puede clasificar con A, B y C."
+  ]
+ },
+ "resumen": [
+  "Los problemas de Sturm-Liouville dan valores propios y funciones propias ortogonales, según las condiciones de frontera.",
+  "Con extremos fijos en 0 y pi, el valor propio del modo n es n al cuadrado.",
+  "El tipo de una EDP depende del signo de B al cuadrado menos 4AC."
+ ]
+}

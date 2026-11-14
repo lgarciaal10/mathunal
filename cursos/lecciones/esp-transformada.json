@@ -1,0 +1,1245 @@
+{
+ "esquema": 1,
+ "id": "es-m2-l1",
+ "ejemplo": true,
+ "curso": "Matemáticas Especiales",
+ "modulo": "Módulo 2 Transformada de Fourier y EDP de evolución",
+ "posicion": "Lección 1 de 5",
+ "titulo": "Transformada de Fourier y propiedades",
+ "minutos": 28,
+ "ejercicios": 8,
+ "grafica": {
+  "tipo": "plano",
+  "x": [
+   -5.5,
+   5.5
+  ],
+  "y": [
+   -0.4,
+   2.4
+  ],
+  "a": 0.1,
+  "b": 4,
+  "inicio": 1,
+  "elementos": [
+   {
+    "t": "trazo",
+    "puntos": [
+     [
+      "-4.0",
+      "exp(-x*16.0000)"
+     ],
+     [
+      "-3.9",
+      "exp(-x*15.2100)"
+     ],
+     [
+      "-3.8",
+      "exp(-x*14.4400)"
+     ],
+     [
+      "-3.7",
+      "exp(-x*13.6900)"
+     ],
+     [
+      "-3.6",
+      "exp(-x*12.9600)"
+     ],
+     [
+      "-3.5",
+      "exp(-x*12.2500)"
+     ],
+     [
+      "-3.4",
+      "exp(-x*11.5600)"
+     ],
+     [
+      "-3.3",
+      "exp(-x*10.8900)"
+     ],
+     [
+      "-3.2",
+      "exp(-x*10.2400)"
+     ],
+     [
+      "-3.1",
+      "exp(-x*9.6100)"
+     ],
+     [
+      "-3.0",
+      "exp(-x*9.0000)"
+     ],
+     [
+      "-2.9",
+      "exp(-x*8.4100)"
+     ],
+     [
+      "-2.8",
+      "exp(-x*7.8400)"
+     ],
+     [
+      "-2.7",
+      "exp(-x*7.2900)"
+     ],
+     [
+      "-2.6",
+      "exp(-x*6.7600)"
+     ],
+     [
+      "-2.5",
+      "exp(-x*6.2500)"
+     ],
+     [
+      "-2.4",
+      "exp(-x*5.7600)"
+     ],
+     [
+      "-2.3",
+      "exp(-x*5.2900)"
+     ],
+     [
+      "-2.2",
+      "exp(-x*4.8400)"
+     ],
+     [
+      "-2.1",
+      "exp(-x*4.4100)"
+     ],
+     [
+      "-2.0",
+      "exp(-x*4.0000)"
+     ],
+     [
+      "-1.9",
+      "exp(-x*3.6100)"
+     ],
+     [
+      "-1.8",
+      "exp(-x*3.2400)"
+     ],
+     [
+      "-1.7",
+      "exp(-x*2.8900)"
+     ],
+     [
+      "-1.6",
+      "exp(-x*2.5600)"
+     ],
+     [
+      "-1.5",
+      "exp(-x*2.2500)"
+     ],
+     [
+      "-1.4",
+      "exp(-x*1.9600)"
+     ],
+     [
+      "-1.3",
+      "exp(-x*1.6900)"
+     ],
+     [
+      "-1.2",
+      "exp(-x*1.4400)"
+     ],
+     [
+      "-1.1",
+      "exp(-x*1.2100)"
+     ],
+     [
+      "-1.0",
+      "exp(-x*1.0000)"
+     ],
+     [
+      "-0.9",
+      "exp(-x*0.8100)"
+     ],
+     [
+      "-0.8",
+      "exp(-x*0.6400)"
+     ],
+     [
+      "-0.7",
+      "exp(-x*0.4900)"
+     ],
+     [
+      "-0.6",
+      "exp(-x*0.3600)"
+     ],
+     [
+      "-0.5",
+      "exp(-x*0.2500)"
+     ],
+     [
+      "-0.4",
+      "exp(-x*0.1600)"
+     ],
+     [
+      "-0.3",
+      "exp(-x*0.0900)"
+     ],
+     [
+      "-0.2",
+      "exp(-x*0.0400)"
+     ],
+     [
+      "-0.1",
+      "exp(-x*0.0100)"
+     ],
+     [
+      "0.0",
+      "exp(-x*0.0000)"
+     ],
+     [
+      "0.1",
+      "exp(-x*0.0100)"
+     ],
+     [
+      "0.2",
+      "exp(-x*0.0400)"
+     ],
+     [
+      "0.3",
+      "exp(-x*0.0900)"
+     ],
+     [
+      "0.4",
+      "exp(-x*0.1600)"
+     ],
+     [
+      "0.5",
+      "exp(-x*0.2500)"
+     ],
+     [
+      "0.6",
+      "exp(-x*0.3600)"
+     ],
+     [
+      "0.7",
+      "exp(-x*0.4900)"
+     ],
+     [
+      "0.8",
+      "exp(-x*0.6400)"
+     ],
+     [
+      "0.9",
+      "exp(-x*0.8100)"
+     ],
+     [
+      "1.0",
+      "exp(-x*1.0000)"
+     ],
+     [
+      "1.1",
+      "exp(-x*1.2100)"
+     ],
+     [
+      "1.2",
+      "exp(-x*1.4400)"
+     ],
+     [
+      "1.3",
+      "exp(-x*1.6900)"
+     ],
+     [
+      "1.4",
+      "exp(-x*1.9600)"
+     ],
+     [
+      "1.5",
+      "exp(-x*2.2500)"
+     ],
+     [
+      "1.6",
+      "exp(-x*2.5600)"
+     ],
+     [
+      "1.7",
+      "exp(-x*2.8900)"
+     ],
+     [
+      "1.8",
+      "exp(-x*3.2400)"
+     ],
+     [
+      "1.9",
+      "exp(-x*3.6100)"
+     ],
+     [
+      "2.0",
+      "exp(-x*4.0000)"
+     ],
+     [
+      "2.1",
+      "exp(-x*4.4100)"
+     ],
+     [
+      "2.2",
+      "exp(-x*4.8400)"
+     ],
+     [
+      "2.3",
+      "exp(-x*5.2900)"
+     ],
+     [
+      "2.4",
+      "exp(-x*5.7600)"
+     ],
+     [
+      "2.5",
+      "exp(-x*6.2500)"
+     ],
+     [
+      "2.6",
+      "exp(-x*6.7600)"
+     ],
+     [
+      "2.7",
+      "exp(-x*7.2900)"
+     ],
+     [
+      "2.8",
+      "exp(-x*7.8400)"
+     ],
+     [
+      "2.9",
+      "exp(-x*8.4100)"
+     ],
+     [
+      "3.0",
+      "exp(-x*9.0000)"
+     ],
+     [
+      "3.1",
+      "exp(-x*9.6100)"
+     ],
+     [
+      "3.2",
+      "exp(-x*10.2400)"
+     ],
+     [
+      "3.3",
+      "exp(-x*10.8900)"
+     ],
+     [
+      "3.4",
+      "exp(-x*11.5600)"
+     ],
+     [
+      "3.5",
+      "exp(-x*12.2500)"
+     ],
+     [
+      "3.6",
+      "exp(-x*12.9600)"
+     ],
+     [
+      "3.7",
+      "exp(-x*13.6900)"
+     ],
+     [
+      "3.8",
+      "exp(-x*14.4400)"
+     ],
+     [
+      "3.9",
+      "exp(-x*15.2100)"
+     ],
+     [
+      "4.0",
+      "exp(-x*16.0000)"
+     ]
+    ],
+    "c": 0
+   },
+   {
+    "t": "trazo",
+    "puntos": [
+     [
+      "-4.0",
+      "(1/sqrt(2*x))*exp(-16.0000/(4*x))"
+     ],
+     [
+      "-3.9",
+      "(1/sqrt(2*x))*exp(-15.2100/(4*x))"
+     ],
+     [
+      "-3.8",
+      "(1/sqrt(2*x))*exp(-14.4400/(4*x))"
+     ],
+     [
+      "-3.7",
+      "(1/sqrt(2*x))*exp(-13.6900/(4*x))"
+     ],
+     [
+      "-3.6",
+      "(1/sqrt(2*x))*exp(-12.9600/(4*x))"
+     ],
+     [
+      "-3.5",
+      "(1/sqrt(2*x))*exp(-12.2500/(4*x))"
+     ],
+     [
+      "-3.4",
+      "(1/sqrt(2*x))*exp(-11.5600/(4*x))"
+     ],
+     [
+      "-3.3",
+      "(1/sqrt(2*x))*exp(-10.8900/(4*x))"
+     ],
+     [
+      "-3.2",
+      "(1/sqrt(2*x))*exp(-10.2400/(4*x))"
+     ],
+     [
+      "-3.1",
+      "(1/sqrt(2*x))*exp(-9.6100/(4*x))"
+     ],
+     [
+      "-3.0",
+      "(1/sqrt(2*x))*exp(-9.0000/(4*x))"
+     ],
+     [
+      "-2.9",
+      "(1/sqrt(2*x))*exp(-8.4100/(4*x))"
+     ],
+     [
+      "-2.8",
+      "(1/sqrt(2*x))*exp(-7.8400/(4*x))"
+     ],
+     [
+      "-2.7",
+      "(1/sqrt(2*x))*exp(-7.2900/(4*x))"
+     ],
+     [
+      "-2.6",
+      "(1/sqrt(2*x))*exp(-6.7600/(4*x))"
+     ],
+     [
+      "-2.5",
+      "(1/sqrt(2*x))*exp(-6.2500/(4*x))"
+     ],
+     [
+      "-2.4",
+      "(1/sqrt(2*x))*exp(-5.7600/(4*x))"
+     ],
+     [
+      "-2.3",
+      "(1/sqrt(2*x))*exp(-5.2900/(4*x))"
+     ],
+     [
+      "-2.2",
+      "(1/sqrt(2*x))*exp(-4.8400/(4*x))"
+     ],
+     [
+      "-2.1",
+      "(1/sqrt(2*x))*exp(-4.4100/(4*x))"
+     ],
+     [
+      "-2.0",
+      "(1/sqrt(2*x))*exp(-4.0000/(4*x))"
+     ],
+     [
+      "-1.9",
+      "(1/sqrt(2*x))*exp(-3.6100/(4*x))"
+     ],
+     [
+      "-1.8",
+      "(1/sqrt(2*x))*exp(-3.2400/(4*x))"
+     ],
+     [
+      "-1.7",
+      "(1/sqrt(2*x))*exp(-2.8900/(4*x))"
+     ],
+     [
+      "-1.6",
+      "(1/sqrt(2*x))*exp(-2.5600/(4*x))"
+     ],
+     [
+      "-1.5",
+      "(1/sqrt(2*x))*exp(-2.2500/(4*x))"
+     ],
+     [
+      "-1.4",
+      "(1/sqrt(2*x))*exp(-1.9600/(4*x))"
+     ],
+     [
+      "-1.3",
+      "(1/sqrt(2*x))*exp(-1.6900/(4*x))"
+     ],
+     [
+      "-1.2",
+      "(1/sqrt(2*x))*exp(-1.4400/(4*x))"
+     ],
+     [
+      "-1.1",
+      "(1/sqrt(2*x))*exp(-1.2100/(4*x))"
+     ],
+     [
+      "-1.0",
+      "(1/sqrt(2*x))*exp(-1.0000/(4*x))"
+     ],
+     [
+      "-0.9",
+      "(1/sqrt(2*x))*exp(-0.8100/(4*x))"
+     ],
+     [
+      "-0.8",
+      "(1/sqrt(2*x))*exp(-0.6400/(4*x))"
+     ],
+     [
+      "-0.7",
+      "(1/sqrt(2*x))*exp(-0.4900/(4*x))"
+     ],
+     [
+      "-0.6",
+      "(1/sqrt(2*x))*exp(-0.3600/(4*x))"
+     ],
+     [
+      "-0.5",
+      "(1/sqrt(2*x))*exp(-0.2500/(4*x))"
+     ],
+     [
+      "-0.4",
+      "(1/sqrt(2*x))*exp(-0.1600/(4*x))"
+     ],
+     [
+      "-0.3",
+      "(1/sqrt(2*x))*exp(-0.0900/(4*x))"
+     ],
+     [
+      "-0.2",
+      "(1/sqrt(2*x))*exp(-0.0400/(4*x))"
+     ],
+     [
+      "-0.1",
+      "(1/sqrt(2*x))*exp(-0.0100/(4*x))"
+     ],
+     [
+      "0.0",
+      "(1/sqrt(2*x))*exp(-0.0000/(4*x))"
+     ],
+     [
+      "0.1",
+      "(1/sqrt(2*x))*exp(-0.0100/(4*x))"
+     ],
+     [
+      "0.2",
+      "(1/sqrt(2*x))*exp(-0.0400/(4*x))"
+     ],
+     [
+      "0.3",
+      "(1/sqrt(2*x))*exp(-0.0900/(4*x))"
+     ],
+     [
+      "0.4",
+      "(1/sqrt(2*x))*exp(-0.1600/(4*x))"
+     ],
+     [
+      "0.5",
+      "(1/sqrt(2*x))*exp(-0.2500/(4*x))"
+     ],
+     [
+      "0.6",
+      "(1/sqrt(2*x))*exp(-0.3600/(4*x))"
+     ],
+     [
+      "0.7",
+      "(1/sqrt(2*x))*exp(-0.4900/(4*x))"
+     ],
+     [
+      "0.8",
+      "(1/sqrt(2*x))*exp(-0.6400/(4*x))"
+     ],
+     [
+      "0.9",
+      "(1/sqrt(2*x))*exp(-0.8100/(4*x))"
+     ],
+     [
+      "1.0",
+      "(1/sqrt(2*x))*exp(-1.0000/(4*x))"
+     ],
+     [
+      "1.1",
+      "(1/sqrt(2*x))*exp(-1.2100/(4*x))"
+     ],
+     [
+      "1.2",
+      "(1/sqrt(2*x))*exp(-1.4400/(4*x))"
+     ],
+     [
+      "1.3",
+      "(1/sqrt(2*x))*exp(-1.6900/(4*x))"
+     ],
+     [
+      "1.4",
+      "(1/sqrt(2*x))*exp(-1.9600/(4*x))"
+     ],
+     [
+      "1.5",
+      "(1/sqrt(2*x))*exp(-2.2500/(4*x))"
+     ],
+     [
+      "1.6",
+      "(1/sqrt(2*x))*exp(-2.5600/(4*x))"
+     ],
+     [
+      "1.7",
+      "(1/sqrt(2*x))*exp(-2.8900/(4*x))"
+     ],
+     [
+      "1.8",
+      "(1/sqrt(2*x))*exp(-3.2400/(4*x))"
+     ],
+     [
+      "1.9",
+      "(1/sqrt(2*x))*exp(-3.6100/(4*x))"
+     ],
+     [
+      "2.0",
+      "(1/sqrt(2*x))*exp(-4.0000/(4*x))"
+     ],
+     [
+      "2.1",
+      "(1/sqrt(2*x))*exp(-4.4100/(4*x))"
+     ],
+     [
+      "2.2",
+      "(1/sqrt(2*x))*exp(-4.8400/(4*x))"
+     ],
+     [
+      "2.3",
+      "(1/sqrt(2*x))*exp(-5.2900/(4*x))"
+     ],
+     [
+      "2.4",
+      "(1/sqrt(2*x))*exp(-5.7600/(4*x))"
+     ],
+     [
+      "2.5",
+      "(1/sqrt(2*x))*exp(-6.2500/(4*x))"
+     ],
+     [
+      "2.6",
+      "(1/sqrt(2*x))*exp(-6.7600/(4*x))"
+     ],
+     [
+      "2.7",
+      "(1/sqrt(2*x))*exp(-7.2900/(4*x))"
+     ],
+     [
+      "2.8",
+      "(1/sqrt(2*x))*exp(-7.8400/(4*x))"
+     ],
+     [
+      "2.9",
+      "(1/sqrt(2*x))*exp(-8.4100/(4*x))"
+     ],
+     [
+      "3.0",
+      "(1/sqrt(2*x))*exp(-9.0000/(4*x))"
+     ],
+     [
+      "3.1",
+      "(1/sqrt(2*x))*exp(-9.6100/(4*x))"
+     ],
+     [
+      "3.2",
+      "(1/sqrt(2*x))*exp(-10.2400/(4*x))"
+     ],
+     [
+      "3.3",
+      "(1/sqrt(2*x))*exp(-10.8900/(4*x))"
+     ],
+     [
+      "3.4",
+      "(1/sqrt(2*x))*exp(-11.5600/(4*x))"
+     ],
+     [
+      "3.5",
+      "(1/sqrt(2*x))*exp(-12.2500/(4*x))"
+     ],
+     [
+      "3.6",
+      "(1/sqrt(2*x))*exp(-12.9600/(4*x))"
+     ],
+     [
+      "3.7",
+      "(1/sqrt(2*x))*exp(-13.6900/(4*x))"
+     ],
+     [
+      "3.8",
+      "(1/sqrt(2*x))*exp(-14.4400/(4*x))"
+     ],
+     [
+      "3.9",
+      "(1/sqrt(2*x))*exp(-15.2100/(4*x))"
+     ],
+     [
+      "4.0",
+      "(1/sqrt(2*x))*exp(-16.0000/(4*x))"
+     ]
+    ],
+    "c": 1
+   }
+  ],
+  "lecturas": [
+   {
+    "rotulo": "ancho de la gaussiana, la raíz de 1 entre a",
+    "formula": "1/sqrt(x)"
+   },
+   {
+    "rotulo": "altura de la transformada en omega igual a 0",
+    "formula": "1/sqrt(2*x)"
+   }
+  ],
+  "etiquetas": [
+   "Mientras mayor es a, más angosta es la función en el tiempo",
+   "Y más baja y ancha es su transformada, en la frecuencia"
+  ],
+  "etiquetaSlider": "Parámetro a, de 0.1 a 4",
+  "alt": "La gaussiana e elevado a menos a x al cuadrado, en azul, y su transformada de Fourier, otra gaussiana, en marrón. Al aumentar a la gaussiana original se hace más angosta y su transformada se hace más ancha y baja. Una función no puede ser angosta en el tiempo y en la frecuencia a la vez"
+ },
+ "glosario": {
+  "transformada": "La transformada de Fourier de f es la función f gorro de omega, que mide cuánto de la frecuencia omega hay en f. Sirve para funciones no periódicas.",
+  "traslacion": "Trasladar la función por a multiplica la transformada por e elevado a menos i a omega. El módulo no cambia, solo la fase.",
+  "convolucion": "La transformada de una convolución es proporcional al producto de las transformadas.",
+  "incertidumbre": "Una función angosta en el tiempo tiene una transformada ancha en la frecuencia, y al revés. No pueden ser angostas las dos a la vez."
+ },
+ "ver": {
+  "duracion": 24.0,
+  "capitulos": [
+   [
+    0,
+    4,
+    "La curva azul es la gaussiana e elevado a menos a x al cuadrado, y la marrón es su transformada de Fourier."
+   ],
+   [
+    4,
+    9,
+    "La transformada de una gaussiana es otra gaussiana. Con a igual a 1 las dos tienen un ancho parecido."
+   ],
+   [
+    9,
+    15,
+    "Con a grande, la gaussiana es muy angosta y su transformada es ancha y baja."
+   ],
+   [
+    15,
+    20,
+    "Con a chico, la gaussiana es ancha y su transformada es angosta y alta."
+   ],
+   [
+    20,
+    24,
+    "Esta es la relación de incertidumbre. No se puede ser angosto en el tiempo y en la frecuencia a la vez."
+   ]
+  ],
+  "canales": {
+   "draw": [
+    [
+     0.3,
+     0
+    ],
+    [
+     3.5,
+     1
+    ]
+   ],
+   "d": [
+    [
+     4,
+     1
+    ],
+    [
+     8,
+     1
+    ],
+    [
+     10,
+     4
+    ],
+    [
+     14,
+     4
+    ],
+    [
+     16,
+     0.1
+    ],
+    [
+     19,
+     0.1
+    ],
+    [
+     24,
+     0.1
+    ]
+   ],
+   "guide": [
+    [
+     4,
+     0
+    ],
+    [
+     5,
+     1
+    ]
+   ]
+  },
+  "intervalos": {
+   "ok": [
+    15,
+    24
+   ]
+  }
+ },
+ "leer": {
+  "secciones": [
+   {
+    "titulo": "La idea",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "La {{gl:transformada|transformada de Fourier}} es la versión de la serie de Fourier para funciones que no son periódicas. Convierte una función del tiempo en una función de la frecuencia. Tiene propiedades muy útiles. La {{gl:traslacion|traslación}} se vuelve una fase, la derivada se vuelve una multiplicación, y la {{gl:convolucion|convolución}} se vuelve un producto. Y siempre hay una relación de {{gl:incertidumbre|incertidumbre}} entre el ancho en el tiempo y en la frecuencia."
+     }
+    ]
+   },
+   {
+    "titulo": "Un ejemplo",
+    "corto": "Un ejemplo",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "La gaussiana es su propia forma en la frecuencia. Mira cómo cambia el ancho de las dos curvas al mover a."
+     },
+     {
+      "t": "eq",
+      "tex": "\\mathcal{F}\\{e^{-ax^{2}}\\}(\\omega)=\\dfrac{1}{\\sqrt{2a}}\\,e^{-\\omega^{2}/4a}"
+     },
+     {
+      "t": "grafica",
+      "animar": "dibujar",
+      "alt": "La gaussiana y su transformada"
+     }
+    ]
+   },
+   {
+    "titulo": "Piensa antes de ver",
+    "corto": "Piensa",
+    "bloques": [
+     {
+      "t": "piensa",
+      "pregunta": "Si una función se comprime en el tiempo, ¿su transformada se ensancha o se angosta en la frecuencia?",
+      "opciones": [
+       "Se ensancha",
+       "Se angosta"
+      ],
+      "correcta": "Se ensancha",
+      "bien": "Muy bien. Comprimir en el tiempo ensancha la frecuencia. Más abajo se ve con la gaussiana.",
+      "mal": "Se ensancha. Una señal corta contiene muchas frecuencias, y una señal larga contiene pocas. Más abajo se ve con la gaussiana."
+     }
+    ]
+   },
+   {
+    "titulo": "Variando a",
+    "corto": "El parámetro",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mira las dos gaussianas con a igual a 0.1, 1 y 4."
+     },
+     {
+      "t": "acercando",
+      "ds": [
+       0.1,
+       1,
+       4
+      ],
+      "alt": "Las gaussianas con tres valores de a"
+     },
+     {
+      "t": "p",
+      "html": "Con a igual a 4 la gaussiana es angosta y su transformada es ancha y baja. Con a igual a 0.1 es al revés."
+     }
+    ]
+   },
+   {
+    "titulo": "Propiedades",
+    "corto": "Propiedades",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Las propiedades permiten calcular transformadas sin integrar de nuevo."
+     },
+     {
+      "t": "pasos",
+      "items": [
+       {
+        "tex": "\\mathcal{F}\\{f(x-a)\\}=e^{-ia\\omega}\\,\\hat{f}(\\omega)",
+        "porque": "Traslación. Solo cambia la fase."
+       },
+       {
+        "tex": "\\mathcal{F}\\{f'(x)\\}=i\\omega\\,\\hat{f}(\\omega)",
+        "porque": "Derivada. Se multiplica por i omega."
+       },
+       {
+        "tex": "\\mathcal{F}\\{f(ax)\\}=\\dfrac{1}{|a|}\\,\\hat{f}\\!\\left(\\dfrac{\\omega}{a}\\right)",
+        "porque": "Escalamiento. Comprimir en x ensancha en omega."
+       },
+       {
+        "tex": "\\mathcal{F}\\{f*g\\}\\propto\\hat{f}(\\omega)\\,\\hat{g}(\\omega)",
+        "porque": "Convolución. Se vuelve un producto."
+       }
+      ]
+     },
+     {
+      "t": "ojo",
+      "html": "Hay varias convenciones para la transformada, con constantes distintas. Las propiedades son las mismas, pero las constantes cambian, y hay que revisar cuál usa cada libro."
+     }
+    ]
+   },
+   {
+    "titulo": "Ejemplos clásicos",
+    "corto": "Ejemplos",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Algunas transformadas conviene conocerlas."
+     },
+     {
+      "t": "pasos",
+      "items": [
+       {
+        "tex": "e^{-|x|}\\ \\to\\ \\sqrt{\\tfrac{2}{\\pi}}\\dfrac{1}{1+\\omega^{2}}",
+        "porque": "La exponencial de dos lados da una lorentziana."
+       },
+       {
+        "tex": "h(x)=f(x-2)\\ \\Rightarrow\\ \\hat{h}=e^{-2i\\omega}\\sqrt{\\tfrac{2}{\\pi}}\\dfrac{1}{1+\\omega^{2}}",
+        "porque": "Con la propiedad de traslación."
+       },
+       {
+        "tex": "\\text{pulso}\\ [-a,a]\\ \\to\\ \\dfrac{\\operatorname{sen}(a\\omega)}{\\omega}",
+        "porque": "El pulso rectangular da una función sinc."
+       },
+       {
+        "tex": "e^{-ax^{2}}\\ \\to\\ \\text{gaussiana}",
+        "porque": "La gaussiana se transforma en otra gaussiana."
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "¿Para qué sirve?",
+    "corto": "En ingeniería",
+    "bloques": [
+     {
+      "t": "ingenieria",
+      "titulo": "El ancho de banda de un pulso",
+      "html": "Un pulso rectangular muy corto sirve para excitar un circuito y probar muchas frecuencias a la vez, porque su transformada es ancha. Un pulso largo prueba pocas frecuencias, con más precisión. Ese es el compromiso de la incertidumbre.",
+      "tex": "\\Delta t\\cdot\\Delta\\omega\\gtrsim\\text{constante}",
+      "datos": [
+       {
+        "k": "Pulso corto",
+        "v": "banda ancha"
+       },
+       {
+        "k": "Pulso largo",
+        "v": "banda angosta"
+       },
+       {
+        "k": "Compromiso",
+        "v": "no se tienen los dos"
+       }
+      ],
+      "cierre": "En un radar o en un sistema de comunicaciones, el ancho del pulso decide la resolución en distancia y en frecuencia. Si se quiere medir una distancia con precisión se usa un pulso corto, pero entonces la frecuencia queda poco definida. Es la misma limitación que aparece en mecánica cuántica con posición y momento."
+     }
+    ]
+   },
+   {
+    "titulo": "Completa el paso",
+    "corto": "Completa",
+    "bloques": [
+     {
+      "t": "completar",
+      "enunciado": "Se aplica la propiedad de traslación de la transformada de Fourier. Falta el factor.",
+      "tex": "\\mathcal{F}\\{f(x-a)\\}=[[hueco]]\\,\\hat{f}(\\omega)",
+      "opciones": [
+       {
+        "tex": "e^{-ia\\omega}",
+        "txt": "una fase"
+       },
+       {
+        "tex": "i\\omega",
+        "txt": "multiplicar por i omega"
+       },
+       {
+        "tex": "\\dfrac{1}{|a|}",
+        "txt": "un factor de escala"
+       }
+      ],
+      "correcta": 0,
+      "errores": [
+       "",
+       "Multiplicar por i omega es la propiedad de la derivada, y no la de la traslación.",
+       "El factor de escala aparece cuando se comprime la función, y no cuando se traslada."
+      ],
+      "pista": "La traslación solo cambia la fase.",
+      "porque": "El factor es una exponencial compleja que no cambia el módulo."
+     }
+    ]
+   },
+   {
+    "titulo": "Encuentra el error",
+    "corto": "Error",
+    "bloques": [
+     {
+      "t": "error",
+      "enunciado": "Alguien aplicó una propiedad de la transformada de Fourier y se equivocó en un paso. Toca el paso que está mal.",
+      "pasos": [
+       {
+        "tex": "f(x)=e^{-|x|},\\quad h(x)=f(x-2)",
+        "porque": "La función y su traslación.",
+        "txt": "h es f trasladada 2"
+       },
+       {
+        "tex": "\\hat{h}(\\omega)=\\hat{f}(\\omega-2)",
+        "porque": "Este paso es el que falla.",
+        "txt": "la transformada se traslada en omega"
+       },
+       {
+        "tex": "\\text{Es la lorentziana trasladada}",
+        "porque": "Depende del paso anterior.",
+        "txt": "es la misma lorentziana trasladada"
+       }
+      ],
+      "mal": 1,
+      "explicacion": "Trasladar en x no traslada la transformada, sino que la multiplica por una fase, e elevado a menos 2 i omega. El módulo de la transformada no cambia.",
+      "correccion": "\\hat{h}(\\omega)=e^{-2i\\omega}\\hat{f}(\\omega)",
+      "pista": "Recuerda qué cambia con la traslación."
+     }
+    ]
+   },
+   {
+    "titulo": "Ordena los pasos",
+    "corto": "Ordena",
+    "bloques": [
+     {
+      "t": "ordenar",
+      "enunciado": "Estos son los pasos para obtener la transformada de la derivada de f, pero están desordenados.",
+      "pasos": [
+       "\\hat{f'}(\\omega)=\\displaystyle\\int f'(x)e^{-i\\omega x}dx",
+       "=\\Big[f\\,e^{-i\\omega x}\\Big]+i\\omega\\displaystyle\\int f\\,e^{-i\\omega x}dx",
+       "\\Big[f\\,e^{-i\\omega x}\\Big]=0",
+       "\\hat{f'}(\\omega)=i\\omega\\,\\hat{f}(\\omega)"
+      ],
+      "mezcla": [
+       2,
+       0,
+       3,
+       1
+      ],
+      "porque": "Se escribe la definición, se integra por partes y los términos del borde se anulan.",
+      "pista": "Se empieza con la definición.",
+      "txt": [
+       "Se escribe la definición",
+       "Se integra por partes",
+       "Los términos en los extremos se anulan",
+       "Se obtiene el resultado"
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "Revisa tu respuesta",
+    "corto": "Revisa",
+    "bloques": [
+     {
+      "t": "pregunta"
+     },
+     {
+      "t": "nota",
+      "html": "Puedes pedir pistas de a una. Si fallas, el mensaje te dice qué error se cometió."
+     }
+    ]
+   },
+   {
+    "titulo": "Mini simulacro",
+    "corto": "Simulacro",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Tres preguntas reales del banco de MathUNAL sobre este tema. Responde sin mirar los pasos."
+     },
+     {
+      "t": "simulacro",
+      "titulo": "Mini simulacro de la transformada de Fourier y propiedades",
+      "preguntas": [
+       {
+        "tipo": "mcq",
+        "texto": "La propiedad de traslación de la transformada de Fourier dice que $\\mathcal{F}\\{f(x-a)\\}(\\omega)=$",
+        "opciones": [
+         "$e^{-ia\\omega}\\,\\hat{f}(\\omega)$",
+         "$\\hat{f}(\\omega-a)$",
+         "$e^{-a\\omega^{2}}\\hat{f}(\\omega)$",
+         "$a\\,\\hat{f}(\\omega)$"
+        ],
+        "correcta": 0,
+        "resumen": "La traslación multiplica por una fase, $e^{-ia\\omega}$.",
+        "fuente": "Banco MathUNAL, simulacro de Matemáticas Especiales"
+       },
+       {
+        "tipo": "mcq",
+        "texto": "La transformada de Fourier de la derivada, $\\mathcal{F}\\{f'(x)\\}(\\omega)$, es:",
+        "opciones": [
+         "$i\\omega\\,\\hat{f}(\\omega)$",
+         "$\\dfrac{\\hat{f}(\\omega)}{i\\omega}$",
+         "$\\omega^{2}\\hat{f}(\\omega)$",
+         "$-\\hat{f}(\\omega)$"
+        ],
+        "correcta": 0,
+        "resumen": "La derivada se vuelve la multiplicación por $i\\omega$.",
+        "fuente": "Banco MathUNAL, simulacro de Matemáticas Especiales"
+       },
+       {
+        "tipo": "mcq",
+        "texto": "La transformada de Fourier de una gaussiana $f(x)=e^{-ax^{2}}$ ($a>0$) es:",
+        "opciones": [
+         "otra gaussiana, $\\dfrac{1}{\\sqrt{2a}}e^{-\\omega^{2}/4a}$",
+         "una Lorentziana $\\dfrac{1}{1+\\omega^{2}}$",
+         "un pulso rectangular",
+         "$\\dfrac{\\sin\\omega}{\\omega}$"
+        ],
+        "correcta": 0,
+        "resumen": "La transformada de una gaussiana es otra gaussiana.",
+        "fuente": "Banco MathUNAL, simulacro de Matemáticas Especiales"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "Tu repaso",
+    "corto": "Repaso",
+    "bloques": [
+     {
+      "t": "repaso"
+     }
+    ]
+   },
+   {
+    "titulo": "En resumen",
+    "corto": "Resumen",
+    "bloques": [
+     {
+      "t": "resumen"
+     }
+    ]
+   }
+  ]
+ },
+ "practicar": {
+  "pasos": [
+   {
+    "titulo": "Dos gaussianas",
+    "grafica": {
+     "draw": 1
+    },
+    "bloques": [
+     {
+      "t": "p",
+      "html": "La gaussiana y su transformada de Fourier."
+     },
+     {
+      "t": "eq",
+      "tex": "e^{-ax^{2}}\\ \\leftrightarrow\\ \\dfrac{1}{\\sqrt{2a}}e^{-\\omega^{2}/4a}"
+     }
+    ]
+   },
+   {
+    "titulo": "Cambia a",
+    "grafica": {
+     "draw": 1
+    },
+    "laboratorio": true,
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mueve el deslizador. Abajo se leen el ancho de la gaussiana y la altura de su transformada."
+     }
+    ]
+   },
+   {
+    "titulo": "Una gaussiana angosta",
+    "grafica": {
+     "draw": 1,
+     "guide": 1,
+     "ok": true
+    },
+    "laboratorio": true,
+    "d": 4,
+    "bloques": [
+     {
+      "t": "eq",
+      "tex": "a=4\\ \\Rightarrow\\ \\text{ancho}=0.5,\\ \\text{altura}=0.35"
+     },
+     {
+      "t": "p",
+      "html": "Con a igual a 4, la función es angosta y su transformada es ancha y baja."
+     }
+    ]
+   },
+   {
+    "titulo": "Revisa tu respuesta",
+    "grafica": {
+     "draw": 1,
+     "guide": 1,
+     "ok": true,
+     "d": 4
+    },
+    "bloques": [
+     {
+      "t": "pregunta"
+     },
+     {
+      "t": "nota",
+      "html": "Recuerda qué se multiplica en cada propiedad."
+     }
+    ]
+   }
+  ]
+ },
+ "pregunta": {
+  "tex": "\\mathcal{F}\\{f'(x)\\}(\\omega)\\ \\text{es}",
+  "opciones": [
+   "$i\\omega\\,\\hat{f}(\\omega)$",
+   "$\\dfrac{\\hat{f}(\\omega)}{i\\omega}$",
+   "$\\omega^{2}\\hat{f}(\\omega)$",
+   "$\\hat{f}(\\omega-1)$"
+  ],
+  "correcta": 0,
+  "explicacion": "Al integrar por partes, los términos del borde se anulan y queda i omega por la transformada de f. Por eso derivar en x equivale a multiplicar por i omega en la frecuencia.",
+  "verificacion": {
+   "formula": "1+0*x",
+   "a": 0,
+   "esperado": 1
+  },
+  "pistas": [
+   "Integra por partes.",
+   "Los términos de borde se anulan.",
+   "Queda i omega por la transformada."
+  ],
+  "errores": [
+   "",
+   "Dividir entre i omega corresponde a integrar, y no a derivar.",
+   "Omega al cuadrado aparece con la segunda derivada, y con signo menos.",
+   "Trasladar en la frecuencia corresponde a multiplicar por una exponencial en x."
+  ]
+ },
+ "resumen": [
+  "La transformada de Fourier representa funciones no periódicas con frecuencias continuas.",
+  "La traslación multiplica por una fase, la derivada por i omega, y la convolución se vuelve un producto.",
+  "Una función angosta en x tiene una transformada ancha, y no se puede tener angosto en los dos lados."
+ ]
+}

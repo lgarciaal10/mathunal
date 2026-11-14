@@ -1,0 +1,907 @@
+{
+ "esquema": 1,
+ "id": "mb-m3-l1",
+ "ejemplo": true,
+ "curso": "Matemáticas Básicas",
+ "modulo": "Módulo 3 Funciones, trigonometría y geometría analítica",
+ "posicion": "Lección 1 de 4",
+ "titulo": "Trigonometría",
+ "minutos": 30,
+ "ejercicios": 15,
+ "grafica": {
+  "tipo": "plano",
+  "x": [
+   -2.75,
+   2.75
+  ],
+  "y": [
+   -1.5,
+   1.5
+  ],
+  "a": 0,
+  "b": 6.283185,
+  "inicio": 0.523599,
+  "elementos": [
+   {
+    "t": "trazo",
+    "puntos": [
+     [
+      "cos(0.0000)",
+      "sin(0.0000)"
+     ],
+     [
+      "cos(0.0873)",
+      "sin(0.0873)"
+     ],
+     [
+      "cos(0.1745)",
+      "sin(0.1745)"
+     ],
+     [
+      "cos(0.2618)",
+      "sin(0.2618)"
+     ],
+     [
+      "cos(0.3491)",
+      "sin(0.3491)"
+     ],
+     [
+      "cos(0.4363)",
+      "sin(0.4363)"
+     ],
+     [
+      "cos(0.5236)",
+      "sin(0.5236)"
+     ],
+     [
+      "cos(0.6109)",
+      "sin(0.6109)"
+     ],
+     [
+      "cos(0.6981)",
+      "sin(0.6981)"
+     ],
+     [
+      "cos(0.7854)",
+      "sin(0.7854)"
+     ],
+     [
+      "cos(0.8727)",
+      "sin(0.8727)"
+     ],
+     [
+      "cos(0.9599)",
+      "sin(0.9599)"
+     ],
+     [
+      "cos(1.0472)",
+      "sin(1.0472)"
+     ],
+     [
+      "cos(1.1345)",
+      "sin(1.1345)"
+     ],
+     [
+      "cos(1.2217)",
+      "sin(1.2217)"
+     ],
+     [
+      "cos(1.3090)",
+      "sin(1.3090)"
+     ],
+     [
+      "cos(1.3963)",
+      "sin(1.3963)"
+     ],
+     [
+      "cos(1.4835)",
+      "sin(1.4835)"
+     ],
+     [
+      "cos(1.5708)",
+      "sin(1.5708)"
+     ],
+     [
+      "cos(1.6581)",
+      "sin(1.6581)"
+     ],
+     [
+      "cos(1.7453)",
+      "sin(1.7453)"
+     ],
+     [
+      "cos(1.8326)",
+      "sin(1.8326)"
+     ],
+     [
+      "cos(1.9199)",
+      "sin(1.9199)"
+     ],
+     [
+      "cos(2.0071)",
+      "sin(2.0071)"
+     ],
+     [
+      "cos(2.0944)",
+      "sin(2.0944)"
+     ],
+     [
+      "cos(2.1817)",
+      "sin(2.1817)"
+     ],
+     [
+      "cos(2.2689)",
+      "sin(2.2689)"
+     ],
+     [
+      "cos(2.3562)",
+      "sin(2.3562)"
+     ],
+     [
+      "cos(2.4435)",
+      "sin(2.4435)"
+     ],
+     [
+      "cos(2.5307)",
+      "sin(2.5307)"
+     ],
+     [
+      "cos(2.6180)",
+      "sin(2.6180)"
+     ],
+     [
+      "cos(2.7053)",
+      "sin(2.7053)"
+     ],
+     [
+      "cos(2.7925)",
+      "sin(2.7925)"
+     ],
+     [
+      "cos(2.8798)",
+      "sin(2.8798)"
+     ],
+     [
+      "cos(2.9671)",
+      "sin(2.9671)"
+     ],
+     [
+      "cos(3.0543)",
+      "sin(3.0543)"
+     ],
+     [
+      "cos(3.1416)",
+      "sin(3.1416)"
+     ],
+     [
+      "cos(3.2289)",
+      "sin(3.2289)"
+     ],
+     [
+      "cos(3.3161)",
+      "sin(3.3161)"
+     ],
+     [
+      "cos(3.4034)",
+      "sin(3.4034)"
+     ],
+     [
+      "cos(3.4907)",
+      "sin(3.4907)"
+     ],
+     [
+      "cos(3.5779)",
+      "sin(3.5779)"
+     ],
+     [
+      "cos(3.6652)",
+      "sin(3.6652)"
+     ],
+     [
+      "cos(3.7525)",
+      "sin(3.7525)"
+     ],
+     [
+      "cos(3.8397)",
+      "sin(3.8397)"
+     ],
+     [
+      "cos(3.9270)",
+      "sin(3.9270)"
+     ],
+     [
+      "cos(4.0143)",
+      "sin(4.0143)"
+     ],
+     [
+      "cos(4.1015)",
+      "sin(4.1015)"
+     ],
+     [
+      "cos(4.1888)",
+      "sin(4.1888)"
+     ],
+     [
+      "cos(4.2761)",
+      "sin(4.2761)"
+     ],
+     [
+      "cos(4.3633)",
+      "sin(4.3633)"
+     ],
+     [
+      "cos(4.4506)",
+      "sin(4.4506)"
+     ],
+     [
+      "cos(4.5379)",
+      "sin(4.5379)"
+     ],
+     [
+      "cos(4.6251)",
+      "sin(4.6251)"
+     ],
+     [
+      "cos(4.7124)",
+      "sin(4.7124)"
+     ],
+     [
+      "cos(4.7997)",
+      "sin(4.7997)"
+     ],
+     [
+      "cos(4.8869)",
+      "sin(4.8869)"
+     ],
+     [
+      "cos(4.9742)",
+      "sin(4.9742)"
+     ],
+     [
+      "cos(5.0615)",
+      "sin(5.0615)"
+     ],
+     [
+      "cos(5.1487)",
+      "sin(5.1487)"
+     ],
+     [
+      "cos(5.2360)",
+      "sin(5.2360)"
+     ],
+     [
+      "cos(5.3233)",
+      "sin(5.3233)"
+     ],
+     [
+      "cos(5.4105)",
+      "sin(5.4105)"
+     ],
+     [
+      "cos(5.4978)",
+      "sin(5.4978)"
+     ],
+     [
+      "cos(5.5851)",
+      "sin(5.5851)"
+     ],
+     [
+      "cos(5.6723)",
+      "sin(5.6723)"
+     ],
+     [
+      "cos(5.7596)",
+      "sin(5.7596)"
+     ],
+     [
+      "cos(5.8469)",
+      "sin(5.8469)"
+     ],
+     [
+      "cos(5.9341)",
+      "sin(5.9341)"
+     ],
+     [
+      "cos(6.0214)",
+      "sin(6.0214)"
+     ],
+     [
+      "cos(6.1087)",
+      "sin(6.1087)"
+     ],
+     [
+      "cos(6.1959)",
+      "sin(6.1959)"
+     ],
+     [
+      "cos(6.2832)",
+      "sin(6.2832)"
+     ]
+    ],
+    "c": 3
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "0",
+     "0"
+    ],
+    "b": [
+     "cos(x)",
+     "sin(x)"
+    ],
+    "c": 2
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "cos(x)",
+     "0"
+    ],
+    "b": [
+     "cos(x)",
+     "sin(x)"
+    ],
+    "c": 1,
+    "guia": true,
+    "guion": true
+   },
+   {
+    "t": "punto",
+    "p": [
+     "cos(x)",
+     "sin(x)"
+    ],
+    "c": 2
+   }
+  ],
+  "lecturas": [
+   {
+    "rotulo": "seno",
+    "formula": "sin(x)"
+   },
+   {
+    "rotulo": "coseno",
+    "formula": "cos(x)"
+   }
+  ],
+  "etiquetas": [
+   "Seno del ángulo",
+   "Coseno del ángulo"
+  ],
+  "etiquetaSlider": "Ángulo en radianes",
+  "alt": "El círculo de radio 1. Un punto sobre él, a un ángulo que se mueve, tiene como coordenada horizontal el coseno y como coordenada vertical el seno. Con 30 grados el seno vale 0.5 y el coseno 0.866"
+ },
+ "glosario": {
+  "radian": "Un radián es el ángulo que abarca un arco igual al radio. Una vuelta completa son 2 pi radianes, que equivalen a 360 grados.",
+  "circulounitario": "El círculo unitario tiene radio 1 y centro en el origen. El punto a un ángulo θ tiene coordenadas coseno de θ y seno de θ.",
+  "identidad": "Una identidad trigonométrica es una igualdad que se cumple para cualquier ángulo. La más importante es seno al cuadrado más coseno al cuadrado igual a 1."
+ },
+ "ver": {
+  "duracion": 22.0,
+  "capitulos": [
+   [
+    0,
+    4,
+    "El círculo unitario tiene radio 1. Un punto sobre él queda determinado por el ángulo, medido desde el eje horizontal hacia arriba."
+   ],
+   [
+    4,
+    8,
+    "Las coordenadas del punto son el coseno y el seno del ángulo. Eso es lo que significan esas dos funciones."
+   ],
+   [
+    8,
+    14,
+    "Mueve el ángulo. El seno es la altura y el coseno es el desplazamiento horizontal. Los dos cambian de signo según el cuadrante."
+   ],
+   [
+    14,
+    18,
+    "Con 45 grados, que son pi sobre 4 radianes, las dos coordenadas son iguales, 0.707, y la tangente vale 1."
+   ],
+   [
+    18,
+    22,
+    "Con 30 grados el seno vale 0.5 y el coseno vale 0.866."
+   ]
+  ],
+  "canales": {
+   "draw": [
+    [
+     0.3,
+     0
+    ],
+    [
+     3.5,
+     1
+    ]
+   ],
+   "d": [
+    [
+     4,
+     0.523599
+    ],
+    [
+     8,
+     0.523599
+    ],
+    [
+     11,
+     3.141593
+    ],
+    [
+     13,
+     5.2
+    ],
+    [
+     14,
+     0.785398
+    ],
+    [
+     17,
+     0.785398
+    ],
+    [
+     18,
+     0.523599
+    ],
+    [
+     22,
+     0.523599
+    ]
+   ],
+   "guide": [
+    [
+     4,
+     0
+    ],
+    [
+     5,
+     1
+    ]
+   ]
+  },
+  "intervalos": {
+   "ok": [
+    18,
+    22
+   ]
+  }
+ },
+ "leer": {
+  "secciones": [
+   {
+    "titulo": "La idea",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "La trigonometría relaciona ángulos con longitudes. En un triángulo rectángulo, el seno, el coseno y la tangente son cocientes entre lados. En el {{gl:circulounitario|círculo unitario}} son coordenadas de un punto, y eso permite usarlas con cualquier ángulo. Los ángulos se miden en grados o en {{gl:radian|radianes}}."
+     }
+    ]
+   },
+   {
+    "titulo": "Un ejemplo",
+    "corto": "Un ejemplo",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mira un punto que se mueve sobre el círculo de radio 1."
+     },
+     {
+      "t": "eq",
+      "tex": "(x,y)=(\\cos\\theta,\\ \\operatorname{sen}\\theta)"
+     },
+     {
+      "t": "grafica",
+      "animar": "dibujar",
+      "alt": "El círculo unitario"
+     }
+    ]
+   },
+   {
+    "titulo": "Piensa antes de ver",
+    "corto": "Piensa",
+    "bloques": [
+     {
+      "t": "piensa",
+      "pregunta": "En un triángulo rectángulo el seno es el cateto opuesto sobre la hipotenusa. Con opuesto 3 e hipotenusa 5, ¿cuánto vale el seno?",
+      "opciones": [
+       0.4,
+       0.6,
+       0.8,
+       1.67
+      ],
+      "correcta": 0.6,
+      "bien": "Muy bien. Vale 0.6. Entonces el coseno, por Pitágoras, vale 0.8.",
+      "mal": "Vale 0.6, porque 3 dividido entre 5 es 0.6. Entonces el coseno, por Pitágoras, vale 0.8."
+     }
+    ]
+   },
+   {
+    "titulo": "Moviendo el ángulo",
+    "corto": "El ángulo",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mira el seno y el coseno en algunos ángulos conocidos."
+     },
+     {
+      "t": "acercando",
+      "ds": [
+       0.523599,
+       0.785398,
+       1.570796,
+       3.141593
+      ],
+      "alt": "El seno y el coseno en varios ángulos"
+     },
+     {
+      "t": "p",
+      "html": "En 30, 45, 90 y 180 grados los valores son exactos y conviene saberlos de memoria."
+     }
+    ]
+   },
+   {
+    "titulo": "Razones y ángulos notables",
+    "corto": "Razones",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "En un triángulo rectángulo, las razones se definen con los lados."
+     },
+     {
+      "t": "pasos",
+      "items": [
+       {
+        "tex": "\\operatorname{sen}\\theta=\\dfrac{\\text{op}}{\\text{hip}},\\quad \\cos\\theta=\\dfrac{\\text{ady}}{\\text{hip}},\\quad \\tan\\theta=\\dfrac{\\text{op}}{\\text{ady}}",
+        "porque": "Las tres razones."
+       },
+       {
+        "tex": "\\operatorname{sen}30^{\\circ}=\\tfrac{1}{2},\\ \\ \\operatorname{sen}45^{\\circ}=\\tfrac{\\sqrt{2}}{2},\\ \\ \\operatorname{sen}60^{\\circ}=\\tfrac{\\sqrt{3}}{2}",
+        "porque": "El seno de los ángulos notables."
+       },
+       {
+        "tex": "\\tan45^{\\circ}=1,\\quad 180^{\\circ}=\\pi\\ \\text{rad}",
+        "porque": "La tangente de 45 grados y la equivalencia entre unidades."
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "Identidades y ecuaciones",
+    "corto": "Identidades",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Hay una identidad fundamental que sale del teorema de Pitágoras."
+     },
+     {
+      "t": "pasos",
+      "items": [
+       {
+        "tex": "\\operatorname{sen}^{2}x+\\cos^{2}x=1",
+        "porque": "Se cumple para todo x."
+       },
+       {
+        "tex": "\\operatorname{sen}\\theta=\\tfrac{3}{5}\\ \\Rightarrow\\ \\cos^{2}\\theta=1-\\tfrac{9}{25}=\\tfrac{16}{25}\\ \\Rightarrow\\ \\cos\\theta=\\tfrac{4}{5}",
+        "porque": "Con el ángulo agudo, el coseno es positivo."
+       },
+       {
+        "tex": "\\cos x=0\\ \\text{en}\\ [0,2\\pi)\\ \\Rightarrow\\ x=\\tfrac{\\pi}{2},\\ \\tfrac{3\\pi}{2}",
+        "porque": "Las soluciones de una ecuación sencilla."
+       }
+      ]
+     },
+     {
+      "t": "ojo",
+      "html": "El signo del seno y del coseno depende del cuadrante. En el segundo cuadrante el seno es positivo y el coseno es negativo."
+     }
+    ]
+   },
+   {
+    "titulo": "¿Para qué sirve?",
+    "corto": "En ingeniería",
+    "bloques": [
+     {
+      "t": "ingenieria",
+      "titulo": "Una rampa de carga",
+      "html": "Una rampa de 4 metros de largo se inclina 15 grados para subir un equipo a una plataforma. La altura que alcanza y la distancia horizontal salen de seno y coseno.",
+      "tex": "h=L\\operatorname{sen}\\theta,\\qquad d=L\\cos\\theta",
+      "datos": [
+       {
+        "k": "Largo",
+        "v": "4 m"
+       },
+       {
+        "k": "Inclinación",
+        "v": "15 grados"
+       },
+       {
+        "k": "Altura",
+        "v": "1.04 m"
+       }
+      ],
+      "cierre": "La altura es 4 por el seno de 15 grados, unos 1.04 metros. La distancia horizontal es 4 por el coseno de 15 grados, unos 3.86 metros. Si se aumenta la inclinación a 30 grados, la altura sube a 2 metros, pero la rampa es más empinada y cuesta más empujar el equipo. Es un cálculo geométrico, que no incluye la fricción."
+     }
+    ]
+   },
+   {
+    "titulo": "Completa el paso",
+    "corto": "Completa",
+    "bloques": [
+     {
+      "t": "completar",
+      "enunciado": "Se completa la identidad fundamental.",
+      "tex": "\\operatorname{sen}^{2}x+\\cos^{2}x=[[hueco]]",
+      "opciones": [
+       {
+        "tex": "1",
+        "txt": "uno"
+       },
+       {
+        "tex": "0",
+        "txt": "cero"
+       },
+       {
+        "tex": "2",
+        "txt": "dos"
+       }
+      ],
+      "correcta": 0,
+      "errores": [
+       "",
+       "Con 0 los cuadrados tendrían que ser opuestos, y los dos son positivos o cero.",
+       "Con 2 se estaría sumando dos veces el valor máximo. En el círculo unitario la suma es 1."
+      ],
+      "pista": "Es el teorema de Pitágoras en el círculo de radio 1.",
+      "porque": "La hipotenusa es 1, y 1 al cuadrado es 1."
+     }
+    ]
+   },
+   {
+    "titulo": "Encuentra el error",
+    "corto": "Error",
+    "bloques": [
+     {
+      "t": "error",
+      "enunciado": "Alguien halló el coseno de un ángulo agudo con seno 3 sobre 5 y se equivocó en un paso. Toca el paso que está mal.",
+      "pasos": [
+       {
+        "tex": "\\cos^{2}\\theta=1-\\operatorname{sen}^{2}\\theta",
+        "porque": "La identidad despejada.",
+        "txt": "se despeja el coseno al cuadrado"
+       },
+       {
+        "tex": "\\cos^{2}\\theta=1-\\tfrac{3}{5}=\\tfrac{2}{5}",
+        "porque": "Este paso es el que falla.",
+        "txt": "queda 1 menos 3 quintos, igual a 2 quintos"
+       },
+       {
+        "tex": "\\cos\\theta=\\sqrt{2/5}",
+        "porque": "El resultado.",
+        "txt": "el coseno es la raíz de 2 quintos"
+       }
+      ],
+      "mal": 1,
+      "explicacion": "Falta elevar el seno al cuadrado. Es 3 sobre 5 al cuadrado, o sea 9 sobre 25. Queda 1 menos 9 sobre 25, o sea 16 sobre 25, y el coseno vale 4 sobre 5.",
+      "correccion": "\\cos^{2}\\theta=1-\\tfrac{9}{25}=\\tfrac{16}{25}",
+      "pista": "Fíjate en el cuadrado del seno."
+     }
+    ]
+   },
+   {
+    "titulo": "Ordena los pasos",
+    "corto": "Ordena",
+    "bloques": [
+     {
+      "t": "ordenar",
+      "enunciado": "Estos son los pasos para resolver coseno de x igual a 0 entre 0 y 2 pi, pero están desordenados.",
+      "pasos": [
+       "\\cos x=0",
+       "x=\\tfrac{\\pi}{2}+k\\pi",
+       "k=0,\\ 1\\ \\text{caen en}\\ [0,2\\pi)",
+       "x=\\tfrac{\\pi}{2},\\ \\tfrac{3\\pi}{2}"
+      ],
+      "mezcla": [
+       2,
+       0,
+       3,
+       1
+      ],
+      "porque": "Se escribe la forma general, se eligen los valores en el intervalo y se listan.",
+      "pista": "Se empieza con la ecuación.",
+      "txt": [
+       "La ecuación",
+       "Todas las soluciones",
+       "Se eligen las que están en el intervalo",
+       "Las soluciones"
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "Revisa tu respuesta",
+    "corto": "Revisa",
+    "bloques": [
+     {
+      "t": "pregunta"
+     },
+     {
+      "t": "nota",
+      "html": "Puedes pedir pistas de a una. Si fallas, el mensaje te dice qué error se cometió."
+     }
+    ]
+   },
+   {
+    "titulo": "Mini simulacro",
+    "corto": "Simulacro",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Tres preguntas reales del banco de MathUNAL sobre este tema. Responde sin mirar los pasos."
+     },
+     {
+      "t": "simulacro",
+      "titulo": "Mini simulacro de trigonometría",
+      "preguntas": [
+       {
+        "tipo": "numerica",
+        "texto": "El valor de $\\sin 30^{\\circ}$ es (decimal):",
+        "respuesta": "0.5",
+        "tolNum": 0.001,
+        "resumen": "El seno de $30^\\circ$ es $\\tfrac{1}{2}=0.5$.",
+        "fuente": "Banco MathUNAL, simulacro de Matemáticas Básicas"
+       },
+       {
+        "tipo": "numerica",
+        "texto": "Si $\\sin\\theta=\\dfrac{3}{5}$ y $\\theta$ es agudo, entonces $\\cos\\theta$ es (decimal):",
+        "respuesta": "0.8",
+        "tolNum": 0.001,
+        "resumen": "Por Pitágoras, $\\cos\\theta=\\sqrt{1-(3/5)^2}=\\tfrac{4}{5}=0.8$.",
+        "fuente": "Banco MathUNAL, simulacro de Matemáticas Básicas"
+       },
+       {
+        "tipo": "mcq",
+        "texto": "La expresión $\\sin^{2}x+\\cos^{2}x$ es igual a:",
+        "opciones": [
+         "$1$",
+         "$0$",
+         "$\\tan^2 x$",
+         "$2\\sin x\\cos x$"
+        ],
+        "correcta": 0,
+        "resumen": "Es la identidad fundamental, $\\operatorname{sen}^2x+\\cos^2x=1$.",
+        "fuente": "Banco MathUNAL, simulacro de Matemáticas Básicas"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "Tu repaso",
+    "corto": "Repaso",
+    "bloques": [
+     {
+      "t": "repaso"
+     }
+    ]
+   },
+   {
+    "titulo": "En resumen",
+    "corto": "Resumen",
+    "bloques": [
+     {
+      "t": "resumen"
+     }
+    ]
+   }
+  ]
+ },
+ "practicar": {
+  "pasos": [
+   {
+    "titulo": "El círculo",
+    "grafica": {
+     "draw": 1,
+     "guide": 1
+    },
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Un punto sobre el círculo de radio 1."
+     },
+     {
+      "t": "eq",
+      "tex": "(\\cos\\theta,\\ \\operatorname{sen}\\theta)"
+     }
+    ]
+   },
+   {
+    "titulo": "Mueve el ángulo",
+    "grafica": {
+     "draw": 1,
+     "guide": 1
+    },
+    "laboratorio": true,
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mueve el deslizador. Abajo se leen el seno y el coseno."
+     }
+    ]
+   },
+   {
+    "titulo": "Treinta grados",
+    "grafica": {
+     "draw": 1,
+     "guide": 1,
+     "ok": true
+    },
+    "laboratorio": true,
+    "d": 0.523599,
+    "bloques": [
+     {
+      "t": "eq",
+      "tex": "\\operatorname{sen}30^{\\circ}=\\tfrac{1}{2}"
+     },
+     {
+      "t": "p",
+      "html": "Con pi sobre 6 radianes el seno vale 0.5."
+     }
+    ]
+   },
+   {
+    "titulo": "Revisa tu respuesta",
+    "grafica": {
+     "draw": 1,
+     "guide": 1,
+     "ok": true,
+     "d": 0.523599
+    },
+    "bloques": [
+     {
+      "t": "pregunta"
+     },
+     {
+      "t": "nota",
+      "html": "Piensa en el cuadrante del ángulo."
+     }
+    ]
+   }
+  ]
+ },
+ "pregunta": {
+  "tex": "\\operatorname{sen}150^{\\circ}\\ \\text{vale}",
+  "opciones": [
+   "$\\tfrac{1}{2}$",
+   "$-\\tfrac{1}{2}$",
+   "$\\tfrac{\\sqrt{3}}{2}$",
+   "$-\\tfrac{\\sqrt{3}}{2}$"
+  ],
+  "correcta": 0,
+  "explicacion": "150 grados está en el segundo cuadrante, donde el seno es positivo. Su ángulo de referencia es 30 grados, y el seno de 30 es un medio.",
+  "verificacion": {
+   "formula": "sin(150*pi/180)+0*x",
+   "a": 0,
+   "esperado": 0.5
+  },
+  "pistas": [
+   "Ubica el ángulo en un cuadrante.",
+   "En el segundo cuadrante el seno es positivo.",
+   "El ángulo de referencia es 180 menos 150."
+  ],
+  "errores": [
+   "",
+   "El seno es positivo en el segundo cuadrante. El signo menos aparece en el tercero y el cuarto.",
+   "Ese es el seno de 60 o de 120 grados, y el ángulo de referencia de 150 es 30.",
+   "Ese valor es negativo y es el de otro cuadrante, y tampoco es el ángulo de referencia de 30."
+  ]
+ },
+ "resumen": [
+  "En un triángulo rectángulo, seno es opuesto sobre hipotenusa, coseno es adyacente sobre hipotenusa y tangente es opuesto sobre adyacente.",
+  "En el círculo unitario, el punto del ángulo es coseno y seno.",
+  "Seno al cuadrado más coseno al cuadrado vale siempre 1."
+ ]
+}

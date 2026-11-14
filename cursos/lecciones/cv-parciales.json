@@ -1,0 +1,780 @@
+{
+ "esquema": 1,
+ "id": "cv-m1-l2",
+ "ejemplo": true,
+ "curso": "Cálculo en Varias Variables",
+ "modulo": "Módulo 1 Cálculo diferencial en varias variables",
+ "posicion": "Lección 2 de 7",
+ "titulo": "Derivadas parciales",
+ "minutos": 26,
+ "ejercicios": 8,
+ "grafica": {
+  "tipo": "plano",
+  "x": [
+   -2.6,
+   2.6
+  ],
+  "y": [
+   -2,
+   34
+  ],
+  "a": 0,
+  "b": 2.5,
+  "inicio": 2,
+  "elementos": [
+   {
+    "t": "trazo",
+    "puntos": [
+     [
+      "-2.6",
+      "-2.6*-2.6*x+x*x*x"
+     ],
+     [
+      "-2.47",
+      "-2.47*-2.47*x+x*x*x"
+     ],
+     [
+      "-2.34",
+      "-2.34*-2.34*x+x*x*x"
+     ],
+     [
+      "-2.21",
+      "-2.21*-2.21*x+x*x*x"
+     ],
+     [
+      "-2.08",
+      "-2.08*-2.08*x+x*x*x"
+     ],
+     [
+      "-1.95",
+      "-1.95*-1.95*x+x*x*x"
+     ],
+     [
+      "-1.82",
+      "-1.82*-1.82*x+x*x*x"
+     ],
+     [
+      "-1.69",
+      "-1.69*-1.69*x+x*x*x"
+     ],
+     [
+      "-1.56",
+      "-1.56*-1.56*x+x*x*x"
+     ],
+     [
+      "-1.43",
+      "-1.43*-1.43*x+x*x*x"
+     ],
+     [
+      "-1.3",
+      "-1.3*-1.3*x+x*x*x"
+     ],
+     [
+      "-1.17",
+      "-1.17*-1.17*x+x*x*x"
+     ],
+     [
+      "-1.04",
+      "-1.04*-1.04*x+x*x*x"
+     ],
+     [
+      "-0.91",
+      "-0.91*-0.91*x+x*x*x"
+     ],
+     [
+      "-0.78",
+      "-0.78*-0.78*x+x*x*x"
+     ],
+     [
+      "-0.65",
+      "-0.65*-0.65*x+x*x*x"
+     ],
+     [
+      "-0.52",
+      "-0.52*-0.52*x+x*x*x"
+     ],
+     [
+      "-0.39",
+      "-0.39*-0.39*x+x*x*x"
+     ],
+     [
+      "-0.26",
+      "-0.26*-0.26*x+x*x*x"
+     ],
+     [
+      "-0.13",
+      "-0.13*-0.13*x+x*x*x"
+     ],
+     [
+      "0.0",
+      "0.0*0.0*x+x*x*x"
+     ],
+     [
+      "0.13",
+      "0.13*0.13*x+x*x*x"
+     ],
+     [
+      "0.26",
+      "0.26*0.26*x+x*x*x"
+     ],
+     [
+      "0.39",
+      "0.39*0.39*x+x*x*x"
+     ],
+     [
+      "0.52",
+      "0.52*0.52*x+x*x*x"
+     ],
+     [
+      "0.65",
+      "0.65*0.65*x+x*x*x"
+     ],
+     [
+      "0.78",
+      "0.78*0.78*x+x*x*x"
+     ],
+     [
+      "0.91",
+      "0.91*0.91*x+x*x*x"
+     ],
+     [
+      "1.04",
+      "1.04*1.04*x+x*x*x"
+     ],
+     [
+      "1.17",
+      "1.17*1.17*x+x*x*x"
+     ],
+     [
+      "1.3",
+      "1.3*1.3*x+x*x*x"
+     ],
+     [
+      "1.43",
+      "1.43*1.43*x+x*x*x"
+     ],
+     [
+      "1.56",
+      "1.56*1.56*x+x*x*x"
+     ],
+     [
+      "1.69",
+      "1.69*1.69*x+x*x*x"
+     ],
+     [
+      "1.82",
+      "1.82*1.82*x+x*x*x"
+     ],
+     [
+      "1.95",
+      "1.95*1.95*x+x*x*x"
+     ],
+     [
+      "2.08",
+      "2.08*2.08*x+x*x*x"
+     ],
+     [
+      "2.21",
+      "2.21*2.21*x+x*x*x"
+     ],
+     [
+      "2.34",
+      "2.34*2.34*x+x*x*x"
+     ],
+     [
+      "2.47",
+      "2.47*2.47*x+x*x*x"
+     ],
+     [
+      "2.6",
+      "2.6*2.6*x+x*x*x"
+     ]
+    ],
+    "c": 0
+   },
+   {
+    "t": "recta",
+    "p": [
+     "1",
+     "x+x*x*x"
+    ],
+    "dir": [
+     "1",
+     "2*x"
+    ],
+    "c": 1
+   },
+   {
+    "t": "punto",
+    "p": [
+     "1",
+     "x+x*x*x"
+    ],
+    "c": 1
+   }
+  ],
+  "lecturas": [
+   {
+    "rotulo": "pendiente en x igual a 1, f sub x igual a 2 x y",
+    "formula": "2*x"
+   },
+   {
+    "rotulo": "altura del punto, f de 1 y",
+    "formula": "x+x*x*x"
+   }
+  ],
+  "etiquetas": [
+   "La pendiente de la tangente es la derivada parcial respecto a x",
+   "La altura del punto cuando x vale 1 y y vale la posición del deslizador"
+  ],
+  "etiquetaSlider": "Valor fijo de y, de 0 a 2.5",
+  "alt": "Se corta la superficie z igual a x al cuadrado por y más y al cubo con un plano y constante. El corte es una parábola, y la recta tangente en x igual a 1 tiene pendiente igual a la derivada parcial respecto a x, que es 2 por y. Al subir y, la parábola se cierra y la pendiente crece"
+ },
+ "glosario": {
+  "parcial": "La derivada parcial respecto a x se calcula derivando respecto a x y tratando a y como una constante.",
+  "corte": "Un corte es la curva que resulta de fijar una variable. Con y fija, la superficie se convierte en una curva en x.",
+  "clairaut": "El teorema de Clairaut dice que las derivadas parciales mixtas son iguales cuando son continuas.",
+  "mixta": "Una derivada parcial mixta es la que se obtiene derivando primero respecto a una variable y luego respecto a la otra."
+ },
+ "ver": {
+  "duracion": 24.0,
+  "capitulos": [
+   [
+    0,
+    4,
+    "La función es x al cuadrado por y más y al cubo. Se fija el valor de y y queda una curva en x."
+   ],
+   [
+    4,
+    10,
+    "La derivada parcial respecto a x es la pendiente de esa curva, y vale 2 por x por y."
+   ],
+   [
+    10,
+    16,
+    "Con y igual a 0.5 la parábola es ancha, y la pendiente en x igual a 1 es 1."
+   ],
+   [
+    16,
+    20,
+    "Con y igual a 2 la parábola se cierra, y la pendiente es 4. Es el valor de f sub x en 1 y 2."
+   ],
+   [
+    20,
+    24,
+    "Para la derivada respecto a y se fija x y se deriva respecto a y, y en 1 y 2 da 13."
+   ]
+  ],
+  "canales": {
+   "draw": [
+    [
+     0.3,
+     0
+    ],
+    [
+     3.5,
+     1
+    ]
+   ],
+   "d": [
+    [
+     4,
+     0.2
+    ],
+    [
+     8,
+     0.2
+    ],
+    [
+     10,
+     0.5
+    ],
+    [
+     13,
+     0.5
+    ],
+    [
+     16,
+     2
+    ],
+    [
+     18,
+     2
+    ],
+    [
+     24,
+     2
+    ]
+   ],
+   "guide": [
+    [
+     4,
+     0
+    ],
+    [
+     5,
+     1
+    ]
+   ]
+  },
+  "intervalos": {
+   "ok": [
+    16,
+    24
+   ]
+  }
+ },
+ "leer": {
+  "secciones": [
+   {
+    "titulo": "La idea",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "La {{gl:parcial|derivada parcial}} mide cómo cambia la función al mover una sola variable, con las demás fijas. Geométricamente es la pendiente de un {{gl:corte|corte}} de la superficie. Las derivadas parciales de segundo orden incluyen las {{gl:mixta|mixtas}}, que por el teorema de {{gl:clairaut|Clairaut}} son iguales cuando son continuas."
+     }
+    ]
+   },
+   {
+    "titulo": "Un ejemplo",
+    "corto": "Un ejemplo",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "La función es x al cuadrado por y más y al cubo. Mueve el valor fijo de y y mira la pendiente en x igual a 1."
+     },
+     {
+      "t": "eq",
+      "tex": "f(x,y)=x^{2}y+y^{3},\\qquad f_{x}=2xy,\\qquad f_{y}=x^{2}+3y^{2}"
+     },
+     {
+      "t": "grafica",
+      "animar": "dibujar",
+      "alt": "El corte de la superficie con y fija y su tangente"
+     }
+    ]
+   },
+   {
+    "titulo": "Piensa antes de ver",
+    "corto": "Piensa",
+    "bloques": [
+     {
+      "t": "piensa",
+      "pregunta": "Al derivar x al cuadrado por y respecto a x, ¿qué papel tiene y?",
+      "opciones": [
+       "Es una constante",
+       "Se deriva también",
+       "Desaparece",
+       "Se iguala a x"
+      ],
+      "correcta": "Es una constante",
+      "bien": "Muy bien. Se deriva solo respecto a x, y y se trata como un número fijo.",
+      "mal": "Al derivar respecto a x, la variable y se trata como una constante, igual que un número."
+     }
+    ]
+   },
+   {
+    "titulo": "Varios cortes",
+    "corto": "Cortes",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mira el corte con y igual a 0.2, 0.5, 1.2 y 2."
+     },
+     {
+      "t": "acercando",
+      "ds": [
+       0.2,
+       0.5,
+       1.2,
+       2
+      ],
+      "alt": "El corte con cuatro valores de y"
+     },
+     {
+      "t": "p",
+      "html": "Con y igual a 2, la pendiente de la tangente en x igual a 1 es 4."
+     }
+    ]
+   },
+   {
+    "titulo": "Calcular derivadas parciales",
+    "corto": "Cálculo",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Se deriva respecto a una variable y la otra se trata como constante."
+     },
+     {
+      "t": "pasos",
+      "items": [
+       {
+        "tex": "f(x,y)=x^{2}y+y^{3}",
+        "porque": "La función."
+       },
+       {
+        "tex": "f_{x}=2xy+0=2xy",
+        "porque": "Respecto a x, y es constante y y al cubo desaparece."
+       },
+       {
+        "tex": "f_{y}=x^{2}+3y^{2}",
+        "porque": "Respecto a y, x es constante."
+       },
+       {
+        "tex": "f_{x}(1,2)=4,\\quad f_{y}(1,2)=1+12=13",
+        "porque": "Evaluadas en el punto 1 y 2."
+       }
+      ]
+     },
+     {
+      "t": "ojo",
+      "html": "En f sub x, el término y al cubo desaparece porque no depende de x. Pero en f sub y, el término x al cuadrado por y deja x al cuadrado."
+     }
+    ]
+   },
+   {
+    "titulo": "Derivadas mixtas",
+    "corto": "Mixtas",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Se derivan dos veces, y el orden no importa si las derivadas son continuas."
+     },
+     {
+      "t": "pasos",
+      "items": [
+       {
+        "tex": "f=x^{2}y^{3}",
+        "porque": "La función."
+       },
+       {
+        "tex": "f_{x}=2xy^{3}\\ \\Rightarrow\\ f_{xy}=6xy^{2}",
+        "porque": "Primero x y luego y."
+       },
+       {
+        "tex": "f_{y}=3x^{2}y^{2}\\ \\Rightarrow\\ f_{yx}=6xy^{2}",
+        "porque": "Primero y y luego x."
+       },
+       {
+        "tex": "f_{xy}=f_{yx}",
+        "porque": "Coinciden, como dice Clairaut."
+       }
+      ]
+     },
+     {
+      "t": "ojo",
+      "html": "La igualdad de las mixtas pide continuidad en un entorno del punto. Hay funciones extrañas donde no se cumple, pero no suelen aparecer en los cursos."
+     }
+    ]
+   },
+   {
+    "titulo": "¿Para qué sirve?",
+    "corto": "En ingeniería",
+    "bloques": [
+     {
+      "t": "ingenieria",
+      "titulo": "La ley de los gases ideales",
+      "html": "La presión de un gas depende del volumen y la temperatura según P igual a n R T entre V. Las derivadas parciales dicen cómo cambia la presión al mover solo una variable.",
+      "tex": "P=\\dfrac{nRT}{V},\\quad P_{T}=\\dfrac{nR}{V},\\quad P_{V}=-\\dfrac{nRT}{V^{2}}",
+      "datos": [
+       {
+        "k": "Respecto a la temperatura",
+        "v": "P sube con T"
+       },
+       {
+        "k": "Respecto al volumen",
+        "v": "P baja con V"
+       },
+       {
+        "k": "Unidad",
+        "v": "presión entre kelvin"
+       }
+      ],
+      "cierre": "Con las derivadas parciales se estima cuánto cambia la presión cuando solo se calienta, o solo se comprime. En un tanque real se combinan los dos cambios con la diferencial total."
+     }
+    ]
+   },
+   {
+    "titulo": "Completa el paso",
+    "corto": "Completa",
+    "bloques": [
+     {
+      "t": "completar",
+      "enunciado": "Para f igual a x al cuadrado por y al cubo, la derivada parcial respecto a y es [[hueco]].",
+      "tex": "f_{y}=[[hueco]]",
+      "opciones": [
+       {
+        "tex": "3x^{2}y^{2}",
+        "txt": "3 x al cuadrado y al cuadrado"
+       },
+       {
+        "tex": "2xy^{3}",
+        "txt": "2 x y al cubo"
+       },
+       {
+        "tex": "x^{2}y^{3}",
+        "txt": "la misma función"
+       }
+      ],
+      "correcta": 0,
+      "errores": [
+       "",
+       "Esa es la derivada respecto a x, y no respecto a y.",
+       "Si la derivada fuera la misma función, no habría derivado nada."
+      ],
+      "pista": "Se trata x como constante y se deriva y al cubo.",
+      "porque": "Queda 3 x al cuadrado por y al cuadrado."
+     }
+    ]
+   },
+   {
+    "titulo": "Encuentra el error",
+    "corto": "Error",
+    "bloques": [
+     {
+      "t": "error",
+      "enunciado": "Alguien calculó f sub x de x al cuadrado por y más y al cubo, y se equivocó. Toca el paso que está mal.",
+      "pasos": [
+       {
+        "tex": "f=x^{2}y+y^{3}",
+        "porque": "La función.",
+        "txt": "la función"
+       },
+       {
+        "tex": "f_{x}=2xy+3y^{2}",
+        "porque": "Este paso es el que falla.",
+        "txt": "deriva también y al cubo"
+       },
+       {
+        "tex": "f_{x}(1,2)=4+12=16",
+        "porque": "Resultado.",
+        "txt": "16"
+       }
+      ],
+      "mal": 1,
+      "explicacion": "Al derivar respecto a x, y al cubo es una constante y su derivada es cero. Entonces f sub x es 2xy, y en el punto 1 y 2 vale 4.",
+      "correccion": "f_{x}=2xy\\ \\Rightarrow\\ f_{x}(1,2)=4",
+      "pista": "Los términos sin x tienen derivada cero."
+     }
+    ]
+   },
+   {
+    "titulo": "Ordena los pasos",
+    "corto": "Ordena",
+    "bloques": [
+     {
+      "t": "ordenar",
+      "enunciado": "Estos son los pasos para calcular una derivada mixta, pero están desordenados.",
+      "pasos": [
+       "f=x^{2}y^{3}",
+       "f_{x}=2xy^{3}",
+       "f_{xy}=6xy^{2}",
+       "f_{xy}(1,1)=6"
+      ],
+      "mezcla": [
+       2,
+       0,
+       3,
+       1
+      ],
+      "porque": "Primero la función, luego x, luego y y al final se evalúa.",
+      "pista": "Se empieza con la función.",
+      "txt": [
+       "Se parte de la función",
+       "Se deriva respecto a x",
+       "Se deriva respecto a y",
+       "Se evalúa"
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "Revisa tu respuesta",
+    "corto": "Revisa",
+    "bloques": [
+     {
+      "t": "pregunta"
+     },
+     {
+      "t": "nota",
+      "html": "Puedes pedir pistas de a una. Si fallas, el mensaje te dice qué error se cometió."
+     }
+    ]
+   },
+   {
+    "titulo": "Mini simulacro",
+    "corto": "Simulacro",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Preguntas reales del banco de MathUNAL sobre este tema. Responde sin mirar los pasos."
+     },
+     {
+      "t": "simulacro",
+      "titulo": "Mini simulacro de derivadas parciales",
+      "preguntas": [
+       {
+        "tipo": "numerica",
+        "texto": "Para $f(x,y)=x^2y^3$, calcule $f_y(2,1)$.",
+        "respuesta": "12",
+        "tolNum": 0.001,
+        "resumen": "Se deriva respecto a y, con x como constante.",
+        "fuente": "Banco MathUNAL, simulacro de Cálculo en Varias Variables"
+       },
+       {
+        "tipo": "numerica",
+        "texto": "Para $f(x,y) = x^{2}y + y^{3}$, el valor de $f_{x}(1,2)$ es:",
+        "respuesta": "4",
+        "tolNum": 0.001,
+        "resumen": "f sub x de 1 y 2 es 2 por 1 por 2.",
+        "fuente": "Banco MathUNAL, simulacro de Cálculo en Varias Variables"
+       },
+       {
+        "tipo": "numerica",
+        "texto": "Para $f(x,y) = x^{2}y + y^{3}$, el valor de $f_{y}(1,2)$ es:",
+        "respuesta": "13",
+        "tolNum": 0.001,
+        "resumen": "f sub y de 1 y 2 es 1 más 3 por 4.",
+        "fuente": "Banco MathUNAL, simulacro de Cálculo en Varias Variables"
+       },
+       {
+        "tipo": "mcq",
+        "texto": "El teorema de Clairaut garantiza $f_{xy} = f_{yx}$ cuando:",
+        "opciones": [
+         "$f_{xy}$ y $f_{yx}$ son continuas en un entorno del punto",
+         "$f$ es un polinomio",
+         "$f_{x} = f_{y}$",
+         "el punto es crítico"
+        ],
+        "correcta": 0,
+        "resumen": "La igualdad de las mixtas pide continuidad.",
+        "fuente": "Banco MathUNAL, simulacro de Cálculo en Varias Variables"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "Tu repaso",
+    "corto": "Repaso",
+    "bloques": [
+     {
+      "t": "repaso"
+     }
+    ]
+   },
+   {
+    "titulo": "En resumen",
+    "corto": "Resumen",
+    "bloques": [
+     {
+      "t": "resumen"
+     }
+    ]
+   }
+  ]
+ },
+ "practicar": {
+  "pasos": [
+   {
+    "titulo": "La función",
+    "grafica": {
+     "draw": 1
+    },
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Se fija y y se mira el corte en x."
+     },
+     {
+      "t": "eq",
+      "tex": "f(x,y)=x^{2}y+y^{3}"
+     }
+    ]
+   },
+   {
+    "titulo": "Cambia y",
+    "grafica": {
+     "draw": 1
+    },
+    "laboratorio": true,
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mueve el deslizador. Abajo se leen la pendiente de la tangente en x igual a 1 y la altura del punto."
+     }
+    ]
+   },
+   {
+    "titulo": "El punto 1 y 2",
+    "grafica": {
+     "draw": 1,
+     "guide": 1,
+     "ok": true
+    },
+    "laboratorio": true,
+    "d": 2,
+    "bloques": [
+     {
+      "t": "eq",
+      "tex": "f_{x}(1,2)=4,\\quad f(1,2)=10"
+     },
+     {
+      "t": "p",
+      "html": "Con y igual a 2, la pendiente es 4 y la altura es 10."
+     }
+    ]
+   },
+   {
+    "titulo": "Revisa tu respuesta",
+    "grafica": {
+     "draw": 1,
+     "guide": 1,
+     "ok": true,
+     "d": 2
+    },
+    "bloques": [
+     {
+      "t": "pregunta"
+     },
+     {
+      "t": "nota",
+      "html": "Al derivar respecto a x, y es constante."
+     }
+    ]
+   }
+  ]
+ },
+ "pregunta": {
+  "tex": "f(x,y)=3x^{2}+xy.\\ f_{x}(1,2)\\ \\text{es}",
+  "opciones": [
+   "$8$",
+   "$6$",
+   "$2$",
+   "$3$"
+  ],
+  "correcta": 0,
+  "explicacion": "f sub x es 6x más y, y en el punto 1 y 2 vale 6 más 2, o sea 8.",
+  "verificacion": {
+   "formula": "6*1+2+0*x",
+   "a": 0,
+   "esperado": 8
+  },
+  "pistas": [
+   "Deriva respecto a x, con y constante.",
+   "La derivada de 3 x al cuadrado es 6x.",
+   "La derivada de x por y es y."
+  ],
+  "errores": [
+   "",
+   "El 6 olvida la derivada de x por y, que es y.",
+   "El 2 es solo el valor de y.",
+   "El 3 es un coeficiente, pero no la derivada."
+  ]
+ },
+ "resumen": [
+  "La derivada parcial respecto a x se calcula con las demás variables constantes, y es la pendiente de un corte.",
+  "Las derivadas mixtas coinciden cuando son continuas, por el teorema de Clairaut.",
+  "Se evalúa en el punto pedido al final."
+ ]
+}

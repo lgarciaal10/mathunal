@@ -1,0 +1,1038 @@
+{
+ "esquema": 1,
+ "id": "mb-m2-l3",
+ "ejemplo": true,
+ "curso": "Matemáticas Básicas",
+ "modulo": "Módulo 2 Ecuaciones, inecuaciones y sistemas",
+ "posicion": "Lección 3 de 5",
+ "titulo": "Inecuaciones",
+ "minutos": 26,
+ "ejercicios": 7,
+ "grafica": {
+  "tipo": "plano",
+  "x": [
+   -2.5,
+   8.5
+  ],
+  "y": [
+   -1,
+   6
+  ],
+  "a": 0.5,
+  "b": 4,
+  "inicio": 2,
+  "elementos": [
+   {
+    "t": "trazo",
+    "puntos": [
+     [
+      "-2.0000",
+      "abs(-2.0000-3)"
+     ],
+     [
+      "-1.9000",
+      "abs(-1.9000-3)"
+     ],
+     [
+      "-1.8000",
+      "abs(-1.8000-3)"
+     ],
+     [
+      "-1.7000",
+      "abs(-1.7000-3)"
+     ],
+     [
+      "-1.6000",
+      "abs(-1.6000-3)"
+     ],
+     [
+      "-1.5000",
+      "abs(-1.5000-3)"
+     ],
+     [
+      "-1.4000",
+      "abs(-1.4000-3)"
+     ],
+     [
+      "-1.3000",
+      "abs(-1.3000-3)"
+     ],
+     [
+      "-1.2000",
+      "abs(-1.2000-3)"
+     ],
+     [
+      "-1.1000",
+      "abs(-1.1000-3)"
+     ],
+     [
+      "-1.0000",
+      "abs(-1.0000-3)"
+     ],
+     [
+      "-0.9000",
+      "abs(-0.9000-3)"
+     ],
+     [
+      "-0.8000",
+      "abs(-0.8000-3)"
+     ],
+     [
+      "-0.7000",
+      "abs(-0.7000-3)"
+     ],
+     [
+      "-0.6000",
+      "abs(-0.6000-3)"
+     ],
+     [
+      "-0.5000",
+      "abs(-0.5000-3)"
+     ],
+     [
+      "-0.4000",
+      "abs(-0.4000-3)"
+     ],
+     [
+      "-0.3000",
+      "abs(-0.3000-3)"
+     ],
+     [
+      "-0.2000",
+      "abs(-0.2000-3)"
+     ],
+     [
+      "-0.1000",
+      "abs(-0.1000-3)"
+     ],
+     [
+      "0.0000",
+      "abs(0.0000-3)"
+     ],
+     [
+      "0.1000",
+      "abs(0.1000-3)"
+     ],
+     [
+      "0.2000",
+      "abs(0.2000-3)"
+     ],
+     [
+      "0.3000",
+      "abs(0.3000-3)"
+     ],
+     [
+      "0.4000",
+      "abs(0.4000-3)"
+     ],
+     [
+      "0.5000",
+      "abs(0.5000-3)"
+     ],
+     [
+      "0.6000",
+      "abs(0.6000-3)"
+     ],
+     [
+      "0.7000",
+      "abs(0.7000-3)"
+     ],
+     [
+      "0.8000",
+      "abs(0.8000-3)"
+     ],
+     [
+      "0.9000",
+      "abs(0.9000-3)"
+     ],
+     [
+      "1.0000",
+      "abs(1.0000-3)"
+     ],
+     [
+      "1.1000",
+      "abs(1.1000-3)"
+     ],
+     [
+      "1.2000",
+      "abs(1.2000-3)"
+     ],
+     [
+      "1.3000",
+      "abs(1.3000-3)"
+     ],
+     [
+      "1.4000",
+      "abs(1.4000-3)"
+     ],
+     [
+      "1.5000",
+      "abs(1.5000-3)"
+     ],
+     [
+      "1.6000",
+      "abs(1.6000-3)"
+     ],
+     [
+      "1.7000",
+      "abs(1.7000-3)"
+     ],
+     [
+      "1.8000",
+      "abs(1.8000-3)"
+     ],
+     [
+      "1.9000",
+      "abs(1.9000-3)"
+     ],
+     [
+      "2.0000",
+      "abs(2.0000-3)"
+     ],
+     [
+      "2.1000",
+      "abs(2.1000-3)"
+     ],
+     [
+      "2.2000",
+      "abs(2.2000-3)"
+     ],
+     [
+      "2.3000",
+      "abs(2.3000-3)"
+     ],
+     [
+      "2.4000",
+      "abs(2.4000-3)"
+     ],
+     [
+      "2.5000",
+      "abs(2.5000-3)"
+     ],
+     [
+      "2.6000",
+      "abs(2.6000-3)"
+     ],
+     [
+      "2.7000",
+      "abs(2.7000-3)"
+     ],
+     [
+      "2.8000",
+      "abs(2.8000-3)"
+     ],
+     [
+      "2.9000",
+      "abs(2.9000-3)"
+     ],
+     [
+      "3.0000",
+      "abs(3.0000-3)"
+     ],
+     [
+      "3.1000",
+      "abs(3.1000-3)"
+     ],
+     [
+      "3.2000",
+      "abs(3.2000-3)"
+     ],
+     [
+      "3.3000",
+      "abs(3.3000-3)"
+     ],
+     [
+      "3.4000",
+      "abs(3.4000-3)"
+     ],
+     [
+      "3.5000",
+      "abs(3.5000-3)"
+     ],
+     [
+      "3.6000",
+      "abs(3.6000-3)"
+     ],
+     [
+      "3.7000",
+      "abs(3.7000-3)"
+     ],
+     [
+      "3.8000",
+      "abs(3.8000-3)"
+     ],
+     [
+      "3.9000",
+      "abs(3.9000-3)"
+     ],
+     [
+      "4.0000",
+      "abs(4.0000-3)"
+     ],
+     [
+      "4.1000",
+      "abs(4.1000-3)"
+     ],
+     [
+      "4.2000",
+      "abs(4.2000-3)"
+     ],
+     [
+      "4.3000",
+      "abs(4.3000-3)"
+     ],
+     [
+      "4.4000",
+      "abs(4.4000-3)"
+     ],
+     [
+      "4.5000",
+      "abs(4.5000-3)"
+     ],
+     [
+      "4.6000",
+      "abs(4.6000-3)"
+     ],
+     [
+      "4.7000",
+      "abs(4.7000-3)"
+     ],
+     [
+      "4.8000",
+      "abs(4.8000-3)"
+     ],
+     [
+      "4.9000",
+      "abs(4.9000-3)"
+     ],
+     [
+      "5.0000",
+      "abs(5.0000-3)"
+     ],
+     [
+      "5.1000",
+      "abs(5.1000-3)"
+     ],
+     [
+      "5.2000",
+      "abs(5.2000-3)"
+     ],
+     [
+      "5.3000",
+      "abs(5.3000-3)"
+     ],
+     [
+      "5.4000",
+      "abs(5.4000-3)"
+     ],
+     [
+      "5.5000",
+      "abs(5.5000-3)"
+     ],
+     [
+      "5.6000",
+      "abs(5.6000-3)"
+     ],
+     [
+      "5.7000",
+      "abs(5.7000-3)"
+     ],
+     [
+      "5.8000",
+      "abs(5.8000-3)"
+     ],
+     [
+      "5.9000",
+      "abs(5.9000-3)"
+     ],
+     [
+      "6.0000",
+      "abs(6.0000-3)"
+     ],
+     [
+      "6.1000",
+      "abs(6.1000-3)"
+     ],
+     [
+      "6.2000",
+      "abs(6.2000-3)"
+     ],
+     [
+      "6.3000",
+      "abs(6.3000-3)"
+     ],
+     [
+      "6.4000",
+      "abs(6.4000-3)"
+     ],
+     [
+      "6.5000",
+      "abs(6.5000-3)"
+     ],
+     [
+      "6.6000",
+      "abs(6.6000-3)"
+     ],
+     [
+      "6.7000",
+      "abs(6.7000-3)"
+     ],
+     [
+      "6.8000",
+      "abs(6.8000-3)"
+     ],
+     [
+      "6.9000",
+      "abs(6.9000-3)"
+     ],
+     [
+      "7.0000",
+      "abs(7.0000-3)"
+     ],
+     [
+      "7.1000",
+      "abs(7.1000-3)"
+     ],
+     [
+      "7.2000",
+      "abs(7.2000-3)"
+     ],
+     [
+      "7.3000",
+      "abs(7.3000-3)"
+     ],
+     [
+      "7.4000",
+      "abs(7.4000-3)"
+     ],
+     [
+      "7.5000",
+      "abs(7.5000-3)"
+     ],
+     [
+      "7.6000",
+      "abs(7.6000-3)"
+     ],
+     [
+      "7.7000",
+      "abs(7.7000-3)"
+     ],
+     [
+      "7.8000",
+      "abs(7.8000-3)"
+     ],
+     [
+      "7.9000",
+      "abs(7.9000-3)"
+     ],
+     [
+      "8.0000",
+      "abs(8.0000-3)"
+     ]
+    ],
+    "c": 2
+   },
+   {
+    "t": "recta",
+    "p": [
+     "0",
+     "x"
+    ],
+    "dir": [
+     "1",
+     "0"
+    ],
+    "guion": true,
+    "c": 3,
+    "guia": true
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "3-x",
+     "x"
+    ],
+    "b": [
+     "3+x",
+     "x"
+    ],
+    "c": 3,
+    "guia": true
+   },
+   {
+    "t": "punto",
+    "p": [
+     "3-x",
+     "x"
+    ],
+    "c": 1
+   },
+   {
+    "t": "punto",
+    "p": [
+     "3+x",
+     "x"
+    ],
+    "c": 1
+   }
+  ],
+  "lecturas": [
+   {
+    "rotulo": "extremo izquierdo",
+    "formula": "3-x"
+   },
+   {
+    "rotulo": "extremo derecho",
+    "formula": "3+x"
+   }
+  ],
+  "etiquetas": [
+   "Extremo izquierdo",
+   "Extremo derecho"
+  ],
+  "etiquetaSlider": "Altura r de la recta",
+  "alt": "La gráfica de valor absoluto de x menos 3, una V con vértice en 3, y una recta horizontal de altura r. Los x para los que la V queda por debajo de la recta van de 3 menos r a 3 más r"
+ },
+ "glosario": {
+  "inecuacion": "Una inecuación es una desigualdad con una incógnita. Su solución es un conjunto de valores, que se escribe como un intervalo o una unión de intervalos.",
+  "intervalo": "Un intervalo es un conjunto de números entre dos extremos. Con corchetes incluye el extremo y con paréntesis no lo incluye.",
+  "valorabsoluto": "El valor absoluto de un número es su distancia al cero. El valor absoluto de x menos 3 es la distancia de x a 3."
+ },
+ "ver": {
+  "duracion": 22.0,
+  "capitulos": [
+   [
+    0,
+    4,
+    "La V es el valor absoluto de x menos 3. Mide la distancia de x al número 3."
+   ],
+   [
+    4,
+    8,
+    "La recta horizontal es la altura r. La desigualdad pide los x donde la V queda por debajo de la recta."
+   ],
+   [
+    8,
+    14,
+    "Al subir r el intervalo se ensancha hacia los dos lados. Los extremos son 3 menos r y 3 más r."
+   ],
+   [
+    14,
+    18,
+    "Con r igual a 2 el intervalo va de 1 a 5. Son los números que están a menos de 2 unidades de 3."
+   ],
+   [
+    18,
+    22,
+    "Con r igual a 4 el intervalo va de menos 1 a 7."
+   ]
+  ],
+  "canales": {
+   "draw": [
+    [
+     0.3,
+     0
+    ],
+    [
+     3.5,
+     1
+    ]
+   ],
+   "d": [
+    [
+     4,
+     2
+    ],
+    [
+     8,
+     2
+    ],
+    [
+     11,
+     4
+    ],
+    [
+     13,
+     2
+    ],
+    [
+     17,
+     2
+    ],
+    [
+     18,
+     4
+    ],
+    [
+     22,
+     4
+    ]
+   ],
+   "guide": [
+    [
+     4,
+     0
+    ],
+    [
+     5,
+     1
+    ]
+   ]
+  },
+  "intervalos": {
+   "ok": [
+    18,
+    22
+   ]
+  }
+ },
+ "leer": {
+  "secciones": [
+   {
+    "titulo": "La idea",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Una {{gl:inecuacion|inecuación}} se resuelve casi igual que una ecuación, con una diferencia clave. Al multiplicar o dividir por un número negativo, el sentido de la desigualdad se invierte. La solución casi siempre es un {{gl:intervalo|intervalo}}, o una unión de varios."
+     }
+    ]
+   },
+   {
+    "titulo": "Un ejemplo",
+    "corto": "Un ejemplo",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mira qué números cumplen que su distancia a 3 es menor que r."
+     },
+     {
+      "t": "eq",
+      "tex": "|x-3|<r"
+     },
+     {
+      "t": "grafica",
+      "animar": "dibujar",
+      "alt": "La V del valor absoluto y una recta horizontal"
+     }
+    ]
+   },
+   {
+    "titulo": "Piensa antes de ver",
+    "corto": "Piensa",
+    "bloques": [
+     {
+      "t": "piensa",
+      "pregunta": "El valor absoluto de x menos 3 es la distancia de x a 3. Si esa distancia es menor que 2, ¿cuál es el extremo derecho del intervalo?",
+      "opciones": [
+       1,
+       3,
+       5,
+       7
+      ],
+      "correcta": 5,
+      "bien": "Muy bien. Es 5, porque 3 más 2 es 5. El izquierdo es 1.",
+      "mal": "Es 5, porque 3 más 2 es 5. El izquierdo es 1."
+     }
+    ]
+   },
+   {
+    "titulo": "Cambiando r",
+    "corto": "Cambiando r",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mira cómo cambia el intervalo al mover la altura r."
+     },
+     {
+      "t": "acercando",
+      "ds": [
+       2,
+       4,
+       0.5,
+       3
+      ],
+      "alt": "El intervalo para varios valores de r"
+     },
+     {
+      "t": "p",
+      "html": "El intervalo siempre está centrado en 3, y el valor de r es su radio."
+     }
+    ]
+   },
+   {
+    "titulo": "Inecuaciones lineales",
+    "corto": "Lineales",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Se despeja como en una ecuación. Al multiplicar por un negativo, la desigualdad cambia de sentido."
+     },
+     {
+      "t": "pasos",
+      "items": [
+       {
+        "tex": "3x-7>2\\ \\Rightarrow\\ 3x>9\\ \\Rightarrow\\ x>3",
+        "porque": "Se suma 7 y se divide entre 3."
+       },
+       {
+        "tex": "-2x+6>2\\ \\Rightarrow\\ -2x>-4\\ \\Rightarrow\\ x<2",
+        "porque": "Se divide entre menos 2, y la desigualdad se invierte."
+       },
+       {
+        "tex": "x\\in(-\\infty,2)",
+        "porque": "La solución en notación de intervalos."
+       }
+      ]
+     },
+     {
+      "t": "ojo",
+      "html": "En un intervalo, el paréntesis indica que el extremo no se incluye, y el corchete que sí. El infinito siempre va con paréntesis."
+     }
+    ]
+   },
+   {
+    "titulo": "Valor absoluto, cuadráticas y fracciones",
+    "corto": "Otros tipos",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Cada tipo se resuelve de forma distinta."
+     },
+     {
+      "t": "pasos",
+      "items": [
+       {
+        "tex": "|x-3|<2\\ \\Leftrightarrow\\ -2<x-3<2\\ \\Leftrightarrow\\ 1<x<5",
+        "porque": "El valor absoluto menor que un número es un intervalo."
+       },
+       {
+        "tex": "x^{2}-4\\ge 0\\ \\Rightarrow\\ x\\le -2\\ \\text{o}\\ x\\ge 2",
+        "porque": "Se hallan las raíces y se prueba un valor en cada tramo."
+       },
+       {
+        "tex": "\\dfrac{x-1}{x+2}\\le 0\\ \\Rightarrow\\ -2<x\\le 1",
+        "porque": "Se prueban los tramos. El extremo menos 2 se excluye porque anula el denominador."
+       }
+      ]
+     },
+     {
+      "t": "ojo",
+      "html": "En una inecuación con fracción nunca se puede multiplicar por el denominador sin saber su signo. Es más seguro estudiar el signo del cociente en cada tramo."
+     }
+    ]
+   },
+   {
+    "titulo": "¿Para qué sirve?",
+    "corto": "En ingeniería",
+    "bloques": [
+     {
+      "t": "ingenieria",
+      "titulo": "La tolerancia de una pieza",
+      "html": "Un eje se fabrica con un diámetro de 25 milímetros y una tolerancia de 0.05. La pieza se acepta si su diámetro cumple una desigualdad con valor absoluto.",
+      "tex": "|d-25|\\le 0.05",
+      "datos": [
+       {
+        "k": "Diámetro nominal",
+        "v": "25 mm"
+       },
+       {
+        "k": "Tolerancia",
+        "v": "0.05 mm"
+       },
+       {
+        "k": "Rango aceptado",
+        "v": "24.95 a 25.05 mm"
+       }
+      ],
+      "cierre": "La desigualdad dice que la distancia entre la medida y 25 es de a lo más 0.05, o sea que el diámetro está entre 24.95 y 25.05. Una pieza que mide 25.07 se rechaza. El intervalo es cerrado, porque los extremos todavía se aceptan. Es una regla de calidad simple, y no considera el error del instrumento de medida."
+     }
+    ]
+   },
+   {
+    "titulo": "Completa el paso",
+    "corto": "Completa",
+    "bloques": [
+     {
+      "t": "completar",
+      "enunciado": "Se quita el valor absoluto de una desigualdad con menor que.",
+      "tex": "|x-3|<2\\ \\Rightarrow\\ [[hueco]]<x-3<2",
+      "opciones": [
+       {
+        "tex": "-2",
+        "txt": "menos dos"
+       },
+       {
+        "tex": "0",
+        "txt": "cero"
+       },
+       {
+        "tex": "2",
+        "txt": "dos"
+       }
+      ],
+      "correcta": 0,
+      "errores": [
+       "",
+       "Con 0 solo se tendría la mitad de la distancia. El otro lado de la desigualdad es menos 2.",
+       "Con 2 a los dos lados, la desigualdad no tendría sentido. El lado izquierdo es el opuesto."
+      ],
+      "pista": "El valor absoluto menor que 2 significa entre menos 2 y 2.",
+      "porque": "El límite inferior es menos 2."
+     }
+    ]
+   },
+   {
+    "titulo": "Encuentra el error",
+    "corto": "Error",
+    "bloques": [
+     {
+      "t": "error",
+      "enunciado": "Alguien resolvió una inecuación y se equivocó en un paso. Toca el paso que está mal.",
+      "pasos": [
+       {
+        "tex": "-2x+6>2",
+        "porque": "La inecuación.",
+        "txt": "la inecuación es menos 2x más 6 mayor que 2"
+       },
+       {
+        "tex": "-2x>-4",
+        "porque": "Se resta 6.",
+        "txt": "se resta 6 en los dos lados"
+       },
+       {
+        "tex": "x>2",
+        "porque": "Este paso es el que falla.",
+        "txt": "al dividir queda x mayor que 2"
+       }
+      ],
+      "mal": 2,
+      "explicacion": "Al dividir entre un número negativo, la desigualdad cambia de sentido. Menos 4 dividido entre menos 2 es 2, y queda x menor que 2.",
+      "correccion": "x<2",
+      "pista": "Pregúntate qué pasa al dividir por un número negativo."
+     }
+    ]
+   },
+   {
+    "titulo": "Ordena los pasos",
+    "corto": "Ordena",
+    "bloques": [
+     {
+      "t": "ordenar",
+      "enunciado": "Estos son los pasos para resolver x al cuadrado menos 4 mayor o igual que 0, pero están desordenados.",
+      "pasos": [
+       "x^{2}-4=0\\ \\Rightarrow\\ x=\\pm 2",
+       "\\text{tramos:}\\ (-\\infty,-2),\\ (-2,2),\\ (2,\\infty)",
+       "x=0\\ \\Rightarrow\\ -4<0\\ \\text{no cumple}",
+       "(-\\infty,-2]\\cup[2,\\infty)"
+      ],
+      "mezcla": [
+       2,
+       0,
+       3,
+       1
+      ],
+      "porque": "Se hallan las raíces, se separan los tramos, se prueba un valor en cada uno y se unen los que cumplen.",
+      "pista": "Se empieza hallando las raíces.",
+      "txt": [
+       "Se hallan las raíces",
+       "Se separan los tramos",
+       "Se prueba un valor en cada tramo",
+       "La solución"
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "Revisa tu respuesta",
+    "corto": "Revisa",
+    "bloques": [
+     {
+      "t": "pregunta"
+     },
+     {
+      "t": "nota",
+      "html": "Puedes pedir pistas de a una. Si fallas, el mensaje te dice qué error se cometió."
+     }
+    ]
+   },
+   {
+    "titulo": "Mini simulacro",
+    "corto": "Simulacro",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Tres preguntas reales del banco de MathUNAL sobre este tema. Responde sin mirar los pasos."
+     },
+     {
+      "t": "simulacro",
+      "titulo": "Mini simulacro de inecuaciones",
+      "preguntas": [
+       {
+        "tipo": "mcq",
+        "texto": "El conjunto solución de $|x-3|<2$ es:",
+        "opciones": [
+         "$(1,5)$",
+         "$(-5,5)$",
+         "$(-\\infty,1)\\cup(5,\\infty)$",
+         "$[1,5]$"
+        ],
+        "correcta": 0,
+        "resumen": "El valor absoluto menor que $2$ da $-2<x-3<2$, o sea $1<x<5$.",
+        "fuente": "Banco MathUNAL, simulacro de Matemáticas Básicas"
+       },
+       {
+        "tipo": "mcq",
+        "texto": "El conjunto solución de $x^{2}-4\\ge 0$ es:",
+        "opciones": [
+         "$(-\\infty,-2]\\cup[2,\\infty)$",
+         "$[-2,2]$",
+         "$(-\\infty,2]$",
+         "$[2,\\infty)$"
+        ],
+        "correcta": 0,
+        "resumen": "Las raíces son $\\pm2$, y la parábola es positiva afuera de ellas.",
+        "fuente": "Banco MathUNAL, simulacro de Matemáticas Básicas"
+       },
+       {
+        "tipo": "mcq",
+        "texto": "El conjunto solución de $\\dfrac{x-1}{x+2}\\le 0$ es:",
+        "opciones": [
+         "$(-2,\\,1]$",
+         "$[-2,\\,1]$",
+         "$(-\\infty,-2)\\cup[1,\\infty)$",
+         "$[1,\\infty)$"
+        ],
+        "correcta": 0,
+        "resumen": "El cociente es negativo entre $-2$ y $1$. Se excluye $-2$ porque anula el denominador.",
+        "fuente": "Banco MathUNAL, simulacro de Matemáticas Básicas"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "Tu repaso",
+    "corto": "Repaso",
+    "bloques": [
+     {
+      "t": "repaso"
+     }
+    ]
+   },
+   {
+    "titulo": "En resumen",
+    "corto": "Resumen",
+    "bloques": [
+     {
+      "t": "resumen"
+     }
+    ]
+   }
+  ]
+ },
+ "practicar": {
+  "pasos": [
+   {
+    "titulo": "La V",
+    "grafica": {
+     "draw": 1,
+     "guide": 1
+    },
+    "bloques": [
+     {
+      "t": "p",
+      "html": "La V del valor absoluto de x menos 3 y una recta de altura r."
+     },
+     {
+      "t": "eq",
+      "tex": "|x-3|<r"
+     }
+    ]
+   },
+   {
+    "titulo": "Cambia r",
+    "grafica": {
+     "draw": 1,
+     "guide": 1
+    },
+    "laboratorio": true,
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mueve el deslizador. Abajo se leen los extremos del intervalo."
+     }
+    ]
+   },
+   {
+    "titulo": "Un intervalo",
+    "grafica": {
+     "draw": 1,
+     "guide": 1,
+     "ok": true
+    },
+    "laboratorio": true,
+    "d": 4,
+    "bloques": [
+     {
+      "t": "eq",
+      "tex": "r=4\\ \\Rightarrow\\ -1<x<7"
+     },
+     {
+      "t": "p",
+      "html": "Con r igual a 4 el intervalo va de menos 1 a 7."
+     }
+    ]
+   },
+   {
+    "titulo": "Revisa tu respuesta",
+    "grafica": {
+     "draw": 1,
+     "guide": 1,
+     "ok": true,
+     "d": 4
+    },
+    "bloques": [
+     {
+      "t": "pregunta"
+     },
+     {
+      "t": "nota",
+      "html": "Cuida el sentido de la desigualdad al dividir por un negativo."
+     }
+    ]
+   }
+  ]
+ },
+ "pregunta": {
+  "tex": "5-2x\\ge 1\\ \\text{tiene como solución}",
+  "opciones": [
+   "$x\\le 2$",
+   "$x\\ge 2$",
+   "$x\\le -2$",
+   "$x\\ge -2$"
+  ],
+  "correcta": 0,
+  "explicacion": "Se resta 5 y queda menos 2x mayor o igual que menos 4. Al dividir entre menos 2 la desigualdad se invierte, y queda x menor o igual que 2.",
+  "verificacion": {
+   "formula": "5-2*x",
+   "a": 2,
+   "esperado": 1
+  },
+  "pistas": [
+   "Resta 5 a los dos lados.",
+   "Queda menos 2x mayor o igual que menos 4.",
+   "Al dividir entre menos 2 hay que invertir la desigualdad."
+  ],
+  "errores": [
+   "",
+   "Se olvidó invertir la desigualdad al dividir entre un número negativo.",
+   "Eso sale de restar mal. Menos 4 dividido entre menos 2 es 2, no menos 2.",
+   "Aquí se invirtió el signo del número y no el sentido de la desigualdad."
+  ]
+ },
+ "resumen": [
+  "Al multiplicar o dividir una inecuación por un negativo, la desigualdad cambia de sentido.",
+  "El valor absoluto de x menos a menor que r es el intervalo de a menos r a a más r.",
+  "En cuadráticas y fracciones se hallan las raíces, se separan los tramos y se prueba un valor en cada uno."
+ ]
+}

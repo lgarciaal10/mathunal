@@ -1,0 +1,900 @@
+{
+ "esquema": 1,
+ "id": "alglin-m3-l4",
+ "ejemplo": true,
+ "curso": "Álgebra Lineal",
+ "modulo": "Módulo 3 Ortogonalidad y valores propios",
+ "posicion": "Lección 4 de 4",
+ "titulo": "Matrices simétricas y formas cuadráticas",
+ "minutos": 28,
+ "ejercicios": 7,
+ "grafica": {
+  "tipo": "plano",
+  "x": [
+   -5.5,
+   7.33
+  ],
+  "y": [
+   -3,
+   4
+  ],
+  "a": 0,
+  "b": 1.9,
+  "inicio": 1,
+  "elementos": [
+   {
+    "t": "recta",
+    "p": [
+     "0",
+     "0"
+    ],
+    "dir": [
+     "1",
+     "1"
+    ],
+    "guion": true,
+    "c": 1
+   },
+   {
+    "t": "recta",
+    "p": [
+     "0",
+     "0"
+    ],
+    "dir": [
+     "1",
+     "-1"
+    ],
+    "guion": true,
+    "nombre": "eje mayor",
+    "c": 3
+   },
+   {
+    "t": "poligono",
+    "puntos": [
+     [
+      "cos(0.0)/sqrt(2+x*sin(0.0))",
+      "sin(0.0)/sqrt(2+x*sin(0.0))"
+     ],
+     [
+      "cos(0.098175)/sqrt(2+x*sin(0.19635))",
+      "sin(0.098175)/sqrt(2+x*sin(0.19635))"
+     ],
+     [
+      "cos(0.19635)/sqrt(2+x*sin(0.392699))",
+      "sin(0.19635)/sqrt(2+x*sin(0.392699))"
+     ],
+     [
+      "cos(0.294524)/sqrt(2+x*sin(0.589049))",
+      "sin(0.294524)/sqrt(2+x*sin(0.589049))"
+     ],
+     [
+      "cos(0.392699)/sqrt(2+x*sin(0.785398))",
+      "sin(0.392699)/sqrt(2+x*sin(0.785398))"
+     ],
+     [
+      "cos(0.490874)/sqrt(2+x*sin(0.981748))",
+      "sin(0.490874)/sqrt(2+x*sin(0.981748))"
+     ],
+     [
+      "cos(0.589049)/sqrt(2+x*sin(1.178097))",
+      "sin(0.589049)/sqrt(2+x*sin(1.178097))"
+     ],
+     [
+      "cos(0.687223)/sqrt(2+x*sin(1.374447))",
+      "sin(0.687223)/sqrt(2+x*sin(1.374447))"
+     ],
+     [
+      "cos(0.785398)/sqrt(2+x*sin(1.570796))",
+      "sin(0.785398)/sqrt(2+x*sin(1.570796))"
+     ],
+     [
+      "cos(0.883573)/sqrt(2+x*sin(1.767146))",
+      "sin(0.883573)/sqrt(2+x*sin(1.767146))"
+     ],
+     [
+      "cos(0.981748)/sqrt(2+x*sin(1.963495))",
+      "sin(0.981748)/sqrt(2+x*sin(1.963495))"
+     ],
+     [
+      "cos(1.079922)/sqrt(2+x*sin(2.159845))",
+      "sin(1.079922)/sqrt(2+x*sin(2.159845))"
+     ],
+     [
+      "cos(1.178097)/sqrt(2+x*sin(2.356194))",
+      "sin(1.178097)/sqrt(2+x*sin(2.356194))"
+     ],
+     [
+      "cos(1.276272)/sqrt(2+x*sin(2.552544))",
+      "sin(1.276272)/sqrt(2+x*sin(2.552544))"
+     ],
+     [
+      "cos(1.374447)/sqrt(2+x*sin(2.748894))",
+      "sin(1.374447)/sqrt(2+x*sin(2.748894))"
+     ],
+     [
+      "cos(1.472622)/sqrt(2+x*sin(2.945243))",
+      "sin(1.472622)/sqrt(2+x*sin(2.945243))"
+     ],
+     [
+      "cos(1.570796)/sqrt(2+x*sin(3.141593))",
+      "sin(1.570796)/sqrt(2+x*sin(3.141593))"
+     ],
+     [
+      "cos(1.668971)/sqrt(2+x*sin(3.337942))",
+      "sin(1.668971)/sqrt(2+x*sin(3.337942))"
+     ],
+     [
+      "cos(1.767146)/sqrt(2+x*sin(3.534292))",
+      "sin(1.767146)/sqrt(2+x*sin(3.534292))"
+     ],
+     [
+      "cos(1.865321)/sqrt(2+x*sin(3.730641))",
+      "sin(1.865321)/sqrt(2+x*sin(3.730641))"
+     ],
+     [
+      "cos(1.963495)/sqrt(2+x*sin(3.926991))",
+      "sin(1.963495)/sqrt(2+x*sin(3.926991))"
+     ],
+     [
+      "cos(2.06167)/sqrt(2+x*sin(4.12334))",
+      "sin(2.06167)/sqrt(2+x*sin(4.12334))"
+     ],
+     [
+      "cos(2.159845)/sqrt(2+x*sin(4.31969))",
+      "sin(2.159845)/sqrt(2+x*sin(4.31969))"
+     ],
+     [
+      "cos(2.25802)/sqrt(2+x*sin(4.516039))",
+      "sin(2.25802)/sqrt(2+x*sin(4.516039))"
+     ],
+     [
+      "cos(2.356194)/sqrt(2+x*sin(4.712389))",
+      "sin(2.356194)/sqrt(2+x*sin(4.712389))"
+     ],
+     [
+      "cos(2.454369)/sqrt(2+x*sin(4.908739))",
+      "sin(2.454369)/sqrt(2+x*sin(4.908739))"
+     ],
+     [
+      "cos(2.552544)/sqrt(2+x*sin(5.105088))",
+      "sin(2.552544)/sqrt(2+x*sin(5.105088))"
+     ],
+     [
+      "cos(2.650719)/sqrt(2+x*sin(5.301438))",
+      "sin(2.650719)/sqrt(2+x*sin(5.301438))"
+     ],
+     [
+      "cos(2.748894)/sqrt(2+x*sin(5.497787))",
+      "sin(2.748894)/sqrt(2+x*sin(5.497787))"
+     ],
+     [
+      "cos(2.847068)/sqrt(2+x*sin(5.694137))",
+      "sin(2.847068)/sqrt(2+x*sin(5.694137))"
+     ],
+     [
+      "cos(2.945243)/sqrt(2+x*sin(5.890486))",
+      "sin(2.945243)/sqrt(2+x*sin(5.890486))"
+     ],
+     [
+      "cos(3.043418)/sqrt(2+x*sin(6.086836))",
+      "sin(3.043418)/sqrt(2+x*sin(6.086836))"
+     ],
+     [
+      "cos(3.141593)/sqrt(2+x*sin(6.283185))",
+      "sin(3.141593)/sqrt(2+x*sin(6.283185))"
+     ],
+     [
+      "cos(3.239767)/sqrt(2+x*sin(6.479535))",
+      "sin(3.239767)/sqrt(2+x*sin(6.479535))"
+     ],
+     [
+      "cos(3.337942)/sqrt(2+x*sin(6.675884))",
+      "sin(3.337942)/sqrt(2+x*sin(6.675884))"
+     ],
+     [
+      "cos(3.436117)/sqrt(2+x*sin(6.872234))",
+      "sin(3.436117)/sqrt(2+x*sin(6.872234))"
+     ],
+     [
+      "cos(3.534292)/sqrt(2+x*sin(7.068583))",
+      "sin(3.534292)/sqrt(2+x*sin(7.068583))"
+     ],
+     [
+      "cos(3.632467)/sqrt(2+x*sin(7.264933))",
+      "sin(3.632467)/sqrt(2+x*sin(7.264933))"
+     ],
+     [
+      "cos(3.730641)/sqrt(2+x*sin(7.461283))",
+      "sin(3.730641)/sqrt(2+x*sin(7.461283))"
+     ],
+     [
+      "cos(3.828816)/sqrt(2+x*sin(7.657632))",
+      "sin(3.828816)/sqrt(2+x*sin(7.657632))"
+     ],
+     [
+      "cos(3.926991)/sqrt(2+x*sin(7.853982))",
+      "sin(3.926991)/sqrt(2+x*sin(7.853982))"
+     ],
+     [
+      "cos(4.025166)/sqrt(2+x*sin(8.050331))",
+      "sin(4.025166)/sqrt(2+x*sin(8.050331))"
+     ],
+     [
+      "cos(4.12334)/sqrt(2+x*sin(8.246681))",
+      "sin(4.12334)/sqrt(2+x*sin(8.246681))"
+     ],
+     [
+      "cos(4.221515)/sqrt(2+x*sin(8.44303))",
+      "sin(4.221515)/sqrt(2+x*sin(8.44303))"
+     ],
+     [
+      "cos(4.31969)/sqrt(2+x*sin(8.63938))",
+      "sin(4.31969)/sqrt(2+x*sin(8.63938))"
+     ],
+     [
+      "cos(4.417865)/sqrt(2+x*sin(8.835729))",
+      "sin(4.417865)/sqrt(2+x*sin(8.835729))"
+     ],
+     [
+      "cos(4.516039)/sqrt(2+x*sin(9.032079))",
+      "sin(4.516039)/sqrt(2+x*sin(9.032079))"
+     ],
+     [
+      "cos(4.614214)/sqrt(2+x*sin(9.228428))",
+      "sin(4.614214)/sqrt(2+x*sin(9.228428))"
+     ],
+     [
+      "cos(4.712389)/sqrt(2+x*sin(9.424778))",
+      "sin(4.712389)/sqrt(2+x*sin(9.424778))"
+     ],
+     [
+      "cos(4.810564)/sqrt(2+x*sin(9.621128))",
+      "sin(4.810564)/sqrt(2+x*sin(9.621128))"
+     ],
+     [
+      "cos(4.908739)/sqrt(2+x*sin(9.817477))",
+      "sin(4.908739)/sqrt(2+x*sin(9.817477))"
+     ],
+     [
+      "cos(5.006913)/sqrt(2+x*sin(10.013827))",
+      "sin(5.006913)/sqrt(2+x*sin(10.013827))"
+     ],
+     [
+      "cos(5.105088)/sqrt(2+x*sin(10.210176))",
+      "sin(5.105088)/sqrt(2+x*sin(10.210176))"
+     ],
+     [
+      "cos(5.203263)/sqrt(2+x*sin(10.406526))",
+      "sin(5.203263)/sqrt(2+x*sin(10.406526))"
+     ],
+     [
+      "cos(5.301438)/sqrt(2+x*sin(10.602875))",
+      "sin(5.301438)/sqrt(2+x*sin(10.602875))"
+     ],
+     [
+      "cos(5.399612)/sqrt(2+x*sin(10.799225))",
+      "sin(5.399612)/sqrt(2+x*sin(10.799225))"
+     ],
+     [
+      "cos(5.497787)/sqrt(2+x*sin(10.995574))",
+      "sin(5.497787)/sqrt(2+x*sin(10.995574))"
+     ],
+     [
+      "cos(5.595962)/sqrt(2+x*sin(11.191924))",
+      "sin(5.595962)/sqrt(2+x*sin(11.191924))"
+     ],
+     [
+      "cos(5.694137)/sqrt(2+x*sin(11.388273))",
+      "sin(5.694137)/sqrt(2+x*sin(11.388273))"
+     ],
+     [
+      "cos(5.792311)/sqrt(2+x*sin(11.584623))",
+      "sin(5.792311)/sqrt(2+x*sin(11.584623))"
+     ],
+     [
+      "cos(5.890486)/sqrt(2+x*sin(11.780972))",
+      "sin(5.890486)/sqrt(2+x*sin(11.780972))"
+     ],
+     [
+      "cos(5.988661)/sqrt(2+x*sin(11.977322))",
+      "sin(5.988661)/sqrt(2+x*sin(11.977322))"
+     ],
+     [
+      "cos(6.086836)/sqrt(2+x*sin(12.173672))",
+      "sin(6.086836)/sqrt(2+x*sin(12.173672))"
+     ],
+     [
+      "cos(6.185011)/sqrt(2+x*sin(12.370021))",
+      "sin(6.185011)/sqrt(2+x*sin(12.370021))"
+     ]
+    ],
+    "c": 2
+   }
+  ],
+  "lecturas": [
+   {
+    "rotulo": "valor propio mayor",
+    "formula": "2+x"
+   },
+   {
+    "rotulo": "valor propio menor",
+    "formula": "2-x"
+   }
+  ],
+  "etiquetas": [
+   "Valor propio mayor",
+   "Valor propio menor"
+  ],
+  "etiquetaSlider": "Valor de b en la matriz de filas (2, b) y (b, 2)",
+  "alt": "La curva de nivel igual a 1 de la forma cuadrática de la matriz de filas (2, b) y (b, 2), una elipse que se alarga a lo largo del eje de valor propio menor al subir b"
+ },
+ "glosario": {
+  "simetrica": "Una matriz simétrica es igual a su traspuesta, o sea que sus entradas son iguales a ambos lados de la diagonal.",
+  "forma": "Una forma cuadrática es una expresión con todos los términos de grado dos, como 2x cuadrado más 2xy más 2y cuadrado. Se escribe como x traspuesto por A por x.",
+  "definida": "Una forma cuadrática es definida positiva si vale más que cero para todo vector distinto de cero. Es definida negativa si vale menos que cero, e indefinida si toma valores de los dos signos.",
+  "espectral": "El teorema espectral dice que una matriz simétrica real se diagonaliza con una matriz ortogonal y tiene valores propios reales."
+ },
+ "ver": {
+  "duracion": 22.0,
+  "capitulos": [
+   [
+    0,
+    3,
+    "Esta es la curva de nivel 1 de una forma cuadrática. La matriz es simétrica, con 2 en la diagonal y b fuera."
+   ],
+   [
+    3,
+    6,
+    "La curva es una elipse. Sus ejes apuntan en las direcciones propias de la matriz, y esas son perpendiculares."
+   ],
+   [
+    6,
+    12,
+    "Al subir b, el valor propio mayor sube y el menor baja, y la elipse se alarga en la dirección del menor."
+   ],
+   [
+    12,
+    17,
+    "Con b igual a 1 los valores propios son 3 y 1. Los dos son positivos, así que la forma es definida positiva y la curva es cerrada."
+   ],
+   [
+    17,
+    22,
+    "Cuando b se acerca a 2, el valor propio menor se acerca a 0 y la elipse se estira sin límite."
+   ]
+  ],
+  "canales": {
+   "draw": [
+    [
+     0.3,
+     0
+    ],
+    [
+     5.5,
+     1
+    ]
+   ],
+   "d": [
+    [
+     6,
+     1
+    ],
+    [
+     9,
+     0
+    ],
+    [
+     11,
+     1.5
+    ],
+    [
+     12,
+     1
+    ],
+    [
+     16,
+     1
+    ],
+    [
+     17,
+     1.9
+    ],
+    [
+     22,
+     1.9
+    ]
+   ]
+  },
+  "intervalos": {
+   "ok": [
+    17,
+    22
+   ]
+  }
+ },
+ "leer": {
+  "secciones": [
+   {
+    "titulo": "La idea",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Las matrices {{gl:simetrica|simétricas}} son muy bien portadas. Sus valores propios son siempre números reales y sus vectores propios, para valores distintos, son perpendiculares. Eso dice el {{gl:espectral|teorema espectral}}. Aparecen en las {{gl:forma|formas cuadráticas}}, que describen energías, esfuerzos y curvaturas."
+     }
+    ]
+   },
+   {
+    "titulo": "Un ejemplo",
+    "corto": "Un ejemplo",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mira la curva donde una forma cuadrática vale 1, para la matriz simétrica que tiene 2 en la diagonal y b fuera de ella."
+     },
+     {
+      "t": "eq",
+      "tex": "Q(x,y)=\\begin{pmatrix}x&y\\end{pmatrix}\\begin{pmatrix}2&b\\\\b&2\\end{pmatrix}\\begin{pmatrix}x\\\\y\\end{pmatrix}=2x^{2}+2b\\,xy+2y^{2}"
+     },
+     {
+      "t": "grafica",
+      "animar": "dibujar",
+      "alt": "La elipse de nivel de la forma cuadrática"
+     }
+    ]
+   },
+   {
+    "titulo": "Piensa antes de ver",
+    "corto": "Piensa",
+    "bloques": [
+     {
+      "t": "piensa",
+      "pregunta": "Los valores propios de la matriz son 2 más b y 2 menos b. Con b igual a 1, ¿cuánto vale el mayor?",
+      "opciones": [
+       1,
+       2,
+       3,
+       4
+      ],
+      "correcta": 3,
+      "bien": "Muy bien. Vale 3, y el menor es 1. Más abajo se ve la elipse.",
+      "mal": "Vale 3, porque 2 más 1 es 3, y el menor es 1. Más abajo se ve la elipse."
+     }
+    ]
+   },
+   {
+    "titulo": "La elipse",
+    "corto": "La elipse",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mira cómo cambia la elipse al subir b."
+     },
+     {
+      "t": "acercando",
+      "ds": [
+       0,
+       1,
+       1.5,
+       1.9
+      ],
+      "alt": "La elipse para varios valores de b"
+     },
+     {
+      "t": "p",
+      "html": "Cuando b sube, el valor propio menor baja y la elipse se alarga. Los ejes siempre son perpendiculares, en las direcciones (1, 1) y (1, menos 1)."
+     }
+    ]
+   },
+   {
+    "titulo": "Teorema espectral",
+    "corto": "Teorema espectral",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Toda matriz simétrica real se diagonaliza con una matriz ortogonal, y sus valores propios son reales."
+     },
+     {
+      "t": "eq",
+      "tex": "A=QDQ^{T}"
+     },
+     {
+      "t": "pasos",
+      "items": [
+       {
+        "tex": "A=\\begin{pmatrix}2&1\\\\1&2\\end{pmatrix}\\ \\Rightarrow\\ \\lambda_{1}=3,\\ \\lambda_{2}=1",
+        "porque": "Los valores propios son reales."
+       },
+       {
+        "tex": "\\mathbf{v}_{1}=(1,1),\\ \\mathbf{v}_{2}=(1,-1),\\quad \\mathbf{v}_{1}\\cdot\\mathbf{v}_{2}=0",
+        "porque": "Los vectores propios son perpendiculares."
+       },
+       {
+        "tex": "Q=\\dfrac{1}{\\sqrt{2}}\\begin{pmatrix}1&1\\\\1&-1\\end{pmatrix},\\quad D=\\begin{pmatrix}3&0\\\\0&1\\end{pmatrix}",
+        "porque": "Al normalizarlos, las columnas de Q son ortonormales, y A es Q D Q traspuesta."
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "Formas cuadráticas",
+    "corto": "Formas cuadráticas",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Una forma cuadrática es x traspuesto por A por x, con A simétrica. Al girar a la base de los vectores propios, queda como una suma de cuadrados con los valores propios de coeficientes."
+     },
+     {
+      "t": "pasos",
+      "items": [
+       {
+        "tex": "Q(x,y)=2x^{2}+2xy+2y^{2}",
+        "porque": "Es la forma de la matriz con 2 en la diagonal y 1 fuera."
+       },
+       {
+        "tex": "Q=3u^{2}+1v^{2}",
+        "porque": "En las coordenadas u, v de los ejes propios, solo quedan cuadrados."
+       },
+       {
+        "tex": "Q(1,0)=2>0",
+        "porque": "Se evalúa en un vector para comprobar."
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "Signo de la forma",
+    "corto": "Definida o no",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "El signo de la forma cuadrática lo deciden los valores propios."
+     },
+     {
+      "t": "pasos",
+      "items": [
+       {
+        "tex": "\\lambda_{i}>0\\ \\text{para todo}\\ i\\ \\Rightarrow\\ \\text{definida positiva}",
+        "porque": "La forma es positiva en todo vector distinto de cero. Sus curvas de nivel son elipses."
+       },
+       {
+        "tex": "\\lambda_{i}<0\\ \\text{para todo}\\ i\\ \\Rightarrow\\ \\text{definida negativa}",
+        "porque": "Es negativa en todo vector distinto de cero."
+       },
+       {
+        "tex": "\\text{valores propios de signos opuestos}\\ \\Rightarrow\\ \\text{indefinida}",
+        "porque": "Sus curvas de nivel son hipérbolas."
+       },
+       {
+        "tex": "A=\\begin{pmatrix}1&3\\\\3&1\\end{pmatrix}\\ \\Rightarrow\\ \\lambda=4,\\ -2\\ \\Rightarrow\\ \\text{indefinida}",
+        "porque": "Aunque la diagonal es positiva, hay un valor propio negativo."
+       }
+      ]
+     },
+     {
+      "t": "ojo",
+      "html": "El signo de los elementos de la diagonal no basta. Hay que mirar los valores propios, o los determinantes de las esquinas de la matriz."
+     }
+    ]
+   },
+   {
+    "titulo": "¿Para qué sirve?",
+    "corto": "En ingeniería",
+    "bloques": [
+     {
+      "t": "ingenieria",
+      "titulo": "Los esfuerzos principales de una pieza",
+      "html": "En un punto de una pieza cargada, los esfuerzos forman una matriz simétrica. Sus valores propios son los esfuerzos principales, los máximos y mínimos, y sus vectores propios, perpendiculares, son las direcciones donde actúan. Es la base del círculo de Mohr.",
+      "tex": "\\sigma=\\begin{pmatrix}80&30\\\\30&20\\end{pmatrix}\\ \\text{MPa}",
+      "datos": [
+       {
+        "k": "Esfuerzos",
+        "v": "80 y 20 MPa, cortante 30 MPa"
+       },
+       {
+        "k": "Esfuerzos principales",
+        "v": "92.4 y 7.6 MPa"
+       },
+       {
+        "k": "Dirección principal",
+        "v": "22.5 grados"
+       }
+      ],
+      "cierre": "Los valores propios son 50 más y menos 30 por la raíz de 2, o sea 92.4 y 7.6 megapascales. Las direcciones principales son perpendiculares y la primera forma 22.5 grados con el eje x. Con ellos se revisa la resistencia de la pieza. Es un modelo simplificado, porque supone un estado plano de esfuerzos y un material uniforme."
+     }
+    ]
+   },
+   {
+    "titulo": "Completa el paso",
+    "corto": "Completa",
+    "bloques": [
+     {
+      "t": "completar",
+      "enunciado": "Una matriz simétrica de 2 por 2 tiene traza 4 y un valor propio igual a 3. Falta el otro.",
+      "tex": "\\lambda_{1}+\\lambda_{2}=\\operatorname{tr}A\\ \\Rightarrow\\ \\lambda_{2}=[[hueco]]",
+      "opciones": [
+       {
+        "tex": "1",
+        "txt": "uno"
+       },
+       {
+        "tex": "3",
+        "txt": "tres"
+       },
+       {
+        "tex": "4",
+        "txt": "cuatro"
+       }
+      ],
+      "correcta": 0,
+      "errores": [
+       "",
+       "Ese es el que ya se conoce. La suma debe dar la traza, 4, y 3 más 3 da 6.",
+       "Esa es la traza, y no el otro valor propio. Hay que restar el 3 conocido."
+      ],
+      "pista": "Resta el valor propio conocido de la traza.",
+      "porque": "La suma de los valores propios es la traza, 4. Si uno es 3, el otro es 4 menos 3, o sea 1."
+     }
+    ]
+   },
+   {
+    "titulo": "Encuentra el error",
+    "corto": "Error",
+    "bloques": [
+     {
+      "t": "error",
+      "enunciado": "Alguien clasificó una forma cuadrática y se equivocó en un paso. Toca el paso que está mal.",
+      "pasos": [
+       {
+        "tex": "A=\\begin{pmatrix}1&3\\\\3&1\\end{pmatrix}",
+        "porque": "Es la matriz.",
+        "txt": "A tiene filas 1, 3 y 3, 1"
+       },
+       {
+        "tex": "\\text{Los elementos de la diagonal son positivos, así que es definida positiva}",
+        "porque": "Este paso es el que falla.",
+        "txt": "Los elementos de la diagonal son positivos, así que es definida positiva"
+       },
+       {
+        "tex": "\\text{Sus curvas de nivel son elipses}",
+        "porque": "Depende del paso anterior.",
+        "txt": "Sus curvas de nivel son elipses"
+       }
+      ],
+      "mal": 1,
+      "explicacion": "La diagonal no decide. Los valores propios de A son 4 y menos 2, uno de cada signo, así que la forma es indefinida y sus curvas de nivel son hipérbolas. Por ejemplo, Q(1, menos 1) es 1 menos 6 más 1, o sea menos 4.",
+      "correccion": "\\lambda=4,\\ -2\\ \\Rightarrow\\ \\text{indefinida}",
+      "pista": "Evalúa la forma en el vector (1, menos 1)."
+     }
+    ]
+   },
+   {
+    "titulo": "Ordena los pasos",
+    "corto": "Ordena",
+    "bloques": [
+     {
+      "t": "ordenar",
+      "enunciado": "Estos son los pasos para clasificar la forma cuadrática de la matriz de filas (1, 3) y (3, 1), pero están desordenados.",
+      "pasos": [
+       "A=\\begin{pmatrix}1&3\\\\3&1\\end{pmatrix}",
+       "\\det(A-\\lambda I)=(1-\\lambda)^{2}-9=0",
+       "\\lambda=4,\\quad \\lambda=-2",
+       "\\text{Un valor propio positivo y otro negativo}\\ \\Rightarrow\\ \\text{indefinida}"
+      ],
+      "mezcla": [
+       2,
+       0,
+       3,
+       1
+      ],
+      "porque": "Se halla la ecuación característica, se resuelve y se mira el signo de los valores propios.",
+      "pista": "Se empieza con la matriz.",
+      "txt": [
+       "Se parte de la matriz",
+       "Se plantea la ecuación característica",
+       "Se resuelve",
+       "Se clasifica por los signos"
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "Revisa tu respuesta",
+    "corto": "Revisa",
+    "bloques": [
+     {
+      "t": "pregunta"
+     },
+     {
+      "t": "nota",
+      "html": "Puedes pedir pistas de a una. Si fallas, el mensaje te dice qué error se cometió."
+     }
+    ]
+   },
+   {
+    "titulo": "Mini simulacro",
+    "corto": "Simulacro",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Tres preguntas reales del banco de MathUNAL sobre este tema. Responde sin mirar los pasos."
+     },
+     {
+      "t": "simulacro",
+      "titulo": "Mini simulacro de matrices simétricas",
+      "preguntas": [
+       {
+        "tipo": "mcq",
+        "texto": "La matriz $\\begin{pmatrix}1&2\\\\2&1\\end{pmatrix}$ es:",
+        "opciones": [
+         "indefinida (un valor propio $+$ y otro $-$)",
+         "definida positiva",
+         "definida negativa",
+         "semidefinida positiva"
+        ],
+        "correcta": 0,
+        "resumen": "Los valores propios son $3$ y $-1$, uno de cada signo.",
+        "fuente": "Banco MathUNAL, simulacro de Álgebra Lineal"
+       },
+       {
+        "tipo": "mcq",
+        "texto": "Según el teorema espectral, toda matriz simétrica real:",
+        "opciones": [
+         "es diagonalizable por una matriz ortogonal, con valores propios reales",
+         "tiene valores propios complejos",
+         "no es diagonalizable",
+         "tiene determinante $1$"
+        ],
+        "correcta": 0,
+        "resumen": "Es el teorema espectral.",
+        "fuente": "Banco MathUNAL, simulacro de Álgebra Lineal"
+       },
+       {
+        "tipo": "mcq",
+        "texto": "La forma cuadrática $Q(x) = x^{T}Ax$ (con $A$ simétrica) es DEFINIDA POSITIVA si y solo si:",
+        "opciones": [
+         "todos los valores propios de $A$ son positivos",
+         "$\\det A > 0$",
+         "$A$ es invertible",
+         "$\\operatorname{tr}(A) > 0$"
+        ],
+        "correcta": 0,
+        "resumen": "Una forma cuadrática es definida positiva si y solo si todos los valores propios de $A$ son positivos.",
+        "fuente": "Banco MathUNAL, simulacro de Álgebra Lineal"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "Tu repaso",
+    "corto": "Repaso",
+    "bloques": [
+     {
+      "t": "repaso"
+     }
+    ]
+   },
+   {
+    "titulo": "En resumen",
+    "corto": "Resumen",
+    "bloques": [
+     {
+      "t": "resumen"
+     }
+    ]
+   }
+  ]
+ },
+ "practicar": {
+  "pasos": [
+   {
+    "titulo": "La elipse",
+    "grafica": {
+     "draw": 1
+    },
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Esta es la curva de nivel 1 de la forma cuadrática."
+     },
+     {
+      "t": "eq",
+      "tex": "2x^{2}+2b\\,xy+2y^{2}=1"
+     }
+    ]
+   },
+   {
+    "titulo": "Cambia b",
+    "grafica": {
+     "draw": 1
+    },
+    "laboratorio": true,
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mueve el deslizador. La elipse se alarga a medida que b sube. Abajo se ven los dos valores propios."
+     }
+    ]
+   },
+   {
+    "titulo": "Los ejes",
+    "grafica": {
+     "draw": 1
+    },
+    "laboratorio": true,
+    "d": 1,
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Con b igual a 1, los valores propios son 3 y 1. Los ejes de la elipse son perpendiculares y apuntan en las direcciones propias."
+     }
+    ]
+   },
+   {
+    "titulo": "Casi sin curvatura",
+    "grafica": {
+     "draw": 1
+    },
+    "laboratorio": true,
+    "d": 1.9,
+    "bloques": [
+     {
+      "t": "eq",
+      "tex": "b\\to 2\\ \\Rightarrow\\ \\lambda_{2}=2-b\\to 0"
+     },
+     {
+      "t": "p",
+      "html": "Con b cerca de 2, el valor propio menor casi es 0, y la elipse se estira mucho. Con b igual a 2 la forma deja de ser definida positiva."
+     }
+    ]
+   },
+   {
+    "titulo": "Revisa tu respuesta",
+    "grafica": {
+     "draw": 1,
+     "d": 1.9
+    },
+    "bloques": [
+     {
+      "t": "pregunta"
+     },
+     {
+      "t": "nota",
+      "html": "Halla los valores propios y mira sus signos."
+     }
+    ]
+   }
+  ]
+ },
+ "pregunta": {
+  "tex": "\\text{forma de}\\ \\begin{pmatrix}5&2\\\\2&2\\end{pmatrix}",
+  "encabezado": "La forma cuadrática de la matriz de filas (5, 2) y (2, 2) es:",
+  "opciones": [
+   "definida positiva",
+   "indefinida",
+   "definida negativa",
+   "definida positiva solo si x es positivo"
+  ],
+  "correcta": 0,
+  "explicacion": "La traza es 7 y el determinante es 5 por 2 menos 2 por 2, o sea 6. Los valores propios suman 7 y multiplican 6, así que son 6 y 1. Los dos son positivos, y la forma es definida positiva.",
+  "pistas": [
+   "Mira la traza y el determinante de la matriz.",
+   "La traza es 7 y el determinante es 6. Los valores propios suman 7 y multiplican 6.",
+   "Los valores propios son 6 y 1. ¿Qué signos tienen?"
+  ],
+  "errores": [
+   "",
+   "Una forma indefinida necesita valores propios de signos opuestos, pero aquí el determinante es positivo, así que tienen el mismo signo, y la traza positiva dice que ese signo es más.",
+   "Para ser definida negativa los valores propios serían negativos, pero su suma es la traza, que es 7.",
+   "El signo de una forma no depende de que x sea positivo. Se decide por los valores propios."
+  ]
+ },
+ "resumen": [
+  "Una matriz simétrica tiene valores propios reales y vectores propios perpendiculares, y se escribe A igual a Q D Q traspuesta.",
+  "Una forma cuadrática x traspuesto A x es definida positiva si y solo si todos los valores propios de A son positivos.",
+  "El signo de la diagonal no decide. Valores propios de signos opuestos dan una forma indefinida."
+ ]
+}

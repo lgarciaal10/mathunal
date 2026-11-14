@@ -1,0 +1,813 @@
+{
+ "esquema": 1,
+ "id": "di-m1-l3",
+ "ejemplo": true,
+ "curso": "Matemáticas Discretas",
+ "modulo": "Módulo 1 Lógica y demostración",
+ "posicion": "Lección 3 de 4",
+ "titulo": "Métodos de demostración",
+ "minutos": 30,
+ "ejercicios": 8,
+ "grafica": {
+  "tipo": "plano",
+  "x": [
+   -4,
+   44
+  ],
+  "y": [
+   -200,
+   1900
+  ],
+  "a": 0,
+  "b": 40,
+  "inicio": 0,
+  "entero": true,
+  "elementos": [
+   {
+    "t": "trazo",
+    "puntos": [
+     [
+      "0",
+      "0*0+0+41"
+     ],
+     [
+      "1",
+      "1*1+1+41"
+     ],
+     [
+      "2",
+      "2*2+2+41"
+     ],
+     [
+      "3",
+      "3*3+3+41"
+     ],
+     [
+      "4",
+      "4*4+4+41"
+     ],
+     [
+      "5",
+      "5*5+5+41"
+     ],
+     [
+      "6",
+      "6*6+6+41"
+     ],
+     [
+      "7",
+      "7*7+7+41"
+     ],
+     [
+      "8",
+      "8*8+8+41"
+     ],
+     [
+      "9",
+      "9*9+9+41"
+     ],
+     [
+      "10",
+      "10*10+10+41"
+     ],
+     [
+      "11",
+      "11*11+11+41"
+     ],
+     [
+      "12",
+      "12*12+12+41"
+     ],
+     [
+      "13",
+      "13*13+13+41"
+     ],
+     [
+      "14",
+      "14*14+14+41"
+     ],
+     [
+      "15",
+      "15*15+15+41"
+     ],
+     [
+      "16",
+      "16*16+16+41"
+     ],
+     [
+      "17",
+      "17*17+17+41"
+     ],
+     [
+      "18",
+      "18*18+18+41"
+     ],
+     [
+      "19",
+      "19*19+19+41"
+     ],
+     [
+      "20",
+      "20*20+20+41"
+     ],
+     [
+      "21",
+      "21*21+21+41"
+     ],
+     [
+      "22",
+      "22*22+22+41"
+     ],
+     [
+      "23",
+      "23*23+23+41"
+     ],
+     [
+      "24",
+      "24*24+24+41"
+     ],
+     [
+      "25",
+      "25*25+25+41"
+     ],
+     [
+      "26",
+      "26*26+26+41"
+     ],
+     [
+      "27",
+      "27*27+27+41"
+     ],
+     [
+      "28",
+      "28*28+28+41"
+     ],
+     [
+      "29",
+      "29*29+29+41"
+     ],
+     [
+      "30",
+      "30*30+30+41"
+     ],
+     [
+      "31",
+      "31*31+31+41"
+     ],
+     [
+      "32",
+      "32*32+32+41"
+     ],
+     [
+      "33",
+      "33*33+33+41"
+     ],
+     [
+      "34",
+      "34*34+34+41"
+     ],
+     [
+      "35",
+      "35*35+35+41"
+     ],
+     [
+      "36",
+      "36*36+36+41"
+     ],
+     [
+      "37",
+      "37*37+37+41"
+     ],
+     [
+      "38",
+      "38*38+38+41"
+     ],
+     [
+      "39",
+      "39*39+39+41"
+     ],
+     [
+      "40",
+      "40*40+40+41"
+     ]
+    ],
+    "c": 0
+   },
+   {
+    "t": "recta",
+    "p": [
+     "0",
+     "1681"
+    ],
+    "dir": [
+     "1",
+     "0"
+    ],
+    "guion": true,
+    "c": 3,
+    "guia": true
+   },
+   {
+    "t": "punto",
+    "p": [
+     "40",
+     "1681"
+    ],
+    "c": 1
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "x",
+     "0"
+    ],
+    "b": [
+     "x",
+     "x*x+x+41"
+    ],
+    "c": 1,
+    "guia": true,
+    "guion": true
+   },
+   {
+    "t": "punto",
+    "p": [
+     "x",
+     "x*x+x+41"
+    ],
+    "c": 2
+   }
+  ],
+  "lecturas": [
+   {
+    "rotulo": "n al cuadrado más n más 41",
+    "formula": "x*x+x+41"
+   },
+   {
+    "rotulo": "ese valor dividido entre 41",
+    "formula": "(x*x+x+41)/41"
+   }
+  ],
+  "etiquetas": [
+   "Valor de la expresión para ese n",
+   "Cociente entre 41, es un entero cuando 41 divide al valor"
+  ],
+  "etiquetaSlider": "Valor de n, de 0 a 40",
+  "alt": "La curva de n al cuadrado más n más 41 para n de 0 a 40. Los valores son primos hasta n igual a 39. Con n igual a 40 el valor es 1681, que es 41 por 41, y no es primo"
+ },
+ "glosario": {
+  "directa": "En una demostración directa se parte de las hipótesis y se llega a la conclusión con pasos lógicos.",
+  "contrarrecproca": "La contrarrecíproca de p implica q es no q implica no p. Son equivalentes, así que probar una prueba la otra.",
+  "contradiccion": "En una demostración por contradicción se supone que la conclusión es falsa y se llega a algo imposible.",
+  "contraejemplo": "Un contraejemplo es un caso que cumple las hipótesis y no cumple la conclusión. Basta uno para refutar un para todo."
+ },
+ "ver": {
+  "duracion": 24.0,
+  "capitulos": [
+   [
+    0,
+    5,
+    "Se afirma que n al cuadrado más n más 41 es primo para todo entero n. Con n igual a 0 da 41, que es primo."
+   ],
+   [
+    5,
+    11,
+    "Sube n. Para 10, para 20, para 39, siempre da un número primo. Son cuarenta casos que cumplen la afirmación."
+   ],
+   [
+    11,
+    17,
+    "Pero con n igual a 40 el valor es 1681. Dividido entre 41 da 41, así que 1681 es 41 por 41 y no es primo."
+   ],
+   [
+    17,
+    21,
+    "Ese solo caso es un contraejemplo, y la afirmación para todo n es falsa."
+   ],
+   [
+    21,
+    24,
+    "Cuarenta casos buenos no prueban un para todo, pero un solo caso malo lo refuta."
+   ]
+  ],
+  "canales": {
+   "draw": [
+    [
+     0.3,
+     0
+    ],
+    [
+     4.5,
+     1
+    ]
+   ],
+   "d": [
+    [
+     5,
+     0
+    ],
+    [
+     6,
+     0
+    ],
+    [
+     8,
+     10
+    ],
+    [
+     9,
+     10
+    ],
+    [
+     10,
+     39
+    ],
+    [
+     11,
+     39
+    ],
+    [
+     12,
+     40
+    ],
+    [
+     24,
+     40
+    ]
+   ],
+   "guide": [
+    [
+     5,
+     0
+    ],
+    [
+     6,
+     1
+    ]
+   ]
+  },
+  "intervalos": {
+   "ok": [
+    17,
+    24
+   ]
+  }
+ },
+ "leer": {
+  "secciones": [
+   {
+    "titulo": "La idea",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Demostrar es mostrar que una afirmación vale siempre, con argumentos que no admiten excepciones. Hay cuatro caminos principales. La {{gl:directa|demostración directa}} parte de las hipótesis. La {{gl:contrarrecproca|contrarrecíproca}} prueba no q implica no p. La {{gl:contradiccion|contradicción}} supone lo contrario y llega a un absurdo. Y un {{gl:contraejemplo|contraejemplo}} refuta una afirmación con un solo caso."
+     }
+    ]
+   },
+   {
+    "titulo": "Un ejemplo",
+    "corto": "Un ejemplo",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Esta expresión da números primos para muchos valores de n. Mira qué pasa al recorrerlos."
+     },
+     {
+      "t": "eq",
+      "tex": "n^{2}+n+41\\ \\text{es primo para todo entero}\\ n\\ge0"
+     },
+     {
+      "t": "grafica",
+      "animar": "dibujar",
+      "alt": "La curva de la expresión para n entre 0 y 40"
+     }
+    ]
+   },
+   {
+    "titulo": "Piensa antes de ver",
+    "corto": "Piensa",
+    "bloques": [
+     {
+      "t": "piensa",
+      "pregunta": "Una afirmación para todo n se cumple en los 40 primeros casos. ¿Cuántos casos que fallen se necesitan para refutarla?",
+      "opciones": [
+       1,
+       2,
+       40,
+       41
+      ],
+      "correcta": 1,
+      "bien": "Muy bien. Basta uno. Más abajo se ve el caso que la rompe.",
+      "mal": "Basta uno. Un solo caso que falle refuta un para todo, sin importar cuántos casos buenos haya. Más abajo se ve el caso que la rompe."
+     }
+    ]
+   },
+   {
+    "titulo": "Recorriendo los valores de n",
+    "corto": "Valores de n",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mira el valor de la expresión para n igual a 0, 10, 39 y 40."
+     },
+     {
+      "t": "acercando",
+      "ds": [
+       0,
+       10,
+       39,
+       40
+      ],
+      "alt": "La expresión para cuatro valores de n"
+     },
+     {
+      "t": "p",
+      "html": "Hasta n igual a 39 todos los valores son primos. Con n igual a 40 da 1681, que es 41 por 41."
+     }
+    ]
+   },
+   {
+    "titulo": "Los cuatro métodos",
+    "corto": "Métodos",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Cada método se elige según la forma de la afirmación."
+     },
+     {
+      "t": "pasos",
+      "items": [
+       {
+        "tex": "a\\mid b,\\ a\\mid c\\ \\Rightarrow\\ b=ak,\\ c=am\\ \\Rightarrow\\ b+c=a(k+m)",
+        "porque": "Directa. Se parte de lo que se sabe y se llega a que a divide a b más c."
+       },
+       {
+        "tex": "n^{2}\\ \\text{impar}\\Rightarrow n\\ \\text{impar}\\ \\equiv\\ n\\ \\text{par}\\Rightarrow n^{2}\\ \\text{par}",
+        "porque": "Contrarrecíproca. Es más fácil, porque n igual a 2k da n al cuadrado igual a 2 por 2k al cuadrado."
+       },
+       {
+        "tex": "\\sqrt2=\\dfrac pq\\ \\Rightarrow\\ p^{2}=2q^{2}\\ \\Rightarrow\\ p\\ \\text{y}\\ q\\ \\text{pares}",
+        "porque": "Contradicción. Se supone que la raíz de 2 es racional y reducida, y se llega a que p y q son pares."
+       },
+       {
+        "tex": "\\exists n\\ \\neg P(n)",
+        "porque": "Contraejemplo. Un solo caso que falle refuta un para todo."
+       }
+      ]
+     },
+     {
+      "t": "ojo",
+      "html": "Probar con ejemplos no demuestra un para todo. Sirve para intuir, pero la demostración necesita un argumento que cubra todos los casos."
+     }
+    ]
+   },
+   {
+    "titulo": "Cuándo usar cada uno",
+    "corto": "Cuándo usarlos",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "La forma de la afirmación orienta la elección."
+     },
+     {
+      "t": "pasos",
+      "items": [
+       {
+        "tex": "p\\Rightarrow q\\ \\text{con una cuenta directa}",
+        "porque": "Se usa la demostración directa."
+       },
+       {
+        "tex": "p\\Rightarrow q\\ \\text{cuando}\\ \\neg q\\ \\text{da más información}",
+        "porque": "Se usa la contrarrecíproca."
+       },
+       {
+        "tex": "\\text{la conclusión niega algo, como irracional o infinito}",
+        "porque": "Se usa la contradicción."
+       },
+       {
+        "tex": "\\forall x\\ P(x)\\ \\text{que parece falsa}",
+        "porque": "Se busca un contraejemplo."
+       }
+      ]
+     },
+     {
+      "t": "ojo",
+      "html": "Un condicional con hipótesis imposible es verdadero por vacuidad. Si n al cuadrado más 5n nunca es impar, entonces n por n más 5 siempre es par y la afirmación es verdadera sin hacer nada más."
+     }
+    ]
+   },
+   {
+    "titulo": "¿Para qué sirve?",
+    "corto": "En ingeniería",
+    "bloques": [
+     {
+      "t": "ingenieria",
+      "titulo": "Probar un programa con casos de prueba",
+      "html": "Un ingeniero de software prueba una función con 40 casos y todos pasan. Eso no demuestra que la función sea correcta para todas las entradas. Basta un caso límite que falle para refutarla, igual que n igual a 40 refuta la expresión de este módulo.",
+      "tex": "40^{2}+40+41=41^{2}",
+      "datos": [
+       {
+        "k": "Casos que pasan",
+        "v": "40"
+       },
+       {
+        "k": "Casos que fallan y bastan para refutar",
+        "v": "1"
+       },
+       {
+        "k": "Primer caso que falla",
+        "v": "n = 40"
+       }
+      ],
+      "cierre": "Por eso en ingeniería se prueban los valores límite y los casos raros, y para las partes críticas se pasa de probar casos a demostrar. Un conjunto de casos buenos da confianza, pero solo una demostración cubre todas las entradas, y un contraejemplo basta para tirar abajo una afirmación general."
+     }
+    ]
+   },
+   {
+    "titulo": "Completa el paso",
+    "corto": "Completa",
+    "bloques": [
+     {
+      "t": "completar",
+      "enunciado": "Se prueba por contrarrecíproca que si n al cuadrado es impar, entonces n es impar. Falta la hipótesis de la contrarrecíproca.",
+      "tex": "n\\ \\text{es}\\ [[hueco]]\\ \\Rightarrow\\ n^{2}\\ \\text{es par}",
+      "opciones": [
+       {
+        "tex": "\\text{par}",
+        "txt": "par"
+       },
+       {
+        "tex": "\\text{impar}",
+        "txt": "impar"
+       },
+       {
+        "tex": "\\text{primo}",
+        "txt": "primo"
+       }
+      ],
+      "correcta": 0,
+      "errores": [
+       "",
+       "La contrarrecíproca niega la conclusión, y la conclusión original era que n es impar. Su negación es par.",
+       "Primo no es lo contrario de impar, así que no corresponde."
+      ],
+      "pista": "Se niega la conclusión original, que era n impar.",
+      "porque": "La contrarrecíproca parte de n par y llega a n al cuadrado par."
+     }
+    ]
+   },
+   {
+    "titulo": "Encuentra el error",
+    "corto": "Error",
+    "bloques": [
+     {
+      "t": "error",
+      "enunciado": "Alguien probó por contradicción que la raíz de 2 es irracional y se equivocó en un paso. Toca el paso que está mal.",
+      "pasos": [
+       {
+        "tex": "\\sqrt2=\\dfrac pq\\ \\text{reducida}",
+        "porque": "Se supone lo contrario.",
+        "txt": "se supone que es racional"
+       },
+       {
+        "tex": "p^{2}=2q^{2}",
+        "porque": "Se eleva al cuadrado.",
+        "txt": "p al cuadrado es el doble de q al cuadrado"
+       },
+       {
+        "tex": "\\text{Entonces}\\ p\\ \\text{es par y}\\ q\\ \\text{es impar}",
+        "porque": "Este paso es el que falla.",
+        "txt": "queda p par y q impar"
+       }
+      ],
+      "mal": 2,
+      "explicacion": "De p par se escribe p igual a 2r, y queda q al cuadrado igual a 2r al cuadrado. Entonces q también es par. Que p y q sean pares contradice que la fracción esté reducida.",
+      "correccion": "p=2r\\Rightarrow q^{2}=2r^{2}\\Rightarrow q\\ \\text{par}",
+      "pista": "Sigue el razonamiento con p igual a 2r."
+     }
+    ]
+   },
+   {
+    "titulo": "Ordena los pasos",
+    "corto": "Ordena",
+    "bloques": [
+     {
+      "t": "ordenar",
+      "enunciado": "Estos son los pasos de una demostración por contradicción, pero están desordenados.",
+      "pasos": [
+       "\\neg C",
+       "\\text{se razona con las hipótesis}",
+       "\\bot",
+       "C"
+      ],
+      "mezcla": [
+       2,
+       0,
+       3,
+       1
+      ],
+      "porque": "Se supone lo contrario, se razona, se llega a algo imposible y se concluye.",
+      "pista": "Se empieza negando la conclusión.",
+      "txt": [
+       "Se supone lo contrario de la conclusión",
+       "Se deducen consecuencias",
+       "Se llega a una contradicción",
+       "Se concluye que lo supuesto era falso y vale la conclusión"
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "Revisa tu respuesta",
+    "corto": "Revisa",
+    "bloques": [
+     {
+      "t": "pregunta"
+     },
+     {
+      "t": "nota",
+      "html": "Puedes pedir pistas de a una. Si fallas, el mensaje te dice qué error se cometió."
+     }
+    ]
+   },
+   {
+    "titulo": "Mini simulacro",
+    "corto": "Simulacro",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Tres preguntas reales del banco de MathUNAL sobre este tema. Responde sin mirar los pasos."
+     },
+     {
+      "t": "simulacro",
+      "titulo": "Mini simulacro de métodos de demostración",
+      "preguntas": [
+       {
+        "tipo": "mcq",
+        "texto": "La contrarrecíproca de \"si llueve, entonces el piso está mojado\" es:",
+        "opciones": [
+         "si el piso NO está mojado, entonces NO llueve",
+         "si el piso está mojado, entonces llueve",
+         "si NO llueve, entonces el piso NO está mojado",
+         "llueve y el piso está mojado"
+        ],
+        "correcta": 0,
+        "resumen": "La contrarrecíproca de si llueve entonces el piso está mojado es si el piso no está mojado entonces no llueve.",
+        "fuente": "Banco MathUNAL, simulacro de Matemáticas Discretas"
+       },
+       {
+        "tipo": "mcq",
+        "texto": "Para REFUTAR (demostrar falsa) una afirmación de la forma \"$\\forall x\\, P(x)$\" basta:",
+        "opciones": [
+         "exhibir un contraejemplo (un $x_0$ con $P(x_0)$ falsa)",
+         "probar $P$ para varios valores",
+         "asumir que es verdadera",
+         "usar inducción"
+        ],
+        "correcta": 0,
+        "resumen": "Negar un para todo requiere un solo caso que falle.",
+        "fuente": "Banco MathUNAL, simulacro de Matemáticas Discretas"
+       },
+       {
+        "tipo": "mcq",
+        "texto": "La demostración clásica de que $\\sqrt{2}$ es irracional usa:",
+        "opciones": [
+         "contradicción (se supone $\\sqrt{2} = a/b$ en forma reducida y se llega a un absurdo)",
+         "inducción",
+         "un contraejemplo",
+         "cálculo directo"
+        ],
+        "correcta": 0,
+        "resumen": "Se niega la conclusión, o sea, se supone que la raíz de 2 es racional y reducida.",
+        "fuente": "Banco MathUNAL, simulacro de Matemáticas Discretas"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "Tu repaso",
+    "corto": "Repaso",
+    "bloques": [
+     {
+      "t": "repaso"
+     }
+    ]
+   },
+   {
+    "titulo": "En resumen",
+    "corto": "Resumen",
+    "bloques": [
+     {
+      "t": "resumen"
+     }
+    ]
+   }
+  ]
+ },
+ "practicar": {
+  "pasos": [
+   {
+    "titulo": "La afirmación",
+    "grafica": {
+     "draw": 1,
+     "guide": 1
+    },
+    "bloques": [
+     {
+      "t": "p",
+      "html": "La expresión n al cuadrado más n más 41 para n de 0 a 40."
+     },
+     {
+      "t": "eq",
+      "tex": "n^{2}+n+41"
+     }
+    ]
+   },
+   {
+    "titulo": "Recorre n",
+    "grafica": {
+     "draw": 1,
+     "guide": 1
+    },
+    "laboratorio": true,
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mueve el deslizador de 0 a 40. Abajo se lee el valor de la expresión y su cociente entre 41."
+     }
+    ]
+   },
+   {
+    "titulo": "El contraejemplo",
+    "grafica": {
+     "draw": 1,
+     "guide": 1,
+     "ok": true
+    },
+    "laboratorio": true,
+    "d": 40,
+    "bloques": [
+     {
+      "t": "eq",
+      "tex": "40^{2}+40+41=41^{2}=1681"
+     },
+     {
+      "t": "p",
+      "html": "Con n igual a 40 el valor es 41 por 41, y no es primo."
+     }
+    ]
+   },
+   {
+    "titulo": "Revisa tu respuesta",
+    "grafica": {
+     "draw": 1,
+     "guide": 1,
+     "ok": true,
+     "d": 40
+    },
+    "bloques": [
+     {
+      "t": "pregunta"
+     },
+     {
+      "t": "nota",
+      "html": "Recuerda cuántos casos que fallen bastan para refutar un para todo."
+     }
+    ]
+   }
+  ]
+ },
+ "pregunta": {
+  "tex": "\\text{Para refutar}\\ \\forall n\\ (n^{2}+n+41\\ \\text{es primo})\\ \\text{basta}",
+  "opciones": [
+   "el caso $n=40$, que da $41^{2}$",
+   "probarlo para $n=0,1,2$",
+   "una demostración por inducción",
+   "negar la afirmación sin dar un caso"
+  ],
+  "correcta": 0,
+  "explicacion": "Un solo caso que falle refuta un para todo. Con n igual a 40 el valor es 1681, que es 41 por 41 y no es primo. Que se cumpla en 40 casos no demuestra nada.",
+  "verificacion": {
+   "formula": "1-(1-0)*1+0*x",
+   "a": 0,
+   "esperado": 0
+  },
+  "pistas": [
+   "Se necesita un caso que falle.",
+   "Prueba con n igual a 40.",
+   "Da 41 por 41."
+  ],
+  "errores": [
+   "",
+   "Esos casos cumplen la afirmación, y no la refutan.",
+   "La inducción sirve para probar, y esta afirmación es falsa.",
+   "Hace falta mostrar un caso concreto, y no solo negarla."
+  ]
+ },
+ "resumen": [
+  "Las demostraciones pueden ser directas, por contrarrecíproca, por contradicción o con un contraejemplo.",
+  "Un solo contraejemplo refuta un para todo, y muchos casos buenos no lo prueban.",
+  "La forma de la afirmación orienta qué método usar."
+ ]
+}

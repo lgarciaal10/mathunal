@@ -1,0 +1,1046 @@
+{
+ "esquema": 1,
+ "id": "mb-m2-l1",
+ "ejemplo": true,
+ "curso": "Matemáticas Básicas",
+ "modulo": "Módulo 2 Ecuaciones, inecuaciones y sistemas",
+ "posicion": "Lección 1 de 5",
+ "titulo": "Ecuaciones exponenciales y logarítmicas",
+ "minutos": 28,
+ "ejercicios": 7,
+ "grafica": {
+  "tipo": "plano",
+  "x": [
+   -4.5,
+   4.5
+  ],
+  "y": [
+   -1,
+   9
+  ],
+  "a": 0.125,
+  "b": 8,
+  "inicio": 2,
+  "elementos": [
+   {
+    "t": "trazo",
+    "puntos": [
+     [
+      "-4.2000",
+      "exp(-4.2000*ln(2))"
+     ],
+     [
+      "-4.1160",
+      "exp(-4.1160*ln(2))"
+     ],
+     [
+      "-4.0320",
+      "exp(-4.0320*ln(2))"
+     ],
+     [
+      "-3.9480",
+      "exp(-3.9480*ln(2))"
+     ],
+     [
+      "-3.8640",
+      "exp(-3.8640*ln(2))"
+     ],
+     [
+      "-3.7800",
+      "exp(-3.7800*ln(2))"
+     ],
+     [
+      "-3.6960",
+      "exp(-3.6960*ln(2))"
+     ],
+     [
+      "-3.6120",
+      "exp(-3.6120*ln(2))"
+     ],
+     [
+      "-3.5280",
+      "exp(-3.5280*ln(2))"
+     ],
+     [
+      "-3.4440",
+      "exp(-3.4440*ln(2))"
+     ],
+     [
+      "-3.3600",
+      "exp(-3.3600*ln(2))"
+     ],
+     [
+      "-3.2760",
+      "exp(-3.2760*ln(2))"
+     ],
+     [
+      "-3.1920",
+      "exp(-3.1920*ln(2))"
+     ],
+     [
+      "-3.1080",
+      "exp(-3.1080*ln(2))"
+     ],
+     [
+      "-3.0240",
+      "exp(-3.0240*ln(2))"
+     ],
+     [
+      "-2.9400",
+      "exp(-2.9400*ln(2))"
+     ],
+     [
+      "-2.8560",
+      "exp(-2.8560*ln(2))"
+     ],
+     [
+      "-2.7720",
+      "exp(-2.7720*ln(2))"
+     ],
+     [
+      "-2.6880",
+      "exp(-2.6880*ln(2))"
+     ],
+     [
+      "-2.6040",
+      "exp(-2.6040*ln(2))"
+     ],
+     [
+      "-2.5200",
+      "exp(-2.5200*ln(2))"
+     ],
+     [
+      "-2.4360",
+      "exp(-2.4360*ln(2))"
+     ],
+     [
+      "-2.3520",
+      "exp(-2.3520*ln(2))"
+     ],
+     [
+      "-2.2680",
+      "exp(-2.2680*ln(2))"
+     ],
+     [
+      "-2.1840",
+      "exp(-2.1840*ln(2))"
+     ],
+     [
+      "-2.1000",
+      "exp(-2.1000*ln(2))"
+     ],
+     [
+      "-2.0160",
+      "exp(-2.0160*ln(2))"
+     ],
+     [
+      "-1.9320",
+      "exp(-1.9320*ln(2))"
+     ],
+     [
+      "-1.8480",
+      "exp(-1.8480*ln(2))"
+     ],
+     [
+      "-1.7640",
+      "exp(-1.7640*ln(2))"
+     ],
+     [
+      "-1.6800",
+      "exp(-1.6800*ln(2))"
+     ],
+     [
+      "-1.5960",
+      "exp(-1.5960*ln(2))"
+     ],
+     [
+      "-1.5120",
+      "exp(-1.5120*ln(2))"
+     ],
+     [
+      "-1.4280",
+      "exp(-1.4280*ln(2))"
+     ],
+     [
+      "-1.3440",
+      "exp(-1.3440*ln(2))"
+     ],
+     [
+      "-1.2600",
+      "exp(-1.2600*ln(2))"
+     ],
+     [
+      "-1.1760",
+      "exp(-1.1760*ln(2))"
+     ],
+     [
+      "-1.0920",
+      "exp(-1.0920*ln(2))"
+     ],
+     [
+      "-1.0080",
+      "exp(-1.0080*ln(2))"
+     ],
+     [
+      "-0.9240",
+      "exp(-0.9240*ln(2))"
+     ],
+     [
+      "-0.8400",
+      "exp(-0.8400*ln(2))"
+     ],
+     [
+      "-0.7560",
+      "exp(-0.7560*ln(2))"
+     ],
+     [
+      "-0.6720",
+      "exp(-0.6720*ln(2))"
+     ],
+     [
+      "-0.5880",
+      "exp(-0.5880*ln(2))"
+     ],
+     [
+      "-0.5040",
+      "exp(-0.5040*ln(2))"
+     ],
+     [
+      "-0.4200",
+      "exp(-0.4200*ln(2))"
+     ],
+     [
+      "-0.3360",
+      "exp(-0.3360*ln(2))"
+     ],
+     [
+      "-0.2520",
+      "exp(-0.2520*ln(2))"
+     ],
+     [
+      "-0.1680",
+      "exp(-0.1680*ln(2))"
+     ],
+     [
+      "-0.0840",
+      "exp(-0.0840*ln(2))"
+     ],
+     [
+      "0.0000",
+      "exp(0.0000*ln(2))"
+     ],
+     [
+      "0.0840",
+      "exp(0.0840*ln(2))"
+     ],
+     [
+      "0.1680",
+      "exp(0.1680*ln(2))"
+     ],
+     [
+      "0.2520",
+      "exp(0.2520*ln(2))"
+     ],
+     [
+      "0.3360",
+      "exp(0.3360*ln(2))"
+     ],
+     [
+      "0.4200",
+      "exp(0.4200*ln(2))"
+     ],
+     [
+      "0.5040",
+      "exp(0.5040*ln(2))"
+     ],
+     [
+      "0.5880",
+      "exp(0.5880*ln(2))"
+     ],
+     [
+      "0.6720",
+      "exp(0.6720*ln(2))"
+     ],
+     [
+      "0.7560",
+      "exp(0.7560*ln(2))"
+     ],
+     [
+      "0.8400",
+      "exp(0.8400*ln(2))"
+     ],
+     [
+      "0.9240",
+      "exp(0.9240*ln(2))"
+     ],
+     [
+      "1.0080",
+      "exp(1.0080*ln(2))"
+     ],
+     [
+      "1.0920",
+      "exp(1.0920*ln(2))"
+     ],
+     [
+      "1.1760",
+      "exp(1.1760*ln(2))"
+     ],
+     [
+      "1.2600",
+      "exp(1.2600*ln(2))"
+     ],
+     [
+      "1.3440",
+      "exp(1.3440*ln(2))"
+     ],
+     [
+      "1.4280",
+      "exp(1.4280*ln(2))"
+     ],
+     [
+      "1.5120",
+      "exp(1.5120*ln(2))"
+     ],
+     [
+      "1.5960",
+      "exp(1.5960*ln(2))"
+     ],
+     [
+      "1.6800",
+      "exp(1.6800*ln(2))"
+     ],
+     [
+      "1.7640",
+      "exp(1.7640*ln(2))"
+     ],
+     [
+      "1.8480",
+      "exp(1.8480*ln(2))"
+     ],
+     [
+      "1.9320",
+      "exp(1.9320*ln(2))"
+     ],
+     [
+      "2.0160",
+      "exp(2.0160*ln(2))"
+     ],
+     [
+      "2.1000",
+      "exp(2.1000*ln(2))"
+     ],
+     [
+      "2.1840",
+      "exp(2.1840*ln(2))"
+     ],
+     [
+      "2.2680",
+      "exp(2.2680*ln(2))"
+     ],
+     [
+      "2.3520",
+      "exp(2.3520*ln(2))"
+     ],
+     [
+      "2.4360",
+      "exp(2.4360*ln(2))"
+     ],
+     [
+      "2.5200",
+      "exp(2.5200*ln(2))"
+     ],
+     [
+      "2.6040",
+      "exp(2.6040*ln(2))"
+     ],
+     [
+      "2.6880",
+      "exp(2.6880*ln(2))"
+     ],
+     [
+      "2.7720",
+      "exp(2.7720*ln(2))"
+     ],
+     [
+      "2.8560",
+      "exp(2.8560*ln(2))"
+     ],
+     [
+      "2.9400",
+      "exp(2.9400*ln(2))"
+     ],
+     [
+      "3.0240",
+      "exp(3.0240*ln(2))"
+     ],
+     [
+      "3.1080",
+      "exp(3.1080*ln(2))"
+     ],
+     [
+      "3.1920",
+      "exp(3.1920*ln(2))"
+     ],
+     [
+      "3.2760",
+      "exp(3.2760*ln(2))"
+     ],
+     [
+      "3.3600",
+      "exp(3.3600*ln(2))"
+     ],
+     [
+      "3.4440",
+      "exp(3.4440*ln(2))"
+     ],
+     [
+      "3.5280",
+      "exp(3.5280*ln(2))"
+     ],
+     [
+      "3.6120",
+      "exp(3.6120*ln(2))"
+     ],
+     [
+      "3.6960",
+      "exp(3.6960*ln(2))"
+     ],
+     [
+      "3.7800",
+      "exp(3.7800*ln(2))"
+     ],
+     [
+      "3.8640",
+      "exp(3.8640*ln(2))"
+     ],
+     [
+      "3.9480",
+      "exp(3.9480*ln(2))"
+     ],
+     [
+      "4.0320",
+      "exp(4.0320*ln(2))"
+     ],
+     [
+      "4.1160",
+      "exp(4.1160*ln(2))"
+     ],
+     [
+      "4.2000",
+      "exp(4.2000*ln(2))"
+     ]
+    ],
+    "c": 2
+   },
+   {
+    "t": "recta",
+    "p": [
+     "0",
+     "x"
+    ],
+    "dir": [
+     "1",
+     "0"
+    ],
+    "guion": true,
+    "c": 3,
+    "guia": true
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "0",
+     "x"
+    ],
+    "b": [
+     "ln(x)/ln(2)",
+     "x"
+    ],
+    "c": 3,
+    "guia": true
+   },
+   {
+    "t": "punto",
+    "p": [
+     "ln(x)/ln(2)",
+     "x"
+    ],
+    "c": 1
+   }
+  ],
+  "lecturas": [
+   {
+    "rotulo": "valor k",
+    "formula": "x"
+   },
+   {
+    "rotulo": "x en 2^x=k",
+    "formula": "ln(x)/ln(2)"
+   }
+  ],
+  "etiquetas": [
+   "Valor k",
+   "Solución de dos elevado a x igual a k"
+  ],
+  "etiquetaSlider": "Valor k",
+  "alt": "La gráfica de dos elevado a x y una recta horizontal de altura k. El punto donde se cruzan tiene como coordenada x el logaritmo en base 2 de k. Con k igual a 8 es 3 y con k igual a un octavo es menos 3"
+ },
+ "glosario": {
+  "logaritmo": "El logaritmo en base b de un número es el exponente al que hay que elevar b para obtener ese número. Si b elevado a y es igual a k, entonces y es el logaritmo en base b de k.",
+  "exponencial": "Una ecuación exponencial tiene la incógnita en el exponente. Se resuelve igualando bases o usando logaritmos.",
+  "propiedades": "Los logaritmos convierten productos en sumas, cocientes en restas y potencias en multiplicaciones por el exponente."
+ },
+ "ver": {
+  "duracion": 22.0,
+  "capitulos": [
+   [
+    0,
+    4,
+    "La curva es dos elevado a x. Para resolver dos elevado a x igual a k, se busca dónde la curva llega a la altura k."
+   ],
+   [
+    4,
+    8,
+    "La recta horizontal es la altura k. El punto de cruce tiene la coordenada x que resuelve la ecuación, y esa coordenada es el logaritmo en base 2 de k."
+   ],
+   [
+    8,
+    14,
+    "Al subir k, la solución crece despacio. Al bajar k hacia 0, la solución se va hacia números negativos y k nunca llega a valer 0."
+   ],
+   [
+    14,
+    18,
+    "Con k igual a 8 la solución es 3, porque dos al cubo es 8. Con k igual a un octavo es menos 3."
+   ],
+   [
+    18,
+    22,
+    "Con k igual a 4 la solución es 2. Si la ecuación es dos elevado a x igual a 4, también se puede igualar bases, porque 4 es 2 al cuadrado."
+   ]
+  ],
+  "canales": {
+   "draw": [
+    [
+     0.3,
+     0
+    ],
+    [
+     3.5,
+     1
+    ]
+   ],
+   "d": [
+    [
+     4,
+     2
+    ],
+    [
+     8,
+     2
+    ],
+    [
+     11,
+     8
+    ],
+    [
+     13,
+     0.125
+    ],
+    [
+     14,
+     8
+    ],
+    [
+     16,
+     8
+    ],
+    [
+     17,
+     0.125
+    ],
+    [
+     18,
+     4
+    ],
+    [
+     22,
+     4
+    ]
+   ],
+   "guide": [
+    [
+     4,
+     0
+    ],
+    [
+     5,
+     1
+    ]
+   ]
+  },
+  "intervalos": {
+   "ok": [
+    18,
+    22
+   ]
+  }
+ },
+ "leer": {
+  "secciones": [
+   {
+    "titulo": "La idea",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "En una ecuación exponencial la incógnita está en el exponente. Para sacarla hay dos caminos. Si se pueden escribir los dos lados con la misma base, se igualan los exponentes. Si no, se aplica un {{gl:logaritmo|logaritmo}}, que es justo la operación que deshace una potencia."
+     }
+    ]
+   },
+   {
+    "titulo": "Un ejemplo",
+    "corto": "Un ejemplo",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mira cómo se resuelve dos elevado a x igual a k con una gráfica."
+     },
+     {
+      "t": "eq",
+      "tex": "2^{x}=k\\ \\Longleftrightarrow\\ x=\\log_{2}k"
+     },
+     {
+      "t": "grafica",
+      "animar": "dibujar",
+      "alt": "La curva dos elevado a x"
+     }
+    ]
+   },
+   {
+    "titulo": "Piensa antes de ver",
+    "corto": "Piensa",
+    "bloques": [
+     {
+      "t": "piensa",
+      "pregunta": "La ecuación dos elevado a x igual a 8 se resuelve escribiendo 8 como una potencia de 2. ¿Cuánto vale x?",
+      "opciones": [
+       2,
+       3,
+       4,
+       6
+      ],
+      "correcta": 3,
+      "bien": "Muy bien. Vale 3, porque dos al cubo es 8. Más abajo se ve en la gráfica.",
+      "mal": "Vale 3, porque 2 por 2 por 2 es 8. Más abajo se ve en la gráfica."
+     }
+    ]
+   },
+   {
+    "titulo": "Cambiando k",
+    "corto": "Cambiando k",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mira cómo cambia la solución al mover la altura k."
+     },
+     {
+      "t": "acercando",
+      "ds": [
+       8,
+       4,
+       0.125,
+       2
+      ],
+      "alt": "La solución para varios k"
+     },
+     {
+      "t": "p",
+      "html": "El logaritmo crece despacio. Duplicar k solo suma 1 a la solución, porque duplicar es multiplicar por 2."
+     }
+    ]
+   },
+   {
+    "titulo": "Ecuaciones exponenciales",
+    "corto": "Exponenciales",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Primero se intenta igualar las bases. Si no se puede, se aplica un logaritmo."
+     },
+     {
+      "t": "pasos",
+      "items": [
+       {
+        "tex": "3^{2x}=27=3^{3}\\ \\Rightarrow\\ 2x=3\\ \\Rightarrow\\ x=1.5",
+        "porque": "Se escribe 27 como 3 al cubo y se igualan los exponentes."
+       },
+       {
+        "tex": "2^{x}=\\dfrac{1}{8}=2^{-3}\\ \\Rightarrow\\ x=-3",
+        "porque": "Una fracción se escribe con un exponente negativo."
+       },
+       {
+        "tex": "5^{x}=7\\ \\Rightarrow\\ x=\\dfrac{\\ln 7}{\\ln 5}\\approx 1.21",
+        "porque": "Cuando no se igualan bases, se aplica el logaritmo."
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "Logaritmos",
+    "corto": "Logaritmos",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Las propiedades de los logaritmos permiten juntar varios en uno solo."
+     },
+     {
+      "t": "pasos",
+      "items": [
+       {
+        "tex": "\\log_{b}(MN)=\\log_{b}M+\\log_{b}N,\\qquad \\log_{b}\\dfrac{M}{N}=\\log_{b}M-\\log_{b}N",
+        "porque": "El logaritmo de un producto es una suma y el de un cociente es una resta."
+       },
+       {
+        "tex": "\\log_{b}M^{n}=n\\log_{b}M",
+        "porque": "El exponente sale multiplicando."
+       },
+       {
+        "tex": "\\log_{2}8+\\log_{2}4=3+2=5=\\log_{2}32",
+        "porque": "Se pueden sumar o juntar. Tienen que tener la misma base."
+       }
+      ]
+     },
+     {
+      "t": "ojo",
+      "html": "El logaritmo solo existe para números positivos. Al resolver una ecuación logarítmica hay que comprobar que las soluciones no dejen un logaritmo de un número negativo o de cero."
+     }
+    ]
+   },
+   {
+    "titulo": "Ecuaciones logarítmicas",
+    "corto": "Logarítmicas",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Una ecuación logarítmica se resuelve pasando a la forma exponencial."
+     },
+     {
+      "t": "pasos",
+      "items": [
+       {
+        "tex": "\\log_{3}(x-1)=2\\ \\Rightarrow\\ x-1=3^{2}=9",
+        "porque": "La definición del logaritmo."
+       },
+       {
+        "tex": "x=10",
+        "porque": "Se despeja x."
+       },
+       {
+        "tex": "\\log_{3}(10-1)=\\log_{3}9=2\\ \\checkmark",
+        "porque": "Se comprueba que x menos 1 es positivo y que da 2."
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "¿Para qué sirve?",
+    "corto": "En ingeniería",
+    "bloques": [
+     {
+      "t": "ingenieria",
+      "titulo": "La escala de decibelios",
+      "html": "El oído percibe sonidos de intensidades muy distintas, y por eso se miden con una escala logarítmica. El nivel en decibelios es diez veces el logaritmo en base 10 del cociente entre la intensidad y una referencia.",
+      "tex": "L=10\\log_{10}\\dfrac{I}{I_{0}}",
+      "datos": [
+       {
+        "k": "Conversación",
+        "v": "60 dB"
+       },
+       {
+        "k": "Un taladro",
+        "v": "90 dB"
+       },
+       {
+        "k": "Cociente de intensidades",
+        "v": "mil veces"
+       }
+      ],
+      "cierre": "La diferencia entre 60 y 90 decibelios son 30 decibelios, que corresponden a un cambio de 10 elevado a 3 en la intensidad, o sea mil veces. Cada 10 decibelios multiplican la intensidad por 10. Es un modelo de la intensidad física, y no mide cuán molesto resulta el ruido para una persona."
+     }
+    ]
+   },
+   {
+    "titulo": "Completa el paso",
+    "corto": "Completa",
+    "bloques": [
+     {
+      "t": "completar",
+      "enunciado": "Se resuelve una ecuación logarítmica pasando a la forma exponencial.",
+      "tex": "\\log_{3}(x-1)=2\\ \\Rightarrow\\ x-1=[[hueco]]",
+      "opciones": [
+       {
+        "tex": "9",
+        "txt": "3 al cuadrado"
+       },
+       {
+        "tex": "6",
+        "txt": "3 por 2"
+       },
+       {
+        "tex": "2",
+        "txt": "dos"
+       }
+      ],
+      "correcta": 0,
+      "errores": [
+       "",
+       "Eso sería multiplicar la base por el resultado. El logaritmo es un exponente, y se eleva la base a ese valor.",
+       "Con 2 se estaría olvidando la base. La forma exponencial es la base elevada al resultado."
+      ],
+      "pista": "El logaritmo es el exponente al que se eleva la base.",
+      "porque": "3 al cuadrado es 9."
+     }
+    ]
+   },
+   {
+    "titulo": "Encuentra el error",
+    "corto": "Error",
+    "bloques": [
+     {
+      "t": "error",
+      "enunciado": "Alguien resolvió una ecuación y se equivocó en un paso. Toca el paso que está mal.",
+      "pasos": [
+       {
+        "tex": "3^{2x}=27",
+        "porque": "La ecuación.",
+        "txt": "la ecuación es tres a la 2x igual a 27"
+       },
+       {
+        "tex": "3^{2x}=3^{3}",
+        "porque": "Se escribe 27 como potencia de 3.",
+        "txt": "27 es 3 al cubo"
+       },
+       {
+        "tex": "2x=3^{3}=27\\ \\Rightarrow\\ x=13.5",
+        "porque": "Este paso es el que falla.",
+        "txt": "se iguala 2x a 27"
+       }
+      ],
+      "mal": 2,
+      "explicacion": "Cuando las bases son iguales se igualan los exponentes, que son 2x y 3. No hay que elevar otra vez 3 al cubo. Queda 2x igual a 3, y x vale 1.5.",
+      "correccion": "2x=3\\ \\Rightarrow\\ x=1.5",
+      "pista": "Compara solo los exponentes."
+     }
+    ]
+   },
+   {
+    "titulo": "Ordena los pasos",
+    "corto": "Ordena",
+    "bloques": [
+     {
+      "t": "ordenar",
+      "enunciado": "Estos son los pasos para resolver 5 elevado a x igual a 7, pero están desordenados.",
+      "pasos": [
+       "5^{x}=7",
+       "\\ln\\left(5^{x}\\right)=\\ln 7",
+       "x\\ln 5=\\ln 7",
+       "x=\\dfrac{\\ln 7}{\\ln 5}"
+      ],
+      "mezcla": [
+       2,
+       0,
+       3,
+       1
+      ],
+      "porque": "Se aplica el logaritmo a los dos lados, el exponente baja y se despeja.",
+      "pista": "Se empieza con la ecuación.",
+      "txt": [
+       "La ecuación",
+       "Se aplica el logaritmo natural",
+       "El exponente sale multiplicando",
+       "Se despeja x"
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "Revisa tu respuesta",
+    "corto": "Revisa",
+    "bloques": [
+     {
+      "t": "pregunta"
+     },
+     {
+      "t": "nota",
+      "html": "Puedes pedir pistas de a una. Si fallas, el mensaje te dice qué error se cometió."
+     }
+    ]
+   },
+   {
+    "titulo": "Mini simulacro",
+    "corto": "Simulacro",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Tres preguntas reales del banco de MathUNAL sobre este tema. Responde sin mirar los pasos."
+     },
+     {
+      "t": "simulacro",
+      "titulo": "Mini simulacro de ecuaciones exponenciales y logarítmicas",
+      "preguntas": [
+       {
+        "tipo": "numerica",
+        "texto": "Resuelva $3^{2x}=27$:",
+        "respuesta": "1.5",
+        "tolNum": 0.001,
+        "resumen": "Se escribe $27=3^{3}$, se igualan los exponentes $2x=3$ y queda $x=1.5$.",
+        "fuente": "Banco MathUNAL, simulacro de Matemáticas Básicas"
+       },
+       {
+        "tipo": "numerica",
+        "texto": "Resuelva $\\log_{3}(x-1)=2$:",
+        "respuesta": "10",
+        "tolNum": 0.001,
+        "resumen": "Se pasa a forma exponencial, $x-1=3^{2}=9$, así que $x=10$.",
+        "fuente": "Banco MathUNAL, simulacro de Matemáticas Básicas"
+       },
+       {
+        "tipo": "numerica",
+        "texto": "Calcule $\\log_{2}8+\\log_{2}4$:",
+        "respuesta": "5",
+        "tolNum": 0.001,
+        "resumen": "Se calcula $\\log_{2}8=3$ y $\\log_{2}4=2$, y la suma es $5$.",
+        "fuente": "Banco MathUNAL, simulacro de Matemáticas Básicas"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "Tu repaso",
+    "corto": "Repaso",
+    "bloques": [
+     {
+      "t": "repaso"
+     }
+    ]
+   },
+   {
+    "titulo": "En resumen",
+    "corto": "Resumen",
+    "bloques": [
+     {
+      "t": "resumen"
+     }
+    ]
+   }
+  ]
+ },
+ "practicar": {
+  "pasos": [
+   {
+    "titulo": "La curva",
+    "grafica": {
+     "draw": 1,
+     "guide": 1
+    },
+    "bloques": [
+     {
+      "t": "p",
+      "html": "La curva de dos elevado a x y una recta de altura k."
+     },
+     {
+      "t": "eq",
+      "tex": "2^{x}=k"
+     }
+    ]
+   },
+   {
+    "titulo": "Cambia k",
+    "grafica": {
+     "draw": 1,
+     "guide": 1
+    },
+    "laboratorio": true,
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mueve el deslizador. Abajo se lee la solución de la ecuación, el logaritmo en base 2 de k."
+     }
+    ]
+   },
+   {
+    "titulo": "Un valor exacto",
+    "grafica": {
+     "draw": 1,
+     "guide": 1,
+     "ok": true
+    },
+    "laboratorio": true,
+    "d": 8,
+    "bloques": [
+     {
+      "t": "eq",
+      "tex": "2^{x}=8\\ \\Rightarrow\\ x=3"
+     },
+     {
+      "t": "p",
+      "html": "Con k igual a 8 la solución es 3."
+     }
+    ]
+   },
+   {
+    "titulo": "Revisa tu respuesta",
+    "grafica": {
+     "draw": 1,
+     "guide": 1,
+     "ok": true,
+     "d": 8
+    },
+    "bloques": [
+     {
+      "t": "pregunta"
+     },
+     {
+      "t": "nota",
+      "html": "Escribe cada lado como potencia de la misma base."
+     }
+    ]
+   }
+  ]
+ },
+ "pregunta": {
+  "tex": "2^{x}=\\dfrac{1}{16}\\ \\text{tiene como solución}\\ x=",
+  "opciones": [
+   "$-4$",
+   "$4$",
+   "$-8$",
+   "$\\tfrac{1}{4}$"
+  ],
+  "correcta": 0,
+  "explicacion": "Un dieciseisavo es 2 a la menos 4. Con las bases iguales se igualan los exponentes, y x vale menos 4.",
+  "verificacion": {
+   "formula": "exp((0-4)*ln(2))-1/16+0*x",
+   "a": 0,
+   "esperado": 0
+  },
+  "pistas": [
+   "Escribe 16 como potencia de 2.",
+   "Un dieciseisavo es 2 elevado a un exponente negativo.",
+   "Iguala los exponentes."
+  ],
+  "errores": [
+   "",
+   "Con 4 positivo da 16, y no un dieciseisavo. El exponente debe ser negativo.",
+   "Con menos 8 daría uno sobre 256. Se necesita 2 a la 4 en el denominador, no a la 8.",
+   "Esa es la raíz cuarta de la base. La incógnita está en el exponente, y no se resuelve así."
+  ]
+ },
+ "resumen": [
+  "Si se pueden escribir los dos lados con la misma base, se igualan los exponentes.",
+  "Si no, se aplica un logaritmo y el exponente baja multiplicando.",
+  "Una ecuación logarítmica se pasa a la forma exponencial, y se comprueba que el argumento sea positivo."
+ ]
+}
