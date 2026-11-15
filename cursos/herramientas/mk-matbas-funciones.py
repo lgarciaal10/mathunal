@@ -2,7 +2,7 @@ import os, math
 os.environ['CURSO_FU']='Matemáticas Básicas'; os.environ['BANCO']='matbas'
 from mklib import *
 MOD="Módulo 3 Funciones, trigonometría y geometría analítica"
-graf={"tipo":"plano","x":[-7.5,9],"y":[-4,5],"a":-0.5,"b":2,"inicio":1,
+graf={"tipo":"plano","redondeo":True,"x":[-7.5,9],"y":[-4,5],"a":-0.5,"b":2,"inicio":1,
  "elementos":[{"t":"recta","p":["0","0"],"dir":["1","1"],"guion":True,"c":3},
   {"t":"recta","p":["0","-2"],"dir":["1","3"],"c":2},
   {"t":"recta","p":["0","2/3"],"dir":["3","1"],"c":0,"guia":True},

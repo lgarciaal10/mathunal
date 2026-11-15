@@ -2,7 +2,7 @@ import os
 os.environ['CURSO_FU']='Álgebra Lineal'
 from mklib import *
 MOD="Módulo 1 Matrices, determinantes y sistemas"
-graf={"tipo":"plano","x":[-3.5,9.33],"y":[-2,5],"a":-1,"b":1.5,"inicio":1,
+graf={"tipo":"plano","redondeo":True,"x":[-3.5,9.33],"y":[-2,5],"a":-1,"b":1.5,"inicio":1,
  "elementos":[
   {"t":"vector","b":["2","1"],"nombre":"a1","c":0},
   {"t":"vector","a":["2","1"],"b":["2+x","1+2*x"],"nombre":"x2 por a2","c":1},

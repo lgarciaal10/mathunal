@@ -10,6 +10,7 @@
  "ejercicios": 8,
  "grafica": {
   "tipo": "plano",
+  "redondeo": true,
   "x": [
    -7.7,
    7.7
@@ -44,7 +45,7 @@
      "x/5+1",
      "2*x/5+2"
     ],
-    "nombre": "n",
+    "nombre": "",
     "c": 1
    },
    {

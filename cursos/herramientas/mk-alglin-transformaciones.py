@@ -2,7 +2,7 @@ import os
 os.environ['CURSO_FU']='Álgebra Lineal'
 from mklib import *
 MOD="Módulo 2 Espacios vectoriales y transformaciones"
-graf={"tipo":"plano","x":[-3.3,6.23],"y":[-2,3.2],"a":-1.5,"b":1.5,"inicio":0.5,
+graf={"tipo":"plano","redondeo":True,"x":[-3.3,6.23],"y":[-2,3.2],"a":-1.5,"b":1.5,"inicio":0.5,
  "elementos":[
   {"t":"poligono","puntos":[["0","0"],["1","0"],["1","1"],["0","1"]],"c":0,"nombre":"cuadrado"},
   {"t":"poligono","puntos":[["0","0"],["1","x"],["1+x","1+x"],["x","1"]],"c":2,"nombre":"imagen"},

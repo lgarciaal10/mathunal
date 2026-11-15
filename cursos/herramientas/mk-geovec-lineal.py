@@ -2,9 +2,9 @@ import os, math
 os.environ['CURSO_FU']='Geometría Vectorial y Analítica'; os.environ['BANCO']='geovec'
 from mklib import *
 MOD="Módulo 2 Vectores en el espacio"
-graf={"tipo":"plano","x":[-4.0,8.5],"y":[-2.5,6.4],"a":-1,"b":3.5,"inicio":1,
+graf={"tipo":"plano","redondeo":True,"x":[-4.0,8.5],"y":[-2.5,6.4],"a":-1,"b":3.5,"inicio":1,
  "elementos":[
-  {"t":"vector","b":["2*x","x"],"nombre":"a u","c":0},
+  {"t":"vector","b":["2*x","x"],"nombre":"a·u","c":0},
   {"t":"vector","a":["2*x","x"],"b":["2*x-1","x+2"],"nombre":"v","c":1},
   {"t":"punto","p":["3","4"],"c":3},
   {"t":"punto","p":["2*x-1","x+2"],"c":2}],

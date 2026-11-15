@@ -2,7 +2,7 @@ import os, math
 os.environ['CURSO_FU']='Geometría Vectorial y Analítica'; os.environ['BANCO']='geovec'
 from mklib import *
 MOD="Módulo 1 Vectores y rectas en el plano"
-graf={"tipo":"plano","x":[-4.6,4.6],"y":[-0.9,4.1],"a":0,"b":3.1416,"inicio":1.0472,
+graf={"tipo":"plano","redondeo":True,"x":[-4.6,4.6],"y":[-0.9,4.1],"a":0,"b":3.1416,"inicio":1.0472,
  "elementos":[
   {"t":"vector","b":["4","0"],"nombre":"u","c":0},
   {"t":"vector","b":["3*cos(x)","3*sin(x)"],"nombre":"v","c":1},

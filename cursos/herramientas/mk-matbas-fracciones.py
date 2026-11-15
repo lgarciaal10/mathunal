@@ -4,7 +4,7 @@ from mklib import *
 MOD="Módulo 1 Álgebra y expresiones"
 def tr(a,b,n):
     return {"t":"trazo","puntos":[[f"{a+(b-a)*k/n:.4f}",f"({a+(b-a)*k/n:.4f}+2)/({a+(b-a)*k/n:.4f}+1)"] for k in range(n+1)],"c":2}
-graf={"tipo":"plano","x":[-4.5,5.5],"y":[-3,7],"a":0,"b":4.5,"inicio":0,
+graf={"tipo":"plano","redondeo":True,"x":[-4.5,5.5],"y":[-3,7],"a":0,"b":4.5,"inicio":0,
  "elementos":[tr(-4.5,-1.05,40),tr(-0.93,1.96,50),tr(2.04,5.5,60),
   {"t":"recta","p":["-1","0"],"dir":["0","1"],"guion":True,"c":3,"guia":True},
   {"t":"recta","p":["2","0"],"dir":["0","1"],"guion":True,"c":3,"guia":True},

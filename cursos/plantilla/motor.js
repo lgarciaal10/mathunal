@@ -60,9 +60,10 @@
       if(G.sinejes) return;
       var xa=F.XA(), ya=F.YA(), libre=F.z>0.001;
       F.el('path',{'class':'ax',d:'M'+xa+' '+(F.y1-8)+' V'+F.y0+' M'+F.x0+' '+ya+' H'+(F.x1+6)},ag);
-      var sx=paso125(F.XR[1]-F.XR[0],libre), dx=Math.max(0,-Math.floor(Math.log(sx)/Math.LN10+1e-9));
-      for(var i=Math.ceil(F.XR[0]/sx-1e-9);i*sx<=F.XR[1]+sx*1e-9;i++){ var v=i*sx; if(Math.abs(v)<sx*1e-6) continue; F.el('path',{'class':'tk',d:'M'+F.X(v)+' '+(ya-5)+' v10'},ag); var t=F.el('text',{'class':'tt',x:F.X(v),y:ya+26,'text-anchor':'middle'},ag); t.textContent=fm(v,dx); }
-      var sy=paso125(F.YR[1]-F.YR[0],libre), dy=Math.max(0,-Math.floor(Math.log(sy)/Math.LN10+1e-9));
+      var sx=G.marcasPi?Math.PI*((F.XR[1]-F.XR[0])>18?2:1):paso125(F.XR[1]-F.XR[0],libre||(F.XR[1]-F.XR[0])<4), dx=Math.max(0,-Math.floor(Math.log(sx)/Math.LN10+1e-9));
+      for(var i=Math.ceil(F.XR[0]/sx-1e-9);i*sx<=F.XR[1]+sx*1e-9;i++){ var v=i*sx; if(Math.abs(v)<sx*1e-6) continue; F.el('path',{'class':'tk',d:'M'+F.X(v)+' '+(ya-5)+' v10'},ag); var t=F.el('text',{'class':'tt',x:F.X(v),y:ya+26,'text-anchor':'middle'},ag); t.textContent=G.marcasPi?(function(){ var q=Math.round(v/Math.PI); return (q===1?'':q===-1?'-':q)+'π'; })():fm(v,dx); }
+      if(G.ejes){ var ex=F.el('text',{'class':'tt',x:F.x1+2,y:ya-10,'text-anchor':'end','font-style':'italic'},ag); ex.textContent=G.ejes[0]; var ey=F.el('text',{'class':'tt',x:xa+10,y:F.y0+10,'text-anchor':'start','font-style':'italic'},ag); ey.textContent=G.ejes[1]; }
+      var sy=paso125(F.YR[1]-F.YR[0],libre||(F.YR[1]-F.YR[0])<4), dy=Math.max(0,-Math.floor(Math.log(sy)/Math.LN10+1e-9));
       for(var j=Math.ceil(F.YR[0]/sy-1e-9);j*sy<=F.YR[1]+sy*1e-9;j++){ var w=j*sy; if(Math.abs(w)<sy*1e-6) continue; F.el('path',{'class':'tk',d:'M'+(xa-5)+' '+F.Y(w)+' h10'},ag); var u=F.el('text',{'class':'tt',x:xa-14,y:F.Y(w)+4,'text-anchor':'end'},ag); u.textContent=fm(w,dy); }
     };
     F.zoomLabel=function(){ if(!F.zf) return; if(!zl){ var izq=SEC&&fDer(A)>0; zl=F.el('text',{'class':'zb',x:izq?F.x0+24:F.x1-4,y:F.y1+16,'text-anchor':izq?'start':'end',opacity:0}); } var f=(G.x[1]-G.x[0])/(F.XR[1]-F.XR[0]); zl.setAttribute('opacity',F.z>0.05?1:0); zl.textContent='Zoom ×'+(f>=10?Math.round(f):f.toFixed(1)); };
@@ -290,7 +291,7 @@
     }};
   }
   function readouts(d,lEl,rEl){
-    if(PLA){ var tt=d==null?(G.inicio!=null?G.inicio:G.a):d; if(G.entero) tt=Math.round(tt); var sp=function(v){ return Math.abs(v)<1e-6?0:v; }; lEl.textContent=LEC[0].r+' = '+nf(sp(LEC[0].f(tt))); rEl.textContent=LEC[1].r+' = '+nf(sp(LEC[1].f(tt))); return; }
+    if(PLA){ var tt=d==null?(G.inicio!=null?G.inicio:G.a):d; if(G.entero) tt=Math.round(tt); var sp=function(v){ if(!G.redondeo) return Math.abs(v)<1e-6?0:v; if(Math.abs(v)<5e-4) return 0; var r=Math.round(v); if(Math.abs(v-r)<5e-4*Math.max(1,Math.abs(v)/10)) return r; return Math.round(v*1000)/1000; }; lEl.textContent=LEC[0].r+' = '+nf(sp(LEC[0].f(tt))); rEl.textContent=LEC[1].r+' = '+nf(sp(LEC[1].f(tt))); return; }
     if(NEW){ if(d==null){ lEl.textContent='sin datos'; rEl.textContent='sin datos'; return; } var kk=Math.max(0,Math.min(G.pasos,Math.round(d))); lEl.textContent='x'+kk+' = '+nf(NX[kk]); rEl.textContent='f(x'+kk+') = '+nf(fFun(NX[kk])); return; }
     if(ARE){ var RA=G.rotulos||(ENT?['área','separación']:(POL?['área','r']:['área','altura'])); if(d==null){ lEl.textContent='sin datos'; rEl.textContent='sin datos'; return; } var sn=function(v){ return Math.abs(v)<1e-7?0:v; }; lEl.textContent=RA[0]+' = '+nf(sn(fPri(d)-fPri(G.a))); rEl.textContent=RA[1]+' = '+nf(sn(ENT?fFun(d)-fInf(d):fFun(d))); return; }
     if(ASI){ if(d==null){ lEl.textContent='sin datos'; rEl.textContent='sin datos'; return; } var dd=G.entero?Math.max(0,Math.round(d)):d, RS=G.rotulos||['x','f(x)']; lEl.textContent=RS[0]+' = '+nf(dd); rEl.textContent=RS[1]+' = '+nf(fFun(dd)); return; }
@@ -526,11 +527,11 @@
       case 'grafica': { var id='f'+(++uid); (actions[secId]=actions[secId]||[]).push(function(){ var g=Graph(document.getElementById(id)); g.set({draw:0}); tween(1500,function(k){ g.set({draw:eio(k),hole:ap(k,.7,1),zero:k>.9}); }); }); return '<div class="l-fig"><svg class="g" id="'+id+'" viewBox="0 0 640 380" role="img" aria-label="'+attr(b.alt||'Gráfica')+'"></svg></div>'; }
       case 'acercando': { var id2='a'+(++uid), vl=id2+'l', vr=id2+'r'; var run=function(){
           var g=Graph(document.getElementById(id2)), lEl=document.getElementById(vl), rEl=document.getElementById(vr), ds=b.ds, i=1, cur=ds[0], finished=false;
-          g.set({draw:1,hole:1,d:ds[0]}); readouts(ds[0],lEl,rEl);
+          g.set({draw:1,hole:1,guide:PLA?1:0,d:ds[0]}); readouts(ds[0],lEl,rEl);
           (function nxt(){ if(i>=ds.length){ var dl=ds[ds.length-1]; g.set({draw:1,hole:1,d:dl,guide:1,ok:true}); if(G.zoom&&b.zoom!==false){ setTimeout(function(){ tween(2200,function(k){ g.set({draw:1,hole:1,d:dl,guide:1,ok:true,zoom:eio(k)}); }); },RM?0:700); } return; }
-            var a=cur,z=ds[i]; tween(1400,function(k){ var d=a+(z-a)*eio(k); g.set({draw:1,hole:1,d:d}); readouts(d,lEl,rEl); },function(){ cur=z; i++; setTimeout(nxt,RM?0:450); }); })();
+            var a=cur,z=ds[i]; tween(1400,function(k){ var d=a+(z-a)*eio(k); g.set({draw:1,hole:1,guide:PLA?1:0,d:d}); readouts(d,lEl,rEl); },function(){ cur=z; i++; setTimeout(nxt,RM?0:450); }); })();
         }; (actions[secId]=actions[secId]||[]).push(function(){ run(); });
-        return '<div class="l-fig"><svg class="g" id="'+id2+'" viewBox="0 0 640 380" role="img" aria-label="'+attr(b.alt||'Gráfica')+'"></svg></div><div class="vals"><div class="v l"><span class="lab-l">Por la izquierda</span><b id="'+vl+'">sin datos</b></div><div class="v r"><span class="lab-r">Por la derecha</span><b id="'+vr+'">sin datos</b></div></div>'; }
+        return '<div class="l-fig"><svg class="g" id="'+id2+'" viewBox="0 0 640 380" role="img" aria-label="'+attr(b.alt||'Gráfica')+'"></svg></div><div class="vals"><div class="v l"><span class="lab-l">'+esc(ETQ[0])+'</span><b id="'+vl+'">sin datos</b></div><div class="v r"><span class="lab-r">'+esc(ETQ[1])+'</span><b id="'+vr+'">sin datos</b></div></div>'; }
       case 'piensa': { var pid='p'+(++uid); inits.push(function(){ var root=document.getElementById(pid), picked=false, ring=root.querySelector('.ring'), fg=root.querySelector('.fgc'), rev=root.querySelector('.rev span');
           [].forEach.call(root.querySelectorAll('.row button'),function(btn){ btn.addEventListener('click',function(){ if(picked) return; picked=true; var n=+btn.getAttribute('data-n');
             [].forEach.call(root.querySelectorAll('.row button'),function(x){ x.setAttribute('aria-pressed',x===btn?'true':'false'); x.disabled=true; });

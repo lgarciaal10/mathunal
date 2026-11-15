@@ -8,7 +8,7 @@ TS=[round(-math.pi+k*2*math.pi/(NP-1),5) for k in range(NP)]
 EL=[{"t":"trazo","puntos":[[str(t),f"sin({t})*sin(x*{t})"] for t in TS],"c":0},
     {"t":"segmento","a":[str(-math.pi),"0"],"b":[str(math.pi),"0"],"c":3}]
 INT=[0,math.pi,0,0,0,0,0]
-graf={"tipo":"plano","x":[-4.4,4.4],"y":[-1.4,1.4],"a":1,"b":6,"inicio":1,"entero":True,"elementos":EL,
+graf={"tipo":"plano","marcasPi":True,"redondeo":True,"x":[-4.4,4.4],"y":[-1.4,1.4],"a":1,"b":6,"inicio":1,"entero":True,"elementos":EL,
  "lecturas":[{"rotulo":"integral de seno de x por seno de n x entre menos pi y pi","formula":"("+lagr([round(v,9) for v in INT])+")"},{"rotulo":"período de seno de n x","formula":"2*pi/x"}],
  "etiquetas":["Vale pi con n igual a 1, y cero con los demás n","El período se acorta al subir n"],"etiquetaSlider":"Frecuencia n, de 1 a 6",
  "alt":"La curva del producto de seno de x por seno de n x entre menos pi y pi. Con n igual a 1 el producto es seno al cuadrado y siempre es positivo, y su integral vale pi. Con n mayor que 1 el producto tiene partes positivas y negativas iguales que se cancelan, y la integral vale cero"}

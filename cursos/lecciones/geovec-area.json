@@ -10,6 +10,7 @@
  "ejercicios": 8,
  "grafica": {
   "tipo": "plano",
+  "redondeo": true,
   "x": [
    -3.5,
    11.5
@@ -544,7 +545,7 @@
     ]
    },
    {
-    "titulo": "Mismo área",
+    "titulo": "Misma área",
     "grafica": {
      "draw": 1,
      "guide": 1,

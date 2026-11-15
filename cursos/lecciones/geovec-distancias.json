@@ -10,6 +10,11 @@
  "ejercicios": 8,
  "grafica": {
   "tipo": "plano",
+  "redondeo": true,
+  "ejes": [
+   "plano",
+   "n"
+  ],
   "x": [
    -8.6,
    8.6

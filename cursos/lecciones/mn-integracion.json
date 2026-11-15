@@ -419,7 +419,7 @@
    [
     19,
     24,
-    "La regla de Simpson usa parábolas en vez de rectas, y para x al cuadrado da el valor exacto."
+    "La regla de Simpson usa parábolas en vez de rectas, y para x al cuadrado da el valor exacto. En la gráfica sigue el trapecio, como punto de comparación."
    ]
   ],
   "canales": {

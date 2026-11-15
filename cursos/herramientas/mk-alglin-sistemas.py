@@ -3,7 +3,7 @@ os.environ['CURSO_FU']='Álgebra Lineal'
 from mklib import *
 MOD="Módulo 1 Matrices, determinantes y sistemas"
 SIS=lambda a,b:"\\begin{cases}"+a+"\\\\"+b+"\\end{cases}"
-graf={"tipo":"plano","x":[-5,7.83],"y":[-2.5,4.5],"a":-2,"b":4,"inicio":-1,
+graf={"tipo":"plano","redondeo":True,"x":[-5,7.83],"y":[-2.5,4.5],"a":-2,"b":4,"inicio":-1,
  "elementos":[
   {"t":"recta","p":["0","4"],"dir":["1","-2"],"nombre":"2x + y = 4","c":0},
   {"t":"recta","p":["x","0"],"dir":["1","1"],"nombre":"x - y = k","c":1},

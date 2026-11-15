@@ -8,7 +8,7 @@ def Sn(t): return "+".join(f"({ind(n)})*({2*(-1)**(n+1)/n:.6f})*{math.sin(n*t):.
 TS=[round(-math.pi+k*math.pi/30,5) for k in range(61)]
 EL=[{"t":"trazo","puntos":[[str(t),str(t)] for t in TS],"c":3},
     {"t":"trazo","puntos":[[str(t),Sn(t)] for t in TS],"c":0}]
-graf={"tipo":"plano","x":[-8.2,8.2],"y":[-4.5,4.5],"a":1,"b":8,"inicio":3,"entero":True,"elementos":EL,
+graf={"tipo":"plano","marcasPi":True,"redondeo":True,"x":[-8.2,8.2],"y":[-4.5,4.5],"a":1,"b":8,"inicio":3,"entero":True,"elementos":EL,
  "lecturas":[{"rotulo":"cantidad N de términos de la serie","formula":"x"},{"rotulo":"coeficiente b de N, igual a 2 por menos uno elevado a N más 1, entre N","formula":"2*cos(pi*(x+1))/x"}],
  "etiquetas":["Suma parcial con los primeros N senos","Coeficiente del seno número N, que alterna de signo y decrece"],"etiquetaSlider":"Términos N, de 1 a 8",
  "alt":"La función f de x igual a x entre menos pi y pi, en verde, y su suma parcial de Fourier con N términos, en azul. Con N igual a 1 es una sola onda seno. Al subir N la curva azul se acerca a la recta, salvo cerca de los extremos, donde la extensión periódica tiene un salto"}

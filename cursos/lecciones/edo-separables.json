@@ -2163,7 +2163,7 @@
     "bloques": [
      {
       "t": "eq",
-      "tex": "y(0)=0.8\\ \\Rightarrow\\ y=0.8\\,e^{-x^{2}/2},\\quad y(1)=0.49"
+      "tex": "\\begin{aligned}y(0)=0.8\\ &\\Rightarrow\\ y=0.8\\,e^{-x^{2}/2}\\\\ y(1)&=0.49\\end{aligned}"
      },
      {
       "t": "p",

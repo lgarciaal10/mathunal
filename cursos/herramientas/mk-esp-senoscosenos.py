@@ -10,7 +10,7 @@ def Ls(t): return f"({ssin(t):.6f})*(1-x)+({scos(t):.6f})*x"
 EL=[{"t":"trazo","puntos":[[str(t),f"{t:.5f}*(1-x)+{abs(t):.5f}*x"] for t in TS],"c":3},
     {"t":"trazo","puntos":[[str(t),Ls(t)] for t in TS],"c":0},
     {"t":"segmento","a":["0","-3.6"],"b":["0","3.6"],"c":3,"guion":True,"guia":True}]
-graf={"tipo":"plano","x":[-8.2,8.2],"y":[-4.5,4.5],"a":0,"b":1,"inicio":0,"entero":True,"elementos":EL,
+graf={"tipo":"plano","marcasPi":True,"redondeo":True,"x":[-8.2,8.2],"y":[-4.5,4.5],"a":0,"b":1,"inicio":0,"entero":True,"elementos":EL,
  "lecturas":[{"rotulo":"valor de la serie en x igual a pi","formula":"3.141593*x"},{"rotulo":"término constante a0 entre 2","formula":"1.570796*x"}],
  "etiquetas":["0 con la serie de senos, que tiene un salto en pi. Pi con la serie de cosenos, que es continua","0 con senos, porque no tiene término constante. Pi medios con cosenos"],"etiquetaSlider":"Extensión, 0 impar con senos y 1 par con cosenos",
  "alt":"La función f de x igual a x dada solo entre 0 y pi, y sus dos extensiones a menos pi y pi. La impar, en verde, es la recta x y su serie de solo senos tiene saltos en los extremos. La par, que es el valor absoluto de x, tiene una serie de solo cosenos y es continua. La curva azul es la suma parcial de cinco términos"}

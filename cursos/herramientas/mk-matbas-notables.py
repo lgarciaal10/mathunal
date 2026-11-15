@@ -3,7 +3,7 @@ os.environ['CURSO_FU']='Matemáticas Básicas'; os.environ['BANCO']='matbas'
 from mklib import *
 MOD="Módulo 1 Álgebra y expresiones"
 TS=[-3.5+7.0*k/100 for k in range(101)]
-graf={"tipo":"plano","x":[-3.5,3.5],"y":[-2.5,19],"a":0.5,"b":2.5,"inicio":1,
+graf={"tipo":"plano","redondeo":True,"x":[-3.5,3.5],"y":[-2.5,19],"a":0.5,"b":2.5,"inicio":1,
  "elementos":[{"t":"trazo","puntos":[[f"{t:.4f}",f"{t:.4f}*{t:.4f}+2*x*{t:.4f}"] for t in TS],"c":3,"guia":True},
   {"t":"trazo","puntos":[[f"{t:.4f}",f"({t:.4f}+x)*({t:.4f}+x)"] for t in TS],"c":2},
   {"t":"recta","p":["1","0"],"dir":["0","1"],"guion":True,"c":3},

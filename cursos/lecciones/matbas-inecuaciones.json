@@ -10,6 +10,7 @@
  "ejercicios": 7,
  "grafica": {
   "tipo": "plano",
+  "redondeo": true,
   "x": [
    -2.5,
    8.5

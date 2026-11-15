@@ -3,7 +3,7 @@ os.environ['CURSO_FU']='Geometría Vectorial y Analítica'; os.environ['BANCO']=
 from mklib import *
 MOD="Módulo 2 Vectores en el espacio"
 B=3.605551275
-graf={"tipo":"plano","x":[-1.5,8.0],"y":[-1.5,8.5],"a":0,"b":8,"inicio":6,
+graf={"tipo":"plano","redondeo":True,"x":[-1.5,8.0],"y":[-1.5,8.5],"a":0,"b":8,"inicio":6,
  "elementos":[
   {"t":"poligono","puntos":[["0","0"],[str(B),"0"],[str(B),"x"]],"c":3},
   {"t":"segmento","a":["0","0"],"b":[str(B),"0"],"c":0,"nombre":"base","guia":True},

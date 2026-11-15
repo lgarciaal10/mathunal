@@ -10,6 +10,7 @@
  "ejercicios": 8,
  "grafica": {
   "tipo": "plano",
+  "redondeo": true,
   "x": [
    -4.0,
    8.5
@@ -28,7 +29,7 @@
      "2*x",
      "x"
     ],
-    "nombre": "a u",
+    "nombre": "a·u",
     "c": 0
    },
    {

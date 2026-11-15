@@ -19,7 +19,7 @@ ver={"duracion":24.0,"capitulos":[
  [4,10,"En Stokes, la circulación sobre la frontera de una superficie es el flujo del rotacional a través de ella."],
  [10,16,"Con el campo menos y, x, 0 y un disco de radio 1, la circulación es 2 pi, y el flujo del rotacional también."],
  [16,20,"Para cualquier radio los dos valores coinciden. Con r igual a 1.2 valen 9.05."],
- [20,24,"En Gauss, el flujo por una superficie cerrada es la integral de la divergencia en el interior. Con el campo x, y, z en la esfera unidad, da 4 pi."]],
+ [20,24,"En Gauss, el flujo por una superficie cerrada es la integral de la divergencia en el interior. Con el campo x, y, z en la esfera unidad, da 4 pi. La gráfica sigue mostrando el caso de Stokes, y Gauss no se dibuja aquí."]],
  "canales":{"draw":[[0.3,0],[3.5,1]],"d":[[4,0.4],[8,0.4],[10,1],[13,1],[16,1.2],[18,1.2],[24,1.2]],"guide":[[4,0],[5,1]]},
  "intervalos":{"ok":[16,24]}}
 S=[

@@ -2,10 +2,10 @@ import os, math
 os.environ['CURSO_FU']='Geometría Vectorial y Analítica'; os.environ['BANCO']='geovec'
 from mklib import *
 MOD="Módulo 3 Rectas, planos y cónicas"
-graf={"tipo":"plano","x":[-7.7,7.7],"y":[-3.2,5.2],"a":-4,"b":6,"inicio":0,
+graf={"tipo":"plano","redondeo":True,"x":[-7.7,7.7],"y":[-3.2,5.2],"a":-4,"b":6,"inicio":0,
  "elementos":[
   {"t":"recta","p":["x/5","2*x/5"],"dir":["2","-1"],"c":0},
-  {"t":"vector","a":["x/5","2*x/5"],"b":["x/5+1","2*x/5+2"],"nombre":"n","c":1},
+  {"t":"vector","a":["x/5","2*x/5"],"b":["x/5+1","2*x/5+2"],"nombre":"","c":1},
   {"t":"vector","b":["1","2"],"nombre":"n","c":3},
   {"t":"segmento","a":["0","0"],"b":["x/5","2*x/5"],"guion":True,"c":2,"guia":True}],
  "lecturas":[{"rotulo":"valor d del plano x más 2y igual a d","formula":"x"},{"rotulo":"distancia del origen al plano","formula":"abs(x)/sqrt(5)"}],

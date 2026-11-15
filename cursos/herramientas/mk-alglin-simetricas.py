@@ -6,7 +6,7 @@ PTS=[]
 for k in range(64):
     th=round(2*math.pi*k/64,6); th2=round(4*math.pi*k/64,6)
     PTS.append([f"cos({th})/sqrt(2+x*sin({th2}))",f"sin({th})/sqrt(2+x*sin({th2}))"])
-graf={"tipo":"plano","x":[-5.5,7.33],"y":[-3,4],"a":0,"b":1.9,"inicio":1,
+graf={"tipo":"plano","redondeo":True,"x":[-5.5,7.33],"y":[-3,4],"a":0,"b":1.9,"inicio":1,
  "elementos":[
   {"t":"recta","p":["0","0"],"dir":["1","1"],"guion":True,"c":1},
   {"t":"recta","p":["0","0"],"dir":["1","-1"],"guion":True,"nombre":"eje mayor","c":3},

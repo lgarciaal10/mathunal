@@ -3,7 +3,7 @@ os.environ['CURSO_FU']='Matemáticas Básicas'; os.environ['BANCO']='matbas'
 from mklib import *
 MOD="Módulo 3 Funciones, trigonometría y geometría analítica"
 CIR=[[f"cos({2*math.pi*k/72:.4f})",f"sin({2*math.pi*k/72:.4f})"] for k in range(73)]
-graf={"tipo":"plano","x":[-2.75,2.75],"y":[-1.5,1.5],"a":0,"b":6.283185,"inicio":0.523599,
+graf={"tipo":"plano","redondeo":True,"x":[-2.75,2.75],"y":[-1.5,1.5],"a":0,"b":6.283185,"inicio":0.523599,
  "elementos":[{"t":"trazo","puntos":CIR,"c":3},
   {"t":"segmento","a":["0","0"],"b":["cos(x)","sin(x)"],"c":2},
   {"t":"segmento","a":["cos(x)","0"],"b":["cos(x)","sin(x)"],"c":1,"guia":True,"guion":True},

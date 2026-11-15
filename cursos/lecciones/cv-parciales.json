@@ -262,7 +262,7 @@
    [
     20,
     24,
-    "Para la derivada respecto a y se fija x y se deriva respecto a y, y en 1 y 2 da 13."
+    "Para la derivada respecto a y se fija x y se deriva respecto a y, y en 1 y 2 da 13. La gráfica sigue mostrando el corte con y igual a 2, y este cálculo no se dibuja aquí."
    ]
   ],
   "canales": {

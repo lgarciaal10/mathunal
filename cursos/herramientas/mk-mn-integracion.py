@@ -21,7 +21,7 @@ ver={"duracion":24.0,"capitulos":[
  [4,9,"Con un solo trapecio el resultado es 4, mucho más que el valor exacto."],
  [9,14,"Con 2 trapecios da 3, y con 4 trapecios da 2.75."],
  [14,19,"El error es 4 entre 3 por n al cuadrado. Al duplicar n, el error baja a la cuarta parte."],
- [19,24,"La regla de Simpson usa parábolas en vez de rectas, y para x al cuadrado da el valor exacto."]],
+ [19,24,"La regla de Simpson usa parábolas en vez de rectas, y para x al cuadrado da el valor exacto. En la gráfica sigue el trapecio, como punto de comparación."]],
  "canales":{"draw":[[0.3,0],[3.5,1]],"d":[[4,1],[8,1],[10,2],[12,4],[15,4],[16,8],[24,8]],"guide":[[4,0],[5,1]]},
  "intervalos":{"ok":[14,24]}}
 S=[

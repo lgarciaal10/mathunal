@@ -5,7 +5,7 @@ MOD="Módulo 1 Matrices, determinantes y sistemas"
 def M(*c):
     n=int(len(c)**0.5+0.5); rows=[c[i*n:(i+1)*n] for i in range(n)]
     return "\\begin{pmatrix}"+"\\\\".join("&".join(str(v) for v in r) for r in rows)+"\\end{pmatrix}"
-graf={"tipo":"plano","x":[-2.8,6.73],"y":[-1.5,3.7],"a":-1,"b":2.5,"inicio":2,
+graf={"tipo":"plano","redondeo":True,"x":[-2.8,6.73],"y":[-1.5,3.7],"a":-1,"b":2.5,"inicio":2,
  "elementos":[
   {"t":"vector","b":["2","1"],"nombre":"u","c":0},
   {"t":"vector","b":["1","x"],"nombre":"v","c":1},

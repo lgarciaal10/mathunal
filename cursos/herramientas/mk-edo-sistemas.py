@@ -59,7 +59,7 @@ S+=cierre("Mini simulacro de sistemas lineales",[
  banco("ed_c3_13","El origen es un sumidero cuando todos los valores propios tienen parte real negativa.")])
 prac=[
  {"titulo":"La trayectoria","grafica":{"draw":1,"guide":1},"bloques":[P("Un sistema con giro, que parte de 1, 0."),EQ("\\mathbf{x}'=\\begin{pmatrix}a&-1\\\\1&a\\end{pmatrix}\\mathbf{x}")]},
- {"titulo":"Cambia a","grafica":{"draw":1,"guide":1},"laboratorio":True,"bloques":[P("Mueve el deslizador. Con a negativa la trayectoria se enrolla hacia el origen. Abajo se lee el radio después de una vuelta.")]},
+ {"titulo":"Cambia la parte real","grafica":{"draw":1,"guide":1},"laboratorio":True,"bloques":[P("Mueve el deslizador. Con a negativa la trayectoria se enrolla hacia el origen. Abajo se lee el radio después de una vuelta.")]},
  {"titulo":"Un sumidero","grafica":{"draw":1,"guide":1,"ok":True},"laboratorio":True,"d":-0.2,"bloques":[EQ("a=-0.2\\ \\Rightarrow\\ \\text{espiral estable}"),P("Con a igual a menos 0.2 el radio se reduce a 0.28 en cada vuelta.")]},
  {"titulo":"Revisa tu respuesta","grafica":{"draw":1,"guide":1,"ok":True,"d":-0.2},"bloques":[{"t":"pregunta"},{"t":"nota","html":"Halla los valores propios y mira su parte real."}]}]
 preg={"tex":"\\mathbf{x}'=\\begin{pmatrix}0&2\\\\-2&0\\end{pmatrix}\\mathbf{x}\\ \\text{tiene en el origen}","opciones":["un centro","una espiral estable","un punto silla","un nodo inestable"],"correcta":0,

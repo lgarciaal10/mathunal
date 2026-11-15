@@ -10,6 +10,8 @@
  "ejercicios": 8,
  "grafica": {
   "tipo": "plano",
+  "marcasPi": true,
+  "redondeo": true,
   "x": [
    -8.2,
    8.2

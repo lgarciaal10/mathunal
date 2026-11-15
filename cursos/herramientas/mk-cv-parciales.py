@@ -19,7 +19,7 @@ ver={"duracion":24.0,"capitulos":[
  [4,10,"La derivada parcial respecto a x es la pendiente de esa curva, y vale 2 por x por y."],
  [10,16,"Con y igual a 0.5 la parábola es ancha, y la pendiente en x igual a 1 es 1."],
  [16,20,"Con y igual a 2 la parábola se cierra, y la pendiente es 4. Es el valor de f sub x en 1 y 2."],
- [20,24,"Para la derivada respecto a y se fija x y se deriva respecto a y, y en 1 y 2 da 13."]],
+ [20,24,"Para la derivada respecto a y se fija x y se deriva respecto a y, y en 1 y 2 da 13. La gráfica sigue mostrando el corte con y igual a 2, y este cálculo no se dibuja aquí."]],
  "canales":{"draw":[[0.3,0],[3.5,1]],"d":[[4,0.2],[8,0.2],[10,0.5],[13,0.5],[16,2],[18,2],[24,2]],"guide":[[4,0],[5,1]]},
  "intervalos":{"ok":[16,24]}}
 S=[

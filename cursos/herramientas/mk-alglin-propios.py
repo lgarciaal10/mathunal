@@ -2,7 +2,7 @@ import os
 os.environ['CURSO_FU']='Álgebra Lineal'
 from mklib import *
 MOD="Módulo 3 Ortogonalidad y valores propios"
-graf={"tipo":"plano","x":[-5.5,7.33],"y":[-3,4],"a":0,"b":3.14,"inicio":0.7853981634,
+graf={"tipo":"plano","redondeo":True,"x":[-5.5,7.33],"y":[-3,4],"a":0,"b":3.14,"inicio":0.7853981634,
  "elementos":[
   {"t":"recta","p":["0","0"],"dir":["1","1"],"guion":True,"nombre":"dirección propia","c":1,"guia":True},
   {"t":"recta","p":["0","0"],"dir":["1","-1"],"guion":True,"c":3,"guia":True},

@@ -14,7 +14,7 @@ EL=[{"t":"trazo","puntos":[[str(t),str(1 if t>0 else -1)] for t in [-math.pi,-0.
     {"t":"trazo","puntos":[[str(t),Sn(t)] for t in TS],"c":0}]
 peaks=[max(S(N,t) for t in [k*math.pi/4000 for k in range(1,4000)]) for N in range(0,NT+1)]
 pk=[round(p,6) for p in peaks]; pk[0]=0
-graf={"tipo":"plano","x":[-8.2,8.2],"y":[-1.8,1.8],"a":1,"b":10,"inicio":3,"entero":True,"elementos":EL,
+graf={"tipo":"plano","marcasPi":True,"redondeo":True,"x":[-8.2,8.2],"y":[-1.8,1.8],"a":1,"b":10,"inicio":3,"entero":True,"elementos":EL,
  "lecturas":[{"rotulo":"valor máximo de la suma parcial","formula":"("+lagr(pk)+")"},{"rotulo":"exceso sobre 1, como porcentaje del salto total de 2","formula":"(("+lagr(pk)+")-1)*50"}],
  "etiquetas":["Valor más alto de la suma parcial, cerca del salto","Tiende a cerca de 9 por ciento del salto, y no a cero"],"etiquetaSlider":"Términos impares N, de 1 a 10",
  "alt":"La onda cuadrada, que vale menos 1 a la izquierda de 0 y 1 a la derecha, en verde, y la suma parcial de su serie de Fourier con N términos, en azul. Al aumentar N la suma se parece más a la onda, pero junto al salto queda un pico que se estrecha y sigue sobrepasando 1 en cerca de 9 por ciento del salto"}

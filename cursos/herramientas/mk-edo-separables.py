@@ -68,7 +68,7 @@ S+=cierre("Mini simulacro de variables separables",[banco("ed_c1_01","Se separa 
 prac=[
  {"titulo":"El campo","grafica":{"draw":1},"bloques":[P("Los segmentos son las pendientes que pide la ecuación."),EQ("y'=-x\\,y")]},
  {"titulo":"Cambia y(0)","grafica":{"draw":1},"laboratorio":True,"bloques":[P("Mueve el deslizador. La curva solución cambia con la condición inicial y siempre sigue los segmentos. Abajo se ven C y el valor de y en x igual a 1.")]},
- {"titulo":"Una condición inicial","grafica":{"draw":1,"ok":True},"laboratorio":True,"d":0.8,"bloques":[EQ("y(0)=0.8\\ \\Rightarrow\\ y=0.8\\,e^{-x^{2}/2},\\quad y(1)=0.49"),P("La solución pasa por el punto marcado en el eje y.")]},
+ {"titulo":"Una condición inicial","grafica":{"draw":1,"ok":True},"laboratorio":True,"d":0.8,"bloques":[EQ("\\begin{aligned}y(0)=0.8\\ &\\Rightarrow\\ y=0.8\\,e^{-x^{2}/2}\\\\ y(1)&=0.49\\end{aligned}"),P("La solución pasa por el punto marcado en el eje y.")]},
  {"titulo":"Revisa tu respuesta","grafica":{"draw":1,"ok":True,"d":0.8},"bloques":[{"t":"pregunta"},{"t":"nota","html":"Separa, integra y usa la condición inicial."}]}]
 preg={"tex":"y'=-2xy,\\ y(0)=3\\ \\Rightarrow\\ y(1)","opciones":["$1.104$","$3$","$0.405$","$8.155$"],"correcta":0,
  "explicacion":"Se separa dy sobre y igual a menos 2x dx y se integra, ln de y igual a menos x al cuadrado más c. La solución es y igual a C por e a la menos x al cuadrado, y con y de 0 igual a 3 queda C igual a 3. En x igual a 1 vale 3 por e a la menos 1, o sea 1.104.",

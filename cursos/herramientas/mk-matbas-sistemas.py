@@ -2,7 +2,7 @@ import os, math
 os.environ['CURSO_FU']='Matemáticas Básicas'; os.environ['BANCO']='matbas'
 from mklib import *
 MOD="Módulo 2 Ecuaciones, inecuaciones y sistemas"
-graf={"tipo":"plano","x":[-3,11.7],"y":[-1,7],"a":-3,"b":5,"inicio":1,
+graf={"tipo":"plano","redondeo":True,"x":[-3,11.7],"y":[-1,7],"a":-3,"b":5,"inicio":1,
  "elementos":[{"t":"recta","p":["0","5"],"dir":["1","-1"],"c":2},
   {"t":"recta","p":["0","0-x"],"dir":["1","1"],"c":3,"guia":True},
   {"t":"punto","p":["(5+x)/2","(5-x)/2"],"c":1,"guia":True}],

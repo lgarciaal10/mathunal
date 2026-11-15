@@ -5,7 +5,7 @@ MOD="Módulo 1 Matrices, determinantes y sistemas"
 def AUG(*c,n=3):
     rows=[c[i*(n+1):(i+1)*(n+1)] for i in range(len(c)//(n+1))]
     return "\\left(\\begin{array}{"+"c"*n+"|c}"+"\\\\".join("&".join(str(v) for v in r) for r in rows)+"\\end{array}\\right)"
-graf={"tipo":"plano","x":[-5.5,7.33],"y":[-2,5],"a":-0.5,"b":1.5,"inicio":0,
+graf={"tipo":"plano","redondeo":True,"x":[-5.5,7.33],"y":[-2,5],"a":-0.5,"b":1.5,"inicio":0,
  "elementos":[
   {"t":"recta","p":["0","4"],"dir":["1","-2"],"nombre":"fila 1","c":0},
   {"t":"recta","p":["1","2"],"dir":["1+x","1-2*x"],"nombre":"fila 2 nueva","c":1},

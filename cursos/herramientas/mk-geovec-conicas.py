@@ -7,7 +7,7 @@ EL=[{"t":"trazo","puntos":[[f"5*cos({2*math.pi*k/N:.5f})",f"x*sin({2*math.pi*k/N
  {"t":"punto","p":["sqrt(25-x*x)","0"],"c":1},
  {"t":"punto","p":["-sqrt(25-x*x)","0"],"c":1},
  {"t":"segmento","a":["0","0"],"b":["sqrt(25-x*x)","0"],"c":3,"guia":True,"guion":True}]
-graf={"tipo":"plano","x":[-10.1,10.1],"y":[-5.5,5.5],"a":1,"b":5,"inicio":3,
+graf={"tipo":"plano","redondeo":True,"x":[-10.1,10.1],"y":[-5.5,5.5],"a":1,"b":5,"inicio":3,
  "elementos":EL,
  "lecturas":[{"rotulo":"semieje vertical b","formula":"x"},{"rotulo":"distancia c del centro a cada foco","formula":"sqrt(25-x*x)"}],
  "etiquetas":["Semieje vertical de la elipse, con semieje horizontal 5","Distancia del centro a cada foco, c igual a la raíz de 25 menos b al cuadrado"],"etiquetaSlider":"Semieje vertical b",

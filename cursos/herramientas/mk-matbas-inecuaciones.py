@@ -3,7 +3,7 @@ os.environ['CURSO_FU']='Matemáticas Básicas'; os.environ['BANCO']='matbas'
 from mklib import *
 MOD="Módulo 2 Ecuaciones, inecuaciones y sistemas"
 TS=[-2+10*k/100 for k in range(101)]
-graf={"tipo":"plano","x":[-2.5,8.5],"y":[-1,6],"a":0.5,"b":4,"inicio":2,
+graf={"tipo":"plano","redondeo":True,"x":[-2.5,8.5],"y":[-1,6],"a":0.5,"b":4,"inicio":2,
  "elementos":[{"t":"trazo","puntos":[[f"{t:.4f}",f"abs({t:.4f}-3)"] for t in TS],"c":2},
   {"t":"recta","p":["0","x"],"dir":["1","0"],"guion":True,"c":3,"guia":True},
   {"t":"segmento","a":["3-x","x"],"b":["3+x","x"],"c":3,"guia":True},

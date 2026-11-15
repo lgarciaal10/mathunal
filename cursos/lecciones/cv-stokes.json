@@ -258,7 +258,7 @@
    [
     20,
     24,
-    "En Gauss, el flujo por una superficie cerrada es la integral de la divergencia en el interior. Con el campo x, y, z en la esfera unidad, da 4 pi."
+    "En Gauss, el flujo por una superficie cerrada es la integral de la divergencia en el interior. Con el campo x, y, z en la esfera unidad, da 4 pi. La gráfica sigue mostrando el caso de Stokes, y Gauss no se dibuja aquí."
    ]
   ],
   "canales": {

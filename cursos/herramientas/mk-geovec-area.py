@@ -2,7 +2,7 @@ import os, math
 os.environ['CURSO_FU']='Geometría Vectorial y Analítica'; os.environ['BANCO']='geovec'
 from mklib import *
 MOD="Módulo 1 Vectores y rectas en el plano"
-graf={"tipo":"plano","x":[-3.5,11.5],"y":[-3.0,5.2],"a":-2,"b":6,"inicio":1,
+graf={"tipo":"plano","redondeo":True,"x":[-3.5,11.5],"y":[-3.0,5.2],"a":-2,"b":6,"inicio":1,
  "elementos":[
   {"t":"poligono","puntos":[["0","0"],["3","0"],["3+x","2"],["x","2"]],"c":3},
   {"t":"vector","b":["3","0"],"nombre":"u","c":0},
@@ -63,7 +63,7 @@ S+=cierre("Mini simulacro de área y aplicaciones",[
 prac=[
  {"titulo":"El paralelogramo","grafica":{"draw":1},"bloques":[P("Un paralelogramo de lados u y v."),EQ("A=|u_{1}v_{2}-u_{2}v_{1}|")]},
  {"titulo":"Inclina v","grafica":{"draw":1},"laboratorio":True,"bloques":[P("Mueve el deslizador. Abajo se leen el área y la longitud del lado inclinado.")]},
- {"titulo":"Mismo área","grafica":{"draw":1,"guide":1,"ok":True},"laboratorio":True,"d":5,"bloques":[EQ("A=|3\\cdot2-0\\cdot x|=6"),P("Con cualquier x el área vale 6, porque la base y la altura no cambian.")]},
+ {"titulo":"Misma área","grafica":{"draw":1,"guide":1,"ok":True},"laboratorio":True,"d":5,"bloques":[EQ("A=|3\\cdot2-0\\cdot x|=6"),P("Con cualquier x el área vale 6, porque la base y la altura no cambian.")]},
  {"titulo":"Revisa tu respuesta","grafica":{"draw":1,"guide":1,"ok":True,"d":5},"bloques":[{"t":"pregunta"},{"t":"nota","html":"Calcula el determinante y toma su valor absoluto."}]}]
 preg={"tex":"\\text{Área del paralelogramo de}\\ (2,1)\\ \\text{y}\\ (1,3)","opciones":["$5$","$7$","$6$","$1$"],"correcta":0,
  "explicacion":"El determinante es 2 por 3 menos 1 por 1, o sea 6 menos 1, que da 5. Su valor absoluto es 5.",

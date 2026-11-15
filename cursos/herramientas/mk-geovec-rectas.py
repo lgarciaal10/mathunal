@@ -3,7 +3,7 @@ os.environ['CURSO_FU']='Geometría Vectorial y Analítica'; os.environ['BANCO']=
 from mklib import *
 MOD="Módulo 1 Vectores y rectas en el plano"
 FX="x-3*(3*x-10)/25"; FY="-4*(3*x-10)/25"
-graf={"tipo":"plano","x":[-3.5,9.5],"y":[-3.0,4.1],"a":-2,"b":8,"inicio":0,
+graf={"tipo":"plano","redondeo":True,"x":[-3.5,9.5],"y":[-3.0,4.1],"a":-2,"b":8,"inicio":0,
  "elementos":[
   {"t":"recta","p":["0","2.5"],"dir":["4","-3"],"c":0},
   {"t":"segmento","a":["x","0"],"b":[FX,FY],"guion":True,"c":3,"guia":True},

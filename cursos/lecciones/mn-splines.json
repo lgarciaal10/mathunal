@@ -348,7 +348,7 @@
     "bloques": [
      {
       "t": "p",
-      "html": "Mira las tres curvas con el mismo conjunto de puntos."
+      "html": "Mira cómo cambia la curva con el mismo conjunto de puntos. Primero la lineal, luego el polinomio global y al final el spline."
      },
      {
       "t": "acercando",
