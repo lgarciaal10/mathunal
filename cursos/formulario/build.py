@@ -17,7 +17,7 @@ for pre,cn in CP.items():
                 if b['t']=='eq' and eq is None: eq=b['tex']
                 if b['t']=='pasos' and len(pasos)<4 and not pasos: pasos=[(i['tex'],i.get('porque','')) for i in b['items']]
         m=re.search(r'Lección (\d+) de',d['posicion'])
-        out.append(dict(c=cn,m=d['modulo'],n=int(m.group(1)) if m else 0,t=d['titulo'],u='https://claude.ai/artifact/'+URLS[stem],eq=eq,p=pasos,r=d['resumen']))
+        out.append(dict(c=cn,m=d['modulo'],n=int(m.group(1)) if m else 0,t=d['titulo'],u=(('l/'+stem+'.html') if __import__('os').environ.get('MU_REL') else 'https://claude.ai/artifact/'+URLS[stem]),eq=eq,p=pasos,r=d['resumen']))
 mods=sorted(set((o['c'],o['m']) for o in out))
 # orden de cursos y modulos por aparicion
 order=list(CP.values())

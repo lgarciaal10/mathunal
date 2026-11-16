@@ -40,7 +40,7 @@ for pre in CPRE:
                         n+=1; hq=mt(q['texto'])
                         if q['tipo']=='mcq': qs.append(dict(id=d['id']+'#s%d'%n,lid=d['id'],t='mcq',h=q['texto'],hq=hq,hk=clave(hq),o=q['opciones'],c=q['correcta'],e=q.get('resumen',''),er=None,sim=True))
                         else: qs.append(dict(id=d['id']+'#s%d'%n,lid=d['id'],t='num',h=q['texto'],hq=hq,hk=clave(hq),r=q['respuesta'],tol=q.get('tolNum',0.001),e=q.get('resumen',''),sim=True))
-        lec.append(dict(id=d['id'],curso=CPRE[pre],modulo=d['modulo'],titulo=d['titulo'],url='https://claude.ai/artifact/'+URLS[stem],q=qs,_stem=stem))
+        lec.append(dict(id=d['id'],curso=CPRE[pre],modulo=d['modulo'],titulo=d['titulo'],url=(('l/'+stem+'.html') if __import__('os').environ.get('MU_REL') else 'https://claude.ai/artifact/'+URLS[stem]),q=qs,_stem=stem))
 pr={}
 for k,v in PREREQ.items():
     if k in stem2id: pr[stem2id[k]]=[stem2id[x] for x in v if x in stem2id]
