@@ -1,0 +1,782 @@
+{
+ "esquema": 1,
+ "id": "fu-m3-l5",
+ "ejemplo": true,
+ "curso": "Fundamentos de Matemáticas",
+ "modulo": "Módulo 3 Relaciones y funciones",
+ "posicion": "Lección 5 de 5",
+ "titulo": "Imagen e imagen inversa",
+ "minutos": 26,
+ "ejercicios": 8,
+ "grafica": {
+  "tipo": "plano",
+  "x": [
+   -4.2,
+   4.2
+  ],
+  "y": [
+   -1.8,
+   10.4
+  ],
+  "a": 0,
+  "b": 9,
+  "inicio": 0,
+  "entero": true,
+  "elementos": [
+   {
+    "t": "trazo",
+    "puntos": [
+     [
+      "-3.25",
+      "10.5625"
+     ],
+     [
+      "-3.0",
+      "9.0"
+     ],
+     [
+      "-2.75",
+      "7.5625"
+     ],
+     [
+      "-2.5",
+      "6.25"
+     ],
+     [
+      "-2.25",
+      "5.0625"
+     ],
+     [
+      "-2.0",
+      "4.0"
+     ],
+     [
+      "-1.75",
+      "3.0625"
+     ],
+     [
+      "-1.5",
+      "2.25"
+     ],
+     [
+      "-1.25",
+      "1.5625"
+     ],
+     [
+      "-1.0",
+      "1.0"
+     ],
+     [
+      "-0.75",
+      "0.5625"
+     ],
+     [
+      "-0.5",
+      "0.25"
+     ],
+     [
+      "-0.25",
+      "0.0625"
+     ],
+     [
+      "0.0",
+      "0.0"
+     ],
+     [
+      "0.25",
+      "0.0625"
+     ],
+     [
+      "0.5",
+      "0.25"
+     ],
+     [
+      "0.75",
+      "0.5625"
+     ],
+     [
+      "1.0",
+      "1.0"
+     ],
+     [
+      "1.25",
+      "1.5625"
+     ],
+     [
+      "1.5",
+      "2.25"
+     ],
+     [
+      "1.75",
+      "3.0625"
+     ],
+     [
+      "2.0",
+      "4.0"
+     ],
+     [
+      "2.25",
+      "5.0625"
+     ],
+     [
+      "2.5",
+      "6.25"
+     ],
+     [
+      "2.75",
+      "7.5625"
+     ],
+     [
+      "3.0",
+      "9.0"
+     ],
+     [
+      "3.25",
+      "10.5625"
+     ]
+    ],
+    "c": 0
+   },
+   {
+    "t": "recta",
+    "p": [
+     "0",
+     "x"
+    ],
+    "dir": [
+     "1",
+     "0"
+    ],
+    "guion": true,
+    "c": 3,
+    "guia": true
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "-sqrt(x)",
+     "0"
+    ],
+    "b": [
+     "sqrt(x)",
+     "0"
+    ],
+    "c": 2
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "sqrt(x)",
+     "0"
+    ],
+    "b": [
+     "sqrt(x)",
+     "x"
+    ],
+    "c": 1,
+    "guia": true,
+    "guion": true
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "-sqrt(x)",
+     "0"
+    ],
+    "b": [
+     "-sqrt(x)",
+     "x"
+    ],
+    "c": 1,
+    "guia": true,
+    "guion": true
+   },
+   {
+    "t": "punto",
+    "p": [
+     "sqrt(x)",
+     "x"
+    ],
+    "c": 2
+   },
+   {
+    "t": "punto",
+    "p": [
+     "-sqrt(x)",
+     "x"
+    ],
+    "c": 2
+   }
+  ],
+  "lecturas": [
+   {
+    "rotulo": "extremo superior c del intervalo de salidas",
+    "formula": "x"
+   },
+   {
+    "rotulo": "extremo derecho de la imagen inversa",
+    "formula": "sqrt(x)"
+   }
+  ],
+  "etiquetas": [
+   "Salidas permitidas, entre 0 y c",
+   "Entradas permitidas, entre menos raíz de c y raíz de c"
+  ],
+  "etiquetaSlider": "Valor de c, de 0 a 9",
+  "alt": "La parábola y igual a x al cuadrado. Una recta horizontal a la altura c marca el límite de las salidas. Sobre el eje horizontal se resalta el intervalo de entradas que producen salidas entre 0 y c, que va de menos raíz de c a raíz de c"
+ },
+ "glosario": {
+  "imagen": "La imagen directa de C por f es el conjunto de las salidas que producen los elementos de C.",
+  "preimagen": "La imagen inversa de D por f reúne todas las entradas cuya salida cae en D. No requiere que f tenga inversa.",
+  "codominio": "El codominio es el conjunto donde se declara que caen las salidas, y la imagen es la parte que realmente se alcanza.",
+  "monotona": "Una función creciente conserva el orden, y por eso la imagen de un intervalo va de la imagen del extremo izquierdo a la del derecho."
+ },
+ "ver": {
+  "duracion": 24.0,
+  "capitulos": [
+   [
+    0,
+    4,
+    "La función es x al cuadrado. Se elige un intervalo de salidas de 0 a c y se buscan las entradas que caen allí."
+   ],
+   [
+    4,
+    9,
+    "Con c igual a 1, las entradas que dan salidas entre 0 y 1 son las que están entre menos 1 y 1."
+   ],
+   [
+    9,
+    14,
+    "Con c igual a 4, son las entradas entre menos 2 y 2."
+   ],
+   [
+    14,
+    19,
+    "Con c igual a 9 son las entradas entre menos 3 y 3. Esa es la imagen inversa del intervalo de 0 a 9."
+   ],
+   [
+    19,
+    24,
+    "La imagen inversa busca entradas, y la imagen directa busca salidas. No se debe confundir con la función inversa."
+   ]
+  ],
+  "canales": {
+   "draw": [
+    [
+     0.3,
+     0
+    ],
+    [
+     3.5,
+     1
+    ]
+   ],
+   "d": [
+    [
+     4,
+     0
+    ],
+    [
+     5,
+     1
+    ],
+    [
+     8,
+     1
+    ],
+    [
+     9,
+     4
+    ],
+    [
+     13,
+     4
+    ],
+    [
+     14,
+     9
+    ],
+    [
+     18,
+     9
+    ],
+    [
+     24,
+     9
+    ]
+   ],
+   "guide": [
+    [
+     4,
+     0
+    ],
+    [
+     5,
+     1
+    ]
+   ]
+  },
+  "intervalos": {
+   "ok": [
+    19,
+    24
+   ]
+  }
+ },
+ "leer": {
+  "secciones": [
+   {
+    "titulo": "La idea",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Una función se puede mirar en dos direcciones. La {{gl:imagen|imagen directa}} de un conjunto de entradas son las salidas que producen. La {{gl:preimagen|imagen inversa}} de un conjunto de salidas son las entradas que caen allí. Esta segunda no necesita que la función sea invertible, y se usa mucho para describir condiciones del tipo cuáles entradas cumplen una restricción."
+     }
+    ]
+   },
+   {
+    "titulo": "Un ejemplo",
+    "corto": "Un ejemplo",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Con f de x igual a x al cuadrado, se pide qué entradas dan una salida entre 0 y c. Mueve c y mira el intervalo de entradas."
+     },
+     {
+      "t": "eq",
+      "tex": "f^{-1}([0,c])=\\{x:\\ 0\\le x^{2}\\le c\\}"
+     },
+     {
+      "t": "grafica",
+      "animar": "dibujar",
+      "alt": "La parábola con el intervalo de entradas resaltado"
+     }
+    ]
+   },
+   {
+    "titulo": "Piensa antes de ver",
+    "corto": "Piensa",
+    "bloques": [
+     {
+      "t": "piensa",
+      "pregunta": "Con f de x igual a x al cuadrado, ¿cuántos números enteros x tienen una salida entre 0 y 9?",
+      "opciones": [
+       3,
+       5,
+       7,
+       9
+      ],
+      "correcta": 7,
+      "bien": "Muy bien. Son los enteros de menos 3 a 3, o sea 7. Más abajo se ve el intervalo completo.",
+      "mal": "Son 7, los enteros de menos 3 a 3, porque el cuadrado de cada uno de ellos es 9 o menos. Más abajo se ve el intervalo completo."
+     }
+    ]
+   },
+   {
+    "titulo": "Recorriendo los valores de c",
+    "corto": "Valores de c",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mira las entradas permitidas con c igual a 1, 4 y 9."
+     },
+     {
+      "t": "acercando",
+      "ds": [
+       1,
+       4,
+       9
+      ],
+      "alt": "El intervalo de entradas para tres valores de c"
+     },
+     {
+      "t": "p",
+      "html": "Cada vez el intervalo de entradas es simétrico, porque el cuadrado de x y el de menos x son iguales."
+     }
+    ]
+   },
+   {
+    "titulo": "Las dos definiciones",
+    "corto": "Definiciones",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Se distinguen las dos direcciones con la misma función."
+     },
+     {
+      "t": "pasos",
+      "items": [
+       {
+        "tex": "f(C)=\\{f(x):\\ x\\in C\\}",
+        "porque": "Imagen directa. Se aplican la función a las entradas."
+       },
+       {
+        "tex": "f^{-1}(D)=\\{x\\in A:\\ f(x)\\in D\\}",
+        "porque": "Imagen inversa. Se buscan las entradas cuya salida cae en D."
+       },
+       {
+        "tex": "f([1,2])=[1,4]",
+        "porque": "Con x al cuadrado, que crece en ese intervalo, las salidas van de 1 a 4."
+       },
+       {
+        "tex": "f^{-1}([0,9])=[-3,3]",
+        "porque": "Las entradas con cuadrado entre 0 y 9."
+       }
+      ]
+     },
+     {
+      "t": "ojo",
+      "html": "La imagen inversa no es la función inversa. Se puede calcular la imagen inversa de cualquier función, aunque no sea invertible, y el resultado siempre es un conjunto."
+     }
+    ]
+   },
+   {
+    "titulo": "Propiedades",
+    "corto": "Propiedades",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "La imagen inversa se porta muy bien con las operaciones de conjuntos, y la imagen directa no tanto."
+     },
+     {
+      "t": "pasos",
+      "items": [
+       {
+        "tex": "f^{-1}(D_1\\cup D_2)=f^{-1}(D_1)\\cup f^{-1}(D_2)",
+        "porque": "La imagen inversa respeta uniones."
+       },
+       {
+        "tex": "f^{-1}(D_1\\cap D_2)=f^{-1}(D_1)\\cap f^{-1}(D_2)",
+        "porque": "Y también intersecciones."
+       },
+       {
+        "tex": "f(C_1\\cap C_2)\\subseteq f(C_1)\\cap f(C_2)",
+        "porque": "La imagen directa solo da una contención."
+       },
+       {
+        "tex": "C_1=[-1,0],\\ C_2=[0,1]\\ \\Rightarrow\\ f(C_1\\cap C_2)=\\{0\\},\\ f(C_1)\\cap f(C_2)=[0,1]",
+        "porque": "Con x al cuadrado se ve que no hay igualdad."
+       }
+      ]
+     },
+     {
+      "t": "ojo",
+      "html": "Con la imagen directa, la imagen de una intersección puede ser más pequeña que la intersección de las imágenes. Con la imagen inversa eso no pasa."
+     }
+    ]
+   },
+   {
+    "titulo": "¿Para qué sirve?",
+    "corto": "En ingeniería",
+    "bloques": [
+     {
+      "t": "ingenieria",
+      "titulo": "La corriente que soporta una resistencia",
+      "html": "La potencia que disipa una resistencia de 1 ohmio es P igual a I al cuadrado. Si la potencia máxima admisible es 9 vatios, las corrientes admisibles son las entradas I cuya salida cae en el intervalo de 0 a 9. Eso es la imagen inversa.",
+      "tex": "P=I^{2},\\quad P\\in[0,9]\\ \\Leftrightarrow\\ I\\in[-3,3]",
+      "datos": [
+       {
+        "k": "Potencia máxima",
+        "v": "9 W"
+       },
+       {
+        "k": "Corriente admisible",
+        "v": "entre menos 3 A y 3 A"
+       },
+       {
+        "k": "Resistencia",
+        "v": "1 ohmio"
+       }
+      ],
+      "cierre": "Una restricción sobre las salidas se traduce en una condición sobre las entradas. Así se pasa de la potencia máxima a la corriente máxima, y de ahí se dimensiona el cable. Entender la imagen inversa permite plantear estos límites de diseño sin invertir la función, aunque la función no sea invertible."
+     }
+    ]
+   },
+   {
+    "titulo": "Completa el paso",
+    "corto": "Completa",
+    "bloques": [
+     {
+      "t": "completar",
+      "enunciado": "Se calcula la imagen inversa de un intervalo por la función x al cuadrado.",
+      "tex": "f^{-1}([0,4])=[[hueco]]",
+      "opciones": [
+       {
+        "tex": "[-2,2]",
+        "txt": "de menos 2 a 2"
+       },
+       {
+        "tex": "[0,2]",
+        "txt": "de 0 a 2"
+       },
+       {
+        "tex": "[0,16]",
+        "txt": "de 0 a 16"
+       }
+      ],
+      "correcta": 0,
+      "errores": [
+       "",
+       "Falta la parte negativa, porque menos 1 también da una salida de 1.",
+       "Esos son los cuadrados de las salidas, y no las entradas."
+      ],
+      "pista": "Busca las entradas cuyo cuadrado esté entre 0 y 4.",
+      "porque": "Las entradas con cuadrado entre 0 y 4 son las que están entre menos 2 y 2."
+     }
+    ]
+   },
+   {
+    "titulo": "Encuentra el error",
+    "corto": "Error",
+    "bloques": [
+     {
+      "t": "error",
+      "enunciado": "Alguien calculó la imagen directa del intervalo de menos 2 a 3 por x al cuadrado y se equivocó en un paso. Toca el paso que está mal.",
+      "pasos": [
+       {
+        "tex": "f(-2)=4",
+        "porque": "Se evalúa el extremo izquierdo.",
+        "txt": "en menos 2 da 4"
+       },
+       {
+        "tex": "f(3)=9",
+        "porque": "Se evalúa el extremo derecho.",
+        "txt": "en 3 da 9"
+       },
+       {
+        "tex": "\\text{Entonces}\\ f([-2,3])=[4,9]",
+        "porque": "Este paso es el que falla.",
+        "txt": "el resultado es de 4 a 9"
+       }
+      ],
+      "mal": 2,
+      "explicacion": "La función no es creciente en todo el intervalo. Baja hasta el 0 y luego sube, así que el menor valor es 0, y el mayor es 9. La imagen es el intervalo de 0 a 9.",
+      "correccion": "f([-2,3])=[0,9]",
+      "pista": "Mira qué pasa con la función cerca de x igual a 0."
+     }
+    ]
+   },
+   {
+    "titulo": "Ordena los pasos",
+    "corto": "Ordena",
+    "bloques": [
+     {
+      "t": "ordenar",
+      "enunciado": "Estos son los pasos para calcular la imagen inversa del intervalo de 0 a 9 por x al cuadrado, pero están desordenados.",
+      "pasos": [
+       "f^{-1}([0,9])=\\{x:\\ 0\\le x^{2}\\le9\\}",
+       "x^{2}\\le9",
+       "|x|\\le3",
+       "x\\in[-3,3]"
+      ],
+      "mezcla": [
+       2,
+       0,
+       3,
+       1
+      ],
+      "porque": "Se parte de la definición, se simplifica la condición y se escribe el intervalo.",
+      "pista": "Se empieza con la definición.",
+      "txt": [
+       "Se escribe la definición",
+       "La condición de que sea al menos 0 siempre se cumple",
+       "Se saca la raíz y queda el valor absoluto",
+       "Se escribe como intervalo"
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "Revisa tu respuesta",
+    "corto": "Revisa",
+    "bloques": [
+     {
+      "t": "pregunta"
+     },
+     {
+      "t": "nota",
+      "html": "Puedes pedir pistas de a una. Si fallas, el mensaje te dice qué error se cometió."
+     }
+    ]
+   },
+   {
+    "titulo": "Mini simulacro",
+    "corto": "Simulacro",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Tres preguntas reales del banco de MathUNAL sobre este tema. Responde sin mirar los pasos."
+     },
+     {
+      "t": "simulacro",
+      "titulo": "Mini simulacro de imagen e imagen inversa",
+      "preguntas": [
+       {
+        "tipo": "mcq",
+        "texto": "Sea $f:\\mathbb{R}\\to\\mathbb{R}$ con $f(x)=x^{2}$. La imagen inversa $f^{-1}([0,9])$ es:",
+        "opciones": [
+         "$[-3,3]$",
+         "$[0,3]$",
+         "$[0,81]$",
+         "$\\{-3,3\\}$"
+        ],
+        "correcta": 0,
+        "resumen": "Las entradas con cuadrado entre 0 y 9 son las que están entre menos 3 y 3.",
+        "fuente": "Banco MathUNAL, simulacro de Fundamentos de Matemáticas"
+       },
+       {
+        "tipo": "mcq",
+        "texto": "Sea $f:\\mathbb{R}\\to\\mathbb{R}$ con $f(x)=x^{2}$. La imagen directa $f\\big([1,2]\\big)$ es:",
+        "opciones": [
+         "$[1,4]$",
+         "$[1,2]$",
+         "$[2,4]$",
+         "$[-4,4]$"
+        ],
+        "correcta": 0,
+        "resumen": "La función crece en el intervalo, así que las salidas van de f de 1 a f de 2.",
+        "fuente": "Banco MathUNAL, simulacro de Fundamentos de Matemáticas"
+       },
+       {
+        "tipo": "mcq",
+        "texto": "Para $f:A\\to B$ y $C\\subseteq B$, la imagen inversa $f^{-1}(C)$ se define como:",
+        "opciones": [
+         "$\\{x\\in A:\\ f(x)\\in C\\}$",
+         "$\\{f(x):\\ x\\in C\\}$",
+         "$\\{y\\in B:\\ y\\notin C\\}$",
+         "la función inversa evaluada en $C$"
+        ],
+        "correcta": 0,
+        "resumen": "La imagen inversa son las entradas cuya salida cae en el conjunto.",
+        "fuente": "Banco MathUNAL, simulacro de Fundamentos de Matemáticas"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "Tu repaso",
+    "corto": "Repaso",
+    "bloques": [
+     {
+      "t": "repaso"
+     }
+    ]
+   },
+   {
+    "titulo": "En resumen",
+    "corto": "Resumen",
+    "bloques": [
+     {
+      "t": "resumen"
+     }
+    ]
+   }
+  ]
+ },
+ "practicar": {
+  "pasos": [
+   {
+    "titulo": "Las dos direcciones",
+    "grafica": {
+     "draw": 1,
+     "guide": 1
+    },
+    "bloques": [
+     {
+      "t": "p",
+      "html": "La imagen inversa busca entradas a partir de las salidas."
+     },
+     {
+      "t": "eq",
+      "tex": "f^{-1}(D)=\\{x:\\ f(x)\\in D\\}"
+     }
+    ]
+   },
+   {
+    "titulo": "Mueve c",
+    "grafica": {
+     "draw": 1,
+     "guide": 1
+    },
+    "laboratorio": true,
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mueve el deslizador de 0 a 9. Abajo se lee el límite de las salidas y el extremo derecho de las entradas."
+     }
+    ]
+   },
+   {
+    "titulo": "Con c igual a 9",
+    "grafica": {
+     "draw": 1,
+     "guide": 1,
+     "ok": true
+    },
+    "laboratorio": true,
+    "d": 9,
+    "bloques": [
+     {
+      "t": "eq",
+      "tex": "f^{-1}([0,9])=[-3,3]"
+     },
+     {
+      "t": "p",
+      "html": "Con c igual a 9 las entradas van de menos 3 a 3."
+     }
+    ]
+   },
+   {
+    "titulo": "Revisa tu respuesta",
+    "grafica": {
+     "draw": 1,
+     "guide": 1,
+     "ok": true,
+     "d": 9
+    },
+    "bloques": [
+     {
+      "t": "pregunta"
+     },
+     {
+      "t": "nota",
+      "html": "Busca el menor y el mayor valor que toma la función en el intervalo."
+     }
+    ]
+   }
+  ]
+ },
+ "pregunta": {
+  "tex": "\\text{Con}\\ f(x)=x^{2},\\ \\text{la imagen directa}\\ f([-1,2])\\ \\text{es}",
+  "opciones": [
+   "$[0,4]$",
+   "$[1,4]$",
+   "$[-1,4]$",
+   "$[0,2]$"
+  ],
+  "correcta": 0,
+  "explicacion": "En el intervalo de menos 1 a 2 la función baja hasta 0, en x igual a 0, y sube hasta 4, en x igual a 2. Entonces las salidas van de 0 a 4. En el extremo izquierdo f de menos 1 vale 1, pero no es el mínimo.",
+  "verificacion": {
+   "formula": "1-(1-0)*1+0*x",
+   "a": 0,
+   "esperado": 0
+  },
+  "pistas": [
+   "Mira el valor en x igual a 0.",
+   "El mayor valor está en el extremo derecho.",
+   "Va de 0 a 4."
+  ],
+  "errores": [
+   "",
+   "Se olvida que x igual a 0 está en el intervalo y da una salida menor que 1.",
+   "El cuadrado nunca es negativo, así que no puede llegar a menos 1.",
+   "Esos son los valores de x más altos, y no los de las salidas."
+  ]
+ },
+ "resumen": [
+  "La imagen directa son las salidas de un conjunto de entradas, y la imagen inversa son las entradas cuya salida cae en un conjunto.",
+  "La imagen inversa existe para cualquier función, aunque no sea invertible, y respeta uniones e intersecciones.",
+  "Para la imagen directa de un intervalo hay que buscar el menor y el mayor valor de la función en él."
+ ]
+}

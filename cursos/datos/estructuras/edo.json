@@ -1,0 +1,133 @@
+{
+ "esquema": 1,
+ "curso": "Ecuaciones Diferenciales",
+ "estado": "PROVISIONAL. Los módulos y temas salen del banco de MathUNAL. El orden dentro de cada módulo es por cantidad de preguntas, NO pedagógico, y falta el temario oficial (PENDIENTE).",
+ "modulos": [
+  {
+   "n": 1,
+   "nombre": "EDO de primer orden",
+   "peso": 30,
+   "lecciones": [
+    {
+     "tema": "Variables separables",
+     "preguntas_banco": 7,
+     "parciales_con_el_tema": 1,
+     "estado": "borrador para revisión",
+     "leccion": "lecciones/edo-separables.json"
+    },
+    {
+     "tema": "Existencia y unicidad",
+     "preguntas_banco": 6,
+     "parciales_con_el_tema": 1,
+     "estado": "borrador para revisión",
+     "leccion": "lecciones/edo-existencia.json"
+    },
+    {
+     "tema": "EDO lineal de primer orden",
+     "preguntas_banco": 5,
+     "parciales_con_el_tema": 1,
+     "estado": "borrador para revisión",
+     "leccion": "lecciones/edo-lineal.json"
+    },
+    {
+     "tema": "Exactas y factor integrante",
+     "preguntas_banco": 4,
+     "parciales_con_el_tema": 1,
+     "estado": "borrador para revisión",
+     "leccion": "lecciones/edo-exactas.json"
+    },
+    {
+     "tema": "Autónomas y estabilidad",
+     "preguntas_banco": 3,
+     "parciales_con_el_tema": 1,
+     "estado": "borrador para revisión",
+     "leccion": "lecciones/edo-autonomas.json"
+    },
+    {
+     "tema": "Bernoulli y sustituciones",
+     "preguntas_banco": 3,
+     "parciales_con_el_tema": 1,
+     "estado": "borrador para revisión",
+     "leccion": "lecciones/edo-bernoulli.json"
+    }
+   ]
+  },
+  {
+   "n": 2,
+   "nombre": "Orden superior y coeficientes constantes",
+   "peso": 35,
+   "lecciones": [
+    {
+     "tema": "Homogénea con coeficientes constantes",
+     "preguntas_banco": 12,
+     "parciales_con_el_tema": 1,
+     "estado": "borrador para revisión",
+     "leccion": "lecciones/edo-homogenea.json"
+    },
+    {
+     "tema": "Coeficientes indeterminados",
+     "preguntas_banco": 6,
+     "parciales_con_el_tema": 1,
+     "estado": "borrador para revisión",
+     "leccion": "lecciones/edo-indeterminados.json"
+    },
+    {
+     "tema": "Reducción de orden y Wronskiano",
+     "preguntas_banco": 5,
+     "parciales_con_el_tema": 1,
+     "estado": "borrador para revisión",
+     "leccion": "lecciones/edo-wronskiano.json"
+    },
+    {
+     "tema": "Cauchy-Euler",
+     "preguntas_banco": 4,
+     "parciales_con_el_tema": 0,
+     "estado": "borrador para revisión",
+     "leccion": "lecciones/edo-cauchy.json"
+    }
+   ]
+  },
+  {
+   "n": 3,
+   "nombre": "Laplace, sistemas y series",
+   "peso": 35,
+   "lecciones": [
+    {
+     "tema": "Laplace inversa y PVI",
+     "preguntas_banco": 9,
+     "parciales_con_el_tema": 2,
+     "estado": "borrador para revisión",
+     "leccion": "lecciones/edo-inversa.json"
+    },
+    {
+     "tema": "Transformada de Laplace",
+     "preguntas_banco": 9,
+     "parciales_con_el_tema": 1,
+     "estado": "borrador para revisión",
+     "leccion": "lecciones/edo-laplace.json"
+    },
+    {
+     "tema": "Sistemas lineales y plano fase",
+     "preguntas_banco": 6,
+     "parciales_con_el_tema": 3,
+     "estado": "borrador para revisión",
+     "leccion": "lecciones/edo-sistemas.json"
+    },
+    {
+     "tema": "Series y problemas de frontera",
+     "preguntas_banco": 5,
+     "parciales_con_el_tema": 1,
+     "estado": "borrador para revisión",
+     "leccion": "lecciones/edo-series.json"
+    },
+    {
+     "tema": "Función escalón y delta de Dirac",
+     "preguntas_banco": 3,
+     "parciales_con_el_tema": 1,
+     "estado": "borrador para revisión",
+     "leccion": "lecciones/edo-escalon.json"
+    }
+   ]
+  }
+ ]
+}

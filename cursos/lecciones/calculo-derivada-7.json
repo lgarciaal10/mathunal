@@ -1,0 +1,493 @@
+{
+ "esquema": 1,
+ "id": "calculo-m2-l7",
+ "ejemplo": true,
+ "curso": "Cálculo",
+ "modulo": "Módulo 2 La derivada",
+ "posicion": "Lección 7 de 10",
+ "titulo": "Recta tangente y normal",
+ "minutos": 13,
+ "ejercicios": 1,
+ "grafica": {
+  "tipo": "secante",
+  "x": [
+   0,
+   5.5
+  ],
+  "y": [
+   0,
+   3
+  ],
+  "funcion": "sqrt(x)",
+  "a": 1,
+  "derivada": "1/(2*sqrt(x))",
+  "limite": 0.5,
+  "normal": true,
+  "etiquetas": [
+   "Distancia h",
+   "Pendiente de la secante"
+  ],
+  "etiquetaSlider": "Valor de h",
+  "alt": "Curva de la raíz cuadrada de x con una secante que se acerca a la tangente en el punto 1, 1 y la recta normal perpendicular",
+  "zoom": {
+   "factor": 70
+  }
+ },
+ "glosario": {
+  "tangente": "La recta tangente toca la curva en un punto y tiene la misma inclinación que la curva ahí.",
+  "normal": "La recta normal es la que pasa por el mismo punto de la curva y es perpendicular a la tangente.",
+  "perp": "Dos rectas son perpendiculares cuando se cortan en ángulo recto. Sus pendientes multiplicadas dan menos 1.",
+  "pend": "La pendiente dice cuánto sube la recta por cada unidad que avanza hacia la derecha."
+ },
+ "ver": {
+  "duracion": 24.0,
+  "capitulos": [
+   [
+    0,
+    2.5,
+    "Esta es la curva de la raíz cuadrada de x."
+   ],
+   [
+    2.5,
+    4.5,
+    "Miremos la recta que la toca en el punto (1, 1)."
+   ],
+   [
+    4.5,
+    8,
+    "Se traza la secante con un segundo punto a distancia h."
+   ],
+   [
+    8,
+    12.5,
+    "Mientras h se achica, la pendiente de la secante cambia."
+   ],
+   [
+    12.5,
+    15.8,
+    "La secante se vuelve la tangente y su pendiente se acerca a un medio."
+   ],
+   [
+    15.8,
+    19.8,
+    "De cerca, la curva casi se ve como una recta, y esa recta es la tangente."
+   ],
+   [
+    19.8,
+    24.0,
+    "La recta normal es perpendicular a la tangente. Su pendiente es menos 2."
+   ]
+  ],
+  "canales": {
+   "draw": [
+    [
+     0.3,
+     0
+    ],
+    [
+     2.4,
+     1
+    ]
+   ],
+   "hole": [
+    [
+     2.5,
+     0
+    ],
+    [
+     3.2,
+     1
+    ]
+   ],
+   "d": [
+    [
+     4.5,
+     1
+    ],
+    [
+     6,
+     0.5
+    ],
+    [
+     8,
+     0.5
+    ],
+    [
+     9.5,
+     0.1
+    ],
+    [
+     11,
+     0.1
+    ],
+    [
+     12.5,
+     0.01
+    ]
+   ],
+   "guide": [
+    [
+     12.5,
+     0
+    ],
+    [
+     13.5,
+     1
+    ]
+   ],
+   "nor": [
+    [
+     19.8,
+     0
+    ],
+    [
+     21.2,
+     1
+    ]
+   ],
+   "zoom": [
+    [
+     15.8,
+     0
+    ],
+    [
+     18.3,
+     1
+    ],
+    [
+     19.0,
+     1
+    ],
+    [
+     19.8,
+     0
+    ]
+   ]
+  },
+  "intervalos": {
+   "ok": [
+    19.8,
+    24.0
+   ]
+  }
+ },
+ "leer": {
+  "secciones": [
+   {
+    "titulo": "La idea",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "En un punto de una curva hay dos rectas muy útiles. La {{gl:tangente|tangente}}, que tiene la misma inclinación que la curva, y la {{gl:normal|normal}}, que es perpendicular a la tangente."
+     }
+    ]
+   },
+   {
+    "titulo": "Un ejemplo",
+    "corto": "Un ejemplo",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mira esta función y el punto (1, 1)."
+     },
+     {
+      "t": "eq",
+      "tex": "f(x)=\\sqrt{x}"
+     },
+     {
+      "t": "grafica",
+      "animar": "dibujar",
+      "alt": "Curva de la raíz cuadrada que se dibuja y marca el punto 1, 1"
+     }
+    ]
+   },
+   {
+    "titulo": "Piensa antes de ver",
+    "corto": "Piensa",
+    "bloques": [
+     {
+      "t": "piensa",
+      "pregunta": "En el punto (1, 1) la curva sube suave. ¿A qué número crees que se acerca la pendiente de la secante?",
+      "opciones": [
+       0.25,
+       0.5,
+       1,
+       2
+      ],
+      "correcta": 0.5,
+      "bien": "Muy bien. Se acerca a un medio y más abajo se ve por qué.",
+      "mal": "El número es 0.5, o sea un medio, y más abajo se ve por qué."
+     }
+    ]
+   },
+   {
+    "titulo": "Acercando el segundo punto",
+    "corto": "Acercándose",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mira cómo cambia la pendiente de la secante al achicar h."
+     },
+     {
+      "t": "acercando",
+      "ds": [
+       1,
+       0.5,
+       0.1,
+       0.01
+      ],
+      "alt": "Una secante que gira hasta parecerse a la tangente"
+     },
+     {
+      "t": "p",
+      "html": "La pendiente se acerca a <b>0.5</b>. Al terminar, la gráfica hace zoom para que veas el detalle."
+     }
+    ]
+   },
+   {
+    "titulo": "La recta tangente",
+    "corto": "Tangente",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Con la derivada se obtiene la pendiente directo. Después se usa la ecuación de una recta que pasa por un punto."
+     },
+     {
+      "t": "pasos",
+      "items": [
+       {
+        "tex": "f'(x)=\\dfrac{1}{2\\sqrt{x}}\\ \\Rightarrow\\ m=f'(1)=\\dfrac{1}{2}",
+        "porque": "Se deriva la raíz y se evalúa en x igual a 1."
+       },
+       {
+        "tex": "y-1=\\dfrac{1}{2}(x-1)",
+        "porque": "Se usa y menos y0 igual a m por x menos x0, con el punto (1, 1)."
+       },
+       {
+        "tex": "y=\\dfrac{1}{2}x+\\dfrac{1}{2}",
+        "porque": "Se despeja y."
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "La recta normal",
+    "corto": "Normal",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "La normal es {{gl:perp|perpendicular}} a la tangente. Por eso su pendiente es el inverso con signo cambiado."
+     },
+     {
+      "t": "pasos",
+      "items": [
+       {
+        "tex": "m_{N}=-\\dfrac{1}{m}=-\\dfrac{1}{1/2}=-2",
+        "porque": "Se invierte la pendiente de la tangente y se cambia el signo."
+       },
+       {
+        "tex": "y-1=-2(x-1)",
+        "porque": "Se usa el mismo punto (1, 1) con la nueva pendiente."
+       },
+       {
+        "tex": "y=-2x+3",
+        "porque": "Se despeja y."
+       },
+       {
+        "tex": "\\dfrac{1}{2}\\cdot(-2)=-1",
+        "porque": "Se comprueba que las pendientes multiplicadas dan menos 1."
+       }
+      ]
+     },
+     {
+      "t": "ojo",
+      "html": "Si la tangente es horizontal, con pendiente 0, la normal es vertical y su ecuación es x igual al valor del punto. No se puede dividir entre 0."
+     }
+    ]
+   },
+   {
+    "titulo": "Revisa tu respuesta",
+    "corto": "Revisa",
+    "bloques": [
+     {
+      "t": "pregunta"
+     },
+     {
+      "t": "nota",
+      "html": "La pendiente de la normal es menos uno sobre la de la tangente."
+     }
+    ]
+   },
+   {
+    "titulo": "Tu repaso",
+    "corto": "Repaso",
+    "bloques": [
+     {
+      "t": "repaso"
+     }
+    ]
+   },
+   {
+    "titulo": "En resumen",
+    "corto": "Resumen",
+    "bloques": [
+     {
+      "t": "resumen"
+     }
+    ]
+   }
+  ]
+ },
+ "practicar": {
+  "pasos": [
+   {
+    "titulo": "La curva",
+    "grafica": {
+     "draw": 1
+    },
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Esta es la curva de la raíz cuadrada de x."
+     },
+     {
+      "t": "eq",
+      "tex": "f(x)=\\sqrt{x}"
+     }
+    ]
+   },
+   {
+    "titulo": "El punto",
+    "grafica": {
+     "draw": 1,
+     "hole": 1
+    },
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Se quiere la recta que toca la curva en el punto (1, 1)."
+     }
+    ]
+   },
+   {
+    "titulo": "Acerca el segundo punto",
+    "grafica": {
+     "draw": 1,
+     "hole": 1
+    },
+    "laboratorio": true,
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mueve el deslizador de h. La secante gira y abajo se ve su pendiente."
+     }
+    ]
+   },
+   {
+    "titulo": "La tangente",
+    "grafica": {
+     "draw": 1,
+     "hole": 1,
+     "guide": 1
+    },
+    "laboratorio": true,
+    "d": 0.01,
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Con h muy pequeño la pendiente se acerca a 0.5. La tangente es y igual a un medio de x más un medio."
+     }
+    ]
+   },
+   {
+    "titulo": "La normal",
+    "grafica": {
+     "draw": 1,
+     "hole": 1,
+     "guide": 1,
+     "nor": 1,
+     "ok": true
+    },
+    "bloques": [
+     {
+      "t": "p",
+      "html": "La recta punteada es la normal. Es perpendicular a la tangente y tiene pendiente menos 2."
+     },
+     {
+      "t": "eq",
+      "tex": "y=-2x+3"
+     }
+    ]
+   },
+   {
+    "titulo": "Mira de cerca",
+    "grafica": {
+     "draw": 1,
+     "hole": 1,
+     "guide": 1,
+     "zoom": 1
+    },
+    "laboratorio": true,
+    "d": 0.01,
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Ahora la gráfica está con zoom. De cerca, la curva casi se ve como una recta y la secante se pega a la tangente. Mueve h para comprobarlo."
+     }
+    ]
+   },
+   {
+    "titulo": "Revisa tu respuesta",
+    "grafica": {
+     "draw": 1,
+     "hole": 1,
+     "guide": 1,
+     "nor": 1,
+     "ok": true
+    },
+    "bloques": [
+     {
+      "t": "pregunta"
+     },
+     {
+      "t": "nota",
+      "html": "La pendiente de la normal es menos uno sobre la de la tangente."
+     }
+    ]
+   }
+  ]
+ },
+ "pregunta": {
+  "tex": "m_{N}\\ \\text{de la normal a}\\ y=x^{2}\\ \\text{en}\\ x=3",
+  "opciones": [
+   "6",
+   "-6",
+   "1/6",
+   "-1/6"
+  ],
+  "correcta": 3,
+  "explicacion": "La derivada de x al cuadrado es 2x, que en x igual a 3 vale 6 y es la pendiente de la tangente. La normal tiene pendiente menos 1 sobre 6.",
+  "verificacion": {
+   "formula": "-1/(((3+x)^2-9)/x)",
+   "a": 0,
+   "esperado": -0.16666667
+  },
+  "pistas": [
+   "La normal es perpendicular a la tangente.",
+   "La pendiente de la tangente es la derivada, 2x, que en x igual a 3 vale 6.",
+   "La normal tiene pendiente menos uno sobre la de la tangente."
+  ],
+  "errores": [
+   "Ese 6 es la pendiente de la tangente. La normal es perpendicular a ella.",
+   "Ese −6 solo cambió el signo. La normal también invierte el número, es menos uno sobre 6.",
+   "Ese 1/6 invirtió el número pero se olvidó el signo negativo. Las pendientes perpendiculares multiplican −1.",
+   ""
+  ]
+ },
+ "resumen": [
+  "La pendiente de la tangente en un punto es la derivada evaluada ahí.",
+  "La normal es perpendicular a la tangente y su pendiente es menos uno sobre la de la tangente.",
+  "Con el punto y la pendiente se escribe la recta con y menos y0 igual a m por x menos x0."
+ ]
+}

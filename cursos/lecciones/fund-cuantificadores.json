@@ -1,0 +1,927 @@
+{
+ "esquema": 1,
+ "id": "fu-m1-l2",
+ "ejemplo": true,
+ "curso": "Fundamentos de Matemáticas",
+ "modulo": "Módulo 1 Lógica y argumentación",
+ "posicion": "Lección 2 de 3",
+ "titulo": "Cuantificadores y predicados",
+ "minutos": 28,
+ "ejercicios": 8,
+ "grafica": {
+  "tipo": "plano",
+  "x": [
+   -0.3,
+   6.3
+  ],
+  "y": [
+   -0.6,
+   3.0
+  ],
+  "a": 0,
+  "b": 5,
+  "inicio": 0,
+  "entero": true,
+  "sinejes": true,
+  "elementos": [
+   {
+    "t": "poligono",
+    "puntos": [
+     [
+      "0.0",
+      "1.3"
+     ],
+     [
+      "1.2",
+      "1.3"
+     ],
+     [
+      "1.2",
+      "2.4"
+     ],
+     [
+      "0.0",
+      "2.4"
+     ]
+    ],
+    "c": 0,
+    "nombre": "1"
+   },
+   {
+    "t": "poligono",
+    "puntos": [
+     [
+      "0.0",
+      "0"
+     ],
+     [
+      "1.2",
+      "0"
+     ],
+     [
+      "1.2",
+      "1.2*((1*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)/(-120)))"
+     ],
+     [
+      "0.0",
+      "1.2*((1*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)/(-120)))"
+     ]
+    ],
+    "c": 3
+   },
+   {
+    "t": "poligono",
+    "puntos": [
+     [
+      "0.0",
+      "1.2*((1*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)/(-120)))"
+     ],
+     [
+      "1.2",
+      "1.2*((1*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)/(-120)))"
+     ],
+     [
+      "1.2",
+      "1.2"
+     ],
+     [
+      "0.0",
+      "1.2"
+     ]
+    ],
+    "c": 1
+   },
+   {
+    "t": "poligono",
+    "puntos": [
+     [
+      "1.2",
+      "1.3"
+     ],
+     [
+      "2.4",
+      "1.3"
+     ],
+     [
+      "2.4",
+      "2.4"
+     ],
+     [
+      "1.2",
+      "2.4"
+     ]
+    ],
+    "c": 0,
+    "nombre": "2"
+   },
+   {
+    "t": "poligono",
+    "puntos": [
+     [
+      "1.2",
+      "0"
+     ],
+     [
+      "2.4",
+      "0"
+     ],
+     [
+      "2.4",
+      "1.2*((1*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)/(-120))+(1*(x-0)*(x-2)*(x-3)*(x-4)*(x-5)/(24)))"
+     ],
+     [
+      "1.2",
+      "1.2*((1*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)/(-120))+(1*(x-0)*(x-2)*(x-3)*(x-4)*(x-5)/(24)))"
+     ]
+    ],
+    "c": 3
+   },
+   {
+    "t": "poligono",
+    "puntos": [
+     [
+      "1.2",
+      "1.2*((1*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)/(-120))+(1*(x-0)*(x-2)*(x-3)*(x-4)*(x-5)/(24)))"
+     ],
+     [
+      "2.4",
+      "1.2*((1*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)/(-120))+(1*(x-0)*(x-2)*(x-3)*(x-4)*(x-5)/(24)))"
+     ],
+     [
+      "2.4",
+      "1.2"
+     ],
+     [
+      "1.2",
+      "1.2"
+     ]
+    ],
+    "c": 1
+   },
+   {
+    "t": "poligono",
+    "puntos": [
+     [
+      "2.4",
+      "1.3"
+     ],
+     [
+      "3.5999999999999996",
+      "1.3"
+     ],
+     [
+      "3.5999999999999996",
+      "2.4"
+     ],
+     [
+      "2.4",
+      "2.4"
+     ]
+    ],
+    "c": 0,
+    "nombre": "3"
+   },
+   {
+    "t": "poligono",
+    "puntos": [
+     [
+      "2.4",
+      "0"
+     ],
+     [
+      "3.5999999999999996",
+      "0"
+     ],
+     [
+      "3.5999999999999996",
+      "1.2*((1*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)/(-120))+(1*(x-0)*(x-2)*(x-3)*(x-4)*(x-5)/(24))+(1*(x-0)*(x-1)*(x-3)*(x-4)*(x-5)/(-12)))"
+     ],
+     [
+      "2.4",
+      "1.2*((1*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)/(-120))+(1*(x-0)*(x-2)*(x-3)*(x-4)*(x-5)/(24))+(1*(x-0)*(x-1)*(x-3)*(x-4)*(x-5)/(-12)))"
+     ]
+    ],
+    "c": 3
+   },
+   {
+    "t": "poligono",
+    "puntos": [
+     [
+      "2.4",
+      "1.2*((1*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)/(-120))+(1*(x-0)*(x-2)*(x-3)*(x-4)*(x-5)/(24))+(1*(x-0)*(x-1)*(x-3)*(x-4)*(x-5)/(-12)))"
+     ],
+     [
+      "3.5999999999999996",
+      "1.2*((1*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)/(-120))+(1*(x-0)*(x-2)*(x-3)*(x-4)*(x-5)/(24))+(1*(x-0)*(x-1)*(x-3)*(x-4)*(x-5)/(-12)))"
+     ],
+     [
+      "3.5999999999999996",
+      "1.2"
+     ],
+     [
+      "2.4",
+      "1.2"
+     ]
+    ],
+    "c": 1
+   },
+   {
+    "t": "poligono",
+    "puntos": [
+     [
+      "3.5999999999999996",
+      "1.3"
+     ],
+     [
+      "4.8",
+      "1.3"
+     ],
+     [
+      "4.8",
+      "2.4"
+     ],
+     [
+      "3.5999999999999996",
+      "2.4"
+     ]
+    ],
+    "c": 0,
+    "nombre": "4"
+   },
+   {
+    "t": "poligono",
+    "puntos": [
+     [
+      "3.5999999999999996",
+      "0"
+     ],
+     [
+      "4.8",
+      "0"
+     ],
+     [
+      "4.8",
+      "1.2*((1*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)/(-120))+(1*(x-0)*(x-2)*(x-3)*(x-4)*(x-5)/(24))+(1*(x-0)*(x-1)*(x-3)*(x-4)*(x-5)/(-12))+(1*(x-0)*(x-1)*(x-2)*(x-4)*(x-5)/(12)))"
+     ],
+     [
+      "3.5999999999999996",
+      "1.2*((1*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)/(-120))+(1*(x-0)*(x-2)*(x-3)*(x-4)*(x-5)/(24))+(1*(x-0)*(x-1)*(x-3)*(x-4)*(x-5)/(-12))+(1*(x-0)*(x-1)*(x-2)*(x-4)*(x-5)/(12)))"
+     ]
+    ],
+    "c": 3
+   },
+   {
+    "t": "poligono",
+    "puntos": [
+     [
+      "3.5999999999999996",
+      "1.2*((1*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)/(-120))+(1*(x-0)*(x-2)*(x-3)*(x-4)*(x-5)/(24))+(1*(x-0)*(x-1)*(x-3)*(x-4)*(x-5)/(-12))+(1*(x-0)*(x-1)*(x-2)*(x-4)*(x-5)/(12)))"
+     ],
+     [
+      "4.8",
+      "1.2*((1*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)/(-120))+(1*(x-0)*(x-2)*(x-3)*(x-4)*(x-5)/(24))+(1*(x-0)*(x-1)*(x-3)*(x-4)*(x-5)/(-12))+(1*(x-0)*(x-1)*(x-2)*(x-4)*(x-5)/(12)))"
+     ],
+     [
+      "4.8",
+      "1.2"
+     ],
+     [
+      "3.5999999999999996",
+      "1.2"
+     ]
+    ],
+    "c": 1
+   },
+   {
+    "t": "poligono",
+    "puntos": [
+     [
+      "4.8",
+      "1.3"
+     ],
+     [
+      "6.0",
+      "1.3"
+     ],
+     [
+      "6.0",
+      "2.4"
+     ],
+     [
+      "4.8",
+      "2.4"
+     ]
+    ],
+    "c": 0,
+    "nombre": "5"
+   },
+   {
+    "t": "poligono",
+    "puntos": [
+     [
+      "4.8",
+      "0"
+     ],
+     [
+      "6.0",
+      "0"
+     ],
+     [
+      "6.0",
+      "1.2*((1*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)/(-120))+(1*(x-0)*(x-2)*(x-3)*(x-4)*(x-5)/(24))+(1*(x-0)*(x-1)*(x-3)*(x-4)*(x-5)/(-12))+(1*(x-0)*(x-1)*(x-2)*(x-4)*(x-5)/(12))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-5)/(-24)))"
+     ],
+     [
+      "4.8",
+      "1.2*((1*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)/(-120))+(1*(x-0)*(x-2)*(x-3)*(x-4)*(x-5)/(24))+(1*(x-0)*(x-1)*(x-3)*(x-4)*(x-5)/(-12))+(1*(x-0)*(x-1)*(x-2)*(x-4)*(x-5)/(12))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-5)/(-24)))"
+     ]
+    ],
+    "c": 3
+   },
+   {
+    "t": "poligono",
+    "puntos": [
+     [
+      "4.8",
+      "1.2*((1*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)/(-120))+(1*(x-0)*(x-2)*(x-3)*(x-4)*(x-5)/(24))+(1*(x-0)*(x-1)*(x-3)*(x-4)*(x-5)/(-12))+(1*(x-0)*(x-1)*(x-2)*(x-4)*(x-5)/(12))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-5)/(-24)))"
+     ],
+     [
+      "6.0",
+      "1.2*((1*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)/(-120))+(1*(x-0)*(x-2)*(x-3)*(x-4)*(x-5)/(24))+(1*(x-0)*(x-1)*(x-3)*(x-4)*(x-5)/(-12))+(1*(x-0)*(x-1)*(x-2)*(x-4)*(x-5)/(12))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-5)/(-24)))"
+     ],
+     [
+      "6.0",
+      "1.2"
+     ],
+     [
+      "4.8",
+      "1.2"
+     ]
+    ],
+    "c": 1
+   }
+  ],
+  "lecturas": [
+   {
+    "rotulo": "para todo x, x es mayor que k (1 si es cierto)",
+    "formula": "(1*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)/(-120))"
+   },
+   {
+    "rotulo": "existe un x mayor que k (1 si es cierto)",
+    "formula": "(1*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)/(-120))+(1*(x-0)*(x-2)*(x-3)*(x-4)*(x-5)/(24))+(1*(x-0)*(x-1)*(x-3)*(x-4)*(x-5)/(-12))+(1*(x-0)*(x-1)*(x-2)*(x-4)*(x-5)/(12))+(1*(x-0)*(x-1)*(x-2)*(x-3)*(x-5)/(-24))"
+   }
+  ],
+  "etiquetas": [
+   "Valor de la afirmación para todo, 1 si es verdadera",
+   "Valor de la afirmación existe, 1 si es verdadera"
+  ],
+  "etiquetaSlider": "Valor de k, de 0 a 5",
+  "alt": "Cinco casillas numeradas del 1 al 5 que representan el universo. Cada casilla es verde si el número es mayor que k y roja si no lo es. Al subir k las casillas pasan de verdes a rojas, empezando por el 1"
+ },
+ "glosario": {
+  "predicado": "Un predicado es una afirmación con una variable, como x es mayor que 3. No es verdadera ni falsa hasta que se da un valor a x o se cuantifica.",
+  "universo": "El universo es el conjunto de valores que puede tomar la variable. Una afirmación con cuantificadores siempre se lee dentro de un universo.",
+  "universal": "El cuantificador universal, para todo, se escribe con una A al revés. La afirmación es verdadera solo si se cumple para cada elemento del universo.",
+  "existencial": "El cuantificador existencial, existe, se escribe con una E al revés. La afirmación es verdadera si se cumple para al menos un elemento."
+ },
+ "ver": {
+  "duracion": 23.0,
+  "capitulos": [
+   [
+    0,
+    4,
+    "El universo son los números del 1 al 5 y la afirmación es x mayor que k. Una casilla verde cumple la afirmación y una roja no."
+   ],
+   [
+    4,
+    9,
+    "Con k igual a 0, las cinco casillas son verdes. Para todo x se cumple, y por supuesto también existe uno que cumple."
+   ],
+   [
+    9,
+    15,
+    "Sube k a 1. La casilla del 1 se vuelve roja. Para todo deja de ser verdad, pero existe sigue siéndolo."
+   ],
+   [
+    15,
+    19,
+    "Con k igual a 4 queda una sola casilla verde, y con k igual a 5 ninguna. Existe solo se vuelve falso cuando todas son rojas."
+   ],
+   [
+    19,
+    23,
+    "Basta una casilla roja para romper un para todo, y basta una verde para que un existe sea verdadero."
+   ]
+  ],
+  "canales": {
+   "draw": [
+    [
+     0.3,
+     0
+    ],
+    [
+     3.5,
+     1
+    ]
+   ],
+   "d": [
+    [
+     4,
+     0
+    ],
+    [
+     9,
+     0
+    ],
+    [
+     10,
+     1
+    ],
+    [
+     15,
+     1
+    ],
+    [
+     16,
+     4
+    ],
+    [
+     18,
+     5
+    ],
+    [
+     19,
+     5
+    ],
+    [
+     23,
+     5
+    ]
+   ],
+   "guide": [
+    [
+     4,
+     0
+    ],
+    [
+     5,
+     1
+    ]
+   ]
+  },
+  "intervalos": {
+   "ok": [
+    19,
+    23
+   ]
+  }
+ },
+ "leer": {
+  "secciones": [
+   {
+    "titulo": "La idea",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Una afirmación como x es mayor que 3 no es verdadera ni falsa, porque depende de x. Se llama {{gl:predicado|predicado}}. Para convertirla en una proposición se le pone un cuantificador, que dice sobre cuántos elementos del {{gl:universo|universo}} se afirma. El {{gl:universal|universal}} dice para todos y el {{gl:existencial|existencial}} dice para al menos uno."
+     }
+    ]
+   },
+   {
+    "titulo": "Un ejemplo",
+    "corto": "Un ejemplo",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mira las cinco casillas del universo. Cada una es verde si el número cumple la afirmación y roja si no."
+     },
+     {
+      "t": "eq",
+      "tex": "\\forall x\\in\\{1,\\dots,5\\}\\ (x>k)\\qquad\\exists x\\in\\{1,\\dots,5\\}\\ (x>k)"
+     },
+     {
+      "t": "grafica",
+      "animar": "dibujar",
+      "alt": "Las cinco casillas del universo"
+     }
+    ]
+   },
+   {
+    "titulo": "Piensa antes de ver",
+    "corto": "Piensa",
+    "bloques": [
+     {
+      "t": "piensa",
+      "pregunta": "Se afirma que para todo x del universo se cumple una propiedad. ¿Cuántos casos que no la cumplan bastan para que esa afirmación sea falsa?",
+      "opciones": [
+       1,
+       2,
+       3,
+       5
+      ],
+      "correcta": 1,
+      "bien": "Muy bien. Un solo caso que falle es suficiente. Eso se ve más abajo con las casillas.",
+      "mal": "Basta con uno. Si un solo elemento falla, ya no se cumple para todos. Eso se ve más abajo con las casillas."
+     }
+    ]
+   },
+   {
+    "titulo": "Recorriendo los valores de k",
+    "corto": "Valores de k",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mira las casillas y las dos lecturas cuando k vale 0, 1, 4 y 5."
+     },
+     {
+      "t": "acercando",
+      "ds": [
+       0,
+       1,
+       4,
+       5
+      ],
+      "alt": "Las casillas para cuatro valores de k"
+     },
+     {
+      "t": "p",
+      "html": "Con k igual a 0 todo es verdad. Con k igual a 1 deja de cumplirse para todo, pero existe sigue valiendo. Solo con k igual a 5 desaparece también el existe."
+     }
+    ]
+   },
+   {
+    "titulo": "Cómo se niegan",
+    "corto": "Negación",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Negar una afirmación cuantificada cambia el cuantificador y niega el predicado."
+     },
+     {
+      "t": "pasos",
+      "items": [
+       {
+        "tex": "\\neg\\forall x\\,P(x)\\ \\equiv\\ \\exists x\\,\\neg P(x)",
+        "porque": "No es cierto que todos cumplan, o sea, alguno no cumple."
+       },
+       {
+        "tex": "\\neg\\exists x\\,P(x)\\ \\equiv\\ \\forall x\\,\\neg P(x)",
+        "porque": "No es cierto que alguno cumpla, o sea, todos fallan."
+       },
+       {
+        "tex": "\\neg\\forall x\\,\\big(P(x)\\rightarrow Q(x)\\big)\\equiv\\exists x\\,\\big(P(x)\\wedge\\neg Q(x)\\big)",
+        "porque": "Se combinan las dos reglas, la del cuantificador y la del condicional."
+       }
+      ]
+     },
+     {
+      "t": "ojo",
+      "html": "La negación de todos aprobaron no es ninguno aprobó. Es alguno no aprobó. Para romper un para todo basta un caso."
+     }
+    ]
+   },
+   {
+    "titulo": "El orden importa",
+    "corto": "El orden",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Cuando hay dos cuantificadores, el orden cambia el significado."
+     },
+     {
+      "t": "pasos",
+      "items": [
+       {
+        "tex": "\\forall x\\,\\exists y\\ (y>x)",
+        "porque": "Para cada número hay otro mayor. Es verdadera en los enteros."
+       },
+       {
+        "tex": "\\exists y\\,\\forall x\\ (y>x)",
+        "porque": "Hay un número mayor que todos. Es falsa en los enteros."
+       },
+       {
+        "tex": "\\exists x\\,\\forall y\\ \\neg(x<y)\\ \\text{equivale a}\\ \\neg\\forall x\\,\\exists y\\ (x<y)",
+        "porque": "Para negar varios cuantificadores se cambia cada uno y se niega el predicado al final."
+       }
+      ]
+     },
+     {
+      "t": "ojo",
+      "html": "Los cuantificadores de distinto tipo no se pueden intercambiar. Para cada x existe un y no dice lo mismo que existe un y que sirve para todo x."
+     }
+    ]
+   },
+   {
+    "titulo": "¿Para qué sirve?",
+    "corto": "En ingeniería",
+    "bloques": [
+     {
+      "t": "ingenieria",
+      "titulo": "El control de calidad de un lote",
+      "html": "Un lote de cinco piezas se aprueba solo si todas están dentro de tolerancia. Esa regla es un para todo. Se rechaza si existe al menos una pieza fuera de tolerancia, que es su negación.",
+      "tex": "\\text{aprobado}=\\forall i\\,P(i)",
+      "datos": [
+       {
+        "k": "Piezas del lote",
+        "v": "5"
+       },
+       {
+        "k": "Piezas fuera de tolerancia que bastan para rechazar",
+        "v": "1"
+       },
+       {
+        "k": "Piezas que hay que medir para aprobar",
+        "v": "las 5"
+       }
+      ],
+      "cierre": "Aprobar exige medir las cinco piezas, y rechazar puede ocurrir con la primera que falle. Por eso en control de calidad se diseña la inspección para encontrar un contraejemplo, y no para sumar casos buenos. Treinta piezas buenas no prueban un para todo, pero una mala basta para negarlo."
+     }
+    ]
+   },
+   {
+    "titulo": "Completa el paso",
+    "corto": "Completa",
+    "bloques": [
+     {
+      "t": "completar",
+      "enunciado": "Se niega un para todo. Falta el cuantificador del resultado.",
+      "tex": "\\neg\\forall x\\,P(x)\\ \\equiv\\ [[hueco]]\\,x\\ \\neg P(x)",
+      "opciones": [
+       {
+        "tex": "\\exists",
+        "txt": "existe"
+       },
+       {
+        "tex": "\\forall",
+        "txt": "para todo"
+       },
+       {
+        "tex": "\\neg\\exists",
+        "txt": "no existe"
+       }
+      ],
+      "correcta": 0,
+      "errores": [
+       "",
+       "Con para todo se mantiene el cuantificador. La negación debe cambiarlo.",
+       "Con no existe el resultado dice que ninguno falla, y es lo contrario de lo que se quiere."
+      ],
+      "pista": "Negar un para todo es decir que alguno falla.",
+      "porque": "La negación de para todo es existe uno que no cumple."
+     }
+    ]
+   },
+   {
+    "titulo": "Encuentra el error",
+    "corto": "Error",
+    "bloques": [
+     {
+      "t": "error",
+      "enunciado": "Alguien negó la afirmación de que todos los lotes pasaron la prueba y se equivocó en un paso. Toca el paso que está mal.",
+      "pasos": [
+       {
+        "tex": "\\forall x\\,P(x)",
+        "porque": "Todos pasaron.",
+        "txt": "todos los lotes pasaron"
+       },
+       {
+        "tex": "\\neg\\forall x\\,P(x)",
+        "porque": "Se niega la afirmación.",
+        "txt": "se niega"
+       },
+       {
+        "tex": "\\text{Entonces}\\ \\forall x\\,\\neg P(x)",
+        "porque": "Este paso es el que falla.",
+        "txt": "queda que todos fallaron"
+       }
+      ],
+      "mal": 2,
+      "explicacion": "Negar un para todo no da otro para todo. Que ninguno pase es mucho más fuerte que decir que no todos pasaron. La negación correcta dice que existe al menos uno que no pasó.",
+      "correccion": "\\neg\\forall x\\,P(x)\\equiv\\exists x\\,\\neg P(x)",
+      "pista": "Pregúntate si hace falta que fallen todos para romper un para todo."
+     }
+    ]
+   },
+   {
+    "titulo": "Ordena los pasos",
+    "corto": "Ordena",
+    "bloques": [
+     {
+      "t": "ordenar",
+      "enunciado": "Estos son los pasos para negar la afirmación para todo x existe y con x menor que y, pero están desordenados.",
+      "pasos": [
+       "\\neg\\forall x\\,\\exists y\\ (x<y)",
+       "\\exists x\\,\\neg\\exists y\\ (x<y)",
+       "\\exists x\\,\\forall y\\ \\neg(x<y)",
+       "\\exists x\\,\\forall y\\ (x\\ge y)"
+      ],
+      "mezcla": [
+       2,
+       0,
+       3,
+       1
+      ],
+      "porque": "Cada cuantificador se cambia de afuera hacia adentro, y al final se niega el predicado.",
+      "pista": "Se empieza escribiendo la negación completa.",
+      "txt": [
+       "Se escribe la negación",
+       "Se pasa la negación al primer cuantificador",
+       "Se pasa la negación al segundo",
+       "Se niega el predicado"
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "Revisa tu respuesta",
+    "corto": "Revisa",
+    "bloques": [
+     {
+      "t": "pregunta"
+     },
+     {
+      "t": "nota",
+      "html": "Puedes pedir pistas de a una. Si fallas, el mensaje te dice qué error se cometió."
+     }
+    ]
+   },
+   {
+    "titulo": "Mini simulacro",
+    "corto": "Simulacro",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Tres preguntas reales del banco de MathUNAL sobre este tema. Responde sin mirar los pasos."
+     },
+     {
+      "t": "simulacro",
+      "titulo": "Mini simulacro de cuantificadores y predicados",
+      "preguntas": [
+       {
+        "tipo": "mcq",
+        "texto": "La negación de $\\forall x\\,P(x)$ es:",
+        "opciones": [
+         "$\\exists x\\,\\neg P(x)$",
+         "$\\forall x\\,\\neg P(x)$",
+         "$\\neg\\exists x\\,P(x)$",
+         "$\\exists x\\,P(x)$"
+        ],
+        "correcta": 0,
+        "resumen": "Al negar un para todo, aparece un existe y se niega el predicado.",
+        "fuente": "Banco MathUNAL, simulacro de Fundamentos de Matemáticas"
+       },
+       {
+        "tipo": "mcq",
+        "texto": "La negación de \"algún estudiante aprobó el curso\" es:",
+        "opciones": [
+         "\"ningún estudiante aprobó el curso\"",
+         "\"algún estudiante no aprobó el curso\"",
+         "\"todos los estudiantes aprobaron el curso\"",
+         "\"la mayoría no aprobó\""
+        ],
+        "correcta": 0,
+        "resumen": "La negación de existe es para todo con el predicado negado, es decir, ninguno.",
+        "fuente": "Banco MathUNAL, simulacro de Fundamentos de Matemáticas"
+       },
+       {
+        "tipo": "mcq",
+        "texto": "Sea $E$ el conjunto de estudiantes de Fundamentos y $R(x)$: \"$x$ reprueba el curso\". \"Ningún estudiante de Fundamentos reprobará el curso\" se traduce como:",
+        "opciones": [
+         "$\\forall x\\in E\\ \\neg R(x)$",
+         "$\\exists x\\in E\\ \\neg R(x)$",
+         "$\\neg\\forall x\\in E\\ R(x)$",
+         "$\\forall x\\in E\\ R(x)$"
+        ],
+        "correcta": 0,
+        "resumen": "Ningún x cumple R significa que para todo x se cumple no R.",
+        "fuente": "Banco MathUNAL, simulacro de Fundamentos de Matemáticas"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "Tu repaso",
+    "corto": "Repaso",
+    "bloques": [
+     {
+      "t": "repaso"
+     }
+    ]
+   },
+   {
+    "titulo": "En resumen",
+    "corto": "Resumen",
+    "bloques": [
+     {
+      "t": "resumen"
+     }
+    ]
+   }
+  ]
+ },
+ "practicar": {
+  "pasos": [
+   {
+    "titulo": "El universo",
+    "grafica": {
+     "draw": 1,
+     "guide": 1
+    },
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Las cinco casillas del universo, verdes si cumplen x mayor que k."
+     },
+     {
+      "t": "eq",
+      "tex": "x>k"
+     }
+    ]
+   },
+   {
+    "titulo": "Recorre k",
+    "grafica": {
+     "draw": 1,
+     "guide": 1
+    },
+    "laboratorio": true,
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mueve el deslizador de 0 a 5. Abajo se leen los valores de para todo y de existe."
+     }
+    ]
+   },
+   {
+    "titulo": "Una casilla roja",
+    "grafica": {
+     "draw": 1,
+     "guide": 1,
+     "ok": true
+    },
+    "laboratorio": true,
+    "d": 1,
+    "bloques": [
+     {
+      "t": "eq",
+      "tex": "k=1\\ \\Rightarrow\\ \\forall\\ \\text{falso},\\ \\exists\\ \\text{verdadero}"
+     },
+     {
+      "t": "p",
+      "html": "Con k igual a 1 hay una casilla roja. Eso rompe el para todo, pero no el existe."
+     }
+    ]
+   },
+   {
+    "titulo": "Revisa tu respuesta",
+    "grafica": {
+     "draw": 1,
+     "guide": 1,
+     "ok": true,
+     "d": 1
+    },
+    "bloques": [
+     {
+      "t": "pregunta"
+     },
+     {
+      "t": "nota",
+      "html": "Recuerda qué cambia al negar un cuantificador."
+     }
+    ]
+   }
+  ]
+ },
+ "pregunta": {
+  "tex": "\\text{La negación de}\\ \\exists x\\,P(x)\\ \\text{es}",
+  "opciones": [
+   "$\\forall x\\,\\neg P(x)$",
+   "$\\exists x\\,\\neg P(x)$",
+   "$\\neg\\forall x\\,P(x)$",
+   "$\\forall x\\,P(x)$"
+  ],
+  "correcta": 0,
+  "explicacion": "Negar existe da para todo con el predicado negado. Decir que no existe ninguno que cumpla es lo mismo que decir que todos fallan.",
+  "verificacion": {
+   "formula": "1-(1-0)*1+0*x",
+   "a": 0,
+   "esperado": 0
+  },
+  "pistas": [
+   "Hay que cambiar el cuantificador.",
+   "También se niega el predicado.",
+   "Queda para todo x, no P de x."
+  ],
+  "errores": [
+   "",
+   "Esa dice que alguno falla, y no es la negación. Cambia el predicado pero deja el cuantificador.",
+   "Esa es la negación de para todo, no la de existe.",
+   "Esa afirma que todos cumplen, y es otra afirmación distinta."
+  ]
+ },
+ "resumen": [
+  "Un predicado se vuelve proposición con un cuantificador, para todo o existe, dentro de un universo.",
+  "Para romper un para todo basta un caso que falle, y para probar un existe basta un caso que cumpla.",
+  "Al negar se cambia el cuantificador y se niega el predicado. El orden de cuantificadores distintos no se puede intercambiar."
+ ]
+}

@@ -1,0 +1,140 @@
+<title>Práctica MathUNAL</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Literata:ital,wght@0,700;0,900&family=IBM+Plex+Mono:wght@500&display=swap">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js"></script>
+<style id="kx">/*KATEXCSS*/</style>
+<style>
+:root{--bg:#F5F3EE;--panel:#FFFFFF;--fg:#17213B;--mu:#5E6785;--line:#DDD9CE;--acc:#B6481A;--acc-fg:#FFFFFF;--soft:#FBE9DD;--eqbg:#FBFAF6;--ok:#14733F;--okbg:#E3F4EA;--no:#A12A2A;--nobg:#FBE5E5;--disp:Literata,Georgia,serif;--body:'Space Grotesk',system-ui,sans-serif;--mono:'IBM Plex Mono',ui-monospace,monospace}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0E1322;--panel:#161D33;--fg:#EEF1FB;--mu:#9AA4C8;--line:#2A3358;--acc:#FF8A4C;--acc-fg:#14182B;--soft:#2B2236;--eqbg:#0F1628;--ok:#5FD393;--okbg:#12301F;--no:#FF8E8E;--nobg:#3A1C22;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0E1322;--panel:#161D33;--fg:#EEF1FB;--mu:#9AA4C8;--line:#2A3358;--acc:#FF8A4C;--acc-fg:#14182B;--soft:#2B2236;--eqbg:#0F1628;--ok:#5FD393;--okbg:#12301F;--no:#FF8E8E;--nobg:#3A1C22;color-scheme:dark}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font:400 16px/1.5 var(--body);padding-inline:max(16px,env(safe-area-inset-left,0px)) max(16px,env(safe-area-inset-right,0px));padding-block:26px 64px}
+.wrap{max-width:980px;margin:0 auto;display:flex;flex-direction:column;gap:20px}
+h1{margin:0;font:900 clamp(1.8rem,4vw,2.7rem)/1.05 var(--disp);text-wrap:balance}
+.lead{margin:8px 0 0;color:var(--mu);max-width:62ch}
+button{font:inherit;color:inherit;cursor:pointer}
+button:focus-visible,a:focus-visible{outline:3px solid var(--acc);outline-offset:2px}
+.tabs{display:flex;flex-wrap:wrap;gap:8px}
+.tab{border:1.5px solid var(--line);background:var(--panel);border-radius:30px;padding:7px 14px;font-weight:700;font-size:.9rem;min-height:40px}
+.tab[aria-pressed="true"]{background:var(--acc);border-color:var(--acc);color:var(--acc-fg)}
+.row{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between}
+.btn{border:1.5px solid var(--acc);background:var(--acc);color:var(--acc-fg);border-radius:10px;padding:10px 16px;font-weight:700;min-height:44px}
+.btn.sec{background:transparent;color:var(--acc)}
+.btn[disabled]{opacity:.45;cursor:not-allowed}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,290px),1fr));gap:14px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:16px 18px;display:flex;flex-direction:column;gap:8px;min-width:0}
+.card h3{margin:0;font:700 1.08rem/1.25 var(--disp)}
+.mu{color:var(--mu);font-size:.88rem}
+.cur{font:700 .75rem var(--body);letter-spacing:.12em;text-transform:uppercase;color:var(--mu)}
+.badge{display:inline-block;font:700 .75rem var(--body);padding:2px 9px;border-radius:20px;background:var(--okbg);color:var(--ok);width:max-content}
+.bar{height:6px;border-radius:6px;background:var(--line);overflow:hidden}
+.bar i{display:block;height:100%;background:var(--acc)}
+.ex{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:20px 22px;display:flex;flex-direction:column;gap:14px}
+.ex h1{margin:0;font:700 1.3rem/1.2 var(--disp)}
+.enun{margin:0;font-size:1.05rem}
+.eq{background:var(--eqbg);border:1px solid var(--line);border-radius:10px;padding:12px 14px;overflow-x:auto;font-size:1.15rem}
+.eq .katex-display{margin:0}
+.ops{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,230px),1fr));gap:10px}
+.op{border:1.5px solid var(--line);background:var(--panel);border-radius:12px;padding:12px 14px;text-align:left;min-height:56px;overflow-x:auto;min-width:0}
+.op:hover:not([disabled]){border-color:var(--acc)}
+.op.bien{border-color:var(--ok);background:var(--okbg)}
+.op.mal{border-color:var(--no);background:var(--nobg)}
+.op[disabled]{cursor:default}
+.fb{margin:0;padding:10px 14px;border-radius:10px;font-weight:500}
+.fb.bien{background:var(--okbg);color:var(--ok)}
+.fb.mal{background:var(--nobg);color:var(--no)}
+.fb.pis{background:var(--soft)}
+.st{display:flex;flex-direction:column;gap:10px}
+.st>div{border-left:3px solid var(--acc);padding-left:12px;min-width:0}
+.fbs{display:flex;flex-direction:column;gap:8px}
+.st .e{overflow-x:auto}
+.st span{color:var(--mu);font-size:.92rem}
+.stats{display:flex;flex-wrap:wrap;gap:14px;font-family:var(--mono);font-size:.85rem;color:var(--mu)}
+.lnk{color:var(--acc);font-weight:700}
+.foot{color:var(--mu);font-size:.88rem}
+.none{color:var(--mu)}
+@media (prefers-reduced-motion:no-preference){.op,.btn,.tab{transition:border-color .15s,background .15s}}
+</style>
+<main class="wrap" id="app"></main>
+<script>/*GEN*/</script>
+<script>
+var LECS=/*LECS*/;
+var KEY='mu-practica-v1';
+document.documentElement.lang='es';
+var cur='Todas',vista='lista',pl=null,ej=null,resuelto=false,primero=true,sesion={n:0,ok:0};
+function K(el,tex,disp){try{katex.render(tex,el,{throwOnError:false,displayMode:!!disp,trust:false})}catch(e){el.textContent=tex}}
+function leer(){try{return JSON.parse(localStorage.getItem(KEY)||'{}')}catch(e){return {}}}
+function guardar(o){try{localStorage.setItem(KEY,JSON.stringify(o))}catch(e){}}
+function reg(id){var s=leer();return s[id]||{n:0,ok:0,racha:0}}
+function anotar(id,bien){var s=leer(),r=s[id]||{n:0,ok:0,racha:0};r.n++;if(bien){r.ok++;r.racha++}else r.racha=0;s[id]=r;guardar(s)}
+function el(tag,cls,txt){var e=document.createElement(tag);if(cls)e.className=cls;if(txt!==undefined)e.textContent=txt;return e}
+var CURSOS=['Todas'].concat(MUPractica.plantillas.map(function(p){return p.curso}).filter(function(v,i,a){return a.indexOf(v)===i}));
+function listar(){return MUPractica.plantillas.filter(function(p){return cur==='Todas'||p.curso===cur})}
+function app(){return document.getElementById('app')}
+function pesoDe(p){var r=reg(p.id);if(!r.n)return 2;var acc=r.ok/r.n;return 1+(1-acc)*2+(r.racha>=5?-0.5:0)}
+function elegirMezclado(){var L=listar(),tot=0,w=L.map(function(p){var x=Math.max(.3,pesoDe(p));tot+=x;return x}),u=Math.random()*tot;for(var i=0;i<L.length;i++){u-=w[i];if(u<=0)return L[i]}return L[0]}
+function nuevo(p){pl=p;ej=MUPractica.porId(p.id,Math.floor(Math.random()*900000)+1);resuelto=false;primero=true}
+function dibujarLista(){
+  var a=app();a.innerHTML='';
+  var h=el('div');h.appendChild(el('h1',null,'Práctica de MathUNAL'));
+  h.appendChild(el('p','lead','Ejercicios nuevos cada vez. Si fallas, la respuesta te explica qué error cometiste, y al terminar ves la solución paso a paso.'));a.appendChild(h);
+  var t=el('div','tabs');t.setAttribute('role','group');t.setAttribute('aria-label','Materia');
+  CURSOS.forEach(function(c){var b=el('button','tab',c);b.type='button';b.setAttribute('aria-pressed',c===cur?'true':'false');b.onclick=function(){cur=c;dibujarLista()};t.appendChild(b)});a.appendChild(t);
+  var row=el('div','row');row.appendChild(el('span','mu',listar().length+' temas'));
+  var mz=el('button','btn','Práctica mezclada');mz.type='button';mz.onclick=function(){sesion={n:0,ok:0};abrir(elegirMezclado(),true)};row.appendChild(mz);a.appendChild(row);
+  var g=el('div','cards');
+  listar().forEach(function(p){
+    var r=reg(p.id),c=el('article','card');
+    c.appendChild(el('span','cur',p.curso));c.appendChild(el('h3',null,p.tema));
+    if(r.n){var acc=Math.round(100*r.ok/r.n);c.appendChild(el('span','mu',r.n+' intentos, '+acc+' por ciento de aciertos al primer intento'));var b=el('div','bar');var i=el('i');i.style.width=acc+'%';b.appendChild(i);c.appendChild(b)}else c.appendChild(el('span','mu','Sin intentos todavía'));
+    if(r.racha>=5)c.appendChild(el('span','badge','Racha de '+r.racha));
+    var bt=el('button','btn sec','Practicar');bt.type='button';bt.setAttribute('aria-label','Practicar '+p.tema);bt.onclick=function(){sesion={n:0,ok:0};abrir(p,false)};c.appendChild(bt);g.appendChild(c)});
+  a.appendChild(g);
+  a.appendChild(el('p','foot','Los ejercicios se generan al azar y sus respuestas se comprobaron con cálculo simbólico independiente. Tu avance se guarda solo en este navegador. Los enlaces a las lecciones solo abren para quien tenga acceso.'));
+}
+var mezclado=false;
+function abrir(p,mz){mezclado=mz;nuevo(p);vista='ej';dibujarEj();window.scrollTo(0,0)}
+function dibujarEj(){
+  var a=app();a.innerHTML='';
+  var top=el('div','row');var vb=el('button','btn sec','Volver a los temas');vb.type='button';vb.onclick=function(){vista='lista';dibujarLista()};top.appendChild(vb);
+  var st=el('div','stats');st.appendChild(el('span',null,'Sesión '+sesion.ok+' de '+sesion.n));var r=reg(pl.id);if(r.racha)st.appendChild(el('span',null,'Racha '+r.racha));top.appendChild(st);a.appendChild(top);
+  var x=el('section','ex');x.setAttribute('aria-labelledby','tt');
+  x.appendChild(el('span','cur',pl.curso));var h=el('h1',null,pl.tema);h.id='tt';x.appendChild(h);
+  x.appendChild(el('p','enun',ej.enun));
+  if(ej.tex){var q=el('div','eq');var s=el('span');q.appendChild(s);x.appendChild(q);K(s,ej.tex,true)}
+  var ops=el('div','ops');ops.setAttribute('role','group');ops.setAttribute('aria-label','Opciones de respuesta');
+  var fbs=el('div','fbs');fbs.setAttribute('aria-live','polite');
+  var sol=el('div','st');sol.hidden=true;
+  var sig=el('button','btn','Otro ejercicio');sig.type='button';sig.hidden=true;
+  ej.ops.forEach(function(o,i){
+    var b=el('button','op');b.type='button';b.setAttribute('aria-label','Opción '+(i+1));var s=el('span');b.appendChild(s);K(s,o.tex,false);
+    b.onclick=function(){
+      if(resuelto)return;
+      if(primero){primero=false;sesion.n++;if(o.ok)sesion.ok++;anotar(pl.id,o.ok)}
+      if(o.ok){
+        resuelto=true;b.classList.add('bien');b.setAttribute('aria-label','Opción '+(i+1)+', correcta');
+        ops.querySelectorAll('.op').forEach(function(z){z.disabled=true});
+        var fb=el('p','fb bien','Correcto.');fbs.appendChild(fb);
+        ej.pasos.forEach(function(p){var d=el('div');var e=el('div','e');var s2=el('span');e.appendChild(s2);d.appendChild(e);d.appendChild(el('span',null,p.why));sol.appendChild(d);K(s2,p.tex,true)});
+        sol.hidden=false;sig.hidden=false;sig.focus();
+        var lk=ej.lec&&ej.lec.filter(function(k){return LECS[k]})[0];
+        if(lk){var p=el('p','foot');var l=el('a','lnk','Repasar la lección');l.href=LECS[lk];l.target='_blank';l.rel='noopener';p.appendChild(l);sol.appendChild(p)}
+        var st2=document.querySelector('.stats');if(st2)st2.firstChild.textContent='Sesión '+sesion.ok+' de '+sesion.n;
+      }else{
+        b.classList.add('mal');b.disabled=true;b.setAttribute('aria-label','Opción '+(i+1)+', incorrecta');
+        fbs.appendChild(el('p','fb mal','No es esa. '+o.e));
+      }
+    };
+    ops.appendChild(b)});
+  x.appendChild(ops);
+  var pis=el('button','btn sec','Ver una pista');pis.type='button';
+  var pt=el('p','fb pis',ej.pista);pt.hidden=true;
+  pis.onclick=function(){pt.hidden=!pt.hidden;pis.textContent=pt.hidden?'Ver una pista':'Ocultar la pista'};
+  x.appendChild(pis);x.appendChild(pt);x.appendChild(fbs);x.appendChild(sol);
+  sig.onclick=function(){var p=mezclado?elegirMezclado():pl;nuevo(p);dibujarEj()};
+  x.appendChild(sig);
+  x.appendChild(el('span','mu','Ejercicio número '+ej.seed));
+  a.appendChild(x);
+}
+dibujarLista();
+</script>

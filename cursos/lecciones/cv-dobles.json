@@ -1,0 +1,642 @@
+{
+ "esquema": 1,
+ "id": "cv-m2-l1",
+ "ejemplo": true,
+ "curso": "Cálculo en Varias Variables",
+ "modulo": "Módulo 2 Integrales múltiples",
+ "posicion": "Lección 1 de 6",
+ "titulo": "Integrales dobles y cambio de orden",
+ "minutos": 28,
+ "ejercicios": 8,
+ "grafica": {
+  "tipo": "plano",
+  "x": [
+   -0.8,
+   2.2
+  ],
+  "y": [
+   -0.4,
+   1.4
+  ],
+  "a": 0,
+  "b": 1,
+  "inicio": 0.4,
+  "elementos": [
+   {
+    "t": "poligono",
+    "puntos": [
+     [
+      "0",
+      "0"
+     ],
+     [
+      "1",
+      "0"
+     ],
+     [
+      "1",
+      "1"
+     ]
+    ],
+    "c": 2,
+    "nombre": "D"
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "x",
+     "0"
+    ],
+    "b": [
+     "x",
+     "x"
+    ],
+    "c": 0
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "x",
+     "x"
+    ],
+    "b": [
+     "1",
+     "x"
+    ],
+    "c": 1
+   },
+   {
+    "t": "punto",
+    "p": [
+     "x",
+     "x"
+    ],
+    "c": 3
+   }
+  ],
+  "lecturas": [
+   {
+    "rotulo": "longitud del corte vertical, y va de 0 a x",
+    "formula": "x"
+   },
+   {
+    "rotulo": "longitud del corte horizontal, x va de y a 1",
+    "formula": "1-x"
+   }
+  ],
+  "etiquetas": [
+   "Con el orden dy dx se corta con rectas verticales",
+   "Con el orden dx dy se corta con rectas horizontales"
+  ],
+  "etiquetaSlider": "Posición del corte, de 0 a 1",
+  "alt": "La región triangular D, con vértices en 0, 0, en 1, 0 y en 1, 1. El corte vertical en x va desde y igual a 0 hasta y igual a x. El corte horizontal en y va desde x igual a y hasta x igual a 1. Se recorre la misma región con los dos órdenes de integración"
+ },
+ "glosario": {
+  "doble": "Una integral doble suma los valores de una función sobre una región del plano, y con f igual a 1 da el área de la región.",
+  "iterada": "Una integral iterada calcula la integral doble integrando primero respecto a una variable y luego respecto a la otra.",
+  "fubini": "El teorema de Fubini dice que en una región razonable el orden de integración no cambia el resultado.",
+  "region": "El primer paso de cualquier integral doble es dibujar la región, para saber los límites de cada variable."
+ },
+ "ver": {
+  "duracion": 24.0,
+  "capitulos": [
+   [
+    0,
+    4,
+    "La región es un triángulo con vértices en 0, 0, en 1, 0 y en 1, 1, donde y va de 0 hasta x."
+   ],
+   [
+    4,
+    10,
+    "Con el orden dy dx se corta con rectas verticales. En cada x, y va de 0 a x."
+   ],
+   [
+    10,
+    16,
+    "Con x igual a 0.4 el corte vertical mide 0.4. El mismo triángulo se puede cortar con rectas horizontales."
+   ],
+   [
+    16,
+    20,
+    "Con las horizontales, en cada y, x va desde y hasta 1. Con y igual a 0.4 el corte mide 0.6."
+   ],
+   [
+    20,
+    24,
+    "Los dos órdenes recorren la misma región, y por eso dan el mismo resultado."
+   ]
+  ],
+  "canales": {
+   "draw": [
+    [
+     0.3,
+     0
+    ],
+    [
+     3.5,
+     1
+    ]
+   ],
+   "d": [
+    [
+     4,
+     0.15
+    ],
+    [
+     8,
+     0.15
+    ],
+    [
+     10,
+     0.4
+    ],
+    [
+     16,
+     0.4
+    ],
+    [
+     18,
+     0.8
+    ],
+    [
+     24,
+     0.8
+    ]
+   ],
+   "guide": [
+    [
+     4,
+     0
+    ],
+    [
+     5,
+     1
+    ]
+   ]
+  },
+  "intervalos": {
+   "ok": [
+    16,
+    24
+   ]
+  }
+ },
+ "leer": {
+  "secciones": [
+   {
+    "titulo": "La idea",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Una {{gl:doble|integral doble}} se calcula como una {{gl:iterada|integral iterada}}, integrando primero respecto a una variable. Todo parte de dibujar la {{gl:region|región}}. Con el teorema de {{gl:fubini|Fubini}} se puede cambiar el orden, y a veces uno de los dos órdenes es mucho más fácil."
+     }
+    ]
+   },
+   {
+    "titulo": "Un ejemplo",
+    "corto": "Un ejemplo",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "La región es el triángulo bajo la recta y igual a x. Mueve el corte y mira los dos órdenes."
+     },
+     {
+      "t": "eq",
+      "tex": "\\displaystyle\\int_{0}^{1}\\!\\int_{0}^{x}f\\,dy\\,dx=\\int_{0}^{1}\\!\\int_{y}^{1}f\\,dx\\,dy"
+     },
+     {
+      "t": "grafica",
+      "animar": "dibujar",
+      "alt": "El triángulo con sus cortes verticales y horizontales"
+     }
+    ]
+   },
+   {
+    "titulo": "Piensa antes de ver",
+    "corto": "Piensa",
+    "bloques": [
+     {
+      "t": "piensa",
+      "pregunta": "Si el corte vertical en x va de y igual a 0 a y igual a x, ¿cuánto mide con x igual a 0.4?",
+      "opciones": [
+       0.4,
+       0.6,
+       1,
+       0
+      ],
+      "correcta": 0.4,
+      "bien": "Muy bien. Mide x, o sea 0.4.",
+      "mal": "Mide x menos 0, o sea 0.4."
+     }
+    ]
+   },
+   {
+    "titulo": "Los dos cortes",
+    "corto": "Cortes",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mira los cortes con la posición en 0.15, 0.4, 0.6 y 0.8."
+     },
+     {
+      "t": "acercando",
+      "ds": [
+       0.15,
+       0.4,
+       0.6,
+       0.8
+      ],
+      "alt": "Los dos cortes en cuatro posiciones"
+     },
+     {
+      "t": "p",
+      "html": "El corte vertical crece con x, y el horizontal disminuye con y."
+     }
+    ]
+   },
+   {
+    "titulo": "Una integral sobre un rectángulo",
+    "corto": "Rectángulo",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "En un rectángulo los límites son constantes, y el orden no cambia nada."
+     },
+     {
+      "t": "pasos",
+      "items": [
+       {
+        "tex": "\\displaystyle\\int_{0}^{1}\\!\\int_{0}^{2}xy\\,dy\\,dx",
+        "porque": "El ejemplo."
+       },
+       {
+        "tex": "\\displaystyle\\int_{0}^{2}xy\\,dy=x\\cdot\\dfrac{y^{2}}{2}\\Big|_{0}^{2}=2x",
+        "porque": "Se integra respecto a y, con x constante."
+       },
+       {
+        "tex": "\\displaystyle\\int_{0}^{1}2x\\,dx=x^{2}\\Big|_{0}^{1}=1",
+        "porque": "Luego respecto a x."
+       },
+       {
+        "tex": "\\displaystyle\\int_{0}^{1}\\!\\int_{0}^{1}(x+y)\\,dx\\,dy=\\dfrac{1}{2}+\\dfrac{1}{2}=1",
+        "porque": "Otro ejemplo, que también da 1."
+       }
+      ]
+     },
+     {
+      "t": "ojo",
+      "html": "Se integra primero la integral de adentro, con la otra variable como constante. El resultado de la primera integración es una función de la variable que queda."
+     }
+    ]
+   },
+   {
+    "titulo": "Cambiar el orden",
+    "corto": "Cambio",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Se dibuja la región y se lee con el otro orden."
+     },
+     {
+      "t": "pasos",
+      "items": [
+       {
+        "tex": "0\\le y\\le x\\le1",
+        "porque": "La región del triángulo."
+       },
+       {
+        "tex": "\\displaystyle\\int_{0}^{1}\\!\\int_{0}^{x}f\\,dy\\,dx",
+        "porque": "Orden original."
+       },
+       {
+        "tex": "0\\le y\\le1,\\quad y\\le x\\le1",
+        "porque": "Con rectas horizontales."
+       },
+       {
+        "tex": "\\displaystyle\\int_{0}^{1}\\!\\int_{y}^{1}f\\,dx\\,dy",
+        "porque": "Orden invertido."
+       }
+      ]
+     },
+     {
+      "t": "ojo",
+      "html": "Al cambiar el orden, los límites de afuera son constantes y los de adentro son funciones de la variable de afuera. Si queda al revés, hay un error en la región."
+     }
+    ]
+   },
+   {
+    "titulo": "¿Para qué sirve?",
+    "corto": "En ingeniería",
+    "bloques": [
+     {
+      "t": "ingenieria",
+      "titulo": "La carga total de una placa",
+      "html": "Una placa triangular tiene una densidad de carga que crece con el producto x por y. La carga total se calcula con una integral doble sobre el triángulo.",
+      "tex": "Q=\\displaystyle\\int_{0}^{1}\\!\\int_{0}^{x}xy\\,dy\\,dx=\\dfrac{1}{8}",
+      "datos": [
+       {
+        "k": "Región",
+        "v": "triángulo con vértices 0, 0, 1, 0 y 1, 1"
+       },
+       {
+        "k": "Densidad",
+        "v": "x por y"
+       },
+       {
+        "k": "Carga total",
+        "v": "un octavo"
+       }
+      ],
+      "cierre": "Elegir el orden que haga más fácil la integral es parte del trabajo. En este caso los dos funcionan, pero en otros uno de los órdenes obliga a partir la región en pedazos."
+     }
+    ]
+   },
+   {
+    "titulo": "Completa el paso",
+    "corto": "Completa",
+    "bloques": [
+     {
+      "t": "completar",
+      "enunciado": "Al invertir el orden de la integral de 0 a 1 de la integral de 0 a x, los nuevos límites de x son de y a [[hueco]].",
+      "tex": "\\displaystyle\\int_{0}^{1}\\!\\int_{0}^{x}f\\,dy\\,dx=\\int_{0}^{1}\\!\\int_{y}^{[[hueco]]}f\\,dx\\,dy",
+      "opciones": [
+       {
+        "tex": "1",
+        "txt": "uno"
+       },
+       {
+        "tex": "0",
+        "txt": "cero"
+       },
+       {
+        "tex": "y",
+        "txt": "y"
+       }
+      ],
+      "correcta": 0,
+      "errores": [
+       "",
+       "El límite de x no puede terminar en 0, porque entonces la región sería vacía.",
+       "El límite superior no puede ser igual al inferior."
+      ],
+      "pista": "En la región, x llega hasta el borde derecho, que es x igual a 1.",
+      "porque": "El límite superior es 1."
+     }
+    ]
+   },
+   {
+    "titulo": "Encuentra el error",
+    "corto": "Error",
+    "bloques": [
+     {
+      "t": "error",
+      "enunciado": "Alguien cambió el orden de la integral de 0 a 1 de la integral de 0 a x, y se equivocó. Toca el paso que está mal.",
+      "pasos": [
+       {
+        "tex": "0\\le y\\le x\\le1",
+        "porque": "Región.",
+        "txt": "región"
+       },
+       {
+        "tex": "\\displaystyle\\int_{0}^{1}\\!\\int_{0}^{y}f\\,dx\\,dy",
+        "porque": "Este paso es el que falla.",
+        "txt": "x de 0 a y"
+       },
+       {
+        "tex": "\\text{el resultado cambia}",
+        "porque": "Conclusión.",
+        "txt": "cambia"
+       }
+      ],
+      "mal": 1,
+      "explicacion": "Con rectas horizontales, x va de y hasta 1, y no de 0 a y. Los límites de adentro deben seguir la región.",
+      "correccion": "\\displaystyle\\int_{0}^{1}\\!\\int_{y}^{1}f\\,dx\\,dy",
+      "pista": "Mira dónde está x en cada fila horizontal."
+     }
+    ]
+   },
+   {
+    "titulo": "Ordena los pasos",
+    "corto": "Ordena",
+    "bloques": [
+     {
+      "t": "ordenar",
+      "enunciado": "Estos son los pasos para cambiar el orden de integración, pero están desordenados.",
+      "pasos": [
+       "0\\le y\\le x\\le1",
+       "0\\le y\\le1",
+       "y\\le x\\le1",
+       "\\displaystyle\\int_{0}^{1}\\!\\int_{y}^{1}f\\,dx\\,dy"
+      ],
+      "mezcla": [
+       2,
+       0,
+       3,
+       1
+      ],
+      "porque": "Primero la región, luego los límites de afuera, después los de adentro y por último la integral.",
+      "pista": "Se empieza dibujando la región.",
+      "txt": [
+       "Se dibuja la región",
+       "Se fijan los límites de afuera",
+       "Se escriben los límites de adentro",
+       "Se escribe la integral"
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "Revisa tu respuesta",
+    "corto": "Revisa",
+    "bloques": [
+     {
+      "t": "pregunta"
+     },
+     {
+      "t": "nota",
+      "html": "Puedes pedir pistas de a una. Si fallas, el mensaje te dice qué error se cometió."
+     }
+    ]
+   },
+   {
+    "titulo": "Mini simulacro",
+    "corto": "Simulacro",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Preguntas reales del banco de MathUNAL sobre este tema. Responde sin mirar los pasos."
+     },
+     {
+      "t": "simulacro",
+      "titulo": "Mini simulacro de integrales dobles",
+      "preguntas": [
+       {
+        "tipo": "numerica",
+        "texto": "Calcule $\\displaystyle\\int_0^1\\!\\int_0^2 xy\\,dy\\,dx$.",
+        "respuesta": "1",
+        "tolNum": 0.001,
+        "resumen": "El valor de la integral de x y sobre el rectángulo.",
+        "fuente": "Banco MathUNAL, simulacro de Cálculo en Varias Variables"
+       },
+       {
+        "tipo": "mcq",
+        "texto": "El intercambio del orden de integración de $\\displaystyle\\int_0^1\\!\\int_y^1 f(x,y)\\,dx\\,dy$ es:",
+        "opciones": [
+         "$\\displaystyle\\int_0^1\\!\\int_0^x f(x,y)\\,dy\\,dx$",
+         "$\\displaystyle\\int_0^1\\!\\int_0^1 f(x,y)\\,dy\\,dx$",
+         "$\\displaystyle\\int_0^1\\!\\int_x^1 f(x,y)\\,dy\\,dx$",
+         "$\\displaystyle\\int_0^1\\!\\int_1^y f(x,y)\\,dy\\,dx$"
+        ],
+        "correcta": 0,
+        "resumen": "El orden invertido de la integral con x de y a 1.",
+        "fuente": "Banco MathUNAL, simulacro de Cálculo en Varias Variables"
+       },
+       {
+        "tipo": "numerica",
+        "texto": "$\\displaystyle\\int_{0}^{1}\\int_{0}^{1} (x + y)\\,dx\\,dy$",
+        "respuesta": "1",
+        "tolNum": 0.001,
+        "resumen": "La integral de x más y sobre el cuadrado unidad.",
+        "fuente": "Banco MathUNAL, simulacro de Cálculo en Varias Variables"
+       },
+       {
+        "tipo": "mcq",
+        "texto": "Al invertir el orden, $\\displaystyle\\int_{0}^{1}\\int_{0}^{x} f(x,y)\\,dy\\,dx$ se convierte en:",
+        "opciones": [
+         "$\\displaystyle\\int_{0}^{1}\\int_{y}^{1} f(x,y)\\,dx\\,dy$",
+         "$\\displaystyle\\int_{0}^{1}\\int_{0}^{y} f(x,y)\\,dx\\,dy$",
+         "$\\displaystyle\\int_{0}^{x}\\int_{0}^{1} f(x,y)\\,dx\\,dy$",
+         "$\\displaystyle\\int_{0}^{1}\\int_{x}^{1} f(x,y)\\,dy\\,dx$"
+        ],
+        "correcta": 0,
+        "resumen": "El orden invertido con y de 0 a x.",
+        "fuente": "Banco MathUNAL, simulacro de Cálculo en Varias Variables"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "Tu repaso",
+    "corto": "Repaso",
+    "bloques": [
+     {
+      "t": "repaso"
+     }
+    ]
+   },
+   {
+    "titulo": "En resumen",
+    "corto": "Resumen",
+    "bloques": [
+     {
+      "t": "resumen"
+     }
+    ]
+   }
+  ]
+ },
+ "practicar": {
+  "pasos": [
+   {
+    "titulo": "La región",
+    "grafica": {
+     "draw": 1
+    },
+    "bloques": [
+     {
+      "t": "p",
+      "html": "La región es el triángulo bajo la recta y igual a x."
+     },
+     {
+      "t": "eq",
+      "tex": "0\\le y\\le x\\le1"
+     }
+    ]
+   },
+   {
+    "titulo": "Mueve el corte",
+    "grafica": {
+     "draw": 1
+    },
+    "laboratorio": true,
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mueve el deslizador. Abajo se leen las longitudes del corte vertical y del horizontal."
+     }
+    ]
+   },
+   {
+    "titulo": "Un corte en 0.4",
+    "grafica": {
+     "draw": 1,
+     "guide": 1,
+     "ok": true
+    },
+    "laboratorio": true,
+    "d": 0.4,
+    "bloques": [
+     {
+      "t": "eq",
+      "tex": "x=0.4:\\ 0.4,\\qquad y=0.4:\\ 0.6"
+     },
+     {
+      "t": "p",
+      "html": "El corte vertical mide 0.4, y el horizontal mide 0.6."
+     }
+    ]
+   },
+   {
+    "titulo": "Revisa tu respuesta",
+    "grafica": {
+     "draw": 1,
+     "guide": 1,
+     "ok": true,
+     "d": 0.4
+    },
+    "bloques": [
+     {
+      "t": "pregunta"
+     },
+     {
+      "t": "nota",
+      "html": "Dibuja siempre la región primero."
+     }
+    ]
+   }
+  ]
+ },
+ "pregunta": {
+  "tex": "\\displaystyle\\int_{0}^{1}\\!\\int_{0}^{x}f\\,dy\\,dx\\ \\text{es igual a}",
+  "opciones": [
+   "$\\displaystyle\\int_{0}^{1}\\!\\int_{y}^{1}f\\,dx\\,dy$",
+   "$\\displaystyle\\int_{0}^{1}\\!\\int_{0}^{y}f\\,dx\\,dy$",
+   "$\\displaystyle\\int_{0}^{x}\\!\\int_{0}^{1}f\\,dx\\,dy$",
+   "$\\displaystyle\\int_{0}^{1}\\!\\int_{x}^{1}f\\,dy\\,dx$"
+  ],
+  "correcta": 0,
+  "explicacion": "La región es y entre 0 y 1, con x desde y hasta 1. Esa es la integral con el orden invertido.",
+  "verificacion": {
+   "formula": "1-0.4+0*x",
+   "a": 0,
+   "esperado": 0.6
+  },
+  "pistas": [
+   "Dibuja el triángulo.",
+   "Corta con rectas horizontales.",
+   "En cada y, x va de y a 1."
+  ],
+  "errores": [
+   "",
+   "En esa x iría de 0 a y, que es otra región, la del lado izquierdo.",
+   "Los límites de afuera no pueden depender de otra variable.",
+   "Es el orden original con límites cambiados, y no es la misma región."
+  ]
+ },
+ "resumen": [
+  "Se dibuja la región para leer los límites de cada variable.",
+  "Al cambiar el orden, los límites de afuera son constantes.",
+  "El resultado no cambia si la región es la misma."
+ ]
+}

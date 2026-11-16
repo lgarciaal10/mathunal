@@ -1,0 +1,205 @@
+{
+ "audio": "audio/radicales.mp3",
+ "fin": 58.06,
+ "sent": [
+  {
+   "t": "Resolviste esta ecuación y te salen dos respuestas, pero una de ellas es falsa.",
+   "a": 0.0,
+   "b": 5.41
+  },
+  {
+   "t": "Primero se eleva al cuadrado en los dos lados. Queda x más 4 igual a x menos 2, al cuadrado.",
+   "a": 6.0,
+   "b": 13.0
+  },
+  {
+   "t": "Al desarrollar queda x al cuadrado menos 5x igual a 0. Y sale x igual a 0, o x igual a 5.",
+   "a": 13.56,
+   "b": 22.35
+  },
+  {
+   "t": "Pero ojo. Elevar al cuadrado deja pasar respuestas que no sirven. Por eso siempre se comprueba.",
+   "a": 22.87,
+   "b": 29.38
+  },
+  {
+   "t": "Con x igual a 5, la raíz de 9 es 3, y x menos 2 también es 3. Esta sí sirve.",
+   "a": 29.84,
+   "b": 37.03
+  },
+  {
+   "t": "Con x igual a 0, la raíz de 4 es 2, pero x menos 2 es menos 2. Esta no sirve.",
+   "a": 37.52,
+   "b": 43.46
+  },
+  {
+   "t": "Mira la gráfica. La raíz y la recta solo se cruzan en x igual a 5.",
+   "a": 43.88,
+   "b": 50.54
+  },
+  {
+   "t": "Comprueba siempre tus soluciones en la ecuación original.",
+   "a": 50.97,
+   "b": 54.07
+  },
+  {
+   "t": "Practica con preguntas reales en MathUNAL.",
+   "a": 54.48,
+   "b": 57.16
+  }
+ ],
+ "escenas": [
+  {
+   "tipo": "gancho",
+   "s": [
+    0
+   ],
+   "titulo": "Dos respuestas, una es *falsa*",
+   "tex": "\\sqrt{x+4}=x-2",
+   "size": 100
+  },
+  {
+   "tipo": "pasos",
+   "s": [
+    1,
+    2,
+    3
+   ],
+   "titulo": "Resolviendo",
+   "top": 300,
+   "pasos": [
+    {
+     "label": "Se eleva al cuadrado",
+     "tex": "\\sqrt{x+4}=x-2\\ \\Rightarrow\\ x+4=(x-2)^{2}",
+     "s": 1,
+     "dt": 0.6,
+     "size": 44
+    },
+    {
+     "label": "Se desarrolla",
+     "tex": "x^{2}-5x=0\\ \\Rightarrow\\ x=0\\ \\text{o}\\ x=5",
+     "s": 2,
+     "dt": 0.5,
+     "size": 50
+    },
+    {
+     "label": "Ojo, siempre se comprueba",
+     "col": "rojo",
+     "tex": "\\text{elevar al cuadrado deja pasar respuestas falsas}",
+     "s": 3,
+     "dt": 1.0,
+     "size": 40
+    }
+   ]
+  },
+  {
+   "tipo": "tarjetas",
+   "s": [
+    4,
+    5
+   ],
+   "titulo": "Se *comprueba*",
+   "top": 330,
+   "cards": [
+    {
+     "tipo": "ok",
+     "label": "x = 5",
+     "tex": "\\sqrt{9}=3\\quad\\text{y}\\quad 5-2=3",
+     "s": 4,
+     "dt": 0.4,
+     "size": 62
+    },
+    {
+     "tipo": "mal",
+     "label": "x = 0",
+     "tex": "\\sqrt{4}=2\\quad\\text{pero}\\quad 0-2=-2",
+     "s": 5,
+     "dt": 0.4,
+     "size": 62
+    }
+   ]
+  },
+  {
+   "tipo": "grafica",
+   "s": [
+    6
+   ],
+   "titulo": "Dónde se cruzan",
+   "xr": [
+    -4.5,
+    8.5
+   ],
+   "yr": [
+    -5.5,
+    7
+   ],
+   "curvas": [
+    {
+     "f": "sqrt(x+4)",
+     "col": "azul"
+    },
+    {
+     "f": "x-2",
+     "col": "nar",
+     "retraso": 0.4
+    }
+   ],
+   "param": {
+    "kf": [
+     [
+      6,
+      0.3,
+      -3.5
+     ],
+     [
+      6,
+      4.4,
+      7.5
+     ]
+    ]
+   },
+   "puntos": [
+    {
+     "x": "p",
+     "y": "sqrt(p+4)",
+     "s": 6,
+     "dt": 0.2,
+     "col": "azul",
+     "guia": true
+    },
+    {
+     "x": "p",
+     "y": "p-2",
+     "s": 6,
+     "dt": 0.2,
+     "col": "nar"
+    }
+   ],
+   "vlineas": [
+    {
+     "x": 0,
+     "col": "rojo",
+     "txt": "x = 0 falsa"
+    }
+   ],
+   "marcas": [
+    {
+     "x": "5",
+     "y": "3",
+     "s": 6,
+     "dt": 3.2,
+     "txt": "se cruzan",
+     "dy": -95
+    }
+   ]
+  },
+  {
+   "tipo": "cierre",
+   "s": [
+    7,
+    8
+   ],
+   "titulo": "Comprueba *siempre*"
+  }
+ ]
+}

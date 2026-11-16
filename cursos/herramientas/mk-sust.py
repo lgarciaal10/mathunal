@@ -1,0 +1,92 @@
+import json
+P=lambda h:{"t":"p","html":h}
+EQ=lambda t:{"t":"eq","tex":t}
+L={
+"esquema":1,"id":"calcint-m1-l2","ejemplo":True,"curso":"Cálculo Integral",
+"modulo":"Módulo 1 Integral definida y técnicas básicas","posicion":"Lección 2 de 4",
+"titulo":"Sustitución","minutos":24,"ejercicios":7,
+"grafica":{"tipo":"area","x":[0,1.6],"y":[0,32],"funcion":"2*x*(x*x+1)^2","primitiva":"(x*x+1)^3/3","a":0,"b":1.4,"franja":0.1,"limite":8,
+ "etiquetas":["Área acumulada","Altura de la curva"],"rotulos":["área","altura"],"etiquetaSlider":"Posición de x",
+ "alt":"Curva de 2x por x al cuadrado más 1, todo al cuadrado, con el área bajo ella sombreada desde 0 hasta un x que avanza"},
+"glosario":{
+ "sust":"La sustitución es un cambio de variable que convierte una integral difícil en una más sencilla, llamando u a una parte de la función.",
+ "difer":"El diferencial du es la derivada de u multiplicada por dx. Si u es x al cuadrado, du es 2x dx.",
+ "prim":"Una primitiva de f es una función F cuya derivada es f. Por ejemplo, x al cubo sobre 3 es una primitiva de x al cuadrado.",
+ "limites":"Los límites de integración son los valores donde empieza y termina la integral, abajo y arriba del signo de integral."},
+"ver":{"duracion":21.0,"capitulos":[
+ [0,2.5,"Esta es la curva de f(x) igual a 2x por (x al cuadrado más 1) al cuadrado."],
+ [2.5,5,"Se mide el área bajo ella a partir de x igual a 0."],
+ [5,11,"Al avanzar x, el área se va llenando y su valor aparece abajo."],
+ [11,15,"Con x igual a 1 la curva mide 8 de alto y el área acumulada es 2.3333."],
+ [15,21,"La sustitución llega a ese mismo número, 7 sobre 3, sin medir nada, con u igual a x al cuadrado más 1."]],
+ "canales":{"draw":[[0.3,0],[2.4,1]],"hole":[[2.5,0],[3.3,1]],"d":[[5,0.2],[11,1],[21,1]],"guide":[[11,0],[12,1]]},
+ "intervalos":{"ok":[15,21]}},
+}
+S=[]
+S.append({"titulo":"La idea","bloques":[P("Hay integrales que no se resuelven a primera vista porque la función es un lío de potencias y paréntesis. La {{gl:sust|sustitución}} las simplifica. Se llama u a una parte de la función, se cambia todo a u y se integra algo mucho más sencillo. Es la regla de la cadena al revés.")]})
+S.append({"titulo":"Un ejemplo","corto":"Un ejemplo","bloques":[P("Mira esta integral, que mide el área bajo una curva entre x igual a 0 y x igual a 1."),EQ("\\int_{0}^{1} 2x\\,(x^{2}+1)^{2}\\,dx"),P("Se puede desarrollar el cuadrado y multiplicar por 2x, pero hay un camino más corto. Observa que 2x es justo la derivada de x al cuadrado más 1."),{"t":"grafica","animar":"dibujar","alt":"Curva que se dibuja y marca el punto de partida en x igual a 0"}]})
+S.append({"titulo":"Piensa antes de ver","corto":"Piensa","bloques":[{"t":"piensa","pregunta":"Cuando x llega a 1, ¿qué tan alta está la curva? Es el valor de 2x por (x al cuadrado más 1) al cuadrado.","opciones":[2,4,8,16],"correcta":8,"bien":"Muy bien. La altura es 8 y más abajo se ve el área que se ha acumulado hasta ahí.","mal":"La altura es 8, porque 2 por 1 por 2 al cuadrado da 8. Más abajo se ve el área acumulada."}]})
+S.append({"titulo":"El área que se acumula","corto":"El área","bloques":[P("Mira cómo se llena el área y qué valen el área y la altura en cada x."),{"t":"acercando","ds":[0.4,0.8,1,1.3],"alt":"El área bajo la curva que va creciendo mientras x avanza"},P("Con x igual a 1 la altura es 8 y el área acumulada es <b>2.3333</b>. Ese es el número que debe salir al integrar.")]})
+S.append({"titulo":"El cambio de variable","corto":"El cambio","bloques":[P("Ahora se resuelve con sustitución. Se elige u como la parte de adentro, la que tiene su derivada al lado."),{"t":"pasos","items":[
+ {"tex":"u=x^{2}+1,\\quad du=2x\\,dx","porque":"El {{gl:difer|diferencial}} du es la derivada de u por dx, y 2x dx es justo lo que aparece en la integral."},
+ {"tex":"\\int 2x\\,(x^{2}+1)^{2}\\,dx=\\int u^{2}\\,du","porque":"Todo lo que había en x se reemplaza por u, y la integral queda mucho más sencilla."},
+ {"tex":"\\int u^{2}\\,du=\\dfrac{u^{3}}{3}+C","porque":"Se busca una {{gl:prim|primitiva}} de u al cuadrado."},
+ {"tex":"=\\dfrac{(x^{2}+1)^{3}}{3}+C","porque":"Al final se vuelve a x, porque la respuesta tiene que estar en la variable original."}]}]})
+S.append({"titulo":"Con límites","corto":"Con límites","bloques":[P("Si la integral es definida hay dos caminos. Uno es volver a x y evaluar. El otro, que suele ser más corto, es cambiar los {{gl:limites|límites}} para que queden en u."),{"t":"pasos","items":[
+ {"tex":"x=0\\ \\Rightarrow\\ u=1,\\qquad x=1\\ \\Rightarrow\\ u=2","porque":"Se evalúa u igual a x al cuadrado más 1 en cada límite."},
+ {"tex":"\\int_{0}^{1} 2x\\,(x^{2}+1)^{2}\\,dx=\\int_{1}^{2} u^{2}\\,du","porque":"Con los límites nuevos ya no hay que volver a x."},
+ {"tex":"=\\dfrac{u^{3}}{3}\\Big|_{1}^{2}=\\dfrac{8-1}{3}=\\dfrac{7}{3}\\approx 2.3333","porque":"Sale el mismo valor que mostraba el área de la gráfica."}]},
+ {"t":"ojo","html":"Si se cambian los límites a u, no se vuelve a x. Si no se cambian, hay que volver a x antes de evaluar. Mezclar los dos caminos es un error muy frecuente."}]})
+S.append({"titulo":"Cuando falta un factor","corto":"Un factor","bloques":[P("A veces la derivada de u aparece, pero con otro número. Eso se arregla despejando."),{"t":"pasos","items":[
+ {"tex":"\\int x\\sqrt{x^{2}+4}\\,dx,\\quad u=x^{2}+4,\\quad du=2x\\,dx","porque":"Aparece x dx y no 2x dx."},
+ {"tex":"x\\,dx=\\dfrac{du}{2}","porque":"Se despeja dividiendo entre 2."},
+ {"tex":"\\int x\\sqrt{x^{2}+4}\\,dx=\\dfrac{1}{2}\\int u^{1/2}\\,du=\\dfrac{1}{3}\\,u^{3/2}+C","porque":"El un medio sale de la integral y la raíz es u a la un medio."},
+ {"tex":"=\\dfrac{1}{3}\\,(x^{2}+4)^{3/2}+C","porque":"Se vuelve a x."}]},
+ {"t":"ojo","html":"Solo se puede sacar de la integral un número, nunca una x. Si el factor que falta tiene x, esa sustitución no sirve."}]})
+S.append({"titulo":"Más ejemplos","corto":"Más ejemplos","bloques":[P("La pregunta es siempre la misma. ¿Qué parte tiene su derivada al lado?"),{"t":"pasos","items":[
+ {"tex":"\\int \\cos(3x)\\,dx=\\dfrac{\\operatorname{sen}(3x)}{3}+C","porque":"u es 3x y du es 3 dx, así que dx vale du sobre 3."},
+ {"tex":"\\int \\dfrac{x}{x^{2}+4}\\,dx=\\dfrac{1}{2}\\ln(x^{2}+4)+C","porque":"u es x al cuadrado más 4 y x dx vale du sobre 2. Queda un medio de la integral de 1 sobre u."},
+ {"tex":"\\int_{1}^{2}\\dfrac{\\ln x}{x}\\,dx=\\int_{0}^{\\ln 2}u\\,du=\\dfrac{(\\ln 2)^{2}}{2}\\approx 0.2402","porque":"u es ln x y du es dx sobre x. Los límites pasan de 1 y 2 a 0 y ln 2."}]}]})
+S.append({"titulo":"¿Para qué sirve?","corto":"En ingeniería","bloques":[{"t":"ingenieria","titulo":"El golpe de un martillo",
+ "html":"Cuando un martillo golpea una pieza, la fuerza sube de golpe y se apaga rápido. Un modelo simple la describe con una exponencial que decae. El impulso, que es lo que cambia la cantidad de movimiento de la pieza, se obtiene integrando la fuerza en el tiempo, y para esa integral hace falta la sustitución.",
+ "tex":"F(t)=500\\,e^{-t/0.02}\\ \\text{N}",
+ "datos":[{"k":"Fuerza inicial","v":"500 N"},{"k":"Constante de tiempo","v":"0.02 s"},{"k":"Intervalo","v":"0 a 0.1 s"}],
+ "cierre":"Con u igual a −t sobre 0.02, el impulso es 500 por 0.02 por (1 − e a la −5), o sea unos 9.93 newton segundo. Si el golpe durara para siempre, el impulso total sería de 10 newton segundo. Es un modelo simplificado, porque un golpe real no decae exactamente como una exponencial."}]})
+S.append({"titulo":"Completa el paso","corto":"Completa","bloques":[{"t":"completar","enunciado":"Se integra el coseno de 3x con u igual a 3x. Falta despejar dx.","tex":"du=3\\,dx\\ \\Rightarrow\\ dx=[[hueco]]",
+ "opciones":[{"tex":"\\dfrac{du}{3}","txt":"du sobre tres"},{"tex":"3\\,du","txt":"tres du"},{"tex":"du","txt":"du"}],"correcta":0,
+ "errores":["","Así el 3 queda del lado equivocado. Si du es 3 dx, entonces dx es du dividido entre 3.","Falta el factor. du vale 3 dx y no dx, así que dx no es igual a du."],
+ "pista":"Despeja dx dividiendo entre 3.","porque":"Si du es igual a 3 dx, al dividir ambos lados entre 3 queda dx igual a du sobre 3. Por eso el resultado lleva un tercio."}]})
+S.append({"titulo":"Encuentra el error","corto":"Error","bloques":[{"t":"error","enunciado":"Alguien resolvió esta integral definida y se equivocó en un paso. Toca el paso que está mal.","pasos":[
+ {"tex":"\\int_{0}^{1} 2x\\,(x^{2}+1)^{2}\\,dx","porque":"Es la integral original.","txt":"Integral de 0 a 1 de 2x por (x al cuadrado más 1) al cuadrado"},
+ {"tex":"u=x^{2}+1,\\quad du=2x\\,dx","porque":"La derivada de u ya está de factor, así que la elección sirve.","txt":"u es x al cuadrado más 1 y du es 2x dx"},
+ {"tex":"\\int_{0}^{1} u^{2}\\,du","porque":"Este paso es el que falla.","txt":"Integral de 0 a 1 de u al cuadrado"},
+ {"tex":"=\\dfrac{u^{3}}{3}\\Big|_{0}^{1}=\\dfrac{1}{3}","porque":"La cuenta está bien con lo que viene del paso anterior, pero parte de límites que no corresponden.","txt":"es u al cubo sobre tres evaluado de 0 a 1, o sea un tercio"}],
+ "mal":2,"explicacion":"Los límites 0 y 1 son de x, pero la integral ya está en u. Hay que convertirlos. Cuando x vale 0, u vale 1, y cuando x vale 1, u vale 2.",
+ "correccion":"\\int_{1}^{2} u^{2}\\,du=\\dfrac{8-1}{3}=\\dfrac{7}{3}","pista":"Mira los límites y la variable de la integral. ¿Siguen siendo del mismo tipo?"}]})
+S.append({"titulo":"Ordena los pasos","corto":"Ordena","bloques":[{"t":"ordenar","enunciado":"Estos son los pasos para integrar seno al cubo por coseno, pero están desordenados.","pasos":[
+ "\\int \\operatorname{sen}^{3}x\\cos x\\,dx","u=\\operatorname{sen}x,\\quad du=\\cos x\\,dx","\\int u^{3}\\,du=\\dfrac{u^{4}}{4}+C","=\\dfrac{\\operatorname{sen}^{4}x}{4}+C"],
+ "mezcla":[2,0,3,1],"porque":"Primero se plantea la integral, luego se elige u y su diferencial, después se integra en u y por último se vuelve a x.","pista":"Se empieza por la integral y se termina volviendo a x.",
+ "txt":["Integral de seno al cubo de x por coseno de x","u es seno de x y du es coseno de x dx","Integral de u al cubo es u a la cuarta sobre cuatro más C","Es seno a la cuarta de x sobre cuatro más C"]}]})
+S.append({"titulo":"Revisa tu respuesta","corto":"Revisa","bloques":[{"t":"pregunta"},{"t":"nota","html":"Puedes pedir pistas de a una. Si fallas, el mensaje te dice qué error se cometió."}]})
+S.append({"titulo":"Mini simulacro","corto":"Simulacro","bloques":[P("Tres preguntas reales del banco de MathUNAL sobre este tema. Responde sin mirar los pasos."),{"t":"simulacro","titulo":"Mini simulacro de sustitución","preguntas":[
+ {"tipo":"mcq","texto":"Calcule $\\displaystyle\\int (2x+1)^5\\,dx$.","opciones":["$\\dfrac{(2x+1)^6}{12}+C$","$\\dfrac{(2x+1)^6}{6}+C$","$5(2x+1)^4+C$","$\\dfrac{(2x+1)^6}{2}+C$"],"correcta":0,"resumen":"Sustitución lineal $u=2x+1$. Como $du=2\\,dx$, aparece un factor $\\tfrac12$.","fuente":"Banco MathUNAL, simulacro de Cálculo Integral"},
+ {"tipo":"numerica","texto":"$\\displaystyle\\int_{0}^{1} 2x\\,e^{x^{2}}\\,dx$ (decimal, 4 cifras)","respuesta":"1.7183","tolNum":0.001,"resumen":"Con $u=x^2$ y $du=2x\\,dx$ los límites pasan de $0$ y $1$ a $0$ y $1$. Queda $e-1$.","fuente":"Banco MathUNAL, simulacro de Cálculo Integral"},
+ {"tipo":"mcq","texto":"$\\displaystyle\\int \\dfrac{2x}{x^{2}+1}\\,dx$ es:","opciones":["$\\ln(x^{2}+1)+C$","$\\dfrac{2}{x^{2}+1}+C$","$\\arctan(x)+C$","$2\\ln(x)+C$"],"correcta":0,"resumen":"El numerador es la derivada del denominador, así que con $u=x^2+1$ queda $\\int du/u$.","fuente":"Banco MathUNAL, simulacro de Cálculo Integral"}]}]})
+S.append({"titulo":"Tu repaso","corto":"Repaso","bloques":[{"t":"repaso"}]})
+S.append({"titulo":"En resumen","corto":"Resumen","bloques":[{"t":"resumen"}]})
+L["leer"]={"secciones":S}
+G=lambda **k:k
+L["practicar"]={"pasos":[
+ {"titulo":"La curva","grafica":{"draw":1},"bloques":[P("Se mide el área bajo esta curva."),EQ("f(x)=2x\\,(x^{2}+1)^{2}")]},
+ {"titulo":"El punto de partida","grafica":{"draw":1,"hole":1},"bloques":[P("El área se empieza a medir desde x igual a 0.")]},
+ {"titulo":"Mueve x","grafica":{"draw":1,"hole":1},"laboratorio":True,"bloques":[P("Mueve el deslizador. La zona sombreada crece y abajo se ve el área y la altura de la curva en x.")]},
+ {"titulo":"Hasta x igual a 1","grafica":{"draw":1,"hole":1,"guide":1},"laboratorio":True,"d":1,"bloques":[P("Con x igual a 1 la altura es 8 y el área acumulada es 2.3333. Eso es lo que debe dar la integral.")]},
+ {"titulo":"La sustitución","grafica":{"draw":1,"hole":1,"guide":1,"ok":True},"laboratorio":True,"d":1,"bloques":[EQ("\\int_{0}^{1} 2x\\,(x^{2}+1)^{2}\\,dx=\\int_{1}^{2} u^{2}\\,du=\\dfrac{7}{3}"),P("Con u igual a x al cuadrado más 1, la integral se reduce a la de u al cuadrado y sale 7 sobre 3, igual al área de la gráfica.")]},
+ {"titulo":"Revisa tu respuesta","grafica":{"draw":1,"hole":1,"guide":1,"ok":True,"d":1},"bloques":[{"t":"pregunta"},{"t":"nota","html":"No olvides dividir entre el número que falta y cambiar los límites."}]}]}
+L["pregunta"]={"tex":"\\int_{0}^{2} x\\,(x^{2}+1)^{3}\\,dx","opciones":["78","156","624","39"],"correcta":0,
+ "explicacion":"Con u igual a x al cuadrado más 1, du es 2x dx y x dx es la mitad de du. Los límites pasan de 0 y 2 a 1 y 5. La integral queda un medio de u al cubo entre 1 y 5, que es un medio por (625 menos 1) sobre 4, o sea 78.",
+ "verificacion":{"formula":"((2*2+1)^4-(0*0+1)^4)/8+0*x","a":0,"esperado":78},
+ "pistas":["Elige u como lo de adentro del paréntesis y calcula du.","Con u igual a x al cuadrado más 1, du vale 2x dx. Aquí solo aparece x dx, así que x dx es du sobre 2. Los límites de u son 1 y 5.","Integra un medio de u al cubo entre 1 y 5 y evalúa."],
+ "errores":["","Falta el factor un medio. Como x dx es du sobre 2, la integral de u al cubo hay que dividirla entre 2.","Revisa la cuenta. La integral de u al cubo es u a la cuarta sobre 4, así que además de dividir entre 2 hay que dividir entre 4, o sea 624 entre 8.","Se dividió una vez de más entre 2. Lo correcto es dividir entre 4 por la integral de u al cubo y entre 2 por el du, o sea 624 entre 8, que da 78."]}
+L["resumen"]=["La sustitución sirve cuando una parte de la función tiene su derivada al lado.","Se cambia todo a u, incluido dx, y si la integral es definida también los límites.","Si falta un número, se despeja del diferencial. Si falta una x, esa sustitución no sirve."]
+json.dump(L,open('calcint-sustitucion.json','w'),ensure_ascii=False,indent=1)

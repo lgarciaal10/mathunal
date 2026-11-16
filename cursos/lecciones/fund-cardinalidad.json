@@ -1,0 +1,718 @@
+{
+ "esquema": 1,
+ "id": "fu-m3-l4",
+ "ejemplo": true,
+ "curso": "Fundamentos de Matemáticas",
+ "modulo": "Módulo 3 Relaciones y funciones",
+ "posicion": "Lección 4 de 5",
+ "titulo": "Cardinalidad y conteo",
+ "minutos": 28,
+ "ejercicios": 8,
+ "grafica": {
+  "tipo": "plano",
+  "x": [
+   -0.6,
+   4.6
+  ],
+  "y": [
+   -9,
+   92
+  ],
+  "a": 0,
+  "b": 4,
+  "inicio": 0,
+  "entero": true,
+  "elementos": [
+   {
+    "t": "trazo",
+    "puntos": [
+     [
+      "0.0",
+      "exp(0.0*ln(3))"
+     ],
+     [
+      "0.25",
+      "exp(0.25*ln(3))"
+     ],
+     [
+      "0.5",
+      "exp(0.5*ln(3))"
+     ],
+     [
+      "0.75",
+      "exp(0.75*ln(3))"
+     ],
+     [
+      "1.0",
+      "exp(1.0*ln(3))"
+     ],
+     [
+      "1.25",
+      "exp(1.25*ln(3))"
+     ],
+     [
+      "1.5",
+      "exp(1.5*ln(3))"
+     ],
+     [
+      "1.75",
+      "exp(1.75*ln(3))"
+     ],
+     [
+      "2.0",
+      "exp(2.0*ln(3))"
+     ],
+     [
+      "2.25",
+      "exp(2.25*ln(3))"
+     ],
+     [
+      "2.5",
+      "exp(2.5*ln(3))"
+     ],
+     [
+      "2.75",
+      "exp(2.75*ln(3))"
+     ],
+     [
+      "3.0",
+      "exp(3.0*ln(3))"
+     ],
+     [
+      "3.25",
+      "exp(3.25*ln(3))"
+     ],
+     [
+      "3.5",
+      "exp(3.5*ln(3))"
+     ],
+     [
+      "3.75",
+      "exp(3.75*ln(3))"
+     ],
+     [
+      "4.0",
+      "exp(4.0*ln(3))"
+     ]
+    ],
+    "c": 0
+   },
+   {
+    "t": "trazo",
+    "puntos": [
+     [
+      "0",
+      "1"
+     ],
+     [
+      "1",
+      "3"
+     ],
+     [
+      "2",
+      "6"
+     ],
+     [
+      "3",
+      "6"
+     ],
+     [
+      "4",
+      "0"
+     ]
+    ],
+    "c": 1
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "x",
+     "0"
+    ],
+    "b": [
+     "x",
+     "exp(x*ln(3))"
+    ],
+    "c": 1,
+    "guia": true,
+    "guion": true
+   },
+   {
+    "t": "punto",
+    "p": [
+     "x",
+     "exp(x*ln(3))"
+    ],
+    "c": 2
+   },
+   {
+    "t": "punto",
+    "p": [
+     "x",
+     "(1*(x-1)*(x-2)*(x-3)*(x-4)/(24))+(3*(x-0)*(x-2)*(x-3)*(x-4)/(-6))+(6*(x-0)*(x-1)*(x-3)*(x-4)/(4))+(6*(x-0)*(x-1)*(x-2)*(x-4)/(-6))"
+    ],
+    "c": 3
+   }
+  ],
+  "lecturas": [
+   {
+    "rotulo": "funciones de A en B, con B de 3 elementos",
+    "formula": "exp(x*ln(3))"
+   },
+   {
+    "rotulo": "funciones inyectivas de A en B",
+    "formula": "(1*(x-1)*(x-2)*(x-3)*(x-4)/(24))+(3*(x-0)*(x-2)*(x-3)*(x-4)/(-6))+(6*(x-0)*(x-1)*(x-3)*(x-4)/(4))+(6*(x-0)*(x-1)*(x-2)*(x-4)/(-6))"
+   }
+  ],
+  "etiquetas": [
+   "Todas las funciones, tres elevado a m",
+   "Solo las inyectivas, que desaparecen cuando m pasa de 3"
+  ],
+  "etiquetaSlider": "Elementos de A, m, de 0 a 4",
+  "alt": "La curva de tres elevado a m, que cuenta las funciones de un conjunto de m elementos en uno de 3 elementos, y una línea más baja con las funciones inyectivas. Las inyectivas valen 1, 3, 6, 6 y luego 0 cuando m supera 3"
+ },
+ "glosario": {
+  "cardinalidad": "La cardinalidad de un conjunto es su tamaño. Dos conjuntos tienen la misma cardinalidad si existe una biyección entre ellos.",
+  "numerable": "Un conjunto es numerable si se puede poner en lista, es decir, si hay una biyección con los naturales. Los enteros y los racionales son numerables.",
+  "principio": "El principio de multiplicación dice que si una tarea se hace en pasos independientes con a, b, c opciones, hay a por b por c formas de hacerla.",
+  "permutacion": "Una permutación de n elementos es una forma de ordenarlos. Hay n factorial."
+ },
+ "ver": {
+  "duracion": 24.0,
+  "capitulos": [
+   [
+    0,
+    4,
+    "El conjunto A tiene m elementos y B tiene 3. La curva alta cuenta las funciones de A en B, que son 3 elevado a m."
+   ],
+   [
+    4,
+    9,
+    "Con m igual a 1 hay 3 funciones. Con m igual a 2, cada uno de los dos elementos tiene 3 opciones, y son 9."
+   ],
+   [
+    9,
+    14,
+    "Las funciones inyectivas son menos. Con m igual a 2 son 3 por 2, o sea 6."
+   ],
+   [
+    14,
+    19,
+    "Con m igual a 3 hay 6 inyectivas, que son las biyecciones. Con m igual a 4 ya no hay ninguna, porque no caben 4 elementos en 3 sin repetir."
+   ],
+   [
+    19,
+    24,
+    "Contar funciones se reduce a contar las opciones de cada elemento y multiplicarlas."
+   ]
+  ],
+  "canales": {
+   "draw": [
+    [
+     0.3,
+     0
+    ],
+    [
+     4.5,
+     1
+    ]
+   ],
+   "d": [
+    [
+     4,
+     0
+    ],
+    [
+     5,
+     1
+    ],
+    [
+     8,
+     1
+    ],
+    [
+     9,
+     2
+    ],
+    [
+     13,
+     2
+    ],
+    [
+     14,
+     3
+    ],
+    [
+     16,
+     3
+    ],
+    [
+     17,
+     4
+    ],
+    [
+     19,
+     4
+    ],
+    [
+     24,
+     4
+    ]
+   ],
+   "guide": [
+    [
+     4,
+     0
+    ],
+    [
+     5,
+     1
+    ]
+   ]
+  },
+  "intervalos": {
+   "ok": [
+    19,
+    24
+   ]
+  }
+ },
+ "leer": {
+  "secciones": [
+   {
+    "titulo": "La idea",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Contar es decidir cuántos elementos tiene un conjunto. La {{gl:cardinalidad|cardinalidad}} dice que dos conjuntos tienen el mismo tamaño si se pueden emparejar uno a uno, o sea, si hay una biyección. Para los conjuntos infinitos esto da sorpresas, porque hay conjuntos {{gl:numerable|numerables}}. Para los finitos se usa el {{gl:principio|principio de multiplicación}} para contar funciones."
+     }
+    ]
+   },
+   {
+    "titulo": "Un ejemplo",
+    "corto": "Un ejemplo",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Se cuentan las funciones de un conjunto A de m elementos en uno de 3 elementos. Mira qué pasa con todas las funciones y con las inyectivas."
+     },
+     {
+      "t": "eq",
+      "tex": "\\#\\{f:A\\to B\\}=|B|^{|A|}=3^{m}"
+     },
+     {
+      "t": "grafica",
+      "animar": "dibujar",
+      "alt": "La curva de 3 elevado a m y las funciones inyectivas"
+     }
+    ]
+   },
+   {
+    "titulo": "Piensa antes de ver",
+    "corto": "Piensa",
+    "bloques": [
+     {
+      "t": "piensa",
+      "pregunta": "Un conjunto A tiene 2 elementos y B tiene 3. Cada elemento de A elige una imagen en B. ¿Cuántas funciones hay?",
+      "opciones": [
+       5,
+       6,
+       8,
+       9
+      ],
+      "correcta": 9,
+      "bien": "Muy bien. Son 3 opciones para cada uno de los 2 elementos, o sea 3 por 3. Más abajo se ve la curva completa.",
+      "mal": "Son 9, porque cada uno de los 2 elementos tiene 3 opciones, y 3 por 3 es 9. Más abajo se ve la curva completa."
+     }
+    ]
+   },
+   {
+    "titulo": "Recorriendo los valores de m",
+    "corto": "Valores de m",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mira el total de funciones y las inyectivas con m igual a 1, 2, 3 y 4."
+     },
+     {
+      "t": "acercando",
+      "ds": [
+       1,
+       2,
+       3,
+       4
+      ],
+      "alt": "Funciones totales e inyectivas para cuatro valores de m"
+     },
+     {
+      "t": "p",
+      "html": "Con m igual a 3 las inyectivas son 6, y con m igual a 4 desaparecen."
+     }
+    ]
+   },
+   {
+    "titulo": "Cómo se cuentan",
+    "corto": "Cómo se cuentan",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Cada elemento del dominio elige su imagen, y las opciones se multiplican."
+     },
+     {
+      "t": "pasos",
+      "items": [
+       {
+        "tex": "|B|^{|A|}",
+        "porque": "Todas las funciones. Cada elemento de A tiene |B| opciones."
+       },
+       {
+        "tex": "|B|\\cdot(|B|-1)\\cdots(|B|-|A|+1)",
+        "porque": "Las inyectivas. Cada elección no puede repetir las anteriores."
+       },
+       {
+        "tex": "n!",
+        "porque": "Las biyecciones entre dos conjuntos de n elementos."
+       },
+       {
+        "tex": "f\\ \\text{biyectiva}\\Rightarrow|A|=|B|",
+        "porque": "Una biyección empareja uno a uno, así que los tamaños coinciden."
+       }
+      ]
+     },
+     {
+      "t": "ojo",
+      "html": "Las funciones se cuentan por lo que elige cada elemento del dominio, y no por lo que recibe cada elemento del codominio. Con 2 elementos y 3 imágenes son 3 al cuadrado, y no 2 al cubo."
+     }
+    ]
+   },
+   {
+    "titulo": "Conjuntos infinitos",
+    "corto": "Infinitos",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Dos conjuntos infinitos pueden tener la misma cardinalidad aunque uno contenga al otro."
+     },
+     {
+      "t": "pasos",
+      "items": [
+       {
+        "tex": "0,\\ 1,\\ -1,\\ 2,\\ -2,\\ 3,\\ -3,\\ \\ldots",
+        "porque": "Los enteros se pueden poner en lista alternando los signos."
+       },
+       {
+        "tex": "|\\mathbb{N}|=|\\mathbb{Z}|",
+        "porque": "Hay una biyección, así que son numerables los dos."
+       },
+       {
+        "tex": "|\\mathbb{N}|<|\\mathbb{R}|",
+        "porque": "Los reales son más. No se pueden poner en lista, como mostró Cantor."
+       }
+      ]
+     },
+     {
+      "t": "ojo",
+      "html": "Con los conjuntos infinitos, ser subconjunto propio no significa tener menos elementos. Los naturales están contenidos en los enteros y tienen la misma cardinalidad."
+     }
+    ]
+   },
+   {
+    "titulo": "¿Para qué sirve?",
+    "corto": "En ingeniería",
+    "bloques": [
+     {
+      "t": "ingenieria",
+      "titulo": "Los códigos de acceso",
+      "html": "Un código de 4 dígitos puede formarse con repetición o sin repetición. Con repetición, cada una de las 4 posiciones tiene 10 opciones. Sin repetir dígitos, cada posición tiene una opción menos que la anterior.",
+      "tex": "10^{4}\\quad\\text{y}\\quad 10\\cdot9\\cdot8\\cdot7",
+      "datos": [
+       {
+        "k": "Con repetición",
+        "v": "10 000 códigos"
+       },
+       {
+        "k": "Sin repetir",
+        "v": "5040 códigos"
+       },
+       {
+        "k": "Códigos que se pierden",
+        "v": "casi la mitad"
+       }
+      ],
+      "cierre": "Si un sistema exige no repetir dígitos, el espacio de códigos baja de 10 000 a 5040, y quien intente adivinar tiene cerca de la mitad de las opciones que había. Contar las funciones del dominio al codominio, con repetición o inyectivas, permite estimar de qué tamaño es un espacio de búsqueda."
+     }
+    ]
+   },
+   {
+    "titulo": "Completa el paso",
+    "corto": "Completa",
+    "bloques": [
+     {
+      "t": "completar",
+      "enunciado": "Se cuentan las funciones de un conjunto A de 2 elementos en un conjunto B de 3 elementos.",
+      "tex": "\\#\\text{funciones}=[[hueco]]",
+      "opciones": [
+       {
+        "tex": "3^{2}",
+        "txt": "tres elevado a dos"
+       },
+       {
+        "tex": "2^{3}",
+        "txt": "dos elevado a tres"
+       },
+       {
+        "tex": "2\\cdot3",
+        "txt": "dos por tres"
+       }
+      ],
+      "correcta": 0,
+      "errores": [
+       "",
+       "Dos al cubo sería lo que sale si B tuviera 2 elementos y A tuviera 3. Aquí cada elemento de A elige entre 3.",
+       "Dos por tres contaría pares ordenados, pero las funciones se cuentan con una elección por elemento del dominio."
+      ],
+      "pista": "Cada elemento de A elige una imagen entre las de B.",
+      "porque": "Los 2 elementos de A tienen 3 opciones cada uno, así que son 3 por 3."
+     }
+    ]
+   },
+   {
+    "titulo": "Encuentra el error",
+    "corto": "Error",
+    "bloques": [
+     {
+      "t": "error",
+      "enunciado": "Alguien contó las funciones inyectivas del conjunto 1, 2 al conjunto a, b, c y se equivocó en un paso. Toca el paso que está mal.",
+      "pasos": [
+       {
+        "tex": "f(1)\\ \\text{tiene 3 opciones}",
+        "porque": "Se elige la imagen del 1.",
+        "txt": "tres opciones para el 1"
+       },
+       {
+        "tex": "f(2)\\ \\text{tiene 3 opciones}",
+        "porque": "Este paso es el que falla.",
+        "txt": "tres opciones para el 2"
+       },
+       {
+        "tex": "\\text{Total}\\ 3\\cdot3=9",
+        "porque": "Se multiplican.",
+        "txt": "en total 9"
+       }
+      ],
+      "mal": 1,
+      "explicacion": "Si f es inyectiva, f de 2 no puede repetir el valor de f de 1, así que quedan 2 opciones. El total es 3 por 2, que da 6.",
+      "correccion": "3\\cdot2=6",
+      "pista": "Piensa qué no puede elegir f de 2."
+     }
+    ]
+   },
+   {
+    "titulo": "Ordena los pasos",
+    "corto": "Ordena",
+    "bloques": [
+     {
+      "t": "ordenar",
+      "enunciado": "Estos son los pasos para probar que los naturales y los enteros tienen la misma cardinalidad, pero están desordenados.",
+      "pasos": [
+       "0,\\ 1,\\ -1,\\ 2,\\ -2,\\ \\ldots",
+       "f(0)=0,\\ f(1)=1,\\ f(2)=-1,\\ \\ldots",
+       "f\\ \\text{es inyectiva y sobreyectiva}",
+       "|\\mathbb{N}|=|\\mathbb{Z}|"
+      ],
+      "mezcla": [
+       2,
+       0,
+       3,
+       1
+      ],
+      "porque": "Se enumeran los enteros, se define la biyección y se concluye.",
+      "pista": "Se empieza armando la lista.",
+      "txt": [
+       "Se enumeran los enteros alternando signos",
+       "Se define la asignación de los naturales a esa lista",
+       "Se ve que es una biyección",
+       "Se concluye que tienen la misma cardinalidad"
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "Revisa tu respuesta",
+    "corto": "Revisa",
+    "bloques": [
+     {
+      "t": "pregunta"
+     },
+     {
+      "t": "nota",
+      "html": "Puedes pedir pistas de a una. Si fallas, el mensaje te dice qué error se cometió."
+     }
+    ]
+   },
+   {
+    "titulo": "Mini simulacro",
+    "corto": "Simulacro",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Tres preguntas reales del banco de MathUNAL sobre este tema. Responde sin mirar los pasos."
+     },
+     {
+      "t": "simulacro",
+      "titulo": "Mini simulacro de cardinalidad y conteo",
+      "preguntas": [
+       {
+        "tipo": "numerica",
+        "texto": "Si $f:A\\to B$ es biyectiva y $|A|=7$, ¿cuánto vale $|B|$?",
+        "respuesta": "7",
+        "tolNum": 0.001,
+        "resumen": "Una biyección empareja uno a uno, así que los dos conjuntos tienen el mismo tamaño.",
+        "fuente": "Banco MathUNAL, simulacro de Fundamentos de Matemáticas"
+       },
+       {
+        "tipo": "numerica",
+        "texto": "¿Cuántas funciones distintas hay de un conjunto de $2$ elementos a uno de $3$ elementos?",
+        "respuesta": "9",
+        "tolNum": 0.001,
+        "resumen": "Cada uno de los 2 elementos tiene 3 imágenes posibles, así que son 3 al cuadrado.",
+        "fuente": "Banco MathUNAL, simulacro de Fundamentos de Matemáticas"
+       },
+       {
+        "tipo": "numerica",
+        "texto": "¿Cuántas funciones INYECTIVAS hay de $\\{1,2\\}$ a $\\{a,b,c\\}$?",
+        "respuesta": "6",
+        "tolNum": 0.001,
+        "resumen": "Hay 3 opciones para la imagen del 1 y 2 para la del 2.",
+        "fuente": "Banco MathUNAL, simulacro de Fundamentos de Matemáticas"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "Tu repaso",
+    "corto": "Repaso",
+    "bloques": [
+     {
+      "t": "repaso"
+     }
+    ]
+   },
+   {
+    "titulo": "En resumen",
+    "corto": "Resumen",
+    "bloques": [
+     {
+      "t": "resumen"
+     }
+    ]
+   }
+  ]
+ },
+ "practicar": {
+  "pasos": [
+   {
+    "titulo": "Las funciones",
+    "grafica": {
+     "draw": 1,
+     "guide": 1
+    },
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Las funciones de un conjunto de m elementos en uno de 3 elementos."
+     },
+     {
+      "t": "eq",
+      "tex": "3^{m}"
+     }
+    ]
+   },
+   {
+    "titulo": "Recorre m",
+    "grafica": {
+     "draw": 1,
+     "guide": 1
+    },
+    "laboratorio": true,
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mueve el deslizador de 0 a 4. Abajo se lee el total de funciones y cuántas son inyectivas."
+     }
+    ]
+   },
+   {
+    "titulo": "Con m igual a 3",
+    "grafica": {
+     "draw": 1,
+     "guide": 1,
+     "ok": true
+    },
+    "laboratorio": true,
+    "d": 3,
+    "bloques": [
+     {
+      "t": "eq",
+      "tex": "3^{3}=27,\\qquad 3\\cdot2\\cdot1=6"
+     },
+     {
+      "t": "p",
+      "html": "Con m igual a 3 hay 27 funciones y 6 son inyectivas, que además son biyectivas."
+     }
+    ]
+   },
+   {
+    "titulo": "Revisa tu respuesta",
+    "grafica": {
+     "draw": 1,
+     "guide": 1,
+     "ok": true,
+     "d": 3
+    },
+    "bloques": [
+     {
+      "t": "pregunta"
+     },
+     {
+      "t": "nota",
+      "html": "Cada elemento del dominio elige su imagen, y en las inyectivas no se repiten."
+     }
+    ]
+   }
+  ]
+ },
+ "pregunta": {
+  "tex": "\\text{Funciones inyectivas de}\\ \\{1,2,3\\}\\ \\text{a}\\ \\{a,b,c,d\\}",
+  "opciones": [
+   "$24$",
+   "$64$",
+   "$12$",
+   "$81$"
+  ],
+  "correcta": 0,
+  "explicacion": "El 1 tiene 4 opciones, el 2 tiene 3 porque no puede repetir y el 3 tiene 2, así que son 4 por 3 por 2, que da 24.",
+  "verificacion": {
+   "formula": "1-(1-0)*1+0*x",
+   "a": 0,
+   "esperado": 0
+  },
+  "pistas": [
+   "Cada elemento elige sin repetir.",
+   "El primero tiene 4 opciones.",
+   "Son 4 por 3 por 2."
+  ],
+  "errores": [
+   "",
+   "Esas son 4 por 4 por 4, que cuentan todas las funciones y no solo las inyectivas.",
+   "Eso son 4 por 3, que se olvida del tercer elemento.",
+   "Eso es 3 elevado a 4, que invierte el papel del dominio y el codominio."
+  ]
+ },
+ "resumen": [
+  "Dos conjuntos tienen la misma cardinalidad si hay una biyección entre ellos.",
+  "Las funciones de A en B son |B| elevado a |A|, y las inyectivas se cuentan sin repetir imágenes.",
+  "Los naturales y los enteros son numerables y tienen la misma cardinalidad, aunque los naturales estén contenidos en los enteros."
+ ]
+}

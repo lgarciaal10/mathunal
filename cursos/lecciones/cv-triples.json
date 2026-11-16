@@ -1,0 +1,767 @@
+{
+ "esquema": 1,
+ "id": "cv-m2-l4",
+ "ejemplo": true,
+ "curso": "Cálculo en Varias Variables",
+ "modulo": "Módulo 2 Integrales múltiples",
+ "posicion": "Lección 4 de 6",
+ "titulo": "Integrales triples",
+ "minutos": 26,
+ "ejercicios": 8,
+ "grafica": {
+  "tipo": "plano",
+  "x": [
+   -0.15,
+   1.15
+  ],
+  "y": [
+   -0.08,
+   0.58
+  ],
+  "a": 0,
+  "b": 1,
+  "inicio": 0.3,
+  "elementos": [
+   {
+    "t": "trazo",
+    "puntos": [
+     [
+      "0.0",
+      "0.50000"
+     ],
+     [
+      "0.025",
+      "0.47531"
+     ],
+     [
+      "0.05",
+      "0.45125"
+     ],
+     [
+      "0.075",
+      "0.42781"
+     ],
+     [
+      "0.1",
+      "0.40500"
+     ],
+     [
+      "0.125",
+      "0.38281"
+     ],
+     [
+      "0.15",
+      "0.36125"
+     ],
+     [
+      "0.175",
+      "0.34031"
+     ],
+     [
+      "0.2",
+      "0.32000"
+     ],
+     [
+      "0.225",
+      "0.30031"
+     ],
+     [
+      "0.25",
+      "0.28125"
+     ],
+     [
+      "0.275",
+      "0.26281"
+     ],
+     [
+      "0.3",
+      "0.24500"
+     ],
+     [
+      "0.325",
+      "0.22781"
+     ],
+     [
+      "0.35",
+      "0.21125"
+     ],
+     [
+      "0.375",
+      "0.19531"
+     ],
+     [
+      "0.4",
+      "0.18000"
+     ],
+     [
+      "0.425",
+      "0.16531"
+     ],
+     [
+      "0.45",
+      "0.15125"
+     ],
+     [
+      "0.475",
+      "0.13781"
+     ],
+     [
+      "0.5",
+      "0.12500"
+     ],
+     [
+      "0.525",
+      "0.11281"
+     ],
+     [
+      "0.55",
+      "0.10125"
+     ],
+     [
+      "0.575",
+      "0.09031"
+     ],
+     [
+      "0.6",
+      "0.08000"
+     ],
+     [
+      "0.625",
+      "0.07031"
+     ],
+     [
+      "0.65",
+      "0.06125"
+     ],
+     [
+      "0.675",
+      "0.05281"
+     ],
+     [
+      "0.7",
+      "0.04500"
+     ],
+     [
+      "0.725",
+      "0.03781"
+     ],
+     [
+      "0.75",
+      "0.03125"
+     ],
+     [
+      "0.775",
+      "0.02531"
+     ],
+     [
+      "0.8",
+      "0.02000"
+     ],
+     [
+      "0.825",
+      "0.01531"
+     ],
+     [
+      "0.85",
+      "0.01125"
+     ],
+     [
+      "0.875",
+      "0.00781"
+     ],
+     [
+      "0.9",
+      "0.00500"
+     ],
+     [
+      "0.925",
+      "0.00281"
+     ],
+     [
+      "0.95",
+      "0.00125"
+     ],
+     [
+      "0.975",
+      "0.00031"
+     ],
+     [
+      "1.0",
+      "0.00000"
+     ]
+    ],
+    "c": 3
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "x",
+     "0"
+    ],
+    "b": [
+     "x",
+     "(1-x)*(1-x)/2"
+    ],
+    "c": 1
+   },
+   {
+    "t": "punto",
+    "p": [
+     "x",
+     "(1-x)*(1-x)/2"
+    ],
+    "c": 0
+   }
+  ],
+  "lecturas": [
+   {
+    "rotulo": "área de la sección a la altura z, igual a 1 menos z al cuadrado sobre 2",
+    "formula": "(1-x)*(1-x)/2"
+   },
+   {
+    "rotulo": "volumen acumulado hasta la altura z",
+    "formula": "(1-(1-x)*(1-x)*(1-x))/6"
+   }
+  ],
+  "etiquetas": [
+   "Cada sección horizontal del tetraedro es un triángulo que se encoge con z",
+   "El volumen es la suma de las áreas de las secciones, y al llegar a z igual a 1 vale un sexto"
+  ],
+  "etiquetaSlider": "Altura z, de 0 a 1",
+  "alt": "El tetraedro con vértices en el origen y en los puntos 1, 0, 0, 0, 1, 0 y 0, 0, 1. A la altura z su sección es un triángulo de área 1 menos z al cuadrado sobre 2. La curva muestra esa área al variar z. El volumen es el área bajo la curva, que vale un sexto"
+ },
+ "glosario": {
+  "triple": "Una integral triple suma una función sobre una región del espacio, y con f igual a 1 da el volumen de la región.",
+  "seccion": "Una sección es la figura que resulta de cortar el sólido con un plano. La integral triple se puede ver como la suma de las áreas de las secciones.",
+  "orden": "Hay seis órdenes posibles para una integral triple, y conviene elegir el que tenga los límites más sencillos.",
+  "dv": "El elemento de volumen es dV igual a dx dy dz, y en otras coordenadas lleva un factor adicional."
+ },
+ "ver": {
+  "duracion": 24.0,
+  "capitulos": [
+   [
+    0,
+    4,
+    "Se quiere el volumen del tetraedro limitado por los planos de coordenadas y por x más y más z igual a 1."
+   ],
+   [
+    4,
+    10,
+    "A cada altura z, la sección es un triángulo con x más y menor o igual a 1 menos z, y su área es 1 menos z al cuadrado entre 2."
+   ],
+   [
+    10,
+    16,
+    "Con z igual a 0.3, el área de la sección es 0.245, y el volumen acumulado ya es 0.11."
+   ],
+   [
+    16,
+    20,
+    "Con z igual a 1 la sección se reduce a un punto, y el volumen acumulado llega a un sexto, cerca de 0.167."
+   ],
+   [
+    20,
+    24,
+    "Una integral triple suma el área de las secciones, igual que una integral doble suma los largos de los cortes."
+   ]
+  ],
+  "canales": {
+   "draw": [
+    [
+     0.3,
+     0
+    ],
+    [
+     3.5,
+     1
+    ]
+   ],
+   "d": [
+    [
+     4,
+     0
+    ],
+    [
+     8,
+     0
+    ],
+    [
+     10,
+     0.3
+    ],
+    [
+     13,
+     0.3
+    ],
+    [
+     16,
+     1
+    ],
+    [
+     18,
+     1
+    ],
+    [
+     24,
+     1
+    ]
+   ],
+   "guide": [
+    [
+     4,
+     0
+    ],
+    [
+     5,
+     1
+    ]
+   ]
+  },
+  "intervalos": {
+   "ok": [
+    16,
+    24
+   ]
+  }
+ },
+ "leer": {
+  "secciones": [
+   {
+    "titulo": "La idea",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Una {{gl:triple|integral triple}} suma una función sobre un sólido. Se calcula como tres integrales iteradas, y se puede pensar como la suma de las áreas de las {{gl:seccion|secciones}}. Se escoge el {{gl:orden|orden}} con límites más simples, y el {{gl:dv|elemento de volumen}} es dx dy dz."
+     }
+    ]
+   },
+   {
+    "titulo": "Un ejemplo",
+    "corto": "Un ejemplo",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "El tetraedro tiene vértices en el origen y en los puntos 1, 0, 0, 0, 1, 0 y 0, 0, 1. Mueve la altura z y mira el área de la sección."
+     },
+     {
+      "t": "eq",
+      "tex": "V=\\displaystyle\\int_{0}^{1}\\!\\int_{0}^{1-z}\\!\\int_{0}^{1-z-y}dx\\,dy\\,dz=\\int_{0}^{1}\\dfrac{(1-z)^{2}}{2}\\,dz=\\dfrac{1}{6}"
+     },
+     {
+      "t": "grafica",
+      "animar": "dibujar",
+      "alt": "El área de la sección según la altura"
+     }
+    ]
+   },
+   {
+    "titulo": "Piensa antes de ver",
+    "corto": "Piensa",
+    "bloques": [
+     {
+      "t": "piensa",
+      "pregunta": "La sección a la altura z es un triángulo de catetos 1 menos z. ¿Cuál es su área?",
+      "opciones": [
+       "1 menos z, al cuadrado, entre 2",
+       "1 menos z",
+       "1 menos z, al cuadrado",
+       "un medio"
+      ],
+      "correcta": "1 menos z, al cuadrado, entre 2",
+      "bien": "Muy bien. El área de un triángulo rectángulo es base por altura entre 2.",
+      "mal": "Es un triángulo rectángulo de catetos 1 menos z, y su área es el producto entre 2, o sea 1 menos z al cuadrado entre 2."
+     }
+    ]
+   },
+   {
+    "titulo": "A varias alturas",
+    "corto": "Alturas",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mira la sección con z igual a 0, 0.3, 0.6 y 0.9."
+     },
+     {
+      "t": "acercando",
+      "ds": [
+       0,
+       0.3,
+       0.6,
+       0.9
+      ],
+      "alt": "La sección a cuatro alturas"
+     },
+     {
+      "t": "p",
+      "html": "La sección se encoge cuando z sube, y el volumen es el área bajo esta curva."
+     }
+    ]
+   },
+   {
+    "titulo": "Una integral sencilla",
+    "corto": "Caja",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Sobre una caja los límites son constantes, y el orden no importa."
+     },
+     {
+      "t": "pasos",
+      "items": [
+       {
+        "tex": "\\displaystyle\\iiint_{[0,1]^{3}}x\\,dV=\\int_{0}^{1}\\!\\int_{0}^{1}\\!\\int_{0}^{1}x\\,dx\\,dy\\,dz",
+        "porque": "La integral."
+       },
+       {
+        "tex": "\\displaystyle\\int_{0}^{1}x\\,dx=\\dfrac{1}{2}",
+        "porque": "Se integra respecto a x."
+       },
+       {
+        "tex": "\\displaystyle\\int_{0}^{1}\\!\\int_{0}^{1}\\dfrac{1}{2}\\,dy\\,dz=\\dfrac{1}{2}",
+        "porque": "Las otras dos integran una constante sobre un cuadrado de área 1."
+       },
+       {
+        "tex": "\\displaystyle\\iiint_{[0,1]\\times[0,2]\\times[0,3]}dV=1\\cdot2\\cdot3=6",
+        "porque": "El volumen de una caja es el producto de sus lados."
+       }
+      ]
+     },
+     {
+      "t": "ojo",
+      "html": "Cuando la función no depende de una variable, la integral en esa variable solo multiplica por la longitud del intervalo."
+     }
+    ]
+   },
+   {
+    "titulo": "El tetraedro",
+    "corto": "Tetraedro",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Aquí los límites dependen de las otras variables."
+     },
+     {
+      "t": "pasos",
+      "items": [
+       {
+        "tex": "x+y+z\\le1,\\quad x,y,z\\ge0",
+        "porque": "La región."
+       },
+       {
+        "tex": "0\\le x\\le1-y-z,\\quad 0\\le y\\le1-z,\\quad 0\\le z\\le1",
+        "porque": "Los límites, de adentro hacia afuera."
+       },
+       {
+        "tex": "\\displaystyle\\int_{0}^{1-y-z}dx=1-y-z",
+        "porque": "La primera integral."
+       },
+       {
+        "tex": "\\displaystyle\\int_{0}^{1}\\dfrac{(1-z)^{2}}{2}\\,dz=\\dfrac{1}{6}",
+        "porque": "Al final queda un sexto."
+       }
+      ]
+     },
+     {
+      "t": "ojo",
+      "html": "Los límites de la integral de afuera son constantes, y los de adentro pueden depender de las variables que están más afuera. Dibuja el sólido para no equivocarte."
+     }
+    ]
+   },
+   {
+    "titulo": "¿Para qué sirve?",
+    "corto": "En ingeniería",
+    "bloques": [
+     {
+      "t": "ingenieria",
+      "titulo": "El volumen de un sólido de carga",
+      "html": "Un sólido tiene forma de tetraedro y una densidad de carga constante. La carga total es la densidad por el volumen, que sale de una integral triple.",
+      "tex": "Q=\\displaystyle\\iiint_{T}\\rho\\,dV=\\rho\\cdot\\dfrac{1}{6}",
+      "datos": [
+       {
+        "k": "Volumen",
+        "v": "un sexto de unidad cúbica"
+       },
+       {
+        "k": "Densidad",
+        "v": "constante"
+       },
+       {
+        "k": "Carga",
+        "v": "densidad entre 6"
+       }
+      ],
+      "cierre": "Si la densidad depende de la posición, se integra la función en lugar de una constante. Es el mismo cálculo, con un integrando más complicado."
+     }
+    ]
+   },
+   {
+    "titulo": "Completa el paso",
+    "corto": "Completa",
+    "bloques": [
+     {
+      "t": "completar",
+      "enunciado": "El volumen de la caja de lados 1, 2 y 3 es la integral triple de 1, que vale [[hueco]].",
+      "tex": "\\displaystyle\\iiint_{[0,1]\\times[0,2]\\times[0,3]}1\\,dV=[[hueco]]",
+      "opciones": [
+       {
+        "tex": "6",
+        "txt": "seis"
+       },
+       {
+        "tex": "1",
+        "txt": "uno"
+       },
+       {
+        "tex": "5",
+        "txt": "cinco"
+       }
+      ],
+      "correcta": 0,
+      "errores": [
+       "",
+       "Uno es el volumen de la caja unidad, y esta es más grande.",
+       "Cinco sería la suma de los lados, y no el producto."
+      ],
+      "pista": "El volumen de una caja es el producto de los tres lados.",
+      "porque": "Es 6."
+     }
+    ]
+   },
+   {
+    "titulo": "Encuentra el error",
+    "corto": "Error",
+    "bloques": [
+     {
+      "t": "error",
+      "enunciado": "Alguien calculó el volumen del tetraedro por secciones y se equivocó. Toca el paso que está mal.",
+      "pasos": [
+       {
+        "tex": "A(z)=\\dfrac{(1-z)^{2}}{2}",
+        "porque": "Área de la sección.",
+        "txt": "área"
+       },
+       {
+        "tex": "V=\\displaystyle\\int_{0}^{1}A(z)\\,dz=\\int_{0}^{1}\\dfrac{(1-z)^{2}}{2}dz=\\dfrac{1}{2}",
+        "porque": "Este paso es el que falla.",
+        "txt": "da un medio"
+       },
+       {
+        "tex": "V=\\dfrac{1}{2}",
+        "porque": "Resultado.",
+        "txt": "un medio"
+       }
+      ],
+      "mal": 1,
+      "explicacion": "La integral de uno menos z al cuadrado entre 2, de 0 a 1, es un tercio de un medio, o sea un sexto. Se olvidó el factor un tercio de la integral de la potencia.",
+      "correccion": "\\displaystyle\\int_{0}^{1}\\dfrac{(1-z)^{2}}{2}dz=\\dfrac{1}{2}\\cdot\\dfrac{1}{3}=\\dfrac{1}{6}",
+      "pista": "Integra una potencia con la regla de la potencia."
+     }
+    ]
+   },
+   {
+    "titulo": "Ordena los pasos",
+    "corto": "Ordena",
+    "bloques": [
+     {
+      "t": "ordenar",
+      "enunciado": "Estos son los pasos para calcular el volumen de un sólido con una integral triple, pero están desordenados.",
+      "pasos": [
+       "x+y+z\\le1",
+       "0\\le z\\le1,\\ 0\\le y\\le1-z,\\ 0\\le x\\le1-y-z",
+       "\\displaystyle\\int\\!\\int\\!\\int dx\\,dy\\,dz",
+       "V=\\dfrac{1}{6}"
+      ],
+      "mezcla": [
+       2,
+       0,
+       3,
+       1
+      ],
+      "porque": "Primero el sólido, luego los límites, después la integral y por último se calcula.",
+      "pista": "Se empieza dibujando el sólido.",
+      "txt": [
+       "Se dibuja el sólido",
+       "Se escriben los límites",
+       "Se plantea la integral",
+       "Se calcula de adentro hacia afuera"
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "Revisa tu respuesta",
+    "corto": "Revisa",
+    "bloques": [
+     {
+      "t": "pregunta"
+     },
+     {
+      "t": "nota",
+      "html": "Puedes pedir pistas de a una. Si fallas, el mensaje te dice qué error se cometió."
+     }
+    ]
+   },
+   {
+    "titulo": "Mini simulacro",
+    "corto": "Simulacro",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Tres preguntas reales del banco de MathUNAL sobre este tema. Responde sin mirar los pasos."
+     },
+     {
+      "t": "simulacro",
+      "titulo": "Mini simulacro de integrales triples",
+      "preguntas": [
+       {
+        "tipo": "numerica",
+        "texto": "Calcule $\\displaystyle\\iiint_{[0,1]^3} x\\,dV$.",
+        "respuesta": "0.5",
+        "tolNum": 0.001,
+        "resumen": "La integral de x sobre el cubo unidad.",
+        "fuente": "Banco MathUNAL, simulacro de Cálculo en Varias Variables"
+       },
+       {
+        "tipo": "numerica",
+        "texto": "El volumen de la caja $[0,1]\\times[0,2]\\times[0,3]$ es:",
+        "respuesta": "6",
+        "tolNum": 0.01,
+        "resumen": "Es el producto de los lados, 1 por 2 por 3.",
+        "fuente": "Pregunta propia de MathUNAL, escrita para esta lección"
+       },
+       {
+        "tipo": "numerica",
+        "texto": "El volumen del tetraedro $x+y+z\\le1$ en el primer octante, en decimales con 3 cifras, es:",
+        "respuesta": "0.167",
+        "tolNum": 0.001,
+        "resumen": "Es un sexto, cerca de 0.167.",
+        "fuente": "Pregunta propia de MathUNAL, escrita para esta lección"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "Tu repaso",
+    "corto": "Repaso",
+    "bloques": [
+     {
+      "t": "repaso"
+     }
+    ]
+   },
+   {
+    "titulo": "En resumen",
+    "corto": "Resumen",
+    "bloques": [
+     {
+      "t": "resumen"
+     }
+    ]
+   }
+  ]
+ },
+ "practicar": {
+  "pasos": [
+   {
+    "titulo": "El sólido",
+    "grafica": {
+     "draw": 1
+    },
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Se calcula el volumen del tetraedro por secciones."
+     },
+     {
+      "t": "eq",
+      "tex": "x+y+z\\le1,\\quad x,y,z\\ge0"
+     }
+    ]
+   },
+   {
+    "titulo": "Sube z",
+    "grafica": {
+     "draw": 1
+    },
+    "laboratorio": true,
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mueve el deslizador. Abajo se leen el área de la sección y el volumen acumulado."
+     }
+    ]
+   },
+   {
+    "titulo": "El volumen total",
+    "grafica": {
+     "draw": 1,
+     "guide": 1,
+     "ok": true
+    },
+    "laboratorio": true,
+    "d": 1,
+    "bloques": [
+     {
+      "t": "eq",
+      "tex": "V=\\dfrac{1}{6}\\approx0.167"
+     },
+     {
+      "t": "p",
+      "html": "Con z igual a 1 se completó el tetraedro."
+     }
+    ]
+   },
+   {
+    "titulo": "Revisa tu respuesta",
+    "grafica": {
+     "draw": 1,
+     "guide": 1,
+     "ok": true,
+     "d": 1
+    },
+    "bloques": [
+     {
+      "t": "pregunta"
+     },
+     {
+      "t": "nota",
+      "html": "Una integral triple es una suma de secciones."
+     }
+    ]
+   }
+  ]
+ },
+ "pregunta": {
+  "tex": "\\displaystyle\\iiint_{[0,1]^{3}}x\\,dV\\ \\text{vale}",
+  "opciones": [
+   "$\\dfrac{1}{2}$",
+   "$1$",
+   "$\\dfrac{1}{3}$",
+   "$0$"
+  ],
+  "correcta": 0,
+  "explicacion": "La integral de x de 0 a 1 es un medio, y las otras dos integran una constante sobre longitud 1. El resultado es un medio.",
+  "verificacion": {
+   "formula": "0.5*1*1+0*x",
+   "a": 0,
+   "esperado": 0.5
+  },
+  "pistas": [
+   "Integra respecto a x primero.",
+   "La integral de x de 0 a 1 es un medio.",
+   "Las otras integrales multiplican por 1."
+  ],
+  "errores": [
+   "",
+   "Uno sería la integral de 1, y no de x.",
+   "Un tercio sería la integral de x al cuadrado.",
+   "Cero sería con una función impar en un intervalo simétrico."
+  ]
+ },
+ "resumen": [
+  "Una integral triple suma una función sobre un sólido, y con f igual a 1 da el volumen.",
+  "Se calcula con tres integrales iteradas, de adentro hacia afuera.",
+  "Dibujar el sólido ayuda a escribir los límites."
+ ]
+}

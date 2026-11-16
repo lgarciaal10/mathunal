@@ -1,0 +1,2091 @@
+{
+ "esquema": 1,
+ "id": "edo-m1-l6",
+ "ejemplo": true,
+ "curso": "Ecuaciones Diferenciales",
+ "modulo": "Módulo 1 EDO de primer orden",
+ "posicion": "Lección 6 de 6",
+ "titulo": "Bernoulli y sustituciones",
+ "minutos": 24,
+ "ejercicios": 4,
+ "grafica": {
+  "tipo": "plano",
+  "x": [
+   -1,
+   3
+  ],
+  "y": [
+   -0.3,
+   1.88
+  ],
+  "a": 0,
+  "b": 2,
+  "inicio": 0.5,
+  "elementos": [
+   {
+    "t": "segmento",
+    "a": [
+     "-0.9364",
+     "1.6212"
+    ],
+    "b": [
+     "-0.8136",
+     "1.8274"
+    ],
+    "c": 0
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "-0.7404",
+     "-0.1772"
+    ],
+    "b": [
+     "-0.5096",
+     "-0.1113"
+    ],
+    "c": 0
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "-0.7390",
+     "0.2047"
+    ],
+    "b": [
+     "-0.5110",
+     "0.1296"
+    ],
+    "c": 0
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "-0.7165",
+     "0.5562"
+    ],
+    "b": [
+     "-0.5335",
+     "0.4010"
+    ],
+    "c": 0
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "-0.7062",
+     "0.8783"
+    ],
+    "b": [
+     "-0.5438",
+     "0.7017"
+    ],
+    "c": 0
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "-0.7157",
+     "1.1800"
+    ],
+    "b": [
+     "-0.5343",
+     "1.0228"
+    ],
+    "c": 0
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "-0.7450",
+     "1.4135"
+    ],
+    "b": [
+     "-0.5050",
+     "1.4122"
+    ],
+    "c": 0
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "-0.6864",
+     "1.6212"
+    ],
+    "b": [
+     "-0.5636",
+     "1.8274"
+    ],
+    "c": 0
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "-0.4904",
+     "-0.1772"
+    ],
+    "b": [
+     "-0.2596",
+     "-0.1113"
+    ],
+    "c": 0
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "-0.4890",
+     "0.2047"
+    ],
+    "b": [
+     "-0.2610",
+     "0.1296"
+    ],
+    "c": 0
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "-0.4665",
+     "0.5562"
+    ],
+    "b": [
+     "-0.2835",
+     "0.4010"
+    ],
+    "c": 0
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "-0.4562",
+     "0.8783"
+    ],
+    "b": [
+     "-0.2938",
+     "0.7017"
+    ],
+    "c": 0
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "-0.4657",
+     "1.1800"
+    ],
+    "b": [
+     "-0.2843",
+     "1.0228"
+    ],
+    "c": 0
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "-0.4950",
+     "1.4135"
+    ],
+    "b": [
+     "-0.2550",
+     "1.4122"
+    ],
+    "c": 0
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "-0.4364",
+     "1.6212"
+    ],
+    "b": [
+     "-0.3136",
+     "1.8274"
+    ],
+    "c": 0
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "-0.2404",
+     "-0.1772"
+    ],
+    "b": [
+     "-0.0096",
+     "-0.1113"
+    ],
+    "c": 0
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "-0.2390",
+     "0.2047"
+    ],
+    "b": [
+     "-0.0110",
+     "0.1296"
+    ],
+    "c": 0
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "-0.2165",
+     "0.5562"
+    ],
+    "b": [
+     "-0.0335",
+     "0.4010"
+    ],
+    "c": 0
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "-0.2062",
+     "0.8783"
+    ],
+    "b": [
+     "-0.0438",
+     "0.7017"
+    ],
+    "c": 0
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "-0.2157",
+     "1.1800"
+    ],
+    "b": [
+     "-0.0343",
+     "1.0228"
+    ],
+    "c": 0
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "-0.2450",
+     "1.4135"
+    ],
+    "b": [
+     "-0.0050",
+     "1.4122"
+    ],
+    "c": 0
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "-0.1864",
+     "1.6212"
+    ],
+    "b": [
+     "-0.0636",
+     "1.8274"
+    ],
+    "c": 0
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "0.0096",
+     "-0.1772"
+    ],
+    "b": [
+     "0.2404",
+     "-0.1113"
+    ],
+    "c": 0
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "0.0110",
+     "0.2047"
+    ],
+    "b": [
+     "0.2390",
+     "0.1296"
+    ],
+    "c": 0
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "0.0335",
+     "0.5562"
+    ],
+    "b": [
+     "0.2165",
+     "0.4010"
+    ],
+    "c": 0
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "0.0438",
+     "0.8783"
+    ],
+    "b": [
+     "0.2062",
+     "0.7017"
+    ],
+    "c": 0
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "0.0343",
+     "1.1800"
+    ],
+    "b": [
+     "0.2157",
+     "1.0228"
+    ],
+    "c": 0
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "0.0050",
+     "1.4135"
+    ],
+    "b": [
+     "0.2450",
+     "1.4122"
+    ],
+    "c": 0
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "0.0636",
+     "1.6212"
+    ],
+    "b": [
+     "0.1864",
+     "1.8274"
+    ],
+    "c": 0
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "0.2596",
+     "-0.1772"
+    ],
+    "b": [
+     "0.4904",
+     "-0.1113"
+    ],
+    "c": 0
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "0.2610",
+     "0.2047"
+    ],
+    "b": [
+     "0.4890",
+     "0.1296"
+    ],
+    "c": 0
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "0.2835",
+     "0.5562"
+    ],
+    "b": [
+     "0.4665",
+     "0.4010"
+    ],
+    "c": 0
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "0.2938",
+     "0.8783"
+    ],
+    "b": [
+     "0.4562",
+     "0.7017"
+    ],
+    "c": 0
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "0.2843",
+     "1.1800"
+    ],
+    "b": [
+     "0.4657",
+     "1.0228"
+    ],
+    "c": 0
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "0.2550",
+     "1.4135"
+    ],
+    "b": [
+     "0.4950",
+     "1.4122"
+    ],
+    "c": 0
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "0.3136",
+     "1.6212"
+    ],
+    "b": [
+     "0.4364",
+     "1.8274"
+    ],
+    "c": 0
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "0.5096",
+     "-0.1772"
+    ],
+    "b": [
+     "0.7404",
+     "-0.1113"
+    ],
+    "c": 0
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "0.5110",
+     "0.2047"
+    ],
+    "b": [
+     "0.7390",
+     "0.1296"
+    ],
+    "c": 0
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "0.5335",
+     "0.5562"
+    ],
+    "b": [
+     "0.7165",
+     "0.4010"
+    ],
+    "c": 0
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "0.5438",
+     "0.8783"
+    ],
+    "b": [
+     "0.7062",
+     "0.7017"
+    ],
+    "c": 0
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "0.5343",
+     "1.1800"
+    ],
+    "b": [
+     "0.7157",
+     "1.0228"
+    ],
+    "c": 0
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "0.5050",
+     "1.4135"
+    ],
+    "b": [
+     "0.7450",
+     "1.4122"
+    ],
+    "c": 0
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "0.5636",
+     "1.6212"
+    ],
+    "b": [
+     "0.6864",
+     "1.8274"
+    ],
+    "c": 0
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "0.7596",
+     "-0.1772"
+    ],
+    "b": [
+     "0.9904",
+     "-0.1113"
+    ],
+    "c": 0
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "0.7610",
+     "0.2047"
+    ],
+    "b": [
+     "0.9890",
+     "0.1296"
+    ],
+    "c": 0
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "0.7835",
+     "0.5562"
+    ],
+    "b": [
+     "0.9665",
+     "0.4010"
+    ],
+    "c": 0
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "0.7938",
+     "0.8783"
+    ],
+    "b": [
+     "0.9562",
+     "0.7017"
+    ],
+    "c": 0
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "0.7843",
+     "1.1800"
+    ],
+    "b": [
+     "0.9657",
+     "1.0228"
+    ],
+    "c": 0
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "0.7550",
+     "1.4135"
+    ],
+    "b": [
+     "0.9950",
+     "1.4122"
+    ],
+    "c": 0
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "0.8136",
+     "1.6212"
+    ],
+    "b": [
+     "0.9364",
+     "1.8274"
+    ],
+    "c": 0
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "1.0096",
+     "-0.1772"
+    ],
+    "b": [
+     "1.2404",
+     "-0.1113"
+    ],
+    "c": 0
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "1.0110",
+     "0.2047"
+    ],
+    "b": [
+     "1.2390",
+     "0.1296"
+    ],
+    "c": 0
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "1.0335",
+     "0.5562"
+    ],
+    "b": [
+     "1.2165",
+     "0.4010"
+    ],
+    "c": 0
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "1.0438",
+     "0.8783"
+    ],
+    "b": [
+     "1.2062",
+     "0.7017"
+    ],
+    "c": 0
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "1.0343",
+     "1.1800"
+    ],
+    "b": [
+     "1.2157",
+     "1.0228"
+    ],
+    "c": 0
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "1.0050",
+     "1.4135"
+    ],
+    "b": [
+     "1.2450",
+     "1.4122"
+    ],
+    "c": 0
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "1.0636",
+     "1.6212"
+    ],
+    "b": [
+     "1.1864",
+     "1.8274"
+    ],
+    "c": 0
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "1.2596",
+     "-0.1772"
+    ],
+    "b": [
+     "1.4904",
+     "-0.1113"
+    ],
+    "c": 0
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "1.2610",
+     "0.2047"
+    ],
+    "b": [
+     "1.4890",
+     "0.1296"
+    ],
+    "c": 0
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "1.2835",
+     "0.5562"
+    ],
+    "b": [
+     "1.4665",
+     "0.4010"
+    ],
+    "c": 0
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "1.2938",
+     "0.8783"
+    ],
+    "b": [
+     "1.4562",
+     "0.7017"
+    ],
+    "c": 0
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "1.2843",
+     "1.1800"
+    ],
+    "b": [
+     "1.4657",
+     "1.0228"
+    ],
+    "c": 0
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "1.2550",
+     "1.4135"
+    ],
+    "b": [
+     "1.4950",
+     "1.4122"
+    ],
+    "c": 0
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "1.3136",
+     "1.6212"
+    ],
+    "b": [
+     "1.4364",
+     "1.8274"
+    ],
+    "c": 0
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "1.5096",
+     "-0.1772"
+    ],
+    "b": [
+     "1.7404",
+     "-0.1113"
+    ],
+    "c": 0
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "1.5110",
+     "0.2047"
+    ],
+    "b": [
+     "1.7390",
+     "0.1296"
+    ],
+    "c": 0
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "1.5335",
+     "0.5562"
+    ],
+    "b": [
+     "1.7165",
+     "0.4010"
+    ],
+    "c": 0
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "1.5438",
+     "0.8783"
+    ],
+    "b": [
+     "1.7062",
+     "0.7017"
+    ],
+    "c": 0
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "1.5343",
+     "1.1800"
+    ],
+    "b": [
+     "1.7157",
+     "1.0228"
+    ],
+    "c": 0
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "1.5050",
+     "1.4135"
+    ],
+    "b": [
+     "1.7450",
+     "1.4122"
+    ],
+    "c": 0
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "1.5636",
+     "1.6212"
+    ],
+    "b": [
+     "1.6864",
+     "1.8274"
+    ],
+    "c": 0
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "1.7596",
+     "-0.1772"
+    ],
+    "b": [
+     "1.9904",
+     "-0.1113"
+    ],
+    "c": 0
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "1.7610",
+     "0.2047"
+    ],
+    "b": [
+     "1.9890",
+     "0.1296"
+    ],
+    "c": 0
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "1.7835",
+     "0.5562"
+    ],
+    "b": [
+     "1.9665",
+     "0.4010"
+    ],
+    "c": 0
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "1.7938",
+     "0.8783"
+    ],
+    "b": [
+     "1.9562",
+     "0.7017"
+    ],
+    "c": 0
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "1.7843",
+     "1.1800"
+    ],
+    "b": [
+     "1.9657",
+     "1.0228"
+    ],
+    "c": 0
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "1.7550",
+     "1.4135"
+    ],
+    "b": [
+     "1.9950",
+     "1.4122"
+    ],
+    "c": 0
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "1.8136",
+     "1.6212"
+    ],
+    "b": [
+     "1.9364",
+     "1.8274"
+    ],
+    "c": 0
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "2.0096",
+     "-0.1772"
+    ],
+    "b": [
+     "2.2404",
+     "-0.1113"
+    ],
+    "c": 0
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "2.0110",
+     "0.2047"
+    ],
+    "b": [
+     "2.2390",
+     "0.1296"
+    ],
+    "c": 0
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "2.0335",
+     "0.5562"
+    ],
+    "b": [
+     "2.2165",
+     "0.4010"
+    ],
+    "c": 0
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "2.0438",
+     "0.8783"
+    ],
+    "b": [
+     "2.2062",
+     "0.7017"
+    ],
+    "c": 0
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "2.0343",
+     "1.1800"
+    ],
+    "b": [
+     "2.2157",
+     "1.0228"
+    ],
+    "c": 0
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "2.0050",
+     "1.4135"
+    ],
+    "b": [
+     "2.2450",
+     "1.4122"
+    ],
+    "c": 0
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "2.0636",
+     "1.6212"
+    ],
+    "b": [
+     "2.1864",
+     "1.8274"
+    ],
+    "c": 0
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "2.2596",
+     "-0.1772"
+    ],
+    "b": [
+     "2.4904",
+     "-0.1113"
+    ],
+    "c": 0
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "2.2610",
+     "0.2047"
+    ],
+    "b": [
+     "2.4890",
+     "0.1296"
+    ],
+    "c": 0
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "2.2835",
+     "0.5562"
+    ],
+    "b": [
+     "2.4665",
+     "0.4010"
+    ],
+    "c": 0
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "2.2938",
+     "0.8783"
+    ],
+    "b": [
+     "2.4562",
+     "0.7017"
+    ],
+    "c": 0
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "2.2843",
+     "1.1800"
+    ],
+    "b": [
+     "2.4657",
+     "1.0228"
+    ],
+    "c": 0
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "2.2550",
+     "1.4135"
+    ],
+    "b": [
+     "2.4950",
+     "1.4122"
+    ],
+    "c": 0
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "2.3136",
+     "1.6212"
+    ],
+    "b": [
+     "2.4364",
+     "1.8274"
+    ],
+    "c": 0
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "2.5096",
+     "-0.1772"
+    ],
+    "b": [
+     "2.7404",
+     "-0.1113"
+    ],
+    "c": 0
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "2.5110",
+     "0.2047"
+    ],
+    "b": [
+     "2.7390",
+     "0.1296"
+    ],
+    "c": 0
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "2.5335",
+     "0.5562"
+    ],
+    "b": [
+     "2.7165",
+     "0.4010"
+    ],
+    "c": 0
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "2.5438",
+     "0.8783"
+    ],
+    "b": [
+     "2.7062",
+     "0.7017"
+    ],
+    "c": 0
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "2.5343",
+     "1.1800"
+    ],
+    "b": [
+     "2.7157",
+     "1.0228"
+    ],
+    "c": 0
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "2.5050",
+     "1.4135"
+    ],
+    "b": [
+     "2.7450",
+     "1.4122"
+    ],
+    "c": 0
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "2.5636",
+     "1.6212"
+    ],
+    "b": [
+     "2.6864",
+     "1.8274"
+    ],
+    "c": 0
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "2.8136",
+     "1.6212"
+    ],
+    "b": [
+     "2.9364",
+     "1.8274"
+    ],
+    "c": 0
+   },
+   {
+    "t": "recta",
+    "p": [
+     "0",
+     "1.4142"
+    ],
+    "dir": [
+     "1",
+     "0"
+    ],
+    "guion": true,
+    "c": 3,
+    "guia": true
+   },
+   {
+    "t": "trazo",
+    "puntos": [
+     [
+      "-1.0000",
+      "1/sqrt(0.5+x*exp(4*(-1.0000)))"
+     ],
+     [
+      "-0.9500",
+      "1/sqrt(0.5+x*exp(4*(-0.9500)))"
+     ],
+     [
+      "-0.9000",
+      "1/sqrt(0.5+x*exp(4*(-0.9000)))"
+     ],
+     [
+      "-0.8500",
+      "1/sqrt(0.5+x*exp(4*(-0.8500)))"
+     ],
+     [
+      "-0.8000",
+      "1/sqrt(0.5+x*exp(4*(-0.8000)))"
+     ],
+     [
+      "-0.7500",
+      "1/sqrt(0.5+x*exp(4*(-0.7500)))"
+     ],
+     [
+      "-0.7000",
+      "1/sqrt(0.5+x*exp(4*(-0.7000)))"
+     ],
+     [
+      "-0.6500",
+      "1/sqrt(0.5+x*exp(4*(-0.6500)))"
+     ],
+     [
+      "-0.6000",
+      "1/sqrt(0.5+x*exp(4*(-0.6000)))"
+     ],
+     [
+      "-0.5500",
+      "1/sqrt(0.5+x*exp(4*(-0.5500)))"
+     ],
+     [
+      "-0.5000",
+      "1/sqrt(0.5+x*exp(4*(-0.5000)))"
+     ],
+     [
+      "-0.4500",
+      "1/sqrt(0.5+x*exp(4*(-0.4500)))"
+     ],
+     [
+      "-0.4000",
+      "1/sqrt(0.5+x*exp(4*(-0.4000)))"
+     ],
+     [
+      "-0.3500",
+      "1/sqrt(0.5+x*exp(4*(-0.3500)))"
+     ],
+     [
+      "-0.3000",
+      "1/sqrt(0.5+x*exp(4*(-0.3000)))"
+     ],
+     [
+      "-0.2500",
+      "1/sqrt(0.5+x*exp(4*(-0.2500)))"
+     ],
+     [
+      "-0.2000",
+      "1/sqrt(0.5+x*exp(4*(-0.2000)))"
+     ],
+     [
+      "-0.1500",
+      "1/sqrt(0.5+x*exp(4*(-0.1500)))"
+     ],
+     [
+      "-0.1000",
+      "1/sqrt(0.5+x*exp(4*(-0.1000)))"
+     ],
+     [
+      "-0.0500",
+      "1/sqrt(0.5+x*exp(4*(-0.0500)))"
+     ],
+     [
+      "0.0000",
+      "1/sqrt(0.5+x*exp(4*(0.0000)))"
+     ],
+     [
+      "0.0500",
+      "1/sqrt(0.5+x*exp(4*(0.0500)))"
+     ],
+     [
+      "0.1000",
+      "1/sqrt(0.5+x*exp(4*(0.1000)))"
+     ],
+     [
+      "0.1500",
+      "1/sqrt(0.5+x*exp(4*(0.1500)))"
+     ],
+     [
+      "0.2000",
+      "1/sqrt(0.5+x*exp(4*(0.2000)))"
+     ],
+     [
+      "0.2500",
+      "1/sqrt(0.5+x*exp(4*(0.2500)))"
+     ],
+     [
+      "0.3000",
+      "1/sqrt(0.5+x*exp(4*(0.3000)))"
+     ],
+     [
+      "0.3500",
+      "1/sqrt(0.5+x*exp(4*(0.3500)))"
+     ],
+     [
+      "0.4000",
+      "1/sqrt(0.5+x*exp(4*(0.4000)))"
+     ],
+     [
+      "0.4500",
+      "1/sqrt(0.5+x*exp(4*(0.4500)))"
+     ],
+     [
+      "0.5000",
+      "1/sqrt(0.5+x*exp(4*(0.5000)))"
+     ],
+     [
+      "0.5500",
+      "1/sqrt(0.5+x*exp(4*(0.5500)))"
+     ],
+     [
+      "0.6000",
+      "1/sqrt(0.5+x*exp(4*(0.6000)))"
+     ],
+     [
+      "0.6500",
+      "1/sqrt(0.5+x*exp(4*(0.6500)))"
+     ],
+     [
+      "0.7000",
+      "1/sqrt(0.5+x*exp(4*(0.7000)))"
+     ],
+     [
+      "0.7500",
+      "1/sqrt(0.5+x*exp(4*(0.7500)))"
+     ],
+     [
+      "0.8000",
+      "1/sqrt(0.5+x*exp(4*(0.8000)))"
+     ],
+     [
+      "0.8500",
+      "1/sqrt(0.5+x*exp(4*(0.8500)))"
+     ],
+     [
+      "0.9000",
+      "1/sqrt(0.5+x*exp(4*(0.9000)))"
+     ],
+     [
+      "0.9500",
+      "1/sqrt(0.5+x*exp(4*(0.9500)))"
+     ],
+     [
+      "1.0000",
+      "1/sqrt(0.5+x*exp(4*(1.0000)))"
+     ],
+     [
+      "1.0500",
+      "1/sqrt(0.5+x*exp(4*(1.0500)))"
+     ],
+     [
+      "1.1000",
+      "1/sqrt(0.5+x*exp(4*(1.1000)))"
+     ],
+     [
+      "1.1500",
+      "1/sqrt(0.5+x*exp(4*(1.1500)))"
+     ],
+     [
+      "1.2000",
+      "1/sqrt(0.5+x*exp(4*(1.2000)))"
+     ],
+     [
+      "1.2500",
+      "1/sqrt(0.5+x*exp(4*(1.2500)))"
+     ],
+     [
+      "1.3000",
+      "1/sqrt(0.5+x*exp(4*(1.3000)))"
+     ],
+     [
+      "1.3500",
+      "1/sqrt(0.5+x*exp(4*(1.3500)))"
+     ],
+     [
+      "1.4000",
+      "1/sqrt(0.5+x*exp(4*(1.4000)))"
+     ],
+     [
+      "1.4500",
+      "1/sqrt(0.5+x*exp(4*(1.4500)))"
+     ],
+     [
+      "1.5000",
+      "1/sqrt(0.5+x*exp(4*(1.5000)))"
+     ],
+     [
+      "1.5500",
+      "1/sqrt(0.5+x*exp(4*(1.5500)))"
+     ],
+     [
+      "1.6000",
+      "1/sqrt(0.5+x*exp(4*(1.6000)))"
+     ],
+     [
+      "1.6500",
+      "1/sqrt(0.5+x*exp(4*(1.6500)))"
+     ],
+     [
+      "1.7000",
+      "1/sqrt(0.5+x*exp(4*(1.7000)))"
+     ],
+     [
+      "1.7500",
+      "1/sqrt(0.5+x*exp(4*(1.7500)))"
+     ],
+     [
+      "1.8000",
+      "1/sqrt(0.5+x*exp(4*(1.8000)))"
+     ],
+     [
+      "1.8500",
+      "1/sqrt(0.5+x*exp(4*(1.8500)))"
+     ],
+     [
+      "1.9000",
+      "1/sqrt(0.5+x*exp(4*(1.9000)))"
+     ],
+     [
+      "1.9500",
+      "1/sqrt(0.5+x*exp(4*(1.9500)))"
+     ],
+     [
+      "2.0000",
+      "1/sqrt(0.5+x*exp(4*(2.0000)))"
+     ],
+     [
+      "2.0500",
+      "1/sqrt(0.5+x*exp(4*(2.0500)))"
+     ],
+     [
+      "2.1000",
+      "1/sqrt(0.5+x*exp(4*(2.1000)))"
+     ],
+     [
+      "2.1500",
+      "1/sqrt(0.5+x*exp(4*(2.1500)))"
+     ],
+     [
+      "2.2000",
+      "1/sqrt(0.5+x*exp(4*(2.2000)))"
+     ],
+     [
+      "2.2500",
+      "1/sqrt(0.5+x*exp(4*(2.2500)))"
+     ],
+     [
+      "2.3000",
+      "1/sqrt(0.5+x*exp(4*(2.3000)))"
+     ],
+     [
+      "2.3500",
+      "1/sqrt(0.5+x*exp(4*(2.3500)))"
+     ],
+     [
+      "2.4000",
+      "1/sqrt(0.5+x*exp(4*(2.4000)))"
+     ],
+     [
+      "2.4500",
+      "1/sqrt(0.5+x*exp(4*(2.4500)))"
+     ],
+     [
+      "2.5000",
+      "1/sqrt(0.5+x*exp(4*(2.5000)))"
+     ],
+     [
+      "2.5500",
+      "1/sqrt(0.5+x*exp(4*(2.5500)))"
+     ],
+     [
+      "2.6000",
+      "1/sqrt(0.5+x*exp(4*(2.6000)))"
+     ],
+     [
+      "2.6500",
+      "1/sqrt(0.5+x*exp(4*(2.6500)))"
+     ],
+     [
+      "2.7000",
+      "1/sqrt(0.5+x*exp(4*(2.7000)))"
+     ],
+     [
+      "2.7500",
+      "1/sqrt(0.5+x*exp(4*(2.7500)))"
+     ],
+     [
+      "2.8000",
+      "1/sqrt(0.5+x*exp(4*(2.8000)))"
+     ],
+     [
+      "2.8500",
+      "1/sqrt(0.5+x*exp(4*(2.8500)))"
+     ],
+     [
+      "2.9000",
+      "1/sqrt(0.5+x*exp(4*(2.9000)))"
+     ],
+     [
+      "2.9500",
+      "1/sqrt(0.5+x*exp(4*(2.9500)))"
+     ],
+     [
+      "3.0000",
+      "1/sqrt(0.5+x*exp(4*(3.0000)))"
+     ]
+    ],
+    "c": 2
+   },
+   {
+    "t": "punto",
+    "p": [
+     "0",
+     "1/sqrt(0.5+x)"
+    ],
+    "c": 1
+   }
+  ],
+  "lecturas": [
+   {
+    "rotulo": "C",
+    "formula": "x"
+   },
+   {
+    "rotulo": "y(0)",
+    "formula": "1/sqrt(0.5+x)"
+   }
+  ],
+  "etiquetas": [
+   "Constante C",
+   "Valor inicial y(0)"
+  ],
+  "etiquetaSlider": "Constante C",
+  "alt": "El campo de pendientes de y prima más 2y igual a y al cubo y las soluciones y igual a 1 sobre la raíz de un medio más C por e a la 4x, que se alejan de la recta y igual a raíz de 2"
+ },
+ "glosario": {
+  "bernoulli": "Una ecuación de Bernoulli es y prima más p de x por y igual a q de x por y a la n. Con n distinto de 0 y de 1 no es lineal, pero se vuelve lineal con un cambio de variable.",
+  "sustitucion": "Una sustitución cambia la incógnita por otra, como v igual a y a la 1 menos n, para convertir una ecuación difícil en una conocida."
+ },
+ "ver": {
+  "duracion": 22.0,
+  "capitulos": [
+   [
+    0,
+    4,
+    "La ecuación y prima más 2y igual a y al cubo tiene un término y al cubo, así que no es lineal."
+   ],
+   [
+    4,
+    9,
+    "Tiene un equilibrio en y igual a la raíz de 2, la recta punteada. Las soluciones que parten más abajo bajan hacia 0, y las de arriba suben."
+   ],
+   [
+    9,
+    15,
+    "Con la sustitución v igual a y a la menos 2 se vuelve lineal, y su solución es v igual a un medio más C por e a la 4x."
+   ],
+   [
+    15,
+    19,
+    "Al regresar a y, queda y igual a 1 sobre la raíz de (un medio más C e a la 4x)."
+   ],
+   [
+    19,
+    22,
+    "Con C igual a 0.5, y de 0 vale 1. Todas las soluciones con C positiva se van a 0."
+   ]
+  ],
+  "canales": {
+   "draw": [
+    [
+     0.3,
+     0
+    ],
+    [
+     4,
+     1
+    ]
+   ],
+   "d": [
+    [
+     4,
+     0.5
+    ],
+    [
+     9,
+     1.5
+    ],
+    [
+     12,
+     0.1
+    ],
+    [
+     15,
+     0.5
+    ],
+    [
+     22,
+     0.5
+    ]
+   ],
+   "guide": [
+    [
+     4,
+     0
+    ],
+    [
+     5,
+     1
+    ]
+   ]
+  },
+  "intervalos": {
+   "ok": [
+    19,
+    22
+   ]
+  }
+ },
+ "leer": {
+  "secciones": [
+   {
+    "titulo": "La idea",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Una ecuación de {{gl:bernoulli|Bernoulli}} se parece a una lineal, pero la y de la derecha lleva una potencia n. Entonces ya no se puede usar el factor integrante directamente. Con una {{gl:sustitucion|sustitución}} v igual a y a la 1 menos n, se convierte en una lineal en v, y esa sí se sabe resolver."
+     }
+    ]
+   },
+   {
+    "titulo": "Un ejemplo",
+    "corto": "Un ejemplo",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mira esta ecuación con n igual a 3."
+     },
+     {
+      "t": "eq",
+      "tex": "y'+2y=y^{3}"
+     },
+     {
+      "t": "grafica",
+      "animar": "dibujar",
+      "alt": "El campo de pendientes y una solución"
+     }
+    ]
+   },
+   {
+    "titulo": "Piensa antes de ver",
+    "corto": "Piensa",
+    "bloques": [
+     {
+      "t": "piensa",
+      "pregunta": "Con y igual a 1, la pendiente es menos 2y más y al cubo. ¿Cuánto vale?",
+      "opciones": [
+       -2,
+       -1,
+       0,
+       1
+      ],
+      "correcta": -1,
+      "bien": "Muy bien. Vale menos 1, así que baja. Más abajo se ve el campo.",
+      "mal": "Vale menos 1, porque menos 2 más 1 es menos 1. Más abajo se ve el campo."
+     }
+    ]
+   },
+   {
+    "titulo": "Las soluciones",
+    "corto": "Las soluciones",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mira cómo cambian las soluciones al variar la constante C."
+     },
+     {
+      "t": "acercando",
+      "ds": [
+       0,
+       0.5,
+       1.5
+      ],
+      "alt": "Las soluciones para varios valores de C"
+     },
+     {
+      "t": "p",
+      "html": "Con C igual a 0 la solución es constante, y igual a la raíz de 2. Con C positiva, la solución baja a 0."
+     }
+    ]
+   },
+   {
+    "titulo": "La sustitución",
+    "corto": "La sustitución",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Con n igual a 3, se toma v igual a y a la 1 menos 3, o sea y a la menos 2."
+     },
+     {
+      "t": "pasos",
+      "items": [
+       {
+        "tex": "v=y^{-2}\\ \\Rightarrow\\ v'=-2y^{-3}y'",
+        "porque": "Se deriva con la regla de la cadena."
+       },
+       {
+        "tex": "y'=y^{3}-2y\\ \\Rightarrow\\ v'=-2y^{-3}\\left(y^{3}-2y\\right)=-2+4v",
+        "porque": "Se reemplaza y prima y se usa que y a la menos 2 es v."
+       },
+       {
+        "tex": "v'-4v=-2",
+        "porque": "Es una ecuación lineal en v, con factor integrante e a la menos 4x."
+       },
+       {
+        "tex": "v=\\dfrac{1}{2}+Ce^{4x}",
+        "porque": "Se resuelve la lineal."
+       }
+      ]
+     },
+     {
+      "t": "ojo",
+      "html": "Hay que dividir entre y a la n antes de sustituir, o usar la derivada de v como se hizo aquí. Ese paso es el que más se olvida."
+     }
+    ]
+   },
+   {
+    "titulo": "Volver a y",
+    "corto": "Volver a y",
+    "bloques": [
+     {
+      "t": "pasos",
+      "items": [
+       {
+        "tex": "y=v^{-1/2}",
+        "porque": "Se deshace la sustitución."
+       },
+       {
+        "tex": "y=\\dfrac{1}{\\sqrt{\\dfrac{1}{2}+Ce^{4x}}}",
+        "porque": "Es la solución general."
+       },
+       {
+        "tex": "y\\equiv 0\\ \\text{también es solución}",
+        "porque": "Se perdió al dividir entre y."
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "La receta general",
+    "corto": "Receta",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Para cualquier ecuación de Bernoulli el procedimiento es el mismo."
+     },
+     {
+      "t": "pasos",
+      "items": [
+       {
+        "tex": "y'+p(x)\\,y=q(x)\\,y^{n}",
+        "porque": "La forma de Bernoulli."
+       },
+       {
+        "tex": "v=y^{1-n}\\ \\Rightarrow\\ v'+(1-n)\\,p(x)\\,v=(1-n)\\,q(x)",
+        "porque": "Queda una lineal."
+       },
+       {
+        "tex": "y'+\\dfrac{y}{x}=y^{2}\\ \\Rightarrow\\ v=y^{-1}",
+        "porque": "Con n igual a 2 se toma v igual a y a la menos 1."
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "¿Para qué sirve?",
+    "corto": "En ingeniería",
+    "bloques": [
+     {
+      "t": "ingenieria",
+      "titulo": "El crecimiento con competencia",
+      "html": "Una población de bacterias en un reactor crece, pero la competencia por alimento frena el crecimiento más rápido de lo que lo haría una ley lineal. Ese tipo de modelos lleva a ecuaciones de Bernoulli, que se resuelven con el cambio de variable.",
+      "tex": "y'=r\\,y-s\\,y^{2}",
+      "datos": [
+       {
+        "k": "Tasa de crecimiento r",
+        "v": "0.5 1/h"
+       },
+       {
+        "k": "Competencia s",
+        "v": "0.1"
+       },
+       {
+        "k": "Población límite",
+        "v": "5"
+       }
+      ],
+      "cierre": "Con n igual a 2 y v igual a 1 sobre y, la ecuación se vuelve lineal y su solución es y igual a 5 sobre (1 más C e a la menos 0.5 t). La población se acerca a r sobre s, o sea 5, sin importar la inicial. Es un modelo simplificado, porque supone un reactor bien mezclado y alimento constante."
+     }
+    ]
+   },
+   {
+    "titulo": "Completa el paso",
+    "corto": "Completa",
+    "bloques": [
+     {
+      "t": "completar",
+      "enunciado": "Se linealiza y prima más y sobre x igual a y al cuadrado. Falta la sustitución.",
+      "tex": "v=y^{[[hueco]]}",
+      "opciones": [
+       {
+        "tex": "1-n=-1",
+        "txt": "uno menos n es menos uno"
+       },
+       {
+        "tex": "n=2",
+        "txt": "n es dos"
+       },
+       {
+        "tex": "-n=-2",
+        "txt": "menos n es menos dos"
+       }
+      ],
+      "correcta": 0,
+      "errores": [
+       "",
+       "La sustitución usa el exponente 1 menos n, y no n.",
+       "El exponente es 1 menos n, o sea menos 1, y no menos n."
+      ],
+      "pista": "El exponente es uno menos n, con n igual a 2.",
+      "porque": "Con n igual a 2, el exponente 1 menos n es menos 1, así que v es 1 sobre y."
+     }
+    ]
+   },
+   {
+    "titulo": "Encuentra el error",
+    "corto": "Error",
+    "bloques": [
+     {
+      "t": "error",
+      "enunciado": "Alguien resolvió una ecuación de Bernoulli y se equivocó en un paso. Toca el paso que está mal.",
+      "pasos": [
+       {
+        "tex": "y'+y=y^{2}\\ (n=2)",
+        "porque": "Es la ecuación.",
+        "txt": "y prima más y igual a y al cuadrado, con n igual a 2"
+       },
+       {
+        "tex": "v=y^{2}\\ \\Rightarrow\\ v'=2yy'",
+        "porque": "Este paso es el que falla.",
+        "txt": "v es y al cuadrado, y v prima es 2 y y prima"
+       },
+       {
+        "tex": "\\text{Se obtiene una lineal en}\\ v",
+        "porque": "Depende del paso anterior.",
+        "txt": "Se obtiene una lineal en v"
+       }
+      ],
+      "mal": 1,
+      "explicacion": "La sustitución es v igual a y elevada a 1 menos n, y aquí es y a la menos 1, o sea 1 sobre y. Con y al cuadrado no se obtiene una ecuación lineal.",
+      "correccion": "v=y^{1-n}=y^{-1}\\ \\Rightarrow\\ v'-v=-1",
+      "pista": "Usa el exponente 1 menos n."
+     }
+    ]
+   },
+   {
+    "titulo": "Ordena los pasos",
+    "corto": "Ordena",
+    "bloques": [
+     {
+      "t": "ordenar",
+      "enunciado": "Estos son los pasos para resolver y prima más 2y igual a y al cubo, pero están desordenados.",
+      "pasos": [
+       "v=y^{-2}\\ \\Rightarrow\\ v'=-2y^{-3}y'",
+       "v'-4v=-2",
+       "v=\\dfrac{1}{2}+Ce^{4x}",
+       "y=v^{-1/2}"
+      ],
+      "mezcla": [
+       2,
+       0,
+       3,
+       1
+      ],
+      "porque": "Se hace la sustitución, se obtiene la lineal, se resuelve y se regresa a y.",
+      "pista": "Primero va la sustitución.",
+      "txt": [
+       "Se hace la sustitución",
+       "Queda una lineal en v",
+       "Se resuelve con factor integrante",
+       "Se regresa a y"
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "Revisa tu respuesta",
+    "corto": "Revisa",
+    "bloques": [
+     {
+      "t": "pregunta"
+     },
+     {
+      "t": "nota",
+      "html": "Puedes pedir pistas de a una. Si fallas, el mensaje te dice qué error se cometió."
+     }
+    ]
+   },
+   {
+    "titulo": "Tu repaso",
+    "corto": "Repaso",
+    "bloques": [
+     {
+      "t": "repaso"
+     }
+    ]
+   },
+   {
+    "titulo": "En resumen",
+    "corto": "Resumen",
+    "bloques": [
+     {
+      "t": "resumen"
+     }
+    ]
+   }
+  ]
+ },
+ "practicar": {
+  "pasos": [
+   {
+    "titulo": "Las soluciones",
+    "grafica": {
+     "draw": 1,
+     "guide": 1
+    },
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Esta ecuación no es lineal."
+     },
+     {
+      "t": "eq",
+      "tex": "y'+2y=y^{3}"
+     }
+    ]
+   },
+   {
+    "titulo": "Cambia C",
+    "grafica": {
+     "draw": 1,
+     "guide": 1
+    },
+    "laboratorio": true,
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mueve el deslizador. Con C igual a 0 la solución es la recta punteada. Con C positiva, la solución baja a 0. Abajo se ven C y y(0)."
+     }
+    ]
+   },
+   {
+    "titulo": "Sustitución",
+    "grafica": {
+     "draw": 1,
+     "guide": 1,
+     "ok": true
+    },
+    "laboratorio": true,
+    "d": 0.5,
+    "bloques": [
+     {
+      "t": "eq",
+      "tex": "v=y^{-2},\\quad v=\\dfrac{1}{2}+Ce^{4x}"
+     },
+     {
+      "t": "p",
+      "html": "Con C igual a 0.5, y de 0 vale 1."
+     }
+    ]
+   },
+   {
+    "titulo": "Revisa tu respuesta",
+    "grafica": {
+     "draw": 1,
+     "guide": 1,
+     "ok": true,
+     "d": 0.5
+    },
+    "bloques": [
+     {
+      "t": "pregunta"
+     },
+     {
+      "t": "nota",
+      "html": "La sustitución es v igual a y a la 1 menos n."
+     }
+    ]
+   }
+  ]
+ },
+ "pregunta": {
+  "tex": "y'+\\dfrac{y}{x}=y^{2}",
+  "encabezado": "Para linealizar y prima más y sobre x igual a y al cuadrado se sustituye:",
+  "opciones": [
+   "$v=y^{-1}$",
+   "$v=y^{2}$",
+   "$v=y^{-2}$",
+   "$v=y^{3}$"
+  ],
+  "correcta": 0,
+  "explicacion": "Es una ecuación de Bernoulli con n igual a 2. La sustitución es v igual a y a la 1 menos n, o sea y a la menos 1.",
+  "pistas": [
+   "Identifica n, el exponente de y en el lado derecho.",
+   "Aquí n vale 2.",
+   "La sustitución es y elevada a 1 menos n."
+  ],
+  "errores": [
+   "",
+   "Esa usa n y no 1 menos n.",
+   "Ese exponente sería para n igual a 3, y aquí n es 2.",
+   "Ese exponente sería para n igual a menos 2, y aquí n es 2."
+  ]
+ },
+ "resumen": [
+  "Una ecuación de Bernoulli es y prima más p y igual a q por y a la n.",
+  "Con v igual a y a la 1 menos n se vuelve lineal en v.",
+  "Al dividir entre y a la n se puede perder la solución y igual a 0."
+ ]
+}

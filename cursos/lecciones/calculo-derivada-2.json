@@ -1,0 +1,566 @@
+{
+ "esquema": 1,
+ "id": "calculo-m2-l2",
+ "ejemplo": true,
+ "curso": "Cálculo",
+ "modulo": "Módulo 2 La derivada",
+ "posicion": "Lección 2 de 10",
+ "titulo": "Reglas de derivación",
+ "minutos": 16,
+ "ejercicios": 1,
+ "grafica": {
+  "tipo": "secante",
+  "x": [
+   -0.5,
+   2.2
+  ],
+  "y": [
+   0,
+   9
+  ],
+  "funcion": "x*x*x",
+  "a": 1,
+  "derivada": "3*x*x",
+  "limite": 3,
+  "etiquetas": [
+   "Distancia h",
+   "Pendiente de la secante"
+  ],
+  "etiquetaSlider": "Valor de h",
+  "alt": "Curva de x al cubo con una recta secante que se acerca a la tangente en x igual a 1",
+  "zoom": {
+   "factor": 35
+  }
+ },
+ "glosario": {
+  "tangente": "La recta tangente toca la curva en un punto y tiene la misma inclinación que la curva ahí.",
+  "pend": "La pendiente dice cuánto sube la recta por cada unidad que avanza hacia la derecha.",
+  "regla": "Una regla de derivación es un atajo que da la derivada directamente, sin calcular el límite cada vez.",
+  "cons": "Una constante es un número fijo, como 5, que no cambia con x."
+ },
+ "ver": {
+  "duracion": 23.0,
+  "capitulos": [
+   [
+    0,
+    2.5,
+    "Esta es la curva de f(x) igual a x al cubo."
+   ],
+   [
+    2.5,
+    4.5,
+    "Miremos qué tan inclinada está en x igual a 1."
+   ],
+   [
+    4.5,
+    8,
+    "Se traza la secante con un segundo punto a distancia h."
+   ],
+   [
+    8,
+    12.5,
+    "Mientras h se achica, la pendiente de la secante cambia."
+   ],
+   [
+    12.5,
+    15.8,
+    "La secante se vuelve la tangente y su pendiente se acerca a 3."
+   ],
+   [
+    15.8,
+    19.8,
+    "De cerca, la curva casi se ve como una recta, y esa recta es la tangente."
+   ],
+   [
+    19.8,
+    23.0,
+    "Es el exponente 3 por x al cuadrado, que en x igual a 1 vale 3."
+   ]
+  ],
+  "canales": {
+   "draw": [
+    [
+     0.3,
+     0
+    ],
+    [
+     2.4,
+     1
+    ]
+   ],
+   "hole": [
+    [
+     2.5,
+     0
+    ],
+    [
+     3.2,
+     1
+    ]
+   ],
+   "d": [
+    [
+     4.5,
+     1
+    ],
+    [
+     6,
+     0.5
+    ],
+    [
+     8,
+     0.5
+    ],
+    [
+     9.5,
+     0.1
+    ],
+    [
+     11,
+     0.1
+    ],
+    [
+     12.5,
+     0.01
+    ]
+   ],
+   "guide": [
+    [
+     12.5,
+     0
+    ],
+    [
+     13.5,
+     1
+    ]
+   ],
+   "zoom": [
+    [
+     15.8,
+     0
+    ],
+    [
+     18.3,
+     1
+    ],
+    [
+     19.0,
+     1
+    ],
+    [
+     19.8,
+     0
+    ]
+   ]
+  },
+  "intervalos": {
+   "ok": [
+    19.8,
+    23.0
+   ]
+  }
+ },
+ "leer": {
+  "secciones": [
+   {
+    "titulo": "La idea",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Calcular cada derivada con el límite es lento. Por eso existen las {{gl:regla|reglas de derivación}}, que dan el resultado directo. La primera y más usada es la de la potencia."
+     }
+    ]
+   },
+   {
+    "titulo": "Un ejemplo",
+    "corto": "Un ejemplo",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mira esta función y su inclinación en x igual a 1."
+     },
+     {
+      "t": "eq",
+      "tex": "f(x)=x^{3}"
+     },
+     {
+      "t": "grafica",
+      "animar": "dibujar",
+      "alt": "Curva de x al cubo que se dibuja y marca el punto en x igual a 1"
+     }
+    ]
+   },
+   {
+    "titulo": "Piensa antes de ver",
+    "corto": "Piensa",
+    "bloques": [
+     {
+      "t": "piensa",
+      "pregunta": "Cuando el segundo punto se acerca al primero, ¿a qué número crees que se acerca la pendiente de la secante?",
+      "opciones": [
+       1,
+       2,
+       3,
+       4
+      ],
+      "correcta": 3,
+      "bien": "Muy bien. Se acerca a 3 y más abajo se ve por qué.",
+      "mal": "El número es el 3 y más abajo se ve por qué."
+     }
+    ]
+   },
+   {
+    "titulo": "Acercando el segundo punto",
+    "corto": "Acercándose",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mira cómo cambia la pendiente de la secante al achicar h."
+     },
+     {
+      "t": "acercando",
+      "ds": [
+       1,
+       0.5,
+       0.1,
+       0.01
+      ],
+      "alt": "Una secante que gira hasta parecerse a la tangente"
+     },
+     {
+      "t": "p",
+      "html": "La pendiente se acerca a <b>3</b>. Al terminar, la gráfica hace zoom para que veas el detalle."
+     }
+    ]
+   },
+   {
+    "titulo": "La regla de la potencia",
+    "corto": "Potencia",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Con álgebra se ve de dónde sale el 3."
+     },
+     {
+      "t": "pasos",
+      "items": [
+       {
+        "tex": "\\dfrac{(1+h)^{3}-1}{h}=\\dfrac{1+3h+3h^{2}+h^{3}-1}{h}",
+        "porque": "Se desarrolla el cubo."
+       },
+       {
+        "tex": "=\\dfrac{h(3+3h+h^{2})}{h}=3+3h+h^{2}\\quad (h\\neq 0)",
+        "porque": "Se saca h como factor común y se cancela."
+       },
+       {
+        "tex": "f'(1)=\\lim_{h\\to 0}(3+3h+h^{2})=3",
+        "porque": "Cuando h se acerca a 0 solo queda el 3."
+       }
+      ]
+     },
+     {
+      "t": "p",
+      "html": "El patrón siempre es el mismo. El exponente baja a multiplicar y el exponente nuevo es uno menos."
+     },
+     {
+      "t": "eq",
+      "tex": "\\dfrac{d}{dx}\\,x^{n}=n\\,x^{\\,n-1}"
+     },
+     {
+      "t": "p",
+      "html": "Con n igual a 3 queda 3x al cuadrado, y en x igual a 1 vale 3."
+     }
+    ]
+   },
+   {
+    "titulo": "Suma y constantes",
+    "corto": "Suma",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Una {{gl:cons|constante}} multiplicando sale de la derivada. Y la derivada de una suma es la suma de las derivadas."
+     },
+     {
+      "t": "pasos",
+      "items": [
+       {
+        "tex": "\\dfrac{d}{dx}\\left(5x^{3}+2x\\right)",
+        "porque": "Se quiere derivar cada término por separado."
+       },
+       {
+        "tex": "=5\\cdot 3x^{2}+2\\cdot 1",
+        "porque": "La constante queda multiplicando y x tiene exponente 1."
+       },
+       {
+        "tex": "=15x^{2}+2",
+        "porque": "Se multiplica y se simplifica."
+       }
+      ]
+     },
+     {
+      "t": "ojo",
+      "html": "La derivada de un número solo, como 7, es 0 porque no cambia con x."
+     }
+    ]
+   },
+   {
+    "titulo": "Producto y cociente",
+    "corto": "Producto",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Cuando dos funciones se multiplican o se dividen no se deriva cada una por separado. Hay una fórmula para cada caso."
+     },
+     {
+      "t": "eq",
+      "tex": "(uv)'=u'v+uv'"
+     },
+     {
+      "t": "eq",
+      "tex": "\\left(\\dfrac{u}{v}\\right)'=\\dfrac{u'v-uv'}{v^{2}}"
+     },
+     {
+      "t": "pasos",
+      "items": [
+       {
+        "tex": "\\dfrac{d}{dx}\\left(x^{2}\\cdot x^{3}\\right)",
+        "porque": "Con u igual a x al cuadrado y v igual a x al cubo."
+       },
+       {
+        "tex": "=2x\\cdot x^{3}+x^{2}\\cdot 3x^{2}",
+        "porque": "Se aplica u prima por v más u por v prima."
+       },
+       {
+        "tex": "=2x^{4}+3x^{4}=5x^{4}",
+        "porque": "Se suman los términos parecidos."
+       }
+      ]
+     },
+     {
+      "t": "nota",
+      "html": "Se puede comprobar. Como x al cuadrado por x al cubo es x a la quinta, su derivada es 5x a la cuarta."
+     }
+    ]
+   },
+   {
+    "titulo": "¿Para qué sirve?",
+    "corto": "En ingeniería",
+    "bloques": [
+     {
+      "t": "ingenieria",
+      "titulo": "La pendiente de una viga empotrada",
+      "html": "Una viga empotrada con una carga puntual en el extremo libre se dobla. La flecha en cada punto es un polinomio, y su derivada es la pendiente de la viga. Con la regla de la potencia se obtiene directo.",
+      "tex": "y(x)=\\dfrac{P\\,x^{2}(3L-x)}{6EI}\\ \\Rightarrow\\ y'(x)=\\dfrac{P\\,x\\,(2L-x)}{2EI}",
+      "datos": [
+       {
+        "k": "Carga P",
+        "v": "1000 N"
+       },
+       {
+        "k": "Longitud L",
+        "v": "2 m"
+       },
+       {
+        "k": "E del acero",
+        "v": "200 GPa"
+       },
+       {
+        "k": "I de la sección",
+        "v": "8·10⁻⁶ m⁴"
+       },
+       {
+        "k": "Pendiente en el extremo",
+        "v": "0.00125 rad"
+       },
+       {
+        "k": "Flecha máxima",
+        "v": "1.67 mm"
+       }
+      ],
+      "cierre": "La pendiente máxima ocurre en el extremo libre y vale P·L² sobre 2EI. Es el modelo clásico de viga en voladizo, y supone material elástico y deformaciones pequeñas."
+     }
+    ]
+   },
+   {
+    "titulo": "Revisa tu respuesta",
+    "corto": "Revisa",
+    "bloques": [
+     {
+      "t": "pregunta"
+     },
+     {
+      "t": "nota",
+      "html": "Deriva término por término y después evalúa en 2."
+     }
+    ]
+   },
+   {
+    "titulo": "Tu repaso",
+    "corto": "Repaso",
+    "bloques": [
+     {
+      "t": "repaso"
+     }
+    ]
+   },
+   {
+    "titulo": "En resumen",
+    "corto": "Resumen",
+    "bloques": [
+     {
+      "t": "resumen"
+     }
+    ]
+   }
+  ]
+ },
+ "practicar": {
+  "pasos": [
+   {
+    "titulo": "La curva",
+    "grafica": {
+     "draw": 1
+    },
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Esta es la curva de f(x) igual a x al cubo."
+     },
+     {
+      "t": "eq",
+      "tex": "f(x)=x^{3}"
+     }
+    ]
+   },
+   {
+    "titulo": "El punto",
+    "grafica": {
+     "draw": 1,
+     "hole": 1
+    },
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Se quiere la inclinación de la curva en x igual a 1."
+     }
+    ]
+   },
+   {
+    "titulo": "Acerca el segundo punto",
+    "grafica": {
+     "draw": 1,
+     "hole": 1
+    },
+    "laboratorio": true,
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mueve el deslizador de h. La secante gira y abajo se ve su pendiente."
+     }
+    ]
+   },
+   {
+    "titulo": "La tangente",
+    "grafica": {
+     "draw": 1,
+     "hole": 1,
+     "guide": 1
+    },
+    "laboratorio": true,
+    "d": 0.01,
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Con h muy pequeño la pendiente se acerca a 3."
+     }
+    ]
+   },
+   {
+    "titulo": "La regla",
+    "grafica": {
+     "draw": 1,
+     "hole": 1,
+     "guide": 1,
+     "ok": true
+    },
+    "bloques": [
+     {
+      "t": "eq",
+      "tex": "\\dfrac{d}{dx}\\,x^{n}=n\\,x^{\\,n-1}"
+     },
+     {
+      "t": "p",
+      "html": "Con n igual a 3 queda 3x al cuadrado. En x igual a 1 vale 3, justo lo que midió la secante."
+     }
+    ]
+   },
+   {
+    "titulo": "Mira de cerca",
+    "grafica": {
+     "draw": 1,
+     "hole": 1,
+     "guide": 1,
+     "zoom": 1
+    },
+    "laboratorio": true,
+    "d": 0.01,
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Ahora la gráfica está con zoom. De cerca, la curva casi se ve como una recta y la secante se pega a la tangente. Mueve h para comprobarlo."
+     }
+    ]
+   },
+   {
+    "titulo": "Revisa tu respuesta",
+    "grafica": {
+     "draw": 1,
+     "hole": 1,
+     "guide": 1,
+     "ok": true
+    },
+    "bloques": [
+     {
+      "t": "pregunta"
+     },
+     {
+      "t": "nota",
+      "html": "Deriva término por término y después evalúa en 2."
+     }
+    ]
+   }
+  ]
+ },
+ "pregunta": {
+  "tex": "f'(2)\\ \\text{si}\\ f(x)=x^{3}+2x",
+  "opciones": [
+   "12",
+   "14",
+   "16",
+   "8"
+  ],
+  "correcta": 1,
+  "explicacion": "La derivada es 3x al cuadrado más 2. En x igual a 2 queda 3 por 4 más 2, que da 14.",
+  "verificacion": {
+   "formula": "((2+x)^3+2*(2+x)-12)/x",
+   "a": 0,
+   "esperado": 14
+  },
+  "pistas": [
+   "Deriva cada término con la regla de la potencia.",
+   "La derivada es 3x al cuadrado más 2.",
+   "Evalúa en x igual a 2."
+  ],
+  "errores": [
+   "Ese 12 sale de olvidar la derivada del segundo término, 2x, que aporta un 2.",
+   "",
+   "Revisa la cuenta. La derivada de 2x es 2, y 3 por 4 más 2 da 14.",
+   "Ese 8 es x al cubo evaluado en 2. Faltó derivar."
+  ]
+ },
+ "resumen": [
+  "La derivada de x a la n es n por x a la n menos 1.",
+  "Las constantes que multiplican salen y la derivada de una suma es la suma de derivadas.",
+  "Para un producto se usa u prima por v más u por v prima."
+ ]
+}

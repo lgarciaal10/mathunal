@@ -1,0 +1,133 @@
+{
+ "esquema": 1,
+ "curso": "Matemáticas Especiales",
+ "estado": "PROVISIONAL. Los módulos y temas salen del banco de MathUNAL. El orden dentro de cada módulo es por cantidad de preguntas, NO pedagógico, y falta el temario oficial (PENDIENTE).",
+ "modulos": [
+  {
+   "n": 1,
+   "nombre": "Series de Fourier",
+   "peso": 35,
+   "lecciones": [
+    {
+     "tema": "Coeficientes de Fourier y simetrías",
+     "preguntas_banco": 10,
+     "parciales_con_el_tema": 1,
+     "estado": "borrador para revisión",
+     "leccion": "lecciones/esp-coeficientes.json"
+    },
+    {
+     "tema": "Convergencia de Dirichlet y fenómeno de Gibbs",
+     "preguntas_banco": 6,
+     "parciales_con_el_tema": 1,
+     "estado": "borrador para revisión",
+     "leccion": "lecciones/esp-gibbs.json"
+    },
+    {
+     "tema": "Funciones periódicas y ortogonalidad",
+     "preguntas_banco": 6,
+     "parciales_con_el_tema": 0,
+     "estado": "borrador para revisión",
+     "leccion": "lecciones/esp-ortogonalidad.json"
+    },
+    {
+     "tema": "Identidad de Parseval y sumas de series",
+     "preguntas_banco": 6,
+     "parciales_con_el_tema": 1,
+     "estado": "borrador para revisión",
+     "leccion": "lecciones/esp-parseval.json"
+    },
+    {
+     "tema": "Series de senos y cosenos",
+     "preguntas_banco": 5,
+     "parciales_con_el_tema": 1,
+     "estado": "borrador para revisión",
+     "leccion": "lecciones/esp-senoscosenos.json"
+    }
+   ]
+  },
+  {
+   "n": 2,
+   "nombre": "Transformada de Fourier y EDP de evolución",
+   "peso": 35,
+   "lecciones": [
+    {
+     "tema": "Transformada de Fourier y propiedades",
+     "preguntas_banco": 8,
+     "parciales_con_el_tema": 1,
+     "estado": "borrador para revisión",
+     "leccion": "lecciones/esp-transformada.json"
+    },
+    {
+     "tema": "Ecuación de calor",
+     "preguntas_banco": 6,
+     "parciales_con_el_tema": 2,
+     "estado": "borrador para revisión",
+     "leccion": "lecciones/esp-calor.json"
+    },
+    {
+     "tema": "Ecuación de onda: cuerda vibrante",
+     "preguntas_banco": 6,
+     "parciales_con_el_tema": 1,
+     "estado": "borrador para revisión",
+     "leccion": "lecciones/esp-onda.json"
+    },
+    {
+     "tema": "Integral de Fourier",
+     "preguntas_banco": 4,
+     "parciales_con_el_tema": 0,
+     "estado": "borrador para revisión",
+     "leccion": "lecciones/esp-integral.json"
+    },
+    {
+     "tema": "Fórmula de D'Alembert",
+     "preguntas_banco": 3,
+     "parciales_con_el_tema": 1,
+     "estado": "borrador para revisión",
+     "leccion": "lecciones/esp-dalembert.json"
+    }
+   ]
+  },
+  {
+   "n": 3,
+   "nombre": "Ecuación de Laplace y variable compleja",
+   "peso": 30,
+   "lecciones": [
+    {
+     "tema": "Ecuación de Laplace y problemas de frontera",
+     "preguntas_banco": 8,
+     "parciales_con_el_tema": 1,
+     "estado": "borrador para revisión",
+     "leccion": "lecciones/esp-laplace.json"
+    },
+    {
+     "tema": "Ecuaciones de Cauchy-Riemann y mapeos",
+     "preguntas_banco": 7,
+     "parciales_con_el_tema": 2,
+     "estado": "borrador para revisión",
+     "leccion": "lecciones/esp-cauchy.json"
+    },
+    {
+     "tema": "Sturm-Liouville y clasificación de EDP",
+     "preguntas_banco": 7,
+     "parciales_con_el_tema": 1,
+     "estado": "borrador para revisión",
+     "leccion": "lecciones/esp-sturm.json"
+    },
+    {
+     "tema": "Integración compleja y residuos",
+     "preguntas_banco": 6,
+     "parciales_con_el_tema": 1,
+     "estado": "borrador para revisión",
+     "leccion": "lecciones/esp-residuos.json"
+    },
+    {
+     "tema": "Números complejos y funciones analíticas",
+     "preguntas_banco": 5,
+     "parciales_con_el_tema": 1,
+     "estado": "borrador para revisión",
+     "leccion": "lecciones/esp-complejos.json"
+    }
+   ]
+  }
+ ]
+}

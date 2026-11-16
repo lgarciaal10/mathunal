@@ -1,0 +1,1069 @@
+{
+ "esquema": 1,
+ "id": "fu-m1-l1",
+ "ejemplo": true,
+ "curso": "Fundamentos de Matemáticas",
+ "modulo": "Módulo 1 Lógica y argumentación",
+ "posicion": "Lección 1 de 3",
+ "titulo": "Lógica proposicional",
+ "minutos": 28,
+ "ejercicios": 8,
+ "grafica": {
+  "tipo": "plano",
+  "x": [
+   -1.504,
+   8.304
+  ],
+  "y": [
+   -5.25,
+   0.5
+  ],
+  "a": 0,
+  "b": 3,
+  "inicio": 0,
+  "entero": true,
+  "sinejes": true,
+  "elementos": [
+   {
+    "t": "poligono",
+    "puntos": [
+     [
+      "0.0",
+      "0.0"
+     ],
+     [
+      "1.7",
+      "0.0"
+     ],
+     [
+      "1.7",
+      "-0.95"
+     ],
+     [
+      "0.0",
+      "-0.95"
+     ]
+    ],
+    "c": 0,
+    "nombre": "p"
+   },
+   {
+    "t": "poligono",
+    "puntos": [
+     [
+      "1.7",
+      "0.0"
+     ],
+     [
+      "3.4",
+      "0.0"
+     ],
+     [
+      "3.4",
+      "-0.95"
+     ],
+     [
+      "1.7",
+      "-0.95"
+     ]
+    ],
+    "c": 0,
+    "nombre": "q"
+   },
+   {
+    "t": "poligono",
+    "puntos": [
+     [
+      "3.4",
+      "0.0"
+     ],
+     [
+      "5.1",
+      "0.0"
+     ],
+     [
+      "5.1",
+      "-0.95"
+     ],
+     [
+      "3.4",
+      "-0.95"
+     ]
+    ],
+    "c": 0,
+    "nombre": "p→q"
+   },
+   {
+    "t": "poligono",
+    "puntos": [
+     [
+      "5.1",
+      "0.0"
+     ],
+     [
+      "6.8",
+      "0.0"
+     ],
+     [
+      "6.8",
+      "-0.95"
+     ],
+     [
+      "5.1",
+      "-0.95"
+     ]
+    ],
+    "c": 0,
+    "nombre": "¬p∨q"
+   },
+   {
+    "t": "poligono",
+    "puntos": [
+     [
+      "0.0",
+      "-0.95"
+     ],
+     [
+      "1.7",
+      "-0.95"
+     ],
+     [
+      "1.7",
+      "-1.9"
+     ],
+     [
+      "0.0",
+      "-1.9"
+     ]
+    ],
+    "c": 3,
+    "nombre": "V"
+   },
+   {
+    "t": "poligono",
+    "puntos": [
+     [
+      "1.7",
+      "-0.95"
+     ],
+     [
+      "3.4",
+      "-0.95"
+     ],
+     [
+      "3.4",
+      "-1.9"
+     ],
+     [
+      "1.7",
+      "-1.9"
+     ]
+    ],
+    "c": 3,
+    "nombre": "V"
+   },
+   {
+    "t": "poligono",
+    "puntos": [
+     [
+      "3.4",
+      "-0.95"
+     ],
+     [
+      "5.1",
+      "-0.95"
+     ],
+     [
+      "5.1",
+      "-1.9"
+     ],
+     [
+      "3.4",
+      "-1.9"
+     ]
+    ],
+    "c": 3,
+    "nombre": "V"
+   },
+   {
+    "t": "poligono",
+    "puntos": [
+     [
+      "5.1",
+      "-0.95"
+     ],
+     [
+      "6.8",
+      "-0.95"
+     ],
+     [
+      "6.8",
+      "-1.9"
+     ],
+     [
+      "5.1",
+      "-1.9"
+     ]
+    ],
+    "c": 3,
+    "nombre": "V"
+   },
+   {
+    "t": "poligono",
+    "puntos": [
+     [
+      "0.0",
+      "-1.9"
+     ],
+     [
+      "1.7",
+      "-1.9"
+     ],
+     [
+      "1.7",
+      "-2.8499999999999996"
+     ],
+     [
+      "0.0",
+      "-2.8499999999999996"
+     ]
+    ],
+    "c": 3,
+    "nombre": "V"
+   },
+   {
+    "t": "poligono",
+    "puntos": [
+     [
+      "1.7",
+      "-1.9"
+     ],
+     [
+      "3.4",
+      "-1.9"
+     ],
+     [
+      "3.4",
+      "-2.8499999999999996"
+     ],
+     [
+      "1.7",
+      "-2.8499999999999996"
+     ]
+    ],
+    "c": 1,
+    "nombre": "F"
+   },
+   {
+    "t": "poligono",
+    "puntos": [
+     [
+      "3.4",
+      "-1.9"
+     ],
+     [
+      "5.1",
+      "-1.9"
+     ],
+     [
+      "5.1",
+      "-2.8499999999999996"
+     ],
+     [
+      "3.4",
+      "-2.8499999999999996"
+     ]
+    ],
+    "c": 1,
+    "nombre": "F"
+   },
+   {
+    "t": "poligono",
+    "puntos": [
+     [
+      "5.1",
+      "-1.9"
+     ],
+     [
+      "6.8",
+      "-1.9"
+     ],
+     [
+      "6.8",
+      "-2.8499999999999996"
+     ],
+     [
+      "5.1",
+      "-2.8499999999999996"
+     ]
+    ],
+    "c": 1,
+    "nombre": "F"
+   },
+   {
+    "t": "poligono",
+    "puntos": [
+     [
+      "0.0",
+      "-2.8499999999999996"
+     ],
+     [
+      "1.7",
+      "-2.8499999999999996"
+     ],
+     [
+      "1.7",
+      "-3.8"
+     ],
+     [
+      "0.0",
+      "-3.8"
+     ]
+    ],
+    "c": 1,
+    "nombre": "F"
+   },
+   {
+    "t": "poligono",
+    "puntos": [
+     [
+      "1.7",
+      "-2.8499999999999996"
+     ],
+     [
+      "3.4",
+      "-2.8499999999999996"
+     ],
+     [
+      "3.4",
+      "-3.8"
+     ],
+     [
+      "1.7",
+      "-3.8"
+     ]
+    ],
+    "c": 3,
+    "nombre": "V"
+   },
+   {
+    "t": "poligono",
+    "puntos": [
+     [
+      "3.4",
+      "-2.8499999999999996"
+     ],
+     [
+      "5.1",
+      "-2.8499999999999996"
+     ],
+     [
+      "5.1",
+      "-3.8"
+     ],
+     [
+      "3.4",
+      "-3.8"
+     ]
+    ],
+    "c": 3,
+    "nombre": "V"
+   },
+   {
+    "t": "poligono",
+    "puntos": [
+     [
+      "5.1",
+      "-2.8499999999999996"
+     ],
+     [
+      "6.8",
+      "-2.8499999999999996"
+     ],
+     [
+      "6.8",
+      "-3.8"
+     ],
+     [
+      "5.1",
+      "-3.8"
+     ]
+    ],
+    "c": 3,
+    "nombre": "V"
+   },
+   {
+    "t": "poligono",
+    "puntos": [
+     [
+      "0.0",
+      "-3.8"
+     ],
+     [
+      "1.7",
+      "-3.8"
+     ],
+     [
+      "1.7",
+      "-4.75"
+     ],
+     [
+      "0.0",
+      "-4.75"
+     ]
+    ],
+    "c": 1,
+    "nombre": "F"
+   },
+   {
+    "t": "poligono",
+    "puntos": [
+     [
+      "1.7",
+      "-3.8"
+     ],
+     [
+      "3.4",
+      "-3.8"
+     ],
+     [
+      "3.4",
+      "-4.75"
+     ],
+     [
+      "1.7",
+      "-4.75"
+     ]
+    ],
+    "c": 1,
+    "nombre": "F"
+   },
+   {
+    "t": "poligono",
+    "puntos": [
+     [
+      "3.4",
+      "-3.8"
+     ],
+     [
+      "5.1",
+      "-3.8"
+     ],
+     [
+      "5.1",
+      "-4.75"
+     ],
+     [
+      "3.4",
+      "-4.75"
+     ]
+    ],
+    "c": 3,
+    "nombre": "V"
+   },
+   {
+    "t": "poligono",
+    "puntos": [
+     [
+      "5.1",
+      "-3.8"
+     ],
+     [
+      "6.8",
+      "-3.8"
+     ],
+     [
+      "6.8",
+      "-4.75"
+     ],
+     [
+      "5.1",
+      "-4.75"
+     ]
+    ],
+    "c": 3,
+    "nombre": "V"
+   },
+   {
+    "t": "poligono",
+    "puntos": [
+     [
+      "0.0",
+      "(0.0-(x+1)*0.95)"
+     ],
+     [
+      "6.8",
+      "(0.0-(x+1)*0.95)"
+     ],
+     [
+      "6.8",
+      "(0.0-(x+2)*0.95)"
+     ],
+     [
+      "0.0",
+      "(0.0-(x+2)*0.95)"
+     ]
+    ],
+    "c": 2
+   }
+  ],
+  "lecturas": [
+   {
+    "rotulo": "p implica q en esta fila",
+    "formula": "(1*(x-1)*(x-2)*(x-3)/(-6))+(1*(x-0)*(x-1)*(x-3)/(-2))+(1*(x-0)*(x-1)*(x-2)/(6))"
+   },
+   {
+    "rotulo": "no p o q en esta fila",
+    "formula": "(1*(x-1)*(x-2)*(x-3)/(-6))+(1*(x-0)*(x-1)*(x-3)/(-2))+(1*(x-0)*(x-1)*(x-2)/(6))"
+   }
+  ],
+  "etiquetas": [
+   "Valor de p implica q, 1 si es verdadera",
+   "Valor de no p o q, 1 si es verdadera"
+  ],
+  "etiquetaSlider": "Fila de la tabla, de 0 a 3",
+  "alt": "La tabla de verdad de p implica q y de no p o q. Las dos columnas son idénticas, falsas solo en la fila en que p es verdadera y q es falsa. Un cuadro resalta la fila elegida"
+ },
+ "glosario": {
+  "proposicion": "Una proposición es una afirmación que es verdadera o falsa, pero no las dos. Se representa con letras como p y q.",
+  "conectivo": "Un conectivo une proposiciones. Los principales son y, o, no, implica y si y solo si.",
+  "equivalencia": "Dos proposiciones son lógicamente equivalentes si tienen el mismo valor de verdad en todas las filas de la tabla.",
+  "tautologia": "Una tautología es una proposición que es verdadera en todas las filas. Una contradicción es falsa en todas."
+ },
+ "ver": {
+  "duracion": 22.0,
+  "capitulos": [
+   [
+    0,
+    4,
+    "Una proposición es verdadera o falsa. Con dos proposiciones, p y q, hay cuatro casos posibles, que son las cuatro filas de la tabla."
+   ],
+   [
+    4,
+    8,
+    "La columna de p implica q es falsa en una sola fila, cuando p es verdadera y q es falsa. En las demás es verdadera."
+   ],
+   [
+    8,
+    14,
+    "Mueve el cuadro para recorrer las filas. La última columna, no p o q, da exactamente los mismos valores. Por eso las dos proposiciones son equivalentes."
+   ],
+   [
+    14,
+    18,
+    "En la fila 1, p es verdadera y q es falsa. Las dos columnas valen falso."
+   ],
+   [
+    18,
+    22,
+    "Con cuatro proposiciones habría 16 filas, porque cada proposición nueva duplica el número de filas."
+   ]
+  ],
+  "canales": {
+   "draw": [
+    [
+     0.3,
+     0
+    ],
+    [
+     3.5,
+     1
+    ]
+   ],
+   "d": [
+    [
+     4,
+     0
+    ],
+    [
+     8,
+     0
+    ],
+    [
+     10,
+     3
+    ],
+    [
+     13,
+     0
+    ],
+    [
+     14,
+     1
+    ],
+    [
+     22,
+     1
+    ]
+   ],
+   "guide": [
+    [
+     4,
+     0
+    ],
+    [
+     5,
+     1
+    ]
+   ]
+  },
+  "intervalos": {
+   "ok": [
+    18,
+    22
+   ]
+  }
+ },
+ "leer": {
+  "secciones": [
+   {
+    "titulo": "La idea",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "La lógica estudia cuándo un razonamiento es correcto. Su material son las {{gl:proposicion|proposiciones}}, que se combinan con {{gl:conectivo|conectivos}}. Para decidir si dos expresiones dicen lo mismo, se usan tablas de verdad, y si coinciden en todas las filas son {{gl:equivalencia|equivalentes}}."
+     }
+    ]
+   },
+   {
+    "titulo": "Un ejemplo",
+    "corto": "Un ejemplo",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mira la tabla de verdad del condicional y de su forma con o y no."
+     },
+     {
+      "t": "eq",
+      "tex": "p\\rightarrow q\\ \\equiv\\ \\neg p\\vee q"
+     },
+     {
+      "t": "grafica",
+      "animar": "dibujar",
+      "alt": "La tabla de verdad"
+     }
+    ]
+   },
+   {
+    "titulo": "Piensa antes de ver",
+    "corto": "Piensa",
+    "bloques": [
+     {
+      "t": "piensa",
+      "pregunta": "Con una proposición hay dos filas, con dos hay cuatro. Cada proposición nueva duplica las filas. ¿Cuántas filas tiene la tabla con tres proposiciones?",
+      "opciones": [
+       3,
+       6,
+       8,
+       9
+      ],
+      "correcta": 8,
+      "bien": "Muy bien. Son 8, que es 2 al cubo. Más abajo se ve la tabla con dos.",
+      "mal": "Son 8, porque 4 por 2 es 8, o sea 2 al cubo. Más abajo se ve la tabla con dos."
+     }
+    ]
+   },
+   {
+    "titulo": "Recorriendo la tabla",
+    "corto": "Las filas",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mira el valor de las dos columnas en cada fila."
+     },
+     {
+      "t": "acercando",
+      "ds": [
+       0,
+       1,
+       2,
+       3
+      ],
+      "alt": "Las cuatro filas de la tabla"
+     },
+     {
+      "t": "p",
+      "html": "Las dos columnas coinciden en las cuatro filas. Eso es lo que significa ser lógicamente equivalentes."
+     }
+    ]
+   },
+   {
+    "titulo": "Los conectivos",
+    "corto": "Conectivos",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Estos son los conectivos, con las ideas más importantes de cada uno."
+     },
+     {
+      "t": "pasos",
+      "items": [
+       {
+        "tex": "p\\wedge q\\ \\text{es verdadera solo si}\\ p\\ \\text{y}\\ q\\ \\text{lo son}",
+        "porque": "La conjunción, o sea y."
+       },
+       {
+        "tex": "p\\vee q\\ \\text{es falsa solo si}\\ p\\ \\text{y}\\ q\\ \\text{son falsas}",
+        "porque": "La disyunción, o sea o. Es inclusiva."
+       },
+       {
+        "tex": "p\\rightarrow q\\ \\text{es falsa solo si}\\ p\\ \\text{es V y}\\ q\\ \\text{es F}",
+        "porque": "El condicional. Una promesa solo se rompe si se cumple la condición y no la consecuencia."
+       },
+       {
+        "tex": "p\\leftrightarrow q\\ \\text{es verdadera si}\\ p\\ \\text{y}\\ q\\ \\text{valen lo mismo}",
+        "porque": "El bicondicional."
+       }
+      ]
+     },
+     {
+      "t": "ojo",
+      "html": "Si p es falsa, p implica q es verdadera sin importar q. Es la parte del condicional que más cuesta aceptar."
+     }
+    ]
+   },
+   {
+    "titulo": "Equivalencias útiles",
+    "corto": "Equivalencias",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Estas equivalencias permiten reescribir y negar proposiciones."
+     },
+     {
+      "t": "pasos",
+      "items": [
+       {
+        "tex": "p\\rightarrow q\\ \\equiv\\ \\neg p\\vee q",
+        "porque": "El condicional como disyunción."
+       },
+       {
+        "tex": "\\neg(p\\wedge q)\\equiv\\neg p\\vee\\neg q,\\qquad \\neg(p\\vee q)\\equiv\\neg p\\wedge\\neg q",
+        "porque": "Las leyes de De Morgan."
+       },
+       {
+        "tex": "\\neg(p\\rightarrow q)\\equiv p\\wedge\\neg q",
+        "porque": "La negación del condicional. Es la única forma de romper una promesa."
+       },
+       {
+        "tex": "p\\rightarrow q\\ \\equiv\\ \\neg q\\rightarrow\\neg p",
+        "porque": "El contrarrecíproco. Tiene el mismo valor que el original, a diferencia del recíproco."
+       }
+      ]
+     },
+     {
+      "t": "ojo",
+      "html": "El recíproco, q implica p, no es equivalente al original. Se parecen, pero tienen tablas distintas."
+     }
+    ]
+   },
+   {
+    "titulo": "¿Para qué sirve?",
+    "corto": "En ingeniería",
+    "bloques": [
+     {
+      "t": "ingenieria",
+      "titulo": "El mando a dos manos de una prensa",
+      "html": "Una prensa industrial solo debe bajar cuando el operario tiene las dos manos en los botones, y así no puede tenerlas bajo el pistón. Esa regla es una conjunción, y la lógica permite comprobarla fila por fila.",
+      "tex": "\\text{baja}=A\\wedge B",
+      "datos": [
+       {
+        "k": "Botones",
+        "v": "A y B"
+       },
+       {
+        "k": "Combinaciones",
+        "v": "4 filas"
+       },
+       {
+        "k": "Filas que bajan",
+        "v": "solo 1"
+       }
+      ],
+      "cierre": "La prensa baja únicamente en la fila en que A y B son verdaderos. En las otras tres, la salida es falsa. Si por error se programa A o B, la prensa bajaría con una sola mano y la regla de seguridad quedaría rota. Por eso en ingeniería se verifica una regla lógica con su tabla completa, no solo con los casos que parecen razonables."
+     }
+    ]
+   },
+   {
+    "titulo": "Completa el paso",
+    "corto": "Completa",
+    "bloques": [
+     {
+      "t": "completar",
+      "enunciado": "Se aplica la ley de De Morgan a la negación de una conjunción.",
+      "tex": "\\neg(p\\wedge q)\\equiv\\neg p\\ [[hueco]]\\ \\neg q",
+      "opciones": [
+       {
+        "tex": "\\vee",
+        "txt": "o"
+       },
+       {
+        "tex": "\\wedge",
+        "txt": "y"
+       },
+       {
+        "tex": "\\rightarrow",
+        "txt": "implica"
+       }
+      ],
+      "correcta": 0,
+      "errores": [
+       "",
+       "Con y no se cambia el conectivo. En De Morgan la negación convierte la conjunción en disyunción.",
+       "Con implica se cambia el tipo de proposición. El resultado de De Morgan es una disyunción."
+      ],
+      "pista": "La negación intercambia y con o.",
+      "porque": "La negación de p y q es no p o no q."
+     }
+    ]
+   },
+   {
+    "titulo": "Encuentra el error",
+    "corto": "Error",
+    "bloques": [
+     {
+      "t": "error",
+      "enunciado": "Alguien negó un condicional y se equivocó en un paso. Toca el paso que está mal.",
+      "pasos": [
+       {
+        "tex": "p\\rightarrow q\\equiv\\neg p\\vee q",
+        "porque": "El condicional como disyunción.",
+        "txt": "p implica q es no p o q"
+       },
+       {
+        "tex": "\\neg(\\neg p\\vee q)\\equiv p\\wedge\\neg q",
+        "porque": "Se aplica De Morgan.",
+        "txt": "por De Morgan queda p y no q"
+       },
+       {
+        "tex": "\\text{Entonces}\\ \\neg(p\\rightarrow q)\\equiv\\neg p\\wedge q",
+        "porque": "Este paso es el que falla.",
+        "txt": "queda no p y q"
+       }
+      ],
+      "mal": 2,
+      "explicacion": "El resultado del paso anterior ya era la respuesta, p y no q. Escribir no p y q cambia las dos proposiciones, y no es lo que salió de De Morgan.",
+      "correccion": "\\neg(p\\rightarrow q)\\equiv p\\wedge\\neg q",
+      "pista": "Compara con el resultado del paso anterior."
+     }
+    ]
+   },
+   {
+    "titulo": "Ordena los pasos",
+    "corto": "Ordena",
+    "bloques": [
+     {
+      "t": "ordenar",
+      "enunciado": "Estos son los pasos para probar que un condicional equivale a su contrarrecíproco, pero están desordenados.",
+      "pasos": [
+       "p\\rightarrow q\\equiv\\neg p\\vee q",
+       "\\neg p\\vee q\\equiv q\\vee\\neg p",
+       "q\\vee\\neg p\\equiv\\neg(\\neg q)\\vee\\neg p",
+       "\\neg(\\neg q)\\vee\\neg p\\equiv\\neg q\\rightarrow\\neg p"
+      ],
+      "mezcla": [
+       2,
+       0,
+       3,
+       1
+      ],
+      "porque": "Se escribe el condicional como disyunción, se reordena y se vuelve a escribir como condicional.",
+      "pista": "Se empieza reescribiendo el condicional.",
+      "txt": [
+       "Se escribe como disyunción",
+       "Se conmuta",
+       "Se usa la doble negación",
+       "Se vuelve al condicional"
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "Revisa tu respuesta",
+    "corto": "Revisa",
+    "bloques": [
+     {
+      "t": "pregunta"
+     },
+     {
+      "t": "nota",
+      "html": "Puedes pedir pistas de a una. Si fallas, el mensaje te dice qué error se cometió."
+     }
+    ]
+   },
+   {
+    "titulo": "Mini simulacro",
+    "corto": "Simulacro",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Tres preguntas reales del banco de MathUNAL sobre este tema. Responde sin mirar los pasos."
+     },
+     {
+      "t": "simulacro",
+      "titulo": "Mini simulacro de lógica proposicional",
+      "preguntas": [
+       {
+        "tipo": "mcq",
+        "texto": "La negación de $p\\wedge q$ es:",
+        "opciones": [
+         "$\\neg p\\vee\\neg q$",
+         "$\\neg p\\wedge\\neg q$",
+         "$p\\vee q$",
+         "$\\neg(p\\vee q)$"
+        ],
+        "correcta": 0,
+        "resumen": "Por De Morgan, la negación de una conjunción es la disyunción de las negaciones.",
+        "fuente": "Banco MathUNAL, simulacro de Fundamentos de Matemáticas"
+       },
+       {
+        "tipo": "mcq",
+        "texto": "La proposición $(p\\wedge q)\\rightarrow p$ es:",
+        "opciones": [
+         "una tautología",
+         "una contradicción",
+         "equivalente a $p$",
+         "equivalente a $q$"
+        ],
+        "correcta": 0,
+        "resumen": "En cualquier fila donde $p\\wedge q$ es verdadera, $p$ también lo es, así que el condicional es verdadero siempre.",
+        "fuente": "Banco MathUNAL, simulacro de Fundamentos de Matemáticas"
+       },
+       {
+        "tipo": "numerica",
+        "texto": "¿Cuántas filas tiene la tabla de verdad de una proposición con $4$ variables proposicionales?",
+        "respuesta": "16",
+        "tolNum": 0.001,
+        "resumen": "Cada variable duplica las filas, así que con $4$ hay $2^4=16$.",
+        "fuente": "Banco MathUNAL, simulacro de Fundamentos de Matemáticas"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "Tu repaso",
+    "corto": "Repaso",
+    "bloques": [
+     {
+      "t": "repaso"
+     }
+    ]
+   },
+   {
+    "titulo": "En resumen",
+    "corto": "Resumen",
+    "bloques": [
+     {
+      "t": "resumen"
+     }
+    ]
+   }
+  ]
+ },
+ "practicar": {
+  "pasos": [
+   {
+    "titulo": "La tabla",
+    "grafica": {
+     "draw": 1,
+     "guide": 1
+    },
+    "bloques": [
+     {
+      "t": "p",
+      "html": "La tabla de verdad de p implica q y de no p o q."
+     },
+     {
+      "t": "eq",
+      "tex": "p\\rightarrow q\\equiv\\neg p\\vee q"
+     }
+    ]
+   },
+   {
+    "titulo": "Recorre las filas",
+    "grafica": {
+     "draw": 1,
+     "guide": 1
+    },
+    "laboratorio": true,
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mueve el deslizador de 0 a 3. Abajo se leen los valores de las dos columnas, que son siempre iguales."
+     }
+    ]
+   },
+   {
+    "titulo": "La fila que rompe",
+    "grafica": {
+     "draw": 1,
+     "guide": 1,
+     "ok": true
+    },
+    "laboratorio": true,
+    "d": 1,
+    "bloques": [
+     {
+      "t": "eq",
+      "tex": "p=V,\\ q=F\\ \\Rightarrow\\ p\\rightarrow q=F"
+     },
+     {
+      "t": "p",
+      "html": "En la fila 1 las dos columnas valen 0, es decir, falso."
+     }
+    ]
+   },
+   {
+    "titulo": "Revisa tu respuesta",
+    "grafica": {
+     "draw": 1,
+     "guide": 1,
+     "ok": true,
+     "d": 1
+    },
+    "bloques": [
+     {
+      "t": "pregunta"
+     },
+     {
+      "t": "nota",
+      "html": "Recuerda qué se cambia en el contrarrecíproco."
+     }
+    ]
+   }
+  ]
+ },
+ "pregunta": {
+  "tex": "\\text{El contrarrecíproco de}\\ p\\rightarrow q\\ \\text{es}",
+  "opciones": [
+   "$\\neg q\\rightarrow\\neg p$",
+   "$q\\rightarrow p$",
+   "$\\neg p\\rightarrow\\neg q$",
+   "$p\\wedge\\neg q$"
+  ],
+  "correcta": 0,
+  "explicacion": "El contrarrecíproco niega las dos proposiciones y las intercambia, y tiene el mismo valor de verdad que el original. El recíproco es q implica p, y el inverso es no p implica no q, y ninguno de los dos es equivalente.",
+  "verificacion": {
+   "formula": "1-(1-0)*1+0*x",
+   "a": 0,
+   "esperado": 0
+  },
+  "pistas": [
+   "Hay que negar las dos proposiciones.",
+   "Y después intercambiarlas.",
+   "Se obtiene no q implica no p."
+  ],
+  "errores": [
+   "",
+   "Ese es el recíproco. No es equivalente al original, porque tiene la tabla distinta.",
+   "Ese es el inverso. Se niegan las dos proposiciones, pero falta intercambiarlas.",
+   "Esa es la negación del condicional, y no su contrarrecíproco."
+  ]
+ },
+ "resumen": [
+  "Un condicional es falso solo cuando la condición es verdadera y la consecuencia es falsa.",
+  "Dos proposiciones son equivalentes si coinciden en todas las filas de la tabla, como p implica q y no p o q.",
+  "La negación de un condicional es p y no q, y su contrarrecíproco es no q implica no p."
+ ]
+}

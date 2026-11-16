@@ -1,0 +1,68 @@
+<title>Formulario MathUNAL</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Literata:ital,wght@0,700;0,900&family=IBM+Plex+Mono:wght@500&display=swap">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js"></script>
+<style id="kx">/*KATEXCSS*/</style>
+<style>
+/* Layout: una hoja de estudio con selector de materia, buscador y una tarjeta por lección con su fórmula clave, sus pasos y su resumen. */
+:root{--bg:#F5F3EE;--panel:#FFFFFF;--fg:#17213B;--mu:#5E6785;--line:#DDD9CE;--acc:#B6481A;--acc-fg:#FFFFFF;--soft:#FBE9DD;--eqbg:#FBFAF6;--disp:Literata,Georgia,serif;--body:'Space Grotesk',system-ui,sans-serif}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0E1322;--panel:#161D33;--fg:#EEF1FB;--mu:#9AA4C8;--line:#2A3358;--acc:#FF8A4C;--acc-fg:#14182B;--soft:#2B2236;--eqbg:#0F1628;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0E1322;--panel:#161D33;--fg:#EEF1FB;--mu:#9AA4C8;--line:#2A3358;--acc:#FF8A4C;--acc-fg:#14182B;--soft:#2B2236;--eqbg:#0F1628;color-scheme:dark}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font:400 16px/1.5 var(--body);padding-inline:max(16px,env(safe-area-inset-left,0px)) max(16px,env(safe-area-inset-right,0px));padding-block:26px 64px}
+.wrap{max-width:1180px;margin:0 auto;display:flex;flex-direction:column;gap:22px}
+h1{margin:0;font:900 clamp(1.8rem,4vw,2.8rem)/1.05 var(--disp);text-wrap:balance}
+.lead{margin:8px 0 0;color:var(--mu);max-width:64ch}
+button,input{font:inherit;color:inherit}button{cursor:pointer}button:focus-visible,input:focus-visible,a:focus-visible{outline:3px solid var(--acc);outline-offset:2px}
+.bar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;position:sticky;top:env(safe-area-inset-top,0px);background:var(--bg);padding-block:10px;z-index:5}
+.tabs{display:flex;flex-wrap:wrap;gap:8px}
+.tab{border:1.5px solid var(--line);background:var(--panel);border-radius:30px;padding:7px 14px;font-weight:700;font-size:.9rem}
+.tab[aria-pressed="true"]{background:var(--acc);border-color:var(--acc);color:var(--acc-fg)}
+#q{flex:1;min-width:200px;border:1.5px solid var(--line);background:var(--panel);border-radius:10px;padding:9px 12px}
+.mod{font:700 .8rem var(--body);letter-spacing:.12em;text-transform:uppercase;color:var(--mu);margin:14px 0 2px}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,340px),1fr));gap:16px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:16px 18px;display:flex;flex-direction:column;gap:10px;min-width:0}
+.card h3{margin:0;font:700 1.12rem/1.2 var(--disp)}
+.card h3 a{color:inherit;text-decoration-color:var(--acc);text-underline-offset:3px}
+.eq{background:var(--eqbg);border:1px solid var(--line);border-radius:10px;padding:10px 12px;overflow-x:auto;font-size:1.05rem}
+.eq .katex-display{margin:0}
+details summary{cursor:pointer;font-weight:700;font-size:.9rem;color:var(--acc)}
+.st{display:flex;flex-direction:column;gap:6px;margin-top:8px}
+.st div{display:flex;flex-direction:column;gap:2px;border-left:3px solid var(--line);padding-left:10px;min-width:0}
+.st .e{overflow-x:auto;font-size:.98rem}.st span{color:var(--mu);font-size:.88rem}
+ul.r{margin:0;padding-left:18px;color:var(--mu);font-size:.92rem;display:flex;flex-direction:column;gap:3px}
+.none{color:var(--mu)}
+.foot{color:var(--mu);font-size:.88rem}
+</style>
+<div class="wrap">
+  <div><h1>Formulario de MathUNAL</h1><p class="lead">La fórmula clave, los pasos y el resumen de cada lección, por materia. Busca por tema y abre la lección completa desde el título.</p></div>
+  <div class="bar"><div class="tabs" id="tabs" role="group" aria-label="Materia"></div><input id="q" type="search" placeholder="Buscar un tema o una palabra" aria-label="Buscar"></div>
+  <div id="out"></div>
+  <p class="foot">Las lecciones son un borrador pendiente de revisión con el temario oficial. Los enlaces solo abren para quien tenga acceso.</p>
+</div>
+<script>
+var D=/*DATA*/;
+var cur='Todas',q='';
+var CS=['Todas'].concat(D.map(function(x){return x.c}).filter(function(v,i,a){return a.indexOf(v)===i}));
+function K(el,tex,disp){try{katex.render(tex,el,{throwOnError:false,displayMode:!!disp,trust:true})}catch(e){el.textContent=tex}}
+function norm(s){return s.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'')}
+function draw(){
+  var out=document.getElementById('out');out.innerHTML='';
+  var list=D.filter(function(x){return (cur==='Todas'||x.c===cur)&&(!q||norm(x.t+' '+x.r.join(' ')+' '+x.c).indexOf(norm(q))>=0)});
+  if(!list.length){out.innerHTML='<p class="none">No hay lecciones con ese término. Prueba con otra palabra.</p>';return}
+  var lastC='',lastM='',grid=null;
+  list.forEach(function(x){
+    if(x.c!==lastC||x.m!==lastM){var h=document.createElement('div');h.className='mod';h.textContent=(cur==='Todas'?x.c+' · ':'')+x.m;out.appendChild(h);grid=document.createElement('div');grid.className='cards';out.appendChild(grid);lastC=x.c;lastM=x.m}
+    var c=document.createElement('article');c.className='card';
+    var h3=document.createElement('h3');var a=document.createElement('a');a.href=x.u;a.target='_blank';a.rel='noopener';a.textContent=x.t;h3.appendChild(a);c.appendChild(h3);
+    if(x.eq){var e=document.createElement('div');e.className='eq';K(e,x.eq,true);c.appendChild(e)}
+    if(x.p&&x.p.length){var d=document.createElement('details');var s=document.createElement('summary');s.textContent='Paso a paso';d.appendChild(s);var st=document.createElement('div');st.className='st';
+      d.appendChild(st);c.appendChild(d);(function(d,st,x){var done=false;d.addEventListener('toggle',function(){if(!d.open||done)return;done=true;x.p.forEach(function(p){var row=document.createElement('div');var ee=document.createElement('div');ee.className='e';K(ee,p[0],false);row.appendChild(ee);if(p[1]){var sp=document.createElement('span');sp.textContent=p[1];row.appendChild(sp)}st.appendChild(row)})})})(d,st,x)}
+    var ul=document.createElement('ul');ul.className='r';x.r.forEach(function(t){var li=document.createElement('li');li.textContent=t;ul.appendChild(li)});c.appendChild(ul);
+    grid.appendChild(c)});
+}
+var tb=document.getElementById('tabs');
+CS.forEach(function(c){var b=document.createElement('button');b.type='button';b.className='tab';b.textContent=c==='Todas'?'Todas ('+D.length+')':c;b.setAttribute('aria-pressed',c===cur?'true':'false');b.addEventListener('click',function(){cur=c;[].forEach.call(tb.children,function(x){x.setAttribute('aria-pressed','false')});b.setAttribute('aria-pressed','true');draw()});tb.appendChild(b)});
+document.getElementById('q').addEventListener('input',function(){q=this.value;draw()});
+draw();
+</script>

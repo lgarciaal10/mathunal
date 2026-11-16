@@ -1,0 +1,686 @@
+{
+ "esquema": 1,
+ "id": "mn-m3-l3",
+ "ejemplo": true,
+ "curso": "Métodos Numéricos",
+ "modulo": "Módulo 3 Ajuste, integración y ecuaciones diferenciales",
+ "posicion": "Lección 3 de 4",
+ "titulo": "Mínimos cuadrados y ajuste de curvas",
+ "minutos": 28,
+ "ejercicios": 8,
+ "grafica": {
+  "tipo": "plano",
+  "x": [
+   -1.9,
+   5.1
+  ],
+  "y": [
+   -0.9,
+   6.2
+  ],
+  "a": 0,
+  "b": 2.2,
+  "inicio": 0.5,
+  "elementos": [
+   {
+    "t": "recta",
+    "p": [
+     "1.5",
+     "2.75"
+    ],
+    "dir": [
+     "1",
+     "x"
+    ],
+    "c": 0
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "0",
+     "1"
+    ],
+    "b": [
+     "0",
+     "2.75+x*(0-1.5)"
+    ],
+    "guion": true,
+    "c": 1,
+    "guia": true
+   },
+   {
+    "t": "punto",
+    "p": [
+     "0",
+     "1"
+    ],
+    "c": 2
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "1",
+     "2"
+    ],
+    "b": [
+     "1",
+     "2.75+x*(1-1.5)"
+    ],
+    "guion": true,
+    "c": 1,
+    "guia": true
+   },
+   {
+    "t": "punto",
+    "p": [
+     "1",
+     "2"
+    ],
+    "c": 2
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "2",
+     "3"
+    ],
+    "b": [
+     "2",
+     "2.75+x*(2-1.5)"
+    ],
+    "guion": true,
+    "c": 1,
+    "guia": true
+   },
+   {
+    "t": "punto",
+    "p": [
+     "2",
+     "3"
+    ],
+    "c": 2
+   },
+   {
+    "t": "segmento",
+    "a": [
+     "3",
+     "5"
+    ],
+    "b": [
+     "3",
+     "2.75+x*(3-1.5)"
+    ],
+    "guion": true,
+    "c": 1,
+    "guia": true
+   },
+   {
+    "t": "punto",
+    "p": [
+     "3",
+     "5"
+    ],
+    "c": 2
+   }
+  ],
+  "lecturas": [
+   {
+    "rotulo": "pendiente m de la recta",
+    "formula": "x"
+   },
+   {
+    "rotulo": "suma de los errores al cuadrado",
+    "formula": "8.75-2*x*6.5+x*x*5"
+   }
+  ],
+  "etiquetas": [
+   "Pendiente de la recta, que pasa por el centro de los datos",
+   "Es mínima con m igual a 1.3, el valor de mínimos cuadrados"
+  ],
+  "etiquetaSlider": "Pendiente m, de 0 a 2.2",
+  "alt": "Cuatro puntos de datos, (0, 1), (1, 2), (2, 3) y (3, 5), y una recta cuya pendiente se cambia con el deslizador. Segmentos punteados marcan los errores verticales entre cada punto y la recta. La suma de los cuadrados de esos errores es la menor posible con la pendiente 1.3"
+ },
+ "glosario": {
+  "residuo": "El residuo de un punto es la diferencia vertical entre el dato y la recta. Es y de i menos m x de i menos b.",
+  "minimos": "El ajuste por mínimos cuadrados elige la recta que hace mínima la suma de los cuadrados de los residuos.",
+  "normales": "Las ecuaciones normales son el sistema lineal que dan las derivadas de la suma de cuadrados igualadas a cero.",
+  "linealizar": "Linealizar es transformar un modelo no lineal en uno lineal con logaritmos, para ajustarlo por mínimos cuadrados lineales."
+ },
+ "ver": {
+  "duracion": 24.0,
+  "capitulos": [
+   [
+    0,
+    4,
+    "Hay cuatro datos y una recta. Cada segmento punteado es el error de un dato."
+   ],
+   [
+    4,
+    10,
+    "Con pendiente 0.5 los errores son grandes. La lectura de abajo suma sus cuadrados."
+   ],
+   [
+    10,
+    16,
+    "Al subir la pendiente, la suma de los cuadrados baja, hasta el mínimo, que ocurre con pendiente 1.3."
+   ],
+   [
+    16,
+    20,
+    "Si la pendiente sigue subiendo, la suma vuelve a crecer. Hay un único mejor valor."
+   ],
+   [
+    20,
+    24,
+    "Ese mejor valor se obtiene resolviendo las ecuaciones normales, sin probar valores."
+   ]
+  ],
+  "canales": {
+   "draw": [
+    [
+     0.3,
+     0
+    ],
+    [
+     3.5,
+     1
+    ]
+   ],
+   "d": [
+    [
+     4,
+     0.5
+    ],
+    [
+     8,
+     0.5
+    ],
+    [
+     11,
+     1.3
+    ],
+    [
+     14,
+     1.3
+    ],
+    [
+     17,
+     2.2
+    ],
+    [
+     19,
+     2.2
+    ],
+    [
+     22,
+     1.3
+    ],
+    [
+     24,
+     1.3
+    ]
+   ],
+   "guide": [
+    [
+     4,
+     0
+    ],
+    [
+     5,
+     1
+    ]
+   ]
+  },
+  "intervalos": {
+   "ok": [
+    10,
+    16
+   ]
+  }
+ },
+ "leer": {
+  "secciones": [
+   {
+    "titulo": "La idea",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Cuando los datos tienen ruido, no conviene que la curva pase por todos los puntos. El ajuste por {{gl:minimos|mínimos cuadrados}} busca la recta que hace mínima la suma de los cuadrados de los {{gl:residuo|residuos}}. Los parámetros salen de las {{gl:normales|ecuaciones normales}}. Y los modelos exponenciales o potenciales se ajustan después de {{gl:linealizar|linealizarlos}} con logaritmos."
+     }
+    ]
+   },
+   {
+    "titulo": "Un ejemplo",
+    "corto": "Un ejemplo",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Estos cuatro datos no están en una recta. Mueve la pendiente y mira cómo cambia la suma de los cuadrados de los errores."
+     },
+     {
+      "t": "eq",
+      "tex": "S(m,b)=\\sum_{i}\\big(y_{i}-(m\\,x_{i}+b)\\big)^{2}"
+     },
+     {
+      "t": "grafica",
+      "animar": "dibujar",
+      "alt": "Los datos y la recta de ajuste"
+     }
+    ]
+   },
+   {
+    "titulo": "Piensa antes de ver",
+    "corto": "Piensa",
+    "bloques": [
+     {
+      "t": "piensa",
+      "pregunta": "Los puntos (0, 1), (1, 2) y (2, 3) están exactamente en la recta y igual a x más 1. ¿Cuánto vale la pendiente de la recta de mínimos cuadrados?",
+      "opciones": [
+       0.5,
+       1,
+       1.5,
+       2
+      ],
+      "correcta": 1,
+      "bien": "Muy bien. Es 1, porque los puntos están en una recta y el error es cero. Más abajo se ve el caso con ruido.",
+      "mal": "Es 1, porque los tres puntos están en una recta de pendiente 1 y se puede ajustar sin error. Más abajo se ve el caso con ruido."
+     }
+    ]
+   },
+   {
+    "titulo": "Variando la pendiente",
+    "corto": "La pendiente",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mira la recta con pendientes de 0.5, 1.3 y 2.2."
+     },
+     {
+      "t": "acercando",
+      "ds": [
+       0.5,
+       1.3,
+       2.2
+      ],
+      "alt": "La recta con tres pendientes"
+     },
+     {
+      "t": "p",
+      "html": "Con 1.3 la suma de los cuadrados es 0.3, la menor posible. Con 0.5 o con 2.2 es mucho mayor."
+     }
+    ]
+   },
+   {
+    "titulo": "La recta de mínimos cuadrados",
+    "corto": "La recta",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "La pendiente óptima sale de los datos, sin tanteo."
+     },
+     {
+      "t": "pasos",
+      "items": [
+       {
+        "tex": "m=\\dfrac{\\sum(x_{i}-\\bar{x})(y_{i}-\\bar{y})}{\\sum(x_{i}-\\bar{x})^{2}}=\\dfrac{6.5}{5}=1.3",
+        "porque": "La pendiente, con las medias x barra igual a 1.5 y y barra igual a 2.75."
+       },
+       {
+        "tex": "b=\\bar{y}-m\\,\\bar{x}=2.75-1.3\\cdot1.5=0.8",
+        "porque": "El intercepto, porque la recta pasa por el punto de las medias."
+       },
+       {
+        "tex": "S_{min}=8.75-\\dfrac{6.5^{2}}{5}=0.3",
+        "porque": "La suma mínima de los cuadrados de los errores."
+       },
+       {
+        "tex": "(0,1),(1,2),(2,3):\\ m=1,\\ S=0",
+        "porque": "Con datos en una recta, la pendiente es exacta."
+       }
+      ]
+     },
+     {
+      "t": "ojo",
+      "html": "La recta pasa siempre por el punto formado por las medias de x y de y. Ese hecho permite buscar solo la pendiente."
+     }
+    ]
+   },
+   {
+    "titulo": "Modelos no lineales",
+    "corto": "Linealizar",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Algunos modelos se ajustan con una transformación."
+     },
+     {
+      "t": "pasos",
+      "items": [
+       {
+        "tex": "y=Ce^{Dx}\\ \\Rightarrow\\ \\ln y=\\ln C+Dx",
+        "porque": "Con logaritmo de y contra x se obtiene una recta."
+       },
+       {
+        "tex": "y=Cx^{D}\\ \\Rightarrow\\ \\ln y=\\ln C+D\\ln x",
+        "porque": "Con logaritmo de y contra logaritmo de x se obtiene una recta."
+       },
+       {
+        "tex": "\\text{se ajusta la recta y se deshace el logaritmo}",
+        "porque": "El resultado se interpreta de nuevo en el modelo original."
+       }
+      ]
+     },
+     {
+      "t": "ojo",
+      "html": "Al linealizar se minimiza el error de los logaritmos, y no el de los datos originales. Los puntos con valores grandes pesan menos que en un ajuste directo."
+     }
+    ]
+   },
+   {
+    "titulo": "¿Para qué sirve?",
+    "corto": "En ingeniería",
+    "bloques": [
+     {
+      "t": "ingenieria",
+      "titulo": "La curva de calibración de un sensor",
+      "html": "Un sensor se calibra con cuatro mediciones y se quiere una recta que lo relacione con el valor real. Las mediciones tienen ruido, así que la recta no pasa por todas. Se usa mínimos cuadrados para repartir el error de la mejor manera.",
+      "tex": "y\\approx1.3\\,x+0.8",
+      "datos": [
+       {
+        "k": "Mediciones",
+        "v": "4 puntos"
+       },
+       {
+        "k": "Recta de ajuste",
+        "v": "y igual a 1.3 x más 0.8"
+       },
+       {
+        "k": "Suma de errores al cuadrado",
+        "v": "0.3"
+       }
+      ],
+      "cierre": "Con esta recta se corrige cada lectura del sensor. Con más mediciones, el ruido se promedia y la recta es más confiable. Si los datos siguen una curva y no una recta, se prueba un polinomio o se linealiza el modelo. Conviene revisar los residuos, porque un patrón en ellos indica que el modelo no es adecuado."
+     }
+    ]
+   },
+   {
+    "titulo": "Completa el paso",
+    "corto": "Completa",
+    "bloques": [
+     {
+      "t": "completar",
+      "enunciado": "Se calcula el intercepto de la recta de ajuste. Falta el valor de y barra.",
+      "tex": "b=[[hueco]]-1.3\\cdot1.5",
+      "opciones": [
+       {
+        "tex": "2.75",
+        "txt": "la media de las y"
+       },
+       {
+        "tex": "1.5",
+        "txt": "la media de las x"
+       },
+       {
+        "tex": "1.3",
+        "txt": "la pendiente"
+       }
+      ],
+      "correcta": 0,
+      "errores": [
+       "",
+       "1.5 es la media de las x, y ya se multiplica por la pendiente.",
+       "1.3 es la pendiente, que ya aparece multiplicando."
+      ],
+      "pista": "El intercepto es la media de y menos la pendiente por la media de x.",
+      "porque": "La media de las y es 2.75, y b da 2.75 menos 1.95, o sea 0.8."
+     }
+    ]
+   },
+   {
+    "titulo": "Encuentra el error",
+    "corto": "Error",
+    "bloques": [
+     {
+      "t": "error",
+      "enunciado": "Alguien eligió el cambio de variable para ajustar y igual a C por e elevado a D por x, y se equivocó en un paso. Toca el paso que está mal.",
+      "pasos": [
+       {
+        "tex": "y=Ce^{Dx}",
+        "porque": "El modelo.",
+        "txt": "un modelo exponencial"
+       },
+       {
+        "tex": "\\ln y=\\ln C+Dx",
+        "porque": "El logaritmo.",
+        "txt": "queda lineal en x"
+       },
+       {
+        "tex": "\\text{Se ajusta}\\ \\ln y\\ \\text{contra}\\ \\ln x",
+        "porque": "Este paso es el que falla.",
+        "txt": "se grafica ln y contra ln x"
+       }
+      ],
+      "mal": 2,
+      "explicacion": "La ecuación es lineal en x, y no en el logaritmo de x. Se ajusta el logaritmo de y contra x. El logaritmo de x se usa para el modelo potencial.",
+      "correccion": "\\ln y\\ \\text{contra}\\ x",
+      "pista": "Mira qué variable queda sola en la ecuación linealizada."
+     }
+    ]
+   },
+   {
+    "titulo": "Ordena los pasos",
+    "corto": "Ordena",
+    "bloques": [
+     {
+      "t": "ordenar",
+      "enunciado": "Estos son los pasos para hallar la recta de mínimos cuadrados, pero están desordenados.",
+      "pasos": [
+       "\\bar{x}=1.5,\\quad \\bar{y}=2.75",
+       "m=\\dfrac{S_{xy}}{S_{xx}}=\\dfrac{6.5}{5}=1.3",
+       "b=\\bar{y}-m\\bar{x}=0.8",
+       "y=1.3x+0.8"
+      ],
+      "mezcla": [
+       2,
+       0,
+       3,
+       1
+      ],
+      "porque": "Se calculan las medias, la pendiente y el intercepto, y se escribe la recta.",
+      "pista": "Se empieza calculando las medias.",
+      "txt": [
+       "Se calculan las medias",
+       "Se calcula la pendiente",
+       "Se calcula el intercepto",
+       "Se escribe la recta"
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "Revisa tu respuesta",
+    "corto": "Revisa",
+    "bloques": [
+     {
+      "t": "pregunta"
+     },
+     {
+      "t": "nota",
+      "html": "Puedes pedir pistas de a una. Si fallas, el mensaje te dice qué error se cometió."
+     }
+    ]
+   },
+   {
+    "titulo": "Mini simulacro",
+    "corto": "Simulacro",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Tres preguntas reales del banco de MathUNAL sobre este tema. Responde sin mirar los pasos."
+     },
+     {
+      "t": "simulacro",
+      "titulo": "Mini simulacro de mínimos cuadrados y ajuste de curvas",
+      "preguntas": [
+       {
+        "tipo": "mcq",
+        "texto": "La recta de mínimos cuadrados $y=mx+b$ para una nube de puntos minimiza:",
+        "opciones": [
+         "$\\sum_i\\big(y_i-(mx_i+b)\\big)^2$",
+         "$\\sum_i|y_i-(mx_i+b)|$",
+         "$\\sum_i\\big(y_i-(mx_i+b)\\big)$",
+         "la distancia perpendicular máxima"
+        ],
+        "correcta": 0,
+        "resumen": "Se minimiza la suma de los cuadrados de los residuos.",
+        "fuente": "Banco MathUNAL, simulacro de Métodos Numéricos"
+       },
+       {
+        "tipo": "mcq",
+        "texto": "Para ajustar $y=Cx^{D}$ (modelo potencial) por mínimos cuadrados lineales se toma:",
+        "opciones": [
+         "$\\ln y$ contra $\\ln x$",
+         "$\\ln y$ contra $x$",
+         "$y$ contra $\\ln x$",
+         "$y$ contra $x^2$"
+        ],
+        "correcta": 0,
+        "resumen": "$\\ln y=\\ln C+D\\ln x$ es lineal en $\\ln x$.",
+        "fuente": "Banco MathUNAL, simulacro de Métodos Numéricos"
+       },
+       {
+        "tipo": "numerica",
+        "texto": "La recta de mínimos cuadrados que ajusta $(0,1)$, $(1,2)$, $(2,3)$ tiene pendiente:",
+        "respuesta": "1",
+        "tolNum": 0.001,
+        "resumen": "Los puntos están en una recta de pendiente 1.",
+        "fuente": "Banco MathUNAL, simulacro de Métodos Numéricos"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "Tu repaso",
+    "corto": "Repaso",
+    "bloques": [
+     {
+      "t": "repaso"
+     }
+    ]
+   },
+   {
+    "titulo": "En resumen",
+    "corto": "Resumen",
+    "bloques": [
+     {
+      "t": "resumen"
+     }
+    ]
+   }
+  ]
+ },
+ "practicar": {
+  "pasos": [
+   {
+    "titulo": "Los datos",
+    "grafica": {
+     "draw": 1
+    },
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Cuatro datos y una recta con pendiente variable."
+     },
+     {
+      "t": "eq",
+      "tex": "S(m)=8.75-13\\,m+5\\,m^{2}"
+     }
+    ]
+   },
+   {
+    "titulo": "Cambia m",
+    "grafica": {
+     "draw": 1
+    },
+    "laboratorio": true,
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mueve el deslizador. Abajo se leen la pendiente y la suma de los errores al cuadrado."
+     }
+    ]
+   },
+   {
+    "titulo": "El mínimo",
+    "grafica": {
+     "draw": 1,
+     "guide": 1,
+     "ok": true
+    },
+    "laboratorio": true,
+    "d": 1.3,
+    "bloques": [
+     {
+      "t": "eq",
+      "tex": "m=1.3\\ \\Rightarrow\\ S=0.3"
+     },
+     {
+      "t": "p",
+      "html": "Con pendiente 1.3 la suma de los errores al cuadrado es la menor posible."
+     }
+    ]
+   },
+   {
+    "titulo": "Revisa tu respuesta",
+    "grafica": {
+     "draw": 1,
+     "guide": 1,
+     "ok": true,
+     "d": 1.3
+    },
+    "bloques": [
+     {
+      "t": "pregunta"
+     },
+     {
+      "t": "nota",
+      "html": "En el modelo exponencial se grafica el logaritmo de y contra x."
+     }
+    ]
+   }
+  ]
+ },
+ "pregunta": {
+  "tex": "\\text{Para ajustar}\\ y=Ce^{Dx}\\ \\text{por mínimos cuadrados lineales se grafica}",
+  "opciones": [
+   "$\\ln y$ contra $x$",
+   "$y$ contra $e^{x}$",
+   "$\\ln y$ contra $\\ln x$",
+   "$y^{2}$ contra $x$"
+  ],
+  "correcta": 0,
+  "explicacion": "Al tomar logaritmo queda ln y igual a ln C más D por x, que es una recta en x. Se ajusta entonces ln y contra x, y la pendiente es D y el intercepto es ln C.",
+  "verificacion": {
+   "formula": "1+0*x",
+   "a": 0,
+   "esperado": 1
+  },
+  "pistas": [
+   "Toma logaritmo natural en los dos lados.",
+   "Queda ln C más D por x.",
+   "Es lineal en x, no en ln x."
+  ],
+  "errores": [
+   "",
+   "Con y contra e a la x no se obtiene una recta, porque el modelo no es lineal en e a la x.",
+   "Ese cambio sirve para el modelo potencial, y no para el exponencial.",
+   "Elevar al cuadrado no linealiza el modelo exponencial."
+  ]
+ },
+ "resumen": [
+  "El ajuste por mínimos cuadrados elige la recta con menor suma de los cuadrados de los residuos.",
+  "La recta pasa por el punto de las medias, con pendiente Sxy entre Sxx.",
+  "Los modelos exponencial y potencial se ajustan después de linealizarlos con logaritmos."
+ ]
+}

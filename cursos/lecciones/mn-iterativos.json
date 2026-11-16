@@ -1,0 +1,639 @@
+{
+ "esquema": 1,
+ "id": "mn-m2-l2",
+ "ejemplo": true,
+ "curso": "Métodos Numéricos",
+ "modulo": "Módulo 2 Sistemas lineales e interpolación",
+ "posicion": "Lección 2 de 4",
+ "titulo": "Métodos iterativos",
+ "minutos": 28,
+ "ejercicios": 8,
+ "grafica": {
+  "tipo": "plano",
+  "x": [
+   -0.9,
+   2.4
+  ],
+  "y": [
+   -0.3,
+   1.5
+  ],
+  "a": 0,
+  "b": 6,
+  "inicio": 0,
+  "entero": true,
+  "elementos": [
+   {
+    "t": "recta",
+    "p": [
+     "0.8",
+     "0"
+    ],
+    "dir": [
+     "1",
+     "5"
+    ],
+    "c": 0
+   },
+   {
+    "t": "recta",
+    "p": [
+     "-3",
+     "0"
+    ],
+    "dir": [
+     "4",
+     "1"
+    ],
+    "c": 0
+   },
+   {
+    "t": "punto",
+    "p": [
+     "1",
+     "1"
+    ],
+    "c": 3
+   },
+   {
+    "t": "punto",
+    "p": [
+     "((0.8*(x-0)*(x-2)*(x-3)*(x-4)*(x-5)*(x-6)/(-120))+(0.95*(x-0)*(x-1)*(x-3)*(x-4)*(x-5)*(x-6)/(48))+(0.99*(x-0)*(x-1)*(x-2)*(x-4)*(x-5)*(x-6)/(-36))+(0.9975*(x-0)*(x-1)*(x-2)*(x-3)*(x-5)*(x-6)/(48))+(0.9995*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-6)/(-120))+(0.999875*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)/(720)))",
+     "((0.75*(x-0)*(x-2)*(x-3)*(x-4)*(x-5)*(x-6)/(-120))+(0.95*(x-0)*(x-1)*(x-3)*(x-4)*(x-5)*(x-6)/(48))+(0.9875*(x-0)*(x-1)*(x-2)*(x-4)*(x-5)*(x-6)/(-36))+(0.9975*(x-0)*(x-1)*(x-2)*(x-3)*(x-5)*(x-6)/(48))+(0.999375*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-6)/(-120))+(0.999875*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)/(720)))"
+    ],
+    "c": 1
+   },
+   {
+    "t": "punto",
+    "p": [
+     "((0.8*(x-0)*(x-2)*(x-3)*(x-4)*(x-5)*(x-6)/(-120))+(0.99*(x-0)*(x-1)*(x-3)*(x-4)*(x-5)*(x-6)/(48))+(0.9995*(x-0)*(x-1)*(x-2)*(x-4)*(x-5)*(x-6)/(-36))+(0.999975*(x-0)*(x-1)*(x-2)*(x-3)*(x-5)*(x-6)/(48))+(0.99999875*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-6)/(-120))+(0.999999937*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)/(720)))",
+     "((0.95*(x-0)*(x-2)*(x-3)*(x-4)*(x-5)*(x-6)/(-120))+(0.9975*(x-0)*(x-1)*(x-3)*(x-4)*(x-5)*(x-6)/(48))+(0.999875*(x-0)*(x-1)*(x-2)*(x-4)*(x-5)*(x-6)/(-36))+(0.99999375*(x-0)*(x-1)*(x-2)*(x-3)*(x-5)*(x-6)/(48))+(0.999999688*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-6)/(-120))+(0.999999984*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)/(720)))"
+    ],
+    "c": 2
+   }
+  ],
+  "lecturas": [
+   {
+    "rotulo": "error de Jacobi, la mayor diferencia con la solución",
+    "formula": "((1*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-6)/(720))+(0.25*(x-0)*(x-2)*(x-3)*(x-4)*(x-5)*(x-6)/(-120))+(0.05*(x-0)*(x-1)*(x-3)*(x-4)*(x-5)*(x-6)/(48))+(0.0125*(x-0)*(x-1)*(x-2)*(x-4)*(x-5)*(x-6)/(-36))+(0.0025*(x-0)*(x-1)*(x-2)*(x-3)*(x-5)*(x-6)/(48))+(0.000625*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-6)/(-120))+(0.000125*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)/(720)))"
+   },
+   {
+    "rotulo": "error de Gauss-Seidel, la mayor diferencia con la solución",
+    "formula": "((1*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)*(x-6)/(720))+(0.2*(x-0)*(x-2)*(x-3)*(x-4)*(x-5)*(x-6)/(-120))+(0.01*(x-0)*(x-1)*(x-3)*(x-4)*(x-5)*(x-6)/(48))+(0.0005*(x-0)*(x-1)*(x-2)*(x-4)*(x-5)*(x-6)/(-36))+(0.000025*(x-0)*(x-1)*(x-2)*(x-3)*(x-5)*(x-6)/(48))+(0.00000125*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-6)/(-120))+(0.000000063*(x-0)*(x-1)*(x-2)*(x-3)*(x-4)*(x-5)/(720)))"
+   }
+  ],
+  "etiquetas": [
+   "Distancia máxima de la aproximación de Jacobi a la solución, que es el punto (1, 1)",
+   "Distancia máxima de la aproximación de Gauss-Seidel a la solución"
+  ],
+  "etiquetaSlider": "Iteración, de 0 a 6",
+  "alt": "Dos rectas que son las ecuaciones 5x menos y igual a 4 y menos x más 4y igual a 3. Se cruzan en la solución, el punto (1, 1), en verde. Un punto marcado con el método de Jacobi y otro con Gauss-Seidel parten de (0, 0) y se acercan a la solución, y el de Gauss-Seidel llega más rápido"
+ },
+ "glosario": {
+  "jacobi": "En el método de Jacobi cada incógnita se calcula con los valores de la iteración anterior de todas las demás.",
+  "seidel": "En Gauss-Seidel se usan los valores recién calculados dentro de la misma iteración, y por eso suele converger más rápido.",
+  "dominante": "Una matriz es estrictamente diagonal dominante si, en cada fila, el valor absoluto del elemento de la diagonal es mayor que la suma de los valores absolutos de los demás.",
+  "sor": "El método SOR agrega un parámetro omega que acelera Gauss-Seidel. Con omega igual a 1 coincide con él."
+ },
+ "ver": {
+  "duracion": 22.0,
+  "capitulos": [
+   [
+    0,
+    4,
+    "Las dos rectas son las ecuaciones del sistema, y se cruzan en la solución, el punto (1, 1)."
+   ],
+   [
+    4,
+    9,
+    "Los métodos iterativos parten de (0, 0) y se acercan paso a paso."
+   ],
+   [
+    9,
+    14,
+    "Jacobi usa solo los valores de la iteración anterior. Gauss-Seidel usa los que ya se actualizaron."
+   ],
+   [
+    14,
+    19,
+    "Gauss-Seidel se acerca más rápido, y su error baja antes."
+   ],
+   [
+    19,
+    22,
+    "La matriz es diagonal dominante, y por eso los dos métodos convergen desde cualquier punto de partida."
+   ]
+  ],
+  "canales": {
+   "draw": [
+    [
+     0.3,
+     0
+    ],
+    [
+     3.5,
+     1
+    ]
+   ],
+   "d": [
+    [
+     4,
+     0
+    ],
+    [
+     7,
+     1
+    ],
+    [
+     9,
+     2
+    ],
+    [
+     12,
+     3
+    ],
+    [
+     16,
+     4
+    ],
+    [
+     19,
+     5
+    ],
+    [
+     22,
+     5
+    ]
+   ],
+   "guide": [
+    [
+     4,
+     0
+    ],
+    [
+     5,
+     1
+    ]
+   ]
+  },
+  "intervalos": {
+   "ok": [
+    14,
+    22
+   ]
+  }
+ },
+ "leer": {
+  "secciones": [
+   {
+    "titulo": "La idea",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Para sistemas grandes se evita la eliminación directa y se usan métodos iterativos, que parten de una aproximación y la mejoran. El método de {{gl:jacobi|Jacobi}} actualiza todas las incógnitas con los valores anteriores. El de Gauss-{{gl:seidel|Seidel}} usa de inmediato los valores nuevos, y el {{gl:sor|SOR}} agrega un parámetro de aceleración. Convergen si la matriz es {{gl:dominante|diagonal dominante}}."
+     }
+    ]
+   },
+   {
+    "titulo": "Un ejemplo",
+    "corto": "Un ejemplo",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "El sistema 5x menos y igual a 4 y menos x más 4y igual a 3 tiene solución (1, 1). Mira cómo se acercan los dos métodos desde (0, 0)."
+     },
+     {
+      "t": "eq",
+      "tex": "\\begin{cases}5x-y=4\\\\-x+4y=3\\end{cases}"
+     },
+     {
+      "t": "grafica",
+      "animar": "dibujar",
+      "alt": "Las rectas y los iterados de Jacobi y Gauss-Seidel"
+     }
+    ]
+   },
+   {
+    "titulo": "Piensa antes de ver",
+    "corto": "Piensa",
+    "bloques": [
+     {
+      "t": "piensa",
+      "pregunta": "En la matriz con filas (5, menos 1) y (menos 1, 4), el elemento de la diagonal de la primera fila es 5 y el otro es menos 1. ¿Es 5 mayor que el valor absoluto de menos 1?",
+      "opciones": [
+       "Sí",
+       "No"
+      ],
+      "correcta": "Sí",
+      "bien": "Muy bien. 5 es mayor que 1, y en la segunda fila 4 es mayor que 1. La matriz es diagonal dominante. Más abajo se ve cómo se acercan los métodos.",
+      "mal": "Sí es mayor. 5 supera a 1, y en la segunda fila 4 supera a 1, así que la matriz es diagonal dominante. Más abajo se ve cómo se acercan los métodos."
+     }
+    ]
+   },
+   {
+    "titulo": "Las iteraciones",
+    "corto": "Las iteraciones",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mira las aproximaciones en las iteraciones 0, 1, 2 y 4."
+     },
+     {
+      "t": "acercando",
+      "ds": [
+       0,
+       1,
+       2,
+       4
+      ],
+      "alt": "Los dos métodos en cuatro iteraciones"
+     },
+     {
+      "t": "p",
+      "html": "En la iteración 4, Gauss-Seidel está más cerca de la solución que Jacobi."
+     }
+    ]
+   },
+   {
+    "titulo": "Las fórmulas",
+    "corto": "Las fórmulas",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Se despeja cada incógnita de su ecuación."
+     },
+     {
+      "t": "pasos",
+      "items": [
+       {
+        "tex": "x^{(k+1)}=\\dfrac{4+y^{(k)}}{5},\\quad y^{(k+1)}=\\dfrac{3+x^{(k)}}{4}",
+        "porque": "Jacobi. Los dos lados usan solo valores de la iteración k."
+       },
+       {
+        "tex": "x^{(k+1)}=\\dfrac{4+y^{(k)}}{5},\\quad y^{(k+1)}=\\dfrac{3+x^{(k+1)}}{4}",
+        "porque": "Gauss-Seidel. La y usa el x recién calculado."
+       },
+       {
+        "tex": "(0,0)\\to(0.8,\\ 0.75)\\to(0.95,\\ 0.95)",
+        "porque": "Primeras iteraciones de Jacobi."
+       },
+       {
+        "tex": "(0,0)\\to(0.8,\\ 0.95)\\to(0.99,\\ 0.9975)",
+        "porque": "Primeras iteraciones de Gauss-Seidel."
+       }
+      ]
+     },
+     {
+      "t": "ojo",
+      "html": "En Jacobi el orden de las incógnitas no importa. En Gauss-Seidel sí importa, porque cada una usa las anteriores ya actualizadas."
+     }
+    ]
+   },
+   {
+    "titulo": "Cuándo convergen",
+    "corto": "Convergencia",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "La convergencia no es automática."
+     },
+     {
+      "t": "pasos",
+      "items": [
+       {
+        "tex": "|a_{ii}|>\\sum_{j\\neq i}|a_{ij}|\\ \\Rightarrow\\ \\text{converge}",
+        "porque": "Si la matriz es estrictamente diagonal dominante, Jacobi y Gauss-Seidel convergen desde cualquier x0."
+       },
+       {
+        "tex": "\\begin{pmatrix}5&-1\\\\-1&4\\end{pmatrix}:\\ 5>1,\\ 4>1",
+        "porque": "La matriz del ejemplo es diagonal dominante."
+       },
+       {
+        "tex": "A\\ \\text{simétrica y definida positiva}\\ \\Rightarrow\\ \\text{Gauss-Seidel converge}",
+        "porque": "Otra condición que basta para Gauss-Seidel."
+       },
+       {
+        "tex": "\\omega=1\\ \\Rightarrow\\ \\text{SOR}=\\text{Gauss-Seidel}",
+        "porque": "SOR con omega igual a 1."
+       }
+      ]
+     },
+     {
+      "t": "ojo",
+      "html": "Si la matriz no es diagonal dominante, el método puede converger o no. A veces conviene reordenar las ecuaciones para que la diagonal quede dominante."
+     }
+    ]
+   },
+   {
+    "titulo": "¿Para qué sirve?",
+    "corto": "En ingeniería",
+    "bloques": [
+     {
+      "t": "ingenieria",
+      "titulo": "Una red de resistencias",
+      "html": "El voltaje en los nodos de una red de resistencias se obtiene de un sistema lineal. En una red grande, con miles de nodos, la matriz es casi toda ceros y diagonal dominante. Un método iterativo ahorra memoria y tiempo frente a la eliminación.",
+      "tex": "A\\mathbf{v}=\\mathbf{i}",
+      "datos": [
+       {
+        "k": "Nodos",
+        "v": "miles"
+       },
+       {
+        "k": "Matriz",
+        "v": "casi toda ceros y diagonal dominante"
+       },
+       {
+        "k": "Método",
+        "v": "Gauss-Seidel o SOR"
+       }
+      ],
+      "cierre": "En cada iteración solo se usan las conexiones de cada nodo, que son pocas, y el costo por iteración es proporcional al número de nodos. Se detiene cuando el cambio entre iteraciones es menor que la tolerancia. Mismos principios se usan en simulaciones de calor, de fluidos y de estructuras con elementos finitos."
+     }
+    ]
+   },
+   {
+    "titulo": "Completa el paso",
+    "corto": "Completa",
+    "bloques": [
+     {
+      "t": "completar",
+      "enunciado": "Se aplica Jacobi al sistema del ejemplo, desde (0, 0). Falta el valor de x en la iteración 1.",
+      "tex": "x^{(1)}=\\dfrac{4+0}{[[hueco]]}",
+      "opciones": [
+       {
+        "tex": "5",
+        "txt": "cinco"
+       },
+       {
+        "tex": "4",
+        "txt": "cuatro"
+       },
+       {
+        "tex": "1",
+        "txt": "uno"
+       }
+      ],
+      "correcta": 0,
+      "errores": [
+       "",
+       "Cuatro es el coeficiente de y en la segunda ecuación. La ecuación de x se divide entre su coeficiente, 5.",
+       "Con uno no se despeja x correctamente."
+      ],
+      "pista": "Se divide entre el coeficiente de x en su ecuación.",
+      "porque": "La primera ecuación es 5x menos y igual a 4, y x vale 4 más y, entre 5."
+     }
+    ]
+   },
+   {
+    "titulo": "Encuentra el error",
+    "corto": "Error",
+    "bloques": [
+     {
+      "t": "error",
+      "enunciado": "Alguien decidió si una matriz es diagonal dominante y se equivocó en un paso. Toca el paso que está mal.",
+      "pasos": [
+       {
+        "tex": "A=\\begin{pmatrix}5&-1\\\\-1&4\\end{pmatrix}",
+        "porque": "La matriz.",
+        "txt": "la matriz del ejemplo"
+       },
+       {
+        "tex": "\\text{No, porque tiene entradas negativas}",
+        "porque": "Este paso es el que falla.",
+        "txt": "no es diagonal dominante por los negativos"
+       },
+       {
+        "tex": "\\text{Entonces Jacobi no converge}",
+        "porque": "Depende del paso anterior.",
+        "txt": "por tanto Jacobi no converge"
+       }
+      ],
+      "mal": 1,
+      "explicacion": "Se comparan valores absolutos, así que los signos no importan. Como 5 es mayor que 1 y 4 es mayor que 1, la matriz es diagonal dominante.",
+      "correccion": "|5|>|-1|\\ \\ \\text{y}\\ \\ |4|>|-1|",
+      "pista": "Toma los valores absolutos de los elementos."
+     }
+    ]
+   },
+   {
+    "titulo": "Ordena los pasos",
+    "corto": "Ordena",
+    "bloques": [
+     {
+      "t": "ordenar",
+      "enunciado": "Estos son los pasos de una iteración de Gauss-Seidel para el sistema del ejemplo, pero están desordenados.",
+      "pasos": [
+       "x^{(k+1)}=\\dfrac{4+y^{(k)}}{5}",
+       "y^{(k+1)}=\\dfrac{3+x^{(k+1)}}{4}",
+       "|x^{(k+1)}-x^{(k)}|<\\text{tol}",
+       "\\text{se repite o se detiene}"
+      ],
+      "mezcla": [
+       2,
+       0,
+       3,
+       1
+      ],
+      "porque": "Se calcula x, luego y con el nuevo x, se compara el cambio y se decide si se repite.",
+      "pista": "Se empieza calculando la nueva x.",
+      "txt": [
+       "Se calcula la nueva x con la y anterior",
+       "Se calcula la nueva y con la x recién calculada",
+       "Se compara el cambio con la tolerancia",
+       "Se decide si se continúa"
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "Revisa tu respuesta",
+    "corto": "Revisa",
+    "bloques": [
+     {
+      "t": "pregunta"
+     },
+     {
+      "t": "nota",
+      "html": "Puedes pedir pistas de a una. Si fallas, el mensaje te dice qué error se cometió."
+     }
+    ]
+   },
+   {
+    "titulo": "Mini simulacro",
+    "corto": "Simulacro",
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Tres preguntas reales del banco de MathUNAL sobre este tema. Responde sin mirar los pasos."
+     },
+     {
+      "t": "simulacro",
+      "titulo": "Mini simulacro de métodos iterativos",
+      "preguntas": [
+       {
+        "tipo": "mcq",
+        "texto": "Si $A$ es estrictamente diagonal dominante, entonces Jacobi y Gauss-Seidel:",
+        "opciones": [
+         "convergen para cualquier vector inicial $x^{(0)}$",
+         "convergen solo si $x^{(0)}$ está cerca de la solución",
+         "divergen",
+         "convergen solo si $A$ es simétrica"
+        ],
+        "correcta": 0,
+        "resumen": "Una matriz estrictamente diagonal dominante garantiza la convergencia desde cualquier punto de partida.",
+        "fuente": "Banco MathUNAL, simulacro de Métodos Numéricos"
+       },
+       {
+        "tipo": "mcq",
+        "texto": "¿La matriz $A=\\begin{pmatrix}5&-1\\\\-1&4\\end{pmatrix}$ es estrictamente diagonal dominante?",
+        "opciones": [
+         "Sí: $|5|>|-1|$ y $|4|>|-1|$",
+         "No, porque tiene entradas negativas",
+         "No, porque no es simétrica",
+         "Solo la primera fila lo cumple"
+        ],
+        "correcta": 0,
+        "resumen": "Se comparan valores absolutos, y $5>1$ y $4>1$.",
+        "fuente": "Banco MathUNAL, simulacro de Métodos Numéricos"
+       },
+       {
+        "tipo": "mcq",
+        "texto": "La diferencia principal entre Gauss-Seidel y Jacobi es que Gauss-Seidel:",
+        "opciones": [
+         "usa los valores ya actualizados dentro de la misma iteración",
+         "necesita invertir la matriz completa",
+         "solo funciona para matrices $2\\times2$",
+         "no requiere un vector inicial"
+        ],
+        "correcta": 0,
+        "resumen": "Gauss-Seidel usa de inmediato los valores recién calculados.",
+        "fuente": "Banco MathUNAL, simulacro de Métodos Numéricos"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "titulo": "Tu repaso",
+    "corto": "Repaso",
+    "bloques": [
+     {
+      "t": "repaso"
+     }
+    ]
+   },
+   {
+    "titulo": "En resumen",
+    "corto": "Resumen",
+    "bloques": [
+     {
+      "t": "resumen"
+     }
+    ]
+   }
+  ]
+ },
+ "practicar": {
+  "pasos": [
+   {
+    "titulo": "Dos rectas",
+    "grafica": {
+     "draw": 1
+    },
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Las ecuaciones del sistema se cruzan en la solución."
+     },
+     {
+      "t": "eq",
+      "tex": "5x-y=4,\\quad -x+4y=3"
+     }
+    ]
+   },
+   {
+    "titulo": "Itera",
+    "grafica": {
+     "draw": 1
+    },
+    "laboratorio": true,
+    "bloques": [
+     {
+      "t": "p",
+      "html": "Mueve el deslizador de 0 a 6. Abajo se leen los errores de Jacobi y de Gauss-Seidel."
+     }
+    ]
+   },
+   {
+    "titulo": "Iteración 4",
+    "grafica": {
+     "draw": 1,
+     "guide": 1,
+     "ok": true
+    },
+    "laboratorio": true,
+    "d": 4,
+    "bloques": [
+     {
+      "t": "eq",
+      "tex": "\\text{error}_{GS}<\\text{error}_{J}"
+     },
+     {
+      "t": "p",
+      "html": "En la iteración 4, Gauss-Seidel está más cerca de la solución."
+     }
+    ]
+   },
+   {
+    "titulo": "Revisa tu respuesta",
+    "grafica": {
+     "draw": 1,
+     "guide": 1,
+     "ok": true,
+     "d": 4
+    },
+    "bloques": [
+     {
+      "t": "pregunta"
+     },
+     {
+      "t": "nota",
+      "html": "Con omega igual a 1, SOR coincide con otro método."
+     }
+    ]
+   }
+  ]
+ },
+ "pregunta": {
+  "tex": "\\text{El método SOR con}\\ \\omega=1\\ \\text{coincide con}",
+  "opciones": [
+   "Gauss-Seidel",
+   "Jacobi",
+   "la eliminación gaussiana",
+   "el método de Newton"
+  ],
+  "correcta": 0,
+  "explicacion": "SOR agrega un factor omega a Gauss-Seidel. Con omega igual a 1 no hay aceleración, y se reduce exactamente a Gauss-Seidel.",
+  "verificacion": {
+   "formula": "1+0*x",
+   "a": 0,
+   "esperado": 1
+  },
+  "pistas": [
+   "SOR es una variante de uno de los dos métodos.",
+   "El parámetro omega vale 1.",
+   "Sin aceleración, es el método base."
+  ],
+  "errores": [
+   "",
+   "Jacobi no es la base de SOR. SOR parte de Gauss-Seidel.",
+   "La eliminación gaussiana es un método directo, y SOR es iterativo.",
+   "Newton resuelve ecuaciones no lineales, y SOR sistemas lineales."
+  ]
+ },
+ "resumen": [
+  "Jacobi usa los valores de la iteración anterior, y Gauss-Seidel usa los recién calculados.",
+  "Si la matriz es estrictamente diagonal dominante, los dos convergen desde cualquier punto de partida.",
+  "SOR con omega igual a 1 es Gauss-Seidel, y los métodos iterativos son útiles para sistemas grandes y casi vacíos."
+ ]
+}
