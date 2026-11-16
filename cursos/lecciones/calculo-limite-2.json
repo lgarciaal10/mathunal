@@ -296,7 +296,7 @@
         "fuente": "Banco MathUNAL, preguntas del corte 1",
         "tipo": "numerica",
         "respuesta": "1.3333",
-        "tolNum": 0.01
+        "tolNum": 0.005
        },
        {
         "texto": "Calcule $\\displaystyle\\lim_{x\\to3}\\dfrac{x^2-9}{x^2-x-6}$.",

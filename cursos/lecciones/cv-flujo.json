@@ -796,7 +796,7 @@
         "tipo": "numerica",
         "texto": "El flujo de $\\mathbf{F} = (x, y, z)$ hacia afuera de la esfera unidad es (decimal, 4 cifras):",
         "respuesta": "12.5664",
-        "tolNum": 0.01,
+        "tolNum": 0.005,
         "resumen": "El flujo del campo x, y, z por la esfera unidad.",
         "fuente": "Banco MathUNAL, simulacro de Cálculo en Varias Variables"
        },

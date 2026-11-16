@@ -10,6 +10,16 @@
  "ejercicios": 8,
  "grafica": {
   "tipo": "plano",
+  "leyenda": [
+   [
+    0,
+    "Perfil completo"
+   ],
+   [
+    3,
+    "Solo el modo 1"
+   ]
+  ],
   "x": [
    -1.2,
    4.4

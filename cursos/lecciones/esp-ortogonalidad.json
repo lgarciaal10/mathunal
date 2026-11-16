@@ -940,7 +940,7 @@
         "tipo": "numerica",
         "texto": "El valor de $\\displaystyle\\int_{-\\pi}^{\\pi}\\cos^{2}(2x)\\,dx$ es (decimal, 4 cifras):",
         "respuesta": "3.1416",
-        "tolNum": 0.01,
+        "tolNum": 0.005,
         "resumen": "$\\int_{-\\pi}^{\\pi}\\cos^2(2x)\\,dx=\\pi=3.1416$.",
         "fuente": "Banco MathUNAL, simulacro de Matemáticas Especiales"
        },

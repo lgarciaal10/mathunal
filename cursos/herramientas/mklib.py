@@ -1,5 +1,6 @@
 import json
 import os
+import re
 FU="Banco MathUNAL, simulacro de "+os.environ.get("CURSO_FU","Cálculo Integral")
 P=lambda h:{"t":"p","html":h}
 EQ=lambda t:{"t":"eq","tex":t}
@@ -18,9 +19,10 @@ def cierre(simtitle,preguntas):
      sec("Tu repaso","Repaso",{"t":"repaso"}),
      sec("En resumen","Resumen",{"t":"resumen"})]
 def mcq(texto,ops,c,res): return {"tipo":"mcq","texto":texto,"opciones":ops,"correcta":c,"resumen":res,"fuente":FU}
-def num(texto,r,tol,res): return {"tipo":"numerica","texto":texto,"respuesta":r,"tolNum":tol,"resumen":res,"fuente":FU}
+def _tolfix(r,t): return 0.005 if (t or 0)>=0.01 and re.search(r"\.\d{4}",str(r)) else t
+def num(texto,r,tol,res): return {"tipo":"numerica","texto":texto,"respuesta":r,"tolNum":_tolfix(r,tol),"resumen":res,"fuente":FU}
 def pmcq(texto,ops,c,res): return {"tipo":"mcq","texto":texto,"opciones":ops,"correcta":c,"resumen":res,"fuente":"Pregunta propia de MathUNAL, escrita para esta lección"}
-def pnum(texto,r,tol,res): return {"tipo":"numerica","texto":texto,"respuesta":r,"tolNum":tol,"resumen":res,"fuente":"Pregunta propia de MathUNAL, escrita para esta lección"}
+def pnum(texto,r,tol,res): return {"tipo":"numerica","texto":texto,"respuesta":r,"tolNum":_tolfix(r,tol),"resumen":res,"fuente":"Pregunta propia de MathUNAL, escrita para esta lección"}
 def eng(titulo,html,tex,datos,cierre_):
     d={"t":"ingenieria","titulo":titulo,"html":html}
     if tex: d["tex"]=tex
@@ -66,7 +68,9 @@ def banco(i,resumen=None):
         _BANCO={q['id']:q for v in json.load(open(next(p for p in _p if os.path.exists(p)))).values() for q in v}
     q=_BANCO[i]
     if q['tipo']=='mcq': return mcq(q['texto'],q['opciones'],q['correcta'],resumen or q.get('resumen') or '')
-    return num(q['texto'],str(q['respuesta']),q.get('tolNum') or 0.001,resumen or q.get('resumen') or '')
+    _t=q.get('tolNum') or 0.001
+    if _t>=0.01 and re.search(r'\.\d{4}',str(q['respuesta'])): _t=0.005  # respuesta con 4 decimales: no aceptar 1 centesima de error
+    return num(q['texto'],str(q['respuesta']),_t,resumen or q.get('resumen') or '')
 
 def MC(n,*c):
     rows=[c[i:i+n] for i in range(0,len(c),n)]

@@ -10,6 +10,16 @@
  "ejercicios": 8,
  "grafica": {
   "tipo": "plano",
+  "leyenda": [
+   [
+    0,
+    "Suma de los dos pulsos"
+   ],
+   [
+    3,
+    "Pulso que va a la derecha"
+   ]
+  ],
   "x": [
    -6.5,
    6.5

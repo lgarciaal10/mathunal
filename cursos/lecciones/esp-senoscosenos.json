@@ -937,7 +937,7 @@
         "tipo": "numerica",
         "texto": "El término constante de la serie de Fourier de COSENOS de $f(x)=\\sin x$ en $[0,\\pi]$ (extensión par) es (decimal, 4 cifras):",
         "respuesta": "0.6366",
-        "tolNum": 0.01,
+        "tolNum": 0.005,
         "resumen": "$\\dfrac{1}{\\pi}\\int_0^{\\pi}\\sin x\\,dx=\\dfrac{2}{\\pi}=0.6366$.",
         "fuente": "Banco MathUNAL, simulacro de Matemáticas Especiales"
        },

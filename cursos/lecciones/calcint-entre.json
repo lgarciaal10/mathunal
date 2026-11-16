@@ -456,7 +456,7 @@
         "tipo": "numerica",
         "texto": "El área encerrada entre $y=4-x^{2}$ y el eje $x$ es (decimal, 4 cifras):",
         "respuesta": "10.6667",
-        "tolNum": 0.01,
+        "tolNum": 0.005,
         "resumen": "La parábola corta el eje en $x=\\pm2$ y el área es $\\displaystyle\\int_{-2}^{2}(4-x^2)\\,dx=\\dfrac{32}{3}$.",
         "fuente": "Banco MathUNAL, simulacro de Cálculo Integral"
        }

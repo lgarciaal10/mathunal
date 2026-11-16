@@ -5,7 +5,7 @@ MOD="Módulo 2 Transformada de Fourier y EDP de evolución"
 TS=[round(k*math.pi/60,5) for k in range(61)]
 EL=[{"t":"trazo","puntos":[[str(t),f"exp(-x)*{math.sin(t):.6f}+exp(-9*x)*{math.sin(3*t):.6f}"] for t in TS],"c":0},
     {"t":"trazo","puntos":[[str(t),f"exp(-x)*{math.sin(t):.6f}"] for t in TS],"c":3}]
-graf={"tipo":"plano","x":[-1.2,4.4],"y":[-2.0,2.0],"a":0,"b":1,"inicio":0,"elementos":EL,
+graf={"tipo":"plano","leyenda":[[0,"Perfil completo"],[3,"Solo el modo 1"]],"x":[-1.2,4.4],"y":[-2.0,2.0],"a":0,"b":1,"inicio":0,"elementos":EL,
  "lecturas":[{"rotulo":"amplitud del modo uno, e elevado a menos t","formula":"exp(-x)"},{"rotulo":"amplitud del modo tres, e elevado a menos 9 t","formula":"exp(-9*x)"}],
  "etiquetas":["El modo lento, que domina al final","El modo rápido, que se apaga mucho antes"],"etiquetaSlider":"Tiempo t, de 0 a 1",
  "alt":"El perfil de temperatura de una barra con los extremos a 0, formado al inicio por dos ondas, seno de x y seno de 3x. Al avanzar el tiempo la onda de 3x, que decae como e a la menos 9t, desaparece enseguida, y queda la onda de seno de x, que decae despacio. La curva verde es solo el modo uno"}

@@ -2093,7 +2093,7 @@
         "tipo": "numerica",
         "texto": "Para $y' = 2y$ con $y(0) = 1$, el valor de $y(1)$ es (decimal, 4 cifras):",
         "respuesta": "7.3891",
-        "tolNum": 0.01,
+        "tolNum": 0.005,
         "resumen": "La solución es $y=e^{2x}$ y vale $e^2\\approx 7.3891$ en $x=1$.",
         "fuente": "Banco MathUNAL, simulacro de Ecuaciones Diferenciales"
        }

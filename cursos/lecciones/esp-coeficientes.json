@@ -943,7 +943,7 @@
         "tipo": "numerica",
         "texto": "El término constante $\\tfrac{a_0}{2}$ de la serie de Fourier de $f(x)=|x|$ en $(-\\pi,\\pi)$ es (decimal, 4 cifras):",
         "respuesta": "1.5708",
-        "tolNum": 0.01,
+        "tolNum": 0.005,
         "resumen": "$\\dfrac{a_0}{2}=\\dfrac{1}{\\pi}\\int_0^{\\pi}x\\,dx=\\dfrac{\\pi}{2}$.",
         "fuente": "Banco MathUNAL, simulacro de Matemáticas Especiales"
        }

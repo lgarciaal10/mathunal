@@ -662,7 +662,7 @@
         "tipo": "numerica",
         "texto": "$\\displaystyle\\int_{0}^{2\\pi}\\int_{0}^{2} r\\,dr\\,d\\theta$ (decimal, 4 cifras)",
         "respuesta": "12.5664",
-        "tolNum": 0.01,
+        "tolNum": 0.005,
         "resumen": "La integral de r de 0 a 2 sobre la vuelta completa.",
         "fuente": "Banco MathUNAL, simulacro de Cálculo en Varias Variables"
        },

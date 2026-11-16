@@ -203,6 +203,7 @@
   var LEC=PLA?(G.lecturas||[]).map(function(l){ return {r:l.rotulo,f:compile(String(l.formula))}; }):[];
   function GraphPlano(svg){
     var F=Frame(svg,0,0), X=F.X, Y=F.Y, el=F.el, grp=F.clip(), items=[], E=G.elementos||[];
+    if(G.leyenda){ G.leyenda.forEach(function(l,i){ var y=F.y0+18+i*20; el('line',{x1:F.x1-34,x2:F.x1-10,y1:y-5,y2:y-5,stroke:COL[(l[0]||0)%4],'stroke-width':4,'stroke-linecap':'round'}); var t=el('text',{'class':'tt',x:F.x1-40,y:y,'text-anchor':'end'}); t.textContent=l[1]; }); }
     function cp(a){ return (a||['0','0']).map(function(s){ return compile(String(s)); }); }
     function ev(c,t){ return [c[0](t),c[1](t)]; }
     E.forEach(function(e){

@@ -640,7 +640,7 @@
         "tipo": "numerica",
         "texto": "Usando Green, $\\displaystyle\\oint_C (-y\\,dx + x\\,dy)$ sobre el círculo unidad (sentido positivo) vale (decimal, 4 cifras):",
         "respuesta": "6.2832",
-        "tolNum": 0.01,
+        "tolNum": 0.005,
         "resumen": "La circulación de menos y dx más x dy.",
         "fuente": "Banco MathUNAL, simulacro de Cálculo en Varias Variables"
        },

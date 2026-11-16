@@ -64,7 +64,7 @@ S=[
 S+=cierre("Mini simulacro de bisección y regla falsa",[
  banco("mn_c1_06","La bisección necesita que $f$ cambie de signo, o sea, $f(a)\\,f(b)<0$."),
  banco("mn_c1_08","Como $f(1)<0$ y $f(1.5)>0$, el cambio de signo está en la primera mitad."),
- banco("mn_c1_09","$\\dfrac{1}{2^{n}}<0.01\\Rightarrow n=7$.")])
+ banco("mn_c1_09","Con la cota del error $\\dfrac{b-a}{2^{n}}$ y $b-a=1$, se pide $\\dfrac{1}{2^{n}}<0.01$. Como $2^{6}=64$ no alcanza y $2^{7}=128$ sí, $n=7$.")])
 prac=[
  {"titulo":"El intervalo","grafica":{"draw":1},"bloques":[P("La curva de x al cuadrado menos 2 y el intervalo inicial de 1 a 2."),EQ("f(x)=x^{2}-2")]},
  {"titulo":"Itera","grafica":{"draw":1},"laboratorio":True,"bloques":[P("Mueve el deslizador de 0 a 5. Abajo se leen el punto medio y el ancho del intervalo.")]},

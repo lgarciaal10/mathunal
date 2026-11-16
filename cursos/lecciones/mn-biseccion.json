@@ -645,7 +645,7 @@
         "texto": "¿Cuántas iteraciones de bisección se necesitan para garantizar un error $<0.01$ partiendo de $[0,1]$?",
         "respuesta": "7",
         "tolNum": 0.001,
-        "resumen": "$\\dfrac{1}{2^{n}}<0.01\\Rightarrow n=7$.",
+        "resumen": "Con la cota del error $\\dfrac{b-a}{2^{n}}$ y $b-a=1$, se pide $\\dfrac{1}{2^{n}}<0.01$. Como $2^{6}=64$ no alcanza y $2^{7}=128$ sí, $n=7$.",
         "fuente": "Banco MathUNAL, simulacro de Métodos Numéricos"
        }
       ]

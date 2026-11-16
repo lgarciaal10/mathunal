@@ -5,7 +5,7 @@ MOD="Módulo 2 Transformada de Fourier y EDP de evolución"
 XS=[round(-6+0.25*i,3) for i in range(49)]
 EL=[{"t":"trazo","puntos":[[str(xv),f"0.5*(exp(-(({xv})-x)*(({xv})-x))+exp(-(({xv})+x)*(({xv})+x)))"] for xv in XS],"c":0},
     {"t":"trazo","puntos":[[str(xv),f"0.5*exp(-(({xv})-x)*(({xv})-x))"] for xv in XS],"c":3}]
-graf={"tipo":"plano","x":[-6.5,6.5],"y":[-0.3,1.2],"a":0,"b":5,"inicio":0,"elementos":EL,
+graf={"tipo":"plano","leyenda":[[0,"Suma de los dos pulsos"],[3,"Pulso que va a la derecha"]],"x":[-6.5,6.5],"y":[-0.3,1.2],"a":0,"b":5,"inicio":0,"elementos":EL,
  "lecturas":[{"rotulo":"posición de cada pulso, x igual a c por t","formula":"x"},{"rotulo":"valor en x igual a 0, e elevado a menos t al cuadrado","formula":"exp(-x*x)"}],
  "etiquetas":["El pulso que viaja a la derecha","La suma de los dos, que es la cuerda"],"etiquetaSlider":"Tiempo t, de 0 a 5",
  "alt":"Un pulso inicial en forma de campana en el centro de una cuerda infinita se divide en dos pulsos de la mitad de altura. Uno viaja a la derecha y el otro a la izquierda, con velocidad c igual a 1. La curva verde es solo el pulso que va a la derecha"}

@@ -66,7 +66,7 @@ S.append({"titulo":"Revisa tu respuesta","corto":"Revisa","bloques":[{"t":"pregu
 S.append({"titulo":"Mini simulacro","corto":"Simulacro","bloques":[P("Tres preguntas reales del banco de MathUNAL sobre este tema. Responde sin mirar los pasos."),{"t":"simulacro","titulo":"Mini simulacro de área entre curvas","preguntas":[
  {"tipo":"mcq","texto":"El área de la región encerrada entre $y=x^2$ y $y=2x$ es:","opciones":["$\\dfrac{4}{3}$","$\\dfrac{8}{3}$","$\\dfrac{2}{3}$","$4$"],"correcta":0,"resumen":"Los cortes son $x=0$ y $x=2$. Arriba va $2x$, así que $\\displaystyle\\int_0^2(2x-x^2)\\,dx=\\dfrac{4}{3}$.","fuente":FU},
  {"tipo":"numerica","texto":"El área de la región entre $y=x$ y $y=x^{2}$ en $[0,1]$ es (decimal, 4 cifras):","respuesta":"0.1667","tolNum":0.005,"resumen":"$\\displaystyle\\int_0^1 (x-x^2)\\,dx=\\dfrac{1}{2}-\\dfrac{1}{3}=\\dfrac{1}{6}$.","fuente":FU},
- {"tipo":"numerica","texto":"El área encerrada entre $y=4-x^{2}$ y el eje $x$ es (decimal, 4 cifras):","respuesta":"10.6667","tolNum":0.01,"resumen":"La parábola corta el eje en $x=\\pm2$ y el área es $\\displaystyle\\int_{-2}^{2}(4-x^2)\\,dx=\\dfrac{32}{3}$.","fuente":FU}]}]})
+ {"tipo":"numerica","texto":"El área encerrada entre $y=4-x^{2}$ y el eje $x$ es (decimal, 4 cifras):","respuesta":"10.6667","tolNum":0.005,"resumen":"La parábola corta el eje en $x=\\pm2$ y el área es $\\displaystyle\\int_{-2}^{2}(4-x^2)\\,dx=\\dfrac{32}{3}$.","fuente":FU}]}]})
 S.append({"titulo":"Tu repaso","corto":"Repaso","bloques":[{"t":"repaso"}]})
 S.append({"titulo":"En resumen","corto":"Resumen","bloques":[{"t":"resumen"}]})
 L["leer"]={"secciones":S}
