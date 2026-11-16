@@ -1,0 +1,47 @@
+MathUNAL — Licencia propietaria / Proprietary license
+Copyright (c) 2022-2026 Luis García. Todos los derechos reservados. / All rights reserved.
+
+ESPAÑOL
+-------
+1. Qué cubre. Esta licencia cubre el código fuente (index.html, sw.js, scripts y
+   demás archivos de programación), el diseño (interfaz, estilos, logotipo y
+   nombre "MathUNAL") y el contenido original de este repositorio y del sitio
+   https://mathunal.com: resúmenes, formularios, simulacros y sus soluciones,
+   explicaciones, juegos, transcripciones y traducciones (incluido exam-en.json).
+
+2. Qué NO cubre. Los parciales, talleres, programas, libros y demás material
+   académico de la Universidad Nacional de Colombia, de sus docentes o de otros
+   autores (por ejemplo, los PDF de las carpetas *-parciales/) pertenecen a sus
+   titulares y no son licenciados por este documento. Se publican con fines de
+   estudio; quien sea titular y desee su retiro puede solicitarlo por los
+   canales de contacto del sitio.
+
+3. Permisos. Se permite ver el código y el contenido, y usar el sitio web para
+   estudiar. Se permite descargar o imprimir material para uso personal.
+
+4. Restricciones. Sin autorización previa y por escrito del titular, NO se
+   permite copiar, modificar, fusionar, publicar, distribuir, sublicenciar,
+   vender ni crear obras derivadas del código, el diseño o el contenido original
+   cubiertos en el punto 1; ni extraer el contenido de forma automatizada
+   (scraping) para reutilizarlo; ni usar el nombre o el logotipo "MathUNAL" de
+   forma que sugiera afiliación o respaldo.
+
+5. Sin garantía. El software y el contenido se ofrecen "tal cual", sin garantías
+   de ningún tipo.
+
+6. Nota sobre GitHub. Al publicar este repositorio en GitHub se aplican además
+   las Condiciones de Servicio de GitHub (p. ej., ver y bifurcar el repositorio
+   dentro de GitHub). Esto no otorga ninguna licencia adicional.
+
+Contacto para permisos: ver el enlace de WhatsApp en el pie de https://mathunal.com
+
+ENGLISH (summary; the Spanish text above prevails in case of conflict)
+---------------------------------------------------------------------
+Source code, design, the "MathUNAL" name/logo and original content (summaries,
+formula sheets, mock exams and solutions, explanations, games, transcriptions,
+translations) are (c) 2022-2026 Luis García, all rights reserved. Viewing the
+code and using the website to study are allowed. Copying, modifying,
+redistributing, selling, scraping or creating derivative works requires prior
+written permission. University exams, worksheets, syllabi and textbooks belong
+to their respective owners (Universidad Nacional de Colombia, its instructors or
+authors) and are not licensed here. Provided "as is", without warranty.
